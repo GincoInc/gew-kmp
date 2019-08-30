@@ -1,0 +1,5293 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Protocol Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic"/>
+    <style>
+      body {
+        width: 60em;
+        margin: 1em auto;
+        color: #222;
+        font-family: "Ubuntu", sans-serif;
+        padding-bottom: 4em;
+      }
+
+      h1 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      h2 {
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+        margin: 1.5em 0;
+      }
+
+      h3 {
+        font-weight: normal;
+        border-bottom: 1px solid #aaa;
+        padding-bottom: 0.5ex;
+      }
+
+      a {
+        text-decoration: none;
+        color: #567e25;
+      }
+
+      table {
+        width: 100%;
+        font-size: 80%;
+        border-collapse: collapse;
+      }
+
+      thead {
+        font-weight: 700;
+        background-color: #dcdcdc;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #fbfbfb;
+      }
+
+      td {
+        border: 1px solid #ccc;
+        padding: 0.5ex 2ex;
+      }
+
+      td p {
+        text-indent: 1em;
+        margin: 0;
+      }
+
+      td p:nth-child(1) {
+        text-indent: 0;  
+      }
+
+       
+      .field-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .field-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .field-table td:nth-child(3) {  
+        width: 6em;
+      }
+      .field-table td:nth-child(4) {  
+        width: auto;
+      }
+
+       
+      .extension-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(3) {  
+        width: 10em;
+      }
+      .extension-table td:nth-child(4) {  
+        width: 5em;
+      }
+      .extension-table td:nth-child(5) {  
+        width: auto;
+      }
+
+       
+      .enum-table td:nth-child(1) {  
+        width: 10em;
+      }
+      .enum-table td:nth-child(2) {  
+        width: 10em;
+      }
+      .enum-table td:nth-child(3) {  
+        width: auto;
+      }
+
+       
+      .scalar-value-types-table tr {
+        height: 3em;
+      }
+
+       
+      #toc-container ul {
+        list-style-type: none;
+        padding-left: 1em;
+        line-height: 180%;
+        margin: 0;
+      }
+      #toc > li > a {
+        font-weight: bold;
+      }
+
+       
+      .file-heading {
+        width: 100%;
+        display: table;
+        border-bottom: 1px solid #aaa;
+        margin: 4em 0 1.5em 0;
+      }
+      .file-heading h2 {
+        border: none;
+        display: table-cell;
+      }
+      .file-heading a {
+        text-align: right;
+        display: table-cell;
+      }
+
+       
+      .badge {
+        width: 1.6em;
+        height: 1.6em;
+        display: inline-block;
+
+        line-height: 1.6em;
+        text-align: center;
+        font-weight: bold;
+        font-size: 60%;
+
+        color: #89ba48;
+        background-color: #dff0c8;
+
+        margin: 0.5ex 1em 0.5ex -1em;
+        border: 1px solid #fbfbfb;
+        border-radius: 1ex;
+      }
+    </style>
+
+    
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+  </head>
+
+  <body>
+
+    <h1 id="title">Protocol Documentation</h1>
+
+    <h2>Table of Contents</h2>
+
+    <div id="toc-container">
+      <ul id="toc">
+        
+          
+          <li>
+            <a href="#gincoinc%2fglobal%2fv1%2fgincoincglobalv1%2fenum.proto">gincoinc/global/v1/gincoincglobalv1/enum.proto</a>
+            <ul>
+              
+              
+                <li>
+                  <a href="#gincoinc.global.v1.AddressType"><span class="badge">E</span>AddressType</a>
+                </li>
+              
+                <li>
+                  <a href="#gincoinc.global.v1.Coin"><span class="badge">E</span>Coin</a>
+                </li>
+              
+                <li>
+                  <a href="#gincoinc.global.v1.Network"><span class="badge">E</span>Network</a>
+                </li>
+              
+                <li>
+                  <a href="#gincoinc.global.v1.TransactionState"><span class="badge">E</span>TransactionState</a>
+                </li>
+              
+                <li>
+                  <a href="#gincoinc.global.v1.TransferType"><span class="badge">E</span>TransferType</a>
+                </li>
+              
+                <li>
+                  <a href="#gincoinc.global.v1.UTXOState"><span class="badge">E</span>UTXOState</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#gincoinc%2fglobal%2fv1%2fgincoincglobalv1%2fmodel.proto">gincoinc/global/v1/gincoincglobalv1/model.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#gincoinc.global.v1.TransactionUpdateEvent"><span class="badge">M</span>TransactionUpdateEvent</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#gincoinc%2fadamant%2fglobal%2fv1%2fadamantglobalv1%2fenum.proto">gincoinc/adamant/global/v1/adamantglobalv1/enum.proto</a>
+            <ul>
+              
+              
+                <li>
+                  <a href="#adamant.global.v1.AccountType"><span class="badge">E</span>AccountType</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.AddressState"><span class="badge">E</span>AddressState</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.NotificationType"><span class="badge">E</span>NotificationType</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.PolicyType"><span class="badge">E</span>PolicyType</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ResourceType"><span class="badge">E</span>ResourceType</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.RoleType"><span class="badge">E</span>RoleType</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.TokenType"><span class="badge">E</span>TokenType</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.TransactionState"><span class="badge">E</span>TransactionState</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.UserState"><span class="badge">E</span>UserState</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.WalletState"><span class="badge">E</span>WalletState</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.WalletType"><span class="badge">E</span>WalletType</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#gincoinc%2fadamant%2fglobal%2fv1%2fadamantglobalv1%2fglobal_api.proto">gincoinc/adamant/global/v1/adamantglobalv1/global_api.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#adamant.global.v1.ApproveLabeledAddressRequest"><span class="badge">M</span>ApproveLabeledAddressRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ApproveTransactionRequest"><span class="badge">M</span>ApproveTransactionRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ApproveTransferLimitRequest"><span class="badge">M</span>ApproveTransferLimitRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ApproveWalletRequest"><span class="badge">M</span>ApproveWalletRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ArchiveWalletRequest"><span class="badge">M</span>ArchiveWalletRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.CalculateFeeRequest"><span class="badge">M</span>CalculateFeeRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.CalculateFeeResponse"><span class="badge">M</span>CalculateFeeResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.CancelTransactionRequest"><span class="badge">M</span>CancelTransactionRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.CancelWalletRequest"><span class="badge">M</span>CancelWalletRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.CreateAddressRequest"><span class="badge">M</span>CreateAddressRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.CreateLabeledAddressRequest"><span class="badge">M</span>CreateLabeledAddressRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.CreatePolicyRequest"><span class="badge">M</span>CreatePolicyRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.CreateRegisterKeyTokenRequest"><span class="badge">M</span>CreateRegisterKeyTokenRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.CreateRegisterKeyTokenResponse"><span class="badge">M</span>CreateRegisterKeyTokenResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.CreateTransactionRequest"><span class="badge">M</span>CreateTransactionRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.CreateTransferLimitRequest"><span class="badge">M</span>CreateTransferLimitRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.CreateWalletRequest"><span class="badge">M</span>CreateWalletRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.CreateWhitelistRequest"><span class="badge">M</span>CreateWhitelistRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.DeleteLabeledAddressRequest"><span class="badge">M</span>DeleteLabeledAddressRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.DeletePolicyRequest"><span class="badge">M</span>DeletePolicyRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.DeleteTransferLimitRequest"><span class="badge">M</span>DeleteTransferLimitRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.DeleteWhitelistRequest"><span class="badge">M</span>DeleteWhitelistRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.GetAddressRequest"><span class="badge">M</span>GetAddressRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.GetLabeledAddressRequest"><span class="badge">M</span>GetLabeledAddressRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.GetMembersDeactivatabilitiesRequest"><span class="badge">M</span>GetMembersDeactivatabilitiesRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.GetMembersDeactivatabilitiesResponse"><span class="badge">M</span>GetMembersDeactivatabilitiesResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.GetPolicyRequest"><span class="badge">M</span>GetPolicyRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.GetSignInfoRequest"><span class="badge">M</span>GetSignInfoRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.GetSignInfoResponse"><span class="badge">M</span>GetSignInfoResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.GetSpendableBalanceRequest"><span class="badge">M</span>GetSpendableBalanceRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.GetSpendableBalanceResponse"><span class="badge">M</span>GetSpendableBalanceResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.GetTransferLimitRequest"><span class="badge">M</span>GetTransferLimitRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.GetWalletRequest"><span class="badge">M</span>GetWalletRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.GetWhitelistRequest"><span class="badge">M</span>GetWhitelistRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListAddressesRequest"><span class="badge">M</span>ListAddressesRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListAddressesResponse"><span class="badge">M</span>ListAddressesResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListLabeledAddressesRequest"><span class="badge">M</span>ListLabeledAddressesRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListLabeledAddressesResponse"><span class="badge">M</span>ListLabeledAddressesResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListPoliciesRequest"><span class="badge">M</span>ListPoliciesRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListPoliciesResponse"><span class="badge">M</span>ListPoliciesResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListRatesResponse"><span class="badge">M</span>ListRatesResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListTransactionsRequest"><span class="badge">M</span>ListTransactionsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListTransactionsResponse"><span class="badge">M</span>ListTransactionsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListTransferLimitsRequest"><span class="badge">M</span>ListTransferLimitsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListTransferLimitsResponse"><span class="badge">M</span>ListTransferLimitsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListTransfersRequest"><span class="badge">M</span>ListTransfersRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListTransfersResponse"><span class="badge">M</span>ListTransfersResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListWalletsRequest"><span class="badge">M</span>ListWalletsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListWalletsResponse"><span class="badge">M</span>ListWalletsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListWhitelistsRequest"><span class="badge">M</span>ListWhitelistsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListWhitelistsResponse"><span class="badge">M</span>ListWhitelistsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.RegisterKeyRequest"><span class="badge">M</span>RegisterKeyRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.SendTransactionRequest"><span class="badge">M</span>SendTransactionRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.SignTransactionRequest"><span class="badge">M</span>SignTransactionRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.UnArchiveWalletRequest"><span class="badge">M</span>UnArchiveWalletRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.UpdateLabeledAddressRequest"><span class="badge">M</span>UpdateLabeledAddressRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.UpdatePolicyRequest"><span class="badge">M</span>UpdatePolicyRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.UpdateTransferLimitRequest"><span class="badge">M</span>UpdateTransferLimitRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.UpdateWalletPolicyRequest"><span class="badge">M</span>UpdateWalletPolicyRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.UpdateWhitelistRequest"><span class="badge">M</span>UpdateWhitelistRequest</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#adamant.global.v1.GlobalAPI"><span class="badge">S</span>GlobalAPI</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#gincoinc%2fadamant%2fglobal%2fv1%2fadamantglobalv1%2fmodel.proto">gincoinc/adamant/global/v1/adamantglobalv1/model.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#adamant.global.v1.Address"><span class="badge">M</span>Address</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.AddressReview"><span class="badge">M</span>AddressReview</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.Deactivatability"><span class="badge">M</span>Deactivatability</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.Key"><span class="badge">M</span>Key</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.LabeledAddress"><span class="badge">M</span>LabeledAddress</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.Policy"><span class="badge">M</span>Policy</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.Rate"><span class="badge">M</span>Rate</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.SignInfo"><span class="badge">M</span>SignInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.SignTxInput"><span class="badge">M</span>SignTxInput</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.Signature"><span class="badge">M</span>Signature</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.SignedInfo"><span class="badge">M</span>SignedInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.Transaction"><span class="badge">M</span>Transaction</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.TransactionMember"><span class="badge">M</span>TransactionMember</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.Transfer"><span class="badge">M</span>Transfer</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.TransferLimit"><span class="badge">M</span>TransferLimit</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.TxInput"><span class="badge">M</span>TxInput</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.TxOutput"><span class="badge">M</span>TxOutput</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.Wallet"><span class="badge">M</span>Wallet</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.WalletMember"><span class="badge">M</span>WalletMember</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.Whitelist"><span class="badge">M</span>Whitelist</a>
+                </li>
+              
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
+            <a href="#gincoinc%2fadamant%2fteller%2fv1%2fadamanttellerv1%2fteller_api.proto">gincoinc/adamant/teller/v1/adamanttellerv1/teller_api.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#adamant.teller.v1.SignTransactionRequest"><span class="badge">M</span>SignTransactionRequest</a>
+                </li>
+              
+              
+              
+              
+                <li>
+                  <a href="#adamant.teller.v1.TellerAPI"><span class="badge">S</span>TellerAPI</a>
+                </li>
+              
+            </ul>
+          </li>
+        
+        <li><a href="#scalar-value-types">Scalar Value Types</a></li>
+      </ul>
+    </div>
+
+    
+      
+      <div class="file-heading">
+        <h2 id="gincoinc/global/v1/gincoincglobalv1/enum.proto">gincoinc/global/v1/gincoincglobalv1/enum.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+
+      
+        <h3 id="gincoinc.global.v1.AddressType">AddressType</h3>
+        <p>AddressType is a type of address.</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>ADDRESS_TYPE_INVALID</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ADDRESS_TYPE_P2SH</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ADDRESS_TYPE_P2SH_P2WSH</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ADDRESS_TYPE_P2WSH</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="gincoinc.global.v1.Coin">Coin</h3>
+        <p>Coin is a type of crypto asset.</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>COIN_INVALID</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COIN_BTC</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COIN_ETH</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COIN_LTC</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COIN_BCH</td>
+                <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COIN_XRP</td>
+                <td>5</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="gincoinc.global.v1.Network">Network</h3>
+        <p>Network is a type of blockchain network.</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>NETWORK_INVALID</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NETWORK_BITCOIN_MAINNET</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NETWORK_BITCOIN_TESTNET</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NETWORK_ETHEREUM_MAINNET</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NETWORK_ETHEREUM_TESTNET</td>
+                <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NETWORK_LITECOIN_MAINNET</td>
+                <td>5</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NETWORK_LITECOIN_TESTNET</td>
+                <td>6</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NETWORK_BITCOINCASH_MAINNET</td>
+                <td>7</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NETWORK_BITCOINCASH_TESTNET</td>
+                <td>8</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NETWORK_RIPPLE_MAINNET</td>
+                <td>9</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NETWORK_RIPPLE_TESTNET</td>
+                <td>10</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="gincoinc.global.v1.TransactionState">TransactionState</h3>
+        <p>TransactionState is a state of transaction.</p><p>SUBMITTED:  SendTx成功</p><p>PENDING:    Mempoolに入った</p><p>PROCESSING: ブロックに入った</p><p>CONFIRMED:  指定した承認数を超えた</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>TRANSACTION_STATE_INVALID</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TRANSACTION_STATE_SUBMITTED</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TRANSACTION_STATE_PENDING</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TRANSACTION_STATE_PROCESSING</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TRANSACTION_STATE_CONFIRMED</td>
+                <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="gincoinc.global.v1.TransferType">TransferType</h3>
+        <p>TransferType is a type of transaction.</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>TRANSFER_TYPE_INVALID</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TRANSFER_TYPE_SEND</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TRANSFER_TYPE_RECEIVE</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TRANSFER_TYPE_CHANGE</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TRANSFER_TYPE_SELF</td>
+                <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="gincoinc.global.v1.UTXOState">UTXOState</h3>
+        <p>UTXOState is a state of UTXO.</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>UTXO_STATE_INVALID</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>UTXO_STATE_PENDING_UNSPENT</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>UTXO_STATE_UNSPENT</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>UTXO_STATE_PENDING_SPENT</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>UTXO_STATE_SPENT</td>
+                <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="gincoinc/global/v1/gincoincglobalv1/model.proto">gincoinc/global/v1/gincoincglobalv1/model.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="gincoinc.global.v1.TransactionUpdateEvent">TransactionUpdateEvent</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tx_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tx_index</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>from_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>to_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>state</td>
+                  <td><a href="#gincoinc.global.v1.TransactionState">TransactionState</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transfer_type</td>
+                  <td><a href="#gincoinc.global.v1.TransferType">TransferType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="gincoinc/adamant/global/v1/adamantglobalv1/enum.proto">gincoinc/adamant/global/v1/adamantglobalv1/enum.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+
+      
+        <h3 id="adamant.global.v1.AccountType">AccountType</h3>
+        <p>-----------------------------------------------------------------------------</p><p>Account</p><p>-----------------------------------------------------------------------------</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>ACCOUNT_TYPE_INVALID</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ACCOUNT_TYPE_USER</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ACCOUNT_TYPE_SERVICE_ACCOUNT</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="adamant.global.v1.AddressState">AddressState</h3>
+        <p>AddressState is a state of address.</p><p>CREATING:         作成中</p><p>COMPLETED:        Address完成</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>ADDRESS_STATE_INVALID</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ADDRESS_STATE_CREATING</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ADDRESS_STATE_COMPLETED</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="adamant.global.v1.NotificationType">NotificationType</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>NOTIFICATION_TYPE_INVALID</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NOTIFICATION_TYPE_WALLET_SIGNER_APPROVE_REQUEST</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NOTIFICATION_TYPE_WALLET_VALIDATOR_APPROVE_REQUEST</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NOTIFICATION_TYPE_WALLET_ACTIVATE_FAILED</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NOTIFICATION_TYPE_WALLET_CANCELLED</td>
+                <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NOTIFICATION_TYPE_WALLET_COMPLETED</td>
+                <td>5</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NOTIFICATION_TYPE_WALLET_FAILED</td>
+                <td>6</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NOTIFICATION_TYPE_TRANSACTION_SIGNER_APPROVE_REQUEST</td>
+                <td>7</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NOTIFICATION_TYPE_TRANSACTION_VALIDATOR_APPROVE_REQUEST</td>
+                <td>8</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NOTIFICATION_TYPE_TRANSACTION_SUBMITTED</td>
+                <td>9</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NOTIFICATION_TYPE_TRANSACTION_CANCELLED</td>
+                <td>10</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NOTIFICATION_TYPE_TRANSFER_SEND_COMPLETED</td>
+                <td>11</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NOTIFICATION_TYPE_TRANSFER_SEND_FAILED</td>
+                <td>12</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NOTIFICATION_TYPE_TRANSFER_RECEIVE_COMPLETED</td>
+                <td>13</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>NOTIFICATION_TYPE_TRANSFER_RECEIVE_FAILED</td>
+                <td>14</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="adamant.global.v1.PolicyType">PolicyType</h3>
+        <p>PolicyType is a type of policy.</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>POLICY_TYPE_INVALID</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>POLICY_TYPE_HOT_WALLET_POLICY</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>POLICY_TYPE_COLD_WALLET_POLICY</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="adamant.global.v1.ResourceType">ResourceType</h3>
+        <p>ResourceType is a target type of role</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>RESOURCE_TYPE_INVALID</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>RESOURCE_TYPE_WALLET</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>RESOURCE_TYPE_ORGANIZATION</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="adamant.global.v1.RoleType">RoleType</h3>
+        <p>Role is a type of role</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>ROLE_TYPE_INVALID</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ROLE_TYPE_ORG_MANAGER</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ROLE_TYPE_ORG_SIGNER</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ROLE_TYPE_ORG_VALIDATOR</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ROLE_TYPE_ORG_VIEWER</td>
+                <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ROLE_TYPE_ORG_DEVELOPER</td>
+                <td>5</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ROLE_TYPE_HOT_WALLET_ADMIN</td>
+                <td>10</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ROLE_TYPE_HOT_WALLET_VIEWER</td>
+                <td>11</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="adamant.global.v1.TokenType">TokenType</h3>
+        <p>TokenType is a type of token.</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>TOKEN_TYPE_INVALID</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TOKEN_TYPE_LOGIN_TOKEN</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TOKEN_TYPE_MAIL_TOKEN</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TOKEN_TYPE_PASSWORD_RESET_TOKEN</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TOKEN_TYPE_PASSWORD_UPDATE_TOKEN</td>
+                <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TOKEN_TYPE_SIGNUP_TOKEN</td>
+                <td>5</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="adamant.global.v1.TransactionState">TransactionState</h3>
+        <p>TransactionState is a state of transaction.</p><p>SIGNING:    署名中</p><p>SIGNED:     署名完了</p><p>REVIEWED:   =AUDITOR_REVIEWED</p><p>SUBMITTED:  SendTx成功</p><p>CANCELLED:    キャンセル</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>TRANSACTION_STATE_INVALID</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TRANSACTION_STATE_SIGNING</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TRANSACTION_STATE_SIGNED</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TRANSACTION_STATE_REVIEWED</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TRANSACTION_STATE_SUBMITTED</td>
+                <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TRANSACTION_STATE_CANCELLED</td>
+                <td>5</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="adamant.global.v1.UserState">UserState</h3>
+        <p>UserState is a state of user.</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>USER_STATE_INVALID</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>USER_STATE_UNCONFIRMED</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>USER_STATE_CONFIRMED</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>USER_STATE_DEACTIVATED</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="adamant.global.v1.WalletState">WalletState</h3>
+        <p>WalletState is a state of wallet.</p><p>PROPOSED:         Wallet作成</p><p>KEY_REGISTERED:   鍵の登録</p><p>AUDITOR_REVIEWED: 監査役の承認済</p><p>ACTIVATING:       アクティベート中</p><p>ACTIVATED:        アクティベート完了</p><p>CREATING:         TX送信</p><p>COMPLETED:        Wallet完成</p><p>CANCELLED:        キャンセル済み</p><p>ARCHIVED:         アーカイブ済み</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>WALLET_STATE_INVALID</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>WALLET_STATE_PROPOSED</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>WALLET_STATE_KEY_REGISTERED</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>WALLET_STATE_VALIDATOR_REVIEWED</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>WALLET_STATE_ACTIVATING</td>
+                <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>WALLET_STATE_ACTIVATED</td>
+                <td>5</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>WALLET_STATE_CREATING</td>
+                <td>6</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>WALLET_STATE_COMPLETED</td>
+                <td>7</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>WALLET_STATE_CANCELLED</td>
+                <td>8</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>WALLET_STATE_ARCHIVED</td>
+                <td>9</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="adamant.global.v1.WalletType">WalletType</h3>
+        <p>WalletType is a type of wallet.</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>WALLET_TYPE_INVALID</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>WALLET_TYPE_SELF_CUSTODY_HOT</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>WALLET_TYPE_SELF_CUSTODY_COLD</td>
+                <td>2</td>
+                <td><p>WALLET_TYPE_CUSTODY_HOT = 3;
+WALLET_TYPE_CUSTODY_COLD = 4;
+WALLET_TYPE_DECENTRAL_HOT = 5;
+WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="gincoinc/adamant/global/v1/adamantglobalv1/global_api.proto">gincoinc/adamant/global/v1/adamantglobalv1/global_api.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="adamant.global.v1.ApproveLabeledAddressRequest">ApproveLabeledAddressRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>labeled_address_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ApproveTransactionRequest">ApproveTransactionRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transaction_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ApproveTransferLimitRequest">ApproveTransferLimitRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>transfer_limit_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ApproveWalletRequest">ApproveWalletRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ArchiveWalletRequest">ArchiveWalletRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.CalculateFeeRequest">CalculateFeeRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>fee_rate</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tx_outputs</td>
+                  <td><a href="#adamant.global.v1.TxOutput">TxOutput</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.CalculateFeeResponse">CalculateFeeResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>fee</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.CancelTransactionRequest">CancelTransactionRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transaction_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.CancelWalletRequest">CancelWalletRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.CreateAddressRequest">CreateAddressRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.CreateLabeledAddressRequest">CreateLabeledAddressRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.CreatePolicyRequest">CreatePolicyRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_base_policy</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>type</td>
+                  <td><a href="#adamant.global.v1.PolicyType">PolicyType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>whitelist_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transfer_limit_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.CreateRegisterKeyTokenRequest">CreateRegisterKeyTokenRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.CreateRegisterKeyTokenResponse">CreateRegisterKeyTokenResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hd_account</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.CreateTransactionRequest">CreateTransactionRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>fee_rate</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tx_outputs</td>
+                  <td><a href="#adamant.global.v1.TxOutput">TxOutput</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.CreateTransferLimitRequest">CreateTransferLimitRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hourly_limit</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>daily_limit</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>one_time_limit</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.CreateWalletRequest">CreateWalletRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>wallet_type</td>
+                  <td><a href="#adamant.global.v1.WalletType">WalletType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address_type</td>
+                  <td><a href="#gincoinc.global.v1.AddressType">gincoinc.global.v1.AddressType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>m</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>n</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>members</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>policy_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.CreateWhitelistRequest">CreateWhitelistRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address_ids</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.DeleteLabeledAddressRequest">DeleteLabeledAddressRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>labeled_address_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.DeletePolicyRequest">DeletePolicyRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>policy_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.DeleteTransferLimitRequest">DeleteTransferLimitRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>transfer_limit_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.DeleteWhitelistRequest">DeleteWhitelistRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>whitelist_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.GetAddressRequest">GetAddressRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.GetLabeledAddressRequest">GetLabeledAddressRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>labeled_address_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.GetMembersDeactivatabilitiesRequest">GetMembersDeactivatabilitiesRequest</h3>
+        <p></p>
+
+        
+
+        
+      
+        <h3 id="adamant.global.v1.GetMembersDeactivatabilitiesResponse">GetMembersDeactivatabilitiesResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>deactivatabilities</td>
+                  <td><a href="#adamant.global.v1.Deactivatability">Deactivatability</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.GetPolicyRequest">GetPolicyRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>policy_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.GetSignInfoRequest">GetSignInfoRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transaction_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>account_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.GetSignInfoResponse">GetSignInfoResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>sign_info</td>
+                  <td><a href="#adamant.global.v1.SignInfo">SignInfo</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.GetSpendableBalanceRequest">GetSpendableBalanceRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.GetSpendableBalanceResponse">GetSpendableBalanceResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>total_spendable_balance</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>daily_spendable_balance</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hourly_spendable_balance</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>one_time_spendable_balance</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.GetTransferLimitRequest">GetTransferLimitRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>transfer_limit_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.GetWalletRequest">GetWalletRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.GetWhitelistRequest">GetWhitelistRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>whitelist_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ListAddressesRequest">ListAddressesRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>omit_change</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page_size</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page_token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ListAddressesResponse">ListAddressesResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>addresses</td>
+                  <td><a href="#adamant.global.v1.Address">Address</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>next_page_token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ListLabeledAddressesRequest">ListLabeledAddressesRequest</h3>
+        <p></p>
+
+        
+
+        
+      
+        <h3 id="adamant.global.v1.ListLabeledAddressesResponse">ListLabeledAddressesResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>addresses</td>
+                  <td><a href="#adamant.global.v1.LabeledAddress">LabeledAddress</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ListPoliciesRequest">ListPoliciesRequest</h3>
+        <p></p>
+
+        
+
+        
+      
+        <h3 id="adamant.global.v1.ListPoliciesResponse">ListPoliciesResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>policies</td>
+                  <td><a href="#adamant.global.v1.Policy">Policy</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ListRatesResponse">ListRatesResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>rates</td>
+                  <td><a href="#adamant.global.v1.Rate">Rate</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ListTransactionsRequest">ListTransactionsRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>page_size</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page_token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ListTransactionsResponse">ListTransactionsResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>transactions</td>
+                  <td><a href="#adamant.global.v1.Transaction">Transaction</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>next_page_token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ListTransferLimitsRequest">ListTransferLimitsRequest</h3>
+        <p></p>
+
+        
+
+        
+      
+        <h3 id="adamant.global.v1.ListTransferLimitsResponse">ListTransferLimitsResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>transfer_limits</td>
+                  <td><a href="#adamant.global.v1.TransferLimit">TransferLimit</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ListTransfersRequest">ListTransfersRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>page_size</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page_token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ListTransfersResponse">ListTransfersResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>transfers</td>
+                  <td><a href="#adamant.global.v1.Transfer">Transfer</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>next_page_token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ListWalletsRequest">ListWalletsRequest</h3>
+        <p>TODO implement pagenation</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>page_size</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>page_token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ListWalletsResponse">ListWalletsResponse</h3>
+        <p>TODO implement pagenation</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallets</td>
+                  <td><a href="#adamant.global.v1.Wallet">Wallet</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>next_page_token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ListWhitelistsRequest">ListWhitelistsRequest</h3>
+        <p></p>
+
+        
+
+        
+      
+        <h3 id="adamant.global.v1.ListWhitelistsResponse">ListWhitelistsResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>whitelists</td>
+                  <td><a href="#adamant.global.v1.Whitelist">Whitelist</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.RegisterKeyRequest">RegisterKeyRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pub_key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hd_account</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.SendTransactionRequest">SendTransactionRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transaction_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.SignTransactionRequest">SignTransactionRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transaction_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>account_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>signed_info</td>
+                  <td><a href="#adamant.global.v1.SignedInfo">SignedInfo</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.UnArchiveWalletRequest">UnArchiveWalletRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.UpdateLabeledAddressRequest">UpdateLabeledAddressRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>labeled_address_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.UpdatePolicyRequest">UpdatePolicyRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>policy_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>whitelist_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transfer_limit_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.UpdateTransferLimitRequest">UpdateTransferLimitRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>transfer_limit_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hourly_limit</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>daily_limit</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>one_time_limit</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.UpdateWalletPolicyRequest">UpdateWalletPolicyRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>policy_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.UpdateWhitelistRequest">UpdateWhitelistRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>whitelist_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="adamant.global.v1.GlobalAPI">GlobalAPI</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>CreateWallet</td>
+                <td><a href="#adamant.global.v1.CreateWalletRequest">CreateWalletRequest</a></td>
+                <td><a href="#adamant.global.v1.Wallet">Wallet</a></td>
+                <td><p>Wallet</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetWallet</td>
+                <td><a href="#adamant.global.v1.GetWalletRequest">GetWalletRequest</a></td>
+                <td><a href="#adamant.global.v1.Wallet">Wallet</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>CancelWallet</td>
+                <td><a href="#adamant.global.v1.CancelWalletRequest">CancelWalletRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ArchiveWallet</td>
+                <td><a href="#adamant.global.v1.ArchiveWalletRequest">ArchiveWalletRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>UnArchiveWallet</td>
+                <td><a href="#adamant.global.v1.UnArchiveWalletRequest">UnArchiveWalletRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ListWallets</td>
+                <td><a href="#adamant.global.v1.ListWalletsRequest">ListWalletsRequest</a></td>
+                <td><a href="#adamant.global.v1.ListWalletsResponse">ListWalletsResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateWalletPolicy</td>
+                <td><a href="#adamant.global.v1.UpdateWalletPolicyRequest">UpdateWalletPolicyRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ApproveWallet</td>
+                <td><a href="#adamant.global.v1.ApproveWalletRequest">ApproveWalletRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p>Review</p></td>
+              </tr>
+            
+              <tr>
+                <td>ApproveTransaction</td>
+                <td><a href="#adamant.global.v1.ApproveTransactionRequest">ApproveTransactionRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateAddress</td>
+                <td><a href="#adamant.global.v1.CreateAddressRequest">CreateAddressRequest</a></td>
+                <td><a href="#adamant.global.v1.Address">Address</a></td>
+                <td><p>Address</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetAddress</td>
+                <td><a href="#adamant.global.v1.GetAddressRequest">GetAddressRequest</a></td>
+                <td><a href="#adamant.global.v1.Address">Address</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ListAddresses</td>
+                <td><a href="#adamant.global.v1.ListAddressesRequest">ListAddressesRequest</a></td>
+                <td><a href="#adamant.global.v1.ListAddressesResponse">ListAddressesResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateRegisterKeyToken</td>
+                <td><a href="#adamant.global.v1.CreateRegisterKeyTokenRequest">CreateRegisterKeyTokenRequest</a></td>
+                <td><a href="#adamant.global.v1.CreateRegisterKeyTokenResponse">CreateRegisterKeyTokenResponse</a></td>
+                <td><p>RegisterKey</p></td>
+              </tr>
+            
+              <tr>
+                <td>RegisterKey</td>
+                <td><a href="#adamant.global.v1.RegisterKeyRequest">RegisterKeyRequest</a></td>
+                <td><a href="#adamant.global.v1.Key">Key</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetSignInfo</td>
+                <td><a href="#adamant.global.v1.GetSignInfoRequest">GetSignInfoRequest</a></td>
+                <td><a href="#adamant.global.v1.GetSignInfoResponse">GetSignInfoResponse</a></td>
+                <td><p>Transaction</p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateTransaction</td>
+                <td><a href="#adamant.global.v1.CreateTransactionRequest">CreateTransactionRequest</a></td>
+                <td><a href="#adamant.global.v1.Transaction">Transaction</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>CancelTransaction</td>
+                <td><a href="#adamant.global.v1.CancelTransactionRequest">CancelTransactionRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>SendTransaction</td>
+                <td><a href="#adamant.global.v1.SendTransactionRequest">SendTransactionRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ListTransactions</td>
+                <td><a href="#adamant.global.v1.ListTransactionsRequest">ListTransactionsRequest</a></td>
+                <td><a href="#adamant.global.v1.ListTransactionsResponse">ListTransactionsResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>SignTransaction</td>
+                <td><a href="#adamant.global.v1.SignTransactionRequest">SignTransactionRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ListTransfers</td>
+                <td><a href="#adamant.global.v1.ListTransfersRequest">ListTransfersRequest</a></td>
+                <td><a href="#adamant.global.v1.ListTransfersResponse">ListTransfersResponse</a></td>
+                <td><p>Transfer</p></td>
+              </tr>
+            
+              <tr>
+                <td>ListRates</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#adamant.global.v1.ListRatesResponse">ListRatesResponse</a></td>
+                <td><p>Rate</p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateLabeledAddress</td>
+                <td><a href="#adamant.global.v1.CreateLabeledAddressRequest">CreateLabeledAddressRequest</a></td>
+                <td><a href="#adamant.global.v1.LabeledAddress">LabeledAddress</a></td>
+                <td><p>policy</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetLabeledAddress</td>
+                <td><a href="#adamant.global.v1.GetLabeledAddressRequest">GetLabeledAddressRequest</a></td>
+                <td><a href="#adamant.global.v1.LabeledAddress">LabeledAddress</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ListLabeledAddresses</td>
+                <td><a href="#adamant.global.v1.ListLabeledAddressesRequest">ListLabeledAddressesRequest</a></td>
+                <td><a href="#adamant.global.v1.ListLabeledAddressesResponse">ListLabeledAddressesResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateLabeledAddress</td>
+                <td><a href="#adamant.global.v1.UpdateLabeledAddressRequest">UpdateLabeledAddressRequest</a></td>
+                <td><a href="#adamant.global.v1.LabeledAddress">LabeledAddress</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteLabeledAddress</td>
+                <td><a href="#adamant.global.v1.DeleteLabeledAddressRequest">DeleteLabeledAddressRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ApproveLabeledAddress</td>
+                <td><a href="#adamant.global.v1.ApproveLabeledAddressRequest">ApproveLabeledAddressRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateWhitelist</td>
+                <td><a href="#adamant.global.v1.CreateWhitelistRequest">CreateWhitelistRequest</a></td>
+                <td><a href="#adamant.global.v1.Whitelist">Whitelist</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetWhitelist</td>
+                <td><a href="#adamant.global.v1.GetWhitelistRequest">GetWhitelistRequest</a></td>
+                <td><a href="#adamant.global.v1.Whitelist">Whitelist</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ListWhitelists</td>
+                <td><a href="#adamant.global.v1.ListWhitelistsRequest">ListWhitelistsRequest</a></td>
+                <td><a href="#adamant.global.v1.ListWhitelistsResponse">ListWhitelistsResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateWhitelist</td>
+                <td><a href="#adamant.global.v1.UpdateWhitelistRequest">UpdateWhitelistRequest</a></td>
+                <td><a href="#adamant.global.v1.Whitelist">Whitelist</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteWhitelist</td>
+                <td><a href="#adamant.global.v1.DeleteWhitelistRequest">DeleteWhitelistRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateTransferLimit</td>
+                <td><a href="#adamant.global.v1.CreateTransferLimitRequest">CreateTransferLimitRequest</a></td>
+                <td><a href="#adamant.global.v1.TransferLimit">TransferLimit</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetTransferLimit</td>
+                <td><a href="#adamant.global.v1.GetTransferLimitRequest">GetTransferLimitRequest</a></td>
+                <td><a href="#adamant.global.v1.TransferLimit">TransferLimit</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ListTransferLimits</td>
+                <td><a href="#adamant.global.v1.ListTransferLimitsRequest">ListTransferLimitsRequest</a></td>
+                <td><a href="#adamant.global.v1.ListTransferLimitsResponse">ListTransferLimitsResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdateTransferLimit</td>
+                <td><a href="#adamant.global.v1.UpdateTransferLimitRequest">UpdateTransferLimitRequest</a></td>
+                <td><a href="#adamant.global.v1.TransferLimit">TransferLimit</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>DeleteTransferLimit</td>
+                <td><a href="#adamant.global.v1.DeleteTransferLimitRequest">DeleteTransferLimitRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ApproveTransferLimit</td>
+                <td><a href="#adamant.global.v1.ApproveTransferLimitRequest">ApproveTransferLimitRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>CreatePolicy</td>
+                <td><a href="#adamant.global.v1.CreatePolicyRequest">CreatePolicyRequest</a></td>
+                <td><a href="#adamant.global.v1.Policy">Policy</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetPolicy</td>
+                <td><a href="#adamant.global.v1.GetPolicyRequest">GetPolicyRequest</a></td>
+                <td><a href="#adamant.global.v1.Policy">Policy</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ListPolicies</td>
+                <td><a href="#adamant.global.v1.ListPoliciesRequest">ListPoliciesRequest</a></td>
+                <td><a href="#adamant.global.v1.ListPoliciesResponse">ListPoliciesResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>UpdatePolicy</td>
+                <td><a href="#adamant.global.v1.UpdatePolicyRequest">UpdatePolicyRequest</a></td>
+                <td><a href="#adamant.global.v1.Policy">Policy</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>DeletePolicy</td>
+                <td><a href="#adamant.global.v1.DeletePolicyRequest">DeletePolicyRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetSpendableBalance</td>
+                <td><a href="#adamant.global.v1.GetSpendableBalanceRequest">GetSpendableBalanceRequest</a></td>
+                <td><a href="#adamant.global.v1.GetSpendableBalanceResponse">GetSpendableBalanceResponse</a></td>
+                <td><p>Utility</p></td>
+              </tr>
+            
+              <tr>
+                <td>CalculateFee</td>
+                <td><a href="#adamant.global.v1.CalculateFeeRequest">CalculateFeeRequest</a></td>
+                <td><a href="#adamant.global.v1.CalculateFeeResponse">CalculateFeeResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetMembersDeactivatabilities</td>
+                <td><a href="#adamant.global.v1.GetMembersDeactivatabilitiesRequest">GetMembersDeactivatabilitiesRequest</a></td>
+                <td><a href="#adamant.global.v1.GetMembersDeactivatabilitiesResponse">GetMembersDeactivatabilitiesResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+      
+      <div class="file-heading">
+        <h2 id="gincoinc/adamant/global/v1/adamantglobalv1/model.proto">gincoinc/adamant/global/v1/adamantglobalv1/model.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="adamant.global.v1.Address">Address</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>index</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>balance</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>state</td>
+                  <td><a href="#adamant.global.v1.AddressState">AddressState</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address_type</td>
+                  <td><a href="#gincoinc.global.v1.AddressType">gincoinc.global.v1.AddressType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sequence_number</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>create_time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>update_time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.AddressReview">AddressReview</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>address_review_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>requester_account_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>requester_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>approver_account_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>approver_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address_is_reviewed</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.Deactivatability">Deactivatability</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>account_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>deactivatable</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.Key">Key</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>account_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>account_type</td>
+                  <td><a href="#adamant.global.v1.AccountType">AccountType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>key_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.LabeledAddress">LabeledAddress</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>labeled_address_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>proposed_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address_review</td>
+                  <td><a href="#adamant.global.v1.AddressReview">AddressReview</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>create_time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>update_time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.Policy">Policy</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>policy_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>policy_type</td>
+                  <td><a href="#adamant.global.v1.PolicyType">PolicyType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_base_policy</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>whitelist</td>
+                  <td><a href="#adamant.global.v1.Whitelist">Whitelist</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transfer_limit</td>
+                  <td><a href="#adamant.global.v1.TransferLimit">TransferLimit</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>create_time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>update_time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.Rate">Rate</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>symbol</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>jpy</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>usd</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.SignInfo">SignInfo</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transaction_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>key_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hd_account</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tx_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sign_message</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hd_change</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hd_index</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sign_tx_inputs</td>
+                  <td><a href="#adamant.global.v1.SignTxInput">SignTxInput</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.SignTxInput">SignTxInput</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>tx_input_index</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>sign_message</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hd_change</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hd_index</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.Signature">Signature</h3>
+        <p>Signature ...</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>sign_index</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>signature</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.SignedInfo">SignedInfo</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>signatures</td>
+                  <td><a href="#adamant.global.v1.Signature">Signature</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.Transaction">Transaction</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transaction_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tx_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>fee</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>state</td>
+                  <td><a href="#adamant.global.v1.TransactionState">TransactionState</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>signed_keys</td>
+                  <td><a href="#adamant.global.v1.Key">Key</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tx_inputs</td>
+                  <td><a href="#adamant.global.v1.TxInput">TxInput</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tx_outputs</td>
+                  <td><a href="#adamant.global.v1.TxOutput">TxOutput</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>members</td>
+                  <td><a href="#adamant.global.v1.TransactionMember">TransactionMember</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>create_time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>update_time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.TransactionMember">TransactionMember</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>account_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>account_type</td>
+                  <td><a href="#adamant.global.v1.AccountType">AccountType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>email</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>role</td>
+                  <td><a href="#adamant.global.v1.RoleType">RoleType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>signed</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.Transfer">Transfer</h3>
+        <p>Transfer ...</p><p>TODO baseValue, stringValue, usdRateを入れるかどうか</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transfer_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tx_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transfer_type</td>
+                  <td><a href="#gincoinc.global.v1.TransferType">gincoinc.global.v1.TransferType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>partner_wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>partner_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>state</td>
+                  <td><a href="#gincoinc.global.v1.TransactionState">gincoinc.global.v1.TransactionState</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>create_time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>update_time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.TransferLimit">TransferLimit</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>transfer_limit_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>hourly_limit</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>daily_limit</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>one_time_limit</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>create_time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>update_time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.TxInput">TxInput</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>tx_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tx_index</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.TxOutput">TxOutput</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_change</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.Wallet">Wallet</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>wallet_type</td>
+                  <td><a href="#adamant.global.v1.WalletType">WalletType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address_type</td>
+                  <td><a href="#gincoinc.global.v1.AddressType">gincoinc.global.v1.AddressType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>m</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>n</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>state</td>
+                  <td><a href="#adamant.global.v1.WalletState">WalletState</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>keys</td>
+                  <td><a href="#adamant.global.v1.Key">Key</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>members</td>
+                  <td><a href="#adamant.global.v1.WalletMember">WalletMember</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>balance</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>policy_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>create_time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>update_time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.WalletMember">WalletMember</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>account_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>account_type</td>
+                  <td><a href="#adamant.global.v1.AccountType">AccountType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>email</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>role</td>
+                  <td><a href="#adamant.global.v1.RoleType">RoleType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_key_registered</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.Whitelist">Whitelist</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>whitelist_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>addresses</td>
+                  <td><a href="#adamant.global.v1.LabeledAddress">LabeledAddress</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>create_time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>update_time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+    
+      
+      <div class="file-heading">
+        <h2 id="gincoinc/adamant/teller/v1/adamanttellerv1/teller_api.proto">gincoinc/adamant/teller/v1/adamanttellerv1/teller_api.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+
+      
+        <h3 id="adamant.teller.v1.SignTransactionRequest">SignTransactionRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transaction_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+
+      
+
+      
+
+      
+        <h3 id="adamant.teller.v1.TellerAPI">TellerAPI</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>CreateWallet</td>
+                <td><a href="#adamant.global.v1.CreateWalletRequest">.adamant.global.v1.CreateWalletRequest</a></td>
+                <td><a href="#adamant.global.v1.Wallet">.adamant.global.v1.Wallet</a></td>
+                <td><p>Wallet</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetWallet</td>
+                <td><a href="#adamant.global.v1.GetWalletRequest">.adamant.global.v1.GetWalletRequest</a></td>
+                <td><a href="#adamant.global.v1.Wallet">.adamant.global.v1.Wallet</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ListWallets</td>
+                <td><a href="#adamant.global.v1.ListWalletsRequest">.adamant.global.v1.ListWalletsRequest</a></td>
+                <td><a href="#adamant.global.v1.ListWalletsResponse">.adamant.global.v1.ListWalletsResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetSpendableBalance</td>
+                <td><a href="#adamant.global.v1.GetSpendableBalanceRequest">.adamant.global.v1.GetSpendableBalanceRequest</a></td>
+                <td><a href="#adamant.global.v1.GetSpendableBalanceResponse">.adamant.global.v1.GetSpendableBalanceResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateAddress</td>
+                <td><a href="#adamant.global.v1.CreateAddressRequest">.adamant.global.v1.CreateAddressRequest</a></td>
+                <td><a href="#adamant.global.v1.Address">.adamant.global.v1.Address</a></td>
+                <td><p>Address</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetAddress</td>
+                <td><a href="#adamant.global.v1.GetAddressRequest">.adamant.global.v1.GetAddressRequest</a></td>
+                <td><a href="#adamant.global.v1.Address">.adamant.global.v1.Address</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ListAddresses</td>
+                <td><a href="#adamant.global.v1.ListAddressesRequest">.adamant.global.v1.ListAddressesRequest</a></td>
+                <td><a href="#adamant.global.v1.ListAddressesResponse">.adamant.global.v1.ListAddressesResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateTransaction</td>
+                <td><a href="#adamant.global.v1.CreateTransactionRequest">.adamant.global.v1.CreateTransactionRequest</a></td>
+                <td><a href="#adamant.global.v1.Transaction">.adamant.global.v1.Transaction</a></td>
+                <td><p>Transaction</p></td>
+              </tr>
+            
+              <tr>
+                <td>SignTransaction</td>
+                <td><a href="#adamant.teller.v1.SignTransactionRequest">SignTransactionRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>SendTransaction</td>
+                <td><a href="#adamant.global.v1.SendTransactionRequest">.adamant.global.v1.SendTransactionRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>CancelTransaction</td>
+                <td><a href="#adamant.global.v1.CancelTransactionRequest">.adamant.global.v1.CancelTransactionRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ListTransactions</td>
+                <td><a href="#adamant.global.v1.ListTransactionsRequest">.adamant.global.v1.ListTransactionsRequest</a></td>
+                <td><a href="#adamant.global.v1.ListTransactionsResponse">.adamant.global.v1.ListTransactionsResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>ListTransfers</td>
+                <td><a href="#adamant.global.v1.ListTransfersRequest">.adamant.global.v1.ListTransfersRequest</a></td>
+                <td><a href="#adamant.global.v1.ListTransfersResponse">.adamant.global.v1.ListTransfersResponse</a></td>
+                <td><p>Transfer</p></td>
+              </tr>
+            
+              <tr>
+                <td>CalculateFee</td>
+                <td><a href="#adamant.global.v1.CalculateFeeRequest">.adamant.global.v1.CalculateFeeRequest</a></td>
+                <td><a href="#adamant.global.v1.CalculateFeeResponse">.adamant.global.v1.CalculateFeeResponse</a></td>
+                <td><p>Utility</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+    
+
+    <h2 id="scalar-value-types">Scalar Value Types</h2>
+    <table class="scalar-value-types-table">
+      <thead>
+        <tr><td>.proto Type</td><td>Notes</td><td>C++ Type</td><td>Java Type</td><td>Python Type</td></tr>
+      </thead>
+      <tbody>
+        
+          <tr id="double">
+            <td>double</td>
+            <td></td>
+            <td>double</td>
+            <td>double</td>
+            <td>float</td>
+          </tr>
+        
+          <tr id="float">
+            <td>float</td>
+            <td></td>
+            <td>float</td>
+            <td>float</td>
+            <td>float</td>
+          </tr>
+        
+          <tr id="int32">
+            <td>int32</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+          </tr>
+        
+          <tr id="int64">
+            <td>int64</td>
+            <td>Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+          </tr>
+        
+          <tr id="uint32">
+            <td>uint32</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int/long</td>
+          </tr>
+        
+          <tr id="uint64">
+            <td>uint64</td>
+            <td>Uses variable-length encoding.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+          </tr>
+        
+          <tr id="sint32">
+            <td>sint32</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+          </tr>
+        
+          <tr id="sint64">
+            <td>sint64</td>
+            <td>Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+          </tr>
+        
+          <tr id="fixed32">
+            <td>fixed32</td>
+            <td>Always four bytes. More efficient than uint32 if values are often greater than 2^28.</td>
+            <td>uint32</td>
+            <td>int</td>
+            <td>int</td>
+          </tr>
+        
+          <tr id="fixed64">
+            <td>fixed64</td>
+            <td>Always eight bytes. More efficient than uint64 if values are often greater than 2^56.</td>
+            <td>uint64</td>
+            <td>long</td>
+            <td>int/long</td>
+          </tr>
+        
+          <tr id="sfixed32">
+            <td>sfixed32</td>
+            <td>Always four bytes.</td>
+            <td>int32</td>
+            <td>int</td>
+            <td>int</td>
+          </tr>
+        
+          <tr id="sfixed64">
+            <td>sfixed64</td>
+            <td>Always eight bytes.</td>
+            <td>int64</td>
+            <td>long</td>
+            <td>int/long</td>
+          </tr>
+        
+          <tr id="bool">
+            <td>bool</td>
+            <td></td>
+            <td>bool</td>
+            <td>boolean</td>
+            <td>boolean</td>
+          </tr>
+        
+          <tr id="string">
+            <td>string</td>
+            <td>A string must always contain UTF-8 encoded or 7-bit ASCII text.</td>
+            <td>string</td>
+            <td>String</td>
+            <td>str/unicode</td>
+          </tr>
+        
+          <tr id="bytes">
+            <td>bytes</td>
+            <td>May contain any arbitrary sequence of bytes.</td>
+            <td>string</td>
+            <td>ByteString</td>
+            <td>str</td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </body>
+</html>
+
