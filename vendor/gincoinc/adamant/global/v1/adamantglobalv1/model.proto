@@ -1,0 +1,207 @@
+syntax = "proto3";
+
+package adamant.global.v1;
+
+option go_package = "adamantglobalv1";
+
+import "google/protobuf/timestamp.proto";
+import "validate/validate.proto";
+import "gincoinc/global/v1/gincoincglobalv1/enum.proto";
+import "gincoinc/adamant/global/v1/adamantglobalv1/enum.proto";
+
+// =============================================================================
+//  Model
+// =============================================================================
+
+message Wallet {
+    string wallet_id = 1;
+    string name = 2;
+    gincoinc.global.v1.Coin coin = 3;
+    WalletType wallet_type = 4;
+    gincoinc.global.v1.AddressType address_type = 5;
+    uint32 m = 6;
+    uint32 n = 7;
+    WalletState state = 8;
+    repeated Key keys = 9;
+    repeated WalletMember members = 10;
+    string balance = 11;
+    string address = 12;
+    string policy_id = 13;
+    google.protobuf.Timestamp create_time = 14;
+    google.protobuf.Timestamp update_time = 15;
+}
+
+message WalletMember {
+    string account_id = 1;
+    adamant.global.v1.AccountType account_type = 2;
+    string name = 3;
+    string email = 4;
+    RoleType role = 5;
+    bool is_key_registered = 6;
+}
+
+message Key {
+    string wallet_id = 1;
+    string account_id = 2;
+    adamant.global.v1.AccountType account_type = 3;
+    string key_id = 4;
+}
+
+message Address {
+    string wallet_id = 1;
+    string address_id = 2;
+    gincoinc.global.v1.Coin coin = 3;
+    string address = 4;
+    uint32 index = 5;
+    string balance = 6;
+    AddressState state = 7;
+    gincoinc.global.v1.AddressType address_type = 8;
+    uint32 sequence_number = 9;
+    google.protobuf.Timestamp create_time = 10;
+    google.protobuf.Timestamp update_time = 11;
+}
+
+message Transaction {
+    string wallet_id = 1;
+    string transaction_id = 2;
+    gincoinc.global.v1.Coin coin = 3;
+    string tx_id = 4;
+    string address = 5;
+    string value = 6;
+    string fee = 7;
+    TransactionState state = 8;
+    repeated Key signed_keys = 9;
+    repeated TxInput tx_inputs = 10;
+    repeated TxOutput tx_outputs = 11;
+    repeated TransactionMember members = 12;
+    google.protobuf.Timestamp create_time = 13;
+    google.protobuf.Timestamp update_time = 14;
+}
+
+message TransactionMember {
+    string account_id = 1;
+    adamant.global.v1.AccountType account_type = 2;
+    string name = 3;
+    string email = 4;
+    RoleType role = 5;
+    bool signed = 6;
+}
+
+message TxInput {
+    string tx_id = 1;
+    uint32 tx_index = 2;
+    int64 value = 3;
+}
+
+message TxOutput {
+    string address = 1;
+    int64 value = 2;
+    bool is_change = 3;
+}
+
+message SignInfo {
+    string wallet_id = 1;
+    string transaction_id = 2;
+    string key_id = 3;
+    uint32 hd_account = 4;
+    gincoinc.global.v1.Coin coin = 5;
+    string tx_id = 6;
+    string sign_message = 7;
+    uint32 hd_change = 8;
+    uint32 hd_index = 9;
+    repeated SignTxInput sign_tx_inputs = 10;
+}
+
+message SignTxInput {
+    uint32 tx_input_index = 1;
+    string sign_message = 2;
+    uint32 hd_change = 3; uint32 hd_index = 4; }
+
+message SignedInfo {
+    repeated Signature signatures = 1;
+}
+
+// Signature ...
+message Signature {
+    uint32 sign_index = 1;
+    string signature = 2 [(validate.rules).string.min_len = 1];
+}
+
+// Transfer ...
+// TODO baseValue, stringValue, usdRateを入れるかどうか
+message Transfer {
+    string wallet_id = 1;
+    string transfer_id = 2;
+    gincoinc.global.v1.Coin coin = 3;
+    string tx_id = 4;
+    gincoinc.global.v1.TransferType transfer_type = 5;
+    string value = 6;
+    string partner_wallet_id = 7;
+    string partner_address = 8;
+    gincoinc.global.v1.TransactionState state = 9;
+    google.protobuf.Timestamp create_time = 10;
+    google.protobuf.Timestamp update_time = 11;
+}
+
+message Rate {
+    string symbol = 1;
+    string jpy = 2;
+    string usd = 3;
+}
+
+message Deactivatability {
+    string account_id = 1;
+    bool deactivatable = 2;
+}
+
+message LabeledAddress {
+    string labeled_address_id = 1;
+    string name = 2;
+    gincoinc.global.v1.Coin coin = 3;
+    string address = 4;
+    string proposed_address = 5;
+    AddressReview address_review = 6;
+    google.protobuf.Timestamp create_time = 7;
+    google.protobuf.Timestamp update_time = 8;
+}
+
+message AddressReview {
+    string address_review_id = 1;
+    string requester_account_id = 2;
+    string requester_name = 3;
+    string approver_account_id = 4;
+    string approver_name = 5;
+    bool address_is_reviewed = 6;
+}
+
+message Whitelist {
+    string whitelist_id = 1;
+    string name = 2;
+    gincoinc.global.v1.Coin coin = 3;
+    repeated LabeledAddress addresses = 4;
+    google.protobuf.Timestamp create_time = 5;
+    google.protobuf.Timestamp update_time = 6;
+}
+
+message TransferLimit {
+    string transfer_limit_id = 1;
+    string name = 2;
+    gincoinc.global.v1.Coin coin = 3;
+    int64 hourly_limit = 4;
+    int64 daily_limit = 5;
+    int64 one_time_limit = 6;
+    google.protobuf.Timestamp create_time = 7;
+    google.protobuf.Timestamp update_time = 8;
+}
+
+message Policy {
+    string policy_id = 1;
+    PolicyType policy_type = 2;
+    string name = 3;
+    bool is_base_policy = 4;
+    gincoinc.global.v1.Coin coin = 5;
+    Whitelist whitelist = 6;
+    TransferLimit transfer_limit = 7;
+    google.protobuf.Timestamp create_time = 8;
+    google.protobuf.Timestamp update_time = 9;
+}
