@@ -16,6 +16,10 @@ import (
 	"unicode/utf8"
 
 	"github.com/golang/protobuf/ptypes"
+
+	adamantglobalv1 "gincoinc/adamant/global/v1/adamantglobalv1"
+
+	gincoincglobalv1 "gincoinc/global/v1/gincoincglobalv1"
 )
 
 // ensure the imports are used
@@ -31,7 +35,88 @@ var (
 	_ = (*url.URL)(nil)
 	_ = (*mail.Address)(nil)
 	_ = ptypes.DynamicAny{}
+
+	_ = gincoincglobalv1.Coin(0)
+
+	_ = adamantglobalv1.WalletType(0)
+
+	_ = gincoincglobalv1.AddressType(0)
 )
+
+// Validate checks the field values on CreateWalletRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CreateWalletRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for WalletName
+
+	// no validation rules for Coin
+
+	// no validation rules for WalletType
+
+	// no validation rules for AddressType
+
+	return nil
+}
+
+// CreateWalletRequestValidationError is the validation error returned by
+// CreateWalletRequest.Validate if the designated constraints aren't met.
+type CreateWalletRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateWalletRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateWalletRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateWalletRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateWalletRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateWalletRequestValidationError) ErrorName() string {
+	return "CreateWalletRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateWalletRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateWalletRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateWalletRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateWalletRequestValidationError{}
 
 // Validate checks the field values on SignTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are

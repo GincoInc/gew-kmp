@@ -772,10 +772,10 @@ var _ interface {
 	ErrorName() string
 } = UpdateWalletPolicyRequestValidationError{}
 
-// Validate checks the field values on CreateRegisterKeyTokenRequest with the
-// rules defined in the proto definition for this message. If any rules are
+// Validate checks the field values on GetNextHdAccountRequest with the rules
+// defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *CreateRegisterKeyTokenRequest) Validate() error {
+func (m *GetNextHdAccountRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
@@ -785,10 +785,9 @@ func (m *CreateRegisterKeyTokenRequest) Validate() error {
 	return nil
 }
 
-// CreateRegisterKeyTokenRequestValidationError is the validation error
-// returned by CreateRegisterKeyTokenRequest.Validate if the designated
-// constraints aren't met.
-type CreateRegisterKeyTokenRequestValidationError struct {
+// GetNextHdAccountRequestValidationError is the validation error returned by
+// GetNextHdAccountRequest.Validate if the designated constraints aren't met.
+type GetNextHdAccountRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -796,24 +795,24 @@ type CreateRegisterKeyTokenRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e CreateRegisterKeyTokenRequestValidationError) Field() string { return e.field }
+func (e GetNextHdAccountRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e CreateRegisterKeyTokenRequestValidationError) Reason() string { return e.reason }
+func (e GetNextHdAccountRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e CreateRegisterKeyTokenRequestValidationError) Cause() error { return e.cause }
+func (e GetNextHdAccountRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e CreateRegisterKeyTokenRequestValidationError) Key() bool { return e.key }
+func (e GetNextHdAccountRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e CreateRegisterKeyTokenRequestValidationError) ErrorName() string {
-	return "CreateRegisterKeyTokenRequestValidationError"
+func (e GetNextHdAccountRequestValidationError) ErrorName() string {
+	return "GetNextHdAccountRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e CreateRegisterKeyTokenRequestValidationError) Error() string {
+func (e GetNextHdAccountRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -825,14 +824,14 @@ func (e CreateRegisterKeyTokenRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sCreateRegisterKeyTokenRequest.%s: %s%s",
+		"invalid %sGetNextHdAccountRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = CreateRegisterKeyTokenRequestValidationError{}
+var _ error = GetNextHdAccountRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -840,27 +839,24 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = CreateRegisterKeyTokenRequestValidationError{}
+} = GetNextHdAccountRequestValidationError{}
 
-// Validate checks the field values on CreateRegisterKeyTokenResponse with the
-// rules defined in the proto definition for this message. If any rules are
+// Validate checks the field values on GetNextHdAccountResponse with the rules
+// defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *CreateRegisterKeyTokenResponse) Validate() error {
+func (m *GetNextHdAccountResponse) Validate() error {
 	if m == nil {
 		return nil
 	}
-
-	// no validation rules for Token
 
 	// no validation rules for HdAccount
 
 	return nil
 }
 
-// CreateRegisterKeyTokenResponseValidationError is the validation error
-// returned by CreateRegisterKeyTokenResponse.Validate if the designated
-// constraints aren't met.
-type CreateRegisterKeyTokenResponseValidationError struct {
+// GetNextHdAccountResponseValidationError is the validation error returned by
+// GetNextHdAccountResponse.Validate if the designated constraints aren't met.
+type GetNextHdAccountResponseValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -868,24 +864,24 @@ type CreateRegisterKeyTokenResponseValidationError struct {
 }
 
 // Field function returns field value.
-func (e CreateRegisterKeyTokenResponseValidationError) Field() string { return e.field }
+func (e GetNextHdAccountResponseValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e CreateRegisterKeyTokenResponseValidationError) Reason() string { return e.reason }
+func (e GetNextHdAccountResponseValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e CreateRegisterKeyTokenResponseValidationError) Cause() error { return e.cause }
+func (e GetNextHdAccountResponseValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e CreateRegisterKeyTokenResponseValidationError) Key() bool { return e.key }
+func (e GetNextHdAccountResponseValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e CreateRegisterKeyTokenResponseValidationError) ErrorName() string {
-	return "CreateRegisterKeyTokenResponseValidationError"
+func (e GetNextHdAccountResponseValidationError) ErrorName() string {
+	return "GetNextHdAccountResponseValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e CreateRegisterKeyTokenResponseValidationError) Error() string {
+func (e GetNextHdAccountResponseValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -897,14 +893,14 @@ func (e CreateRegisterKeyTokenResponseValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sCreateRegisterKeyTokenResponse.%s: %s%s",
+		"invalid %sGetNextHdAccountResponse.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = CreateRegisterKeyTokenResponseValidationError{}
+var _ error = GetNextHdAccountResponseValidationError{}
 
 var _ interface {
 	Field() string
@@ -912,7 +908,7 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = CreateRegisterKeyTokenResponseValidationError{}
+} = GetNextHdAccountResponseValidationError{}
 
 // Validate checks the field values on RegisterKeyRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -927,8 +923,6 @@ func (m *RegisterKeyRequest) Validate() error {
 	// no validation rules for PubKey
 
 	// no validation rules for HdAccount
-
-	// no validation rules for Token
 
 	return nil
 }
@@ -1374,6 +1368,160 @@ var _ interface {
 	ErrorName() string
 } = CreateTransactionRequestValidationError{}
 
+// Validate checks the field values on SignTransactionRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *SignTransactionRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for WalletId
+
+	// no validation rules for TransactionId
+
+	// no validation rules for KeyId
+
+	if v, ok := interface{}(m.GetSignedInfo()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return SignTransactionRequestValidationError{
+				field:  "SignedInfo",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// SignTransactionRequestValidationError is the validation error returned by
+// SignTransactionRequest.Validate if the designated constraints aren't met.
+type SignTransactionRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SignTransactionRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SignTransactionRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SignTransactionRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SignTransactionRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SignTransactionRequestValidationError) ErrorName() string {
+	return "SignTransactionRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SignTransactionRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSignTransactionRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SignTransactionRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SignTransactionRequestValidationError{}
+
+// Validate checks the field values on SendTransactionRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *SendTransactionRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for WalletId
+
+	// no validation rules for TransactionId
+
+	return nil
+}
+
+// SendTransactionRequestValidationError is the validation error returned by
+// SendTransactionRequest.Validate if the designated constraints aren't met.
+type SendTransactionRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SendTransactionRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SendTransactionRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SendTransactionRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SendTransactionRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SendTransactionRequestValidationError) ErrorName() string {
+	return "SendTransactionRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SendTransactionRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSendTransactionRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SendTransactionRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SendTransactionRequestValidationError{}
+
 // Validate checks the field values on CancelTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -1445,6 +1593,77 @@ var _ interface {
 	ErrorName() string
 } = CancelTransactionRequestValidationError{}
 
+// Validate checks the field values on GetTransactionRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *GetTransactionRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for WalletId
+
+	// no validation rules for TransactionId
+
+	return nil
+}
+
+// GetTransactionRequestValidationError is the validation error returned by
+// GetTransactionRequest.Validate if the designated constraints aren't met.
+type GetTransactionRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetTransactionRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetTransactionRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetTransactionRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetTransactionRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetTransactionRequestValidationError) ErrorName() string {
+	return "GetTransactionRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetTransactionRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetTransactionRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetTransactionRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetTransactionRequestValidationError{}
+
 // Validate checks the field values on ListTransactionsRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -1452,6 +1671,8 @@ func (m *ListTransactionsRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
+
+	// no validation rules for WalletId
 
 	// no validation rules for PageSize
 
@@ -1600,77 +1821,6 @@ var _ interface {
 	ErrorName() string
 } = ListTransactionsResponseValidationError{}
 
-// Validate checks the field values on SendTransactionRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *SendTransactionRequest) Validate() error {
-	if m == nil {
-		return nil
-	}
-
-	// no validation rules for WalletId
-
-	// no validation rules for TransactionId
-
-	return nil
-}
-
-// SendTransactionRequestValidationError is the validation error returned by
-// SendTransactionRequest.Validate if the designated constraints aren't met.
-type SendTransactionRequestValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e SendTransactionRequestValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e SendTransactionRequestValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e SendTransactionRequestValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e SendTransactionRequestValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e SendTransactionRequestValidationError) ErrorName() string {
-	return "SendTransactionRequestValidationError"
-}
-
-// Error satisfies the builtin error interface
-func (e SendTransactionRequestValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sSendTransactionRequest.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = SendTransactionRequestValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = SendTransactionRequestValidationError{}
-
 // Validate checks the field values on GetSignInfoRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -1683,7 +1833,7 @@ func (m *GetSignInfoRequest) Validate() error {
 
 	// no validation rules for TransactionId
 
-	// no validation rules for AccountId
+	// no validation rules for KeyId
 
 	return nil
 }
@@ -1744,89 +1894,10 @@ var _ interface {
 	ErrorName() string
 } = GetSignInfoRequestValidationError{}
 
-// Validate checks the field values on GetSignInfoResponse with the rules
+// Validate checks the field values on ListSignInfoRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *GetSignInfoResponse) Validate() error {
-	if m == nil {
-		return nil
-	}
-
-	if v, ok := interface{}(m.GetSignInfo()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return GetSignInfoResponseValidationError{
-				field:  "SignInfo",
-				reason: "embedded message failed validation",
-				cause:  err,
-			}
-		}
-	}
-
-	// no validation rules for Token
-
-	return nil
-}
-
-// GetSignInfoResponseValidationError is the validation error returned by
-// GetSignInfoResponse.Validate if the designated constraints aren't met.
-type GetSignInfoResponseValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e GetSignInfoResponseValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e GetSignInfoResponseValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e GetSignInfoResponseValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e GetSignInfoResponseValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e GetSignInfoResponseValidationError) ErrorName() string {
-	return "GetSignInfoResponseValidationError"
-}
-
-// Error satisfies the builtin error interface
-func (e GetSignInfoResponseValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sGetSignInfoResponse.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = GetSignInfoResponseValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = GetSignInfoResponseValidationError{}
-
-// Validate checks the field values on SignTransactionRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *SignTransactionRequest) Validate() error {
+func (m *ListSignInfoRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
@@ -1835,26 +1906,12 @@ func (m *SignTransactionRequest) Validate() error {
 
 	// no validation rules for TransactionId
 
-	// no validation rules for AccountId
-
-	if v, ok := interface{}(m.GetSignedInfo()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return SignTransactionRequestValidationError{
-				field:  "SignedInfo",
-				reason: "embedded message failed validation",
-				cause:  err,
-			}
-		}
-	}
-
-	// no validation rules for Token
-
 	return nil
 }
 
-// SignTransactionRequestValidationError is the validation error returned by
-// SignTransactionRequest.Validate if the designated constraints aren't met.
-type SignTransactionRequestValidationError struct {
+// ListSignInfoRequestValidationError is the validation error returned by
+// ListSignInfoRequest.Validate if the designated constraints aren't met.
+type ListSignInfoRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -1862,24 +1919,24 @@ type SignTransactionRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e SignTransactionRequestValidationError) Field() string { return e.field }
+func (e ListSignInfoRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e SignTransactionRequestValidationError) Reason() string { return e.reason }
+func (e ListSignInfoRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e SignTransactionRequestValidationError) Cause() error { return e.cause }
+func (e ListSignInfoRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e SignTransactionRequestValidationError) Key() bool { return e.key }
+func (e ListSignInfoRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e SignTransactionRequestValidationError) ErrorName() string {
-	return "SignTransactionRequestValidationError"
+func (e ListSignInfoRequestValidationError) ErrorName() string {
+	return "ListSignInfoRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e SignTransactionRequestValidationError) Error() string {
+func (e ListSignInfoRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -1891,14 +1948,14 @@ func (e SignTransactionRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sSignTransactionRequest.%s: %s%s",
+		"invalid %sListSignInfoRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = SignTransactionRequestValidationError{}
+var _ error = ListSignInfoRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -1906,7 +1963,89 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = SignTransactionRequestValidationError{}
+} = ListSignInfoRequestValidationError{}
+
+// Validate checks the field values on ListSignInfoResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ListSignInfoResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetSignInfoList() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListSignInfoResponseValidationError{
+					field:  fmt.Sprintf("SignInfoList[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ListSignInfoResponseValidationError is the validation error returned by
+// ListSignInfoResponse.Validate if the designated constraints aren't met.
+type ListSignInfoResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListSignInfoResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListSignInfoResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListSignInfoResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListSignInfoResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListSignInfoResponseValidationError) ErrorName() string {
+	return "ListSignInfoResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListSignInfoResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListSignInfoResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListSignInfoResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListSignInfoResponseValidationError{}
 
 // Validate checks the field values on ListTransfersRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -1915,6 +2054,8 @@ func (m *ListTransfersRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
+
+	// no validation rules for WalletId
 
 	// no validation rules for PageSize
 

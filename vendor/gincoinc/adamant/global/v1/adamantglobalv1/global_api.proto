@@ -34,16 +34,20 @@ service GlobalAPI {
     rpc ListAddresses (ListAddressesRequest) returns (ListAddressesResponse) {}
 
     // RegisterKey
-    rpc CreateRegisterKeyToken (CreateRegisterKeyTokenRequest) returns (CreateRegisterKeyTokenResponse) {}
+    rpc GetNextHdAccount (GetNextHdAccountRequest) returns (GetNextHdAccountResponse) {}
     rpc RegisterKey (RegisterKeyRequest) returns (Key) {}
 
     // Transaction
-    rpc GetSignInfo (GetSignInfoRequest) returns (GetSignInfoResponse) {}
     rpc CreateTransaction (CreateTransactionRequest) returns (Transaction) {}
-    rpc CancelTransaction (CancelTransactionRequest) returns (google.protobuf.Empty) {}
-    rpc SendTransaction (SendTransactionRequest) returns (google.protobuf.Empty) {}
-    rpc ListTransactions (ListTransactionsRequest) returns (ListTransactionsResponse) {}
     rpc SignTransaction (SignTransactionRequest) returns (google.protobuf.Empty) {}
+    rpc SendTransaction (SendTransactionRequest) returns (google.protobuf.Empty) {}
+    rpc CancelTransaction (CancelTransactionRequest) returns (google.protobuf.Empty) {}
+    rpc GetTransaction (GetTransactionRequest) returns (Transaction) {}
+    rpc ListTransactions (ListTransactionsRequest) returns (ListTransactionsResponse) {}
+
+    // SignInfo
+    rpc GetSignInfo (GetSignInfoRequest) returns (SignInfo) {}
+    rpc ListSignInfo (ListSignInfoRequest) returns (ListSignInfoResponse) {}
 
     // Transfer
     rpc ListTransfers (ListTransfersRequest) returns (ListTransfersResponse) {}
@@ -116,19 +120,19 @@ message CreateWalletRequest {
 }
 
 message GetWalletRequest {
-    string wallet_id = 1;
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
 message CancelWalletRequest {
-    string wallet_id = 1;
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
 message ArchiveWalletRequest {
-    string wallet_id = 1;
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
 message UnArchiveWalletRequest {
-    string wallet_id = 1;
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
 // TODO implement pagenation
@@ -142,7 +146,6 @@ message ListWalletsResponse {
     repeated Wallet wallets = 1;
     string next_page_token = 2;
 }
-
 message UpdateWalletPolicyRequest {
     string wallet_id = 1;
     string policy_id = 2;
@@ -152,20 +155,17 @@ message UpdateWalletPolicyRequest {
 // Key
 // -----------------------------------------------------------------------------
 
-message CreateRegisterKeyTokenRequest {
+message GetNextHdAccountRequest {
     string wallet_id = 1;
 }
-
-message CreateRegisterKeyTokenResponse {
-    string token = 1;
-    uint32 hd_account = 2;
+message GetNextHdAccountResponse {
+    uint32 hd_account = 1;
 }
 
 message RegisterKeyRequest {
     string wallet_id = 1;
     string pub_key = 2;
     uint32 hd_account = 3;
-    string token = 4;
 }
 
 // -----------------------------------------------------------------------------
@@ -173,21 +173,20 @@ message RegisterKeyRequest {
 // -----------------------------------------------------------------------------
 
 message CreateAddressRequest {
-    string wallet_id = 1;
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
 message GetAddressRequest {
-    string wallet_id = 1;
-    string address_id = 2;
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string address_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
 message ListAddressesRequest {
-    string wallet_id = 1;
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     bool omit_change = 2;
-    uint32 page_size = 3;
+    uint32 page_size = 3 [(validate.rules).uint32.lte = 100];
     string page_token = 4;
 }
-
 message ListAddressesResponse {
     repeated Address addresses = 1;
     string next_page_token = 2;
@@ -198,29 +197,41 @@ message ListAddressesResponse {
 // -----------------------------------------------------------------------------
 
 message CreateTransactionRequest {
-    string wallet_id = 1;
-    int64 fee_rate = 2;
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    int64 fee_rate = 2 [(validate.rules).int64.gte = 1];
     repeated TxOutput tx_outputs = 3;
 }
 
-message CancelTransactionRequest {
-    string wallet_id = 1;
-    string transaction_id = 2;
-}
-
-message ListTransactionsRequest {
-    uint32 page_size = 1;
-    string page_token = 2;
-}
-
-message ListTransactionsResponse {
-    repeated Transaction transactions = 1;
-    string next_page_token = 2;
+message SignTransactionRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string key_id = 3 [(validate.rules).string = {pattern: "^[0-9A-F]{64}$"}];
+    adamant.global.v1.SignedInfo signed_info = 4 [(validate.rules).message.required = true];
 }
 
 message SendTransactionRequest {
-    string wallet_id = 1;
-    string transaction_id = 2;
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+}
+
+message CancelTransactionRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+}
+
+message GetTransactionRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+}
+
+message ListTransactionsRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    uint32 page_size = 2 [(validate.rules).uint32.lte = 100];
+    string page_token = 3;
+}
+message ListTransactionsResponse {
+    repeated Transaction transactions = 1;
+    string next_page_token = 2;
 }
 
 // -----------------------------------------------------------------------------
@@ -228,22 +239,17 @@ message SendTransactionRequest {
 // -----------------------------------------------------------------------------
 
 message GetSignInfoRequest {
-    string wallet_id = 1;
-    string transaction_id = 2;
-    string account_id = 3;
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string key_id = 3 [(validate.rules).string = {pattern: "^[0-9A-F]{64}$"}];
 }
 
-message GetSignInfoResponse {
-    SignInfo sign_info = 1;
-    string token = 2;
+message ListSignInfoRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
-
-message SignTransactionRequest {
-    string wallet_id = 1;
-    string transaction_id = 2;
-    string account_id = 3;
-    SignedInfo signed_info = 4;
-    string token = 5;
+message ListSignInfoResponse {
+    repeated SignInfo sign_info_list = 1;
 }
 
 // -----------------------------------------------------------------------------
@@ -251,8 +257,9 @@ message SignTransactionRequest {
 // -----------------------------------------------------------------------------
 
 message ListTransfersRequest {
-    uint32 page_size = 1;
-    string page_token = 2;
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    uint32 page_size = 2 [(validate.rules).uint32.lte = 100];
+    string page_token = 3;
 }
 
 message ListTransfersResponse {

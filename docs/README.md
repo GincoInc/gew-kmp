@@ -52,8 +52,6 @@
     - [CreateAddressRequest](#adamant.global.v1.CreateAddressRequest)
     - [CreateLabeledAddressRequest](#adamant.global.v1.CreateLabeledAddressRequest)
     - [CreatePolicyRequest](#adamant.global.v1.CreatePolicyRequest)
-    - [CreateRegisterKeyTokenRequest](#adamant.global.v1.CreateRegisterKeyTokenRequest)
-    - [CreateRegisterKeyTokenResponse](#adamant.global.v1.CreateRegisterKeyTokenResponse)
     - [CreateTransactionRequest](#adamant.global.v1.CreateTransactionRequest)
     - [CreateTransferLimitRequest](#adamant.global.v1.CreateTransferLimitRequest)
     - [CreateWalletRequest](#adamant.global.v1.CreateWalletRequest)
@@ -66,11 +64,13 @@
     - [GetLabeledAddressRequest](#adamant.global.v1.GetLabeledAddressRequest)
     - [GetMembersDeactivatabilitiesRequest](#adamant.global.v1.GetMembersDeactivatabilitiesRequest)
     - [GetMembersDeactivatabilitiesResponse](#adamant.global.v1.GetMembersDeactivatabilitiesResponse)
+    - [GetNextHdAccountRequest](#adamant.global.v1.GetNextHdAccountRequest)
+    - [GetNextHdAccountResponse](#adamant.global.v1.GetNextHdAccountResponse)
     - [GetPolicyRequest](#adamant.global.v1.GetPolicyRequest)
     - [GetSignInfoRequest](#adamant.global.v1.GetSignInfoRequest)
-    - [GetSignInfoResponse](#adamant.global.v1.GetSignInfoResponse)
     - [GetSpendableBalanceRequest](#adamant.global.v1.GetSpendableBalanceRequest)
     - [GetSpendableBalanceResponse](#adamant.global.v1.GetSpendableBalanceResponse)
+    - [GetTransactionRequest](#adamant.global.v1.GetTransactionRequest)
     - [GetTransferLimitRequest](#adamant.global.v1.GetTransferLimitRequest)
     - [GetWalletRequest](#adamant.global.v1.GetWalletRequest)
     - [GetWhitelistRequest](#adamant.global.v1.GetWhitelistRequest)
@@ -81,6 +81,8 @@
     - [ListPoliciesRequest](#adamant.global.v1.ListPoliciesRequest)
     - [ListPoliciesResponse](#adamant.global.v1.ListPoliciesResponse)
     - [ListRatesResponse](#adamant.global.v1.ListRatesResponse)
+    - [ListSignInfoRequest](#adamant.global.v1.ListSignInfoRequest)
+    - [ListSignInfoResponse](#adamant.global.v1.ListSignInfoResponse)
     - [ListTransactionsRequest](#adamant.global.v1.ListTransactionsRequest)
     - [ListTransactionsResponse](#adamant.global.v1.ListTransactionsResponse)
     - [ListTransferLimitsRequest](#adamant.global.v1.ListTransferLimitsRequest)
@@ -133,6 +135,7 @@
   
 
 - [gincoinc/adamant/teller/v1/adamanttellerv1/teller_api.proto](#gincoinc/adamant/teller/v1/adamanttellerv1/teller_api.proto)
+    - [CreateWalletRequest](#adamant.teller.v1.CreateWalletRequest)
     - [SignTransactionRequest](#adamant.teller.v1.SignTransactionRequest)
   
   
@@ -705,37 +708,6 @@ WalletType is a type of wallet.
 
 
 
-<a name="adamant.global.v1.CreateRegisterKeyTokenRequest"></a>
-
-### CreateRegisterKeyTokenRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| wallet_id | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="adamant.global.v1.CreateRegisterKeyTokenResponse"></a>
-
-### CreateRegisterKeyTokenResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| token | [string](#string) |  |  |
-| hd_account | [uint32](#uint32) |  |  |
-
-
-
-
-
-
 <a name="adamant.global.v1.CreateTransactionRequest"></a>
 
 ### CreateTransactionRequest
@@ -927,6 +899,36 @@ WalletType is a type of wallet.
 
 
 
+<a name="adamant.global.v1.GetNextHdAccountRequest"></a>
+
+### GetNextHdAccountRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| wallet_id | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="adamant.global.v1.GetNextHdAccountResponse"></a>
+
+### GetNextHdAccountResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| hd_account | [uint32](#uint32) |  |  |
+
+
+
+
+
+
 <a name="adamant.global.v1.GetPolicyRequest"></a>
 
 ### GetPolicyRequest
@@ -952,23 +954,7 @@ WalletType is a type of wallet.
 | ----- | ---- | ----- | ----------- |
 | wallet_id | [string](#string) |  |  |
 | transaction_id | [string](#string) |  |  |
-| account_id | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="adamant.global.v1.GetSignInfoResponse"></a>
-
-### GetSignInfoResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| sign_info | [SignInfo](#adamant.global.v1.SignInfo) |  |  |
-| token | [string](#string) |  |  |
+| key_id | [string](#string) |  |  |
 
 
 
@@ -1002,6 +988,22 @@ WalletType is a type of wallet.
 | daily_spendable_balance | [string](#string) |  |  |
 | hourly_spendable_balance | [string](#string) |  |  |
 | one_time_spendable_balance | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="adamant.global.v1.GetTransactionRequest"></a>
+
+### GetTransactionRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| wallet_id | [string](#string) |  |  |
+| transaction_id | [string](#string) |  |  |
 
 
 
@@ -1152,6 +1154,37 @@ WalletType is a type of wallet.
 
 
 
+<a name="adamant.global.v1.ListSignInfoRequest"></a>
+
+### ListSignInfoRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| wallet_id | [string](#string) |  |  |
+| transaction_id | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="adamant.global.v1.ListSignInfoResponse"></a>
+
+### ListSignInfoResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| sign_info_list | [SignInfo](#adamant.global.v1.SignInfo) | repeated |  |
+
+
+
+
+
+
 <a name="adamant.global.v1.ListTransactionsRequest"></a>
 
 ### ListTransactionsRequest
@@ -1160,6 +1193,7 @@ WalletType is a type of wallet.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| wallet_id | [string](#string) |  |  |
 | page_size | [uint32](#uint32) |  |  |
 | page_token | [string](#string) |  |  |
 
@@ -1217,6 +1251,7 @@ WalletType is a type of wallet.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| wallet_id | [string](#string) |  |  |
 | page_size | [uint32](#uint32) |  |  |
 | page_token | [string](#string) |  |  |
 
@@ -1309,7 +1344,6 @@ TODO implement pagenation
 | wallet_id | [string](#string) |  |  |
 | pub_key | [string](#string) |  |  |
 | hd_account | [uint32](#uint32) |  |  |
-| token | [string](#string) |  |  |
 
 
 
@@ -1342,9 +1376,8 @@ TODO implement pagenation
 | ----- | ---- | ----- | ----------- |
 | wallet_id | [string](#string) |  |  |
 | transaction_id | [string](#string) |  |  |
-| account_id | [string](#string) |  |  |
+| key_id | [string](#string) |  |  |
 | signed_info | [SignedInfo](#adamant.global.v1.SignedInfo) |  |  |
-| token | [string](#string) |  |  |
 
 
 
@@ -1479,14 +1512,16 @@ TODO implement pagenation
 | CreateAddress | [CreateAddressRequest](#adamant.global.v1.CreateAddressRequest) | [Address](#adamant.global.v1.Address) | Address |
 | GetAddress | [GetAddressRequest](#adamant.global.v1.GetAddressRequest) | [Address](#adamant.global.v1.Address) |  |
 | ListAddresses | [ListAddressesRequest](#adamant.global.v1.ListAddressesRequest) | [ListAddressesResponse](#adamant.global.v1.ListAddressesResponse) |  |
-| CreateRegisterKeyToken | [CreateRegisterKeyTokenRequest](#adamant.global.v1.CreateRegisterKeyTokenRequest) | [CreateRegisterKeyTokenResponse](#adamant.global.v1.CreateRegisterKeyTokenResponse) | RegisterKey |
+| GetNextHdAccount | [GetNextHdAccountRequest](#adamant.global.v1.GetNextHdAccountRequest) | [GetNextHdAccountResponse](#adamant.global.v1.GetNextHdAccountResponse) | RegisterKey |
 | RegisterKey | [RegisterKeyRequest](#adamant.global.v1.RegisterKeyRequest) | [Key](#adamant.global.v1.Key) |  |
-| GetSignInfo | [GetSignInfoRequest](#adamant.global.v1.GetSignInfoRequest) | [GetSignInfoResponse](#adamant.global.v1.GetSignInfoResponse) | Transaction |
-| CreateTransaction | [CreateTransactionRequest](#adamant.global.v1.CreateTransactionRequest) | [Transaction](#adamant.global.v1.Transaction) |  |
-| CancelTransaction | [CancelTransactionRequest](#adamant.global.v1.CancelTransactionRequest) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
-| SendTransaction | [SendTransactionRequest](#adamant.global.v1.SendTransactionRequest) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
-| ListTransactions | [ListTransactionsRequest](#adamant.global.v1.ListTransactionsRequest) | [ListTransactionsResponse](#adamant.global.v1.ListTransactionsResponse) |  |
+| CreateTransaction | [CreateTransactionRequest](#adamant.global.v1.CreateTransactionRequest) | [Transaction](#adamant.global.v1.Transaction) | Transaction |
 | SignTransaction | [SignTransactionRequest](#adamant.global.v1.SignTransactionRequest) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
+| SendTransaction | [SendTransactionRequest](#adamant.global.v1.SendTransactionRequest) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
+| CancelTransaction | [CancelTransactionRequest](#adamant.global.v1.CancelTransactionRequest) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
+| GetTransaction | [GetTransactionRequest](#adamant.global.v1.GetTransactionRequest) | [Transaction](#adamant.global.v1.Transaction) |  |
+| ListTransactions | [ListTransactionsRequest](#adamant.global.v1.ListTransactionsRequest) | [ListTransactionsResponse](#adamant.global.v1.ListTransactionsResponse) |  |
+| GetSignInfo | [GetSignInfoRequest](#adamant.global.v1.GetSignInfoRequest) | [SignInfo](#adamant.global.v1.SignInfo) | SignInfo |
+| ListSignInfo | [ListSignInfoRequest](#adamant.global.v1.ListSignInfoRequest) | [ListSignInfoResponse](#adamant.global.v1.ListSignInfoResponse) |  |
 | ListTransfers | [ListTransfersRequest](#adamant.global.v1.ListTransfersRequest) | [ListTransfersResponse](#adamant.global.v1.ListTransfersResponse) | Transfer |
 | ListRates | [.google.protobuf.Empty](#google.protobuf.Empty) | [ListRatesResponse](#adamant.global.v1.ListRatesResponse) | Rate |
 | CreateLabeledAddress | [CreateLabeledAddressRequest](#adamant.global.v1.CreateLabeledAddressRequest) | [LabeledAddress](#adamant.global.v1.LabeledAddress) | policy |
@@ -1955,6 +1990,24 @@ TODO baseValue, stringValue, usdRateを入れるかどうか
 
 
 
+<a name="adamant.teller.v1.CreateWalletRequest"></a>
+
+### CreateWalletRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| wallet_name | [string](#string) |  |  |
+| coin | [gincoinc.global.v1.Coin](#gincoinc.global.v1.Coin) |  |  |
+| wallet_type | [adamant.global.v1.WalletType](#adamant.global.v1.WalletType) |  |  |
+| address_type | [gincoinc.global.v1.AddressType](#gincoinc.global.v1.AddressType) |  |  |
+
+
+
+
+
+
 <a name="adamant.teller.v1.SignTransactionRequest"></a>
 
 ### SignTransactionRequest
@@ -1984,7 +2037,7 @@ TODO baseValue, stringValue, usdRateを入れるかどうか
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| CreateWallet | [.adamant.global.v1.CreateWalletRequest](#adamant.global.v1.CreateWalletRequest) | [.adamant.global.v1.Wallet](#adamant.global.v1.Wallet) | Wallet |
+| CreateWallet | [CreateWalletRequest](#adamant.teller.v1.CreateWalletRequest) | [.adamant.global.v1.Wallet](#adamant.global.v1.Wallet) | Wallet |
 | GetWallet | [.adamant.global.v1.GetWalletRequest](#adamant.global.v1.GetWalletRequest) | [.adamant.global.v1.Wallet](#adamant.global.v1.Wallet) |  |
 | ListWallets | [.adamant.global.v1.ListWalletsRequest](#adamant.global.v1.ListWalletsRequest) | [.adamant.global.v1.ListWalletsResponse](#adamant.global.v1.ListWalletsResponse) |  |
 | GetSpendableBalance | [.adamant.global.v1.GetSpendableBalanceRequest](#adamant.global.v1.GetSpendableBalanceRequest) | [.adamant.global.v1.GetSpendableBalanceResponse](#adamant.global.v1.GetSpendableBalanceResponse) |  |

@@ -332,14 +332,6 @@
                 </li>
               
                 <li>
-                  <a href="#adamant.global.v1.CreateRegisterKeyTokenRequest"><span class="badge">M</span>CreateRegisterKeyTokenRequest</a>
-                </li>
-              
-                <li>
-                  <a href="#adamant.global.v1.CreateRegisterKeyTokenResponse"><span class="badge">M</span>CreateRegisterKeyTokenResponse</a>
-                </li>
-              
-                <li>
                   <a href="#adamant.global.v1.CreateTransactionRequest"><span class="badge">M</span>CreateTransactionRequest</a>
                 </li>
               
@@ -388,6 +380,14 @@
                 </li>
               
                 <li>
+                  <a href="#adamant.global.v1.GetNextHdAccountRequest"><span class="badge">M</span>GetNextHdAccountRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.GetNextHdAccountResponse"><span class="badge">M</span>GetNextHdAccountResponse</a>
+                </li>
+              
+                <li>
                   <a href="#adamant.global.v1.GetPolicyRequest"><span class="badge">M</span>GetPolicyRequest</a>
                 </li>
               
@@ -396,15 +396,15 @@
                 </li>
               
                 <li>
-                  <a href="#adamant.global.v1.GetSignInfoResponse"><span class="badge">M</span>GetSignInfoResponse</a>
-                </li>
-              
-                <li>
                   <a href="#adamant.global.v1.GetSpendableBalanceRequest"><span class="badge">M</span>GetSpendableBalanceRequest</a>
                 </li>
               
                 <li>
                   <a href="#adamant.global.v1.GetSpendableBalanceResponse"><span class="badge">M</span>GetSpendableBalanceResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.GetTransactionRequest"><span class="badge">M</span>GetTransactionRequest</a>
                 </li>
               
                 <li>
@@ -445,6 +445,14 @@
               
                 <li>
                   <a href="#adamant.global.v1.ListRatesResponse"><span class="badge">M</span>ListRatesResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListSignInfoRequest"><span class="badge">M</span>ListSignInfoRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.ListSignInfoResponse"><span class="badge">M</span>ListSignInfoResponse</a>
                 </li>
               
                 <li>
@@ -628,6 +636,10 @@
           <li>
             <a href="#gincoinc%2fadamant%2fteller%2fv1%2fadamanttellerv1%2fteller_api.proto">gincoinc/adamant/teller/v1/adamanttellerv1/teller_api.proto</a>
             <ul>
+              
+                <li>
+                  <a href="#adamant.teller.v1.CreateWalletRequest"><span class="badge">M</span>CreateWalletRequest</a>
+                </li>
               
                 <li>
                   <a href="#adamant.teller.v1.SignTransactionRequest"><span class="badge">M</span>SignTransactionRequest</a>
@@ -1932,61 +1944,6 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
 
         
       
-        <h3 id="adamant.global.v1.CreateRegisterKeyTokenRequest">CreateRegisterKeyTokenRequest</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>wallet_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="adamant.global.v1.CreateRegisterKeyTokenResponse">CreateRegisterKeyTokenResponse</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>token</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>hd_account</td>
-                  <td><a href="#uint32">uint32</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="adamant.global.v1.CreateTransactionRequest">CreateTransactionRequest</h3>
         <p></p>
 
@@ -2370,6 +2327,54 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
 
         
       
+        <h3 id="adamant.global.v1.GetNextHdAccountRequest">GetNextHdAccountRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.GetNextHdAccountResponse">GetNextHdAccountResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>hd_account</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="adamant.global.v1.GetPolicyRequest">GetPolicyRequest</h3>
         <p></p>
 
@@ -2419,38 +2424,7 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
                 </tr>
               
                 <tr>
-                  <td>account_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="adamant.global.v1.GetSignInfoResponse">GetSignInfoResponse</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>sign_info</td>
-                  <td><a href="#adamant.global.v1.SignInfo">SignInfo</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>token</td>
+                  <td>key_id</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -2520,6 +2494,37 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               
                 <tr>
                   <td>one_time_spendable_balance</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.GetTransactionRequest">GetTransactionRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transaction_id</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -2766,6 +2771,61 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
 
         
       
+        <h3 id="adamant.global.v1.ListSignInfoRequest">ListSignInfoRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transaction_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="adamant.global.v1.ListSignInfoResponse">ListSignInfoResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>sign_info_list</td>
+                  <td><a href="#adamant.global.v1.SignInfo">SignInfo</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="adamant.global.v1.ListTransactionsRequest">ListTransactionsRequest</h3>
         <p></p>
 
@@ -2775,6 +2835,13 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
               
                 <tr>
                   <td>page_size</td>
@@ -2868,6 +2935,13 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
+              
+                <tr>
+                  <td>wallet_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
               
                 <tr>
                   <td>page_size</td>
@@ -3045,13 +3119,6 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
                   <td><p> </p></td>
                 </tr>
               
-                <tr>
-                  <td>token</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
             </tbody>
           </table>
 
@@ -3115,7 +3182,7 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
                 </tr>
               
                 <tr>
-                  <td>account_id</td>
+                  <td>key_id</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -3124,13 +3191,6 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
                 <tr>
                   <td>signed_info</td>
                   <td><a href="#adamant.global.v1.SignedInfo">SignedInfo</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>token</td>
-                  <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -3476,9 +3536,9 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               </tr>
             
               <tr>
-                <td>CreateRegisterKeyToken</td>
-                <td><a href="#adamant.global.v1.CreateRegisterKeyTokenRequest">CreateRegisterKeyTokenRequest</a></td>
-                <td><a href="#adamant.global.v1.CreateRegisterKeyTokenResponse">CreateRegisterKeyTokenResponse</a></td>
+                <td>GetNextHdAccount</td>
+                <td><a href="#adamant.global.v1.GetNextHdAccountRequest">GetNextHdAccountRequest</a></td>
+                <td><a href="#adamant.global.v1.GetNextHdAccountResponse">GetNextHdAccountResponse</a></td>
                 <td><p>RegisterKey</p></td>
               </tr>
             
@@ -3490,22 +3550,15 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               </tr>
             
               <tr>
-                <td>GetSignInfo</td>
-                <td><a href="#adamant.global.v1.GetSignInfoRequest">GetSignInfoRequest</a></td>
-                <td><a href="#adamant.global.v1.GetSignInfoResponse">GetSignInfoResponse</a></td>
+                <td>CreateTransaction</td>
+                <td><a href="#adamant.global.v1.CreateTransactionRequest">CreateTransactionRequest</a></td>
+                <td><a href="#adamant.global.v1.Transaction">Transaction</a></td>
                 <td><p>Transaction</p></td>
               </tr>
             
               <tr>
-                <td>CreateTransaction</td>
-                <td><a href="#adamant.global.v1.CreateTransactionRequest">CreateTransactionRequest</a></td>
-                <td><a href="#adamant.global.v1.Transaction">Transaction</a></td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>CancelTransaction</td>
-                <td><a href="#adamant.global.v1.CancelTransactionRequest">CancelTransactionRequest</a></td>
+                <td>SignTransaction</td>
+                <td><a href="#adamant.global.v1.SignTransactionRequest">SignTransactionRequest</a></td>
                 <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p></p></td>
               </tr>
@@ -3518,6 +3571,20 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               </tr>
             
               <tr>
+                <td>CancelTransaction</td>
+                <td><a href="#adamant.global.v1.CancelTransactionRequest">CancelTransactionRequest</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetTransaction</td>
+                <td><a href="#adamant.global.v1.GetTransactionRequest">GetTransactionRequest</a></td>
+                <td><a href="#adamant.global.v1.Transaction">Transaction</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
                 <td>ListTransactions</td>
                 <td><a href="#adamant.global.v1.ListTransactionsRequest">ListTransactionsRequest</a></td>
                 <td><a href="#adamant.global.v1.ListTransactionsResponse">ListTransactionsResponse</a></td>
@@ -3525,9 +3592,16 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               </tr>
             
               <tr>
-                <td>SignTransaction</td>
-                <td><a href="#adamant.global.v1.SignTransactionRequest">SignTransactionRequest</a></td>
-                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td>GetSignInfo</td>
+                <td><a href="#adamant.global.v1.GetSignInfoRequest">GetSignInfoRequest</a></td>
+                <td><a href="#adamant.global.v1.SignInfo">SignInfo</a></td>
+                <td><p>SignInfo</p></td>
+              </tr>
+            
+              <tr>
+                <td>ListSignInfo</td>
+                <td><a href="#adamant.global.v1.ListSignInfoRequest">ListSignInfoRequest</a></td>
+                <td><a href="#adamant.global.v1.ListSignInfoResponse">ListSignInfoResponse</a></td>
                 <td><p></p></td>
               </tr>
             
@@ -5010,6 +5084,51 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
       <p></p>
 
       
+        <h3 id="adamant.teller.v1.CreateWalletRequest">CreateWalletRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>wallet_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>wallet_type</td>
+                  <td><a href="#adamant.global.v1.WalletType">adamant.global.v1.WalletType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>address_type</td>
+                  <td><a href="#gincoinc.global.v1.AddressType">gincoinc.global.v1.AddressType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="adamant.teller.v1.SignTransactionRequest">SignTransactionRequest</h3>
         <p></p>
 
@@ -5057,7 +5176,7 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
             
               <tr>
                 <td>CreateWallet</td>
-                <td><a href="#adamant.global.v1.CreateWalletRequest">.adamant.global.v1.CreateWalletRequest</a></td>
+                <td><a href="#adamant.teller.v1.CreateWalletRequest">CreateWalletRequest</a></td>
                 <td><a href="#adamant.global.v1.Wallet">.adamant.global.v1.Wallet</a></td>
                 <td><p>Wallet</p></td>
               </tr>
