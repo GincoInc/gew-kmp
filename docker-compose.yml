@@ -1,0 +1,10 @@
+---
+teller:
+  image: ginco/teller:latest
+  ports:
+    - "50051:50051"
+  command: -f /root/configs/config.toml
+  volumes:
+    - "./configs/config.toml:/root/configs/config.toml"
+  env_file:
+    - .env

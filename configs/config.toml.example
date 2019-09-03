@@ -1,0 +1,18 @@
+cpu = 1
+gRPCPort = 50051
+testnet = true
+
+[dynamodb]
+  region =  "ap-northeast-1"
+
+[s3]
+  region =  "ap-northeast-1"
+  bucket = "exmample-bucket"
+
+[awskms1]
+  region =  "ap-northeast-1"
+  keyID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+[awskms2]
+  region =  "ap-northeast-1"
+  keyID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
