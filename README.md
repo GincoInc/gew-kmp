@@ -1,4 +1,4 @@
-# gew-protobuf
+# gew-kmp
 
 ## Requirements
 - Amazon DynamoDB
