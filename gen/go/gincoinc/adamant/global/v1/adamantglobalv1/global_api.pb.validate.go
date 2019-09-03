@@ -51,6 +51,9 @@ var (
 	_ = gincoincglobalv1.Coin(0)
 )
 
+// define the regex for a UUID once up-front
+var _global_api_uuidPattern = regexp.MustCompile("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
+
 // Validate checks the field values on ApproveWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -280,7 +283,12 @@ func (m *GetWalletRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_GetWalletRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return GetWalletRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -339,6 +347,8 @@ var _ interface {
 	ErrorName() string
 } = GetWalletRequestValidationError{}
 
+var _GetWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on CancelWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -347,7 +357,12 @@ func (m *CancelWalletRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_CancelWalletRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return CancelWalletRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -408,6 +423,8 @@ var _ interface {
 	ErrorName() string
 } = CancelWalletRequestValidationError{}
 
+var _CancelWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on ArchiveWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -416,7 +433,12 @@ func (m *ArchiveWalletRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_ArchiveWalletRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return ArchiveWalletRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -477,6 +499,8 @@ var _ interface {
 	ErrorName() string
 } = ArchiveWalletRequestValidationError{}
 
+var _ArchiveWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on UnArchiveWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -485,7 +509,12 @@ func (m *UnArchiveWalletRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_UnArchiveWalletRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return UnArchiveWalletRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -545,6 +574,8 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = UnArchiveWalletRequestValidationError{}
+
+var _UnArchiveWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on ListWalletsRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -991,7 +1022,12 @@ func (m *CreateAddressRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_CreateAddressRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return CreateAddressRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -1052,6 +1088,8 @@ var _ interface {
 	ErrorName() string
 } = CreateAddressRequestValidationError{}
 
+var _CreateAddressRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on GetAddressRequest with the rules defined
 // in the proto definition for this message. If any rules are violated, an
 // error is returned.
@@ -1060,9 +1098,19 @@ func (m *GetAddressRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_GetAddressRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return GetAddressRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for AddressId
+	if !_GetAddressRequest_AddressId_Pattern.MatchString(m.GetAddressId()) {
+		return GetAddressRequestValidationError{
+			field:  "AddressId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -1123,6 +1171,10 @@ var _ interface {
 	ErrorName() string
 } = GetAddressRequestValidationError{}
 
+var _GetAddressRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _GetAddressRequest_AddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on ListAddressesRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -1131,11 +1183,21 @@ func (m *ListAddressesRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_ListAddressesRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return ListAddressesRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	// no validation rules for OmitChange
 
-	// no validation rules for PageSize
+	if m.GetPageSize() > 100 {
+		return ListAddressesRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 100",
+		}
+	}
 
 	// no validation rules for PageToken
 
@@ -1197,6 +1259,8 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListAddressesRequestValidationError{}
+
+var _ListAddressesRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on ListAddressesResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -1290,9 +1354,19 @@ func (m *CreateTransactionRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_CreateTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return CreateTransactionRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for FeeRate
+	if m.GetFeeRate() < 1 {
+		return CreateTransactionRequestValidationError{
+			field:  "FeeRate",
+			reason: "value must be greater than or equal to 1",
+		}
+	}
 
 	for idx, item := range m.GetTxOutputs() {
 		_, _ = idx, item
@@ -1368,6 +1442,8 @@ var _ interface {
 	ErrorName() string
 } = CreateTransactionRequestValidationError{}
 
+var _CreateTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on SignTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -1376,11 +1452,33 @@ func (m *SignTransactionRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_SignTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return SignTransactionRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for TransactionId
+	if !_SignTransactionRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
+		return SignTransactionRequestValidationError{
+			field:  "TransactionId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for KeyId
+	if !_SignTransactionRequest_KeyId_Pattern.MatchString(m.GetKeyId()) {
+		return SignTransactionRequestValidationError{
+			field:  "KeyId",
+			reason: "value does not match regex pattern \"^[0-9A-F]{64}$\"",
+		}
+	}
+
+	if m.GetSignedInfo() == nil {
+		return SignTransactionRequestValidationError{
+			field:  "SignedInfo",
+			reason: "value is required",
+		}
+	}
 
 	if v, ok := interface{}(m.GetSignedInfo()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
@@ -1451,6 +1549,12 @@ var _ interface {
 	ErrorName() string
 } = SignTransactionRequestValidationError{}
 
+var _SignTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _SignTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _SignTransactionRequest_KeyId_Pattern = regexp.MustCompile("^[0-9A-F]{64}$")
+
 // Validate checks the field values on SendTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -1459,9 +1563,19 @@ func (m *SendTransactionRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_SendTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return SendTransactionRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for TransactionId
+	if !_SendTransactionRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
+		return SendTransactionRequestValidationError{
+			field:  "TransactionId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -1522,6 +1636,10 @@ var _ interface {
 	ErrorName() string
 } = SendTransactionRequestValidationError{}
 
+var _SendTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _SendTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on CancelTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -1530,9 +1648,19 @@ func (m *CancelTransactionRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_CancelTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return CancelTransactionRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for TransactionId
+	if !_CancelTransactionRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
+		return CancelTransactionRequestValidationError{
+			field:  "TransactionId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -1593,6 +1721,10 @@ var _ interface {
 	ErrorName() string
 } = CancelTransactionRequestValidationError{}
 
+var _CancelTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _CancelTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on GetTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -1601,9 +1733,19 @@ func (m *GetTransactionRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_GetTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return GetTransactionRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for TransactionId
+	if !_GetTransactionRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
+		return GetTransactionRequestValidationError{
+			field:  "TransactionId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -1664,6 +1806,10 @@ var _ interface {
 	ErrorName() string
 } = GetTransactionRequestValidationError{}
 
+var _GetTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _GetTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on ListTransactionsRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -1672,9 +1818,19 @@ func (m *ListTransactionsRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_ListTransactionsRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return ListTransactionsRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for PageSize
+	if m.GetPageSize() > 100 {
+		return ListTransactionsRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 100",
+		}
+	}
 
 	// no validation rules for PageToken
 
@@ -1736,6 +1892,8 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListTransactionsRequestValidationError{}
+
+var _ListTransactionsRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on ListTransactionsResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -1829,11 +1987,26 @@ func (m *GetSignInfoRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_GetSignInfoRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return GetSignInfoRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for TransactionId
+	if !_GetSignInfoRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
+		return GetSignInfoRequestValidationError{
+			field:  "TransactionId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for KeyId
+	if !_GetSignInfoRequest_KeyId_Pattern.MatchString(m.GetKeyId()) {
+		return GetSignInfoRequestValidationError{
+			field:  "KeyId",
+			reason: "value does not match regex pattern \"^[0-9A-F]{64}$\"",
+		}
+	}
 
 	return nil
 }
@@ -1894,6 +2067,12 @@ var _ interface {
 	ErrorName() string
 } = GetSignInfoRequestValidationError{}
 
+var _GetSignInfoRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _GetSignInfoRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _GetSignInfoRequest_KeyId_Pattern = regexp.MustCompile("^[0-9A-F]{64}$")
+
 // Validate checks the field values on ListSignInfoRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -1902,9 +2081,19 @@ func (m *ListSignInfoRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_ListSignInfoRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return ListSignInfoRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for TransactionId
+	if !_ListSignInfoRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
+		return ListSignInfoRequestValidationError{
+			field:  "TransactionId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -1964,6 +2153,10 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListSignInfoRequestValidationError{}
+
+var _ListSignInfoRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ListSignInfoRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on ListSignInfoResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -2055,9 +2248,19 @@ func (m *ListTransfersRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_ListTransfersRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return ListTransfersRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for PageSize
+	if m.GetPageSize() > 100 {
+		return ListTransfersRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 100",
+		}
+	}
 
 	// no validation rules for PageToken
 
@@ -2119,6 +2322,8 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListTransfersRequestValidationError{}
+
+var _ListTransfersRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on ListTransfersResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -2294,7 +2499,12 @@ func (m *GetSpendableBalanceRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_GetSpendableBalanceRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return GetSpendableBalanceRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -2354,6 +2564,8 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = GetSpendableBalanceRequestValidationError{}
+
+var _GetSpendableBalanceRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on GetSpendableBalanceResponse with the
 // rules defined in the proto definition for this message. If any rules are
@@ -2439,7 +2651,12 @@ func (m *CalculateFeeRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_CalculateFeeRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return CalculateFeeRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	// no validation rules for FeeRate
 
@@ -2516,6 +2733,8 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CalculateFeeRequestValidationError{}
+
+var _CalculateFeeRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on CalculateFeeResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -2745,7 +2964,12 @@ func (m *CreateLabeledAddressRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for Name
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
+		return CreateLabeledAddressRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 20 runes, inclusive",
+		}
+	}
 
 	// no validation rules for Coin
 
@@ -2819,9 +3043,19 @@ func (m *UpdateLabeledAddressRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for LabeledAddressId
+	if !_UpdateLabeledAddressRequest_LabeledAddressId_Pattern.MatchString(m.GetLabeledAddressId()) {
+		return UpdateLabeledAddressRequestValidationError{
+			field:  "LabeledAddressId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for Name
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
+		return UpdateLabeledAddressRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 20 runes, inclusive",
+		}
+	}
 
 	// no validation rules for Coin
 
@@ -2887,6 +3121,8 @@ var _ interface {
 	ErrorName() string
 } = UpdateLabeledAddressRequestValidationError{}
 
+var _UpdateLabeledAddressRequest_LabeledAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on GetLabeledAddressRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -2895,7 +3131,12 @@ func (m *GetLabeledAddressRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for LabeledAddressId
+	if !_GetLabeledAddressRequest_LabeledAddressId_Pattern.MatchString(m.GetLabeledAddressId()) {
+		return GetLabeledAddressRequestValidationError{
+			field:  "LabeledAddressId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -2955,6 +3196,8 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = GetLabeledAddressRequestValidationError{}
+
+var _GetLabeledAddressRequest_LabeledAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on ListLabeledAddressesRequest with the
 // rules defined in the proto definition for this message. If any rules are
@@ -3115,7 +3358,12 @@ func (m *DeleteLabeledAddressRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for LabeledAddressId
+	if !_DeleteLabeledAddressRequest_LabeledAddressId_Pattern.MatchString(m.GetLabeledAddressId()) {
+		return DeleteLabeledAddressRequestValidationError{
+			field:  "LabeledAddressId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -3177,6 +3425,8 @@ var _ interface {
 	ErrorName() string
 } = DeleteLabeledAddressRequestValidationError{}
 
+var _DeleteLabeledAddressRequest_LabeledAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on ApproveLabeledAddressRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -3185,7 +3435,12 @@ func (m *ApproveLabeledAddressRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for LabeledAddressId
+	if !_ApproveLabeledAddressRequest_LabeledAddressId_Pattern.MatchString(m.GetLabeledAddressId()) {
+		return ApproveLabeledAddressRequestValidationError{
+			field:  "LabeledAddressId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -3247,6 +3502,8 @@ var _ interface {
 	ErrorName() string
 } = ApproveLabeledAddressRequestValidationError{}
 
+var _ApproveLabeledAddressRequest_LabeledAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on CreateWhitelistRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -3255,7 +3512,12 @@ func (m *CreateWhitelistRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for Name
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
+		return CreateWhitelistRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 20 runes, inclusive",
+		}
+	}
 
 	// no validation rules for Coin
 
@@ -3326,7 +3588,12 @@ func (m *GetWhitelistRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WhitelistId
+	if !_GetWhitelistRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
+		return GetWhitelistRequestValidationError{
+			field:  "WhitelistId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -3386,6 +3653,8 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = GetWhitelistRequestValidationError{}
+
+var _GetWhitelistRequest_WhitelistId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on ListWhitelistsRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -3544,9 +3813,19 @@ func (m *UpdateWhitelistRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WhitelistId
+	if !_UpdateWhitelistRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
+		return UpdateWhitelistRequestValidationError{
+			field:  "WhitelistId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for Name
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
+		return UpdateWhitelistRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 20 runes, inclusive",
+		}
+	}
 
 	// no validation rules for Coin
 
@@ -3609,6 +3888,8 @@ var _ interface {
 	ErrorName() string
 } = UpdateWhitelistRequestValidationError{}
 
+var _UpdateWhitelistRequest_WhitelistId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on DeleteWhitelistRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -3617,7 +3898,12 @@ func (m *DeleteWhitelistRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WhitelistId
+	if !_DeleteWhitelistRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
+		return DeleteWhitelistRequestValidationError{
+			field:  "WhitelistId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -3678,6 +3964,8 @@ var _ interface {
 	ErrorName() string
 } = DeleteWhitelistRequestValidationError{}
 
+var _DeleteWhitelistRequest_WhitelistId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on CreateTransferLimitRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -3686,7 +3974,12 @@ func (m *CreateTransferLimitRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for Name
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
+		return CreateTransferLimitRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 20 runes, inclusive",
+		}
+	}
 
 	// no validation rules for Coin
 
@@ -3763,7 +4056,12 @@ func (m *GetTransferLimitRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for TransferLimitId
+	if !_GetTransferLimitRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
+		return GetTransferLimitRequestValidationError{
+			field:  "TransferLimitId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -3823,6 +4121,8 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = GetTransferLimitRequestValidationError{}
+
+var _GetTransferLimitRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on ListTransferLimitsRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -3981,9 +4281,19 @@ func (m *UpdateTransferLimitRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for TransferLimitId
+	if !_UpdateTransferLimitRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
+		return UpdateTransferLimitRequestValidationError{
+			field:  "TransferLimitId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for Name
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
+		return UpdateTransferLimitRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 20 runes, inclusive",
+		}
+	}
 
 	// no validation rules for HourlyLimit
 
@@ -4050,6 +4360,8 @@ var _ interface {
 	ErrorName() string
 } = UpdateTransferLimitRequestValidationError{}
 
+var _UpdateTransferLimitRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on DeleteTransferLimitRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -4058,7 +4370,12 @@ func (m *DeleteTransferLimitRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for TransferLimitId
+	if !_DeleteTransferLimitRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
+		return DeleteTransferLimitRequestValidationError{
+			field:  "TransferLimitId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -4119,6 +4436,8 @@ var _ interface {
 	ErrorName() string
 } = DeleteTransferLimitRequestValidationError{}
 
+var _DeleteTransferLimitRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on ApproveTransferLimitRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -4127,7 +4446,12 @@ func (m *ApproveTransferLimitRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for TransferLimitId
+	if !_ApproveTransferLimitRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
+		return ApproveTransferLimitRequestValidationError{
+			field:  "TransferLimitId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -4189,6 +4513,8 @@ var _ interface {
 	ErrorName() string
 } = ApproveTransferLimitRequestValidationError{}
 
+var _ApproveTransferLimitRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on CreatePolicyRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -4197,7 +4523,12 @@ func (m *CreatePolicyRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for Name
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
+		return CreatePolicyRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 20 runes, inclusive",
+		}
+	}
 
 	// no validation rules for IsBasePolicy
 
@@ -4205,9 +4536,19 @@ func (m *CreatePolicyRequest) Validate() error {
 
 	// no validation rules for Type
 
-	// no validation rules for WhitelistId
+	if !_CreatePolicyRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
+		return CreatePolicyRequestValidationError{
+			field:  "WhitelistId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for TransferLimitId
+	if !_CreatePolicyRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
+		return CreatePolicyRequestValidationError{
+			field:  "TransferLimitId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -4268,6 +4609,10 @@ var _ interface {
 	ErrorName() string
 } = CreatePolicyRequestValidationError{}
 
+var _CreatePolicyRequest_WhitelistId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _CreatePolicyRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on GetPolicyRequest with the rules defined
 // in the proto definition for this message. If any rules are violated, an
 // error is returned.
@@ -4276,7 +4621,12 @@ func (m *GetPolicyRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for PolicyId
+	if !_GetPolicyRequest_PolicyId_Pattern.MatchString(m.GetPolicyId()) {
+		return GetPolicyRequestValidationError{
+			field:  "PolicyId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -4334,6 +4684,8 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = GetPolicyRequestValidationError{}
+
+var _GetPolicyRequest_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on ListPoliciesRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -4492,13 +4844,33 @@ func (m *UpdatePolicyRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for PolicyId
+	if !_UpdatePolicyRequest_PolicyId_Pattern.MatchString(m.GetPolicyId()) {
+		return UpdatePolicyRequestValidationError{
+			field:  "PolicyId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for Name
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
+		return UpdatePolicyRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 20 runes, inclusive",
+		}
+	}
 
-	// no validation rules for WhitelistId
+	if !_UpdatePolicyRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
+		return UpdatePolicyRequestValidationError{
+			field:  "WhitelistId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for TransferLimitId
+	if !_UpdatePolicyRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
+		return UpdatePolicyRequestValidationError{
+			field:  "TransferLimitId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -4559,6 +4931,12 @@ var _ interface {
 	ErrorName() string
 } = UpdatePolicyRequestValidationError{}
 
+var _UpdatePolicyRequest_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _UpdatePolicyRequest_WhitelistId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _UpdatePolicyRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on DeletePolicyRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -4567,7 +4945,12 @@ func (m *DeletePolicyRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for PolicyId
+	if !_DeletePolicyRequest_PolicyId_Pattern.MatchString(m.GetPolicyId()) {
+		return DeletePolicyRequestValidationError{
+			field:  "PolicyId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -4627,3 +5010,5 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = DeletePolicyRequestValidationError{}
+
+var _DeletePolicyRequest_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")

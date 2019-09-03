@@ -43,6 +43,9 @@ var (
 	_ = gincoincglobalv1.AddressType(0)
 )
 
+// define the regex for a UUID once up-front
+var _teller_api_uuidPattern = regexp.MustCompile("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
+
 // Validate checks the field values on CreateWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -53,11 +56,26 @@ func (m *CreateWalletRequest) Validate() error {
 
 	// no validation rules for WalletName
 
-	// no validation rules for Coin
+	if _, ok := _CreateWalletRequest_Coin_InLookup[m.GetCoin()]; !ok {
+		return CreateWalletRequestValidationError{
+			field:  "Coin",
+			reason: "value must be in list [1]",
+		}
+	}
 
-	// no validation rules for WalletType
+	if _, ok := _CreateWalletRequest_WalletType_InLookup[m.GetWalletType()]; !ok {
+		return CreateWalletRequestValidationError{
+			field:  "WalletType",
+			reason: "value must be in list [1]",
+		}
+	}
 
-	// no validation rules for AddressType
+	if _, ok := _CreateWalletRequest_AddressType_InLookup[m.GetAddressType()]; !ok {
+		return CreateWalletRequestValidationError{
+			field:  "AddressType",
+			reason: "value must be in list [2 3]",
+		}
+	}
 
 	return nil
 }
@@ -117,6 +135,19 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CreateWalletRequestValidationError{}
+
+var _CreateWalletRequest_Coin_InLookup = map[gincoincglobalv1.Coin]struct{}{
+	1: {},
+}
+
+var _CreateWalletRequest_WalletType_InLookup = map[adamantglobalv1.WalletType]struct{}{
+	1: {},
+}
+
+var _CreateWalletRequest_AddressType_InLookup = map[gincoincglobalv1.AddressType]struct{}{
+	2: {},
+	3: {},
+}
 
 // Validate checks the field values on SignTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are

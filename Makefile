@@ -1,9 +1,6 @@
 generate:
 	@rm -r ./gen && prototool generate
 
-lint:
-	@prototool lint | grep -v "vendor" || [[ $$? == 1 ]]
-
 protoDoc:
 	protoc -I vendor/ --doc_out=./docs --doc_opt=markdown,README.md \
 	vendor/gincoinc/global/v1/gincoincglobalv1/* \
