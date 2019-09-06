@@ -575,6 +575,10 @@
                 </li>
               
                 <li>
+                  <a href="#adamant.global.v1.RequestTxOutput"><span class="badge">M</span>RequestTxOutput</a>
+                </li>
+              
+                <li>
                   <a href="#adamant.global.v1.SignInfo"><span class="badge">M</span>SignInfo</a>
                 </li>
               
@@ -596,6 +600,10 @@
               
                 <li>
                   <a href="#adamant.global.v1.TransactionMember"><span class="badge">M</span>TransactionMember</a>
+                </li>
+              
+                <li>
+                  <a href="#adamant.global.v1.TransactionUpdateEvent"><span class="badge">M</span>TransactionUpdateEvent</a>
                 </li>
               
                 <li>
@@ -898,12 +906,6 @@
               <tr>
                 <td>TRANSFER_TYPE_CHANGE</td>
                 <td>3</td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>TRANSFER_TYPE_SELF</td>
-                <td>4</td>
                 <td><p></p></td>
               </tr>
             
@@ -1725,14 +1727,14 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               
                 <tr>
                   <td>fee_rate</td>
-                  <td><a href="#int64">int64</a></td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
                   <td>tx_outputs</td>
-                  <td><a href="#adamant.global.v1.TxOutput">TxOutput</a></td>
+                  <td><a href="#adamant.global.v1.RequestTxOutput">RequestTxOutput</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
@@ -1756,7 +1758,14 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               
                 <tr>
                   <td>fee</td>
-                  <td><a href="#int64">int64</a></td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>string_fee</td>
+                  <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -1963,14 +1972,14 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               
                 <tr>
                   <td>fee_rate</td>
-                  <td><a href="#int64">int64</a></td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
                   <td>tx_outputs</td>
-                  <td><a href="#adamant.global.v1.TxOutput">TxOutput</a></td>
+                  <td><a href="#adamant.global.v1.RequestTxOutput">RequestTxOutput</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
@@ -2423,13 +2432,6 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
                   <td><p> </p></td>
                 </tr>
               
-                <tr>
-                  <td>key_id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
             </tbody>
           </table>
 
@@ -2473,6 +2475,13 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               
                 <tr>
                   <td>total_spendable_balance</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>string_total_spendable_balance</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -2480,6 +2489,13 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               
                 <tr>
                   <td>daily_spendable_balance</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>string_daily_spendable_balance</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -2487,6 +2503,13 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               
                 <tr>
                   <td>hourly_spendable_balance</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>string_hourly_spendable_balance</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -2494,6 +2517,13 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               
                 <tr>
                   <td>one_time_spendable_balance</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>string_one_time_spendable_balance</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -2996,7 +3026,7 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
         
       
         <h3 id="adamant.global.v1.ListWalletsRequest">ListWalletsRequest</h3>
-        <p>TODO implement pagenation</p>
+        <p></p>
 
         
           <table class="field-table">
@@ -3027,7 +3057,7 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
         
       
         <h3 id="adamant.global.v1.ListWalletsResponse">ListWalletsResponse</h3>
-        <p>TODO implement pagenation</p>
+        <p></p>
 
         
           <table class="field-table">
@@ -3853,6 +3883,13 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               
                 <tr>
                   <td>balance</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>string_balance</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -4226,6 +4263,37 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
 
         
       
+        <h3 id="adamant.global.v1.RequestTxOutput">RequestTxOutput</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="adamant.global.v1.SignInfo">SignInfo</h3>
         <p></p>
 
@@ -4460,6 +4528,13 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               
                 <tr>
                   <td>value</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>string_value</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -4467,7 +4542,21 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               
                 <tr>
                   <td>fee</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>string_fee</td>
                   <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>fee_rate</td>
+                  <td><a href="#uint64">uint64</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -4587,8 +4676,88 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
 
         
       
+        <h3 id="adamant.global.v1.TransactionUpdateEvent">TransactionUpdateEvent</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>coin</td>
+                  <td><a href="#gincoinc.global.v1.Coin">gincoinc.global.v1.Coin</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tx_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tx_index</td>
+                  <td><a href="#uint32">uint32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>from_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>to_address</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>state</td>
+                  <td><a href="#gincoinc.global.v1.TransactionState">gincoinc.global.v1.TransactionState</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>transfer_type</td>
+                  <td><a href="#gincoinc.global.v1.TransferType">gincoinc.global.v1.TransferType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>time</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="adamant.global.v1.Transfer">Transfer</h3>
-        <p>Transfer ...</p><p>TODO baseValue, stringValue, usdRateを入れるかどうか</p>
+        <p>Transfer ...</p>
 
         
           <table class="field-table">
@@ -4634,6 +4803,13 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               
                 <tr>
                   <td>value</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>string_value</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -4780,7 +4956,7 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               
                 <tr>
                   <td>value</td>
-                  <td><a href="#int64">int64</a></td>
+                  <td><a href="#double">double</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -4811,7 +4987,7 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               
                 <tr>
                   <td>value</td>
-                  <td><a href="#int64">int64</a></td>
+                  <td><a href="#double">double</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -4912,6 +5088,13 @@ WALLET_TYPE_DECENTRAL_COLD = 6;</p></td>
               
                 <tr>
                   <td>balance</td>
+                  <td><a href="#double">double</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>string_balance</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>

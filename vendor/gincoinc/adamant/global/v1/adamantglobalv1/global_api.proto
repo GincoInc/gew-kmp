@@ -135,13 +135,11 @@ message UnArchiveWalletRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
-// TODO implement pagenation
 message ListWalletsRequest {
     uint32 page_size = 1;
-    string page_token = 2;
+    string page_token = 2 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
 }
 
-// TODO implement pagenation
 message ListWalletsResponse {
     repeated Wallet wallets = 1;
     string next_page_token = 2;
@@ -185,7 +183,7 @@ message ListAddressesRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     bool omit_change = 2;
     uint32 page_size = 3 [(validate.rules).uint32.lte = 100];
-    string page_token = 4;
+    string page_token = 4 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
 }
 message ListAddressesResponse {
     repeated Address addresses = 1;
@@ -198,8 +196,8 @@ message ListAddressesResponse {
 
 message CreateTransactionRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    int64 fee_rate = 2 [(validate.rules).int64.gte = 1];
-    repeated TxOutput tx_outputs = 3;
+    uint64 fee_rate = 2 [(validate.rules).uint64.gte = 1];
+    repeated RequestTxOutput tx_outputs = 3;
 }
 
 message SignTransactionRequest {
@@ -227,7 +225,7 @@ message GetTransactionRequest {
 message ListTransactionsRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     uint32 page_size = 2 [(validate.rules).uint32.lte = 100];
-    string page_token = 3;
+    string page_token = 3 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
 }
 message ListTransactionsResponse {
     repeated Transaction transactions = 1;
@@ -241,7 +239,6 @@ message ListTransactionsResponse {
 message GetSignInfoRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string key_id = 3 [(validate.rules).string = {pattern: "^[0-9A-F]{64}$"}];
 }
 
 message ListSignInfoRequest {
@@ -259,7 +256,7 @@ message ListSignInfoResponse {
 message ListTransfersRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     uint32 page_size = 2 [(validate.rules).uint32.lte = 100];
-    string page_token = 3;
+    string page_token = 3 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
 }
 
 message ListTransfersResponse {
@@ -284,20 +281,25 @@ message GetSpendableBalanceRequest {
 }
 
 message GetSpendableBalanceResponse {
-    string total_spendable_balance = 1;
-    string daily_spendable_balance = 2;
-    string hourly_spendable_balance = 3;
-    string one_time_spendable_balance = 4;
+    double total_spendable_balance = 1;
+    string string_total_spendable_balance = 2;
+    double daily_spendable_balance = 3;
+    string string_daily_spendable_balance = 4;
+    double hourly_spendable_balance = 5;
+    string string_hourly_spendable_balance = 6;
+    double one_time_spendable_balance = 7;
+    string string_one_time_spendable_balance = 8;
 }
 
 message CalculateFeeRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    int64 fee_rate = 2;
-    repeated TxOutput tx_outputs = 3;
+    uint64 fee_rate = 2 [(validate.rules).uint64.gte = 1];
+    repeated RequestTxOutput tx_outputs = 3;
 }
 
 message CalculateFeeResponse {
-    int64 fee = 1;
+    double fee = 1;
+    string string_fee = 2;
 }
 
 message GetMembersDeactivatabilitiesRequest {}
@@ -442,3 +444,4 @@ message UpdatePolicyRequest {
 message DeletePolicyRequest {
     string policy_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
+

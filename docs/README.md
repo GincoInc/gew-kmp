@@ -116,12 +116,14 @@
     - [LabeledAddress](#adamant.global.v1.LabeledAddress)
     - [Policy](#adamant.global.v1.Policy)
     - [Rate](#adamant.global.v1.Rate)
+    - [RequestTxOutput](#adamant.global.v1.RequestTxOutput)
     - [SignInfo](#adamant.global.v1.SignInfo)
     - [SignTxInput](#adamant.global.v1.SignTxInput)
     - [Signature](#adamant.global.v1.Signature)
     - [SignedInfo](#adamant.global.v1.SignedInfo)
     - [Transaction](#adamant.global.v1.Transaction)
     - [TransactionMember](#adamant.global.v1.TransactionMember)
+    - [TransactionUpdateEvent](#adamant.global.v1.TransactionUpdateEvent)
     - [Transfer](#adamant.global.v1.Transfer)
     - [TransferLimit](#adamant.global.v1.TransferLimit)
     - [TxInput](#adamant.global.v1.TxInput)
@@ -237,7 +239,6 @@ TransferType is a type of transaction.
 | TRANSFER_TYPE_SEND | 1 |  |
 | TRANSFER_TYPE_RECEIVE | 2 |  |
 | TRANSFER_TYPE_CHANGE | 3 |  |
-| TRANSFER_TYPE_SELF | 4 |  |
 
 
 
@@ -602,8 +603,8 @@ WalletType is a type of wallet.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | wallet_id | [string](#string) |  |  |
-| fee_rate | [int64](#int64) |  |  |
-| tx_outputs | [TxOutput](#adamant.global.v1.TxOutput) | repeated |  |
+| fee_rate | [uint64](#uint64) |  |  |
+| tx_outputs | [RequestTxOutput](#adamant.global.v1.RequestTxOutput) | repeated |  |
 
 
 
@@ -618,7 +619,8 @@ WalletType is a type of wallet.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| fee | [int64](#int64) |  |  |
+| fee | [double](#double) |  |  |
+| string_fee | [string](#string) |  |  |
 
 
 
@@ -717,8 +719,8 @@ WalletType is a type of wallet.
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | wallet_id | [string](#string) |  |  |
-| fee_rate | [int64](#int64) |  |  |
-| tx_outputs | [TxOutput](#adamant.global.v1.TxOutput) | repeated |  |
+| fee_rate | [uint64](#uint64) |  |  |
+| tx_outputs | [RequestTxOutput](#adamant.global.v1.RequestTxOutput) | repeated |  |
 
 
 
@@ -954,7 +956,6 @@ WalletType is a type of wallet.
 | ----- | ---- | ----- | ----------- |
 | wallet_id | [string](#string) |  |  |
 | transaction_id | [string](#string) |  |  |
-| key_id | [string](#string) |  |  |
 
 
 
@@ -984,10 +985,14 @@ WalletType is a type of wallet.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| total_spendable_balance | [string](#string) |  |  |
-| daily_spendable_balance | [string](#string) |  |  |
-| hourly_spendable_balance | [string](#string) |  |  |
-| one_time_spendable_balance | [string](#string) |  |  |
+| total_spendable_balance | [double](#double) |  |  |
+| string_total_spendable_balance | [string](#string) |  |  |
+| daily_spendable_balance | [double](#double) |  |  |
+| string_daily_spendable_balance | [string](#string) |  |  |
+| hourly_spendable_balance | [double](#double) |  |  |
+| string_hourly_spendable_balance | [string](#string) |  |  |
+| one_time_spendable_balance | [double](#double) |  |  |
+| string_one_time_spendable_balance | [string](#string) |  |  |
 
 
 
@@ -1279,7 +1284,7 @@ WalletType is a type of wallet.
 <a name="adamant.global.v1.ListWalletsRequest"></a>
 
 ### ListWalletsRequest
-TODO implement pagenation
+
 
 
 | Field | Type | Label | Description |
@@ -1295,7 +1300,7 @@ TODO implement pagenation
 <a name="adamant.global.v1.ListWalletsResponse"></a>
 
 ### ListWalletsResponse
-TODO implement pagenation
+
 
 
 | Field | Type | Label | Description |
@@ -1574,7 +1579,8 @@ TODO implement pagenation
 | coin | [gincoinc.global.v1.Coin](#gincoinc.global.v1.Coin) |  |  |
 | address | [string](#string) |  |  |
 | index | [uint32](#uint32) |  |  |
-| balance | [string](#string) |  |  |
+| balance | [double](#double) |  |  |
+| string_balance | [string](#string) |  |  |
 | state | [AddressState](#adamant.global.v1.AddressState) |  |  |
 | address_type | [gincoinc.global.v1.AddressType](#gincoinc.global.v1.AddressType) |  |  |
 | sequence_number | [uint32](#uint32) |  |  |
@@ -1702,6 +1708,22 @@ TODO implement pagenation
 
 
 
+<a name="adamant.global.v1.RequestTxOutput"></a>
+
+### RequestTxOutput
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| address | [string](#string) |  |  |
+| value | [double](#double) |  |  |
+
+
+
+
+
+
 <a name="adamant.global.v1.SignInfo"></a>
 
 ### SignInfo
@@ -1788,8 +1810,11 @@ Signature ...
 | coin | [gincoinc.global.v1.Coin](#gincoinc.global.v1.Coin) |  |  |
 | tx_id | [string](#string) |  |  |
 | address | [string](#string) |  |  |
-| value | [string](#string) |  |  |
-| fee | [string](#string) |  |  |
+| value | [double](#double) |  |  |
+| string_value | [string](#string) |  |  |
+| fee | [double](#double) |  |  |
+| string_fee | [string](#string) |  |  |
+| fee_rate | [uint64](#uint64) |  |  |
 | state | [TransactionState](#adamant.global.v1.TransactionState) |  |  |
 | signed_keys | [Key](#adamant.global.v1.Key) | repeated |  |
 | tx_inputs | [TxInput](#adamant.global.v1.TxInput) | repeated |  |
@@ -1823,11 +1848,33 @@ Signature ...
 
 
 
+<a name="adamant.global.v1.TransactionUpdateEvent"></a>
+
+### TransactionUpdateEvent
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| coin | [gincoinc.global.v1.Coin](#gincoinc.global.v1.Coin) |  |  |
+| tx_id | [string](#string) |  |  |
+| tx_index | [uint32](#uint32) |  |  |
+| value | [double](#double) |  |  |
+| from_address | [string](#string) |  |  |
+| to_address | [string](#string) |  |  |
+| state | [gincoinc.global.v1.TransactionState](#gincoinc.global.v1.TransactionState) |  |  |
+| transfer_type | [gincoinc.global.v1.TransferType](#gincoinc.global.v1.TransferType) |  |  |
+| time | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  |  |
+
+
+
+
+
+
 <a name="adamant.global.v1.Transfer"></a>
 
 ### Transfer
 Transfer ...
-TODO baseValue, stringValue, usdRateを入れるかどうか
 
 
 | Field | Type | Label | Description |
@@ -1837,7 +1884,8 @@ TODO baseValue, stringValue, usdRateを入れるかどうか
 | coin | [gincoinc.global.v1.Coin](#gincoinc.global.v1.Coin) |  |  |
 | tx_id | [string](#string) |  |  |
 | transfer_type | [gincoinc.global.v1.TransferType](#gincoinc.global.v1.TransferType) |  |  |
-| value | [string](#string) |  |  |
+| value | [double](#double) |  |  |
+| string_value | [string](#string) |  |  |
 | partner_wallet_id | [string](#string) |  |  |
 | partner_address | [string](#string) |  |  |
 | state | [gincoinc.global.v1.TransactionState](#gincoinc.global.v1.TransactionState) |  |  |
@@ -1881,7 +1929,7 @@ TODO baseValue, stringValue, usdRateを入れるかどうか
 | ----- | ---- | ----- | ----------- |
 | tx_id | [string](#string) |  |  |
 | tx_index | [uint32](#uint32) |  |  |
-| value | [int64](#int64) |  |  |
+| value | [double](#double) |  |  |
 
 
 
@@ -1897,7 +1945,7 @@ TODO baseValue, stringValue, usdRateを入れるかどうか
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | address | [string](#string) |  |  |
-| value | [int64](#int64) |  |  |
+| value | [double](#double) |  |  |
 | is_change | [bool](#bool) |  |  |
 
 
@@ -1923,7 +1971,8 @@ TODO baseValue, stringValue, usdRateを入れるかどうか
 | state | [WalletState](#adamant.global.v1.WalletState) |  |  |
 | keys | [Key](#adamant.global.v1.Key) | repeated |  |
 | members | [WalletMember](#adamant.global.v1.WalletMember) | repeated |  |
-| balance | [string](#string) |  |  |
+| balance | [double](#double) |  |  |
+| string_balance | [string](#string) |  |  |
 | address | [string](#string) |  |  |
 | policy_id | [string](#string) |  |  |
 | create_time | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  |  |

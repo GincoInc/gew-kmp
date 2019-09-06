@@ -587,7 +587,12 @@ func (m *ListWalletsRequest) Validate() error {
 
 	// no validation rules for PageSize
 
-	// no validation rules for PageToken
+	if !_ListWalletsRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		return ListWalletsRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+	}
 
 	return nil
 }
@@ -647,6 +652,8 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListWalletsRequestValidationError{}
+
+var _ListWalletsRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
 
 // Validate checks the field values on ListWalletsResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -1199,7 +1206,12 @@ func (m *ListAddressesRequest) Validate() error {
 		}
 	}
 
-	// no validation rules for PageToken
+	if !_ListAddressesRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		return ListAddressesRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+	}
 
 	return nil
 }
@@ -1261,6 +1273,8 @@ var _ interface {
 } = ListAddressesRequestValidationError{}
 
 var _ListAddressesRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ListAddressesRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
 
 // Validate checks the field values on ListAddressesResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -1832,7 +1846,12 @@ func (m *ListTransactionsRequest) Validate() error {
 		}
 	}
 
-	// no validation rules for PageToken
+	if !_ListTransactionsRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		return ListTransactionsRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+	}
 
 	return nil
 }
@@ -1894,6 +1913,8 @@ var _ interface {
 } = ListTransactionsRequestValidationError{}
 
 var _ListTransactionsRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ListTransactionsRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
 
 // Validate checks the field values on ListTransactionsResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -2001,13 +2022,6 @@ func (m *GetSignInfoRequest) Validate() error {
 		}
 	}
 
-	if !_GetSignInfoRequest_KeyId_Pattern.MatchString(m.GetKeyId()) {
-		return GetSignInfoRequestValidationError{
-			field:  "KeyId",
-			reason: "value does not match regex pattern \"^[0-9A-F]{64}$\"",
-		}
-	}
-
 	return nil
 }
 
@@ -2070,8 +2084,6 @@ var _ interface {
 var _GetSignInfoRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _GetSignInfoRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
-
-var _GetSignInfoRequest_KeyId_Pattern = regexp.MustCompile("^[0-9A-F]{64}$")
 
 // Validate checks the field values on ListSignInfoRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -2262,7 +2274,12 @@ func (m *ListTransfersRequest) Validate() error {
 		}
 	}
 
-	// no validation rules for PageToken
+	if !_ListTransfersRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		return ListTransfersRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+	}
 
 	return nil
 }
@@ -2324,6 +2341,8 @@ var _ interface {
 } = ListTransfersRequestValidationError{}
 
 var _ListTransfersRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ListTransfersRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
 
 // Validate checks the field values on ListTransfersResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -2577,11 +2596,19 @@ func (m *GetSpendableBalanceResponse) Validate() error {
 
 	// no validation rules for TotalSpendableBalance
 
+	// no validation rules for StringTotalSpendableBalance
+
 	// no validation rules for DailySpendableBalance
+
+	// no validation rules for StringDailySpendableBalance
 
 	// no validation rules for HourlySpendableBalance
 
+	// no validation rules for StringHourlySpendableBalance
+
 	// no validation rules for OneTimeSpendableBalance
+
+	// no validation rules for StringOneTimeSpendableBalance
 
 	return nil
 }
@@ -2658,7 +2685,12 @@ func (m *CalculateFeeRequest) Validate() error {
 		}
 	}
 
-	// no validation rules for FeeRate
+	if m.GetFeeRate() < 1 {
+		return CalculateFeeRequestValidationError{
+			field:  "FeeRate",
+			reason: "value must be greater than or equal to 1",
+		}
+	}
 
 	for idx, item := range m.GetTxOutputs() {
 		_, _ = idx, item
@@ -2745,6 +2777,8 @@ func (m *CalculateFeeResponse) Validate() error {
 	}
 
 	// no validation rules for Fee
+
+	// no validation rules for StringFee
 
 	return nil
 }

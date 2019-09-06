@@ -24,11 +24,12 @@ message Wallet {
     WalletState state = 8;
     repeated Key keys = 9;
     repeated WalletMember members = 10;
-    string balance = 11;
-    string address = 12;
-    string policy_id = 13;
-    google.protobuf.Timestamp create_time = 14;
-    google.protobuf.Timestamp update_time = 15;
+    double balance = 11;
+    string string_balance = 12;
+    string address = 13;
+    string policy_id = 14;
+    google.protobuf.Timestamp create_time = 15;
+    google.protobuf.Timestamp update_time = 16;
 }
 
 message WalletMember {
@@ -53,12 +54,13 @@ message Address {
     gincoinc.global.v1.Coin coin = 3;
     string address = 4;
     uint32 index = 5;
-    string balance = 6;
-    AddressState state = 7;
-    gincoinc.global.v1.AddressType address_type = 8;
-    uint32 sequence_number = 9;
-    google.protobuf.Timestamp create_time = 10;
-    google.protobuf.Timestamp update_time = 11;
+    double balance = 6;
+    string string_balance = 7;
+    AddressState state = 8;
+    gincoinc.global.v1.AddressType address_type = 9;
+    uint32 sequence_number = 10;
+    google.protobuf.Timestamp create_time = 11;
+    google.protobuf.Timestamp update_time = 12;
 }
 
 message Transaction {
@@ -67,15 +69,18 @@ message Transaction {
     gincoinc.global.v1.Coin coin = 3;
     string tx_id = 4;
     string address = 5;
-    string value = 6;
-    string fee = 7;
-    TransactionState state = 8;
-    repeated Key signed_keys = 9;
-    repeated TxInput tx_inputs = 10;
-    repeated TxOutput tx_outputs = 11;
-    repeated TransactionMember members = 12;
-    google.protobuf.Timestamp create_time = 13;
-    google.protobuf.Timestamp update_time = 14;
+    double value = 6;
+    string string_value = 7;
+    double fee = 8;
+    string string_fee = 9;
+    uint64 fee_rate = 10;
+    TransactionState state = 11;
+    repeated Key signed_keys = 12;
+    repeated TxInput tx_inputs = 13;
+    repeated TxOutput tx_outputs = 14;
+    repeated TransactionMember members = 15;
+    google.protobuf.Timestamp create_time = 16;
+    google.protobuf.Timestamp update_time = 17;
 }
 
 message TransactionMember {
@@ -90,12 +95,12 @@ message TransactionMember {
 message TxInput {
     string tx_id = 1;
     uint32 tx_index = 2;
-    int64 value = 3;
+    double value = 3;
 }
 
 message TxOutput {
     string address = 1;
-    int64 value = 2;
+    double value = 2;
     bool is_change = 3;
 }
 
@@ -128,19 +133,19 @@ message Signature {
 }
 
 // Transfer ...
-// TODO baseValue, stringValue, usdRateを入れるかどうか
 message Transfer {
     string wallet_id = 1;
     string transfer_id = 2;
     gincoinc.global.v1.Coin coin = 3;
     string tx_id = 4;
     gincoinc.global.v1.TransferType transfer_type = 5;
-    string value = 6;
-    string partner_wallet_id = 7;
-    string partner_address = 8;
-    gincoinc.global.v1.TransactionState state = 9;
-    google.protobuf.Timestamp create_time = 10;
-    google.protobuf.Timestamp update_time = 11;
+    double value = 6;
+    string string_value = 7;
+    string partner_wallet_id = 8;
+    string partner_address = 9;
+    gincoinc.global.v1.TransactionState state = 10;
+    google.protobuf.Timestamp create_time = 11;
+    google.protobuf.Timestamp update_time = 12;
 }
 
 message Rate {
@@ -204,4 +209,25 @@ message Policy {
     TransferLimit transfer_limit = 7;
     google.protobuf.Timestamp create_time = 8;
     google.protobuf.Timestamp update_time = 9;
+}
+
+message TransactionUpdateEvent {
+    gincoinc.global.v1.Coin coin = 1;
+    string tx_id = 2;
+    uint32 tx_index = 3;
+    double value = 4;
+    string from_address = 5;
+    string to_address = 6;
+    gincoinc.global.v1.TransactionState state = 7;
+    gincoinc.global.v1.TransferType transfer_type = 8;
+    google.protobuf.Timestamp time = 9;
+}
+
+// =============================================================================
+//  Request Model
+// =============================================================================
+
+message RequestTxOutput {
+    string address = 1;
+    double value = 2;
 }

@@ -59,6 +59,12 @@ var (
 	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.TransactionState(0)
+
+	_ = gincoincglobalv1.TransferType(0)
 )
 
 // define the regex for a UUID once up-front
@@ -118,6 +124,8 @@ func (m *Wallet) Validate() error {
 	}
 
 	// no validation rules for Balance
+
+	// no validation rules for StringBalance
 
 	// no validation rules for Address
 
@@ -368,6 +376,8 @@ func (m *Address) Validate() error {
 
 	// no validation rules for Balance
 
+	// no validation rules for StringBalance
+
 	// no validation rules for State
 
 	// no validation rules for AddressType
@@ -471,7 +481,13 @@ func (m *Transaction) Validate() error {
 
 	// no validation rules for Value
 
+	// no validation rules for StringValue
+
 	// no validation rules for Fee
+
+	// no validation rules for StringFee
+
+	// no validation rules for FeeRate
 
 	// no validation rules for State
 
@@ -1171,6 +1187,8 @@ func (m *Transfer) Validate() error {
 	// no validation rules for TransferType
 
 	// no validation rules for Value
+
+	// no validation rules for StringValue
 
 	// no validation rules for PartnerWalletId
 
@@ -1891,3 +1909,165 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = PolicyValidationError{}
+
+// Validate checks the field values on TransactionUpdateEvent with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *TransactionUpdateEvent) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Coin
+
+	// no validation rules for TxId
+
+	// no validation rules for TxIndex
+
+	// no validation rules for Value
+
+	// no validation rules for FromAddress
+
+	// no validation rules for ToAddress
+
+	// no validation rules for State
+
+	// no validation rules for TransferType
+
+	if v, ok := interface{}(m.GetTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionUpdateEventValidationError{
+				field:  "Time",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// TransactionUpdateEventValidationError is the validation error returned by
+// TransactionUpdateEvent.Validate if the designated constraints aren't met.
+type TransactionUpdateEventValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TransactionUpdateEventValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TransactionUpdateEventValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TransactionUpdateEventValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TransactionUpdateEventValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TransactionUpdateEventValidationError) ErrorName() string {
+	return "TransactionUpdateEventValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e TransactionUpdateEventValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTransactionUpdateEvent.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TransactionUpdateEventValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TransactionUpdateEventValidationError{}
+
+// Validate checks the field values on RequestTxOutput with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *RequestTxOutput) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Address
+
+	// no validation rules for Value
+
+	return nil
+}
+
+// RequestTxOutputValidationError is the validation error returned by
+// RequestTxOutput.Validate if the designated constraints aren't met.
+type RequestTxOutputValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e RequestTxOutputValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e RequestTxOutputValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e RequestTxOutputValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e RequestTxOutputValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e RequestTxOutputValidationError) ErrorName() string { return "RequestTxOutputValidationError" }
+
+// Error satisfies the builtin error interface
+func (e RequestTxOutputValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sRequestTxOutput.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = RequestTxOutputValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = RequestTxOutputValidationError{}
