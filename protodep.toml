@@ -7,15 +7,15 @@ proto_outdir = "./vendor"
 
 [[dependencies]]
     target = "github.com/GincoInc/protobuf/gincoinc/global"
-    revision = "b4e8f506b507d062fadfe6d9e44c20c650a5148b"
+    revision = "a00657c307cffee634d47886376e16ef0a7de670"
     path = "gincoinc/global"
 
 [[dependencies]]
     target = "github.com/GincoInc/protobuf/gincoinc/adamant/global"
-    revision = "b4e8f506b507d062fadfe6d9e44c20c650a5148b"
+    revision = "a00657c307cffee634d47886376e16ef0a7de670"
     path = "gincoinc/adamant/global"
 
 [[dependencies]]
     target = "github.com/GincoInc/protobuf/gincoinc/adamant/teller"
-    revision = "b4e8f506b507d062fadfe6d9e44c20c650a5148b"
+    revision = "a00657c307cffee634d47886376e16ef0a7de670"
     path = "gincoinc/adamant/teller"

@@ -720,6 +720,8 @@ func (m *TxInput) Validate() error {
 
 	// no validation rules for Value
 
+	// no validation rules for StringValue
+
 	return nil
 }
 
@@ -787,6 +789,8 @@ func (m *TxOutput) Validate() error {
 	// no validation rules for Address
 
 	// no validation rules for Value
+
+	// no validation rules for StringValue
 
 	// no validation rules for IsChange
 

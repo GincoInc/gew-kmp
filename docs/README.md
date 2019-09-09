@@ -283,6 +283,7 @@ UTXOState is a state of UTXO.
 | tx_id | [string](#string) |  |  |
 | tx_index | [uint32](#uint32) |  |  |
 | value | [double](#double) |  |  |
+| string_value | [string](#string) |  |  |
 | from_address | [string](#string) |  |  |
 | to_address | [string](#string) |  |  |
 | state | [TransactionState](#gincoinc.global.v1.TransactionState) |  |  |
@@ -1930,6 +1931,7 @@ Transfer ...
 | tx_id | [string](#string) |  |  |
 | tx_index | [uint32](#uint32) |  |  |
 | value | [double](#double) |  |  |
+| string_value | [string](#string) |  |  |
 
 
 
@@ -1946,6 +1948,7 @@ Transfer ...
 | ----- | ---- | ----- | ----------- |
 | address | [string](#string) |  |  |
 | value | [double](#double) |  |  |
+| string_value | [string](#string) |  |  |
 | is_change | [bool](#bool) |  |  |
 
 

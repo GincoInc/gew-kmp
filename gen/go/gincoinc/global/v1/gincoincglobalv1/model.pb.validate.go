@@ -52,6 +52,8 @@ func (m *TransactionUpdateEvent) Validate() error {
 
 	// no validation rules for Value
 
+	// no validation rules for StringValue
+
 	// no validation rules for FromAddress
 
 	// no validation rules for ToAddress

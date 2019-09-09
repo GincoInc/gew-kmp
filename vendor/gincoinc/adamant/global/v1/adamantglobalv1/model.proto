@@ -96,12 +96,14 @@ message TxInput {
     string tx_id = 1;
     uint32 tx_index = 2;
     double value = 3;
+    string string_value = 4;
 }
 
 message TxOutput {
     string address = 1;
     double value = 2;
-    bool is_change = 3;
+    string string_value = 3;
+    bool is_change = 4;
 }
 
 message SignInfo {
