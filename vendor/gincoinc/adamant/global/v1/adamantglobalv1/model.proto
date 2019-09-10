@@ -151,7 +151,7 @@ message Transfer {
 }
 
 message Rate {
-    string symbol = 1;
+    gincoinc.global.v1.Coin coin_type = 1;
     string jpy = 2;
     string usd = 3;
 }

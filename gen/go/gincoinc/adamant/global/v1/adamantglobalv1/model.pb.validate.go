@@ -62,6 +62,8 @@ var (
 
 	_ = gincoincglobalv1.Coin(0)
 
+	_ = gincoincglobalv1.Coin(0)
+
 	_ = gincoincglobalv1.TransactionState(0)
 
 	_ = gincoincglobalv1.TransferType(0)
@@ -1284,7 +1286,7 @@ func (m *Rate) Validate() error {
 		return nil
 	}
 
-	// no validation rules for Symbol
+	// no validation rules for CoinType
 
 	// no validation rules for Jpy
 

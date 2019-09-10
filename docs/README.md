@@ -407,8 +407,8 @@ Role is a type of role
 | ROLE_TYPE_ORG_VALIDATOR | 3 |  |
 | ROLE_TYPE_ORG_VIEWER | 4 |  |
 | ROLE_TYPE_ORG_DEVELOPER | 5 |  |
-| ROLE_TYPE_HOT_WALLET_ADMIN | 10 |  |
-| ROLE_TYPE_HOT_WALLET_VIEWER | 11 |  |
+| ROLE_TYPE_HOT_WALLET_ADMIN | 6 |  |
+| ROLE_TYPE_HOT_WALLET_VIEWER | 7 |  |
 
 
 
@@ -1700,7 +1700,7 @@ WalletType is a type of wallet.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| symbol | [string](#string) |  |  |
+| coin_type | [gincoinc.global.v1.Coin](#gincoinc.global.v1.Coin) |  |  |
 | jpy | [string](#string) |  |  |
 | usd | [string](#string) |  |  |
 
