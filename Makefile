@@ -1,15 +1,8 @@
 generate:
-	@rm -r ./gen && prototool generate
-
-protoDoc:
-	protoc -I vendor/ --doc_out=./docs --doc_opt=markdown,README.md \
-	vendor/gincoinc/global/v1/gincoincglobalv1/* \
-	vendor/gincoinc/adamant/global/v1/adamantglobalv1/* \
-	vendor/gincoinc/adamant/teller/v1/adamanttellerv1/*
-	protoc -I vendor/ --doc_out=./docs --doc_opt=html,index.html \
-	vendor/gincoinc/global/v1/gincoincglobalv1/* \
-	vendor/gincoinc/adamant/global/v1/adamantglobalv1/* \
-	vendor/gincoinc/adamant/teller/v1/adamanttellerv1/*
+	@protodep up -f
+	@rm -r ./api/proto/gincoinc
+	@mv -f ./vendor/gincoinc ./api/proto
+	@rm -r ./gen && cd ./api/proto && prototool generate
 
 evans:
-	evans ./vendor/gincoinc/adamant/teller/v1/adamanttellerv1/teller_api.proto --path=./vendor --port 50051 --package adamant.teller.v1 --service TellerAPI
+	@cd ./api/proto && evans ./gincoinc/adamant/teller/v1/adamanttellerv1/teller_api.proto --path=./../../vendor --port 50051 --package adamant.teller.v1 --service TellerAPI
