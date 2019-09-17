@@ -11,20 +11,20 @@ services:
       - "./configs/config.toml:/root/configs/config.toml"
     env_file:
       - .env
-  # postbox:
-  #   image: ginco/postbox:latest
-  #   command: -f /root/configs/config.toml
-  #   volumes:
-  #     - "./configs/config.toml:/root/configs/config.toml"
-  #   env_file:
-  #     - .env
-  # postbox-gateway:
-  #   image: ginco/postbox-gateway:latest
-  #   ports:
-  #     - "8080:8080"
-  #   command: >
-  #     -cpu=2
-  #     -port=8080
-  #     -endpoint="postbox:50051"
-  #   env_file:
-  #     - .env
+  postbox:
+    image: ginco/postbox:latest
+    command: -f /root/configs/config.toml
+    volumes:
+      - "./configs/config.toml:/root/configs/config.toml"
+    env_file:
+      - .env
+  postbox-gateway:
+    image: ginco/postbox-gateway:latest
+    ports:
+      - "8080:8080"
+    command: >
+      -cpu=2
+      -port=8080
+      -endpoint="postbox:50051"
+    env_file:
+      - .env
