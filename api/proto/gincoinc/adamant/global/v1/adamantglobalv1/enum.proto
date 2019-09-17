@@ -1,0 +1,170 @@
+syntax = "proto3";
+
+package adamant.global.v1;
+
+option go_package = "adamantglobalv1";
+
+// =============================================================================
+// Enum
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Wallet
+// -----------------------------------------------------------------------------
+
+// WalletType is a type of wallet.
+enum WalletType {
+  WALLET_TYPE_INVALID = 0;
+  WALLET_TYPE_SELF_CUSTODY_HOT = 1;
+  WALLET_TYPE_SELF_CUSTODY_COLD = 2;
+  // WALLET_TYPE_CUSTODY_HOT = 3;
+  // WALLET_TYPE_CUSTODY_COLD = 4;
+  // WALLET_TYPE_DECENTRAL_HOT = 5;
+  // WALLET_TYPE_DECENTRAL_COLD = 6;
+}
+
+// WalletState is a state of wallet.
+// PROPOSED:         Wallet作成
+// KEY_REGISTERED:   鍵の登録
+// AUDITOR_REVIEWED: 監査役の承認済
+// ACTIVATING:       アクティベート中
+// ACTIVATED:        アクティベート完了
+// CREATING:         TX送信
+// COMPLETED:        Wallet完成
+// CANCELLED:        キャンセル済み
+// ARCHIVED:         アーカイブ済み
+enum WalletState {
+  WALLET_STATE_INVALID = 0;
+  WALLET_STATE_PROPOSED = 1;
+  WALLET_STATE_KEY_REGISTERED = 2;
+  WALLET_STATE_VALIDATOR_REVIEWED = 3;
+  WALLET_STATE_ACTIVATING = 4;
+  WALLET_STATE_ACTIVATED = 5;
+  WALLET_STATE_CREATING = 6;
+  WALLET_STATE_COMPLETED = 7;
+  WALLET_STATE_CANCELLED = 8;
+  WALLET_STATE_ARCHIVED = 9;
+}
+
+// -----------------------------------------------------------------------------
+// Addresss
+// -----------------------------------------------------------------------------
+
+// AddressState is a state of address.
+// CREATING:         作成中
+// COMPLETED:        Address完成
+enum AddressState {
+  ADDRESS_STATE_INVALID = 0;
+  ADDRESS_STATE_CREATING = 1;
+  ADDRESS_STATE_COMPLETED = 2;
+}
+
+// -----------------------------------------------------------------------------
+// Transaction
+// -----------------------------------------------------------------------------
+
+// TransactionState is a state of transaction.
+// SIGNING:    署名中
+// SIGNED:     署名完了
+// REVIEWED:   =AUDITOR_REVIEWED
+// SUBMITTED:  SendTx成功
+// CANCELLED:    キャンセル
+enum TransactionState {
+  TRANSACTION_STATE_INVALID = 0;
+  TRANSACTION_STATE_SIGNING = 1;
+  TRANSACTION_STATE_SIGNED = 2;
+  TRANSACTION_STATE_REVIEWED = 3;
+  TRANSACTION_STATE_SUBMITTED = 4;
+  TRANSACTION_STATE_CANCELLED = 5;
+}
+
+// -----------------------------------------------------------------------------
+// Account
+// -----------------------------------------------------------------------------
+enum AccountType {
+  ACCOUNT_TYPE_INVALID = 0;
+  ACCOUNT_TYPE_USER = 1;
+  ACCOUNT_TYPE_SERVICE_ACCOUNT = 2;
+}
+
+// -----------------------------------------------------------------------------
+// User
+// -----------------------------------------------------------------------------
+
+// UserState is a state of user.
+enum UserState {
+  USER_STATE_INVALID = 0;
+  USER_STATE_UNCONFIRMED = 1;
+  USER_STATE_CONFIRMED = 2;
+  USER_STATE_DEACTIVATED = 3;
+}
+
+// -----------------------------------------------------------------------------
+// Role
+// -----------------------------------------------------------------------------
+
+// Role is a type of role
+enum RoleType {
+  ROLE_TYPE_INVALID = 0;
+  ROLE_TYPE_ORG_MANAGER = 1;
+  ROLE_TYPE_ORG_SIGNER = 2;
+  ROLE_TYPE_ORG_VALIDATOR = 3;
+  ROLE_TYPE_ORG_VIEWER = 4;
+  ROLE_TYPE_ORG_DEVELOPER = 5;
+  ROLE_TYPE_HOT_WALLET_ADMIN = 6;
+  ROLE_TYPE_HOT_WALLET_VIEWER = 7;
+}
+
+// ResourceType is a target type of role
+enum ResourceType {
+  RESOURCE_TYPE_INVALID = 0;
+  RESOURCE_TYPE_WALLET = 1;
+  RESOURCE_TYPE_ORGANIZATION = 2;
+}
+
+// -----------------------------------------------------------------------------
+// Token
+// -----------------------------------------------------------------------------
+
+// TokenType is a type of token.
+enum TokenType {
+  TOKEN_TYPE_INVALID = 0;
+  TOKEN_TYPE_LOGIN_TOKEN = 1;
+  TOKEN_TYPE_MAIL_TOKEN = 2;
+  TOKEN_TYPE_PASSWORD_RESET_TOKEN = 3;
+  TOKEN_TYPE_PASSWORD_UPDATE_TOKEN = 4;
+  TOKEN_TYPE_SIGNUP_TOKEN = 5;
+}
+
+// -----------------------------------------------------------------------------
+// Policy
+// -----------------------------------------------------------------------------
+
+// PolicyType is a type of policy.
+enum PolicyType {
+  POLICY_TYPE_INVALID = 0;
+  POLICY_TYPE_HOT_WALLET_POLICY = 1;
+  POLICY_TYPE_COLD_WALLET_POLICY = 2;
+}
+
+// -----------------------------------------------------------------------------
+// Notification
+// -----------------------------------------------------------------------------
+
+enum NotificationType {
+  NOTIFICATION_TYPE_INVALID = 0;
+  NOTIFICATION_TYPE_WALLET_SIGNER_APPROVE_REQUEST = 1;
+  NOTIFICATION_TYPE_WALLET_VALIDATOR_APPROVE_REQUEST = 2;
+  NOTIFICATION_TYPE_WALLET_ACTIVATE_FAILED = 3;
+  NOTIFICATION_TYPE_WALLET_CANCELLED = 4;
+  NOTIFICATION_TYPE_WALLET_COMPLETED = 5;
+  NOTIFICATION_TYPE_WALLET_FAILED = 6;
+  NOTIFICATION_TYPE_TRANSACTION_SIGNER_APPROVE_REQUEST = 7;
+  NOTIFICATION_TYPE_TRANSACTION_VALIDATOR_APPROVE_REQUEST = 8;
+  NOTIFICATION_TYPE_TRANSACTION_SUBMITTED = 9;
+  NOTIFICATION_TYPE_TRANSACTION_CANCELLED = 10;
+  NOTIFICATION_TYPE_TRANSFER_SEND_COMPLETED = 11;
+  NOTIFICATION_TYPE_TRANSFER_SEND_FAILED = 12;
+  NOTIFICATION_TYPE_TRANSFER_RECEIVE_COMPLETED = 13;
+  NOTIFICATION_TYPE_TRANSFER_RECEIVE_FAILED = 14;
+}

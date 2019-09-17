@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package adamant.teller.v1;
+
+option go_package = "adamanttellerv1";
+
+import "google/protobuf/timestamp.proto";
+import "gincoinc/global/v1/gincoincglobalv1/enum.proto";
+
+// =============================================================================
+//  Event
+// =============================================================================
+
+message TransferUpdateEvent {
+    string event_id = 1;
+    gincoinc.global.v1.Coin coin = 2;
+    string tx_id = 3;
+    uint32 tx_index = 4;
+    double value = 5;
+    string string_value = 6;
+    string address = 7;
+    gincoinc.global.v1.TransactionState state = 8;
+    gincoinc.global.v1.TransferType transfer_type = 9;
+    google.protobuf.Timestamp time = 10;
+}
