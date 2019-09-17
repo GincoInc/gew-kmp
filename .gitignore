@@ -1,6 +1,4 @@
 ### Added by User
-api/**/*.proto
-vendor/
 .env
 configs/config.toml
 

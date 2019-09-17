@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package adamant.teller.v1;
+
+option go_package = "adamanttellerv1";
+
+import "google/protobuf/empty.proto";
+import "validate/validate.proto";
+import "gincoinc/global/v1/gincoincglobalv1/enum.proto";
+import "gincoinc/adamant/global/v1/adamantglobalv1/enum.proto";
+import "gincoinc/adamant/global/v1/adamantglobalv1/global_api.proto";
+import "gincoinc/adamant/global/v1/adamantglobalv1/model.proto";
+
+// =============================================================================
+//  Service
+// =============================================================================
+
+service TellerAPI {
+    // Wallet
+    rpc CreateWallet (CreateWalletRequest) returns (adamant.global.v1.Wallet) {}
+    rpc GetWallet (adamant.global.v1.GetWalletRequest) returns (adamant.global.v1.Wallet) {}
+    rpc ListWallets (adamant.global.v1.ListWalletsRequest) returns (adamant.global.v1.ListWalletsResponse) {}
+    rpc GetSpendableBalance (adamant.global.v1.GetSpendableBalanceRequest) returns (adamant.global.v1.GetSpendableBalanceResponse) {}
+
+    // Address
+    rpc CreateAddress (adamant.global.v1.CreateAddressRequest) returns (adamant.global.v1.Address) {}
+    rpc GetAddress (adamant.global.v1.GetAddressRequest) returns (adamant.global.v1.Address) {}
+    rpc ListAddresses (adamant.global.v1.ListAddressesRequest) returns (adamant.global.v1.ListAddressesResponse) {}
+
+    // Transaction
+    rpc CreateTransaction (adamant.global.v1.CreateTransactionRequest) returns (adamant.global.v1.Transaction) {}
+    rpc SignTransaction (SignTransactionRequest) returns (google.protobuf.Empty) {}
+    rpc SendTransaction (adamant.global.v1.SendTransactionRequest) returns (google.protobuf.Empty) {}
+    rpc CancelTransaction (adamant.global.v1.CancelTransactionRequest) returns (google.protobuf.Empty) {}
+    rpc ListTransactions (adamant.global.v1.ListTransactionsRequest) returns (adamant.global.v1.ListTransactionsResponse) {}
+
+    // Transfer
+    rpc ListTransfers (adamant.global.v1.ListTransfersRequest) returns (adamant.global.v1.ListTransfersResponse) {}
+
+    // Utility
+    rpc CalculateFee (adamant.global.v1.CalculateFeeRequest) returns (adamant.global.v1.CalculateFeeResponse) {}
+}
+
+
+message CreateWalletRequest {
+    string wallet_name = 1;
+    gincoinc.global.v1.Coin coin = 2 [(validate.rules).enum = {in: [1,3]}];
+    adamant.global.v1.WalletType wallet_type = 3 [(validate.rules).enum = {in: [1]}];
+    gincoinc.global.v1.AddressType address_type = 4 [(validate.rules).enum = {in: [2,3]}];
+}
+
+message SignTransactionRequest {
+    string wallet_id = 1;
+    string transaction_id = 2;
+}
