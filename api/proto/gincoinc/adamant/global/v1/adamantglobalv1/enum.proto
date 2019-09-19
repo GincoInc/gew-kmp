@@ -147,6 +147,13 @@ enum PolicyType {
   POLICY_TYPE_COLD_WALLET_POLICY = 2;
 }
 
+enum TransferLimitType {
+  TRANSFER_LIMIT_TYPE_INVALID = 0;
+  TRANSFER_LIMIT_TYPE_HOURLY = 1;
+  TRANSFER_LIMIT_TYPE_DAILY = 2;
+  TRANSFER_LIMIT_TYPE_ONE_TIME = 3;
+}
+
 // -----------------------------------------------------------------------------
 // Notification
 // -----------------------------------------------------------------------------

@@ -54,12 +54,17 @@ func (m *CreateWalletRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletName
+	if l := utf8.RuneCountInString(m.GetWalletName()); l < 1 || l > 20 {
+		return CreateWalletRequestValidationError{
+			field:  "WalletName",
+			reason: "value length must be between 1 and 20 runes, inclusive",
+		}
+	}
 
 	if _, ok := _CreateWalletRequest_Coin_InLookup[m.GetCoin()]; !ok {
 		return CreateWalletRequestValidationError{
 			field:  "Coin",
-			reason: "value must be in list [1 3]",
+			reason: "value must be in list [1 3 4]",
 		}
 	}
 
@@ -73,7 +78,7 @@ func (m *CreateWalletRequest) Validate() error {
 	if _, ok := _CreateWalletRequest_AddressType_InLookup[m.GetAddressType()]; !ok {
 		return CreateWalletRequestValidationError{
 			field:  "AddressType",
-			reason: "value must be in list [2 3]",
+			reason: "value must be in list [1 2 3]",
 		}
 	}
 
@@ -139,6 +144,7 @@ var _ interface {
 var _CreateWalletRequest_Coin_InLookup = map[gincoincglobalv1.Coin]struct{}{
 	1: {},
 	3: {},
+	4: {},
 }
 
 var _CreateWalletRequest_WalletType_InLookup = map[adamantglobalv1.WalletType]struct{}{
@@ -146,6 +152,7 @@ var _CreateWalletRequest_WalletType_InLookup = map[adamantglobalv1.WalletType]st
 }
 
 var _CreateWalletRequest_AddressType_InLookup = map[gincoincglobalv1.AddressType]struct{}{
+	1: {},
 	2: {},
 	3: {},
 }
@@ -158,9 +165,19 @@ func (m *SignTransactionRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_SignTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return SignTransactionRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for TransactionId
+	if !_SignTransactionRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
+		return SignTransactionRequestValidationError{
+			field:  "TransactionId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -220,3 +237,7 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = SignTransactionRequestValidationError{}
+
+var _SignTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _SignTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
