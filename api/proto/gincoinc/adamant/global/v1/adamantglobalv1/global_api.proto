@@ -61,20 +61,22 @@ service GlobalAPI {
     rpc ListLabeledAddresses (ListLabeledAddressesRequest) returns (ListLabeledAddressesResponse) {}
     rpc UpdateLabeledAddress (UpdateLabeledAddressRequest) returns (LabeledAddress) {}
     rpc DeleteLabeledAddress (DeleteLabeledAddressRequest) returns (google.protobuf.Empty) {}
-    rpc ApproveLabeledAddress (ApproveLabeledAddressRequest) returns (google.protobuf.Empty) {}
+    rpc ReviewLabeledAddressChange (ReviewLabeledAddressChangeRequest) returns (google.protobuf.Empty) {}
 
     rpc CreateWhitelist (CreateWhitelistRequest) returns (Whitelist) {}
     rpc GetWhitelist (GetWhitelistRequest) returns (Whitelist) {}
     rpc ListWhitelists (ListWhitelistsRequest) returns (ListWhitelistsResponse) {}
     rpc UpdateWhitelist (UpdateWhitelistRequest) returns (Whitelist) {}
+    rpc UpdateWhitelistAddresses (UpdateWhitelistAddressesRequest) returns (Whitelist) {}
     rpc DeleteWhitelist (DeleteWhitelistRequest) returns (google.protobuf.Empty) {}
 
     rpc CreateTransferLimit (CreateTransferLimitRequest) returns (TransferLimit) {}
     rpc GetTransferLimit (GetTransferLimitRequest) returns (TransferLimit) {}
     rpc ListTransferLimits (ListTransferLimitsRequest) returns (ListTransferLimitsResponse) {}
     rpc UpdateTransferLimit (UpdateTransferLimitRequest) returns (TransferLimit) {}
+    rpc UpdateTransferLimitName (UpdateTransferLimitNameRequest) returns (adamant.global.v1.TransferLimit) {}
     rpc DeleteTransferLimit (DeleteTransferLimitRequest) returns (google.protobuf.Empty) {}
-    rpc ApproveTransferLimit (ApproveTransferLimitRequest) returns (google.protobuf.Empty) {}
+    rpc ReviewTransferLimitChange (ReviewTransferLimitChangeRequest) returns (google.protobuf.Empty) {}
 
     rpc CreatePolicy (CreatePolicyRequest) returns (Policy) {}
     rpc GetPolicy (GetPolicyRequest) returns (Policy) {}
@@ -136,7 +138,7 @@ message UnArchiveWalletRequest {
 }
 
 message ListWalletsRequest {
-    uint32 page_size = 1;
+    uint32 page_size = 1 [(validate.rules).uint32.lte = 100];
     string page_token = 2 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
 }
 
@@ -196,15 +198,15 @@ message ListAddressesResponse {
 
 message CreateTransactionRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    uint64 fee_rate = 2 [(validate.rules).uint64.gte = 1];
-    repeated RequestTxOutput tx_outputs = 3;
+    uint64 fee_rate = 2 [(validate.rules).uint64.gte = 5];
+    repeated RequestTxOutput tx_outputs = 3 [(validate.rules).repeated.min_items = 1];
 }
 
 message SignTransactionRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     string key_id = 3 [(validate.rules).string = {pattern: "^[0-9A-F]{64}$"}];
-    adamant.global.v1.SignedInfo signed_info = 4 [(validate.rules).message.required = true];
+    adamant.global.v1.RequestSignedInfo signed_info = 4 [(validate.rules).message.required = true];
 }
 
 message SendTransactionRequest {
@@ -338,8 +340,9 @@ message DeleteLabeledAddressRequest {
     string labeled_address_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
-message ApproveLabeledAddressRequest {
+message ReviewLabeledAddressChangeRequest {
     string labeled_address_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    bool approve = 2;
 }
 
 // -----------------------------------------------------------------------------
@@ -366,7 +369,11 @@ message UpdateWhitelistRequest {
     string whitelist_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     string name = 2 [(validate.rules).string = {min_len: 1, max_len: 20}];
     gincoinc.global.v1.Coin coin = 3;
-    repeated string labeled_address_ids = 4;
+}
+
+message UpdateWhitelistAddressesRequest {
+    string whitelist_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    repeated string address_ids = 2;
 }
 
 message DeleteWhitelistRequest {
@@ -380,9 +387,7 @@ message DeleteWhitelistRequest {
 message CreateTransferLimitRequest {
     string name = 1 [(validate.rules).string = {min_len: 1, max_len: 20}];
     gincoinc.global.v1.Coin coin = 2;
-    int64 hourly_limit = 3 [(validate.rules).int64.gte = 0];
-    int64 daily_limit = 4 [(validate.rules).int64.gte = 0];
-    int64 one_time_limit = 5 [(validate.rules).int64.gte = 0];
+    repeated TransferLimitEntry transfer_limits = 3;
 }
 
 message GetTransferLimitRequest {
@@ -397,18 +402,21 @@ message ListTransferLimitsResponse {
 
 message UpdateTransferLimitRequest {
     string transfer_limit_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    repeated TransferLimitEntry transfer_limits = 2;
+}
+
+message UpdateTransferLimitNameRequest {
+    string transfer_limit_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     string name = 2 [(validate.rules).string = {min_len: 1, max_len: 20}];
-    int64 hourly_limit = 3 [(validate.rules).int64.gte = 0];
-    int64 daily_limit = 4 [(validate.rules).int64.gte = 0];
-    int64 one_time_limit = 5 [(validate.rules).int64.gte = 0];
 }
 
 message DeleteTransferLimitRequest {
     string transfer_limit_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
-message ApproveTransferLimitRequest {
+message ReviewTransferLimitChangeRequest {
     string transfer_limit_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    bool approve = 2;
 }
 
 // -----------------------------------------------------------------------------
@@ -426,7 +434,6 @@ message CreatePolicyRequest {
 
 message GetPolicyRequest {
     string policy_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-
 }
 
 message ListPoliciesRequest {}

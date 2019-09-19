@@ -585,7 +585,12 @@ func (m *ListWalletsRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for PageSize
+	if m.GetPageSize() > 100 {
+		return ListWalletsRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 100",
+		}
+	}
 
 	if !_ListWalletsRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
 		return ListWalletsRequestValidationError{
@@ -1375,10 +1380,17 @@ func (m *CreateTransactionRequest) Validate() error {
 		}
 	}
 
-	if m.GetFeeRate() < 1 {
+	if m.GetFeeRate() < 5 {
 		return CreateTransactionRequestValidationError{
 			field:  "FeeRate",
-			reason: "value must be greater than or equal to 1",
+			reason: "value must be greater than or equal to 5",
+		}
+	}
+
+	if len(m.GetTxOutputs()) < 1 {
+		return CreateTransactionRequestValidationError{
+			field:  "TxOutputs",
+			reason: "value must contain at least 1 item(s)",
 		}
 	}
 
@@ -3461,28 +3473,30 @@ var _ interface {
 
 var _DeleteLabeledAddressRequest_LabeledAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
-// Validate checks the field values on ApproveLabeledAddressRequest with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ApproveLabeledAddressRequest) Validate() error {
+// Validate checks the field values on ReviewLabeledAddressChangeRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *ReviewLabeledAddressChangeRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
 
-	if !_ApproveLabeledAddressRequest_LabeledAddressId_Pattern.MatchString(m.GetLabeledAddressId()) {
-		return ApproveLabeledAddressRequestValidationError{
+	if !_ReviewLabeledAddressChangeRequest_LabeledAddressId_Pattern.MatchString(m.GetLabeledAddressId()) {
+		return ReviewLabeledAddressChangeRequestValidationError{
 			field:  "LabeledAddressId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
 	}
 
+	// no validation rules for Approve
+
 	return nil
 }
 
-// ApproveLabeledAddressRequestValidationError is the validation error returned
-// by ApproveLabeledAddressRequest.Validate if the designated constraints
-// aren't met.
-type ApproveLabeledAddressRequestValidationError struct {
+// ReviewLabeledAddressChangeRequestValidationError is the validation error
+// returned by ReviewLabeledAddressChangeRequest.Validate if the designated
+// constraints aren't met.
+type ReviewLabeledAddressChangeRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -3490,24 +3504,24 @@ type ApproveLabeledAddressRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e ApproveLabeledAddressRequestValidationError) Field() string { return e.field }
+func (e ReviewLabeledAddressChangeRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ApproveLabeledAddressRequestValidationError) Reason() string { return e.reason }
+func (e ReviewLabeledAddressChangeRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ApproveLabeledAddressRequestValidationError) Cause() error { return e.cause }
+func (e ReviewLabeledAddressChangeRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ApproveLabeledAddressRequestValidationError) Key() bool { return e.key }
+func (e ReviewLabeledAddressChangeRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ApproveLabeledAddressRequestValidationError) ErrorName() string {
-	return "ApproveLabeledAddressRequestValidationError"
+func (e ReviewLabeledAddressChangeRequestValidationError) ErrorName() string {
+	return "ReviewLabeledAddressChangeRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e ApproveLabeledAddressRequestValidationError) Error() string {
+func (e ReviewLabeledAddressChangeRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -3519,14 +3533,14 @@ func (e ApproveLabeledAddressRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sApproveLabeledAddressRequest.%s: %s%s",
+		"invalid %sReviewLabeledAddressChangeRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ApproveLabeledAddressRequestValidationError{}
+var _ error = ReviewLabeledAddressChangeRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -3534,9 +3548,9 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ApproveLabeledAddressRequestValidationError{}
+} = ReviewLabeledAddressChangeRequestValidationError{}
 
-var _ApproveLabeledAddressRequest_LabeledAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _ReviewLabeledAddressChangeRequest_LabeledAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on CreateWhitelistRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -3924,6 +3938,83 @@ var _ interface {
 
 var _UpdateWhitelistRequest_WhitelistId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+// Validate checks the field values on UpdateWhitelistAddressesRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *UpdateWhitelistAddressesRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_UpdateWhitelistAddressesRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
+		return UpdateWhitelistAddressesRequestValidationError{
+			field:  "WhitelistId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// UpdateWhitelistAddressesRequestValidationError is the validation error
+// returned by UpdateWhitelistAddressesRequest.Validate if the designated
+// constraints aren't met.
+type UpdateWhitelistAddressesRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateWhitelistAddressesRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateWhitelistAddressesRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateWhitelistAddressesRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateWhitelistAddressesRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateWhitelistAddressesRequestValidationError) ErrorName() string {
+	return "UpdateWhitelistAddressesRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateWhitelistAddressesRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateWhitelistAddressesRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateWhitelistAddressesRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateWhitelistAddressesRequestValidationError{}
+
+var _UpdateWhitelistAddressesRequest_WhitelistId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on DeleteWhitelistRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -4017,25 +4108,19 @@ func (m *CreateTransferLimitRequest) Validate() error {
 
 	// no validation rules for Coin
 
-	if m.GetHourlyLimit() < 0 {
-		return CreateTransferLimitRequestValidationError{
-			field:  "HourlyLimit",
-			reason: "value must be greater than or equal to 0",
-		}
-	}
+	for idx, item := range m.GetTransferLimits() {
+		_, _ = idx, item
 
-	if m.GetDailyLimit() < 0 {
-		return CreateTransferLimitRequestValidationError{
-			field:  "DailyLimit",
-			reason: "value must be greater than or equal to 0",
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return CreateTransferLimitRequestValidationError{
+					field:  fmt.Sprintf("TransferLimits[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
 		}
-	}
 
-	if m.GetOneTimeLimit() < 0 {
-		return CreateTransferLimitRequestValidationError{
-			field:  "OneTimeLimit",
-			reason: "value must be greater than or equal to 0",
-		}
 	}
 
 	return nil
@@ -4337,32 +4422,19 @@ func (m *UpdateTransferLimitRequest) Validate() error {
 		}
 	}
 
-	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
-		return UpdateTransferLimitRequestValidationError{
-			field:  "Name",
-			reason: "value length must be between 1 and 20 runes, inclusive",
-		}
-	}
+	for idx, item := range m.GetTransferLimits() {
+		_, _ = idx, item
 
-	if m.GetHourlyLimit() < 0 {
-		return UpdateTransferLimitRequestValidationError{
-			field:  "HourlyLimit",
-			reason: "value must be greater than or equal to 0",
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return UpdateTransferLimitRequestValidationError{
+					field:  fmt.Sprintf("TransferLimits[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
 		}
-	}
 
-	if m.GetDailyLimit() < 0 {
-		return UpdateTransferLimitRequestValidationError{
-			field:  "DailyLimit",
-			reason: "value must be greater than or equal to 0",
-		}
-	}
-
-	if m.GetOneTimeLimit() < 0 {
-		return UpdateTransferLimitRequestValidationError{
-			field:  "OneTimeLimit",
-			reason: "value must be greater than or equal to 0",
-		}
 	}
 
 	return nil
@@ -4425,6 +4497,90 @@ var _ interface {
 } = UpdateTransferLimitRequestValidationError{}
 
 var _UpdateTransferLimitRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on UpdateTransferLimitNameRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *UpdateTransferLimitNameRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_UpdateTransferLimitNameRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
+		return UpdateTransferLimitNameRequestValidationError{
+			field:  "TransferLimitId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
+		return UpdateTransferLimitNameRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 20 runes, inclusive",
+		}
+	}
+
+	return nil
+}
+
+// UpdateTransferLimitNameRequestValidationError is the validation error
+// returned by UpdateTransferLimitNameRequest.Validate if the designated
+// constraints aren't met.
+type UpdateTransferLimitNameRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateTransferLimitNameRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateTransferLimitNameRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateTransferLimitNameRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateTransferLimitNameRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateTransferLimitNameRequestValidationError) ErrorName() string {
+	return "UpdateTransferLimitNameRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateTransferLimitNameRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateTransferLimitNameRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateTransferLimitNameRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateTransferLimitNameRequestValidationError{}
+
+var _UpdateTransferLimitNameRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on DeleteTransferLimitRequest with the
 // rules defined in the proto definition for this message. If any rules are
@@ -4502,28 +4658,30 @@ var _ interface {
 
 var _DeleteTransferLimitRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
-// Validate checks the field values on ApproveTransferLimitRequest with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ApproveTransferLimitRequest) Validate() error {
+// Validate checks the field values on ReviewTransferLimitChangeRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *ReviewTransferLimitChangeRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
 
-	if !_ApproveTransferLimitRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
-		return ApproveTransferLimitRequestValidationError{
+	if !_ReviewTransferLimitChangeRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
+		return ReviewTransferLimitChangeRequestValidationError{
 			field:  "TransferLimitId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
 	}
 
+	// no validation rules for Approve
+
 	return nil
 }
 
-// ApproveTransferLimitRequestValidationError is the validation error returned
-// by ApproveTransferLimitRequest.Validate if the designated constraints
-// aren't met.
-type ApproveTransferLimitRequestValidationError struct {
+// ReviewTransferLimitChangeRequestValidationError is the validation error
+// returned by ReviewTransferLimitChangeRequest.Validate if the designated
+// constraints aren't met.
+type ReviewTransferLimitChangeRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -4531,24 +4689,24 @@ type ApproveTransferLimitRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e ApproveTransferLimitRequestValidationError) Field() string { return e.field }
+func (e ReviewTransferLimitChangeRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ApproveTransferLimitRequestValidationError) Reason() string { return e.reason }
+func (e ReviewTransferLimitChangeRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ApproveTransferLimitRequestValidationError) Cause() error { return e.cause }
+func (e ReviewTransferLimitChangeRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ApproveTransferLimitRequestValidationError) Key() bool { return e.key }
+func (e ReviewTransferLimitChangeRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ApproveTransferLimitRequestValidationError) ErrorName() string {
-	return "ApproveTransferLimitRequestValidationError"
+func (e ReviewTransferLimitChangeRequestValidationError) ErrorName() string {
+	return "ReviewTransferLimitChangeRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e ApproveTransferLimitRequestValidationError) Error() string {
+func (e ReviewTransferLimitChangeRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -4560,14 +4718,14 @@ func (e ApproveTransferLimitRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sApproveTransferLimitRequest.%s: %s%s",
+		"invalid %sReviewTransferLimitChangeRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ApproveTransferLimitRequestValidationError{}
+var _ error = ReviewTransferLimitChangeRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -4575,9 +4733,9 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ApproveTransferLimitRequestValidationError{}
+} = ReviewTransferLimitChangeRequestValidationError{}
 
-var _ApproveTransferLimitRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _ReviewTransferLimitChangeRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on CreatePolicyRequest with the rules
 // defined in the proto definition for this message. If any rules are
