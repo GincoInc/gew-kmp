@@ -369,6 +369,7 @@ message UpdateWhitelistRequest {
     string whitelist_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     string name = 2 [(validate.rules).string = {min_len: 1, max_len: 20}];
     gincoinc.global.v1.Coin coin = 3;
+    repeated string address_ids = 4;
 }
 
 message UpdateWhitelistAddressesRequest {
