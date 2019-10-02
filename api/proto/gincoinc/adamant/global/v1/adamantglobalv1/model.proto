@@ -71,18 +71,16 @@ message Transaction {
     string address = 5;
     double value = 6;
     string string_value = 7;
-    double jpy = 8;
-    string string_jpy = 9;
-    double fee = 10;
-    string string_fee = 11;
-    uint64 fee_rate = 12;
-    TransactionState state = 13;
-    repeated Key signed_keys = 14;
-    repeated TxInput tx_inputs = 15;
-    repeated TxOutput tx_outputs = 16;
-    repeated TransactionMember members = 17;
-    google.protobuf.Timestamp create_time = 18;
-    google.protobuf.Timestamp update_time = 19;
+    double fee = 8;
+    string string_fee = 9;
+    uint64 fee_rate = 10;
+    TransactionState state = 11;
+    repeated Key signed_keys = 12;
+    repeated TxInput tx_inputs = 13;
+    repeated TxOutput tx_outputs = 14;
+    repeated TransactionMember members = 15;
+    google.protobuf.Timestamp create_time = 16;
+    google.protobuf.Timestamp update_time = 17;
 }
 
 message TransactionMember {
@@ -135,13 +133,11 @@ message Transfer {
     gincoinc.global.v1.TransferType transfer_type = 5;
     double value = 6;
     string string_value = 7;
-    double jpy = 8;
-    string string_jpy = 9;
-    string partner_wallet_id = 10;
-    string partner_address = 11;
-    gincoinc.global.v1.TransactionState state = 12;
-    google.protobuf.Timestamp create_time = 13;
-    google.protobuf.Timestamp update_time = 14;
+    string partner_wallet_id = 8;
+    string partner_address = 9;
+    gincoinc.global.v1.TransactionState state = 10;
+    google.protobuf.Timestamp create_time = 11;
+    google.protobuf.Timestamp update_time = 12;
 }
 
 message Rate {

@@ -479,10 +479,6 @@ func (m *Transaction) Validate() error {
 
 	// no validation rules for StringValue
 
-	// no validation rules for Jpy
-
-	// no validation rules for StringJpy
-
 	// no validation rules for Fee
 
 	// no validation rules for StringFee
@@ -1041,10 +1037,6 @@ func (m *Transfer) Validate() error {
 	// no validation rules for Value
 
 	// no validation rules for StringValue
-
-	// no validation rules for Jpy
-
-	// no validation rules for StringJpy
 
 	// no validation rules for PartnerWalletId
 
