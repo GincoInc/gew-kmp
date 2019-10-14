@@ -18,22 +18,18 @@ var (
 )
 
 func main() {
-	conn, err := grpc.Dial("127.0.0.1:50056", grpc.WithInsecure())
+	conn, err := grpc.Dial("127.0.0.1:50051", grpc.WithInsecure())
 	if err != nil {
 		logger.Fatal(err.Error())
 	}
 	defer conn.Close()
 	client = adamanttellerv1.NewTellerAPIClient(conn)
 
+	w := getWallet("b88c10b3-2284-4adb-993d-c050b2094e0a")
 	listWallets()
 	// createWallet("hot wallet 1 created by teller", gincoincglobalv1.AddressType_ADDRESS_TYPE_P2WSH)
 	// w := createWallet("hot wallet 2 created by teller", gconst.AddressType_P2SH_P2WSH)
 
-	// w := getWallet("0176f8d1-bcbc-4949-ae73-f31f290cdfef") // P2WSH account 0
-	// w := getWallet("01DHNDKMKXC4H5X05Q5R9TK7Y5") // P2SH_P2WSH account 1
-
-	// createAddress(w.WalletId)
-	// createAddress(w.WalletId)
 	// createAddress(w.WalletId)
 	// listAddresses(w.WalletId, true)
 
@@ -49,20 +45,17 @@ func main() {
 	// caluculateFee(w.WalletId, 50, txOutputs)
 
 	// createTransaction(w.WalletId, 50, txOutputs)
-	//
-	// tx := listTransactions(w.WalletId)[0]
-	// pp.Println(tx)
-	//
-	// transactionID := tx.TransactionId
-	// signTransaction(tx.WalletId, transactionID)
-	// sendTransaction(tx.WalletId, transactionID)
+	createXRPTransaction(w.WalletId, 5, "rwnaqcPqZZjLdXn84sf6y9VNZNS5iz3m3M", 50, 0.1)
+	tx := listTransactions(w.WalletId)[0]
+	signTransaction(tx.WalletId, tx.TransactionId)
+	sendTransaction(tx.WalletId, tx.TransactionId)
 
 	// cancelTransaction(tx.WalletId, tx.TransactionId)
 
 	// listTrasfers(w.WalletId)
 }
 
-func createWallet(walletName string, addressType gincoincglobalv1.AddressType) *adamantglobalv1.Wallet {
+func createWallet(walletName string, coin gincoincglobalv1.Coin, addressType gincoincglobalv1.AddressType) {
 	res, err := client.CreateWallet(ctx, &adamanttellerv1.CreateWalletRequest{
 		WalletName:  walletName,
 		Coin:        gincoincglobalv1.Coin_COIN_BTC,
@@ -73,7 +66,6 @@ func createWallet(walletName string, addressType gincoincglobalv1.AddressType) *
 		log.Fatal("error: ", err)
 	}
 	spew.Dump(res)
-	return res
 }
 
 func getWallet(walletID string) *adamantglobalv1.Wallet {
@@ -106,7 +98,7 @@ func getSpendableBalance(walletID string) {
 	spew.Dump(res)
 }
 
-func createAddress(walletID string) *adamantglobalv1.Address {
+func createAddress(walletID string) {
 	res, err := client.CreateAddress(ctx, &adamantglobalv1.CreateAddressRequest{
 		WalletId: walletID,
 	})
@@ -114,7 +106,6 @@ func createAddress(walletID string) *adamantglobalv1.Address {
 		log.Fatal("error: ", err)
 	}
 	spew.Dump(res)
-	return res
 }
 
 func listAddresses(walletID string, omitChange bool) []*adamantglobalv1.Address {
@@ -129,7 +120,7 @@ func listAddresses(walletID string, omitChange bool) []*adamantglobalv1.Address 
 	return res.Addresses
 }
 
-func createTransaction(walletID string, feeRate uint64, txOutputs []*adamantglobalv1.RequestTxOutput) *adamantglobalv1.Transaction {
+func createTransaction(walletID string, feeRate uint64, txOutputs []*adamantglobalv1.RequestTxOutput) {
 	res, err := client.CreateTransaction(ctx, &adamantglobalv1.CreateTransactionRequest{
 		WalletId:  walletID,
 		FeeRate:   feeRate,
@@ -139,7 +130,20 @@ func createTransaction(walletID string, feeRate uint64, txOutputs []*adamantglob
 		log.Fatal("error: ", err)
 	}
 	spew.Dump(res)
-	return res
+}
+
+func createXRPTransaction(walletID string, feeRate uint64, address string, destinationTag uint32, value float64) {
+	res, err := client.CreateTransaction(ctx, &adamantglobalv1.CreateTransactionRequest{
+		WalletId:       walletID,
+		FeeRate:        feeRate,
+		Address:        address,
+		DestinationTag: destinationTag,
+		Value:          value,
+	})
+	if err != nil {
+		log.Fatal("error: ", err)
+	}
+	spew.Dump(res)
 }
 
 func signTransaction(walletID, transactionID string) {
