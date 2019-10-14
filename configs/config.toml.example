@@ -16,3 +16,6 @@ testnet = true
 [awskms2]
   region =  "ap-northeast-1"
   keyID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+[webhook]
+  baseUrl = "http://localhost:8080"
