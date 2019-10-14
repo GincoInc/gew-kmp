@@ -6,9 +6,7 @@ option go_package = "adamantglobalv1";
 
 import "google/protobuf/timestamp.proto";
 import "validate/validate.proto";
-import "gincoinc/global/v1/gincoincglobalv1/enum.proto";
-import "gincoinc/adamant/global/v1/adamantglobalv1/enum.proto";
-
+import "gincoinc/global/v1/gincoincglobalv1/enum.proto"; import "gincoinc/adamant/global/v1/adamantglobalv1/enum.proto"; 
 // =============================================================================
 //  Model
 // =============================================================================
@@ -17,6 +15,7 @@ message Wallet {
     string wallet_id = 1;
     string name = 2;
     gincoinc.global.v1.Coin coin = 3;
+    uint32 hd_account = 17;
     WalletType wallet_type = 4;
     gincoinc.global.v1.AddressType address_type = 5;
     uint32 m = 6;
@@ -39,6 +38,7 @@ message WalletMember {
     string email = 4;
     RoleType role = 5;
     bool is_key_registered = 6;
+    bool is_master = 7;
 }
 
 message Key {
@@ -46,6 +46,7 @@ message Key {
     string account_id = 2;
     adamant.global.v1.AccountType account_type = 3;
     string key_id = 4;
+    uint32 key_index = 5;
 }
 
 message Address {
@@ -58,9 +59,14 @@ message Address {
     string string_balance = 7;
     AddressState state = 8;
     gincoinc.global.v1.AddressType address_type = 9;
-    uint32 sequence_number = 10;
     google.protobuf.Timestamp create_time = 11;
     google.protobuf.Timestamp update_time = 12;
+}
+
+message EthereumFeeAddress {
+    string address = 1;
+    double balance = 2;
+    string string_balance = 3;
 }
 
 message Transaction {
@@ -71,16 +77,18 @@ message Transaction {
     string address = 5;
     double value = 6;
     string string_value = 7;
-    double jpy = 8;
-    string string_jpy = 9;
+    double jpy_rate = 9;
     double fee = 10;
     string string_fee = 11;
     uint64 fee_rate = 12;
     TransactionState state = 13;
     repeated Key signed_keys = 14;
-    repeated TxInput tx_inputs = 15;
-    repeated TxOutput tx_outputs = 16;
     repeated TransactionMember members = 17;
+    BitcoinSpecific bitcoin_specific = 22;
+    EthereumSpecific ethereum_specific = 20;
+    LitecoinSpecific litecoin_specific = 23;
+    BitcoincashSpecific bitcoincash_specific = 24;
+    XrpSpecific xrp_specific = 21;
     google.protobuf.Timestamp create_time = 18;
     google.protobuf.Timestamp update_time = 19;
 }
@@ -108,6 +116,32 @@ message TxOutput {
     bool is_change = 4;
 }
 
+message BitcoinSpecific {
+    repeated TxInput tx_inputs = 1;
+    repeated TxOutput tx_outputs = 2;
+}
+
+message LitecoinSpecific {
+    repeated TxInput tx_inputs = 1;
+    repeated TxOutput tx_outputs = 2;
+}
+
+message BitcoincashSpecific {
+    repeated TxInput tx_inputs = 1;
+    repeated TxOutput tx_outputs = 2;
+}
+
+message EthereumSpecific {
+    uint64 gas_limit = 1;
+    uint64 nonce = 2;
+}
+
+message XrpSpecific {
+    uint32 sequence_number = 1;
+    uint32 destination_tag = 2;
+    gincoinc.global.v1.XRPTransactionType tx_type = 3;
+}
+
 message SignInfo {
     string wallet_id = 1;
     string transaction_id = 2;
@@ -115,6 +149,7 @@ message SignInfo {
     uint32 hd_account = 4;
     gincoinc.global.v1.Coin coin = 5;
     string tx_id = 6;
+    uint32 sign_index = 11;
     string sign_message = 7;
     uint32 hd_change = 8;
     uint32 hd_index = 9;
@@ -124,7 +159,9 @@ message SignInfo {
 message SignTxInput {
     uint32 tx_input_index = 1;
     string sign_message = 2;
-    uint32 hd_change = 3; uint32 hd_index = 4; }
+    uint32 hd_change = 3;
+    uint32 hd_index = 4;
+}
 
 // Transfer ...
 message Transfer {
@@ -135,10 +172,10 @@ message Transfer {
     gincoinc.global.v1.TransferType transfer_type = 5;
     double value = 6;
     string string_value = 7;
-    double jpy = 8;
-    string string_jpy = 9;
+    double jpy_rate = 9;
     string partner_wallet_id = 10;
     string partner_address = 11;
+    uint32 destination_tag = 15;
     gincoinc.global.v1.TransactionState state = 12;
     google.protobuf.Timestamp create_time = 13;
     google.protobuf.Timestamp update_time = 14;
@@ -147,11 +184,16 @@ message Transfer {
 message Rate {
     gincoinc.global.v1.Coin coin = 1;
     double jpy = 2;
-    string string_jpy = 3;
+}
+
+// map<k, v> ... k: enum number of Coin / v: Rate
+message RateSnapshot {
+    string rate_snapshot_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    map<uint32, Rate> rates = 2 [(validate.rules).map.no_sparse = true];
 }
 
 message Deactivatability {
-    string account_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string account_id = 1;
     bool deactivatable = 2;
 }
 
@@ -160,46 +202,46 @@ message LabeledAddress {
     string name = 2;
     gincoinc.global.v1.Coin coin = 3;
     string address = 4;
-    LabeledAddressChangeRequest change_request = 5;
-    bool can_delete = 6;
+    LabeledAddressProposal proposal = 5;
+    bool is_deletable = 6;
     google.protobuf.Timestamp create_time = 7;
     google.protobuf.Timestamp update_time = 8;
 }
 
-message LabeledAddressChangeRequest {
+message LabeledAddressProposal {
     string requester_account_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     string requester_name = 2;
-    string approver_account_id = 3 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string approver_account_id = 3;
     string approver_name = 4;
     string proposed_address = 5;
     bool address_is_reviewed = 6;
 }
 
 message Whitelist {
-    string whitelist_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string whitelist_id = 1;
     string name = 2;
     gincoinc.global.v1.Coin coin = 3;
     repeated LabeledAddress addresses = 4;
-    bool can_delete = 5;
+    bool is_deletable = 5;
     google.protobuf.Timestamp create_time = 6;
     google.protobuf.Timestamp update_time = 7;
 }
 
 message TransferLimit {
-    string transfer_limit_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string transfer_limit_id = 1;
     string name = 2;
     gincoinc.global.v1.Coin coin = 3;
     int64 hourly_limit = 4;
     int64 daily_limit = 5;
     int64 one_time_limit = 6;
-    TransferLimitChangeRequest change_request = 7;
+    TransferLimitProposal proposal = 7;
     bool is_reviewed = 8;
-    bool can_delete = 9;
+    bool is_deletable = 9;
     google.protobuf.Timestamp create_time = 10;
     google.protobuf.Timestamp update_time = 11;
 }
 
-message TransferLimitChangeRequest {
+message TransferLimitProposal {
     string requester_account_id = 1;
     string requester_name = 2;
     string approver_account_id = 3;
@@ -210,22 +252,27 @@ message TransferLimitChangeRequest {
     bool is_reviewed = 8;
 }
 
-message TransferLimitEntry {
-    TransferLimitType transfer_limit_type = 1;
-    int64 transfer_limit_value = 2;
-}
-
 message Policy {
-    string policy_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string policy_id = 1;
     PolicyType policy_type = 2;
     string name = 3;
     bool is_base_policy = 4;
     gincoinc.global.v1.Coin coin = 5;
     Whitelist whitelist = 6;
     TransferLimit transfer_limit = 7;
-    bool can_delete = 8;
+    bool is_deletable = 8;
+    PolicyProposal proposal = 11;
     google.protobuf.Timestamp create_time = 9;
     google.protobuf.Timestamp update_time = 10;
+}
+
+message PolicyProposal {
+    string requester_account_id = 1;
+    string requester_name = 2;
+    string approver_account_id = 3;
+    string approver_name = 4;
+    Whitelist proposed_whitelist = 5;
+    bool is_reviewed = 6;
 }
 
 // =============================================================================
@@ -244,4 +291,14 @@ message RequestSignedInfo {
 message RequestSignature {
     uint32 sign_index = 1;
     string signature = 2 [(validate.rules).string.min_len = 1];
+}
+
+message RequestTransferLimitEntry {
+    TransferLimitType transfer_limit_type = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
+    int64 transfer_limit_value = 2 [(validate.rules).int64.gte = 0];
+}
+
+message RequestRate {
+    gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
+    double jpy = 2 [(validate.rules).double = {gte: 0}];
 }

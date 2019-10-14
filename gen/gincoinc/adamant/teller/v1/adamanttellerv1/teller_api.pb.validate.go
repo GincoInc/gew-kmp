@@ -61,24 +61,45 @@ func (m *CreateWalletRequest) Validate() error {
 		}
 	}
 
-	if _, ok := _CreateWalletRequest_Coin_InLookup[m.GetCoin()]; !ok {
+	if _, ok := _CreateWalletRequest_Coin_NotInLookup[m.GetCoin()]; ok {
 		return CreateWalletRequestValidationError{
 			field:  "Coin",
-			reason: "value must be in list [1 3 4]",
+			reason: "value must not be in list [0 2]",
 		}
 	}
 
-	if _, ok := _CreateWalletRequest_WalletType_InLookup[m.GetWalletType()]; !ok {
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		return CreateWalletRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	if _, ok := _CreateWalletRequest_WalletType_NotInLookup[m.GetWalletType()]; ok {
 		return CreateWalletRequestValidationError{
 			field:  "WalletType",
-			reason: "value must be in list [1]",
+			reason: "value must not be in list [0]",
 		}
 	}
 
-	if _, ok := _CreateWalletRequest_AddressType_InLookup[m.GetAddressType()]; !ok {
+	if _, ok := adamantglobalv1.WalletType_name[int32(m.GetWalletType())]; !ok {
+		return CreateWalletRequestValidationError{
+			field:  "WalletType",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	if _, ok := _CreateWalletRequest_AddressType_NotInLookup[m.GetAddressType()]; ok {
 		return CreateWalletRequestValidationError{
 			field:  "AddressType",
-			reason: "value must be in list [1 2 3]",
+			reason: "value must not be in list [0]",
+		}
+	}
+
+	if _, ok := gincoincglobalv1.AddressType_name[int32(m.GetAddressType())]; !ok {
+		return CreateWalletRequestValidationError{
+			field:  "AddressType",
+			reason: "value must be one of the defined enum values",
 		}
 	}
 
@@ -141,21 +162,94 @@ var _ interface {
 	ErrorName() string
 } = CreateWalletRequestValidationError{}
 
-var _CreateWalletRequest_Coin_InLookup = map[gincoincglobalv1.Coin]struct{}{
-	1: {},
-	3: {},
-	4: {},
-}
-
-var _CreateWalletRequest_WalletType_InLookup = map[adamantglobalv1.WalletType]struct{}{
-	1: {},
-}
-
-var _CreateWalletRequest_AddressType_InLookup = map[gincoincglobalv1.AddressType]struct{}{
-	1: {},
+var _CreateWalletRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
+	0: {},
 	2: {},
-	3: {},
 }
+
+var _CreateWalletRequest_WalletType_NotInLookup = map[adamantglobalv1.WalletType]struct{}{
+	0: {},
+}
+
+var _CreateWalletRequest_AddressType_NotInLookup = map[gincoincglobalv1.AddressType]struct{}{
+	0: {},
+}
+
+// Validate checks the field values on InitializeXRPWalletRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *InitializeXRPWalletRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_InitializeXRPWalletRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return InitializeXRPWalletRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// InitializeXRPWalletRequestValidationError is the validation error returned
+// by InitializeXRPWalletRequest.Validate if the designated constraints aren't met.
+type InitializeXRPWalletRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e InitializeXRPWalletRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e InitializeXRPWalletRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e InitializeXRPWalletRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e InitializeXRPWalletRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e InitializeXRPWalletRequestValidationError) ErrorName() string {
+	return "InitializeXRPWalletRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e InitializeXRPWalletRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sInitializeXRPWalletRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = InitializeXRPWalletRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = InitializeXRPWalletRequestValidationError{}
+
+var _InitializeXRPWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on SignTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are

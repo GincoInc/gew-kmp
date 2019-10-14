@@ -24,26 +24,22 @@ enum WalletType {
 }
 
 // WalletState is a state of wallet.
-// PROPOSED:         Wallet作成
-// KEY_REGISTERED:   鍵の登録
-// AUDITOR_REVIEWED: 監査役の承認済
-// ACTIVATING:       アクティベート中
-// ACTIVATED:        アクティベート完了
-// CREATING:         TX送信
-// COMPLETED:        Wallet完成
-// CANCELLED:        キャンセル済み
-// ARCHIVED:         アーカイブ済み
 enum WalletState {
   WALLET_STATE_INVALID = 0;
   WALLET_STATE_PROPOSED = 1;
-  WALLET_STATE_KEY_REGISTERED = 2;
-  WALLET_STATE_VALIDATOR_REVIEWED = 3;
-  WALLET_STATE_ACTIVATING = 4;
-  WALLET_STATE_ACTIVATED = 5;
-  WALLET_STATE_CREATING = 6;
-  WALLET_STATE_COMPLETED = 7;
-  WALLET_STATE_CANCELLED = 8;
-  WALLET_STATE_ARCHIVED = 9;
+  WALLET_STATE_KEY_REGISTERING = 2;
+  WALLET_STATE_KEY_REGISTERED = 3;
+  WALLET_STATE_VALIDATOR_REVIEWING = 4;
+  WALLET_STATE_VALIDATOR_REVIEWED = 5;
+  WALLET_STATE_ACTIVATING = 6;
+  WALLET_STATE_ACTIVATED = 7;
+  WALLET_STATE_SIGNING = 8;
+  WALLET_STATE_SIGNED = 9;
+  WALLET_STATE_SUBMITTING = 10;
+  WALLET_STATE_SUBMITTED = 11;
+  WALLET_STATE_COMPLETED = 12;
+  WALLET_STATE_CANCELLED = 13;
+  WALLET_STATE_ARCHIVED = 14;
 }
 
 // -----------------------------------------------------------------------------
@@ -51,12 +47,11 @@ enum WalletState {
 // -----------------------------------------------------------------------------
 
 // AddressState is a state of address.
-// CREATING:         作成中
-// COMPLETED:        Address完成
 enum AddressState {
   ADDRESS_STATE_INVALID = 0;
-  ADDRESS_STATE_CREATING = 1;
-  ADDRESS_STATE_COMPLETED = 2;
+  ADDRESS_STATE_SUBMITTING = 1;
+  ADDRESS_STATE_SUBMITTED = 2;
+  ADDRESS_STATE_COMPLETED = 3;
 }
 
 // -----------------------------------------------------------------------------
@@ -64,18 +59,15 @@ enum AddressState {
 // -----------------------------------------------------------------------------
 
 // TransactionState is a state of transaction.
-// SIGNING:    署名中
-// SIGNED:     署名完了
-// REVIEWED:   =AUDITOR_REVIEWED
-// SUBMITTED:  SendTx成功
-// CANCELLED:    キャンセル
 enum TransactionState {
   TRANSACTION_STATE_INVALID = 0;
   TRANSACTION_STATE_SIGNING = 1;
   TRANSACTION_STATE_SIGNED = 2;
-  TRANSACTION_STATE_REVIEWED = 3;
-  TRANSACTION_STATE_SUBMITTED = 4;
-  TRANSACTION_STATE_CANCELLED = 5;
+  TRANSACTION_STATE_REVIEWING = 3;
+  TRANSACTION_STATE_REVIEWED = 4;
+  TRANSACTION_STATE_SUBMITTING = 5;
+  TRANSACTION_STATE_SUBMITTED = 6;
+  TRANSACTION_STATE_CANCELLED = 7;
 }
 
 // -----------------------------------------------------------------------------

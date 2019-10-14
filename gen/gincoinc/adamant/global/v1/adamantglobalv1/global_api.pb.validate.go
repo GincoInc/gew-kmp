@@ -202,17 +202,85 @@ func (m *CreateWalletRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletName
+	if l := utf8.RuneCountInString(m.GetWalletName()); l < 1 || l > 20 {
+		return CreateWalletRequestValidationError{
+			field:  "WalletName",
+			reason: "value length must be between 1 and 20 runes, inclusive",
+		}
+	}
 
-	// no validation rules for Coin
+	if _, ok := _CreateWalletRequest_Coin_NotInLookup[m.GetCoin()]; ok {
+		return CreateWalletRequestValidationError{
+			field:  "Coin",
+			reason: "value must not be in list [0]",
+		}
+	}
 
-	// no validation rules for WalletType
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		return CreateWalletRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+	}
 
-	// no validation rules for AddressType
+	if _, ok := _CreateWalletRequest_WalletType_NotInLookup[m.GetWalletType()]; ok {
+		return CreateWalletRequestValidationError{
+			field:  "WalletType",
+			reason: "value must not be in list [0]",
+		}
+	}
 
-	// no validation rules for M
+	if _, ok := WalletType_name[int32(m.GetWalletType())]; !ok {
+		return CreateWalletRequestValidationError{
+			field:  "WalletType",
+			reason: "value must be one of the defined enum values",
+		}
+	}
 
-	// no validation rules for N
+	if _, ok := _CreateWalletRequest_AddressType_NotInLookup[m.GetAddressType()]; ok {
+		return CreateWalletRequestValidationError{
+			field:  "AddressType",
+			reason: "value must not be in list [0]",
+		}
+	}
+
+	if _, ok := gincoincglobalv1.AddressType_name[int32(m.GetAddressType())]; !ok {
+		return CreateWalletRequestValidationError{
+			field:  "AddressType",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	if val := m.GetM(); val < 1 || val > 3 {
+		return CreateWalletRequestValidationError{
+			field:  "M",
+			reason: "value must be inside range [1, 3]",
+		}
+	}
+
+	if val := m.GetN(); val < 1 || val > 3 {
+		return CreateWalletRequestValidationError{
+			field:  "N",
+			reason: "value must be inside range [1, 3]",
+		}
+	}
+
+	_CreateWalletRequest_Members_Unique := make(map[string]struct{}, len(m.GetMembers()))
+
+	for idx, item := range m.GetMembers() {
+		_, _ = idx, item
+
+		if _, exists := _CreateWalletRequest_Members_Unique[item]; exists {
+			return CreateWalletRequestValidationError{
+				field:  fmt.Sprintf("Members[%v]", idx),
+				reason: "repeated value must contain unique items",
+			}
+		} else {
+			_CreateWalletRequest_Members_Unique[item] = struct{}{}
+		}
+
+		// no validation rules for Members[idx]
+	}
 
 	// no validation rules for PolicyId
 
@@ -274,6 +342,87 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CreateWalletRequestValidationError{}
+
+var _CreateWalletRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
+	0: {},
+}
+
+var _CreateWalletRequest_WalletType_NotInLookup = map[WalletType]struct{}{
+	0: {},
+}
+
+var _CreateWalletRequest_AddressType_NotInLookup = map[gincoincglobalv1.AddressType]struct{}{
+	0: {},
+}
+
+// Validate checks the field values on CreateWalletResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CreateWalletResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for WalletId
+
+	return nil
+}
+
+// CreateWalletResponseValidationError is the validation error returned by
+// CreateWalletResponse.Validate if the designated constraints aren't met.
+type CreateWalletResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateWalletResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateWalletResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateWalletResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateWalletResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateWalletResponseValidationError) ErrorName() string {
+	return "CreateWalletResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateWalletResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateWalletResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateWalletResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateWalletResponseValidationError{}
 
 // Validate checks the field values on GetWalletRequest with the rules defined
 // in the proto definition for this message. If any rules are violated, an
@@ -752,9 +901,19 @@ func (m *UpdateWalletPolicyRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_UpdateWalletPolicyRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return UpdateWalletPolicyRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for PolicyId
+	if !_UpdateWalletPolicyRequest_PolicyId_Pattern.MatchString(m.GetPolicyId()) {
+		return UpdateWalletPolicyRequestValidationError{
+			field:  "PolicyId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
 	return nil
 }
@@ -815,22 +974,34 @@ var _ interface {
 	ErrorName() string
 } = UpdateWalletPolicyRequestValidationError{}
 
-// Validate checks the field values on GetNextHdAccountRequest with the rules
-// defined in the proto definition for this message. If any rules are
+var _UpdateWalletPolicyRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _UpdateWalletPolicyRequest_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ReviewWalletProposalRequest with the
+// rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *GetNextHdAccountRequest) Validate() error {
+func (m *ReviewWalletProposalRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_ReviewWalletProposalRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return ReviewWalletProposalRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	// no validation rules for Approve
 
 	return nil
 }
 
-// GetNextHdAccountRequestValidationError is the validation error returned by
-// GetNextHdAccountRequest.Validate if the designated constraints aren't met.
-type GetNextHdAccountRequestValidationError struct {
+// ReviewWalletProposalRequestValidationError is the validation error returned
+// by ReviewWalletProposalRequest.Validate if the designated constraints
+// aren't met.
+type ReviewWalletProposalRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -838,24 +1009,24 @@ type GetNextHdAccountRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e GetNextHdAccountRequestValidationError) Field() string { return e.field }
+func (e ReviewWalletProposalRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e GetNextHdAccountRequestValidationError) Reason() string { return e.reason }
+func (e ReviewWalletProposalRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e GetNextHdAccountRequestValidationError) Cause() error { return e.cause }
+func (e ReviewWalletProposalRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e GetNextHdAccountRequestValidationError) Key() bool { return e.key }
+func (e ReviewWalletProposalRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e GetNextHdAccountRequestValidationError) ErrorName() string {
-	return "GetNextHdAccountRequestValidationError"
+func (e ReviewWalletProposalRequestValidationError) ErrorName() string {
+	return "ReviewWalletProposalRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e GetNextHdAccountRequestValidationError) Error() string {
+func (e ReviewWalletProposalRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -867,14 +1038,14 @@ func (e GetNextHdAccountRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sGetNextHdAccountRequest.%s: %s%s",
+		"invalid %sReviewWalletProposalRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = GetNextHdAccountRequestValidationError{}
+var _ error = ReviewWalletProposalRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -882,76 +1053,9 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = GetNextHdAccountRequestValidationError{}
+} = ReviewWalletProposalRequestValidationError{}
 
-// Validate checks the field values on GetNextHdAccountResponse with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetNextHdAccountResponse) Validate() error {
-	if m == nil {
-		return nil
-	}
-
-	// no validation rules for HdAccount
-
-	return nil
-}
-
-// GetNextHdAccountResponseValidationError is the validation error returned by
-// GetNextHdAccountResponse.Validate if the designated constraints aren't met.
-type GetNextHdAccountResponseValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e GetNextHdAccountResponseValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e GetNextHdAccountResponseValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e GetNextHdAccountResponseValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e GetNextHdAccountResponseValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e GetNextHdAccountResponseValidationError) ErrorName() string {
-	return "GetNextHdAccountResponseValidationError"
-}
-
-// Error satisfies the builtin error interface
-func (e GetNextHdAccountResponseValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sGetNextHdAccountResponse.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = GetNextHdAccountResponseValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = GetNextHdAccountResponseValidationError{}
+var _ReviewWalletProposalRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on RegisterKeyRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -961,11 +1065,19 @@ func (m *RegisterKeyRequest) Validate() error {
 		return nil
 	}
 
-	// no validation rules for WalletId
+	if !_RegisterKeyRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return RegisterKeyRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
 
-	// no validation rules for PubKey
-
-	// no validation rules for HdAccount
+	if utf8.RuneCountInString(m.GetPubKey()) < 64 {
+		return RegisterKeyRequestValidationError{
+			field:  "PubKey",
+			reason: "value length must be at least 64 runes",
+		}
+	}
 
 	return nil
 }
@@ -1025,6 +1137,77 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = RegisterKeyRequestValidationError{}
+
+var _RegisterKeyRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on RegisterKeyResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *RegisterKeyResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for KeyId
+
+	return nil
+}
+
+// RegisterKeyResponseValidationError is the validation error returned by
+// RegisterKeyResponse.Validate if the designated constraints aren't met.
+type RegisterKeyResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e RegisterKeyResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e RegisterKeyResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e RegisterKeyResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e RegisterKeyResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e RegisterKeyResponseValidationError) ErrorName() string {
+	return "RegisterKeyResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e RegisterKeyResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sRegisterKeyResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = RegisterKeyResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = RegisterKeyResponseValidationError{}
 
 // Validate checks the field values on CreateAddressRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -1101,6 +1284,75 @@ var _ interface {
 } = CreateAddressRequestValidationError{}
 
 var _CreateAddressRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on CreateAddressResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CreateAddressResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for AddressId
+
+	return nil
+}
+
+// CreateAddressResponseValidationError is the validation error returned by
+// CreateAddressResponse.Validate if the designated constraints aren't met.
+type CreateAddressResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateAddressResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateAddressResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateAddressResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateAddressResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateAddressResponseValidationError) ErrorName() string {
+	return "CreateAddressResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateAddressResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateAddressResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateAddressResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateAddressResponseValidationError{}
 
 // Validate checks the field values on GetAddressRequest with the rules defined
 // in the proto definition for this message. If any rules are violated, an
@@ -1186,6 +1438,89 @@ var _ interface {
 var _GetAddressRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _GetAddressRequest_AddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on GetAddressByAddressRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *GetAddressByAddressRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_GetAddressByAddressRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return GetAddressByAddressRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	if utf8.RuneCountInString(m.GetAddress()) < 25 {
+		return GetAddressByAddressRequestValidationError{
+			field:  "Address",
+			reason: "value length must be at least 25 runes",
+		}
+	}
+
+	return nil
+}
+
+// GetAddressByAddressRequestValidationError is the validation error returned
+// by GetAddressByAddressRequest.Validate if the designated constraints aren't met.
+type GetAddressByAddressRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetAddressByAddressRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetAddressByAddressRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetAddressByAddressRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetAddressByAddressRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetAddressByAddressRequestValidationError) ErrorName() string {
+	return "GetAddressByAddressRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetAddressByAddressRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetAddressByAddressRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetAddressByAddressRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetAddressByAddressRequestValidationError{}
+
+var _GetAddressByAddressRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on ListAddressesRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -1365,6 +1700,74 @@ var _ interface {
 	ErrorName() string
 } = ListAddressesResponseValidationError{}
 
+// Validate checks the field values on GetEthereumFeeAddressRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *GetEthereumFeeAddressRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// GetEthereumFeeAddressRequestValidationError is the validation error returned
+// by GetEthereumFeeAddressRequest.Validate if the designated constraints
+// aren't met.
+type GetEthereumFeeAddressRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetEthereumFeeAddressRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetEthereumFeeAddressRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetEthereumFeeAddressRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetEthereumFeeAddressRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetEthereumFeeAddressRequestValidationError) ErrorName() string {
+	return "GetEthereumFeeAddressRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetEthereumFeeAddressRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetEthereumFeeAddressRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetEthereumFeeAddressRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetEthereumFeeAddressRequestValidationError{}
+
 // Validate checks the field values on CreateTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -1387,13 +1790,6 @@ func (m *CreateTransactionRequest) Validate() error {
 		}
 	}
 
-	if len(m.GetTxOutputs()) < 1 {
-		return CreateTransactionRequestValidationError{
-			field:  "TxOutputs",
-			reason: "value must contain at least 1 item(s)",
-		}
-	}
-
 	for idx, item := range m.GetTxOutputs() {
 		_, _ = idx, item
 
@@ -1408,6 +1804,14 @@ func (m *CreateTransactionRequest) Validate() error {
 		}
 
 	}
+
+	// no validation rules for Address
+
+	// no validation rules for DestinationTag
+
+	// no validation rules for Value
+
+	// no validation rules for StringValue
 
 	return nil
 }
@@ -1469,6 +1873,152 @@ var _ interface {
 } = CreateTransactionRequestValidationError{}
 
 var _CreateTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on CreateTransactionResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CreateTransactionResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for TransactionId
+
+	return nil
+}
+
+// CreateTransactionResponseValidationError is the validation error returned by
+// CreateTransactionResponse.Validate if the designated constraints aren't met.
+type CreateTransactionResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionResponseValidationError) ErrorName() string {
+	return "CreateTransactionResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionResponseValidationError{}
+
+// Validate checks the field values on CreateXRPInitTransactionsRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *CreateXRPInitTransactionsRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_CreateXRPInitTransactionsRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return CreateXRPInitTransactionsRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// CreateXRPInitTransactionsRequestValidationError is the validation error
+// returned by CreateXRPInitTransactionsRequest.Validate if the designated
+// constraints aren't met.
+type CreateXRPInitTransactionsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateXRPInitTransactionsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateXRPInitTransactionsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateXRPInitTransactionsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateXRPInitTransactionsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateXRPInitTransactionsRequestValidationError) ErrorName() string {
+	return "CreateXRPInitTransactionsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateXRPInitTransactionsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateXRPInitTransactionsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateXRPInitTransactionsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateXRPInitTransactionsRequestValidationError{}
+
+var _CreateXRPInitTransactionsRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on SignTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -1581,6 +2131,114 @@ var _SignTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f
 
 var _SignTransactionRequest_KeyId_Pattern = regexp.MustCompile("^[0-9A-F]{64}$")
 
+// Validate checks the field values on SignXRPInitTransactionsRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *SignXRPInitTransactionsRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_SignXRPInitTransactionsRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return SignXRPInitTransactionsRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	if !_SignXRPInitTransactionsRequest_KeyId_Pattern.MatchString(m.GetKeyId()) {
+		return SignXRPInitTransactionsRequestValidationError{
+			field:  "KeyId",
+			reason: "value does not match regex pattern \"^[0-9A-F]{64}$\"",
+		}
+	}
+
+	if len(m.GetSignedInfo()) < 1 {
+		return SignXRPInitTransactionsRequestValidationError{
+			field:  "SignedInfo",
+			reason: "value must contain at least 1 item(s)",
+		}
+	}
+
+	for idx, item := range m.GetSignedInfo() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return SignXRPInitTransactionsRequestValidationError{
+					field:  fmt.Sprintf("SignedInfo[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// SignXRPInitTransactionsRequestValidationError is the validation error
+// returned by SignXRPInitTransactionsRequest.Validate if the designated
+// constraints aren't met.
+type SignXRPInitTransactionsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SignXRPInitTransactionsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SignXRPInitTransactionsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SignXRPInitTransactionsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SignXRPInitTransactionsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SignXRPInitTransactionsRequestValidationError) ErrorName() string {
+	return "SignXRPInitTransactionsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SignXRPInitTransactionsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSignXRPInitTransactionsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SignXRPInitTransactionsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SignXRPInitTransactionsRequestValidationError{}
+
+var _SignXRPInitTransactionsRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _SignXRPInitTransactionsRequest_KeyId_Pattern = regexp.MustCompile("^[0-9A-F]{64}$")
+
 // Validate checks the field values on SendTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -1665,6 +2323,220 @@ var _ interface {
 var _SendTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _SendTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on SendTransactionResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *SendTransactionResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for TxId
+
+	return nil
+}
+
+// SendTransactionResponseValidationError is the validation error returned by
+// SendTransactionResponse.Validate if the designated constraints aren't met.
+type SendTransactionResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SendTransactionResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SendTransactionResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SendTransactionResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SendTransactionResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SendTransactionResponseValidationError) ErrorName() string {
+	return "SendTransactionResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SendTransactionResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSendTransactionResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SendTransactionResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SendTransactionResponseValidationError{}
+
+// Validate checks the field values on SendXRPInitTransactionsRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *SendXRPInitTransactionsRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_SendXRPInitTransactionsRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return SendXRPInitTransactionsRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// SendXRPInitTransactionsRequestValidationError is the validation error
+// returned by SendXRPInitTransactionsRequest.Validate if the designated
+// constraints aren't met.
+type SendXRPInitTransactionsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SendXRPInitTransactionsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SendXRPInitTransactionsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SendXRPInitTransactionsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SendXRPInitTransactionsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SendXRPInitTransactionsRequestValidationError) ErrorName() string {
+	return "SendXRPInitTransactionsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SendXRPInitTransactionsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSendXRPInitTransactionsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SendXRPInitTransactionsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SendXRPInitTransactionsRequestValidationError{}
+
+var _SendXRPInitTransactionsRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on SendXRPInitTransactionsResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *SendXRPInitTransactionsResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// SendXRPInitTransactionsResponseValidationError is the validation error
+// returned by SendXRPInitTransactionsResponse.Validate if the designated
+// constraints aren't met.
+type SendXRPInitTransactionsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SendXRPInitTransactionsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SendXRPInitTransactionsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SendXRPInitTransactionsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SendXRPInitTransactionsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SendXRPInitTransactionsResponseValidationError) ErrorName() string {
+	return "SendXRPInitTransactionsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SendXRPInitTransactionsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSendXRPInitTransactionsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SendXRPInitTransactionsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SendXRPInitTransactionsResponseValidationError{}
 
 // Validate checks the field values on CancelTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -2264,6 +3136,165 @@ var _ interface {
 	ErrorName() string
 } = ListSignInfoResponseValidationError{}
 
+// Validate checks the field values on ListXRPInitSignInfoRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ListXRPInitSignInfoRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_ListXRPInitSignInfoRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return ListXRPInitSignInfoRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// ListXRPInitSignInfoRequestValidationError is the validation error returned
+// by ListXRPInitSignInfoRequest.Validate if the designated constraints aren't met.
+type ListXRPInitSignInfoRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListXRPInitSignInfoRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListXRPInitSignInfoRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListXRPInitSignInfoRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListXRPInitSignInfoRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListXRPInitSignInfoRequestValidationError) ErrorName() string {
+	return "ListXRPInitSignInfoRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListXRPInitSignInfoRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListXRPInitSignInfoRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListXRPInitSignInfoRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListXRPInitSignInfoRequestValidationError{}
+
+var _ListXRPInitSignInfoRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ListXRPInitSignInfoResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ListXRPInitSignInfoResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetSignInfoList() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListXRPInitSignInfoResponseValidationError{
+					field:  fmt.Sprintf("SignInfoList[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ListXRPInitSignInfoResponseValidationError is the validation error returned
+// by ListXRPInitSignInfoResponse.Validate if the designated constraints
+// aren't met.
+type ListXRPInitSignInfoResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListXRPInitSignInfoResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListXRPInitSignInfoResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListXRPInitSignInfoResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListXRPInitSignInfoResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListXRPInitSignInfoResponseValidationError) ErrorName() string {
+	return "ListXRPInitSignInfoResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListXRPInitSignInfoResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListXRPInitSignInfoResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListXRPInitSignInfoResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListXRPInitSignInfoResponseValidationError{}
+
 // Validate checks the field values on ListTransfersRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -2440,10 +3471,154 @@ var _ interface {
 	ErrorName() string
 } = ListTransfersResponseValidationError{}
 
-// Validate checks the field values on ListRatesResponse with the rules defined
+// Validate checks the field values on GetRateSnapshotRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *GetRateSnapshotRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_GetRateSnapshotRequest_RateSnapshotId_Pattern.MatchString(m.GetRateSnapshotId()) {
+		return GetRateSnapshotRequestValidationError{
+			field:  "RateSnapshotId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// GetRateSnapshotRequestValidationError is the validation error returned by
+// GetRateSnapshotRequest.Validate if the designated constraints aren't met.
+type GetRateSnapshotRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetRateSnapshotRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetRateSnapshotRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetRateSnapshotRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetRateSnapshotRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetRateSnapshotRequestValidationError) ErrorName() string {
+	return "GetRateSnapshotRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetRateSnapshotRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetRateSnapshotRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetRateSnapshotRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetRateSnapshotRequestValidationError{}
+
+var _GetRateSnapshotRequest_RateSnapshotId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on GetLatestRateSnapshotRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *GetLatestRateSnapshotRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// GetLatestRateSnapshotRequestValidationError is the validation error returned
+// by GetLatestRateSnapshotRequest.Validate if the designated constraints
+// aren't met.
+type GetLatestRateSnapshotRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetLatestRateSnapshotRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetLatestRateSnapshotRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetLatestRateSnapshotRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetLatestRateSnapshotRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetLatestRateSnapshotRequestValidationError) ErrorName() string {
+	return "GetLatestRateSnapshotRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetLatestRateSnapshotRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetLatestRateSnapshotRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetLatestRateSnapshotRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetLatestRateSnapshotRequestValidationError{}
+
+// Validate checks the field values on SetRatesRequest with the rules defined
 // in the proto definition for this message. If any rules are violated, an
 // error is returned.
-func (m *ListRatesResponse) Validate() error {
+func (m *SetRatesRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
@@ -2453,7 +3628,7 @@ func (m *ListRatesResponse) Validate() error {
 
 		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
 			if err := v.Validate(); err != nil {
-				return ListRatesResponseValidationError{
+				return SetRatesRequestValidationError{
 					field:  fmt.Sprintf("Rates[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
@@ -2466,9 +3641,9 @@ func (m *ListRatesResponse) Validate() error {
 	return nil
 }
 
-// ListRatesResponseValidationError is the validation error returned by
-// ListRatesResponse.Validate if the designated constraints aren't met.
-type ListRatesResponseValidationError struct {
+// SetRatesRequestValidationError is the validation error returned by
+// SetRatesRequest.Validate if the designated constraints aren't met.
+type SetRatesRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -2476,24 +3651,22 @@ type ListRatesResponseValidationError struct {
 }
 
 // Field function returns field value.
-func (e ListRatesResponseValidationError) Field() string { return e.field }
+func (e SetRatesRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ListRatesResponseValidationError) Reason() string { return e.reason }
+func (e SetRatesRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ListRatesResponseValidationError) Cause() error { return e.cause }
+func (e SetRatesRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ListRatesResponseValidationError) Key() bool { return e.key }
+func (e SetRatesRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ListRatesResponseValidationError) ErrorName() string {
-	return "ListRatesResponseValidationError"
-}
+func (e SetRatesRequestValidationError) ErrorName() string { return "SetRatesRequestValidationError" }
 
 // Error satisfies the builtin error interface
-func (e ListRatesResponseValidationError) Error() string {
+func (e SetRatesRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -2505,14 +3678,14 @@ func (e ListRatesResponseValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sListRatesResponse.%s: %s%s",
+		"invalid %sSetRatesRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ListRatesResponseValidationError{}
+var _ error = SetRatesRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -2520,7 +3693,74 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ListRatesResponseValidationError{}
+} = SetRatesRequestValidationError{}
+
+// Validate checks the field values on SetRatesResponse with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *SetRatesResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for RateSnapshotId
+
+	return nil
+}
+
+// SetRatesResponseValidationError is the validation error returned by
+// SetRatesResponse.Validate if the designated constraints aren't met.
+type SetRatesResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SetRatesResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SetRatesResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SetRatesResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SetRatesResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SetRatesResponseValidationError) ErrorName() string { return "SetRatesResponseValidationError" }
+
+// Error satisfies the builtin error interface
+func (e SetRatesResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSetRatesResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SetRatesResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SetRatesResponseValidationError{}
 
 // Validate checks the field values on GetSpendableBalanceRequest with the
 // rules defined in the proto definition for this message. If any rules are
@@ -2701,6 +3941,13 @@ func (m *CalculateFeeRequest) Validate() error {
 		return CalculateFeeRequestValidationError{
 			field:  "FeeRate",
 			reason: "value must be greater than or equal to 1",
+		}
+	}
+
+	if len(m.GetTxOutputs()) < 1 {
+		return CalculateFeeRequestValidationError{
+			field:  "TxOutputs",
+			reason: "value must contain at least 1 item(s)",
 		}
 	}
 
@@ -3017,9 +4264,26 @@ func (m *CreateLabeledAddressRequest) Validate() error {
 		}
 	}
 
-	// no validation rules for Coin
+	if _, ok := _CreateLabeledAddressRequest_Coin_NotInLookup[m.GetCoin()]; ok {
+		return CreateLabeledAddressRequestValidationError{
+			field:  "Coin",
+			reason: "value must not be in list [0]",
+		}
+	}
 
-	// no validation rules for Address
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		return CreateLabeledAddressRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	if utf8.RuneCountInString(m.GetAddress()) < 25 {
+		return CreateLabeledAddressRequestValidationError{
+			field:  "Address",
+			reason: "value length must be at least 25 runes",
+		}
+	}
 
 	return nil
 }
@@ -3081,6 +4345,80 @@ var _ interface {
 	ErrorName() string
 } = CreateLabeledAddressRequestValidationError{}
 
+var _CreateLabeledAddressRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
+	0: {},
+}
+
+// Validate checks the field values on CreateLabeledAddressResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CreateLabeledAddressResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for LabeledAddressId
+
+	return nil
+}
+
+// CreateLabeledAddressResponseValidationError is the validation error returned
+// by CreateLabeledAddressResponse.Validate if the designated constraints
+// aren't met.
+type CreateLabeledAddressResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateLabeledAddressResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateLabeledAddressResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateLabeledAddressResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateLabeledAddressResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateLabeledAddressResponseValidationError) ErrorName() string {
+	return "CreateLabeledAddressResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateLabeledAddressResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateLabeledAddressResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateLabeledAddressResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateLabeledAddressResponseValidationError{}
+
 // Validate checks the field values on UpdateLabeledAddressRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -3103,9 +4441,26 @@ func (m *UpdateLabeledAddressRequest) Validate() error {
 		}
 	}
 
-	// no validation rules for Coin
+	if _, ok := _UpdateLabeledAddressRequest_Coin_NotInLookup[m.GetCoin()]; ok {
+		return UpdateLabeledAddressRequestValidationError{
+			field:  "Coin",
+			reason: "value must not be in list [0]",
+		}
+	}
 
-	// no validation rules for Address
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		return UpdateLabeledAddressRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	if utf8.RuneCountInString(m.GetAddress()) < 25 {
+		return UpdateLabeledAddressRequestValidationError{
+			field:  "Address",
+			reason: "value length must be at least 25 runes",
+		}
+	}
 
 	return nil
 }
@@ -3168,6 +4523,10 @@ var _ interface {
 } = UpdateLabeledAddressRequestValidationError{}
 
 var _UpdateLabeledAddressRequest_LabeledAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _UpdateLabeledAddressRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
+	0: {},
+}
 
 // Validate checks the field values on GetLabeledAddressRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -3473,16 +4832,16 @@ var _ interface {
 
 var _DeleteLabeledAddressRequest_LabeledAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
-// Validate checks the field values on ReviewLabeledAddressChangeRequest with
+// Validate checks the field values on ReviewLabeledAddressProposalRequest with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, an error is returned.
-func (m *ReviewLabeledAddressChangeRequest) Validate() error {
+func (m *ReviewLabeledAddressProposalRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
 
-	if !_ReviewLabeledAddressChangeRequest_LabeledAddressId_Pattern.MatchString(m.GetLabeledAddressId()) {
-		return ReviewLabeledAddressChangeRequestValidationError{
+	if !_ReviewLabeledAddressProposalRequest_LabeledAddressId_Pattern.MatchString(m.GetLabeledAddressId()) {
+		return ReviewLabeledAddressProposalRequestValidationError{
 			field:  "LabeledAddressId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
@@ -3493,10 +4852,10 @@ func (m *ReviewLabeledAddressChangeRequest) Validate() error {
 	return nil
 }
 
-// ReviewLabeledAddressChangeRequestValidationError is the validation error
-// returned by ReviewLabeledAddressChangeRequest.Validate if the designated
+// ReviewLabeledAddressProposalRequestValidationError is the validation error
+// returned by ReviewLabeledAddressProposalRequest.Validate if the designated
 // constraints aren't met.
-type ReviewLabeledAddressChangeRequestValidationError struct {
+type ReviewLabeledAddressProposalRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -3504,24 +4863,24 @@ type ReviewLabeledAddressChangeRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e ReviewLabeledAddressChangeRequestValidationError) Field() string { return e.field }
+func (e ReviewLabeledAddressProposalRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ReviewLabeledAddressChangeRequestValidationError) Reason() string { return e.reason }
+func (e ReviewLabeledAddressProposalRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ReviewLabeledAddressChangeRequestValidationError) Cause() error { return e.cause }
+func (e ReviewLabeledAddressProposalRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ReviewLabeledAddressChangeRequestValidationError) Key() bool { return e.key }
+func (e ReviewLabeledAddressProposalRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ReviewLabeledAddressChangeRequestValidationError) ErrorName() string {
-	return "ReviewLabeledAddressChangeRequestValidationError"
+func (e ReviewLabeledAddressProposalRequestValidationError) ErrorName() string {
+	return "ReviewLabeledAddressProposalRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e ReviewLabeledAddressChangeRequestValidationError) Error() string {
+func (e ReviewLabeledAddressProposalRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -3533,14 +4892,14 @@ func (e ReviewLabeledAddressChangeRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sReviewLabeledAddressChangeRequest.%s: %s%s",
+		"invalid %sReviewLabeledAddressProposalRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ReviewLabeledAddressChangeRequestValidationError{}
+var _ error = ReviewLabeledAddressProposalRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -3548,9 +4907,9 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ReviewLabeledAddressChangeRequestValidationError{}
+} = ReviewLabeledAddressProposalRequestValidationError{}
 
-var _ReviewLabeledAddressChangeRequest_LabeledAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _ReviewLabeledAddressProposalRequest_LabeledAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on CreateWhitelistRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -3567,7 +4926,36 @@ func (m *CreateWhitelistRequest) Validate() error {
 		}
 	}
 
-	// no validation rules for Coin
+	if _, ok := _CreateWhitelistRequest_Coin_NotInLookup[m.GetCoin()]; ok {
+		return CreateWhitelistRequestValidationError{
+			field:  "Coin",
+			reason: "value must not be in list [0]",
+		}
+	}
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		return CreateWhitelistRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	_CreateWhitelistRequest_AddressIds_Unique := make(map[string]struct{}, len(m.GetAddressIds()))
+
+	for idx, item := range m.GetAddressIds() {
+		_, _ = idx, item
+
+		if _, exists := _CreateWhitelistRequest_AddressIds_Unique[item]; exists {
+			return CreateWhitelistRequestValidationError{
+				field:  fmt.Sprintf("AddressIds[%v]", idx),
+				reason: "repeated value must contain unique items",
+			}
+		} else {
+			_CreateWhitelistRequest_AddressIds_Unique[item] = struct{}{}
+		}
+
+		// no validation rules for AddressIds[idx]
+	}
 
 	return nil
 }
@@ -3627,6 +5015,79 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CreateWhitelistRequestValidationError{}
+
+var _CreateWhitelistRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
+	0: {},
+}
+
+// Validate checks the field values on CreateWhitelistResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CreateWhitelistResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for WhitelistId
+
+	return nil
+}
+
+// CreateWhitelistResponseValidationError is the validation error returned by
+// CreateWhitelistResponse.Validate if the designated constraints aren't met.
+type CreateWhitelistResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateWhitelistResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateWhitelistResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateWhitelistResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateWhitelistResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateWhitelistResponseValidationError) ErrorName() string {
+	return "CreateWhitelistResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateWhitelistResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateWhitelistResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateWhitelistResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateWhitelistResponseValidationError{}
 
 // Validate checks the field values on GetWhitelistRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -3875,7 +5336,36 @@ func (m *UpdateWhitelistRequest) Validate() error {
 		}
 	}
 
-	// no validation rules for Coin
+	if _, ok := _UpdateWhitelistRequest_Coin_NotInLookup[m.GetCoin()]; ok {
+		return UpdateWhitelistRequestValidationError{
+			field:  "Coin",
+			reason: "value must not be in list [0]",
+		}
+	}
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		return UpdateWhitelistRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	_UpdateWhitelistRequest_AddressIds_Unique := make(map[string]struct{}, len(m.GetAddressIds()))
+
+	for idx, item := range m.GetAddressIds() {
+		_, _ = idx, item
+
+		if _, exists := _UpdateWhitelistRequest_AddressIds_Unique[item]; exists {
+			return UpdateWhitelistRequestValidationError{
+				field:  fmt.Sprintf("AddressIds[%v]", idx),
+				reason: "repeated value must contain unique items",
+			}
+		} else {
+			_UpdateWhitelistRequest_AddressIds_Unique[item] = struct{}{}
+		}
+
+		// no validation rules for AddressIds[idx]
+	}
 
 	return nil
 }
@@ -3938,6 +5428,10 @@ var _ interface {
 
 var _UpdateWhitelistRequest_WhitelistId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+var _UpdateWhitelistRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
+	0: {},
+}
+
 // Validate checks the field values on UpdateWhitelistAddressesRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -3951,6 +5445,23 @@ func (m *UpdateWhitelistAddressesRequest) Validate() error {
 			field:  "WhitelistId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+	}
+
+	_UpdateWhitelistAddressesRequest_AddressIds_Unique := make(map[string]struct{}, len(m.GetAddressIds()))
+
+	for idx, item := range m.GetAddressIds() {
+		_, _ = idx, item
+
+		if _, exists := _UpdateWhitelistAddressesRequest_AddressIds_Unique[item]; exists {
+			return UpdateWhitelistAddressesRequestValidationError{
+				field:  fmt.Sprintf("AddressIds[%v]", idx),
+				reason: "repeated value must contain unique items",
+			}
+		} else {
+			_UpdateWhitelistAddressesRequest_AddressIds_Unique[item] = struct{}{}
+		}
+
+		// no validation rules for AddressIds[idx]
 	}
 
 	return nil
@@ -4106,7 +5617,26 @@ func (m *CreateTransferLimitRequest) Validate() error {
 		}
 	}
 
-	// no validation rules for Coin
+	if _, ok := _CreateTransferLimitRequest_Coin_NotInLookup[m.GetCoin()]; ok {
+		return CreateTransferLimitRequestValidationError{
+			field:  "Coin",
+			reason: "value must not be in list [0]",
+		}
+	}
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		return CreateTransferLimitRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	if len(m.GetTransferLimits()) < 1 {
+		return CreateTransferLimitRequestValidationError{
+			field:  "TransferLimits",
+			reason: "value must contain at least 1 item(s)",
+		}
+	}
 
 	for idx, item := range m.GetTransferLimits() {
 		_, _ = idx, item
@@ -4181,6 +5711,80 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CreateTransferLimitRequestValidationError{}
+
+var _CreateTransferLimitRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
+	0: {},
+}
+
+// Validate checks the field values on CreateTransferLimitResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CreateTransferLimitResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for TransferLimitId
+
+	return nil
+}
+
+// CreateTransferLimitResponseValidationError is the validation error returned
+// by CreateTransferLimitResponse.Validate if the designated constraints
+// aren't met.
+type CreateTransferLimitResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransferLimitResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransferLimitResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransferLimitResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransferLimitResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransferLimitResponseValidationError) ErrorName() string {
+	return "CreateTransferLimitResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransferLimitResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransferLimitResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransferLimitResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransferLimitResponseValidationError{}
 
 // Validate checks the field values on GetTransferLimitRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -4422,6 +6026,13 @@ func (m *UpdateTransferLimitRequest) Validate() error {
 		}
 	}
 
+	if len(m.GetTransferLimits()) < 1 {
+		return UpdateTransferLimitRequestValidationError{
+			field:  "TransferLimits",
+			reason: "value must contain at least 1 item(s)",
+		}
+	}
+
 	for idx, item := range m.GetTransferLimits() {
 		_, _ = idx, item
 
@@ -4658,16 +6269,16 @@ var _ interface {
 
 var _DeleteTransferLimitRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
-// Validate checks the field values on ReviewTransferLimitChangeRequest with
+// Validate checks the field values on ReviewTransferLimitProposalRequest with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, an error is returned.
-func (m *ReviewTransferLimitChangeRequest) Validate() error {
+func (m *ReviewTransferLimitProposalRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
 
-	if !_ReviewTransferLimitChangeRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
-		return ReviewTransferLimitChangeRequestValidationError{
+	if !_ReviewTransferLimitProposalRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
+		return ReviewTransferLimitProposalRequestValidationError{
 			field:  "TransferLimitId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
@@ -4678,10 +6289,10 @@ func (m *ReviewTransferLimitChangeRequest) Validate() error {
 	return nil
 }
 
-// ReviewTransferLimitChangeRequestValidationError is the validation error
-// returned by ReviewTransferLimitChangeRequest.Validate if the designated
+// ReviewTransferLimitProposalRequestValidationError is the validation error
+// returned by ReviewTransferLimitProposalRequest.Validate if the designated
 // constraints aren't met.
-type ReviewTransferLimitChangeRequestValidationError struct {
+type ReviewTransferLimitProposalRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -4689,24 +6300,24 @@ type ReviewTransferLimitChangeRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e ReviewTransferLimitChangeRequestValidationError) Field() string { return e.field }
+func (e ReviewTransferLimitProposalRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ReviewTransferLimitChangeRequestValidationError) Reason() string { return e.reason }
+func (e ReviewTransferLimitProposalRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ReviewTransferLimitChangeRequestValidationError) Cause() error { return e.cause }
+func (e ReviewTransferLimitProposalRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ReviewTransferLimitChangeRequestValidationError) Key() bool { return e.key }
+func (e ReviewTransferLimitProposalRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ReviewTransferLimitChangeRequestValidationError) ErrorName() string {
-	return "ReviewTransferLimitChangeRequestValidationError"
+func (e ReviewTransferLimitProposalRequestValidationError) ErrorName() string {
+	return "ReviewTransferLimitProposalRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e ReviewTransferLimitChangeRequestValidationError) Error() string {
+func (e ReviewTransferLimitProposalRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -4718,14 +6329,14 @@ func (e ReviewTransferLimitChangeRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sReviewTransferLimitChangeRequest.%s: %s%s",
+		"invalid %sReviewTransferLimitProposalRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ReviewTransferLimitChangeRequestValidationError{}
+var _ error = ReviewTransferLimitProposalRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -4733,9 +6344,9 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ReviewTransferLimitChangeRequestValidationError{}
+} = ReviewTransferLimitProposalRequestValidationError{}
 
-var _ReviewTransferLimitChangeRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _ReviewTransferLimitProposalRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on CreatePolicyRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -4754,9 +6365,33 @@ func (m *CreatePolicyRequest) Validate() error {
 
 	// no validation rules for IsBasePolicy
 
-	// no validation rules for Coin
+	if _, ok := _CreatePolicyRequest_Coin_NotInLookup[m.GetCoin()]; ok {
+		return CreatePolicyRequestValidationError{
+			field:  "Coin",
+			reason: "value must not be in list [0]",
+		}
+	}
 
-	// no validation rules for Type
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		return CreatePolicyRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	if _, ok := _CreatePolicyRequest_Type_NotInLookup[m.GetType()]; ok {
+		return CreatePolicyRequestValidationError{
+			field:  "Type",
+			reason: "value must not be in list [0]",
+		}
+	}
+
+	if _, ok := PolicyType_name[int32(m.GetType())]; !ok {
+		return CreatePolicyRequestValidationError{
+			field:  "Type",
+			reason: "value must be one of the defined enum values",
+		}
+	}
 
 	if !_CreatePolicyRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
 		return CreatePolicyRequestValidationError{
@@ -4831,9 +6466,86 @@ var _ interface {
 	ErrorName() string
 } = CreatePolicyRequestValidationError{}
 
+var _CreatePolicyRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
+	0: {},
+}
+
+var _CreatePolicyRequest_Type_NotInLookup = map[PolicyType]struct{}{
+	0: {},
+}
+
 var _CreatePolicyRequest_WhitelistId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _CreatePolicyRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on CreatePolicyResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CreatePolicyResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for PolicyId
+
+	return nil
+}
+
+// CreatePolicyResponseValidationError is the validation error returned by
+// CreatePolicyResponse.Validate if the designated constraints aren't met.
+type CreatePolicyResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreatePolicyResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreatePolicyResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreatePolicyResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreatePolicyResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreatePolicyResponseValidationError) ErrorName() string {
+	return "CreatePolicyResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreatePolicyResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreatePolicyResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreatePolicyResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreatePolicyResponseValidationError{}
 
 // Validate checks the field values on GetPolicyRequest with the rules defined
 // in the proto definition for this message. If any rules are violated, an
@@ -5234,3 +6946,82 @@ var _ interface {
 } = DeletePolicyRequestValidationError{}
 
 var _DeletePolicyRequest_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ReviewPolicyProposalRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ReviewPolicyProposalRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_ReviewPolicyProposalRequest_PolicyId_Pattern.MatchString(m.GetPolicyId()) {
+		return ReviewPolicyProposalRequestValidationError{
+			field:  "PolicyId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	// no validation rules for Approve
+
+	return nil
+}
+
+// ReviewPolicyProposalRequestValidationError is the validation error returned
+// by ReviewPolicyProposalRequest.Validate if the designated constraints
+// aren't met.
+type ReviewPolicyProposalRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ReviewPolicyProposalRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ReviewPolicyProposalRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ReviewPolicyProposalRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ReviewPolicyProposalRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ReviewPolicyProposalRequestValidationError) ErrorName() string {
+	return "ReviewPolicyProposalRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ReviewPolicyProposalRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sReviewPolicyProposalRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ReviewPolicyProposalRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ReviewPolicyProposalRequestValidationError{}
+
+var _ReviewPolicyProposalRequest_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
