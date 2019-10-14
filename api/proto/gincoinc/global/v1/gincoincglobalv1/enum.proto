@@ -43,6 +43,7 @@ enum AddressType {
   ADDRESS_TYPE_P2SH = 1;
   ADDRESS_TYPE_P2SH_P2WSH = 2;
   ADDRESS_TYPE_P2WSH = 3;
+  ADDRESS_TYPE_NONE = 100;
 }
 
 // TransactionState is a state of transaction.
@@ -77,4 +78,29 @@ enum TransferType {
   TRANSFER_TYPE_SEND = 1;
   TRANSFER_TYPE_RECEIVE = 2;
   TRANSFER_TYPE_CHANGE = 3;
+}
+
+// -----------------------------------------------------------------------------
+// XRP Specification
+// -----------------------------------------------------------------------------
+
+// XRPTransactionType is a type of xrp transaction.
+enum XRPTransactionType {
+  XRP_TRANSACTION_TYPE_INVALID = 0;
+  XRP_TRANSACTION_TYPE_PAYMENT = 1;
+  XRP_TRANSACTION_TYPE_SET_SIGNER_LIST = 2;
+  XRP_TRANSACTION_TYPE_DISABLE_MASTER = 3;
+}
+
+// -----------------------------------------------------------------------------
+// TransactionResult
+// -----------------------------------------------------------------------------
+
+// TransactionResult is a result of transaction.
+enum TransactionResult {
+  TRANSACTION_RESULT_INVALID = 0;
+  TRANSACTION_RESULT_PENDING = 1;
+  TRANSACTION_RESULT_SUCCESS = 2;
+  TRANSACTION_RESULT_FAILURE = 3;
+  TRANSACTION_RESULT_NONE = 100;
 }

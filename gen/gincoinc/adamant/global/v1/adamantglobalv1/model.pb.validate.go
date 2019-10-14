@@ -44,6 +44,8 @@ var (
 
 	_ = gincoincglobalv1.Coin(0)
 
+	_ = gincoincglobalv1.XRPTransactionType(0)
+
 	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.Coin(0)
@@ -51,6 +53,8 @@ var (
 	_ = gincoincglobalv1.TransferType(0)
 
 	_ = gincoincglobalv1.TransactionState(0)
+
+	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.Coin(0)
 
@@ -78,6 +82,8 @@ func (m *Wallet) Validate() error {
 	// no validation rules for Name
 
 	// no validation rules for Coin
+
+	// no validation rules for HdAccount
 
 	// no validation rules for WalletType
 
@@ -224,6 +230,8 @@ func (m *WalletMember) Validate() error {
 
 	// no validation rules for IsKeyRegistered
 
+	// no validation rules for IsMaster
+
 	return nil
 }
 
@@ -295,6 +303,8 @@ func (m *Key) Validate() error {
 	// no validation rules for AccountType
 
 	// no validation rules for KeyId
+
+	// no validation rules for KeyIndex
 
 	return nil
 }
@@ -378,8 +388,6 @@ func (m *Address) Validate() error {
 
 	// no validation rules for AddressType
 
-	// no validation rules for SequenceNumber
-
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
 			return AddressValidationError{
@@ -457,6 +465,79 @@ var _ interface {
 	ErrorName() string
 } = AddressValidationError{}
 
+// Validate checks the field values on EthereumFeeAddress with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *EthereumFeeAddress) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Address
+
+	// no validation rules for Balance
+
+	// no validation rules for StringBalance
+
+	return nil
+}
+
+// EthereumFeeAddressValidationError is the validation error returned by
+// EthereumFeeAddress.Validate if the designated constraints aren't met.
+type EthereumFeeAddressValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e EthereumFeeAddressValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e EthereumFeeAddressValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e EthereumFeeAddressValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e EthereumFeeAddressValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e EthereumFeeAddressValidationError) ErrorName() string {
+	return "EthereumFeeAddressValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e EthereumFeeAddressValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sEthereumFeeAddress.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = EthereumFeeAddressValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = EthereumFeeAddressValidationError{}
+
 // Validate checks the field values on Transaction with the rules defined in
 // the proto definition for this message. If any rules are violated, an error
 // is returned.
@@ -479,9 +560,7 @@ func (m *Transaction) Validate() error {
 
 	// no validation rules for StringValue
 
-	// no validation rules for Jpy
-
-	// no validation rules for StringJpy
+	// no validation rules for JpyRate
 
 	// no validation rules for Fee
 
@@ -506,36 +585,6 @@ func (m *Transaction) Validate() error {
 
 	}
 
-	for idx, item := range m.GetTxInputs() {
-		_, _ = idx, item
-
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return TransactionValidationError{
-					field:  fmt.Sprintf("TxInputs[%v]", idx),
-					reason: "embedded message failed validation",
-					cause:  err,
-				}
-			}
-		}
-
-	}
-
-	for idx, item := range m.GetTxOutputs() {
-		_, _ = idx, item
-
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return TransactionValidationError{
-					field:  fmt.Sprintf("TxOutputs[%v]", idx),
-					reason: "embedded message failed validation",
-					cause:  err,
-				}
-			}
-		}
-
-	}
-
 	for idx, item := range m.GetMembers() {
 		_, _ = idx, item
 
@@ -549,6 +598,56 @@ func (m *Transaction) Validate() error {
 			}
 		}
 
+	}
+
+	if v, ok := interface{}(m.GetBitcoinSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "BitcoinSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetEthereumSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "EthereumSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetLitecoinSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "LitecoinSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetBitcoincashSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "BitcoincashSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetXrpSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "XrpSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
 	}
 
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
@@ -851,6 +950,433 @@ var _ interface {
 	ErrorName() string
 } = TxOutputValidationError{}
 
+// Validate checks the field values on BitcoinSpecific with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *BitcoinSpecific) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetTxInputs() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return BitcoinSpecificValidationError{
+					field:  fmt.Sprintf("TxInputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	for idx, item := range m.GetTxOutputs() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return BitcoinSpecificValidationError{
+					field:  fmt.Sprintf("TxOutputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// BitcoinSpecificValidationError is the validation error returned by
+// BitcoinSpecific.Validate if the designated constraints aren't met.
+type BitcoinSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e BitcoinSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e BitcoinSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e BitcoinSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e BitcoinSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e BitcoinSpecificValidationError) ErrorName() string { return "BitcoinSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e BitcoinSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sBitcoinSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = BitcoinSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = BitcoinSpecificValidationError{}
+
+// Validate checks the field values on LitecoinSpecific with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *LitecoinSpecific) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetTxInputs() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return LitecoinSpecificValidationError{
+					field:  fmt.Sprintf("TxInputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	for idx, item := range m.GetTxOutputs() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return LitecoinSpecificValidationError{
+					field:  fmt.Sprintf("TxOutputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// LitecoinSpecificValidationError is the validation error returned by
+// LitecoinSpecific.Validate if the designated constraints aren't met.
+type LitecoinSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e LitecoinSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e LitecoinSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e LitecoinSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e LitecoinSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e LitecoinSpecificValidationError) ErrorName() string { return "LitecoinSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e LitecoinSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sLitecoinSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = LitecoinSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = LitecoinSpecificValidationError{}
+
+// Validate checks the field values on BitcoincashSpecific with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *BitcoincashSpecific) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetTxInputs() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return BitcoincashSpecificValidationError{
+					field:  fmt.Sprintf("TxInputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	for idx, item := range m.GetTxOutputs() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return BitcoincashSpecificValidationError{
+					field:  fmt.Sprintf("TxOutputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// BitcoincashSpecificValidationError is the validation error returned by
+// BitcoincashSpecific.Validate if the designated constraints aren't met.
+type BitcoincashSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e BitcoincashSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e BitcoincashSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e BitcoincashSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e BitcoincashSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e BitcoincashSpecificValidationError) ErrorName() string {
+	return "BitcoincashSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e BitcoincashSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sBitcoincashSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = BitcoincashSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = BitcoincashSpecificValidationError{}
+
+// Validate checks the field values on EthereumSpecific with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *EthereumSpecific) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	return nil
+}
+
+// EthereumSpecificValidationError is the validation error returned by
+// EthereumSpecific.Validate if the designated constraints aren't met.
+type EthereumSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e EthereumSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e EthereumSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e EthereumSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e EthereumSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e EthereumSpecificValidationError) ErrorName() string { return "EthereumSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e EthereumSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sEthereumSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = EthereumSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = EthereumSpecificValidationError{}
+
+// Validate checks the field values on XrpSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *XrpSpecific) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for SequenceNumber
+
+	// no validation rules for DestinationTag
+
+	// no validation rules for TxType
+
+	return nil
+}
+
+// XrpSpecificValidationError is the validation error returned by
+// XrpSpecific.Validate if the designated constraints aren't met.
+type XrpSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e XrpSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e XrpSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e XrpSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e XrpSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e XrpSpecificValidationError) ErrorName() string { return "XrpSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e XrpSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sXrpSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = XrpSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = XrpSpecificValidationError{}
+
 // Validate checks the field values on SignInfo with the rules defined in the
 // proto definition for this message. If any rules are violated, an error is returned.
 func (m *SignInfo) Validate() error {
@@ -869,6 +1395,8 @@ func (m *SignInfo) Validate() error {
 	// no validation rules for Coin
 
 	// no validation rules for TxId
+
+	// no validation rules for SignIndex
 
 	// no validation rules for SignMessage
 
@@ -1042,13 +1570,13 @@ func (m *Transfer) Validate() error {
 
 	// no validation rules for StringValue
 
-	// no validation rules for Jpy
-
-	// no validation rules for StringJpy
+	// no validation rules for JpyRate
 
 	// no validation rules for PartnerWalletId
 
 	// no validation rules for PartnerAddress
+
+	// no validation rules for DestinationTag
 
 	// no validation rules for State
 
@@ -1140,8 +1668,6 @@ func (m *Rate) Validate() error {
 
 	// no validation rules for Jpy
 
-	// no validation rules for StringJpy
-
 	return nil
 }
 
@@ -1199,6 +1725,104 @@ var _ interface {
 	ErrorName() string
 } = RateValidationError{}
 
+// Validate checks the field values on RateSnapshot with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *RateSnapshot) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_RateSnapshot_RateSnapshotId_Pattern.MatchString(m.GetRateSnapshotId()) {
+		return RateSnapshotValidationError{
+			field:  "RateSnapshotId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	for key, val := range m.GetRates() {
+		_ = val
+
+		if val == nil {
+			return RateSnapshotValidationError{
+				field:  fmt.Sprintf("Rates[%v]", key),
+				reason: "value cannot be sparse, all pairs must be non-nil",
+			}
+		}
+
+		// no validation rules for Rates[key]
+
+		if v, ok := interface{}(val).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return RateSnapshotValidationError{
+					field:  fmt.Sprintf("Rates[%v]", key),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// RateSnapshotValidationError is the validation error returned by
+// RateSnapshot.Validate if the designated constraints aren't met.
+type RateSnapshotValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e RateSnapshotValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e RateSnapshotValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e RateSnapshotValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e RateSnapshotValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e RateSnapshotValidationError) ErrorName() string { return "RateSnapshotValidationError" }
+
+// Error satisfies the builtin error interface
+func (e RateSnapshotValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sRateSnapshot.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = RateSnapshotValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = RateSnapshotValidationError{}
+
+var _RateSnapshot_RateSnapshotId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on Deactivatability with the rules defined
 // in the proto definition for this message. If any rules are violated, an
 // error is returned.
@@ -1207,12 +1831,7 @@ func (m *Deactivatability) Validate() error {
 		return nil
 	}
 
-	if !_Deactivatability_AccountId_Pattern.MatchString(m.GetAccountId()) {
-		return DeactivatabilityValidationError{
-			field:  "AccountId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
-		}
-	}
+	// no validation rules for AccountId
 
 	// no validation rules for Deactivatable
 
@@ -1273,8 +1892,6 @@ var _ interface {
 	ErrorName() string
 } = DeactivatabilityValidationError{}
 
-var _Deactivatability_AccountId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
-
 // Validate checks the field values on LabeledAddress with the rules defined in
 // the proto definition for this message. If any rules are violated, an error
 // is returned.
@@ -1291,17 +1908,17 @@ func (m *LabeledAddress) Validate() error {
 
 	// no validation rules for Address
 
-	if v, ok := interface{}(m.GetChangeRequest()).(interface{ Validate() error }); ok {
+	if v, ok := interface{}(m.GetProposal()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
 			return LabeledAddressValidationError{
-				field:  "ChangeRequest",
+				field:  "Proposal",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
 		}
 	}
 
-	// no validation rules for CanDelete
+	// no validation rules for IsDeletable
 
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
@@ -1380,16 +1997,16 @@ var _ interface {
 	ErrorName() string
 } = LabeledAddressValidationError{}
 
-// Validate checks the field values on LabeledAddressChangeRequest with the
-// rules defined in the proto definition for this message. If any rules are
+// Validate checks the field values on LabeledAddressProposal with the rules
+// defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *LabeledAddressChangeRequest) Validate() error {
+func (m *LabeledAddressProposal) Validate() error {
 	if m == nil {
 		return nil
 	}
 
-	if !_LabeledAddressChangeRequest_RequesterAccountId_Pattern.MatchString(m.GetRequesterAccountId()) {
-		return LabeledAddressChangeRequestValidationError{
+	if !_LabeledAddressProposal_RequesterAccountId_Pattern.MatchString(m.GetRequesterAccountId()) {
+		return LabeledAddressProposalValidationError{
 			field:  "RequesterAccountId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
@@ -1397,12 +2014,7 @@ func (m *LabeledAddressChangeRequest) Validate() error {
 
 	// no validation rules for RequesterName
 
-	if !_LabeledAddressChangeRequest_ApproverAccountId_Pattern.MatchString(m.GetApproverAccountId()) {
-		return LabeledAddressChangeRequestValidationError{
-			field:  "ApproverAccountId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
-		}
-	}
+	// no validation rules for ApproverAccountId
 
 	// no validation rules for ApproverName
 
@@ -1413,10 +2025,9 @@ func (m *LabeledAddressChangeRequest) Validate() error {
 	return nil
 }
 
-// LabeledAddressChangeRequestValidationError is the validation error returned
-// by LabeledAddressChangeRequest.Validate if the designated constraints
-// aren't met.
-type LabeledAddressChangeRequestValidationError struct {
+// LabeledAddressProposalValidationError is the validation error returned by
+// LabeledAddressProposal.Validate if the designated constraints aren't met.
+type LabeledAddressProposalValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -1424,24 +2035,24 @@ type LabeledAddressChangeRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e LabeledAddressChangeRequestValidationError) Field() string { return e.field }
+func (e LabeledAddressProposalValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e LabeledAddressChangeRequestValidationError) Reason() string { return e.reason }
+func (e LabeledAddressProposalValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e LabeledAddressChangeRequestValidationError) Cause() error { return e.cause }
+func (e LabeledAddressProposalValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e LabeledAddressChangeRequestValidationError) Key() bool { return e.key }
+func (e LabeledAddressProposalValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e LabeledAddressChangeRequestValidationError) ErrorName() string {
-	return "LabeledAddressChangeRequestValidationError"
+func (e LabeledAddressProposalValidationError) ErrorName() string {
+	return "LabeledAddressProposalValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e LabeledAddressChangeRequestValidationError) Error() string {
+func (e LabeledAddressProposalValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -1453,14 +2064,14 @@ func (e LabeledAddressChangeRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sLabeledAddressChangeRequest.%s: %s%s",
+		"invalid %sLabeledAddressProposal.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = LabeledAddressChangeRequestValidationError{}
+var _ error = LabeledAddressProposalValidationError{}
 
 var _ interface {
 	Field() string
@@ -1468,11 +2079,9 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = LabeledAddressChangeRequestValidationError{}
+} = LabeledAddressProposalValidationError{}
 
-var _LabeledAddressChangeRequest_RequesterAccountId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
-
-var _LabeledAddressChangeRequest_ApproverAccountId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _LabeledAddressProposal_RequesterAccountId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on Whitelist with the rules defined in the
 // proto definition for this message. If any rules are violated, an error is returned.
@@ -1481,12 +2090,7 @@ func (m *Whitelist) Validate() error {
 		return nil
 	}
 
-	if !_Whitelist_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
-		return WhitelistValidationError{
-			field:  "WhitelistId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
-		}
-	}
+	// no validation rules for WhitelistId
 
 	// no validation rules for Name
 
@@ -1507,7 +2111,7 @@ func (m *Whitelist) Validate() error {
 
 	}
 
-	// no validation rules for CanDelete
+	// no validation rules for IsDeletable
 
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
@@ -1586,8 +2190,6 @@ var _ interface {
 	ErrorName() string
 } = WhitelistValidationError{}
 
-var _Whitelist_WhitelistId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
-
 // Validate checks the field values on TransferLimit with the rules defined in
 // the proto definition for this message. If any rules are violated, an error
 // is returned.
@@ -1596,12 +2198,7 @@ func (m *TransferLimit) Validate() error {
 		return nil
 	}
 
-	if !_TransferLimit_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
-		return TransferLimitValidationError{
-			field:  "TransferLimitId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
-		}
-	}
+	// no validation rules for TransferLimitId
 
 	// no validation rules for Name
 
@@ -1613,10 +2210,10 @@ func (m *TransferLimit) Validate() error {
 
 	// no validation rules for OneTimeLimit
 
-	if v, ok := interface{}(m.GetChangeRequest()).(interface{ Validate() error }); ok {
+	if v, ok := interface{}(m.GetProposal()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
 			return TransferLimitValidationError{
-				field:  "ChangeRequest",
+				field:  "Proposal",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -1625,7 +2222,7 @@ func (m *TransferLimit) Validate() error {
 
 	// no validation rules for IsReviewed
 
-	// no validation rules for CanDelete
+	// no validation rules for IsDeletable
 
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
@@ -1704,12 +2301,10 @@ var _ interface {
 	ErrorName() string
 } = TransferLimitValidationError{}
 
-var _TransferLimit_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
-
-// Validate checks the field values on TransferLimitChangeRequest with the
-// rules defined in the proto definition for this message. If any rules are
+// Validate checks the field values on TransferLimitProposal with the rules
+// defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *TransferLimitChangeRequest) Validate() error {
+func (m *TransferLimitProposal) Validate() error {
 	if m == nil {
 		return nil
 	}
@@ -1733,9 +2328,9 @@ func (m *TransferLimitChangeRequest) Validate() error {
 	return nil
 }
 
-// TransferLimitChangeRequestValidationError is the validation error returned
-// by TransferLimitChangeRequest.Validate if the designated constraints aren't met.
-type TransferLimitChangeRequestValidationError struct {
+// TransferLimitProposalValidationError is the validation error returned by
+// TransferLimitProposal.Validate if the designated constraints aren't met.
+type TransferLimitProposalValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -1743,24 +2338,24 @@ type TransferLimitChangeRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e TransferLimitChangeRequestValidationError) Field() string { return e.field }
+func (e TransferLimitProposalValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e TransferLimitChangeRequestValidationError) Reason() string { return e.reason }
+func (e TransferLimitProposalValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e TransferLimitChangeRequestValidationError) Cause() error { return e.cause }
+func (e TransferLimitProposalValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e TransferLimitChangeRequestValidationError) Key() bool { return e.key }
+func (e TransferLimitProposalValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e TransferLimitChangeRequestValidationError) ErrorName() string {
-	return "TransferLimitChangeRequestValidationError"
+func (e TransferLimitProposalValidationError) ErrorName() string {
+	return "TransferLimitProposalValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e TransferLimitChangeRequestValidationError) Error() string {
+func (e TransferLimitProposalValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -1772,14 +2367,14 @@ func (e TransferLimitChangeRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sTransferLimitChangeRequest.%s: %s%s",
+		"invalid %sTransferLimitProposal.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = TransferLimitChangeRequestValidationError{}
+var _ error = TransferLimitProposalValidationError{}
 
 var _ interface {
 	Field() string
@@ -1787,78 +2382,7 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = TransferLimitChangeRequestValidationError{}
-
-// Validate checks the field values on TransferLimitEntry with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *TransferLimitEntry) Validate() error {
-	if m == nil {
-		return nil
-	}
-
-	// no validation rules for TransferLimitType
-
-	// no validation rules for TransferLimitValue
-
-	return nil
-}
-
-// TransferLimitEntryValidationError is the validation error returned by
-// TransferLimitEntry.Validate if the designated constraints aren't met.
-type TransferLimitEntryValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e TransferLimitEntryValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e TransferLimitEntryValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e TransferLimitEntryValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e TransferLimitEntryValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e TransferLimitEntryValidationError) ErrorName() string {
-	return "TransferLimitEntryValidationError"
-}
-
-// Error satisfies the builtin error interface
-func (e TransferLimitEntryValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sTransferLimitEntry.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = TransferLimitEntryValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = TransferLimitEntryValidationError{}
+} = TransferLimitProposalValidationError{}
 
 // Validate checks the field values on Policy with the rules defined in the
 // proto definition for this message. If any rules are violated, an error is returned.
@@ -1867,12 +2391,7 @@ func (m *Policy) Validate() error {
 		return nil
 	}
 
-	if !_Policy_PolicyId_Pattern.MatchString(m.GetPolicyId()) {
-		return PolicyValidationError{
-			field:  "PolicyId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
-		}
-	}
+	// no validation rules for PolicyId
 
 	// no validation rules for PolicyType
 
@@ -1902,7 +2421,17 @@ func (m *Policy) Validate() error {
 		}
 	}
 
-	// no validation rules for CanDelete
+	// no validation rules for IsDeletable
+
+	if v, ok := interface{}(m.GetProposal()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return PolicyValidationError{
+				field:  "Proposal",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
@@ -1981,7 +2510,90 @@ var _ interface {
 	ErrorName() string
 } = PolicyValidationError{}
 
-var _Policy_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+// Validate checks the field values on PolicyProposal with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *PolicyProposal) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for RequesterAccountId
+
+	// no validation rules for RequesterName
+
+	// no validation rules for ApproverAccountId
+
+	// no validation rules for ApproverName
+
+	if v, ok := interface{}(m.GetProposedWhitelist()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return PolicyProposalValidationError{
+				field:  "ProposedWhitelist",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	// no validation rules for IsReviewed
+
+	return nil
+}
+
+// PolicyProposalValidationError is the validation error returned by
+// PolicyProposal.Validate if the designated constraints aren't met.
+type PolicyProposalValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e PolicyProposalValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e PolicyProposalValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e PolicyProposalValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e PolicyProposalValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e PolicyProposalValidationError) ErrorName() string { return "PolicyProposalValidationError" }
+
+// Error satisfies the builtin error interface
+func (e PolicyProposalValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sPolicyProposal.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = PolicyProposalValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = PolicyProposalValidationError{}
 
 // Validate checks the field values on RequestTxOutput with the rules defined
 // in the proto definition for this message. If any rules are violated, an
@@ -2224,3 +2836,185 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = RequestSignatureValidationError{}
+
+// Validate checks the field values on RequestTransferLimitEntry with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *RequestTransferLimitEntry) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if _, ok := _RequestTransferLimitEntry_TransferLimitType_NotInLookup[m.GetTransferLimitType()]; ok {
+		return RequestTransferLimitEntryValidationError{
+			field:  "TransferLimitType",
+			reason: "value must not be in list [0]",
+		}
+	}
+
+	if _, ok := TransferLimitType_name[int32(m.GetTransferLimitType())]; !ok {
+		return RequestTransferLimitEntryValidationError{
+			field:  "TransferLimitType",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	if m.GetTransferLimitValue() < 0 {
+		return RequestTransferLimitEntryValidationError{
+			field:  "TransferLimitValue",
+			reason: "value must be greater than or equal to 0",
+		}
+	}
+
+	return nil
+}
+
+// RequestTransferLimitEntryValidationError is the validation error returned by
+// RequestTransferLimitEntry.Validate if the designated constraints aren't met.
+type RequestTransferLimitEntryValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e RequestTransferLimitEntryValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e RequestTransferLimitEntryValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e RequestTransferLimitEntryValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e RequestTransferLimitEntryValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e RequestTransferLimitEntryValidationError) ErrorName() string {
+	return "RequestTransferLimitEntryValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e RequestTransferLimitEntryValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sRequestTransferLimitEntry.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = RequestTransferLimitEntryValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = RequestTransferLimitEntryValidationError{}
+
+var _RequestTransferLimitEntry_TransferLimitType_NotInLookup = map[TransferLimitType]struct{}{
+	0: {},
+}
+
+// Validate checks the field values on RequestRate with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *RequestRate) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if _, ok := _RequestRate_Coin_NotInLookup[m.GetCoin()]; ok {
+		return RequestRateValidationError{
+			field:  "Coin",
+			reason: "value must not be in list [0]",
+		}
+	}
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		return RequestRateValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	if m.GetJpy() < 0 {
+		return RequestRateValidationError{
+			field:  "Jpy",
+			reason: "value must be greater than or equal to 0",
+		}
+	}
+
+	return nil
+}
+
+// RequestRateValidationError is the validation error returned by
+// RequestRate.Validate if the designated constraints aren't met.
+type RequestRateValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e RequestRateValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e RequestRateValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e RequestRateValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e RequestRateValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e RequestRateValidationError) ErrorName() string { return "RequestRateValidationError" }
+
+// Error satisfies the builtin error interface
+func (e RequestRateValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sRequestRate.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = RequestRateValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = RequestRateValidationError{}
+
+var _RequestRate_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
+	0: {},
+}

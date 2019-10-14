@@ -114,17 +114,19 @@ func (m *ApproveTransactionRequest) GetTransactionId() string {
 }
 
 type CreateWalletRequest struct {
-	WalletName           string                       `protobuf:"bytes,1,opt,name=wallet_name,json=walletName,proto3" json:"wallet_name,omitempty"`
-	Coin                 gincoincglobalv1.Coin        `protobuf:"varint,2,opt,name=coin,proto3,enum=gincoinc.global.v1.Coin" json:"coin,omitempty"`
-	WalletType           WalletType                   `protobuf:"varint,3,opt,name=wallet_type,json=walletType,proto3,enum=adamant.global.v1.WalletType" json:"wallet_type,omitempty"`
-	AddressType          gincoincglobalv1.AddressType `protobuf:"varint,4,opt,name=address_type,json=addressType,proto3,enum=gincoinc.global.v1.AddressType" json:"address_type,omitempty"`
-	M                    uint32                       `protobuf:"varint,5,opt,name=m,proto3" json:"m,omitempty"`
-	N                    uint32                       `protobuf:"varint,6,opt,name=n,proto3" json:"n,omitempty"`
-	Members              []string                     `protobuf:"bytes,7,rep,name=members,proto3" json:"members,omitempty"`
-	PolicyId             string                       `protobuf:"bytes,8,opt,name=policy_id,json=policyId,proto3" json:"policy_id,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}                     `json:"-"`
-	XXX_unrecognized     []byte                       `json:"-"`
-	XXX_sizecache        int32                        `json:"-"`
+	WalletName  string                       `protobuf:"bytes,1,opt,name=wallet_name,json=walletName,proto3" json:"wallet_name,omitempty"`
+	Coin        gincoincglobalv1.Coin        `protobuf:"varint,2,opt,name=coin,proto3,enum=gincoinc.global.v1.Coin" json:"coin,omitempty"`
+	WalletType  WalletType                   `protobuf:"varint,3,opt,name=wallet_type,json=walletType,proto3,enum=adamant.global.v1.WalletType" json:"wallet_type,omitempty"`
+	AddressType gincoincglobalv1.AddressType `protobuf:"varint,4,opt,name=address_type,json=addressType,proto3,enum=gincoinc.global.v1.AddressType" json:"address_type,omitempty"`
+	// and must be m <= n
+	M       uint32   `protobuf:"varint,5,opt,name=m,proto3" json:"m,omitempty"`
+	N       uint32   `protobuf:"varint,6,opt,name=n,proto3" json:"n,omitempty"`
+	Members []string `protobuf:"bytes,7,rep,name=members,proto3" json:"members,omitempty"`
+	// optional
+	PolicyId             string   `protobuf:"bytes,8,opt,name=policy_id,json=policyId,proto3" json:"policy_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
 }
 
 func (m *CreateWalletRequest) Reset()         { *m = CreateWalletRequest{} }
@@ -208,6 +210,45 @@ func (m *CreateWalletRequest) GetPolicyId() string {
 	return ""
 }
 
+type CreateWalletResponse struct {
+	WalletId             string   `protobuf:"bytes,1,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CreateWalletResponse) Reset()         { *m = CreateWalletResponse{} }
+func (m *CreateWalletResponse) String() string { return proto.CompactTextString(m) }
+func (*CreateWalletResponse) ProtoMessage()    {}
+func (*CreateWalletResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{3}
+}
+
+func (m *CreateWalletResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateWalletResponse.Unmarshal(m, b)
+}
+func (m *CreateWalletResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateWalletResponse.Marshal(b, m, deterministic)
+}
+func (m *CreateWalletResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateWalletResponse.Merge(m, src)
+}
+func (m *CreateWalletResponse) XXX_Size() int {
+	return xxx_messageInfo_CreateWalletResponse.Size(m)
+}
+func (m *CreateWalletResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateWalletResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateWalletResponse proto.InternalMessageInfo
+
+func (m *CreateWalletResponse) GetWalletId() string {
+	if m != nil {
+		return m.WalletId
+	}
+	return ""
+}
+
 type GetWalletRequest struct {
 	WalletId             string   `protobuf:"bytes,1,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -219,7 +260,7 @@ func (m *GetWalletRequest) Reset()         { *m = GetWalletRequest{} }
 func (m *GetWalletRequest) String() string { return proto.CompactTextString(m) }
 func (*GetWalletRequest) ProtoMessage()    {}
 func (*GetWalletRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{3}
+	return fileDescriptor_67b639143ce6ddc1, []int{4}
 }
 
 func (m *GetWalletRequest) XXX_Unmarshal(b []byte) error {
@@ -258,7 +299,7 @@ func (m *CancelWalletRequest) Reset()         { *m = CancelWalletRequest{} }
 func (m *CancelWalletRequest) String() string { return proto.CompactTextString(m) }
 func (*CancelWalletRequest) ProtoMessage()    {}
 func (*CancelWalletRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{4}
+	return fileDescriptor_67b639143ce6ddc1, []int{5}
 }
 
 func (m *CancelWalletRequest) XXX_Unmarshal(b []byte) error {
@@ -297,7 +338,7 @@ func (m *ArchiveWalletRequest) Reset()         { *m = ArchiveWalletRequest{} }
 func (m *ArchiveWalletRequest) String() string { return proto.CompactTextString(m) }
 func (*ArchiveWalletRequest) ProtoMessage()    {}
 func (*ArchiveWalletRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{5}
+	return fileDescriptor_67b639143ce6ddc1, []int{6}
 }
 
 func (m *ArchiveWalletRequest) XXX_Unmarshal(b []byte) error {
@@ -336,7 +377,7 @@ func (m *UnArchiveWalletRequest) Reset()         { *m = UnArchiveWalletRequest{}
 func (m *UnArchiveWalletRequest) String() string { return proto.CompactTextString(m) }
 func (*UnArchiveWalletRequest) ProtoMessage()    {}
 func (*UnArchiveWalletRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{6}
+	return fileDescriptor_67b639143ce6ddc1, []int{7}
 }
 
 func (m *UnArchiveWalletRequest) XXX_Unmarshal(b []byte) error {
@@ -376,7 +417,7 @@ func (m *ListWalletsRequest) Reset()         { *m = ListWalletsRequest{} }
 func (m *ListWalletsRequest) String() string { return proto.CompactTextString(m) }
 func (*ListWalletsRequest) ProtoMessage()    {}
 func (*ListWalletsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{7}
+	return fileDescriptor_67b639143ce6ddc1, []int{8}
 }
 
 func (m *ListWalletsRequest) XXX_Unmarshal(b []byte) error {
@@ -423,7 +464,7 @@ func (m *ListWalletsResponse) Reset()         { *m = ListWalletsResponse{} }
 func (m *ListWalletsResponse) String() string { return proto.CompactTextString(m) }
 func (*ListWalletsResponse) ProtoMessage()    {}
 func (*ListWalletsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{8}
+	return fileDescriptor_67b639143ce6ddc1, []int{9}
 }
 
 func (m *ListWalletsResponse) XXX_Unmarshal(b []byte) error {
@@ -470,7 +511,7 @@ func (m *UpdateWalletPolicyRequest) Reset()         { *m = UpdateWalletPolicyReq
 func (m *UpdateWalletPolicyRequest) String() string { return proto.CompactTextString(m) }
 func (*UpdateWalletPolicyRequest) ProtoMessage()    {}
 func (*UpdateWalletPolicyRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{9}
+	return fileDescriptor_67b639143ce6ddc1, []int{10}
 }
 
 func (m *UpdateWalletPolicyRequest) XXX_Unmarshal(b []byte) error {
@@ -505,88 +546,56 @@ func (m *UpdateWalletPolicyRequest) GetPolicyId() string {
 	return ""
 }
 
-type GetNextHdAccountRequest struct {
+type ReviewWalletProposalRequest struct {
 	WalletId             string   `protobuf:"bytes,1,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
+	Approve              bool     `protobuf:"varint,2,opt,name=approve,proto3" json:"approve,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetNextHdAccountRequest) Reset()         { *m = GetNextHdAccountRequest{} }
-func (m *GetNextHdAccountRequest) String() string { return proto.CompactTextString(m) }
-func (*GetNextHdAccountRequest) ProtoMessage()    {}
-func (*GetNextHdAccountRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{10}
+func (m *ReviewWalletProposalRequest) Reset()         { *m = ReviewWalletProposalRequest{} }
+func (m *ReviewWalletProposalRequest) String() string { return proto.CompactTextString(m) }
+func (*ReviewWalletProposalRequest) ProtoMessage()    {}
+func (*ReviewWalletProposalRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{11}
 }
 
-func (m *GetNextHdAccountRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetNextHdAccountRequest.Unmarshal(m, b)
+func (m *ReviewWalletProposalRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReviewWalletProposalRequest.Unmarshal(m, b)
 }
-func (m *GetNextHdAccountRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetNextHdAccountRequest.Marshal(b, m, deterministic)
+func (m *ReviewWalletProposalRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReviewWalletProposalRequest.Marshal(b, m, deterministic)
 }
-func (m *GetNextHdAccountRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetNextHdAccountRequest.Merge(m, src)
+func (m *ReviewWalletProposalRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReviewWalletProposalRequest.Merge(m, src)
 }
-func (m *GetNextHdAccountRequest) XXX_Size() int {
-	return xxx_messageInfo_GetNextHdAccountRequest.Size(m)
+func (m *ReviewWalletProposalRequest) XXX_Size() int {
+	return xxx_messageInfo_ReviewWalletProposalRequest.Size(m)
 }
-func (m *GetNextHdAccountRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetNextHdAccountRequest.DiscardUnknown(m)
+func (m *ReviewWalletProposalRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReviewWalletProposalRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GetNextHdAccountRequest proto.InternalMessageInfo
+var xxx_messageInfo_ReviewWalletProposalRequest proto.InternalMessageInfo
 
-func (m *GetNextHdAccountRequest) GetWalletId() string {
+func (m *ReviewWalletProposalRequest) GetWalletId() string {
 	if m != nil {
 		return m.WalletId
 	}
 	return ""
 }
 
-type GetNextHdAccountResponse struct {
-	HdAccount            uint32   `protobuf:"varint,1,opt,name=hd_account,json=hdAccount,proto3" json:"hd_account,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetNextHdAccountResponse) Reset()         { *m = GetNextHdAccountResponse{} }
-func (m *GetNextHdAccountResponse) String() string { return proto.CompactTextString(m) }
-func (*GetNextHdAccountResponse) ProtoMessage()    {}
-func (*GetNextHdAccountResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{11}
-}
-
-func (m *GetNextHdAccountResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetNextHdAccountResponse.Unmarshal(m, b)
-}
-func (m *GetNextHdAccountResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetNextHdAccountResponse.Marshal(b, m, deterministic)
-}
-func (m *GetNextHdAccountResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetNextHdAccountResponse.Merge(m, src)
-}
-func (m *GetNextHdAccountResponse) XXX_Size() int {
-	return xxx_messageInfo_GetNextHdAccountResponse.Size(m)
-}
-func (m *GetNextHdAccountResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetNextHdAccountResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetNextHdAccountResponse proto.InternalMessageInfo
-
-func (m *GetNextHdAccountResponse) GetHdAccount() uint32 {
+func (m *ReviewWalletProposalRequest) GetApprove() bool {
 	if m != nil {
-		return m.HdAccount
+		return m.Approve
 	}
-	return 0
+	return false
 }
 
 type RegisterKeyRequest struct {
 	WalletId             string   `protobuf:"bytes,1,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
 	PubKey               string   `protobuf:"bytes,2,opt,name=pub_key,json=pubKey,proto3" json:"pub_key,omitempty"`
-	HdAccount            uint32   `protobuf:"varint,3,opt,name=hd_account,json=hdAccount,proto3" json:"hd_account,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -631,11 +640,43 @@ func (m *RegisterKeyRequest) GetPubKey() string {
 	return ""
 }
 
-func (m *RegisterKeyRequest) GetHdAccount() uint32 {
+type RegisterKeyResponse struct {
+	KeyId                string   `protobuf:"bytes,1,opt,name=key_id,json=keyId,proto3" json:"key_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *RegisterKeyResponse) Reset()         { *m = RegisterKeyResponse{} }
+func (m *RegisterKeyResponse) String() string { return proto.CompactTextString(m) }
+func (*RegisterKeyResponse) ProtoMessage()    {}
+func (*RegisterKeyResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{13}
+}
+
+func (m *RegisterKeyResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RegisterKeyResponse.Unmarshal(m, b)
+}
+func (m *RegisterKeyResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RegisterKeyResponse.Marshal(b, m, deterministic)
+}
+func (m *RegisterKeyResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RegisterKeyResponse.Merge(m, src)
+}
+func (m *RegisterKeyResponse) XXX_Size() int {
+	return xxx_messageInfo_RegisterKeyResponse.Size(m)
+}
+func (m *RegisterKeyResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_RegisterKeyResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RegisterKeyResponse proto.InternalMessageInfo
+
+func (m *RegisterKeyResponse) GetKeyId() string {
 	if m != nil {
-		return m.HdAccount
+		return m.KeyId
 	}
-	return 0
+	return ""
 }
 
 type CreateAddressRequest struct {
@@ -649,7 +690,7 @@ func (m *CreateAddressRequest) Reset()         { *m = CreateAddressRequest{} }
 func (m *CreateAddressRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateAddressRequest) ProtoMessage()    {}
 func (*CreateAddressRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{13}
+	return fileDescriptor_67b639143ce6ddc1, []int{14}
 }
 
 func (m *CreateAddressRequest) XXX_Unmarshal(b []byte) error {
@@ -677,6 +718,45 @@ func (m *CreateAddressRequest) GetWalletId() string {
 	return ""
 }
 
+type CreateAddressResponse struct {
+	AddressId            string   `protobuf:"bytes,1,opt,name=address_id,json=addressId,proto3" json:"address_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CreateAddressResponse) Reset()         { *m = CreateAddressResponse{} }
+func (m *CreateAddressResponse) String() string { return proto.CompactTextString(m) }
+func (*CreateAddressResponse) ProtoMessage()    {}
+func (*CreateAddressResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{15}
+}
+
+func (m *CreateAddressResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateAddressResponse.Unmarshal(m, b)
+}
+func (m *CreateAddressResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateAddressResponse.Marshal(b, m, deterministic)
+}
+func (m *CreateAddressResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateAddressResponse.Merge(m, src)
+}
+func (m *CreateAddressResponse) XXX_Size() int {
+	return xxx_messageInfo_CreateAddressResponse.Size(m)
+}
+func (m *CreateAddressResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateAddressResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateAddressResponse proto.InternalMessageInfo
+
+func (m *CreateAddressResponse) GetAddressId() string {
+	if m != nil {
+		return m.AddressId
+	}
+	return ""
+}
+
 type GetAddressRequest struct {
 	WalletId             string   `protobuf:"bytes,1,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
 	AddressId            string   `protobuf:"bytes,2,opt,name=address_id,json=addressId,proto3" json:"address_id,omitempty"`
@@ -689,7 +769,7 @@ func (m *GetAddressRequest) Reset()         { *m = GetAddressRequest{} }
 func (m *GetAddressRequest) String() string { return proto.CompactTextString(m) }
 func (*GetAddressRequest) ProtoMessage()    {}
 func (*GetAddressRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{14}
+	return fileDescriptor_67b639143ce6ddc1, []int{16}
 }
 
 func (m *GetAddressRequest) XXX_Unmarshal(b []byte) error {
@@ -724,6 +804,53 @@ func (m *GetAddressRequest) GetAddressId() string {
 	return ""
 }
 
+type GetAddressByAddressRequest struct {
+	WalletId             string   `protobuf:"bytes,1,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
+	Address              string   `protobuf:"bytes,2,opt,name=address,proto3" json:"address,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetAddressByAddressRequest) Reset()         { *m = GetAddressByAddressRequest{} }
+func (m *GetAddressByAddressRequest) String() string { return proto.CompactTextString(m) }
+func (*GetAddressByAddressRequest) ProtoMessage()    {}
+func (*GetAddressByAddressRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{17}
+}
+
+func (m *GetAddressByAddressRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetAddressByAddressRequest.Unmarshal(m, b)
+}
+func (m *GetAddressByAddressRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetAddressByAddressRequest.Marshal(b, m, deterministic)
+}
+func (m *GetAddressByAddressRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetAddressByAddressRequest.Merge(m, src)
+}
+func (m *GetAddressByAddressRequest) XXX_Size() int {
+	return xxx_messageInfo_GetAddressByAddressRequest.Size(m)
+}
+func (m *GetAddressByAddressRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetAddressByAddressRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetAddressByAddressRequest proto.InternalMessageInfo
+
+func (m *GetAddressByAddressRequest) GetWalletId() string {
+	if m != nil {
+		return m.WalletId
+	}
+	return ""
+}
+
+func (m *GetAddressByAddressRequest) GetAddress() string {
+	if m != nil {
+		return m.Address
+	}
+	return ""
+}
+
 type ListAddressesRequest struct {
 	WalletId             string   `protobuf:"bytes,1,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
 	OmitChange           bool     `protobuf:"varint,2,opt,name=omit_change,json=omitChange,proto3" json:"omit_change,omitempty"`
@@ -738,7 +865,7 @@ func (m *ListAddressesRequest) Reset()         { *m = ListAddressesRequest{} }
 func (m *ListAddressesRequest) String() string { return proto.CompactTextString(m) }
 func (*ListAddressesRequest) ProtoMessage()    {}
 func (*ListAddressesRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{15}
+	return fileDescriptor_67b639143ce6ddc1, []int{18}
 }
 
 func (m *ListAddressesRequest) XXX_Unmarshal(b []byte) error {
@@ -799,7 +926,7 @@ func (m *ListAddressesResponse) Reset()         { *m = ListAddressesResponse{} }
 func (m *ListAddressesResponse) String() string { return proto.CompactTextString(m) }
 func (*ListAddressesResponse) ProtoMessage()    {}
 func (*ListAddressesResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{16}
+	return fileDescriptor_67b639143ce6ddc1, []int{19}
 }
 
 func (m *ListAddressesResponse) XXX_Unmarshal(b []byte) error {
@@ -834,10 +961,45 @@ func (m *ListAddressesResponse) GetNextPageToken() string {
 	return ""
 }
 
+type GetEthereumFeeAddressRequest struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetEthereumFeeAddressRequest) Reset()         { *m = GetEthereumFeeAddressRequest{} }
+func (m *GetEthereumFeeAddressRequest) String() string { return proto.CompactTextString(m) }
+func (*GetEthereumFeeAddressRequest) ProtoMessage()    {}
+func (*GetEthereumFeeAddressRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{20}
+}
+
+func (m *GetEthereumFeeAddressRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetEthereumFeeAddressRequest.Unmarshal(m, b)
+}
+func (m *GetEthereumFeeAddressRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetEthereumFeeAddressRequest.Marshal(b, m, deterministic)
+}
+func (m *GetEthereumFeeAddressRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetEthereumFeeAddressRequest.Merge(m, src)
+}
+func (m *GetEthereumFeeAddressRequest) XXX_Size() int {
+	return xxx_messageInfo_GetEthereumFeeAddressRequest.Size(m)
+}
+func (m *GetEthereumFeeAddressRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetEthereumFeeAddressRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetEthereumFeeAddressRequest proto.InternalMessageInfo
+
 type CreateTransactionRequest struct {
 	WalletId             string             `protobuf:"bytes,1,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
 	FeeRate              uint64             `protobuf:"varint,2,opt,name=fee_rate,json=feeRate,proto3" json:"fee_rate,omitempty"`
 	TxOutputs            []*RequestTxOutput `protobuf:"bytes,3,rep,name=tx_outputs,json=txOutputs,proto3" json:"tx_outputs,omitempty"`
+	Address              string             `protobuf:"bytes,4,opt,name=address,proto3" json:"address,omitempty"`
+	DestinationTag       uint32             `protobuf:"varint,5,opt,name=destination_tag,json=destinationTag,proto3" json:"destination_tag,omitempty"`
+	Value                float64            `protobuf:"fixed64,6,opt,name=value,proto3" json:"value,omitempty"`
+	StringValue          string             `protobuf:"bytes,7,opt,name=string_value,json=stringValue,proto3" json:"string_value,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}           `json:"-"`
 	XXX_unrecognized     []byte             `json:"-"`
 	XXX_sizecache        int32              `json:"-"`
@@ -847,7 +1009,7 @@ func (m *CreateTransactionRequest) Reset()         { *m = CreateTransactionReque
 func (m *CreateTransactionRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateTransactionRequest) ProtoMessage()    {}
 func (*CreateTransactionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{17}
+	return fileDescriptor_67b639143ce6ddc1, []int{21}
 }
 
 func (m *CreateTransactionRequest) XXX_Unmarshal(b []byte) error {
@@ -889,6 +1051,112 @@ func (m *CreateTransactionRequest) GetTxOutputs() []*RequestTxOutput {
 	return nil
 }
 
+func (m *CreateTransactionRequest) GetAddress() string {
+	if m != nil {
+		return m.Address
+	}
+	return ""
+}
+
+func (m *CreateTransactionRequest) GetDestinationTag() uint32 {
+	if m != nil {
+		return m.DestinationTag
+	}
+	return 0
+}
+
+func (m *CreateTransactionRequest) GetValue() float64 {
+	if m != nil {
+		return m.Value
+	}
+	return 0
+}
+
+func (m *CreateTransactionRequest) GetStringValue() string {
+	if m != nil {
+		return m.StringValue
+	}
+	return ""
+}
+
+type CreateTransactionResponse struct {
+	TransactionId        string   `protobuf:"bytes,1,opt,name=transaction_id,json=transactionId,proto3" json:"transaction_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CreateTransactionResponse) Reset()         { *m = CreateTransactionResponse{} }
+func (m *CreateTransactionResponse) String() string { return proto.CompactTextString(m) }
+func (*CreateTransactionResponse) ProtoMessage()    {}
+func (*CreateTransactionResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{22}
+}
+
+func (m *CreateTransactionResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateTransactionResponse.Unmarshal(m, b)
+}
+func (m *CreateTransactionResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateTransactionResponse.Marshal(b, m, deterministic)
+}
+func (m *CreateTransactionResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateTransactionResponse.Merge(m, src)
+}
+func (m *CreateTransactionResponse) XXX_Size() int {
+	return xxx_messageInfo_CreateTransactionResponse.Size(m)
+}
+func (m *CreateTransactionResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateTransactionResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateTransactionResponse proto.InternalMessageInfo
+
+func (m *CreateTransactionResponse) GetTransactionId() string {
+	if m != nil {
+		return m.TransactionId
+	}
+	return ""
+}
+
+type CreateXRPInitTransactionsRequest struct {
+	WalletId             string   `protobuf:"bytes,1,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CreateXRPInitTransactionsRequest) Reset()         { *m = CreateXRPInitTransactionsRequest{} }
+func (m *CreateXRPInitTransactionsRequest) String() string { return proto.CompactTextString(m) }
+func (*CreateXRPInitTransactionsRequest) ProtoMessage()    {}
+func (*CreateXRPInitTransactionsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{23}
+}
+
+func (m *CreateXRPInitTransactionsRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateXRPInitTransactionsRequest.Unmarshal(m, b)
+}
+func (m *CreateXRPInitTransactionsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateXRPInitTransactionsRequest.Marshal(b, m, deterministic)
+}
+func (m *CreateXRPInitTransactionsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateXRPInitTransactionsRequest.Merge(m, src)
+}
+func (m *CreateXRPInitTransactionsRequest) XXX_Size() int {
+	return xxx_messageInfo_CreateXRPInitTransactionsRequest.Size(m)
+}
+func (m *CreateXRPInitTransactionsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateXRPInitTransactionsRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateXRPInitTransactionsRequest proto.InternalMessageInfo
+
+func (m *CreateXRPInitTransactionsRequest) GetWalletId() string {
+	if m != nil {
+		return m.WalletId
+	}
+	return ""
+}
+
 type SignTransactionRequest struct {
 	WalletId             string             `protobuf:"bytes,1,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
 	TransactionId        string             `protobuf:"bytes,2,opt,name=transaction_id,json=transactionId,proto3" json:"transaction_id,omitempty"`
@@ -903,7 +1171,7 @@ func (m *SignTransactionRequest) Reset()         { *m = SignTransactionRequest{}
 func (m *SignTransactionRequest) String() string { return proto.CompactTextString(m) }
 func (*SignTransactionRequest) ProtoMessage()    {}
 func (*SignTransactionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{18}
+	return fileDescriptor_67b639143ce6ddc1, []int{24}
 }
 
 func (m *SignTransactionRequest) XXX_Unmarshal(b []byte) error {
@@ -952,6 +1220,61 @@ func (m *SignTransactionRequest) GetSignedInfo() *RequestSignedInfo {
 	return nil
 }
 
+type SignXRPInitTransactionsRequest struct {
+	WalletId             string               `protobuf:"bytes,1,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
+	KeyId                string               `protobuf:"bytes,2,opt,name=key_id,json=keyId,proto3" json:"key_id,omitempty"`
+	SignedInfo           []*RequestSignedInfo `protobuf:"bytes,4,rep,name=signed_info,json=signedInfo,proto3" json:"signed_info,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
+	XXX_unrecognized     []byte               `json:"-"`
+	XXX_sizecache        int32                `json:"-"`
+}
+
+func (m *SignXRPInitTransactionsRequest) Reset()         { *m = SignXRPInitTransactionsRequest{} }
+func (m *SignXRPInitTransactionsRequest) String() string { return proto.CompactTextString(m) }
+func (*SignXRPInitTransactionsRequest) ProtoMessage()    {}
+func (*SignXRPInitTransactionsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{25}
+}
+
+func (m *SignXRPInitTransactionsRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SignXRPInitTransactionsRequest.Unmarshal(m, b)
+}
+func (m *SignXRPInitTransactionsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SignXRPInitTransactionsRequest.Marshal(b, m, deterministic)
+}
+func (m *SignXRPInitTransactionsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SignXRPInitTransactionsRequest.Merge(m, src)
+}
+func (m *SignXRPInitTransactionsRequest) XXX_Size() int {
+	return xxx_messageInfo_SignXRPInitTransactionsRequest.Size(m)
+}
+func (m *SignXRPInitTransactionsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SignXRPInitTransactionsRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SignXRPInitTransactionsRequest proto.InternalMessageInfo
+
+func (m *SignXRPInitTransactionsRequest) GetWalletId() string {
+	if m != nil {
+		return m.WalletId
+	}
+	return ""
+}
+
+func (m *SignXRPInitTransactionsRequest) GetKeyId() string {
+	if m != nil {
+		return m.KeyId
+	}
+	return ""
+}
+
+func (m *SignXRPInitTransactionsRequest) GetSignedInfo() []*RequestSignedInfo {
+	if m != nil {
+		return m.SignedInfo
+	}
+	return nil
+}
+
 type SendTransactionRequest struct {
 	WalletId             string   `protobuf:"bytes,1,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
 	TransactionId        string   `protobuf:"bytes,2,opt,name=transaction_id,json=transactionId,proto3" json:"transaction_id,omitempty"`
@@ -964,7 +1287,7 @@ func (m *SendTransactionRequest) Reset()         { *m = SendTransactionRequest{}
 func (m *SendTransactionRequest) String() string { return proto.CompactTextString(m) }
 func (*SendTransactionRequest) ProtoMessage()    {}
 func (*SendTransactionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{19}
+	return fileDescriptor_67b639143ce6ddc1, []int{26}
 }
 
 func (m *SendTransactionRequest) XXX_Unmarshal(b []byte) error {
@@ -999,6 +1322,123 @@ func (m *SendTransactionRequest) GetTransactionId() string {
 	return ""
 }
 
+type SendTransactionResponse struct {
+	TxId                 string   `protobuf:"bytes,1,opt,name=tx_id,json=txId,proto3" json:"tx_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SendTransactionResponse) Reset()         { *m = SendTransactionResponse{} }
+func (m *SendTransactionResponse) String() string { return proto.CompactTextString(m) }
+func (*SendTransactionResponse) ProtoMessage()    {}
+func (*SendTransactionResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{27}
+}
+
+func (m *SendTransactionResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SendTransactionResponse.Unmarshal(m, b)
+}
+func (m *SendTransactionResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SendTransactionResponse.Marshal(b, m, deterministic)
+}
+func (m *SendTransactionResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SendTransactionResponse.Merge(m, src)
+}
+func (m *SendTransactionResponse) XXX_Size() int {
+	return xxx_messageInfo_SendTransactionResponse.Size(m)
+}
+func (m *SendTransactionResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SendTransactionResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SendTransactionResponse proto.InternalMessageInfo
+
+func (m *SendTransactionResponse) GetTxId() string {
+	if m != nil {
+		return m.TxId
+	}
+	return ""
+}
+
+type SendXRPInitTransactionsRequest struct {
+	WalletId             string   `protobuf:"bytes,1,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SendXRPInitTransactionsRequest) Reset()         { *m = SendXRPInitTransactionsRequest{} }
+func (m *SendXRPInitTransactionsRequest) String() string { return proto.CompactTextString(m) }
+func (*SendXRPInitTransactionsRequest) ProtoMessage()    {}
+func (*SendXRPInitTransactionsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{28}
+}
+
+func (m *SendXRPInitTransactionsRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SendXRPInitTransactionsRequest.Unmarshal(m, b)
+}
+func (m *SendXRPInitTransactionsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SendXRPInitTransactionsRequest.Marshal(b, m, deterministic)
+}
+func (m *SendXRPInitTransactionsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SendXRPInitTransactionsRequest.Merge(m, src)
+}
+func (m *SendXRPInitTransactionsRequest) XXX_Size() int {
+	return xxx_messageInfo_SendXRPInitTransactionsRequest.Size(m)
+}
+func (m *SendXRPInitTransactionsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SendXRPInitTransactionsRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SendXRPInitTransactionsRequest proto.InternalMessageInfo
+
+func (m *SendXRPInitTransactionsRequest) GetWalletId() string {
+	if m != nil {
+		return m.WalletId
+	}
+	return ""
+}
+
+type SendXRPInitTransactionsResponse struct {
+	TxIds                []string `protobuf:"bytes,1,rep,name=tx_ids,json=txIds,proto3" json:"tx_ids,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SendXRPInitTransactionsResponse) Reset()         { *m = SendXRPInitTransactionsResponse{} }
+func (m *SendXRPInitTransactionsResponse) String() string { return proto.CompactTextString(m) }
+func (*SendXRPInitTransactionsResponse) ProtoMessage()    {}
+func (*SendXRPInitTransactionsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{29}
+}
+
+func (m *SendXRPInitTransactionsResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SendXRPInitTransactionsResponse.Unmarshal(m, b)
+}
+func (m *SendXRPInitTransactionsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SendXRPInitTransactionsResponse.Marshal(b, m, deterministic)
+}
+func (m *SendXRPInitTransactionsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SendXRPInitTransactionsResponse.Merge(m, src)
+}
+func (m *SendXRPInitTransactionsResponse) XXX_Size() int {
+	return xxx_messageInfo_SendXRPInitTransactionsResponse.Size(m)
+}
+func (m *SendXRPInitTransactionsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SendXRPInitTransactionsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SendXRPInitTransactionsResponse proto.InternalMessageInfo
+
+func (m *SendXRPInitTransactionsResponse) GetTxIds() []string {
+	if m != nil {
+		return m.TxIds
+	}
+	return nil
+}
+
 type CancelTransactionRequest struct {
 	WalletId             string   `protobuf:"bytes,1,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
 	TransactionId        string   `protobuf:"bytes,2,opt,name=transaction_id,json=transactionId,proto3" json:"transaction_id,omitempty"`
@@ -1011,7 +1451,7 @@ func (m *CancelTransactionRequest) Reset()         { *m = CancelTransactionReque
 func (m *CancelTransactionRequest) String() string { return proto.CompactTextString(m) }
 func (*CancelTransactionRequest) ProtoMessage()    {}
 func (*CancelTransactionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{20}
+	return fileDescriptor_67b639143ce6ddc1, []int{30}
 }
 
 func (m *CancelTransactionRequest) XXX_Unmarshal(b []byte) error {
@@ -1058,7 +1498,7 @@ func (m *GetTransactionRequest) Reset()         { *m = GetTransactionRequest{} }
 func (m *GetTransactionRequest) String() string { return proto.CompactTextString(m) }
 func (*GetTransactionRequest) ProtoMessage()    {}
 func (*GetTransactionRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{21}
+	return fileDescriptor_67b639143ce6ddc1, []int{31}
 }
 
 func (m *GetTransactionRequest) XXX_Unmarshal(b []byte) error {
@@ -1106,7 +1546,7 @@ func (m *ListTransactionsRequest) Reset()         { *m = ListTransactionsRequest
 func (m *ListTransactionsRequest) String() string { return proto.CompactTextString(m) }
 func (*ListTransactionsRequest) ProtoMessage()    {}
 func (*ListTransactionsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{22}
+	return fileDescriptor_67b639143ce6ddc1, []int{32}
 }
 
 func (m *ListTransactionsRequest) XXX_Unmarshal(b []byte) error {
@@ -1160,7 +1600,7 @@ func (m *ListTransactionsResponse) Reset()         { *m = ListTransactionsRespon
 func (m *ListTransactionsResponse) String() string { return proto.CompactTextString(m) }
 func (*ListTransactionsResponse) ProtoMessage()    {}
 func (*ListTransactionsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{23}
+	return fileDescriptor_67b639143ce6ddc1, []int{33}
 }
 
 func (m *ListTransactionsResponse) XXX_Unmarshal(b []byte) error {
@@ -1207,7 +1647,7 @@ func (m *GetSignInfoRequest) Reset()         { *m = GetSignInfoRequest{} }
 func (m *GetSignInfoRequest) String() string { return proto.CompactTextString(m) }
 func (*GetSignInfoRequest) ProtoMessage()    {}
 func (*GetSignInfoRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{24}
+	return fileDescriptor_67b639143ce6ddc1, []int{34}
 }
 
 func (m *GetSignInfoRequest) XXX_Unmarshal(b []byte) error {
@@ -1254,7 +1694,7 @@ func (m *ListSignInfoRequest) Reset()         { *m = ListSignInfoRequest{} }
 func (m *ListSignInfoRequest) String() string { return proto.CompactTextString(m) }
 func (*ListSignInfoRequest) ProtoMessage()    {}
 func (*ListSignInfoRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{25}
+	return fileDescriptor_67b639143ce6ddc1, []int{35}
 }
 
 func (m *ListSignInfoRequest) XXX_Unmarshal(b []byte) error {
@@ -1300,7 +1740,7 @@ func (m *ListSignInfoResponse) Reset()         { *m = ListSignInfoResponse{} }
 func (m *ListSignInfoResponse) String() string { return proto.CompactTextString(m) }
 func (*ListSignInfoResponse) ProtoMessage()    {}
 func (*ListSignInfoResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{26}
+	return fileDescriptor_67b639143ce6ddc1, []int{36}
 }
 
 func (m *ListSignInfoResponse) XXX_Unmarshal(b []byte) error {
@@ -1328,6 +1768,84 @@ func (m *ListSignInfoResponse) GetSignInfoList() []*SignInfo {
 	return nil
 }
 
+type ListXRPInitSignInfoRequest struct {
+	WalletId             string   `protobuf:"bytes,1,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ListXRPInitSignInfoRequest) Reset()         { *m = ListXRPInitSignInfoRequest{} }
+func (m *ListXRPInitSignInfoRequest) String() string { return proto.CompactTextString(m) }
+func (*ListXRPInitSignInfoRequest) ProtoMessage()    {}
+func (*ListXRPInitSignInfoRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{37}
+}
+
+func (m *ListXRPInitSignInfoRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListXRPInitSignInfoRequest.Unmarshal(m, b)
+}
+func (m *ListXRPInitSignInfoRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListXRPInitSignInfoRequest.Marshal(b, m, deterministic)
+}
+func (m *ListXRPInitSignInfoRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListXRPInitSignInfoRequest.Merge(m, src)
+}
+func (m *ListXRPInitSignInfoRequest) XXX_Size() int {
+	return xxx_messageInfo_ListXRPInitSignInfoRequest.Size(m)
+}
+func (m *ListXRPInitSignInfoRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListXRPInitSignInfoRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListXRPInitSignInfoRequest proto.InternalMessageInfo
+
+func (m *ListXRPInitSignInfoRequest) GetWalletId() string {
+	if m != nil {
+		return m.WalletId
+	}
+	return ""
+}
+
+type ListXRPInitSignInfoResponse struct {
+	SignInfoList         []*SignInfo `protobuf:"bytes,1,rep,name=sign_info_list,json=signInfoList,proto3" json:"sign_info_list,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *ListXRPInitSignInfoResponse) Reset()         { *m = ListXRPInitSignInfoResponse{} }
+func (m *ListXRPInitSignInfoResponse) String() string { return proto.CompactTextString(m) }
+func (*ListXRPInitSignInfoResponse) ProtoMessage()    {}
+func (*ListXRPInitSignInfoResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{38}
+}
+
+func (m *ListXRPInitSignInfoResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ListXRPInitSignInfoResponse.Unmarshal(m, b)
+}
+func (m *ListXRPInitSignInfoResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ListXRPInitSignInfoResponse.Marshal(b, m, deterministic)
+}
+func (m *ListXRPInitSignInfoResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListXRPInitSignInfoResponse.Merge(m, src)
+}
+func (m *ListXRPInitSignInfoResponse) XXX_Size() int {
+	return xxx_messageInfo_ListXRPInitSignInfoResponse.Size(m)
+}
+func (m *ListXRPInitSignInfoResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ListXRPInitSignInfoResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ListXRPInitSignInfoResponse proto.InternalMessageInfo
+
+func (m *ListXRPInitSignInfoResponse) GetSignInfoList() []*SignInfo {
+	if m != nil {
+		return m.SignInfoList
+	}
+	return nil
+}
+
 type ListTransfersRequest struct {
 	WalletId             string   `protobuf:"bytes,1,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
 	PageSize             uint32   `protobuf:"varint,2,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
@@ -1341,7 +1859,7 @@ func (m *ListTransfersRequest) Reset()         { *m = ListTransfersRequest{} }
 func (m *ListTransfersRequest) String() string { return proto.CompactTextString(m) }
 func (*ListTransfersRequest) ProtoMessage()    {}
 func (*ListTransfersRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{27}
+	return fileDescriptor_67b639143ce6ddc1, []int{39}
 }
 
 func (m *ListTransfersRequest) XXX_Unmarshal(b []byte) error {
@@ -1395,7 +1913,7 @@ func (m *ListTransfersResponse) Reset()         { *m = ListTransfersResponse{} }
 func (m *ListTransfersResponse) String() string { return proto.CompactTextString(m) }
 func (*ListTransfersResponse) ProtoMessage()    {}
 func (*ListTransfersResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{28}
+	return fileDescriptor_67b639143ce6ddc1, []int{40}
 }
 
 func (m *ListTransfersResponse) XXX_Unmarshal(b []byte) error {
@@ -1430,43 +1948,152 @@ func (m *ListTransfersResponse) GetNextPageToken() string {
 	return ""
 }
 
-type ListRatesResponse struct {
-	Rates                []*Rate  `protobuf:"bytes,1,rep,name=rates,proto3" json:"rates,omitempty"`
+type GetRateSnapshotRequest struct {
+	RateSnapshotId       string   `protobuf:"bytes,1,opt,name=rate_snapshot_id,json=rateSnapshotId,proto3" json:"rate_snapshot_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ListRatesResponse) Reset()         { *m = ListRatesResponse{} }
-func (m *ListRatesResponse) String() string { return proto.CompactTextString(m) }
-func (*ListRatesResponse) ProtoMessage()    {}
-func (*ListRatesResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{29}
+func (m *GetRateSnapshotRequest) Reset()         { *m = GetRateSnapshotRequest{} }
+func (m *GetRateSnapshotRequest) String() string { return proto.CompactTextString(m) }
+func (*GetRateSnapshotRequest) ProtoMessage()    {}
+func (*GetRateSnapshotRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{41}
 }
 
-func (m *ListRatesResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ListRatesResponse.Unmarshal(m, b)
+func (m *GetRateSnapshotRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetRateSnapshotRequest.Unmarshal(m, b)
 }
-func (m *ListRatesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ListRatesResponse.Marshal(b, m, deterministic)
+func (m *GetRateSnapshotRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetRateSnapshotRequest.Marshal(b, m, deterministic)
 }
-func (m *ListRatesResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ListRatesResponse.Merge(m, src)
+func (m *GetRateSnapshotRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetRateSnapshotRequest.Merge(m, src)
 }
-func (m *ListRatesResponse) XXX_Size() int {
-	return xxx_messageInfo_ListRatesResponse.Size(m)
+func (m *GetRateSnapshotRequest) XXX_Size() int {
+	return xxx_messageInfo_GetRateSnapshotRequest.Size(m)
 }
-func (m *ListRatesResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_ListRatesResponse.DiscardUnknown(m)
+func (m *GetRateSnapshotRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetRateSnapshotRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_ListRatesResponse proto.InternalMessageInfo
+var xxx_messageInfo_GetRateSnapshotRequest proto.InternalMessageInfo
 
-func (m *ListRatesResponse) GetRates() []*Rate {
+func (m *GetRateSnapshotRequest) GetRateSnapshotId() string {
+	if m != nil {
+		return m.RateSnapshotId
+	}
+	return ""
+}
+
+type GetLatestRateSnapshotRequest struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetLatestRateSnapshotRequest) Reset()         { *m = GetLatestRateSnapshotRequest{} }
+func (m *GetLatestRateSnapshotRequest) String() string { return proto.CompactTextString(m) }
+func (*GetLatestRateSnapshotRequest) ProtoMessage()    {}
+func (*GetLatestRateSnapshotRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{42}
+}
+
+func (m *GetLatestRateSnapshotRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetLatestRateSnapshotRequest.Unmarshal(m, b)
+}
+func (m *GetLatestRateSnapshotRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetLatestRateSnapshotRequest.Marshal(b, m, deterministic)
+}
+func (m *GetLatestRateSnapshotRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetLatestRateSnapshotRequest.Merge(m, src)
+}
+func (m *GetLatestRateSnapshotRequest) XXX_Size() int {
+	return xxx_messageInfo_GetLatestRateSnapshotRequest.Size(m)
+}
+func (m *GetLatestRateSnapshotRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetLatestRateSnapshotRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetLatestRateSnapshotRequest proto.InternalMessageInfo
+
+type SetRatesRequest struct {
+	Rates                []*RequestRate `protobuf:"bytes,1,rep,name=rates,proto3" json:"rates,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
+	XXX_unrecognized     []byte         `json:"-"`
+	XXX_sizecache        int32          `json:"-"`
+}
+
+func (m *SetRatesRequest) Reset()         { *m = SetRatesRequest{} }
+func (m *SetRatesRequest) String() string { return proto.CompactTextString(m) }
+func (*SetRatesRequest) ProtoMessage()    {}
+func (*SetRatesRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{43}
+}
+
+func (m *SetRatesRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SetRatesRequest.Unmarshal(m, b)
+}
+func (m *SetRatesRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SetRatesRequest.Marshal(b, m, deterministic)
+}
+func (m *SetRatesRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SetRatesRequest.Merge(m, src)
+}
+func (m *SetRatesRequest) XXX_Size() int {
+	return xxx_messageInfo_SetRatesRequest.Size(m)
+}
+func (m *SetRatesRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SetRatesRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SetRatesRequest proto.InternalMessageInfo
+
+func (m *SetRatesRequest) GetRates() []*RequestRate {
 	if m != nil {
 		return m.Rates
 	}
 	return nil
+}
+
+type SetRatesResponse struct {
+	RateSnapshotId       string   `protobuf:"bytes,1,opt,name=rate_snapshot_id,json=rateSnapshotId,proto3" json:"rate_snapshot_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SetRatesResponse) Reset()         { *m = SetRatesResponse{} }
+func (m *SetRatesResponse) String() string { return proto.CompactTextString(m) }
+func (*SetRatesResponse) ProtoMessage()    {}
+func (*SetRatesResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{44}
+}
+
+func (m *SetRatesResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SetRatesResponse.Unmarshal(m, b)
+}
+func (m *SetRatesResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SetRatesResponse.Marshal(b, m, deterministic)
+}
+func (m *SetRatesResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SetRatesResponse.Merge(m, src)
+}
+func (m *SetRatesResponse) XXX_Size() int {
+	return xxx_messageInfo_SetRatesResponse.Size(m)
+}
+func (m *SetRatesResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SetRatesResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SetRatesResponse proto.InternalMessageInfo
+
+func (m *SetRatesResponse) GetRateSnapshotId() string {
+	if m != nil {
+		return m.RateSnapshotId
+	}
+	return ""
 }
 
 type GetSpendableBalanceRequest struct {
@@ -1480,7 +2107,7 @@ func (m *GetSpendableBalanceRequest) Reset()         { *m = GetSpendableBalanceR
 func (m *GetSpendableBalanceRequest) String() string { return proto.CompactTextString(m) }
 func (*GetSpendableBalanceRequest) ProtoMessage()    {}
 func (*GetSpendableBalanceRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{30}
+	return fileDescriptor_67b639143ce6ddc1, []int{45}
 }
 
 func (m *GetSpendableBalanceRequest) XXX_Unmarshal(b []byte) error {
@@ -1526,7 +2153,7 @@ func (m *GetSpendableBalanceResponse) Reset()         { *m = GetSpendableBalance
 func (m *GetSpendableBalanceResponse) String() string { return proto.CompactTextString(m) }
 func (*GetSpendableBalanceResponse) ProtoMessage()    {}
 func (*GetSpendableBalanceResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{31}
+	return fileDescriptor_67b639143ce6ddc1, []int{46}
 }
 
 func (m *GetSpendableBalanceResponse) XXX_Unmarshal(b []byte) error {
@@ -1616,7 +2243,7 @@ func (m *CalculateFeeRequest) Reset()         { *m = CalculateFeeRequest{} }
 func (m *CalculateFeeRequest) String() string { return proto.CompactTextString(m) }
 func (*CalculateFeeRequest) ProtoMessage()    {}
 func (*CalculateFeeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{32}
+	return fileDescriptor_67b639143ce6ddc1, []int{47}
 }
 
 func (m *CalculateFeeRequest) XXX_Unmarshal(b []byte) error {
@@ -1670,7 +2297,7 @@ func (m *CalculateFeeResponse) Reset()         { *m = CalculateFeeResponse{} }
 func (m *CalculateFeeResponse) String() string { return proto.CompactTextString(m) }
 func (*CalculateFeeResponse) ProtoMessage()    {}
 func (*CalculateFeeResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{33}
+	return fileDescriptor_67b639143ce6ddc1, []int{48}
 }
 
 func (m *CalculateFeeResponse) XXX_Unmarshal(b []byte) error {
@@ -1715,7 +2342,7 @@ func (m *GetMembersDeactivatabilitiesRequest) Reset()         { *m = GetMembersD
 func (m *GetMembersDeactivatabilitiesRequest) String() string { return proto.CompactTextString(m) }
 func (*GetMembersDeactivatabilitiesRequest) ProtoMessage()    {}
 func (*GetMembersDeactivatabilitiesRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{34}
+	return fileDescriptor_67b639143ce6ddc1, []int{49}
 }
 
 func (m *GetMembersDeactivatabilitiesRequest) XXX_Unmarshal(b []byte) error {
@@ -1747,7 +2374,7 @@ func (m *GetMembersDeactivatabilitiesResponse) Reset()         { *m = GetMembers
 func (m *GetMembersDeactivatabilitiesResponse) String() string { return proto.CompactTextString(m) }
 func (*GetMembersDeactivatabilitiesResponse) ProtoMessage()    {}
 func (*GetMembersDeactivatabilitiesResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{35}
+	return fileDescriptor_67b639143ce6ddc1, []int{50}
 }
 
 func (m *GetMembersDeactivatabilitiesResponse) XXX_Unmarshal(b []byte) error {
@@ -1788,7 +2415,7 @@ func (m *CreateLabeledAddressRequest) Reset()         { *m = CreateLabeledAddres
 func (m *CreateLabeledAddressRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateLabeledAddressRequest) ProtoMessage()    {}
 func (*CreateLabeledAddressRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{36}
+	return fileDescriptor_67b639143ce6ddc1, []int{51}
 }
 
 func (m *CreateLabeledAddressRequest) XXX_Unmarshal(b []byte) error {
@@ -1830,6 +2457,45 @@ func (m *CreateLabeledAddressRequest) GetAddress() string {
 	return ""
 }
 
+type CreateLabeledAddressResponse struct {
+	LabeledAddressId     string   `protobuf:"bytes,1,opt,name=labeled_address_id,json=labeledAddressId,proto3" json:"labeled_address_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CreateLabeledAddressResponse) Reset()         { *m = CreateLabeledAddressResponse{} }
+func (m *CreateLabeledAddressResponse) String() string { return proto.CompactTextString(m) }
+func (*CreateLabeledAddressResponse) ProtoMessage()    {}
+func (*CreateLabeledAddressResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{52}
+}
+
+func (m *CreateLabeledAddressResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateLabeledAddressResponse.Unmarshal(m, b)
+}
+func (m *CreateLabeledAddressResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateLabeledAddressResponse.Marshal(b, m, deterministic)
+}
+func (m *CreateLabeledAddressResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateLabeledAddressResponse.Merge(m, src)
+}
+func (m *CreateLabeledAddressResponse) XXX_Size() int {
+	return xxx_messageInfo_CreateLabeledAddressResponse.Size(m)
+}
+func (m *CreateLabeledAddressResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateLabeledAddressResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateLabeledAddressResponse proto.InternalMessageInfo
+
+func (m *CreateLabeledAddressResponse) GetLabeledAddressId() string {
+	if m != nil {
+		return m.LabeledAddressId
+	}
+	return ""
+}
+
 type UpdateLabeledAddressRequest struct {
 	LabeledAddressId     string                `protobuf:"bytes,1,opt,name=labeled_address_id,json=labeledAddressId,proto3" json:"labeled_address_id,omitempty"`
 	Name                 string                `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
@@ -1844,7 +2510,7 @@ func (m *UpdateLabeledAddressRequest) Reset()         { *m = UpdateLabeledAddres
 func (m *UpdateLabeledAddressRequest) String() string { return proto.CompactTextString(m) }
 func (*UpdateLabeledAddressRequest) ProtoMessage()    {}
 func (*UpdateLabeledAddressRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{37}
+	return fileDescriptor_67b639143ce6ddc1, []int{53}
 }
 
 func (m *UpdateLabeledAddressRequest) XXX_Unmarshal(b []byte) error {
@@ -1904,7 +2570,7 @@ func (m *GetLabeledAddressRequest) Reset()         { *m = GetLabeledAddressReque
 func (m *GetLabeledAddressRequest) String() string { return proto.CompactTextString(m) }
 func (*GetLabeledAddressRequest) ProtoMessage()    {}
 func (*GetLabeledAddressRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{38}
+	return fileDescriptor_67b639143ce6ddc1, []int{54}
 }
 
 func (m *GetLabeledAddressRequest) XXX_Unmarshal(b []byte) error {
@@ -1942,7 +2608,7 @@ func (m *ListLabeledAddressesRequest) Reset()         { *m = ListLabeledAddresse
 func (m *ListLabeledAddressesRequest) String() string { return proto.CompactTextString(m) }
 func (*ListLabeledAddressesRequest) ProtoMessage()    {}
 func (*ListLabeledAddressesRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{39}
+	return fileDescriptor_67b639143ce6ddc1, []int{55}
 }
 
 func (m *ListLabeledAddressesRequest) XXX_Unmarshal(b []byte) error {
@@ -1974,7 +2640,7 @@ func (m *ListLabeledAddressesResponse) Reset()         { *m = ListLabeledAddress
 func (m *ListLabeledAddressesResponse) String() string { return proto.CompactTextString(m) }
 func (*ListLabeledAddressesResponse) ProtoMessage()    {}
 func (*ListLabeledAddressesResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{40}
+	return fileDescriptor_67b639143ce6ddc1, []int{56}
 }
 
 func (m *ListLabeledAddressesResponse) XXX_Unmarshal(b []byte) error {
@@ -2013,7 +2679,7 @@ func (m *DeleteLabeledAddressRequest) Reset()         { *m = DeleteLabeledAddres
 func (m *DeleteLabeledAddressRequest) String() string { return proto.CompactTextString(m) }
 func (*DeleteLabeledAddressRequest) ProtoMessage()    {}
 func (*DeleteLabeledAddressRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{41}
+	return fileDescriptor_67b639143ce6ddc1, []int{57}
 }
 
 func (m *DeleteLabeledAddressRequest) XXX_Unmarshal(b []byte) error {
@@ -2041,7 +2707,7 @@ func (m *DeleteLabeledAddressRequest) GetLabeledAddressId() string {
 	return ""
 }
 
-type ReviewLabeledAddressChangeRequest struct {
+type ReviewLabeledAddressProposalRequest struct {
 	LabeledAddressId     string   `protobuf:"bytes,1,opt,name=labeled_address_id,json=labeledAddressId,proto3" json:"labeled_address_id,omitempty"`
 	Approve              bool     `protobuf:"varint,2,opt,name=approve,proto3" json:"approve,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -2049,39 +2715,39 @@ type ReviewLabeledAddressChangeRequest struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ReviewLabeledAddressChangeRequest) Reset()         { *m = ReviewLabeledAddressChangeRequest{} }
-func (m *ReviewLabeledAddressChangeRequest) String() string { return proto.CompactTextString(m) }
-func (*ReviewLabeledAddressChangeRequest) ProtoMessage()    {}
-func (*ReviewLabeledAddressChangeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{42}
+func (m *ReviewLabeledAddressProposalRequest) Reset()         { *m = ReviewLabeledAddressProposalRequest{} }
+func (m *ReviewLabeledAddressProposalRequest) String() string { return proto.CompactTextString(m) }
+func (*ReviewLabeledAddressProposalRequest) ProtoMessage()    {}
+func (*ReviewLabeledAddressProposalRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{58}
 }
 
-func (m *ReviewLabeledAddressChangeRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ReviewLabeledAddressChangeRequest.Unmarshal(m, b)
+func (m *ReviewLabeledAddressProposalRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReviewLabeledAddressProposalRequest.Unmarshal(m, b)
 }
-func (m *ReviewLabeledAddressChangeRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ReviewLabeledAddressChangeRequest.Marshal(b, m, deterministic)
+func (m *ReviewLabeledAddressProposalRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReviewLabeledAddressProposalRequest.Marshal(b, m, deterministic)
 }
-func (m *ReviewLabeledAddressChangeRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ReviewLabeledAddressChangeRequest.Merge(m, src)
+func (m *ReviewLabeledAddressProposalRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReviewLabeledAddressProposalRequest.Merge(m, src)
 }
-func (m *ReviewLabeledAddressChangeRequest) XXX_Size() int {
-	return xxx_messageInfo_ReviewLabeledAddressChangeRequest.Size(m)
+func (m *ReviewLabeledAddressProposalRequest) XXX_Size() int {
+	return xxx_messageInfo_ReviewLabeledAddressProposalRequest.Size(m)
 }
-func (m *ReviewLabeledAddressChangeRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_ReviewLabeledAddressChangeRequest.DiscardUnknown(m)
+func (m *ReviewLabeledAddressProposalRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReviewLabeledAddressProposalRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_ReviewLabeledAddressChangeRequest proto.InternalMessageInfo
+var xxx_messageInfo_ReviewLabeledAddressProposalRequest proto.InternalMessageInfo
 
-func (m *ReviewLabeledAddressChangeRequest) GetLabeledAddressId() string {
+func (m *ReviewLabeledAddressProposalRequest) GetLabeledAddressId() string {
 	if m != nil {
 		return m.LabeledAddressId
 	}
 	return ""
 }
 
-func (m *ReviewLabeledAddressChangeRequest) GetApprove() bool {
+func (m *ReviewLabeledAddressProposalRequest) GetApprove() bool {
 	if m != nil {
 		return m.Approve
 	}
@@ -2101,7 +2767,7 @@ func (m *CreateWhitelistRequest) Reset()         { *m = CreateWhitelistRequest{}
 func (m *CreateWhitelistRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateWhitelistRequest) ProtoMessage()    {}
 func (*CreateWhitelistRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{43}
+	return fileDescriptor_67b639143ce6ddc1, []int{59}
 }
 
 func (m *CreateWhitelistRequest) XXX_Unmarshal(b []byte) error {
@@ -2143,6 +2809,45 @@ func (m *CreateWhitelistRequest) GetAddressIds() []string {
 	return nil
 }
 
+type CreateWhitelistResponse struct {
+	WhitelistId          string   `protobuf:"bytes,1,opt,name=whitelist_id,json=whitelistId,proto3" json:"whitelist_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CreateWhitelistResponse) Reset()         { *m = CreateWhitelistResponse{} }
+func (m *CreateWhitelistResponse) String() string { return proto.CompactTextString(m) }
+func (*CreateWhitelistResponse) ProtoMessage()    {}
+func (*CreateWhitelistResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{60}
+}
+
+func (m *CreateWhitelistResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateWhitelistResponse.Unmarshal(m, b)
+}
+func (m *CreateWhitelistResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateWhitelistResponse.Marshal(b, m, deterministic)
+}
+func (m *CreateWhitelistResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateWhitelistResponse.Merge(m, src)
+}
+func (m *CreateWhitelistResponse) XXX_Size() int {
+	return xxx_messageInfo_CreateWhitelistResponse.Size(m)
+}
+func (m *CreateWhitelistResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateWhitelistResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateWhitelistResponse proto.InternalMessageInfo
+
+func (m *CreateWhitelistResponse) GetWhitelistId() string {
+	if m != nil {
+		return m.WhitelistId
+	}
+	return ""
+}
+
 type GetWhitelistRequest struct {
 	WhitelistId          string   `protobuf:"bytes,1,opt,name=whitelist_id,json=whitelistId,proto3" json:"whitelist_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -2154,7 +2859,7 @@ func (m *GetWhitelistRequest) Reset()         { *m = GetWhitelistRequest{} }
 func (m *GetWhitelistRequest) String() string { return proto.CompactTextString(m) }
 func (*GetWhitelistRequest) ProtoMessage()    {}
 func (*GetWhitelistRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{44}
+	return fileDescriptor_67b639143ce6ddc1, []int{61}
 }
 
 func (m *GetWhitelistRequest) XXX_Unmarshal(b []byte) error {
@@ -2192,7 +2897,7 @@ func (m *ListWhitelistsRequest) Reset()         { *m = ListWhitelistsRequest{} }
 func (m *ListWhitelistsRequest) String() string { return proto.CompactTextString(m) }
 func (*ListWhitelistsRequest) ProtoMessage()    {}
 func (*ListWhitelistsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{45}
+	return fileDescriptor_67b639143ce6ddc1, []int{62}
 }
 
 func (m *ListWhitelistsRequest) XXX_Unmarshal(b []byte) error {
@@ -2224,7 +2929,7 @@ func (m *ListWhitelistsResponse) Reset()         { *m = ListWhitelistsResponse{}
 func (m *ListWhitelistsResponse) String() string { return proto.CompactTextString(m) }
 func (*ListWhitelistsResponse) ProtoMessage()    {}
 func (*ListWhitelistsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{46}
+	return fileDescriptor_67b639143ce6ddc1, []int{63}
 }
 
 func (m *ListWhitelistsResponse) XXX_Unmarshal(b []byte) error {
@@ -2266,7 +2971,7 @@ func (m *UpdateWhitelistRequest) Reset()         { *m = UpdateWhitelistRequest{}
 func (m *UpdateWhitelistRequest) String() string { return proto.CompactTextString(m) }
 func (*UpdateWhitelistRequest) ProtoMessage()    {}
 func (*UpdateWhitelistRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{47}
+	return fileDescriptor_67b639143ce6ddc1, []int{64}
 }
 
 func (m *UpdateWhitelistRequest) XXX_Unmarshal(b []byte) error {
@@ -2327,7 +3032,7 @@ func (m *UpdateWhitelistAddressesRequest) Reset()         { *m = UpdateWhitelist
 func (m *UpdateWhitelistAddressesRequest) String() string { return proto.CompactTextString(m) }
 func (*UpdateWhitelistAddressesRequest) ProtoMessage()    {}
 func (*UpdateWhitelistAddressesRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{48}
+	return fileDescriptor_67b639143ce6ddc1, []int{65}
 }
 
 func (m *UpdateWhitelistAddressesRequest) XXX_Unmarshal(b []byte) error {
@@ -2373,7 +3078,7 @@ func (m *DeleteWhitelistRequest) Reset()         { *m = DeleteWhitelistRequest{}
 func (m *DeleteWhitelistRequest) String() string { return proto.CompactTextString(m) }
 func (*DeleteWhitelistRequest) ProtoMessage()    {}
 func (*DeleteWhitelistRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{49}
+	return fileDescriptor_67b639143ce6ddc1, []int{66}
 }
 
 func (m *DeleteWhitelistRequest) XXX_Unmarshal(b []byte) error {
@@ -2402,19 +3107,19 @@ func (m *DeleteWhitelistRequest) GetWhitelistId() string {
 }
 
 type CreateTransferLimitRequest struct {
-	Name                 string                `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Coin                 gincoincglobalv1.Coin `protobuf:"varint,2,opt,name=coin,proto3,enum=gincoinc.global.v1.Coin" json:"coin,omitempty"`
-	TransferLimits       []*TransferLimitEntry `protobuf:"bytes,3,rep,name=transfer_limits,json=transferLimits,proto3" json:"transfer_limits,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
-	XXX_unrecognized     []byte                `json:"-"`
-	XXX_sizecache        int32                 `json:"-"`
+	Name                 string                       `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Coin                 gincoincglobalv1.Coin        `protobuf:"varint,2,opt,name=coin,proto3,enum=gincoinc.global.v1.Coin" json:"coin,omitempty"`
+	TransferLimits       []*RequestTransferLimitEntry `protobuf:"bytes,3,rep,name=transfer_limits,json=transferLimits,proto3" json:"transfer_limits,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                     `json:"-"`
+	XXX_unrecognized     []byte                       `json:"-"`
+	XXX_sizecache        int32                        `json:"-"`
 }
 
 func (m *CreateTransferLimitRequest) Reset()         { *m = CreateTransferLimitRequest{} }
 func (m *CreateTransferLimitRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateTransferLimitRequest) ProtoMessage()    {}
 func (*CreateTransferLimitRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{50}
+	return fileDescriptor_67b639143ce6ddc1, []int{67}
 }
 
 func (m *CreateTransferLimitRequest) XXX_Unmarshal(b []byte) error {
@@ -2449,11 +3154,50 @@ func (m *CreateTransferLimitRequest) GetCoin() gincoincglobalv1.Coin {
 	return gincoincglobalv1.Coin_COIN_INVALID
 }
 
-func (m *CreateTransferLimitRequest) GetTransferLimits() []*TransferLimitEntry {
+func (m *CreateTransferLimitRequest) GetTransferLimits() []*RequestTransferLimitEntry {
 	if m != nil {
 		return m.TransferLimits
 	}
 	return nil
+}
+
+type CreateTransferLimitResponse struct {
+	TransferLimitId      string   `protobuf:"bytes,1,opt,name=transfer_limit_id,json=transferLimitId,proto3" json:"transfer_limit_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CreateTransferLimitResponse) Reset()         { *m = CreateTransferLimitResponse{} }
+func (m *CreateTransferLimitResponse) String() string { return proto.CompactTextString(m) }
+func (*CreateTransferLimitResponse) ProtoMessage()    {}
+func (*CreateTransferLimitResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{68}
+}
+
+func (m *CreateTransferLimitResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreateTransferLimitResponse.Unmarshal(m, b)
+}
+func (m *CreateTransferLimitResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreateTransferLimitResponse.Marshal(b, m, deterministic)
+}
+func (m *CreateTransferLimitResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateTransferLimitResponse.Merge(m, src)
+}
+func (m *CreateTransferLimitResponse) XXX_Size() int {
+	return xxx_messageInfo_CreateTransferLimitResponse.Size(m)
+}
+func (m *CreateTransferLimitResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreateTransferLimitResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreateTransferLimitResponse proto.InternalMessageInfo
+
+func (m *CreateTransferLimitResponse) GetTransferLimitId() string {
+	if m != nil {
+		return m.TransferLimitId
+	}
+	return ""
 }
 
 type GetTransferLimitRequest struct {
@@ -2467,7 +3211,7 @@ func (m *GetTransferLimitRequest) Reset()         { *m = GetTransferLimitRequest
 func (m *GetTransferLimitRequest) String() string { return proto.CompactTextString(m) }
 func (*GetTransferLimitRequest) ProtoMessage()    {}
 func (*GetTransferLimitRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{51}
+	return fileDescriptor_67b639143ce6ddc1, []int{69}
 }
 
 func (m *GetTransferLimitRequest) XXX_Unmarshal(b []byte) error {
@@ -2505,7 +3249,7 @@ func (m *ListTransferLimitsRequest) Reset()         { *m = ListTransferLimitsReq
 func (m *ListTransferLimitsRequest) String() string { return proto.CompactTextString(m) }
 func (*ListTransferLimitsRequest) ProtoMessage()    {}
 func (*ListTransferLimitsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{52}
+	return fileDescriptor_67b639143ce6ddc1, []int{70}
 }
 
 func (m *ListTransferLimitsRequest) XXX_Unmarshal(b []byte) error {
@@ -2537,7 +3281,7 @@ func (m *ListTransferLimitsResponse) Reset()         { *m = ListTransferLimitsRe
 func (m *ListTransferLimitsResponse) String() string { return proto.CompactTextString(m) }
 func (*ListTransferLimitsResponse) ProtoMessage()    {}
 func (*ListTransferLimitsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{53}
+	return fileDescriptor_67b639143ce6ddc1, []int{71}
 }
 
 func (m *ListTransferLimitsResponse) XXX_Unmarshal(b []byte) error {
@@ -2566,18 +3310,18 @@ func (m *ListTransferLimitsResponse) GetTransferLimits() []*TransferLimit {
 }
 
 type UpdateTransferLimitRequest struct {
-	TransferLimitId      string                `protobuf:"bytes,1,opt,name=transfer_limit_id,json=transferLimitId,proto3" json:"transfer_limit_id,omitempty"`
-	TransferLimits       []*TransferLimitEntry `protobuf:"bytes,2,rep,name=transfer_limits,json=transferLimits,proto3" json:"transfer_limits,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
-	XXX_unrecognized     []byte                `json:"-"`
-	XXX_sizecache        int32                 `json:"-"`
+	TransferLimitId      string                       `protobuf:"bytes,1,opt,name=transfer_limit_id,json=transferLimitId,proto3" json:"transfer_limit_id,omitempty"`
+	TransferLimits       []*RequestTransferLimitEntry `protobuf:"bytes,2,rep,name=transfer_limits,json=transferLimits,proto3" json:"transfer_limits,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}                     `json:"-"`
+	XXX_unrecognized     []byte                       `json:"-"`
+	XXX_sizecache        int32                        `json:"-"`
 }
 
 func (m *UpdateTransferLimitRequest) Reset()         { *m = UpdateTransferLimitRequest{} }
 func (m *UpdateTransferLimitRequest) String() string { return proto.CompactTextString(m) }
 func (*UpdateTransferLimitRequest) ProtoMessage()    {}
 func (*UpdateTransferLimitRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{54}
+	return fileDescriptor_67b639143ce6ddc1, []int{72}
 }
 
 func (m *UpdateTransferLimitRequest) XXX_Unmarshal(b []byte) error {
@@ -2605,7 +3349,7 @@ func (m *UpdateTransferLimitRequest) GetTransferLimitId() string {
 	return ""
 }
 
-func (m *UpdateTransferLimitRequest) GetTransferLimits() []*TransferLimitEntry {
+func (m *UpdateTransferLimitRequest) GetTransferLimits() []*RequestTransferLimitEntry {
 	if m != nil {
 		return m.TransferLimits
 	}
@@ -2624,7 +3368,7 @@ func (m *UpdateTransferLimitNameRequest) Reset()         { *m = UpdateTransferLi
 func (m *UpdateTransferLimitNameRequest) String() string { return proto.CompactTextString(m) }
 func (*UpdateTransferLimitNameRequest) ProtoMessage()    {}
 func (*UpdateTransferLimitNameRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{55}
+	return fileDescriptor_67b639143ce6ddc1, []int{73}
 }
 
 func (m *UpdateTransferLimitNameRequest) XXX_Unmarshal(b []byte) error {
@@ -2670,7 +3414,7 @@ func (m *DeleteTransferLimitRequest) Reset()         { *m = DeleteTransferLimitR
 func (m *DeleteTransferLimitRequest) String() string { return proto.CompactTextString(m) }
 func (*DeleteTransferLimitRequest) ProtoMessage()    {}
 func (*DeleteTransferLimitRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{56}
+	return fileDescriptor_67b639143ce6ddc1, []int{74}
 }
 
 func (m *DeleteTransferLimitRequest) XXX_Unmarshal(b []byte) error {
@@ -2698,7 +3442,7 @@ func (m *DeleteTransferLimitRequest) GetTransferLimitId() string {
 	return ""
 }
 
-type ReviewTransferLimitChangeRequest struct {
+type ReviewTransferLimitProposalRequest struct {
 	TransferLimitId      string   `protobuf:"bytes,1,opt,name=transfer_limit_id,json=transferLimitId,proto3" json:"transfer_limit_id,omitempty"`
 	Approve              bool     `protobuf:"varint,2,opt,name=approve,proto3" json:"approve,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -2706,39 +3450,39 @@ type ReviewTransferLimitChangeRequest struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ReviewTransferLimitChangeRequest) Reset()         { *m = ReviewTransferLimitChangeRequest{} }
-func (m *ReviewTransferLimitChangeRequest) String() string { return proto.CompactTextString(m) }
-func (*ReviewTransferLimitChangeRequest) ProtoMessage()    {}
-func (*ReviewTransferLimitChangeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{57}
+func (m *ReviewTransferLimitProposalRequest) Reset()         { *m = ReviewTransferLimitProposalRequest{} }
+func (m *ReviewTransferLimitProposalRequest) String() string { return proto.CompactTextString(m) }
+func (*ReviewTransferLimitProposalRequest) ProtoMessage()    {}
+func (*ReviewTransferLimitProposalRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{75}
 }
 
-func (m *ReviewTransferLimitChangeRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ReviewTransferLimitChangeRequest.Unmarshal(m, b)
+func (m *ReviewTransferLimitProposalRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReviewTransferLimitProposalRequest.Unmarshal(m, b)
 }
-func (m *ReviewTransferLimitChangeRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ReviewTransferLimitChangeRequest.Marshal(b, m, deterministic)
+func (m *ReviewTransferLimitProposalRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReviewTransferLimitProposalRequest.Marshal(b, m, deterministic)
 }
-func (m *ReviewTransferLimitChangeRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ReviewTransferLimitChangeRequest.Merge(m, src)
+func (m *ReviewTransferLimitProposalRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReviewTransferLimitProposalRequest.Merge(m, src)
 }
-func (m *ReviewTransferLimitChangeRequest) XXX_Size() int {
-	return xxx_messageInfo_ReviewTransferLimitChangeRequest.Size(m)
+func (m *ReviewTransferLimitProposalRequest) XXX_Size() int {
+	return xxx_messageInfo_ReviewTransferLimitProposalRequest.Size(m)
 }
-func (m *ReviewTransferLimitChangeRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_ReviewTransferLimitChangeRequest.DiscardUnknown(m)
+func (m *ReviewTransferLimitProposalRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReviewTransferLimitProposalRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_ReviewTransferLimitChangeRequest proto.InternalMessageInfo
+var xxx_messageInfo_ReviewTransferLimitProposalRequest proto.InternalMessageInfo
 
-func (m *ReviewTransferLimitChangeRequest) GetTransferLimitId() string {
+func (m *ReviewTransferLimitProposalRequest) GetTransferLimitId() string {
 	if m != nil {
 		return m.TransferLimitId
 	}
 	return ""
 }
 
-func (m *ReviewTransferLimitChangeRequest) GetApprove() bool {
+func (m *ReviewTransferLimitProposalRequest) GetApprove() bool {
 	if m != nil {
 		return m.Approve
 	}
@@ -2761,7 +3505,7 @@ func (m *CreatePolicyRequest) Reset()         { *m = CreatePolicyRequest{} }
 func (m *CreatePolicyRequest) String() string { return proto.CompactTextString(m) }
 func (*CreatePolicyRequest) ProtoMessage()    {}
 func (*CreatePolicyRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{58}
+	return fileDescriptor_67b639143ce6ddc1, []int{76}
 }
 
 func (m *CreatePolicyRequest) XXX_Unmarshal(b []byte) error {
@@ -2824,6 +3568,45 @@ func (m *CreatePolicyRequest) GetTransferLimitId() string {
 	return ""
 }
 
+type CreatePolicyResponse struct {
+	PolicyId             string   `protobuf:"bytes,1,opt,name=policy_id,json=policyId,proto3" json:"policy_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CreatePolicyResponse) Reset()         { *m = CreatePolicyResponse{} }
+func (m *CreatePolicyResponse) String() string { return proto.CompactTextString(m) }
+func (*CreatePolicyResponse) ProtoMessage()    {}
+func (*CreatePolicyResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{77}
+}
+
+func (m *CreatePolicyResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CreatePolicyResponse.Unmarshal(m, b)
+}
+func (m *CreatePolicyResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CreatePolicyResponse.Marshal(b, m, deterministic)
+}
+func (m *CreatePolicyResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreatePolicyResponse.Merge(m, src)
+}
+func (m *CreatePolicyResponse) XXX_Size() int {
+	return xxx_messageInfo_CreatePolicyResponse.Size(m)
+}
+func (m *CreatePolicyResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_CreatePolicyResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CreatePolicyResponse proto.InternalMessageInfo
+
+func (m *CreatePolicyResponse) GetPolicyId() string {
+	if m != nil {
+		return m.PolicyId
+	}
+	return ""
+}
+
 type GetPolicyRequest struct {
 	PolicyId             string   `protobuf:"bytes,1,opt,name=policy_id,json=policyId,proto3" json:"policy_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -2835,7 +3618,7 @@ func (m *GetPolicyRequest) Reset()         { *m = GetPolicyRequest{} }
 func (m *GetPolicyRequest) String() string { return proto.CompactTextString(m) }
 func (*GetPolicyRequest) ProtoMessage()    {}
 func (*GetPolicyRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{59}
+	return fileDescriptor_67b639143ce6ddc1, []int{78}
 }
 
 func (m *GetPolicyRequest) XXX_Unmarshal(b []byte) error {
@@ -2873,7 +3656,7 @@ func (m *ListPoliciesRequest) Reset()         { *m = ListPoliciesRequest{} }
 func (m *ListPoliciesRequest) String() string { return proto.CompactTextString(m) }
 func (*ListPoliciesRequest) ProtoMessage()    {}
 func (*ListPoliciesRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{60}
+	return fileDescriptor_67b639143ce6ddc1, []int{79}
 }
 
 func (m *ListPoliciesRequest) XXX_Unmarshal(b []byte) error {
@@ -2905,7 +3688,7 @@ func (m *ListPoliciesResponse) Reset()         { *m = ListPoliciesResponse{} }
 func (m *ListPoliciesResponse) String() string { return proto.CompactTextString(m) }
 func (*ListPoliciesResponse) ProtoMessage()    {}
 func (*ListPoliciesResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{61}
+	return fileDescriptor_67b639143ce6ddc1, []int{80}
 }
 
 func (m *ListPoliciesResponse) XXX_Unmarshal(b []byte) error {
@@ -2947,7 +3730,7 @@ func (m *UpdatePolicyRequest) Reset()         { *m = UpdatePolicyRequest{} }
 func (m *UpdatePolicyRequest) String() string { return proto.CompactTextString(m) }
 func (*UpdatePolicyRequest) ProtoMessage()    {}
 func (*UpdatePolicyRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{62}
+	return fileDescriptor_67b639143ce6ddc1, []int{81}
 }
 
 func (m *UpdatePolicyRequest) XXX_Unmarshal(b []byte) error {
@@ -3007,7 +3790,7 @@ func (m *DeletePolicyRequest) Reset()         { *m = DeletePolicyRequest{} }
 func (m *DeletePolicyRequest) String() string { return proto.CompactTextString(m) }
 func (*DeletePolicyRequest) ProtoMessage()    {}
 func (*DeletePolicyRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_67b639143ce6ddc1, []int{63}
+	return fileDescriptor_67b639143ce6ddc1, []int{82}
 }
 
 func (m *DeletePolicyRequest) XXX_Unmarshal(b []byte) error {
@@ -3035,10 +3818,58 @@ func (m *DeletePolicyRequest) GetPolicyId() string {
 	return ""
 }
 
+type ReviewPolicyProposalRequest struct {
+	PolicyId             string   `protobuf:"bytes,1,opt,name=policy_id,json=policyId,proto3" json:"policy_id,omitempty"`
+	Approve              bool     `protobuf:"varint,2,opt,name=approve,proto3" json:"approve,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ReviewPolicyProposalRequest) Reset()         { *m = ReviewPolicyProposalRequest{} }
+func (m *ReviewPolicyProposalRequest) String() string { return proto.CompactTextString(m) }
+func (*ReviewPolicyProposalRequest) ProtoMessage()    {}
+func (*ReviewPolicyProposalRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_67b639143ce6ddc1, []int{83}
+}
+
+func (m *ReviewPolicyProposalRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ReviewPolicyProposalRequest.Unmarshal(m, b)
+}
+func (m *ReviewPolicyProposalRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ReviewPolicyProposalRequest.Marshal(b, m, deterministic)
+}
+func (m *ReviewPolicyProposalRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ReviewPolicyProposalRequest.Merge(m, src)
+}
+func (m *ReviewPolicyProposalRequest) XXX_Size() int {
+	return xxx_messageInfo_ReviewPolicyProposalRequest.Size(m)
+}
+func (m *ReviewPolicyProposalRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ReviewPolicyProposalRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ReviewPolicyProposalRequest proto.InternalMessageInfo
+
+func (m *ReviewPolicyProposalRequest) GetPolicyId() string {
+	if m != nil {
+		return m.PolicyId
+	}
+	return ""
+}
+
+func (m *ReviewPolicyProposalRequest) GetApprove() bool {
+	if m != nil {
+		return m.Approve
+	}
+	return false
+}
+
 func init() {
 	proto.RegisterType((*ApproveWalletRequest)(nil), "adamant.global.v1.ApproveWalletRequest")
 	proto.RegisterType((*ApproveTransactionRequest)(nil), "adamant.global.v1.ApproveTransactionRequest")
 	proto.RegisterType((*CreateWalletRequest)(nil), "adamant.global.v1.CreateWalletRequest")
+	proto.RegisterType((*CreateWalletResponse)(nil), "adamant.global.v1.CreateWalletResponse")
 	proto.RegisterType((*GetWalletRequest)(nil), "adamant.global.v1.GetWalletRequest")
 	proto.RegisterType((*CancelWalletRequest)(nil), "adamant.global.v1.CancelWalletRequest")
 	proto.RegisterType((*ArchiveWalletRequest)(nil), "adamant.global.v1.ArchiveWalletRequest")
@@ -3046,16 +3877,25 @@ func init() {
 	proto.RegisterType((*ListWalletsRequest)(nil), "adamant.global.v1.ListWalletsRequest")
 	proto.RegisterType((*ListWalletsResponse)(nil), "adamant.global.v1.ListWalletsResponse")
 	proto.RegisterType((*UpdateWalletPolicyRequest)(nil), "adamant.global.v1.UpdateWalletPolicyRequest")
-	proto.RegisterType((*GetNextHdAccountRequest)(nil), "adamant.global.v1.GetNextHdAccountRequest")
-	proto.RegisterType((*GetNextHdAccountResponse)(nil), "adamant.global.v1.GetNextHdAccountResponse")
+	proto.RegisterType((*ReviewWalletProposalRequest)(nil), "adamant.global.v1.ReviewWalletProposalRequest")
 	proto.RegisterType((*RegisterKeyRequest)(nil), "adamant.global.v1.RegisterKeyRequest")
+	proto.RegisterType((*RegisterKeyResponse)(nil), "adamant.global.v1.RegisterKeyResponse")
 	proto.RegisterType((*CreateAddressRequest)(nil), "adamant.global.v1.CreateAddressRequest")
+	proto.RegisterType((*CreateAddressResponse)(nil), "adamant.global.v1.CreateAddressResponse")
 	proto.RegisterType((*GetAddressRequest)(nil), "adamant.global.v1.GetAddressRequest")
+	proto.RegisterType((*GetAddressByAddressRequest)(nil), "adamant.global.v1.GetAddressByAddressRequest")
 	proto.RegisterType((*ListAddressesRequest)(nil), "adamant.global.v1.ListAddressesRequest")
 	proto.RegisterType((*ListAddressesResponse)(nil), "adamant.global.v1.ListAddressesResponse")
+	proto.RegisterType((*GetEthereumFeeAddressRequest)(nil), "adamant.global.v1.GetEthereumFeeAddressRequest")
 	proto.RegisterType((*CreateTransactionRequest)(nil), "adamant.global.v1.CreateTransactionRequest")
+	proto.RegisterType((*CreateTransactionResponse)(nil), "adamant.global.v1.CreateTransactionResponse")
+	proto.RegisterType((*CreateXRPInitTransactionsRequest)(nil), "adamant.global.v1.CreateXRPInitTransactionsRequest")
 	proto.RegisterType((*SignTransactionRequest)(nil), "adamant.global.v1.SignTransactionRequest")
+	proto.RegisterType((*SignXRPInitTransactionsRequest)(nil), "adamant.global.v1.SignXRPInitTransactionsRequest")
 	proto.RegisterType((*SendTransactionRequest)(nil), "adamant.global.v1.SendTransactionRequest")
+	proto.RegisterType((*SendTransactionResponse)(nil), "adamant.global.v1.SendTransactionResponse")
+	proto.RegisterType((*SendXRPInitTransactionsRequest)(nil), "adamant.global.v1.SendXRPInitTransactionsRequest")
+	proto.RegisterType((*SendXRPInitTransactionsResponse)(nil), "adamant.global.v1.SendXRPInitTransactionsResponse")
 	proto.RegisterType((*CancelTransactionRequest)(nil), "adamant.global.v1.CancelTransactionRequest")
 	proto.RegisterType((*GetTransactionRequest)(nil), "adamant.global.v1.GetTransactionRequest")
 	proto.RegisterType((*ListTransactionsRequest)(nil), "adamant.global.v1.ListTransactionsRequest")
@@ -3063,9 +3903,14 @@ func init() {
 	proto.RegisterType((*GetSignInfoRequest)(nil), "adamant.global.v1.GetSignInfoRequest")
 	proto.RegisterType((*ListSignInfoRequest)(nil), "adamant.global.v1.ListSignInfoRequest")
 	proto.RegisterType((*ListSignInfoResponse)(nil), "adamant.global.v1.ListSignInfoResponse")
+	proto.RegisterType((*ListXRPInitSignInfoRequest)(nil), "adamant.global.v1.ListXRPInitSignInfoRequest")
+	proto.RegisterType((*ListXRPInitSignInfoResponse)(nil), "adamant.global.v1.ListXRPInitSignInfoResponse")
 	proto.RegisterType((*ListTransfersRequest)(nil), "adamant.global.v1.ListTransfersRequest")
 	proto.RegisterType((*ListTransfersResponse)(nil), "adamant.global.v1.ListTransfersResponse")
-	proto.RegisterType((*ListRatesResponse)(nil), "adamant.global.v1.ListRatesResponse")
+	proto.RegisterType((*GetRateSnapshotRequest)(nil), "adamant.global.v1.GetRateSnapshotRequest")
+	proto.RegisterType((*GetLatestRateSnapshotRequest)(nil), "adamant.global.v1.GetLatestRateSnapshotRequest")
+	proto.RegisterType((*SetRatesRequest)(nil), "adamant.global.v1.SetRatesRequest")
+	proto.RegisterType((*SetRatesResponse)(nil), "adamant.global.v1.SetRatesResponse")
 	proto.RegisterType((*GetSpendableBalanceRequest)(nil), "adamant.global.v1.GetSpendableBalanceRequest")
 	proto.RegisterType((*GetSpendableBalanceResponse)(nil), "adamant.global.v1.GetSpendableBalanceResponse")
 	proto.RegisterType((*CalculateFeeRequest)(nil), "adamant.global.v1.CalculateFeeRequest")
@@ -3073,13 +3918,15 @@ func init() {
 	proto.RegisterType((*GetMembersDeactivatabilitiesRequest)(nil), "adamant.global.v1.GetMembersDeactivatabilitiesRequest")
 	proto.RegisterType((*GetMembersDeactivatabilitiesResponse)(nil), "adamant.global.v1.GetMembersDeactivatabilitiesResponse")
 	proto.RegisterType((*CreateLabeledAddressRequest)(nil), "adamant.global.v1.CreateLabeledAddressRequest")
+	proto.RegisterType((*CreateLabeledAddressResponse)(nil), "adamant.global.v1.CreateLabeledAddressResponse")
 	proto.RegisterType((*UpdateLabeledAddressRequest)(nil), "adamant.global.v1.UpdateLabeledAddressRequest")
 	proto.RegisterType((*GetLabeledAddressRequest)(nil), "adamant.global.v1.GetLabeledAddressRequest")
 	proto.RegisterType((*ListLabeledAddressesRequest)(nil), "adamant.global.v1.ListLabeledAddressesRequest")
 	proto.RegisterType((*ListLabeledAddressesResponse)(nil), "adamant.global.v1.ListLabeledAddressesResponse")
 	proto.RegisterType((*DeleteLabeledAddressRequest)(nil), "adamant.global.v1.DeleteLabeledAddressRequest")
-	proto.RegisterType((*ReviewLabeledAddressChangeRequest)(nil), "adamant.global.v1.ReviewLabeledAddressChangeRequest")
+	proto.RegisterType((*ReviewLabeledAddressProposalRequest)(nil), "adamant.global.v1.ReviewLabeledAddressProposalRequest")
 	proto.RegisterType((*CreateWhitelistRequest)(nil), "adamant.global.v1.CreateWhitelistRequest")
+	proto.RegisterType((*CreateWhitelistResponse)(nil), "adamant.global.v1.CreateWhitelistResponse")
 	proto.RegisterType((*GetWhitelistRequest)(nil), "adamant.global.v1.GetWhitelistRequest")
 	proto.RegisterType((*ListWhitelistsRequest)(nil), "adamant.global.v1.ListWhitelistsRequest")
 	proto.RegisterType((*ListWhitelistsResponse)(nil), "adamant.global.v1.ListWhitelistsResponse")
@@ -3087,19 +3934,22 @@ func init() {
 	proto.RegisterType((*UpdateWhitelistAddressesRequest)(nil), "adamant.global.v1.UpdateWhitelistAddressesRequest")
 	proto.RegisterType((*DeleteWhitelistRequest)(nil), "adamant.global.v1.DeleteWhitelistRequest")
 	proto.RegisterType((*CreateTransferLimitRequest)(nil), "adamant.global.v1.CreateTransferLimitRequest")
+	proto.RegisterType((*CreateTransferLimitResponse)(nil), "adamant.global.v1.CreateTransferLimitResponse")
 	proto.RegisterType((*GetTransferLimitRequest)(nil), "adamant.global.v1.GetTransferLimitRequest")
 	proto.RegisterType((*ListTransferLimitsRequest)(nil), "adamant.global.v1.ListTransferLimitsRequest")
 	proto.RegisterType((*ListTransferLimitsResponse)(nil), "adamant.global.v1.ListTransferLimitsResponse")
 	proto.RegisterType((*UpdateTransferLimitRequest)(nil), "adamant.global.v1.UpdateTransferLimitRequest")
 	proto.RegisterType((*UpdateTransferLimitNameRequest)(nil), "adamant.global.v1.UpdateTransferLimitNameRequest")
 	proto.RegisterType((*DeleteTransferLimitRequest)(nil), "adamant.global.v1.DeleteTransferLimitRequest")
-	proto.RegisterType((*ReviewTransferLimitChangeRequest)(nil), "adamant.global.v1.ReviewTransferLimitChangeRequest")
+	proto.RegisterType((*ReviewTransferLimitProposalRequest)(nil), "adamant.global.v1.ReviewTransferLimitProposalRequest")
 	proto.RegisterType((*CreatePolicyRequest)(nil), "adamant.global.v1.CreatePolicyRequest")
+	proto.RegisterType((*CreatePolicyResponse)(nil), "adamant.global.v1.CreatePolicyResponse")
 	proto.RegisterType((*GetPolicyRequest)(nil), "adamant.global.v1.GetPolicyRequest")
 	proto.RegisterType((*ListPoliciesRequest)(nil), "adamant.global.v1.ListPoliciesRequest")
 	proto.RegisterType((*ListPoliciesResponse)(nil), "adamant.global.v1.ListPoliciesResponse")
 	proto.RegisterType((*UpdatePolicyRequest)(nil), "adamant.global.v1.UpdatePolicyRequest")
 	proto.RegisterType((*DeletePolicyRequest)(nil), "adamant.global.v1.DeletePolicyRequest")
+	proto.RegisterType((*ReviewPolicyProposalRequest)(nil), "adamant.global.v1.ReviewPolicyProposalRequest")
 }
 
 func init() {
@@ -3107,185 +3957,222 @@ func init() {
 }
 
 var fileDescriptor_67b639143ce6ddc1 = []byte{
-	// 2841 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe4, 0x5b, 0xdd, 0x4f, 0x1b, 0xd9,
-	0x15, 0x67, 0x6c, 0xf3, 0xe1, 0x83, 0xf9, 0xba, 0x10, 0x30, 0x43, 0x58, 0xc8, 0x2c, 0xc9, 0xb2,
-	0x9b, 0x60, 0x8a, 0x49, 0xd8, 0x44, 0x5b, 0xb5, 0xc2, 0x24, 0x21, 0x2e, 0x09, 0x61, 0x07, 0x92,
-	0xed, 0x26, 0x9b, 0xb8, 0x63, 0xe6, 0x62, 0xa6, 0xd8, 0x33, 0xae, 0x67, 0x20, 0x71, 0x52, 0xa4,
-	0x54, 0xad, 0x5a, 0x75, 0xa5, 0x3e, 0xb4, 0x95, 0x2a, 0x55, 0x7d, 0xe8, 0x5b, 0xff, 0x81, 0x4a,
-	0x95, 0xa2, 0xfe, 0x3f, 0xed, 0x43, 0xd5, 0xb7, 0xb6, 0xa9, 0x90, 0x2a, 0x55, 0x73, 0xef, 0xcc,
-	0x78, 0x3e, 0xee, 0x8c, 0x4d, 0x36, 0xc4, 0x48, 0xbc, 0xe1, 0x3b, 0xe7, 0x9e, 0xaf, 0x7b, 0xee,
-	0xb9, 0xf7, 0x9e, 0xf3, 0x03, 0x3e, 0x2b, 0x29, 0xea, 0xb6, 0xa6, 0xa8, 0xdb, 0xf3, 0x92, 0x2c,
-	0x55, 0x24, 0xd5, 0x98, 0x2f, 0x95, 0xb5, 0xa2, 0x54, 0x9e, 0x3f, 0x58, 0xb0, 0x47, 0xe8, 0xc0,
-	0xc1, 0x82, 0xf5, 0xa5, 0x20, 0x55, 0x95, 0x4c, 0xb5, 0xa6, 0x19, 0x1a, 0x1a, 0xb2, 0x28, 0x32,
-	0xf4, 0x4b, 0xe6, 0x60, 0x81, 0x9f, 0x28, 0x69, 0x5a, 0xa9, 0x8c, 0xe7, 0x09, 0x41, 0x71, 0x7f,
-	0x67, 0x1e, 0x57, 0xaa, 0x46, 0x9d, 0xd2, 0xf3, 0x63, 0x07, 0x52, 0x59, 0x91, 0x25, 0x03, 0xcf,
-	0xdb, 0x7f, 0x58, 0x1f, 0x32, 0x8e, 0x16, 0x0d, 0xe9, 0xf6, 0x90, 0x23, 0x1e, 0xab, 0xfb, 0x15,
-	0x8b, 0xfe, 0xda, 0x31, 0xb4, 0x76, 0x4d, 0x5b, 0x3a, 0xc6, 0xb4, 0x8a, 0x26, 0xe3, 0x32, 0x9d,
-	0x27, 0x2c, 0xc2, 0xc8, 0x72, 0xb5, 0x5a, 0xd3, 0x0e, 0xf0, 0x17, 0x52, 0xb9, 0x8c, 0x0d, 0x11,
-	0xff, 0x68, 0x1f, 0xeb, 0x06, 0x9a, 0x80, 0xe4, 0x33, 0x32, 0x50, 0x50, 0xe4, 0x34, 0x37, 0xcd,
-	0xcd, 0x26, 0xc5, 0x1e, 0x3a, 0x90, 0x97, 0x85, 0x02, 0x8c, 0x5b, 0x93, 0xb6, 0x6a, 0x92, 0xaa,
-	0x4b, 0xdb, 0x86, 0xa2, 0xa9, 0xad, 0xcc, 0x44, 0x17, 0xa1, 0xdf, 0x68, 0x4c, 0x31, 0x29, 0x62,
-	0x84, 0xa2, 0xcf, 0x35, 0x9a, 0x97, 0x85, 0xbf, 0xc6, 0x60, 0x78, 0xa5, 0x86, 0x25, 0xc3, 0xa7,
-	0xd5, 0x14, 0xf4, 0x5a, 0xbc, 0x55, 0xa9, 0x82, 0x2d, 0xee, 0x40, 0x87, 0xd6, 0xa5, 0x0a, 0x46,
-	0x57, 0x20, 0x61, 0x7a, 0x81, 0x70, 0xed, 0xcf, 0xa6, 0x1d, 0xe7, 0x37, 0x96, 0x31, 0xb3, 0xa2,
-	0x29, 0xaa, 0x48, 0xa8, 0xd0, 0x77, 0x1c, 0x76, 0x46, 0xbd, 0x8a, 0xd3, 0x71, 0x32, 0x69, 0x32,
-	0x13, 0x58, 0xfa, 0x0c, 0xd5, 0x62, 0xab, 0x5e, 0xc5, 0xb6, 0x34, 0xf3, 0x6f, 0x94, 0x83, 0x94,
-	0x24, 0xcb, 0x35, 0xac, 0xeb, 0x94, 0x41, 0x82, 0x30, 0x98, 0x62, 0x49, 0x5d, 0xa6, 0x74, 0x84,
-	0x45, 0xaf, 0xd4, 0xf8, 0x81, 0x52, 0xc0, 0x55, 0xd2, 0x9d, 0xd3, 0xdc, 0x6c, 0x9f, 0xc8, 0x55,
-	0xcc, 0x5f, 0x6a, 0xba, 0x8b, 0xfe, 0x52, 0x51, 0x1a, 0xba, 0x2b, 0xb8, 0x52, 0xc4, 0x35, 0x3d,
-	0xdd, 0x3d, 0x1d, 0x9f, 0x4d, 0x8a, 0xf6, 0x4f, 0xd3, 0xc9, 0x55, 0xad, 0xac, 0x6c, 0xd7, 0x4d,
-	0x17, 0xf6, 0x50, 0x27, 0xd3, 0x81, 0xbc, 0x2c, 0x1c, 0xc2, 0xe0, 0x2a, 0x36, 0xbc, 0x9e, 0x53,
-	0x02, 0xab, 0x92, 0xbb, 0x7b, 0x94, 0xcb, 0xd7, 0x56, 0xb3, 0xb7, 0x9e, 0x3e, 0xfe, 0xd6, 0xdc,
-	0x0d, 0x69, 0x6e, 0xe7, 0xc9, 0xcb, 0xeb, 0x87, 0x73, 0xce, 0xdf, 0x57, 0x0f, 0xe7, 0xae, 0x3a,
-	0x3f, 0x16, 0x0f, 0xe7, 0x1e, 0x5f, 0xbf, 0x21, 0x15, 0x9f, 0x78, 0x46, 0xec, 0xbf, 0x17, 0xb2,
-	0x87, 0x33, 0xae, 0xe8, 0x78, 0xc5, 0xc1, 0xf0, 0x8a, 0xa4, 0x6e, 0xe3, 0x72, 0xdb, 0x54, 0xf8,
-	0x09, 0x07, 0x23, 0xcb, 0xb5, 0xed, 0x5d, 0xc5, 0x1f, 0xd6, 0xef, 0x51, 0x87, 0x9f, 0x72, 0x30,
-	0xfa, 0x40, 0x6d, 0xb7, 0x16, 0xbf, 0xe2, 0x00, 0xdd, 0x55, 0x74, 0x2b, 0x1a, 0x74, 0x5b, 0x83,
-	0x19, 0x48, 0x56, 0xa5, 0x12, 0x2e, 0xe8, 0xca, 0x0b, 0xba, 0x8d, 0xfa, 0x72, 0xdd, 0x47, 0xb9,
-	0xc4, 0x27, 0xb1, 0xb4, 0x2c, 0xf6, 0x98, 0x5f, 0x36, 0x95, 0x17, 0x18, 0x7d, 0x0e, 0x40, 0xa8,
-	0x0c, 0x6d, 0x0f, 0xd3, 0x3d, 0x95, 0xcc, 0x65, 0x8f, 0x72, 0xf3, 0xb5, 0xb9, 0xec, 0xe5, 0xa7,
-	0x33, 0x3f, 0x7e, 0xfa, 0x78, 0x39, 0xb7, 0x72, 0xf3, 0xd6, 0xed, 0xd5, 0x3b, 0xf9, 0xef, 0xad,
-	0xdd, 0xbd, 0xb7, 0x7e, 0x7f, 0xe3, 0x73, 0x71, 0x73, 0xeb, 0xc1, 0xc3, 0x2f, 0xbe, 0xff, 0xe5,
-	0xa3, 0xec, 0xe2, 0xd5, 0x6b, 0x4b, 0x9f, 0x3e, 0x79, 0xb9, 0xb0, 0x74, 0x38, 0x23, 0x12, 0x59,
-	0x5b, 0x26, 0x13, 0xa1, 0x06, 0xc3, 0x1e, 0x75, 0xf4, 0xaa, 0xa6, 0xea, 0x18, 0x2d, 0x42, 0x37,
-	0x55, 0x59, 0x4f, 0x73, 0xd3, 0xf1, 0xd9, 0xde, 0xec, 0x78, 0xe8, 0x2e, 0x14, 0x6d, 0x4a, 0x74,
-	0x09, 0x06, 0x54, 0xfc, 0xdc, 0x28, 0xf8, 0x75, 0x14, 0xfb, 0xcc, 0xe1, 0x0d, 0x47, 0xe6, 0x03,
-	0x18, 0x7f, 0x50, 0x95, 0x9d, 0x64, 0xb2, 0x41, 0xf6, 0x49, 0x4b, 0xe9, 0xca, 0xb3, 0xcd, 0x62,
-	0xbe, 0x6d, 0xb6, 0x04, 0x63, 0xab, 0xd8, 0x58, 0xc7, 0xcf, 0x8d, 0x3b, 0xf2, 0xf2, 0xf6, 0xb6,
-	0xb6, 0xaf, 0xb6, 0x96, 0x3d, 0x6f, 0x40, 0x3a, 0x38, 0xcf, 0xf2, 0xc3, 0x24, 0xc0, 0xae, 0x5c,
-	0x90, 0xe8, 0x28, 0x5d, 0x18, 0x31, 0xb9, 0x6b, 0x93, 0x09, 0x0a, 0x20, 0x11, 0x97, 0x14, 0xdd,
-	0xc0, 0xb5, 0x35, 0xdc, 0x9a, 0x09, 0x63, 0xd0, 0x5d, 0xdd, 0x2f, 0x16, 0xf6, 0x70, 0xdd, 0x32,
-	0xa0, 0xab, 0xba, 0x5f, 0x5c, 0xc3, 0x75, 0x9f, 0xa8, 0xb8, 0x5f, 0x94, 0xb9, 0x85, 0x68, 0x0a,
-	0xb6, 0x52, 0x57, 0x1b, 0x82, 0xf7, 0x1f, 0x1c, 0x0c, 0xad, 0x62, 0xa3, 0x6d, 0x0a, 0xa0, 0x3d,
-	0x00, 0x3b, 0xc1, 0xdb, 0x01, 0xf0, 0x8e, 0x65, 0x25, 0x2d, 0xfe, 0x79, 0x59, 0xf8, 0x43, 0x0c,
-	0x46, 0xcc, 0xbd, 0x61, 0x99, 0x8b, 0xdb, 0x61, 0xf0, 0x14, 0xf4, 0x6a, 0x15, 0xc5, 0x28, 0x6c,
-	0xef, 0x4a, 0x6a, 0x09, 0x13, 0x8b, 0x7b, 0x44, 0x30, 0x87, 0x56, 0xc8, 0x88, 0x37, 0x71, 0xc4,
-	0x5b, 0x4b, 0x1c, 0x89, 0x77, 0x91, 0x38, 0xea, 0x70, 0xce, 0xe7, 0x1c, 0x6b, 0xcb, 0x5c, 0x07,
-	0xdb, 0x87, 0xd8, 0x4e, 0x1e, 0x3c, 0x23, 0x79, 0xd8, 0x41, 0xd4, 0x20, 0x6e, 0x39, 0x7f, 0xfc,
-	0x87, 0x83, 0x34, 0xdd, 0x0a, 0x8c, 0xeb, 0xce, 0x7b, 0x5c, 0x1c, 0x01, 0x7a, 0x76, 0x30, 0x2e,
-	0xd4, 0x24, 0x83, 0xae, 0x4c, 0x82, 0xb8, 0x3e, 0x1b, 0x9b, 0xed, 0x14, 0xbb, 0x77, 0x30, 0x16,
-	0x25, 0x03, 0xa3, 0x35, 0x00, 0xe3, 0x79, 0x41, 0xdb, 0x37, 0xaa, 0xfb, 0x86, 0x9e, 0x8e, 0x13,
-	0x77, 0x08, 0x0c, 0x77, 0x58, 0xea, 0x6f, 0x3d, 0xbf, 0x4f, 0x48, 0x73, 0x3d, 0x47, 0xb9, 0xce,
-	0xdf, 0x70, 0xb1, 0x1e, 0x4e, 0x4c, 0x1a, 0xd6, 0x98, 0x2e, 0xbc, 0x89, 0xc1, 0xe8, 0xa6, 0x52,
-	0x52, 0xdb, 0x6b, 0xb6, 0xce, 0xbe, 0x33, 0xbe, 0x63, 0x79, 0xde, 0x1b, 0x28, 0xba, 0x02, 0x5d,
-	0x7b, 0x98, 0xa4, 0xfd, 0x38, 0x11, 0x76, 0xee, 0x28, 0x87, 0x6a, 0x83, 0xd9, 0x7e, 0x22, 0x6c,
-	0x79, 0xee, 0xf6, 0x93, 0x97, 0x4b, 0x57, 0x0f, 0x67, 0xc4, 0xce, 0x3d, 0x5c, 0xcf, 0xcb, 0xe8,
-	0x3e, 0xf4, 0xea, 0x4a, 0x49, 0xc5, 0x72, 0x41, 0x51, 0x77, 0x34, 0x12, 0xf0, 0xbd, 0xd9, 0x99,
-	0x70, 0xb7, 0x6f, 0x12, 0xe2, 0xbc, 0xba, 0xa3, 0x11, 0xc7, 0x7f, 0xcd, 0xc5, 0x06, 0x39, 0x11,
-	0x74, 0x67, 0x54, 0xf8, 0x2f, 0x07, 0xa3, 0x9b, 0x58, 0x95, 0xcf, 0x9e, 0xe7, 0x85, 0x23, 0x73,
-	0xb7, 0x91, 0xeb, 0xe3, 0x19, 0x34, 0xfe, 0x0d, 0x07, 0xe7, 0x56, 0xb1, 0x71, 0x06, 0x2d, 0xff,
-	0x1f, 0x07, 0x63, 0x66, 0x82, 0x77, 0x99, 0xde, 0x8e, 0x03, 0xd0, 0x73, 0xbe, 0xc5, 0x5a, 0x3b,
-	0xdf, 0xe2, 0xef, 0xe2, 0x7c, 0xfb, 0x39, 0x07, 0xe9, 0xa0, 0xfd, 0xd6, 0x19, 0x97, 0x83, 0x94,
-	0xcb, 0x5b, 0xf6, 0x31, 0xf7, 0x01, 0x23, 0xc1, 0xb8, 0x23, 0xc7, 0x33, 0xa7, 0xe5, 0xd3, 0xee,
-	0x5f, 0x1c, 0xa0, 0x55, 0x4c, 0x52, 0x94, 0x99, 0x8a, 0xce, 0x4a, 0xfc, 0xfd, 0x9b, 0xa3, 0x2f,
-	0x93, 0xb3, 0x66, 0xf7, 0x97, 0xf4, 0xd2, 0xd9, 0x30, 0xdb, 0x0a, 0xb9, 0x65, 0xe8, 0x37, 0xcf,
-	0x23, 0x72, 0xa0, 0x15, 0xca, 0x8a, 0x6e, 0x58, 0x41, 0x37, 0xc1, 0x08, 0x3a, 0x67, 0x72, 0x4a,
-	0xb7, 0xfe, 0x32, 0x59, 0x9a, 0x99, 0x7c, 0xc4, 0x09, 0xe9, 0x1d, 0x5c, 0x3b, 0x53, 0xfb, 0xf9,
-	0x05, 0xbd, 0xaf, 0xba, 0x6c, 0xb7, 0x1c, 0x7b, 0x03, 0x92, 0x86, 0x3d, 0x18, 0xe1, 0x53, 0x7b,
-	0xa2, 0xd8, 0xa0, 0x6e, 0x79, 0x0b, 0xe7, 0x60, 0xc8, 0x94, 0x6d, 0x5e, 0x08, 0x1b, 0x72, 0xe7,
-	0xa0, 0xd3, 0xbc, 0x39, 0xda, 0x32, 0xc7, 0x58, 0xb7, 0x13, 0xc9, 0xc0, 0x22, 0xa5, 0x12, 0x7e,
-	0xc1, 0x01, 0x6f, 0xa6, 0x81, 0x2a, 0x56, 0x65, 0xa9, 0x58, 0xc6, 0x39, 0xa9, 0x6c, 0x1e, 0xca,
-	0x6d, 0x78, 0x05, 0xfe, 0x31, 0x01, 0x13, 0x4c, 0x4d, 0x2c, 0xc3, 0x96, 0x60, 0xcc, 0xd0, 0x0c,
-	0xa9, 0x5c, 0xd0, 0x6d, 0x8a, 0x42, 0x91, 0x92, 0x10, 0xc5, 0x38, 0xf1, 0x1c, 0xf9, 0xec, 0x9f,
-	0x8f, 0x56, 0xe0, 0x03, 0xdd, 0xa8, 0x29, 0x6a, 0xa9, 0x10, 0x36, 0x9d, 0x3a, 0x77, 0x82, 0x52,
-	0x6d, 0x31, 0x99, 0x2c, 0xc1, 0x98, 0x2c, 0x29, 0xe5, 0x3a, 0x63, 0x76, 0x9c, 0x0a, 0x27, 0x9f,
-	0x23, 0x84, 0x87, 0x4d, 0x4f, 0xb8, 0x85, 0xdf, 0x64, 0x32, 0xb9, 0x0e, 0xe9, 0x5d, 0x6d, 0xbf,
-	0xc6, 0x9c, 0xde, 0x49, 0xa4, 0x8f, 0xd2, 0xef, 0x81, 0x99, 0xb7, 0x60, 0xca, 0x12, 0x1f, 0xca,
-	0xa0, 0x8b, 0xc8, 0x3f, 0x4f, 0xc9, 0xee, 0xb0, 0xd9, 0x7c, 0x06, 0xbc, 0xa6, 0xe2, 0x82, 0xa1,
-	0x54, 0x30, 0x83, 0x43, 0x37, 0x51, 0x61, 0x4c, 0x53, 0xf1, 0x96, 0x52, 0xc1, 0x81, 0xc9, 0x77,
-	0xe0, 0x82, 0xa5, 0x43, 0x04, 0x0f, 0x5a, 0xdb, 0x9c, 0xa4, 0x84, 0xf7, 0xd9, 0x9c, 0x84, 0xbf,
-	0x93, 0x8a, 0x63, 0x79, 0x7b, 0xbf, 0x2c, 0x19, 0xf8, 0x36, 0xc6, 0xa7, 0xe9, 0x6d, 0xc6, 0x35,
-	0xde, 0x66, 0xcb, 0x6f, 0xf7, 0x36, 0x73, 0xbf, 0xc8, 0x56, 0x61, 0xc4, 0x6b, 0xa8, 0xb5, 0x07,
-	0x06, 0x21, 0xbe, 0x83, 0xed, 0x78, 0x37, 0xff, 0x44, 0x93, 0x00, 0x96, 0x77, 0xcd, 0x0f, 0x34,
-	0x92, 0x93, 0x74, 0xe4, 0x36, 0xc6, 0xc2, 0x45, 0xf8, 0x70, 0x15, 0x1b, 0xf7, 0x68, 0x39, 0xf9,
-	0x26, 0x36, 0x8f, 0x83, 0x03, 0xc9, 0x90, 0x8a, 0x4a, 0x59, 0x31, 0x14, 0xa7, 0xf4, 0x20, 0xbc,
-	0x84, 0x99, 0x68, 0x32, 0x4b, 0xfe, 0x26, 0x20, 0x39, 0xf0, 0xd5, 0xca, 0x34, 0x1f, 0x32, 0x4c,
-	0xf4, 0xb1, 0xaa, 0x8b, 0x8c, 0xe9, 0xc2, 0xcf, 0x38, 0x98, 0xa0, 0xef, 0xee, 0xbb, 0x52, 0x11,
-	0x97, 0xb1, 0xec, 0x2b, 0x04, 0x4d, 0x42, 0xa2, 0xd1, 0x06, 0xc8, 0x25, 0x8f, 0x72, 0x5d, 0xb5,
-	0xc4, 0x20, 0x97, 0x1e, 0x11, 0xc9, 0xf0, 0x31, 0x7b, 0x01, 0x69, 0xe8, 0xb6, 0x2a, 0x03, 0x34,
-	0xff, 0x8b, 0xf6, 0x4f, 0xe1, 0x55, 0x0c, 0x26, 0x68, 0xfd, 0x90, 0xad, 0xc6, 0x0b, 0x40, 0x65,
-	0xfa, 0xa1, 0xe0, 0x2a, 0x16, 0x9d, 0x44, 0xb8, 0x0d, 0x96, 0x3d, 0x0a, 0xe4, 0x65, 0xc7, 0x05,
-	0xb1, 0x68, 0x17, 0xc4, 0x8f, 0xeb, 0x82, 0x84, 0xd7, 0x05, 0xbf, 0xe3, 0x48, 0xcd, 0xf2, 0xd4,
-	0xd9, 0x2f, 0x4c, 0xc2, 0x84, 0x79, 0xd2, 0x79, 0x15, 0x6b, 0x84, 0x6f, 0x01, 0xce, 0xb3, 0x3f,
-	0x5b, 0x61, 0xfb, 0xdd, 0x60, 0xed, 0xe8, 0x02, 0x23, 0x5a, 0x7d, 0x76, 0x37, 0xe6, 0x08, 0xbf,
-	0xe7, 0x60, 0xe2, 0x26, 0x2e, 0xe3, 0x53, 0x18, 0x1b, 0xc2, 0x6b, 0x0e, 0x2e, 0x88, 0xf8, 0x40,
-	0xc1, 0xcf, 0xbc, 0xba, 0xd1, 0x4a, 0xde, 0x69, 0x88, 0x5e, 0x33, 0xe0, 0x68, 0x1f, 0xd1, 0xaa,
-	0x34, 0xda, 0x3f, 0xcd, 0xd7, 0xd0, 0xa8, 0xd5, 0x00, 0xdc, 0x55, 0x0c, 0x6c, 0xde, 0x3f, 0x4f,
-	0x64, 0xd7, 0x4f, 0x41, 0x6f, 0xc3, 0x6a, 0x9a, 0x93, 0x93, 0x22, 0x38, 0x35, 0x59, 0xdd, 0x54,
-	0x64, 0x78, 0x15, 0x1b, 0x01, 0x2d, 0x34, 0x48, 0x3d, 0xb3, 0xc7, 0x4e, 0xca, 0x61, 0xbd, 0x8e,
-	0x84, 0xbc, 0x2c, 0x8c, 0xd1, 0xfb, 0xa4, 0xa3, 0x88, 0x13, 0xe3, 0x0f, 0x61, 0xd4, 0xff, 0xc1,
-	0x8a, 0xee, 0x6f, 0x03, 0x38, 0x1c, 0xec, 0xf0, 0x3e, 0xcf, 0xea, 0xab, 0x38, 0xc6, 0xb9, 0xe8,
-	0x85, 0x37, 0x1c, 0x8c, 0x5a, 0x6d, 0x93, 0x76, 0x1b, 0xff, 0x6e, 0xd3, 0x9c, 0x6f, 0xcd, 0x13,
-	0x81, 0x35, 0xff, 0x33, 0x07, 0x53, 0x3e, 0xcb, 0x03, 0x35, 0xf9, 0xf7, 0xee, 0x02, 0x9f, 0xd6,
-	0xb1, 0x80, 0xd6, 0xbf, 0xe4, 0x60, 0x94, 0xa6, 0xa2, 0xf6, 0x07, 0xeb, 0x6b, 0x0e, 0x78, 0x57,
-	0xc5, 0x7c, 0x07, 0xd7, 0xee, 0x2a, 0x15, 0xe5, 0x64, 0xb6, 0xf0, 0x3a, 0x0c, 0xd8, 0x2f, 0xa4,
-	0x42, 0xd9, 0x94, 0x62, 0x5f, 0xad, 0x2e, 0x46, 0xbc, 0xaa, 0x88, 0x3a, 0xb7, 0x54, 0xa3, 0x56,
-	0x17, 0xfb, 0x0d, 0xf7, 0x98, 0x2e, 0xfc, 0x96, 0x23, 0x7d, 0x3d, 0xa6, 0xe2, 0xcf, 0x61, 0xc8,
-	0x2b, 0xeb, 0xa4, 0xbc, 0x39, 0xe0, 0x51, 0x2a, 0x2f, 0x0b, 0x13, 0x30, 0xee, 0x7e, 0x4e, 0x52,
-	0x5d, 0xed, 0x14, 0x50, 0x02, 0x9e, 0xf5, 0xd1, 0x4a, 0x03, 0xf9, 0xa0, 0x83, 0x68, 0x2e, 0x98,
-	0x6e, 0xe6, 0xa0, 0x80, 0x6f, 0xfe, 0xc6, 0x01, 0x4f, 0x77, 0xc6, 0xe9, 0x72, 0x0f, 0x2b, 0x08,
-	0x62, 0xdf, 0x24, 0x08, 0x5e, 0x73, 0xf0, 0x01, 0xc3, 0xd0, 0x75, 0xa9, 0x82, 0xdb, 0x6f, 0x6c,
-	0x74, 0x36, 0x34, 0x2f, 0x6b, 0x3c, 0x4d, 0x04, 0xa7, 0x2c, 0x86, 0xff, 0xc2, 0xc1, 0x34, 0xbd,
-	0x90, 0x78, 0x14, 0xf3, 0xde, 0x47, 0xda, 0xe7, 0xd6, 0xf0, 0xdb, 0xc8, 0x9f, 0xe2, 0x36, 0x1c,
-	0xc9, 0x8b, 0x1d, 0x68, 0x92, 0xc7, 0x66, 0xa0, 0x5f, 0xd1, 0x0b, 0x45, 0x49, 0xc7, 0x05, 0x0a,
-	0x1a, 0xb0, 0xf8, 0xa6, 0x14, 0x3d, 0x27, 0xe9, 0x16, 0xaf, 0x63, 0x1e, 0x5e, 0x0b, 0x90, 0x70,
-	0x41, 0x8d, 0x58, 0x58, 0x25, 0xca, 0x96, 0x00, 0x8d, 0x08, 0x69, 0x20, 0xfb, 0x77, 0x9e, 0xf4,
-	0x51, 0xc5, 0x5c, 0xc2, 0xae, 0xf7, 0x11, 0x61, 0x14, 0xf9, 0xe4, 0x5d, 0x24, 0xc5, 0x8d, 0xe1,
-	0x38, 0x91, 0x22, 0x80, 0x83, 0x08, 0x39, 0x47, 0x4b, 0xc8, 0x44, 0xbe, 0xeb, 0x11, 0x7d, 0x8f,
-	0x96, 0x41, 0x1b, 0xc3, 0x56, 0x62, 0xbe, 0x06, 0x74, 0x6a, 0xe3, 0xa9, 0x3c, 0x1e, 0xba, 0x9e,
-	0xa2, 0x43, 0x2a, 0x7c, 0x1d, 0x87, 0x61, 0x9a, 0x9b, 0xda, 0x65, 0x68, 0xb3, 0xfb, 0x98, 0x3f,
-	0xe2, 0xe2, 0x6d, 0x89, 0xb8, 0xc4, 0xfb, 0x88, 0xb8, 0x57, 0x1c, 0x0c, 0xd3, 0x64, 0xdb, 0xae,
-	0xc5, 0xc8, 0xfe, 0xf3, 0x12, 0x24, 0x57, 0x49, 0xb8, 0x2c, 0x6f, 0xe4, 0xd1, 0x26, 0xa4, 0xdc,
-	0xc8, 0x49, 0x74, 0x89, 0x11, 0x52, 0x0c, 0x68, 0x25, 0x1f, 0x0e, 0xb8, 0x12, 0x3a, 0xd0, 0x3d,
-	0x48, 0x3a, 0x88, 0x42, 0xc4, 0xaa, 0xe7, 0xf8, 0xf1, 0x86, 0xd1, 0xec, 0x36, 0x20, 0xe5, 0x06,
-	0x08, 0xb2, 0x75, 0x0c, 0x22, 0x08, 0xf9, 0xd1, 0x0c, 0x85, 0xe0, 0x66, 0x6c, 0x08, 0x6e, 0xe6,
-	0x56, 0xa5, 0x6a, 0xd4, 0x85, 0x0e, 0x24, 0x42, 0x9f, 0x07, 0x69, 0x87, 0x3e, 0x62, 0x41, 0x40,
-	0x18, 0x58, 0xbc, 0x08, 0x9e, 0x0f, 0x61, 0xc0, 0x87, 0xdf, 0x43, 0x1f, 0x33, 0xb8, 0xb2, 0x31,
-	0x7e, 0x11, 0x7c, 0x9f, 0x42, 0xaf, 0x0b, 0x02, 0x87, 0x58, 0x37, 0x94, 0x20, 0x62, 0x8f, 0xbf,
-	0xd4, 0x8c, 0x8c, 0x26, 0x15, 0xa1, 0x03, 0x7d, 0x05, 0x28, 0x08, 0x77, 0x43, 0x57, 0x58, 0xaa,
-	0x87, 0xa1, 0xe2, 0x9a, 0x78, 0xda, 0x0d, 0x18, 0x66, 0x7b, 0x9a, 0x01, 0x29, 0x8e, 0xe0, 0xf9,
-	0x15, 0xa0, 0x20, 0x9e, 0x98, 0xa9, 0x71, 0x28, 0xec, 0x38, 0x72, 0x1d, 0xfb, 0x3c, 0x40, 0x36,
-	0xa6, 0xc6, 0x2c, 0xa8, 0x1b, 0x1f, 0x81, 0x23, 0x22, 0x51, 0x0c, 0x0d, 0x70, 0x1a, 0x9a, 0x61,
-	0xef, 0x8a, 0x63, 0x71, 0x94, 0xa1, 0xcf, 0x83, 0x71, 0x62, 0x6a, 0xca, 0x82, 0x88, 0xf1, 0xb3,
-	0xcd, 0x09, 0x9d, 0xf8, 0xa8, 0x90, 0x43, 0xd2, 0x83, 0x3f, 0x44, 0x9f, 0xb0, 0xb5, 0x67, 0x81,
-	0x1b, 0xf9, 0xcb, 0x2d, 0xd1, 0x3a, 0xe2, 0xd6, 0xa1, 0xd7, 0x85, 0x59, 0x64, 0x86, 0x7b, 0x10,
-	0xd3, 0xc8, 0x8f, 0x32, 0xc8, 0xd6, 0xb0, 0xb9, 0x9c, 0x45, 0x18, 0x0a, 0x80, 0xb1, 0xd0, 0xe5,
-	0xd0, 0x25, 0x65, 0x84, 0x4a, 0x93, 0xbe, 0x39, 0xdd, 0xfa, 0x3e, 0xdc, 0x13, 0x73, 0xeb, 0xb3,
-	0xb1, 0x51, 0xd1, 0x29, 0xc5, 0x87, 0xea, 0x61, 0xf3, 0x65, 0x22, 0x7f, 0x22, 0xf8, 0x3e, 0x82,
-	0xa1, 0x00, 0x64, 0x86, 0xed, 0x93, 0x10, 0x60, 0x4d, 0xe4, 0xe6, 0xec, 0xf7, 0x22, 0x52, 0xd0,
-	0x2c, 0x3b, 0x00, 0xde, 0xca, 0xd3, 0x15, 0x18, 0xf4, 0xa3, 0x1e, 0x98, 0xc1, 0x18, 0x02, 0x0d,
-	0x61, 0x06, 0x63, 0x18, 0x8c, 0x42, 0xe8, 0x40, 0x9b, 0xd0, 0xeb, 0xc2, 0x36, 0x30, 0x83, 0x31,
-	0x88, 0x7d, 0xe0, 0xa3, 0x7a, 0xde, 0x42, 0x07, 0x92, 0x20, 0xe5, 0x6e, 0xa1, 0xa3, 0xb0, 0x54,
-	0xed, 0x67, 0xfb, 0x51, 0x53, 0x3a, 0x47, 0x6f, 0x2b, 0x33, 0x38, 0xdd, 0xe4, 0xd0, 0xcc, 0xe0,
-	0xef, 0xb5, 0x87, 0x66, 0x86, 0x40, 0x63, 0x5a, 0xe8, 0x40, 0x6b, 0x90, 0x74, 0xfa, 0xc6, 0x28,
-	0x24, 0x22, 0xf8, 0x99, 0x10, 0x86, 0x9e, 0x6e, 0xb3, 0xd0, 0x81, 0xf6, 0x6c, 0xfc, 0xb0, 0xb7,
-	0xfa, 0x8c, 0x32, 0xa1, 0x5b, 0x95, 0x59, 0x42, 0xe7, 0x9b, 0x17, 0xe4, 0x85, 0x0e, 0x84, 0x09,
-	0x50, 0xd8, 0x27, 0x29, 0x24, 0x51, 0x7d, 0x03, 0x31, 0x75, 0x7a, 0x93, 0xf7, 0xf7, 0x13, 0x98,
-	0x36, 0x45, 0xf4, 0x25, 0xf8, 0xf9, 0x96, 0xe9, 0xdd, 0xee, 0x64, 0x35, 0xa1, 0x98, 0xa2, 0x23,
-	0xba, 0x55, 0xad, 0xd9, 0xf9, 0x03, 0x18, 0x61, 0x75, 0x35, 0x98, 0xc2, 0x22, 0xda, 0x1f, 0x11,
-	0x59, 0xa5, 0x0c, 0x7c, 0x78, 0x6f, 0x02, 0x5d, 0x65, 0x1e, 0x12, 0x4d, 0x5a, 0x19, 0x91, 0x39,
-	0x6c, 0xc0, 0xd7, 0x4d, 0x60, 0xe6, 0x5d, 0x76, 0xc7, 0x81, 0x8f, 0xac, 0x99, 0x93, 0xac, 0x9e,
-	0x72, 0xb7, 0x08, 0x98, 0xfb, 0x9f, 0xd1, 0x43, 0x68, 0xca, 0xb7, 0x04, 0xfd, 0xde, 0xca, 0x3e,
-	0x0a, 0xdb, 0xcc, 0x81, 0xae, 0x00, 0xff, 0x71, 0x0b, 0x94, 0xae, 0x1b, 0xe3, 0x80, 0xaf, 0xde,
-	0xcd, 0xbe, 0xe9, 0x32, 0xbb, 0x01, 0x4d, 0xcd, 0x50, 0x21, 0x1d, 0x56, 0x4d, 0x47, 0xd9, 0xe6,
-	0x62, 0x02, 0x9b, 0xa7, 0xf9, 0x72, 0x0c, 0xf8, 0xea, 0xe0, 0x4c, 0x6b, 0xd8, 0xb5, 0xf2, 0x88,
-	0x20, 0xda, 0xb5, 0x8b, 0x40, 0x9e, 0xea, 0x15, 0x9a, 0x8b, 0xbe, 0x7a, 0xf8, 0xca, 0x6f, 0x7c,
-	0xd3, 0xa2, 0x2b, 0xb9, 0xe2, 0x0c, 0xfa, 0x2b, 0xd0, 0x61, 0x37, 0xb4, 0xb7, 0x96, 0xa1, 0xd3,
-	0xff, 0x0b, 0xf2, 0xd6, 0x8c, 0x99, 0x77, 0xee, 0xd0, 0xba, 0x33, 0x3f, 0xd7, 0x22, 0xb5, 0x13,
-	0x68, 0xbb, 0x76, 0xe5, 0xa2, 0xb9, 0x0b, 0xc3, 0xcb, 0xcc, 0x2d, 0x99, 0x57, 0x85, 0xb1, 0x90,
-	0xfa, 0x2d, 0x5a, 0x68, 0x4d, 0x9a, 0xab, 0xd6, 0xdb, 0x92, 0xc4, 0xa7, 0x76, 0x21, 0xa0, 0xb9,
-	0x6d, 0xe1, 0xd5, 0xd9, 0x88, 0xf0, 0xfb, 0x21, 0x8c, 0x87, 0x16, 0x4f, 0xd1, 0x62, 0x68, 0xc2,
-	0x0c, 0x2f, 0xb5, 0x46, 0xc8, 0x72, 0x8a, 0x08, 0xd6, 0xe3, 0x31, 0xbc, 0x88, 0xe0, 0x7d, 0x36,
-	0x86, 0xd7, 0xaf, 0x9c, 0x22, 0x82, 0xc5, 0x31, 0xa4, 0x88, 0x70, 0x0c, 0x76, 0xd6, 0xad, 0xcb,
-	0xae, 0xaa, 0x85, 0xde, 0xba, 0x7c, 0xd5, 0xb8, 0xd0, 0x5b, 0x97, 0xbf, 0x3c, 0x47, 0xdd, 0xe0,
-	0x2e, 0xb4, 0x31, 0x45, 0x30, 0x2a, 0x71, 0xd1, 0x7a, 0x6f, 0x40, 0xca, 0x5d, 0x30, 0x62, 0x32,
-	0x65, 0x54, 0x94, 0x22, 0x56, 0xeb, 0x80, 0xb4, 0xa8, 0x03, 0xf8, 0xaa, 0xb9, 0x90, 0xcb, 0x2d,
-	0x1b, 0xd1, 0xc7, 0x67, 0x5a, 0x25, 0x77, 0xdc, 0x23, 0x41, 0xca, 0x0d, 0x46, 0x0a, 0x29, 0xe3,
-	0x04, 0x60, 0x59, 0xcc, 0x15, 0x60, 0xa1, 0x9a, 0x84, 0x0e, 0xf4, 0x6b, 0x0e, 0xce, 0x47, 0x01,
-	0x90, 0xd0, 0x12, 0x5b, 0xeb, 0x66, 0xc0, 0x26, 0xfe, 0xd3, 0x63, 0xcf, 0xb3, 0x75, 0xca, 0x0d,
-	0x3d, 0x1a, 0xf0, 0xfd, 0x47, 0x75, 0xb1, 0x8b, 0xac, 0xc9, 0xe2, 0xff, 0x03, 0x00, 0x00, 0xff,
-	0xff, 0x9a, 0xbb, 0x2f, 0x2d, 0x73, 0x3e, 0x00, 0x00,
+	// 3425 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe4, 0x5c, 0x5b, 0x6f, 0x1b, 0xc7,
+	0xf5, 0xe7, 0x90, 0x94, 0x25, 0x1e, 0x5d, 0x3d, 0xba, 0x51, 0x94, 0x2f, 0xf2, 0x5a, 0x89, 0x15,
+	0xd9, 0xa2, 0xfe, 0x96, 0x6d, 0xc5, 0x41, 0xf2, 0x47, 0x2b, 0xfa, 0xa2, 0x30, 0x96, 0x6d, 0x65,
+	0x25, 0x3b, 0x57, 0x9b, 0x59, 0x8a, 0x23, 0x6a, 0x63, 0x72, 0xc9, 0x70, 0x57, 0x8a, 0x69, 0x57,
+	0x40, 0x9a, 0x02, 0x09, 0x9a, 0x22, 0x40, 0x9b, 0xa2, 0x05, 0x8a, 0x16, 0x28, 0xda, 0xc7, 0x7e,
+	0x82, 0x16, 0x45, 0xfb, 0x19, 0xfa, 0xd4, 0xcf, 0x50, 0xa0, 0x4f, 0x01, 0x5a, 0xa4, 0x10, 0x50,
+	0xa0, 0xd8, 0x9d, 0xd9, 0xfb, 0xcc, 0x92, 0x4e, 0x24, 0x51, 0x80, 0x9f, 0x4c, 0xcd, 0x9e, 0x39,
+	0x97, 0x99, 0x33, 0x67, 0x66, 0xce, 0xf9, 0x8d, 0xe1, 0xd5, 0xb2, 0xaa, 0x6d, 0xd4, 0x54, 0x6d,
+	0x63, 0x5e, 0x29, 0x29, 0x55, 0x45, 0x33, 0xe6, 0xcb, 0x95, 0x5a, 0x51, 0xa9, 0xcc, 0xef, 0x5c,
+	0xb4, 0x5b, 0x68, 0xc3, 0xce, 0x45, 0xf6, 0xa5, 0xa0, 0xd4, 0xd5, 0x6c, 0xbd, 0x51, 0x33, 0x6a,
+	0xf8, 0x38, 0xa3, 0xc8, 0xd2, 0x2f, 0xd9, 0x9d, 0x8b, 0x99, 0xc9, 0x72, 0xad, 0x56, 0xae, 0x90,
+	0x79, 0x8b, 0xa0, 0xb8, 0xbd, 0x39, 0x4f, 0xaa, 0x75, 0xa3, 0x49, 0xe9, 0x33, 0xe3, 0x3b, 0x4a,
+	0x45, 0x2d, 0x29, 0x06, 0x99, 0xb7, 0x7f, 0xb0, 0x0f, 0x59, 0x47, 0x0b, 0x57, 0xba, 0xdd, 0xe4,
+	0x88, 0x27, 0xda, 0x76, 0x95, 0xd1, 0x5f, 0x79, 0x06, 0xad, 0x3d, 0xdd, 0x16, 0x9f, 0xa1, 0x5b,
+	0xb5, 0x56, 0x22, 0x15, 0xda, 0x4f, 0xba, 0x04, 0x23, 0x4b, 0xf5, 0x7a, 0xa3, 0xb6, 0x43, 0xde,
+	0x52, 0x2a, 0x15, 0x62, 0xc8, 0xe4, 0xa3, 0x6d, 0xa2, 0x1b, 0x78, 0x12, 0x52, 0x1f, 0x5b, 0x0d,
+	0x05, 0xb5, 0x94, 0x46, 0x53, 0x68, 0x26, 0x25, 0xf7, 0xd0, 0x86, 0x7c, 0x49, 0x2a, 0xc0, 0x04,
+	0xeb, 0xb4, 0xde, 0x50, 0x34, 0x5d, 0xd9, 0x30, 0xd4, 0x9a, 0xd6, 0x4e, 0x4f, 0xfc, 0x02, 0x0c,
+	0x18, 0x6e, 0x17, 0x93, 0x22, 0x6e, 0x51, 0xf4, 0x7b, 0x5a, 0xf3, 0x25, 0xe9, 0xab, 0x04, 0x0c,
+	0x5f, 0x6b, 0x10, 0xc5, 0x08, 0x68, 0x35, 0x0b, 0xbd, 0x8c, 0xb7, 0xa6, 0x54, 0x09, 0xe5, 0x9e,
+	0x4b, 0xed, 0xe5, 0x8e, 0x35, 0x92, 0x43, 0x28, 0x3d, 0x22, 0x03, 0xfd, 0x7a, 0x47, 0xa9, 0x12,
+	0x7c, 0x15, 0x92, 0xe6, 0x80, 0x58, 0x02, 0x06, 0x16, 0xd2, 0xce, 0x3c, 0xb8, 0x33, 0x9a, 0xbd,
+	0x56, 0x53, 0xb5, 0x1c, 0xec, 0xe5, 0xba, 0x3f, 0x45, 0xc9, 0x21, 0x34, 0x15, 0x93, 0xad, 0x1e,
+	0xf8, 0x0d, 0x47, 0x8a, 0xd1, 0xac, 0x93, 0x74, 0xc2, 0x62, 0x70, 0x32, 0x1b, 0xf2, 0x88, 0x2c,
+	0x55, 0x6e, 0xbd, 0x59, 0x27, 0x3e, 0x2e, 0x4c, 0x0b, 0xb3, 0x1d, 0xdf, 0x81, 0x3e, 0xa5, 0x54,
+	0x6a, 0x10, 0x5d, 0xa7, 0xcc, 0x92, 0x16, 0xb3, 0xd3, 0x3c, 0x6d, 0x96, 0x28, 0x5d, 0x88, 0x5d,
+	0xaf, 0xe2, 0x7e, 0xc0, 0xe3, 0x80, 0xaa, 0xe9, 0xae, 0x29, 0x34, 0xd3, 0x6f, 0xd9, 0x3d, 0x9b,
+	0x4c, 0x27, 0x66, 0x90, 0x8c, 0xaa, 0xe6, 0x07, 0x2d, 0x7d, 0x2c, 0xf4, 0x41, 0xc3, 0xb3, 0xd0,
+	0x5d, 0x25, 0xd5, 0x22, 0x69, 0xe8, 0xe9, 0xee, 0xa9, 0xc4, 0x4c, 0x2a, 0x37, 0xb4, 0x97, 0xeb,
+	0xfa, 0x0a, 0xc5, 0x7b, 0x10, 0xfd, 0x37, 0x8d, 0x64, 0x9b, 0xc0, 0x9c, 0xbb, 0x7a, 0xad, 0xa2,
+	0x6e, 0x34, 0xcd, 0x99, 0xe9, 0xa1, 0x73, 0x47, 0x1b, 0xf2, 0x25, 0xd3, 0x55, 0xfc, 0x73, 0xa2,
+	0xd7, 0x6b, 0x9a, 0x4e, 0xa2, 0x5d, 0x65, 0x17, 0x86, 0x96, 0x89, 0xe1, 0x9f, 0x45, 0x35, 0xd4,
+	0x21, 0xb7, 0xb2, 0x97, 0xcb, 0x37, 0x96, 0x17, 0x6e, 0x3c, 0x7c, 0xef, 0xff, 0xe6, 0x5e, 0x51,
+	0xe6, 0x36, 0x1f, 0x3c, 0xbd, 0xba, 0x3b, 0xe7, 0xfc, 0xbe, 0xbc, 0x3b, 0x77, 0xd9, 0xf9, 0xe3,
+	0xd2, 0xee, 0xdc, 0x7b, 0x57, 0x5f, 0x51, 0x8a, 0x0f, 0x7c, 0x2d, 0xf6, 0xef, 0x8b, 0x0b, 0xbb,
+	0xd3, 0x1e, 0xf1, 0x9f, 0x20, 0x18, 0xbe, 0xa6, 0x68, 0x1b, 0xa4, 0xd2, 0x31, 0x15, 0x7e, 0x88,
+	0x60, 0x64, 0xa9, 0xb1, 0xb1, 0xa5, 0x06, 0x97, 0xd8, 0x21, 0xea, 0xf0, 0x23, 0x04, 0x63, 0xf7,
+	0xb4, 0x4e, 0x6b, 0xf1, 0x25, 0x02, 0xbc, 0xa2, 0xea, 0xcc, 0x1b, 0x74, 0x5b, 0x83, 0x69, 0x48,
+	0xd5, 0x95, 0x32, 0x29, 0xe8, 0xea, 0x13, 0xba, 0xa4, 0xfb, 0x73, 0xdd, 0x7b, 0xb9, 0xe4, 0x6c,
+	0x3c, 0x5d, 0x92, 0x7b, 0xcc, 0x2f, 0x6b, 0xea, 0x13, 0x82, 0xdf, 0x04, 0xb0, 0xa8, 0x8c, 0xda,
+	0x23, 0x42, 0x17, 0x75, 0x2a, 0xb7, 0xb0, 0x97, 0x9b, 0x6f, 0xcc, 0x2d, 0x9c, 0x7f, 0x38, 0xfd,
+	0x83, 0x87, 0xef, 0x2d, 0xe5, 0xae, 0x5d, 0xbf, 0x71, 0x73, 0xf9, 0xf5, 0xfc, 0x1b, 0xb7, 0x56,
+	0x6e, 0xdf, 0xb9, 0xbb, 0xfa, 0xa6, 0xbc, 0xb6, 0x7e, 0xef, 0xfe, 0x5b, 0x6f, 0xbf, 0xf3, 0xee,
+	0xc2, 0xa5, 0xcb, 0x57, 0x16, 0x5f, 0x7e, 0xf0, 0xf4, 0xe2, 0xe2, 0xee, 0xb4, 0x6c, 0xc9, 0x5a,
+	0x37, 0x99, 0x48, 0x0d, 0x18, 0xf6, 0xa9, 0xc3, 0xfc, 0xf9, 0x12, 0x74, 0x53, 0x95, 0xf5, 0x34,
+	0x9a, 0x4a, 0xcc, 0xf4, 0x2e, 0x4c, 0x08, 0x97, 0xbe, 0x6c, 0x53, 0xe2, 0x17, 0x61, 0x50, 0x23,
+	0x8f, 0x8d, 0x42, 0x50, 0x47, 0xb9, 0xdf, 0x6c, 0x5e, 0x75, 0x64, 0x7e, 0x8d, 0x60, 0xe2, 0x5e,
+	0xbd, 0xe4, 0xac, 0xa2, 0x55, 0x6b, 0x75, 0x1d, 0xfe, 0x64, 0x98, 0xa2, 0xdc, 0xa5, 0x1e, 0x3f,
+	0x08, 0x51, 0x4e, 0xe0, 0xf8, 0x3d, 0x82, 0x49, 0x99, 0xec, 0xa8, 0xe4, 0x63, 0x66, 0x73, 0xa3,
+	0x56, 0xaf, 0xe9, 0x4a, 0xa5, 0x03, 0x56, 0xa7, 0xa1, 0x5b, 0xa1, 0x3b, 0x97, 0x65, 0x73, 0x8f,
+	0x6c, 0xff, 0x29, 0xfd, 0x0e, 0x01, 0x96, 0x49, 0x59, 0xd5, 0x0d, 0xd2, 0xb8, 0x45, 0x3a, 0x31,
+	0x23, 0x53, 0xd0, 0x5d, 0xdf, 0x2e, 0x16, 0x1e, 0x91, 0x26, 0x9b, 0x0f, 0x73, 0x15, 0x34, 0xe2,
+	0x43, 0xdf, 0x97, 0x8f, 0xd5, 0xb7, 0x8b, 0xb7, 0x48, 0x53, 0xba, 0x00, 0xc3, 0x3e, 0x15, 0x99,
+	0xc3, 0x8e, 0xc2, 0xb1, 0x47, 0xa4, 0xe9, 0x46, 0xdf, 0xae, 0x47, 0xa4, 0xc9, 0x02, 0x0f, 0x0d,
+	0xd8, 0x6c, 0x67, 0xe9, 0xc0, 0x92, 0x5f, 0x84, 0xd1, 0x80, 0x0a, 0x4c, 0xe7, 0x93, 0x00, 0xf6,
+	0xbe, 0xe8, 0xe8, 0x9d, 0x62, 0x2d, 0xf9, 0x92, 0xf4, 0x4f, 0x04, 0xc7, 0x97, 0x89, 0xd1, 0x31,
+	0xc5, 0xf1, 0x23, 0x9f, 0x7e, 0x07, 0xb1, 0x3e, 0x3c, 0xd6, 0xfe, 0x01, 0x41, 0xc6, 0xb5, 0x36,
+	0xd7, 0xec, 0x9c, 0xd9, 0x67, 0xa0, 0x9b, 0xa9, 0xe5, 0xf7, 0xc1, 0x09, 0xd9, 0x6e, 0x97, 0x7e,
+	0x1d, 0x87, 0x11, 0x33, 0x6c, 0x32, 0x25, 0x49, 0x27, 0xd4, 0x3c, 0x0d, 0xbd, 0xb5, 0xaa, 0x6a,
+	0x14, 0x36, 0xb6, 0x14, 0xad, 0x6c, 0x2f, 0x65, 0x30, 0x9b, 0xae, 0x59, 0x2d, 0xfe, 0x3d, 0x25,
+	0xd1, 0xde, 0x9e, 0x92, 0xdc, 0x8f, 0x3d, 0xa5, 0x09, 0xa3, 0x81, 0xc1, 0x61, 0x0e, 0x7f, 0x15,
+	0xec, 0x09, 0x27, 0xf6, 0xbe, 0x92, 0xe1, 0xec, 0x2b, 0xf6, 0xd4, 0xbb, 0xc4, 0x6d, 0x6f, 0x2d,
+	0xa7, 0xe0, 0xc4, 0x32, 0x31, 0x6e, 0x18, 0x5b, 0xa4, 0x41, 0xb6, 0xab, 0x37, 0x49, 0x60, 0xd9,
+	0x4b, 0xff, 0x88, 0x43, 0x9a, 0x2e, 0x46, 0xce, 0xa9, 0xfd, 0x10, 0x27, 0x4f, 0x82, 0x9e, 0x4d,
+	0x42, 0x0a, 0x0d, 0xc5, 0xa0, 0x33, 0x97, 0xb4, 0xa6, 0x66, 0x21, 0x3e, 0xd3, 0x25, 0x77, 0x6f,
+	0x12, 0x22, 0x2b, 0x06, 0xc1, 0x4b, 0x00, 0xc6, 0xe3, 0x42, 0x6d, 0xdb, 0xa8, 0x6f, 0x1b, 0x7a,
+	0x3a, 0x61, 0x0d, 0x97, 0xc4, 0x19, 0x2e, 0xa6, 0xfe, 0xfa, 0xe3, 0xbb, 0x16, 0xa9, 0x9c, 0x32,
+	0xd8, 0x2f, 0xdd, 0x0a, 0xf5, 0xcc, 0x95, 0xad, 0x99, 0x75, 0x3c, 0x18, 0x9f, 0x83, 0xc1, 0x12,
+	0xd1, 0x0d, 0x55, 0x53, 0xac, 0x4b, 0x88, 0xa1, 0x94, 0xe9, 0x89, 0x5a, 0x1e, 0xf0, 0x34, 0xaf,
+	0x2b, 0x65, 0x3c, 0x02, 0x5d, 0x3b, 0x4a, 0x65, 0x9b, 0x58, 0xe7, 0x6a, 0x24, 0xd3, 0x3f, 0xf0,
+	0x19, 0xe8, 0xd3, 0x8d, 0x86, 0xaa, 0x95, 0x0b, 0xf4, 0x63, 0xb7, 0xc5, 0xbd, 0x97, 0xb6, 0xdd,
+	0x37, 0x9b, 0xa4, 0x1c, 0x4c, 0x70, 0x46, 0x9a, 0x79, 0x42, 0xf8, 0x0e, 0x84, 0x78, 0x77, 0xa0,
+	0x2f, 0x11, 0x4c, 0x51, 0x26, 0x6f, 0xcb, 0xab, 0x79, 0x4d, 0x35, 0x3c, 0xbc, 0x3a, 0x11, 0xca,
+	0xbf, 0x89, 0xc3, 0xd8, 0x9a, 0x5a, 0xd6, 0x3a, 0xeb, 0x3c, 0x3a, 0xff, 0x02, 0xb9, 0xcf, 0xf2,
+	0xfc, 0x53, 0x81, 0x2f, 0x38, 0x1b, 0x6c, 0xc2, 0x12, 0x36, 0xba, 0x97, 0xc3, 0x8d, 0xa1, 0x85,
+	0x01, 0x4b, 0xd8, 0xd2, 0xdc, 0xcd, 0x07, 0x4f, 0x17, 0x2f, 0xef, 0x4e, 0xb3, 0x7d, 0x17, 0xdf,
+	0x85, 0x5e, 0x5d, 0x2d, 0x6b, 0xa4, 0x54, 0x50, 0xb5, 0xcd, 0x9a, 0xe5, 0x7c, 0xbd, 0x0b, 0xd3,
+	0x62, 0xe7, 0x5d, 0xb3, 0x88, 0xf3, 0xda, 0x66, 0x2d, 0xd7, 0xb3, 0x97, 0xeb, 0xfa, 0x02, 0xc5,
+	0x87, 0x90, 0x0c, 0xba, 0xd3, 0x2a, 0x7d, 0x11, 0x87, 0x53, 0x26, 0xd1, 0x91, 0xf0, 0x03, 0xcf,
+	0x60, 0xc4, 0xbf, 0xcd, 0x60, 0x24, 0x9e, 0x69, 0x30, 0xac, 0x7b, 0xaa, 0x6f, 0x30, 0xfe, 0x83,
+	0x60, 0x6c, 0x8d, 0x68, 0xa5, 0xe7, 0xcf, 0x0d, 0xa5, 0x2c, 0x8c, 0x87, 0x2c, 0x67, 0x31, 0x65,
+	0x18, 0xba, 0x8c, 0xc7, 0x6e, 0x28, 0x49, 0x1a, 0x8f, 0xf3, 0x25, 0xe9, 0x27, 0x08, 0x4e, 0x99,
+	0x1d, 0x8e, 0x46, 0xfc, 0xb8, 0x0a, 0xa7, 0x85, 0xca, 0xb8, 0x07, 0x59, 0xcb, 0x0a, 0xba, 0x41,
+	0xa6, 0xe4, 0x2e, 0xd3, 0x0c, 0x5d, 0xda, 0x43, 0x90, 0xa6, 0x97, 0xf8, 0xe7, 0x70, 0xd2, 0xbf,
+	0x41, 0x30, 0xba, 0x4c, 0x8c, 0xe7, 0xd0, 0xf2, 0xff, 0x22, 0x18, 0x37, 0xcf, 0x52, 0x1d, 0x8e,
+	0x77, 0xbe, 0xa3, 0x64, 0xbc, 0xbd, 0xa3, 0x64, 0x62, 0x3f, 0x8e, 0x92, 0x9f, 0x21, 0x48, 0x87,
+	0xed, 0x67, 0x4b, 0x25, 0x07, 0x7d, 0x9e, 0xd1, 0xb2, 0x4f, 0x94, 0xa7, 0x38, 0x81, 0xd5, 0xeb,
+	0x39, 0xbe, 0x3e, 0x6d, 0x1f, 0x2c, 0xff, 0x85, 0x00, 0x2f, 0x13, 0x2b, 0x34, 0x9b, 0x21, 0xf8,
+	0x79, 0xf1, 0xbf, 0x7f, 0x23, 0x9a, 0x1f, 0x7a, 0xde, 0xec, 0x7e, 0x87, 0xde, 0xef, 0x5c, 0xb3,
+	0x99, 0xcb, 0x2d, 0xc1, 0x80, 0xb9, 0x0f, 0x5b, 0x1b, 0x79, 0xa1, 0xa2, 0xea, 0x06, 0x73, 0xba,
+	0x49, 0x8e, 0xd3, 0x39, 0x9d, 0xfb, 0x74, 0xf6, 0xcb, 0x64, 0x29, 0x7d, 0x8e, 0x20, 0x63, 0xfe,
+	0x60, 0x9b, 0x40, 0xe7, 0x46, 0x56, 0xfa, 0x00, 0x26, 0xb9, 0x8a, 0xec, 0x9f, 0xad, 0x7b, 0x88,
+	0x8e, 0xa3, 0xb5, 0xfe, 0x36, 0x49, 0xe3, 0xb9, 0x8a, 0x5d, 0x4f, 0xe8, 0x35, 0xd8, 0x63, 0x3b,
+	0x1b, 0xd8, 0x57, 0x20, 0x65, 0xd8, 0x8d, 0x11, 0x63, 0x6a, 0x77, 0x94, 0x5d, 0xea, 0xb6, 0xc3,
+	0xd5, 0x4f, 0x11, 0x8c, 0x2d, 0x13, 0xc3, 0xbc, 0x47, 0xae, 0x69, 0x4a, 0x5d, 0xdf, 0xaa, 0x39,
+	0xc9, 0xee, 0x1d, 0x18, 0x32, 0xaf, 0x9d, 0x05, 0x9d, 0xb5, 0x1f, 0xd4, 0x0c, 0x0c, 0x34, 0x3c,
+	0xc2, 0xf3, 0x25, 0x76, 0x35, 0x5f, 0x51, 0x0c, 0xa2, 0xf3, 0xf4, 0x92, 0x96, 0x61, 0x70, 0x8d,
+	0x6a, 0xec, 0x78, 0xc9, 0x65, 0xe8, 0x32, 0x99, 0x44, 0x45, 0x76, 0x46, 0x6a, 0x76, 0x93, 0x29,
+	0xb1, 0xf4, 0x1a, 0x0c, 0xb9, 0x8c, 0xd8, 0x90, 0xcf, 0x88, 0x8c, 0x0e, 0xa9, 0xf9, 0x39, 0xcd,
+	0x43, 0xad, 0xd5, 0x89, 0x56, 0x52, 0x8a, 0x15, 0x92, 0x53, 0x2a, 0xe6, 0xb1, 0xab, 0x03, 0xcb,
+	0xf3, 0xb7, 0x49, 0x98, 0xe4, 0x6a, 0xc2, 0x6c, 0x5a, 0x84, 0x71, 0xa3, 0x66, 0x28, 0x95, 0x82,
+	0x6e, 0x53, 0x14, 0x8a, 0x94, 0xc4, 0x52, 0x0c, 0xc9, 0xa3, 0xd6, 0xe7, 0x60, 0x7f, 0x7c, 0x0d,
+	0x4e, 0xb1, 0xbb, 0xbb, 0xa8, 0x3b, 0x75, 0xa9, 0x49, 0x4a, 0xb5, 0xce, 0x65, 0xb2, 0x08, 0xe3,
+	0x25, 0x45, 0xad, 0x34, 0x39, 0xbd, 0x13, 0x54, 0xb8, 0xf5, 0x39, 0x42, 0xb8, 0xa8, 0x7b, 0xd2,
+	0x2b, 0xfc, 0x3a, 0x97, 0xc9, 0x55, 0x48, 0x6f, 0xd5, 0xb6, 0x1b, 0xdc, 0xee, 0x5d, 0x96, 0xf4,
+	0x31, 0xfa, 0x3d, 0xd4, 0xf3, 0x06, 0x9c, 0x66, 0xe2, 0x85, 0x0c, 0x8e, 0x59, 0xf2, 0x4f, 0x50,
+	0xb2, 0xd7, 0xf9, 0x6c, 0x5e, 0x85, 0x4c, 0x4d, 0x23, 0x05, 0x43, 0xad, 0x12, 0x0e, 0x87, 0x6e,
+	0x4b, 0x85, 0xf1, 0x9a, 0x46, 0xd6, 0xd5, 0x2a, 0x09, 0x75, 0x7e, 0x1d, 0xce, 0x30, 0x1d, 0x22,
+	0x78, 0xd0, 0xc2, 0xe3, 0x49, 0x4a, 0x78, 0x97, 0xcf, 0x49, 0xfa, 0xda, 0xaa, 0xec, 0x55, 0x36,
+	0xb6, 0x2b, 0x8a, 0x41, 0x6e, 0x12, 0x72, 0x94, 0x12, 0x59, 0xc8, 0x4d, 0x64, 0xdd, 0xfa, 0x76,
+	0x89, 0x2c, 0xcf, 0xe5, 0xd7, 0x4d, 0x69, 0x49, 0xcb, 0x30, 0xe2, 0x37, 0x99, 0xad, 0x86, 0x21,
+	0x48, 0x6c, 0x12, 0xdb, 0xf3, 0xcd, 0x9f, 0xf8, 0x24, 0x00, 0x1b, 0x67, 0xf3, 0x03, 0xf5, 0xe9,
+	0x14, 0x6d, 0xb9, 0x49, 0x88, 0xf4, 0x02, 0x9c, 0x5d, 0x26, 0xc6, 0x6d, 0x5a, 0xf5, 0xbd, 0x4e,
+	0xcc, 0xad, 0x7f, 0x47, 0x31, 0x94, 0xa2, 0x5a, 0x51, 0x0d, 0xd5, 0x89, 0x41, 0xd2, 0x53, 0x98,
+	0x8e, 0x26, 0x63, 0xf2, 0xd7, 0x00, 0x97, 0x42, 0x5f, 0x59, 0xe0, 0x3a, 0xcb, 0x31, 0x36, 0xc0,
+	0xaa, 0x29, 0x73, 0xba, 0x4b, 0xbf, 0x42, 0x30, 0x49, 0xf3, 0x5f, 0x2b, 0x4a, 0x91, 0x54, 0x48,
+	0x29, 0x90, 0x15, 0x3f, 0x09, 0x49, 0x3e, 0x08, 0xc0, 0x6a, 0xfe, 0x0e, 0xe5, 0x7f, 0x4f, 0x0e,
+	0x3c, 0x21, 0xc8, 0x81, 0xaf, 0xc0, 0x09, 0xbe, 0x6a, 0x6c, 0x40, 0x2e, 0x00, 0xae, 0xd0, 0x2f,
+	0x85, 0x50, 0x95, 0x63, 0xa8, 0xe2, 0xeb, 0x93, 0x2f, 0x49, 0xbf, 0x88, 0xc3, 0x24, 0xad, 0x09,
+	0xf2, 0x2d, 0x7d, 0x22, 0xe6, 0xb6, 0xcf, 0xbe, 0x1d, 0xd2, 0xcd, 0x19, 0xe5, 0x78, 0xf4, 0x28,
+	0x27, 0xbe, 0xcb, 0x28, 0x27, 0x05, 0xa3, 0xfc, 0x4b, 0x04, 0x69, 0x6b, 0xdb, 0x3c, 0x62, 0x83,
+	0x22, 0x9d, 0xa4, 0x87, 0x47, 0xbf, 0x62, 0xee, 0xb2, 0x29, 0xc0, 0x09, 0xfe, 0x67, 0xe6, 0x1d,
+	0xdf, 0x0b, 0x97, 0x02, 0xce, 0x70, 0x56, 0x49, 0xc0, 0x6e, 0xb7, 0x8f, 0xb5, 0x34, 0xae, 0x93,
+	0x0a, 0x39, 0x82, 0x0e, 0x23, 0xfd, 0x19, 0xc1, 0x59, 0x5a, 0xec, 0xf5, 0xeb, 0x16, 0x2c, 0xfa,
+	0x76, 0xd2, 0xa9, 0xc5, 0x55, 0xe0, 0xdf, 0x20, 0x18, 0x63, 0x20, 0x97, 0x2d, 0xd5, 0x20, 0xe6,
+	0xc9, 0xff, 0xc0, 0xe3, 0xcd, 0x4b, 0xd0, 0xeb, 0x8e, 0x00, 0xdd, 0x23, 0x52, 0x76, 0xfc, 0x4f,
+	0x23, 0x19, 0x9c, 0x3a, 0xa1, 0x79, 0xbc, 0x1b, 0x0f, 0x69, 0xc7, 0x9c, 0xea, 0x0c, 0xf4, 0x7d,
+	0x6c, 0x37, 0xba, 0xc1, 0xa6, 0xd7, 0x69, 0xcb, 0x97, 0xa4, 0xcf, 0x10, 0x0c, 0x2f, 0x13, 0x23,
+	0x64, 0x59, 0x8d, 0xd7, 0x75, 0x9f, 0x27, 0xc1, 0xa7, 0xc8, 0x38, 0xbd, 0x1d, 0x38, 0x8a, 0x38,
+	0x2b, 0xe7, 0x3e, 0x8c, 0x05, 0x3f, 0x30, 0xf3, 0x5e, 0x03, 0x70, 0x38, 0xd8, 0x8b, 0xe6, 0x04,
+	0x0f, 0x97, 0xe1, 0x18, 0xe7, 0xa1, 0x97, 0xbe, 0x8c, 0xc3, 0x18, 0x43, 0x5d, 0x74, 0xda, 0xf8,
+	0x83, 0x8b, 0xa8, 0x01, 0x3f, 0x4a, 0x46, 0xf8, 0xd1, 0x5f, 0x10, 0x9c, 0x0e, 0x8c, 0x47, 0xa8,
+	0x9c, 0x7b, 0xe8, 0x03, 0x13, 0xd0, 0x3f, 0x1e, 0xa1, 0xff, 0x8f, 0x11, 0x8c, 0xd1, 0x00, 0xd8,
+	0x79, 0x67, 0xfe, 0x3b, 0x82, 0x8c, 0xa7, 0xd8, 0xb7, 0x49, 0x1a, 0x2b, 0x6a, 0x55, 0x3d, 0xf8,
+	0xb0, 0x51, 0x80, 0x41, 0xfb, 0x6e, 0x5c, 0xa8, 0x98, 0x12, 0xed, 0xe3, 0xe5, 0x85, 0x88, 0xe3,
+	0xa5, 0x57, 0xc3, 0x1b, 0x9a, 0xd1, 0x68, 0x7a, 0x0e, 0x9a, 0x03, 0x86, 0xf7, 0xab, 0x2e, 0xe5,
+	0xed, 0xf3, 0x57, 0xc0, 0x2e, 0xb6, 0x22, 0x67, 0xe1, 0xb8, 0x5f, 0xbe, 0x1b, 0x75, 0x06, 0x7d,
+	0x9c, 0xf2, 0x25, 0xe9, 0xe7, 0x08, 0xc6, 0xed, 0x24, 0x76, 0x70, 0x80, 0x1e, 0x0b, 0xf9, 0xec,
+	0xf3, 0xac, 0x85, 0xb4, 0x9a, 0x84, 0x09, 0x6f, 0x92, 0x82, 0x9a, 0x6d, 0x87, 0xa2, 0x32, 0xcd,
+	0x54, 0x05, 0x3f, 0x32, 0xe3, 0xf3, 0xe1, 0xc1, 0xa7, 0x31, 0x69, 0x2a, 0x22, 0x99, 0x41, 0xcd,
+	0x0e, 0x0e, 0xf3, 0x37, 0x08, 0x32, 0x74, 0x2d, 0x1e, 0xad, 0xe1, 0xe1, 0x39, 0x58, 0x7c, 0x5f,
+	0x1d, 0xec, 0x4f, 0x08, 0x4e, 0x71, 0x2c, 0xbf, 0xa3, 0x54, 0x49, 0xe7, 0xad, 0x8f, 0x0e, 0xd3,
+	0xe6, 0xd9, 0x34, 0x43, 0x23, 0xd0, 0x11, 0x73, 0xea, 0x3f, 0x22, 0x90, 0xe8, 0xf9, 0xcb, 0xa7,
+	0x58, 0xf0, 0xf8, 0xd5, 0xb9, 0x81, 0x15, 0x1f, 0xbe, 0xfe, 0xea, 0xa0, 0xbe, 0xfd, 0xa8, 0xc8,
+	0x16, 0x21, 0x74, 0x1a, 0x06, 0x54, 0xbd, 0x50, 0x54, 0x74, 0x52, 0xa0, 0x90, 0x43, 0xc6, 0xb7,
+	0x4f, 0xd5, 0x73, 0x8a, 0xce, 0x78, 0x7d, 0x87, 0x7d, 0xf5, 0xff, 0x21, 0xe9, 0x81, 0x6e, 0xf3,
+	0x70, 0xe0, 0x54, 0x44, 0x08, 0xb8, 0x6d, 0x75, 0x0b, 0x6d, 0x48, 0x5d, 0x07, 0xbd, 0x8f, 0x72,
+	0xa7, 0xf6, 0xd8, 0x61, 0xf8, 0x9e, 0x83, 0x10, 0xb7, 0xe7, 0xcf, 0x45, 0x88, 0xbb, 0x58, 0x53,
+	0x14, 0x80, 0x95, 0x53, 0x84, 0x78, 0x08, 0x07, 0x1b, 0xe8, 0x70, 0x60, 0xe0, 0xd4, 0x51, 0x5a,
+	0xe4, 0xb1, 0xe4, 0x7b, 0x52, 0x1f, 0xb7, 0x69, 0xf2, 0xde, 0x6d, 0x66, 0xa6, 0x5c, 0x01, 0xda,
+	0xd5, 0x4d, 0x70, 0x4c, 0x08, 0x1d, 0x42, 0x76, 0x48, 0xa5, 0x2f, 0x12, 0x30, 0x4c, 0x43, 0x5d,
+	0xa7, 0x0c, 0x6d, 0x75, 0xee, 0x0c, 0xba, 0x69, 0xa2, 0x23, 0x6e, 0x9a, 0x3c, 0x0c, 0x37, 0xfd,
+	0x04, 0xc1, 0x30, 0x8d, 0xdd, 0x1d, 0xf3, 0x3a, 0x17, 0x12, 0x4d, 0x55, 0xe0, 0x40, 0xa2, 0x0f,
+	0xcb, 0x2f, 0x84, 0xf1, 0x78, 0xe1, 0x6f, 0xf3, 0x90, 0x5a, 0xb6, 0x7c, 0x7a, 0x69, 0x35, 0x8f,
+	0x15, 0xe8, 0xf3, 0x3e, 0xff, 0xc0, 0x2f, 0x72, 0xfc, 0x9e, 0xf3, 0x66, 0x27, 0x73, 0xae, 0x25,
+	0x1d, 0x5d, 0x5a, 0x52, 0x0c, 0xdf, 0x86, 0x94, 0xf3, 0x58, 0x04, 0xf3, 0x12, 0x87, 0xc1, 0xa7,
+	0x24, 0x19, 0x31, 0x34, 0x5f, 0x8a, 0xe1, 0x55, 0xe8, 0xf3, 0xbe, 0xfd, 0xe0, 0x6b, 0x1c, 0x7e,
+	0x1c, 0x92, 0x19, 0xcb, 0xd2, 0x97, 0x5e, 0x59, 0xfb, 0xa5, 0x57, 0xf6, 0x46, 0xb5, 0x6e, 0x34,
+	0xa5, 0x18, 0x96, 0xa1, 0xdf, 0xf7, 0x88, 0x02, 0xf3, 0x8c, 0xe3, 0x3d, 0xb3, 0x88, 0xe0, 0x79,
+	0x1f, 0x06, 0x03, 0x4f, 0x33, 0xf0, 0x4b, 0x1c, 0xae, 0xfc, 0xe7, 0x1b, 0x11, 0x7c, 0x1f, 0x42,
+	0xaf, 0xe7, 0x75, 0x03, 0x7e, 0x81, 0x97, 0x61, 0x0a, 0x3d, 0xc6, 0xc8, 0xbc, 0xd8, 0x8a, 0xcc,
+	0x99, 0xac, 0xf7, 0x01, 0x87, 0x1f, 0x32, 0x60, 0xde, 0xd9, 0x50, 0xf8, 0xde, 0x21, 0x42, 0xfb,
+	0x0f, 0x60, 0x84, 0xf7, 0x64, 0x00, 0x67, 0xb9, 0x67, 0x4f, 0xe1, 0xdb, 0x82, 0x16, 0x73, 0xe9,
+	0x7d, 0xf9, 0xc6, 0x9f, 0x4b, 0xce, 0xdb, 0xb8, 0x08, 0x9e, 0xef, 0x03, 0x0e, 0x3f, 0x8c, 0xe3,
+	0x8e, 0x89, 0xf0, 0xfd, 0x5c, 0x04, 0xf7, 0x12, 0xf4, 0xfb, 0xc0, 0xf4, 0x58, 0xbc, 0xb4, 0xfc,
+	0x09, 0xc1, 0xcc, 0x4c, 0x6b, 0x42, 0x67, 0x5e, 0x57, 0x01, 0x5c, 0x2c, 0x3a, 0x9e, 0xe6, 0xaf,
+	0xc2, 0x00, 0xff, 0x08, 0x24, 0xb3, 0x14, 0xc3, 0x45, 0x2b, 0xed, 0x14, 0x44, 0xb7, 0xe3, 0xb9,
+	0x48, 0xd6, 0x41, 0x14, 0x7c, 0x0b, 0x19, 0x25, 0xe8, 0xf7, 0xe1, 0xae, 0xb9, 0x63, 0xc3, 0x83,
+	0xad, 0x73, 0xc7, 0x86, 0x0b, 0xe1, 0x96, 0x62, 0xf8, 0x23, 0x0b, 0x8b, 0x15, 0x86, 0x58, 0xe3,
+	0x79, 0xbe, 0x2d, 0x42, 0x30, 0x76, 0x86, 0xb7, 0x1c, 0xc3, 0xd4, 0x74, 0x19, 0x7b, 0xde, 0x7c,
+	0x70, 0x97, 0x71, 0xf8, 0xd9, 0x0a, 0x77, 0x19, 0x73, 0x9e, 0x8e, 0x48, 0x31, 0x5c, 0x87, 0xe3,
+	0x21, 0xa8, 0x32, 0x3e, 0x2f, 0xf4, 0x17, 0x8e, 0xc3, 0x5e, 0x68, 0x8f, 0xd8, 0x91, 0xf8, 0xa1,
+	0x0d, 0x8e, 0xe6, 0x40, 0x01, 0xf1, 0x25, 0x21, 0x33, 0x31, 0x8a, 0x31, 0x3a, 0xb8, 0x06, 0x30,
+	0xcb, 0xdc, 0xe0, 0xca, 0xc7, 0x35, 0x47, 0xf0, 0xdd, 0x84, 0x71, 0x01, 0x22, 0x17, 0x5f, 0x14,
+	0xf0, 0xff, 0x56, 0xfa, 0x7f, 0x08, 0x83, 0x01, 0xc8, 0x27, 0x5f, 0x7f, 0x2e, 0x20, 0x36, 0x33,
+	0xdb, 0x0e, 0xa9, 0x33, 0x2f, 0x9f, 0x22, 0x8a, 0x2f, 0x6d, 0xdb, 0xa8, 0x48, 0x68, 0x69, 0x66,
+	0xe1, 0x59, 0xba, 0x38, 0x4a, 0xbc, 0x0b, 0xc7, 0x43, 0x50, 0x4f, 0xbe, 0x3b, 0x0a, 0x00, 0xa1,
+	0x91, 0xd1, 0x79, 0xc0, 0x8f, 0xa4, 0xc4, 0x33, 0xfc, 0x65, 0xcb, 0xe1, 0xda, 0x02, 0x59, 0x27,
+	0xc5, 0x70, 0x15, 0x86, 0x82, 0x68, 0x3d, 0x3c, 0x2b, 0x88, 0x2d, 0xbc, 0xf1, 0x3a, 0xdf, 0x16,
+	0xad, 0x33, 0x50, 0x6b, 0xd0, 0xeb, 0xc1, 0xe4, 0x71, 0xe3, 0x42, 0x18, 0xb3, 0x97, 0x89, 0xc2,
+	0x2f, 0x49, 0x31, 0xf3, 0x8c, 0xe7, 0x85, 0x7e, 0x61, 0xd1, 0x69, 0x20, 0xc8, 0xf6, 0x5c, 0x4b,
+	0x3a, 0x47, 0xef, 0x1d, 0x7a, 0xdf, 0x0a, 0x00, 0xaf, 0xb8, 0x9b, 0x81, 0x18, 0x29, 0x96, 0xc9,
+	0xb6, 0x4b, 0xee, 0xc8, 0x65, 0x1b, 0x84, 0x83, 0x48, 0x12, 0x6e, 0x10, 0x41, 0xbc, 0x96, 0x70,
+	0x83, 0x08, 0x81, 0x9b, 0xa4, 0x18, 0x2e, 0xc0, 0x60, 0x00, 0x7a, 0xc4, 0x5d, 0xaf, 0x7c, 0x78,
+	0x52, 0xe6, 0x34, 0x2f, 0x6a, 0x7b, 0xe8, 0xa4, 0x18, 0x7e, 0x64, 0xed, 0x40, 0x61, 0x24, 0x91,
+	0x68, 0x07, 0x12, 0x62, 0x8e, 0xda, 0x11, 0x76, 0x0f, 0x7a, 0x6c, 0x34, 0x11, 0x96, 0xb8, 0xcb,
+	0xd9, 0x87, 0x59, 0xca, 0x9c, 0x8d, 0xa4, 0x71, 0x06, 0xa9, 0x69, 0xa7, 0x09, 0xfc, 0x15, 0x42,
+	0xee, 0xd9, 0x2e, 0x02, 0x01, 0x90, 0x99, 0x6f, 0x9b, 0xde, 0x11, 0x4d, 0xac, 0x67, 0x85, 0x01,
+	0xb9, 0xe7, 0x45, 0x43, 0xc7, 0x13, 0xda, 0xba, 0x52, 0x4b, 0x2d, 0xe4, 0x55, 0x80, 0xb1, 0xc8,
+	0x6d, 0x05, 0x95, 0x64, 0xae, 0x85, 0x51, 0xa5, 0x65, 0xcb, 0x41, 0x46, 0x78, 0x58, 0x02, 0xae,
+	0xe8, 0x08, 0xd0, 0x41, 0x7b, 0x76, 0x7e, 0x00, 0x23, 0xbc, 0x3a, 0x34, 0x57, 0x58, 0x44, 0xc1,
+	0x3a, 0x22, 0x66, 0xd7, 0xe1, 0x44, 0x54, 0x35, 0x19, 0x2f, 0x0a, 0xef, 0x03, 0x91, 0xe5, 0xe7,
+	0xe8, 0x2d, 0x37, 0x50, 0x63, 0xe5, 0x2e, 0x61, 0x7e, 0x95, 0x98, 0xbb, 0xe5, 0x0a, 0x4a, 0xb6,
+	0xd6, 0xf1, 0xa4, 0xcf, 0x5b, 0x90, 0xe5, 0xc6, 0x5b, 0x4e, 0xc5, 0x36, 0x13, 0x59, 0xf9, 0x94,
+	0x62, 0xb8, 0x0c, 0x03, 0xfe, 0x3a, 0x2a, 0x16, 0x05, 0xb1, 0x50, 0x0d, 0x36, 0xf3, 0x52, 0x1b,
+	0x94, 0x9e, 0x4b, 0xe0, 0x60, 0xa0, 0x8e, 0xc8, 0xbf, 0xbc, 0x72, 0x6b, 0xaf, 0x2d, 0xcd, 0xd0,
+	0x20, 0x2d, 0xaa, 0x52, 0xe2, 0x85, 0xd6, 0x62, 0x42, 0xcb, 0xa9, 0x95, 0xbc, 0xfb, 0x30, 0x18,
+	0xa8, 0x2a, 0x72, 0xad, 0xe1, 0x57, 0x1e, 0x23, 0x5c, 0x6a, 0xc7, 0xce, 0x6b, 0xfb, 0x52, 0xf2,
+	0xdc, 0x3d, 0x4f, 0x5c, 0x49, 0xcc, 0x64, 0xdb, 0x25, 0x77, 0x66, 0xa7, 0x68, 0xa5, 0x56, 0xfd,
+	0x42, 0x67, 0x23, 0x8e, 0x3c, 0x41, 0x89, 0x2d, 0x8b, 0x59, 0x52, 0x0c, 0xeb, 0xf4, 0xff, 0x74,
+	0xf0, 0xd7, 0xc9, 0xb8, 0x57, 0x5e, 0x61, 0xad, 0x2d, 0x33, 0xd7, 0x26, 0xb5, 0x63, 0xd8, 0x96,
+	0x9d, 0x4d, 0x6d, 0x3d, 0xa0, 0xe2, 0xd2, 0x5a, 0x5b, 0xe6, 0xd5, 0x61, 0x5c, 0x50, 0xa2, 0xe2,
+	0x9e, 0x89, 0xa3, 0xcb, 0x59, 0x6d, 0x49, 0x7c, 0x68, 0x27, 0x27, 0x5b, 0xdb, 0x26, 0x2e, 0x40,
+	0x45, 0x38, 0xa3, 0x66, 0x67, 0x1e, 0xb9, 0xf5, 0x21, 0x7c, 0x45, 0x18, 0x50, 0xa3, 0xea, 0x49,
+	0x11, 0xf2, 0x9c, 0xbc, 0x21, 0xcb, 0x10, 0x89, 0xf3, 0x86, 0xfe, 0xdc, 0xd0, 0xb9, 0x96, 0x74,
+	0x81, 0xbc, 0x21, 0xe3, 0x2f, 0xc8, 0x1b, 0xfa, 0x99, 0x8b, 0x93, 0xf6, 0xee, 0x29, 0xd8, 0xce,
+	0xfd, 0x0b, 0x4f, 0xc1, 0x81, 0x9a, 0x81, 0xf0, 0x14, 0x1c, 0x2c, 0x22, 0x58, 0xa7, 0xf7, 0x3e,
+	0x6f, 0x39, 0x80, 0x2b, 0x82, 0x53, 0x2f, 0x88, 0xd6, 0x7b, 0x15, 0xfa, 0xbc, 0x69, 0x6d, 0x2e,
+	0x53, 0x4e, 0xde, 0xbb, 0x9d, 0x2c, 0x9c, 0x3f, 0x4b, 0x1d, 0x91, 0x85, 0xe3, 0xa6, 0xb3, 0xa3,
+	0x43, 0x23, 0x07, 0xe7, 0x2d, 0xca, 0x0d, 0x09, 0x90, 0xe9, 0xdc, 0xd0, 0x18, 0x01, 0x1f, 0x67,
+	0x5e, 0xe9, 0x81, 0xd2, 0x0a, 0x72, 0xc3, 0x21, 0x78, 0x31, 0xdf, 0x2b, 0x39, 0x98, 0x5c, 0x29,
+	0x86, 0x7f, 0x86, 0x2c, 0xd4, 0xbf, 0x10, 0x3e, 0xcb, 0x3d, 0xbb, 0xb4, 0x01, 0xcb, 0xcd, 0xbc,
+	0xfc, 0xcc, 0xfd, 0x6c, 0x9d, 0x72, 0xc7, 0xdf, 0x1d, 0x0c, 0xfc, 0x6f, 0x60, 0xc5, 0x63, 0xd6,
+	0x9c, 0x5c, 0xfa, 0x5f, 0x00, 0x00, 0x00, 0xff, 0xff, 0xdb, 0xb7, 0xca, 0xc6, 0x2f, 0x4d, 0x00,
+	0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -3301,62 +4188,71 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type GlobalAPIClient interface {
 	// Wallet
-	CreateWallet(ctx context.Context, in *CreateWalletRequest, opts ...grpc.CallOption) (*Wallet, error)
+	CreateWallet(ctx context.Context, in *CreateWalletRequest, opts ...grpc.CallOption) (*CreateWalletResponse, error)
 	GetWallet(ctx context.Context, in *GetWalletRequest, opts ...grpc.CallOption) (*Wallet, error)
 	CancelWallet(ctx context.Context, in *CancelWalletRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	ArchiveWallet(ctx context.Context, in *ArchiveWalletRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	UnArchiveWallet(ctx context.Context, in *UnArchiveWalletRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	ListWallets(ctx context.Context, in *ListWalletsRequest, opts ...grpc.CallOption) (*ListWalletsResponse, error)
 	UpdateWalletPolicy(ctx context.Context, in *UpdateWalletPolicyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	ReviewWalletProposal(ctx context.Context, in *ReviewWalletProposalRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	// Review
 	ApproveWallet(ctx context.Context, in *ApproveWalletRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	ApproveTransaction(ctx context.Context, in *ApproveTransactionRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	// Address
-	CreateAddress(ctx context.Context, in *CreateAddressRequest, opts ...grpc.CallOption) (*Address, error)
+	CreateAddress(ctx context.Context, in *CreateAddressRequest, opts ...grpc.CallOption) (*CreateAddressResponse, error)
 	GetAddress(ctx context.Context, in *GetAddressRequest, opts ...grpc.CallOption) (*Address, error)
+	GetAddressByAddress(ctx context.Context, in *GetAddressByAddressRequest, opts ...grpc.CallOption) (*Address, error)
 	ListAddresses(ctx context.Context, in *ListAddressesRequest, opts ...grpc.CallOption) (*ListAddressesResponse, error)
+	GetEthereumFeeAddress(ctx context.Context, in *GetEthereumFeeAddressRequest, opts ...grpc.CallOption) (*EthereumFeeAddress, error)
 	// RegisterKey
-	GetNextHdAccount(ctx context.Context, in *GetNextHdAccountRequest, opts ...grpc.CallOption) (*GetNextHdAccountResponse, error)
-	RegisterKey(ctx context.Context, in *RegisterKeyRequest, opts ...grpc.CallOption) (*Key, error)
+	RegisterKey(ctx context.Context, in *RegisterKeyRequest, opts ...grpc.CallOption) (*RegisterKeyResponse, error)
 	// Transaction
-	CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*Transaction, error)
+	CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error)
+	CreateXRPInitTransactions(ctx context.Context, in *CreateXRPInitTransactionsRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	SignTransaction(ctx context.Context, in *SignTransactionRequest, opts ...grpc.CallOption) (*empty.Empty, error)
-	SendTransaction(ctx context.Context, in *SendTransactionRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	SignXRPInitTransactions(ctx context.Context, in *SignXRPInitTransactionsRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	SendTransaction(ctx context.Context, in *SendTransactionRequest, opts ...grpc.CallOption) (*SendTransactionResponse, error)
+	SendXRPInitTransactions(ctx context.Context, in *SendXRPInitTransactionsRequest, opts ...grpc.CallOption) (*SendXRPInitTransactionsResponse, error)
 	CancelTransaction(ctx context.Context, in *CancelTransactionRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	GetTransaction(ctx context.Context, in *GetTransactionRequest, opts ...grpc.CallOption) (*Transaction, error)
 	ListTransactions(ctx context.Context, in *ListTransactionsRequest, opts ...grpc.CallOption) (*ListTransactionsResponse, error)
 	// SignInfo
 	GetSignInfo(ctx context.Context, in *GetSignInfoRequest, opts ...grpc.CallOption) (*SignInfo, error)
 	ListSignInfo(ctx context.Context, in *ListSignInfoRequest, opts ...grpc.CallOption) (*ListSignInfoResponse, error)
+	ListXRPInitSignInfo(ctx context.Context, in *ListXRPInitSignInfoRequest, opts ...grpc.CallOption) (*ListXRPInitSignInfoResponse, error)
 	// Transfer
 	ListTransfers(ctx context.Context, in *ListTransfersRequest, opts ...grpc.CallOption) (*ListTransfersResponse, error)
 	// Rate
-	ListRates(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*ListRatesResponse, error)
+	GetRateSnapshot(ctx context.Context, in *GetRateSnapshotRequest, opts ...grpc.CallOption) (*RateSnapshot, error)
+	GetLatestRateSnapshot(ctx context.Context, in *GetLatestRateSnapshotRequest, opts ...grpc.CallOption) (*RateSnapshot, error)
+	SetRates(ctx context.Context, in *SetRatesRequest, opts ...grpc.CallOption) (*SetRatesResponse, error)
 	// policy
-	CreateLabeledAddress(ctx context.Context, in *CreateLabeledAddressRequest, opts ...grpc.CallOption) (*LabeledAddress, error)
+	CreateLabeledAddress(ctx context.Context, in *CreateLabeledAddressRequest, opts ...grpc.CallOption) (*CreateLabeledAddressResponse, error)
 	GetLabeledAddress(ctx context.Context, in *GetLabeledAddressRequest, opts ...grpc.CallOption) (*LabeledAddress, error)
 	ListLabeledAddresses(ctx context.Context, in *ListLabeledAddressesRequest, opts ...grpc.CallOption) (*ListLabeledAddressesResponse, error)
 	UpdateLabeledAddress(ctx context.Context, in *UpdateLabeledAddressRequest, opts ...grpc.CallOption) (*LabeledAddress, error)
 	DeleteLabeledAddress(ctx context.Context, in *DeleteLabeledAddressRequest, opts ...grpc.CallOption) (*empty.Empty, error)
-	ReviewLabeledAddressChange(ctx context.Context, in *ReviewLabeledAddressChangeRequest, opts ...grpc.CallOption) (*empty.Empty, error)
-	CreateWhitelist(ctx context.Context, in *CreateWhitelistRequest, opts ...grpc.CallOption) (*Whitelist, error)
+	ReviewLabeledAddressProposal(ctx context.Context, in *ReviewLabeledAddressProposalRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	CreateWhitelist(ctx context.Context, in *CreateWhitelistRequest, opts ...grpc.CallOption) (*CreateWhitelistResponse, error)
 	GetWhitelist(ctx context.Context, in *GetWhitelistRequest, opts ...grpc.CallOption) (*Whitelist, error)
 	ListWhitelists(ctx context.Context, in *ListWhitelistsRequest, opts ...grpc.CallOption) (*ListWhitelistsResponse, error)
 	UpdateWhitelist(ctx context.Context, in *UpdateWhitelistRequest, opts ...grpc.CallOption) (*Whitelist, error)
 	UpdateWhitelistAddresses(ctx context.Context, in *UpdateWhitelistAddressesRequest, opts ...grpc.CallOption) (*Whitelist, error)
 	DeleteWhitelist(ctx context.Context, in *DeleteWhitelistRequest, opts ...grpc.CallOption) (*empty.Empty, error)
-	CreateTransferLimit(ctx context.Context, in *CreateTransferLimitRequest, opts ...grpc.CallOption) (*TransferLimit, error)
+	CreateTransferLimit(ctx context.Context, in *CreateTransferLimitRequest, opts ...grpc.CallOption) (*CreateTransferLimitResponse, error)
 	GetTransferLimit(ctx context.Context, in *GetTransferLimitRequest, opts ...grpc.CallOption) (*TransferLimit, error)
 	ListTransferLimits(ctx context.Context, in *ListTransferLimitsRequest, opts ...grpc.CallOption) (*ListTransferLimitsResponse, error)
 	UpdateTransferLimit(ctx context.Context, in *UpdateTransferLimitRequest, opts ...grpc.CallOption) (*TransferLimit, error)
 	UpdateTransferLimitName(ctx context.Context, in *UpdateTransferLimitNameRequest, opts ...grpc.CallOption) (*TransferLimit, error)
 	DeleteTransferLimit(ctx context.Context, in *DeleteTransferLimitRequest, opts ...grpc.CallOption) (*empty.Empty, error)
-	ReviewTransferLimitChange(ctx context.Context, in *ReviewTransferLimitChangeRequest, opts ...grpc.CallOption) (*empty.Empty, error)
-	CreatePolicy(ctx context.Context, in *CreatePolicyRequest, opts ...grpc.CallOption) (*Policy, error)
+	ReviewTransferLimitProposal(ctx context.Context, in *ReviewTransferLimitProposalRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	CreatePolicy(ctx context.Context, in *CreatePolicyRequest, opts ...grpc.CallOption) (*CreatePolicyResponse, error)
 	GetPolicy(ctx context.Context, in *GetPolicyRequest, opts ...grpc.CallOption) (*Policy, error)
 	ListPolicies(ctx context.Context, in *ListPoliciesRequest, opts ...grpc.CallOption) (*ListPoliciesResponse, error)
 	UpdatePolicy(ctx context.Context, in *UpdatePolicyRequest, opts ...grpc.CallOption) (*Policy, error)
 	DeletePolicy(ctx context.Context, in *DeletePolicyRequest, opts ...grpc.CallOption) (*empty.Empty, error)
+	ReviewPolicyProposal(ctx context.Context, in *ReviewPolicyProposalRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	// Utility
 	GetSpendableBalance(ctx context.Context, in *GetSpendableBalanceRequest, opts ...grpc.CallOption) (*GetSpendableBalanceResponse, error)
 	CalculateFee(ctx context.Context, in *CalculateFeeRequest, opts ...grpc.CallOption) (*CalculateFeeResponse, error)
@@ -3371,8 +4267,8 @@ func NewGlobalAPIClient(cc *grpc.ClientConn) GlobalAPIClient {
 	return &globalAPIClient{cc}
 }
 
-func (c *globalAPIClient) CreateWallet(ctx context.Context, in *CreateWalletRequest, opts ...grpc.CallOption) (*Wallet, error) {
-	out := new(Wallet)
+func (c *globalAPIClient) CreateWallet(ctx context.Context, in *CreateWalletRequest, opts ...grpc.CallOption) (*CreateWalletResponse, error) {
+	out := new(CreateWalletResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/CreateWallet", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -3434,6 +4330,15 @@ func (c *globalAPIClient) UpdateWalletPolicy(ctx context.Context, in *UpdateWall
 	return out, nil
 }
 
+func (c *globalAPIClient) ReviewWalletProposal(ctx context.Context, in *ReviewWalletProposalRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ReviewWalletProposal", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *globalAPIClient) ApproveWallet(ctx context.Context, in *ApproveWalletRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
 	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ApproveWallet", in, out, opts...)
@@ -3452,8 +4357,8 @@ func (c *globalAPIClient) ApproveTransaction(ctx context.Context, in *ApproveTra
 	return out, nil
 }
 
-func (c *globalAPIClient) CreateAddress(ctx context.Context, in *CreateAddressRequest, opts ...grpc.CallOption) (*Address, error) {
-	out := new(Address)
+func (c *globalAPIClient) CreateAddress(ctx context.Context, in *CreateAddressRequest, opts ...grpc.CallOption) (*CreateAddressResponse, error) {
+	out := new(CreateAddressResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/CreateAddress", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -3470,6 +4375,15 @@ func (c *globalAPIClient) GetAddress(ctx context.Context, in *GetAddressRequest,
 	return out, nil
 }
 
+func (c *globalAPIClient) GetAddressByAddress(ctx context.Context, in *GetAddressByAddressRequest, opts ...grpc.CallOption) (*Address, error) {
+	out := new(Address)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/GetAddressByAddress", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *globalAPIClient) ListAddresses(ctx context.Context, in *ListAddressesRequest, opts ...grpc.CallOption) (*ListAddressesResponse, error) {
 	out := new(ListAddressesResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListAddresses", in, out, opts...)
@@ -3479,17 +4393,17 @@ func (c *globalAPIClient) ListAddresses(ctx context.Context, in *ListAddressesRe
 	return out, nil
 }
 
-func (c *globalAPIClient) GetNextHdAccount(ctx context.Context, in *GetNextHdAccountRequest, opts ...grpc.CallOption) (*GetNextHdAccountResponse, error) {
-	out := new(GetNextHdAccountResponse)
-	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/GetNextHdAccount", in, out, opts...)
+func (c *globalAPIClient) GetEthereumFeeAddress(ctx context.Context, in *GetEthereumFeeAddressRequest, opts ...grpc.CallOption) (*EthereumFeeAddress, error) {
+	out := new(EthereumFeeAddress)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/GetEthereumFeeAddress", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *globalAPIClient) RegisterKey(ctx context.Context, in *RegisterKeyRequest, opts ...grpc.CallOption) (*Key, error) {
-	out := new(Key)
+func (c *globalAPIClient) RegisterKey(ctx context.Context, in *RegisterKeyRequest, opts ...grpc.CallOption) (*RegisterKeyResponse, error) {
+	out := new(RegisterKeyResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/RegisterKey", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -3497,9 +4411,18 @@ func (c *globalAPIClient) RegisterKey(ctx context.Context, in *RegisterKeyReques
 	return out, nil
 }
 
-func (c *globalAPIClient) CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*Transaction, error) {
-	out := new(Transaction)
+func (c *globalAPIClient) CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error) {
+	out := new(CreateTransactionResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/CreateTransaction", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) CreateXRPInitTransactions(ctx context.Context, in *CreateXRPInitTransactionsRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/CreateXRPInitTransactions", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -3515,9 +4438,27 @@ func (c *globalAPIClient) SignTransaction(ctx context.Context, in *SignTransacti
 	return out, nil
 }
 
-func (c *globalAPIClient) SendTransaction(ctx context.Context, in *SendTransactionRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+func (c *globalAPIClient) SignXRPInitTransactions(ctx context.Context, in *SignXRPInitTransactionsRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
 	out := new(empty.Empty)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/SignXRPInitTransactions", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) SendTransaction(ctx context.Context, in *SendTransactionRequest, opts ...grpc.CallOption) (*SendTransactionResponse, error) {
+	out := new(SendTransactionResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/SendTransaction", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) SendXRPInitTransactions(ctx context.Context, in *SendXRPInitTransactionsRequest, opts ...grpc.CallOption) (*SendXRPInitTransactionsResponse, error) {
+	out := new(SendXRPInitTransactionsResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/SendXRPInitTransactions", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -3569,6 +4510,15 @@ func (c *globalAPIClient) ListSignInfo(ctx context.Context, in *ListSignInfoRequ
 	return out, nil
 }
 
+func (c *globalAPIClient) ListXRPInitSignInfo(ctx context.Context, in *ListXRPInitSignInfoRequest, opts ...grpc.CallOption) (*ListXRPInitSignInfoResponse, error) {
+	out := new(ListXRPInitSignInfoResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListXRPInitSignInfo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *globalAPIClient) ListTransfers(ctx context.Context, in *ListTransfersRequest, opts ...grpc.CallOption) (*ListTransfersResponse, error) {
 	out := new(ListTransfersResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListTransfers", in, out, opts...)
@@ -3578,17 +4528,35 @@ func (c *globalAPIClient) ListTransfers(ctx context.Context, in *ListTransfersRe
 	return out, nil
 }
 
-func (c *globalAPIClient) ListRates(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*ListRatesResponse, error) {
-	out := new(ListRatesResponse)
-	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListRates", in, out, opts...)
+func (c *globalAPIClient) GetRateSnapshot(ctx context.Context, in *GetRateSnapshotRequest, opts ...grpc.CallOption) (*RateSnapshot, error) {
+	out := new(RateSnapshot)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/GetRateSnapshot", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *globalAPIClient) CreateLabeledAddress(ctx context.Context, in *CreateLabeledAddressRequest, opts ...grpc.CallOption) (*LabeledAddress, error) {
-	out := new(LabeledAddress)
+func (c *globalAPIClient) GetLatestRateSnapshot(ctx context.Context, in *GetLatestRateSnapshotRequest, opts ...grpc.CallOption) (*RateSnapshot, error) {
+	out := new(RateSnapshot)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/GetLatestRateSnapshot", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) SetRates(ctx context.Context, in *SetRatesRequest, opts ...grpc.CallOption) (*SetRatesResponse, error) {
+	out := new(SetRatesResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/SetRates", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) CreateLabeledAddress(ctx context.Context, in *CreateLabeledAddressRequest, opts ...grpc.CallOption) (*CreateLabeledAddressResponse, error) {
+	out := new(CreateLabeledAddressResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/CreateLabeledAddress", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -3632,17 +4600,17 @@ func (c *globalAPIClient) DeleteLabeledAddress(ctx context.Context, in *DeleteLa
 	return out, nil
 }
 
-func (c *globalAPIClient) ReviewLabeledAddressChange(ctx context.Context, in *ReviewLabeledAddressChangeRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+func (c *globalAPIClient) ReviewLabeledAddressProposal(ctx context.Context, in *ReviewLabeledAddressProposalRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
 	out := new(empty.Empty)
-	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ReviewLabeledAddressChange", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ReviewLabeledAddressProposal", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *globalAPIClient) CreateWhitelist(ctx context.Context, in *CreateWhitelistRequest, opts ...grpc.CallOption) (*Whitelist, error) {
-	out := new(Whitelist)
+func (c *globalAPIClient) CreateWhitelist(ctx context.Context, in *CreateWhitelistRequest, opts ...grpc.CallOption) (*CreateWhitelistResponse, error) {
+	out := new(CreateWhitelistResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/CreateWhitelist", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -3695,8 +4663,8 @@ func (c *globalAPIClient) DeleteWhitelist(ctx context.Context, in *DeleteWhiteli
 	return out, nil
 }
 
-func (c *globalAPIClient) CreateTransferLimit(ctx context.Context, in *CreateTransferLimitRequest, opts ...grpc.CallOption) (*TransferLimit, error) {
-	out := new(TransferLimit)
+func (c *globalAPIClient) CreateTransferLimit(ctx context.Context, in *CreateTransferLimitRequest, opts ...grpc.CallOption) (*CreateTransferLimitResponse, error) {
+	out := new(CreateTransferLimitResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/CreateTransferLimit", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -3749,17 +4717,17 @@ func (c *globalAPIClient) DeleteTransferLimit(ctx context.Context, in *DeleteTra
 	return out, nil
 }
 
-func (c *globalAPIClient) ReviewTransferLimitChange(ctx context.Context, in *ReviewTransferLimitChangeRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+func (c *globalAPIClient) ReviewTransferLimitProposal(ctx context.Context, in *ReviewTransferLimitProposalRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
 	out := new(empty.Empty)
-	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ReviewTransferLimitChange", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ReviewTransferLimitProposal", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *globalAPIClient) CreatePolicy(ctx context.Context, in *CreatePolicyRequest, opts ...grpc.CallOption) (*Policy, error) {
-	out := new(Policy)
+func (c *globalAPIClient) CreatePolicy(ctx context.Context, in *CreatePolicyRequest, opts ...grpc.CallOption) (*CreatePolicyResponse, error) {
+	out := new(CreatePolicyResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/CreatePolicy", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -3803,6 +4771,15 @@ func (c *globalAPIClient) DeletePolicy(ctx context.Context, in *DeletePolicyRequ
 	return out, nil
 }
 
+func (c *globalAPIClient) ReviewPolicyProposal(ctx context.Context, in *ReviewPolicyProposalRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
+	out := new(empty.Empty)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ReviewPolicyProposal", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *globalAPIClient) GetSpendableBalance(ctx context.Context, in *GetSpendableBalanceRequest, opts ...grpc.CallOption) (*GetSpendableBalanceResponse, error) {
 	out := new(GetSpendableBalanceResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/GetSpendableBalance", in, out, opts...)
@@ -3833,62 +4810,71 @@ func (c *globalAPIClient) GetMembersDeactivatabilities(ctx context.Context, in *
 // GlobalAPIServer is the server API for GlobalAPI service.
 type GlobalAPIServer interface {
 	// Wallet
-	CreateWallet(context.Context, *CreateWalletRequest) (*Wallet, error)
+	CreateWallet(context.Context, *CreateWalletRequest) (*CreateWalletResponse, error)
 	GetWallet(context.Context, *GetWalletRequest) (*Wallet, error)
 	CancelWallet(context.Context, *CancelWalletRequest) (*empty.Empty, error)
 	ArchiveWallet(context.Context, *ArchiveWalletRequest) (*empty.Empty, error)
 	UnArchiveWallet(context.Context, *UnArchiveWalletRequest) (*empty.Empty, error)
 	ListWallets(context.Context, *ListWalletsRequest) (*ListWalletsResponse, error)
 	UpdateWalletPolicy(context.Context, *UpdateWalletPolicyRequest) (*empty.Empty, error)
+	ReviewWalletProposal(context.Context, *ReviewWalletProposalRequest) (*empty.Empty, error)
 	// Review
 	ApproveWallet(context.Context, *ApproveWalletRequest) (*empty.Empty, error)
 	ApproveTransaction(context.Context, *ApproveTransactionRequest) (*empty.Empty, error)
 	// Address
-	CreateAddress(context.Context, *CreateAddressRequest) (*Address, error)
+	CreateAddress(context.Context, *CreateAddressRequest) (*CreateAddressResponse, error)
 	GetAddress(context.Context, *GetAddressRequest) (*Address, error)
+	GetAddressByAddress(context.Context, *GetAddressByAddressRequest) (*Address, error)
 	ListAddresses(context.Context, *ListAddressesRequest) (*ListAddressesResponse, error)
+	GetEthereumFeeAddress(context.Context, *GetEthereumFeeAddressRequest) (*EthereumFeeAddress, error)
 	// RegisterKey
-	GetNextHdAccount(context.Context, *GetNextHdAccountRequest) (*GetNextHdAccountResponse, error)
-	RegisterKey(context.Context, *RegisterKeyRequest) (*Key, error)
+	RegisterKey(context.Context, *RegisterKeyRequest) (*RegisterKeyResponse, error)
 	// Transaction
-	CreateTransaction(context.Context, *CreateTransactionRequest) (*Transaction, error)
+	CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error)
+	CreateXRPInitTransactions(context.Context, *CreateXRPInitTransactionsRequest) (*empty.Empty, error)
 	SignTransaction(context.Context, *SignTransactionRequest) (*empty.Empty, error)
-	SendTransaction(context.Context, *SendTransactionRequest) (*empty.Empty, error)
+	SignXRPInitTransactions(context.Context, *SignXRPInitTransactionsRequest) (*empty.Empty, error)
+	SendTransaction(context.Context, *SendTransactionRequest) (*SendTransactionResponse, error)
+	SendXRPInitTransactions(context.Context, *SendXRPInitTransactionsRequest) (*SendXRPInitTransactionsResponse, error)
 	CancelTransaction(context.Context, *CancelTransactionRequest) (*empty.Empty, error)
 	GetTransaction(context.Context, *GetTransactionRequest) (*Transaction, error)
 	ListTransactions(context.Context, *ListTransactionsRequest) (*ListTransactionsResponse, error)
 	// SignInfo
 	GetSignInfo(context.Context, *GetSignInfoRequest) (*SignInfo, error)
 	ListSignInfo(context.Context, *ListSignInfoRequest) (*ListSignInfoResponse, error)
+	ListXRPInitSignInfo(context.Context, *ListXRPInitSignInfoRequest) (*ListXRPInitSignInfoResponse, error)
 	// Transfer
 	ListTransfers(context.Context, *ListTransfersRequest) (*ListTransfersResponse, error)
 	// Rate
-	ListRates(context.Context, *empty.Empty) (*ListRatesResponse, error)
+	GetRateSnapshot(context.Context, *GetRateSnapshotRequest) (*RateSnapshot, error)
+	GetLatestRateSnapshot(context.Context, *GetLatestRateSnapshotRequest) (*RateSnapshot, error)
+	SetRates(context.Context, *SetRatesRequest) (*SetRatesResponse, error)
 	// policy
-	CreateLabeledAddress(context.Context, *CreateLabeledAddressRequest) (*LabeledAddress, error)
+	CreateLabeledAddress(context.Context, *CreateLabeledAddressRequest) (*CreateLabeledAddressResponse, error)
 	GetLabeledAddress(context.Context, *GetLabeledAddressRequest) (*LabeledAddress, error)
 	ListLabeledAddresses(context.Context, *ListLabeledAddressesRequest) (*ListLabeledAddressesResponse, error)
 	UpdateLabeledAddress(context.Context, *UpdateLabeledAddressRequest) (*LabeledAddress, error)
 	DeleteLabeledAddress(context.Context, *DeleteLabeledAddressRequest) (*empty.Empty, error)
-	ReviewLabeledAddressChange(context.Context, *ReviewLabeledAddressChangeRequest) (*empty.Empty, error)
-	CreateWhitelist(context.Context, *CreateWhitelistRequest) (*Whitelist, error)
+	ReviewLabeledAddressProposal(context.Context, *ReviewLabeledAddressProposalRequest) (*empty.Empty, error)
+	CreateWhitelist(context.Context, *CreateWhitelistRequest) (*CreateWhitelistResponse, error)
 	GetWhitelist(context.Context, *GetWhitelistRequest) (*Whitelist, error)
 	ListWhitelists(context.Context, *ListWhitelistsRequest) (*ListWhitelistsResponse, error)
 	UpdateWhitelist(context.Context, *UpdateWhitelistRequest) (*Whitelist, error)
 	UpdateWhitelistAddresses(context.Context, *UpdateWhitelistAddressesRequest) (*Whitelist, error)
 	DeleteWhitelist(context.Context, *DeleteWhitelistRequest) (*empty.Empty, error)
-	CreateTransferLimit(context.Context, *CreateTransferLimitRequest) (*TransferLimit, error)
+	CreateTransferLimit(context.Context, *CreateTransferLimitRequest) (*CreateTransferLimitResponse, error)
 	GetTransferLimit(context.Context, *GetTransferLimitRequest) (*TransferLimit, error)
 	ListTransferLimits(context.Context, *ListTransferLimitsRequest) (*ListTransferLimitsResponse, error)
 	UpdateTransferLimit(context.Context, *UpdateTransferLimitRequest) (*TransferLimit, error)
 	UpdateTransferLimitName(context.Context, *UpdateTransferLimitNameRequest) (*TransferLimit, error)
 	DeleteTransferLimit(context.Context, *DeleteTransferLimitRequest) (*empty.Empty, error)
-	ReviewTransferLimitChange(context.Context, *ReviewTransferLimitChangeRequest) (*empty.Empty, error)
-	CreatePolicy(context.Context, *CreatePolicyRequest) (*Policy, error)
+	ReviewTransferLimitProposal(context.Context, *ReviewTransferLimitProposalRequest) (*empty.Empty, error)
+	CreatePolicy(context.Context, *CreatePolicyRequest) (*CreatePolicyResponse, error)
 	GetPolicy(context.Context, *GetPolicyRequest) (*Policy, error)
 	ListPolicies(context.Context, *ListPoliciesRequest) (*ListPoliciesResponse, error)
 	UpdatePolicy(context.Context, *UpdatePolicyRequest) (*Policy, error)
 	DeletePolicy(context.Context, *DeletePolicyRequest) (*empty.Empty, error)
+	ReviewPolicyProposal(context.Context, *ReviewPolicyProposalRequest) (*empty.Empty, error)
 	// Utility
 	GetSpendableBalance(context.Context, *GetSpendableBalanceRequest) (*GetSpendableBalanceResponse, error)
 	CalculateFee(context.Context, *CalculateFeeRequest) (*CalculateFeeResponse, error)
@@ -3899,7 +4885,7 @@ type GlobalAPIServer interface {
 type UnimplementedGlobalAPIServer struct {
 }
 
-func (*UnimplementedGlobalAPIServer) CreateWallet(ctx context.Context, req *CreateWalletRequest) (*Wallet, error) {
+func (*UnimplementedGlobalAPIServer) CreateWallet(ctx context.Context, req *CreateWalletRequest) (*CreateWalletResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateWallet not implemented")
 }
 func (*UnimplementedGlobalAPIServer) GetWallet(ctx context.Context, req *GetWalletRequest) (*Wallet, error) {
@@ -3920,35 +4906,50 @@ func (*UnimplementedGlobalAPIServer) ListWallets(ctx context.Context, req *ListW
 func (*UnimplementedGlobalAPIServer) UpdateWalletPolicy(ctx context.Context, req *UpdateWalletPolicyRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateWalletPolicy not implemented")
 }
+func (*UnimplementedGlobalAPIServer) ReviewWalletProposal(ctx context.Context, req *ReviewWalletProposalRequest) (*empty.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReviewWalletProposal not implemented")
+}
 func (*UnimplementedGlobalAPIServer) ApproveWallet(ctx context.Context, req *ApproveWalletRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ApproveWallet not implemented")
 }
 func (*UnimplementedGlobalAPIServer) ApproveTransaction(ctx context.Context, req *ApproveTransactionRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ApproveTransaction not implemented")
 }
-func (*UnimplementedGlobalAPIServer) CreateAddress(ctx context.Context, req *CreateAddressRequest) (*Address, error) {
+func (*UnimplementedGlobalAPIServer) CreateAddress(ctx context.Context, req *CreateAddressRequest) (*CreateAddressResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateAddress not implemented")
 }
 func (*UnimplementedGlobalAPIServer) GetAddress(ctx context.Context, req *GetAddressRequest) (*Address, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAddress not implemented")
 }
+func (*UnimplementedGlobalAPIServer) GetAddressByAddress(ctx context.Context, req *GetAddressByAddressRequest) (*Address, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAddressByAddress not implemented")
+}
 func (*UnimplementedGlobalAPIServer) ListAddresses(ctx context.Context, req *ListAddressesRequest) (*ListAddressesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListAddresses not implemented")
 }
-func (*UnimplementedGlobalAPIServer) GetNextHdAccount(ctx context.Context, req *GetNextHdAccountRequest) (*GetNextHdAccountResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetNextHdAccount not implemented")
+func (*UnimplementedGlobalAPIServer) GetEthereumFeeAddress(ctx context.Context, req *GetEthereumFeeAddressRequest) (*EthereumFeeAddress, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetEthereumFeeAddress not implemented")
 }
-func (*UnimplementedGlobalAPIServer) RegisterKey(ctx context.Context, req *RegisterKeyRequest) (*Key, error) {
+func (*UnimplementedGlobalAPIServer) RegisterKey(ctx context.Context, req *RegisterKeyRequest) (*RegisterKeyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterKey not implemented")
 }
-func (*UnimplementedGlobalAPIServer) CreateTransaction(ctx context.Context, req *CreateTransactionRequest) (*Transaction, error) {
+func (*UnimplementedGlobalAPIServer) CreateTransaction(ctx context.Context, req *CreateTransactionRequest) (*CreateTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTransaction not implemented")
+}
+func (*UnimplementedGlobalAPIServer) CreateXRPInitTransactions(ctx context.Context, req *CreateXRPInitTransactionsRequest) (*empty.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateXRPInitTransactions not implemented")
 }
 func (*UnimplementedGlobalAPIServer) SignTransaction(ctx context.Context, req *SignTransactionRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SignTransaction not implemented")
 }
-func (*UnimplementedGlobalAPIServer) SendTransaction(ctx context.Context, req *SendTransactionRequest) (*empty.Empty, error) {
+func (*UnimplementedGlobalAPIServer) SignXRPInitTransactions(ctx context.Context, req *SignXRPInitTransactionsRequest) (*empty.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SignXRPInitTransactions not implemented")
+}
+func (*UnimplementedGlobalAPIServer) SendTransaction(ctx context.Context, req *SendTransactionRequest) (*SendTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendTransaction not implemented")
+}
+func (*UnimplementedGlobalAPIServer) SendXRPInitTransactions(ctx context.Context, req *SendXRPInitTransactionsRequest) (*SendXRPInitTransactionsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendXRPInitTransactions not implemented")
 }
 func (*UnimplementedGlobalAPIServer) CancelTransaction(ctx context.Context, req *CancelTransactionRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CancelTransaction not implemented")
@@ -3965,13 +4966,22 @@ func (*UnimplementedGlobalAPIServer) GetSignInfo(ctx context.Context, req *GetSi
 func (*UnimplementedGlobalAPIServer) ListSignInfo(ctx context.Context, req *ListSignInfoRequest) (*ListSignInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListSignInfo not implemented")
 }
+func (*UnimplementedGlobalAPIServer) ListXRPInitSignInfo(ctx context.Context, req *ListXRPInitSignInfoRequest) (*ListXRPInitSignInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListXRPInitSignInfo not implemented")
+}
 func (*UnimplementedGlobalAPIServer) ListTransfers(ctx context.Context, req *ListTransfersRequest) (*ListTransfersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListTransfers not implemented")
 }
-func (*UnimplementedGlobalAPIServer) ListRates(ctx context.Context, req *empty.Empty) (*ListRatesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListRates not implemented")
+func (*UnimplementedGlobalAPIServer) GetRateSnapshot(ctx context.Context, req *GetRateSnapshotRequest) (*RateSnapshot, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetRateSnapshot not implemented")
 }
-func (*UnimplementedGlobalAPIServer) CreateLabeledAddress(ctx context.Context, req *CreateLabeledAddressRequest) (*LabeledAddress, error) {
+func (*UnimplementedGlobalAPIServer) GetLatestRateSnapshot(ctx context.Context, req *GetLatestRateSnapshotRequest) (*RateSnapshot, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetLatestRateSnapshot not implemented")
+}
+func (*UnimplementedGlobalAPIServer) SetRates(ctx context.Context, req *SetRatesRequest) (*SetRatesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetRates not implemented")
+}
+func (*UnimplementedGlobalAPIServer) CreateLabeledAddress(ctx context.Context, req *CreateLabeledAddressRequest) (*CreateLabeledAddressResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateLabeledAddress not implemented")
 }
 func (*UnimplementedGlobalAPIServer) GetLabeledAddress(ctx context.Context, req *GetLabeledAddressRequest) (*LabeledAddress, error) {
@@ -3986,10 +4996,10 @@ func (*UnimplementedGlobalAPIServer) UpdateLabeledAddress(ctx context.Context, r
 func (*UnimplementedGlobalAPIServer) DeleteLabeledAddress(ctx context.Context, req *DeleteLabeledAddressRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteLabeledAddress not implemented")
 }
-func (*UnimplementedGlobalAPIServer) ReviewLabeledAddressChange(ctx context.Context, req *ReviewLabeledAddressChangeRequest) (*empty.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ReviewLabeledAddressChange not implemented")
+func (*UnimplementedGlobalAPIServer) ReviewLabeledAddressProposal(ctx context.Context, req *ReviewLabeledAddressProposalRequest) (*empty.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReviewLabeledAddressProposal not implemented")
 }
-func (*UnimplementedGlobalAPIServer) CreateWhitelist(ctx context.Context, req *CreateWhitelistRequest) (*Whitelist, error) {
+func (*UnimplementedGlobalAPIServer) CreateWhitelist(ctx context.Context, req *CreateWhitelistRequest) (*CreateWhitelistResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateWhitelist not implemented")
 }
 func (*UnimplementedGlobalAPIServer) GetWhitelist(ctx context.Context, req *GetWhitelistRequest) (*Whitelist, error) {
@@ -4007,7 +5017,7 @@ func (*UnimplementedGlobalAPIServer) UpdateWhitelistAddresses(ctx context.Contex
 func (*UnimplementedGlobalAPIServer) DeleteWhitelist(ctx context.Context, req *DeleteWhitelistRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteWhitelist not implemented")
 }
-func (*UnimplementedGlobalAPIServer) CreateTransferLimit(ctx context.Context, req *CreateTransferLimitRequest) (*TransferLimit, error) {
+func (*UnimplementedGlobalAPIServer) CreateTransferLimit(ctx context.Context, req *CreateTransferLimitRequest) (*CreateTransferLimitResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTransferLimit not implemented")
 }
 func (*UnimplementedGlobalAPIServer) GetTransferLimit(ctx context.Context, req *GetTransferLimitRequest) (*TransferLimit, error) {
@@ -4025,10 +5035,10 @@ func (*UnimplementedGlobalAPIServer) UpdateTransferLimitName(ctx context.Context
 func (*UnimplementedGlobalAPIServer) DeleteTransferLimit(ctx context.Context, req *DeleteTransferLimitRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTransferLimit not implemented")
 }
-func (*UnimplementedGlobalAPIServer) ReviewTransferLimitChange(ctx context.Context, req *ReviewTransferLimitChangeRequest) (*empty.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ReviewTransferLimitChange not implemented")
+func (*UnimplementedGlobalAPIServer) ReviewTransferLimitProposal(ctx context.Context, req *ReviewTransferLimitProposalRequest) (*empty.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReviewTransferLimitProposal not implemented")
 }
-func (*UnimplementedGlobalAPIServer) CreatePolicy(ctx context.Context, req *CreatePolicyRequest) (*Policy, error) {
+func (*UnimplementedGlobalAPIServer) CreatePolicy(ctx context.Context, req *CreatePolicyRequest) (*CreatePolicyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreatePolicy not implemented")
 }
 func (*UnimplementedGlobalAPIServer) GetPolicy(ctx context.Context, req *GetPolicyRequest) (*Policy, error) {
@@ -4042,6 +5052,9 @@ func (*UnimplementedGlobalAPIServer) UpdatePolicy(ctx context.Context, req *Upda
 }
 func (*UnimplementedGlobalAPIServer) DeletePolicy(ctx context.Context, req *DeletePolicyRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeletePolicy not implemented")
+}
+func (*UnimplementedGlobalAPIServer) ReviewPolicyProposal(ctx context.Context, req *ReviewPolicyProposalRequest) (*empty.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReviewPolicyProposal not implemented")
 }
 func (*UnimplementedGlobalAPIServer) GetSpendableBalance(ctx context.Context, req *GetSpendableBalanceRequest) (*GetSpendableBalanceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSpendableBalance not implemented")
@@ -4183,6 +5196,24 @@ func _GlobalAPI_UpdateWalletPolicy_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GlobalAPI_ReviewWalletProposal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReviewWalletProposalRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ReviewWalletProposal(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ReviewWalletProposal",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ReviewWalletProposal(ctx, req.(*ReviewWalletProposalRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GlobalAPI_ApproveWallet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ApproveWalletRequest)
 	if err := dec(in); err != nil {
@@ -4255,6 +5286,24 @@ func _GlobalAPI_GetAddress_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GlobalAPI_GetAddressByAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAddressByAddressRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).GetAddressByAddress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/GetAddressByAddress",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).GetAddressByAddress(ctx, req.(*GetAddressByAddressRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GlobalAPI_ListAddresses_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ListAddressesRequest)
 	if err := dec(in); err != nil {
@@ -4273,20 +5322,20 @@ func _GlobalAPI_ListAddresses_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GlobalAPI_GetNextHdAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetNextHdAccountRequest)
+func _GlobalAPI_GetEthereumFeeAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEthereumFeeAddressRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GlobalAPIServer).GetNextHdAccount(ctx, in)
+		return srv.(GlobalAPIServer).GetEthereumFeeAddress(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/adamant.global.v1.GlobalAPI/GetNextHdAccount",
+		FullMethod: "/adamant.global.v1.GlobalAPI/GetEthereumFeeAddress",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GlobalAPIServer).GetNextHdAccount(ctx, req.(*GetNextHdAccountRequest))
+		return srv.(GlobalAPIServer).GetEthereumFeeAddress(ctx, req.(*GetEthereumFeeAddressRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4327,6 +5376,24 @@ func _GlobalAPI_CreateTransaction_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GlobalAPI_CreateXRPInitTransactions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateXRPInitTransactionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).CreateXRPInitTransactions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/CreateXRPInitTransactions",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).CreateXRPInitTransactions(ctx, req.(*CreateXRPInitTransactionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GlobalAPI_SignTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SignTransactionRequest)
 	if err := dec(in); err != nil {
@@ -4345,6 +5412,24 @@ func _GlobalAPI_SignTransaction_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GlobalAPI_SignXRPInitTransactions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SignXRPInitTransactionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).SignXRPInitTransactions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/SignXRPInitTransactions",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).SignXRPInitTransactions(ctx, req.(*SignXRPInitTransactionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GlobalAPI_SendTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SendTransactionRequest)
 	if err := dec(in); err != nil {
@@ -4359,6 +5444,24 @@ func _GlobalAPI_SendTransaction_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GlobalAPIServer).SendTransaction(ctx, req.(*SendTransactionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_SendXRPInitTransactions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendXRPInitTransactionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).SendXRPInitTransactions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/SendXRPInitTransactions",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).SendXRPInitTransactions(ctx, req.(*SendXRPInitTransactionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4453,6 +5556,24 @@ func _GlobalAPI_ListSignInfo_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GlobalAPI_ListXRPInitSignInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListXRPInitSignInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ListXRPInitSignInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ListXRPInitSignInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ListXRPInitSignInfo(ctx, req.(*ListXRPInitSignInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GlobalAPI_ListTransfers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ListTransfersRequest)
 	if err := dec(in); err != nil {
@@ -4471,20 +5592,56 @@ func _GlobalAPI_ListTransfers_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GlobalAPI_ListRates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(empty.Empty)
+func _GlobalAPI_GetRateSnapshot_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRateSnapshotRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GlobalAPIServer).ListRates(ctx, in)
+		return srv.(GlobalAPIServer).GetRateSnapshot(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/adamant.global.v1.GlobalAPI/ListRates",
+		FullMethod: "/adamant.global.v1.GlobalAPI/GetRateSnapshot",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GlobalAPIServer).ListRates(ctx, req.(*empty.Empty))
+		return srv.(GlobalAPIServer).GetRateSnapshot(ctx, req.(*GetRateSnapshotRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_GetLatestRateSnapshot_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetLatestRateSnapshotRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).GetLatestRateSnapshot(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/GetLatestRateSnapshot",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).GetLatestRateSnapshot(ctx, req.(*GetLatestRateSnapshotRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_SetRates_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetRatesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).SetRates(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/SetRates",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).SetRates(ctx, req.(*SetRatesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4579,20 +5736,20 @@ func _GlobalAPI_DeleteLabeledAddress_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GlobalAPI_ReviewLabeledAddressChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReviewLabeledAddressChangeRequest)
+func _GlobalAPI_ReviewLabeledAddressProposal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReviewLabeledAddressProposalRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GlobalAPIServer).ReviewLabeledAddressChange(ctx, in)
+		return srv.(GlobalAPIServer).ReviewLabeledAddressProposal(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/adamant.global.v1.GlobalAPI/ReviewLabeledAddressChange",
+		FullMethod: "/adamant.global.v1.GlobalAPI/ReviewLabeledAddressProposal",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GlobalAPIServer).ReviewLabeledAddressChange(ctx, req.(*ReviewLabeledAddressChangeRequest))
+		return srv.(GlobalAPIServer).ReviewLabeledAddressProposal(ctx, req.(*ReviewLabeledAddressProposalRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4813,20 +5970,20 @@ func _GlobalAPI_DeleteTransferLimit_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GlobalAPI_ReviewTransferLimitChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReviewTransferLimitChangeRequest)
+func _GlobalAPI_ReviewTransferLimitProposal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReviewTransferLimitProposalRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(GlobalAPIServer).ReviewTransferLimitChange(ctx, in)
+		return srv.(GlobalAPIServer).ReviewTransferLimitProposal(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/adamant.global.v1.GlobalAPI/ReviewTransferLimitChange",
+		FullMethod: "/adamant.global.v1.GlobalAPI/ReviewTransferLimitProposal",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GlobalAPIServer).ReviewTransferLimitChange(ctx, req.(*ReviewTransferLimitChangeRequest))
+		return srv.(GlobalAPIServer).ReviewTransferLimitProposal(ctx, req.(*ReviewTransferLimitProposalRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -4921,6 +6078,24 @@ func _GlobalAPI_DeletePolicy_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GlobalAPI_ReviewPolicyProposal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReviewPolicyProposalRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ReviewPolicyProposal(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ReviewPolicyProposal",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ReviewPolicyProposal(ctx, req.(*ReviewPolicyProposalRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GlobalAPI_GetSpendableBalance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSpendableBalanceRequest)
 	if err := dec(in); err != nil {
@@ -5008,6 +6183,10 @@ var _GlobalAPI_serviceDesc = grpc.ServiceDesc{
 			Handler:    _GlobalAPI_UpdateWalletPolicy_Handler,
 		},
 		{
+			MethodName: "ReviewWalletProposal",
+			Handler:    _GlobalAPI_ReviewWalletProposal_Handler,
+		},
+		{
 			MethodName: "ApproveWallet",
 			Handler:    _GlobalAPI_ApproveWallet_Handler,
 		},
@@ -5024,12 +6203,16 @@ var _GlobalAPI_serviceDesc = grpc.ServiceDesc{
 			Handler:    _GlobalAPI_GetAddress_Handler,
 		},
 		{
+			MethodName: "GetAddressByAddress",
+			Handler:    _GlobalAPI_GetAddressByAddress_Handler,
+		},
+		{
 			MethodName: "ListAddresses",
 			Handler:    _GlobalAPI_ListAddresses_Handler,
 		},
 		{
-			MethodName: "GetNextHdAccount",
-			Handler:    _GlobalAPI_GetNextHdAccount_Handler,
+			MethodName: "GetEthereumFeeAddress",
+			Handler:    _GlobalAPI_GetEthereumFeeAddress_Handler,
 		},
 		{
 			MethodName: "RegisterKey",
@@ -5040,12 +6223,24 @@ var _GlobalAPI_serviceDesc = grpc.ServiceDesc{
 			Handler:    _GlobalAPI_CreateTransaction_Handler,
 		},
 		{
+			MethodName: "CreateXRPInitTransactions",
+			Handler:    _GlobalAPI_CreateXRPInitTransactions_Handler,
+		},
+		{
 			MethodName: "SignTransaction",
 			Handler:    _GlobalAPI_SignTransaction_Handler,
 		},
 		{
+			MethodName: "SignXRPInitTransactions",
+			Handler:    _GlobalAPI_SignXRPInitTransactions_Handler,
+		},
+		{
 			MethodName: "SendTransaction",
 			Handler:    _GlobalAPI_SendTransaction_Handler,
+		},
+		{
+			MethodName: "SendXRPInitTransactions",
+			Handler:    _GlobalAPI_SendXRPInitTransactions_Handler,
 		},
 		{
 			MethodName: "CancelTransaction",
@@ -5068,12 +6263,24 @@ var _GlobalAPI_serviceDesc = grpc.ServiceDesc{
 			Handler:    _GlobalAPI_ListSignInfo_Handler,
 		},
 		{
+			MethodName: "ListXRPInitSignInfo",
+			Handler:    _GlobalAPI_ListXRPInitSignInfo_Handler,
+		},
+		{
 			MethodName: "ListTransfers",
 			Handler:    _GlobalAPI_ListTransfers_Handler,
 		},
 		{
-			MethodName: "ListRates",
-			Handler:    _GlobalAPI_ListRates_Handler,
+			MethodName: "GetRateSnapshot",
+			Handler:    _GlobalAPI_GetRateSnapshot_Handler,
+		},
+		{
+			MethodName: "GetLatestRateSnapshot",
+			Handler:    _GlobalAPI_GetLatestRateSnapshot_Handler,
+		},
+		{
+			MethodName: "SetRates",
+			Handler:    _GlobalAPI_SetRates_Handler,
 		},
 		{
 			MethodName: "CreateLabeledAddress",
@@ -5096,8 +6303,8 @@ var _GlobalAPI_serviceDesc = grpc.ServiceDesc{
 			Handler:    _GlobalAPI_DeleteLabeledAddress_Handler,
 		},
 		{
-			MethodName: "ReviewLabeledAddressChange",
-			Handler:    _GlobalAPI_ReviewLabeledAddressChange_Handler,
+			MethodName: "ReviewLabeledAddressProposal",
+			Handler:    _GlobalAPI_ReviewLabeledAddressProposal_Handler,
 		},
 		{
 			MethodName: "CreateWhitelist",
@@ -5148,8 +6355,8 @@ var _GlobalAPI_serviceDesc = grpc.ServiceDesc{
 			Handler:    _GlobalAPI_DeleteTransferLimit_Handler,
 		},
 		{
-			MethodName: "ReviewTransferLimitChange",
-			Handler:    _GlobalAPI_ReviewTransferLimitChange_Handler,
+			MethodName: "ReviewTransferLimitProposal",
+			Handler:    _GlobalAPI_ReviewTransferLimitProposal_Handler,
 		},
 		{
 			MethodName: "CreatePolicy",
@@ -5170,6 +6377,10 @@ var _GlobalAPI_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeletePolicy",
 			Handler:    _GlobalAPI_DeletePolicy_Handler,
+		},
+		{
+			MethodName: "ReviewPolicyProposal",
+			Handler:    _GlobalAPI_ReviewPolicyProposal_Handler,
 		},
 		{
 			MethodName: "GetSpendableBalance",

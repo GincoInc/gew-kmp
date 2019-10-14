@@ -38,6 +38,8 @@ var (
 
 	_ = gincoincglobalv1.TransactionState(0)
 
+	_ = gincoincglobalv1.TransactionResult(0)
+
 	_ = gincoincglobalv1.TransferType(0)
 )
 
@@ -64,9 +66,15 @@ func (m *TransferUpdateEvent) Validate() error {
 
 	// no validation rules for StringValue
 
+	// no validation rules for JpyRate
+
 	// no validation rules for Address
 
+	// no validation rules for DestinationTag
+
 	// no validation rules for State
+
+	// no validation rules for Result
 
 	// no validation rules for TransferType
 
