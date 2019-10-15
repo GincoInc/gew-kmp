@@ -1,6 +1,6 @@
 ### Added by User
 .env
-configs/config.toml
+config.toml
 
 ### Go template
 # Binaries for programs and plugins

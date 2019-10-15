@@ -1,0 +1,5 @@
+cpu = 1
+gRPCPort = 50051
+
+[dynamodb]
+  region =  "ap-northeast-1"
