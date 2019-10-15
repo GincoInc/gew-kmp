@@ -8,16 +8,16 @@ services:
       - "50051:50051"
     command: -f /root/configs/config.toml
     volumes:
-      - "./configs/config.toml:/root/configs/config.toml"
+      - "./configs/teller/config.toml:/root/configs/config.toml"
     env_file:
-      - .env
+      - "./envs/teller/.env"
   postbox:
     image: ginco/postbox:v0.2.0
     command: -f /root/configs/config.toml
     volumes:
-      - "./configs/config.toml:/root/configs/config.toml"
+      - "./configs/postbox/config.toml:/root/configs/config.toml"
     env_file:
-      - .env
+      - "./envs/postbox/.env"
   postbox-gateway:
     image: ginco/postbox-gateway:v0.2.0
     ports:
@@ -26,5 +26,3 @@ services:
       -cpu=2
       -port=8080
       -endpoint="postbox:50051"
-    env_file:
-      - .env

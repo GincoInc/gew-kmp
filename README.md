@@ -11,10 +11,12 @@
 
 ```
 # Set config.toml
-cp configs/config.toml.example configs/config.toml
+cp configs/teller/config.toml.example configs/teller/config.toml
+cp configs/postbox/config.toml.example configs/postbox/config.toml
 
 # Set .env
-cp .env.example .env
+cp envs/teller/.env.example envs/teller/.env
+cp envs/postbox/.env.example envs/postbox/.env
 ```
 
 ### Run
