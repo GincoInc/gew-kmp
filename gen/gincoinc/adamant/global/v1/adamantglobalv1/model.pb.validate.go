@@ -54,6 +54,8 @@ var (
 
 	_ = gincoincglobalv1.TransactionState(0)
 
+	_ = gincoincglobalv1.TransactionResult(0)
+
 	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.Coin(0)
@@ -133,6 +135,16 @@ func (m *Wallet) Validate() error {
 
 	// no validation rules for PolicyId
 
+	if v, ok := interface{}(m.GetProposal()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return WalletValidationError{
+				field:  "Proposal",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
 			return WalletValidationError{
@@ -209,6 +221,97 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = WalletValidationError{}
+
+// Validate checks the field values on WalletProposal with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *WalletProposal) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_WalletProposal_RequesterAccountId_Pattern.MatchString(m.GetRequesterAccountId()) {
+		return WalletProposalValidationError{
+			field:  "RequesterAccountId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	// no validation rules for RequesterName
+
+	if !_WalletProposal_ApproverAccountId_Pattern.MatchString(m.GetApproverAccountId()) {
+		return WalletProposalValidationError{
+			field:  "ApproverAccountId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	// no validation rules for ApproverName
+
+	// no validation rules for ProposedPolicy
+
+	// no validation rules for IsReviewed
+
+	return nil
+}
+
+// WalletProposalValidationError is the validation error returned by
+// WalletProposal.Validate if the designated constraints aren't met.
+type WalletProposalValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e WalletProposalValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e WalletProposalValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e WalletProposalValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e WalletProposalValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e WalletProposalValidationError) ErrorName() string { return "WalletProposalValidationError" }
+
+// Error satisfies the builtin error interface
+func (e WalletProposalValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sWalletProposal.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = WalletProposalValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = WalletProposalValidationError{}
+
+var _WalletProposal_RequesterAccountId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _WalletProposal_ApproverAccountId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on WalletMember with the rules defined in
 // the proto definition for this message. If any rules are violated, an error
@@ -1579,6 +1682,8 @@ func (m *Transfer) Validate() error {
 	// no validation rules for DestinationTag
 
 	// no validation rules for State
+
+	// no validation rules for Result
 
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {

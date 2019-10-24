@@ -28,6 +28,7 @@ service TellerAPI {
     rpc GetAddress (adamant.global.v1.GetAddressRequest) returns (adamant.global.v1.Address) {}
     rpc GetAddressByAddress (adamant.global.v1.GetAddressByAddressRequest) returns (adamant.global.v1.Address) {}
     rpc ListAddresses (adamant.global.v1.ListAddressesRequest) returns (adamant.global.v1.ListAddressesResponse) {}
+    rpc GetEthereumFeeAddress (adamant.global.v1.GetEthereumFeeAddressRequest) returns (adamant.global.v1.EthereumFeeAddress) {}
 
     // Transaction
     rpc CreateTransaction (adamant.global.v1.CreateTransactionRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
@@ -51,7 +52,7 @@ service TellerAPI {
 
 message CreateWalletRequest {
     string wallet_name = 1 [(validate.rules).string = {min_len: 1, max_len: 20}];
-    gincoinc.global.v1.Coin coin = 2 [(validate.rules).enum = {defined_only: true, not_in: [0,2]}];
+    gincoinc.global.v1.Coin coin = 2 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
     adamant.global.v1.WalletType wallet_type = 3 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
     gincoinc.global.v1.AddressType address_type = 4 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
 }

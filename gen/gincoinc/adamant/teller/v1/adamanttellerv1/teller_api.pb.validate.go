@@ -64,7 +64,7 @@ func (m *CreateWalletRequest) Validate() error {
 	if _, ok := _CreateWalletRequest_Coin_NotInLookup[m.GetCoin()]; ok {
 		return CreateWalletRequestValidationError{
 			field:  "Coin",
-			reason: "value must not be in list [0 2]",
+			reason: "value must not be in list [0]",
 		}
 	}
 
@@ -164,7 +164,6 @@ var _ interface {
 
 var _CreateWalletRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
 	0: {},
-	2: {},
 }
 
 var _CreateWalletRequest_WalletType_NotInLookup = map[adamantglobalv1.WalletType]struct{}{
