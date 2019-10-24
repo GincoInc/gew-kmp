@@ -221,7 +221,7 @@ message GetEthereumFeeAddressRequest {}
 
 message CreateTransactionRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    uint64 fee_rate = 2 [(validate.rules).uint64.gte = 5];
+    uint64 fee_rate = 2;
     repeated RequestTxOutput tx_outputs = 3;
     string address = 4;
     uint32 destination_tag = 5;

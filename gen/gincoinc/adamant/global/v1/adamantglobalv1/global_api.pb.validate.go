@@ -1783,12 +1783,7 @@ func (m *CreateTransactionRequest) Validate() error {
 		}
 	}
 
-	if m.GetFeeRate() < 5 {
-		return CreateTransactionRequestValidationError{
-			field:  "FeeRate",
-			reason: "value must be greater than or equal to 5",
-		}
-	}
+	// no validation rules for FeeRate
 
 	for idx, item := range m.GetTxOutputs() {
 		_, _ = idx, item

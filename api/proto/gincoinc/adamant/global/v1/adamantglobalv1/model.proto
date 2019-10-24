@@ -6,7 +6,8 @@ option go_package = "adamantglobalv1";
 
 import "google/protobuf/timestamp.proto";
 import "validate/validate.proto";
-import "gincoinc/global/v1/gincoincglobalv1/enum.proto"; import "gincoinc/adamant/global/v1/adamantglobalv1/enum.proto"; 
+import "gincoinc/global/v1/gincoincglobalv1/enum.proto";
+import "gincoinc/adamant/global/v1/adamantglobalv1/enum.proto";
 // =============================================================================
 //  Model
 // =============================================================================
@@ -27,8 +28,18 @@ message Wallet {
     string string_balance = 12;
     string address = 13;
     string policy_id = 14;
+    WalletProposal proposal = 18;
     google.protobuf.Timestamp create_time = 15;
     google.protobuf.Timestamp update_time = 16;
+}
+
+message WalletProposal {
+    string requester_account_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string requester_name = 2;
+    string approver_account_id = 3 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string approver_name = 4;
+    string proposed_policy = 5;
+    bool is_reviewed = 6;
 }
 
 message WalletMember {
@@ -177,6 +188,7 @@ message Transfer {
     string partner_address = 11;
     uint32 destination_tag = 15;
     gincoinc.global.v1.TransactionState state = 12;
+    gincoinc.global.v1.TransactionResult result = 16;
     google.protobuf.Timestamp create_time = 13;
     google.protobuf.Timestamp update_time = 14;
 }

@@ -78,6 +78,7 @@ enum TransferType {
   TRANSFER_TYPE_SEND = 1;
   TRANSFER_TYPE_RECEIVE = 2;
   TRANSFER_TYPE_CHANGE = 3;
+  TRANSFER_TYPE_FATAL = 4;
 }
 
 // -----------------------------------------------------------------------------
