@@ -36,6 +36,7 @@ service TellerAPI {
     rpc SendTransaction (adamant.global.v1.SendTransactionRequest) returns (adamant.global.v1.SendTransactionResponse) {}
     rpc CancelTransaction (adamant.global.v1.CancelTransactionRequest) returns (google.protobuf.Empty) {}
     rpc GetTransaction (adamant.global.v1.GetTransactionRequest) returns (adamant.global.v1.Transaction) {}
+    rpc GetTransactionByTxID (adamant.global.v1.GetTransactionByTxIDRequest) returns (adamant.global.v1.Transaction) {}
     rpc ListTransactions (adamant.global.v1.ListTransactionsRequest) returns (adamant.global.v1.ListTransactionsResponse) {}
 
     // Transfer

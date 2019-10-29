@@ -48,6 +48,7 @@ service GlobalAPI {
     rpc SendXRPInitTransactions (SendXRPInitTransactionsRequest) returns (SendXRPInitTransactionsResponse) {}
     rpc CancelTransaction (CancelTransactionRequest) returns (google.protobuf.Empty) {}
     rpc GetTransaction (GetTransactionRequest) returns (Transaction) {}
+    rpc GetTransactionByTxID (GetTransactionByTxIDRequest) returns (Transaction) {}
     rpc ListTransactions (ListTransactionsRequest) returns (ListTransactionsResponse) {}
 
     // SignInfo
@@ -68,7 +69,7 @@ service GlobalAPI {
     rpc GetLabeledAddress (GetLabeledAddressRequest) returns (LabeledAddress) {}
     rpc ListLabeledAddresses (ListLabeledAddressesRequest) returns (ListLabeledAddressesResponse) {}
     rpc UpdateLabeledAddress (UpdateLabeledAddressRequest) returns (LabeledAddress) {}
-    rpc DeleteLabeledAddress (DeleteLabeledAddressRequest) returns (google.protobuf.Empty) {}
+    rpc ArchiveAddress (ArchiveLabeledAddressRequest) returns (google.protobuf.Empty) {}
     rpc ReviewLabeledAddressProposal (ReviewLabeledAddressProposalRequest) returns (google.protobuf.Empty) {}
 
     rpc CreateWhitelist (CreateWhitelistRequest) returns (CreateWhitelistResponse) {}
@@ -76,21 +77,21 @@ service GlobalAPI {
     rpc ListWhitelists (ListWhitelistsRequest) returns (ListWhitelistsResponse) {}
     rpc UpdateWhitelist (UpdateWhitelistRequest) returns (Whitelist) {}
     rpc UpdateWhitelistAddresses (UpdateWhitelistAddressesRequest) returns (Whitelist) {}
-    rpc DeleteWhitelist (DeleteWhitelistRequest) returns (google.protobuf.Empty) {}
+    rpc ArchiveWhitelist (ArchiveWhitelistRequest) returns (google.protobuf.Empty) {}
 
     rpc CreateTransferLimit (CreateTransferLimitRequest) returns (CreateTransferLimitResponse) {}
     rpc GetTransferLimit (GetTransferLimitRequest) returns (TransferLimit) {}
     rpc ListTransferLimits (ListTransferLimitsRequest) returns (ListTransferLimitsResponse) {}
     rpc UpdateTransferLimit (UpdateTransferLimitRequest) returns (TransferLimit) {}
     rpc UpdateTransferLimitName (UpdateTransferLimitNameRequest) returns (adamant.global.v1.TransferLimit) {}
-    rpc DeleteTransferLimit (DeleteTransferLimitRequest) returns (google.protobuf.Empty) {}
+    rpc ArchiveTransferLimit (ArchiveTransferLimitRequest) returns (google.protobuf.Empty) {}
     rpc ReviewTransferLimitProposal (ReviewTransferLimitProposalRequest) returns (google.protobuf.Empty) {}
 
     rpc CreatePolicy (CreatePolicyRequest) returns (CreatePolicyResponse) {}
     rpc GetPolicy (GetPolicyRequest) returns (Policy) {}
     rpc ListPolicies (ListPoliciesRequest) returns (ListPoliciesResponse) {}
     rpc UpdatePolicy (UpdatePolicyRequest) returns (Policy) {}
-    rpc DeletePolicy (DeletePolicyRequest) returns (google.protobuf.Empty) {}
+    rpc ArchivePolicy (ArchivePolicyRequest) returns (google.protobuf.Empty) {}
     rpc ReviewPolicyProposal (ReviewPolicyProposalRequest) returns (google.protobuf.Empty) {}
 
     // Utility
@@ -188,6 +189,7 @@ message RegisterKeyResponse {
 
 message CreateAddressRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    uint64 fee_rate = 2;
 }
 message CreateAddressResponse {
     string address_id = 1;
@@ -274,6 +276,11 @@ message CancelTransactionRequest {
 message GetTransactionRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+}
+
+message GetTransactionByTxIDRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string tx_id = 2 [(validate.rules).string = {pattern: "^(0x)?[0-9a-fA-F]{64}$"}];
 }
 
 message ListTransactionsRequest {
@@ -403,14 +410,17 @@ message UpdateLabeledAddressRequest {
 
 message GetLabeledAddressRequest {
     string labeled_address_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    bool contains_archived = 2;
 }
 
-message ListLabeledAddressesRequest {}
+message ListLabeledAddressesRequest {
+    bool contains_archived = 1;
+}
 message ListLabeledAddressesResponse {
     repeated LabeledAddress addresses = 1;
 }
 
-message DeleteLabeledAddressRequest {
+message ArchiveLabeledAddressRequest {
     string labeled_address_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
@@ -435,9 +445,12 @@ message CreateWhitelistResponse {
 
 message GetWhitelistRequest {
     string whitelist_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    bool contains_archived = 2;
 }
 
-message ListWhitelistsRequest {}
+message ListWhitelistsRequest {
+    bool contains_archived = 1;
+}
 
 message ListWhitelistsResponse {
     repeated Whitelist whitelists = 1;
@@ -455,7 +468,7 @@ message UpdateWhitelistAddressesRequest {
     repeated string address_ids = 2 [(validate.rules).repeated.unique = true];
 }
 
-message DeleteWhitelistRequest {
+message ArchiveWhitelistRequest {
     string whitelist_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
@@ -475,9 +488,12 @@ message CreateTransferLimitResponse {
 
 message GetTransferLimitRequest {
     string transfer_limit_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    bool contains_archived = 2;
 }
 
-message ListTransferLimitsRequest {}
+message ListTransferLimitsRequest {
+    bool contains_archived = 1;
+}
 
 message ListTransferLimitsResponse {
     repeated TransferLimit transfer_limits = 1;
@@ -493,7 +509,7 @@ message UpdateTransferLimitNameRequest {
     string name = 2 [(validate.rules).string = {min_len: 1, max_len: 20}];
 }
 
-message DeleteTransferLimitRequest {
+message ArchiveTransferLimitRequest {
     string transfer_limit_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
@@ -508,7 +524,6 @@ message ReviewTransferLimitProposalRequest {
 
 message CreatePolicyRequest {
     string name = 1 [(validate.rules).string = {min_len: 1, max_len: 20}];
-    bool is_base_policy = 2;
     gincoinc.global.v1.Coin coin = 3 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
     PolicyType type = 4 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
     string whitelist_id = 5 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
@@ -521,9 +536,12 @@ message CreatePolicyResponse {
 
 message GetPolicyRequest {
     string policy_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    bool contains_archived = 2;
 }
 
-message ListPoliciesRequest {}
+message ListPoliciesRequest {
+    bool contains_archived = 1;
+}
 
 message ListPoliciesResponse {
     repeated Policy policies = 1;
@@ -536,7 +554,7 @@ message UpdatePolicyRequest {
     string transfer_limit_id = 4 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
-message DeletePolicyRequest {
+message ArchivePolicyRequest {
     string policy_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
