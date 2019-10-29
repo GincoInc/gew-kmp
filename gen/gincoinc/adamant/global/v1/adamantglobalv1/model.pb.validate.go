@@ -2023,7 +2023,9 @@ func (m *LabeledAddress) Validate() error {
 		}
 	}
 
-	// no validation rules for IsDeletable
+	// no validation rules for IsArchivable
+
+	// no validation rules for IsArchived
 
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
@@ -2216,7 +2218,9 @@ func (m *Whitelist) Validate() error {
 
 	}
 
-	// no validation rules for IsDeletable
+	// no validation rules for IsArchivable
+
+	// no validation rules for IsArchived
 
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
@@ -2327,7 +2331,9 @@ func (m *TransferLimit) Validate() error {
 
 	// no validation rules for IsReviewed
 
-	// no validation rules for IsDeletable
+	// no validation rules for IsArchivable
+
+	// no validation rules for IsArchived
 
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
@@ -2526,7 +2532,9 @@ func (m *Policy) Validate() error {
 		}
 	}
 
-	// no validation rules for IsDeletable
+	// no validation rules for IsArchivable
+
+	// no validation rules for IsArchived
 
 	if v, ok := interface{}(m.GetProposal()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
