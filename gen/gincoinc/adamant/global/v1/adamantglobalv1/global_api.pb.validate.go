@@ -1524,6 +1524,89 @@ var _ interface {
 
 var _GetAddressByAddressRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+// Validate checks the field values on GetAddressByIndexRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *GetAddressByIndexRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_GetAddressByIndexRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return GetAddressByIndexRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	if m.GetIndex() < 0 {
+		return GetAddressByIndexRequestValidationError{
+			field:  "Index",
+			reason: "value must be greater than or equal to 0",
+		}
+	}
+
+	return nil
+}
+
+// GetAddressByIndexRequestValidationError is the validation error returned by
+// GetAddressByIndexRequest.Validate if the designated constraints aren't met.
+type GetAddressByIndexRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetAddressByIndexRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetAddressByIndexRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetAddressByIndexRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetAddressByIndexRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetAddressByIndexRequestValidationError) ErrorName() string {
+	return "GetAddressByIndexRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetAddressByIndexRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetAddressByIndexRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetAddressByIndexRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetAddressByIndexRequestValidationError{}
+
+var _GetAddressByIndexRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on ListAddressesRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -1805,8 +1888,6 @@ func (m *CreateTransactionRequest) Validate() error {
 	// no validation rules for Address
 
 	// no validation rules for DestinationTag
-
-	// no validation rules for Value
 
 	// no validation rules for StringValue
 
@@ -4626,8 +4707,6 @@ func (m *GetLabeledAddressRequest) Validate() error {
 		}
 	}
 
-	// no validation rules for ContainsArchived
-
 	return nil
 }
 
@@ -4696,8 +4775,6 @@ func (m *ListLabeledAddressesRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
-
-	// no validation rules for ContainsArchived
 
 	return nil
 }
@@ -4842,16 +4919,16 @@ var _ interface {
 	ErrorName() string
 } = ListLabeledAddressesResponseValidationError{}
 
-// Validate checks the field values on ArchiveLabeledAddressRequest with the
+// Validate checks the field values on DeleteLabeledAddressRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *ArchiveLabeledAddressRequest) Validate() error {
+func (m *DeleteLabeledAddressRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
 
-	if !_ArchiveLabeledAddressRequest_LabeledAddressId_Pattern.MatchString(m.GetLabeledAddressId()) {
-		return ArchiveLabeledAddressRequestValidationError{
+	if !_DeleteLabeledAddressRequest_LabeledAddressId_Pattern.MatchString(m.GetLabeledAddressId()) {
+		return DeleteLabeledAddressRequestValidationError{
 			field:  "LabeledAddressId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
@@ -4860,10 +4937,10 @@ func (m *ArchiveLabeledAddressRequest) Validate() error {
 	return nil
 }
 
-// ArchiveLabeledAddressRequestValidationError is the validation error returned
-// by ArchiveLabeledAddressRequest.Validate if the designated constraints
+// DeleteLabeledAddressRequestValidationError is the validation error returned
+// by DeleteLabeledAddressRequest.Validate if the designated constraints
 // aren't met.
-type ArchiveLabeledAddressRequestValidationError struct {
+type DeleteLabeledAddressRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -4871,24 +4948,24 @@ type ArchiveLabeledAddressRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e ArchiveLabeledAddressRequestValidationError) Field() string { return e.field }
+func (e DeleteLabeledAddressRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ArchiveLabeledAddressRequestValidationError) Reason() string { return e.reason }
+func (e DeleteLabeledAddressRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ArchiveLabeledAddressRequestValidationError) Cause() error { return e.cause }
+func (e DeleteLabeledAddressRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ArchiveLabeledAddressRequestValidationError) Key() bool { return e.key }
+func (e DeleteLabeledAddressRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ArchiveLabeledAddressRequestValidationError) ErrorName() string {
-	return "ArchiveLabeledAddressRequestValidationError"
+func (e DeleteLabeledAddressRequestValidationError) ErrorName() string {
+	return "DeleteLabeledAddressRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e ArchiveLabeledAddressRequestValidationError) Error() string {
+func (e DeleteLabeledAddressRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -4900,14 +4977,14 @@ func (e ArchiveLabeledAddressRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sArchiveLabeledAddressRequest.%s: %s%s",
+		"invalid %sDeleteLabeledAddressRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ArchiveLabeledAddressRequestValidationError{}
+var _ error = DeleteLabeledAddressRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -4915,9 +4992,9 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ArchiveLabeledAddressRequestValidationError{}
+} = DeleteLabeledAddressRequestValidationError{}
 
-var _ArchiveLabeledAddressRequest_LabeledAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _DeleteLabeledAddressRequest_LabeledAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on ReviewLabeledAddressProposalRequest with
 // the rules defined in the proto definition for this message. If any rules
@@ -5191,8 +5268,6 @@ func (m *GetWhitelistRequest) Validate() error {
 		}
 	}
 
-	// no validation rules for ContainsArchived
-
 	return nil
 }
 
@@ -5261,8 +5336,6 @@ func (m *ListWhitelistsRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
-
-	// no validation rules for ContainsArchived
 
 	return nil
 }
@@ -5617,16 +5690,16 @@ var _ interface {
 
 var _UpdateWhitelistAddressesRequest_WhitelistId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
-// Validate checks the field values on ArchiveWhitelistRequest with the rules
+// Validate checks the field values on DeleteWhitelistRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *ArchiveWhitelistRequest) Validate() error {
+func (m *DeleteWhitelistRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
 
-	if !_ArchiveWhitelistRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
-		return ArchiveWhitelistRequestValidationError{
+	if !_DeleteWhitelistRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
+		return DeleteWhitelistRequestValidationError{
 			field:  "WhitelistId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
@@ -5635,9 +5708,9 @@ func (m *ArchiveWhitelistRequest) Validate() error {
 	return nil
 }
 
-// ArchiveWhitelistRequestValidationError is the validation error returned by
-// ArchiveWhitelistRequest.Validate if the designated constraints aren't met.
-type ArchiveWhitelistRequestValidationError struct {
+// DeleteWhitelistRequestValidationError is the validation error returned by
+// DeleteWhitelistRequest.Validate if the designated constraints aren't met.
+type DeleteWhitelistRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -5645,24 +5718,24 @@ type ArchiveWhitelistRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e ArchiveWhitelistRequestValidationError) Field() string { return e.field }
+func (e DeleteWhitelistRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ArchiveWhitelistRequestValidationError) Reason() string { return e.reason }
+func (e DeleteWhitelistRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ArchiveWhitelistRequestValidationError) Cause() error { return e.cause }
+func (e DeleteWhitelistRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ArchiveWhitelistRequestValidationError) Key() bool { return e.key }
+func (e DeleteWhitelistRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ArchiveWhitelistRequestValidationError) ErrorName() string {
-	return "ArchiveWhitelistRequestValidationError"
+func (e DeleteWhitelistRequestValidationError) ErrorName() string {
+	return "DeleteWhitelistRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e ArchiveWhitelistRequestValidationError) Error() string {
+func (e DeleteWhitelistRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -5674,14 +5747,14 @@ func (e ArchiveWhitelistRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sArchiveWhitelistRequest.%s: %s%s",
+		"invalid %sDeleteWhitelistRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ArchiveWhitelistRequestValidationError{}
+var _ error = DeleteWhitelistRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -5689,9 +5762,9 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ArchiveWhitelistRequestValidationError{}
+} = DeleteWhitelistRequestValidationError{}
 
-var _ArchiveWhitelistRequest_WhitelistId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _DeleteWhitelistRequest_WhitelistId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on CreateTransferLimitRequest with the
 // rules defined in the proto definition for this message. If any rules are
@@ -5892,8 +5965,6 @@ func (m *GetTransferLimitRequest) Validate() error {
 		}
 	}
 
-	// no validation rules for ContainsArchived
-
 	return nil
 }
 
@@ -5962,8 +6033,6 @@ func (m *ListTransferLimitsRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
-
-	// no validation rules for ContainsArchived
 
 	return nil
 }
@@ -6288,16 +6357,16 @@ var _ interface {
 
 var _UpdateTransferLimitNameRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
-// Validate checks the field values on ArchiveTransferLimitRequest with the
+// Validate checks the field values on DeleteTransferLimitRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *ArchiveTransferLimitRequest) Validate() error {
+func (m *DeleteTransferLimitRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
 
-	if !_ArchiveTransferLimitRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
-		return ArchiveTransferLimitRequestValidationError{
+	if !_DeleteTransferLimitRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
+		return DeleteTransferLimitRequestValidationError{
 			field:  "TransferLimitId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
@@ -6306,10 +6375,9 @@ func (m *ArchiveTransferLimitRequest) Validate() error {
 	return nil
 }
 
-// ArchiveTransferLimitRequestValidationError is the validation error returned
-// by ArchiveTransferLimitRequest.Validate if the designated constraints
-// aren't met.
-type ArchiveTransferLimitRequestValidationError struct {
+// DeleteTransferLimitRequestValidationError is the validation error returned
+// by DeleteTransferLimitRequest.Validate if the designated constraints aren't met.
+type DeleteTransferLimitRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -6317,24 +6385,24 @@ type ArchiveTransferLimitRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e ArchiveTransferLimitRequestValidationError) Field() string { return e.field }
+func (e DeleteTransferLimitRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ArchiveTransferLimitRequestValidationError) Reason() string { return e.reason }
+func (e DeleteTransferLimitRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ArchiveTransferLimitRequestValidationError) Cause() error { return e.cause }
+func (e DeleteTransferLimitRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ArchiveTransferLimitRequestValidationError) Key() bool { return e.key }
+func (e DeleteTransferLimitRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ArchiveTransferLimitRequestValidationError) ErrorName() string {
-	return "ArchiveTransferLimitRequestValidationError"
+func (e DeleteTransferLimitRequestValidationError) ErrorName() string {
+	return "DeleteTransferLimitRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e ArchiveTransferLimitRequestValidationError) Error() string {
+func (e DeleteTransferLimitRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -6346,14 +6414,14 @@ func (e ArchiveTransferLimitRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sArchiveTransferLimitRequest.%s: %s%s",
+		"invalid %sDeleteTransferLimitRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ArchiveTransferLimitRequestValidationError{}
+var _ error = DeleteTransferLimitRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -6361,9 +6429,9 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ArchiveTransferLimitRequestValidationError{}
+} = DeleteTransferLimitRequestValidationError{}
 
-var _ArchiveTransferLimitRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _DeleteTransferLimitRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on ReviewTransferLimitProposalRequest with
 // the rules defined in the proto definition for this message. If any rules
@@ -6656,8 +6724,6 @@ func (m *GetPolicyRequest) Validate() error {
 		}
 	}
 
-	// no validation rules for ContainsArchived
-
 	return nil
 }
 
@@ -6724,8 +6790,6 @@ func (m *ListPoliciesRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
-
-	// no validation rules for ContainsArchived
 
 	return nil
 }
@@ -6969,16 +7033,16 @@ var _UpdatePolicyRequest_WhitelistId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-
 
 var _UpdatePolicyRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
-// Validate checks the field values on ArchivePolicyRequest with the rules
+// Validate checks the field values on DeletePolicyRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *ArchivePolicyRequest) Validate() error {
+func (m *DeletePolicyRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
 
-	if !_ArchivePolicyRequest_PolicyId_Pattern.MatchString(m.GetPolicyId()) {
-		return ArchivePolicyRequestValidationError{
+	if !_DeletePolicyRequest_PolicyId_Pattern.MatchString(m.GetPolicyId()) {
+		return DeletePolicyRequestValidationError{
 			field:  "PolicyId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
@@ -6987,9 +7051,9 @@ func (m *ArchivePolicyRequest) Validate() error {
 	return nil
 }
 
-// ArchivePolicyRequestValidationError is the validation error returned by
-// ArchivePolicyRequest.Validate if the designated constraints aren't met.
-type ArchivePolicyRequestValidationError struct {
+// DeletePolicyRequestValidationError is the validation error returned by
+// DeletePolicyRequest.Validate if the designated constraints aren't met.
+type DeletePolicyRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -6997,24 +7061,24 @@ type ArchivePolicyRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e ArchivePolicyRequestValidationError) Field() string { return e.field }
+func (e DeletePolicyRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ArchivePolicyRequestValidationError) Reason() string { return e.reason }
+func (e DeletePolicyRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ArchivePolicyRequestValidationError) Cause() error { return e.cause }
+func (e DeletePolicyRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ArchivePolicyRequestValidationError) Key() bool { return e.key }
+func (e DeletePolicyRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ArchivePolicyRequestValidationError) ErrorName() string {
-	return "ArchivePolicyRequestValidationError"
+func (e DeletePolicyRequestValidationError) ErrorName() string {
+	return "DeletePolicyRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e ArchivePolicyRequestValidationError) Error() string {
+func (e DeletePolicyRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -7026,14 +7090,14 @@ func (e ArchivePolicyRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sArchivePolicyRequest.%s: %s%s",
+		"invalid %sDeletePolicyRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ArchivePolicyRequestValidationError{}
+var _ error = DeletePolicyRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -7041,9 +7105,9 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ArchivePolicyRequestValidationError{}
+} = DeletePolicyRequestValidationError{}
 
-var _ArchivePolicyRequest_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _DeletePolicyRequest_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on ReviewPolicyProposalRequest with the
 // rules defined in the proto definition for this message. If any rules are

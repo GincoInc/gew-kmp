@@ -215,8 +215,7 @@ message LabeledAddress {
     gincoinc.global.v1.Coin coin = 3;
     string address = 4;
     LabeledAddressProposal proposal = 5;
-    bool is_archivable = 6;
-    bool is_archived = 9;
+    bool is_deletable = 6;
     google.protobuf.Timestamp create_time = 7;
     google.protobuf.Timestamp update_time = 8;
 }
@@ -235,8 +234,7 @@ message Whitelist {
     string name = 2;
     gincoinc.global.v1.Coin coin = 3;
     repeated LabeledAddress addresses = 4;
-    bool is_archivable= 5;
-    bool is_archived = 8;
+    bool is_deletable= 5;
     google.protobuf.Timestamp create_time = 6;
     google.protobuf.Timestamp update_time = 7;
 }
@@ -250,8 +248,7 @@ message TransferLimit {
     int64 one_time_limit = 6;
     TransferLimitProposal proposal = 7;
     bool is_reviewed = 8;
-    bool is_archivable = 9;
-    bool is_archived = 12;
+    bool is_deletable = 9;
     google.protobuf.Timestamp create_time = 10;
     google.protobuf.Timestamp update_time = 11;
 }
@@ -275,8 +272,7 @@ message Policy {
     gincoinc.global.v1.Coin coin = 5;
     Whitelist whitelist = 6;
     TransferLimit transfer_limit = 7;
-    bool is_archivable = 8;
-    bool is_archived = 12;
+    bool is_deletable = 8;
     PolicyProposal proposal = 11;
     google.protobuf.Timestamp create_time = 9;
     google.protobuf.Timestamp update_time = 10;
@@ -297,7 +293,7 @@ message PolicyProposal {
 
 message RequestTxOutput {
     string address = 1 [(validate.rules).string.min_len = 3];
-    double value = 2 [(validate.rules).double = { gt: 0 }];
+    string string_value = 2 [(validate.rules).string.min_len = 1];
 }
 
 message RequestSignedInfo {
