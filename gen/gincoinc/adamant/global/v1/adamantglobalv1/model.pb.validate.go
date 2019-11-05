@@ -2023,9 +2023,7 @@ func (m *LabeledAddress) Validate() error {
 		}
 	}
 
-	// no validation rules for IsArchivable
-
-	// no validation rules for IsArchived
+	// no validation rules for IsDeletable
 
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
@@ -2218,9 +2216,7 @@ func (m *Whitelist) Validate() error {
 
 	}
 
-	// no validation rules for IsArchivable
-
-	// no validation rules for IsArchived
+	// no validation rules for IsDeletable
 
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
@@ -2331,9 +2327,7 @@ func (m *TransferLimit) Validate() error {
 
 	// no validation rules for IsReviewed
 
-	// no validation rules for IsArchivable
-
-	// no validation rules for IsArchived
+	// no validation rules for IsDeletable
 
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
@@ -2532,9 +2526,7 @@ func (m *Policy) Validate() error {
 		}
 	}
 
-	// no validation rules for IsArchivable
-
-	// no validation rules for IsArchived
+	// no validation rules for IsDeletable
 
 	if v, ok := interface{}(m.GetProposal()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
@@ -2723,10 +2715,10 @@ func (m *RequestTxOutput) Validate() error {
 		}
 	}
 
-	if m.GetValue() <= 0 {
+	if utf8.RuneCountInString(m.GetStringValue()) < 1 {
 		return RequestTxOutputValidationError{
-			field:  "Value",
-			reason: "value must be greater than 0",
+			field:  "StringValue",
+			reason: "value length must be at least 1 runes",
 		}
 	}
 

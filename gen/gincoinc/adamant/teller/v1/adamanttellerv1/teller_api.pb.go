@@ -271,6 +271,7 @@ type TellerAPIClient interface {
 	CreateAddress(ctx context.Context, in *adamantglobalv1.CreateAddressRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateAddressResponse, error)
 	GetAddress(ctx context.Context, in *adamantglobalv1.GetAddressRequest, opts ...grpc.CallOption) (*adamantglobalv1.Address, error)
 	GetAddressByAddress(ctx context.Context, in *adamantglobalv1.GetAddressByAddressRequest, opts ...grpc.CallOption) (*adamantglobalv1.Address, error)
+	// YAGNI rpc GetAddressByIndex (adamant.global.v1.GetAddressByIndexRequest) returns (adamant.global.v1.Address) {}
 	ListAddresses(ctx context.Context, in *adamantglobalv1.ListAddressesRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListAddressesResponse, error)
 	GetEthereumFeeAddress(ctx context.Context, in *adamantglobalv1.GetEthereumFeeAddressRequest, opts ...grpc.CallOption) (*adamantglobalv1.EthereumFeeAddress, error)
 	// Transaction
@@ -509,6 +510,7 @@ type TellerAPIServer interface {
 	CreateAddress(context.Context, *adamantglobalv1.CreateAddressRequest) (*adamantglobalv1.CreateAddressResponse, error)
 	GetAddress(context.Context, *adamantglobalv1.GetAddressRequest) (*adamantglobalv1.Address, error)
 	GetAddressByAddress(context.Context, *adamantglobalv1.GetAddressByAddressRequest) (*adamantglobalv1.Address, error)
+	// YAGNI rpc GetAddressByIndex (adamant.global.v1.GetAddressByIndexRequest) returns (adamant.global.v1.Address) {}
 	ListAddresses(context.Context, *adamantglobalv1.ListAddressesRequest) (*adamantglobalv1.ListAddressesResponse, error)
 	GetEthereumFeeAddress(context.Context, *adamantglobalv1.GetEthereumFeeAddressRequest) (*adamantglobalv1.EthereumFeeAddress, error)
 	// Transaction
