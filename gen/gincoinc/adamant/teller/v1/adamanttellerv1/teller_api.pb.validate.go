@@ -78,7 +78,7 @@ func (m *CreateWalletRequest) Validate() error {
 	if _, ok := _CreateWalletRequest_WalletType_NotInLookup[m.GetWalletType()]; ok {
 		return CreateWalletRequestValidationError{
 			field:  "WalletType",
-			reason: "value must not be in list [0]",
+			reason: "value must not be in list [0 2]",
 		}
 	}
 
@@ -100,6 +100,13 @@ func (m *CreateWalletRequest) Validate() error {
 		return CreateWalletRequestValidationError{
 			field:  "AddressType",
 			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	if !_CreateWalletRequest_DestinationWalletId_Pattern.MatchString(m.GetDestinationWalletId()) {
+		return CreateWalletRequestValidationError{
+			field:  "DestinationWalletId",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
 	}
 
@@ -168,11 +175,14 @@ var _CreateWalletRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
 
 var _CreateWalletRequest_WalletType_NotInLookup = map[adamantglobalv1.WalletType]struct{}{
 	0: {},
+	2: {},
 }
 
 var _CreateWalletRequest_AddressType_NotInLookup = map[gincoincglobalv1.AddressType]struct{}{
 	0: {},
 }
+
+var _CreateWalletRequest_DestinationWalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on InitializeXRPWalletRequest with the
 // rules defined in the proto definition for this message. If any rules are
