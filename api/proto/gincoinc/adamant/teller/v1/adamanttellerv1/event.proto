@@ -13,6 +13,7 @@ import "gincoinc/global/v1/gincoincglobalv1/enum.proto";
 
 message TransferUpdateEvent {
     string event_id = 1;
+    string wallet_id = 14;
     gincoinc.global.v1.Coin coin = 2;
     string tx_id = 3;
     uint32 tx_index = 4;
