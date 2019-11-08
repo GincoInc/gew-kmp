@@ -56,6 +56,8 @@ func (m *TransferUpdateEvent) Validate() error {
 
 	// no validation rules for EventId
 
+	// no validation rules for WalletId
+
 	// no validation rules for Coin
 
 	// no validation rules for TxId
