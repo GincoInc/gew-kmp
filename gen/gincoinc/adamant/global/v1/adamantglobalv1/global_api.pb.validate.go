@@ -4095,6 +4095,73 @@ var _ interface {
 	ErrorName() string
 } = GetSpendableBalanceResponseValidationError{}
 
+// Validate checks the field values on GetTotalBalanceRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *GetTotalBalanceRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// GetTotalBalanceRequestValidationError is the validation error returned by
+// GetTotalBalanceRequest.Validate if the designated constraints aren't met.
+type GetTotalBalanceRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetTotalBalanceRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetTotalBalanceRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetTotalBalanceRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetTotalBalanceRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetTotalBalanceRequestValidationError) ErrorName() string {
+	return "GetTotalBalanceRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetTotalBalanceRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetTotalBalanceRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetTotalBalanceRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetTotalBalanceRequestValidationError{}
+
 // Validate checks the field values on CalculateFeeRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.

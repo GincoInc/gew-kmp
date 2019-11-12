@@ -97,6 +97,7 @@ service GlobalAPI {
 
     // Utility
     rpc GetSpendableBalance (GetSpendableBalanceRequest) returns (GetSpendableBalanceResponse) {}
+    rpc GetTotalBalance (GetTotalBalanceRequest) returns (TotalBalance) {}
     rpc CalculateFee (CalculateFeeRequest) returns (CalculateFeeResponse) {}
     rpc GetMembersDeactivatabilities (GetMembersDeactivatabilitiesRequest) returns (GetMembersDeactivatabilitiesResponse) {}
 }
@@ -378,6 +379,9 @@ message GetSpendableBalanceResponse {
     string string_hourly_spendable_balance = 6;
     double one_time_spendable_balance = 7;
     string string_one_time_spendable_balance = 8;
+}
+
+message GetTotalBalanceRequest {
 }
 
 message CalculateFeeRequest {

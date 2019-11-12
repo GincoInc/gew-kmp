@@ -287,6 +287,17 @@ message PolicyProposal {
     bool is_reviewed = 6;
 }
 
+message TotalBalanceByCoin {
+    gincoinc.global.v1.Coin coin = 1;
+    string cold_string_balance = 2;
+    string hot_string_balance = 3;
+}
+
+// map<k, v> ... k: enum number of Coin / v: TotalBalanceByCoin
+message TotalBalance {
+    map<uint32, TotalBalanceByCoin> total_balances = 1 [(validate.rules).map.no_sparse = true];
+}
+
 // =============================================================================
 //  Request Model
 // =============================================================================

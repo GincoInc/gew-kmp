@@ -41,10 +41,109 @@ var (
 	_ = gincoincglobalv1.TransactionResult(0)
 
 	_ = gincoincglobalv1.TransferType(0)
+
+	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.TransactionState(0)
+
+	_ = gincoincglobalv1.TransactionResult(0)
+
+	_ = gincoincglobalv1.TransferType(0)
 )
 
 // define the regex for a UUID once up-front
 var _event_uuidPattern = regexp.MustCompile("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
+
+// Validate checks the field values on TransferUpdated with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *TransferUpdated) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for WalletId
+
+	// no validation rules for TransferId
+
+	// no validation rules for Coin
+
+	// no validation rules for TxId
+
+	// no validation rules for TxIndex
+
+	// no validation rules for Value
+
+	// no validation rules for StringValue
+
+	// no validation rules for JpyRate
+
+	// no validation rules for Address
+
+	// no validation rules for DestinationTag
+
+	// no validation rules for State
+
+	// no validation rules for Result
+
+	// no validation rules for TransferType
+
+	return nil
+}
+
+// TransferUpdatedValidationError is the validation error returned by
+// TransferUpdated.Validate if the designated constraints aren't met.
+type TransferUpdatedValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TransferUpdatedValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TransferUpdatedValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TransferUpdatedValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TransferUpdatedValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TransferUpdatedValidationError) ErrorName() string { return "TransferUpdatedValidationError" }
+
+// Error satisfies the builtin error interface
+func (e TransferUpdatedValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTransferUpdated.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TransferUpdatedValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TransferUpdatedValidationError{}
 
 // Validate checks the field values on TransferUpdateEvent with the rules
 // defined in the proto definition for this message. If any rules are
