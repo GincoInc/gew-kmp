@@ -67,6 +67,8 @@ var (
 	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.Coin(0)
 )
 
 // define the regex for a UUID once up-front
@@ -2699,6 +2701,168 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = PolicyProposalValidationError{}
+
+// Validate checks the field values on TotalBalanceByCoin with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *TotalBalanceByCoin) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Coin
+
+	// no validation rules for ColdStringBalance
+
+	// no validation rules for HotStringBalance
+
+	return nil
+}
+
+// TotalBalanceByCoinValidationError is the validation error returned by
+// TotalBalanceByCoin.Validate if the designated constraints aren't met.
+type TotalBalanceByCoinValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TotalBalanceByCoinValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TotalBalanceByCoinValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TotalBalanceByCoinValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TotalBalanceByCoinValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TotalBalanceByCoinValidationError) ErrorName() string {
+	return "TotalBalanceByCoinValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e TotalBalanceByCoinValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTotalBalanceByCoin.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TotalBalanceByCoinValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TotalBalanceByCoinValidationError{}
+
+// Validate checks the field values on TotalBalance with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *TotalBalance) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for key, val := range m.GetTotalBalances() {
+		_ = val
+
+		if val == nil {
+			return TotalBalanceValidationError{
+				field:  fmt.Sprintf("TotalBalances[%v]", key),
+				reason: "value cannot be sparse, all pairs must be non-nil",
+			}
+		}
+
+		// no validation rules for TotalBalances[key]
+
+		if v, ok := interface{}(val).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return TotalBalanceValidationError{
+					field:  fmt.Sprintf("TotalBalances[%v]", key),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// TotalBalanceValidationError is the validation error returned by
+// TotalBalance.Validate if the designated constraints aren't met.
+type TotalBalanceValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TotalBalanceValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TotalBalanceValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TotalBalanceValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TotalBalanceValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TotalBalanceValidationError) ErrorName() string { return "TotalBalanceValidationError" }
+
+// Error satisfies the builtin error interface
+func (e TotalBalanceValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTotalBalance.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TotalBalanceValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TotalBalanceValidationError{}
 
 // Validate checks the field values on RequestTxOutput with the rules defined
 // in the proto definition for this message. If any rules are violated, an

@@ -7,10 +7,23 @@ option go_package = "adamanttellerv1";
 import "google/protobuf/timestamp.proto";
 import "gincoinc/global/v1/gincoincglobalv1/enum.proto";
 
-// =============================================================================
-//  Event
-// =============================================================================
+message TransferUpdated {
+    string wallet_id = 1;
+    string transfer_id = 2;
+    gincoinc.global.v1.Coin coin = 3;
+    string tx_id = 4;
+    uint32 tx_index = 5;
+    double value = 6;
+    string string_value = 7;
+    double jpy_rate = 8;
+    string address = 9;
+    uint32 destination_tag = 10;
+    gincoinc.global.v1.TransactionState state = 11;
+    gincoinc.global.v1.TransactionResult result = 12;
+    gincoinc.global.v1.TransferType transfer_type = 13;
+}
 
+// TODO deprecate
 message TransferUpdateEvent {
     string event_id = 1;
     string wallet_id = 14;
