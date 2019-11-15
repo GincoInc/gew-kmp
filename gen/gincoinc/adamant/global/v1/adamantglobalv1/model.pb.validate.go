@@ -147,6 +147,8 @@ func (m *Wallet) Validate() error {
 		}
 	}
 
+	// no validation rules for DestinationWalletId
+
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
 			return WalletValidationError{
@@ -2863,6 +2865,105 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = TotalBalanceValidationError{}
+
+// Validate checks the field values on BalanceSnapshot with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *BalanceSnapshot) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return BalanceSnapshotValidationError{
+				field:  "CreateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	for key, val := range m.GetTotalBalances() {
+		_ = val
+
+		if val == nil {
+			return BalanceSnapshotValidationError{
+				field:  fmt.Sprintf("TotalBalances[%v]", key),
+				reason: "value cannot be sparse, all pairs must be non-nil",
+			}
+		}
+
+		// no validation rules for TotalBalances[key]
+
+		if v, ok := interface{}(val).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return BalanceSnapshotValidationError{
+					field:  fmt.Sprintf("TotalBalances[%v]", key),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// BalanceSnapshotValidationError is the validation error returned by
+// BalanceSnapshot.Validate if the designated constraints aren't met.
+type BalanceSnapshotValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e BalanceSnapshotValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e BalanceSnapshotValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e BalanceSnapshotValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e BalanceSnapshotValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e BalanceSnapshotValidationError) ErrorName() string { return "BalanceSnapshotValidationError" }
+
+// Error satisfies the builtin error interface
+func (e BalanceSnapshotValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sBalanceSnapshot.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = BalanceSnapshotValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = BalanceSnapshotValidationError{}
 
 // Validate checks the field values on RequestTxOutput with the rules defined
 // in the proto definition for this message. If any rules are violated, an
