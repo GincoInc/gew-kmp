@@ -29,6 +29,7 @@ message Wallet {
     string address = 13;
     string policy_id = 14;
     WalletProposal proposal = 18;
+    string destination_wallet_id = 19;
     google.protobuf.Timestamp create_time = 15;
     google.protobuf.Timestamp update_time = 16;
 }
@@ -296,6 +297,12 @@ message TotalBalanceByCoin {
 // map<k, v> ... k: enum number of Coin / v: TotalBalanceByCoin
 message TotalBalance {
     map<uint32, TotalBalanceByCoin> total_balances = 1 [(validate.rules).map.no_sparse = true];
+}
+
+// map<k, v> ... k: enum number of Coin / v: TotalBalanceByCoin
+message BalanceSnapshot {
+    google.protobuf.Timestamp create_time = 1;
+    map<uint32, TotalBalanceByCoin> total_balances = 2 [(validate.rules).map.no_sparse = true];
 }
 
 // =============================================================================

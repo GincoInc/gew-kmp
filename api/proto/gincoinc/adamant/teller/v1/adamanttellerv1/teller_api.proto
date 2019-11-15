@@ -27,7 +27,7 @@ service TellerAPI {
     rpc CreateAddress (adamant.global.v1.CreateAddressRequest) returns (adamant.global.v1.CreateAddressResponse) {}
     rpc GetAddress (adamant.global.v1.GetAddressRequest) returns (adamant.global.v1.Address) {}
     rpc GetAddressByAddress (adamant.global.v1.GetAddressByAddressRequest) returns (adamant.global.v1.Address) {}
-    // YAGNI rpc GetAddressByIndex (adamant.global.v1.GetAddressByIndexRequest) returns (adamant.global.v1.Address) {}
+    rpc GetAddressByIndex (adamant.global.v1.GetAddressByIndexRequest) returns (adamant.global.v1.Address) {}
     rpc ListAddresses (adamant.global.v1.ListAddressesRequest) returns (adamant.global.v1.ListAddressesResponse) {}
     rpc GetEthereumFeeAddress (adamant.global.v1.GetEthereumFeeAddressRequest) returns (adamant.global.v1.EthereumFeeAddress) {}
 

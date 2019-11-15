@@ -4,6 +4,7 @@ package adamant.global.v1;
 
 option go_package = "adamantglobalv1";
 
+import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 import "validate/validate.proto";
 import "gincoinc/global/v1/gincoincglobalv1/enum.proto";
@@ -382,6 +383,15 @@ message GetSpendableBalanceResponse {
 }
 
 message GetTotalBalanceRequest {
+}
+
+message ListBalanceSnapshotsRequest {
+    google.protobuf.Timestamp start_time = 1;
+    google.protobuf.Timestamp end_time = 2;
+}
+
+message ListBalanceSnapshotsResponse {
+    repeated BalanceSnapshot balance_snapshots = 1;
 }
 
 message CalculateFeeRequest {

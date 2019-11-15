@@ -4162,6 +4162,177 @@ var _ interface {
 	ErrorName() string
 } = GetTotalBalanceRequestValidationError{}
 
+// Validate checks the field values on ListBalanceSnapshotsRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ListBalanceSnapshotsRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if v, ok := interface{}(m.GetStartTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ListBalanceSnapshotsRequestValidationError{
+				field:  "StartTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetEndTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ListBalanceSnapshotsRequestValidationError{
+				field:  "EndTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// ListBalanceSnapshotsRequestValidationError is the validation error returned
+// by ListBalanceSnapshotsRequest.Validate if the designated constraints
+// aren't met.
+type ListBalanceSnapshotsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListBalanceSnapshotsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListBalanceSnapshotsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListBalanceSnapshotsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListBalanceSnapshotsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListBalanceSnapshotsRequestValidationError) ErrorName() string {
+	return "ListBalanceSnapshotsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListBalanceSnapshotsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListBalanceSnapshotsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListBalanceSnapshotsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListBalanceSnapshotsRequestValidationError{}
+
+// Validate checks the field values on ListBalanceSnapshotsResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ListBalanceSnapshotsResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetBalanceSnapshots() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListBalanceSnapshotsResponseValidationError{
+					field:  fmt.Sprintf("BalanceSnapshots[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ListBalanceSnapshotsResponseValidationError is the validation error returned
+// by ListBalanceSnapshotsResponse.Validate if the designated constraints
+// aren't met.
+type ListBalanceSnapshotsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListBalanceSnapshotsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListBalanceSnapshotsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListBalanceSnapshotsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListBalanceSnapshotsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListBalanceSnapshotsResponseValidationError) ErrorName() string {
+	return "ListBalanceSnapshotsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListBalanceSnapshotsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListBalanceSnapshotsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListBalanceSnapshotsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListBalanceSnapshotsResponseValidationError{}
+
 // Validate checks the field values on CalculateFeeRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
