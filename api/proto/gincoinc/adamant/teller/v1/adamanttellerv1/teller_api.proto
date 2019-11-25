@@ -50,6 +50,7 @@ service TellerAPI {
 
     // Utility
     rpc CalculateFee (adamant.global.v1.CalculateFeeRequest) returns (adamant.global.v1.CalculateFeeResponse) {}
+    rpc GetSuggestedFeeRate (adamant.global.v1.GetSuggestedFeeRateRequest) returns (adamant.global.v1.GetSuggestedFeeRateResponse) {}
 }
 
 message CreateWalletRequest {

@@ -49,6 +49,8 @@ var (
 	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.Coin(0)
 )
 
 // define the regex for a UUID once up-front
@@ -2892,7 +2894,7 @@ func (m *ListTransactionsRequest) Validate() error {
 	if !_ListTransactionsRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
 		return ListTransactionsRequestValidationError{
 			field:  "WalletId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
 	}
 
@@ -2969,7 +2971,7 @@ var _ interface {
 	ErrorName() string
 } = ListTransactionsRequestValidationError{}
 
-var _ListTransactionsRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _ListTransactionsRequest_WalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _ListTransactionsRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
 
@@ -3479,7 +3481,7 @@ func (m *ListTransfersRequest) Validate() error {
 	if !_ListTransfersRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
 		return ListTransfersRequestValidationError{
 			field:  "WalletId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
 	}
 
@@ -3556,7 +3558,7 @@ var _ interface {
 	ErrorName() string
 } = ListTransfersRequestValidationError{}
 
-var _ListTransfersRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _ListTransfersRequest_WalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _ListTransfersRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
 
@@ -4659,6 +4661,167 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = GetMembersDeactivatabilitiesResponseValidationError{}
+
+// Validate checks the field values on GetSuggestedFeeRateRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *GetSuggestedFeeRateRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if _, ok := _GetSuggestedFeeRateRequest_Coin_NotInLookup[m.GetCoin()]; ok {
+		return GetSuggestedFeeRateRequestValidationError{
+			field:  "Coin",
+			reason: "value must not be in list [0]",
+		}
+	}
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		return GetSuggestedFeeRateRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	return nil
+}
+
+// GetSuggestedFeeRateRequestValidationError is the validation error returned
+// by GetSuggestedFeeRateRequest.Validate if the designated constraints aren't met.
+type GetSuggestedFeeRateRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetSuggestedFeeRateRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetSuggestedFeeRateRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetSuggestedFeeRateRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetSuggestedFeeRateRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetSuggestedFeeRateRequestValidationError) ErrorName() string {
+	return "GetSuggestedFeeRateRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetSuggestedFeeRateRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetSuggestedFeeRateRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetSuggestedFeeRateRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetSuggestedFeeRateRequestValidationError{}
+
+var _GetSuggestedFeeRateRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
+	0: {},
+}
+
+// Validate checks the field values on GetSuggestedFeeRateResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *GetSuggestedFeeRateResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Fastest
+
+	// no validation rules for Fast
+
+	// no validation rules for Average
+
+	// no validation rules for SafeLow
+
+	return nil
+}
+
+// GetSuggestedFeeRateResponseValidationError is the validation error returned
+// by GetSuggestedFeeRateResponse.Validate if the designated constraints
+// aren't met.
+type GetSuggestedFeeRateResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetSuggestedFeeRateResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetSuggestedFeeRateResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetSuggestedFeeRateResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetSuggestedFeeRateResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetSuggestedFeeRateResponseValidationError) ErrorName() string {
+	return "GetSuggestedFeeRateResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetSuggestedFeeRateResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetSuggestedFeeRateResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetSuggestedFeeRateResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetSuggestedFeeRateResponseValidationError{}
 
 // Validate checks the field values on CreateLabeledAddressRequest with the
 // rules defined in the proto definition for this message. If any rules are
