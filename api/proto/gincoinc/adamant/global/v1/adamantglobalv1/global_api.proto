@@ -99,8 +99,10 @@ service GlobalAPI {
     // Utility
     rpc GetSpendableBalance (GetSpendableBalanceRequest) returns (GetSpendableBalanceResponse) {}
     rpc GetTotalBalance (GetTotalBalanceRequest) returns (TotalBalance) {}
+    rpc ListBalanceSnapshots (ListBalanceSnapshotsRequest) returns (ListBalanceSnapshotsResponse) {}
     rpc CalculateFee (CalculateFeeRequest) returns (CalculateFeeResponse) {}
     rpc GetMembersDeactivatabilities (GetMembersDeactivatabilitiesRequest) returns (GetMembersDeactivatabilitiesResponse) {}
+    rpc GetSuggestedFeeRate (GetSuggestedFeeRateRequest) returns (GetSuggestedFeeRateResponse) {}
 }
 
 // =============================================================================
@@ -296,7 +298,7 @@ message GetTransactionByTxIDRequest {
 }
 
 message ListTransactionsRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     uint32 page_size = 2 [(validate.rules).uint32.lte = 100];
     string page_token = 3 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
 }
@@ -334,7 +336,7 @@ message ListXRPInitSignInfoResponse {
 // -----------------------------------------------------------------------------
 
 message ListTransfersRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     uint32 page_size = 2 [(validate.rules).uint32.lte = 100];
     string page_token = 3 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
 }
@@ -410,6 +412,19 @@ message GetMembersDeactivatabilitiesRequest {}
 message GetMembersDeactivatabilitiesResponse {
     repeated Deactivatability deactivatabilities = 1;
 }
+
+
+message GetSuggestedFeeRateRequest {
+    gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
+}
+
+message GetSuggestedFeeRateResponse {
+    uint64 fastest = 1;
+    uint64 fast = 2;
+    uint64 average = 3;
+    uint64 safe_low = 4;
+}
+
 
 // -----------------------------------------------------------------------------
 // Labeled Address
