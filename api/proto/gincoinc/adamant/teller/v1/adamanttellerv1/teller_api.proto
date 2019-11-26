@@ -12,8 +12,7 @@ import "gincoinc/adamant/global/v1/adamantglobalv1/global_api.proto";
 import "gincoinc/adamant/global/v1/adamantglobalv1/model.proto";
 
 // =============================================================================
-//  Service
-// =============================================================================
+//  Service =============================================================================
 
 service TellerAPI {
     // Wallet
@@ -50,7 +49,7 @@ service TellerAPI {
 
     // Utility
     rpc CalculateFee (adamant.global.v1.CalculateFeeRequest) returns (adamant.global.v1.CalculateFeeResponse) {}
-    rpc GetSuggestedFeeRate (adamant.global.v1.GetSuggestedFeeRateRequest) returns (adamant.global.v1.GetSuggestedFeeRateResponse) {}
+    rpc GetRecommendedFeeRate (adamant.global.v1.GetRecommendedFeeRateRequest) returns (adamant.global.v1.GetRecommendedFeeRateResponse) {}
 }
 
 message CreateWalletRequest {

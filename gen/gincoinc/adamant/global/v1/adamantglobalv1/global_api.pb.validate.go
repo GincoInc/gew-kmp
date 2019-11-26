@@ -4662,23 +4662,23 @@ var _ interface {
 	ErrorName() string
 } = GetMembersDeactivatabilitiesResponseValidationError{}
 
-// Validate checks the field values on GetSuggestedFeeRateRequest with the
+// Validate checks the field values on GetRecommendedFeeRateRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *GetSuggestedFeeRateRequest) Validate() error {
+func (m *GetRecommendedFeeRateRequest) Validate() error {
 	if m == nil {
 		return nil
 	}
 
-	if _, ok := _GetSuggestedFeeRateRequest_Coin_NotInLookup[m.GetCoin()]; ok {
-		return GetSuggestedFeeRateRequestValidationError{
+	if _, ok := _GetRecommendedFeeRateRequest_Coin_NotInLookup[m.GetCoin()]; ok {
+		return GetRecommendedFeeRateRequestValidationError{
 			field:  "Coin",
 			reason: "value must not be in list [0]",
 		}
 	}
 
 	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
-		return GetSuggestedFeeRateRequestValidationError{
+		return GetRecommendedFeeRateRequestValidationError{
 			field:  "Coin",
 			reason: "value must be one of the defined enum values",
 		}
@@ -4687,9 +4687,10 @@ func (m *GetSuggestedFeeRateRequest) Validate() error {
 	return nil
 }
 
-// GetSuggestedFeeRateRequestValidationError is the validation error returned
-// by GetSuggestedFeeRateRequest.Validate if the designated constraints aren't met.
-type GetSuggestedFeeRateRequestValidationError struct {
+// GetRecommendedFeeRateRequestValidationError is the validation error returned
+// by GetRecommendedFeeRateRequest.Validate if the designated constraints
+// aren't met.
+type GetRecommendedFeeRateRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -4697,24 +4698,24 @@ type GetSuggestedFeeRateRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e GetSuggestedFeeRateRequestValidationError) Field() string { return e.field }
+func (e GetRecommendedFeeRateRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e GetSuggestedFeeRateRequestValidationError) Reason() string { return e.reason }
+func (e GetRecommendedFeeRateRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e GetSuggestedFeeRateRequestValidationError) Cause() error { return e.cause }
+func (e GetRecommendedFeeRateRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e GetSuggestedFeeRateRequestValidationError) Key() bool { return e.key }
+func (e GetRecommendedFeeRateRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e GetSuggestedFeeRateRequestValidationError) ErrorName() string {
-	return "GetSuggestedFeeRateRequestValidationError"
+func (e GetRecommendedFeeRateRequestValidationError) ErrorName() string {
+	return "GetRecommendedFeeRateRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e GetSuggestedFeeRateRequestValidationError) Error() string {
+func (e GetRecommendedFeeRateRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -4726,14 +4727,14 @@ func (e GetSuggestedFeeRateRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sGetSuggestedFeeRateRequest.%s: %s%s",
+		"invalid %sGetRecommendedFeeRateRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = GetSuggestedFeeRateRequestValidationError{}
+var _ error = GetRecommendedFeeRateRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -4741,16 +4742,16 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = GetSuggestedFeeRateRequestValidationError{}
+} = GetRecommendedFeeRateRequestValidationError{}
 
-var _GetSuggestedFeeRateRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
+var _GetRecommendedFeeRateRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
 	0: {},
 }
 
-// Validate checks the field values on GetSuggestedFeeRateResponse with the
+// Validate checks the field values on GetRecommendedFeeRateResponse with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
-func (m *GetSuggestedFeeRateResponse) Validate() error {
+func (m *GetRecommendedFeeRateResponse) Validate() error {
 	if m == nil {
 		return nil
 	}
@@ -4766,10 +4767,10 @@ func (m *GetSuggestedFeeRateResponse) Validate() error {
 	return nil
 }
 
-// GetSuggestedFeeRateResponseValidationError is the validation error returned
-// by GetSuggestedFeeRateResponse.Validate if the designated constraints
-// aren't met.
-type GetSuggestedFeeRateResponseValidationError struct {
+// GetRecommendedFeeRateResponseValidationError is the validation error
+// returned by GetRecommendedFeeRateResponse.Validate if the designated
+// constraints aren't met.
+type GetRecommendedFeeRateResponseValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -4777,24 +4778,24 @@ type GetSuggestedFeeRateResponseValidationError struct {
 }
 
 // Field function returns field value.
-func (e GetSuggestedFeeRateResponseValidationError) Field() string { return e.field }
+func (e GetRecommendedFeeRateResponseValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e GetSuggestedFeeRateResponseValidationError) Reason() string { return e.reason }
+func (e GetRecommendedFeeRateResponseValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e GetSuggestedFeeRateResponseValidationError) Cause() error { return e.cause }
+func (e GetRecommendedFeeRateResponseValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e GetSuggestedFeeRateResponseValidationError) Key() bool { return e.key }
+func (e GetRecommendedFeeRateResponseValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e GetSuggestedFeeRateResponseValidationError) ErrorName() string {
-	return "GetSuggestedFeeRateResponseValidationError"
+func (e GetRecommendedFeeRateResponseValidationError) ErrorName() string {
+	return "GetRecommendedFeeRateResponseValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e GetSuggestedFeeRateResponseValidationError) Error() string {
+func (e GetRecommendedFeeRateResponseValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -4806,14 +4807,14 @@ func (e GetSuggestedFeeRateResponseValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sGetSuggestedFeeRateResponse.%s: %s%s",
+		"invalid %sGetRecommendedFeeRateResponse.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = GetSuggestedFeeRateResponseValidationError{}
+var _ error = GetRecommendedFeeRateResponseValidationError{}
 
 var _ interface {
 	Field() string
@@ -4821,7 +4822,7 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = GetSuggestedFeeRateResponseValidationError{}
+} = GetRecommendedFeeRateResponseValidationError{}
 
 // Validate checks the field values on CreateLabeledAddressRequest with the
 // rules defined in the proto definition for this message. If any rules are

@@ -102,7 +102,7 @@ service GlobalAPI {
     rpc ListBalanceSnapshots (ListBalanceSnapshotsRequest) returns (ListBalanceSnapshotsResponse) {}
     rpc CalculateFee (CalculateFeeRequest) returns (CalculateFeeResponse) {}
     rpc GetMembersDeactivatabilities (GetMembersDeactivatabilitiesRequest) returns (GetMembersDeactivatabilitiesResponse) {}
-    rpc GetSuggestedFeeRate (GetSuggestedFeeRateRequest) returns (GetSuggestedFeeRateResponse) {}
+    rpc GetRecommendedFeeRate (GetRecommendedFeeRateRequest) returns (GetRecommendedFeeRateResponse) {}
 }
 
 // =============================================================================
@@ -414,11 +414,11 @@ message GetMembersDeactivatabilitiesResponse {
 }
 
 
-message GetSuggestedFeeRateRequest {
+message GetRecommendedFeeRateRequest {
     gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
 }
 
-message GetSuggestedFeeRateResponse {
+message GetRecommendedFeeRateResponse {
     uint64 fastest = 1;
     uint64 fast = 2;
     uint64 average = 3;
