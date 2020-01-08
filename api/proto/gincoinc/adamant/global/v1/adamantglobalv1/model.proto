@@ -88,9 +88,6 @@ message EthereumFeeAddress {
 
 message Transaction {
     string wallet_id = 1;
-    string wallet_name = 25;
-    WalletType wallet_type = 26;
-    string wallet_address = 27;
     string transaction_id = 2;
     gincoinc.global.v1.Coin coin = 3;
     string tx_id = 4;
@@ -187,9 +184,6 @@ message SignTxInput {
 // Transfer ...
 message Transfer {
     string wallet_id = 1;
-    string wallet_name = 17;
-    WalletType wallet_type = 18;
-    string wallet_address = 19;
     string transfer_id = 2;
     gincoinc.global.v1.Coin coin = 3;
     string tx_id = 4;
