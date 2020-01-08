@@ -693,12 +693,6 @@ func (m *Transaction) Validate() error {
 
 	// no validation rules for WalletId
 
-	// no validation rules for WalletName
-
-	// no validation rules for WalletType
-
-	// no validation rules for WalletAddress
-
 	// no validation rules for TransactionId
 
 	// no validation rules for Coin
@@ -1710,12 +1704,6 @@ func (m *Transfer) Validate() error {
 	}
 
 	// no validation rules for WalletId
-
-	// no validation rules for WalletName
-
-	// no validation rules for WalletType
-
-	// no validation rules for WalletAddress
 
 	// no validation rules for TransferId
 
