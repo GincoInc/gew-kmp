@@ -44,6 +44,15 @@ enum WalletState {
   WALLET_STATE_ARCHIVED = 14;
 }
 
+// WalletProposalType is a type of proposal
+enum WalletProposalType {
+  WALLET_PROPOSAL_TYPE_INVALID = 0;
+  // the wallet is requested to change policy
+  WALLET_PROPOSAL_TYPE_POLICY = 1;
+  // the wallet is requested to change validator/required_approval_count
+  WALLET_PROPOSAL_TYPE_VALIDATOR = 2;
+}
+
 // -----------------------------------------------------------------------------
 // Addresss
 // -----------------------------------------------------------------------------
@@ -276,6 +285,7 @@ enum PreconditionFailureType {
   PRECONDITION_FAILURE_TYPE_PROPOSAL_ALREADY_EXISTS = 14;
   PRECONDITION_FAILURE_TYPE_NO_RATE = 15;
   PRECONDITION_FAILURE_TYPE_WHITELIST_OF_BASEPOLICY = 16;
+  PRECONDITION_FAILURE_TYPE_CANNOT_ARCHIVE_WALLET_WITH_BALANCE = 17;
 }
 
 // -----------------------------------------------------------------------------
@@ -292,4 +302,19 @@ enum ListFilterType {
   LIST_FILTER_TYPE_ADDRESS_NAME = 6;
   LIST_FILTER_TYPE_ADDRESS = 7;
   LIST_FILTER_TYPE_TXID = 8;
+  LIST_FILTER_TYPE_OWNER_ID = 9;
+}
+
+// -----------------------------------------------------------------------------
+// Mail
+// -----------------------------------------------------------------------------
+
+enum MailType {
+  MAIL_TYPE_INVALID = 0;
+  MAIL_TYPE_USER_INVITED = 1;
+  MAIL_TYPE_PASSWORD_RESET_REQUEST = 2;
+  MAIL_TYPE_PASSWORD_UPDATED = 3;
+  MAIL_TYPE_EMAIL_UPDATE_REQUEST = 4;
+  MAIL_TYPE_EMAIL_UPDATED = 5;
+  MAIL_TYPE_FRAUD_TRANSACTION_SUBMITTED = 6;
 }
