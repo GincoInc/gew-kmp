@@ -24,6 +24,7 @@ message Wallet {
     WalletState state = 8;
     repeated Key keys = 9;
     repeated WalletMember members = 10;
+    uint32 required_approval_count = 20;
     double balance = 11;
     string string_balance = 12;
     string address = 13;
@@ -35,11 +36,14 @@ message Wallet {
 }
 
 message WalletProposal {
+    adamant.global.v1.WalletProposalType proposal_type = 7 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
     string requester_account_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     string requester_name = 2;
     string approver_account_id = 3 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     string approver_name = 4;
     string proposed_policy = 5;
+    repeated string proposed_validators = 8 [(validate.rules).repeated.items.string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    uint32 proposed_required_approval_count = 9;
     bool is_reviewed = 6;
 }
 
@@ -51,6 +55,7 @@ message WalletMember {
     RoleType role = 5;
     bool is_key_registered = 6;
     bool is_master = 7;
+    bool is_validated_to_create_wallet = 8;
 }
 
 message Key {
@@ -83,6 +88,9 @@ message EthereumFeeAddress {
 
 message Transaction {
     string wallet_id = 1;
+    string wallet_name = 25;
+    WalletType wallet_type = 26;
+    string wallet_address = 27;
     string transaction_id = 2;
     gincoinc.global.v1.Coin coin = 3;
     string tx_id = 4;
@@ -112,6 +120,7 @@ message TransactionMember {
     string email = 4;
     RoleType role = 5;
     bool signed = 6;
+    bool validated = 7;
 }
 
 message TxInput {
@@ -178,6 +187,9 @@ message SignTxInput {
 // Transfer ...
 message Transfer {
     string wallet_id = 1;
+    string wallet_name = 17;
+    WalletType wallet_type = 18;
+    string wallet_address = 19;
     string transfer_id = 2;
     gincoinc.global.v1.Coin coin = 3;
     string tx_id = 4;
@@ -300,9 +312,11 @@ message TotalBalance {
 }
 
 // map<k, v> ... k: enum number of Coin / v: TotalBalanceByCoin
+// map<k, v> ... k: enum number of Coin / v: Rate
 message BalanceSnapshot {
     google.protobuf.Timestamp create_time = 1;
     map<uint32, TotalBalanceByCoin> total_balances = 2 [(validate.rules).map.no_sparse = true];
+    map<uint32, Rate> rates = 3 [(validate.rules).map.no_sparse = true];
 }
 
 // =============================================================================
