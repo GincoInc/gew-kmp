@@ -129,6 +129,8 @@ func (m *Wallet) Validate() error {
 
 	}
 
+	// no validation rules for RequiredApprovalCount
+
 	// no validation rules for Balance
 
 	// no validation rules for StringBalance
@@ -234,6 +236,20 @@ func (m *WalletProposal) Validate() error {
 		return nil
 	}
 
+	if _, ok := _WalletProposal_ProposalType_NotInLookup[m.GetProposalType()]; ok {
+		return WalletProposalValidationError{
+			field:  "ProposalType",
+			reason: "value must not be in list [0]",
+		}
+	}
+
+	if _, ok := WalletProposalType_name[int32(m.GetProposalType())]; !ok {
+		return WalletProposalValidationError{
+			field:  "ProposalType",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
 	if !_WalletProposal_RequesterAccountId_Pattern.MatchString(m.GetRequesterAccountId()) {
 		return WalletProposalValidationError{
 			field:  "RequesterAccountId",
@@ -253,6 +269,20 @@ func (m *WalletProposal) Validate() error {
 	// no validation rules for ApproverName
 
 	// no validation rules for ProposedPolicy
+
+	for idx, item := range m.GetProposedValidators() {
+		_, _ = idx, item
+
+		if !_WalletProposal_ProposedValidators_Pattern.MatchString(item) {
+			return WalletProposalValidationError{
+				field:  fmt.Sprintf("ProposedValidators[%v]", idx),
+				reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+			}
+		}
+
+	}
+
+	// no validation rules for ProposedRequiredApprovalCount
 
 	// no validation rules for IsReviewed
 
@@ -313,9 +343,15 @@ var _ interface {
 	ErrorName() string
 } = WalletProposalValidationError{}
 
+var _WalletProposal_ProposalType_NotInLookup = map[WalletProposalType]struct{}{
+	0: {},
+}
+
 var _WalletProposal_RequesterAccountId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _WalletProposal_ApproverAccountId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _WalletProposal_ProposedValidators_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on WalletMember with the rules defined in
 // the proto definition for this message. If any rules are violated, an error
@@ -338,6 +374,8 @@ func (m *WalletMember) Validate() error {
 	// no validation rules for IsKeyRegistered
 
 	// no validation rules for IsMaster
+
+	// no validation rules for IsValidatedToCreateWallet
 
 	return nil
 }
@@ -853,6 +891,8 @@ func (m *TransactionMember) Validate() error {
 	// no validation rules for Role
 
 	// no validation rules for Signed
+
+	// no validation rules for Validated
 
 	return nil
 }
@@ -2900,6 +2940,30 @@ func (m *BalanceSnapshot) Validate() error {
 			if err := v.Validate(); err != nil {
 				return BalanceSnapshotValidationError{
 					field:  fmt.Sprintf("TotalBalances[%v]", key),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	for key, val := range m.GetRates() {
+		_ = val
+
+		if val == nil {
+			return BalanceSnapshotValidationError{
+				field:  fmt.Sprintf("Rates[%v]", key),
+				reason: "value cannot be sparse, all pairs must be non-nil",
+			}
+		}
+
+		// no validation rules for Rates[key]
+
+		if v, ok := interface{}(val).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return BalanceSnapshotValidationError{
+					field:  fmt.Sprintf("Rates[%v]", key),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
