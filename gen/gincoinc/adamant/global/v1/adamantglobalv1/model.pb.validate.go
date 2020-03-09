@@ -44,6 +44,10 @@ var (
 
 	_ = gincoincglobalv1.Coin(0)
 
+	_ = gincoincglobalv1.AddressType(0)
+
+	_ = gincoincglobalv1.Coin(0)
+
 	_ = gincoincglobalv1.XRPTransactionType(0)
 
 	_ = gincoincglobalv1.Coin(0)
@@ -55,6 +59,8 @@ var (
 	_ = gincoincglobalv1.TransactionState(0)
 
 	_ = gincoincglobalv1.TransactionResult(0)
+
+	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.Coin(0)
 
@@ -151,6 +157,10 @@ func (m *Wallet) Validate() error {
 
 	// no validation rules for DestinationWalletId
 
+	// no validation rules for WatchOnly
+
+	// no validation rules for AddressNumber
+
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
 			return WalletValidationError{
@@ -228,6 +238,161 @@ var _ interface {
 	ErrorName() string
 } = WalletValidationError{}
 
+// Validate checks the field values on WalletWithoutBalance with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *WalletWithoutBalance) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for WalletId
+
+	// no validation rules for Name
+
+	// no validation rules for Coin
+
+	// no validation rules for HdAccount
+
+	// no validation rules for WalletType
+
+	// no validation rules for AddressType
+
+	// no validation rules for M
+
+	// no validation rules for N
+
+	// no validation rules for State
+
+	for idx, item := range m.GetKeys() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return WalletWithoutBalanceValidationError{
+					field:  fmt.Sprintf("Keys[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	for idx, item := range m.GetMembers() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return WalletWithoutBalanceValidationError{
+					field:  fmt.Sprintf("Members[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for RequiredApprovalCount
+
+	// no validation rules for Address
+
+	// no validation rules for PolicyId
+
+	if v, ok := interface{}(m.GetProposal()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return WalletWithoutBalanceValidationError{
+				field:  "Proposal",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	// no validation rules for DestinationWalletId
+
+	// no validation rules for WatchOnly
+
+	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return WalletWithoutBalanceValidationError{
+				field:  "CreateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetUpdateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return WalletWithoutBalanceValidationError{
+				field:  "UpdateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// WalletWithoutBalanceValidationError is the validation error returned by
+// WalletWithoutBalance.Validate if the designated constraints aren't met.
+type WalletWithoutBalanceValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e WalletWithoutBalanceValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e WalletWithoutBalanceValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e WalletWithoutBalanceValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e WalletWithoutBalanceValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e WalletWithoutBalanceValidationError) ErrorName() string {
+	return "WalletWithoutBalanceValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e WalletWithoutBalanceValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sWalletWithoutBalance.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = WalletWithoutBalanceValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = WalletWithoutBalanceValidationError{}
+
 // Validate checks the field values on WalletProposal with the rules defined in
 // the proto definition for this message. If any rules are violated, an error
 // is returned.
@@ -236,51 +401,17 @@ func (m *WalletProposal) Validate() error {
 		return nil
 	}
 
-	if _, ok := _WalletProposal_ProposalType_NotInLookup[m.GetProposalType()]; ok {
-		return WalletProposalValidationError{
-			field:  "ProposalType",
-			reason: "value must not be in list [0]",
-		}
-	}
+	// no validation rules for ProposalType
 
-	if _, ok := WalletProposalType_name[int32(m.GetProposalType())]; !ok {
-		return WalletProposalValidationError{
-			field:  "ProposalType",
-			reason: "value must be one of the defined enum values",
-		}
-	}
-
-	if !_WalletProposal_RequesterAccountId_Pattern.MatchString(m.GetRequesterAccountId()) {
-		return WalletProposalValidationError{
-			field:  "RequesterAccountId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
-		}
-	}
+	// no validation rules for RequesterAccountId
 
 	// no validation rules for RequesterName
 
-	if !_WalletProposal_ApproverAccountId_Pattern.MatchString(m.GetApproverAccountId()) {
-		return WalletProposalValidationError{
-			field:  "ApproverAccountId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
-		}
-	}
+	// no validation rules for ApproverAccountId
 
 	// no validation rules for ApproverName
 
 	// no validation rules for ProposedPolicy
-
-	for idx, item := range m.GetProposedValidators() {
-		_, _ = idx, item
-
-		if !_WalletProposal_ProposedValidators_Pattern.MatchString(item) {
-			return WalletProposalValidationError{
-				field:  fmt.Sprintf("ProposedValidators[%v]", idx),
-				reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
-			}
-		}
-
-	}
 
 	// no validation rules for ProposedRequiredApprovalCount
 
@@ -342,16 +473,6 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = WalletProposalValidationError{}
-
-var _WalletProposal_ProposalType_NotInLookup = map[WalletProposalType]struct{}{
-	0: {},
-}
-
-var _WalletProposal_RequesterAccountId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
-
-var _WalletProposal_ApproverAccountId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
-
-var _WalletProposal_ProposedValidators_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on WalletMember with the rules defined in
 // the proto definition for this message. If any rules are violated, an error
@@ -1882,36 +2003,9 @@ func (m *RateSnapshot) Validate() error {
 		return nil
 	}
 
-	if !_RateSnapshot_RateSnapshotId_Pattern.MatchString(m.GetRateSnapshotId()) {
-		return RateSnapshotValidationError{
-			field:  "RateSnapshotId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
-		}
-	}
+	// no validation rules for RateSnapshotId
 
-	for key, val := range m.GetRates() {
-		_ = val
-
-		if val == nil {
-			return RateSnapshotValidationError{
-				field:  fmt.Sprintf("Rates[%v]", key),
-				reason: "value cannot be sparse, all pairs must be non-nil",
-			}
-		}
-
-		// no validation rules for Rates[key]
-
-		if v, ok := interface{}(val).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return RateSnapshotValidationError{
-					field:  fmt.Sprintf("Rates[%v]", key),
-					reason: "embedded message failed validation",
-					cause:  err,
-				}
-			}
-		}
-
-	}
+	// no validation rules for Rates
 
 	return nil
 }
@@ -1969,8 +2063,6 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = RateSnapshotValidationError{}
-
-var _RateSnapshot_RateSnapshotId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on Deactivatability with the rules defined
 // in the proto definition for this message. If any rules are violated, an
@@ -2154,12 +2246,7 @@ func (m *LabeledAddressProposal) Validate() error {
 		return nil
 	}
 
-	if !_LabeledAddressProposal_RequesterAccountId_Pattern.MatchString(m.GetRequesterAccountId()) {
-		return LabeledAddressProposalValidationError{
-			field:  "RequesterAccountId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
-		}
-	}
+	// no validation rules for RequesterAccountId
 
 	// no validation rules for RequesterName
 
@@ -2229,8 +2316,6 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = LabeledAddressProposalValidationError{}
-
-var _LabeledAddressProposal_RequesterAccountId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on Whitelist with the rules defined in the
 // proto definition for this message. If any rules are violated, an error is returned.
@@ -3028,6 +3113,75 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = BalanceSnapshotValidationError{}
+
+// Validate checks the field values on Confirmation with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *Confirmation) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Coin
+
+	// no validation rules for Confirmation
+
+	return nil
+}
+
+// ConfirmationValidationError is the validation error returned by
+// Confirmation.Validate if the designated constraints aren't met.
+type ConfirmationValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ConfirmationValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ConfirmationValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ConfirmationValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ConfirmationValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ConfirmationValidationError) ErrorName() string { return "ConfirmationValidationError" }
+
+// Error satisfies the builtin error interface
+func (e ConfirmationValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sConfirmation.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ConfirmationValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ConfirmationValidationError{}
 
 // Validate checks the field values on RequestTxOutput with the rules defined
 // in the proto definition for this message. If any rules are violated, an

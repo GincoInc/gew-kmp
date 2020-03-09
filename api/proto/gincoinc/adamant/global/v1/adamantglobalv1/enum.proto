@@ -42,6 +42,9 @@ enum WalletState {
   WALLET_STATE_COMPLETED = 12;
   WALLET_STATE_CANCELLED = 13;
   WALLET_STATE_ARCHIVED = 14;
+  WALLET_STATE_ADDRESS_IMPORT_WAITING = 15;
+  WALLET_STATE_ADDRESS_IMPORTING = 16;
+  WALLET_STATE_ADDRESS_IMPORT_FAILED = 17;
 }
 
 // WalletProposalType is a type of proposal
@@ -84,6 +87,8 @@ enum TransactionState {
 // -----------------------------------------------------------------------------
 // Account
 // -----------------------------------------------------------------------------
+
+// AccountType is a type of role
 enum AccountType {
   ACCOUNT_TYPE_INVALID = 0;
   ACCOUNT_TYPE_USER = 1;
@@ -150,6 +155,7 @@ enum PolicyType {
   POLICY_TYPE_COLD_WALLET_POLICY = 2;
 }
 
+// TransferLimitType is a type of role
 enum TransferLimitType {
   TRANSFER_LIMIT_TYPE_INVALID = 0;
   TRANSFER_LIMIT_TYPE_HOURLY = 1;
@@ -161,6 +167,7 @@ enum TransferLimitType {
 // Notification
 // -----------------------------------------------------------------------------
 
+// NotificationType is a type of notification
 enum NotificationType {
   NOTIFICATION_TYPE_INVALID = 0;
   NOTIFICATION_TYPE_WALLET_SIGNER_APPROVE_REQUEST = 1;
@@ -195,6 +202,7 @@ enum NotificationType {
 // AuditLog
 // -----------------------------------------------------------------------------
 
+// AuditLogGroup is a enum of AuditLogGroup
 enum AuditLogGroup {
   AUDIT_LOG_GROUP_INVALID = 0;
   AUDIT_LOG_GROUP_LOGIN = 1;
@@ -205,6 +213,7 @@ enum AuditLogGroup {
   AUDIT_LOG_GROUP_POLICY = 6;
 }
 
+// AuditLogType is a type of AuditLog
 enum AuditLogType {
   AUDIT_LOG_TYPE_INVALID = 0;
   AUDIT_LOG_TYPE_LOGIN = 1;
@@ -262,6 +271,7 @@ enum AuditLogType {
 // -----------------------------------------------------------------------------
 // Error Detail Type
 // -----------------------------------------------------------------------------
+
 // ErrDetailViolationType define violation type of errdetails.PreconditionFailure of grpc
 enum PreconditionFailureType {
   PRECONDITION_FAILURE_TYPE_INVALID = 0;
@@ -286,6 +296,10 @@ enum PreconditionFailureType {
   PRECONDITION_FAILURE_TYPE_NO_RATE = 15;
   PRECONDITION_FAILURE_TYPE_WHITELIST_OF_BASEPOLICY = 16;
   PRECONDITION_FAILURE_TYPE_CANNOT_ARCHIVE_WALLET_WITH_BALANCE = 17;
+  PRECONDITION_FAILURE_TYPE_TEMPORARY_INCREASE_IN_FEERATE = 18;
+
+  // subscription
+  PRECONDITION_FAILURE_TYPE_PROHIBITED_BY_SUBSCRIPTION = 19;
 }
 
 // -----------------------------------------------------------------------------
@@ -317,4 +331,16 @@ enum MailType {
   MAIL_TYPE_EMAIL_UPDATE_REQUEST = 4;
   MAIL_TYPE_EMAIL_UPDATED = 5;
   MAIL_TYPE_FRAUD_TRANSACTION_SUBMITTED = 6;
+  MAIL_TYPE_IMPORT_ADDRESS_COMPLETED = 7;
+}
+
+// -----------------------------------------------------------------------------
+// Import Address
+// -----------------------------------------------------------------------------
+
+enum ImportAddressState {
+  IMPORT_ADDRESS_STATE_INVALID = 0;
+  IMPORT_ADDRESS_STATE_ADDRESS_IMPORTING = 1;
+  IMPORT_ADDRESS_STATE_ADDRESS_IMPORTED = 2;
+  IMPORT_ADDRESS_STATE_IMPORT_FAILED = 3;
 }
