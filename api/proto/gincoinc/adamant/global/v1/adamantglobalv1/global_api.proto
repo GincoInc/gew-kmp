@@ -158,7 +158,7 @@ message CreateWalletResponse {
 }
 
 message GetWalletRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}]; // The id of wallet
 }
 
 message BatchGetWalletsWithoutBalanceRequest {
@@ -230,11 +230,11 @@ message RegisterKeyResponse {
 // -----------------------------------------------------------------------------
 
 message CreateAddressRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    uint64 fee_rate = 2;
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}]; // The id of wallet
+    uint64 fee_rate = 2; // for contract wallet
 }
 message CreateAddressResponse {
-    string address_id = 1;
+    string address_id = 1; // The id of created address
 }
 
 message GetAddressRequest {
@@ -367,14 +367,14 @@ message ListXRPInitSignInfoResponse {
 // -----------------------------------------------------------------------------
 
 message ListTransfersRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    uint32 page_size = 2 [(validate.rules).uint32.lte = 100];
-    string page_token = 3 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}]; //The id of wallet
+    uint32 page_size = 2 [(validate.rules).uint32.lte = 100]; //indicate how many objects to return in a single response
+    string page_token = 3 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}]; //retrieve the next page
 }
 
 message ListTransfersResponse {
-    repeated Transfer transfers = 1;
-    string next_page_token = 2;
+    repeated Transfer transfers = 1; // Array of transfer objects
+    string next_page_token = 2; // The token for requesting the next page
 }
 
 // -----------------------------------------------------------------------------
@@ -382,15 +382,15 @@ message ListTransfersResponse {
 // -----------------------------------------------------------------------------
 
 message GetRateSnapshotRequest {
-    string rate_snapshot_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string rate_snapshot_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}]; // The id of rate-snapshot
 }
 
 message SetRatesRequest {
-    repeated RequestRate rates = 1;
+    repeated RequestRate rates = 1; //Array of rate objects
 }
 
 message SetRatesResponse {
-    string rate_snapshot_id = 1;
+    string rate_snapshot_id = 1; //The id of rate-snapshot
 }
 
 // -----------------------------------------------------------------------------

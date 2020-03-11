@@ -19,7 +19,7 @@ message Wallet {
     string name = 2; // name
     gincoinc.global.v1.Coin coin = 3; // The type of asset
     uint32 hd_account = 17; // The number indicating what order the wallet is created
-    WalletType wallet_type = 4; // type 
+    WalletType wallet_type = 4; // type
     gincoinc.global.v1.AddressType address_type = 5; // type of address
     uint32 m = 6; // The number of signitures which is required to transfer asset
     uint32 n = 7; // The number of keys
@@ -112,9 +112,9 @@ message Address {
 
 // The model of address which hold ETH for ethereum wallet/address creation etc
 message EthereumFeeAddress {
-    string address = 1;
-    double balance = 2;
-    string string_balance = 3;
+    string address = 1; // ethereum address
+    double balance = 2; // The number-typed balance corresponding to the address
+    string string_balance = 3; // The string-typed balance corresponding to the address
 }
 
 // The model of transaction
@@ -155,8 +155,8 @@ message TransactionMember {
 
 // The model of transaction input
 message TxInput {
-    string tx_id = 1; 
-    uint32 tx_index = 2; 
+    string tx_id = 1;
+    uint32 tx_index = 2;
     double value = 3;
     string string_value = 4;
 }
@@ -268,8 +268,8 @@ message LabeledAddress {
     string address = 4; // address
     LabeledAddressProposal proposal = 5; // The proposal about updating the labeled address
     bool is_deletable = 6; // The flag which indicates the labeled address is deletable
-    google.protobuf.Timestamp create_time = 7; 
-    google.protobuf.Timestamp update_time = 8;
+    google.protobuf.Timestamp create_time = 7;// the time at which the labeled address was created
+    google.protobuf.Timestamp update_time = 8;// the time at which the labeled address was updated
 }
 
 // The model of proposal to update labeled address information
@@ -394,6 +394,6 @@ message RequestTransferLimitEntry {
 }
 
 message RequestRate {
-    gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
-    double jpy = 2 [(validate.rules).double = {gte: 0}];
+    gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}]; //The id of coin
+    double jpy = 2 [(validate.rules).double = {gte: 0}]; // The rate of JPY
 }

@@ -147,10 +147,6 @@ func (AddressType) EnumDescriptor() ([]byte, []int) {
 }
 
 // TransactionState is a state of transaction.
-// SUBMITTED:  SendTx成功
-// PENDING:    Mempoolに入った
-// PROCESSING: ブロックに入った
-// CONFIRMED:  指定した承認数を超えた
 type TransactionState int32
 
 const (

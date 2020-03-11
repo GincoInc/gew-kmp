@@ -40,23 +40,19 @@ enum Network {
 // AddressType is a type of address.
 enum AddressType {
   ADDRESS_TYPE_INVALID = 0;
-  ADDRESS_TYPE_P2SH = 1;
-  ADDRESS_TYPE_P2SH_P2WSH = 2;
-  ADDRESS_TYPE_P2WSH = 3;
-  ADDRESS_TYPE_NONE = 100;
+  ADDRESS_TYPE_P2SH = 1;//Pay to Script Hash
+  ADDRESS_TYPE_P2SH_P2WSH = 2;//Pay to Witness Script Hash nested P2SH
+  ADDRESS_TYPE_P2WSH = 3;//Pay to Witness Script Hash
+  ADDRESS_TYPE_NONE = 100;//For ETH/XRP
 }
 
 // TransactionState is a state of transaction.
-// SUBMITTED:  SendTx成功
-// PENDING:    Mempoolに入った
-// PROCESSING: ブロックに入った
-// CONFIRMED:  指定した承認数を超えた
 enum TransactionState {
   TRANSACTION_STATE_INVALID = 0;
-  TRANSACTION_STATE_SUBMITTED = 1;
-  TRANSACTION_STATE_PENDING = 2;
-  TRANSACTION_STATE_PROCESSING = 3;
-  TRANSACTION_STATE_CONFIRMED = 4;
+  TRANSACTION_STATE_SUBMITTED = 1;//Transaction is submitted
+  TRANSACTION_STATE_PENDING = 2;//Transaction is included in mempool
+  TRANSACTION_STATE_PROCESSING = 3;//Transaction is included in a block
+  TRANSACTION_STATE_CONFIRMED = 4;//Exceeded number of confirmations specified
 }
 
 // UTXOState is a state of UTXO.
@@ -75,10 +71,10 @@ enum UTXOState {
 // TransferType is a type of transaction.
 enum TransferType {
   TRANSFER_TYPE_INVALID = 0;
-  TRANSFER_TYPE_SEND = 1;
-  TRANSFER_TYPE_RECEIVE = 2;
-  TRANSFER_TYPE_CHANGE = 3;
-  TRANSFER_TYPE_FATAL = 4;
+  TRANSFER_TYPE_SEND = 1;//The type of send
+  TRANSFER_TYPE_RECEIVE = 2;//The type of receive
+  TRANSFER_TYPE_CHANGE = 3;//The type of change transaction for BTC/LTC/BCH
+  TRANSFER_TYPE_FATAL = 4;//The type of fraudulent remittance
 }
 
 // -----------------------------------------------------------------------------
@@ -100,8 +96,8 @@ enum XRPTransactionType {
 // TransactionResult is a result of transaction.
 enum TransactionResult {
   TRANSACTION_RESULT_INVALID = 0;
-  TRANSACTION_RESULT_PENDING = 1;
-  TRANSACTION_RESULT_SUCCESS = 2;
-  TRANSACTION_RESULT_FAILURE = 3;
+  TRANSACTION_RESULT_PENDING = 1;// Transaction is pending
+  TRANSACTION_RESULT_SUCCESS = 2;// Transaction is included in block
+  TRANSACTION_RESULT_FAILURE = 3;// Failed to send transaction
   TRANSACTION_RESULT_NONE = 100;
 }
