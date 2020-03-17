@@ -49,9 +49,10 @@ service TellerAPI {
     rpc GetLatestRateSnapshot (google.protobuf.Empty) returns (adamant.global.v1.RateSnapshot) {}
     // Set rates to your organization
     rpc SetRates (adamant.global.v1.SetRatesRequest) returns (adamant.global.v1.SetRatesResponse) {}
-
+    
     rpc CalculateFee (adamant.global.v1.CalculateFeeRequest) returns (adamant.global.v1.CalculateFeeResponse) {}
     rpc GetRecommendedFeeRate (adamant.global.v1.GetRecommendedFeeRateRequest) returns (adamant.global.v1.GetRecommendedFeeRateResponse) {}
+    rpc ValidateAddress (adamant.global.v1.ValidateAddressRequest) returns (adamant.global.v1.ValidateAddressResponse) {}
 }
 
 message CreateWalletRequest {
