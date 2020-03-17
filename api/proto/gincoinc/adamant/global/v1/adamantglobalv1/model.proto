@@ -90,7 +90,7 @@ message WalletMember {
 message Key {
     string wallet_id = 1; // The id of wallet
     string account_id = 2; // The id of account which owns the key
-    adamant.global.v1.AccountType account_type = 3; // type
+    adamant.global.v1.AccountType account_type = 3; // The account type of key owner
     string key_id = 4; // id
     uint32 key_index = 5; // The index of key
 }

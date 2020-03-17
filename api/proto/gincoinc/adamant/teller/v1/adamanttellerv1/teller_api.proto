@@ -52,6 +52,7 @@ service TellerAPI {
     
     rpc CalculateFee (adamant.global.v1.CalculateFeeRequest) returns (adamant.global.v1.CalculateFeeResponse) {}
     rpc GetRecommendedFeeRate (adamant.global.v1.GetRecommendedFeeRateRequest) returns (adamant.global.v1.GetRecommendedFeeRateResponse) {}
+    // Validate format of given address
     rpc ValidateAddress (adamant.global.v1.ValidateAddressRequest) returns (adamant.global.v1.ValidateAddressResponse) {}
 }
 

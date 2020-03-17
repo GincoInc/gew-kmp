@@ -308,6 +308,7 @@ type TellerAPIClient interface {
 	SetRates(ctx context.Context, in *adamantglobalv1.SetRatesRequest, opts ...grpc.CallOption) (*adamantglobalv1.SetRatesResponse, error)
 	CalculateFee(ctx context.Context, in *adamantglobalv1.CalculateFeeRequest, opts ...grpc.CallOption) (*adamantglobalv1.CalculateFeeResponse, error)
 	GetRecommendedFeeRate(ctx context.Context, in *adamantglobalv1.GetRecommendedFeeRateRequest, opts ...grpc.CallOption) (*adamantglobalv1.GetRecommendedFeeRateResponse, error)
+	// Validate format of given address
 	ValidateAddress(ctx context.Context, in *adamantglobalv1.ValidateAddressRequest, opts ...grpc.CallOption) (*adamantglobalv1.ValidateAddressResponse, error)
 }
 
@@ -577,6 +578,7 @@ type TellerAPIServer interface {
 	SetRates(context.Context, *adamantglobalv1.SetRatesRequest) (*adamantglobalv1.SetRatesResponse, error)
 	CalculateFee(context.Context, *adamantglobalv1.CalculateFeeRequest) (*adamantglobalv1.CalculateFeeResponse, error)
 	GetRecommendedFeeRate(context.Context, *adamantglobalv1.GetRecommendedFeeRateRequest) (*adamantglobalv1.GetRecommendedFeeRateResponse, error)
+	// Validate format of given address
 	ValidateAddress(context.Context, *adamantglobalv1.ValidateAddressRequest) (*adamantglobalv1.ValidateAddressResponse, error)
 }
 

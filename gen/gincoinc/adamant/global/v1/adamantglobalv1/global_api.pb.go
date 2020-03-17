@@ -5001,6 +5001,7 @@ type GlobalAPIClient interface {
 	CalculateFee(ctx context.Context, in *CalculateFeeRequest, opts ...grpc.CallOption) (*CalculateFeeResponse, error)
 	GetMembersDeactivatabilities(ctx context.Context, in *GetMembersDeactivatabilitiesRequest, opts ...grpc.CallOption) (*GetMembersDeactivatabilitiesResponse, error)
 	GetRecommendedFeeRate(ctx context.Context, in *GetRecommendedFeeRateRequest, opts ...grpc.CallOption) (*GetRecommendedFeeRateResponse, error)
+	// Validate format of given address
 	ValidateAddress(ctx context.Context, in *ValidateAddressRequest, opts ...grpc.CallOption) (*ValidateAddressResponse, error)
 }
 
@@ -5700,6 +5701,7 @@ type GlobalAPIServer interface {
 	CalculateFee(context.Context, *CalculateFeeRequest) (*CalculateFeeResponse, error)
 	GetMembersDeactivatabilities(context.Context, *GetMembersDeactivatabilitiesRequest) (*GetMembersDeactivatabilitiesResponse, error)
 	GetRecommendedFeeRate(context.Context, *GetRecommendedFeeRateRequest) (*GetRecommendedFeeRateResponse, error)
+	// Validate format of given address
 	ValidateAddress(context.Context, *ValidateAddressRequest) (*ValidateAddressResponse, error)
 }
 

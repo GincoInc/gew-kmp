@@ -111,6 +111,7 @@ service GlobalAPI {
     rpc CalculateFee (CalculateFeeRequest) returns (CalculateFeeResponse) {}
     rpc GetMembersDeactivatabilities (GetMembersDeactivatabilitiesRequest) returns (GetMembersDeactivatabilitiesResponse) {}
     rpc GetRecommendedFeeRate (GetRecommendedFeeRateRequest) returns (GetRecommendedFeeRateResponse) {}
+    // Validate format of given address
     rpc ValidateAddress (ValidateAddressRequest) returns (ValidateAddressResponse) {}
 }
 
@@ -459,12 +460,12 @@ message GetRecommendedFeeRateResponse {
 }
 
 message ValidateAddressRequest {
-    gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
-    string address = 2 [(validate.rules).string = {min_len: 25}];
+    gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}]; // The type of coin
+    string address = 2 [(validate.rules).string = {min_len: 25}]; // The address string to be validated
 }
 
 message ValidateAddressResponse {
-    bool valid = 1;
+    bool valid = 1; // The flag which indicates given address is valid or not
 }
 
 message ListConfirmationsRequest {}
