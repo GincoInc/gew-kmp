@@ -110,6 +110,13 @@ func (m *CreateWalletRequest) Validate() error {
 		}
 	}
 
+	if !_CreateWalletRequest_InheritWalletId_Pattern.MatchString(m.GetInheritWalletId()) {
+		return CreateWalletRequestValidationError{
+			field:  "InheritWalletId",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
 	return nil
 }
 
@@ -183,6 +190,8 @@ var _CreateWalletRequest_AddressType_NotInLookup = map[gincoincglobalv1.AddressT
 }
 
 var _CreateWalletRequest_DestinationWalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _CreateWalletRequest_InheritWalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on InitializeXRPWalletRequest with the
 // rules defined in the proto definition for this message. If any rules are

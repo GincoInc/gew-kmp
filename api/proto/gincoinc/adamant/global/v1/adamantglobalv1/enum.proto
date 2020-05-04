@@ -19,29 +19,28 @@ enum WalletType {
   WALLET_TYPE_SELF_CUSTODY_COLD = 2;
   WALLET_TYPE_SELF_CUSTODY_HOT_ETHEREUM_EOA = 3;
   WALLET_TYPE_SELF_CUSTODY_HOT_ETHEREUM_EOA_RECEIVE_ONLY = 4;
-  // WALLET_TYPE_CUSTODY_HOT = 5;
-  // WALLET_TYPE_CUSTODY_COLD = 6;
-  // WALLET_TYPE_DECENTRAL_HOT = 7;
-  // WALLET_TYPE_DECENTRAL_COLD = 8;
 }
 
 // WalletState is a state of wallet.
 enum WalletState {
   WALLET_STATE_INVALID = 0;
   WALLET_STATE_PROPOSED = 1;
-  WALLET_STATE_KEY_REGISTERING = 2;
-  WALLET_STATE_KEY_REGISTERED = 3;
-  WALLET_STATE_VALIDATOR_REVIEWING = 4;
-  WALLET_STATE_VALIDATOR_REVIEWED = 5;
-  WALLET_STATE_ACTIVATING = 6;
-  WALLET_STATE_ACTIVATED = 7;
-  WALLET_STATE_SIGNING = 8;
-  WALLET_STATE_SIGNED = 9;
-  WALLET_STATE_SUBMITTING = 10;
-  WALLET_STATE_SUBMITTED = 11;
-  WALLET_STATE_COMPLETED = 12;
-  WALLET_STATE_CANCELLED = 13;
-  WALLET_STATE_ARCHIVED = 14;
+  WALLET_STATE_KEY_REGISTERING = 2;//Waiting for key register
+  WALLET_STATE_KEY_REGISTERED = 3;//Key was registed to Wallet
+  WALLET_STATE_VALIDATOR_REVIEWING = 4;//Waiting for review for validator
+  WALLET_STATE_VALIDATOR_REVIEWED = 5;//Validator reviewd
+  WALLET_STATE_ACTIVATING = 6;// Waiting for activate
+  WALLET_STATE_ACTIVATED = 7;// Wallet was activated
+  WALLET_STATE_SIGNING = 8;// Waiting for sign
+  WALLET_STATE_SIGNED = 9;// was signed
+  WALLET_STATE_SUBMITTING = 10;//Waiting for submit transaction which regist public key to contract
+  WALLET_STATE_SUBMITTED = 11;//Transaction was submitted
+  WALLET_STATE_COMPLETED = 12;//Creating wallet successfuly completed
+  WALLET_STATE_CANCELLED = 13;//Wallet was cancelled
+  WALLET_STATE_ARCHIVED = 14;//Wallet was archived
+  WALLET_STATE_ADDRESS_IMPORT_WAITING = 15;//Waiting for import address
+  WALLET_STATE_ADDRESS_IMPORTING = 16;//Importing address
+  WALLET_STATE_ADDRESS_IMPORT_FAILED = 17;// Failed import address
 }
 
 // WalletProposalType is a type of proposal
@@ -72,22 +71,24 @@ enum AddressState {
 // TransactionState is a state of transaction.
 enum TransactionState {
   TRANSACTION_STATE_INVALID = 0;
-  TRANSACTION_STATE_SIGNING = 1;
-  TRANSACTION_STATE_SIGNED = 2;
-  TRANSACTION_STATE_REVIEWING = 3;
-  TRANSACTION_STATE_REVIEWED = 4;
-  TRANSACTION_STATE_SUBMITTING = 5;
-  TRANSACTION_STATE_SUBMITTED = 6;
-  TRANSACTION_STATE_CANCELLED = 7;
+  TRANSACTION_STATE_SIGNING = 1; //Waiting for sign
+  TRANSACTION_STATE_SIGNED = 2; //Transaction was Signed
+  TRANSACTION_STATE_REVIEWING = 3; //Waiting for review
+  TRANSACTION_STATE_REVIEWED = 4; //Transaction was reviewd
+  TRANSACTION_STATE_SUBMITTING = 5; //Waiting for submit
+  TRANSACTION_STATE_SUBMITTED = 6; //Transaction was submitted
+  TRANSACTION_STATE_CANCELLED = 7; //Transaction was cancelled
 }
 
 // -----------------------------------------------------------------------------
 // Account
 // -----------------------------------------------------------------------------
+
+// AccountType is a type of role
 enum AccountType {
   ACCOUNT_TYPE_INVALID = 0;
-  ACCOUNT_TYPE_USER = 1;
-  ACCOUNT_TYPE_SERVICE_ACCOUNT = 2;
+  ACCOUNT_TYPE_USER = 1; // User
+  ACCOUNT_TYPE_SERVICE_ACCOUNT = 2; // Service Account
 }
 
 // -----------------------------------------------------------------------------
@@ -109,13 +110,13 @@ enum UserState {
 // Role is a type of role
 enum RoleType {
   ROLE_TYPE_INVALID = 0;
-  ROLE_TYPE_ORG_MANAGER = 1;
-  ROLE_TYPE_ORG_SIGNER = 2;
-  ROLE_TYPE_ORG_VALIDATOR = 3;
-  ROLE_TYPE_ORG_VIEWER = 4;
-  ROLE_TYPE_ORG_DEVELOPER = 5;
-  ROLE_TYPE_HOT_WALLET_ADMIN = 6;
-  ROLE_TYPE_HOT_WALLET_VIEWER = 7;
+  ROLE_TYPE_ORG_MANAGER = 1; // Manager of Organization
+  ROLE_TYPE_ORG_SIGNER = 2; // Signer which can sign transaction
+  ROLE_TYPE_ORG_VALIDATOR = 3; // Validator which can validate transaction
+  ROLE_TYPE_ORG_VIEWER = 4; // Viewer
+  ROLE_TYPE_ORG_DEVELOPER = 5; // Developer which manage service-account
+  ROLE_TYPE_HOT_WALLET_ADMIN = 6; // Service Account which manage hot wallet
+  ROLE_TYPE_HOT_WALLET_VIEWER = 7; // Service Account which can only get
 }
 
 // ResourceType is a target type of role
@@ -150,6 +151,7 @@ enum PolicyType {
   POLICY_TYPE_COLD_WALLET_POLICY = 2;
 }
 
+// TransferLimitType is a type of role
 enum TransferLimitType {
   TRANSFER_LIMIT_TYPE_INVALID = 0;
   TRANSFER_LIMIT_TYPE_HOURLY = 1;
@@ -161,6 +163,7 @@ enum TransferLimitType {
 // Notification
 // -----------------------------------------------------------------------------
 
+// NotificationType is a type of notification
 enum NotificationType {
   NOTIFICATION_TYPE_INVALID = 0;
   NOTIFICATION_TYPE_WALLET_SIGNER_APPROVE_REQUEST = 1;
@@ -195,6 +198,7 @@ enum NotificationType {
 // AuditLog
 // -----------------------------------------------------------------------------
 
+// AuditLogGroup is a enum of AuditLogGroup
 enum AuditLogGroup {
   AUDIT_LOG_GROUP_INVALID = 0;
   AUDIT_LOG_GROUP_LOGIN = 1;
@@ -205,6 +209,7 @@ enum AuditLogGroup {
   AUDIT_LOG_GROUP_POLICY = 6;
 }
 
+// AuditLogType is a type of AuditLog
 enum AuditLogType {
   AUDIT_LOG_TYPE_INVALID = 0;
   AUDIT_LOG_TYPE_LOGIN = 1;
@@ -262,6 +267,7 @@ enum AuditLogType {
 // -----------------------------------------------------------------------------
 // Error Detail Type
 // -----------------------------------------------------------------------------
+
 // ErrDetailViolationType define violation type of errdetails.PreconditionFailure of grpc
 enum PreconditionFailureType {
   PRECONDITION_FAILURE_TYPE_INVALID = 0;
@@ -286,6 +292,10 @@ enum PreconditionFailureType {
   PRECONDITION_FAILURE_TYPE_NO_RATE = 15;
   PRECONDITION_FAILURE_TYPE_WHITELIST_OF_BASEPOLICY = 16;
   PRECONDITION_FAILURE_TYPE_CANNOT_ARCHIVE_WALLET_WITH_BALANCE = 17;
+  PRECONDITION_FAILURE_TYPE_TEMPORARY_INCREASE_IN_FEERATE = 18;
+
+  // subscription
+  PRECONDITION_FAILURE_TYPE_PROHIBITED_BY_SUBSCRIPTION = 19;
 }
 
 // -----------------------------------------------------------------------------
@@ -317,4 +327,16 @@ enum MailType {
   MAIL_TYPE_EMAIL_UPDATE_REQUEST = 4;
   MAIL_TYPE_EMAIL_UPDATED = 5;
   MAIL_TYPE_FRAUD_TRANSACTION_SUBMITTED = 6;
+  MAIL_TYPE_IMPORT_ADDRESS_COMPLETED = 7;
+}
+
+// -----------------------------------------------------------------------------
+// Import Address
+// -----------------------------------------------------------------------------
+
+enum ImportAddressState {
+  IMPORT_ADDRESS_STATE_INVALID = 0;
+  IMPORT_ADDRESS_STATE_ADDRESS_IMPORTING = 1;
+  IMPORT_ADDRESS_STATE_ADDRESS_IMPORTED = 2;
+  IMPORT_ADDRESS_STATE_IMPORT_FAILED = 3;
 }
