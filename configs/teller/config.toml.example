@@ -2,6 +2,7 @@ cpu = 1
 gRPCPort = 50051
 testnet = true
 shutdownPeriodSeconds = 30
+useHotWallet = true
 
 [dynamodb]
   region =  "ap-northeast-1"
