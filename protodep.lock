@@ -21,6 +21,13 @@ proto_outdir = "./vendor"
 
 [[dependencies]]
   target = "github.com/GincoInc/protobuf/gincoinc/adamant/teller"
-  revision = "03bbe4dc905db773ed4b1cbac9682f3e004ef916"
+  revision = "18469cbd50d41c71aa1120b3ff5251e71eea9484"
   branch = ""
   path = "gincoinc/adamant/teller"
+
+[[dependencies]]
+  target = "github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis"
+  revision = "02480837a947806a3d06a1acc9a13ad59f455a78"
+  branch = "master"
+  path = ""
+  ignores = ["google/rpc"]

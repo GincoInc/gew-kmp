@@ -41,3 +41,6 @@ generate:
       type: go
       flags: lang=go
       output: ./../../gen
+    - name: grpc-gateway
+      type: go
+      output: ./../../gen

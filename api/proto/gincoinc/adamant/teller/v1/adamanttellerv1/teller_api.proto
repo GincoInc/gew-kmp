@@ -5,6 +5,7 @@ package adamant.teller.v1;
 option go_package = "adamanttellerv1";
 
 import "google/protobuf/empty.proto";
+import "google/api/annotations.proto";
 import "validate/validate.proto";
 import "gincoinc/global/v1/gincoincglobalv1/enum.proto";
 import "gincoinc/adamant/global/v1/adamantglobalv1/enum.proto";
@@ -16,44 +17,152 @@ import "gincoinc/adamant/global/v1/adamantglobalv1/model.proto";
 // =============================================================================
 
 service TellerAPI {
-    rpc CreateWallet (CreateWalletRequest) returns (adamant.global.v1.CreateWalletResponse) {}
+    rpc CreateWallet (CreateWalletRequest) returns (adamant.global.v1.CreateWalletResponse) {
+        option (google.api.http) = {
+            post: "/v1/wallets",
+            body: "*"
+        };
+    }
     // Get wallet information. the wallet model includes balance, address etc.
-    rpc GetWallet (adamant.global.v1.GetWalletRequest) returns (adamant.global.v1.Wallet) {}
-    rpc ListWallets (adamant.global.v1.ListWalletsRequest) returns (adamant.global.v1.ListWalletsResponse) {}
-    rpc GetSpendableBalance (adamant.global.v1.GetSpendableBalanceRequest) returns (adamant.global.v1.GetSpendableBalanceResponse) {}
-    rpc InitializeXRPWallet (InitializeXRPWalletRequest) returns (google.protobuf.Empty) {}
+    rpc GetWallet (adamant.global.v1.GetWalletRequest) returns (adamant.global.v1.Wallet) {
+        option (google.api.http) = {
+            get: "/v1/wallets/{wallet_id}",
+        };
+    }
+    rpc ListWallets (adamant.global.v1.ListWalletsRequest) returns (adamant.global.v1.ListWalletsResponse) {
+        option (google.api.http) = {
+            get: "/v1/wallets",
+        };
+    }
+    rpc GetSpendableBalance (adamant.global.v1.GetSpendableBalanceRequest) returns (adamant.global.v1.GetSpendableBalanceResponse) {
+        option (google.api.http) = {
+            get: "/v1/wallets/{wallet_id}/spendable_balance",
+        };
+    }
+    rpc InitializeXRPWallet (InitializeXRPWalletRequest) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            post: "/v1/wallets/{wallet_id}/initialize_xrp_wallet",
+            body: "*"
+        };
+    }
 
     // Create a new address for an existing wallet
-    rpc CreateAddress (adamant.global.v1.CreateAddressRequest) returns (adamant.global.v1.CreateAddressResponse) {}
-    rpc GetAddress (adamant.global.v1.GetAddressRequest) returns (adamant.global.v1.Address) {}
-    rpc GetAddressByAddress (adamant.global.v1.GetAddressByAddressRequest) returns (adamant.global.v1.Address) {}
-    rpc GetAddressByIndex (adamant.global.v1.GetAddressByIndexRequest) returns (adamant.global.v1.Address) {}
-    rpc ListAddresses (adamant.global.v1.ListAddressesRequest) returns (adamant.global.v1.ListAddressesResponse) {}
+    rpc CreateAddress (adamant.global.v1.CreateAddressRequest) returns (adamant.global.v1.CreateAddressResponse) {
+        option (google.api.http) = {
+            post: "/v1/wallets/{wallet_id}/addresses",
+            body: "*"
+        };
+    }
+    rpc GetAddress (adamant.global.v1.GetAddressRequest) returns (adamant.global.v1.Address) {
+        option (google.api.http) = {
+            get: "/v1/wallets/{wallet_id}/addresses/{address_id}",
+        };
+    }
+    rpc GetAddressByAddress (adamant.global.v1.GetAddressByAddressRequest) returns (adamant.global.v1.Address) {
+        option (google.api.http) = {
+            get: "/v1/wallets/{wallet_id}/addresses",
+        };
+    }
+    rpc GetAddressByIndex (adamant.global.v1.GetAddressByIndexRequest) returns (adamant.global.v1.Address) {
+        option (google.api.http) = {
+            get: "/v1/wallets/{wallet_id}/addresses",
+        };
+    }
+    rpc ListAddresses (adamant.global.v1.ListAddressesRequest) returns (adamant.global.v1.ListAddressesResponse) {
+        option (google.api.http) = {
+            get: "/v1/wallets/{wallet_id}/addresses",
+        };
+    }
     // Get an address which hold ETH for ethereum wallet/address creation etc
-    rpc GetEthereumFeeAddress (adamant.global.v1.GetEthereumFeeAddressRequest) returns (adamant.global.v1.EthereumFeeAddress) {}
+    rpc GetEthereumFeeAddress (adamant.global.v1.GetEthereumFeeAddressRequest) returns (adamant.global.v1.EthereumFeeAddress) {
+        option (google.api.http) = {
+            get: "/v1/ethereum_fee_addresses",
+        };
+    }
 
-    rpc CreateTransaction (adamant.global.v1.CreateTransactionRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
-    rpc SignTransaction (SignTransactionRequest) returns (google.protobuf.Empty) {}
-    rpc SendTransaction (adamant.global.v1.SendTransactionRequest) returns (adamant.global.v1.SendTransactionResponse) {}
-    rpc CancelTransaction (adamant.global.v1.CancelTransactionRequest) returns (google.protobuf.Empty) {}
-    rpc GetTransaction (adamant.global.v1.GetTransactionRequest) returns (adamant.global.v1.Transaction) {}
-    rpc GetTransactionByTxID (adamant.global.v1.GetTransactionByTxIDRequest) returns (adamant.global.v1.Transaction) {}
-    rpc ListTransactions (adamant.global.v1.ListTransactionsRequest) returns (adamant.global.v1.ListTransactionsResponse) {}
+    rpc CreateTransaction (adamant.global.v1.CreateTransactionRequest) returns (adamant.global.v1.CreateTransactionResponse) {
+        option (google.api.http) = {
+            post: "/v1/wallets/{wallet_id}/transactions",
+            body: "*"
+        };
+    }
+    rpc SignTransaction (SignTransactionRequest) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            put: "/v1/wallets/{wallet_id}/transactions/{transaction_id}/sign",
+            body: "*"
+        };
+    }
+    rpc SendTransaction (adamant.global.v1.SendTransactionRequest) returns (adamant.global.v1.SendTransactionResponse) {
+        option (google.api.http) = {
+            put: "/v1/wallets/{wallet_id}/transactions/{transaction_id}/send",
+            body: "*"
+        };
+    }
+    rpc CancelTransaction (adamant.global.v1.CancelTransactionRequest) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            put: "/v1/wallets/{wallet_id}/transactions/{transaction_id}/cancel",
+            body: "*"
+        };
+    }
+    rpc GetTransaction (adamant.global.v1.GetTransactionRequest) returns (adamant.global.v1.Transaction) {
+        option (google.api.http) = {
+            get: "/v1/wallets/{wallet_id}/transactions/{transaction_id}",
+        };
+    }
+    rpc GetTransactionByTxID (adamant.global.v1.GetTransactionByTxIDRequest) returns (adamant.global.v1.Transaction) {
+        option (google.api.http) = {
+            get: "/v1/wallets/{wallet_id}/transactions",
+        };
+    }
+    rpc ListTransactions (adamant.global.v1.ListTransactionsRequest) returns (adamant.global.v1.ListTransactionsResponse) {
+        option (google.api.http) = {
+            get: "/v1/wallets/{wallet_id}/transactions",
+        };
+    }
 
     // List transfers for a given wallet. Ordered by update time desc
-    rpc ListTransfers (adamant.global.v1.ListTransfersRequest) returns (adamant.global.v1.ListTransfersResponse) {}
+    rpc ListTransfers (adamant.global.v1.ListTransfersRequest) returns (adamant.global.v1.ListTransfersResponse) {
+        option (google.api.http) = {
+            get: "/v1/wallets/{wallet_id}/transfers",
+        };
+    }
 
     // Get rates by snapshot id
-    rpc GetRateSnapshot (adamant.global.v1.GetRateSnapshotRequest) returns (adamant.global.v1.RateSnapshot) {}
+    rpc GetRateSnapshot (adamant.global.v1.GetRateSnapshotRequest) returns (adamant.global.v1.RateSnapshot) {
+        option (google.api.http) = {
+            get: "/v1/rate_snapshots/{rate_snapshot_id}",
+        };
+    }
     // Get latest rates set to your organization
-    rpc GetLatestRateSnapshot (adamant.global.v1.GetLatestRateSnapshotRequest) returns (adamant.global.v1.RateSnapshot) {}
+    rpc GetLatestRateSnapshot (adamant.global.v1.GetLatestRateSnapshotRequest) returns (adamant.global.v1.RateSnapshot) {
+        option (google.api.http) = {
+            get: "/v1/rate_snapshots/latest",
+        };
+    }
     // Set rates to your organization
-    rpc SetRates (adamant.global.v1.SetRatesRequest) returns (adamant.global.v1.SetRatesResponse) {}
+    rpc SetRates (adamant.global.v1.SetRatesRequest) returns (adamant.global.v1.SetRatesResponse) {
+        option (google.api.http) = {
+            post: "/v1/rates",
+            body: "*"
+        };
+    }
 
-    rpc CalculateFee (adamant.global.v1.CalculateFeeRequest) returns (adamant.global.v1.CalculateFeeResponse) {}
-    rpc GetRecommendedFeeRate (adamant.global.v1.GetRecommendedFeeRateRequest) returns (adamant.global.v1.GetRecommendedFeeRateResponse) {}
+    rpc CalculateFee (adamant.global.v1.CalculateFeeRequest) returns (adamant.global.v1.CalculateFeeResponse) {
+        option (google.api.http) = {
+            get: "/v1/calculate_fee",
+        };
+    }
+    rpc GetRecommendedFeeRate (adamant.global.v1.GetRecommendedFeeRateRequest) returns (adamant.global.v1.GetRecommendedFeeRateResponse) {
+        option (google.api.http) = {
+            get: "/v1/recommended_fee_rates/{coin}",
+        };
+    }
     // Validate format of given address
-    rpc ValidateAddress (adamant.global.v1.ValidateAddressRequest) returns (adamant.global.v1.ValidateAddressResponse) {}
+    rpc ValidateAddress (adamant.global.v1.ValidateAddressRequest) returns (adamant.global.v1.ValidateAddressResponse) {
+        option (google.api.http) = {
+            get: "/v1/validate_address",
+        };
+    }
 }
 
 message CreateWalletRequest {
