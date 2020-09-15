@@ -54,6 +54,7 @@ service TellerAPI {
     rpc GetRecommendedFeeRate (adamant.global.v1.GetRecommendedFeeRateRequest) returns (adamant.global.v1.GetRecommendedFeeRateResponse) {}
     // Validate format of given address
     rpc ValidateAddress (adamant.global.v1.ValidateAddressRequest) returns (adamant.global.v1.ValidateAddressResponse) {}
+    rpc FlushBalance (adamant.global.v1.FlushBalanceRequest) returns (google.protobuf.Empty) {}
 }
 
 message CreateWalletRequest {
