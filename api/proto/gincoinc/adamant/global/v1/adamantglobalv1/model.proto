@@ -191,6 +191,7 @@ message BitcoincashSpecific {
 message EthereumSpecific {
     uint64 gas_limit = 1;
     uint64 nonce = 2;
+    bool isNextNonce = 3;
 }
 
 // The model of XRP specific fields of transaction
@@ -198,6 +199,7 @@ message XrpSpecific {
     uint32 sequence_number = 1;
     uint32 destination_tag = 2;
     gincoinc.global.v1.XRPTransactionType tx_type = 3;
+    bool isNextSequenceNumber = 4;
 }
 
 // The model of information about signing
@@ -389,18 +391,19 @@ message ListTransferVolumeSnapshots {
 
 // The model of transfer volume snapshot
 message TransferVolumeSnapshot {
-    google.protobuf.Timestamp create_time = 1;
+    google.protobuf.Timestamp target_time = 1;
     map<int32, TransferVolume> transfer_volume_by_coin = 2;//map<k, v> ... k: coin / v: TransferVolumeByCoin
-    map<uint32, Rate> rates = 3 [(validate.rules).map.no_sparse = true];//map<k, v> ... k: coin / v: Rate
 }
 
 message TransferVolume {
     gincoinc.global.v1.Coin coin = 1; //coin
     string hot_string_volume = 2 ; //hot volume
     string cold_string_volume = 3 ; //col volume
-    int64 hot_number = 4; // hot transfer number volume
-    int64 cold_number = 5; // cold transfer number volume
-    gincoinc.global.v1.TransferType transfer_type = 6; // transfer type
+    string hot_string_jpy_volume = 4 ; //hot volume
+    string cold_string_jpy_volume = 5 ; //col volume
+    int64 hot_number = 6; // hot transfer number volume
+    int64 cold_number = 7; // cold transfer number volume
+    gincoinc.global.v1.TransferType transfer_type = 8; // transfer type
 }
 
 message WalletTransferVolumeSnapshots {
@@ -412,15 +415,15 @@ message ListWalletTransferVolumeSnapshots {
 }
 
 message WalletTransferVolumeSnapshot {
-    google.protobuf.Timestamp create_time = 1;
+    google.protobuf.Timestamp target_time = 1;
     map<int32, WalletTransferVolume> wallet_transfer_volume_by_transfer_type = 2;//map<k, v> ... k: transfer type / v:TransferVolumeByCoin
-    Rate rate = 6;//JPY rate
 }
 
 message WalletTransferVolume {
     string string_volume = 1; //coin volume
-    int64 number = 2; // transfer number volume
-    gincoinc.global.v1.TransferType transfer_type = 3; // transfer type;
+    string string_jpy_volume = 2 ; //hot volume
+    int64 number = 3; // transfer number volume
+    gincoinc.global.v1.TransferType transfer_type = 4; // transfer type;
 }
 
 // The model of confirmation

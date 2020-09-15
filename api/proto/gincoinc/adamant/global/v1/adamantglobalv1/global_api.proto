@@ -27,6 +27,7 @@ service GlobalAPI {
     rpc UpdateWalletValidation (UpdateWalletValidationRequest) returns (google.protobuf.Empty) {}
     rpc UpdateWalletPolicy (UpdateWalletPolicyRequest) returns (google.protobuf.Empty) {}
     rpc ReviewWalletProposal (ReviewWalletProposalRequest) returns (google.protobuf.Empty) {}
+    rpc FlushBalance (FlushBalanceRequest) returns (google.protobuf.Empty) {}
 
     // Review
     rpc ApproveWallet (ApproveWalletRequest) returns (google.protobuf.Empty) {}
@@ -217,6 +218,10 @@ message ExistsWalletByNameResponse {
     bool exists = 1;
 }
 
+message FlushBalanceRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+}
+
 // -----------------------------------------------------------------------------
 // Key
 // -----------------------------------------------------------------------------
@@ -268,6 +273,10 @@ message ListAddressesResponse {
 }
 
 message GetEthereumFeeAddressRequest {}
+
+message DeleteAllWatchOnlyAddressesByWalletIDRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+}
 
 // -----------------------------------------------------------------------------
 // Transaction
