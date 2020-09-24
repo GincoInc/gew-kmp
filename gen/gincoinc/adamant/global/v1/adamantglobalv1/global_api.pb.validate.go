@@ -1493,6 +1493,82 @@ var _ interface {
 	ErrorName() string
 } = ExistsWalletByNameResponseValidationError{}
 
+// Validate checks the field values on FlushBalanceRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *FlushBalanceRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_FlushBalanceRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return FlushBalanceRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// FlushBalanceRequestValidationError is the validation error returned by
+// FlushBalanceRequest.Validate if the designated constraints aren't met.
+type FlushBalanceRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e FlushBalanceRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e FlushBalanceRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e FlushBalanceRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e FlushBalanceRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e FlushBalanceRequestValidationError) ErrorName() string {
+	return "FlushBalanceRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e FlushBalanceRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sFlushBalanceRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = FlushBalanceRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = FlushBalanceRequestValidationError{}
+
+var _FlushBalanceRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on RegisterKeyRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -2288,6 +2364,84 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = GetEthereumFeeAddressRequestValidationError{}
+
+// Validate checks the field values on
+// DeleteAllWatchOnlyAddressesByWalletIDRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, an error is returned.
+func (m *DeleteAllWatchOnlyAddressesByWalletIDRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_DeleteAllWatchOnlyAddressesByWalletIDRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return DeleteAllWatchOnlyAddressesByWalletIDRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// DeleteAllWatchOnlyAddressesByWalletIDRequestValidationError is the
+// validation error returned by
+// DeleteAllWatchOnlyAddressesByWalletIDRequest.Validate if the designated
+// constraints aren't met.
+type DeleteAllWatchOnlyAddressesByWalletIDRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DeleteAllWatchOnlyAddressesByWalletIDRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DeleteAllWatchOnlyAddressesByWalletIDRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DeleteAllWatchOnlyAddressesByWalletIDRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DeleteAllWatchOnlyAddressesByWalletIDRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DeleteAllWatchOnlyAddressesByWalletIDRequestValidationError) ErrorName() string {
+	return "DeleteAllWatchOnlyAddressesByWalletIDRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e DeleteAllWatchOnlyAddressesByWalletIDRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDeleteAllWatchOnlyAddressesByWalletIDRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DeleteAllWatchOnlyAddressesByWalletIDRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DeleteAllWatchOnlyAddressesByWalletIDRequestValidationError{}
+
+var _DeleteAllWatchOnlyAddressesByWalletIDRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on CreateTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are

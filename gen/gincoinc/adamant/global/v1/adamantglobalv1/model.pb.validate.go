@@ -1523,6 +1523,8 @@ func (m *EthereumSpecific) Validate() error {
 
 	// no validation rules for Nonce
 
+	// no validation rules for IsNextNonce
+
 	return nil
 }
 
@@ -1593,6 +1595,8 @@ func (m *XrpSpecific) Validate() error {
 	// no validation rules for DestinationTag
 
 	// no validation rules for TxType
+
+	// no validation rules for IsNextSequenceNumber
 
 	return nil
 }
@@ -3556,10 +3560,10 @@ func (m *TransferVolumeSnapshot) Validate() error {
 		return nil
 	}
 
-	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
+	if v, ok := interface{}(m.GetTargetTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
 			return TransferVolumeSnapshotValidationError{
-				field:  "CreateTime",
+				field:  "TargetTime",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -3567,30 +3571,6 @@ func (m *TransferVolumeSnapshot) Validate() error {
 	}
 
 	// no validation rules for TransferVolumeByCoin
-
-	for key, val := range m.GetRates() {
-		_ = val
-
-		if val == nil {
-			return TransferVolumeSnapshotValidationError{
-				field:  fmt.Sprintf("Rates[%v]", key),
-				reason: "value cannot be sparse, all pairs must be non-nil",
-			}
-		}
-
-		// no validation rules for Rates[key]
-
-		if v, ok := interface{}(val).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return TransferVolumeSnapshotValidationError{
-					field:  fmt.Sprintf("Rates[%v]", key),
-					reason: "embedded message failed validation",
-					cause:  err,
-				}
-			}
-		}
-
-	}
 
 	return nil
 }
@@ -3664,6 +3644,10 @@ func (m *TransferVolume) Validate() error {
 	// no validation rules for HotStringVolume
 
 	// no validation rules for ColdStringVolume
+
+	// no validation rules for HotStringJpyVolume
+
+	// no validation rules for ColdStringJpyVolume
 
 	// no validation rules for HotNumber
 
@@ -3911,10 +3895,10 @@ func (m *WalletTransferVolumeSnapshot) Validate() error {
 		return nil
 	}
 
-	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
+	if v, ok := interface{}(m.GetTargetTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
 			return WalletTransferVolumeSnapshotValidationError{
-				field:  "CreateTime",
+				field:  "TargetTime",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -3922,16 +3906,6 @@ func (m *WalletTransferVolumeSnapshot) Validate() error {
 	}
 
 	// no validation rules for WalletTransferVolumeByTransferType
-
-	if v, ok := interface{}(m.GetRate()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return WalletTransferVolumeSnapshotValidationError{
-				field:  "Rate",
-				reason: "embedded message failed validation",
-				cause:  err,
-			}
-		}
-	}
 
 	return nil
 }
@@ -4002,6 +3976,8 @@ func (m *WalletTransferVolume) Validate() error {
 	}
 
 	// no validation rules for StringVolume
+
+	// no validation rules for StringJpyVolume
 
 	// no validation rules for Number
 
