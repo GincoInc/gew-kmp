@@ -41,6 +41,9 @@ enum WalletState {
   WALLET_STATE_ADDRESS_IMPORT_WAITING = 15;//Waiting for import address
   WALLET_STATE_ADDRESS_IMPORTING = 16;//Importing address
   WALLET_STATE_ADDRESS_IMPORT_FAILED = 17;// Failed import address
+  WALLET_STATE_ADDRESS_DELETING = 18;// Deleting address
+  WALLET_STATE_ADDRESS_DELETE_FAILED = 19;// Failed delete address
+  WALLET_STATE_FLUSHING = 20;// Balance flushing
 }
 
 // WalletProposalType is a type of proposal
@@ -293,6 +296,7 @@ enum PreconditionFailureType {
   PRECONDITION_FAILURE_TYPE_WHITELIST_OF_BASEPOLICY = 16;
   PRECONDITION_FAILURE_TYPE_CANNOT_ARCHIVE_WALLET_WITH_BALANCE = 17;
   PRECONDITION_FAILURE_TYPE_TEMPORARY_INCREASE_IN_FEERATE = 18;
+  PRECONDITION_FAILURE_TYPE_INSUFFICIENT_FEE_ACCOUNT_BALANCE = 20;
 
   // subscription
   PRECONDITION_FAILURE_TYPE_PROHIBITED_BY_SUBSCRIPTION = 19;
@@ -313,6 +317,7 @@ enum ListFilterType {
   LIST_FILTER_TYPE_ADDRESS = 7;
   LIST_FILTER_TYPE_TXID = 8;
   LIST_FILTER_TYPE_OWNER_ID = 9;
+  LIST_FILTER_TYPE_WALLET_ID_CREATE_TIME = 10;
 }
 
 // -----------------------------------------------------------------------------
@@ -331,12 +336,16 @@ enum MailType {
 }
 
 // -----------------------------------------------------------------------------
-// Import Address
+// WatchOnly Address
 // -----------------------------------------------------------------------------
 
-enum ImportAddressState {
-  IMPORT_ADDRESS_STATE_INVALID = 0;
-  IMPORT_ADDRESS_STATE_ADDRESS_IMPORTING = 1;
-  IMPORT_ADDRESS_STATE_ADDRESS_IMPORTED = 2;
-  IMPORT_ADDRESS_STATE_IMPORT_FAILED = 3;
+enum WatchOnlyAddressState {
+  WATCH_ONLY_ADDRESS_STATE_INVALID = 0;
+  WATCH_ONLY_ADDRESS_STATE_ADDRESS_IMPORTING = 1;
+  WATCH_ONLY_ADDRESS_STATE_ADDRESS_IMPORTED = 2;
+  WATCH_ONLY_ADDRESS_STATE_IMPORT_FAILED = 3;
+  WATCH_ONLY_ADDRESS_STATE_ADDRESS_DELETING = 4;
+  WATCH_ONLY_ADDRESS_STATE_ADDRESS_DELETED = 5;
+  WATCH_ONLY_ADDRESS_STATE_DELETE_FAILED = 6;
+  WATCH_ONLY_ADDRESS_STATE_DOWNLOAD = 7;
 }
