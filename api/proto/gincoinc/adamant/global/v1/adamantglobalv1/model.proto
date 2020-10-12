@@ -110,6 +110,18 @@ message Address {
     google.protobuf.Timestamp update_time = 12; // the time at which the address was updated
 }
 
+message FlushedAddress {
+    string wallet_id = 1; // The id of wallet
+    string address_id = 2; // id
+    gincoinc.global.v1.Coin coin = 3; // The type of coin
+    string address = 4; // address
+    uint32 index = 5; // The index of address
+    double value = 6; // The number-typed value corresponding to the address
+    string string_value = 7; // The string-typed string value corresponding to the address
+    AddressState state = 9; // state
+    gincoinc.global.v1.AddressType address_type = 10; // The type of address
+}
+
 // The model of address which hold ETH for ethereum wallet/address creation etc
 message EthereumFeeAddress {
     string address = 1; // ethereum address
