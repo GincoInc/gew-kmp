@@ -1569,6 +1569,88 @@ var _ interface {
 
 var _FlushBalanceRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+// Validate checks the field values on FlushBalanceResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *FlushBalanceResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetFlushedAddresses() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return FlushBalanceResponseValidationError{
+					field:  fmt.Sprintf("FlushedAddresses[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// FlushBalanceResponseValidationError is the validation error returned by
+// FlushBalanceResponse.Validate if the designated constraints aren't met.
+type FlushBalanceResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e FlushBalanceResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e FlushBalanceResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e FlushBalanceResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e FlushBalanceResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e FlushBalanceResponseValidationError) ErrorName() string {
+	return "FlushBalanceResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e FlushBalanceResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sFlushBalanceResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = FlushBalanceResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = FlushBalanceResponseValidationError{}
+
 // Validate checks the field values on RegisterKeyRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
