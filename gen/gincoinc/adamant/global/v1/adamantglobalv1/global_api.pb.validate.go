@@ -2770,6 +2770,83 @@ var _ interface {
 
 var _CreateXRPInitTransactionsRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+// Validate checks the field values on CreateInitTransactionRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CreateInitTransactionRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_CreateInitTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return CreateInitTransactionRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// CreateInitTransactionRequestValidationError is the validation error returned
+// by CreateInitTransactionRequest.Validate if the designated constraints
+// aren't met.
+type CreateInitTransactionRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateInitTransactionRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateInitTransactionRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateInitTransactionRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateInitTransactionRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateInitTransactionRequestValidationError) ErrorName() string {
+	return "CreateInitTransactionRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateInitTransactionRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateInitTransactionRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateInitTransactionRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateInitTransactionRequestValidationError{}
+
+var _CreateInitTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on SignTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -2988,6 +3065,113 @@ var _ interface {
 var _SignXRPInitTransactionsRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _SignXRPInitTransactionsRequest_KeyId_Pattern = regexp.MustCompile("^[0-9A-F]{64}$")
+
+// Validate checks the field values on SignInitTransactionRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *SignInitTransactionRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_SignInitTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return SignInitTransactionRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	if !_SignInitTransactionRequest_KeyId_Pattern.MatchString(m.GetKeyId()) {
+		return SignInitTransactionRequestValidationError{
+			field:  "KeyId",
+			reason: "value does not match regex pattern \"^[0-9A-F]{64}$\"",
+		}
+	}
+
+	if len(m.GetSignedInfo()) < 1 {
+		return SignInitTransactionRequestValidationError{
+			field:  "SignedInfo",
+			reason: "value must contain at least 1 item(s)",
+		}
+	}
+
+	for idx, item := range m.GetSignedInfo() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return SignInitTransactionRequestValidationError{
+					field:  fmt.Sprintf("SignedInfo[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// SignInitTransactionRequestValidationError is the validation error returned
+// by SignInitTransactionRequest.Validate if the designated constraints aren't met.
+type SignInitTransactionRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SignInitTransactionRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SignInitTransactionRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SignInitTransactionRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SignInitTransactionRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SignInitTransactionRequestValidationError) ErrorName() string {
+	return "SignInitTransactionRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SignInitTransactionRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSignInitTransactionRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SignInitTransactionRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SignInitTransactionRequestValidationError{}
+
+var _SignInitTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _SignInitTransactionRequest_KeyId_Pattern = regexp.MustCompile("^[0-9A-F]{64}$")
 
 // Validate checks the field values on SendTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -3287,6 +3471,150 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = SendXRPInitTransactionsResponseValidationError{}
+
+// Validate checks the field values on SendInitTransactionRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *SendInitTransactionRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_SendInitTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return SendInitTransactionRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// SendInitTransactionRequestValidationError is the validation error returned
+// by SendInitTransactionRequest.Validate if the designated constraints aren't met.
+type SendInitTransactionRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SendInitTransactionRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SendInitTransactionRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SendInitTransactionRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SendInitTransactionRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SendInitTransactionRequestValidationError) ErrorName() string {
+	return "SendInitTransactionRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SendInitTransactionRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSendInitTransactionRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SendInitTransactionRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SendInitTransactionRequestValidationError{}
+
+var _SendInitTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on SendInitTransactionResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *SendInitTransactionResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// SendInitTransactionResponseValidationError is the validation error returned
+// by SendInitTransactionResponse.Validate if the designated constraints
+// aren't met.
+type SendInitTransactionResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SendInitTransactionResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SendInitTransactionResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SendInitTransactionResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SendInitTransactionResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SendInitTransactionResponseValidationError) ErrorName() string {
+	return "SendInitTransactionResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SendInitTransactionResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSendInitTransactionResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SendInitTransactionResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SendInitTransactionResponseValidationError{}
 
 // Validate checks the field values on CancelTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -4130,6 +4458,82 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListXRPInitSignInfoResponseValidationError{}
+
+// Validate checks the field values on ListInitSignInfoRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ListInitSignInfoRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_ListInitSignInfoRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return ListInitSignInfoRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// ListInitSignInfoRequestValidationError is the validation error returned by
+// ListInitSignInfoRequest.Validate if the designated constraints aren't met.
+type ListInitSignInfoRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListInitSignInfoRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListInitSignInfoRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListInitSignInfoRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListInitSignInfoRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListInitSignInfoRequestValidationError) ErrorName() string {
+	return "ListInitSignInfoRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListInitSignInfoRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListInitSignInfoRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListInitSignInfoRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListInitSignInfoRequestValidationError{}
+
+var _ListInitSignInfoRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on ListTransfersRequest with the rules
 // defined in the proto definition for this message. If any rules are

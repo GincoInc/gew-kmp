@@ -203,7 +203,7 @@ message BitcoincashSpecific {
 message EthereumSpecific {
     uint64 gas_limit = 1;
     uint64 nonce = 2;
-    bool isNextNonce = 3;
+    bool is_next_nonce = 3;
 }
 
 // The model of XRP specific fields of transaction
@@ -211,7 +211,7 @@ message XrpSpecific {
     uint32 sequence_number = 1;
     uint32 destination_tag = 2;
     gincoinc.global.v1.XRPTransactionType tx_type = 3;
-    bool isNextSequenceNumber = 4;
+    bool is_next_sequence_number = 4;
 }
 
 // The model of information about signing
