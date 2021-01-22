@@ -52,6 +52,10 @@ var (
 
 	_ = gincoincglobalv1.Coin(0)
 
+	_ = gincoincglobalv1.AddressType(0)
+
+	_ = gincoincglobalv1.Coin(0)
+
 	_ = gincoincglobalv1.XRPTransactionType(0)
 
 	_ = gincoincglobalv1.Coin(0)
@@ -96,6 +100,8 @@ func (m *Wallet) Validate() error {
 	if m == nil {
 		return nil
 	}
+
+	// no validation rules for OwnerId
 
 	// no validation rules for WalletId
 
@@ -255,6 +261,8 @@ func (m *WalletWithoutBalance) Validate() error {
 	if m == nil {
 		return nil
 	}
+
+	// no validation rules for OwnerId
 
 	// no validation rules for WalletId
 
@@ -741,6 +749,107 @@ var _ interface {
 	ErrorName() string
 } = AddressValidationError{}
 
+// Validate checks the field values on AddressWithoutBalance with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *AddressWithoutBalance) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for WalletId
+
+	// no validation rules for AddressId
+
+	// no validation rules for Coin
+
+	// no validation rules for Address
+
+	// no validation rules for Index
+
+	// no validation rules for State
+
+	// no validation rules for AddressType
+
+	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return AddressWithoutBalanceValidationError{
+				field:  "CreateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetUpdateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return AddressWithoutBalanceValidationError{
+				field:  "UpdateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// AddressWithoutBalanceValidationError is the validation error returned by
+// AddressWithoutBalance.Validate if the designated constraints aren't met.
+type AddressWithoutBalanceValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AddressWithoutBalanceValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AddressWithoutBalanceValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AddressWithoutBalanceValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AddressWithoutBalanceValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AddressWithoutBalanceValidationError) ErrorName() string {
+	return "AddressWithoutBalanceValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AddressWithoutBalanceValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAddressWithoutBalance.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AddressWithoutBalanceValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AddressWithoutBalanceValidationError{}
+
 // Validate checks the field values on FlushedAddress with the rules defined in
 // the proto definition for this message. If any rules are violated, an error
 // is returned.
@@ -897,6 +1006,79 @@ var _ interface {
 	ErrorName() string
 } = EthereumFeeAddressValidationError{}
 
+// Validate checks the field values on AddressWithBalance with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *AddressWithBalance) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Address
+
+	// no validation rules for Balance
+
+	// no validation rules for StringBalance
+
+	return nil
+}
+
+// AddressWithBalanceValidationError is the validation error returned by
+// AddressWithBalance.Validate if the designated constraints aren't met.
+type AddressWithBalanceValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AddressWithBalanceValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AddressWithBalanceValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AddressWithBalanceValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AddressWithBalanceValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AddressWithBalanceValidationError) ErrorName() string {
+	return "AddressWithBalanceValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AddressWithBalanceValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAddressWithBalance.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AddressWithBalanceValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AddressWithBalanceValidationError{}
+
 // Validate checks the field values on Transaction with the rules defined in
 // the proto definition for this message. If any rules are violated, an error
 // is returned.
@@ -1003,6 +1185,16 @@ func (m *Transaction) Validate() error {
 		if err := v.Validate(); err != nil {
 			return TransactionValidationError{
 				field:  "XrpSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetTronSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "TronSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -1742,6 +1934,73 @@ var _ interface {
 	ErrorName() string
 } = XrpSpecificValidationError{}
 
+// Validate checks the field values on TronSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *TronSpecific) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Expiration
+
+	return nil
+}
+
+// TronSpecificValidationError is the validation error returned by
+// TronSpecific.Validate if the designated constraints aren't met.
+type TronSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TronSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TronSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TronSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TronSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TronSpecificValidationError) ErrorName() string { return "TronSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e TronSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTronSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TronSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TronSpecificValidationError{}
+
 // Validate checks the field values on SignInfo with the rules defined in the
 // proto definition for this message. If any rules are violated, an error is returned.
 func (m *SignInfo) Validate() error {
@@ -2256,8 +2515,6 @@ func (m *LabeledAddress) Validate() error {
 		}
 	}
 
-	// no validation rules for IsDeletable
-
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
 			return LabeledAddressValidationError{
@@ -2442,8 +2699,6 @@ func (m *Whitelist) Validate() error {
 
 	}
 
-	// no validation rules for IsDeletable
-
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
 			return WhitelistValidationError{
@@ -2552,8 +2807,6 @@ func (m *TransferLimit) Validate() error {
 	}
 
 	// no validation rules for IsReviewed
-
-	// no validation rules for IsDeletable
 
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
@@ -2751,8 +3004,6 @@ func (m *Policy) Validate() error {
 			}
 		}
 	}
-
-	// no validation rules for IsDeletable
 
 	if v, ok := interface{}(m.GetProposal()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {

@@ -57,6 +57,7 @@ enum TransactionState {
   TRANSACTION_STATE_PENDING = 2;//Transaction is included in mempool
   TRANSACTION_STATE_PROCESSING = 3;//Transaction is included in a block
   TRANSACTION_STATE_CONFIRMED = 4;//Exceeded number of confirmations specified
+  TRANSACTION_STATE_DROPPED = 5;//Transaction is dropped
 }
 
 // UTXOState is a state of UTXO.
