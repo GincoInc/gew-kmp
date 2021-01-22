@@ -304,6 +304,11 @@ message CreateXRPInitTransactionsRequest {
     // feature: bool require_dest
 }
 
+
+message CreateInitTransactionRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+}
+
 message SignTransactionRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
@@ -317,6 +322,11 @@ message SignXRPInitTransactionsRequest {
     repeated adamant.global.v1.RequestSignedInfo signed_info = 4 [(validate.rules).repeated.min_items = 1];
 }
 
+message SignInitTransactionRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string key_id = 2 [(validate.rules).string = {pattern: "^[0-9A-F]{64}$"}];
+    repeated adamant.global.v1.RequestSignedInfo signed_info = 4 [(validate.rules).repeated.min_items = 1];
+}
 message SendTransactionRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
@@ -329,6 +339,14 @@ message SendXRPInitTransactionsRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 message SendXRPInitTransactionsResponse {
+    repeated string tx_ids = 1;
+}
+
+message SendInitTransactionRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+}
+
+message SendInitTransactionResponse {
     repeated string tx_ids = 1;
 }
 
@@ -379,6 +397,10 @@ message ListXRPInitSignInfoRequest {
 }
 message ListXRPInitSignInfoResponse {
     repeated SignInfo sign_info_list = 1;
+}
+
+message ListInitSignInfoRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
 // -----------------------------------------------------------------------------
