@@ -15,6 +15,7 @@ import "gincoinc/adamant/global/v1/adamantglobalv1/enum.proto";
 
 // The wallet model
 message Wallet {
+    string owner_id = 23; // organization id
     string wallet_id = 1; // id
     string name = 2; // name
     gincoinc.global.v1.Coin coin = 3; // The type of asset
@@ -40,6 +41,7 @@ message Wallet {
 }
 
 message WalletWithoutBalance {
+    string owner_id = 20;
     string wallet_id = 1;
     string name = 2;
     gincoinc.global.v1.Coin coin = 3;
@@ -110,6 +112,20 @@ message Address {
     google.protobuf.Timestamp update_time = 12; // the time at which the address was updated
 }
 
+
+// The model of AddressWithoutBalance
+message AddressWithoutBalance {
+    string wallet_id = 1; // The id of wallet
+    string address_id = 2; // id
+    gincoinc.global.v1.Coin coin = 3; // The type of coin
+    string address = 4; // address
+    uint32 index = 5; // The index of address
+    AddressState state = 6; // state
+    gincoinc.global.v1.AddressType address_type = 7; // The type of address
+    google.protobuf.Timestamp create_time = 8; // the time at which the address was created
+    google.protobuf.Timestamp update_time = 9; // the time at which the address was updated
+}
+
 message FlushedAddress {
     string wallet_id = 1; // The id of wallet
     string address_id = 2; // id
@@ -125,6 +141,12 @@ message FlushedAddress {
 // The model of address which hold ETH for ethereum wallet/address creation etc
 message EthereumFeeAddress {
     string address = 1; // ethereum address
+    double balance = 2; // The number-typed balance corresponding to the address
+    string string_balance = 3; // The string-typed balance corresponding to the address
+}
+
+message AddressWithBalance {
+    string address = 1; // address
     double balance = 2; // The number-typed balance corresponding to the address
     string string_balance = 3; // The string-typed balance corresponding to the address
 }
@@ -150,6 +172,7 @@ message Transaction {
     LitecoinSpecific litecoin_specific = 23; // The Litecoin specific fields
     BitcoincashSpecific bitcoincash_specific = 24; // The Bitcoin Cash specific fields
     XrpSpecific xrp_specific = 21; // The XRP specific fields
+    TronSpecific tron_specific = 25; // The Tron specific fields
     google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
     google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -212,6 +235,11 @@ message XrpSpecific {
     uint32 destination_tag = 2;
     gincoinc.global.v1.XRPTransactionType tx_type = 3;
     bool is_next_sequence_number = 4;
+}
+
+// The model of Tron specific fields of transaction
+message TronSpecific {
+    uint64 expiration = 1;
 }
 
 // The model of information about signing
@@ -281,7 +309,6 @@ message LabeledAddress {
     gincoinc.global.v1.Coin coin = 3; // coin
     string address = 4; // address
     LabeledAddressProposal proposal = 5; // The proposal about updating the labeled address
-    bool is_deletable = 6; // The flag which indicates the labeled address is deletable
     google.protobuf.Timestamp create_time = 7;// the time at which the labeled address was created
     google.protobuf.Timestamp update_time = 8;// the time at which the labeled address was updated
 }
@@ -302,7 +329,6 @@ message Whitelist {
     string name = 2; // name
     gincoinc.global.v1.Coin coin = 3; // coin
     repeated LabeledAddress addresses = 4; // The list of labeled addresses registered in the whitelist
-    bool is_deletable = 5; // The flag which indicates the labeled address is deletable
     google.protobuf.Timestamp create_time = 6; // the time at which the whitelist was created
     google.protobuf.Timestamp update_time = 7; // the time at which the whitelist was updated
 }
@@ -317,7 +343,6 @@ message TransferLimit {
     int64 one_time_limit = 6; // The daily limit of amount which the wallet can transfer (in JPY)
     TransferLimitProposal proposal = 7; // The proposal about updating the transfer limit
     bool is_reviewed = 8; // The flag which indicates the transfer limit is reviewed or not
-    bool is_deletable = 9; // The flag which indicates the transfer limit is deletable
     google.protobuf.Timestamp create_time = 10; // the time at which the whitelist was created
     google.protobuf.Timestamp update_time = 11; // the time at which the whitelist was updated
 }
@@ -343,7 +368,6 @@ message Policy {
     gincoinc.global.v1.Coin coin = 5; // coin
     Whitelist whitelist = 6; // whitelist
     TransferLimit transfer_limit = 7; // transfer limit
-    bool is_deletable = 8; // The flag which indicates the policy is deletable
     PolicyProposal proposal = 11; // // The proposal about updating the policy
     google.protobuf.Timestamp create_time = 9; // the time at which the policy was created
     google.protobuf.Timestamp update_time = 10; // the time at which the policy was updated

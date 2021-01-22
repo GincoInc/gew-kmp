@@ -24,6 +24,7 @@ service GlobalAPI {
     rpc ArchiveWallet (ArchiveWalletRequest) returns (google.protobuf.Empty) {}
     rpc UnArchiveWallet (UnArchiveWalletRequest) returns (google.protobuf.Empty) {}
     rpc ListWallets (ListWalletsRequest) returns (ListWalletsResponse) {}
+    rpc UpdateWalletName (UpdateWalletNameRequest) returns (google.protobuf.Empty) {}
     rpc UpdateWalletValidation (UpdateWalletValidationRequest) returns (google.protobuf.Empty) {}
     rpc UpdateWalletPolicy (UpdateWalletPolicyRequest) returns (google.protobuf.Empty) {}
     rpc ReviewWalletProposal (ReviewWalletProposalRequest) returns (google.protobuf.Empty) {}
@@ -40,6 +41,7 @@ service GlobalAPI {
     rpc GetAddressByAddress (GetAddressByAddressRequest) returns (Address) {}
     rpc GetAddressByIndex (GetAddressByIndexRequest) returns (Address) {}
     rpc ListAddresses (ListAddressesRequest) returns (ListAddressesResponse) {}
+    rpc ListAddressesWithBalance (ListAddressesWithBalanceRequest) returns (ListAddressesWithBalanceResponse) {}
     // Get an address which hold ETH for ethereum wallet/address creation etc
     rpc GetEthereumFeeAddress (GetEthereumFeeAddressRequest) returns (EthereumFeeAddress) {}
 
@@ -79,6 +81,7 @@ service GlobalAPI {
     rpc CreateLabeledAddress (CreateLabeledAddressRequest) returns (CreateLabeledAddressResponse) {}
     rpc GetLabeledAddress (GetLabeledAddressRequest) returns (LabeledAddress) {}
     rpc ListLabeledAddresses (ListLabeledAddressesRequest) returns (ListLabeledAddressesResponse) {}
+    rpc IsDeletableLabeledAddress (IsDeletableLabeledAddressRequest) returns (IsDeletableLabeledAddressResponse) {}
     rpc UpdateLabeledAddress (UpdateLabeledAddressRequest) returns (LabeledAddress) {}
     rpc DeleteAddress (DeleteLabeledAddressRequest) returns (google.protobuf.Empty) {}
     rpc ReviewLabeledAddressProposal (ReviewLabeledAddressProposalRequest) returns (google.protobuf.Empty) {}
@@ -86,6 +89,7 @@ service GlobalAPI {
     rpc CreateWhitelist (CreateWhitelistRequest) returns (CreateWhitelistResponse) {}
     rpc GetWhitelist (GetWhitelistRequest) returns (Whitelist) {}
     rpc ListWhitelists (ListWhitelistsRequest) returns (ListWhitelistsResponse) {}
+    rpc IsDeletableWhitelist (IsDeletableWhitelistRequest) returns (IsDeletableWhitelistResponse) {}
     rpc UpdateWhitelist (UpdateWhitelistRequest) returns (Whitelist) {}
     rpc UpdateWhitelistAddresses (UpdateWhitelistAddressesRequest) returns (Whitelist) {}
     rpc DeleteWhitelist (DeleteWhitelistRequest) returns (google.protobuf.Empty) {}
@@ -93,6 +97,7 @@ service GlobalAPI {
     rpc CreateTransferLimit (CreateTransferLimitRequest) returns (CreateTransferLimitResponse) {}
     rpc GetTransferLimit (GetTransferLimitRequest) returns (TransferLimit) {}
     rpc ListTransferLimits (ListTransferLimitsRequest) returns (ListTransferLimitsResponse) {}
+    rpc IsDeletableTransferLimit (IsDeletableTransferLimitRequest) returns (IsDeletableTransferLimitResponse) {}
     rpc UpdateTransferLimit (UpdateTransferLimitRequest) returns (TransferLimit) {}
     rpc UpdateTransferLimitName (UpdateTransferLimitNameRequest) returns (adamant.global.v1.TransferLimit) {}
     rpc DeleteTransferLimit (DeleteTransferLimitRequest) returns (google.protobuf.Empty) {}
@@ -101,6 +106,7 @@ service GlobalAPI {
     rpc CreatePolicy (CreatePolicyRequest) returns (CreatePolicyResponse) {}
     rpc GetPolicy (GetPolicyRequest) returns (Policy) {}
     rpc ListPolicies (ListPoliciesRequest) returns (ListPoliciesResponse) {}
+    rpc IsDeletablePolicy (IsDeletablePolicyRequest) returns (IsDeletablePolicyResponse) {}
     rpc UpdatePolicy (UpdatePolicyRequest) returns (Policy) {}
     rpc DeletePolicy (DeletePolicyRequest) returns (google.protobuf.Empty) {}
     rpc ReviewPolicyProposal (ReviewPolicyProposalRequest) returns (google.protobuf.Empty) {}
@@ -194,6 +200,11 @@ message ListWalletsResponse {
     string next_page_token = 2;
 }
 
+message UpdateWalletNameRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string name = 2 [(validate.rules).string = {min_len: 1, max_len: 20}];
+}
+
 message UpdateWalletValidationRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     repeated string new_validator_ids = 2 [(validate.rules).repeated.items.string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
@@ -265,6 +276,11 @@ message GetAddressByIndexRequest {
     uint32 index = 2 [(validate.rules).uint32.gte = 0];
 }
 
+message GetAddressWithoutBalanceByIndexRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    uint32 index = 2 [(validate.rules).uint32.gte = 0];
+}
+
 message ListAddressesRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
     bool omit_change = 2;
@@ -273,6 +289,26 @@ message ListAddressesRequest {
 }
 message ListAddressesResponse {
     repeated Address addresses = 1;
+    string next_page_token = 2;
+}
+
+message ListAddressesWithBalanceRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+}
+
+message ListAddressesWithBalanceResponse {
+    repeated AddressWithBalance addresses = 1;
+}
+
+message ListAddressesWithoutBalanceRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    bool omit_change = 2;
+    uint32 page_size = 3 [(validate.rules).uint32.lte = 100];
+    string page_token = 4 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
+}
+
+message ListAddressesWithoutBalanceResponse {
+    repeated AddressWithoutBalance addresses = 1;
     string next_page_token = 2;
 }
 
@@ -689,6 +725,38 @@ message GetPolicyRequest {
 }
 
 message ListPoliciesRequest {
+}
+
+message IsDeletablePolicyRequest{
+    string policy_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+}
+
+message IsDeletablePolicyResponse{
+    bool is_deletable = 1;
+}
+
+message IsDeletableLabeledAddressRequest{
+    string labeled_address_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+}
+
+message IsDeletableLabeledAddressResponse{
+    bool is_deletable = 1;
+}
+
+message IsDeletableWhitelistRequest{
+    string whitelist_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+}
+
+message IsDeletableWhitelistResponse{
+    bool is_deletable = 1;
+}
+
+message IsDeletableTransferLimitRequest{
+    string transfer_limit_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+}
+
+message IsDeletableTransferLimitResponse{
+    bool is_deletable = 1;
 }
 
 message ListPoliciesResponse {

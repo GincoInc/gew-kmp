@@ -141,6 +141,7 @@ enum TokenType {
   TOKEN_TYPE_PASSWORD_RESET_TOKEN = 3;
   TOKEN_TYPE_PASSWORD_UPDATE_TOKEN = 4;
   TOKEN_TYPE_SIGNUP_TOKEN = 5;
+  TOKEN_TYPE_REFRESH_TOKEN = 6;
 }
 
 // -----------------------------------------------------------------------------

@@ -1098,6 +1098,89 @@ var _ interface {
 	ErrorName() string
 } = ListWalletsResponseValidationError{}
 
+// Validate checks the field values on UpdateWalletNameRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *UpdateWalletNameRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_UpdateWalletNameRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return UpdateWalletNameRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
+		return UpdateWalletNameRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 20 runes, inclusive",
+		}
+	}
+
+	return nil
+}
+
+// UpdateWalletNameRequestValidationError is the validation error returned by
+// UpdateWalletNameRequest.Validate if the designated constraints aren't met.
+type UpdateWalletNameRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateWalletNameRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateWalletNameRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateWalletNameRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateWalletNameRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateWalletNameRequestValidationError) ErrorName() string {
+	return "UpdateWalletNameRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateWalletNameRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateWalletNameRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateWalletNameRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateWalletNameRequestValidationError{}
+
+var _UpdateWalletNameRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on UpdateWalletValidationRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -2201,6 +2284,90 @@ var _ interface {
 
 var _GetAddressByIndexRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+// Validate checks the field values on GetAddressWithoutBalanceByIndexRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, an error is returned.
+func (m *GetAddressWithoutBalanceByIndexRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_GetAddressWithoutBalanceByIndexRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return GetAddressWithoutBalanceByIndexRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	if m.GetIndex() < 0 {
+		return GetAddressWithoutBalanceByIndexRequestValidationError{
+			field:  "Index",
+			reason: "value must be greater than or equal to 0",
+		}
+	}
+
+	return nil
+}
+
+// GetAddressWithoutBalanceByIndexRequestValidationError is the validation
+// error returned by GetAddressWithoutBalanceByIndexRequest.Validate if the
+// designated constraints aren't met.
+type GetAddressWithoutBalanceByIndexRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetAddressWithoutBalanceByIndexRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetAddressWithoutBalanceByIndexRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetAddressWithoutBalanceByIndexRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetAddressWithoutBalanceByIndexRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetAddressWithoutBalanceByIndexRequestValidationError) ErrorName() string {
+	return "GetAddressWithoutBalanceByIndexRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetAddressWithoutBalanceByIndexRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetAddressWithoutBalanceByIndexRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetAddressWithoutBalanceByIndexRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetAddressWithoutBalanceByIndexRequestValidationError{}
+
+var _GetAddressWithoutBalanceByIndexRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on ListAddressesRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -2378,6 +2545,346 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListAddressesResponseValidationError{}
+
+// Validate checks the field values on ListAddressesWithBalanceRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ListAddressesWithBalanceRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_ListAddressesWithBalanceRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return ListAddressesWithBalanceRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// ListAddressesWithBalanceRequestValidationError is the validation error
+// returned by ListAddressesWithBalanceRequest.Validate if the designated
+// constraints aren't met.
+type ListAddressesWithBalanceRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListAddressesWithBalanceRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListAddressesWithBalanceRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListAddressesWithBalanceRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListAddressesWithBalanceRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListAddressesWithBalanceRequestValidationError) ErrorName() string {
+	return "ListAddressesWithBalanceRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListAddressesWithBalanceRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListAddressesWithBalanceRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListAddressesWithBalanceRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListAddressesWithBalanceRequestValidationError{}
+
+var _ListAddressesWithBalanceRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ListAddressesWithBalanceResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *ListAddressesWithBalanceResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetAddresses() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListAddressesWithBalanceResponseValidationError{
+					field:  fmt.Sprintf("Addresses[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ListAddressesWithBalanceResponseValidationError is the validation error
+// returned by ListAddressesWithBalanceResponse.Validate if the designated
+// constraints aren't met.
+type ListAddressesWithBalanceResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListAddressesWithBalanceResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListAddressesWithBalanceResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListAddressesWithBalanceResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListAddressesWithBalanceResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListAddressesWithBalanceResponseValidationError) ErrorName() string {
+	return "ListAddressesWithBalanceResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListAddressesWithBalanceResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListAddressesWithBalanceResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListAddressesWithBalanceResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListAddressesWithBalanceResponseValidationError{}
+
+// Validate checks the field values on ListAddressesWithoutBalanceRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *ListAddressesWithoutBalanceRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_ListAddressesWithoutBalanceRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return ListAddressesWithoutBalanceRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	// no validation rules for OmitChange
+
+	if m.GetPageSize() > 100 {
+		return ListAddressesWithoutBalanceRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 100",
+		}
+	}
+
+	if !_ListAddressesWithoutBalanceRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		return ListAddressesWithoutBalanceRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+	}
+
+	return nil
+}
+
+// ListAddressesWithoutBalanceRequestValidationError is the validation error
+// returned by ListAddressesWithoutBalanceRequest.Validate if the designated
+// constraints aren't met.
+type ListAddressesWithoutBalanceRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListAddressesWithoutBalanceRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListAddressesWithoutBalanceRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListAddressesWithoutBalanceRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListAddressesWithoutBalanceRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListAddressesWithoutBalanceRequestValidationError) ErrorName() string {
+	return "ListAddressesWithoutBalanceRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListAddressesWithoutBalanceRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListAddressesWithoutBalanceRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListAddressesWithoutBalanceRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListAddressesWithoutBalanceRequestValidationError{}
+
+var _ListAddressesWithoutBalanceRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ListAddressesWithoutBalanceRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListAddressesWithoutBalanceResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *ListAddressesWithoutBalanceResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetAddresses() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListAddressesWithoutBalanceResponseValidationError{
+					field:  fmt.Sprintf("Addresses[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	return nil
+}
+
+// ListAddressesWithoutBalanceResponseValidationError is the validation error
+// returned by ListAddressesWithoutBalanceResponse.Validate if the designated
+// constraints aren't met.
+type ListAddressesWithoutBalanceResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListAddressesWithoutBalanceResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListAddressesWithoutBalanceResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListAddressesWithoutBalanceResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListAddressesWithoutBalanceResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListAddressesWithoutBalanceResponseValidationError) ErrorName() string {
+	return "ListAddressesWithoutBalanceResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListAddressesWithoutBalanceResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListAddressesWithoutBalanceResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListAddressesWithoutBalanceResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListAddressesWithoutBalanceResponseValidationError{}
 
 // Validate checks the field values on GetEthereumFeeAddressRequest with the
 // rules defined in the proto definition for this message. If any rules are
@@ -9154,6 +9661,592 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListPoliciesRequestValidationError{}
+
+// Validate checks the field values on IsDeletablePolicyRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *IsDeletablePolicyRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_IsDeletablePolicyRequest_PolicyId_Pattern.MatchString(m.GetPolicyId()) {
+		return IsDeletablePolicyRequestValidationError{
+			field:  "PolicyId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// IsDeletablePolicyRequestValidationError is the validation error returned by
+// IsDeletablePolicyRequest.Validate if the designated constraints aren't met.
+type IsDeletablePolicyRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IsDeletablePolicyRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IsDeletablePolicyRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IsDeletablePolicyRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IsDeletablePolicyRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IsDeletablePolicyRequestValidationError) ErrorName() string {
+	return "IsDeletablePolicyRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IsDeletablePolicyRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIsDeletablePolicyRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IsDeletablePolicyRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IsDeletablePolicyRequestValidationError{}
+
+var _IsDeletablePolicyRequest_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on IsDeletablePolicyResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *IsDeletablePolicyResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for IsDeletable
+
+	return nil
+}
+
+// IsDeletablePolicyResponseValidationError is the validation error returned by
+// IsDeletablePolicyResponse.Validate if the designated constraints aren't met.
+type IsDeletablePolicyResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IsDeletablePolicyResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IsDeletablePolicyResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IsDeletablePolicyResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IsDeletablePolicyResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IsDeletablePolicyResponseValidationError) ErrorName() string {
+	return "IsDeletablePolicyResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IsDeletablePolicyResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIsDeletablePolicyResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IsDeletablePolicyResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IsDeletablePolicyResponseValidationError{}
+
+// Validate checks the field values on IsDeletableLabeledAddressRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *IsDeletableLabeledAddressRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_IsDeletableLabeledAddressRequest_LabeledAddressId_Pattern.MatchString(m.GetLabeledAddressId()) {
+		return IsDeletableLabeledAddressRequestValidationError{
+			field:  "LabeledAddressId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// IsDeletableLabeledAddressRequestValidationError is the validation error
+// returned by IsDeletableLabeledAddressRequest.Validate if the designated
+// constraints aren't met.
+type IsDeletableLabeledAddressRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IsDeletableLabeledAddressRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IsDeletableLabeledAddressRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IsDeletableLabeledAddressRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IsDeletableLabeledAddressRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IsDeletableLabeledAddressRequestValidationError) ErrorName() string {
+	return "IsDeletableLabeledAddressRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IsDeletableLabeledAddressRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIsDeletableLabeledAddressRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IsDeletableLabeledAddressRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IsDeletableLabeledAddressRequestValidationError{}
+
+var _IsDeletableLabeledAddressRequest_LabeledAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on IsDeletableLabeledAddressResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *IsDeletableLabeledAddressResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for IsDeletable
+
+	return nil
+}
+
+// IsDeletableLabeledAddressResponseValidationError is the validation error
+// returned by IsDeletableLabeledAddressResponse.Validate if the designated
+// constraints aren't met.
+type IsDeletableLabeledAddressResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IsDeletableLabeledAddressResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IsDeletableLabeledAddressResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IsDeletableLabeledAddressResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IsDeletableLabeledAddressResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IsDeletableLabeledAddressResponseValidationError) ErrorName() string {
+	return "IsDeletableLabeledAddressResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IsDeletableLabeledAddressResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIsDeletableLabeledAddressResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IsDeletableLabeledAddressResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IsDeletableLabeledAddressResponseValidationError{}
+
+// Validate checks the field values on IsDeletableWhitelistRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *IsDeletableWhitelistRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_IsDeletableWhitelistRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
+		return IsDeletableWhitelistRequestValidationError{
+			field:  "WhitelistId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// IsDeletableWhitelistRequestValidationError is the validation error returned
+// by IsDeletableWhitelistRequest.Validate if the designated constraints
+// aren't met.
+type IsDeletableWhitelistRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IsDeletableWhitelistRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IsDeletableWhitelistRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IsDeletableWhitelistRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IsDeletableWhitelistRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IsDeletableWhitelistRequestValidationError) ErrorName() string {
+	return "IsDeletableWhitelistRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IsDeletableWhitelistRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIsDeletableWhitelistRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IsDeletableWhitelistRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IsDeletableWhitelistRequestValidationError{}
+
+var _IsDeletableWhitelistRequest_WhitelistId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on IsDeletableWhitelistResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *IsDeletableWhitelistResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for IsDeletable
+
+	return nil
+}
+
+// IsDeletableWhitelistResponseValidationError is the validation error returned
+// by IsDeletableWhitelistResponse.Validate if the designated constraints
+// aren't met.
+type IsDeletableWhitelistResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IsDeletableWhitelistResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IsDeletableWhitelistResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IsDeletableWhitelistResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IsDeletableWhitelistResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IsDeletableWhitelistResponseValidationError) ErrorName() string {
+	return "IsDeletableWhitelistResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IsDeletableWhitelistResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIsDeletableWhitelistResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IsDeletableWhitelistResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IsDeletableWhitelistResponseValidationError{}
+
+// Validate checks the field values on IsDeletableTransferLimitRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *IsDeletableTransferLimitRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_IsDeletableTransferLimitRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
+		return IsDeletableTransferLimitRequestValidationError{
+			field:  "TransferLimitId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// IsDeletableTransferLimitRequestValidationError is the validation error
+// returned by IsDeletableTransferLimitRequest.Validate if the designated
+// constraints aren't met.
+type IsDeletableTransferLimitRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IsDeletableTransferLimitRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IsDeletableTransferLimitRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IsDeletableTransferLimitRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IsDeletableTransferLimitRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IsDeletableTransferLimitRequestValidationError) ErrorName() string {
+	return "IsDeletableTransferLimitRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IsDeletableTransferLimitRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIsDeletableTransferLimitRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IsDeletableTransferLimitRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IsDeletableTransferLimitRequestValidationError{}
+
+var _IsDeletableTransferLimitRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on IsDeletableTransferLimitResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *IsDeletableTransferLimitResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for IsDeletable
+
+	return nil
+}
+
+// IsDeletableTransferLimitResponseValidationError is the validation error
+// returned by IsDeletableTransferLimitResponse.Validate if the designated
+// constraints aren't met.
+type IsDeletableTransferLimitResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IsDeletableTransferLimitResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IsDeletableTransferLimitResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IsDeletableTransferLimitResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IsDeletableTransferLimitResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IsDeletableTransferLimitResponseValidationError) ErrorName() string {
+	return "IsDeletableTransferLimitResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IsDeletableTransferLimitResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIsDeletableTransferLimitResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IsDeletableTransferLimitResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IsDeletableTransferLimitResponseValidationError{}
 
 // Validate checks the field values on ListPoliciesResponse with the rules
 // defined in the proto definition for this message. If any rules are
