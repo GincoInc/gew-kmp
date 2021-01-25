@@ -3,6 +3,7 @@ gRPCPort = 50051
 testnet = true
 shutdownPeriodSeconds = 30
 useHotWallet = true
+disableWebhook = false
 
 [dynamodb]
   region =  "ap-northeast-1"
