@@ -22,6 +22,7 @@ enum Coin {
   COIN_XRP = 5;
   COIN_BAT = 6;
   COIN_TRX = 7;
+  COIN_USDT = 8;
 }
 
 // Network is a type of blockchain network.
