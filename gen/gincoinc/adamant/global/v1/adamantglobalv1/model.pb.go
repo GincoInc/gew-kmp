@@ -1167,9 +1167,11 @@ type AddressWithBalance struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Address       string  `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`                                  // address
-	Balance       float64 `protobuf:"fixed64,2,opt,name=balance,proto3" json:"balance,omitempty"`                                // The number-typed balance corresponding to the address
-	StringBalance string  `protobuf:"bytes,3,opt,name=string_balance,json=stringBalance,proto3" json:"string_balance,omitempty"` // The string-typed balance corresponding to the address
+	Address          string  `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`                                             // address
+	Balance          float64 `protobuf:"fixed64,2,opt,name=balance,proto3" json:"balance,omitempty"`                                           // The number-typed balance corresponding to the address
+	StringBalance    string  `protobuf:"bytes,3,opt,name=string_balance,json=stringBalance,proto3" json:"string_balance,omitempty"`            // The string-typed balance corresponding to the address
+	FeeBalance       float64 `protobuf:"fixed64,4,opt,name=fee_balance,json=feeBalance,proto3" json:"fee_balance,omitempty"`                   // The number-typed fee balance corresponding to the address
+	StringFeeBalance string  `protobuf:"bytes,5,opt,name=string_fee_balance,json=stringFeeBalance,proto3" json:"string_fee_balance,omitempty"` // The string-typed string fee balance corresponding to the address
 }
 
 func (x *AddressWithBalance) Reset() {
@@ -1221,6 +1223,20 @@ func (x *AddressWithBalance) GetBalance() float64 {
 func (x *AddressWithBalance) GetStringBalance() string {
 	if x != nil {
 		return x.StringBalance
+	}
+	return ""
+}
+
+func (x *AddressWithBalance) GetFeeBalance() float64 {
+	if x != nil {
+		return x.FeeBalance
+	}
+	return 0
+}
+
+func (x *AddressWithBalance) GetStringFeeBalance() string {
+	if x != nil {
+		return x.StringFeeBalance
 	}
 	return ""
 }
@@ -4128,6 +4144,148 @@ func (x *Confirmation) GetConfirmation() uint32 {
 	return 0
 }
 
+type WalletFlushSetting struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	OwnerId             string                `protobuf:"bytes,1,opt,name=owner_id,json=ownerId,proto3" json:"owner_id,omitempty"`
+	Coin                gincoincglobalv1.Coin `protobuf:"varint,2,opt,name=coin,proto3,enum=gincoinc.global.v1.Coin" json:"coin,omitempty"`
+	DestinationWalletId string                `protobuf:"bytes,3,opt,name=destination_wallet_id,json=destinationWalletId,proto3" json:"destination_wallet_id,omitempty"`
+	CreateTime          *timestamp.Timestamp  `protobuf:"bytes,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	UpdateTime          *timestamp.Timestamp  `protobuf:"bytes,5,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+}
+
+func (x *WalletFlushSetting) Reset() {
+	*x = WalletFlushSetting{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[48]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *WalletFlushSetting) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WalletFlushSetting) ProtoMessage() {}
+
+func (x *WalletFlushSetting) ProtoReflect() protoreflect.Message {
+	mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[48]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WalletFlushSetting.ProtoReflect.Descriptor instead.
+func (*WalletFlushSetting) Descriptor() ([]byte, []int) {
+	return file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *WalletFlushSetting) GetOwnerId() string {
+	if x != nil {
+		return x.OwnerId
+	}
+	return ""
+}
+
+func (x *WalletFlushSetting) GetCoin() gincoincglobalv1.Coin {
+	if x != nil {
+		return x.Coin
+	}
+	return gincoincglobalv1.Coin_COIN_INVALID
+}
+
+func (x *WalletFlushSetting) GetDestinationWalletId() string {
+	if x != nil {
+		return x.DestinationWalletId
+	}
+	return ""
+}
+
+func (x *WalletFlushSetting) GetCreateTime() *timestamp.Timestamp {
+	if x != nil {
+		return x.CreateTime
+	}
+	return nil
+}
+
+func (x *WalletFlushSetting) GetUpdateTime() *timestamp.Timestamp {
+	if x != nil {
+		return x.UpdateTime
+	}
+	return nil
+}
+
+type CompensationFee struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	StringValue string               `protobuf:"bytes,1,opt,name=string_value,json=stringValue,proto3" json:"string_value,omitempty"`
+	IsSpent     bool                 `protobuf:"varint,2,opt,name=is_spent,json=isSpent,proto3" json:"is_spent,omitempty"`
+	CreateTime  *timestamp.Timestamp `protobuf:"bytes,3,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+}
+
+func (x *CompensationFee) Reset() {
+	*x = CompensationFee{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[49]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CompensationFee) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CompensationFee) ProtoMessage() {}
+
+func (x *CompensationFee) ProtoReflect() protoreflect.Message {
+	mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[49]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CompensationFee.ProtoReflect.Descriptor instead.
+func (*CompensationFee) Descriptor() ([]byte, []int) {
+	return file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *CompensationFee) GetStringValue() string {
+	if x != nil {
+		return x.StringValue
+	}
+	return ""
+}
+
+func (x *CompensationFee) GetIsSpent() bool {
+	if x != nil {
+		return x.IsSpent
+	}
+	return false
+}
+
+func (x *CompensationFee) GetCreateTime() *timestamp.Timestamp {
+	if x != nil {
+		return x.CreateTime
+	}
+	return nil
+}
+
 type RequestTxOutput struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -4140,7 +4298,7 @@ type RequestTxOutput struct {
 func (x *RequestTxOutput) Reset() {
 	*x = RequestTxOutput{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[48]
+		mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[50]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4153,7 +4311,7 @@ func (x *RequestTxOutput) String() string {
 func (*RequestTxOutput) ProtoMessage() {}
 
 func (x *RequestTxOutput) ProtoReflect() protoreflect.Message {
-	mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[48]
+	mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[50]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4166,7 +4324,7 @@ func (x *RequestTxOutput) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestTxOutput.ProtoReflect.Descriptor instead.
 func (*RequestTxOutput) Descriptor() ([]byte, []int) {
-	return file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_rawDescGZIP(), []int{48}
+	return file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *RequestTxOutput) GetAddress() string {
@@ -4194,7 +4352,7 @@ type RequestSignedInfo struct {
 func (x *RequestSignedInfo) Reset() {
 	*x = RequestSignedInfo{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[49]
+		mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[51]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4207,7 +4365,7 @@ func (x *RequestSignedInfo) String() string {
 func (*RequestSignedInfo) ProtoMessage() {}
 
 func (x *RequestSignedInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[49]
+	mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[51]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4220,7 +4378,7 @@ func (x *RequestSignedInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestSignedInfo.ProtoReflect.Descriptor instead.
 func (*RequestSignedInfo) Descriptor() ([]byte, []int) {
-	return file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_rawDescGZIP(), []int{49}
+	return file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *RequestSignedInfo) GetSignatures() []*RequestSignature {
@@ -4242,7 +4400,7 @@ type RequestSignature struct {
 func (x *RequestSignature) Reset() {
 	*x = RequestSignature{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[50]
+		mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[52]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4255,7 +4413,7 @@ func (x *RequestSignature) String() string {
 func (*RequestSignature) ProtoMessage() {}
 
 func (x *RequestSignature) ProtoReflect() protoreflect.Message {
-	mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[50]
+	mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[52]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4268,7 +4426,7 @@ func (x *RequestSignature) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestSignature.ProtoReflect.Descriptor instead.
 func (*RequestSignature) Descriptor() ([]byte, []int) {
-	return file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_rawDescGZIP(), []int{50}
+	return file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *RequestSignature) GetSignIndex() uint32 {
@@ -4297,7 +4455,7 @@ type RequestTransferLimitEntry struct {
 func (x *RequestTransferLimitEntry) Reset() {
 	*x = RequestTransferLimitEntry{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[51]
+		mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[53]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4310,7 +4468,7 @@ func (x *RequestTransferLimitEntry) String() string {
 func (*RequestTransferLimitEntry) ProtoMessage() {}
 
 func (x *RequestTransferLimitEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[51]
+	mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[53]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4323,7 +4481,7 @@ func (x *RequestTransferLimitEntry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestTransferLimitEntry.ProtoReflect.Descriptor instead.
 func (*RequestTransferLimitEntry) Descriptor() ([]byte, []int) {
-	return file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_rawDescGZIP(), []int{51}
+	return file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *RequestTransferLimitEntry) GetTransferLimitType() TransferLimitType {
@@ -4352,7 +4510,7 @@ type RequestRate struct {
 func (x *RequestRate) Reset() {
 	*x = RequestRate{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[52]
+		mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[54]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4365,7 +4523,7 @@ func (x *RequestRate) String() string {
 func (*RequestRate) ProtoMessage() {}
 
 func (x *RequestRate) ProtoReflect() protoreflect.Message {
-	mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[52]
+	mi := &file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[54]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4378,7 +4536,7 @@ func (x *RequestRate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestRate.ProtoReflect.Descriptor instead.
 func (*RequestRate) Descriptor() ([]byte, []int) {
-	return file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_rawDescGZIP(), []int{52}
+	return file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *RequestRate) GetCoin() gincoincglobalv1.Coin {
@@ -4675,13 +4833,18 @@ var file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_rawDesc = []byte
 	0x18, 0x02, 0x20, 0x01, 0x28, 0x01, 0x52, 0x07, 0x62, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x12,
 	0x25, 0x0a, 0x0e, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x5f, 0x62, 0x61, 0x6c, 0x61, 0x6e, 0x63,
 	0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x42,
-	0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x22, 0x6f, 0x0a, 0x12, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73,
-	0x73, 0x57, 0x69, 0x74, 0x68, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x12, 0x18, 0x0a, 0x07,
-	0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61,
-	0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x18, 0x0a, 0x07, 0x62, 0x61, 0x6c, 0x61, 0x6e, 0x63,
-	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x01, 0x52, 0x07, 0x62, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65,
-	0x12, 0x25, 0x0a, 0x0e, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x5f, 0x62, 0x61, 0x6c, 0x61, 0x6e,
-	0x63, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67,
+	0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x22, 0xbe, 0x01, 0x0a, 0x12, 0x41, 0x64, 0x64, 0x72, 0x65,
+	0x73, 0x73, 0x57, 0x69, 0x74, 0x68, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x12, 0x18, 0x0a,
+	0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07,
+	0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x18, 0x0a, 0x07, 0x62, 0x61, 0x6c, 0x61, 0x6e,
+	0x63, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x01, 0x52, 0x07, 0x62, 0x61, 0x6c, 0x61, 0x6e, 0x63,
+	0x65, 0x12, 0x25, 0x0a, 0x0e, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x5f, 0x62, 0x61, 0x6c, 0x61,
+	0x6e, 0x63, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d, 0x73, 0x74, 0x72, 0x69, 0x6e,
+	0x67, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x66, 0x65, 0x65, 0x5f,
+	0x62, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x01, 0x52, 0x0a, 0x66,
+	0x65, 0x65, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x12, 0x2c, 0x0a, 0x12, 0x73, 0x74, 0x72,
+	0x69, 0x6e, 0x67, 0x5f, 0x66, 0x65, 0x65, 0x5f, 0x62, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x18,
+	0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x10, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x46, 0x65, 0x65,
 	0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x22, 0xd3, 0x08, 0x0a, 0x0b, 0x54, 0x72, 0x61, 0x6e,
 	0x73, 0x61, 0x63, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x1b, 0x0a, 0x09, 0x77, 0x61, 0x6c, 0x6c, 0x65,
 	0x74, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x77, 0x61, 0x6c, 0x6c,
@@ -5335,45 +5498,71 @@ var file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_rawDesc = []byte
 	0x69, 0x6e, 0x63, 0x2e, 0x67, 0x6c, 0x6f, 0x62, 0x61, 0x6c, 0x2e, 0x76, 0x31, 0x2e, 0x43, 0x6f,
 	0x69, 0x6e, 0x52, 0x04, 0x63, 0x6f, 0x69, 0x6e, 0x12, 0x22, 0x0a, 0x0c, 0x63, 0x6f, 0x6e, 0x66,
 	0x69, 0x72, 0x6d, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0c,
-	0x63, 0x6f, 0x6e, 0x66, 0x69, 0x72, 0x6d, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0x60, 0x0a, 0x0f,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x54, 0x78, 0x4f, 0x75, 0x74, 0x70, 0x75, 0x74, 0x12,
-	0x21, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
-	0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x03, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65,
-	0x73, 0x73, 0x12, 0x2a, 0x0a, 0x0c, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x5f, 0x76, 0x61, 0x6c,
-	0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10,
-	0x01, 0x52, 0x0b, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x62,
-	0x0a, 0x11, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x53, 0x69, 0x67, 0x6e, 0x65, 0x64, 0x49,
-	0x6e, 0x66, 0x6f, 0x12, 0x4d, 0x0a, 0x0a, 0x73, 0x69, 0x67, 0x6e, 0x61, 0x74, 0x75, 0x72, 0x65,
-	0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x23, 0x2e, 0x61, 0x64, 0x61, 0x6d, 0x61, 0x6e,
-	0x74, 0x2e, 0x67, 0x6c, 0x6f, 0x62, 0x61, 0x6c, 0x2e, 0x76, 0x31, 0x2e, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x53, 0x69, 0x67, 0x6e, 0x61, 0x74, 0x75, 0x72, 0x65, 0x42, 0x08, 0xfa, 0x42,
-	0x05, 0x92, 0x01, 0x02, 0x08, 0x01, 0x52, 0x0a, 0x73, 0x69, 0x67, 0x6e, 0x61, 0x74, 0x75, 0x72,
-	0x65, 0x73, 0x22, 0x58, 0x0a, 0x10, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x53, 0x69, 0x67,
-	0x6e, 0x61, 0x74, 0x75, 0x72, 0x65, 0x12, 0x1d, 0x0a, 0x0a, 0x73, 0x69, 0x67, 0x6e, 0x5f, 0x69,
-	0x6e, 0x64, 0x65, 0x78, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x09, 0x73, 0x69, 0x67, 0x6e,
-	0x49, 0x6e, 0x64, 0x65, 0x78, 0x12, 0x25, 0x0a, 0x09, 0x73, 0x69, 0x67, 0x6e, 0x61, 0x74, 0x75,
-	0x72, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10,
-	0x01, 0x52, 0x09, 0x73, 0x69, 0x67, 0x6e, 0x61, 0x74, 0x75, 0x72, 0x65, 0x22, 0xb8, 0x01, 0x0a,
-	0x19, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x66, 0x65, 0x72,
-	0x4c, 0x69, 0x6d, 0x69, 0x74, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x12, 0x60, 0x0a, 0x13, 0x74, 0x72,
-	0x61, 0x6e, 0x73, 0x66, 0x65, 0x72, 0x5f, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x5f, 0x74, 0x79, 0x70,
-	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x24, 0x2e, 0x61, 0x64, 0x61, 0x6d, 0x61, 0x6e,
-	0x74, 0x2e, 0x67, 0x6c, 0x6f, 0x62, 0x61, 0x6c, 0x2e, 0x76, 0x31, 0x2e, 0x54, 0x72, 0x61, 0x6e,
-	0x73, 0x66, 0x65, 0x72, 0x4c, 0x69, 0x6d, 0x69, 0x74, 0x54, 0x79, 0x70, 0x65, 0x42, 0x0a, 0xfa,
-	0x42, 0x07, 0x82, 0x01, 0x04, 0x10, 0x01, 0x20, 0x00, 0x52, 0x11, 0x74, 0x72, 0x61, 0x6e, 0x73,
-	0x66, 0x65, 0x72, 0x4c, 0x69, 0x6d, 0x69, 0x74, 0x54, 0x79, 0x70, 0x65, 0x12, 0x39, 0x0a, 0x14,
-	0x74, 0x72, 0x61, 0x6e, 0x73, 0x66, 0x65, 0x72, 0x5f, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x5f, 0x76,
-	0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x22,
-	0x02, 0x28, 0x00, 0x52, 0x12, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x66, 0x65, 0x72, 0x4c, 0x69, 0x6d,
-	0x69, 0x74, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x69, 0x0a, 0x0b, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x52, 0x61, 0x74, 0x65, 0x12, 0x38, 0x0a, 0x04, 0x63, 0x6f, 0x69, 0x6e, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x0e, 0x32, 0x18, 0x2e, 0x67, 0x69, 0x6e, 0x63, 0x6f, 0x69, 0x6e, 0x63, 0x2e,
-	0x67, 0x6c, 0x6f, 0x62, 0x61, 0x6c, 0x2e, 0x76, 0x31, 0x2e, 0x43, 0x6f, 0x69, 0x6e, 0x42, 0x0a,
-	0xfa, 0x42, 0x07, 0x82, 0x01, 0x04, 0x10, 0x01, 0x20, 0x00, 0x52, 0x04, 0x63, 0x6f, 0x69, 0x6e,
-	0x12, 0x20, 0x0a, 0x03, 0x6a, 0x70, 0x79, 0x18, 0x02, 0x20, 0x01, 0x28, 0x01, 0x42, 0x0e, 0xfa,
-	0x42, 0x0b, 0x12, 0x09, 0x29, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x52, 0x03, 0x6a,
-	0x70, 0x79, 0x42, 0x11, 0x5a, 0x0f, 0x61, 0x64, 0x61, 0x6d, 0x61, 0x6e, 0x74, 0x67, 0x6c, 0x6f,
-	0x62, 0x61, 0x6c, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x63, 0x6f, 0x6e, 0x66, 0x69, 0x72, 0x6d, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0x8b, 0x02, 0x0a,
+	0x12, 0x57, 0x61, 0x6c, 0x6c, 0x65, 0x74, 0x46, 0x6c, 0x75, 0x73, 0x68, 0x53, 0x65, 0x74, 0x74,
+	0x69, 0x6e, 0x67, 0x12, 0x19, 0x0a, 0x08, 0x6f, 0x77, 0x6e, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6f, 0x77, 0x6e, 0x65, 0x72, 0x49, 0x64, 0x12, 0x2c,
+	0x0a, 0x04, 0x63, 0x6f, 0x69, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x18, 0x2e, 0x67,
+	0x69, 0x6e, 0x63, 0x6f, 0x69, 0x6e, 0x63, 0x2e, 0x67, 0x6c, 0x6f, 0x62, 0x61, 0x6c, 0x2e, 0x76,
+	0x31, 0x2e, 0x43, 0x6f, 0x69, 0x6e, 0x52, 0x04, 0x63, 0x6f, 0x69, 0x6e, 0x12, 0x32, 0x0a, 0x15,
+	0x64, 0x65, 0x73, 0x74, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x77, 0x61, 0x6c, 0x6c,
+	0x65, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x13, 0x64, 0x65, 0x73,
+	0x74, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x57, 0x61, 0x6c, 0x6c, 0x65, 0x74, 0x49, 0x64,
+	0x12, 0x3b, 0x0a, 0x0b, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x5f, 0x74, 0x69, 0x6d, 0x65, 0x18,
+	0x04, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d,
+	0x70, 0x52, 0x0a, 0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x54, 0x69, 0x6d, 0x65, 0x12, 0x3b, 0x0a,
+	0x0b, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x5f, 0x74, 0x69, 0x6d, 0x65, 0x18, 0x05, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x0a,
+	0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x54, 0x69, 0x6d, 0x65, 0x22, 0x8c, 0x01, 0x0a, 0x0f, 0x43,
+	0x6f, 0x6d, 0x70, 0x65, 0x6e, 0x73, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x46, 0x65, 0x65, 0x12, 0x21,
+	0x0a, 0x0c, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x5f, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56, 0x61, 0x6c, 0x75,
+	0x65, 0x12, 0x19, 0x0a, 0x08, 0x69, 0x73, 0x5f, 0x73, 0x70, 0x65, 0x6e, 0x74, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x08, 0x52, 0x07, 0x69, 0x73, 0x53, 0x70, 0x65, 0x6e, 0x74, 0x12, 0x3b, 0x0a, 0x0b,
+	0x63, 0x72, 0x65, 0x61, 0x74, 0x65, 0x5f, 0x74, 0x69, 0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28,
+	0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x0a, 0x63,
+	0x72, 0x65, 0x61, 0x74, 0x65, 0x54, 0x69, 0x6d, 0x65, 0x22, 0x60, 0x0a, 0x0f, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x54, 0x78, 0x4f, 0x75, 0x74, 0x70, 0x75, 0x74, 0x12, 0x21, 0x0a, 0x07,
+	0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa,
+	0x42, 0x04, 0x72, 0x02, 0x10, 0x03, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x12,
+	0x2a, 0x0a, 0x0c, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x5f, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x0b,
+	0x73, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x22, 0x62, 0x0a, 0x11, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x53, 0x69, 0x67, 0x6e, 0x65, 0x64, 0x49, 0x6e, 0x66, 0x6f,
+	0x12, 0x4d, 0x0a, 0x0a, 0x73, 0x69, 0x67, 0x6e, 0x61, 0x74, 0x75, 0x72, 0x65, 0x73, 0x18, 0x01,
+	0x20, 0x03, 0x28, 0x0b, 0x32, 0x23, 0x2e, 0x61, 0x64, 0x61, 0x6d, 0x61, 0x6e, 0x74, 0x2e, 0x67,
+	0x6c, 0x6f, 0x62, 0x61, 0x6c, 0x2e, 0x76, 0x31, 0x2e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x53, 0x69, 0x67, 0x6e, 0x61, 0x74, 0x75, 0x72, 0x65, 0x42, 0x08, 0xfa, 0x42, 0x05, 0x92, 0x01,
+	0x02, 0x08, 0x01, 0x52, 0x0a, 0x73, 0x69, 0x67, 0x6e, 0x61, 0x74, 0x75, 0x72, 0x65, 0x73, 0x22,
+	0x58, 0x0a, 0x10, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x53, 0x69, 0x67, 0x6e, 0x61, 0x74,
+	0x75, 0x72, 0x65, 0x12, 0x1d, 0x0a, 0x0a, 0x73, 0x69, 0x67, 0x6e, 0x5f, 0x69, 0x6e, 0x64, 0x65,
+	0x78, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x09, 0x73, 0x69, 0x67, 0x6e, 0x49, 0x6e, 0x64,
+	0x65, 0x78, 0x12, 0x25, 0x0a, 0x09, 0x73, 0x69, 0x67, 0x6e, 0x61, 0x74, 0x75, 0x72, 0x65, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x72, 0x02, 0x10, 0x01, 0x52, 0x09,
+	0x73, 0x69, 0x67, 0x6e, 0x61, 0x74, 0x75, 0x72, 0x65, 0x22, 0xb8, 0x01, 0x0a, 0x19, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x66, 0x65, 0x72, 0x4c, 0x69, 0x6d,
+	0x69, 0x74, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x12, 0x60, 0x0a, 0x13, 0x74, 0x72, 0x61, 0x6e, 0x73,
+	0x66, 0x65, 0x72, 0x5f, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x0e, 0x32, 0x24, 0x2e, 0x61, 0x64, 0x61, 0x6d, 0x61, 0x6e, 0x74, 0x2e, 0x67,
+	0x6c, 0x6f, 0x62, 0x61, 0x6c, 0x2e, 0x76, 0x31, 0x2e, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x66, 0x65,
+	0x72, 0x4c, 0x69, 0x6d, 0x69, 0x74, 0x54, 0x79, 0x70, 0x65, 0x42, 0x0a, 0xfa, 0x42, 0x07, 0x82,
+	0x01, 0x04, 0x10, 0x01, 0x20, 0x00, 0x52, 0x11, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x66, 0x65, 0x72,
+	0x4c, 0x69, 0x6d, 0x69, 0x74, 0x54, 0x79, 0x70, 0x65, 0x12, 0x39, 0x0a, 0x14, 0x74, 0x72, 0x61,
+	0x6e, 0x73, 0x66, 0x65, 0x72, 0x5f, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x5f, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x42, 0x07, 0xfa, 0x42, 0x04, 0x22, 0x02, 0x28, 0x00,
+	0x52, 0x12, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x66, 0x65, 0x72, 0x4c, 0x69, 0x6d, 0x69, 0x74, 0x56,
+	0x61, 0x6c, 0x75, 0x65, 0x22, 0x69, 0x0a, 0x0b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x52,
+	0x61, 0x74, 0x65, 0x12, 0x38, 0x0a, 0x04, 0x63, 0x6f, 0x69, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x0e, 0x32, 0x18, 0x2e, 0x67, 0x69, 0x6e, 0x63, 0x6f, 0x69, 0x6e, 0x63, 0x2e, 0x67, 0x6c, 0x6f,
+	0x62, 0x61, 0x6c, 0x2e, 0x76, 0x31, 0x2e, 0x43, 0x6f, 0x69, 0x6e, 0x42, 0x0a, 0xfa, 0x42, 0x07,
+	0x82, 0x01, 0x04, 0x10, 0x01, 0x20, 0x00, 0x52, 0x04, 0x63, 0x6f, 0x69, 0x6e, 0x12, 0x20, 0x0a,
+	0x03, 0x6a, 0x70, 0x79, 0x18, 0x02, 0x20, 0x01, 0x28, 0x01, 0x42, 0x0e, 0xfa, 0x42, 0x0b, 0x12,
+	0x09, 0x29, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x52, 0x03, 0x6a, 0x70, 0x79, 0x42,
+	0x11, 0x5a, 0x0f, 0x61, 0x64, 0x61, 0x6d, 0x61, 0x6e, 0x74, 0x67, 0x6c, 0x6f, 0x62, 0x61, 0x6c,
+	0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -5388,7 +5577,7 @@ func file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_rawDescGZIP() [
 	return file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_rawDescData
 }
 
-var file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes = make([]protoimpl.MessageInfo, 62)
+var file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes = make([]protoimpl.MessageInfo, 64)
 var file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_goTypes = []interface{}{
 	(*Wallet)(nil),                            // 0: adamant.global.v1.Wallet
 	(*WalletWithoutBalance)(nil),              // 1: adamant.global.v1.WalletWithoutBalance
@@ -5438,75 +5627,77 @@ var file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_goTypes = []inte
 	(*WalletTransferVolumeSnapshot)(nil),      // 45: adamant.global.v1.WalletTransferVolumeSnapshot
 	(*WalletTransferVolume)(nil),              // 46: adamant.global.v1.WalletTransferVolume
 	(*Confirmation)(nil),                      // 47: adamant.global.v1.Confirmation
-	(*RequestTxOutput)(nil),                   // 48: adamant.global.v1.RequestTxOutput
-	(*RequestSignedInfo)(nil),                 // 49: adamant.global.v1.RequestSignedInfo
-	(*RequestSignature)(nil),                  // 50: adamant.global.v1.RequestSignature
-	(*RequestTransferLimitEntry)(nil),         // 51: adamant.global.v1.RequestTransferLimitEntry
-	(*RequestRate)(nil),                       // 52: adamant.global.v1.RequestRate
-	nil,                                       // 53: adamant.global.v1.RateSnapshot.RatesEntry
-	nil,                                       // 54: adamant.global.v1.TotalBalance.TotalBalancesEntry
-	nil,                                       // 55: adamant.global.v1.BalanceSnapshot.TotalBalancesEntry
-	nil,                                       // 56: adamant.global.v1.BalanceSnapshot.RatesEntry
-	nil,                                       // 57: adamant.global.v1.WalletBalanceSnapshotMap.WalletBalanceSnapshotMapEntry
-	nil,                                       // 58: adamant.global.v1.TransferVolumeSnapshots.TransferVolumeSnapshotByTransferTypeEntry
-	nil,                                       // 59: adamant.global.v1.TransferVolumeSnapshot.TransferVolumeByCoinEntry
-	nil,                                       // 60: adamant.global.v1.WalletTransferVolumeSnapshots.WalletTransferVolumeSnapshotByWalletIdEntry
-	nil,                                       // 61: adamant.global.v1.WalletTransferVolumeSnapshot.WalletTransferVolumeByTransferTypeEntry
-	(gincoincglobalv1.Coin)(0),                // 62: gincoinc.global.v1.Coin
-	(WalletType)(0),                           // 63: adamant.global.v1.WalletType
-	(gincoincglobalv1.AddressType)(0),         // 64: gincoinc.global.v1.AddressType
-	(WalletState)(0),                          // 65: adamant.global.v1.WalletState
-	(*timestamp.Timestamp)(nil),               // 66: google.protobuf.Timestamp
-	(WalletProposalType)(0),                   // 67: adamant.global.v1.WalletProposalType
-	(AccountType)(0),                          // 68: adamant.global.v1.AccountType
-	(RoleType)(0),                             // 69: adamant.global.v1.RoleType
-	(AddressState)(0),                         // 70: adamant.global.v1.AddressState
-	(TransactionState)(0),                     // 71: adamant.global.v1.TransactionState
-	(gincoincglobalv1.XRPTransactionType)(0),  // 72: gincoinc.global.v1.XRPTransactionType
-	(gincoincglobalv1.TransferType)(0),        // 73: gincoinc.global.v1.TransferType
-	(gincoincglobalv1.TransactionState)(0),    // 74: gincoinc.global.v1.TransactionState
-	(gincoincglobalv1.TransactionResult)(0),   // 75: gincoinc.global.v1.TransactionResult
-	(PolicyType)(0),                           // 76: adamant.global.v1.PolicyType
-	(TransferLimitType)(0),                    // 77: adamant.global.v1.TransferLimitType
+	(*WalletFlushSetting)(nil),                // 48: adamant.global.v1.WalletFlushSetting
+	(*CompensationFee)(nil),                   // 49: adamant.global.v1.CompensationFee
+	(*RequestTxOutput)(nil),                   // 50: adamant.global.v1.RequestTxOutput
+	(*RequestSignedInfo)(nil),                 // 51: adamant.global.v1.RequestSignedInfo
+	(*RequestSignature)(nil),                  // 52: adamant.global.v1.RequestSignature
+	(*RequestTransferLimitEntry)(nil),         // 53: adamant.global.v1.RequestTransferLimitEntry
+	(*RequestRate)(nil),                       // 54: adamant.global.v1.RequestRate
+	nil,                                       // 55: adamant.global.v1.RateSnapshot.RatesEntry
+	nil,                                       // 56: adamant.global.v1.TotalBalance.TotalBalancesEntry
+	nil,                                       // 57: adamant.global.v1.BalanceSnapshot.TotalBalancesEntry
+	nil,                                       // 58: adamant.global.v1.BalanceSnapshot.RatesEntry
+	nil,                                       // 59: adamant.global.v1.WalletBalanceSnapshotMap.WalletBalanceSnapshotMapEntry
+	nil,                                       // 60: adamant.global.v1.TransferVolumeSnapshots.TransferVolumeSnapshotByTransferTypeEntry
+	nil,                                       // 61: adamant.global.v1.TransferVolumeSnapshot.TransferVolumeByCoinEntry
+	nil,                                       // 62: adamant.global.v1.WalletTransferVolumeSnapshots.WalletTransferVolumeSnapshotByWalletIdEntry
+	nil,                                       // 63: adamant.global.v1.WalletTransferVolumeSnapshot.WalletTransferVolumeByTransferTypeEntry
+	(gincoincglobalv1.Coin)(0),                // 64: gincoinc.global.v1.Coin
+	(WalletType)(0),                           // 65: adamant.global.v1.WalletType
+	(gincoincglobalv1.AddressType)(0),         // 66: gincoinc.global.v1.AddressType
+	(WalletState)(0),                          // 67: adamant.global.v1.WalletState
+	(*timestamp.Timestamp)(nil),               // 68: google.protobuf.Timestamp
+	(WalletProposalType)(0),                   // 69: adamant.global.v1.WalletProposalType
+	(AccountType)(0),                          // 70: adamant.global.v1.AccountType
+	(RoleType)(0),                             // 71: adamant.global.v1.RoleType
+	(AddressState)(0),                         // 72: adamant.global.v1.AddressState
+	(TransactionState)(0),                     // 73: adamant.global.v1.TransactionState
+	(gincoincglobalv1.XRPTransactionType)(0),  // 74: gincoinc.global.v1.XRPTransactionType
+	(gincoincglobalv1.TransferType)(0),        // 75: gincoinc.global.v1.TransferType
+	(gincoincglobalv1.TransactionState)(0),    // 76: gincoinc.global.v1.TransactionState
+	(gincoincglobalv1.TransactionResult)(0),   // 77: gincoinc.global.v1.TransactionResult
+	(PolicyType)(0),                           // 78: adamant.global.v1.PolicyType
+	(TransferLimitType)(0),                    // 79: adamant.global.v1.TransferLimitType
 }
 var file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_depIdxs = []int32{
-	62,  // 0: adamant.global.v1.Wallet.coin:type_name -> gincoinc.global.v1.Coin
-	63,  // 1: adamant.global.v1.Wallet.wallet_type:type_name -> adamant.global.v1.WalletType
-	64,  // 2: adamant.global.v1.Wallet.address_type:type_name -> gincoinc.global.v1.AddressType
-	65,  // 3: adamant.global.v1.Wallet.state:type_name -> adamant.global.v1.WalletState
+	64,  // 0: adamant.global.v1.Wallet.coin:type_name -> gincoinc.global.v1.Coin
+	65,  // 1: adamant.global.v1.Wallet.wallet_type:type_name -> adamant.global.v1.WalletType
+	66,  // 2: adamant.global.v1.Wallet.address_type:type_name -> gincoinc.global.v1.AddressType
+	67,  // 3: adamant.global.v1.Wallet.state:type_name -> adamant.global.v1.WalletState
 	4,   // 4: adamant.global.v1.Wallet.keys:type_name -> adamant.global.v1.Key
 	3,   // 5: adamant.global.v1.Wallet.members:type_name -> adamant.global.v1.WalletMember
 	2,   // 6: adamant.global.v1.Wallet.proposal:type_name -> adamant.global.v1.WalletProposal
-	66,  // 7: adamant.global.v1.Wallet.create_time:type_name -> google.protobuf.Timestamp
-	66,  // 8: adamant.global.v1.Wallet.update_time:type_name -> google.protobuf.Timestamp
-	62,  // 9: adamant.global.v1.WalletWithoutBalance.coin:type_name -> gincoinc.global.v1.Coin
-	63,  // 10: adamant.global.v1.WalletWithoutBalance.wallet_type:type_name -> adamant.global.v1.WalletType
-	64,  // 11: adamant.global.v1.WalletWithoutBalance.address_type:type_name -> gincoinc.global.v1.AddressType
-	65,  // 12: adamant.global.v1.WalletWithoutBalance.state:type_name -> adamant.global.v1.WalletState
+	68,  // 7: adamant.global.v1.Wallet.create_time:type_name -> google.protobuf.Timestamp
+	68,  // 8: adamant.global.v1.Wallet.update_time:type_name -> google.protobuf.Timestamp
+	64,  // 9: adamant.global.v1.WalletWithoutBalance.coin:type_name -> gincoinc.global.v1.Coin
+	65,  // 10: adamant.global.v1.WalletWithoutBalance.wallet_type:type_name -> adamant.global.v1.WalletType
+	66,  // 11: adamant.global.v1.WalletWithoutBalance.address_type:type_name -> gincoinc.global.v1.AddressType
+	67,  // 12: adamant.global.v1.WalletWithoutBalance.state:type_name -> adamant.global.v1.WalletState
 	4,   // 13: adamant.global.v1.WalletWithoutBalance.keys:type_name -> adamant.global.v1.Key
 	3,   // 14: adamant.global.v1.WalletWithoutBalance.members:type_name -> adamant.global.v1.WalletMember
 	2,   // 15: adamant.global.v1.WalletWithoutBalance.proposal:type_name -> adamant.global.v1.WalletProposal
-	66,  // 16: adamant.global.v1.WalletWithoutBalance.create_time:type_name -> google.protobuf.Timestamp
-	66,  // 17: adamant.global.v1.WalletWithoutBalance.update_time:type_name -> google.protobuf.Timestamp
-	67,  // 18: adamant.global.v1.WalletProposal.proposal_type:type_name -> adamant.global.v1.WalletProposalType
-	68,  // 19: adamant.global.v1.WalletMember.account_type:type_name -> adamant.global.v1.AccountType
-	69,  // 20: adamant.global.v1.WalletMember.role:type_name -> adamant.global.v1.RoleType
-	68,  // 21: adamant.global.v1.Key.account_type:type_name -> adamant.global.v1.AccountType
-	62,  // 22: adamant.global.v1.Address.coin:type_name -> gincoinc.global.v1.Coin
-	70,  // 23: adamant.global.v1.Address.state:type_name -> adamant.global.v1.AddressState
-	64,  // 24: adamant.global.v1.Address.address_type:type_name -> gincoinc.global.v1.AddressType
-	66,  // 25: adamant.global.v1.Address.create_time:type_name -> google.protobuf.Timestamp
-	66,  // 26: adamant.global.v1.Address.update_time:type_name -> google.protobuf.Timestamp
-	62,  // 27: adamant.global.v1.AddressWithoutBalance.coin:type_name -> gincoinc.global.v1.Coin
-	70,  // 28: adamant.global.v1.AddressWithoutBalance.state:type_name -> adamant.global.v1.AddressState
-	64,  // 29: adamant.global.v1.AddressWithoutBalance.address_type:type_name -> gincoinc.global.v1.AddressType
-	66,  // 30: adamant.global.v1.AddressWithoutBalance.create_time:type_name -> google.protobuf.Timestamp
-	66,  // 31: adamant.global.v1.AddressWithoutBalance.update_time:type_name -> google.protobuf.Timestamp
-	62,  // 32: adamant.global.v1.FlushedAddress.coin:type_name -> gincoinc.global.v1.Coin
-	70,  // 33: adamant.global.v1.FlushedAddress.state:type_name -> adamant.global.v1.AddressState
-	64,  // 34: adamant.global.v1.FlushedAddress.address_type:type_name -> gincoinc.global.v1.AddressType
-	62,  // 35: adamant.global.v1.Transaction.coin:type_name -> gincoinc.global.v1.Coin
-	71,  // 36: adamant.global.v1.Transaction.state:type_name -> adamant.global.v1.TransactionState
+	68,  // 16: adamant.global.v1.WalletWithoutBalance.create_time:type_name -> google.protobuf.Timestamp
+	68,  // 17: adamant.global.v1.WalletWithoutBalance.update_time:type_name -> google.protobuf.Timestamp
+	69,  // 18: adamant.global.v1.WalletProposal.proposal_type:type_name -> adamant.global.v1.WalletProposalType
+	70,  // 19: adamant.global.v1.WalletMember.account_type:type_name -> adamant.global.v1.AccountType
+	71,  // 20: adamant.global.v1.WalletMember.role:type_name -> adamant.global.v1.RoleType
+	70,  // 21: adamant.global.v1.Key.account_type:type_name -> adamant.global.v1.AccountType
+	64,  // 22: adamant.global.v1.Address.coin:type_name -> gincoinc.global.v1.Coin
+	72,  // 23: adamant.global.v1.Address.state:type_name -> adamant.global.v1.AddressState
+	66,  // 24: adamant.global.v1.Address.address_type:type_name -> gincoinc.global.v1.AddressType
+	68,  // 25: adamant.global.v1.Address.create_time:type_name -> google.protobuf.Timestamp
+	68,  // 26: adamant.global.v1.Address.update_time:type_name -> google.protobuf.Timestamp
+	64,  // 27: adamant.global.v1.AddressWithoutBalance.coin:type_name -> gincoinc.global.v1.Coin
+	72,  // 28: adamant.global.v1.AddressWithoutBalance.state:type_name -> adamant.global.v1.AddressState
+	66,  // 29: adamant.global.v1.AddressWithoutBalance.address_type:type_name -> gincoinc.global.v1.AddressType
+	68,  // 30: adamant.global.v1.AddressWithoutBalance.create_time:type_name -> google.protobuf.Timestamp
+	68,  // 31: adamant.global.v1.AddressWithoutBalance.update_time:type_name -> google.protobuf.Timestamp
+	64,  // 32: adamant.global.v1.FlushedAddress.coin:type_name -> gincoinc.global.v1.Coin
+	72,  // 33: adamant.global.v1.FlushedAddress.state:type_name -> adamant.global.v1.AddressState
+	66,  // 34: adamant.global.v1.FlushedAddress.address_type:type_name -> gincoinc.global.v1.AddressType
+	64,  // 35: adamant.global.v1.Transaction.coin:type_name -> gincoinc.global.v1.Coin
+	73,  // 36: adamant.global.v1.Transaction.state:type_name -> adamant.global.v1.TransactionState
 	4,   // 37: adamant.global.v1.Transaction.signed_keys:type_name -> adamant.global.v1.Key
 	11,  // 38: adamant.global.v1.Transaction.members:type_name -> adamant.global.v1.TransactionMember
 	14,  // 39: adamant.global.v1.Transaction.bitcoin_specific:type_name -> adamant.global.v1.BitcoinSpecific
@@ -5515,84 +5706,88 @@ var file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_depIdxs = []int3
 	16,  // 42: adamant.global.v1.Transaction.bitcoincash_specific:type_name -> adamant.global.v1.BitcoincashSpecific
 	18,  // 43: adamant.global.v1.Transaction.xrp_specific:type_name -> adamant.global.v1.XrpSpecific
 	19,  // 44: adamant.global.v1.Transaction.tron_specific:type_name -> adamant.global.v1.TronSpecific
-	66,  // 45: adamant.global.v1.Transaction.create_time:type_name -> google.protobuf.Timestamp
-	66,  // 46: adamant.global.v1.Transaction.update_time:type_name -> google.protobuf.Timestamp
-	68,  // 47: adamant.global.v1.TransactionMember.account_type:type_name -> adamant.global.v1.AccountType
-	69,  // 48: adamant.global.v1.TransactionMember.role:type_name -> adamant.global.v1.RoleType
+	68,  // 45: adamant.global.v1.Transaction.create_time:type_name -> google.protobuf.Timestamp
+	68,  // 46: adamant.global.v1.Transaction.update_time:type_name -> google.protobuf.Timestamp
+	70,  // 47: adamant.global.v1.TransactionMember.account_type:type_name -> adamant.global.v1.AccountType
+	71,  // 48: adamant.global.v1.TransactionMember.role:type_name -> adamant.global.v1.RoleType
 	12,  // 49: adamant.global.v1.BitcoinSpecific.tx_inputs:type_name -> adamant.global.v1.TxInput
 	13,  // 50: adamant.global.v1.BitcoinSpecific.tx_outputs:type_name -> adamant.global.v1.TxOutput
 	12,  // 51: adamant.global.v1.LitecoinSpecific.tx_inputs:type_name -> adamant.global.v1.TxInput
 	13,  // 52: adamant.global.v1.LitecoinSpecific.tx_outputs:type_name -> adamant.global.v1.TxOutput
 	12,  // 53: adamant.global.v1.BitcoincashSpecific.tx_inputs:type_name -> adamant.global.v1.TxInput
 	13,  // 54: adamant.global.v1.BitcoincashSpecific.tx_outputs:type_name -> adamant.global.v1.TxOutput
-	72,  // 55: adamant.global.v1.XrpSpecific.tx_type:type_name -> gincoinc.global.v1.XRPTransactionType
-	62,  // 56: adamant.global.v1.SignInfo.coin:type_name -> gincoinc.global.v1.Coin
+	74,  // 55: adamant.global.v1.XrpSpecific.tx_type:type_name -> gincoinc.global.v1.XRPTransactionType
+	64,  // 56: adamant.global.v1.SignInfo.coin:type_name -> gincoinc.global.v1.Coin
 	21,  // 57: adamant.global.v1.SignInfo.sign_tx_inputs:type_name -> adamant.global.v1.SignTxInput
-	62,  // 58: adamant.global.v1.Transfer.coin:type_name -> gincoinc.global.v1.Coin
-	73,  // 59: adamant.global.v1.Transfer.transfer_type:type_name -> gincoinc.global.v1.TransferType
-	74,  // 60: adamant.global.v1.Transfer.state:type_name -> gincoinc.global.v1.TransactionState
-	75,  // 61: adamant.global.v1.Transfer.result:type_name -> gincoinc.global.v1.TransactionResult
-	66,  // 62: adamant.global.v1.Transfer.create_time:type_name -> google.protobuf.Timestamp
-	66,  // 63: adamant.global.v1.Transfer.update_time:type_name -> google.protobuf.Timestamp
-	62,  // 64: adamant.global.v1.Rate.coin:type_name -> gincoinc.global.v1.Coin
-	53,  // 65: adamant.global.v1.RateSnapshot.rates:type_name -> adamant.global.v1.RateSnapshot.RatesEntry
-	62,  // 66: adamant.global.v1.LabeledAddress.coin:type_name -> gincoinc.global.v1.Coin
+	64,  // 58: adamant.global.v1.Transfer.coin:type_name -> gincoinc.global.v1.Coin
+	75,  // 59: adamant.global.v1.Transfer.transfer_type:type_name -> gincoinc.global.v1.TransferType
+	76,  // 60: adamant.global.v1.Transfer.state:type_name -> gincoinc.global.v1.TransactionState
+	77,  // 61: adamant.global.v1.Transfer.result:type_name -> gincoinc.global.v1.TransactionResult
+	68,  // 62: adamant.global.v1.Transfer.create_time:type_name -> google.protobuf.Timestamp
+	68,  // 63: adamant.global.v1.Transfer.update_time:type_name -> google.protobuf.Timestamp
+	64,  // 64: adamant.global.v1.Rate.coin:type_name -> gincoinc.global.v1.Coin
+	55,  // 65: adamant.global.v1.RateSnapshot.rates:type_name -> adamant.global.v1.RateSnapshot.RatesEntry
+	64,  // 66: adamant.global.v1.LabeledAddress.coin:type_name -> gincoinc.global.v1.Coin
 	27,  // 67: adamant.global.v1.LabeledAddress.proposal:type_name -> adamant.global.v1.LabeledAddressProposal
-	66,  // 68: adamant.global.v1.LabeledAddress.create_time:type_name -> google.protobuf.Timestamp
-	66,  // 69: adamant.global.v1.LabeledAddress.update_time:type_name -> google.protobuf.Timestamp
-	62,  // 70: adamant.global.v1.Whitelist.coin:type_name -> gincoinc.global.v1.Coin
+	68,  // 68: adamant.global.v1.LabeledAddress.create_time:type_name -> google.protobuf.Timestamp
+	68,  // 69: adamant.global.v1.LabeledAddress.update_time:type_name -> google.protobuf.Timestamp
+	64,  // 70: adamant.global.v1.Whitelist.coin:type_name -> gincoinc.global.v1.Coin
 	26,  // 71: adamant.global.v1.Whitelist.addresses:type_name -> adamant.global.v1.LabeledAddress
-	66,  // 72: adamant.global.v1.Whitelist.create_time:type_name -> google.protobuf.Timestamp
-	66,  // 73: adamant.global.v1.Whitelist.update_time:type_name -> google.protobuf.Timestamp
-	62,  // 74: adamant.global.v1.TransferLimit.coin:type_name -> gincoinc.global.v1.Coin
+	68,  // 72: adamant.global.v1.Whitelist.create_time:type_name -> google.protobuf.Timestamp
+	68,  // 73: adamant.global.v1.Whitelist.update_time:type_name -> google.protobuf.Timestamp
+	64,  // 74: adamant.global.v1.TransferLimit.coin:type_name -> gincoinc.global.v1.Coin
 	30,  // 75: adamant.global.v1.TransferLimit.proposal:type_name -> adamant.global.v1.TransferLimitProposal
-	66,  // 76: adamant.global.v1.TransferLimit.create_time:type_name -> google.protobuf.Timestamp
-	66,  // 77: adamant.global.v1.TransferLimit.update_time:type_name -> google.protobuf.Timestamp
-	76,  // 78: adamant.global.v1.Policy.policy_type:type_name -> adamant.global.v1.PolicyType
-	62,  // 79: adamant.global.v1.Policy.coin:type_name -> gincoinc.global.v1.Coin
+	68,  // 76: adamant.global.v1.TransferLimit.create_time:type_name -> google.protobuf.Timestamp
+	68,  // 77: adamant.global.v1.TransferLimit.update_time:type_name -> google.protobuf.Timestamp
+	78,  // 78: adamant.global.v1.Policy.policy_type:type_name -> adamant.global.v1.PolicyType
+	64,  // 79: adamant.global.v1.Policy.coin:type_name -> gincoinc.global.v1.Coin
 	28,  // 80: adamant.global.v1.Policy.whitelist:type_name -> adamant.global.v1.Whitelist
 	29,  // 81: adamant.global.v1.Policy.transfer_limit:type_name -> adamant.global.v1.TransferLimit
 	32,  // 82: adamant.global.v1.Policy.proposal:type_name -> adamant.global.v1.PolicyProposal
-	66,  // 83: adamant.global.v1.Policy.create_time:type_name -> google.protobuf.Timestamp
-	66,  // 84: adamant.global.v1.Policy.update_time:type_name -> google.protobuf.Timestamp
+	68,  // 83: adamant.global.v1.Policy.create_time:type_name -> google.protobuf.Timestamp
+	68,  // 84: adamant.global.v1.Policy.update_time:type_name -> google.protobuf.Timestamp
 	28,  // 85: adamant.global.v1.PolicyProposal.proposed_whitelist:type_name -> adamant.global.v1.Whitelist
-	62,  // 86: adamant.global.v1.TotalBalanceByCoin.coin:type_name -> gincoinc.global.v1.Coin
-	54,  // 87: adamant.global.v1.TotalBalance.total_balances:type_name -> adamant.global.v1.TotalBalance.TotalBalancesEntry
-	66,  // 88: adamant.global.v1.BalanceSnapshot.create_time:type_name -> google.protobuf.Timestamp
-	55,  // 89: adamant.global.v1.BalanceSnapshot.total_balances:type_name -> adamant.global.v1.BalanceSnapshot.TotalBalancesEntry
-	56,  // 90: adamant.global.v1.BalanceSnapshot.rates:type_name -> adamant.global.v1.BalanceSnapshot.RatesEntry
-	57,  // 91: adamant.global.v1.WalletBalanceSnapshotMap.wallet_balance_snapshot_map:type_name -> adamant.global.v1.WalletBalanceSnapshotMap.WalletBalanceSnapshotMapEntry
+	64,  // 86: adamant.global.v1.TotalBalanceByCoin.coin:type_name -> gincoinc.global.v1.Coin
+	56,  // 87: adamant.global.v1.TotalBalance.total_balances:type_name -> adamant.global.v1.TotalBalance.TotalBalancesEntry
+	68,  // 88: adamant.global.v1.BalanceSnapshot.create_time:type_name -> google.protobuf.Timestamp
+	57,  // 89: adamant.global.v1.BalanceSnapshot.total_balances:type_name -> adamant.global.v1.BalanceSnapshot.TotalBalancesEntry
+	58,  // 90: adamant.global.v1.BalanceSnapshot.rates:type_name -> adamant.global.v1.BalanceSnapshot.RatesEntry
+	59,  // 91: adamant.global.v1.WalletBalanceSnapshotMap.wallet_balance_snapshot_map:type_name -> adamant.global.v1.WalletBalanceSnapshotMap.WalletBalanceSnapshotMapEntry
 	38,  // 92: adamant.global.v1.ListWalletBalanceSnapshots.wallet_balance_snapshots:type_name -> adamant.global.v1.WalletBalanceSnapshot
-	66,  // 93: adamant.global.v1.WalletBalanceSnapshot.create_time:type_name -> google.protobuf.Timestamp
-	58,  // 94: adamant.global.v1.TransferVolumeSnapshots.transfer_volume_snapshot_by_transfer_type:type_name -> adamant.global.v1.TransferVolumeSnapshots.TransferVolumeSnapshotByTransferTypeEntry
+	68,  // 93: adamant.global.v1.WalletBalanceSnapshot.create_time:type_name -> google.protobuf.Timestamp
+	60,  // 94: adamant.global.v1.TransferVolumeSnapshots.transfer_volume_snapshot_by_transfer_type:type_name -> adamant.global.v1.TransferVolumeSnapshots.TransferVolumeSnapshotByTransferTypeEntry
 	41,  // 95: adamant.global.v1.ListTransferVolumeSnapshots.transfer_volume_snapshots:type_name -> adamant.global.v1.TransferVolumeSnapshot
-	66,  // 96: adamant.global.v1.TransferVolumeSnapshot.target_time:type_name -> google.protobuf.Timestamp
-	59,  // 97: adamant.global.v1.TransferVolumeSnapshot.transfer_volume_by_coin:type_name -> adamant.global.v1.TransferVolumeSnapshot.TransferVolumeByCoinEntry
-	62,  // 98: adamant.global.v1.TransferVolume.coin:type_name -> gincoinc.global.v1.Coin
-	73,  // 99: adamant.global.v1.TransferVolume.transfer_type:type_name -> gincoinc.global.v1.TransferType
-	60,  // 100: adamant.global.v1.WalletTransferVolumeSnapshots.wallet_transfer_volume_snapshot_by_wallet_id:type_name -> adamant.global.v1.WalletTransferVolumeSnapshots.WalletTransferVolumeSnapshotByWalletIdEntry
+	68,  // 96: adamant.global.v1.TransferVolumeSnapshot.target_time:type_name -> google.protobuf.Timestamp
+	61,  // 97: adamant.global.v1.TransferVolumeSnapshot.transfer_volume_by_coin:type_name -> adamant.global.v1.TransferVolumeSnapshot.TransferVolumeByCoinEntry
+	64,  // 98: adamant.global.v1.TransferVolume.coin:type_name -> gincoinc.global.v1.Coin
+	75,  // 99: adamant.global.v1.TransferVolume.transfer_type:type_name -> gincoinc.global.v1.TransferType
+	62,  // 100: adamant.global.v1.WalletTransferVolumeSnapshots.wallet_transfer_volume_snapshot_by_wallet_id:type_name -> adamant.global.v1.WalletTransferVolumeSnapshots.WalletTransferVolumeSnapshotByWalletIdEntry
 	45,  // 101: adamant.global.v1.ListWalletTransferVolumeSnapshots.wallet_transfer_volume_snapshots:type_name -> adamant.global.v1.WalletTransferVolumeSnapshot
-	66,  // 102: adamant.global.v1.WalletTransferVolumeSnapshot.target_time:type_name -> google.protobuf.Timestamp
-	61,  // 103: adamant.global.v1.WalletTransferVolumeSnapshot.wallet_transfer_volume_by_transfer_type:type_name -> adamant.global.v1.WalletTransferVolumeSnapshot.WalletTransferVolumeByTransferTypeEntry
-	73,  // 104: adamant.global.v1.WalletTransferVolume.transfer_type:type_name -> gincoinc.global.v1.TransferType
-	62,  // 105: adamant.global.v1.Confirmation.coin:type_name -> gincoinc.global.v1.Coin
-	50,  // 106: adamant.global.v1.RequestSignedInfo.signatures:type_name -> adamant.global.v1.RequestSignature
-	77,  // 107: adamant.global.v1.RequestTransferLimitEntry.transfer_limit_type:type_name -> adamant.global.v1.TransferLimitType
-	62,  // 108: adamant.global.v1.RequestRate.coin:type_name -> gincoinc.global.v1.Coin
-	23,  // 109: adamant.global.v1.RateSnapshot.RatesEntry.value:type_name -> adamant.global.v1.Rate
-	33,  // 110: adamant.global.v1.TotalBalance.TotalBalancesEntry.value:type_name -> adamant.global.v1.TotalBalanceByCoin
-	33,  // 111: adamant.global.v1.BalanceSnapshot.TotalBalancesEntry.value:type_name -> adamant.global.v1.TotalBalanceByCoin
-	23,  // 112: adamant.global.v1.BalanceSnapshot.RatesEntry.value:type_name -> adamant.global.v1.Rate
-	37,  // 113: adamant.global.v1.WalletBalanceSnapshotMap.WalletBalanceSnapshotMapEntry.value:type_name -> adamant.global.v1.ListWalletBalanceSnapshots
-	40,  // 114: adamant.global.v1.TransferVolumeSnapshots.TransferVolumeSnapshotByTransferTypeEntry.value:type_name -> adamant.global.v1.ListTransferVolumeSnapshots
-	42,  // 115: adamant.global.v1.TransferVolumeSnapshot.TransferVolumeByCoinEntry.value:type_name -> adamant.global.v1.TransferVolume
-	44,  // 116: adamant.global.v1.WalletTransferVolumeSnapshots.WalletTransferVolumeSnapshotByWalletIdEntry.value:type_name -> adamant.global.v1.ListWalletTransferVolumeSnapshots
-	46,  // 117: adamant.global.v1.WalletTransferVolumeSnapshot.WalletTransferVolumeByTransferTypeEntry.value:type_name -> adamant.global.v1.WalletTransferVolume
-	118, // [118:118] is the sub-list for method output_type
-	118, // [118:118] is the sub-list for method input_type
-	118, // [118:118] is the sub-list for extension type_name
-	118, // [118:118] is the sub-list for extension extendee
-	0,   // [0:118] is the sub-list for field type_name
+	68,  // 102: adamant.global.v1.WalletTransferVolumeSnapshot.target_time:type_name -> google.protobuf.Timestamp
+	63,  // 103: adamant.global.v1.WalletTransferVolumeSnapshot.wallet_transfer_volume_by_transfer_type:type_name -> adamant.global.v1.WalletTransferVolumeSnapshot.WalletTransferVolumeByTransferTypeEntry
+	75,  // 104: adamant.global.v1.WalletTransferVolume.transfer_type:type_name -> gincoinc.global.v1.TransferType
+	64,  // 105: adamant.global.v1.Confirmation.coin:type_name -> gincoinc.global.v1.Coin
+	64,  // 106: adamant.global.v1.WalletFlushSetting.coin:type_name -> gincoinc.global.v1.Coin
+	68,  // 107: adamant.global.v1.WalletFlushSetting.create_time:type_name -> google.protobuf.Timestamp
+	68,  // 108: adamant.global.v1.WalletFlushSetting.update_time:type_name -> google.protobuf.Timestamp
+	68,  // 109: adamant.global.v1.CompensationFee.create_time:type_name -> google.protobuf.Timestamp
+	52,  // 110: adamant.global.v1.RequestSignedInfo.signatures:type_name -> adamant.global.v1.RequestSignature
+	79,  // 111: adamant.global.v1.RequestTransferLimitEntry.transfer_limit_type:type_name -> adamant.global.v1.TransferLimitType
+	64,  // 112: adamant.global.v1.RequestRate.coin:type_name -> gincoinc.global.v1.Coin
+	23,  // 113: adamant.global.v1.RateSnapshot.RatesEntry.value:type_name -> adamant.global.v1.Rate
+	33,  // 114: adamant.global.v1.TotalBalance.TotalBalancesEntry.value:type_name -> adamant.global.v1.TotalBalanceByCoin
+	33,  // 115: adamant.global.v1.BalanceSnapshot.TotalBalancesEntry.value:type_name -> adamant.global.v1.TotalBalanceByCoin
+	23,  // 116: adamant.global.v1.BalanceSnapshot.RatesEntry.value:type_name -> adamant.global.v1.Rate
+	37,  // 117: adamant.global.v1.WalletBalanceSnapshotMap.WalletBalanceSnapshotMapEntry.value:type_name -> adamant.global.v1.ListWalletBalanceSnapshots
+	40,  // 118: adamant.global.v1.TransferVolumeSnapshots.TransferVolumeSnapshotByTransferTypeEntry.value:type_name -> adamant.global.v1.ListTransferVolumeSnapshots
+	42,  // 119: adamant.global.v1.TransferVolumeSnapshot.TransferVolumeByCoinEntry.value:type_name -> adamant.global.v1.TransferVolume
+	44,  // 120: adamant.global.v1.WalletTransferVolumeSnapshots.WalletTransferVolumeSnapshotByWalletIdEntry.value:type_name -> adamant.global.v1.ListWalletTransferVolumeSnapshots
+	46,  // 121: adamant.global.v1.WalletTransferVolumeSnapshot.WalletTransferVolumeByTransferTypeEntry.value:type_name -> adamant.global.v1.WalletTransferVolume
+	122, // [122:122] is the sub-list for method output_type
+	122, // [122:122] is the sub-list for method input_type
+	122, // [122:122] is the sub-list for extension type_name
+	122, // [122:122] is the sub-list for extension extendee
+	0,   // [0:122] is the sub-list for field type_name
 }
 
 func init() { file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_init() }
@@ -6179,7 +6374,7 @@ func file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_init() {
 			}
 		}
 		file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[48].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RequestTxOutput); i {
+			switch v := v.(*WalletFlushSetting); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6191,7 +6386,7 @@ func file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_init() {
 			}
 		}
 		file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[49].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RequestSignedInfo); i {
+			switch v := v.(*CompensationFee); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6203,7 +6398,7 @@ func file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_init() {
 			}
 		}
 		file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[50].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RequestSignature); i {
+			switch v := v.(*RequestTxOutput); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6215,7 +6410,7 @@ func file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_init() {
 			}
 		}
 		file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[51].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RequestTransferLimitEntry); i {
+			switch v := v.(*RequestSignedInfo); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -6227,6 +6422,30 @@ func file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_init() {
 			}
 		}
 		file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[52].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RequestSignature); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[53].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RequestTransferLimitEntry); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_msgTypes[54].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*RequestRate); i {
 			case 0:
 				return &v.state
@@ -6245,7 +6464,7 @@ func file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_gincoinc_adamant_global_v1_adamantglobalv1_model_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   62,
+			NumMessages:   64,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
