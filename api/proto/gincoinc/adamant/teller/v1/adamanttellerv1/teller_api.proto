@@ -32,6 +32,8 @@ service TellerAPI {
     // Get an address which hold ETH for ethereum wallet/address creation etc
     rpc GetEthereumFeeAddress (adamant.global.v1.GetEthereumFeeAddressRequest) returns (adamant.global.v1.EthereumFeeAddress) {}
 
+    rpc UpdateAddressBalance (adamant.global.v1.UpdateAddressBalanceRequest) returns (google.protobuf.Empty) {}
+
     rpc CreateTransaction (adamant.global.v1.CreateTransactionRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
     rpc SignTransaction (SignTransactionRequest) returns (google.protobuf.Empty) {}
     rpc SendTransaction (adamant.global.v1.SendTransactionRequest) returns (adamant.global.v1.SendTransactionResponse) {}

@@ -149,6 +149,8 @@ message AddressWithBalance {
     string address = 1; // address
     double balance = 2; // The number-typed balance corresponding to the address
     string string_balance = 3; // The string-typed balance corresponding to the address
+    double fee_balance = 4; // The number-typed fee balance corresponding to the address
+    string string_fee_balance = 5; // The string-typed string fee balance corresponding to the address
 }
 
 // The model of transaction
@@ -466,6 +468,20 @@ message WalletTransferVolume {
 message Confirmation {
     gincoinc.global.v1.Coin coin = 1;
     uint32 confirmation = 2;
+}
+
+message WalletFlushSetting {
+    string owner_id = 1;
+    gincoinc.global.v1.Coin coin = 2;
+    string destination_wallet_id = 3;
+    google.protobuf.Timestamp create_time = 4;
+    google.protobuf.Timestamp update_time = 5;
+}
+
+message CompensationFee {
+    string string_value = 1;
+    bool is_spent = 2;
+    google.protobuf.Timestamp create_time = 3;
 }
 
 // =============================================================================
