@@ -24,6 +24,7 @@ service GlobalAPI {
     rpc ArchiveWallet (ArchiveWalletRequest) returns (google.protobuf.Empty) {}
     rpc UnArchiveWallet (UnArchiveWalletRequest) returns (google.protobuf.Empty) {}
     rpc ListWallets (ListWalletsRequest) returns (ListWalletsResponse) {}
+    rpc ListWalletsByFilter (ListWalletsByFilterRequest) returns (ListWalletsResponse) {}
     rpc UpdateWalletName (UpdateWalletNameRequest) returns (google.protobuf.Empty) {}
     rpc UpdateWalletValidation (UpdateWalletValidationRequest) returns (google.protobuf.Empty) {}
     rpc UpdateWalletPolicy (UpdateWalletPolicyRequest) returns (google.protobuf.Empty) {}
@@ -60,6 +61,7 @@ service GlobalAPI {
     rpc GetTransaction (GetTransactionRequest) returns (Transaction) {}
     rpc GetTransactionByTxID (GetTransactionByTxIDRequest) returns (Transaction) {}
     rpc ListTransactions (ListTransactionsRequest) returns (ListTransactionsResponse) {}
+    rpc ListTransactionsByFilter (ListTransactionsByFilterRequest) returns (ListTransactionsResponse) {}
 
     // SignInfo
     rpc GetSignInfo (GetSignInfoRequest) returns (SignInfo) {}
@@ -69,6 +71,7 @@ service GlobalAPI {
     // Transfer
     // List transfers for a given wallet. Ordered by update time desc
     rpc ListTransfers (ListTransfersRequest) returns (ListTransfersResponse) {}
+    rpc ListTransfersByFilter (ListTransfersByFilterRequest) returns (ListTransfersResponse) {}
 
     // Rate
     // Get rates by snapshot id
@@ -196,6 +199,27 @@ message ListWalletsRequest {
     uint32 page_size = 1 [(validate.rules).uint32.lte = 100];
     string page_token = 2 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
 }
+
+message ListWalletsByFilterRequest {
+    ListFilterType filter_type = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
+    string wallet_id = 2;
+    string wallet_name = 3 [(validate.rules).string = {max_len: 20}];
+    string address = 4;
+    bool watch_only = 10;
+
+    // optional
+    gincoinc.global.v1.Coin coin = 5 [(validate.rules).enum = {defined_only: true}];
+
+    // optional
+    repeated WalletType wallet_type = 6;
+
+    // optional
+    repeated WalletState wallet_state = 7;
+
+    uint32 page_size = 8 [(validate.rules).uint32.lte = 100];
+    string page_token = 9 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
+}
+
 message ListWalletsResponse {
     repeated Wallet wallets = 1;
     string next_page_token = 2;
@@ -431,6 +455,27 @@ message ListTransactionsRequest {
     uint32 page_size = 2 [(validate.rules).uint32.lte = 100];
     string page_token = 3 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
 }
+
+message ListTransactionsByFilterRequest {
+    ListFilterType filter_type = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
+    string transaction_id = 2;
+    string wallet_name = 3 [(validate.rules).string = {max_len: 20}];
+    string address_name = 4 [(validate.rules).string = {max_len: 20}];
+    string address = 5;
+    string txid = 6;
+
+    // optional
+    gincoinc.global.v1.Coin coin = 7 [(validate.rules).enum = {defined_only: true}];
+
+    // optional
+    repeated WalletType wallet_type = 8;
+
+    // optional
+    repeated TransactionState transaction_state = 9;
+    uint32 page_size = 10 [(validate.rules).uint32.lte = 100];
+    string page_token = 11 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
+}
+
 message ListTransactionsResponse {
     repeated Transaction transactions = 1;
     string next_page_token = 2;
@@ -472,6 +517,32 @@ message ListTransfersRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}]; //The id of wallet
     uint32 page_size = 2 [(validate.rules).uint32.lte = 100]; //indicate how many objects to return in a single response
     string page_token = 3 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}]; //retrieve the next page
+}
+
+message ListTransfersByFilterRequest {
+    ListFilterType filter_type = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
+    string transfer_id = 2;
+    string wallet_id = 13;
+    string wallet_name = 3 [(validate.rules).string = {max_len: 20}];
+    string address_name = 4 [(validate.rules).string = {max_len: 20}];
+    string address = 5;
+    string txid = 6;
+    bool watch_only = 12;
+
+    // optional
+    gincoinc.global.v1.Coin coin = 7 [(validate.rules).enum = {defined_only: true}];
+
+    // optional
+    repeated WalletType wallet_type = 8;
+
+    // optional
+    gincoinc.global.v1.TransferType transfer_type = 9 [(validate.rules).enum = {defined_only: true}];
+
+    uint32 page_size = 10 [(validate.rules).uint32.lte = 100];
+    string page_token = 11 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
+
+    google.protobuf.Timestamp start_time = 14;
+    google.protobuf.Timestamp end_time = 15;
 }
 
 message ListTransfersResponse {
