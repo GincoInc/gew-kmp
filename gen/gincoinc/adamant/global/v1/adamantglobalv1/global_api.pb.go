@@ -664,18 +664,22 @@ type ListWalletsByFilterRequest struct {
 	unknownFields protoimpl.UnknownFields
 
 	FilterType ListFilterType `protobuf:"varint,1,opt,name=filter_type,json=filterType,proto3,enum=adamant.global.v1.ListFilterType" json:"filter_type,omitempty"`
-	WalletId   string         `protobuf:"bytes,2,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
-	WalletName string         `protobuf:"bytes,3,opt,name=wallet_name,json=walletName,proto3" json:"wallet_name,omitempty"`
-	Address    string         `protobuf:"bytes,4,opt,name=address,proto3" json:"address,omitempty"`
-	WatchOnly  bool           `protobuf:"varint,10,opt,name=watch_only,json=watchOnly,proto3" json:"watch_only,omitempty"`
 	// optional
-	Coin gincoincglobalv1.Coin `protobuf:"varint,5,opt,name=coin,proto3,enum=gincoinc.global.v1.Coin" json:"coin,omitempty"`
+	WalletId string `protobuf:"bytes,2,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
 	// optional
-	WalletType []WalletType `protobuf:"varint,6,rep,packed,name=wallet_type,json=walletType,proto3,enum=adamant.global.v1.WalletType" json:"wallet_type,omitempty"`
+	WalletName string `protobuf:"bytes,3,opt,name=wallet_name,json=walletName,proto3" json:"wallet_name,omitempty"`
 	// optional
-	WalletState []WalletState `protobuf:"varint,7,rep,packed,name=wallet_state,json=walletState,proto3,enum=adamant.global.v1.WalletState" json:"wallet_state,omitempty"`
-	PageSize    uint32        `protobuf:"varint,8,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
-	PageToken   string        `protobuf:"bytes,9,opt,name=page_token,json=pageToken,proto3" json:"page_token,omitempty"`
+	Address string `protobuf:"bytes,4,opt,name=address,proto3" json:"address,omitempty"`
+	// optional
+	WatchOnly bool `protobuf:"varint,10,opt,name=watch_only,json=watchOnly,proto3" json:"watch_only,omitempty"`
+	// optional
+	Coin        gincoincglobalv1.Coin `protobuf:"varint,5,opt,name=coin,proto3,enum=gincoinc.global.v1.Coin" json:"coin,omitempty"`
+	WalletType  []WalletType          `protobuf:"varint,6,rep,packed,name=wallet_type,json=walletType,proto3,enum=adamant.global.v1.WalletType" json:"wallet_type,omitempty"`
+	WalletState []WalletState         `protobuf:"varint,7,rep,packed,name=wallet_state,json=walletState,proto3,enum=adamant.global.v1.WalletState" json:"wallet_state,omitempty"`
+	// optional
+	PageSize uint32 `protobuf:"varint,8,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
+	// optional
+	PageToken string `protobuf:"bytes,9,opt,name=page_token,json=pageToken,proto3" json:"page_token,omitempty"`
 }
 
 func (x *ListWalletsByFilterRequest) Reset() {
@@ -3313,20 +3317,25 @@ type ListTransactionsByFilterRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	FilterType    ListFilterType `protobuf:"varint,1,opt,name=filter_type,json=filterType,proto3,enum=adamant.global.v1.ListFilterType" json:"filter_type,omitempty"`
-	TransactionId string         `protobuf:"bytes,2,opt,name=transaction_id,json=transactionId,proto3" json:"transaction_id,omitempty"`
-	WalletName    string         `protobuf:"bytes,3,opt,name=wallet_name,json=walletName,proto3" json:"wallet_name,omitempty"`
-	AddressName   string         `protobuf:"bytes,4,opt,name=address_name,json=addressName,proto3" json:"address_name,omitempty"`
-	Address       string         `protobuf:"bytes,5,opt,name=address,proto3" json:"address,omitempty"`
-	Txid          string         `protobuf:"bytes,6,opt,name=txid,proto3" json:"txid,omitempty"`
+	FilterType ListFilterType `protobuf:"varint,1,opt,name=filter_type,json=filterType,proto3,enum=adamant.global.v1.ListFilterType" json:"filter_type,omitempty"`
 	// optional
-	Coin gincoincglobalv1.Coin `protobuf:"varint,7,opt,name=coin,proto3,enum=gincoinc.global.v1.Coin" json:"coin,omitempty"`
+	TransactionId string `protobuf:"bytes,2,opt,name=transaction_id,json=transactionId,proto3" json:"transaction_id,omitempty"`
 	// optional
-	WalletType []WalletType `protobuf:"varint,8,rep,packed,name=wallet_type,json=walletType,proto3,enum=adamant.global.v1.WalletType" json:"wallet_type,omitempty"`
+	WalletName string `protobuf:"bytes,3,opt,name=wallet_name,json=walletName,proto3" json:"wallet_name,omitempty"`
 	// optional
-	TransactionState []TransactionState `protobuf:"varint,9,rep,packed,name=transaction_state,json=transactionState,proto3,enum=adamant.global.v1.TransactionState" json:"transaction_state,omitempty"`
-	PageSize         uint32             `protobuf:"varint,10,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
-	PageToken        string             `protobuf:"bytes,11,opt,name=page_token,json=pageToken,proto3" json:"page_token,omitempty"`
+	AddressName string `protobuf:"bytes,4,opt,name=address_name,json=addressName,proto3" json:"address_name,omitempty"`
+	// optional
+	Address string `protobuf:"bytes,5,opt,name=address,proto3" json:"address,omitempty"`
+	// optional
+	Txid string `protobuf:"bytes,6,opt,name=txid,proto3" json:"txid,omitempty"`
+	// optional
+	Coin             gincoincglobalv1.Coin `protobuf:"varint,7,opt,name=coin,proto3,enum=gincoinc.global.v1.Coin" json:"coin,omitempty"`
+	WalletType       []WalletType          `protobuf:"varint,8,rep,packed,name=wallet_type,json=walletType,proto3,enum=adamant.global.v1.WalletType" json:"wallet_type,omitempty"`
+	TransactionState []TransactionState    `protobuf:"varint,9,rep,packed,name=transaction_state,json=transactionState,proto3,enum=adamant.global.v1.TransactionState" json:"transaction_state,omitempty"`
+	// optional
+	PageSize uint32 `protobuf:"varint,10,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
+	// optional
+	PageToken string `protobuf:"bytes,11,opt,name=page_token,json=pageToken,proto3" json:"page_token,omitempty"`
 }
 
 func (x *ListTransactionsByFilterRequest) Reset() {
@@ -3859,24 +3868,34 @@ type ListTransfersByFilterRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	FilterType  ListFilterType `protobuf:"varint,1,opt,name=filter_type,json=filterType,proto3,enum=adamant.global.v1.ListFilterType" json:"filter_type,omitempty"`
-	TransferId  string         `protobuf:"bytes,2,opt,name=transfer_id,json=transferId,proto3" json:"transfer_id,omitempty"`
-	WalletId    string         `protobuf:"bytes,13,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
-	WalletName  string         `protobuf:"bytes,3,opt,name=wallet_name,json=walletName,proto3" json:"wallet_name,omitempty"`
-	AddressName string         `protobuf:"bytes,4,opt,name=address_name,json=addressName,proto3" json:"address_name,omitempty"`
-	Address     string         `protobuf:"bytes,5,opt,name=address,proto3" json:"address,omitempty"`
-	Txid        string         `protobuf:"bytes,6,opt,name=txid,proto3" json:"txid,omitempty"`
-	WatchOnly   bool           `protobuf:"varint,12,opt,name=watch_only,json=watchOnly,proto3" json:"watch_only,omitempty"`
+	FilterType ListFilterType `protobuf:"varint,1,opt,name=filter_type,json=filterType,proto3,enum=adamant.global.v1.ListFilterType" json:"filter_type,omitempty"`
 	// optional
-	Coin gincoincglobalv1.Coin `protobuf:"varint,7,opt,name=coin,proto3,enum=gincoinc.global.v1.Coin" json:"coin,omitempty"`
+	TransferId string `protobuf:"bytes,2,opt,name=transfer_id,json=transferId,proto3" json:"transfer_id,omitempty"`
 	// optional
-	WalletType []WalletType `protobuf:"varint,8,rep,packed,name=wallet_type,json=walletType,proto3,enum=adamant.global.v1.WalletType" json:"wallet_type,omitempty"`
+	WalletId string `protobuf:"bytes,13,opt,name=wallet_id,json=walletId,proto3" json:"wallet_id,omitempty"`
+	// optional
+	WalletName string `protobuf:"bytes,3,opt,name=wallet_name,json=walletName,proto3" json:"wallet_name,omitempty"`
+	// optional
+	AddressName string `protobuf:"bytes,4,opt,name=address_name,json=addressName,proto3" json:"address_name,omitempty"`
+	// optional
+	Address string `protobuf:"bytes,5,opt,name=address,proto3" json:"address,omitempty"`
+	// optional
+	Txid string `protobuf:"bytes,6,opt,name=txid,proto3" json:"txid,omitempty"`
+	// optional
+	WatchOnly bool `protobuf:"varint,12,opt,name=watch_only,json=watchOnly,proto3" json:"watch_only,omitempty"`
+	// optional
+	Coin       gincoincglobalv1.Coin `protobuf:"varint,7,opt,name=coin,proto3,enum=gincoinc.global.v1.Coin" json:"coin,omitempty"`
+	WalletType []WalletType          `protobuf:"varint,8,rep,packed,name=wallet_type,json=walletType,proto3,enum=adamant.global.v1.WalletType" json:"wallet_type,omitempty"`
 	// optional
 	TransferType gincoincglobalv1.TransferType `protobuf:"varint,9,opt,name=transfer_type,json=transferType,proto3,enum=gincoinc.global.v1.TransferType" json:"transfer_type,omitempty"`
-	PageSize     uint32                        `protobuf:"varint,10,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
-	PageToken    string                        `protobuf:"bytes,11,opt,name=page_token,json=pageToken,proto3" json:"page_token,omitempty"`
-	StartTime    *timestamp.Timestamp          `protobuf:"bytes,14,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
-	EndTime      *timestamp.Timestamp          `protobuf:"bytes,15,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
+	// optional
+	PageSize uint32 `protobuf:"varint,10,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
+	// optional
+	PageToken string `protobuf:"bytes,11,opt,name=page_token,json=pageToken,proto3" json:"page_token,omitempty"`
+	// optional
+	StartTime *timestamp.Timestamp `protobuf:"bytes,14,opt,name=start_time,json=startTime,proto3" json:"start_time,omitempty"`
+	// optional
+	EndTime *timestamp.Timestamp `protobuf:"bytes,15,opt,name=end_time,json=endTime,proto3" json:"end_time,omitempty"`
 }
 
 func (x *ListTransfersByFilterRequest) Reset() {
