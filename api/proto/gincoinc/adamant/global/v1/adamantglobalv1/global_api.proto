@@ -202,21 +202,28 @@ message ListWalletsRequest {
 
 message ListWalletsByFilterRequest {
     ListFilterType filter_type = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
+    // optional
     string wallet_id = 2;
+
+    // optional
     string wallet_name = 3 [(validate.rules).string = {max_len: 20}];
+
+    // optional
     string address = 4;
+
+    // optional
     bool watch_only = 10;
 
     // optional
     gincoinc.global.v1.Coin coin = 5 [(validate.rules).enum = {defined_only: true}];
 
-    // optional
     repeated WalletType wallet_type = 6;
-
-    // optional
     repeated WalletState wallet_state = 7;
 
+    // optional
     uint32 page_size = 8 [(validate.rules).uint32.lte = 100];
+
+    // optional
     string page_token = 9 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
 }
 
@@ -458,21 +465,32 @@ message ListTransactionsRequest {
 
 message ListTransactionsByFilterRequest {
     ListFilterType filter_type = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
+
+    // optional
     string transaction_id = 2;
+
+    // optional
     string wallet_name = 3 [(validate.rules).string = {max_len: 20}];
+
+    // optional
     string address_name = 4 [(validate.rules).string = {max_len: 20}];
+
+    // optional
     string address = 5;
+
+    // optional
     string txid = 6;
 
     // optional
     gincoinc.global.v1.Coin coin = 7 [(validate.rules).enum = {defined_only: true}];
 
-    // optional
     repeated WalletType wallet_type = 8;
+    repeated TransactionState transaction_state = 9;
 
     // optional
-    repeated TransactionState transaction_state = 9;
     uint32 page_size = 10 [(validate.rules).uint32.lte = 100];
+
+    // optional
     string page_token = 11 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
 }
 
@@ -521,27 +539,45 @@ message ListTransfersRequest {
 
 message ListTransfersByFilterRequest {
     ListFilterType filter_type = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
+    // optional
     string transfer_id = 2;
+
+    // optional
     string wallet_id = 13;
+
+    // optional
     string wallet_name = 3 [(validate.rules).string = {max_len: 20}];
+
+    // optional
     string address_name = 4 [(validate.rules).string = {max_len: 20}];
+
+    // optional
     string address = 5;
+
+    // optional
     string txid = 6;
+
+    // optional
     bool watch_only = 12;
 
     // optional
     gincoinc.global.v1.Coin coin = 7 [(validate.rules).enum = {defined_only: true}];
 
-    // optional
     repeated WalletType wallet_type = 8;
 
     // optional
     gincoinc.global.v1.TransferType transfer_type = 9 [(validate.rules).enum = {defined_only: true}];
 
+    // optional
     uint32 page_size = 10 [(validate.rules).uint32.lte = 100];
+
+    // optional
     string page_token = 11 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
 
+    // optional
     google.protobuf.Timestamp start_time = 14;
+
+    // optional
     google.protobuf.Timestamp end_time = 15;
 }
 
