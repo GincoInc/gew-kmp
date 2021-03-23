@@ -20,6 +20,7 @@ service TellerAPI {
     // Get wallet information. the wallet model includes balance, address etc.
     rpc GetWallet (adamant.global.v1.GetWalletRequest) returns (adamant.global.v1.Wallet) {}
     rpc ListWallets (adamant.global.v1.ListWalletsRequest) returns (adamant.global.v1.ListWalletsResponse) {}
+    rpc ListWalletsByFilter (adamant.global.v1.ListWalletsByFilterRequest) returns (adamant.global.v1.ListWalletsResponse) {}
     rpc GetSpendableBalance (adamant.global.v1.GetSpendableBalanceRequest) returns (adamant.global.v1.GetSpendableBalanceResponse) {}
     rpc InitializeXRPWallet (InitializeXRPWalletRequest) returns (google.protobuf.Empty) {}
 
@@ -41,9 +42,11 @@ service TellerAPI {
     rpc GetTransaction (adamant.global.v1.GetTransactionRequest) returns (adamant.global.v1.Transaction) {}
     rpc GetTransactionByTxID (adamant.global.v1.GetTransactionByTxIDRequest) returns (adamant.global.v1.Transaction) {}
     rpc ListTransactions (adamant.global.v1.ListTransactionsRequest) returns (adamant.global.v1.ListTransactionsResponse) {}
+    rpc ListTransactionsByFilter (adamant.global.v1.ListTransactionsByFilterRequest) returns (adamant.global.v1.ListTransactionsResponse) {}
 
     // List transfers for a given wallet. Ordered by update time desc
     rpc ListTransfers (adamant.global.v1.ListTransfersRequest) returns (adamant.global.v1.ListTransfersResponse) {}
+    rpc ListTransfersByFilter (adamant.global.v1.ListTransfersByFilterRequest) returns (adamant.global.v1.ListTransfersResponse) {}
 
     // Get rates by snapshot id
     rpc GetRateSnapshot (adamant.global.v1.GetRateSnapshotRequest) returns (adamant.global.v1.RateSnapshot) {}

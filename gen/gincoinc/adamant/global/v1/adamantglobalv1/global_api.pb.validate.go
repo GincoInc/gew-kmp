@@ -46,6 +46,14 @@ var (
 
 	_ = gincoincglobalv1.Coin(0)
 
+	_ = gincoincglobalv1.TransferType(0)
+
+	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.Coin(0)
+
 	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.Coin(0)
@@ -1015,6 +1023,127 @@ var _ interface {
 } = ListWalletsRequestValidationError{}
 
 var _ListWalletsRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListWalletsByFilterRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ListWalletsByFilterRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if _, ok := _ListWalletsByFilterRequest_FilterType_NotInLookup[m.GetFilterType()]; ok {
+		return ListWalletsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must not be in list [0]",
+		}
+	}
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		return ListWalletsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	// no validation rules for WalletId
+
+	if utf8.RuneCountInString(m.GetWalletName()) > 20 {
+		return ListWalletsByFilterRequestValidationError{
+			field:  "WalletName",
+			reason: "value length must be at most 20 runes",
+		}
+	}
+
+	// no validation rules for Address
+
+	// no validation rules for WatchOnly
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		return ListWalletsByFilterRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	if m.GetPageSize() > 100 {
+		return ListWalletsByFilterRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 100",
+		}
+	}
+
+	if !_ListWalletsByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		return ListWalletsByFilterRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+	}
+
+	return nil
+}
+
+// ListWalletsByFilterRequestValidationError is the validation error returned
+// by ListWalletsByFilterRequest.Validate if the designated constraints aren't met.
+type ListWalletsByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListWalletsByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListWalletsByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListWalletsByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListWalletsByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListWalletsByFilterRequestValidationError) ErrorName() string {
+	return "ListWalletsByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListWalletsByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListWalletsByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListWalletsByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListWalletsByFilterRequestValidationError{}
+
+var _ListWalletsByFilterRequest_FilterType_NotInLookup = map[ListFilterType]struct{}{
+	0: {},
+}
+
+var _ListWalletsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
 
 // Validate checks the field values on ListWalletsResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -4897,6 +5026,135 @@ var _ListTransactionsRequest_WalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]
 
 var _ListTransactionsRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
 
+// Validate checks the field values on ListTransactionsByFilterRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ListTransactionsByFilterRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if _, ok := _ListTransactionsByFilterRequest_FilterType_NotInLookup[m.GetFilterType()]; ok {
+		return ListTransactionsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must not be in list [0]",
+		}
+	}
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		return ListTransactionsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	// no validation rules for TransactionId
+
+	if utf8.RuneCountInString(m.GetWalletName()) > 20 {
+		return ListTransactionsByFilterRequestValidationError{
+			field:  "WalletName",
+			reason: "value length must be at most 20 runes",
+		}
+	}
+
+	if utf8.RuneCountInString(m.GetAddressName()) > 20 {
+		return ListTransactionsByFilterRequestValidationError{
+			field:  "AddressName",
+			reason: "value length must be at most 20 runes",
+		}
+	}
+
+	// no validation rules for Address
+
+	// no validation rules for Txid
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		return ListTransactionsByFilterRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	if m.GetPageSize() > 100 {
+		return ListTransactionsByFilterRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 100",
+		}
+	}
+
+	if !_ListTransactionsByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		return ListTransactionsByFilterRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+	}
+
+	return nil
+}
+
+// ListTransactionsByFilterRequestValidationError is the validation error
+// returned by ListTransactionsByFilterRequest.Validate if the designated
+// constraints aren't met.
+type ListTransactionsByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListTransactionsByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListTransactionsByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListTransactionsByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListTransactionsByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListTransactionsByFilterRequestValidationError) ErrorName() string {
+	return "ListTransactionsByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListTransactionsByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListTransactionsByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListTransactionsByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListTransactionsByFilterRequestValidationError{}
+
+var _ListTransactionsByFilterRequest_FilterType_NotInLookup = map[ListFilterType]struct{}{
+	0: {},
+}
+
+var _ListTransactionsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
 // Validate checks the field values on ListTransactionsResponse with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -5559,6 +5817,166 @@ var _ interface {
 var _ListTransfersRequest_WalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _ListTransfersRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListTransfersByFilterRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ListTransfersByFilterRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if _, ok := _ListTransfersByFilterRequest_FilterType_NotInLookup[m.GetFilterType()]; ok {
+		return ListTransfersByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must not be in list [0]",
+		}
+	}
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		return ListTransfersByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	// no validation rules for TransferId
+
+	// no validation rules for WalletId
+
+	if utf8.RuneCountInString(m.GetWalletName()) > 20 {
+		return ListTransfersByFilterRequestValidationError{
+			field:  "WalletName",
+			reason: "value length must be at most 20 runes",
+		}
+	}
+
+	if utf8.RuneCountInString(m.GetAddressName()) > 20 {
+		return ListTransfersByFilterRequestValidationError{
+			field:  "AddressName",
+			reason: "value length must be at most 20 runes",
+		}
+	}
+
+	// no validation rules for Address
+
+	// no validation rules for Txid
+
+	// no validation rules for WatchOnly
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		return ListTransfersByFilterRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	if _, ok := gincoincglobalv1.TransferType_name[int32(m.GetTransferType())]; !ok {
+		return ListTransfersByFilterRequestValidationError{
+			field:  "TransferType",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	if m.GetPageSize() > 100 {
+		return ListTransfersByFilterRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 100",
+		}
+	}
+
+	if !_ListTransfersByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		return ListTransfersByFilterRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+	}
+
+	if v, ok := interface{}(m.GetStartTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ListTransfersByFilterRequestValidationError{
+				field:  "StartTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetEndTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ListTransfersByFilterRequestValidationError{
+				field:  "EndTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// ListTransfersByFilterRequestValidationError is the validation error returned
+// by ListTransfersByFilterRequest.Validate if the designated constraints
+// aren't met.
+type ListTransfersByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListTransfersByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListTransfersByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListTransfersByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListTransfersByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListTransfersByFilterRequestValidationError) ErrorName() string {
+	return "ListTransfersByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListTransfersByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListTransfersByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListTransfersByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListTransfersByFilterRequestValidationError{}
+
+var _ListTransfersByFilterRequest_FilterType_NotInLookup = map[ListFilterType]struct{}{
+	0: {},
+}
+
+var _ListTransfersByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
 
 // Validate checks the field values on ListTransfersResponse with the rules
 // defined in the proto definition for this message. If any rules are
