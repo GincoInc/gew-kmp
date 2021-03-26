@@ -23,6 +23,7 @@ enum Coin {
   COIN_BAT = 6;
   COIN_TRX = 7;
   COIN_USDT = 8;
+  COIN_RYO = 9;
 }
 
 // Network is a type of blockchain network.
@@ -40,6 +41,8 @@ enum Network {
   NETWORK_RIPPLE_TESTNET = 10;
   NETWORK_TRON_MAINNET = 11;
   NETWORK_TRON_TESTNET = 12;
+  NETWORK_C0BAN_MAINNET = 13;
+  NETWORK_C0BAN_TESTNET = 14;
 }
 
 // AddressType is a type of address.
