@@ -175,6 +175,7 @@ message Transaction {
     BitcoincashSpecific bitcoincash_specific = 24; // The Bitcoin Cash specific fields
     XrpSpecific xrp_specific = 21; // The XRP specific fields
     TronSpecific tron_specific = 25; // The Tron specific fields
+    C0banSpecific c0ban_specific = 26; // The C0ban specific fields
     google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
     google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -242,6 +243,12 @@ message XrpSpecific {
 // The model of Tron specific fields of transaction
 message TronSpecific {
     uint64 expiration = 1;
+}
+
+// The model of C0ban specific fields of transaction
+message C0banSpecific {
+    repeated TxInput tx_inputs = 1;
+    repeated TxOutput tx_outputs = 2;
 }
 
 // The model of information about signing
