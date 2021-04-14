@@ -1229,6 +1229,155 @@ var _ interface {
 	ErrorName() string
 } = ListWalletsResponseValidationError{}
 
+// Validate checks the field values on ListBaseWalletsRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ListBaseWalletsRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// ListBaseWalletsRequestValidationError is the validation error returned by
+// ListBaseWalletsRequest.Validate if the designated constraints aren't met.
+type ListBaseWalletsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListBaseWalletsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListBaseWalletsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListBaseWalletsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListBaseWalletsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListBaseWalletsRequestValidationError) ErrorName() string {
+	return "ListBaseWalletsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListBaseWalletsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListBaseWalletsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListBaseWalletsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListBaseWalletsRequestValidationError{}
+
+// Validate checks the field values on ListBaseWalletsResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ListBaseWalletsResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetWallets() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListBaseWalletsResponseValidationError{
+					field:  fmt.Sprintf("Wallets[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ListBaseWalletsResponseValidationError is the validation error returned by
+// ListBaseWalletsResponse.Validate if the designated constraints aren't met.
+type ListBaseWalletsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListBaseWalletsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListBaseWalletsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListBaseWalletsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListBaseWalletsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListBaseWalletsResponseValidationError) ErrorName() string {
+	return "ListBaseWalletsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListBaseWalletsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListBaseWalletsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListBaseWalletsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListBaseWalletsResponseValidationError{}
+
 // Validate checks the field values on UpdateWalletNameRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
