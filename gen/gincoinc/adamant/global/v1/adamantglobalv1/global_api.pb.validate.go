@@ -5199,6 +5199,13 @@ func (m *ListTransactionsByFilterRequest) Validate() error {
 
 	// no validation rules for TransactionId
 
+	if !_ListTransactionsByFilterRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return ListTransactionsByFilterRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
 	if utf8.RuneCountInString(m.GetWalletName()) > 20 {
 		return ListTransactionsByFilterRequestValidationError{
 			field:  "WalletName",
@@ -5301,6 +5308,8 @@ var _ interface {
 var _ListTransactionsByFilterRequest_FilterType_NotInLookup = map[ListFilterType]struct{}{
 	0: {},
 }
+
+var _ListTransactionsByFilterRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _ListTransactionsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
 
