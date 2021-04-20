@@ -666,6 +666,8 @@ func (m *Address) Validate() error {
 
 	// no validation rules for Index
 
+	// no validation rules for HdChange
+
 	// no validation rules for Balance
 
 	// no validation rules for StringBalance
@@ -768,6 +770,8 @@ func (m *AddressWithoutBalance) Validate() error {
 	// no validation rules for Address
 
 	// no validation rules for Index
+
+	// no validation rules for HdChange
 
 	// no validation rules for State
 
