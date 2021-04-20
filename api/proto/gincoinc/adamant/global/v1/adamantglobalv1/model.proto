@@ -104,6 +104,7 @@ message Address {
     gincoinc.global.v1.Coin coin = 3; // The type of coin
     string address = 4; // address
     uint32 index = 5; // The index of address
+    uint32 hd_change = 13; // The HD change of address
     double balance = 6; // The number-typed balance corresponding to the address
     string string_balance = 7; // The string-typed balance corresponding to the address
     AddressState state = 8; // state
@@ -120,6 +121,7 @@ message AddressWithoutBalance {
     gincoinc.global.v1.Coin coin = 3; // The type of coin
     string address = 4; // address
     uint32 index = 5; // The index of address
+    uint32 hd_change = 10; // The HD change of address
     AddressState state = 6; // state
     gincoinc.global.v1.AddressType address_type = 7; // The type of address
     google.protobuf.Timestamp create_time = 8; // the time at which the address was created
