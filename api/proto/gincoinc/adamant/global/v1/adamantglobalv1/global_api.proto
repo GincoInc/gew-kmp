@@ -477,7 +477,7 @@ message ListTransactionsByFilterRequest {
     string transaction_id = 2;
 
     // optional
-    string wallet_id = 12 [(validate.rules).string = {pattern:"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string wallet_id = 12;
 
     // optional
     string wallet_name = 3 [(validate.rules).string = {max_len: 20}];
