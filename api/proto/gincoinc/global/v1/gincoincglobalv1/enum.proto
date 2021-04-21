@@ -24,6 +24,9 @@ enum Coin {
   COIN_TRX = 7;
   COIN_USDT = 8;
   COIN_RYO = 9;
+  COIN_JASMY = 10;
+  COIN_ENJ = 11;
+  COIN_OMG = 12;
 }
 
 // Network is a type of blockchain network.
