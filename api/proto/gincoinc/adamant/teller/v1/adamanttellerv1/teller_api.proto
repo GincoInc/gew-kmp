@@ -21,6 +21,7 @@ service TellerAPI {
     rpc GetWallet (adamant.global.v1.GetWalletRequest) returns (adamant.global.v1.Wallet) {}
     rpc ListWallets (adamant.global.v1.ListWalletsRequest) returns (adamant.global.v1.ListWalletsResponse) {}
     rpc ListWalletsByFilter (adamant.global.v1.ListWalletsByFilterRequest) returns (adamant.global.v1.ListWalletsResponse) {}
+    rpc ListBaseWallets (adamant.global.v1.ListBaseWalletsRequest) returns (adamant.global.v1.ListBaseWalletsResponse) {}
     rpc GetSpendableBalance (adamant.global.v1.GetSpendableBalanceRequest) returns (adamant.global.v1.GetSpendableBalanceResponse) {}
     rpc InitializeXRPWallet (InitializeXRPWalletRequest) returns (google.protobuf.Empty) {}
 

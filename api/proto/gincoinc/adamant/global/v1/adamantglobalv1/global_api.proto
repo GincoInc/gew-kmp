@@ -25,6 +25,7 @@ service GlobalAPI {
     rpc UnArchiveWallet (UnArchiveWalletRequest) returns (google.protobuf.Empty) {}
     rpc ListWallets (ListWalletsRequest) returns (ListWalletsResponse) {}
     rpc ListWalletsByFilter (ListWalletsByFilterRequest) returns (ListWalletsResponse) {}
+    rpc ListBaseWallets (ListBaseWalletsRequest) returns (ListBaseWalletsResponse) {}
     rpc UpdateWalletName (UpdateWalletNameRequest) returns (google.protobuf.Empty) {}
     rpc UpdateWalletValidation (UpdateWalletValidationRequest) returns (google.protobuf.Empty) {}
     rpc UpdateWalletPolicy (UpdateWalletPolicyRequest) returns (google.protobuf.Empty) {}
@@ -230,6 +231,12 @@ message ListWalletsByFilterRequest {
 message ListWalletsResponse {
     repeated Wallet wallets = 1;
     string next_page_token = 2;
+}
+
+message ListBaseWalletsRequest {}
+
+message ListBaseWalletsResponse {
+    repeated WalletWithoutBalance wallets = 1;
 }
 
 message UpdateWalletNameRequest {
@@ -468,6 +475,9 @@ message ListTransactionsByFilterRequest {
 
     // optional
     string transaction_id = 2;
+
+    // optional
+    string wallet_id = 12;
 
     // optional
     string wallet_name = 3 [(validate.rules).string = {max_len: 20}];

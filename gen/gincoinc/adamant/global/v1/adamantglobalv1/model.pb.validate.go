@@ -666,6 +666,8 @@ func (m *Address) Validate() error {
 
 	// no validation rules for Index
 
+	// no validation rules for HdChange
+
 	// no validation rules for Balance
 
 	// no validation rules for StringBalance
@@ -768,6 +770,8 @@ func (m *AddressWithoutBalance) Validate() error {
 	// no validation rules for Address
 
 	// no validation rules for Index
+
+	// no validation rules for HdChange
 
 	// no validation rules for State
 
@@ -1201,6 +1205,16 @@ func (m *Transaction) Validate() error {
 		if err := v.Validate(); err != nil {
 			return TransactionValidationError{
 				field:  "TronSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetC0BanSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "C0BanSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -2006,6 +2020,101 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = TronSpecificValidationError{}
+
+// Validate checks the field values on C0BanSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *C0BanSpecific) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetTxInputs() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return C0BanSpecificValidationError{
+					field:  fmt.Sprintf("TxInputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	for idx, item := range m.GetTxOutputs() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return C0BanSpecificValidationError{
+					field:  fmt.Sprintf("TxOutputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// C0BanSpecificValidationError is the validation error returned by
+// C0BanSpecific.Validate if the designated constraints aren't met.
+type C0BanSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e C0BanSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e C0BanSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e C0BanSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e C0BanSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e C0BanSpecificValidationError) ErrorName() string { return "C0BanSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e C0BanSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sC0BanSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = C0BanSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = C0BanSpecificValidationError{}
 
 // Validate checks the field values on SignInfo with the rules defined in the
 // proto definition for this message. If any rules are violated, an error is returned.
