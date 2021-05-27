@@ -2398,6 +2398,8 @@ func (m *Transfer) Validate() error {
 
 	// no validation rules for DestinationTag
 
+	// no validation rules for MemoId
+
 	// no validation rules for State
 
 	// no validation rules for Result

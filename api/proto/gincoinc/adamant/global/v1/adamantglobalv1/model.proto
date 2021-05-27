@@ -257,7 +257,7 @@ message C0banSpecific {
 // The model of Stellar specific fields of transaction
 message StellarSpecific {
     int64 sequence_number = 1;
-    uint64 memo_id = 2;
+    uint64 memo_id = 2 [jstype = JS_STRING];
     bool is_next_sequence_number = 3;
 }
 
@@ -297,6 +297,7 @@ message Transfer {
     string partner_wallet_id = 10; // The wallet id to which the transfer send/receive
     string partner_address = 11; // The address of wallet to which the transfer send/receive
     uint32 destination_tag = 15; // destination tag (only XRP)
+    uint64 memo_id = 17 [jstype = JS_STRING]; // memo id (only XLM)
     gincoinc.global.v1.TransactionState state = 12; // state
     gincoinc.global.v1.TransactionResult result = 16; // result
     google.protobuf.Timestamp create_time = 13; // the time at which the transfer was created
