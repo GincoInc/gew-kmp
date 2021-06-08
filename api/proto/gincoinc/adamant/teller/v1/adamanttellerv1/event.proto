@@ -18,6 +18,7 @@ message TransferUpdated {
     double jpy_rate = 8;
     string address = 9;
     uint32 destination_tag = 10;
+    uint64 memo_id = 14;
     gincoinc.global.v1.TransactionState state = 11;
     gincoinc.global.v1.TransactionResult result = 12;
     gincoinc.global.v1.TransferType transfer_type = 13;
@@ -35,6 +36,7 @@ message TransferUpdateEvent {
     double jpy_rate = 13;
     string address = 7;
     uint32 destination_tag = 8;
+    uint64 memo_id = 15;
     gincoinc.global.v1.TransactionState state = 9;
     gincoinc.global.v1.TransactionResult result = 10;
     gincoinc.global.v1.TransferType transfer_type = 11;
