@@ -82,6 +82,8 @@ func (m *TransferUpdated) Validate() error {
 
 	// no validation rules for DestinationTag
 
+	// no validation rules for MemoId
+
 	// no validation rules for State
 
 	// no validation rules for Result
@@ -172,6 +174,8 @@ func (m *TransferUpdateEvent) Validate() error {
 	// no validation rules for Address
 
 	// no validation rules for DestinationTag
+
+	// no validation rules for MemoId
 
 	// no validation rules for State
 

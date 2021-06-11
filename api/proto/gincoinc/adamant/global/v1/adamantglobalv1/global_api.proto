@@ -391,6 +391,7 @@ message CreateTransactionRequest {
     repeated RequestTxOutput tx_outputs = 3;
     string address = 4;
     uint32 destination_tag = 5;
+    uint64 memo_id = 6 [jstype = JS_STRING];
     string string_value = 7;
 }
 

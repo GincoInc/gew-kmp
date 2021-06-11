@@ -3772,6 +3772,8 @@ func (m *CreateTransactionRequest) Validate() error {
 
 	// no validation rules for DestinationTag
 
+	// no validation rules for MemoId
+
 	// no validation rules for StringValue
 
 	return nil
