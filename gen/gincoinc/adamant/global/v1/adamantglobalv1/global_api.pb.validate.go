@@ -300,6 +300,13 @@ func (m *CreateWalletRequest) Validate() error {
 		}
 	}
 
+	if len(m.GetMembers()) < 1 {
+		return CreateWalletRequestValidationError{
+			field:  "Members",
+			reason: "value must contain at least 1 item(s)",
+		}
+	}
+
 	_CreateWalletRequest_Members_Unique := make(map[string]struct{}, len(m.GetMembers()))
 
 	for idx, item := range m.GetMembers() {

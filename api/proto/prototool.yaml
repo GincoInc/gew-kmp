@@ -28,6 +28,7 @@ lint:
       - REQUEST_RESPONSE_NAMES_MATCH_RPC
       - REQUEST_RESPONSE_TYPES_IN_SAME_FILE
       - REQUEST_RESPONSE_TYPES_UNIQUE
+      - FILE_OPTIONS_JAVA_MULTIPLE_FILES_SAME_IN_DIR
 
 generate:
   go_options:
@@ -41,3 +42,10 @@ generate:
       type: go
       flags: lang=go
       output: ./../../gen
+    - name: java
+      output: ./../../gen/java
+    - name: grpc-java
+      output: ./../../gen/java
+    - name: validate
+      flags: lang=java
+      output: ./../../gen/java
