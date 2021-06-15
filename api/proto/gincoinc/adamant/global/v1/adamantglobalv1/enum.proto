@@ -44,6 +44,7 @@ enum WalletState {
   WALLET_STATE_ADDRESS_DELETING = 18;// Deleting address
   WALLET_STATE_ADDRESS_DELETE_FAILED = 19;// Failed delete address
   WALLET_STATE_FLUSHING = 20;// Balance flushing
+  WALLET_STATE_ACCOUNT_CREATING = 21;// Waiting for create account
 }
 
 // WalletProposalType is a type of proposal
