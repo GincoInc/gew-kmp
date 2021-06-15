@@ -3,6 +3,8 @@ syntax = "proto3";
 package adamant.teller.v1;
 
 option go_package = "adamanttellerv1";
+option java_outer_classname = "TellerAPIProto";
+option java_multiple_files = true;
 
 import "google/protobuf/empty.proto";
 import "validate/validate.proto";
