@@ -3,6 +3,8 @@ syntax = "proto3";
 package adamant.global.v1;
 
 option go_package = "adamantglobalv1";
+option java_outer_classname = "GlobalAPIProto";
+option java_multiple_files = true;
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";

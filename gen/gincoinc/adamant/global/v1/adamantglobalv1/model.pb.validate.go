@@ -2559,7 +2559,22 @@ func (m *RateSnapshot) Validate() error {
 
 	// no validation rules for RateSnapshotId
 
-	// no validation rules for Rates
+	for key, val := range m.GetRates() {
+		_ = val
+
+		// no validation rules for Rates[key]
+
+		if v, ok := interface{}(val).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return RateSnapshotValidationError{
+					field:  fmt.Sprintf("Rates[%v]", key),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
 
 	return nil
 }
@@ -4106,7 +4121,22 @@ func (m *TransferVolumeSnapshot) Validate() error {
 		}
 	}
 
-	// no validation rules for TransferVolumeByCoin
+	for key, val := range m.GetTransferVolumeByCoin() {
+		_ = val
+
+		// no validation rules for TransferVolumeByCoin[key]
+
+		if v, ok := interface{}(val).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return TransferVolumeSnapshotValidationError{
+					field:  fmt.Sprintf("TransferVolumeByCoin[%v]", key),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
 
 	return nil
 }
@@ -4441,7 +4471,22 @@ func (m *WalletTransferVolumeSnapshot) Validate() error {
 		}
 	}
 
-	// no validation rules for WalletTransferVolumeByTransferType
+	for key, val := range m.GetWalletTransferVolumeByTransferType() {
+		_ = val
+
+		// no validation rules for WalletTransferVolumeByTransferType[key]
+
+		if v, ok := interface{}(val).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return WalletTransferVolumeSnapshotValidationError{
+					field:  fmt.Sprintf("WalletTransferVolumeByTransferType[%v]", key),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
 
 	return nil
 }
