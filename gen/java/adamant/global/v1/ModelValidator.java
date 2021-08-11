@@ -20,6 +20,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.TransactionMember.class)) return new TransactionMemberValidator();
 		if (clazz.equals(adamant.global.v1.Model.TxInput.class)) return new TxInputValidator();
 		if (clazz.equals(adamant.global.v1.Model.TxOutput.class)) return new TxOutputValidator();
+		if (clazz.equals(adamant.global.v1.Model.UTXO.class)) return new UTXOValidator();
 		if (clazz.equals(adamant.global.v1.Model.BitcoinSpecific.class)) return new BitcoinSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.LitecoinSpecific.class)) return new LitecoinSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.BitcoincashSpecific.class)) return new BitcoincashSpecificValidator();
@@ -28,6 +29,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.TronSpecific.class)) return new TronSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.C0banSpecific.class)) return new C0BanSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.StellarSpecific.class)) return new StellarSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CardanoSpecific.class)) return new CardanoSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SignInfo.class)) return new SignInfoValidator();
 		if (clazz.equals(adamant.global.v1.Model.SignTxInput.class)) return new SignTxInputValidator();
 		if (clazz.equals(adamant.global.v1.Model.Transfer.class)) return new TransferValidator();
@@ -679,6 +681,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -744,6 +748,9 @@ public class ModelValidator {
 	
 			// Validate stellar_specific
 			if (proto.hasStellarSpecific()) index.validatorFor(proto.getStellarSpecific()).assertValid(proto.getStellarSpecific());
+	
+			// Validate cardano_specific
+			if (proto.hasCardanoSpecific()) index.validatorFor(proto.getCardanoSpecific()).assertValid(proto.getCardanoSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -843,6 +850,42 @@ public class ModelValidator {
 
 	// no validation rules for IsChange
 
+	
+	}
+}
+
+	/**
+	 * Validates {@code UTXO} protobuf objects.
+	 */
+	public static class UTXOValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.UTXO> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+		com.google.re2j.Pattern TRANSACTION_ID__PATTERN = com.google.re2j.Pattern.compile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.UTXO proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for TxId
+
+	// no validation rules for Vout
+
+	// no validation rules for Value
+
+	// no validation rules for StringValue
+
+	// no validation rules for Address
+
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.UTXO.transaction_id", proto.getTransactionId(), TRANSACTION_ID__PATTERN);
 	
 	}
 }
@@ -1052,6 +1095,35 @@ public class ModelValidator {
 }
 
 	/**
+	 * Validates {@code CardanoSpecific} protobuf objects.
+	 */
+	public static class CardanoSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CardanoSpecific> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CardanoSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxInputsList(), item -> {
+				
+			// Validate tx_inputs
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxOutputsList(), item -> {
+				
+			// Validate tx_outputs
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+
+	
+	}
+}
+
+	/**
 	 * Validates {@code SignInfo} protobuf objects.
 	 */
 	public static class SignInfoValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SignInfo> {
@@ -1241,24 +1313,14 @@ public class ModelValidator {
 		
 	
 		
-		
-		
 	
 	
 
 	public void assertValid(adamant.global.v1.Model.RateSnapshot proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for RateSnapshotId
 
-	
-			io.envoyproxy.pgv.MapValidation.validateParts(proto.getRatesMap().keySet(), key -> {
-				// no validation rules for Rates
+	// no validation rules for Rates
 
-			});
-			io.envoyproxy.pgv.MapValidation.validateParts(proto.getRatesMap().values(), value -> {
-				
-			// Validate rates
-			if (true) index.validatorFor(value).assertValid(value);
-			});
 	
 	}
 }
@@ -1808,8 +1870,6 @@ public class ModelValidator {
 		
 	
 		
-		
-		
 	
 	
 
@@ -1817,16 +1877,8 @@ public class ModelValidator {
 	
 			// Validate target_time
 			if (proto.hasTargetTime()) index.validatorFor(proto.getTargetTime()).assertValid(proto.getTargetTime());
-	
-			io.envoyproxy.pgv.MapValidation.validateParts(proto.getTransferVolumeByCoinMap().keySet(), key -> {
-				// no validation rules for TransferVolumeByCoin
+	// no validation rules for TransferVolumeByCoin
 
-			});
-			io.envoyproxy.pgv.MapValidation.validateParts(proto.getTransferVolumeByCoinMap().values(), value -> {
-				
-			// Validate transfer_volume_by_coin
-			if (true) index.validatorFor(value).assertValid(value);
-			});
 	
 	}
 }
@@ -1927,8 +1979,6 @@ public class ModelValidator {
 		
 	
 		
-		
-		
 	
 	
 
@@ -1936,16 +1986,8 @@ public class ModelValidator {
 	
 			// Validate target_time
 			if (proto.hasTargetTime()) index.validatorFor(proto.getTargetTime()).assertValid(proto.getTargetTime());
-	
-			io.envoyproxy.pgv.MapValidation.validateParts(proto.getWalletTransferVolumeByTransferTypeMap().keySet(), key -> {
-				// no validation rules for WalletTransferVolumeByTransferType
+	// no validation rules for WalletTransferVolumeByTransferType
 
-			});
-			io.envoyproxy.pgv.MapValidation.validateParts(proto.getWalletTransferVolumeByTransferTypeMap().values(), value -> {
-				
-			// Validate wallet_transfer_volume_by_transfer_type
-			if (true) index.validatorFor(value).assertValid(value);
-			});
 	
 	}
 }
