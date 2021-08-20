@@ -179,6 +179,7 @@ message Transaction {
     TronSpecific tron_specific = 25; // The Tron specific fields
     C0banSpecific c0ban_specific = 26; // The C0ban specific fields
     StellarSpecific stellar_specific = 27; // The Stellar specific fields
+    CardanoSpecific cardano_specific = 28; // The Cardano specific fields
     google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
     google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -208,6 +209,16 @@ message TxOutput {
     double value = 2;
     string string_value = 3;
     bool is_change = 4;
+}
+
+// The model of UTXO
+message UTXO {
+    string tx_id = 1;
+    uint32 vout = 2;
+    double value = 3;
+    string string_value = 4;
+    string address = 5;
+    string transaction_id = 6 [(validate.rules).string = {pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
 // The model of Bitcoin specific fields of transaction
@@ -259,6 +270,12 @@ message StellarSpecific {
     int64 sequence_number = 1;
     uint64 memo_id = 2 [jstype = JS_STRING];
     bool is_next_sequence_number = 3;
+}
+
+// The model of Cardano specific fields of transaction
+message CardanoSpecific {
+    repeated TxInput tx_inputs = 1;
+    repeated TxOutput tx_outputs = 2;
 }
 
 // The model of information about signing

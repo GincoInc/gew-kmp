@@ -28,6 +28,7 @@ enum Coin {
   COIN_ENJ = 11;
   COIN_OMG = 12;
   COIN_XLM = 13;
+  COIN_ADA = 14;
 }
 
 // Network is a type of blockchain network.
@@ -49,6 +50,8 @@ enum Network {
   NETWORK_C0BAN_TESTNET = 14;
   NETWORK_STELLAR_MAINNET = 15;
   NETWORK_STELLAR_TESTNET = 16;
+  NETWORK_CARDANO_MAINNET = 17;
+  NETWORK_CARDANO_TESTNET = 18;
 }
 
 // AddressType is a type of address.
