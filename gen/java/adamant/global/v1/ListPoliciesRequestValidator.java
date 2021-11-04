@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ListPoliciesRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ListPoliciesRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListPoliciesRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListPoliciesRequest.class)) return new ListPoliciesRequestValidator();

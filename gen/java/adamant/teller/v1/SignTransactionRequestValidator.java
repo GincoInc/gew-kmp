@@ -3,9 +3,11 @@
 
 package adamant.teller.v1;
 
+
 /**
 * Validates {@code SignTransactionRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class SignTransactionRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.teller.v1.SignTransactionRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.teller.v1.SignTransactionRequest.class)) return new SignTransactionRequestValidator();

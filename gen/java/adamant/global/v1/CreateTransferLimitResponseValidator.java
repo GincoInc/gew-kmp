@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code CreateTransferLimitResponse} protobuf objects.
 */
+@SuppressWarnings("all")
 public class CreateTransferLimitResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.CreateTransferLimitResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.CreateTransferLimitResponse.class)) return new CreateTransferLimitResponseValidator();

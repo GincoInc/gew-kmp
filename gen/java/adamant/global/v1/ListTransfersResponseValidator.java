@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ListTransfersResponse} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ListTransfersResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListTransfersResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListTransfersResponse.class)) return new ListTransfersResponseValidator();
@@ -25,7 +27,6 @@ public class ListTransfersResponseValidator implements io.envoyproxy.pgv.Validat
 			// Validate transfers
 			if (true) index.validatorFor(item).assertValid(item);
 			});
-
 	// no validation rules for NextPageToken
 
 	

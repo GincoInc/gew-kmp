@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code IsDeletableTransferLimitRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class IsDeletableTransferLimitRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.IsDeletableTransferLimitRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.IsDeletableTransferLimitRequest.class)) return new IsDeletableTransferLimitRequestValidator();

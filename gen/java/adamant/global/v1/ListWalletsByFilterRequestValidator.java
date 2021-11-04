@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ListWalletsByFilterRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ListWalletsByFilterRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListWalletsByFilterRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListWalletsByFilterRequest.class)) return new ListWalletsByFilterRequestValidator();
@@ -58,13 +60,11 @@ public class ListWalletsByFilterRequestValidator implements io.envoyproxy.pgv.Va
 				// no validation rules for WalletType
 
 			});
-
 	
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getWalletStateList(), item -> {
 				// no validation rules for WalletState
 
 			});
-
 	
 			io.envoyproxy.pgv.ComparativeValidation.lessThanOrEqual(".adamant.global.v1.ListWalletsByFilterRequest.page_size", proto.getPageSize(), PAGE_SIZE__LTE, java.util.Comparator.naturalOrder());
 	

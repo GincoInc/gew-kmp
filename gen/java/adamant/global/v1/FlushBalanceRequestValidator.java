@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code FlushBalanceRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class FlushBalanceRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.FlushBalanceRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.FlushBalanceRequest.class)) return new FlushBalanceRequestValidator();

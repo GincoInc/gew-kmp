@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ListTransfersByFilterRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ListTransfersByFilterRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListTransfersByFilterRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListTransfersByFilterRequest.class)) return new ListTransfersByFilterRequestValidator();
@@ -74,7 +76,6 @@ public class ListTransfersByFilterRequestValidator implements io.envoyproxy.pgv.
 				// no validation rules for WalletType
 
 			});
-
 	
 			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.ListTransfersByFilterRequest.transfer_type", proto.getTransferType());
 	

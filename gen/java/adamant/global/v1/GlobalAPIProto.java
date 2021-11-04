@@ -400,10 +400,20 @@ public final class GlobalAPIProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_global_v1_SetRatesRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_SetDefaultRatesRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_SetDefaultRatesRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_global_v1_SetRatesResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_global_v1_SetRatesResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_SetDefaultRatesResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_SetDefaultRatesResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_global_v1_GetSpendableBalanceRequest_descriptor;
   static final 
@@ -1035,8 +1045,10 @@ public final class GlobalAPIProto {
       "-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]" +
       "{3}-[0-9a-f]{12}$\"\036\n\034GetLatestRateSnapsh" +
       "otRequest\"@\n\017SetRatesRequest\022-\n\005rates\030\001 " +
-      "\003(\0132\036.adamant.global.v1.RequestRate\",\n\020S" +
-      "etRatesResponse\022\030\n\020rate_snapshot_id\030\001 \001(" +
+      "\003(\0132\036.adamant.global.v1.RequestRate\"\030\n\026S" +
+      "etDefaultRatesRequest\",\n\020SetRatesRespons" +
+      "e\022\030\n\020rate_snapshot_id\030\001 \001(\t\"4\n\027SetDefaul" +
+      "tRatesResponse\022\031\n\021rate_snapshot_ids\030\001 \003(" +
       "\t\"}\n\032GetSpendableBalanceRequest\022_\n\twalle" +
       "t_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]" +
       "{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a" +
@@ -1120,9 +1132,9 @@ public final class GlobalAPIProto {
       "BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]" +
       "{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"\035\n\033L" +
       "istLabeledAddressesRequest\"T\n\034ListLabele" +
-      "dAddressesResponse\0224\n\taddresses\030\001 \003(\0132!." +
+      "dAddressesResponse\0224\n\taddresses\030\001 \003(\0132!.",
       "adamant.global.v1.LabeledAddress\"\207\001\n\033Del" +
-      "eteLabeledAddressRequest\022h\n\022labeled_addr",
+      "eteLabeledAddressRequest\022h\n\022labeled_addr" +
       "ess_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-" +
       "f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-" +
       "9a-f]{12}$\"\240\001\n#ReviewLabeledAddressPropo" +
@@ -1232,7 +1244,7 @@ public final class GlobalAPIProto {
       "oposalRequest\022_\n\tpolicy_id\030\001 \001(\tBL\372BIrG2" +
       "E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[" +
       "89ab][0-9a-f]{3}-[0-9a-f]{12}$\022\017\n\007approv" +
-      "e\030\002 \001(\0102\267@\n\tGlobalAPI\022a\n\014CreateWallet\022&." +
+      "e\030\002 \001(\0102\243A\n\tGlobalAPI\022a\n\014CreateWallet\022&." +
       "adamant.global.v1.CreateWalletRequest\032\'." +
       "adamant.global.v1.CreateWalletResponse\"\000" +
       "\022M\n\tGetWallet\022#.adamant.global.v1.GetWal" +
@@ -1341,105 +1353,108 @@ public final class GlobalAPIProto {
       "adamant.global.v1.RateSnapshot\"\000\022U\n\010SetR" +
       "ates\022\".adamant.global.v1.SetRatesRequest" +
       "\032#.adamant.global.v1.SetRatesResponse\"\000\022" +
-      "y\n\024CreateLabeledAddress\022..adamant.global" +
-      ".v1.CreateLabeledAddressRequest\032/.adaman" +
-      "t.global.v1.CreateLabeledAddressResponse" +
-      "\"\000\022e\n\021GetLabeledAddress\022+.adamant.global" +
-      ".v1.GetLabeledAddressRequest\032!.adamant.g" +
-      "lobal.v1.LabeledAddress\"\000\022y\n\024ListLabeled" +
-      "Addresses\022..adamant.global.v1.ListLabele" +
-      "dAddressesRequest\032/.adamant.global.v1.Li" +
-      "stLabeledAddressesResponse\"\000\022\210\001\n\031IsDelet" +
-      "ableLabeledAddress\0223.adamant.global.v1.I" +
-      "sDeletableLabeledAddressRequest\0324.adaman" +
-      "t.global.v1.IsDeletableLabeledAddressRes" +
-      "ponse\"\000\022k\n\024UpdateLabeledAddress\022..adaman" +
-      "t.global.v1.UpdateLabeledAddressRequest\032" +
-      "!.adamant.global.v1.LabeledAddress\"\000\022Y\n\r" +
-      "DeleteAddress\022..adamant.global.v1.Delete" +
-      "LabeledAddressRequest\032\026.google.protobuf." +
-      "Empty\"\000\022p\n\034ReviewLabeledAddressProposal\022" +
-      "6.adamant.global.v1.ReviewLabeledAddress" +
-      "ProposalRequest\032\026.google.protobuf.Empty\"" +
-      "\000\022j\n\017CreateWhitelist\022).adamant.global.v1" +
-      ".CreateWhitelistRequest\032*.adamant.global" +
-      ".v1.CreateWhitelistResponse\"\000\022V\n\014GetWhit" +
-      "elist\022&.adamant.global.v1.GetWhitelistRe" +
-      "quest\032\034.adamant.global.v1.Whitelist\"\000\022g\n" +
-      "\016ListWhitelists\022(.adamant.global.v1.List" +
-      "WhitelistsRequest\032).adamant.global.v1.Li" +
-      "stWhitelistsResponse\"\000\022y\n\024IsDeletableWhi" +
-      "telist\022..adamant.global.v1.IsDeletableWh" +
-      "itelistRequest\032/.adamant.global.v1.IsDel" +
-      "etableWhitelistResponse\"\000\022\\\n\017UpdateWhite" +
-      "list\022).adamant.global.v1.UpdateWhitelist" +
-      "Request\032\034.adamant.global.v1.Whitelist\"\000\022" +
-      "n\n\030UpdateWhitelistAddresses\0222.adamant.gl" +
-      "obal.v1.UpdateWhitelistAddressesRequest\032" +
-      "\034.adamant.global.v1.Whitelist\"\000\022V\n\017Delet" +
-      "eWhitelist\022).adamant.global.v1.DeleteWhi" +
-      "telistRequest\032\026.google.protobuf.Empty\"\000\022" +
-      "v\n\023CreateTransferLimit\022-.adamant.global." +
-      "v1.CreateTransferLimitRequest\032..adamant." +
-      "global.v1.CreateTransferLimitResponse\"\000\022" +
-      "b\n\020GetTransferLimit\022*.adamant.global.v1." +
-      "GetTransferLimitRequest\032 .adamant.global" +
-      ".v1.TransferLimit\"\000\022s\n\022ListTransferLimit" +
-      "s\022,.adamant.global.v1.ListTransferLimits" +
-      "Request\032-.adamant.global.v1.ListTransfer" +
-      "LimitsResponse\"\000\022\205\001\n\030IsDeletableTransfer" +
-      "Limit\0222.adamant.global.v1.IsDeletableTra" +
-      "nsferLimitRequest\0323.adamant.global.v1.Is" +
-      "DeletableTransferLimitResponse\"\000\022h\n\023Upda" +
-      "teTransferLimit\022-.adamant.global.v1.Upda" +
-      "teTransferLimitRequest\032 .adamant.global." +
-      "v1.TransferLimit\"\000\022p\n\027UpdateTransferLimi" +
-      "tName\0221.adamant.global.v1.UpdateTransfer" +
-      "LimitNameRequest\032 .adamant.global.v1.Tra" +
-      "nsferLimit\"\000\022^\n\023DeleteTransferLimit\022-.ad" +
-      "amant.global.v1.DeleteTransferLimitReque" +
-      "st\032\026.google.protobuf.Empty\"\000\022n\n\033ReviewTr" +
-      "ansferLimitProposal\0225.adamant.global.v1." +
-      "ReviewTransferLimitProposalRequest\032\026.goo" +
-      "gle.protobuf.Empty\"\000\022a\n\014CreatePolicy\022&.a" +
-      "damant.global.v1.CreatePolicyRequest\032\'.a" +
-      "damant.global.v1.CreatePolicyResponse\"\000\022" +
-      "M\n\tGetPolicy\022#.adamant.global.v1.GetPoli" +
-      "cyRequest\032\031.adamant.global.v1.Policy\"\000\022a" +
-      "\n\014ListPolicies\022&.adamant.global.v1.ListP" +
-      "oliciesRequest\032\'.adamant.global.v1.ListP" +
-      "oliciesResponse\"\000\022p\n\021IsDeletablePolicy\022+" +
-      ".adamant.global.v1.IsDeletablePolicyRequ" +
-      "est\032,.adamant.global.v1.IsDeletablePolic" +
-      "yResponse\"\000\022S\n\014UpdatePolicy\022&.adamant.gl" +
-      "obal.v1.UpdatePolicyRequest\032\031.adamant.gl" +
-      "obal.v1.Policy\"\000\022P\n\014DeletePolicy\022&.adama" +
-      "nt.global.v1.DeletePolicyRequest\032\026.googl" +
-      "e.protobuf.Empty\"\000\022`\n\024ReviewPolicyPropos" +
-      "al\022..adamant.global.v1.ReviewPolicyPropo" +
-      "salRequest\032\026.google.protobuf.Empty\"\000\022v\n\023" +
-      "GetSpendableBalance\022-.adamant.global.v1." +
-      "GetSpendableBalanceRequest\032..adamant.glo" +
-      "bal.v1.GetSpendableBalanceResponse\"\000\022_\n\017" +
-      "GetTotalBalance\022).adamant.global.v1.GetT" +
-      "otalBalanceRequest\032\037.adamant.global.v1.T" +
-      "otalBalance\"\000\022y\n\024ListBalanceSnapshots\022.." +
-      "adamant.global.v1.ListBalanceSnapshotsRe" +
-      "quest\032/.adamant.global.v1.ListBalanceSna" +
-      "pshotsResponse\"\000\022a\n\014CalculateFee\022&.adama" +
-      "nt.global.v1.CalculateFeeRequest\032\'.adama" +
-      "nt.global.v1.CalculateFeeResponse\"\000\022\221\001\n\034" +
-      "GetMembersDeactivatabilities\0226.adamant.g" +
-      "lobal.v1.GetMembersDeactivatabilitiesReq" +
-      "uest\0327.adamant.global.v1.GetMembersDeact" +
-      "ivatabilitiesResponse\"\000\022|\n\025GetRecommende" +
-      "dFeeRate\022/.adamant.global.v1.GetRecommen" +
-      "dedFeeRateRequest\0320.adamant.global.v1.Ge" +
-      "tRecommendedFeeRateResponse\"\000\022j\n\017Validat" +
-      "eAddress\022).adamant.global.v1.ValidateAdd" +
-      "ressRequest\032*.adamant.global.v1.Validate" +
-      "AddressResponse\"\000B#B\016GlobalAPIProtoP\001Z\017a" +
-      "damantglobalv1b\006proto3"
+      "j\n\017SetDefaultRates\022).adamant.global.v1.S" +
+      "etDefaultRatesRequest\032*.adamant.global.v" +
+      "1.SetDefaultRatesResponse\"\000\022y\n\024CreateLab" +
+      "eledAddress\022..adamant.global.v1.CreateLa" +
+      "beledAddressRequest\032/.adamant.global.v1." +
+      "CreateLabeledAddressResponse\"\000\022e\n\021GetLab" +
+      "eledAddress\022+.adamant.global.v1.GetLabel" +
+      "edAddressRequest\032!.adamant.global.v1.Lab" +
+      "eledAddress\"\000\022y\n\024ListLabeledAddresses\022.." +
+      "adamant.global.v1.ListLabeledAddressesRe" +
+      "quest\032/.adamant.global.v1.ListLabeledAdd" +
+      "ressesResponse\"\000\022\210\001\n\031IsDeletableLabeledA" +
+      "ddress\0223.adamant.global.v1.IsDeletableLa" +
+      "beledAddressRequest\0324.adamant.global.v1." +
+      "IsDeletableLabeledAddressResponse\"\000\022k\n\024U" +
+      "pdateLabeledAddress\022..adamant.global.v1." +
+      "UpdateLabeledAddressRequest\032!.adamant.gl" +
+      "obal.v1.LabeledAddress\"\000\022Y\n\rDeleteAddres" +
+      "s\022..adamant.global.v1.DeleteLabeledAddre" +
+      "ssRequest\032\026.google.protobuf.Empty\"\000\022p\n\034R" +
+      "eviewLabeledAddressProposal\0226.adamant.gl" +
+      "obal.v1.ReviewLabeledAddressProposalRequ" +
+      "est\032\026.google.protobuf.Empty\"\000\022j\n\017CreateW" +
+      "hitelist\022).adamant.global.v1.CreateWhite" +
+      "listRequest\032*.adamant.global.v1.CreateWh" +
+      "itelistResponse\"\000\022V\n\014GetWhitelist\022&.adam" +
+      "ant.global.v1.GetWhitelistRequest\032\034.adam" +
+      "ant.global.v1.Whitelist\"\000\022g\n\016ListWhiteli" +
+      "sts\022(.adamant.global.v1.ListWhitelistsRe" +
+      "quest\032).adamant.global.v1.ListWhitelists" +
+      "Response\"\000\022y\n\024IsDeletableWhitelist\022..ada" +
+      "mant.global.v1.IsDeletableWhitelistReque" +
+      "st\032/.adamant.global.v1.IsDeletableWhitel" +
+      "istResponse\"\000\022\\\n\017UpdateWhitelist\022).adama" +
+      "nt.global.v1.UpdateWhitelistRequest\032\034.ad" +
+      "amant.global.v1.Whitelist\"\000\022n\n\030UpdateWhi" +
+      "telistAddresses\0222.adamant.global.v1.Upda" +
+      "teWhitelistAddressesRequest\032\034.adamant.gl" +
+      "obal.v1.Whitelist\"\000\022V\n\017DeleteWhitelist\022)" +
+      ".adamant.global.v1.DeleteWhitelistReques" +
+      "t\032\026.google.protobuf.Empty\"\000\022v\n\023CreateTra" +
+      "nsferLimit\022-.adamant.global.v1.CreateTra" +
+      "nsferLimitRequest\032..adamant.global.v1.Cr" +
+      "eateTransferLimitResponse\"\000\022b\n\020GetTransf" +
+      "erLimit\022*.adamant.global.v1.GetTransferL" +
+      "imitRequest\032 .adamant.global.v1.Transfer" +
+      "Limit\"\000\022s\n\022ListTransferLimits\022,.adamant." +
+      "global.v1.ListTransferLimitsRequest\032-.ad" +
+      "amant.global.v1.ListTransferLimitsRespon" +
+      "se\"\000\022\205\001\n\030IsDeletableTransferLimit\0222.adam" +
+      "ant.global.v1.IsDeletableTransferLimitRe" +
+      "quest\0323.adamant.global.v1.IsDeletableTra" +
+      "nsferLimitResponse\"\000\022h\n\023UpdateTransferLi" +
+      "mit\022-.adamant.global.v1.UpdateTransferLi" +
+      "mitRequest\032 .adamant.global.v1.TransferL" +
+      "imit\"\000\022p\n\027UpdateTransferLimitName\0221.adam" +
+      "ant.global.v1.UpdateTransferLimitNameReq" +
+      "uest\032 .adamant.global.v1.TransferLimit\"\000" +
+      "\022^\n\023DeleteTransferLimit\022-.adamant.global" +
+      ".v1.DeleteTransferLimitRequest\032\026.google." +
+      "protobuf.Empty\"\000\022n\n\033ReviewTransferLimitP" +
+      "roposal\0225.adamant.global.v1.ReviewTransf" +
+      "erLimitProposalRequest\032\026.google.protobuf" +
+      ".Empty\"\000\022a\n\014CreatePolicy\022&.adamant.globa" +
+      "l.v1.CreatePolicyRequest\032\'.adamant.globa" +
+      "l.v1.CreatePolicyResponse\"\000\022M\n\tGetPolicy" +
+      "\022#.adamant.global.v1.GetPolicyRequest\032\031." +
+      "adamant.global.v1.Policy\"\000\022a\n\014ListPolici" +
+      "es\022&.adamant.global.v1.ListPoliciesReque" +
+      "st\032\'.adamant.global.v1.ListPoliciesRespo" +
+      "nse\"\000\022p\n\021IsDeletablePolicy\022+.adamant.glo" +
+      "bal.v1.IsDeletablePolicyRequest\032,.adaman" +
+      "t.global.v1.IsDeletablePolicyResponse\"\000\022" +
+      "S\n\014UpdatePolicy\022&.adamant.global.v1.Upda" +
+      "tePolicyRequest\032\031.adamant.global.v1.Poli" +
+      "cy\"\000\022P\n\014DeletePolicy\022&.adamant.global.v1" +
+      ".DeletePolicyRequest\032\026.google.protobuf.E" +
+      "mpty\"\000\022`\n\024ReviewPolicyProposal\022..adamant" +
+      ".global.v1.ReviewPolicyProposalRequest\032\026" +
+      ".google.protobuf.Empty\"\000\022v\n\023GetSpendable" +
+      "Balance\022-.adamant.global.v1.GetSpendable" +
+      "BalanceRequest\032..adamant.global.v1.GetSp" +
+      "endableBalanceResponse\"\000\022_\n\017GetTotalBala" +
+      "nce\022).adamant.global.v1.GetTotalBalanceR" +
+      "equest\032\037.adamant.global.v1.TotalBalance\"" +
+      "\000\022y\n\024ListBalanceSnapshots\022..adamant.glob" +
+      "al.v1.ListBalanceSnapshotsRequest\032/.adam" +
+      "ant.global.v1.ListBalanceSnapshotsRespon" +
+      "se\"\000\022a\n\014CalculateFee\022&.adamant.global.v1" +
+      ".CalculateFeeRequest\032\'.adamant.global.v1" +
+      ".CalculateFeeResponse\"\000\022\221\001\n\034GetMembersDe" +
+      "activatabilities\0226.adamant.global.v1.Get" +
+      "MembersDeactivatabilitiesRequest\0327.adama" +
+      "nt.global.v1.GetMembersDeactivatabilitie" +
+      "sResponse\"\000\022|\n\025GetRecommendedFeeRate\022/.a" +
+      "damant.global.v1.GetRecommendedFeeRateRe" +
+      "quest\0320.adamant.global.v1.GetRecommended" +
+      "FeeRateResponse\"\000\022j\n\017ValidateAddress\022).a" +
+      "damant.global.v1.ValidateAddressRequest\032" +
+      "*.adamant.global.v1.ValidateAddressRespo" +
+      "nse\"\000B#B\016GlobalAPIProtoP\001Z\017adamantglobal" +
+      "v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1913,380 +1928,392 @@ public final class GlobalAPIProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_SetRatesRequest_descriptor,
         new java.lang.String[] { "Rates", });
-    internal_static_adamant_global_v1_SetRatesResponse_descriptor =
+    internal_static_adamant_global_v1_SetDefaultRatesRequest_descriptor =
       getDescriptor().getMessageTypes().get(77);
+    internal_static_adamant_global_v1_SetDefaultRatesRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_SetDefaultRatesRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_adamant_global_v1_SetRatesResponse_descriptor =
+      getDescriptor().getMessageTypes().get(78);
     internal_static_adamant_global_v1_SetRatesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_SetRatesResponse_descriptor,
         new java.lang.String[] { "RateSnapshotId", });
+    internal_static_adamant_global_v1_SetDefaultRatesResponse_descriptor =
+      getDescriptor().getMessageTypes().get(79);
+    internal_static_adamant_global_v1_SetDefaultRatesResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_SetDefaultRatesResponse_descriptor,
+        new java.lang.String[] { "RateSnapshotIds", });
     internal_static_adamant_global_v1_GetSpendableBalanceRequest_descriptor =
-      getDescriptor().getMessageTypes().get(78);
+      getDescriptor().getMessageTypes().get(80);
     internal_static_adamant_global_v1_GetSpendableBalanceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_GetSpendableBalanceRequest_descriptor,
         new java.lang.String[] { "WalletId", });
     internal_static_adamant_global_v1_GetSpendableBalanceResponse_descriptor =
-      getDescriptor().getMessageTypes().get(79);
+      getDescriptor().getMessageTypes().get(81);
     internal_static_adamant_global_v1_GetSpendableBalanceResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_GetSpendableBalanceResponse_descriptor,
         new java.lang.String[] { "TotalSpendableBalance", "StringTotalSpendableBalance", "DailySpendableBalance", "StringDailySpendableBalance", "HourlySpendableBalance", "StringHourlySpendableBalance", "OneTimeSpendableBalance", "StringOneTimeSpendableBalance", });
     internal_static_adamant_global_v1_GetTotalBalanceRequest_descriptor =
-      getDescriptor().getMessageTypes().get(80);
+      getDescriptor().getMessageTypes().get(82);
     internal_static_adamant_global_v1_GetTotalBalanceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_GetTotalBalanceRequest_descriptor,
         new java.lang.String[] { "WatchOnly", });
     internal_static_adamant_global_v1_ListBalanceSnapshotsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(81);
+      getDescriptor().getMessageTypes().get(83);
     internal_static_adamant_global_v1_ListBalanceSnapshotsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListBalanceSnapshotsRequest_descriptor,
         new java.lang.String[] { "WatchOnly", "StartTime", "EndTime", });
     internal_static_adamant_global_v1_ListBalanceSnapshotsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(82);
+      getDescriptor().getMessageTypes().get(84);
     internal_static_adamant_global_v1_ListBalanceSnapshotsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListBalanceSnapshotsResponse_descriptor,
         new java.lang.String[] { "BalanceSnapshots", });
     internal_static_adamant_global_v1_ListWalletBalanceSnapshotsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(83);
+      getDescriptor().getMessageTypes().get(85);
     internal_static_adamant_global_v1_ListWalletBalanceSnapshotsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListWalletBalanceSnapshotsRequest_descriptor,
         new java.lang.String[] { "WalletIds", "StartTime", "EndTime", });
     internal_static_adamant_global_v1_ListWalletBalanceSnapshotsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(84);
+      getDescriptor().getMessageTypes().get(86);
     internal_static_adamant_global_v1_ListWalletBalanceSnapshotsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListWalletBalanceSnapshotsResponse_descriptor,
         new java.lang.String[] { "WalletBalanceSnapshotMap", });
     internal_static_adamant_global_v1_ListTransferVolumeSnapshotsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(85);
+      getDescriptor().getMessageTypes().get(87);
     internal_static_adamant_global_v1_ListTransferVolumeSnapshotsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListTransferVolumeSnapshotsRequest_descriptor,
         new java.lang.String[] { "WatchOnly", "StartTime", "EndTime", });
     internal_static_adamant_global_v1_ListTransferVolumeSnapshotsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(86);
+      getDescriptor().getMessageTypes().get(88);
     internal_static_adamant_global_v1_ListTransferVolumeSnapshotsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListTransferVolumeSnapshotsResponse_descriptor,
         new java.lang.String[] { "TransferVolumeSnapshots", });
     internal_static_adamant_global_v1_ListWalletTransferVolumeSnapshotsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(87);
+      getDescriptor().getMessageTypes().get(89);
     internal_static_adamant_global_v1_ListWalletTransferVolumeSnapshotsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListWalletTransferVolumeSnapshotsRequest_descriptor,
         new java.lang.String[] { "WalletIds", "StartTime", "EndTime", });
     internal_static_adamant_global_v1_ListWalletTransferVolumeSnapshotsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(88);
+      getDescriptor().getMessageTypes().get(90);
     internal_static_adamant_global_v1_ListWalletTransferVolumeSnapshotsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListWalletTransferVolumeSnapshotsResponse_descriptor,
         new java.lang.String[] { "WalletTransferVolumeSnapshots", });
     internal_static_adamant_global_v1_CalculateFeeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(89);
+      getDescriptor().getMessageTypes().get(91);
     internal_static_adamant_global_v1_CalculateFeeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CalculateFeeRequest_descriptor,
         new java.lang.String[] { "WalletId", "FeeRate", "TxOutputs", "Address", "DestinationTag", "StringValue", });
     internal_static_adamant_global_v1_CalculateFeeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(90);
+      getDescriptor().getMessageTypes().get(92);
     internal_static_adamant_global_v1_CalculateFeeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CalculateFeeResponse_descriptor,
         new java.lang.String[] { "Fee", "StringFee", });
     internal_static_adamant_global_v1_GetMembersDeactivatabilitiesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(91);
+      getDescriptor().getMessageTypes().get(93);
     internal_static_adamant_global_v1_GetMembersDeactivatabilitiesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_GetMembersDeactivatabilitiesRequest_descriptor,
         new java.lang.String[] { });
     internal_static_adamant_global_v1_GetMembersDeactivatabilitiesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(92);
+      getDescriptor().getMessageTypes().get(94);
     internal_static_adamant_global_v1_GetMembersDeactivatabilitiesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_GetMembersDeactivatabilitiesResponse_descriptor,
         new java.lang.String[] { "Deactivatabilities", });
     internal_static_adamant_global_v1_GetRecommendedFeeRateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(93);
+      getDescriptor().getMessageTypes().get(95);
     internal_static_adamant_global_v1_GetRecommendedFeeRateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_GetRecommendedFeeRateRequest_descriptor,
         new java.lang.String[] { "Coin", });
     internal_static_adamant_global_v1_GetRecommendedFeeRateResponse_descriptor =
-      getDescriptor().getMessageTypes().get(94);
+      getDescriptor().getMessageTypes().get(96);
     internal_static_adamant_global_v1_GetRecommendedFeeRateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_GetRecommendedFeeRateResponse_descriptor,
         new java.lang.String[] { "Fastest", "Fast", "Average", "SafeLow", });
     internal_static_adamant_global_v1_ValidateAddressRequest_descriptor =
-      getDescriptor().getMessageTypes().get(95);
+      getDescriptor().getMessageTypes().get(97);
     internal_static_adamant_global_v1_ValidateAddressRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ValidateAddressRequest_descriptor,
         new java.lang.String[] { "Coin", "Address", });
     internal_static_adamant_global_v1_ValidateAddressResponse_descriptor =
-      getDescriptor().getMessageTypes().get(96);
+      getDescriptor().getMessageTypes().get(98);
     internal_static_adamant_global_v1_ValidateAddressResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ValidateAddressResponse_descriptor,
         new java.lang.String[] { "Valid", });
     internal_static_adamant_global_v1_ListConfirmationsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(97);
+      getDescriptor().getMessageTypes().get(99);
     internal_static_adamant_global_v1_ListConfirmationsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListConfirmationsRequest_descriptor,
         new java.lang.String[] { });
     internal_static_adamant_global_v1_ListConfirmationsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(98);
+      getDescriptor().getMessageTypes().get(100);
     internal_static_adamant_global_v1_ListConfirmationsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListConfirmationsResponse_descriptor,
         new java.lang.String[] { "Confirmations", });
     internal_static_adamant_global_v1_CreateLabeledAddressRequest_descriptor =
-      getDescriptor().getMessageTypes().get(99);
+      getDescriptor().getMessageTypes().get(101);
     internal_static_adamant_global_v1_CreateLabeledAddressRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreateLabeledAddressRequest_descriptor,
         new java.lang.String[] { "Name", "Coin", "Address", });
     internal_static_adamant_global_v1_CreateLabeledAddressResponse_descriptor =
-      getDescriptor().getMessageTypes().get(100);
+      getDescriptor().getMessageTypes().get(102);
     internal_static_adamant_global_v1_CreateLabeledAddressResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreateLabeledAddressResponse_descriptor,
         new java.lang.String[] { "LabeledAddressId", });
     internal_static_adamant_global_v1_UpdateLabeledAddressRequest_descriptor =
-      getDescriptor().getMessageTypes().get(101);
+      getDescriptor().getMessageTypes().get(103);
     internal_static_adamant_global_v1_UpdateLabeledAddressRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_UpdateLabeledAddressRequest_descriptor,
         new java.lang.String[] { "LabeledAddressId", "Name", "Coin", "Address", });
     internal_static_adamant_global_v1_GetLabeledAddressRequest_descriptor =
-      getDescriptor().getMessageTypes().get(102);
+      getDescriptor().getMessageTypes().get(104);
     internal_static_adamant_global_v1_GetLabeledAddressRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_GetLabeledAddressRequest_descriptor,
         new java.lang.String[] { "LabeledAddressId", });
     internal_static_adamant_global_v1_ListLabeledAddressesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(103);
+      getDescriptor().getMessageTypes().get(105);
     internal_static_adamant_global_v1_ListLabeledAddressesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListLabeledAddressesRequest_descriptor,
         new java.lang.String[] { });
     internal_static_adamant_global_v1_ListLabeledAddressesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(104);
+      getDescriptor().getMessageTypes().get(106);
     internal_static_adamant_global_v1_ListLabeledAddressesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListLabeledAddressesResponse_descriptor,
         new java.lang.String[] { "Addresses", });
     internal_static_adamant_global_v1_DeleteLabeledAddressRequest_descriptor =
-      getDescriptor().getMessageTypes().get(105);
+      getDescriptor().getMessageTypes().get(107);
     internal_static_adamant_global_v1_DeleteLabeledAddressRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_DeleteLabeledAddressRequest_descriptor,
         new java.lang.String[] { "LabeledAddressId", });
     internal_static_adamant_global_v1_ReviewLabeledAddressProposalRequest_descriptor =
-      getDescriptor().getMessageTypes().get(106);
+      getDescriptor().getMessageTypes().get(108);
     internal_static_adamant_global_v1_ReviewLabeledAddressProposalRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ReviewLabeledAddressProposalRequest_descriptor,
         new java.lang.String[] { "LabeledAddressId", "Approve", });
     internal_static_adamant_global_v1_CreateWhitelistRequest_descriptor =
-      getDescriptor().getMessageTypes().get(107);
+      getDescriptor().getMessageTypes().get(109);
     internal_static_adamant_global_v1_CreateWhitelistRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreateWhitelistRequest_descriptor,
         new java.lang.String[] { "Name", "Coin", "AddressIds", });
     internal_static_adamant_global_v1_CreateWhitelistResponse_descriptor =
-      getDescriptor().getMessageTypes().get(108);
+      getDescriptor().getMessageTypes().get(110);
     internal_static_adamant_global_v1_CreateWhitelistResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreateWhitelistResponse_descriptor,
         new java.lang.String[] { "WhitelistId", });
     internal_static_adamant_global_v1_GetWhitelistRequest_descriptor =
-      getDescriptor().getMessageTypes().get(109);
+      getDescriptor().getMessageTypes().get(111);
     internal_static_adamant_global_v1_GetWhitelistRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_GetWhitelistRequest_descriptor,
         new java.lang.String[] { "WhitelistId", });
     internal_static_adamant_global_v1_ListWhitelistsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(110);
+      getDescriptor().getMessageTypes().get(112);
     internal_static_adamant_global_v1_ListWhitelistsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListWhitelistsRequest_descriptor,
         new java.lang.String[] { });
     internal_static_adamant_global_v1_ListWhitelistsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(111);
+      getDescriptor().getMessageTypes().get(113);
     internal_static_adamant_global_v1_ListWhitelistsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListWhitelistsResponse_descriptor,
         new java.lang.String[] { "Whitelists", });
     internal_static_adamant_global_v1_UpdateWhitelistRequest_descriptor =
-      getDescriptor().getMessageTypes().get(112);
+      getDescriptor().getMessageTypes().get(114);
     internal_static_adamant_global_v1_UpdateWhitelistRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_UpdateWhitelistRequest_descriptor,
         new java.lang.String[] { "WhitelistId", "Name", "Coin", "AddressIds", });
     internal_static_adamant_global_v1_UpdateWhitelistAddressesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(113);
+      getDescriptor().getMessageTypes().get(115);
     internal_static_adamant_global_v1_UpdateWhitelistAddressesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_UpdateWhitelistAddressesRequest_descriptor,
         new java.lang.String[] { "WhitelistId", "AddressIds", });
     internal_static_adamant_global_v1_DeleteWhitelistRequest_descriptor =
-      getDescriptor().getMessageTypes().get(114);
+      getDescriptor().getMessageTypes().get(116);
     internal_static_adamant_global_v1_DeleteWhitelistRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_DeleteWhitelistRequest_descriptor,
         new java.lang.String[] { "WhitelistId", });
     internal_static_adamant_global_v1_CreateTransferLimitRequest_descriptor =
-      getDescriptor().getMessageTypes().get(115);
+      getDescriptor().getMessageTypes().get(117);
     internal_static_adamant_global_v1_CreateTransferLimitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreateTransferLimitRequest_descriptor,
         new java.lang.String[] { "Name", "Coin", "TransferLimits", });
     internal_static_adamant_global_v1_CreateTransferLimitResponse_descriptor =
-      getDescriptor().getMessageTypes().get(116);
+      getDescriptor().getMessageTypes().get(118);
     internal_static_adamant_global_v1_CreateTransferLimitResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreateTransferLimitResponse_descriptor,
         new java.lang.String[] { "TransferLimitId", });
     internal_static_adamant_global_v1_GetTransferLimitRequest_descriptor =
-      getDescriptor().getMessageTypes().get(117);
+      getDescriptor().getMessageTypes().get(119);
     internal_static_adamant_global_v1_GetTransferLimitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_GetTransferLimitRequest_descriptor,
         new java.lang.String[] { "TransferLimitId", });
     internal_static_adamant_global_v1_ListTransferLimitsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(118);
+      getDescriptor().getMessageTypes().get(120);
     internal_static_adamant_global_v1_ListTransferLimitsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListTransferLimitsRequest_descriptor,
         new java.lang.String[] { });
     internal_static_adamant_global_v1_ListTransferLimitsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(119);
+      getDescriptor().getMessageTypes().get(121);
     internal_static_adamant_global_v1_ListTransferLimitsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListTransferLimitsResponse_descriptor,
         new java.lang.String[] { "TransferLimits", });
     internal_static_adamant_global_v1_UpdateTransferLimitRequest_descriptor =
-      getDescriptor().getMessageTypes().get(120);
+      getDescriptor().getMessageTypes().get(122);
     internal_static_adamant_global_v1_UpdateTransferLimitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_UpdateTransferLimitRequest_descriptor,
         new java.lang.String[] { "TransferLimitId", "TransferLimits", });
     internal_static_adamant_global_v1_UpdateTransferLimitNameRequest_descriptor =
-      getDescriptor().getMessageTypes().get(121);
+      getDescriptor().getMessageTypes().get(123);
     internal_static_adamant_global_v1_UpdateTransferLimitNameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_UpdateTransferLimitNameRequest_descriptor,
         new java.lang.String[] { "TransferLimitId", "Name", });
     internal_static_adamant_global_v1_DeleteTransferLimitRequest_descriptor =
-      getDescriptor().getMessageTypes().get(122);
+      getDescriptor().getMessageTypes().get(124);
     internal_static_adamant_global_v1_DeleteTransferLimitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_DeleteTransferLimitRequest_descriptor,
         new java.lang.String[] { "TransferLimitId", });
     internal_static_adamant_global_v1_ReviewTransferLimitProposalRequest_descriptor =
-      getDescriptor().getMessageTypes().get(123);
+      getDescriptor().getMessageTypes().get(125);
     internal_static_adamant_global_v1_ReviewTransferLimitProposalRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ReviewTransferLimitProposalRequest_descriptor,
         new java.lang.String[] { "TransferLimitId", "Approve", });
     internal_static_adamant_global_v1_CreatePolicyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(124);
+      getDescriptor().getMessageTypes().get(126);
     internal_static_adamant_global_v1_CreatePolicyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreatePolicyRequest_descriptor,
         new java.lang.String[] { "Name", "Coin", "Type", "WhitelistId", "TransferLimitId", });
     internal_static_adamant_global_v1_CreatePolicyResponse_descriptor =
-      getDescriptor().getMessageTypes().get(125);
+      getDescriptor().getMessageTypes().get(127);
     internal_static_adamant_global_v1_CreatePolicyResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreatePolicyResponse_descriptor,
         new java.lang.String[] { "PolicyId", });
     internal_static_adamant_global_v1_GetPolicyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(126);
+      getDescriptor().getMessageTypes().get(128);
     internal_static_adamant_global_v1_GetPolicyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_GetPolicyRequest_descriptor,
         new java.lang.String[] { "PolicyId", });
     internal_static_adamant_global_v1_ListPoliciesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(127);
+      getDescriptor().getMessageTypes().get(129);
     internal_static_adamant_global_v1_ListPoliciesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListPoliciesRequest_descriptor,
         new java.lang.String[] { });
     internal_static_adamant_global_v1_IsDeletablePolicyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(128);
+      getDescriptor().getMessageTypes().get(130);
     internal_static_adamant_global_v1_IsDeletablePolicyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IsDeletablePolicyRequest_descriptor,
         new java.lang.String[] { "PolicyId", });
     internal_static_adamant_global_v1_IsDeletablePolicyResponse_descriptor =
-      getDescriptor().getMessageTypes().get(129);
+      getDescriptor().getMessageTypes().get(131);
     internal_static_adamant_global_v1_IsDeletablePolicyResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IsDeletablePolicyResponse_descriptor,
         new java.lang.String[] { "IsDeletable", });
     internal_static_adamant_global_v1_IsDeletableLabeledAddressRequest_descriptor =
-      getDescriptor().getMessageTypes().get(130);
+      getDescriptor().getMessageTypes().get(132);
     internal_static_adamant_global_v1_IsDeletableLabeledAddressRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IsDeletableLabeledAddressRequest_descriptor,
         new java.lang.String[] { "LabeledAddressId", });
     internal_static_adamant_global_v1_IsDeletableLabeledAddressResponse_descriptor =
-      getDescriptor().getMessageTypes().get(131);
+      getDescriptor().getMessageTypes().get(133);
     internal_static_adamant_global_v1_IsDeletableLabeledAddressResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IsDeletableLabeledAddressResponse_descriptor,
         new java.lang.String[] { "IsDeletable", });
     internal_static_adamant_global_v1_IsDeletableWhitelistRequest_descriptor =
-      getDescriptor().getMessageTypes().get(132);
+      getDescriptor().getMessageTypes().get(134);
     internal_static_adamant_global_v1_IsDeletableWhitelistRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IsDeletableWhitelistRequest_descriptor,
         new java.lang.String[] { "WhitelistId", });
     internal_static_adamant_global_v1_IsDeletableWhitelistResponse_descriptor =
-      getDescriptor().getMessageTypes().get(133);
+      getDescriptor().getMessageTypes().get(135);
     internal_static_adamant_global_v1_IsDeletableWhitelistResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IsDeletableWhitelistResponse_descriptor,
         new java.lang.String[] { "IsDeletable", });
     internal_static_adamant_global_v1_IsDeletableTransferLimitRequest_descriptor =
-      getDescriptor().getMessageTypes().get(134);
+      getDescriptor().getMessageTypes().get(136);
     internal_static_adamant_global_v1_IsDeletableTransferLimitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IsDeletableTransferLimitRequest_descriptor,
         new java.lang.String[] { "TransferLimitId", });
     internal_static_adamant_global_v1_IsDeletableTransferLimitResponse_descriptor =
-      getDescriptor().getMessageTypes().get(135);
+      getDescriptor().getMessageTypes().get(137);
     internal_static_adamant_global_v1_IsDeletableTransferLimitResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IsDeletableTransferLimitResponse_descriptor,
         new java.lang.String[] { "IsDeletable", });
     internal_static_adamant_global_v1_ListPoliciesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(136);
+      getDescriptor().getMessageTypes().get(138);
     internal_static_adamant_global_v1_ListPoliciesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListPoliciesResponse_descriptor,
         new java.lang.String[] { "Policies", });
     internal_static_adamant_global_v1_UpdatePolicyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(137);
+      getDescriptor().getMessageTypes().get(139);
     internal_static_adamant_global_v1_UpdatePolicyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_UpdatePolicyRequest_descriptor,
         new java.lang.String[] { "PolicyId", "Name", "WhitelistId", "TransferLimitId", });
     internal_static_adamant_global_v1_DeletePolicyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(138);
+      getDescriptor().getMessageTypes().get(140);
     internal_static_adamant_global_v1_DeletePolicyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_DeletePolicyRequest_descriptor,
         new java.lang.String[] { "PolicyId", });
     internal_static_adamant_global_v1_ReviewPolicyProposalRequest_descriptor =
-      getDescriptor().getMessageTypes().get(139);
+      getDescriptor().getMessageTypes().get(141);
     internal_static_adamant_global_v1_ReviewPolicyProposalRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ReviewPolicyProposalRequest_descriptor,

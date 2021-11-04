@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ListWalletTransferVolumeSnapshotsRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ListWalletTransferVolumeSnapshotsRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListWalletTransferVolumeSnapshotsRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListWalletTransferVolumeSnapshotsRequest.class)) return new ListWalletTransferVolumeSnapshotsRequestValidator();
@@ -27,7 +29,6 @@ public class ListWalletTransferVolumeSnapshotsRequestValidator implements io.env
 				
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.ListWalletTransferVolumeSnapshotsRequest.wallet_ids", item, WALLET_IDS__PATTERN);
 			});
-
 	
 		if (proto.hasStartTime()) {
 			io.envoyproxy.pgv.RequiredValidation.required(".adamant.global.v1.ListWalletTransferVolumeSnapshotsRequest.start_time", proto.getStartTime());

@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code CreateWalletRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class CreateWalletRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.CreateWalletRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.CreateWalletRequest.class)) return new CreateWalletRequestValidator();
@@ -72,12 +74,12 @@ public class CreateWalletRequestValidator implements io.envoyproxy.pgv.Validator
 	
 			io.envoyproxy.pgv.ComparativeValidation.range(".adamant.global.v1.CreateWalletRequest.n", proto.getN(), null, N__LTE, null, N__GTE, java.util.Comparator.naturalOrder());
 	
+			io.envoyproxy.pgv.RepeatedValidation.minItems(".adamant.global.v1.CreateWalletRequest.members", proto.getMembersList(), 1);
 			io.envoyproxy.pgv.RepeatedValidation.unique(".adamant.global.v1.CreateWalletRequest.members", proto.getMembersList());
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getMembersList(), item -> {
 				// no validation rules for Members
 
 			});
-
 	// no validation rules for RequiredApprovalCount
 
 	
