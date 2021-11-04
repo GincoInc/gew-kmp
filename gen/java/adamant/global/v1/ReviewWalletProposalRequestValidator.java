@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ReviewWalletProposalRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ReviewWalletProposalRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ReviewWalletProposalRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ReviewWalletProposalRequest.class)) return new ReviewWalletProposalRequestValidator();

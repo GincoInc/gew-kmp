@@ -83,6 +83,7 @@ service GlobalAPI {
     rpc GetLatestRateSnapshot (GetLatestRateSnapshotRequest) returns (RateSnapshot) {}
     // Set rates to your organization
     rpc SetRates (SetRatesRequest) returns (SetRatesResponse) {}
+    rpc SetDefaultRates (SetDefaultRatesRequest) returns (SetDefaultRatesResponse) {}
 
     // policy
     rpc CreateLabeledAddress (CreateLabeledAddressRequest) returns (CreateLabeledAddressResponse) {}
@@ -621,8 +622,14 @@ message SetRatesRequest {
     repeated RequestRate rates = 1; //Array of rate objects
 }
 
+message SetDefaultRatesRequest {}
+
 message SetRatesResponse {
     string rate_snapshot_id = 1; //The id of rate-snapshot
+}
+
+message SetDefaultRatesResponse {
+    repeated string rate_snapshot_ids = 1; // Array of ids of rate-snapshots
 }
 
 // -----------------------------------------------------------------------------

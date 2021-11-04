@@ -365,3 +365,19 @@ enum WatchOnlyAddressState {
   WATCH_ONLY_ADDRESS_STATE_DELETE_FAILED = 6;
   WATCH_ONLY_ADDRESS_STATE_DOWNLOAD = 7;
 }
+
+
+// -----------------------------------------------------------------------------
+// Substrate Call Type
+// -----------------------------------------------------------------------------
+
+enum SubstrateCallType {
+  SUBSTRATE_CALL_TYPE_INVALID = 0;
+  SUBSTRATE_CALL_TYPE_TRANSFER = 1;
+  SUBSTRATE_CALL_TYPE_TRANSFER_ALL = 2;
+  SUBSTRATE_CALL_TYPE_TRANSFER_KEEP_ALIVE = 3;
+  SUBSTRATE_CALL_TYPE_APPROVE_AS_MULTI = 4;
+  SUBSTRATE_CALL_TYPE_AS_MULTI = 5;
+  SUBSTRATE_CALL_TYPE_AS_MULTI_THRESHOLD1 = 6;
+  SUBSTRATE_CALL_TYPE_CANCEL_AS_MULTI = 7;
+}

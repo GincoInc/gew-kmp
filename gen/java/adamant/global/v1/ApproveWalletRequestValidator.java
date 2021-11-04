@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ApproveWalletRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ApproveWalletRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ApproveWalletRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ApproveWalletRequest.class)) return new ApproveWalletRequestValidator();

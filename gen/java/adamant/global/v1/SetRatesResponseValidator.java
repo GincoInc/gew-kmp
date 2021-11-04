@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code SetRatesResponse} protobuf objects.
 */
+@SuppressWarnings("all")
 public class SetRatesResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.SetRatesResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.SetRatesResponse.class)) return new SetRatesResponseValidator();

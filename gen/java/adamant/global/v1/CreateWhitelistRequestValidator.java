@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code CreateWhitelistRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class CreateWhitelistRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.CreateWhitelistRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.CreateWhitelistRequest.class)) return new CreateWhitelistRequestValidator();
@@ -36,7 +38,6 @@ public class CreateWhitelistRequestValidator implements io.envoyproxy.pgv.Valida
 				// no validation rules for AddressIds
 
 			});
-
 	
 	}
 
