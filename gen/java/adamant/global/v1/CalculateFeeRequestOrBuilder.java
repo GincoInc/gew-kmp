@@ -70,4 +70,17 @@ public interface CalculateFeeRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getStringValueBytes();
+
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7;</code>
+   */
+  boolean hasSubstrateSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7;</code>
+   */
+  adamant.global.v1.CalculateFeeSubstrateSpecific getSubstrateSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7;</code>
+   */
+  adamant.global.v1.CalculateFeeSubstrateSpecificOrBuilder getSubstrateSpecificOrBuilder();
 }

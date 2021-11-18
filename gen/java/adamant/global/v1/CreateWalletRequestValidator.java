@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code CreateWalletRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class CreateWalletRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.CreateWalletRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.CreateWalletRequest.class)) return new CreateWalletRequestValidator();
@@ -80,6 +78,7 @@ public class CreateWalletRequestValidator implements io.envoyproxy.pgv.Validator
 				// no validation rules for Members
 
 			});
+
 	// no validation rules for RequiredApprovalCount
 
 	

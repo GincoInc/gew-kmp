@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code ListCompensationFeeHistoriesResponse} protobuf objects.
 */
-@SuppressWarnings("all")
 public class ListCompensationFeeHistoriesResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListCompensationFeeHistoriesResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListCompensationFeeHistoriesResponse.class)) return new ListCompensationFeeHistoriesResponseValidator();
@@ -25,6 +23,7 @@ public class ListCompensationFeeHistoriesResponseValidator implements io.envoypr
 			// Validate compensation_fees
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 

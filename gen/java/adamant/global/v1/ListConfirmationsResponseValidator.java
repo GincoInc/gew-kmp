@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code ListConfirmationsResponse} protobuf objects.
 */
-@SuppressWarnings("all")
 public class ListConfirmationsResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListConfirmationsResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListConfirmationsResponse.class)) return new ListConfirmationsResponseValidator();
@@ -25,6 +23,7 @@ public class ListConfirmationsResponseValidator implements io.envoyproxy.pgv.Val
 			// Validate confirmations
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 

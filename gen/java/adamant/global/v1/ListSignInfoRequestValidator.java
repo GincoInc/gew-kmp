@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code ListSignInfoRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class ListSignInfoRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListSignInfoRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListSignInfoRequest.class)) return new ListSignInfoRequestValidator();

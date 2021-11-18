@@ -3,8 +3,6 @@
 
 package adamant.global.v1;
 
-
-@SuppressWarnings("all")
 public class ModelValidator {
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		
@@ -33,6 +31,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.StellarSpecific.class)) return new StellarSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CardanoSpecific.class)) return new CardanoSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SubstrateSpecific.class)) return new SubstrateSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class)) return new CreateTransactionSubstrateSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SubstrateMultisigTransaction.class)) return new SubstrateMultisigTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.SignInfo.class)) return new SignInfoValidator();
 		if (clazz.equals(adamant.global.v1.Model.SignTxInput.class)) return new SignTxInputValidator();
@@ -73,7 +72,7 @@ public class ModelValidator {
 	}
 
 
-/**
+	/**
 	 * Validates {@code Wallet} protobuf objects.
 	 */
 	public static class WalletValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.Wallet> {
@@ -152,12 +151,14 @@ public class ModelValidator {
 			// Validate keys
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getMembersList(), item -> {
 				
 			// Validate members
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	// no validation rules for RequiredApprovalCount
 
 	// no validation rules for Balance
@@ -186,7 +187,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code WalletWithoutBalance} protobuf objects.
 	 */
 	public static class WalletWithoutBalanceValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.WalletWithoutBalance> {
@@ -259,12 +261,14 @@ public class ModelValidator {
 			// Validate keys
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getMembersList(), item -> {
 				
 			// Validate members
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	// no validation rules for RequiredApprovalCount
 
 	// no validation rules for Address
@@ -287,7 +291,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code WalletProposal} protobuf objects.
 	 */
 	public static class WalletProposalValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.WalletProposal> {
@@ -329,6 +334,7 @@ public class ModelValidator {
 				// no validation rules for ProposedValidators
 
 			});
+
 	// no validation rules for ProposedRequiredApprovalCount
 
 	// no validation rules for IsReviewed
@@ -336,7 +342,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code WalletMember} protobuf objects.
 	 */
 	public static class WalletMemberValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.WalletMember> {
@@ -378,7 +385,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code Key} protobuf objects.
 	 */
 	public static class KeyValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.Key> {
@@ -408,7 +416,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code Address} protobuf objects.
 	 */
 	public static class AddressValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.Address> {
@@ -468,7 +477,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code AddressWithoutBalance} protobuf objects.
 	 */
 	public static class AddressWithoutBalanceValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.AddressWithoutBalance> {
@@ -520,7 +530,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code FlushedAddress} protobuf objects.
 	 */
 	public static class FlushedAddressValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.FlushedAddress> {
@@ -566,7 +577,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code EthereumFeeAddress} protobuf objects.
 	 */
 	public static class EthereumFeeAddressValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.EthereumFeeAddress> {
@@ -588,7 +600,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code AddressWithBalance} protobuf objects.
 	 */
 	public static class AddressWithBalanceValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.AddressWithBalance> {
@@ -618,7 +631,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code Transaction} protobuf objects.
 	 */
 	public static class TransactionValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.Transaction> {
@@ -707,12 +721,14 @@ public class ModelValidator {
 			// Validate signed_keys
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getMembersList(), item -> {
 				
 			// Validate members
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 			// Validate bitcoin_specific
 			if (proto.hasBitcoinSpecific()) index.validatorFor(proto.getBitcoinSpecific()).assertValid(proto.getBitcoinSpecific());
@@ -752,7 +768,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code TransactionMember} protobuf objects.
 	 */
 	public static class TransactionMemberValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.TransactionMember> {
@@ -790,7 +807,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code TxInput} protobuf objects.
 	 */
 	public static class TxInputValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.TxInput> {
@@ -816,7 +834,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code TxOutput} protobuf objects.
 	 */
 	public static class TxOutputValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.TxOutput> {
@@ -842,7 +861,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code UTXO} protobuf objects.
 	 */
 	public static class UTXOValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.UTXO> {
@@ -877,7 +897,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code BitcoinSpecific} protobuf objects.
 	 */
 	public static class BitcoinSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.BitcoinSpecific> {
@@ -894,16 +915,19 @@ public class ModelValidator {
 			// Validate tx_inputs
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxOutputsList(), item -> {
 				
 			// Validate tx_outputs
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code LitecoinSpecific} protobuf objects.
 	 */
 	public static class LitecoinSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.LitecoinSpecific> {
@@ -920,16 +944,19 @@ public class ModelValidator {
 			// Validate tx_inputs
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxOutputsList(), item -> {
 				
 			// Validate tx_outputs
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code BitcoincashSpecific} protobuf objects.
 	 */
 	public static class BitcoincashSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.BitcoincashSpecific> {
@@ -946,16 +973,19 @@ public class ModelValidator {
 			// Validate tx_inputs
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxOutputsList(), item -> {
 				
 			// Validate tx_outputs
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code EthereumSpecific} protobuf objects.
 	 */
 	public static class EthereumSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.EthereumSpecific> {
@@ -977,7 +1007,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code XrpSpecific} protobuf objects.
 	 */
 	public static class XrpSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.XrpSpecific> {
@@ -1003,7 +1034,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code TronSpecific} protobuf objects.
 	 */
 	public static class TronSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.TronSpecific> {
@@ -1017,7 +1049,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code C0BanSpecific} protobuf objects.
 	 */
 	public static class C0BanSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.C0banSpecific> {
@@ -1034,16 +1067,19 @@ public class ModelValidator {
 			// Validate tx_inputs
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxOutputsList(), item -> {
 				
 			// Validate tx_outputs
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code StellarSpecific} protobuf objects.
 	 */
 	public static class StellarSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.StellarSpecific> {
@@ -1065,7 +1101,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code CardanoSpecific} protobuf objects.
 	 */
 	public static class CardanoSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CardanoSpecific> {
@@ -1082,16 +1119,19 @@ public class ModelValidator {
 			// Validate tx_inputs
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxOutputsList(), item -> {
 				
 			// Validate tx_outputs
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code SubstrateSpecific} protobuf objects.
 	 */
 	public static class SubstrateSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SubstrateSpecific> {
@@ -1109,24 +1149,39 @@ public class ModelValidator {
 	// no validation rules for IsNextNonce
 
 	
-			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getSubstrateChildTransactionsList(), item -> {
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getSubstrateMultisigTransactionsList(), item -> {
 				
-			// Validate substrate_child_transactions
+			// Validate substrate_multisig_transactions
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 }
-/**
+
+	/**
+	 * Validates {@code CreateTransactionSubstrateSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionSubstrateSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionSubstrateSpecific> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionSubstrateSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for TransactionId
+
+	// no validation rules for CallType
+
+	
+	}
+}
+
+	/**
 	 * Validates {@code SubstrateMultisigTransaction} protobuf objects.
 	 */
 	public static class SubstrateMultisigTransactionValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SubstrateMultisigTransaction> {
-		
-	
-		
-	
-		
-	
 		
 	
 		
@@ -1164,17 +1219,11 @@ public class ModelValidator {
 
 	// no validation rules for SubstrateMultisigTransactionId
 
-	// no validation rules for Coin
+	// no validation rules for AccountId
 
 	// no validation rules for TxId
 
 	// no validation rules for ExtrinsicId
-
-	// no validation rules for Address
-
-	// no validation rules for Value
-
-	// no validation rules for StringValue
 
 	// no validation rules for JpyRate
 
@@ -1197,7 +1246,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code SignInfo} protobuf objects.
 	 */
 	public static class SignInfoValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SignInfo> {
@@ -1252,10 +1302,12 @@ public class ModelValidator {
 			// Validate sign_tx_inputs
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code SignTxInput} protobuf objects.
 	 */
 	public static class SignTxInputValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SignTxInput> {
@@ -1281,7 +1333,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code Transfer} protobuf objects.
 	 */
 	public static class TransferValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.Transfer> {
@@ -1357,7 +1410,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code Rate} protobuf objects.
 	 */
 	public static class RateValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.Rate> {
@@ -1375,7 +1429,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code RateSnapshot} protobuf objects.
 	 */
 	public static class RateSnapshotValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.RateSnapshot> {
@@ -1403,7 +1458,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code Deactivatability} protobuf objects.
 	 */
 	public static class DeactivatabilityValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.Deactivatability> {
@@ -1421,7 +1477,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code LabeledAddress} protobuf objects.
 	 */
 	public static class LabeledAddressValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.LabeledAddress> {
@@ -1462,7 +1519,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code LabeledAddressProposal} protobuf objects.
 	 */
 	public static class LabeledAddressProposalValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.LabeledAddressProposal> {
@@ -1496,7 +1554,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code Whitelist} protobuf objects.
 	 */
 	public static class WhitelistValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.Whitelist> {
@@ -1527,6 +1586,7 @@ public class ModelValidator {
 			// Validate addresses
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -1536,7 +1596,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code TransferLimit} protobuf objects.
 	 */
 	public static class TransferLimitValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.TransferLimit> {
@@ -1589,7 +1650,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code TransferLimitProposal} protobuf objects.
 	 */
 	public static class TransferLimitProposalValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.TransferLimitProposal> {
@@ -1631,7 +1693,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code Policy} protobuf objects.
 	 */
 	public static class PolicyValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.Policy> {
@@ -1686,7 +1749,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code PolicyProposal} protobuf objects.
 	 */
 	public static class PolicyProposalValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.PolicyProposal> {
@@ -1721,7 +1785,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code TotalBalanceByCoin} protobuf objects.
 	 */
 	public static class TotalBalanceByCoinValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.TotalBalanceByCoin> {
@@ -1743,7 +1808,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code TotalBalance} protobuf objects.
 	 */
 	public static class TotalBalanceValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.TotalBalance> {
@@ -1768,7 +1834,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code BalanceSnapshot} protobuf objects.
 	 */
 	public static class BalanceSnapshotValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.BalanceSnapshot> {
@@ -1813,7 +1880,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code WalletBalanceSnapshotMap} protobuf objects.
 	 */
 	public static class WalletBalanceSnapshotMapValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.WalletBalanceSnapshotMap> {
@@ -1838,7 +1906,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code ListWalletBalanceSnapshots} protobuf objects.
 	 */
 	public static class ListWalletBalanceSnapshotsValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.ListWalletBalanceSnapshots> {
@@ -1853,10 +1922,12 @@ public class ModelValidator {
 			// Validate wallet_balance_snapshots
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code WalletBalanceSnapshot} protobuf objects.
 	 */
 	public static class WalletBalanceSnapshotValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.WalletBalanceSnapshot> {
@@ -1879,7 +1950,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code TransferVolumeSnapshots} protobuf objects.
 	 */
 	public static class TransferVolumeSnapshotsValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.TransferVolumeSnapshots> {
@@ -1904,7 +1976,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code ListTransferVolumeSnapshots} protobuf objects.
 	 */
 	public static class ListTransferVolumeSnapshotsValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.ListTransferVolumeSnapshots> {
@@ -1919,10 +1992,12 @@ public class ModelValidator {
 			// Validate transfer_volume_snapshots
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code TransferVolumeSnapshot} protobuf objects.
 	 */
 	public static class TransferVolumeSnapshotValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.TransferVolumeSnapshot> {
@@ -1951,7 +2026,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code TransferVolume} protobuf objects.
 	 */
 	public static class TransferVolumeValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.TransferVolume> {
@@ -1993,7 +2069,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code WalletTransferVolumeSnapshots} protobuf objects.
 	 */
 	public static class WalletTransferVolumeSnapshotsValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.WalletTransferVolumeSnapshots> {
@@ -2018,7 +2095,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code ListWalletTransferVolumeSnapshots} protobuf objects.
 	 */
 	public static class ListWalletTransferVolumeSnapshotsValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.ListWalletTransferVolumeSnapshots> {
@@ -2033,10 +2111,12 @@ public class ModelValidator {
 			// Validate wallet_transfer_volume_snapshots
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code WalletTransferVolumeSnapshot} protobuf objects.
 	 */
 	public static class WalletTransferVolumeSnapshotValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.WalletTransferVolumeSnapshot> {
@@ -2065,7 +2145,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code WalletTransferVolume} protobuf objects.
 	 */
 	public static class WalletTransferVolumeValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.WalletTransferVolume> {
@@ -2091,7 +2172,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code Confirmation} protobuf objects.
 	 */
 	public static class ConfirmationValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.Confirmation> {
@@ -2109,7 +2191,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code WalletFlushSetting} protobuf objects.
 	 */
 	public static class WalletFlushSettingValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.WalletFlushSetting> {
@@ -2141,7 +2224,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code CompensationFee} protobuf objects.
 	 */
 	public static class CompensationFeeValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CompensationFee> {
@@ -2164,7 +2248,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code RequestTxOutput} protobuf objects.
 	 */
 	public static class RequestTxOutputValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.RequestTxOutput> {
@@ -2182,7 +2267,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code RequestSignedInfo} protobuf objects.
 	 */
 	public static class RequestSignedInfoValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.RequestSignedInfo> {
@@ -2198,10 +2284,12 @@ public class ModelValidator {
 			// Validate signatures
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code RequestSignature} protobuf objects.
 	 */
 	public static class RequestSignatureValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.RequestSignature> {
@@ -2219,7 +2307,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code RequestTransferLimitEntry} protobuf objects.
 	 */
 	public static class RequestTransferLimitEntryValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.RequestTransferLimitEntry> {
@@ -2242,7 +2331,8 @@ public class ModelValidator {
 	
 	}
 }
-/**
+
+	/**
 	 * Validates {@code RequestRate} protobuf objects.
 	 */
 	public static class RequestRateValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.RequestRate> {
@@ -2265,5 +2355,6 @@ public class ModelValidator {
 	
 	}
 }
+
 }
 

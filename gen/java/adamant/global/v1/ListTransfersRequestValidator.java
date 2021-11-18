@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code ListTransfersRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class ListTransfersRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListTransfersRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListTransfersRequest.class)) return new ListTransfersRequestValidator();

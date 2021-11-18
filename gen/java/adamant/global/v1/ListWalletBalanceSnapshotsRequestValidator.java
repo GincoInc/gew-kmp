@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code ListWalletBalanceSnapshotsRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class ListWalletBalanceSnapshotsRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListWalletBalanceSnapshotsRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListWalletBalanceSnapshotsRequest.class)) return new ListWalletBalanceSnapshotsRequestValidator();
@@ -29,6 +27,7 @@ public class ListWalletBalanceSnapshotsRequestValidator implements io.envoyproxy
 				
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.ListWalletBalanceSnapshotsRequest.wallet_ids", item, WALLET_IDS__PATTERN);
 			});
+
 	
 			// Validate start_time
 			if (proto.hasStartTime()) index.validatorFor(proto.getStartTime()).assertValid(proto.getStartTime());

@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code RegisterKeyRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class RegisterKeyRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.RegisterKeyRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.RegisterKeyRequest.class)) return new RegisterKeyRequestValidator();

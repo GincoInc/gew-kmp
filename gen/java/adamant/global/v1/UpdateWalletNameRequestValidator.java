@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code UpdateWalletNameRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class UpdateWalletNameRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.UpdateWalletNameRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.UpdateWalletNameRequest.class)) return new UpdateWalletNameRequestValidator();

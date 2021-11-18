@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code SendTransactionResponse} protobuf objects.
 */
-@SuppressWarnings("all")
 public class SendTransactionResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.SendTransactionResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.SendTransactionResponse.class)) return new SendTransactionResponseValidator();

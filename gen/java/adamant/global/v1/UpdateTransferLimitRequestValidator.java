@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code UpdateTransferLimitRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class UpdateTransferLimitRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.UpdateTransferLimitRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.UpdateTransferLimitRequest.class)) return new UpdateTransferLimitRequestValidator();
@@ -31,6 +29,7 @@ public class UpdateTransferLimitRequestValidator implements io.envoyproxy.pgv.Va
 			// Validate transfer_limits
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 

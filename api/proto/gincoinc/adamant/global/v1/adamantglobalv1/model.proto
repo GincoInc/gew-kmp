@@ -283,7 +283,13 @@ message CardanoSpecific {
 message SubstrateSpecific {
     uint64 nonce = 1;
     bool is_next_nonce = 2;
-    repeated SubstrateMultisigTransaction substrate_child_transactions = 4;
+    repeated SubstrateMultisigTransaction substrate_multisig_transactions = 4;
+}
+
+// The model of Substrate specific fields of CreateTransaction
+message CreateTransactionSubstrateSpecific {
+    string transaction_id = 1;
+    SubstrateCallType call_type = 2;
 }
 
 // The model of substrate multisig transaction
@@ -291,20 +297,17 @@ message SubstrateMultisigTransaction {
     string wallet_id = 1; // The id of wallet
     string transaction_id = 2; // id
     string substrate_multisig_transaction_id = 3;
-    gincoinc.global.v1.Coin coin = 4; // The type of coin
+    string account_id = 4; // AccountID
     string tx_id = 5; // txID
     string extrinsic_id = 6; // ExtrinsicID
-    string address = 7; // address
-    double value = 8; // The number-typed amount of transaction
-    string string_value = 9; // The string-typed amount of transaction
-    double jpy_rate = 10; // The rate of fiat
-    double fee = 11; // The number-typed amount of transaction fee
-    string string_fee = 12; // The string-typed amount of transaction fee
-    uint64 nonce = 13;
-    SubstrateCallType multisig_call_type = 14;
-    TransactionState state = 15; // state
-    google.protobuf.Timestamp create_time = 16; // the time at which the transaction was created
-    google.protobuf.Timestamp update_time = 17; // the time at which the transaction was updated
+    double jpy_rate = 7; // The rate of fiat
+    double fee = 8; // The number-typed amount of transaction fee
+    string string_fee = 9; // The string-typed amount of transaction fee
+    uint64 nonce = 10;
+    SubstrateCallType multisig_call_type = 11;
+    TransactionState state = 12; // state
+    google.protobuf.Timestamp create_time = 13; // the time at which the transaction was created
+    google.protobuf.Timestamp update_time = 14; // the time at which the transaction was updated
 }
 
 // The model of information about signing

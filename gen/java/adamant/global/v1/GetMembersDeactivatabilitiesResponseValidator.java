@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code GetMembersDeactivatabilitiesResponse} protobuf objects.
 */
-@SuppressWarnings("all")
 public class GetMembersDeactivatabilitiesResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.GetMembersDeactivatabilitiesResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.GetMembersDeactivatabilitiesResponse.class)) return new GetMembersDeactivatabilitiesResponseValidator();
@@ -25,6 +23,7 @@ public class GetMembersDeactivatabilitiesResponseValidator implements io.envoypr
 			// Validate deactivatabilities
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 

@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code CreateTransactionRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class CreateTransactionRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.CreateTransactionRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.CreateTransactionRequest.class)) return new CreateTransactionRequestValidator();
@@ -16,6 +14,8 @@ public class CreateTransactionRequestValidator implements io.envoyproxy.pgv.Vali
 	}
 		
 		com.google.re2j.Pattern WALLET_ID__PATTERN = com.google.re2j.Pattern.compile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
+	
+		
 	
 		
 	
@@ -42,6 +42,7 @@ public class CreateTransactionRequestValidator implements io.envoyproxy.pgv.Vali
 			// Validate tx_outputs
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	// no validation rules for Address
 
 	// no validation rules for DestinationTag
@@ -50,6 +51,9 @@ public class CreateTransactionRequestValidator implements io.envoyproxy.pgv.Vali
 
 	// no validation rules for StringValue
 
+	
+			// Validate substrate_specific
+			if (proto.hasSubstrateSpecific()) index.validatorFor(proto.getSubstrateSpecific()).assertValid(proto.getSubstrateSpecific());
 	
 	}
 

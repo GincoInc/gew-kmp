@@ -15,7 +15,7 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"google.golang.org/protobuf/types/known/anypb"
+	"github.com/golang/protobuf/ptypes"
 
 	gincoincglobalv1 "github.com/GincoInc/gew-kmp/gen/gincoinc/global/v1/gincoincglobalv1"
 )
@@ -32,7 +32,7 @@ var (
 	_ = time.Duration(0)
 	_ = (*url.URL)(nil)
 	_ = (*mail.Address)(nil)
-	_ = anypb.Any{}
+	_ = ptypes.DynamicAny{}
 
 	_ = gincoincglobalv1.Coin(0)
 
@@ -57,8 +57,6 @@ var (
 	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.XRPTransactionType(0)
-
-	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.Coin(0)
 
@@ -94,6 +92,9 @@ var (
 
 	_ = gincoincglobalv1.Coin(0)
 )
+
+// define the regex for a UUID once up-front
+var _model_uuidPattern = regexp.MustCompile("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
 
 // Validate checks the field values on Wallet with the rules defined in the
 // proto definition for this message. If any rules are violated, an error is returned.
@@ -2406,13 +2407,13 @@ func (m *SubstrateSpecific) Validate() error {
 
 	// no validation rules for IsNextNonce
 
-	for idx, item := range m.GetSubstrateChildTransactions() {
+	for idx, item := range m.GetSubstrateMultisigTransactions() {
 		_, _ = idx, item
 
 		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
 			if err := v.Validate(); err != nil {
 				return SubstrateSpecificValidationError{
-					field:  fmt.Sprintf("SubstrateChildTransactions[%v]", idx),
+					field:  fmt.Sprintf("SubstrateMultisigTransactions[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
@@ -2480,6 +2481,78 @@ var _ interface {
 	ErrorName() string
 } = SubstrateSpecificValidationError{}
 
+// Validate checks the field values on CreateTransactionSubstrateSpecific with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *CreateTransactionSubstrateSpecific) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for TransactionId
+
+	// no validation rules for CallType
+
+	return nil
+}
+
+// CreateTransactionSubstrateSpecificValidationError is the validation error
+// returned by CreateTransactionSubstrateSpecific.Validate if the designated
+// constraints aren't met.
+type CreateTransactionSubstrateSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionSubstrateSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionSubstrateSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionSubstrateSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionSubstrateSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionSubstrateSpecificValidationError) ErrorName() string {
+	return "CreateTransactionSubstrateSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionSubstrateSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionSubstrateSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionSubstrateSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionSubstrateSpecificValidationError{}
+
 // Validate checks the field values on SubstrateMultisigTransaction with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -2494,17 +2567,11 @@ func (m *SubstrateMultisigTransaction) Validate() error {
 
 	// no validation rules for SubstrateMultisigTransactionId
 
-	// no validation rules for Coin
+	// no validation rules for AccountId
 
 	// no validation rules for TxId
 
 	// no validation rules for ExtrinsicId
-
-	// no validation rules for Address
-
-	// no validation rules for Value
-
-	// no validation rules for StringValue
 
 	// no validation rules for JpyRate
 

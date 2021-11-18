@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code UpdateAddressBalanceRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class UpdateAddressBalanceRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.UpdateAddressBalanceRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.UpdateAddressBalanceRequest.class)) return new UpdateAddressBalanceRequestValidator();

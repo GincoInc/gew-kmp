@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code ListXRPInitSignInfoResponse} protobuf objects.
 */
-@SuppressWarnings("all")
 public class ListXRPInitSignInfoResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListXRPInitSignInfoResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListXRPInitSignInfoResponse.class)) return new ListXRPInitSignInfoResponseValidator();
@@ -25,6 +23,7 @@ public class ListXRPInitSignInfoResponseValidator implements io.envoyproxy.pgv.V
 			// Validate sign_info_list
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 

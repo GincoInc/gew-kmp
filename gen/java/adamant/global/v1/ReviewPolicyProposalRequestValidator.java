@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code ReviewPolicyProposalRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class ReviewPolicyProposalRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ReviewPolicyProposalRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ReviewPolicyProposalRequest.class)) return new ReviewPolicyProposalRequestValidator();

@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code DeleteAllWatchOnlyAddressesByWalletIDRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class DeleteAllWatchOnlyAddressesByWalletIDRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.DeleteAllWatchOnlyAddressesByWalletIDRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.DeleteAllWatchOnlyAddressesByWalletIDRequest.class)) return new DeleteAllWatchOnlyAddressesByWalletIDRequestValidator();
