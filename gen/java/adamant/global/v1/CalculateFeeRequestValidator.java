@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code CalculateFeeRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class CalculateFeeRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.CalculateFeeRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.CalculateFeeRequest.class)) return new CalculateFeeRequestValidator();
@@ -19,6 +17,8 @@ public class CalculateFeeRequestValidator implements io.envoyproxy.pgv.Validator
 	
 		
 		private final Long FEE_RATE__GTE = 1L;
+	
+		
 	
 		
 	
@@ -41,12 +41,16 @@ public class CalculateFeeRequestValidator implements io.envoyproxy.pgv.Validator
 			// Validate tx_outputs
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	// no validation rules for Address
 
 	// no validation rules for DestinationTag
 
 	// no validation rules for StringValue
 
+	
+			// Validate substrate_specific
+			if (proto.hasSubstrateSpecific()) index.validatorFor(proto.getSubstrateSpecific()).assertValid(proto.getSubstrateSpecific());
 	
 	}
 

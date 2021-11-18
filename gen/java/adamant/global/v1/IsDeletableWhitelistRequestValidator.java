@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code IsDeletableWhitelistRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class IsDeletableWhitelistRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.IsDeletableWhitelistRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.IsDeletableWhitelistRequest.class)) return new IsDeletableWhitelistRequestValidator();

@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code GetAddressByIndexRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class GetAddressByIndexRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.GetAddressByIndexRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.GetAddressByIndexRequest.class)) return new GetAddressByIndexRequestValidator();

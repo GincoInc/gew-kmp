@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code ListWalletFlushSettingsResponse} protobuf objects.
 */
-@SuppressWarnings("all")
 public class ListWalletFlushSettingsResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListWalletFlushSettingsResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListWalletFlushSettingsResponse.class)) return new ListWalletFlushSettingsResponseValidator();
@@ -25,6 +23,7 @@ public class ListWalletFlushSettingsResponseValidator implements io.envoyproxy.p
 			// Validate wallet_flush_settings
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 

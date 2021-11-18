@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code UpdateWalletFlushSettingRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class UpdateWalletFlushSettingRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.UpdateWalletFlushSettingRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.UpdateWalletFlushSettingRequest.class)) return new UpdateWalletFlushSettingRequestValidator();

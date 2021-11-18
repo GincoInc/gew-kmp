@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code ListUTXOsResponse} protobuf objects.
 */
-@SuppressWarnings("all")
 public class ListUTXOsResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListUTXOsResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListUTXOsResponse.class)) return new ListUTXOsResponseValidator();
@@ -25,6 +23,7 @@ public class ListUTXOsResponseValidator implements io.envoyproxy.pgv.ValidatorIm
 			// Validate utxos
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+
 	
 	}
 

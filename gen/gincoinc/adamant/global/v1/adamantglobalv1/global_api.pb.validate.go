@@ -15,7 +15,7 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"google.golang.org/protobuf/types/known/anypb"
+	"github.com/golang/protobuf/ptypes"
 
 	gincoincglobalv1 "github.com/GincoInc/gew-kmp/gen/gincoinc/global/v1/gincoincglobalv1"
 )
@@ -32,7 +32,7 @@ var (
 	_ = time.Duration(0)
 	_ = (*url.URL)(nil)
 	_ = (*mail.Address)(nil)
-	_ = anypb.Any{}
+	_ = ptypes.DynamicAny{}
 
 	_ = gincoincglobalv1.Coin(0)
 
@@ -64,6 +64,9 @@ var (
 
 	_ = gincoincglobalv1.Coin(0)
 )
+
+// define the regex for a UUID once up-front
+var _global_api_uuidPattern = regexp.MustCompile("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
 
 // Validate checks the field values on ApproveWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -3936,6 +3939,16 @@ func (m *CreateTransactionRequest) Validate() error {
 
 	// no validation rules for StringValue
 
+	if v, ok := interface{}(m.GetSubstrateSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateTransactionRequestValidationError{
+				field:  "SubstrateSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	return nil
 }
 
@@ -7761,6 +7774,16 @@ func (m *CalculateFeeRequest) Validate() error {
 
 	// no validation rules for StringValue
 
+	if v, ok := interface{}(m.GetSubstrateSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CalculateFeeRequestValidationError{
+				field:  "SubstrateSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	return nil
 }
 
@@ -7821,6 +7844,78 @@ var _ interface {
 } = CalculateFeeRequestValidationError{}
 
 var _CalculateFeeRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on CalculateFeeSubstrateSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CalculateFeeSubstrateSpecific) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for CallType
+
+	// no validation rules for MultisigCallType
+
+	return nil
+}
+
+// CalculateFeeSubstrateSpecificValidationError is the validation error
+// returned by CalculateFeeSubstrateSpecific.Validate if the designated
+// constraints aren't met.
+type CalculateFeeSubstrateSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CalculateFeeSubstrateSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CalculateFeeSubstrateSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CalculateFeeSubstrateSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CalculateFeeSubstrateSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CalculateFeeSubstrateSpecificValidationError) ErrorName() string {
+	return "CalculateFeeSubstrateSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CalculateFeeSubstrateSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCalculateFeeSubstrateSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CalculateFeeSubstrateSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CalculateFeeSubstrateSpecificValidationError{}
 
 // Validate checks the field values on CalculateFeeResponse with the rules
 // defined in the proto definition for this message. If any rules are

@@ -404,6 +404,7 @@ message CreateTransactionRequest {
     uint32 destination_tag = 5;
     uint64 memo_id = 6 [jstype = JS_STRING];
     string string_value = 7;
+    adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;
 }
 
 message CreateTransactionResponse {
@@ -702,6 +703,13 @@ message CalculateFeeRequest {
     string address = 4;
     uint32 destination_tag = 5;
     string string_value = 6;
+    CalculateFeeSubstrateSpecific substrate_specific = 7;
+}
+
+// The model of Substrate specific fields of CreateTransaction
+message CalculateFeeSubstrateSpecific {
+    SubstrateCallType call_type = 1;
+    SubstrateCallType multisig_call_type = 2;
 }
 
 message CalculateFeeResponse {

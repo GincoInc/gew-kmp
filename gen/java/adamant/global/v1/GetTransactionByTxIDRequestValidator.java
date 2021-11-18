@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code GetTransactionByTxIDRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class GetTransactionByTxIDRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.GetTransactionByTxIDRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.GetTransactionByTxIDRequest.class)) return new GetTransactionByTxIDRequestValidator();

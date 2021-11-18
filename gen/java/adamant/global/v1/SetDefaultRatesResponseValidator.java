@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code SetDefaultRatesResponse} protobuf objects.
 */
-@SuppressWarnings("all")
 public class SetDefaultRatesResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.SetDefaultRatesResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.SetDefaultRatesResponse.class)) return new SetDefaultRatesResponseValidator();
@@ -24,6 +22,7 @@ public class SetDefaultRatesResponseValidator implements io.envoyproxy.pgv.Valid
 				// no validation rules for RateSnapshotIds
 
 			});
+
 	
 	}
 

@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code ListLabeledAddressesRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class ListLabeledAddressesRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListLabeledAddressesRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListLabeledAddressesRequest.class)) return new ListLabeledAddressesRequestValidator();

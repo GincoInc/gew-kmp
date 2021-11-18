@@ -3,11 +3,9 @@
 
 package adamant.global.v1;
 
-
 /**
 * Validates {@code UpdateWalletValidationRequest} protobuf objects.
 */
-@SuppressWarnings("all")
 public class UpdateWalletValidationRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.UpdateWalletValidationRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.UpdateWalletValidationRequest.class)) return new UpdateWalletValidationRequestValidator();
@@ -32,6 +30,7 @@ public class UpdateWalletValidationRequestValidator implements io.envoyproxy.pgv
 				
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.UpdateWalletValidationRequest.new_validator_ids", item, NEW_VALIDATOR_IDS__PATTERN);
 			});
+
 	// no validation rules for NewRequiredApprovalCount
 
 	
