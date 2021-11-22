@@ -68,6 +68,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.RequestSignature.class)) return new RequestSignatureValidator();
 		if (clazz.equals(adamant.global.v1.Model.RequestTransferLimitEntry.class)) return new RequestTransferLimitEntryValidator();
 		if (clazz.equals(adamant.global.v1.Model.RequestRate.class)) return new RequestRateValidator();
+		if (clazz.equals(adamant.global.v1.Model.SubstrateChildAddress.class)) return new SubstrateChildAddressValidator();
 		return null;
 	}
 
@@ -2352,6 +2353,37 @@ public class ModelValidator {
 			io.envoyproxy.pgv.CollectiveValidation.notIn(".adamant.global.v1.RequestRate.coin", proto.getCoin(), COIN__NOT_IN);
 	
 			io.envoyproxy.pgv.ComparativeValidation.greaterThanOrEqual(".adamant.global.v1.RequestRate.jpy", proto.getJpy(), JPY__GTE, java.util.Comparator.naturalOrder());
+	
+	}
+}
+
+	/**
+	 * Validates {@code SubstrateChildAddress} protobuf objects.
+	 */
+	public static class SubstrateChildAddressValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SubstrateChildAddress> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.SubstrateChildAddress proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for WalletId
+
+	// no validation rules for AccountId
+
+	// no validation rules for Address
+
+	// no validation rules for Balance
+
+	// no validation rules for StringBalance
+
 	
 	}
 }

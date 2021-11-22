@@ -7746,12 +7746,7 @@ func (m *CalculateFeeRequest) Validate() error {
 		}
 	}
 
-	if m.GetFeeRate() < 1 {
-		return CalculateFeeRequestValidationError{
-			field:  "FeeRate",
-			reason: "value must be greater than or equal to 1",
-		}
-	}
+	// no validation rules for FeeRate
 
 	for idx, item := range m.GetTxOutputs() {
 		_, _ = idx, item
@@ -11971,3 +11966,163 @@ var _ interface {
 } = ReviewPolicyProposalRequestValidationError{}
 
 var _ReviewPolicyProposalRequest_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ListSubstrateChildAddressesRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *ListSubstrateChildAddressesRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_ListSubstrateChildAddressesRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return ListSubstrateChildAddressesRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// ListSubstrateChildAddressesRequestValidationError is the validation error
+// returned by ListSubstrateChildAddressesRequest.Validate if the designated
+// constraints aren't met.
+type ListSubstrateChildAddressesRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListSubstrateChildAddressesRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListSubstrateChildAddressesRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListSubstrateChildAddressesRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListSubstrateChildAddressesRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListSubstrateChildAddressesRequestValidationError) ErrorName() string {
+	return "ListSubstrateChildAddressesRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListSubstrateChildAddressesRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListSubstrateChildAddressesRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListSubstrateChildAddressesRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListSubstrateChildAddressesRequestValidationError{}
+
+var _ListSubstrateChildAddressesRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ListSubstrateChildAddressesResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *ListSubstrateChildAddressesResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetSubstrateChildAddresses() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListSubstrateChildAddressesResponseValidationError{
+					field:  fmt.Sprintf("SubstrateChildAddresses[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ListSubstrateChildAddressesResponseValidationError is the validation error
+// returned by ListSubstrateChildAddressesResponse.Validate if the designated
+// constraints aren't met.
+type ListSubstrateChildAddressesResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListSubstrateChildAddressesResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListSubstrateChildAddressesResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListSubstrateChildAddressesResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListSubstrateChildAddressesResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListSubstrateChildAddressesResponseValidationError) ErrorName() string {
+	return "ListSubstrateChildAddressesResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListSubstrateChildAddressesResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListSubstrateChildAddressesResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListSubstrateChildAddressesResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListSubstrateChildAddressesResponseValidationError{}

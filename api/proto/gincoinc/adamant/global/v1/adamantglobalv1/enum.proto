@@ -81,6 +81,7 @@ enum TransactionState {
   TRANSACTION_STATE_REVIEWED = 4; //Transaction was reviewd
   TRANSACTION_STATE_SUBMITTING = 5; //Waiting for submit
   TRANSACTION_STATE_SUBMITTED = 6; //Transaction was submitted
+  TRANSACTION_STATE_CANCELLING = 8; //Waiting for cancel
   TRANSACTION_STATE_CANCELLED = 7; //Transaction was cancelled
 }
 

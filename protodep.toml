@@ -8,18 +8,18 @@ proto_outdir = "./vendor"
 
 [[dependencies]]
     target = "github.com/GincoInc/protobuf/gincoinc/global"
-    revision = "98207c2ebf2e8b3caf21619e07f27150c30120e8"
+    revision = "873e3503f56b39a52053a72158d63b96d54fb68d"
     path = "gincoinc/global"
     protocol = "ssh"
 
 [[dependencies]]
     target = "github.com/GincoInc/protobuf/gincoinc/adamant/global"
-    revision = "98207c2ebf2e8b3caf21619e07f27150c30120e8"
+    revision = "873e3503f56b39a52053a72158d63b96d54fb68d"
     path = "gincoinc/adamant/global"
     protocol = "ssh"
 
 [[dependencies]]
     target = "github.com/GincoInc/protobuf/gincoinc/adamant/teller"
-    revision = "98207c2ebf2e8b3caf21619e07f27150c30120e8"
+    revision = "873e3503f56b39a52053a72158d63b96d54fb68d"
     path = "gincoinc/adamant/teller"
     protocol = "ssh"

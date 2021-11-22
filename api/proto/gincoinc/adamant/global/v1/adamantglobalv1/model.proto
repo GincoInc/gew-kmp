@@ -578,3 +578,11 @@ message RequestRate {
     gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}]; //The id of coin
     double jpy = 2 [(validate.rules).double = {gte: 0}]; // The rate of JPY
 }
+
+message SubstrateChildAddress {
+    string wallet_id = 1;
+    string account_id = 2;
+    string address = 3;
+    double balance = 4;
+    string string_balance = 5;
+}
