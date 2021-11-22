@@ -18,7 +18,7 @@ public interface CalculateFeeRequestOrBuilder extends
       getWalletIdBytes();
 
   /**
-   * <code>uint64 fee_rate = 2 [(.validate.rules) = { ... }</code>
+   * <code>uint64 fee_rate = 2;</code>
    */
   long getFeeRate();
 

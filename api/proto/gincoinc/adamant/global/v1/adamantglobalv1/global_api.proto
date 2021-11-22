@@ -49,6 +49,8 @@ service GlobalAPI {
     rpc UpdateAddressBalance (UpdateAddressBalanceRequest) returns (google.protobuf.Empty) {}
     // Get an address which hold ETH for ethereum wallet/address creation etc
     rpc GetEthereumFeeAddress (GetEthereumFeeAddressRequest) returns (EthereumFeeAddress) {}
+    // Get addresses associated with the Polkadot signer
+    rpc ListSubstrateChildAddresses (ListSubstrateChildAddressesRequest) returns (ListSubstrateChildAddressesResponse) {}
 
     // RegisterKey
     rpc RegisterKey (RegisterKeyRequest) returns (RegisterKeyResponse) {}
@@ -698,7 +700,7 @@ message ListWalletTransferVolumeSnapshotsResponse {
 
 message CalculateFeeRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    uint64 fee_rate = 2 [(validate.rules).uint64.gte = 1];
+    uint64 fee_rate = 2;
     repeated RequestTxOutput tx_outputs = 3;
     string address = 4;
     uint32 destination_tag = 5;
@@ -947,3 +949,10 @@ message ReviewPolicyProposalRequest {
     bool approve = 2;
 }
 
+message ListSubstrateChildAddressesRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+}
+
+message ListSubstrateChildAddressesResponse {
+    repeated SubstrateChildAddress substrate_child_addresses = 1;
+}

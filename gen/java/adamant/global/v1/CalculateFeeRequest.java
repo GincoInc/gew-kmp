@@ -175,7 +175,7 @@ private static final long serialVersionUID = 0L;
   public static final int FEE_RATE_FIELD_NUMBER = 2;
   private long feeRate_;
   /**
-   * <code>uint64 fee_rate = 2 [(.validate.rules) = { ... }</code>
+   * <code>uint64 fee_rate = 2;</code>
    */
   public long getFeeRate() {
     return feeRate_;
@@ -843,13 +843,13 @@ private static final long serialVersionUID = 0L;
 
     private long feeRate_ ;
     /**
-     * <code>uint64 fee_rate = 2 [(.validate.rules) = { ... }</code>
+     * <code>uint64 fee_rate = 2;</code>
      */
     public long getFeeRate() {
       return feeRate_;
     }
     /**
-     * <code>uint64 fee_rate = 2 [(.validate.rules) = { ... }</code>
+     * <code>uint64 fee_rate = 2;</code>
      */
     public Builder setFeeRate(long value) {
       
@@ -858,7 +858,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint64 fee_rate = 2 [(.validate.rules) = { ... }</code>
+     * <code>uint64 fee_rate = 2;</code>
      */
     public Builder clearFeeRate() {
       
