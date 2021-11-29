@@ -290,6 +290,7 @@ message SubstrateSpecific {
 message CreateTransactionSubstrateSpecific {
     string transaction_id = 1;
     SubstrateCallType call_type = 2;
+    SubstrateCallType multisig_call_type = 3;
 }
 
 // The model of substrate multisig transaction

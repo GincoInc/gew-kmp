@@ -2493,6 +2493,8 @@ func (m *CreateTransactionSubstrateSpecific) Validate() error {
 
 	// no validation rules for CallType
 
+	// no validation rules for MultisigCallType
+
 	return nil
 }
 
