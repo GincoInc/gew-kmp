@@ -1168,12 +1168,16 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionSubstrateSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for TransactionId
 
 	// no validation rules for CallType
+
+	// no validation rules for MultisigCallType
 
 	
 	}
