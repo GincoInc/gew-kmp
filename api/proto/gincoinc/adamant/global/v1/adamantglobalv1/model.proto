@@ -180,6 +180,7 @@ message Transaction {
     C0banSpecific c0ban_specific = 26; // The C0ban specific fields
     StellarSpecific stellar_specific = 27; // The Stellar specific fields
     CardanoSpecific cardano_specific = 28; // The Cardano specific fields
+    SubstrateSpecific substrate_specific = 29; // The Cardano specific fields
     google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
     google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -276,6 +277,38 @@ message StellarSpecific {
 message CardanoSpecific {
     repeated TxInput tx_inputs = 1;
     repeated TxOutput tx_outputs = 2;
+}
+
+// The model of Substrate specific fields of transaction
+message SubstrateSpecific {
+    uint64 nonce = 1;
+    bool is_next_nonce = 2;
+    repeated SubstrateMultisigTransaction substrate_multisig_transactions = 4;
+}
+
+// The model of Substrate specific fields of CreateTransaction
+message CreateTransactionSubstrateSpecific {
+    string transaction_id = 1;
+    SubstrateCallType call_type = 2;
+    SubstrateCallType multisig_call_type = 3;
+}
+
+// The model of substrate multisig transaction
+message SubstrateMultisigTransaction {
+    string wallet_id = 1; // The id of wallet
+    string transaction_id = 2; // id
+    string substrate_multisig_transaction_id = 3;
+    string account_id = 4; // AccountID
+    string tx_id = 5; // txID
+    string extrinsic_id = 6; // ExtrinsicID
+    double jpy_rate = 7; // The rate of fiat
+    double fee = 8; // The number-typed amount of transaction fee
+    string string_fee = 9; // The string-typed amount of transaction fee
+    uint64 nonce = 10;
+    SubstrateCallType multisig_call_type = 11;
+    TransactionState state = 12; // state
+    google.protobuf.Timestamp create_time = 13; // the time at which the transaction was created
+    google.protobuf.Timestamp update_time = 14; // the time at which the transaction was updated
 }
 
 // The model of information about signing
@@ -545,4 +578,12 @@ message RequestTransferLimitEntry {
 message RequestRate {
     gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}]; //The id of coin
     double jpy = 2 [(validate.rules).double = {gte: 0}]; // The rate of JPY
+}
+
+message SubstrateChildAddress {
+    string wallet_id = 1;
+    string account_id = 2;
+    string address = 3;
+    double balance = 4;
+    string string_balance = 5;
 }

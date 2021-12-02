@@ -30,6 +30,9 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.C0banSpecific.class)) return new C0BanSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.StellarSpecific.class)) return new StellarSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CardanoSpecific.class)) return new CardanoSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.SubstrateSpecific.class)) return new SubstrateSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class)) return new CreateTransactionSubstrateSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.SubstrateMultisigTransaction.class)) return new SubstrateMultisigTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.SignInfo.class)) return new SignInfoValidator();
 		if (clazz.equals(adamant.global.v1.Model.SignTxInput.class)) return new SignTxInputValidator();
 		if (clazz.equals(adamant.global.v1.Model.Transfer.class)) return new TransferValidator();
@@ -65,6 +68,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.RequestSignature.class)) return new RequestSignatureValidator();
 		if (clazz.equals(adamant.global.v1.Model.RequestTransferLimitEntry.class)) return new RequestTransferLimitEntryValidator();
 		if (clazz.equals(adamant.global.v1.Model.RequestRate.class)) return new RequestRateValidator();
+		if (clazz.equals(adamant.global.v1.Model.SubstrateChildAddress.class)) return new SubstrateChildAddressValidator();
 		return null;
 	}
 
@@ -683,6 +687,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -751,6 +757,9 @@ public class ModelValidator {
 	
 			// Validate cardano_specific
 			if (proto.hasCardanoSpecific()) index.validatorFor(proto.getCardanoSpecific()).assertValid(proto.getCardanoSpecific());
+	
+			// Validate substrate_specific
+			if (proto.hasSubstrateSpecific()) index.validatorFor(proto.getSubstrateSpecific()).assertValid(proto.getSubstrateSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -1124,6 +1133,126 @@ public class ModelValidator {
 }
 
 	/**
+	 * Validates {@code SubstrateSpecific} protobuf objects.
+	 */
+	public static class SubstrateSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SubstrateSpecific> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.SubstrateSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getSubstrateMultisigTransactionsList(), item -> {
+				
+			// Validate substrate_multisig_transactions
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+
+	
+	}
+}
+
+	/**
+	 * Validates {@code CreateTransactionSubstrateSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionSubstrateSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionSubstrateSpecific> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionSubstrateSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for TransactionId
+
+	// no validation rules for CallType
+
+	// no validation rules for MultisigCallType
+
+	
+	}
+}
+
+	/**
+	 * Validates {@code SubstrateMultisigTransaction} protobuf objects.
+	 */
+	public static class SubstrateMultisigTransactionValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SubstrateMultisigTransaction> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.SubstrateMultisigTransaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for WalletId
+
+	// no validation rules for TransactionId
+
+	// no validation rules for SubstrateMultisigTransactionId
+
+	// no validation rules for AccountId
+
+	// no validation rules for TxId
+
+	// no validation rules for ExtrinsicId
+
+	// no validation rules for JpyRate
+
+	// no validation rules for Fee
+
+	// no validation rules for StringFee
+
+	// no validation rules for Nonce
+
+	// no validation rules for MultisigCallType
+
+	// no validation rules for State
+
+	
+			// Validate create_time
+			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+			// Validate update_time
+			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+	}
+}
+
+	/**
 	 * Validates {@code SignInfo} protobuf objects.
 	 */
 	public static class SignInfoValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SignInfo> {
@@ -1313,14 +1442,24 @@ public class ModelValidator {
 		
 	
 		
+		
+		
 	
 	
 
 	public void assertValid(adamant.global.v1.Model.RateSnapshot proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for RateSnapshotId
 
-	// no validation rules for Rates
+	
+			io.envoyproxy.pgv.MapValidation.validateParts(proto.getRatesMap().keySet(), key -> {
+				// no validation rules for Rates
 
+			});
+			io.envoyproxy.pgv.MapValidation.validateParts(proto.getRatesMap().values(), value -> {
+				
+			// Validate rates
+			if (true) index.validatorFor(value).assertValid(value);
+			});
 	
 	}
 }
@@ -1870,6 +2009,8 @@ public class ModelValidator {
 		
 	
 		
+		
+		
 	
 	
 
@@ -1877,8 +2018,16 @@ public class ModelValidator {
 	
 			// Validate target_time
 			if (proto.hasTargetTime()) index.validatorFor(proto.getTargetTime()).assertValid(proto.getTargetTime());
-	// no validation rules for TransferVolumeByCoin
+	
+			io.envoyproxy.pgv.MapValidation.validateParts(proto.getTransferVolumeByCoinMap().keySet(), key -> {
+				// no validation rules for TransferVolumeByCoin
 
+			});
+			io.envoyproxy.pgv.MapValidation.validateParts(proto.getTransferVolumeByCoinMap().values(), value -> {
+				
+			// Validate transfer_volume_by_coin
+			if (true) index.validatorFor(value).assertValid(value);
+			});
 	
 	}
 }
@@ -1979,6 +2128,8 @@ public class ModelValidator {
 		
 	
 		
+		
+		
 	
 	
 
@@ -1986,8 +2137,16 @@ public class ModelValidator {
 	
 			// Validate target_time
 			if (proto.hasTargetTime()) index.validatorFor(proto.getTargetTime()).assertValid(proto.getTargetTime());
-	// no validation rules for WalletTransferVolumeByTransferType
+	
+			io.envoyproxy.pgv.MapValidation.validateParts(proto.getWalletTransferVolumeByTransferTypeMap().keySet(), key -> {
+				// no validation rules for WalletTransferVolumeByTransferType
 
+			});
+			io.envoyproxy.pgv.MapValidation.validateParts(proto.getWalletTransferVolumeByTransferTypeMap().values(), value -> {
+				
+			// Validate wallet_transfer_volume_by_transfer_type
+			if (true) index.validatorFor(value).assertValid(value);
+			});
 	
 	}
 }
@@ -2198,6 +2357,37 @@ public class ModelValidator {
 			io.envoyproxy.pgv.CollectiveValidation.notIn(".adamant.global.v1.RequestRate.coin", proto.getCoin(), COIN__NOT_IN);
 	
 			io.envoyproxy.pgv.ComparativeValidation.greaterThanOrEqual(".adamant.global.v1.RequestRate.jpy", proto.getJpy(), JPY__GTE, java.util.Comparator.naturalOrder());
+	
+	}
+}
+
+	/**
+	 * Validates {@code SubstrateChildAddress} protobuf objects.
+	 */
+	public static class SubstrateChildAddressValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SubstrateChildAddress> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.SubstrateChildAddress proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for WalletId
+
+	// no validation rules for AccountId
+
+	// no validation rules for Address
+
+	// no validation rules for Balance
+
+	// no validation rules for StringBalance
+
 	
 	}
 }

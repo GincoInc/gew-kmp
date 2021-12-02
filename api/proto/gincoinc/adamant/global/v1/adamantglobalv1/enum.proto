@@ -81,6 +81,7 @@ enum TransactionState {
   TRANSACTION_STATE_REVIEWED = 4; //Transaction was reviewd
   TRANSACTION_STATE_SUBMITTING = 5; //Waiting for submit
   TRANSACTION_STATE_SUBMITTED = 6; //Transaction was submitted
+  TRANSACTION_STATE_CANCELLING = 8; //Waiting for cancel
   TRANSACTION_STATE_CANCELLED = 7; //Transaction was cancelled
 }
 
@@ -364,4 +365,20 @@ enum WatchOnlyAddressState {
   WATCH_ONLY_ADDRESS_STATE_ADDRESS_DELETED = 5;
   WATCH_ONLY_ADDRESS_STATE_DELETE_FAILED = 6;
   WATCH_ONLY_ADDRESS_STATE_DOWNLOAD = 7;
+}
+
+
+// -----------------------------------------------------------------------------
+// Substrate Call Type
+// -----------------------------------------------------------------------------
+
+enum SubstrateCallType {
+  SUBSTRATE_CALL_TYPE_INVALID = 0;
+  SUBSTRATE_CALL_TYPE_TRANSFER = 1;
+  SUBSTRATE_CALL_TYPE_TRANSFER_ALL = 2;
+  SUBSTRATE_CALL_TYPE_TRANSFER_KEEP_ALIVE = 3;
+  SUBSTRATE_CALL_TYPE_APPROVE_AS_MULTI = 4;
+  SUBSTRATE_CALL_TYPE_AS_MULTI = 5;
+  SUBSTRATE_CALL_TYPE_AS_MULTI_THRESHOLD1 = 6;
+  SUBSTRATE_CALL_TYPE_CANCEL_AS_MULTI = 7;
 }

@@ -2366,6 +2366,162 @@ var _ interface {
 	ErrorName() string
 } = ListCompensationFeeHistoriesResponseValidationError{}
 
+// Validate checks the field values on ListUTXOsRequest with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *ListUTXOsRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_ListUTXOsRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return ListUTXOsRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// ListUTXOsRequestValidationError is the validation error returned by
+// ListUTXOsRequest.Validate if the designated constraints aren't met.
+type ListUTXOsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListUTXOsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListUTXOsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListUTXOsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListUTXOsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListUTXOsRequestValidationError) ErrorName() string { return "ListUTXOsRequestValidationError" }
+
+// Error satisfies the builtin error interface
+func (e ListUTXOsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListUTXOsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListUTXOsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListUTXOsRequestValidationError{}
+
+var _ListUTXOsRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ListUTXOsResponse with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *ListUTXOsResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetUtxos() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListUTXOsResponseValidationError{
+					field:  fmt.Sprintf("Utxos[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ListUTXOsResponseValidationError is the validation error returned by
+// ListUTXOsResponse.Validate if the designated constraints aren't met.
+type ListUTXOsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListUTXOsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListUTXOsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListUTXOsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListUTXOsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListUTXOsResponseValidationError) ErrorName() string {
+	return "ListUTXOsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListUTXOsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListUTXOsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListUTXOsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListUTXOsResponseValidationError{}
+
 // Validate checks the field values on RegisterKeyRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -3782,6 +3938,16 @@ func (m *CreateTransactionRequest) Validate() error {
 	// no validation rules for MemoId
 
 	// no validation rules for StringValue
+
+	if v, ok := interface{}(m.GetSubstrateSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateTransactionRequestValidationError{
+				field:  "SubstrateSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
 	return nil
 }
@@ -6446,6 +6612,73 @@ var _ interface {
 	ErrorName() string
 } = SetRatesRequestValidationError{}
 
+// Validate checks the field values on SetDefaultRatesRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *SetDefaultRatesRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// SetDefaultRatesRequestValidationError is the validation error returned by
+// SetDefaultRatesRequest.Validate if the designated constraints aren't met.
+type SetDefaultRatesRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SetDefaultRatesRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SetDefaultRatesRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SetDefaultRatesRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SetDefaultRatesRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SetDefaultRatesRequestValidationError) ErrorName() string {
+	return "SetDefaultRatesRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SetDefaultRatesRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSetDefaultRatesRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SetDefaultRatesRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SetDefaultRatesRequestValidationError{}
+
 // Validate checks the field values on SetRatesResponse with the rules defined
 // in the proto definition for this message. If any rules are violated, an
 // error is returned.
@@ -6512,6 +6745,73 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = SetRatesResponseValidationError{}
+
+// Validate checks the field values on SetDefaultRatesResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *SetDefaultRatesResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// SetDefaultRatesResponseValidationError is the validation error returned by
+// SetDefaultRatesResponse.Validate if the designated constraints aren't met.
+type SetDefaultRatesResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SetDefaultRatesResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SetDefaultRatesResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SetDefaultRatesResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SetDefaultRatesResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SetDefaultRatesResponseValidationError) ErrorName() string {
+	return "SetDefaultRatesResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SetDefaultRatesResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSetDefaultRatesResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SetDefaultRatesResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SetDefaultRatesResponseValidationError{}
 
 // Validate checks the field values on GetSpendableBalanceRequest with the
 // rules defined in the proto definition for this message. If any rules are
@@ -7446,12 +7746,7 @@ func (m *CalculateFeeRequest) Validate() error {
 		}
 	}
 
-	if m.GetFeeRate() < 1 {
-		return CalculateFeeRequestValidationError{
-			field:  "FeeRate",
-			reason: "value must be greater than or equal to 1",
-		}
-	}
+	// no validation rules for FeeRate
 
 	for idx, item := range m.GetTxOutputs() {
 		_, _ = idx, item
@@ -7473,6 +7768,16 @@ func (m *CalculateFeeRequest) Validate() error {
 	// no validation rules for DestinationTag
 
 	// no validation rules for StringValue
+
+	if v, ok := interface{}(m.GetSubstrateSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CalculateFeeRequestValidationError{
+				field:  "SubstrateSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
 	return nil
 }
@@ -7534,6 +7839,78 @@ var _ interface {
 } = CalculateFeeRequestValidationError{}
 
 var _CalculateFeeRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on CalculateFeeSubstrateSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CalculateFeeSubstrateSpecific) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for CallType
+
+	// no validation rules for MultisigCallType
+
+	return nil
+}
+
+// CalculateFeeSubstrateSpecificValidationError is the validation error
+// returned by CalculateFeeSubstrateSpecific.Validate if the designated
+// constraints aren't met.
+type CalculateFeeSubstrateSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CalculateFeeSubstrateSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CalculateFeeSubstrateSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CalculateFeeSubstrateSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CalculateFeeSubstrateSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CalculateFeeSubstrateSpecificValidationError) ErrorName() string {
+	return "CalculateFeeSubstrateSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CalculateFeeSubstrateSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCalculateFeeSubstrateSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CalculateFeeSubstrateSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CalculateFeeSubstrateSpecificValidationError{}
 
 // Validate checks the field values on CalculateFeeResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -11589,3 +11966,163 @@ var _ interface {
 } = ReviewPolicyProposalRequestValidationError{}
 
 var _ReviewPolicyProposalRequest_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ListSubstrateChildAddressesRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *ListSubstrateChildAddressesRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_ListSubstrateChildAddressesRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return ListSubstrateChildAddressesRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// ListSubstrateChildAddressesRequestValidationError is the validation error
+// returned by ListSubstrateChildAddressesRequest.Validate if the designated
+// constraints aren't met.
+type ListSubstrateChildAddressesRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListSubstrateChildAddressesRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListSubstrateChildAddressesRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListSubstrateChildAddressesRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListSubstrateChildAddressesRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListSubstrateChildAddressesRequestValidationError) ErrorName() string {
+	return "ListSubstrateChildAddressesRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListSubstrateChildAddressesRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListSubstrateChildAddressesRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListSubstrateChildAddressesRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListSubstrateChildAddressesRequestValidationError{}
+
+var _ListSubstrateChildAddressesRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ListSubstrateChildAddressesResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *ListSubstrateChildAddressesResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetSubstrateChildAddresses() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListSubstrateChildAddressesResponseValidationError{
+					field:  fmt.Sprintf("SubstrateChildAddresses[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ListSubstrateChildAddressesResponseValidationError is the validation error
+// returned by ListSubstrateChildAddressesResponse.Validate if the designated
+// constraints aren't met.
+type ListSubstrateChildAddressesResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListSubstrateChildAddressesResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListSubstrateChildAddressesResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListSubstrateChildAddressesResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListSubstrateChildAddressesResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListSubstrateChildAddressesResponseValidationError) ErrorName() string {
+	return "ListSubstrateChildAddressesResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListSubstrateChildAddressesResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListSubstrateChildAddressesResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListSubstrateChildAddressesResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListSubstrateChildAddressesResponseValidationError{}

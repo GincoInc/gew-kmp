@@ -1231,6 +1231,26 @@ func (m *Transaction) Validate() error {
 		}
 	}
 
+	if v, ok := interface{}(m.GetCardanoSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "CardanoSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetSubstrateSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "SubstrateSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
 			return TransactionValidationError{
@@ -1532,6 +1552,89 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = TxOutputValidationError{}
+
+// Validate checks the field values on UTXO with the rules defined in the proto
+// definition for this message. If any rules are violated, an error is returned.
+func (m *UTXO) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for TxId
+
+	// no validation rules for Vout
+
+	// no validation rules for Value
+
+	// no validation rules for StringValue
+
+	// no validation rules for Address
+
+	if !_UTXO_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
+		return UTXOValidationError{
+			field:  "TransactionId",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// UTXOValidationError is the validation error returned by UTXO.Validate if the
+// designated constraints aren't met.
+type UTXOValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UTXOValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UTXOValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UTXOValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UTXOValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UTXOValidationError) ErrorName() string { return "UTXOValidationError" }
+
+// Error satisfies the builtin error interface
+func (e UTXOValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUTXO.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UTXOValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UTXOValidationError{}
+
+var _UTXO_TransactionId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on BitcoinSpecific with the rules defined
 // in the proto definition for this message. If any rules are violated, an
@@ -2196,6 +2299,373 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = StellarSpecificValidationError{}
+
+// Validate checks the field values on CardanoSpecific with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *CardanoSpecific) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetTxInputs() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return CardanoSpecificValidationError{
+					field:  fmt.Sprintf("TxInputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	for idx, item := range m.GetTxOutputs() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return CardanoSpecificValidationError{
+					field:  fmt.Sprintf("TxOutputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// CardanoSpecificValidationError is the validation error returned by
+// CardanoSpecific.Validate if the designated constraints aren't met.
+type CardanoSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CardanoSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CardanoSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CardanoSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CardanoSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CardanoSpecificValidationError) ErrorName() string { return "CardanoSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e CardanoSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCardanoSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CardanoSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CardanoSpecificValidationError{}
+
+// Validate checks the field values on SubstrateSpecific with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *SubstrateSpecific) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	for idx, item := range m.GetSubstrateMultisigTransactions() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return SubstrateSpecificValidationError{
+					field:  fmt.Sprintf("SubstrateMultisigTransactions[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// SubstrateSpecificValidationError is the validation error returned by
+// SubstrateSpecific.Validate if the designated constraints aren't met.
+type SubstrateSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SubstrateSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SubstrateSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SubstrateSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SubstrateSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SubstrateSpecificValidationError) ErrorName() string {
+	return "SubstrateSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SubstrateSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSubstrateSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SubstrateSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SubstrateSpecificValidationError{}
+
+// Validate checks the field values on CreateTransactionSubstrateSpecific with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *CreateTransactionSubstrateSpecific) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for TransactionId
+
+	// no validation rules for CallType
+
+	// no validation rules for MultisigCallType
+
+	return nil
+}
+
+// CreateTransactionSubstrateSpecificValidationError is the validation error
+// returned by CreateTransactionSubstrateSpecific.Validate if the designated
+// constraints aren't met.
+type CreateTransactionSubstrateSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionSubstrateSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionSubstrateSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionSubstrateSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionSubstrateSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionSubstrateSpecificValidationError) ErrorName() string {
+	return "CreateTransactionSubstrateSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionSubstrateSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionSubstrateSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionSubstrateSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionSubstrateSpecificValidationError{}
+
+// Validate checks the field values on SubstrateMultisigTransaction with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *SubstrateMultisigTransaction) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for WalletId
+
+	// no validation rules for TransactionId
+
+	// no validation rules for SubstrateMultisigTransactionId
+
+	// no validation rules for AccountId
+
+	// no validation rules for TxId
+
+	// no validation rules for ExtrinsicId
+
+	// no validation rules for JpyRate
+
+	// no validation rules for Fee
+
+	// no validation rules for StringFee
+
+	// no validation rules for Nonce
+
+	// no validation rules for MultisigCallType
+
+	// no validation rules for State
+
+	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return SubstrateMultisigTransactionValidationError{
+				field:  "CreateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetUpdateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return SubstrateMultisigTransactionValidationError{
+				field:  "UpdateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// SubstrateMultisigTransactionValidationError is the validation error returned
+// by SubstrateMultisigTransaction.Validate if the designated constraints
+// aren't met.
+type SubstrateMultisigTransactionValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SubstrateMultisigTransactionValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SubstrateMultisigTransactionValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SubstrateMultisigTransactionValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SubstrateMultisigTransactionValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SubstrateMultisigTransactionValidationError) ErrorName() string {
+	return "SubstrateMultisigTransactionValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SubstrateMultisigTransactionValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSubstrateMultisigTransaction.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SubstrateMultisigTransactionValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SubstrateMultisigTransactionValidationError{}
 
 // Validate checks the field values on SignInfo with the rules defined in the
 // proto definition for this message. If any rules are violated, an error is returned.
@@ -5287,3 +5757,80 @@ var _ interface {
 var _RequestRate_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
 	0: {},
 }
+
+// Validate checks the field values on SubstrateChildAddress with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *SubstrateChildAddress) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for WalletId
+
+	// no validation rules for AccountId
+
+	// no validation rules for Address
+
+	// no validation rules for Balance
+
+	// no validation rules for StringBalance
+
+	return nil
+}
+
+// SubstrateChildAddressValidationError is the validation error returned by
+// SubstrateChildAddress.Validate if the designated constraints aren't met.
+type SubstrateChildAddressValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SubstrateChildAddressValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SubstrateChildAddressValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SubstrateChildAddressValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SubstrateChildAddressValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SubstrateChildAddressValidationError) ErrorName() string {
+	return "SubstrateChildAddressValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SubstrateChildAddressValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSubstrateChildAddress.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SubstrateChildAddressValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SubstrateChildAddressValidationError{}

@@ -7,7 +7,7 @@ tidy:
 	go mod tidy
 
 generate:
-	@protodep up -f
+	@protodep up -f --identity-file=github_id_rsa
 	@rm -r ./api/proto/gincoinc
 	@mv -f ./vendor/gincoinc ./api/proto
 	@cd ./api/proto && prototool generate
