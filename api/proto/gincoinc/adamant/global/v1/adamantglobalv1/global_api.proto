@@ -49,6 +49,8 @@ service GlobalAPI {
     rpc UpdateAddressBalance (UpdateAddressBalanceRequest) returns (google.protobuf.Empty) {}
     // Get an address which hold ETH for ethereum wallet/address creation etc
     rpc GetEthereumFeeAddress (GetEthereumFeeAddressRequest) returns (EthereumFeeAddress) {}
+    // Get addresses associated with the Polkadot signer
+    rpc ListSubstrateChildAddresses (ListSubstrateChildAddressesRequest) returns (ListSubstrateChildAddressesResponse) {}
 
     // RegisterKey
     rpc RegisterKey (RegisterKeyRequest) returns (RegisterKeyResponse) {}
@@ -83,6 +85,7 @@ service GlobalAPI {
     rpc GetLatestRateSnapshot (GetLatestRateSnapshotRequest) returns (RateSnapshot) {}
     // Set rates to your organization
     rpc SetRates (SetRatesRequest) returns (SetRatesResponse) {}
+    rpc SetDefaultRates (SetDefaultRatesRequest) returns (SetDefaultRatesResponse) {}
 
     // policy
     rpc CreateLabeledAddress (CreateLabeledAddressRequest) returns (CreateLabeledAddressResponse) {}
@@ -403,6 +406,7 @@ message CreateTransactionRequest {
     uint32 destination_tag = 5;
     uint64 memo_id = 6 [jstype = JS_STRING];
     string string_value = 7;
+    adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;
 }
 
 message CreateTransactionResponse {
@@ -621,8 +625,14 @@ message SetRatesRequest {
     repeated RequestRate rates = 1; //Array of rate objects
 }
 
+message SetDefaultRatesRequest {}
+
 message SetRatesResponse {
     string rate_snapshot_id = 1; //The id of rate-snapshot
+}
+
+message SetDefaultRatesResponse {
+    repeated string rate_snapshot_ids = 1; // Array of ids of rate-snapshots
 }
 
 // -----------------------------------------------------------------------------
@@ -690,11 +700,18 @@ message ListWalletTransferVolumeSnapshotsResponse {
 
 message CalculateFeeRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    uint64 fee_rate = 2 [(validate.rules).uint64.gte = 1];
+    uint64 fee_rate = 2;
     repeated RequestTxOutput tx_outputs = 3;
     string address = 4;
     uint32 destination_tag = 5;
     string string_value = 6;
+    CalculateFeeSubstrateSpecific substrate_specific = 7;
+}
+
+// The model of Substrate specific fields of CreateTransaction
+message CalculateFeeSubstrateSpecific {
+    SubstrateCallType call_type = 1;
+    SubstrateCallType multisig_call_type = 2;
 }
 
 message CalculateFeeResponse {
@@ -932,3 +949,10 @@ message ReviewPolicyProposalRequest {
     bool approve = 2;
 }
 
+message ListSubstrateChildAddressesRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+}
+
+message ListSubstrateChildAddressesResponse {
+    repeated SubstrateChildAddress substrate_child_addresses = 1;
+}

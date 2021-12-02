@@ -95,6 +95,19 @@ private static final long serialVersionUID = 0L;
             stringValue_ = s;
             break;
           }
+          case 66: {
+            adamant.global.v1.Model.CreateTransactionSubstrateSpecific.Builder subBuilder = null;
+            if (substrateSpecific_ != null) {
+              subBuilder = substrateSpecific_.toBuilder();
+            }
+            substrateSpecific_ = input.readMessage(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(substrateSpecific_);
+              substrateSpecific_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -294,6 +307,27 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int SUBSTRATE_SPECIFIC_FIELD_NUMBER = 8;
+  private adamant.global.v1.Model.CreateTransactionSubstrateSpecific substrateSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;</code>
+   */
+  public boolean hasSubstrateSpecific() {
+    return substrateSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;</code>
+   */
+  public adamant.global.v1.Model.CreateTransactionSubstrateSpecific getSubstrateSpecific() {
+    return substrateSpecific_ == null ? adamant.global.v1.Model.CreateTransactionSubstrateSpecific.getDefaultInstance() : substrateSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;</code>
+   */
+  public adamant.global.v1.Model.CreateTransactionSubstrateSpecificOrBuilder getSubstrateSpecificOrBuilder() {
+    return getSubstrateSpecific();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -329,6 +363,9 @@ private static final long serialVersionUID = 0L;
     if (!getStringValueBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, stringValue_);
     }
+    if (substrateSpecific_ != null) {
+      output.writeMessage(8, getSubstrateSpecific());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -363,6 +400,10 @@ private static final long serialVersionUID = 0L;
     if (!getStringValueBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, stringValue_);
     }
+    if (substrateSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, getSubstrateSpecific());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -392,6 +433,11 @@ private static final long serialVersionUID = 0L;
         != other.getMemoId()) return false;
     if (!getStringValue()
         .equals(other.getStringValue())) return false;
+    if (hasSubstrateSpecific() != other.hasSubstrateSpecific()) return false;
+    if (hasSubstrateSpecific()) {
+      if (!getSubstrateSpecific()
+          .equals(other.getSubstrateSpecific())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -421,6 +467,10 @@ private static final long serialVersionUID = 0L;
         getMemoId());
     hash = (37 * hash) + STRING_VALUE_FIELD_NUMBER;
     hash = (53 * hash) + getStringValue().hashCode();
+    if (hasSubstrateSpecific()) {
+      hash = (37 * hash) + SUBSTRATE_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getSubstrateSpecific().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -573,6 +623,12 @@ private static final long serialVersionUID = 0L;
 
       stringValue_ = "";
 
+      if (substrateSpecificBuilder_ == null) {
+        substrateSpecific_ = null;
+      } else {
+        substrateSpecific_ = null;
+        substrateSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -615,6 +671,11 @@ private static final long serialVersionUID = 0L;
       result.destinationTag_ = destinationTag_;
       result.memoId_ = memoId_;
       result.stringValue_ = stringValue_;
+      if (substrateSpecificBuilder_ == null) {
+        result.substrateSpecific_ = substrateSpecific_;
+      } else {
+        result.substrateSpecific_ = substrateSpecificBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -709,6 +770,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getStringValue().isEmpty()) {
         stringValue_ = other.stringValue_;
         onChanged();
+      }
+      if (other.hasSubstrateSpecific()) {
+        mergeSubstrateSpecific(other.getSubstrateSpecific());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1263,6 +1327,123 @@ private static final long serialVersionUID = 0L;
       stringValue_ = value;
       onChanged();
       return this;
+    }
+
+    private adamant.global.v1.Model.CreateTransactionSubstrateSpecific substrateSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionSubstrateSpecific, adamant.global.v1.Model.CreateTransactionSubstrateSpecific.Builder, adamant.global.v1.Model.CreateTransactionSubstrateSpecificOrBuilder> substrateSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;</code>
+     */
+    public boolean hasSubstrateSpecific() {
+      return substrateSpecificBuilder_ != null || substrateSpecific_ != null;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionSubstrateSpecific getSubstrateSpecific() {
+      if (substrateSpecificBuilder_ == null) {
+        return substrateSpecific_ == null ? adamant.global.v1.Model.CreateTransactionSubstrateSpecific.getDefaultInstance() : substrateSpecific_;
+      } else {
+        return substrateSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;</code>
+     */
+    public Builder setSubstrateSpecific(adamant.global.v1.Model.CreateTransactionSubstrateSpecific value) {
+      if (substrateSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        substrateSpecific_ = value;
+        onChanged();
+      } else {
+        substrateSpecificBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;</code>
+     */
+    public Builder setSubstrateSpecific(
+        adamant.global.v1.Model.CreateTransactionSubstrateSpecific.Builder builderForValue) {
+      if (substrateSpecificBuilder_ == null) {
+        substrateSpecific_ = builderForValue.build();
+        onChanged();
+      } else {
+        substrateSpecificBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;</code>
+     */
+    public Builder mergeSubstrateSpecific(adamant.global.v1.Model.CreateTransactionSubstrateSpecific value) {
+      if (substrateSpecificBuilder_ == null) {
+        if (substrateSpecific_ != null) {
+          substrateSpecific_ =
+            adamant.global.v1.Model.CreateTransactionSubstrateSpecific.newBuilder(substrateSpecific_).mergeFrom(value).buildPartial();
+        } else {
+          substrateSpecific_ = value;
+        }
+        onChanged();
+      } else {
+        substrateSpecificBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;</code>
+     */
+    public Builder clearSubstrateSpecific() {
+      if (substrateSpecificBuilder_ == null) {
+        substrateSpecific_ = null;
+        onChanged();
+      } else {
+        substrateSpecific_ = null;
+        substrateSpecificBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionSubstrateSpecific.Builder getSubstrateSpecificBuilder() {
+      
+      onChanged();
+      return getSubstrateSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionSubstrateSpecificOrBuilder getSubstrateSpecificOrBuilder() {
+      if (substrateSpecificBuilder_ != null) {
+        return substrateSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return substrateSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionSubstrateSpecific.getDefaultInstance() : substrateSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionSubstrateSpecific, adamant.global.v1.Model.CreateTransactionSubstrateSpecific.Builder, adamant.global.v1.Model.CreateTransactionSubstrateSpecificOrBuilder> 
+        getSubstrateSpecificFieldBuilder() {
+      if (substrateSpecificBuilder_ == null) {
+        substrateSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionSubstrateSpecific, adamant.global.v1.Model.CreateTransactionSubstrateSpecific.Builder, adamant.global.v1.Model.CreateTransactionSubstrateSpecificOrBuilder>(
+                getSubstrateSpecific(),
+                getParentForChildren(),
+                isClean());
+        substrateSpecific_ = null;
+      }
+      return substrateSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

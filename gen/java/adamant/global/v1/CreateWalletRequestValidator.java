@@ -72,6 +72,7 @@ public class CreateWalletRequestValidator implements io.envoyproxy.pgv.Validator
 	
 			io.envoyproxy.pgv.ComparativeValidation.range(".adamant.global.v1.CreateWalletRequest.n", proto.getN(), null, N__LTE, null, N__GTE, java.util.Comparator.naturalOrder());
 	
+			io.envoyproxy.pgv.RepeatedValidation.minItems(".adamant.global.v1.CreateWalletRequest.members", proto.getMembersList(), 1);
 			io.envoyproxy.pgv.RepeatedValidation.unique(".adamant.global.v1.CreateWalletRequest.members", proto.getMembersList());
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getMembersList(), item -> {
 				// no validation rules for Members

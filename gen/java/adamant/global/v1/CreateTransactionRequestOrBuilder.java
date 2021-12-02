@@ -75,4 +75,17 @@ public interface CreateTransactionRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getStringValueBytes();
+
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;</code>
+   */
+  boolean hasSubstrateSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;</code>
+   */
+  adamant.global.v1.Model.CreateTransactionSubstrateSpecific getSubstrateSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;</code>
+   */
+  adamant.global.v1.Model.CreateTransactionSubstrateSpecificOrBuilder getSubstrateSpecificOrBuilder();
 }

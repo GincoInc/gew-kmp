@@ -20569,6 +20569,31 @@ public final class Model {
 
     /**
      * <pre>
+     * The Cardano specific fields
+     * </pre>
+     *
+     * <code>.adamant.global.v1.SubstrateSpecific substrate_specific = 29;</code>
+     */
+    boolean hasSubstrateSpecific();
+    /**
+     * <pre>
+     * The Cardano specific fields
+     * </pre>
+     *
+     * <code>.adamant.global.v1.SubstrateSpecific substrate_specific = 29;</code>
+     */
+    adamant.global.v1.Model.SubstrateSpecific getSubstrateSpecific();
+    /**
+     * <pre>
+     * The Cardano specific fields
+     * </pre>
+     *
+     * <code>.adamant.global.v1.SubstrateSpecific substrate_specific = 29;</code>
+     */
+    adamant.global.v1.Model.SubstrateSpecificOrBuilder getSubstrateSpecificOrBuilder();
+
+    /**
+     * <pre>
      * the time at which the transaction was created
      * </pre>
      *
@@ -20902,6 +20927,19 @@ public final class Model {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(cardanoSpecific_);
                 cardanoSpecific_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 234: {
+              adamant.global.v1.Model.SubstrateSpecific.Builder subBuilder = null;
+              if (substrateSpecific_ != null) {
+                subBuilder = substrateSpecific_.toBuilder();
+              }
+              substrateSpecific_ = input.readMessage(adamant.global.v1.Model.SubstrateSpecific.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(substrateSpecific_);
+                substrateSpecific_ = subBuilder.buildPartial();
               }
 
               break;
@@ -21705,6 +21743,39 @@ public final class Model {
       return getCardanoSpecific();
     }
 
+    public static final int SUBSTRATE_SPECIFIC_FIELD_NUMBER = 29;
+    private adamant.global.v1.Model.SubstrateSpecific substrateSpecific_;
+    /**
+     * <pre>
+     * The Cardano specific fields
+     * </pre>
+     *
+     * <code>.adamant.global.v1.SubstrateSpecific substrate_specific = 29;</code>
+     */
+    public boolean hasSubstrateSpecific() {
+      return substrateSpecific_ != null;
+    }
+    /**
+     * <pre>
+     * The Cardano specific fields
+     * </pre>
+     *
+     * <code>.adamant.global.v1.SubstrateSpecific substrate_specific = 29;</code>
+     */
+    public adamant.global.v1.Model.SubstrateSpecific getSubstrateSpecific() {
+      return substrateSpecific_ == null ? adamant.global.v1.Model.SubstrateSpecific.getDefaultInstance() : substrateSpecific_;
+    }
+    /**
+     * <pre>
+     * The Cardano specific fields
+     * </pre>
+     *
+     * <code>.adamant.global.v1.SubstrateSpecific substrate_specific = 29;</code>
+     */
+    public adamant.global.v1.Model.SubstrateSpecificOrBuilder getSubstrateSpecificOrBuilder() {
+      return getSubstrateSpecific();
+    }
+
     public static final int CREATE_TIME_FIELD_NUMBER = 18;
     private com.google.protobuf.Timestamp createTime_;
     /**
@@ -21860,6 +21931,9 @@ public final class Model {
       if (cardanoSpecific_ != null) {
         output.writeMessage(28, getCardanoSpecific());
       }
+      if (substrateSpecific_ != null) {
+        output.writeMessage(29, getSubstrateSpecific());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -21963,6 +22037,10 @@ public final class Model {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(28, getCardanoSpecific());
       }
+      if (substrateSpecific_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(29, getSubstrateSpecific());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -22051,6 +22129,11 @@ public final class Model {
       if (hasCardanoSpecific()) {
         if (!getCardanoSpecific()
             .equals(other.getCardanoSpecific())) return false;
+      }
+      if (hasSubstrateSpecific() != other.hasSubstrateSpecific()) return false;
+      if (hasSubstrateSpecific()) {
+        if (!getSubstrateSpecific()
+            .equals(other.getSubstrateSpecific())) return false;
       }
       if (hasCreateTime() != other.hasCreateTime()) return false;
       if (hasCreateTime()) {
@@ -22144,6 +22227,10 @@ public final class Model {
       if (hasCardanoSpecific()) {
         hash = (37 * hash) + CARDANO_SPECIFIC_FIELD_NUMBER;
         hash = (53 * hash) + getCardanoSpecific().hashCode();
+      }
+      if (hasSubstrateSpecific()) {
+        hash = (37 * hash) + SUBSTRATE_SPECIFIC_FIELD_NUMBER;
+        hash = (53 * hash) + getSubstrateSpecific().hashCode();
       }
       if (hasCreateTime()) {
         hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
@@ -22382,6 +22469,12 @@ public final class Model {
           cardanoSpecific_ = null;
           cardanoSpecificBuilder_ = null;
         }
+        if (substrateSpecificBuilder_ == null) {
+          substrateSpecific_ = null;
+        } else {
+          substrateSpecific_ = null;
+          substrateSpecificBuilder_ = null;
+        }
         if (createTimeBuilder_ == null) {
           createTime_ = null;
         } else {
@@ -22495,6 +22588,11 @@ public final class Model {
           result.cardanoSpecific_ = cardanoSpecific_;
         } else {
           result.cardanoSpecific_ = cardanoSpecificBuilder_.build();
+        }
+        if (substrateSpecificBuilder_ == null) {
+          result.substrateSpecific_ = substrateSpecific_;
+        } else {
+          result.substrateSpecific_ = substrateSpecificBuilder_.build();
         }
         if (createTimeBuilder_ == null) {
           result.createTime_ = createTime_;
@@ -22674,6 +22772,9 @@ public final class Model {
         }
         if (other.hasCardanoSpecific()) {
           mergeCardanoSpecific(other.getCardanoSpecific());
+        }
+        if (other.hasSubstrateSpecific()) {
+          mergeSubstrateSpecific(other.getSubstrateSpecific());
         }
         if (other.hasCreateTime()) {
           mergeCreateTime(other.getCreateTime());
@@ -25526,6 +25627,159 @@ public final class Model {
           cardanoSpecific_ = null;
         }
         return cardanoSpecificBuilder_;
+      }
+
+      private adamant.global.v1.Model.SubstrateSpecific substrateSpecific_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          adamant.global.v1.Model.SubstrateSpecific, adamant.global.v1.Model.SubstrateSpecific.Builder, adamant.global.v1.Model.SubstrateSpecificOrBuilder> substrateSpecificBuilder_;
+      /**
+       * <pre>
+       * The Cardano specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.SubstrateSpecific substrate_specific = 29;</code>
+       */
+      public boolean hasSubstrateSpecific() {
+        return substrateSpecificBuilder_ != null || substrateSpecific_ != null;
+      }
+      /**
+       * <pre>
+       * The Cardano specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.SubstrateSpecific substrate_specific = 29;</code>
+       */
+      public adamant.global.v1.Model.SubstrateSpecific getSubstrateSpecific() {
+        if (substrateSpecificBuilder_ == null) {
+          return substrateSpecific_ == null ? adamant.global.v1.Model.SubstrateSpecific.getDefaultInstance() : substrateSpecific_;
+        } else {
+          return substrateSpecificBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * The Cardano specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.SubstrateSpecific substrate_specific = 29;</code>
+       */
+      public Builder setSubstrateSpecific(adamant.global.v1.Model.SubstrateSpecific value) {
+        if (substrateSpecificBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          substrateSpecific_ = value;
+          onChanged();
+        } else {
+          substrateSpecificBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The Cardano specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.SubstrateSpecific substrate_specific = 29;</code>
+       */
+      public Builder setSubstrateSpecific(
+          adamant.global.v1.Model.SubstrateSpecific.Builder builderForValue) {
+        if (substrateSpecificBuilder_ == null) {
+          substrateSpecific_ = builderForValue.build();
+          onChanged();
+        } else {
+          substrateSpecificBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The Cardano specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.SubstrateSpecific substrate_specific = 29;</code>
+       */
+      public Builder mergeSubstrateSpecific(adamant.global.v1.Model.SubstrateSpecific value) {
+        if (substrateSpecificBuilder_ == null) {
+          if (substrateSpecific_ != null) {
+            substrateSpecific_ =
+              adamant.global.v1.Model.SubstrateSpecific.newBuilder(substrateSpecific_).mergeFrom(value).buildPartial();
+          } else {
+            substrateSpecific_ = value;
+          }
+          onChanged();
+        } else {
+          substrateSpecificBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The Cardano specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.SubstrateSpecific substrate_specific = 29;</code>
+       */
+      public Builder clearSubstrateSpecific() {
+        if (substrateSpecificBuilder_ == null) {
+          substrateSpecific_ = null;
+          onChanged();
+        } else {
+          substrateSpecific_ = null;
+          substrateSpecificBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The Cardano specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.SubstrateSpecific substrate_specific = 29;</code>
+       */
+      public adamant.global.v1.Model.SubstrateSpecific.Builder getSubstrateSpecificBuilder() {
+        
+        onChanged();
+        return getSubstrateSpecificFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * The Cardano specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.SubstrateSpecific substrate_specific = 29;</code>
+       */
+      public adamant.global.v1.Model.SubstrateSpecificOrBuilder getSubstrateSpecificOrBuilder() {
+        if (substrateSpecificBuilder_ != null) {
+          return substrateSpecificBuilder_.getMessageOrBuilder();
+        } else {
+          return substrateSpecific_ == null ?
+              adamant.global.v1.Model.SubstrateSpecific.getDefaultInstance() : substrateSpecific_;
+        }
+      }
+      /**
+       * <pre>
+       * The Cardano specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.SubstrateSpecific substrate_specific = 29;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          adamant.global.v1.Model.SubstrateSpecific, adamant.global.v1.Model.SubstrateSpecific.Builder, adamant.global.v1.Model.SubstrateSpecificOrBuilder> 
+          getSubstrateSpecificFieldBuilder() {
+        if (substrateSpecificBuilder_ == null) {
+          substrateSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              adamant.global.v1.Model.SubstrateSpecific, adamant.global.v1.Model.SubstrateSpecific.Builder, adamant.global.v1.Model.SubstrateSpecificOrBuilder>(
+                  getSubstrateSpecific(),
+                  getParentForChildren(),
+                  isClean());
+          substrateSpecific_ = null;
+        }
+        return substrateSpecificBuilder_;
       }
 
       private com.google.protobuf.Timestamp createTime_;
@@ -38246,6 +38500,4243 @@ public final class Model {
 
     @java.lang.Override
     public adamant.global.v1.Model.CardanoSpecific getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SubstrateSpecificOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:adamant.global.v1.SubstrateSpecific)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint64 nonce = 1;</code>
+     */
+    long getNonce();
+
+    /**
+     * <code>bool is_next_nonce = 2;</code>
+     */
+    boolean getIsNextNonce();
+
+    /**
+     * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+     */
+    java.util.List<adamant.global.v1.Model.SubstrateMultisigTransaction> 
+        getSubstrateMultisigTransactionsList();
+    /**
+     * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+     */
+    adamant.global.v1.Model.SubstrateMultisigTransaction getSubstrateMultisigTransactions(int index);
+    /**
+     * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+     */
+    int getSubstrateMultisigTransactionsCount();
+    /**
+     * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+     */
+    java.util.List<? extends adamant.global.v1.Model.SubstrateMultisigTransactionOrBuilder> 
+        getSubstrateMultisigTransactionsOrBuilderList();
+    /**
+     * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+     */
+    adamant.global.v1.Model.SubstrateMultisigTransactionOrBuilder getSubstrateMultisigTransactionsOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   * The model of Substrate specific fields of transaction
+   * </pre>
+   *
+   * Protobuf type {@code adamant.global.v1.SubstrateSpecific}
+   */
+  public  static final class SubstrateSpecific extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:adamant.global.v1.SubstrateSpecific)
+      SubstrateSpecificOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SubstrateSpecific.newBuilder() to construct.
+    private SubstrateSpecific(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SubstrateSpecific() {
+      substrateMultisigTransactions_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SubstrateSpecific();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SubstrateSpecific(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              nonce_ = input.readUInt64();
+              break;
+            }
+            case 16: {
+
+              isNextNonce_ = input.readBool();
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                substrateMultisigTransactions_ = new java.util.ArrayList<adamant.global.v1.Model.SubstrateMultisigTransaction>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              substrateMultisigTransactions_.add(
+                  input.readMessage(adamant.global.v1.Model.SubstrateMultisigTransaction.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          substrateMultisigTransactions_ = java.util.Collections.unmodifiableList(substrateMultisigTransactions_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_SubstrateSpecific_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_SubstrateSpecific_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              adamant.global.v1.Model.SubstrateSpecific.class, adamant.global.v1.Model.SubstrateSpecific.Builder.class);
+    }
+
+    public static final int NONCE_FIELD_NUMBER = 1;
+    private long nonce_;
+    /**
+     * <code>uint64 nonce = 1;</code>
+     */
+    public long getNonce() {
+      return nonce_;
+    }
+
+    public static final int IS_NEXT_NONCE_FIELD_NUMBER = 2;
+    private boolean isNextNonce_;
+    /**
+     * <code>bool is_next_nonce = 2;</code>
+     */
+    public boolean getIsNextNonce() {
+      return isNextNonce_;
+    }
+
+    public static final int SUBSTRATE_MULTISIG_TRANSACTIONS_FIELD_NUMBER = 4;
+    private java.util.List<adamant.global.v1.Model.SubstrateMultisigTransaction> substrateMultisigTransactions_;
+    /**
+     * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+     */
+    public java.util.List<adamant.global.v1.Model.SubstrateMultisigTransaction> getSubstrateMultisigTransactionsList() {
+      return substrateMultisigTransactions_;
+    }
+    /**
+     * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+     */
+    public java.util.List<? extends adamant.global.v1.Model.SubstrateMultisigTransactionOrBuilder> 
+        getSubstrateMultisigTransactionsOrBuilderList() {
+      return substrateMultisigTransactions_;
+    }
+    /**
+     * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+     */
+    public int getSubstrateMultisigTransactionsCount() {
+      return substrateMultisigTransactions_.size();
+    }
+    /**
+     * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+     */
+    public adamant.global.v1.Model.SubstrateMultisigTransaction getSubstrateMultisigTransactions(int index) {
+      return substrateMultisigTransactions_.get(index);
+    }
+    /**
+     * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+     */
+    public adamant.global.v1.Model.SubstrateMultisigTransactionOrBuilder getSubstrateMultisigTransactionsOrBuilder(
+        int index) {
+      return substrateMultisigTransactions_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (nonce_ != 0L) {
+        output.writeUInt64(1, nonce_);
+      }
+      if (isNextNonce_ != false) {
+        output.writeBool(2, isNextNonce_);
+      }
+      for (int i = 0; i < substrateMultisigTransactions_.size(); i++) {
+        output.writeMessage(4, substrateMultisigTransactions_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (nonce_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, nonce_);
+      }
+      if (isNextNonce_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, isNextNonce_);
+      }
+      for (int i = 0; i < substrateMultisigTransactions_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, substrateMultisigTransactions_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof adamant.global.v1.Model.SubstrateSpecific)) {
+        return super.equals(obj);
+      }
+      adamant.global.v1.Model.SubstrateSpecific other = (adamant.global.v1.Model.SubstrateSpecific) obj;
+
+      if (getNonce()
+          != other.getNonce()) return false;
+      if (getIsNextNonce()
+          != other.getIsNextNonce()) return false;
+      if (!getSubstrateMultisigTransactionsList()
+          .equals(other.getSubstrateMultisigTransactionsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NONCE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getNonce());
+      hash = (37 * hash) + IS_NEXT_NONCE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsNextNonce());
+      if (getSubstrateMultisigTransactionsCount() > 0) {
+        hash = (37 * hash) + SUBSTRATE_MULTISIG_TRANSACTIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getSubstrateMultisigTransactionsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static adamant.global.v1.Model.SubstrateSpecific parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.SubstrateSpecific parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SubstrateSpecific parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.SubstrateSpecific parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SubstrateSpecific parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.SubstrateSpecific parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SubstrateSpecific parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.SubstrateSpecific parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SubstrateSpecific parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.SubstrateSpecific parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SubstrateSpecific parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.SubstrateSpecific parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(adamant.global.v1.Model.SubstrateSpecific prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * The model of Substrate specific fields of transaction
+     * </pre>
+     *
+     * Protobuf type {@code adamant.global.v1.SubstrateSpecific}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:adamant.global.v1.SubstrateSpecific)
+        adamant.global.v1.Model.SubstrateSpecificOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_SubstrateSpecific_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_SubstrateSpecific_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                adamant.global.v1.Model.SubstrateSpecific.class, adamant.global.v1.Model.SubstrateSpecific.Builder.class);
+      }
+
+      // Construct using adamant.global.v1.Model.SubstrateSpecific.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getSubstrateMultisigTransactionsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        nonce_ = 0L;
+
+        isNextNonce_ = false;
+
+        if (substrateMultisigTransactionsBuilder_ == null) {
+          substrateMultisigTransactions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          substrateMultisigTransactionsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_SubstrateSpecific_descriptor;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.SubstrateSpecific getDefaultInstanceForType() {
+        return adamant.global.v1.Model.SubstrateSpecific.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.SubstrateSpecific build() {
+        adamant.global.v1.Model.SubstrateSpecific result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.SubstrateSpecific buildPartial() {
+        adamant.global.v1.Model.SubstrateSpecific result = new adamant.global.v1.Model.SubstrateSpecific(this);
+        int from_bitField0_ = bitField0_;
+        result.nonce_ = nonce_;
+        result.isNextNonce_ = isNextNonce_;
+        if (substrateMultisigTransactionsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            substrateMultisigTransactions_ = java.util.Collections.unmodifiableList(substrateMultisigTransactions_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.substrateMultisigTransactions_ = substrateMultisigTransactions_;
+        } else {
+          result.substrateMultisigTransactions_ = substrateMultisigTransactionsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof adamant.global.v1.Model.SubstrateSpecific) {
+          return mergeFrom((adamant.global.v1.Model.SubstrateSpecific)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(adamant.global.v1.Model.SubstrateSpecific other) {
+        if (other == adamant.global.v1.Model.SubstrateSpecific.getDefaultInstance()) return this;
+        if (other.getNonce() != 0L) {
+          setNonce(other.getNonce());
+        }
+        if (other.getIsNextNonce() != false) {
+          setIsNextNonce(other.getIsNextNonce());
+        }
+        if (substrateMultisigTransactionsBuilder_ == null) {
+          if (!other.substrateMultisigTransactions_.isEmpty()) {
+            if (substrateMultisigTransactions_.isEmpty()) {
+              substrateMultisigTransactions_ = other.substrateMultisigTransactions_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureSubstrateMultisigTransactionsIsMutable();
+              substrateMultisigTransactions_.addAll(other.substrateMultisigTransactions_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.substrateMultisigTransactions_.isEmpty()) {
+            if (substrateMultisigTransactionsBuilder_.isEmpty()) {
+              substrateMultisigTransactionsBuilder_.dispose();
+              substrateMultisigTransactionsBuilder_ = null;
+              substrateMultisigTransactions_ = other.substrateMultisigTransactions_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              substrateMultisigTransactionsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getSubstrateMultisigTransactionsFieldBuilder() : null;
+            } else {
+              substrateMultisigTransactionsBuilder_.addAllMessages(other.substrateMultisigTransactions_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        adamant.global.v1.Model.SubstrateSpecific parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (adamant.global.v1.Model.SubstrateSpecific) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long nonce_ ;
+      /**
+       * <code>uint64 nonce = 1;</code>
+       */
+      public long getNonce() {
+        return nonce_;
+      }
+      /**
+       * <code>uint64 nonce = 1;</code>
+       */
+      public Builder setNonce(long value) {
+        
+        nonce_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 nonce = 1;</code>
+       */
+      public Builder clearNonce() {
+        
+        nonce_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private boolean isNextNonce_ ;
+      /**
+       * <code>bool is_next_nonce = 2;</code>
+       */
+      public boolean getIsNextNonce() {
+        return isNextNonce_;
+      }
+      /**
+       * <code>bool is_next_nonce = 2;</code>
+       */
+      public Builder setIsNextNonce(boolean value) {
+        
+        isNextNonce_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool is_next_nonce = 2;</code>
+       */
+      public Builder clearIsNextNonce() {
+        
+        isNextNonce_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<adamant.global.v1.Model.SubstrateMultisigTransaction> substrateMultisigTransactions_ =
+        java.util.Collections.emptyList();
+      private void ensureSubstrateMultisigTransactionsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          substrateMultisigTransactions_ = new java.util.ArrayList<adamant.global.v1.Model.SubstrateMultisigTransaction>(substrateMultisigTransactions_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          adamant.global.v1.Model.SubstrateMultisigTransaction, adamant.global.v1.Model.SubstrateMultisigTransaction.Builder, adamant.global.v1.Model.SubstrateMultisigTransactionOrBuilder> substrateMultisigTransactionsBuilder_;
+
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public java.util.List<adamant.global.v1.Model.SubstrateMultisigTransaction> getSubstrateMultisigTransactionsList() {
+        if (substrateMultisigTransactionsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(substrateMultisigTransactions_);
+        } else {
+          return substrateMultisigTransactionsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public int getSubstrateMultisigTransactionsCount() {
+        if (substrateMultisigTransactionsBuilder_ == null) {
+          return substrateMultisigTransactions_.size();
+        } else {
+          return substrateMultisigTransactionsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public adamant.global.v1.Model.SubstrateMultisigTransaction getSubstrateMultisigTransactions(int index) {
+        if (substrateMultisigTransactionsBuilder_ == null) {
+          return substrateMultisigTransactions_.get(index);
+        } else {
+          return substrateMultisigTransactionsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public Builder setSubstrateMultisigTransactions(
+          int index, adamant.global.v1.Model.SubstrateMultisigTransaction value) {
+        if (substrateMultisigTransactionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSubstrateMultisigTransactionsIsMutable();
+          substrateMultisigTransactions_.set(index, value);
+          onChanged();
+        } else {
+          substrateMultisigTransactionsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public Builder setSubstrateMultisigTransactions(
+          int index, adamant.global.v1.Model.SubstrateMultisigTransaction.Builder builderForValue) {
+        if (substrateMultisigTransactionsBuilder_ == null) {
+          ensureSubstrateMultisigTransactionsIsMutable();
+          substrateMultisigTransactions_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          substrateMultisigTransactionsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public Builder addSubstrateMultisigTransactions(adamant.global.v1.Model.SubstrateMultisigTransaction value) {
+        if (substrateMultisigTransactionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSubstrateMultisigTransactionsIsMutable();
+          substrateMultisigTransactions_.add(value);
+          onChanged();
+        } else {
+          substrateMultisigTransactionsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public Builder addSubstrateMultisigTransactions(
+          int index, adamant.global.v1.Model.SubstrateMultisigTransaction value) {
+        if (substrateMultisigTransactionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSubstrateMultisigTransactionsIsMutable();
+          substrateMultisigTransactions_.add(index, value);
+          onChanged();
+        } else {
+          substrateMultisigTransactionsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public Builder addSubstrateMultisigTransactions(
+          adamant.global.v1.Model.SubstrateMultisigTransaction.Builder builderForValue) {
+        if (substrateMultisigTransactionsBuilder_ == null) {
+          ensureSubstrateMultisigTransactionsIsMutable();
+          substrateMultisigTransactions_.add(builderForValue.build());
+          onChanged();
+        } else {
+          substrateMultisigTransactionsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public Builder addSubstrateMultisigTransactions(
+          int index, adamant.global.v1.Model.SubstrateMultisigTransaction.Builder builderForValue) {
+        if (substrateMultisigTransactionsBuilder_ == null) {
+          ensureSubstrateMultisigTransactionsIsMutable();
+          substrateMultisigTransactions_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          substrateMultisigTransactionsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public Builder addAllSubstrateMultisigTransactions(
+          java.lang.Iterable<? extends adamant.global.v1.Model.SubstrateMultisigTransaction> values) {
+        if (substrateMultisigTransactionsBuilder_ == null) {
+          ensureSubstrateMultisigTransactionsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, substrateMultisigTransactions_);
+          onChanged();
+        } else {
+          substrateMultisigTransactionsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public Builder clearSubstrateMultisigTransactions() {
+        if (substrateMultisigTransactionsBuilder_ == null) {
+          substrateMultisigTransactions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          substrateMultisigTransactionsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public Builder removeSubstrateMultisigTransactions(int index) {
+        if (substrateMultisigTransactionsBuilder_ == null) {
+          ensureSubstrateMultisigTransactionsIsMutable();
+          substrateMultisigTransactions_.remove(index);
+          onChanged();
+        } else {
+          substrateMultisigTransactionsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public adamant.global.v1.Model.SubstrateMultisigTransaction.Builder getSubstrateMultisigTransactionsBuilder(
+          int index) {
+        return getSubstrateMultisigTransactionsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public adamant.global.v1.Model.SubstrateMultisigTransactionOrBuilder getSubstrateMultisigTransactionsOrBuilder(
+          int index) {
+        if (substrateMultisigTransactionsBuilder_ == null) {
+          return substrateMultisigTransactions_.get(index);  } else {
+          return substrateMultisigTransactionsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public java.util.List<? extends adamant.global.v1.Model.SubstrateMultisigTransactionOrBuilder> 
+           getSubstrateMultisigTransactionsOrBuilderList() {
+        if (substrateMultisigTransactionsBuilder_ != null) {
+          return substrateMultisigTransactionsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(substrateMultisigTransactions_);
+        }
+      }
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public adamant.global.v1.Model.SubstrateMultisigTransaction.Builder addSubstrateMultisigTransactionsBuilder() {
+        return getSubstrateMultisigTransactionsFieldBuilder().addBuilder(
+            adamant.global.v1.Model.SubstrateMultisigTransaction.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public adamant.global.v1.Model.SubstrateMultisigTransaction.Builder addSubstrateMultisigTransactionsBuilder(
+          int index) {
+        return getSubstrateMultisigTransactionsFieldBuilder().addBuilder(
+            index, adamant.global.v1.Model.SubstrateMultisigTransaction.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4;</code>
+       */
+      public java.util.List<adamant.global.v1.Model.SubstrateMultisigTransaction.Builder> 
+           getSubstrateMultisigTransactionsBuilderList() {
+        return getSubstrateMultisigTransactionsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          adamant.global.v1.Model.SubstrateMultisigTransaction, adamant.global.v1.Model.SubstrateMultisigTransaction.Builder, adamant.global.v1.Model.SubstrateMultisigTransactionOrBuilder> 
+          getSubstrateMultisigTransactionsFieldBuilder() {
+        if (substrateMultisigTransactionsBuilder_ == null) {
+          substrateMultisigTransactionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              adamant.global.v1.Model.SubstrateMultisigTransaction, adamant.global.v1.Model.SubstrateMultisigTransaction.Builder, adamant.global.v1.Model.SubstrateMultisigTransactionOrBuilder>(
+                  substrateMultisigTransactions_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          substrateMultisigTransactions_ = null;
+        }
+        return substrateMultisigTransactionsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:adamant.global.v1.SubstrateSpecific)
+    }
+
+    // @@protoc_insertion_point(class_scope:adamant.global.v1.SubstrateSpecific)
+    private static final adamant.global.v1.Model.SubstrateSpecific DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new adamant.global.v1.Model.SubstrateSpecific();
+    }
+
+    public static adamant.global.v1.Model.SubstrateSpecific getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SubstrateSpecific>
+        PARSER = new com.google.protobuf.AbstractParser<SubstrateSpecific>() {
+      @java.lang.Override
+      public SubstrateSpecific parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SubstrateSpecific(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SubstrateSpecific> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SubstrateSpecific> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public adamant.global.v1.Model.SubstrateSpecific getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CreateTransactionSubstrateSpecificOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:adamant.global.v1.CreateTransactionSubstrateSpecific)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string transaction_id = 1;</code>
+     */
+    java.lang.String getTransactionId();
+    /**
+     * <code>string transaction_id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getTransactionIdBytes();
+
+    /**
+     * <code>.adamant.global.v1.SubstrateCallType call_type = 2;</code>
+     */
+    int getCallTypeValue();
+    /**
+     * <code>.adamant.global.v1.SubstrateCallType call_type = 2;</code>
+     */
+    adamant.global.v1.Enum.SubstrateCallType getCallType();
+
+    /**
+     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 3;</code>
+     */
+    int getMultisigCallTypeValue();
+    /**
+     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 3;</code>
+     */
+    adamant.global.v1.Enum.SubstrateCallType getMultisigCallType();
+  }
+  /**
+   * <pre>
+   * The model of Substrate specific fields of CreateTransaction
+   * </pre>
+   *
+   * Protobuf type {@code adamant.global.v1.CreateTransactionSubstrateSpecific}
+   */
+  public  static final class CreateTransactionSubstrateSpecific extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:adamant.global.v1.CreateTransactionSubstrateSpecific)
+      CreateTransactionSubstrateSpecificOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CreateTransactionSubstrateSpecific.newBuilder() to construct.
+    private CreateTransactionSubstrateSpecific(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CreateTransactionSubstrateSpecific() {
+      transactionId_ = "";
+      callType_ = 0;
+      multisigCallType_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CreateTransactionSubstrateSpecific();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CreateTransactionSubstrateSpecific(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              transactionId_ = s;
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+
+              callType_ = rawValue;
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+
+              multisigCallType_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_CreateTransactionSubstrateSpecific_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_CreateTransactionSubstrateSpecific_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class, adamant.global.v1.Model.CreateTransactionSubstrateSpecific.Builder.class);
+    }
+
+    public static final int TRANSACTION_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object transactionId_;
+    /**
+     * <code>string transaction_id = 1;</code>
+     */
+    public java.lang.String getTransactionId() {
+      java.lang.Object ref = transactionId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        transactionId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string transaction_id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTransactionIdBytes() {
+      java.lang.Object ref = transactionId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        transactionId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CALL_TYPE_FIELD_NUMBER = 2;
+    private int callType_;
+    /**
+     * <code>.adamant.global.v1.SubstrateCallType call_type = 2;</code>
+     */
+    public int getCallTypeValue() {
+      return callType_;
+    }
+    /**
+     * <code>.adamant.global.v1.SubstrateCallType call_type = 2;</code>
+     */
+    public adamant.global.v1.Enum.SubstrateCallType getCallType() {
+      @SuppressWarnings("deprecation")
+      adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.valueOf(callType_);
+      return result == null ? adamant.global.v1.Enum.SubstrateCallType.UNRECOGNIZED : result;
+    }
+
+    public static final int MULTISIG_CALL_TYPE_FIELD_NUMBER = 3;
+    private int multisigCallType_;
+    /**
+     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 3;</code>
+     */
+    public int getMultisigCallTypeValue() {
+      return multisigCallType_;
+    }
+    /**
+     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 3;</code>
+     */
+    public adamant.global.v1.Enum.SubstrateCallType getMultisigCallType() {
+      @SuppressWarnings("deprecation")
+      adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.valueOf(multisigCallType_);
+      return result == null ? adamant.global.v1.Enum.SubstrateCallType.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getTransactionIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, transactionId_);
+      }
+      if (callType_ != adamant.global.v1.Enum.SubstrateCallType.SUBSTRATE_CALL_TYPE_INVALID.getNumber()) {
+        output.writeEnum(2, callType_);
+      }
+      if (multisigCallType_ != adamant.global.v1.Enum.SubstrateCallType.SUBSTRATE_CALL_TYPE_INVALID.getNumber()) {
+        output.writeEnum(3, multisigCallType_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getTransactionIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, transactionId_);
+      }
+      if (callType_ != adamant.global.v1.Enum.SubstrateCallType.SUBSTRATE_CALL_TYPE_INVALID.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, callType_);
+      }
+      if (multisigCallType_ != adamant.global.v1.Enum.SubstrateCallType.SUBSTRATE_CALL_TYPE_INVALID.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, multisigCallType_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof adamant.global.v1.Model.CreateTransactionSubstrateSpecific)) {
+        return super.equals(obj);
+      }
+      adamant.global.v1.Model.CreateTransactionSubstrateSpecific other = (adamant.global.v1.Model.CreateTransactionSubstrateSpecific) obj;
+
+      if (!getTransactionId()
+          .equals(other.getTransactionId())) return false;
+      if (callType_ != other.callType_) return false;
+      if (multisigCallType_ != other.multisigCallType_) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TRANSACTION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getTransactionId().hashCode();
+      hash = (37 * hash) + CALL_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + callType_;
+      hash = (37 * hash) + MULTISIG_CALL_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + multisigCallType_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static adamant.global.v1.Model.CreateTransactionSubstrateSpecific parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.CreateTransactionSubstrateSpecific parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.CreateTransactionSubstrateSpecific parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.CreateTransactionSubstrateSpecific parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.CreateTransactionSubstrateSpecific parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.CreateTransactionSubstrateSpecific parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.CreateTransactionSubstrateSpecific parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.CreateTransactionSubstrateSpecific parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.CreateTransactionSubstrateSpecific parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.CreateTransactionSubstrateSpecific parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.CreateTransactionSubstrateSpecific parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.CreateTransactionSubstrateSpecific parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(adamant.global.v1.Model.CreateTransactionSubstrateSpecific prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * The model of Substrate specific fields of CreateTransaction
+     * </pre>
+     *
+     * Protobuf type {@code adamant.global.v1.CreateTransactionSubstrateSpecific}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:adamant.global.v1.CreateTransactionSubstrateSpecific)
+        adamant.global.v1.Model.CreateTransactionSubstrateSpecificOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_CreateTransactionSubstrateSpecific_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_CreateTransactionSubstrateSpecific_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class, adamant.global.v1.Model.CreateTransactionSubstrateSpecific.Builder.class);
+      }
+
+      // Construct using adamant.global.v1.Model.CreateTransactionSubstrateSpecific.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        transactionId_ = "";
+
+        callType_ = 0;
+
+        multisigCallType_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_CreateTransactionSubstrateSpecific_descriptor;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.CreateTransactionSubstrateSpecific getDefaultInstanceForType() {
+        return adamant.global.v1.Model.CreateTransactionSubstrateSpecific.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.CreateTransactionSubstrateSpecific build() {
+        adamant.global.v1.Model.CreateTransactionSubstrateSpecific result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.CreateTransactionSubstrateSpecific buildPartial() {
+        adamant.global.v1.Model.CreateTransactionSubstrateSpecific result = new adamant.global.v1.Model.CreateTransactionSubstrateSpecific(this);
+        result.transactionId_ = transactionId_;
+        result.callType_ = callType_;
+        result.multisigCallType_ = multisigCallType_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof adamant.global.v1.Model.CreateTransactionSubstrateSpecific) {
+          return mergeFrom((adamant.global.v1.Model.CreateTransactionSubstrateSpecific)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(adamant.global.v1.Model.CreateTransactionSubstrateSpecific other) {
+        if (other == adamant.global.v1.Model.CreateTransactionSubstrateSpecific.getDefaultInstance()) return this;
+        if (!other.getTransactionId().isEmpty()) {
+          transactionId_ = other.transactionId_;
+          onChanged();
+        }
+        if (other.callType_ != 0) {
+          setCallTypeValue(other.getCallTypeValue());
+        }
+        if (other.multisigCallType_ != 0) {
+          setMultisigCallTypeValue(other.getMultisigCallTypeValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        adamant.global.v1.Model.CreateTransactionSubstrateSpecific parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (adamant.global.v1.Model.CreateTransactionSubstrateSpecific) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object transactionId_ = "";
+      /**
+       * <code>string transaction_id = 1;</code>
+       */
+      public java.lang.String getTransactionId() {
+        java.lang.Object ref = transactionId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          transactionId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string transaction_id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTransactionIdBytes() {
+        java.lang.Object ref = transactionId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          transactionId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string transaction_id = 1;</code>
+       */
+      public Builder setTransactionId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        transactionId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string transaction_id = 1;</code>
+       */
+      public Builder clearTransactionId() {
+        
+        transactionId_ = getDefaultInstance().getTransactionId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string transaction_id = 1;</code>
+       */
+      public Builder setTransactionIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        transactionId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int callType_ = 0;
+      /**
+       * <code>.adamant.global.v1.SubstrateCallType call_type = 2;</code>
+       */
+      public int getCallTypeValue() {
+        return callType_;
+      }
+      /**
+       * <code>.adamant.global.v1.SubstrateCallType call_type = 2;</code>
+       */
+      public Builder setCallTypeValue(int value) {
+        callType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.adamant.global.v1.SubstrateCallType call_type = 2;</code>
+       */
+      public adamant.global.v1.Enum.SubstrateCallType getCallType() {
+        @SuppressWarnings("deprecation")
+        adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.valueOf(callType_);
+        return result == null ? adamant.global.v1.Enum.SubstrateCallType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.adamant.global.v1.SubstrateCallType call_type = 2;</code>
+       */
+      public Builder setCallType(adamant.global.v1.Enum.SubstrateCallType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        callType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.adamant.global.v1.SubstrateCallType call_type = 2;</code>
+       */
+      public Builder clearCallType() {
+        
+        callType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int multisigCallType_ = 0;
+      /**
+       * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 3;</code>
+       */
+      public int getMultisigCallTypeValue() {
+        return multisigCallType_;
+      }
+      /**
+       * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 3;</code>
+       */
+      public Builder setMultisigCallTypeValue(int value) {
+        multisigCallType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 3;</code>
+       */
+      public adamant.global.v1.Enum.SubstrateCallType getMultisigCallType() {
+        @SuppressWarnings("deprecation")
+        adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.valueOf(multisigCallType_);
+        return result == null ? adamant.global.v1.Enum.SubstrateCallType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 3;</code>
+       */
+      public Builder setMultisigCallType(adamant.global.v1.Enum.SubstrateCallType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        multisigCallType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 3;</code>
+       */
+      public Builder clearMultisigCallType() {
+        
+        multisigCallType_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:adamant.global.v1.CreateTransactionSubstrateSpecific)
+    }
+
+    // @@protoc_insertion_point(class_scope:adamant.global.v1.CreateTransactionSubstrateSpecific)
+    private static final adamant.global.v1.Model.CreateTransactionSubstrateSpecific DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new adamant.global.v1.Model.CreateTransactionSubstrateSpecific();
+    }
+
+    public static adamant.global.v1.Model.CreateTransactionSubstrateSpecific getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CreateTransactionSubstrateSpecific>
+        PARSER = new com.google.protobuf.AbstractParser<CreateTransactionSubstrateSpecific>() {
+      @java.lang.Override
+      public CreateTransactionSubstrateSpecific parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CreateTransactionSubstrateSpecific(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CreateTransactionSubstrateSpecific> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CreateTransactionSubstrateSpecific> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public adamant.global.v1.Model.CreateTransactionSubstrateSpecific getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SubstrateMultisigTransactionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:adamant.global.v1.SubstrateMultisigTransaction)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * The id of wallet
+     * </pre>
+     *
+     * <code>string wallet_id = 1;</code>
+     */
+    java.lang.String getWalletId();
+    /**
+     * <pre>
+     * The id of wallet
+     * </pre>
+     *
+     * <code>string wallet_id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getWalletIdBytes();
+
+    /**
+     * <pre>
+     * id
+     * </pre>
+     *
+     * <code>string transaction_id = 2;</code>
+     */
+    java.lang.String getTransactionId();
+    /**
+     * <pre>
+     * id
+     * </pre>
+     *
+     * <code>string transaction_id = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getTransactionIdBytes();
+
+    /**
+     * <code>string substrate_multisig_transaction_id = 3;</code>
+     */
+    java.lang.String getSubstrateMultisigTransactionId();
+    /**
+     * <code>string substrate_multisig_transaction_id = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getSubstrateMultisigTransactionIdBytes();
+
+    /**
+     * <pre>
+     * AccountID
+     * </pre>
+     *
+     * <code>string account_id = 4;</code>
+     */
+    java.lang.String getAccountId();
+    /**
+     * <pre>
+     * AccountID
+     * </pre>
+     *
+     * <code>string account_id = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getAccountIdBytes();
+
+    /**
+     * <pre>
+     * txID
+     * </pre>
+     *
+     * <code>string tx_id = 5;</code>
+     */
+    java.lang.String getTxId();
+    /**
+     * <pre>
+     * txID
+     * </pre>
+     *
+     * <code>string tx_id = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getTxIdBytes();
+
+    /**
+     * <pre>
+     * ExtrinsicID
+     * </pre>
+     *
+     * <code>string extrinsic_id = 6;</code>
+     */
+    java.lang.String getExtrinsicId();
+    /**
+     * <pre>
+     * ExtrinsicID
+     * </pre>
+     *
+     * <code>string extrinsic_id = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getExtrinsicIdBytes();
+
+    /**
+     * <pre>
+     * The rate of fiat
+     * </pre>
+     *
+     * <code>double jpy_rate = 7;</code>
+     */
+    double getJpyRate();
+
+    /**
+     * <pre>
+     * The number-typed amount of transaction fee
+     * </pre>
+     *
+     * <code>double fee = 8;</code>
+     */
+    double getFee();
+
+    /**
+     * <pre>
+     * The string-typed amount of transaction fee
+     * </pre>
+     *
+     * <code>string string_fee = 9;</code>
+     */
+    java.lang.String getStringFee();
+    /**
+     * <pre>
+     * The string-typed amount of transaction fee
+     * </pre>
+     *
+     * <code>string string_fee = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getStringFeeBytes();
+
+    /**
+     * <code>uint64 nonce = 10;</code>
+     */
+    long getNonce();
+
+    /**
+     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 11;</code>
+     */
+    int getMultisigCallTypeValue();
+    /**
+     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 11;</code>
+     */
+    adamant.global.v1.Enum.SubstrateCallType getMultisigCallType();
+
+    /**
+     * <pre>
+     * state
+     * </pre>
+     *
+     * <code>.adamant.global.v1.TransactionState state = 12;</code>
+     */
+    int getStateValue();
+    /**
+     * <pre>
+     * state
+     * </pre>
+     *
+     * <code>.adamant.global.v1.TransactionState state = 12;</code>
+     */
+    adamant.global.v1.Enum.TransactionState getState();
+
+    /**
+     * <pre>
+     * the time at which the transaction was created
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp create_time = 13;</code>
+     */
+    boolean hasCreateTime();
+    /**
+     * <pre>
+     * the time at which the transaction was created
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp create_time = 13;</code>
+     */
+    com.google.protobuf.Timestamp getCreateTime();
+    /**
+     * <pre>
+     * the time at which the transaction was created
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp create_time = 13;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder();
+
+    /**
+     * <pre>
+     * the time at which the transaction was updated
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp update_time = 14;</code>
+     */
+    boolean hasUpdateTime();
+    /**
+     * <pre>
+     * the time at which the transaction was updated
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp update_time = 14;</code>
+     */
+    com.google.protobuf.Timestamp getUpdateTime();
+    /**
+     * <pre>
+     * the time at which the transaction was updated
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp update_time = 14;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder();
+  }
+  /**
+   * <pre>
+   * The model of substrate multisig transaction
+   * </pre>
+   *
+   * Protobuf type {@code adamant.global.v1.SubstrateMultisigTransaction}
+   */
+  public  static final class SubstrateMultisigTransaction extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:adamant.global.v1.SubstrateMultisigTransaction)
+      SubstrateMultisigTransactionOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SubstrateMultisigTransaction.newBuilder() to construct.
+    private SubstrateMultisigTransaction(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SubstrateMultisigTransaction() {
+      walletId_ = "";
+      transactionId_ = "";
+      substrateMultisigTransactionId_ = "";
+      accountId_ = "";
+      txId_ = "";
+      extrinsicId_ = "";
+      stringFee_ = "";
+      multisigCallType_ = 0;
+      state_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SubstrateMultisigTransaction();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SubstrateMultisigTransaction(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              walletId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              transactionId_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              substrateMultisigTransactionId_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              accountId_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              txId_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              extrinsicId_ = s;
+              break;
+            }
+            case 57: {
+
+              jpyRate_ = input.readDouble();
+              break;
+            }
+            case 65: {
+
+              fee_ = input.readDouble();
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              stringFee_ = s;
+              break;
+            }
+            case 80: {
+
+              nonce_ = input.readUInt64();
+              break;
+            }
+            case 88: {
+              int rawValue = input.readEnum();
+
+              multisigCallType_ = rawValue;
+              break;
+            }
+            case 96: {
+              int rawValue = input.readEnum();
+
+              state_ = rawValue;
+              break;
+            }
+            case 106: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (createTime_ != null) {
+                subBuilder = createTime_.toBuilder();
+              }
+              createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(createTime_);
+                createTime_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 114: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (updateTime_ != null) {
+                subBuilder = updateTime_.toBuilder();
+              }
+              updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(updateTime_);
+                updateTime_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_SubstrateMultisigTransaction_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_SubstrateMultisigTransaction_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              adamant.global.v1.Model.SubstrateMultisigTransaction.class, adamant.global.v1.Model.SubstrateMultisigTransaction.Builder.class);
+    }
+
+    public static final int WALLET_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object walletId_;
+    /**
+     * <pre>
+     * The id of wallet
+     * </pre>
+     *
+     * <code>string wallet_id = 1;</code>
+     */
+    public java.lang.String getWalletId() {
+      java.lang.Object ref = walletId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        walletId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The id of wallet
+     * </pre>
+     *
+     * <code>string wallet_id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getWalletIdBytes() {
+      java.lang.Object ref = walletId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        walletId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TRANSACTION_ID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object transactionId_;
+    /**
+     * <pre>
+     * id
+     * </pre>
+     *
+     * <code>string transaction_id = 2;</code>
+     */
+    public java.lang.String getTransactionId() {
+      java.lang.Object ref = transactionId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        transactionId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * id
+     * </pre>
+     *
+     * <code>string transaction_id = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTransactionIdBytes() {
+      java.lang.Object ref = transactionId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        transactionId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SUBSTRATE_MULTISIG_TRANSACTION_ID_FIELD_NUMBER = 3;
+    private volatile java.lang.Object substrateMultisigTransactionId_;
+    /**
+     * <code>string substrate_multisig_transaction_id = 3;</code>
+     */
+    public java.lang.String getSubstrateMultisigTransactionId() {
+      java.lang.Object ref = substrateMultisigTransactionId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        substrateMultisigTransactionId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string substrate_multisig_transaction_id = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSubstrateMultisigTransactionIdBytes() {
+      java.lang.Object ref = substrateMultisigTransactionId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        substrateMultisigTransactionId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ACCOUNT_ID_FIELD_NUMBER = 4;
+    private volatile java.lang.Object accountId_;
+    /**
+     * <pre>
+     * AccountID
+     * </pre>
+     *
+     * <code>string account_id = 4;</code>
+     */
+    public java.lang.String getAccountId() {
+      java.lang.Object ref = accountId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        accountId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * AccountID
+     * </pre>
+     *
+     * <code>string account_id = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAccountIdBytes() {
+      java.lang.Object ref = accountId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        accountId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TX_ID_FIELD_NUMBER = 5;
+    private volatile java.lang.Object txId_;
+    /**
+     * <pre>
+     * txID
+     * </pre>
+     *
+     * <code>string tx_id = 5;</code>
+     */
+    public java.lang.String getTxId() {
+      java.lang.Object ref = txId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        txId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * txID
+     * </pre>
+     *
+     * <code>string tx_id = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTxIdBytes() {
+      java.lang.Object ref = txId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        txId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int EXTRINSIC_ID_FIELD_NUMBER = 6;
+    private volatile java.lang.Object extrinsicId_;
+    /**
+     * <pre>
+     * ExtrinsicID
+     * </pre>
+     *
+     * <code>string extrinsic_id = 6;</code>
+     */
+    public java.lang.String getExtrinsicId() {
+      java.lang.Object ref = extrinsicId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        extrinsicId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * ExtrinsicID
+     * </pre>
+     *
+     * <code>string extrinsic_id = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getExtrinsicIdBytes() {
+      java.lang.Object ref = extrinsicId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        extrinsicId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int JPY_RATE_FIELD_NUMBER = 7;
+    private double jpyRate_;
+    /**
+     * <pre>
+     * The rate of fiat
+     * </pre>
+     *
+     * <code>double jpy_rate = 7;</code>
+     */
+    public double getJpyRate() {
+      return jpyRate_;
+    }
+
+    public static final int FEE_FIELD_NUMBER = 8;
+    private double fee_;
+    /**
+     * <pre>
+     * The number-typed amount of transaction fee
+     * </pre>
+     *
+     * <code>double fee = 8;</code>
+     */
+    public double getFee() {
+      return fee_;
+    }
+
+    public static final int STRING_FEE_FIELD_NUMBER = 9;
+    private volatile java.lang.Object stringFee_;
+    /**
+     * <pre>
+     * The string-typed amount of transaction fee
+     * </pre>
+     *
+     * <code>string string_fee = 9;</code>
+     */
+    public java.lang.String getStringFee() {
+      java.lang.Object ref = stringFee_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        stringFee_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The string-typed amount of transaction fee
+     * </pre>
+     *
+     * <code>string string_fee = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getStringFeeBytes() {
+      java.lang.Object ref = stringFee_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        stringFee_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NONCE_FIELD_NUMBER = 10;
+    private long nonce_;
+    /**
+     * <code>uint64 nonce = 10;</code>
+     */
+    public long getNonce() {
+      return nonce_;
+    }
+
+    public static final int MULTISIG_CALL_TYPE_FIELD_NUMBER = 11;
+    private int multisigCallType_;
+    /**
+     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 11;</code>
+     */
+    public int getMultisigCallTypeValue() {
+      return multisigCallType_;
+    }
+    /**
+     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 11;</code>
+     */
+    public adamant.global.v1.Enum.SubstrateCallType getMultisigCallType() {
+      @SuppressWarnings("deprecation")
+      adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.valueOf(multisigCallType_);
+      return result == null ? adamant.global.v1.Enum.SubstrateCallType.UNRECOGNIZED : result;
+    }
+
+    public static final int STATE_FIELD_NUMBER = 12;
+    private int state_;
+    /**
+     * <pre>
+     * state
+     * </pre>
+     *
+     * <code>.adamant.global.v1.TransactionState state = 12;</code>
+     */
+    public int getStateValue() {
+      return state_;
+    }
+    /**
+     * <pre>
+     * state
+     * </pre>
+     *
+     * <code>.adamant.global.v1.TransactionState state = 12;</code>
+     */
+    public adamant.global.v1.Enum.TransactionState getState() {
+      @SuppressWarnings("deprecation")
+      adamant.global.v1.Enum.TransactionState result = adamant.global.v1.Enum.TransactionState.valueOf(state_);
+      return result == null ? adamant.global.v1.Enum.TransactionState.UNRECOGNIZED : result;
+    }
+
+    public static final int CREATE_TIME_FIELD_NUMBER = 13;
+    private com.google.protobuf.Timestamp createTime_;
+    /**
+     * <pre>
+     * the time at which the transaction was created
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp create_time = 13;</code>
+     */
+    public boolean hasCreateTime() {
+      return createTime_ != null;
+    }
+    /**
+     * <pre>
+     * the time at which the transaction was created
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp create_time = 13;</code>
+     */
+    public com.google.protobuf.Timestamp getCreateTime() {
+      return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
+    }
+    /**
+     * <pre>
+     * the time at which the transaction was created
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp create_time = 13;</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
+      return getCreateTime();
+    }
+
+    public static final int UPDATE_TIME_FIELD_NUMBER = 14;
+    private com.google.protobuf.Timestamp updateTime_;
+    /**
+     * <pre>
+     * the time at which the transaction was updated
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp update_time = 14;</code>
+     */
+    public boolean hasUpdateTime() {
+      return updateTime_ != null;
+    }
+    /**
+     * <pre>
+     * the time at which the transaction was updated
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp update_time = 14;</code>
+     */
+    public com.google.protobuf.Timestamp getUpdateTime() {
+      return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
+    }
+    /**
+     * <pre>
+     * the time at which the transaction was updated
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp update_time = 14;</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
+      return getUpdateTime();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getWalletIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletId_);
+      }
+      if (!getTransactionIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, transactionId_);
+      }
+      if (!getSubstrateMultisigTransactionIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, substrateMultisigTransactionId_);
+      }
+      if (!getAccountIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, accountId_);
+      }
+      if (!getTxIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, txId_);
+      }
+      if (!getExtrinsicIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, extrinsicId_);
+      }
+      if (jpyRate_ != 0D) {
+        output.writeDouble(7, jpyRate_);
+      }
+      if (fee_ != 0D) {
+        output.writeDouble(8, fee_);
+      }
+      if (!getStringFeeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, stringFee_);
+      }
+      if (nonce_ != 0L) {
+        output.writeUInt64(10, nonce_);
+      }
+      if (multisigCallType_ != adamant.global.v1.Enum.SubstrateCallType.SUBSTRATE_CALL_TYPE_INVALID.getNumber()) {
+        output.writeEnum(11, multisigCallType_);
+      }
+      if (state_ != adamant.global.v1.Enum.TransactionState.TRANSACTION_STATE_INVALID.getNumber()) {
+        output.writeEnum(12, state_);
+      }
+      if (createTime_ != null) {
+        output.writeMessage(13, getCreateTime());
+      }
+      if (updateTime_ != null) {
+        output.writeMessage(14, getUpdateTime());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getWalletIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletId_);
+      }
+      if (!getTransactionIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, transactionId_);
+      }
+      if (!getSubstrateMultisigTransactionIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, substrateMultisigTransactionId_);
+      }
+      if (!getAccountIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, accountId_);
+      }
+      if (!getTxIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, txId_);
+      }
+      if (!getExtrinsicIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, extrinsicId_);
+      }
+      if (jpyRate_ != 0D) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(7, jpyRate_);
+      }
+      if (fee_ != 0D) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(8, fee_);
+      }
+      if (!getStringFeeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, stringFee_);
+      }
+      if (nonce_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(10, nonce_);
+      }
+      if (multisigCallType_ != adamant.global.v1.Enum.SubstrateCallType.SUBSTRATE_CALL_TYPE_INVALID.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(11, multisigCallType_);
+      }
+      if (state_ != adamant.global.v1.Enum.TransactionState.TRANSACTION_STATE_INVALID.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(12, state_);
+      }
+      if (createTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(13, getCreateTime());
+      }
+      if (updateTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(14, getUpdateTime());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof adamant.global.v1.Model.SubstrateMultisigTransaction)) {
+        return super.equals(obj);
+      }
+      adamant.global.v1.Model.SubstrateMultisigTransaction other = (adamant.global.v1.Model.SubstrateMultisigTransaction) obj;
+
+      if (!getWalletId()
+          .equals(other.getWalletId())) return false;
+      if (!getTransactionId()
+          .equals(other.getTransactionId())) return false;
+      if (!getSubstrateMultisigTransactionId()
+          .equals(other.getSubstrateMultisigTransactionId())) return false;
+      if (!getAccountId()
+          .equals(other.getAccountId())) return false;
+      if (!getTxId()
+          .equals(other.getTxId())) return false;
+      if (!getExtrinsicId()
+          .equals(other.getExtrinsicId())) return false;
+      if (java.lang.Double.doubleToLongBits(getJpyRate())
+          != java.lang.Double.doubleToLongBits(
+              other.getJpyRate())) return false;
+      if (java.lang.Double.doubleToLongBits(getFee())
+          != java.lang.Double.doubleToLongBits(
+              other.getFee())) return false;
+      if (!getStringFee()
+          .equals(other.getStringFee())) return false;
+      if (getNonce()
+          != other.getNonce()) return false;
+      if (multisigCallType_ != other.multisigCallType_) return false;
+      if (state_ != other.state_) return false;
+      if (hasCreateTime() != other.hasCreateTime()) return false;
+      if (hasCreateTime()) {
+        if (!getCreateTime()
+            .equals(other.getCreateTime())) return false;
+      }
+      if (hasUpdateTime() != other.hasUpdateTime()) return false;
+      if (hasUpdateTime()) {
+        if (!getUpdateTime()
+            .equals(other.getUpdateTime())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + WALLET_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getWalletId().hashCode();
+      hash = (37 * hash) + TRANSACTION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getTransactionId().hashCode();
+      hash = (37 * hash) + SUBSTRATE_MULTISIG_TRANSACTION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getSubstrateMultisigTransactionId().hashCode();
+      hash = (37 * hash) + ACCOUNT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getAccountId().hashCode();
+      hash = (37 * hash) + TX_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getTxId().hashCode();
+      hash = (37 * hash) + EXTRINSIC_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getExtrinsicId().hashCode();
+      hash = (37 * hash) + JPY_RATE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getJpyRate()));
+      hash = (37 * hash) + FEE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getFee()));
+      hash = (37 * hash) + STRING_FEE_FIELD_NUMBER;
+      hash = (53 * hash) + getStringFee().hashCode();
+      hash = (37 * hash) + NONCE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getNonce());
+      hash = (37 * hash) + MULTISIG_CALL_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + multisigCallType_;
+      hash = (37 * hash) + STATE_FIELD_NUMBER;
+      hash = (53 * hash) + state_;
+      if (hasCreateTime()) {
+        hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getCreateTime().hashCode();
+      }
+      if (hasUpdateTime()) {
+        hash = (37 * hash) + UPDATE_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getUpdateTime().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static adamant.global.v1.Model.SubstrateMultisigTransaction parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.SubstrateMultisigTransaction parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SubstrateMultisigTransaction parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.SubstrateMultisigTransaction parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SubstrateMultisigTransaction parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.SubstrateMultisigTransaction parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SubstrateMultisigTransaction parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.SubstrateMultisigTransaction parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SubstrateMultisigTransaction parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.SubstrateMultisigTransaction parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SubstrateMultisigTransaction parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.SubstrateMultisigTransaction parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(adamant.global.v1.Model.SubstrateMultisigTransaction prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * The model of substrate multisig transaction
+     * </pre>
+     *
+     * Protobuf type {@code adamant.global.v1.SubstrateMultisigTransaction}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:adamant.global.v1.SubstrateMultisigTransaction)
+        adamant.global.v1.Model.SubstrateMultisigTransactionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_SubstrateMultisigTransaction_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_SubstrateMultisigTransaction_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                adamant.global.v1.Model.SubstrateMultisigTransaction.class, adamant.global.v1.Model.SubstrateMultisigTransaction.Builder.class);
+      }
+
+      // Construct using adamant.global.v1.Model.SubstrateMultisigTransaction.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        walletId_ = "";
+
+        transactionId_ = "";
+
+        substrateMultisigTransactionId_ = "";
+
+        accountId_ = "";
+
+        txId_ = "";
+
+        extrinsicId_ = "";
+
+        jpyRate_ = 0D;
+
+        fee_ = 0D;
+
+        stringFee_ = "";
+
+        nonce_ = 0L;
+
+        multisigCallType_ = 0;
+
+        state_ = 0;
+
+        if (createTimeBuilder_ == null) {
+          createTime_ = null;
+        } else {
+          createTime_ = null;
+          createTimeBuilder_ = null;
+        }
+        if (updateTimeBuilder_ == null) {
+          updateTime_ = null;
+        } else {
+          updateTime_ = null;
+          updateTimeBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_SubstrateMultisigTransaction_descriptor;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.SubstrateMultisigTransaction getDefaultInstanceForType() {
+        return adamant.global.v1.Model.SubstrateMultisigTransaction.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.SubstrateMultisigTransaction build() {
+        adamant.global.v1.Model.SubstrateMultisigTransaction result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.SubstrateMultisigTransaction buildPartial() {
+        adamant.global.v1.Model.SubstrateMultisigTransaction result = new adamant.global.v1.Model.SubstrateMultisigTransaction(this);
+        result.walletId_ = walletId_;
+        result.transactionId_ = transactionId_;
+        result.substrateMultisigTransactionId_ = substrateMultisigTransactionId_;
+        result.accountId_ = accountId_;
+        result.txId_ = txId_;
+        result.extrinsicId_ = extrinsicId_;
+        result.jpyRate_ = jpyRate_;
+        result.fee_ = fee_;
+        result.stringFee_ = stringFee_;
+        result.nonce_ = nonce_;
+        result.multisigCallType_ = multisigCallType_;
+        result.state_ = state_;
+        if (createTimeBuilder_ == null) {
+          result.createTime_ = createTime_;
+        } else {
+          result.createTime_ = createTimeBuilder_.build();
+        }
+        if (updateTimeBuilder_ == null) {
+          result.updateTime_ = updateTime_;
+        } else {
+          result.updateTime_ = updateTimeBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof adamant.global.v1.Model.SubstrateMultisigTransaction) {
+          return mergeFrom((adamant.global.v1.Model.SubstrateMultisigTransaction)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(adamant.global.v1.Model.SubstrateMultisigTransaction other) {
+        if (other == adamant.global.v1.Model.SubstrateMultisigTransaction.getDefaultInstance()) return this;
+        if (!other.getWalletId().isEmpty()) {
+          walletId_ = other.walletId_;
+          onChanged();
+        }
+        if (!other.getTransactionId().isEmpty()) {
+          transactionId_ = other.transactionId_;
+          onChanged();
+        }
+        if (!other.getSubstrateMultisigTransactionId().isEmpty()) {
+          substrateMultisigTransactionId_ = other.substrateMultisigTransactionId_;
+          onChanged();
+        }
+        if (!other.getAccountId().isEmpty()) {
+          accountId_ = other.accountId_;
+          onChanged();
+        }
+        if (!other.getTxId().isEmpty()) {
+          txId_ = other.txId_;
+          onChanged();
+        }
+        if (!other.getExtrinsicId().isEmpty()) {
+          extrinsicId_ = other.extrinsicId_;
+          onChanged();
+        }
+        if (other.getJpyRate() != 0D) {
+          setJpyRate(other.getJpyRate());
+        }
+        if (other.getFee() != 0D) {
+          setFee(other.getFee());
+        }
+        if (!other.getStringFee().isEmpty()) {
+          stringFee_ = other.stringFee_;
+          onChanged();
+        }
+        if (other.getNonce() != 0L) {
+          setNonce(other.getNonce());
+        }
+        if (other.multisigCallType_ != 0) {
+          setMultisigCallTypeValue(other.getMultisigCallTypeValue());
+        }
+        if (other.state_ != 0) {
+          setStateValue(other.getStateValue());
+        }
+        if (other.hasCreateTime()) {
+          mergeCreateTime(other.getCreateTime());
+        }
+        if (other.hasUpdateTime()) {
+          mergeUpdateTime(other.getUpdateTime());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        adamant.global.v1.Model.SubstrateMultisigTransaction parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (adamant.global.v1.Model.SubstrateMultisigTransaction) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object walletId_ = "";
+      /**
+       * <pre>
+       * The id of wallet
+       * </pre>
+       *
+       * <code>string wallet_id = 1;</code>
+       */
+      public java.lang.String getWalletId() {
+        java.lang.Object ref = walletId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          walletId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The id of wallet
+       * </pre>
+       *
+       * <code>string wallet_id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getWalletIdBytes() {
+        java.lang.Object ref = walletId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          walletId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The id of wallet
+       * </pre>
+       *
+       * <code>string wallet_id = 1;</code>
+       */
+      public Builder setWalletId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        walletId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The id of wallet
+       * </pre>
+       *
+       * <code>string wallet_id = 1;</code>
+       */
+      public Builder clearWalletId() {
+        
+        walletId_ = getDefaultInstance().getWalletId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The id of wallet
+       * </pre>
+       *
+       * <code>string wallet_id = 1;</code>
+       */
+      public Builder setWalletIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        walletId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object transactionId_ = "";
+      /**
+       * <pre>
+       * id
+       * </pre>
+       *
+       * <code>string transaction_id = 2;</code>
+       */
+      public java.lang.String getTransactionId() {
+        java.lang.Object ref = transactionId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          transactionId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * id
+       * </pre>
+       *
+       * <code>string transaction_id = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTransactionIdBytes() {
+        java.lang.Object ref = transactionId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          transactionId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * id
+       * </pre>
+       *
+       * <code>string transaction_id = 2;</code>
+       */
+      public Builder setTransactionId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        transactionId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * id
+       * </pre>
+       *
+       * <code>string transaction_id = 2;</code>
+       */
+      public Builder clearTransactionId() {
+        
+        transactionId_ = getDefaultInstance().getTransactionId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * id
+       * </pre>
+       *
+       * <code>string transaction_id = 2;</code>
+       */
+      public Builder setTransactionIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        transactionId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object substrateMultisigTransactionId_ = "";
+      /**
+       * <code>string substrate_multisig_transaction_id = 3;</code>
+       */
+      public java.lang.String getSubstrateMultisigTransactionId() {
+        java.lang.Object ref = substrateMultisigTransactionId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          substrateMultisigTransactionId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string substrate_multisig_transaction_id = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSubstrateMultisigTransactionIdBytes() {
+        java.lang.Object ref = substrateMultisigTransactionId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          substrateMultisigTransactionId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string substrate_multisig_transaction_id = 3;</code>
+       */
+      public Builder setSubstrateMultisigTransactionId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        substrateMultisigTransactionId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string substrate_multisig_transaction_id = 3;</code>
+       */
+      public Builder clearSubstrateMultisigTransactionId() {
+        
+        substrateMultisigTransactionId_ = getDefaultInstance().getSubstrateMultisigTransactionId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string substrate_multisig_transaction_id = 3;</code>
+       */
+      public Builder setSubstrateMultisigTransactionIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        substrateMultisigTransactionId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object accountId_ = "";
+      /**
+       * <pre>
+       * AccountID
+       * </pre>
+       *
+       * <code>string account_id = 4;</code>
+       */
+      public java.lang.String getAccountId() {
+        java.lang.Object ref = accountId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          accountId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * AccountID
+       * </pre>
+       *
+       * <code>string account_id = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAccountIdBytes() {
+        java.lang.Object ref = accountId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          accountId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * AccountID
+       * </pre>
+       *
+       * <code>string account_id = 4;</code>
+       */
+      public Builder setAccountId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        accountId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * AccountID
+       * </pre>
+       *
+       * <code>string account_id = 4;</code>
+       */
+      public Builder clearAccountId() {
+        
+        accountId_ = getDefaultInstance().getAccountId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * AccountID
+       * </pre>
+       *
+       * <code>string account_id = 4;</code>
+       */
+      public Builder setAccountIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        accountId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object txId_ = "";
+      /**
+       * <pre>
+       * txID
+       * </pre>
+       *
+       * <code>string tx_id = 5;</code>
+       */
+      public java.lang.String getTxId() {
+        java.lang.Object ref = txId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          txId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * txID
+       * </pre>
+       *
+       * <code>string tx_id = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTxIdBytes() {
+        java.lang.Object ref = txId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          txId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * txID
+       * </pre>
+       *
+       * <code>string tx_id = 5;</code>
+       */
+      public Builder setTxId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        txId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * txID
+       * </pre>
+       *
+       * <code>string tx_id = 5;</code>
+       */
+      public Builder clearTxId() {
+        
+        txId_ = getDefaultInstance().getTxId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * txID
+       * </pre>
+       *
+       * <code>string tx_id = 5;</code>
+       */
+      public Builder setTxIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        txId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object extrinsicId_ = "";
+      /**
+       * <pre>
+       * ExtrinsicID
+       * </pre>
+       *
+       * <code>string extrinsic_id = 6;</code>
+       */
+      public java.lang.String getExtrinsicId() {
+        java.lang.Object ref = extrinsicId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          extrinsicId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * ExtrinsicID
+       * </pre>
+       *
+       * <code>string extrinsic_id = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getExtrinsicIdBytes() {
+        java.lang.Object ref = extrinsicId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          extrinsicId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * ExtrinsicID
+       * </pre>
+       *
+       * <code>string extrinsic_id = 6;</code>
+       */
+      public Builder setExtrinsicId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        extrinsicId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * ExtrinsicID
+       * </pre>
+       *
+       * <code>string extrinsic_id = 6;</code>
+       */
+      public Builder clearExtrinsicId() {
+        
+        extrinsicId_ = getDefaultInstance().getExtrinsicId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * ExtrinsicID
+       * </pre>
+       *
+       * <code>string extrinsic_id = 6;</code>
+       */
+      public Builder setExtrinsicIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        extrinsicId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private double jpyRate_ ;
+      /**
+       * <pre>
+       * The rate of fiat
+       * </pre>
+       *
+       * <code>double jpy_rate = 7;</code>
+       */
+      public double getJpyRate() {
+        return jpyRate_;
+      }
+      /**
+       * <pre>
+       * The rate of fiat
+       * </pre>
+       *
+       * <code>double jpy_rate = 7;</code>
+       */
+      public Builder setJpyRate(double value) {
+        
+        jpyRate_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The rate of fiat
+       * </pre>
+       *
+       * <code>double jpy_rate = 7;</code>
+       */
+      public Builder clearJpyRate() {
+        
+        jpyRate_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double fee_ ;
+      /**
+       * <pre>
+       * The number-typed amount of transaction fee
+       * </pre>
+       *
+       * <code>double fee = 8;</code>
+       */
+      public double getFee() {
+        return fee_;
+      }
+      /**
+       * <pre>
+       * The number-typed amount of transaction fee
+       * </pre>
+       *
+       * <code>double fee = 8;</code>
+       */
+      public Builder setFee(double value) {
+        
+        fee_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The number-typed amount of transaction fee
+       * </pre>
+       *
+       * <code>double fee = 8;</code>
+       */
+      public Builder clearFee() {
+        
+        fee_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object stringFee_ = "";
+      /**
+       * <pre>
+       * The string-typed amount of transaction fee
+       * </pre>
+       *
+       * <code>string string_fee = 9;</code>
+       */
+      public java.lang.String getStringFee() {
+        java.lang.Object ref = stringFee_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          stringFee_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The string-typed amount of transaction fee
+       * </pre>
+       *
+       * <code>string string_fee = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getStringFeeBytes() {
+        java.lang.Object ref = stringFee_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          stringFee_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The string-typed amount of transaction fee
+       * </pre>
+       *
+       * <code>string string_fee = 9;</code>
+       */
+      public Builder setStringFee(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        stringFee_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The string-typed amount of transaction fee
+       * </pre>
+       *
+       * <code>string string_fee = 9;</code>
+       */
+      public Builder clearStringFee() {
+        
+        stringFee_ = getDefaultInstance().getStringFee();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The string-typed amount of transaction fee
+       * </pre>
+       *
+       * <code>string string_fee = 9;</code>
+       */
+      public Builder setStringFeeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        stringFee_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long nonce_ ;
+      /**
+       * <code>uint64 nonce = 10;</code>
+       */
+      public long getNonce() {
+        return nonce_;
+      }
+      /**
+       * <code>uint64 nonce = 10;</code>
+       */
+      public Builder setNonce(long value) {
+        
+        nonce_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 nonce = 10;</code>
+       */
+      public Builder clearNonce() {
+        
+        nonce_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int multisigCallType_ = 0;
+      /**
+       * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 11;</code>
+       */
+      public int getMultisigCallTypeValue() {
+        return multisigCallType_;
+      }
+      /**
+       * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 11;</code>
+       */
+      public Builder setMultisigCallTypeValue(int value) {
+        multisigCallType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 11;</code>
+       */
+      public adamant.global.v1.Enum.SubstrateCallType getMultisigCallType() {
+        @SuppressWarnings("deprecation")
+        adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.valueOf(multisigCallType_);
+        return result == null ? adamant.global.v1.Enum.SubstrateCallType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 11;</code>
+       */
+      public Builder setMultisigCallType(adamant.global.v1.Enum.SubstrateCallType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        multisigCallType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 11;</code>
+       */
+      public Builder clearMultisigCallType() {
+        
+        multisigCallType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int state_ = 0;
+      /**
+       * <pre>
+       * state
+       * </pre>
+       *
+       * <code>.adamant.global.v1.TransactionState state = 12;</code>
+       */
+      public int getStateValue() {
+        return state_;
+      }
+      /**
+       * <pre>
+       * state
+       * </pre>
+       *
+       * <code>.adamant.global.v1.TransactionState state = 12;</code>
+       */
+      public Builder setStateValue(int value) {
+        state_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * state
+       * </pre>
+       *
+       * <code>.adamant.global.v1.TransactionState state = 12;</code>
+       */
+      public adamant.global.v1.Enum.TransactionState getState() {
+        @SuppressWarnings("deprecation")
+        adamant.global.v1.Enum.TransactionState result = adamant.global.v1.Enum.TransactionState.valueOf(state_);
+        return result == null ? adamant.global.v1.Enum.TransactionState.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * state
+       * </pre>
+       *
+       * <code>.adamant.global.v1.TransactionState state = 12;</code>
+       */
+      public Builder setState(adamant.global.v1.Enum.TransactionState value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        state_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * state
+       * </pre>
+       *
+       * <code>.adamant.global.v1.TransactionState state = 12;</code>
+       */
+      public Builder clearState() {
+        
+        state_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Timestamp createTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> createTimeBuilder_;
+      /**
+       * <pre>
+       * the time at which the transaction was created
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp create_time = 13;</code>
+       */
+      public boolean hasCreateTime() {
+        return createTimeBuilder_ != null || createTime_ != null;
+      }
+      /**
+       * <pre>
+       * the time at which the transaction was created
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp create_time = 13;</code>
+       */
+      public com.google.protobuf.Timestamp getCreateTime() {
+        if (createTimeBuilder_ == null) {
+          return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
+        } else {
+          return createTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * the time at which the transaction was created
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp create_time = 13;</code>
+       */
+      public Builder setCreateTime(com.google.protobuf.Timestamp value) {
+        if (createTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          createTime_ = value;
+          onChanged();
+        } else {
+          createTimeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * the time at which the transaction was created
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp create_time = 13;</code>
+       */
+      public Builder setCreateTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (createTimeBuilder_ == null) {
+          createTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          createTimeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * the time at which the transaction was created
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp create_time = 13;</code>
+       */
+      public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
+        if (createTimeBuilder_ == null) {
+          if (createTime_ != null) {
+            createTime_ =
+              com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+          } else {
+            createTime_ = value;
+          }
+          onChanged();
+        } else {
+          createTimeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * the time at which the transaction was created
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp create_time = 13;</code>
+       */
+      public Builder clearCreateTime() {
+        if (createTimeBuilder_ == null) {
+          createTime_ = null;
+          onChanged();
+        } else {
+          createTime_ = null;
+          createTimeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * the time at which the transaction was created
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp create_time = 13;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
+        
+        onChanged();
+        return getCreateTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * the time at which the transaction was created
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp create_time = 13;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
+        if (createTimeBuilder_ != null) {
+          return createTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return createTime_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
+        }
+      }
+      /**
+       * <pre>
+       * the time at which the transaction was created
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp create_time = 13;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getCreateTimeFieldBuilder() {
+        if (createTimeBuilder_ == null) {
+          createTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getCreateTime(),
+                  getParentForChildren(),
+                  isClean());
+          createTime_ = null;
+        }
+        return createTimeBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp updateTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> updateTimeBuilder_;
+      /**
+       * <pre>
+       * the time at which the transaction was updated
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp update_time = 14;</code>
+       */
+      public boolean hasUpdateTime() {
+        return updateTimeBuilder_ != null || updateTime_ != null;
+      }
+      /**
+       * <pre>
+       * the time at which the transaction was updated
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp update_time = 14;</code>
+       */
+      public com.google.protobuf.Timestamp getUpdateTime() {
+        if (updateTimeBuilder_ == null) {
+          return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
+        } else {
+          return updateTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * the time at which the transaction was updated
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp update_time = 14;</code>
+       */
+      public Builder setUpdateTime(com.google.protobuf.Timestamp value) {
+        if (updateTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          updateTime_ = value;
+          onChanged();
+        } else {
+          updateTimeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * the time at which the transaction was updated
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp update_time = 14;</code>
+       */
+      public Builder setUpdateTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (updateTimeBuilder_ == null) {
+          updateTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          updateTimeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * the time at which the transaction was updated
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp update_time = 14;</code>
+       */
+      public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
+        if (updateTimeBuilder_ == null) {
+          if (updateTime_ != null) {
+            updateTime_ =
+              com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+          } else {
+            updateTime_ = value;
+          }
+          onChanged();
+        } else {
+          updateTimeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * the time at which the transaction was updated
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp update_time = 14;</code>
+       */
+      public Builder clearUpdateTime() {
+        if (updateTimeBuilder_ == null) {
+          updateTime_ = null;
+          onChanged();
+        } else {
+          updateTime_ = null;
+          updateTimeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * the time at which the transaction was updated
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp update_time = 14;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
+        
+        onChanged();
+        return getUpdateTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * the time at which the transaction was updated
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp update_time = 14;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
+        if (updateTimeBuilder_ != null) {
+          return updateTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return updateTime_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
+        }
+      }
+      /**
+       * <pre>
+       * the time at which the transaction was updated
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp update_time = 14;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getUpdateTimeFieldBuilder() {
+        if (updateTimeBuilder_ == null) {
+          updateTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getUpdateTime(),
+                  getParentForChildren(),
+                  isClean());
+          updateTime_ = null;
+        }
+        return updateTimeBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:adamant.global.v1.SubstrateMultisigTransaction)
+    }
+
+    // @@protoc_insertion_point(class_scope:adamant.global.v1.SubstrateMultisigTransaction)
+    private static final adamant.global.v1.Model.SubstrateMultisigTransaction DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new adamant.global.v1.Model.SubstrateMultisigTransaction();
+    }
+
+    public static adamant.global.v1.Model.SubstrateMultisigTransaction getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SubstrateMultisigTransaction>
+        PARSER = new com.google.protobuf.AbstractParser<SubstrateMultisigTransaction>() {
+      @java.lang.Override
+      public SubstrateMultisigTransaction parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SubstrateMultisigTransaction(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SubstrateMultisigTransaction> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SubstrateMultisigTransaction> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public adamant.global.v1.Model.SubstrateMultisigTransaction getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -76485,6 +80976,1036 @@ public final class Model {
 
   }
 
+  public interface SubstrateChildAddressOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:adamant.global.v1.SubstrateChildAddress)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string wallet_id = 1;</code>
+     */
+    java.lang.String getWalletId();
+    /**
+     * <code>string wallet_id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getWalletIdBytes();
+
+    /**
+     * <code>string account_id = 2;</code>
+     */
+    java.lang.String getAccountId();
+    /**
+     * <code>string account_id = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getAccountIdBytes();
+
+    /**
+     * <code>string address = 3;</code>
+     */
+    java.lang.String getAddress();
+    /**
+     * <code>string address = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getAddressBytes();
+
+    /**
+     * <code>double balance = 4;</code>
+     */
+    double getBalance();
+
+    /**
+     * <code>string string_balance = 5;</code>
+     */
+    java.lang.String getStringBalance();
+    /**
+     * <code>string string_balance = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getStringBalanceBytes();
+  }
+  /**
+   * Protobuf type {@code adamant.global.v1.SubstrateChildAddress}
+   */
+  public  static final class SubstrateChildAddress extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:adamant.global.v1.SubstrateChildAddress)
+      SubstrateChildAddressOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SubstrateChildAddress.newBuilder() to construct.
+    private SubstrateChildAddress(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SubstrateChildAddress() {
+      walletId_ = "";
+      accountId_ = "";
+      address_ = "";
+      stringBalance_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SubstrateChildAddress();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SubstrateChildAddress(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              walletId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              accountId_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              address_ = s;
+              break;
+            }
+            case 33: {
+
+              balance_ = input.readDouble();
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              stringBalance_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_SubstrateChildAddress_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_SubstrateChildAddress_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              adamant.global.v1.Model.SubstrateChildAddress.class, adamant.global.v1.Model.SubstrateChildAddress.Builder.class);
+    }
+
+    public static final int WALLET_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object walletId_;
+    /**
+     * <code>string wallet_id = 1;</code>
+     */
+    public java.lang.String getWalletId() {
+      java.lang.Object ref = walletId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        walletId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string wallet_id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getWalletIdBytes() {
+      java.lang.Object ref = walletId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        walletId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ACCOUNT_ID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object accountId_;
+    /**
+     * <code>string account_id = 2;</code>
+     */
+    public java.lang.String getAccountId() {
+      java.lang.Object ref = accountId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        accountId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string account_id = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAccountIdBytes() {
+      java.lang.Object ref = accountId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        accountId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ADDRESS_FIELD_NUMBER = 3;
+    private volatile java.lang.Object address_;
+    /**
+     * <code>string address = 3;</code>
+     */
+    public java.lang.String getAddress() {
+      java.lang.Object ref = address_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        address_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string address = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAddressBytes() {
+      java.lang.Object ref = address_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        address_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BALANCE_FIELD_NUMBER = 4;
+    private double balance_;
+    /**
+     * <code>double balance = 4;</code>
+     */
+    public double getBalance() {
+      return balance_;
+    }
+
+    public static final int STRING_BALANCE_FIELD_NUMBER = 5;
+    private volatile java.lang.Object stringBalance_;
+    /**
+     * <code>string string_balance = 5;</code>
+     */
+    public java.lang.String getStringBalance() {
+      java.lang.Object ref = stringBalance_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        stringBalance_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string string_balance = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getStringBalanceBytes() {
+      java.lang.Object ref = stringBalance_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        stringBalance_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getWalletIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletId_);
+      }
+      if (!getAccountIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, accountId_);
+      }
+      if (!getAddressBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, address_);
+      }
+      if (balance_ != 0D) {
+        output.writeDouble(4, balance_);
+      }
+      if (!getStringBalanceBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, stringBalance_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getWalletIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletId_);
+      }
+      if (!getAccountIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, accountId_);
+      }
+      if (!getAddressBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, address_);
+      }
+      if (balance_ != 0D) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(4, balance_);
+      }
+      if (!getStringBalanceBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, stringBalance_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof adamant.global.v1.Model.SubstrateChildAddress)) {
+        return super.equals(obj);
+      }
+      adamant.global.v1.Model.SubstrateChildAddress other = (adamant.global.v1.Model.SubstrateChildAddress) obj;
+
+      if (!getWalletId()
+          .equals(other.getWalletId())) return false;
+      if (!getAccountId()
+          .equals(other.getAccountId())) return false;
+      if (!getAddress()
+          .equals(other.getAddress())) return false;
+      if (java.lang.Double.doubleToLongBits(getBalance())
+          != java.lang.Double.doubleToLongBits(
+              other.getBalance())) return false;
+      if (!getStringBalance()
+          .equals(other.getStringBalance())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + WALLET_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getWalletId().hashCode();
+      hash = (37 * hash) + ACCOUNT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getAccountId().hashCode();
+      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAddress().hashCode();
+      hash = (37 * hash) + BALANCE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getBalance()));
+      hash = (37 * hash) + STRING_BALANCE_FIELD_NUMBER;
+      hash = (53 * hash) + getStringBalance().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static adamant.global.v1.Model.SubstrateChildAddress parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.SubstrateChildAddress parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SubstrateChildAddress parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.SubstrateChildAddress parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SubstrateChildAddress parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.SubstrateChildAddress parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SubstrateChildAddress parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.SubstrateChildAddress parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SubstrateChildAddress parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.SubstrateChildAddress parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SubstrateChildAddress parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.SubstrateChildAddress parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(adamant.global.v1.Model.SubstrateChildAddress prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code adamant.global.v1.SubstrateChildAddress}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:adamant.global.v1.SubstrateChildAddress)
+        adamant.global.v1.Model.SubstrateChildAddressOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_SubstrateChildAddress_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_SubstrateChildAddress_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                adamant.global.v1.Model.SubstrateChildAddress.class, adamant.global.v1.Model.SubstrateChildAddress.Builder.class);
+      }
+
+      // Construct using adamant.global.v1.Model.SubstrateChildAddress.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        walletId_ = "";
+
+        accountId_ = "";
+
+        address_ = "";
+
+        balance_ = 0D;
+
+        stringBalance_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_SubstrateChildAddress_descriptor;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.SubstrateChildAddress getDefaultInstanceForType() {
+        return adamant.global.v1.Model.SubstrateChildAddress.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.SubstrateChildAddress build() {
+        adamant.global.v1.Model.SubstrateChildAddress result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.SubstrateChildAddress buildPartial() {
+        adamant.global.v1.Model.SubstrateChildAddress result = new adamant.global.v1.Model.SubstrateChildAddress(this);
+        result.walletId_ = walletId_;
+        result.accountId_ = accountId_;
+        result.address_ = address_;
+        result.balance_ = balance_;
+        result.stringBalance_ = stringBalance_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof adamant.global.v1.Model.SubstrateChildAddress) {
+          return mergeFrom((adamant.global.v1.Model.SubstrateChildAddress)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(adamant.global.v1.Model.SubstrateChildAddress other) {
+        if (other == adamant.global.v1.Model.SubstrateChildAddress.getDefaultInstance()) return this;
+        if (!other.getWalletId().isEmpty()) {
+          walletId_ = other.walletId_;
+          onChanged();
+        }
+        if (!other.getAccountId().isEmpty()) {
+          accountId_ = other.accountId_;
+          onChanged();
+        }
+        if (!other.getAddress().isEmpty()) {
+          address_ = other.address_;
+          onChanged();
+        }
+        if (other.getBalance() != 0D) {
+          setBalance(other.getBalance());
+        }
+        if (!other.getStringBalance().isEmpty()) {
+          stringBalance_ = other.stringBalance_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        adamant.global.v1.Model.SubstrateChildAddress parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (adamant.global.v1.Model.SubstrateChildAddress) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object walletId_ = "";
+      /**
+       * <code>string wallet_id = 1;</code>
+       */
+      public java.lang.String getWalletId() {
+        java.lang.Object ref = walletId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          walletId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string wallet_id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getWalletIdBytes() {
+        java.lang.Object ref = walletId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          walletId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string wallet_id = 1;</code>
+       */
+      public Builder setWalletId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        walletId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet_id = 1;</code>
+       */
+      public Builder clearWalletId() {
+        
+        walletId_ = getDefaultInstance().getWalletId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet_id = 1;</code>
+       */
+      public Builder setWalletIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        walletId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object accountId_ = "";
+      /**
+       * <code>string account_id = 2;</code>
+       */
+      public java.lang.String getAccountId() {
+        java.lang.Object ref = accountId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          accountId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string account_id = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAccountIdBytes() {
+        java.lang.Object ref = accountId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          accountId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string account_id = 2;</code>
+       */
+      public Builder setAccountId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        accountId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string account_id = 2;</code>
+       */
+      public Builder clearAccountId() {
+        
+        accountId_ = getDefaultInstance().getAccountId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string account_id = 2;</code>
+       */
+      public Builder setAccountIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        accountId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object address_ = "";
+      /**
+       * <code>string address = 3;</code>
+       */
+      public java.lang.String getAddress() {
+        java.lang.Object ref = address_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          address_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string address = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAddressBytes() {
+        java.lang.Object ref = address_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          address_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string address = 3;</code>
+       */
+      public Builder setAddress(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        address_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string address = 3;</code>
+       */
+      public Builder clearAddress() {
+        
+        address_ = getDefaultInstance().getAddress();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string address = 3;</code>
+       */
+      public Builder setAddressBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        address_ = value;
+        onChanged();
+        return this;
+      }
+
+      private double balance_ ;
+      /**
+       * <code>double balance = 4;</code>
+       */
+      public double getBalance() {
+        return balance_;
+      }
+      /**
+       * <code>double balance = 4;</code>
+       */
+      public Builder setBalance(double value) {
+        
+        balance_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double balance = 4;</code>
+       */
+      public Builder clearBalance() {
+        
+        balance_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object stringBalance_ = "";
+      /**
+       * <code>string string_balance = 5;</code>
+       */
+      public java.lang.String getStringBalance() {
+        java.lang.Object ref = stringBalance_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          stringBalance_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string string_balance = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getStringBalanceBytes() {
+        java.lang.Object ref = stringBalance_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          stringBalance_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string string_balance = 5;</code>
+       */
+      public Builder setStringBalance(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        stringBalance_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string string_balance = 5;</code>
+       */
+      public Builder clearStringBalance() {
+        
+        stringBalance_ = getDefaultInstance().getStringBalance();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string string_balance = 5;</code>
+       */
+      public Builder setStringBalanceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        stringBalance_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:adamant.global.v1.SubstrateChildAddress)
+    }
+
+    // @@protoc_insertion_point(class_scope:adamant.global.v1.SubstrateChildAddress)
+    private static final adamant.global.v1.Model.SubstrateChildAddress DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new adamant.global.v1.Model.SubstrateChildAddress();
+    }
+
+    public static adamant.global.v1.Model.SubstrateChildAddress getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SubstrateChildAddress>
+        PARSER = new com.google.protobuf.AbstractParser<SubstrateChildAddress>() {
+      @java.lang.Override
+      public SubstrateChildAddress parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SubstrateChildAddress(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SubstrateChildAddress> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SubstrateChildAddress> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public adamant.global.v1.Model.SubstrateChildAddress getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_global_v1_Wallet_descriptor;
   private static final 
@@ -76605,6 +82126,21 @@ public final class Model {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_global_v1_CardanoSpecific_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_SubstrateSpecific_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_SubstrateSpecific_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_CreateTransactionSubstrateSpecific_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_CreateTransactionSubstrateSpecific_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_SubstrateMultisigTransaction_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_SubstrateMultisigTransaction_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_global_v1_SignInfo_descriptor;
   private static final 
@@ -76825,6 +82361,11 @@ public final class Model {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_global_v1_RequestRate_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_SubstrateChildAddress_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_SubstrateChildAddress_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -76922,7 +82463,7 @@ public final class Model {
       "ce\030\003 \001(\t\"\177\n\022AddressWithBalance\022\017\n\007addres" +
       "s\030\001 \001(\t\022\017\n\007balance\030\002 \001(\001\022\026\n\016string_balan" +
       "ce\030\003 \001(\t\022\023\n\013fee_balance\030\004 \001(\001\022\032\n\022string_" +
-      "fee_balance\030\005 \001(\t\"\214\010\n\013Transaction\022\021\n\twal" +
+      "fee_balance\030\005 \001(\t\"\316\010\n\013Transaction\022\021\n\twal" +
       "let_id\030\001 \001(\t\022\026\n\016transaction_id\030\002 \001(\t\022&\n\004" +
       "coin\030\003 \001(\0162\030.gincoinc.global.v1.Coin\022\r\n\005" +
       "tx_id\030\004 \001(\t\022\017\n\007address\030\005 \001(\t\022\r\n\005value\030\006 " +
@@ -76945,225 +82486,250 @@ public final class Model {
       "2 .adamant.global.v1.C0banSpecific\022<\n\020st" +
       "ellar_specific\030\033 \001(\0132\".adamant.global.v1" +
       ".StellarSpecific\022<\n\020cardano_specific\030\034 \001" +
-      "(\0132\".adamant.global.v1.CardanoSpecific\022/" +
-      "\n\013create_time\030\022 \001(\0132\032.google.protobuf.Ti" +
-      "mestamp\022/\n\013update_time\030\023 \001(\0132\032.google.pr" +
-      "otobuf.Timestamp\"\310\001\n\021TransactionMember\022\022" +
-      "\n\naccount_id\030\001 \001(\t\0224\n\014account_type\030\002 \001(\016" +
-      "2\036.adamant.global.v1.AccountType\022\014\n\004name" +
-      "\030\003 \001(\t\022\r\n\005email\030\004 \001(\t\022)\n\004role\030\005 \001(\0162\033.ad" +
-      "amant.global.v1.RoleType\022\016\n\006signed\030\006 \001(\010" +
-      "\022\021\n\tvalidated\030\007 \001(\010\"O\n\007TxInput\022\r\n\005tx_id\030" +
-      "\001 \001(\t\022\020\n\010tx_index\030\002 \001(\r\022\r\n\005value\030\003 \001(\001\022\024" +
-      "\n\014string_value\030\004 \001(\t\"S\n\010TxOutput\022\017\n\007addr" +
-      "ess\030\001 \001(\t\022\r\n\005value\030\002 \001(\001\022\024\n\014string_value" +
-      "\030\003 \001(\t\022\021\n\tis_change\030\004 \001(\010\"\302\001\n\004UTXO\022\r\n\005tx" +
-      "_id\030\001 \001(\t\022\014\n\004vout\030\002 \001(\r\022\r\n\005value\030\003 \001(\001\022\024" +
-      "\n\014string_value\030\004 \001(\t\022\017\n\007address\030\005 \001(\t\022g\n" +
-      "\016transaction_id\030\006 \001(\tBO\372BLrJ2H^$|^[0-9a-" +
-      "f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-" +
-      "9a-f]{3}-[0-9a-f]{12}$\"q\n\017BitcoinSpecifi" +
-      "c\022-\n\ttx_inputs\030\001 \003(\0132\032.adamant.global.v1" +
-      ".TxInput\022/\n\ntx_outputs\030\002 \003(\0132\033.adamant.g" +
-      "lobal.v1.TxOutput\"r\n\020LitecoinSpecific\022-\n" +
-      "\ttx_inputs\030\001 \003(\0132\032.adamant.global.v1.TxI" +
-      "nput\022/\n\ntx_outputs\030\002 \003(\0132\033.adamant.globa" +
-      "l.v1.TxOutput\"u\n\023BitcoincashSpecific\022-\n\t" +
-      "tx_inputs\030\001 \003(\0132\032.adamant.global.v1.TxIn" +
-      "put\022/\n\ntx_outputs\030\002 \003(\0132\033.adamant.global" +
-      ".v1.TxOutput\"K\n\020EthereumSpecific\022\021\n\tgas_" +
-      "limit\030\001 \001(\004\022\r\n\005nonce\030\002 \001(\004\022\025\n\ris_next_no" +
-      "nce\030\003 \001(\010\"\231\001\n\013XrpSpecific\022\027\n\017sequence_nu" +
-      "mber\030\001 \001(\r\022\027\n\017destination_tag\030\002 \001(\r\0227\n\007t" +
-      "x_type\030\003 \001(\0162&.gincoinc.global.v1.XRPTra" +
-      "nsactionType\022\037\n\027is_next_sequence_number\030" +
-      "\004 \001(\010\"\"\n\014TronSpecific\022\022\n\nexpiration\030\001 \001(" +
-      "\004\"o\n\rC0banSpecific\022-\n\ttx_inputs\030\001 \003(\0132\032." +
-      "adamant.global.v1.TxInput\022/\n\ntx_outputs\030" +
-      "\002 \003(\0132\033.adamant.global.v1.TxOutput\"`\n\017St" +
-      "ellarSpecific\022\027\n\017sequence_number\030\001 \001(\003\022\023" +
-      "\n\007memo_id\030\002 \001(\004B\0020\001\022\037\n\027is_next_sequence_" +
-      "number\030\003 \001(\010\"q\n\017CardanoSpecific\022-\n\ttx_in" +
-      "puts\030\001 \003(\0132\032.adamant.global.v1.TxInput\022/" +
-      "\n\ntx_outputs\030\002 \003(\0132\033.adamant.global.v1.T" +
-      "xOutput\"\227\002\n\010SignInfo\022\021\n\twallet_id\030\001 \001(\t\022" +
-      "\026\n\016transaction_id\030\002 \001(\t\022\016\n\006key_id\030\003 \001(\t\022" +
-      "\022\n\nhd_account\030\004 \001(\r\022&\n\004coin\030\005 \001(\0162\030.ginc" +
-      "oinc.global.v1.Coin\022\r\n\005tx_id\030\006 \001(\t\022\022\n\nsi" +
-      "gn_index\030\013 \001(\r\022\024\n\014sign_message\030\007 \001(\t\022\021\n\t" +
-      "hd_change\030\010 \001(\r\022\020\n\010hd_index\030\t \001(\r\0226\n\016sig" +
-      "n_tx_inputs\030\n \003(\0132\036.adamant.global.v1.Si" +
-      "gnTxInput\"`\n\013SignTxInput\022\026\n\016tx_input_ind" +
-      "ex\030\001 \001(\r\022\024\n\014sign_message\030\002 \001(\t\022\021\n\thd_cha" +
-      "nge\030\003 \001(\r\022\020\n\010hd_index\030\004 \001(\r\"\211\004\n\010Transfer" +
-      "\022\021\n\twallet_id\030\001 \001(\t\022\023\n\013transfer_id\030\002 \001(\t" +
-      "\022&\n\004coin\030\003 \001(\0162\030.gincoinc.global.v1.Coin" +
-      "\022\r\n\005tx_id\030\004 \001(\t\0227\n\rtransfer_type\030\005 \001(\0162 " +
-      ".gincoinc.global.v1.TransferType\022\r\n\005valu" +
-      "e\030\006 \001(\001\022\024\n\014string_value\030\007 \001(\t\022\020\n\010jpy_rat" +
-      "e\030\t \001(\001\022\031\n\021partner_wallet_id\030\n \001(\t\022\027\n\017pa" +
-      "rtner_address\030\013 \001(\t\022\027\n\017destination_tag\030\017" +
-      " \001(\r\022\023\n\007memo_id\030\021 \001(\004B\0020\001\0223\n\005state\030\014 \001(\016" +
-      "2$.gincoinc.global.v1.TransactionState\0225" +
-      "\n\006result\030\020 \001(\0162%.gincoinc.global.v1.Tran" +
-      "sactionResult\022/\n\013create_time\030\r \001(\0132\032.goo" +
-      "gle.protobuf.Timestamp\022/\n\013update_time\030\016 " +
-      "\001(\0132\032.google.protobuf.Timestamp\";\n\004Rate\022" +
-      "&\n\004coin\030\001 \001(\0162\030.gincoinc.global.v1.Coin\022" +
-      "\013\n\003jpy\030\002 \001(\001\"\252\001\n\014RateSnapshot\022\030\n\020rate_sn" +
-      "apshot_id\030\001 \001(\t\0229\n\005rates\030\002 \003(\0132*.adamant" +
-      ".global.v1.RateSnapshot.RatesEntry\032E\n\nRa" +
-      "tesEntry\022\013\n\003key\030\001 \001(\r\022&\n\005value\030\002 \001(\0132\027.a" +
-      "damant.global.v1.Rate:\0028\001\"=\n\020Deactivatab" +
-      "ility\022\022\n\naccount_id\030\001 \001(\t\022\025\n\rdeactivatab" +
-      "le\030\002 \001(\010\"\222\002\n\016LabeledAddress\022\032\n\022labeled_a" +
-      "ddress_id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022&\n\004coin\030\003 " +
-      "\001(\0162\030.gincoinc.global.v1.Coin\022\017\n\007address" +
-      "\030\004 \001(\t\022;\n\010proposal\030\005 \001(\0132).adamant.globa" +
-      "l.v1.LabeledAddressProposal\022/\n\013create_ti" +
-      "me\030\007 \001(\0132\032.google.protobuf.Timestamp\022/\n\013" +
-      "update_time\030\010 \001(\0132\032.google.protobuf.Time" +
-      "stamp\"\271\001\n\026LabeledAddressProposal\022\034\n\024requ" +
-      "ester_account_id\030\001 \001(\t\022\026\n\016requester_name" +
-      "\030\002 \001(\t\022\033\n\023approver_account_id\030\003 \001(\t\022\025\n\ra" +
-      "pprover_name\030\004 \001(\t\022\030\n\020proposed_address\030\005" +
-      " \001(\t\022\033\n\023address_is_reviewed\030\006 \001(\010\"\357\001\n\tWh" +
-      "itelist\022\024\n\014whitelist_id\030\001 \001(\t\022\014\n\004name\030\002 " +
-      "\001(\t\022&\n\004coin\030\003 \001(\0162\030.gincoinc.global.v1.C" +
-      "oin\0224\n\taddresses\030\004 \003(\0132!.adamant.global." +
-      "v1.LabeledAddress\022/\n\013create_time\030\006 \001(\0132\032" +
-      ".google.protobuf.Timestamp\022/\n\013update_tim" +
-      "e\030\007 \001(\0132\032.google.protobuf.Timestamp\"\326\002\n\r" +
-      "TransferLimit\022\031\n\021transfer_limit_id\030\001 \001(\t" +
-      "\022\014\n\004name\030\002 \001(\t\022&\n\004coin\030\003 \001(\0162\030.gincoinc." +
-      "global.v1.Coin\022\024\n\014hourly_limit\030\004 \001(\003\022\023\n\013" +
-      "daily_limit\030\005 \001(\003\022\026\n\016one_time_limit\030\006 \001(" +
-      "\003\022:\n\010proposal\030\007 \001(\0132(.adamant.global.v1." +
-      "TransferLimitProposal\022\023\n\013is_reviewed\030\010 \001" +
-      "(\010\022/\n\013create_time\030\n \001(\0132\032.google.protobu" +
-      "f.Timestamp\022/\n\013update_time\030\013 \001(\0132\032.googl" +
-      "e.protobuf.Timestamp\"\364\001\n\025TransferLimitPr" +
-      "oposal\022\034\n\024requester_account_id\030\001 \001(\t\022\026\n\016" +
-      "requester_name\030\002 \001(\t\022\033\n\023approver_account" +
-      "_id\030\003 \001(\t\022\025\n\rapprover_name\030\004 \001(\t\022\035\n\025prop" +
-      "osed_hourly_limit\030\005 \001(\003\022\034\n\024proposed_dail" +
-      "y_limit\030\006 \001(\003\022\037\n\027proposed_one_time_limit" +
-      "\030\007 \001(\003\022\023\n\013is_reviewed\030\010 \001(\010\"\237\003\n\006Policy\022\021" +
-      "\n\tpolicy_id\030\001 \001(\t\0222\n\013policy_type\030\002 \001(\0162\035" +
-      ".adamant.global.v1.PolicyType\022\014\n\004name\030\003 " +
-      "\001(\t\022\026\n\016is_base_policy\030\004 \001(\010\022&\n\004coin\030\005 \001(" +
-      "\0162\030.gincoinc.global.v1.Coin\022/\n\twhitelist" +
-      "\030\006 \001(\0132\034.adamant.global.v1.Whitelist\0228\n\016" +
-      "transfer_limit\030\007 \001(\0132 .adamant.global.v1" +
-      ".TransferLimit\0223\n\010proposal\030\013 \001(\0132!.adama" +
-      "nt.global.v1.PolicyProposal\022/\n\013create_ti" +
-      "me\030\t \001(\0132\032.google.protobuf.Timestamp\022/\n\013" +
-      "update_time\030\n \001(\0132\032.google.protobuf.Time" +
-      "stamp\"\311\001\n\016PolicyProposal\022\034\n\024requester_ac" +
-      "count_id\030\001 \001(\t\022\026\n\016requester_name\030\002 \001(\t\022\033" +
-      "\n\023approver_account_id\030\003 \001(\t\022\025\n\rapprover_" +
-      "name\030\004 \001(\t\0228\n\022proposed_whitelist\030\005 \001(\0132\034" +
-      ".adamant.global.v1.Whitelist\022\023\n\013is_revie" +
-      "wed\030\006 \001(\010\"u\n\022TotalBalanceByCoin\022&\n\004coin\030" +
-      "\001 \001(\0162\030.gincoinc.global.v1.Coin\022\033\n\023cold_" +
-      "string_balance\030\002 \001(\t\022\032\n\022hot_string_balan" +
-      "ce\030\003 \001(\t\"\301\001\n\014TotalBalance\022T\n\016total_balan" +
-      "ces\030\001 \003(\01322.adamant.global.v1.TotalBalan" +
-      "ce.TotalBalancesEntryB\010\372B\005\232\001\002\030\001\032[\n\022Total" +
-      "BalancesEntry\022\013\n\003key\030\001 \001(\r\0224\n\005value\030\002 \001(" +
-      "\0132%.adamant.global.v1.TotalBalanceByCoin" +
-      ":\0028\001\"\207\003\n\017BalanceSnapshot\022/\n\013create_time\030" +
-      "\001 \001(\0132\032.google.protobuf.Timestamp\022W\n\016tot" +
-      "al_balances\030\002 \003(\01325.adamant.global.v1.Ba" +
-      "lanceSnapshot.TotalBalancesEntryB\010\372B\005\232\001\002" +
-      "\030\001\022F\n\005rates\030\003 \003(\0132-.adamant.global.v1.Ba" +
-      "lanceSnapshot.RatesEntryB\010\372B\005\232\001\002\030\001\032[\n\022To" +
-      "talBalancesEntry\022\013\n\003key\030\001 \001(\r\0224\n\005value\030\002" +
-      " \001(\0132%.adamant.global.v1.TotalBalanceByC" +
-      "oin:\0028\001\032E\n\nRatesEntry\022\013\n\003key\030\001 \001(\r\022&\n\005va" +
-      "lue\030\002 \001(\0132\027.adamant.global.v1.Rate:\0028\001\"\204" +
-      "\002\n\030WalletBalanceSnapshotMap\022x\n\033wallet_ba" +
-      "lance_snapshot_map\030\001 \003(\0132I.adamant.globa" +
-      "l.v1.WalletBalanceSnapshotMap.WalletBala" +
-      "nceSnapshotMapEntryB\010\372B\005\232\001\002\030\001\032n\n\035WalletB" +
-      "alanceSnapshotMapEntry\022\013\n\003key\030\001 \001(\t\022<\n\005v" +
-      "alue\030\002 \001(\0132-.adamant.global.v1.ListWalle" +
-      "tBalanceSnapshots:\0028\001\"h\n\032ListWalletBalan" +
-      "ceSnapshots\022J\n\030wallet_balance_snapshots\030" +
-      "\001 \003(\0132(.adamant.global.v1.WalletBalanceS" +
-      "napshot\"m\n\025WalletBalanceSnapshot\022/\n\013crea" +
-      "te_time\030\001 \001(\0132\032.google.protobuf.Timestam" +
-      "p\022\026\n\016string_balance\030\002 \001(\t\022\013\n\003jpy\030\003 \001(\001\"\252" +
-      "\002\n\027TransferVolumeSnapshots\022\221\001\n)transfer_" +
-      "volume_snapshot_by_transfer_type\030\001 \003(\0132T" +
-      ".adamant.global.v1.TransferVolumeSnapsho" +
-      "ts.TransferVolumeSnapshotByTransferTypeE" +
-      "ntryB\010\372B\005\232\001\002\030\001\032{\n)TransferVolumeSnapshot" +
-      "ByTransferTypeEntry\022\013\n\003key\030\001 \001(\005\022=\n\005valu" +
-      "e\030\002 \001(\0132..adamant.global.v1.ListTransfer" +
-      "VolumeSnapshots:\0028\001\"k\n\033ListTransferVolum" +
-      "eSnapshots\022L\n\031transfer_volume_snapshots\030" +
-      "\001 \003(\0132).adamant.global.v1.TransferVolume" +
-      "Snapshot\"\217\002\n\026TransferVolumeSnapshot\022/\n\013t" +
-      "arget_time\030\001 \001(\0132\032.google.protobuf.Times" +
-      "tamp\022d\n\027transfer_volume_by_coin\030\002 \003(\0132C." +
-      "adamant.global.v1.TransferVolumeSnapshot" +
-      ".TransferVolumeByCoinEntry\032^\n\031TransferVo" +
-      "lumeByCoinEntry\022\013\n\003key\030\001 \001(\005\0220\n\005value\030\002 " +
-      "\001(\0132!.adamant.global.v1.TransferVolume:\002" +
-      "8\001\"\220\002\n\016TransferVolume\022&\n\004coin\030\001 \001(\0162\030.gi" +
-      "ncoinc.global.v1.Coin\022\031\n\021hot_string_volu" +
-      "me\030\002 \001(\t\022\032\n\022cold_string_volume\030\003 \001(\t\022\035\n\025" +
-      "hot_string_jpy_volume\030\004 \001(\t\022\036\n\026cold_stri" +
-      "ng_jpy_volume\030\005 \001(\t\022\022\n\nhot_number\030\006 \001(\003\022" +
-      "\023\n\013cold_number\030\007 \001(\003\0227\n\rtransfer_type\030\010 " +
-      "\001(\0162 .gincoinc.global.v1.TransferType\"\304\002" +
-      "\n\035WalletTransferVolumeSnapshots\022\234\001\n,wall" +
-      "et_transfer_volume_snapshot_by_wallet_id" +
-      "\030\001 \003(\0132\\.adamant.global.v1.WalletTransfe" +
-      "rVolumeSnapshots.WalletTransferVolumeSna" +
-      "pshotByWalletIdEntryB\010\372B\005\232\001\002\030\001\032\203\001\n+Walle" +
-      "tTransferVolumeSnapshotByWalletIdEntry\022\013" +
-      "\n\003key\030\001 \001(\t\022C\n\005value\030\002 \001(\01324.adamant.glo" +
-      "bal.v1.ListWalletTransferVolumeSnapshots" +
-      ":\0028\001\"~\n!ListWalletTransferVolumeSnapshot" +
-      "s\022Y\n wallet_transfer_volume_snapshots\030\001 " +
-      "\003(\0132/.adamant.global.v1.WalletTransferVo" +
-      "lumeSnapshot\"\316\002\n\034WalletTransferVolumeSna" +
-      "pshot\022/\n\013target_time\030\001 \001(\0132\032.google.prot" +
-      "obuf.Timestamp\022\210\001\n\'wallet_transfer_volum" +
-      "e_by_transfer_type\030\002 \003(\0132W.adamant.globa" +
-      "l.v1.WalletTransferVolumeSnapshot.Wallet" +
-      "TransferVolumeByTransferTypeEntry\032r\n\'Wal" +
-      "letTransferVolumeByTransferTypeEntry\022\013\n\003" +
-      "key\030\001 \001(\005\0226\n\005value\030\002 \001(\0132\'.adamant.globa" +
-      "l.v1.WalletTransferVolume:\0028\001\"\221\001\n\024Wallet" +
-      "TransferVolume\022\025\n\rstring_volume\030\001 \001(\t\022\031\n" +
-      "\021string_jpy_volume\030\002 \001(\t\022\016\n\006number\030\003 \001(\003" +
-      "\0227\n\rtransfer_type\030\004 \001(\0162 .gincoinc.globa" +
-      "l.v1.TransferType\"L\n\014Confirmation\022&\n\004coi" +
-      "n\030\001 \001(\0162\030.gincoinc.global.v1.Coin\022\024\n\014con" +
-      "firmation\030\002 \001(\r\"\317\001\n\022WalletFlushSetting\022\020" +
-      "\n\010owner_id\030\001 \001(\t\022&\n\004coin\030\002 \001(\0162\030.gincoin" +
-      "c.global.v1.Coin\022\035\n\025destination_wallet_i" +
-      "d\030\003 \001(\t\022/\n\013create_time\030\004 \001(\0132\032.google.pr" +
-      "otobuf.Timestamp\022/\n\013update_time\030\005 \001(\0132\032." +
-      "google.protobuf.Timestamp\"j\n\017Compensatio" +
-      "nFee\022\024\n\014string_value\030\001 \001(\t\022\020\n\010is_spent\030\002" +
-      " \001(\010\022/\n\013create_time\030\003 \001(\0132\032.google.proto" +
-      "buf.Timestamp\"J\n\017RequestTxOutput\022\030\n\007addr" +
-      "ess\030\001 \001(\tB\007\372B\004r\002\020\003\022\035\n\014string_value\030\002 \001(\t" +
-      "B\007\372B\004r\002\020\001\"V\n\021RequestSignedInfo\022A\n\nsignat" +
-      "ures\030\001 \003(\0132#.adamant.global.v1.RequestSi" +
-      "gnatureB\010\372B\005\222\001\002\010\001\"B\n\020RequestSignature\022\022\n" +
-      "\nsign_index\030\001 \001(\r\022\032\n\tsignature\030\002 \001(\tB\007\372B" +
-      "\004r\002\020\001\"\221\001\n\031RequestTransferLimitEntry\022M\n\023t" +
-      "ransfer_limit_type\030\001 \001(\0162$.adamant.globa" +
-      "l.v1.TransferLimitTypeB\n\372B\007\202\001\004\020\001 \000\022%\n\024tr" +
-      "ansfer_limit_value\030\002 \001(\003B\007\372B\004\"\002(\000\"^\n\013Req" +
-      "uestRate\0222\n\004coin\030\001 \001(\0162\030.gincoinc.global" +
-      ".v1.CoinB\n\372B\007\202\001\004\020\001 \000\022\033\n\003jpy\030\002 \001(\001B\016\372B\013\022\t" +
-      ")\000\000\000\000\000\000\000\000B\021Z\017adamantglobalv1b\006proto3"
+      "(\0132\".adamant.global.v1.CardanoSpecific\022@" +
+      "\n\022substrate_specific\030\035 \001(\0132$.adamant.glo" +
+      "bal.v1.SubstrateSpecific\022/\n\013create_time\030" +
+      "\022 \001(\0132\032.google.protobuf.Timestamp\022/\n\013upd" +
+      "ate_time\030\023 \001(\0132\032.google.protobuf.Timesta" +
+      "mp\"\310\001\n\021TransactionMember\022\022\n\naccount_id\030\001" +
+      " \001(\t\0224\n\014account_type\030\002 \001(\0162\036.adamant.glo" +
+      "bal.v1.AccountType\022\014\n\004name\030\003 \001(\t\022\r\n\005emai" +
+      "l\030\004 \001(\t\022)\n\004role\030\005 \001(\0162\033.adamant.global.v" +
+      "1.RoleType\022\016\n\006signed\030\006 \001(\010\022\021\n\tvalidated\030" +
+      "\007 \001(\010\"O\n\007TxInput\022\r\n\005tx_id\030\001 \001(\t\022\020\n\010tx_in" +
+      "dex\030\002 \001(\r\022\r\n\005value\030\003 \001(\001\022\024\n\014string_value" +
+      "\030\004 \001(\t\"S\n\010TxOutput\022\017\n\007address\030\001 \001(\t\022\r\n\005v" +
+      "alue\030\002 \001(\001\022\024\n\014string_value\030\003 \001(\t\022\021\n\tis_c" +
+      "hange\030\004 \001(\010\"\302\001\n\004UTXO\022\r\n\005tx_id\030\001 \001(\t\022\014\n\004v" +
+      "out\030\002 \001(\r\022\r\n\005value\030\003 \001(\001\022\024\n\014string_value" +
+      "\030\004 \001(\t\022\017\n\007address\030\005 \001(\t\022g\n\016transaction_i" +
+      "d\030\006 \001(\tBO\372BLrJ2H^$|^[0-9a-f]{8}-[0-9a-f]" +
+      "{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a" +
+      "-f]{12}$\"q\n\017BitcoinSpecific\022-\n\ttx_inputs" +
+      "\030\001 \003(\0132\032.adamant.global.v1.TxInput\022/\n\ntx" +
+      "_outputs\030\002 \003(\0132\033.adamant.global.v1.TxOut" +
+      "put\"r\n\020LitecoinSpecific\022-\n\ttx_inputs\030\001 \003" +
+      "(\0132\032.adamant.global.v1.TxInput\022/\n\ntx_out" +
+      "puts\030\002 \003(\0132\033.adamant.global.v1.TxOutput\"" +
+      "u\n\023BitcoincashSpecific\022-\n\ttx_inputs\030\001 \003(" +
+      "\0132\032.adamant.global.v1.TxInput\022/\n\ntx_outp" +
+      "uts\030\002 \003(\0132\033.adamant.global.v1.TxOutput\"K" +
+      "\n\020EthereumSpecific\022\021\n\tgas_limit\030\001 \001(\004\022\r\n" +
+      "\005nonce\030\002 \001(\004\022\025\n\ris_next_nonce\030\003 \001(\010\"\231\001\n\013" +
+      "XrpSpecific\022\027\n\017sequence_number\030\001 \001(\r\022\027\n\017" +
+      "destination_tag\030\002 \001(\r\0227\n\007tx_type\030\003 \001(\0162&" +
+      ".gincoinc.global.v1.XRPTransactionType\022\037" +
+      "\n\027is_next_sequence_number\030\004 \001(\010\"\"\n\014TronS" +
+      "pecific\022\022\n\nexpiration\030\001 \001(\004\"o\n\rC0banSpec" +
+      "ific\022-\n\ttx_inputs\030\001 \003(\0132\032.adamant.global" +
+      ".v1.TxInput\022/\n\ntx_outputs\030\002 \003(\0132\033.adaman" +
+      "t.global.v1.TxOutput\"`\n\017StellarSpecific\022" +
+      "\027\n\017sequence_number\030\001 \001(\003\022\023\n\007memo_id\030\002 \001(" +
+      "\004B\0020\001\022\037\n\027is_next_sequence_number\030\003 \001(\010\"q" +
+      "\n\017CardanoSpecific\022-\n\ttx_inputs\030\001 \003(\0132\032.a" +
+      "damant.global.v1.TxInput\022/\n\ntx_outputs\030\002" +
+      " \003(\0132\033.adamant.global.v1.TxOutput\"\223\001\n\021Su" +
+      "bstrateSpecific\022\r\n\005nonce\030\001 \001(\004\022\025\n\ris_nex" +
+      "t_nonce\030\002 \001(\010\022X\n\037substrate_multisig_tran" +
+      "sactions\030\004 \003(\0132/.adamant.global.v1.Subst" +
+      "rateMultisigTransaction\"\267\001\n\"CreateTransa" +
+      "ctionSubstrateSpecific\022\026\n\016transaction_id" +
+      "\030\001 \001(\t\0227\n\tcall_type\030\002 \001(\0162$.adamant.glob" +
+      "al.v1.SubstrateCallType\022@\n\022multisig_call" +
+      "_type\030\003 \001(\0162$.adamant.global.v1.Substrat" +
+      "eCallType\"\307\003\n\034SubstrateMultisigTransacti" +
+      "on\022\021\n\twallet_id\030\001 \001(\t\022\026\n\016transaction_id\030" +
+      "\002 \001(\t\022)\n!substrate_multisig_transaction_" +
+      "id\030\003 \001(\t\022\022\n\naccount_id\030\004 \001(\t\022\r\n\005tx_id\030\005 " +
+      "\001(\t\022\024\n\014extrinsic_id\030\006 \001(\t\022\020\n\010jpy_rate\030\007 " +
+      "\001(\001\022\013\n\003fee\030\010 \001(\001\022\022\n\nstring_fee\030\t \001(\t\022\r\n\005" +
+      "nonce\030\n \001(\004\022@\n\022multisig_call_type\030\013 \001(\0162" +
+      "$.adamant.global.v1.SubstrateCallType\0222\n" +
+      "\005state\030\014 \001(\0162#.adamant.global.v1.Transac" +
+      "tionState\022/\n\013create_time\030\r \001(\0132\032.google." +
+      "protobuf.Timestamp\022/\n\013update_time\030\016 \001(\0132" +
+      "\032.google.protobuf.Timestamp\"\227\002\n\010SignInfo" +
+      "\022\021\n\twallet_id\030\001 \001(\t\022\026\n\016transaction_id\030\002 " +
+      "\001(\t\022\016\n\006key_id\030\003 \001(\t\022\022\n\nhd_account\030\004 \001(\r\022" +
+      "&\n\004coin\030\005 \001(\0162\030.gincoinc.global.v1.Coin\022" +
+      "\r\n\005tx_id\030\006 \001(\t\022\022\n\nsign_index\030\013 \001(\r\022\024\n\014si" +
+      "gn_message\030\007 \001(\t\022\021\n\thd_change\030\010 \001(\r\022\020\n\010h" +
+      "d_index\030\t \001(\r\0226\n\016sign_tx_inputs\030\n \003(\0132\036." +
+      "adamant.global.v1.SignTxInput\"`\n\013SignTxI" +
+      "nput\022\026\n\016tx_input_index\030\001 \001(\r\022\024\n\014sign_mes" +
+      "sage\030\002 \001(\t\022\021\n\thd_change\030\003 \001(\r\022\020\n\010hd_inde" +
+      "x\030\004 \001(\r\"\211\004\n\010Transfer\022\021\n\twallet_id\030\001 \001(\t\022" +
+      "\023\n\013transfer_id\030\002 \001(\t\022&\n\004coin\030\003 \001(\0162\030.gin" +
+      "coinc.global.v1.Coin\022\r\n\005tx_id\030\004 \001(\t\0227\n\rt" +
+      "ransfer_type\030\005 \001(\0162 .gincoinc.global.v1." +
+      "TransferType\022\r\n\005value\030\006 \001(\001\022\024\n\014string_va" +
+      "lue\030\007 \001(\t\022\020\n\010jpy_rate\030\t \001(\001\022\031\n\021partner_w" +
+      "allet_id\030\n \001(\t\022\027\n\017partner_address\030\013 \001(\t\022" +
+      "\027\n\017destination_tag\030\017 \001(\r\022\023\n\007memo_id\030\021 \001(" +
+      "\004B\0020\001\0223\n\005state\030\014 \001(\0162$.gincoinc.global.v" +
+      "1.TransactionState\0225\n\006result\030\020 \001(\0162%.gin" +
+      "coinc.global.v1.TransactionResult\022/\n\013cre" +
+      "ate_time\030\r \001(\0132\032.google.protobuf.Timesta" +
+      "mp\022/\n\013update_time\030\016 \001(\0132\032.google.protobu" +
+      "f.Timestamp\";\n\004Rate\022&\n\004coin\030\001 \001(\0162\030.ginc" +
+      "oinc.global.v1.Coin\022\013\n\003jpy\030\002 \001(\001\"\252\001\n\014Rat" +
+      "eSnapshot\022\030\n\020rate_snapshot_id\030\001 \001(\t\0229\n\005r" +
+      "ates\030\002 \003(\0132*.adamant.global.v1.RateSnaps" +
+      "hot.RatesEntry\032E\n\nRatesEntry\022\013\n\003key\030\001 \001(" +
+      "\r\022&\n\005value\030\002 \001(\0132\027.adamant.global.v1.Rat" +
+      "e:\0028\001\"=\n\020Deactivatability\022\022\n\naccount_id\030" +
+      "\001 \001(\t\022\025\n\rdeactivatable\030\002 \001(\010\"\222\002\n\016Labeled" +
+      "Address\022\032\n\022labeled_address_id\030\001 \001(\t\022\014\n\004n" +
+      "ame\030\002 \001(\t\022&\n\004coin\030\003 \001(\0162\030.gincoinc.globa" +
+      "l.v1.Coin\022\017\n\007address\030\004 \001(\t\022;\n\010proposal\030\005" +
+      " \001(\0132).adamant.global.v1.LabeledAddressP" +
+      "roposal\022/\n\013create_time\030\007 \001(\0132\032.google.pr" +
+      "otobuf.Timestamp\022/\n\013update_time\030\010 \001(\0132\032." +
+      "google.protobuf.Timestamp\"\271\001\n\026LabeledAdd" +
+      "ressProposal\022\034\n\024requester_account_id\030\001 \001" +
+      "(\t\022\026\n\016requester_name\030\002 \001(\t\022\033\n\023approver_a" +
+      "ccount_id\030\003 \001(\t\022\025\n\rapprover_name\030\004 \001(\t\022\030" +
+      "\n\020proposed_address\030\005 \001(\t\022\033\n\023address_is_r" +
+      "eviewed\030\006 \001(\010\"\357\001\n\tWhitelist\022\024\n\014whitelist" +
+      "_id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022&\n\004coin\030\003 \001(\0162\030." +
+      "gincoinc.global.v1.Coin\0224\n\taddresses\030\004 \003" +
+      "(\0132!.adamant.global.v1.LabeledAddress\022/\n" +
+      "\013create_time\030\006 \001(\0132\032.google.protobuf.Tim" +
+      "estamp\022/\n\013update_time\030\007 \001(\0132\032.google.pro" +
+      "tobuf.Timestamp\"\326\002\n\rTransferLimit\022\031\n\021tra" +
+      "nsfer_limit_id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022&\n\004co" +
+      "in\030\003 \001(\0162\030.gincoinc.global.v1.Coin\022\024\n\014ho" +
+      "urly_limit\030\004 \001(\003\022\023\n\013daily_limit\030\005 \001(\003\022\026\n" +
+      "\016one_time_limit\030\006 \001(\003\022:\n\010proposal\030\007 \001(\0132" +
+      "(.adamant.global.v1.TransferLimitProposa" +
+      "l\022\023\n\013is_reviewed\030\010 \001(\010\022/\n\013create_time\030\n " +
+      "\001(\0132\032.google.protobuf.Timestamp\022/\n\013updat" +
+      "e_time\030\013 \001(\0132\032.google.protobuf.Timestamp" +
+      "\"\364\001\n\025TransferLimitProposal\022\034\n\024requester_" +
+      "account_id\030\001 \001(\t\022\026\n\016requester_name\030\002 \001(\t" +
+      "\022\033\n\023approver_account_id\030\003 \001(\t\022\025\n\rapprove" +
+      "r_name\030\004 \001(\t\022\035\n\025proposed_hourly_limit\030\005 " +
+      "\001(\003\022\034\n\024proposed_daily_limit\030\006 \001(\003\022\037\n\027pro" +
+      "posed_one_time_limit\030\007 \001(\003\022\023\n\013is_reviewe" +
+      "d\030\010 \001(\010\"\237\003\n\006Policy\022\021\n\tpolicy_id\030\001 \001(\t\0222\n" +
+      "\013policy_type\030\002 \001(\0162\035.adamant.global.v1.P" +
+      "olicyType\022\014\n\004name\030\003 \001(\t\022\026\n\016is_base_polic" +
+      "y\030\004 \001(\010\022&\n\004coin\030\005 \001(\0162\030.gincoinc.global." +
+      "v1.Coin\022/\n\twhitelist\030\006 \001(\0132\034.adamant.glo" +
+      "bal.v1.Whitelist\0228\n\016transfer_limit\030\007 \001(\013" +
+      "2 .adamant.global.v1.TransferLimit\0223\n\010pr" +
+      "oposal\030\013 \001(\0132!.adamant.global.v1.PolicyP" +
+      "roposal\022/\n\013create_time\030\t \001(\0132\032.google.pr" +
+      "otobuf.Timestamp\022/\n\013update_time\030\n \001(\0132\032." +
+      "google.protobuf.Timestamp\"\311\001\n\016PolicyProp" +
+      "osal\022\034\n\024requester_account_id\030\001 \001(\t\022\026\n\016re" +
+      "quester_name\030\002 \001(\t\022\033\n\023approver_account_i" +
+      "d\030\003 \001(\t\022\025\n\rapprover_name\030\004 \001(\t\0228\n\022propos" +
+      "ed_whitelist\030\005 \001(\0132\034.adamant.global.v1.W" +
+      "hitelist\022\023\n\013is_reviewed\030\006 \001(\010\"u\n\022TotalBa" +
+      "lanceByCoin\022&\n\004coin\030\001 \001(\0162\030.gincoinc.glo" +
+      "bal.v1.Coin\022\033\n\023cold_string_balance\030\002 \001(\t" +
+      "\022\032\n\022hot_string_balance\030\003 \001(\t\"\301\001\n\014TotalBa" +
+      "lance\022T\n\016total_balances\030\001 \003(\01322.adamant." +
+      "global.v1.TotalBalance.TotalBalancesEntr" +
+      "yB\010\372B\005\232\001\002\030\001\032[\n\022TotalBalancesEntry\022\013\n\003key" +
+      "\030\001 \001(\r\0224\n\005value\030\002 \001(\0132%.adamant.global.v" +
+      "1.TotalBalanceByCoin:\0028\001\"\207\003\n\017BalanceSnap" +
+      "shot\022/\n\013create_time\030\001 \001(\0132\032.google.proto" +
+      "buf.Timestamp\022W\n\016total_balances\030\002 \003(\01325." +
+      "adamant.global.v1.BalanceSnapshot.TotalB" +
+      "alancesEntryB\010\372B\005\232\001\002\030\001\022F\n\005rates\030\003 \003(\0132-." +
+      "adamant.global.v1.BalanceSnapshot.RatesE" +
+      "ntryB\010\372B\005\232\001\002\030\001\032[\n\022TotalBalancesEntry\022\013\n\003" +
+      "key\030\001 \001(\r\0224\n\005value\030\002 \001(\0132%.adamant.globa" +
+      "l.v1.TotalBalanceByCoin:\0028\001\032E\n\nRatesEntr" +
+      "y\022\013\n\003key\030\001 \001(\r\022&\n\005value\030\002 \001(\0132\027.adamant." +
+      "global.v1.Rate:\0028\001\"\204\002\n\030WalletBalanceSnap" +
+      "shotMap\022x\n\033wallet_balance_snapshot_map\030\001" +
+      " \003(\0132I.adamant.global.v1.WalletBalanceSn" +
+      "apshotMap.WalletBalanceSnapshotMapEntryB" +
+      "\010\372B\005\232\001\002\030\001\032n\n\035WalletBalanceSnapshotMapEnt" +
+      "ry\022\013\n\003key\030\001 \001(\t\022<\n\005value\030\002 \001(\0132-.adamant" +
+      ".global.v1.ListWalletBalanceSnapshots:\0028" +
+      "\001\"h\n\032ListWalletBalanceSnapshots\022J\n\030walle" +
+      "t_balance_snapshots\030\001 \003(\0132(.adamant.glob" +
+      "al.v1.WalletBalanceSnapshot\"m\n\025WalletBal" +
+      "anceSnapshot\022/\n\013create_time\030\001 \001(\0132\032.goog" +
+      "le.protobuf.Timestamp\022\026\n\016string_balance\030" +
+      "\002 \001(\t\022\013\n\003jpy\030\003 \001(\001\"\252\002\n\027TransferVolumeSna" +
+      "pshots\022\221\001\n)transfer_volume_snapshot_by_t" +
+      "ransfer_type\030\001 \003(\0132T.adamant.global.v1.T" +
+      "ransferVolumeSnapshots.TransferVolumeSna" +
+      "pshotByTransferTypeEntryB\010\372B\005\232\001\002\030\001\032{\n)Tr" +
+      "ansferVolumeSnapshotByTransferTypeEntry\022" +
+      "\013\n\003key\030\001 \001(\005\022=\n\005value\030\002 \001(\0132..adamant.gl" +
+      "obal.v1.ListTransferVolumeSnapshots:\0028\001\"" +
+      "k\n\033ListTransferVolumeSnapshots\022L\n\031transf" +
+      "er_volume_snapshots\030\001 \003(\0132).adamant.glob" +
+      "al.v1.TransferVolumeSnapshot\"\217\002\n\026Transfe" +
+      "rVolumeSnapshot\022/\n\013target_time\030\001 \001(\0132\032.g" +
+      "oogle.protobuf.Timestamp\022d\n\027transfer_vol" +
+      "ume_by_coin\030\002 \003(\0132C.adamant.global.v1.Tr" +
+      "ansferVolumeSnapshot.TransferVolumeByCoi" +
+      "nEntry\032^\n\031TransferVolumeByCoinEntry\022\013\n\003k" +
+      "ey\030\001 \001(\005\0220\n\005value\030\002 \001(\0132!.adamant.global" +
+      ".v1.TransferVolume:\0028\001\"\220\002\n\016TransferVolum" +
+      "e\022&\n\004coin\030\001 \001(\0162\030.gincoinc.global.v1.Coi" +
+      "n\022\031\n\021hot_string_volume\030\002 \001(\t\022\032\n\022cold_str" +
+      "ing_volume\030\003 \001(\t\022\035\n\025hot_string_jpy_volum" +
+      "e\030\004 \001(\t\022\036\n\026cold_string_jpy_volume\030\005 \001(\t\022" +
+      "\022\n\nhot_number\030\006 \001(\003\022\023\n\013cold_number\030\007 \001(\003" +
+      "\0227\n\rtransfer_type\030\010 \001(\0162 .gincoinc.globa" +
+      "l.v1.TransferType\"\304\002\n\035WalletTransferVolu" +
+      "meSnapshots\022\234\001\n,wallet_transfer_volume_s" +
+      "napshot_by_wallet_id\030\001 \003(\0132\\.adamant.glo" +
+      "bal.v1.WalletTransferVolumeSnapshots.Wal" +
+      "letTransferVolumeSnapshotByWalletIdEntry" +
+      "B\010\372B\005\232\001\002\030\001\032\203\001\n+WalletTransferVolumeSnaps" +
+      "hotByWalletIdEntry\022\013\n\003key\030\001 \001(\t\022C\n\005value" +
+      "\030\002 \001(\01324.adamant.global.v1.ListWalletTra" +
+      "nsferVolumeSnapshots:\0028\001\"~\n!ListWalletTr" +
+      "ansferVolumeSnapshots\022Y\n wallet_transfer" +
+      "_volume_snapshots\030\001 \003(\0132/.adamant.global" +
+      ".v1.WalletTransferVolumeSnapshot\"\316\002\n\034Wal" +
+      "letTransferVolumeSnapshot\022/\n\013target_time" +
+      "\030\001 \001(\0132\032.google.protobuf.Timestamp\022\210\001\n\'w" +
+      "allet_transfer_volume_by_transfer_type\030\002" +
+      " \003(\0132W.adamant.global.v1.WalletTransferV" +
+      "olumeSnapshot.WalletTransferVolumeByTran" +
+      "sferTypeEntry\032r\n\'WalletTransferVolumeByT" +
+      "ransferTypeEntry\022\013\n\003key\030\001 \001(\005\0226\n\005value\030\002" +
+      " \001(\0132\'.adamant.global.v1.WalletTransferV" +
+      "olume:\0028\001\"\221\001\n\024WalletTransferVolume\022\025\n\rst" +
+      "ring_volume\030\001 \001(\t\022\031\n\021string_jpy_volume\030\002" +
+      " \001(\t\022\016\n\006number\030\003 \001(\003\0227\n\rtransfer_type\030\004 " +
+      "\001(\0162 .gincoinc.global.v1.TransferType\"L\n" +
+      "\014Confirmation\022&\n\004coin\030\001 \001(\0162\030.gincoinc.g" +
+      "lobal.v1.Coin\022\024\n\014confirmation\030\002 \001(\r\"\317\001\n\022" +
+      "WalletFlushSetting\022\020\n\010owner_id\030\001 \001(\t\022&\n\004" +
+      "coin\030\002 \001(\0162\030.gincoinc.global.v1.Coin\022\035\n\025" +
+      "destination_wallet_id\030\003 \001(\t\022/\n\013create_ti" +
+      "me\030\004 \001(\0132\032.google.protobuf.Timestamp\022/\n\013" +
+      "update_time\030\005 \001(\0132\032.google.protobuf.Time" +
+      "stamp\"j\n\017CompensationFee\022\024\n\014string_value" +
+      "\030\001 \001(\t\022\020\n\010is_spent\030\002 \001(\010\022/\n\013create_time\030" +
+      "\003 \001(\0132\032.google.protobuf.Timestamp\"J\n\017Req" +
+      "uestTxOutput\022\030\n\007address\030\001 \001(\tB\007\372B\004r\002\020\003\022\035" +
+      "\n\014string_value\030\002 \001(\tB\007\372B\004r\002\020\001\"V\n\021Request" +
+      "SignedInfo\022A\n\nsignatures\030\001 \003(\0132#.adamant" +
+      ".global.v1.RequestSignatureB\010\372B\005\222\001\002\010\001\"B\n" +
+      "\020RequestSignature\022\022\n\nsign_index\030\001 \001(\r\022\032\n" +
+      "\tsignature\030\002 \001(\tB\007\372B\004r\002\020\001\"\221\001\n\031RequestTra" +
+      "nsferLimitEntry\022M\n\023transfer_limit_type\030\001" +
+      " \001(\0162$.adamant.global.v1.TransferLimitTy" +
+      "peB\n\372B\007\202\001\004\020\001 \000\022%\n\024transfer_limit_value\030\002" +
+      " \001(\003B\007\372B\004\"\002(\000\"^\n\013RequestRate\0222\n\004coin\030\001 \001" +
+      "(\0162\030.gincoinc.global.v1.CoinB\n\372B\007\202\001\004\020\001 \000" +
+      "\022\033\n\003jpy\030\002 \001(\001B\016\372B\013\022\t)\000\000\000\000\000\000\000\000\"x\n\025Substra" +
+      "teChildAddress\022\021\n\twallet_id\030\001 \001(\t\022\022\n\nacc" +
+      "ount_id\030\002 \001(\t\022\017\n\007address\030\003 \001(\t\022\017\n\007balanc" +
+      "e\030\004 \001(\001\022\026\n\016string_balance\030\005 \001(\tB\021Z\017adama" +
+      "ntglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -77238,7 +82804,7 @@ public final class Model {
     internal_static_adamant_global_v1_Transaction_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_Transaction_descriptor,
-        new java.lang.String[] { "WalletId", "TransactionId", "Coin", "TxId", "Address", "Value", "StringValue", "JpyRate", "Fee", "StringFee", "FeeRate", "State", "SignedKeys", "Members", "BitcoinSpecific", "EthereumSpecific", "LitecoinSpecific", "BitcoincashSpecific", "XrpSpecific", "TronSpecific", "C0BanSpecific", "StellarSpecific", "CardanoSpecific", "CreateTime", "UpdateTime", });
+        new java.lang.String[] { "WalletId", "TransactionId", "Coin", "TxId", "Address", "Value", "StringValue", "JpyRate", "Fee", "StringFee", "FeeRate", "State", "SignedKeys", "Members", "BitcoinSpecific", "EthereumSpecific", "LitecoinSpecific", "BitcoincashSpecific", "XrpSpecific", "TronSpecific", "C0BanSpecific", "StellarSpecific", "CardanoSpecific", "SubstrateSpecific", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_TransactionMember_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_adamant_global_v1_TransactionMember_fieldAccessorTable = new
@@ -77317,32 +82883,50 @@ public final class Model {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CardanoSpecific_descriptor,
         new java.lang.String[] { "TxInputs", "TxOutputs", });
-    internal_static_adamant_global_v1_SignInfo_descriptor =
+    internal_static_adamant_global_v1_SubstrateSpecific_descriptor =
       getDescriptor().getMessageTypes().get(24);
+    internal_static_adamant_global_v1_SubstrateSpecific_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_SubstrateSpecific_descriptor,
+        new java.lang.String[] { "Nonce", "IsNextNonce", "SubstrateMultisigTransactions", });
+    internal_static_adamant_global_v1_CreateTransactionSubstrateSpecific_descriptor =
+      getDescriptor().getMessageTypes().get(25);
+    internal_static_adamant_global_v1_CreateTransactionSubstrateSpecific_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_CreateTransactionSubstrateSpecific_descriptor,
+        new java.lang.String[] { "TransactionId", "CallType", "MultisigCallType", });
+    internal_static_adamant_global_v1_SubstrateMultisigTransaction_descriptor =
+      getDescriptor().getMessageTypes().get(26);
+    internal_static_adamant_global_v1_SubstrateMultisigTransaction_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_SubstrateMultisigTransaction_descriptor,
+        new java.lang.String[] { "WalletId", "TransactionId", "SubstrateMultisigTransactionId", "AccountId", "TxId", "ExtrinsicId", "JpyRate", "Fee", "StringFee", "Nonce", "MultisigCallType", "State", "CreateTime", "UpdateTime", });
+    internal_static_adamant_global_v1_SignInfo_descriptor =
+      getDescriptor().getMessageTypes().get(27);
     internal_static_adamant_global_v1_SignInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_SignInfo_descriptor,
         new java.lang.String[] { "WalletId", "TransactionId", "KeyId", "HdAccount", "Coin", "TxId", "SignIndex", "SignMessage", "HdChange", "HdIndex", "SignTxInputs", });
     internal_static_adamant_global_v1_SignTxInput_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_adamant_global_v1_SignTxInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_SignTxInput_descriptor,
         new java.lang.String[] { "TxInputIndex", "SignMessage", "HdChange", "HdIndex", });
     internal_static_adamant_global_v1_Transfer_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_adamant_global_v1_Transfer_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_Transfer_descriptor,
         new java.lang.String[] { "WalletId", "TransferId", "Coin", "TxId", "TransferType", "Value", "StringValue", "JpyRate", "PartnerWalletId", "PartnerAddress", "DestinationTag", "MemoId", "State", "Result", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_Rate_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_adamant_global_v1_Rate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_Rate_descriptor,
         new java.lang.String[] { "Coin", "Jpy", });
     internal_static_adamant_global_v1_RateSnapshot_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_adamant_global_v1_RateSnapshot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_RateSnapshot_descriptor,
@@ -77354,61 +82938,61 @@ public final class Model {
         internal_static_adamant_global_v1_RateSnapshot_RatesEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_adamant_global_v1_Deactivatability_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_adamant_global_v1_Deactivatability_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_Deactivatability_descriptor,
         new java.lang.String[] { "AccountId", "Deactivatable", });
     internal_static_adamant_global_v1_LabeledAddress_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_adamant_global_v1_LabeledAddress_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_LabeledAddress_descriptor,
         new java.lang.String[] { "LabeledAddressId", "Name", "Coin", "Address", "Proposal", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_LabeledAddressProposal_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_adamant_global_v1_LabeledAddressProposal_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_LabeledAddressProposal_descriptor,
         new java.lang.String[] { "RequesterAccountId", "RequesterName", "ApproverAccountId", "ApproverName", "ProposedAddress", "AddressIsReviewed", });
     internal_static_adamant_global_v1_Whitelist_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_adamant_global_v1_Whitelist_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_Whitelist_descriptor,
         new java.lang.String[] { "WhitelistId", "Name", "Coin", "Addresses", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_TransferLimit_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_adamant_global_v1_TransferLimit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_TransferLimit_descriptor,
         new java.lang.String[] { "TransferLimitId", "Name", "Coin", "HourlyLimit", "DailyLimit", "OneTimeLimit", "Proposal", "IsReviewed", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_TransferLimitProposal_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_adamant_global_v1_TransferLimitProposal_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_TransferLimitProposal_descriptor,
         new java.lang.String[] { "RequesterAccountId", "RequesterName", "ApproverAccountId", "ApproverName", "ProposedHourlyLimit", "ProposedDailyLimit", "ProposedOneTimeLimit", "IsReviewed", });
     internal_static_adamant_global_v1_Policy_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_adamant_global_v1_Policy_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_Policy_descriptor,
         new java.lang.String[] { "PolicyId", "PolicyType", "Name", "IsBasePolicy", "Coin", "Whitelist", "TransferLimit", "Proposal", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_PolicyProposal_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_adamant_global_v1_PolicyProposal_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_PolicyProposal_descriptor,
         new java.lang.String[] { "RequesterAccountId", "RequesterName", "ApproverAccountId", "ApproverName", "ProposedWhitelist", "IsReviewed", });
     internal_static_adamant_global_v1_TotalBalanceByCoin_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_adamant_global_v1_TotalBalanceByCoin_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_TotalBalanceByCoin_descriptor,
         new java.lang.String[] { "Coin", "ColdStringBalance", "HotStringBalance", });
     internal_static_adamant_global_v1_TotalBalance_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_adamant_global_v1_TotalBalance_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_TotalBalance_descriptor,
@@ -77420,7 +83004,7 @@ public final class Model {
         internal_static_adamant_global_v1_TotalBalance_TotalBalancesEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_adamant_global_v1_BalanceSnapshot_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(42);
     internal_static_adamant_global_v1_BalanceSnapshot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_BalanceSnapshot_descriptor,
@@ -77438,7 +83022,7 @@ public final class Model {
         internal_static_adamant_global_v1_BalanceSnapshot_RatesEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_adamant_global_v1_WalletBalanceSnapshotMap_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(43);
     internal_static_adamant_global_v1_WalletBalanceSnapshotMap_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_WalletBalanceSnapshotMap_descriptor,
@@ -77450,19 +83034,19 @@ public final class Model {
         internal_static_adamant_global_v1_WalletBalanceSnapshotMap_WalletBalanceSnapshotMapEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_adamant_global_v1_ListWalletBalanceSnapshots_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(44);
     internal_static_adamant_global_v1_ListWalletBalanceSnapshots_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListWalletBalanceSnapshots_descriptor,
         new java.lang.String[] { "WalletBalanceSnapshots", });
     internal_static_adamant_global_v1_WalletBalanceSnapshot_descriptor =
-      getDescriptor().getMessageTypes().get(42);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_adamant_global_v1_WalletBalanceSnapshot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_WalletBalanceSnapshot_descriptor,
         new java.lang.String[] { "CreateTime", "StringBalance", "Jpy", });
     internal_static_adamant_global_v1_TransferVolumeSnapshots_descriptor =
-      getDescriptor().getMessageTypes().get(43);
+      getDescriptor().getMessageTypes().get(46);
     internal_static_adamant_global_v1_TransferVolumeSnapshots_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_TransferVolumeSnapshots_descriptor,
@@ -77474,13 +83058,13 @@ public final class Model {
         internal_static_adamant_global_v1_TransferVolumeSnapshots_TransferVolumeSnapshotByTransferTypeEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_adamant_global_v1_ListTransferVolumeSnapshots_descriptor =
-      getDescriptor().getMessageTypes().get(44);
+      getDescriptor().getMessageTypes().get(47);
     internal_static_adamant_global_v1_ListTransferVolumeSnapshots_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListTransferVolumeSnapshots_descriptor,
         new java.lang.String[] { "TransferVolumeSnapshots", });
     internal_static_adamant_global_v1_TransferVolumeSnapshot_descriptor =
-      getDescriptor().getMessageTypes().get(45);
+      getDescriptor().getMessageTypes().get(48);
     internal_static_adamant_global_v1_TransferVolumeSnapshot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_TransferVolumeSnapshot_descriptor,
@@ -77492,13 +83076,13 @@ public final class Model {
         internal_static_adamant_global_v1_TransferVolumeSnapshot_TransferVolumeByCoinEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_adamant_global_v1_TransferVolume_descriptor =
-      getDescriptor().getMessageTypes().get(46);
+      getDescriptor().getMessageTypes().get(49);
     internal_static_adamant_global_v1_TransferVolume_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_TransferVolume_descriptor,
         new java.lang.String[] { "Coin", "HotStringVolume", "ColdStringVolume", "HotStringJpyVolume", "ColdStringJpyVolume", "HotNumber", "ColdNumber", "TransferType", });
     internal_static_adamant_global_v1_WalletTransferVolumeSnapshots_descriptor =
-      getDescriptor().getMessageTypes().get(47);
+      getDescriptor().getMessageTypes().get(50);
     internal_static_adamant_global_v1_WalletTransferVolumeSnapshots_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_WalletTransferVolumeSnapshots_descriptor,
@@ -77510,13 +83094,13 @@ public final class Model {
         internal_static_adamant_global_v1_WalletTransferVolumeSnapshots_WalletTransferVolumeSnapshotByWalletIdEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_adamant_global_v1_ListWalletTransferVolumeSnapshots_descriptor =
-      getDescriptor().getMessageTypes().get(48);
+      getDescriptor().getMessageTypes().get(51);
     internal_static_adamant_global_v1_ListWalletTransferVolumeSnapshots_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListWalletTransferVolumeSnapshots_descriptor,
         new java.lang.String[] { "WalletTransferVolumeSnapshots", });
     internal_static_adamant_global_v1_WalletTransferVolumeSnapshot_descriptor =
-      getDescriptor().getMessageTypes().get(49);
+      getDescriptor().getMessageTypes().get(52);
     internal_static_adamant_global_v1_WalletTransferVolumeSnapshot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_WalletTransferVolumeSnapshot_descriptor,
@@ -77528,59 +83112,65 @@ public final class Model {
         internal_static_adamant_global_v1_WalletTransferVolumeSnapshot_WalletTransferVolumeByTransferTypeEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_adamant_global_v1_WalletTransferVolume_descriptor =
-      getDescriptor().getMessageTypes().get(50);
+      getDescriptor().getMessageTypes().get(53);
     internal_static_adamant_global_v1_WalletTransferVolume_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_WalletTransferVolume_descriptor,
         new java.lang.String[] { "StringVolume", "StringJpyVolume", "Number", "TransferType", });
     internal_static_adamant_global_v1_Confirmation_descriptor =
-      getDescriptor().getMessageTypes().get(51);
+      getDescriptor().getMessageTypes().get(54);
     internal_static_adamant_global_v1_Confirmation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_Confirmation_descriptor,
         new java.lang.String[] { "Coin", "Confirmation", });
     internal_static_adamant_global_v1_WalletFlushSetting_descriptor =
-      getDescriptor().getMessageTypes().get(52);
+      getDescriptor().getMessageTypes().get(55);
     internal_static_adamant_global_v1_WalletFlushSetting_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_WalletFlushSetting_descriptor,
         new java.lang.String[] { "OwnerId", "Coin", "DestinationWalletId", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_CompensationFee_descriptor =
-      getDescriptor().getMessageTypes().get(53);
+      getDescriptor().getMessageTypes().get(56);
     internal_static_adamant_global_v1_CompensationFee_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CompensationFee_descriptor,
         new java.lang.String[] { "StringValue", "IsSpent", "CreateTime", });
     internal_static_adamant_global_v1_RequestTxOutput_descriptor =
-      getDescriptor().getMessageTypes().get(54);
+      getDescriptor().getMessageTypes().get(57);
     internal_static_adamant_global_v1_RequestTxOutput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_RequestTxOutput_descriptor,
         new java.lang.String[] { "Address", "StringValue", });
     internal_static_adamant_global_v1_RequestSignedInfo_descriptor =
-      getDescriptor().getMessageTypes().get(55);
+      getDescriptor().getMessageTypes().get(58);
     internal_static_adamant_global_v1_RequestSignedInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_RequestSignedInfo_descriptor,
         new java.lang.String[] { "Signatures", });
     internal_static_adamant_global_v1_RequestSignature_descriptor =
-      getDescriptor().getMessageTypes().get(56);
+      getDescriptor().getMessageTypes().get(59);
     internal_static_adamant_global_v1_RequestSignature_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_RequestSignature_descriptor,
         new java.lang.String[] { "SignIndex", "Signature", });
     internal_static_adamant_global_v1_RequestTransferLimitEntry_descriptor =
-      getDescriptor().getMessageTypes().get(57);
+      getDescriptor().getMessageTypes().get(60);
     internal_static_adamant_global_v1_RequestTransferLimitEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_RequestTransferLimitEntry_descriptor,
         new java.lang.String[] { "TransferLimitType", "TransferLimitValue", });
     internal_static_adamant_global_v1_RequestRate_descriptor =
-      getDescriptor().getMessageTypes().get(58);
+      getDescriptor().getMessageTypes().get(61);
     internal_static_adamant_global_v1_RequestRate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_RequestRate_descriptor,
         new java.lang.String[] { "Coin", "Jpy", });
+    internal_static_adamant_global_v1_SubstrateChildAddress_descriptor =
+      getDescriptor().getMessageTypes().get(62);
+    internal_static_adamant_global_v1_SubstrateChildAddress_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_SubstrateChildAddress_descriptor,
+        new java.lang.String[] { "WalletId", "AccountId", "Address", "Balance", "StringBalance", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(io.envoyproxy.pgv.validate.Validate.rules);
