@@ -34,6 +34,12 @@ enum Coin {
   COIN_DEP = 17;
   COIN_USDC = 18;
   COIN_GYEN = 19;
+  COIN_ZAIF = 20;
+  COIN_FSCC = 21;
+  COIN_CMS = 22;
+  COIN_CICC = 23;
+  COIN_NCXC = 24;
+  COIN_COT = 25;
 }
 
 // Network is a type of blockchain network.

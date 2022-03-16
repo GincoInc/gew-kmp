@@ -88,4 +88,17 @@ public interface CreateTransactionRequestOrBuilder extends
    * <code>.adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;</code>
    */
   adamant.global.v1.Model.CreateTransactionSubstrateSpecificOrBuilder getSubstrateSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;</code>
+   */
+  boolean hasWalletConnectSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;</code>
+   */
+  adamant.global.v1.Model.CreateTransactionWalletConnectSpecific getWalletConnectSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;</code>
+   */
+  adamant.global.v1.Model.CreateTransactionWalletConnectSpecificOrBuilder getWalletConnectSpecificOrBuilder();
 }

@@ -36,6 +36,8 @@ message Wallet {
     string destination_wallet_id = 19; // The id of wallet to which the tx is send (only wallet type is WALLET_TYPE_SELF_CUSTODY_HOT_ETHEREUM_EOA_RECEIVE_ONLY)
     bool watch_only = 21; // The flag indicating the
     uint32 address_number = 22; // number of address (only watch_only is true)
+    bool should_check_remittance = 24; // should check remittance
+    string inherit_wallet_id = 25; // The wallet id of the inherited ethereum (only for ERC20 token)
     google.protobuf.Timestamp create_time = 15; // the time at which the wallet was created
     google.protobuf.Timestamp update_time = 16; // the time at which the wallet was updated
 }
@@ -59,6 +61,8 @@ message WalletWithoutBalance {
     WalletProposal proposal = 15;
     string destination_wallet_id = 16;
     bool watch_only = 19;
+    bool should_check_remittance = 21;
+    string inherit_wallet_id = 22;
     google.protobuf.Timestamp create_time = 17;
     google.protobuf.Timestamp update_time = 18;
 }
@@ -180,7 +184,7 @@ message Transaction {
     C0banSpecific c0ban_specific = 26; // The C0ban specific fields
     StellarSpecific stellar_specific = 27; // The Stellar specific fields
     CardanoSpecific cardano_specific = 28; // The Cardano specific fields
-    SubstrateSpecific substrate_specific = 29; // The Cardano specific fields
+    SubstrateSpecific substrate_specific = 29; // The Substrate specific fields
     google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
     google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -245,6 +249,8 @@ message EthereumSpecific {
     uint64 gas_limit = 1;
     uint64 nonce = 2;
     bool is_next_nonce = 3;
+    adamant.global.v1.EthereumContractMethodIDType method_id_type = 4;
+    uint64 expiration = 5;
 }
 
 // The model of XRP specific fields of transaction
@@ -293,6 +299,12 @@ message CreateTransactionSubstrateSpecific {
     SubstrateCallType multisig_call_type = 3;
 }
 
+// The model of Ethereum specific fields of CreateTransaction
+message CreateTransactionWalletConnectSpecific {
+    WalletConnectCallRequestType call_request_type = 1;
+    string call_request_params = 2;
+}
+
 // The model of substrate multisig transaction
 message SubstrateMultisigTransaction {
     string wallet_id = 1; // The id of wallet
@@ -310,6 +322,7 @@ message SubstrateMultisigTransaction {
     google.protobuf.Timestamp create_time = 13; // the time at which the transaction was created
     google.protobuf.Timestamp update_time = 14; // the time at which the transaction was updated
 }
+
 
 // The model of information about signing
 message SignInfo {
@@ -352,6 +365,36 @@ message Transfer {
     gincoinc.global.v1.TransactionResult result = 16; // result
     google.protobuf.Timestamp create_time = 13; // the time at which the transfer was created
     google.protobuf.Timestamp update_time = 14; // the time at which the transfer was updated
+}
+
+// The model of transfer
+message UncheckedTransfer {
+    string wallet_id = 1; // The id of wallet
+    string transfer_id = 2; // id
+    gincoinc.global.v1.Coin coin = 3; // coin
+    string tx_id = 4; // txID
+    gincoinc.global.v1.TransferType transfer_type = 5; // type
+    gincoinc.global.v1.TransactionState state = 6; // state
+    gincoinc.global.v1.TransactionResult result = 7; // result
+    double value = 8; // The number-typed amount of transfer
+    string string_value = 9; // The string-typed amount of transfer
+    double jpy_rate = 10; // The rate of fiat
+    string partner_wallet_id = 11; // The wallet id to which the transfer send/receive
+    string partner_address = 12; // The address of wallet to which the transfer send/receive
+    uint32 destination_tag = 13; // destination tag (only XRP)
+    uint64 memo_id = 14 [jstype = JS_STRING]; // memo id (only XLM)
+    bool has_checked = 15; // Whether the transfer has been checked or not
+    google.protobuf.Timestamp create_time = 16; // the time at which the transfer was created
+    google.protobuf.Timestamp update_time = 17; // the time at which the transfer was updated
+}
+
+message EventTriggeredMessage {
+    string event_triggered_message_id = 1;
+    adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 2;
+    string owner_id = 3;
+    string destination = 4;
+    google.protobuf.Timestamp create_time = 5;
+    google.protobuf.Timestamp update_time = 6;
 }
 
 // The model of fiat rate
@@ -550,6 +593,16 @@ message CompensationFee {
     string string_value = 1;
     bool is_spent = 2;
     google.protobuf.Timestamp create_time = 3;
+}
+
+message WalletGroup {
+    string wallet_group_id = 1;
+    string name = 2;
+    gincoinc.global.v1.Coin coin = 3;
+    repeated Wallet wallets = 4;
+    bool watch_only = 7;
+    google.protobuf.Timestamp create_time = 5;
+    google.protobuf.Timestamp update_time = 6;
 }
 
 // =============================================================================

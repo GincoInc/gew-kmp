@@ -108,6 +108,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 74: {
+            adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.Builder subBuilder = null;
+            if (walletConnectSpecific_ != null) {
+              subBuilder = walletConnectSpecific_.toBuilder();
+            }
+            walletConnectSpecific_ = input.readMessage(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(walletConnectSpecific_);
+              walletConnectSpecific_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -328,6 +341,27 @@ private static final long serialVersionUID = 0L;
     return getSubstrateSpecific();
   }
 
+  public static final int WALLET_CONNECT_SPECIFIC_FIELD_NUMBER = 9;
+  private adamant.global.v1.Model.CreateTransactionWalletConnectSpecific walletConnectSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;</code>
+   */
+  public boolean hasWalletConnectSpecific() {
+    return walletConnectSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;</code>
+   */
+  public adamant.global.v1.Model.CreateTransactionWalletConnectSpecific getWalletConnectSpecific() {
+    return walletConnectSpecific_ == null ? adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.getDefaultInstance() : walletConnectSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;</code>
+   */
+  public adamant.global.v1.Model.CreateTransactionWalletConnectSpecificOrBuilder getWalletConnectSpecificOrBuilder() {
+    return getWalletConnectSpecific();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -365,6 +399,9 @@ private static final long serialVersionUID = 0L;
     }
     if (substrateSpecific_ != null) {
       output.writeMessage(8, getSubstrateSpecific());
+    }
+    if (walletConnectSpecific_ != null) {
+      output.writeMessage(9, getWalletConnectSpecific());
     }
     unknownFields.writeTo(output);
   }
@@ -404,6 +441,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getSubstrateSpecific());
     }
+    if (walletConnectSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, getWalletConnectSpecific());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -438,6 +479,11 @@ private static final long serialVersionUID = 0L;
       if (!getSubstrateSpecific()
           .equals(other.getSubstrateSpecific())) return false;
     }
+    if (hasWalletConnectSpecific() != other.hasWalletConnectSpecific()) return false;
+    if (hasWalletConnectSpecific()) {
+      if (!getWalletConnectSpecific()
+          .equals(other.getWalletConnectSpecific())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -470,6 +516,10 @@ private static final long serialVersionUID = 0L;
     if (hasSubstrateSpecific()) {
       hash = (37 * hash) + SUBSTRATE_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getSubstrateSpecific().hashCode();
+    }
+    if (hasWalletConnectSpecific()) {
+      hash = (37 * hash) + WALLET_CONNECT_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getWalletConnectSpecific().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -629,6 +679,12 @@ private static final long serialVersionUID = 0L;
         substrateSpecific_ = null;
         substrateSpecificBuilder_ = null;
       }
+      if (walletConnectSpecificBuilder_ == null) {
+        walletConnectSpecific_ = null;
+      } else {
+        walletConnectSpecific_ = null;
+        walletConnectSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -675,6 +731,11 @@ private static final long serialVersionUID = 0L;
         result.substrateSpecific_ = substrateSpecific_;
       } else {
         result.substrateSpecific_ = substrateSpecificBuilder_.build();
+      }
+      if (walletConnectSpecificBuilder_ == null) {
+        result.walletConnectSpecific_ = walletConnectSpecific_;
+      } else {
+        result.walletConnectSpecific_ = walletConnectSpecificBuilder_.build();
       }
       onBuilt();
       return result;
@@ -773,6 +834,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasSubstrateSpecific()) {
         mergeSubstrateSpecific(other.getSubstrateSpecific());
+      }
+      if (other.hasWalletConnectSpecific()) {
+        mergeWalletConnectSpecific(other.getWalletConnectSpecific());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1444,6 +1508,123 @@ private static final long serialVersionUID = 0L;
         substrateSpecific_ = null;
       }
       return substrateSpecificBuilder_;
+    }
+
+    private adamant.global.v1.Model.CreateTransactionWalletConnectSpecific walletConnectSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionWalletConnectSpecific, adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.Builder, adamant.global.v1.Model.CreateTransactionWalletConnectSpecificOrBuilder> walletConnectSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;</code>
+     */
+    public boolean hasWalletConnectSpecific() {
+      return walletConnectSpecificBuilder_ != null || walletConnectSpecific_ != null;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionWalletConnectSpecific getWalletConnectSpecific() {
+      if (walletConnectSpecificBuilder_ == null) {
+        return walletConnectSpecific_ == null ? adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.getDefaultInstance() : walletConnectSpecific_;
+      } else {
+        return walletConnectSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;</code>
+     */
+    public Builder setWalletConnectSpecific(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific value) {
+      if (walletConnectSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        walletConnectSpecific_ = value;
+        onChanged();
+      } else {
+        walletConnectSpecificBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;</code>
+     */
+    public Builder setWalletConnectSpecific(
+        adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.Builder builderForValue) {
+      if (walletConnectSpecificBuilder_ == null) {
+        walletConnectSpecific_ = builderForValue.build();
+        onChanged();
+      } else {
+        walletConnectSpecificBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;</code>
+     */
+    public Builder mergeWalletConnectSpecific(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific value) {
+      if (walletConnectSpecificBuilder_ == null) {
+        if (walletConnectSpecific_ != null) {
+          walletConnectSpecific_ =
+            adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.newBuilder(walletConnectSpecific_).mergeFrom(value).buildPartial();
+        } else {
+          walletConnectSpecific_ = value;
+        }
+        onChanged();
+      } else {
+        walletConnectSpecificBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;</code>
+     */
+    public Builder clearWalletConnectSpecific() {
+      if (walletConnectSpecificBuilder_ == null) {
+        walletConnectSpecific_ = null;
+        onChanged();
+      } else {
+        walletConnectSpecific_ = null;
+        walletConnectSpecificBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.Builder getWalletConnectSpecificBuilder() {
+      
+      onChanged();
+      return getWalletConnectSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionWalletConnectSpecificOrBuilder getWalletConnectSpecificOrBuilder() {
+      if (walletConnectSpecificBuilder_ != null) {
+        return walletConnectSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return walletConnectSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.getDefaultInstance() : walletConnectSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionWalletConnectSpecific, adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.Builder, adamant.global.v1.Model.CreateTransactionWalletConnectSpecificOrBuilder> 
+        getWalletConnectSpecificFieldBuilder() {
+      if (walletConnectSpecificBuilder_ == null) {
+        walletConnectSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionWalletConnectSpecific, adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.Builder, adamant.global.v1.Model.CreateTransactionWalletConnectSpecificOrBuilder>(
+                getWalletConnectSpecific(),
+                getParentForChildren(),
+                isClean());
+        walletConnectSpecific_ = null;
+      }
+      return walletConnectSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
