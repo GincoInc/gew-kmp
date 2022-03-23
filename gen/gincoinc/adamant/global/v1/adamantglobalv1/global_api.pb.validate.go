@@ -46,6 +46,8 @@ var (
 
 	_ = gincoincglobalv1.Coin(0)
 
+	_ = gincoincglobalv1.Coin(0)
+
 	_ = gincoincglobalv1.TransferType(0)
 
 	_ = gincoincglobalv1.Coin(0)
@@ -1863,6 +1865,146 @@ var _ interface {
 	ErrorName() string
 } = ExistsWalletByNameResponseValidationError{}
 
+// Validate checks the field values on ExistsWalletGroupByNameRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ExistsWalletGroupByNameRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Name
+
+	return nil
+}
+
+// ExistsWalletGroupByNameRequestValidationError is the validation error
+// returned by ExistsWalletGroupByNameRequest.Validate if the designated
+// constraints aren't met.
+type ExistsWalletGroupByNameRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ExistsWalletGroupByNameRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ExistsWalletGroupByNameRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ExistsWalletGroupByNameRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ExistsWalletGroupByNameRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ExistsWalletGroupByNameRequestValidationError) ErrorName() string {
+	return "ExistsWalletGroupByNameRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ExistsWalletGroupByNameRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sExistsWalletGroupByNameRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ExistsWalletGroupByNameRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ExistsWalletGroupByNameRequestValidationError{}
+
+// Validate checks the field values on ExistsWalletGroupByNameResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ExistsWalletGroupByNameResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for Exists
+
+	return nil
+}
+
+// ExistsWalletGroupByNameResponseValidationError is the validation error
+// returned by ExistsWalletGroupByNameResponse.Validate if the designated
+// constraints aren't met.
+type ExistsWalletGroupByNameResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ExistsWalletGroupByNameResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ExistsWalletGroupByNameResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ExistsWalletGroupByNameResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ExistsWalletGroupByNameResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ExistsWalletGroupByNameResponseValidationError) ErrorName() string {
+	return "ExistsWalletGroupByNameResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ExistsWalletGroupByNameResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sExistsWalletGroupByNameResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ExistsWalletGroupByNameResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ExistsWalletGroupByNameResponseValidationError{}
+
 // Validate checks the field values on FlushBalanceRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -2521,6 +2663,667 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListUTXOsResponseValidationError{}
+
+// Validate checks the field values on UpdateShouldCheckRemittanceFlagRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, an error is returned.
+func (m *UpdateShouldCheckRemittanceFlagRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_UpdateShouldCheckRemittanceFlagRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return UpdateShouldCheckRemittanceFlagRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	// no validation rules for ShouldCheckRemittance
+
+	return nil
+}
+
+// UpdateShouldCheckRemittanceFlagRequestValidationError is the validation
+// error returned by UpdateShouldCheckRemittanceFlagRequest.Validate if the
+// designated constraints aren't met.
+type UpdateShouldCheckRemittanceFlagRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateShouldCheckRemittanceFlagRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateShouldCheckRemittanceFlagRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateShouldCheckRemittanceFlagRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateShouldCheckRemittanceFlagRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateShouldCheckRemittanceFlagRequestValidationError) ErrorName() string {
+	return "UpdateShouldCheckRemittanceFlagRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateShouldCheckRemittanceFlagRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateShouldCheckRemittanceFlagRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateShouldCheckRemittanceFlagRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateShouldCheckRemittanceFlagRequestValidationError{}
+
+var _UpdateShouldCheckRemittanceFlagRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on CreateWalletGroupRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CreateWalletGroupRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
+		return CreateWalletGroupRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 20 runes, inclusive",
+		}
+	}
+
+	if _, ok := _CreateWalletGroupRequest_Coin_NotInLookup[m.GetCoin()]; ok {
+		return CreateWalletGroupRequestValidationError{
+			field:  "Coin",
+			reason: "value must not be in list [0]",
+		}
+	}
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		return CreateWalletGroupRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+	}
+
+	if len(m.GetWalletIds()) < 1 {
+		return CreateWalletGroupRequestValidationError{
+			field:  "WalletIds",
+			reason: "value must contain at least 1 item(s)",
+		}
+	}
+
+	// no validation rules for WatchOnly
+
+	return nil
+}
+
+// CreateWalletGroupRequestValidationError is the validation error returned by
+// CreateWalletGroupRequest.Validate if the designated constraints aren't met.
+type CreateWalletGroupRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateWalletGroupRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateWalletGroupRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateWalletGroupRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateWalletGroupRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateWalletGroupRequestValidationError) ErrorName() string {
+	return "CreateWalletGroupRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateWalletGroupRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateWalletGroupRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateWalletGroupRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateWalletGroupRequestValidationError{}
+
+var _CreateWalletGroupRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
+	0: {},
+}
+
+// Validate checks the field values on CreateWalletGroupResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *CreateWalletGroupResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for WalletGroupId
+
+	return nil
+}
+
+// CreateWalletGroupResponseValidationError is the validation error returned by
+// CreateWalletGroupResponse.Validate if the designated constraints aren't met.
+type CreateWalletGroupResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateWalletGroupResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateWalletGroupResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateWalletGroupResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateWalletGroupResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateWalletGroupResponseValidationError) ErrorName() string {
+	return "CreateWalletGroupResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateWalletGroupResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateWalletGroupResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateWalletGroupResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateWalletGroupResponseValidationError{}
+
+// Validate checks the field values on UpdateWalletGroupRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *UpdateWalletGroupRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_UpdateWalletGroupRequest_WalletGroupId_Pattern.MatchString(m.GetWalletGroupId()) {
+		return UpdateWalletGroupRequestValidationError{
+			field:  "WalletGroupId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	if len(m.GetWalletIds()) < 1 {
+		return UpdateWalletGroupRequestValidationError{
+			field:  "WalletIds",
+			reason: "value must contain at least 1 item(s)",
+		}
+	}
+
+	return nil
+}
+
+// UpdateWalletGroupRequestValidationError is the validation error returned by
+// UpdateWalletGroupRequest.Validate if the designated constraints aren't met.
+type UpdateWalletGroupRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateWalletGroupRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateWalletGroupRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateWalletGroupRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateWalletGroupRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateWalletGroupRequestValidationError) ErrorName() string {
+	return "UpdateWalletGroupRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateWalletGroupRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateWalletGroupRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateWalletGroupRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateWalletGroupRequestValidationError{}
+
+var _UpdateWalletGroupRequest_WalletGroupId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on UpdateWalletGroupNameRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *UpdateWalletGroupNameRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_UpdateWalletGroupNameRequest_WalletGroupId_Pattern.MatchString(m.GetWalletGroupId()) {
+		return UpdateWalletGroupNameRequestValidationError{
+			field:  "WalletGroupId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
+		return UpdateWalletGroupNameRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 20 runes, inclusive",
+		}
+	}
+
+	return nil
+}
+
+// UpdateWalletGroupNameRequestValidationError is the validation error returned
+// by UpdateWalletGroupNameRequest.Validate if the designated constraints
+// aren't met.
+type UpdateWalletGroupNameRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateWalletGroupNameRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateWalletGroupNameRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateWalletGroupNameRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateWalletGroupNameRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateWalletGroupNameRequestValidationError) ErrorName() string {
+	return "UpdateWalletGroupNameRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateWalletGroupNameRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateWalletGroupNameRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateWalletGroupNameRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateWalletGroupNameRequestValidationError{}
+
+var _UpdateWalletGroupNameRequest_WalletGroupId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on GetWalletGroupRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *GetWalletGroupRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_GetWalletGroupRequest_WalletGroupId_Pattern.MatchString(m.GetWalletGroupId()) {
+		return GetWalletGroupRequestValidationError{
+			field:  "WalletGroupId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// GetWalletGroupRequestValidationError is the validation error returned by
+// GetWalletGroupRequest.Validate if the designated constraints aren't met.
+type GetWalletGroupRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetWalletGroupRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetWalletGroupRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetWalletGroupRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetWalletGroupRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetWalletGroupRequestValidationError) ErrorName() string {
+	return "GetWalletGroupRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetWalletGroupRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetWalletGroupRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetWalletGroupRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetWalletGroupRequestValidationError{}
+
+var _GetWalletGroupRequest_WalletGroupId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ListWalletGroupsRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ListWalletGroupsRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for WatchOnly
+
+	if m.GetPageSize() > 100 {
+		return ListWalletGroupsRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 100",
+		}
+	}
+
+	if !_ListWalletGroupsRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		return ListWalletGroupsRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+	}
+
+	return nil
+}
+
+// ListWalletGroupsRequestValidationError is the validation error returned by
+// ListWalletGroupsRequest.Validate if the designated constraints aren't met.
+type ListWalletGroupsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListWalletGroupsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListWalletGroupsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListWalletGroupsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListWalletGroupsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListWalletGroupsRequestValidationError) ErrorName() string {
+	return "ListWalletGroupsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListWalletGroupsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListWalletGroupsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListWalletGroupsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListWalletGroupsRequestValidationError{}
+
+var _ListWalletGroupsRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListWalletGroupsResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ListWalletGroupsResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetWalletGroups() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListWalletGroupsResponseValidationError{
+					field:  fmt.Sprintf("WalletGroups[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	return nil
+}
+
+// ListWalletGroupsResponseValidationError is the validation error returned by
+// ListWalletGroupsResponse.Validate if the designated constraints aren't met.
+type ListWalletGroupsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListWalletGroupsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListWalletGroupsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListWalletGroupsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListWalletGroupsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListWalletGroupsResponseValidationError) ErrorName() string {
+	return "ListWalletGroupsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListWalletGroupsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListWalletGroupsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListWalletGroupsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListWalletGroupsResponseValidationError{}
 
 // Validate checks the field values on RegisterKeyRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -3943,6 +4746,16 @@ func (m *CreateTransactionRequest) Validate() error {
 		if err := v.Validate(); err != nil {
 			return CreateTransactionRequestValidationError{
 				field:  "SubstrateSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetWalletConnectSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateTransactionRequestValidationError{
+				field:  "WalletConnectSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -6387,6 +7200,713 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListTransfersResponseValidationError{}
+
+// Validate checks the field values on ListUncheckedTransfersByFilterRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, an error is returned.
+func (m *ListUncheckedTransfersByFilterRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for HasChecked
+
+	if m.GetPageSize() > 100 {
+		return ListUncheckedTransfersByFilterRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 100",
+		}
+	}
+
+	if !_ListUncheckedTransfersByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		return ListUncheckedTransfersByFilterRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+	}
+
+	return nil
+}
+
+// ListUncheckedTransfersByFilterRequestValidationError is the validation error
+// returned by ListUncheckedTransfersByFilterRequest.Validate if the
+// designated constraints aren't met.
+type ListUncheckedTransfersByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListUncheckedTransfersByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListUncheckedTransfersByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListUncheckedTransfersByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListUncheckedTransfersByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListUncheckedTransfersByFilterRequestValidationError) ErrorName() string {
+	return "ListUncheckedTransfersByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListUncheckedTransfersByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListUncheckedTransfersByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListUncheckedTransfersByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListUncheckedTransfersByFilterRequestValidationError{}
+
+var _ListUncheckedTransfersByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on
+// UpdateUncheckedTransferHasCheckedFlagRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, an error is returned.
+func (m *UpdateUncheckedTransferHasCheckedFlagRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_UpdateUncheckedTransferHasCheckedFlagRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		return UpdateUncheckedTransferHasCheckedFlagRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	if !_UpdateUncheckedTransferHasCheckedFlagRequest_UncheckedTransferId_Pattern.MatchString(m.GetUncheckedTransferId()) {
+		return UpdateUncheckedTransferHasCheckedFlagRequestValidationError{
+			field:  "UncheckedTransferId",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// UpdateUncheckedTransferHasCheckedFlagRequestValidationError is the
+// validation error returned by
+// UpdateUncheckedTransferHasCheckedFlagRequest.Validate if the designated
+// constraints aren't met.
+type UpdateUncheckedTransferHasCheckedFlagRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateUncheckedTransferHasCheckedFlagRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateUncheckedTransferHasCheckedFlagRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateUncheckedTransferHasCheckedFlagRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateUncheckedTransferHasCheckedFlagRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateUncheckedTransferHasCheckedFlagRequestValidationError) ErrorName() string {
+	return "UpdateUncheckedTransferHasCheckedFlagRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateUncheckedTransferHasCheckedFlagRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateUncheckedTransferHasCheckedFlagRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateUncheckedTransferHasCheckedFlagRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateUncheckedTransferHasCheckedFlagRequestValidationError{}
+
+var _UpdateUncheckedTransferHasCheckedFlagRequest_WalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _UpdateUncheckedTransferHasCheckedFlagRequest_UncheckedTransferId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ListUncheckedTransfersResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *ListUncheckedTransfersResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetUncheckedTransfers() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListUncheckedTransfersResponseValidationError{
+					field:  fmt.Sprintf("UncheckedTransfers[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	return nil
+}
+
+// ListUncheckedTransfersResponseValidationError is the validation error
+// returned by ListUncheckedTransfersResponse.Validate if the designated
+// constraints aren't met.
+type ListUncheckedTransfersResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListUncheckedTransfersResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListUncheckedTransfersResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListUncheckedTransfersResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListUncheckedTransfersResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListUncheckedTransfersResponseValidationError) ErrorName() string {
+	return "ListUncheckedTransfersResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListUncheckedTransfersResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListUncheckedTransfersResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListUncheckedTransfersResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListUncheckedTransfersResponseValidationError{}
+
+// Validate checks the field values on ListEventTriggeredMessagesRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *ListEventTriggeredMessagesRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	return nil
+}
+
+// ListEventTriggeredMessagesRequestValidationError is the validation error
+// returned by ListEventTriggeredMessagesRequest.Validate if the designated
+// constraints aren't met.
+type ListEventTriggeredMessagesRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListEventTriggeredMessagesRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListEventTriggeredMessagesRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListEventTriggeredMessagesRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListEventTriggeredMessagesRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListEventTriggeredMessagesRequestValidationError) ErrorName() string {
+	return "ListEventTriggeredMessagesRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListEventTriggeredMessagesRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListEventTriggeredMessagesRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListEventTriggeredMessagesRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListEventTriggeredMessagesRequestValidationError{}
+
+// Validate checks the field values on ListEventTriggeredMessagesResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *ListEventTriggeredMessagesResponse) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetEventTriggeredMessages() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListEventTriggeredMessagesResponseValidationError{
+					field:  fmt.Sprintf("EventTriggeredMessages[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ListEventTriggeredMessagesResponseValidationError is the validation error
+// returned by ListEventTriggeredMessagesResponse.Validate if the designated
+// constraints aren't met.
+type ListEventTriggeredMessagesResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListEventTriggeredMessagesResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListEventTriggeredMessagesResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListEventTriggeredMessagesResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListEventTriggeredMessagesResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListEventTriggeredMessagesResponseValidationError) ErrorName() string {
+	return "ListEventTriggeredMessagesResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListEventTriggeredMessagesResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListEventTriggeredMessagesResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListEventTriggeredMessagesResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListEventTriggeredMessagesResponseValidationError{}
+
+// Validate checks the field values on CreateEventTriggeredMessageRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *CreateEventTriggeredMessageRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for EventTriggeredMessageType
+
+	// no validation rules for Destination
+
+	return nil
+}
+
+// CreateEventTriggeredMessageRequestValidationError is the validation error
+// returned by CreateEventTriggeredMessageRequest.Validate if the designated
+// constraints aren't met.
+type CreateEventTriggeredMessageRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateEventTriggeredMessageRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateEventTriggeredMessageRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateEventTriggeredMessageRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateEventTriggeredMessageRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateEventTriggeredMessageRequestValidationError) ErrorName() string {
+	return "CreateEventTriggeredMessageRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateEventTriggeredMessageRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateEventTriggeredMessageRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateEventTriggeredMessageRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateEventTriggeredMessageRequestValidationError{}
+
+// Validate checks the field values on CreateEventTriggeredMessageResponce with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *CreateEventTriggeredMessageResponce) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for EventTriggeredMessageId
+
+	return nil
+}
+
+// CreateEventTriggeredMessageResponceValidationError is the validation error
+// returned by CreateEventTriggeredMessageResponce.Validate if the designated
+// constraints aren't met.
+type CreateEventTriggeredMessageResponceValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateEventTriggeredMessageResponceValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateEventTriggeredMessageResponceValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateEventTriggeredMessageResponceValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateEventTriggeredMessageResponceValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateEventTriggeredMessageResponceValidationError) ErrorName() string {
+	return "CreateEventTriggeredMessageResponceValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateEventTriggeredMessageResponceValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateEventTriggeredMessageResponce.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateEventTriggeredMessageResponceValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateEventTriggeredMessageResponceValidationError{}
+
+// Validate checks the field values on UpdateEventTriggeredMessageRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *UpdateEventTriggeredMessageRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_UpdateEventTriggeredMessageRequest_EventTriggeredMessageId_Pattern.MatchString(m.GetEventTriggeredMessageId()) {
+		return UpdateEventTriggeredMessageRequestValidationError{
+			field:  "EventTriggeredMessageId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	// no validation rules for Destination
+
+	return nil
+}
+
+// UpdateEventTriggeredMessageRequestValidationError is the validation error
+// returned by UpdateEventTriggeredMessageRequest.Validate if the designated
+// constraints aren't met.
+type UpdateEventTriggeredMessageRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateEventTriggeredMessageRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateEventTriggeredMessageRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateEventTriggeredMessageRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateEventTriggeredMessageRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateEventTriggeredMessageRequestValidationError) ErrorName() string {
+	return "UpdateEventTriggeredMessageRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateEventTriggeredMessageRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateEventTriggeredMessageRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateEventTriggeredMessageRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateEventTriggeredMessageRequestValidationError{}
+
+var _UpdateEventTriggeredMessageRequest_EventTriggeredMessageId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on DeleteEventTriggeredMessageRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned.
+func (m *DeleteEventTriggeredMessageRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if !_DeleteEventTriggeredMessageRequest_EventTriggeredMessageId_Pattern.MatchString(m.GetEventTriggeredMessageId()) {
+		return DeleteEventTriggeredMessageRequestValidationError{
+			field:  "EventTriggeredMessageId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+	}
+
+	return nil
+}
+
+// DeleteEventTriggeredMessageRequestValidationError is the validation error
+// returned by DeleteEventTriggeredMessageRequest.Validate if the designated
+// constraints aren't met.
+type DeleteEventTriggeredMessageRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DeleteEventTriggeredMessageRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DeleteEventTriggeredMessageRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DeleteEventTriggeredMessageRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DeleteEventTriggeredMessageRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DeleteEventTriggeredMessageRequestValidationError) ErrorName() string {
+	return "DeleteEventTriggeredMessageRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e DeleteEventTriggeredMessageRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDeleteEventTriggeredMessageRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DeleteEventTriggeredMessageRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DeleteEventTriggeredMessageRequestValidationError{}
+
+var _DeleteEventTriggeredMessageRequest_EventTriggeredMessageId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on GetRateSnapshotRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -12126,3 +13646,96 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListSubstrateChildAddressesResponseValidationError{}
+
+// Validate checks the field values on DownloadResourceRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *DownloadResourceRequest) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for DownloadResourceType
+
+	// no validation rules for WatchOnly
+
+	// no validation rules for WalletId
+
+	if v, ok := interface{}(m.GetStartTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return DownloadResourceRequestValidationError{
+				field:  "StartTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetEndTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return DownloadResourceRequestValidationError{
+				field:  "EndTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// DownloadResourceRequestValidationError is the validation error returned by
+// DownloadResourceRequest.Validate if the designated constraints aren't met.
+type DownloadResourceRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DownloadResourceRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DownloadResourceRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DownloadResourceRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DownloadResourceRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DownloadResourceRequestValidationError) ErrorName() string {
+	return "DownloadResourceRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e DownloadResourceRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDownloadResourceRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DownloadResourceRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DownloadResourceRequestValidationError{}

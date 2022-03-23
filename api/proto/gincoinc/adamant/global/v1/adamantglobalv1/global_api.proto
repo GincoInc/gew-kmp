@@ -33,6 +33,11 @@ service GlobalAPI {
     rpc UpdateWalletPolicy (UpdateWalletPolicyRequest) returns (google.protobuf.Empty) {}
     rpc ReviewWalletProposal (ReviewWalletProposalRequest) returns (google.protobuf.Empty) {}
     rpc FlushBalance (FlushBalanceRequest) returns (FlushBalanceResponse) {}
+    rpc CreateWalletGroup (CreateWalletGroupRequest) returns (CreateWalletGroupResponse) {}
+    rpc UpdateWalletGroupName (UpdateWalletGroupNameRequest) returns (google.protobuf.Empty) {}
+    rpc UpdateWalletGroup (UpdateWalletGroupRequest) returns (google.protobuf.Empty) {}
+    rpc GetWalletGroup (GetWalletGroupRequest) returns (WalletGroup) {}
+    rpc ListWalletGroups (ListWalletGroupsRequest) returns (ListWalletGroupsResponse) {}
 
     // Review
     rpc ApproveWallet (ApproveWalletRequest) returns (google.protobuf.Empty) {}
@@ -273,6 +278,14 @@ message ExistsWalletByNameResponse {
     bool exists = 1;
 }
 
+message ExistsWalletGroupByNameRequest {
+    string name = 1;
+}
+
+message ExistsWalletGroupByNameResponse {
+    bool exists = 1;
+}
+
 message FlushBalanceRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
@@ -306,6 +319,47 @@ message ListUTXOsRequest {
 
 message ListUTXOsResponse {
     repeated UTXO utxos = 1;
+}
+
+message UpdateShouldCheckRemittanceFlagRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    bool should_check_remittance = 2;
+}
+
+message CreateWalletGroupRequest {
+    string name = 1 [(validate.rules).string = {min_len: 1, max_len: 20}];
+    gincoinc.global.v1.Coin coin = 2 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
+    repeated string wallet_ids = 3 [(validate.rules).repeated.min_items = 1];
+    bool watch_only = 4;
+}
+
+message CreateWalletGroupResponse {
+    string wallet_group_id = 1;
+}
+
+message UpdateWalletGroupRequest {
+    string wallet_group_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    repeated string wallet_ids = 2 [(validate.rules).repeated.min_items = 1];
+}
+
+message UpdateWalletGroupNameRequest {
+    string wallet_group_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string name = 2 [(validate.rules).string = {min_len: 1, max_len: 20}];
+}
+
+message GetWalletGroupRequest {
+    string wallet_group_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+}
+
+message ListWalletGroupsRequest {
+    bool watch_only = 3;
+    uint32 page_size = 1 [(validate.rules).uint32.lte = 100];
+    string page_token = 2 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
+}
+
+message ListWalletGroupsResponse {
+    repeated WalletGroup wallet_groups = 1;
+    string next_page_token = 2;
 }
 
 // -----------------------------------------------------------------------------
@@ -407,6 +461,7 @@ message CreateTransactionRequest {
     uint64 memo_id = 6 [jstype = JS_STRING];
     string string_value = 7;
     adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;
+    adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;
 }
 
 message CreateTransactionResponse {
@@ -609,6 +664,51 @@ message ListTransfersByFilterRequest {
 message ListTransfersResponse {
     repeated Transfer transfers = 1; // Array of transfer objects
     string next_page_token = 2; // The token for requesting the next page
+}
+
+// -----------------------------------------------------------------------------
+// Unchecked Transfer
+// -----------------------------------------------------------------------------
+
+message ListUncheckedTransfersByFilterRequest {
+    bool has_checked = 1;
+    repeated WalletType wallet_type = 2;
+    uint32 page_size = 3 [(validate.rules).uint32.lte = 100]; //indicate how many objects to return in a single response
+    string page_token = 4 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}]; //retrieve the next page
+}
+
+message UpdateUncheckedTransferHasCheckedFlagRequest {
+    string wallet_id = 1 [(validate.rules).string = {pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string unchecked_transfer_id = 2[(validate.rules).string = {pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+}
+
+message ListUncheckedTransfersResponse {
+    repeated UncheckedTransfer unchecked_transfers = 1; // Array of transfer objects
+    string next_page_token = 2; // The token for requesting the next page
+}
+
+message ListEventTriggeredMessagesRequest {}
+
+message ListEventTriggeredMessagesResponse {
+    repeated EventTriggeredMessage event_triggered_messages = 1;
+}
+
+message CreateEventTriggeredMessageRequest {
+    adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 1;
+    string destination = 2;
+}
+
+message CreateEventTriggeredMessageResponce {
+    string event_triggered_message_id = 1;
+}
+
+message UpdateEventTriggeredMessageRequest {
+    string event_triggered_message_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+    string destination = 2;
+}
+
+message DeleteEventTriggeredMessageRequest {
+    string event_triggered_message_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
 // -----------------------------------------------------------------------------
@@ -949,10 +1049,28 @@ message ReviewPolicyProposalRequest {
     bool approve = 2;
 }
 
+
+// -----------------------------------------------------------------------------
+// Substrate Child Address
+// -----------------------------------------------------------------------------
+
 message ListSubstrateChildAddressesRequest {
     string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
 }
 
 message ListSubstrateChildAddressesResponse {
     repeated SubstrateChildAddress substrate_child_addresses = 1;
+}
+
+
+// -----------------------------------------------------------------------------
+// Download Resource
+// -----------------------------------------------------------------------------
+
+message DownloadResourceRequest {
+    adamant.global.v1.DownloadResourceType download_resource_type = 1;
+    bool watch_only = 5;
+    string wallet_id = 2;
+    google.protobuf.Timestamp start_time = 3;
+    google.protobuf.Timestamp end_time = 4;
 }

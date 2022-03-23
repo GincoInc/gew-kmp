@@ -70,6 +70,14 @@ var (
 
 	_ = gincoincglobalv1.Coin(0)
 
+	_ = gincoincglobalv1.TransferType(0)
+
+	_ = gincoincglobalv1.TransactionState(0)
+
+	_ = gincoincglobalv1.TransactionResult(0)
+
+	_ = gincoincglobalv1.Coin(0)
+
 	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.Coin(0)
@@ -85,6 +93,8 @@ var (
 	_ = gincoincglobalv1.TransferType(0)
 
 	_ = gincoincglobalv1.TransferType(0)
+
+	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.Coin(0)
 
@@ -178,6 +188,10 @@ func (m *Wallet) Validate() error {
 	// no validation rules for WatchOnly
 
 	// no validation rules for AddressNumber
+
+	// no validation rules for ShouldCheckRemittance
+
+	// no validation rules for InheritWalletId
 
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
@@ -333,6 +347,10 @@ func (m *WalletWithoutBalance) Validate() error {
 	// no validation rules for DestinationWalletId
 
 	// no validation rules for WatchOnly
+
+	// no validation rules for ShouldCheckRemittance
+
+	// no validation rules for InheritWalletId
 
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
@@ -1937,6 +1955,10 @@ func (m *EthereumSpecific) Validate() error {
 
 	// no validation rules for IsNextNonce
 
+	// no validation rules for MethodIdType
+
+	// no validation rules for Expiration
+
 	return nil
 }
 
@@ -2555,6 +2577,78 @@ var _ interface {
 	ErrorName() string
 } = CreateTransactionSubstrateSpecificValidationError{}
 
+// Validate checks the field values on CreateTransactionWalletConnectSpecific
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, an error is returned.
+func (m *CreateTransactionWalletConnectSpecific) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for CallRequestType
+
+	// no validation rules for CallRequestParams
+
+	return nil
+}
+
+// CreateTransactionWalletConnectSpecificValidationError is the validation
+// error returned by CreateTransactionWalletConnectSpecific.Validate if the
+// designated constraints aren't met.
+type CreateTransactionWalletConnectSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionWalletConnectSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionWalletConnectSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionWalletConnectSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionWalletConnectSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionWalletConnectSpecificValidationError) ErrorName() string {
+	return "CreateTransactionWalletConnectSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionWalletConnectSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionWalletConnectSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionWalletConnectSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionWalletConnectSpecificValidationError{}
+
 // Validate checks the field values on SubstrateMultisigTransaction with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned.
@@ -2950,6 +3044,218 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = TransferValidationError{}
+
+// Validate checks the field values on UncheckedTransfer with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *UncheckedTransfer) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for WalletId
+
+	// no validation rules for TransferId
+
+	// no validation rules for Coin
+
+	// no validation rules for TxId
+
+	// no validation rules for TransferType
+
+	// no validation rules for State
+
+	// no validation rules for Result
+
+	// no validation rules for Value
+
+	// no validation rules for StringValue
+
+	// no validation rules for JpyRate
+
+	// no validation rules for PartnerWalletId
+
+	// no validation rules for PartnerAddress
+
+	// no validation rules for DestinationTag
+
+	// no validation rules for MemoId
+
+	// no validation rules for HasChecked
+
+	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UncheckedTransferValidationError{
+				field:  "CreateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetUpdateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UncheckedTransferValidationError{
+				field:  "UpdateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// UncheckedTransferValidationError is the validation error returned by
+// UncheckedTransfer.Validate if the designated constraints aren't met.
+type UncheckedTransferValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UncheckedTransferValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UncheckedTransferValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UncheckedTransferValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UncheckedTransferValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UncheckedTransferValidationError) ErrorName() string {
+	return "UncheckedTransferValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UncheckedTransferValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUncheckedTransfer.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UncheckedTransferValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UncheckedTransferValidationError{}
+
+// Validate checks the field values on EventTriggeredMessage with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *EventTriggeredMessage) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for EventTriggeredMessageId
+
+	// no validation rules for EventTriggeredMessageType
+
+	// no validation rules for OwnerId
+
+	// no validation rules for Destination
+
+	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return EventTriggeredMessageValidationError{
+				field:  "CreateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetUpdateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return EventTriggeredMessageValidationError{
+				field:  "UpdateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// EventTriggeredMessageValidationError is the validation error returned by
+// EventTriggeredMessage.Validate if the designated constraints aren't met.
+type EventTriggeredMessageValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e EventTriggeredMessageValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e EventTriggeredMessageValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e EventTriggeredMessageValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e EventTriggeredMessageValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e EventTriggeredMessageValidationError) ErrorName() string {
+	return "EventTriggeredMessageValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e EventTriggeredMessageValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sEventTriggeredMessage.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = EventTriggeredMessageValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = EventTriggeredMessageValidationError{}
 
 // Validate checks the field values on Rate with the rules defined in the proto
 // definition for this message. If any rules are violated, an error is returned.
@@ -5333,6 +5639,114 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CompensationFeeValidationError{}
+
+// Validate checks the field values on WalletGroup with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *WalletGroup) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	// no validation rules for WalletGroupId
+
+	// no validation rules for Name
+
+	// no validation rules for Coin
+
+	for idx, item := range m.GetWallets() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return WalletGroupValidationError{
+					field:  fmt.Sprintf("Wallets[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for WatchOnly
+
+	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return WalletGroupValidationError{
+				field:  "CreateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetUpdateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return WalletGroupValidationError{
+				field:  "UpdateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// WalletGroupValidationError is the validation error returned by
+// WalletGroup.Validate if the designated constraints aren't met.
+type WalletGroupValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e WalletGroupValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e WalletGroupValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e WalletGroupValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e WalletGroupValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e WalletGroupValidationError) ErrorName() string { return "WalletGroupValidationError" }
+
+// Error satisfies the builtin error interface
+func (e WalletGroupValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sWalletGroup.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = WalletGroupValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = WalletGroupValidationError{}
 
 // Validate checks the field values on RequestTxOutput with the rules defined
 // in the proto definition for this message. If any rules are violated, an

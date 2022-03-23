@@ -32,10 +32,13 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.CardanoSpecific.class)) return new CardanoSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SubstrateSpecific.class)) return new SubstrateSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class)) return new CreateTransactionSubstrateSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.class)) return new CreateTransactionWalletConnectSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SubstrateMultisigTransaction.class)) return new SubstrateMultisigTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.SignInfo.class)) return new SignInfoValidator();
 		if (clazz.equals(adamant.global.v1.Model.SignTxInput.class)) return new SignTxInputValidator();
 		if (clazz.equals(adamant.global.v1.Model.Transfer.class)) return new TransferValidator();
+		if (clazz.equals(adamant.global.v1.Model.UncheckedTransfer.class)) return new UncheckedTransferValidator();
+		if (clazz.equals(adamant.global.v1.Model.EventTriggeredMessage.class)) return new EventTriggeredMessageValidator();
 		if (clazz.equals(adamant.global.v1.Model.Rate.class)) return new RateValidator();
 		if (clazz.equals(adamant.global.v1.Model.RateSnapshot.class)) return new RateSnapshotValidator();
 		if (clazz.equals(adamant.global.v1.Model.Deactivatability.class)) return new DeactivatabilityValidator();
@@ -63,6 +66,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.Confirmation.class)) return new ConfirmationValidator();
 		if (clazz.equals(adamant.global.v1.Model.WalletFlushSetting.class)) return new WalletFlushSettingValidator();
 		if (clazz.equals(adamant.global.v1.Model.CompensationFee.class)) return new CompensationFeeValidator();
+		if (clazz.equals(adamant.global.v1.Model.WalletGroup.class)) return new WalletGroupValidator();
 		if (clazz.equals(adamant.global.v1.Model.RequestTxOutput.class)) return new RequestTxOutputValidator();
 		if (clazz.equals(adamant.global.v1.Model.RequestSignedInfo.class)) return new RequestSignedInfoValidator();
 		if (clazz.equals(adamant.global.v1.Model.RequestSignature.class)) return new RequestSignatureValidator();
@@ -77,6 +81,10 @@ public class ModelValidator {
 	 * Validates {@code Wallet} protobuf objects.
 	 */
 	public static class WalletValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.Wallet> {
+		
+	
+		
+	
 		
 	
 		
@@ -179,6 +187,10 @@ public class ModelValidator {
 
 	// no validation rules for AddressNumber
 
+	// no validation rules for ShouldCheckRemittance
+
+	// no validation rules for InheritWalletId
+
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -193,6 +205,10 @@ public class ModelValidator {
 	 * Validates {@code WalletWithoutBalance} protobuf objects.
 	 */
 	public static class WalletWithoutBalanceValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.WalletWithoutBalance> {
+		
+	
+		
+	
 		
 	
 		
@@ -282,6 +298,10 @@ public class ModelValidator {
 	// no validation rules for DestinationWalletId
 
 	// no validation rules for WatchOnly
+
+	// no validation rules for ShouldCheckRemittance
+
+	// no validation rules for InheritWalletId
 
 	
 			// Validate create_time
@@ -996,6 +1016,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.EthereumSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1004,6 +1028,10 @@ public class ModelValidator {
 	// no validation rules for Nonce
 
 	// no validation rules for IsNextNonce
+
+	// no validation rules for MethodIdType
+
+	// no validation rules for Expiration
 
 	
 	}
@@ -1178,6 +1206,25 @@ public class ModelValidator {
 	// no validation rules for CallType
 
 	// no validation rules for MultisigCallType
+
+	
+	}
+}
+
+	/**
+	 * Validates {@code CreateTransactionWalletConnectSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionWalletConnectSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionWalletConnectSpecific> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for CallRequestType
+
+	// no validation rules for CallRequestParams
 
 	
 	}
@@ -1405,6 +1452,124 @@ public class ModelValidator {
 	// no validation rules for State
 
 	// no validation rules for Result
+
+	
+			// Validate create_time
+			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+			// Validate update_time
+			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+	}
+}
+
+	/**
+	 * Validates {@code UncheckedTransfer} protobuf objects.
+	 */
+	public static class UncheckedTransferValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.UncheckedTransfer> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.UncheckedTransfer proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for WalletId
+
+	// no validation rules for TransferId
+
+	// no validation rules for Coin
+
+	// no validation rules for TxId
+
+	// no validation rules for TransferType
+
+	// no validation rules for State
+
+	// no validation rules for Result
+
+	// no validation rules for Value
+
+	// no validation rules for StringValue
+
+	// no validation rules for JpyRate
+
+	// no validation rules for PartnerWalletId
+
+	// no validation rules for PartnerAddress
+
+	// no validation rules for DestinationTag
+
+	// no validation rules for MemoId
+
+	// no validation rules for HasChecked
+
+	
+			// Validate create_time
+			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+			// Validate update_time
+			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+	}
+}
+
+	/**
+	 * Validates {@code EventTriggeredMessage} protobuf objects.
+	 */
+	public static class EventTriggeredMessageValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.EventTriggeredMessage> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.EventTriggeredMessage proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for EventTriggeredMessageId
+
+	// no validation rules for EventTriggeredMessageType
+
+	// no validation rules for OwnerId
+
+	// no validation rules for Destination
 
 	
 			// Validate create_time
@@ -2250,6 +2415,52 @@ public class ModelValidator {
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+	}
+}
+
+	/**
+	 * Validates {@code WalletGroup} protobuf objects.
+	 */
+	public static class WalletGroupValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.WalletGroup> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.WalletGroup proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for WalletGroupId
+
+	// no validation rules for Name
+
+	// no validation rules for Coin
+
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getWalletsList(), item -> {
+				
+			// Validate wallets
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+
+	// no validation rules for WatchOnly
+
+	
+			// Validate create_time
+			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+			// Validate update_time
+			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
 	
 	}
 }
