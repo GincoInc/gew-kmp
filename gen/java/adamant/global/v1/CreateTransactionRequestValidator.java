@@ -29,6 +29,8 @@ public class CreateTransactionRequestValidator implements io.envoyproxy.pgv.Vali
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.CreateTransactionRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -54,6 +56,9 @@ public class CreateTransactionRequestValidator implements io.envoyproxy.pgv.Vali
 	
 			// Validate substrate_specific
 			if (proto.hasSubstrateSpecific()) index.validatorFor(proto.getSubstrateSpecific()).assertValid(proto.getSubstrateSpecific());
+	
+			// Validate wallet_connect_specific
+			if (proto.hasWalletConnectSpecific()) index.validatorFor(proto.getWalletConnectSpecific()).assertValid(proto.getWalletConnectSpecific());
 	
 	}
 

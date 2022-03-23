@@ -43,6 +43,10 @@ public final class Enum {
      * <code>WALLET_TYPE_SELF_CUSTODY_HOT_RECEIVE_ONLY = 4;</code>
      */
     WALLET_TYPE_SELF_CUSTODY_HOT_RECEIVE_ONLY(4),
+    /**
+     * <code>WALLET_TYPE_SELF_CUSTODY_COLD_SINGLE_SIG = 5;</code>
+     */
+    WALLET_TYPE_SELF_CUSTODY_COLD_SINGLE_SIG(5),
     UNRECOGNIZED(-1),
     ;
 
@@ -66,6 +70,10 @@ public final class Enum {
      * <code>WALLET_TYPE_SELF_CUSTODY_HOT_RECEIVE_ONLY = 4;</code>
      */
     public static final int WALLET_TYPE_SELF_CUSTODY_HOT_RECEIVE_ONLY_VALUE = 4;
+    /**
+     * <code>WALLET_TYPE_SELF_CUSTODY_COLD_SINGLE_SIG = 5;</code>
+     */
+    public static final int WALLET_TYPE_SELF_CUSTODY_COLD_SINGLE_SIG_VALUE = 5;
 
 
     public final int getNumber() {
@@ -91,6 +99,7 @@ public final class Enum {
         case 2: return WALLET_TYPE_SELF_CUSTODY_COLD;
         case 3: return WALLET_TYPE_SELF_CUSTODY_HOT_SINGLE_SIG;
         case 4: return WALLET_TYPE_SELF_CUSTODY_HOT_RECEIVE_ONLY;
+        case 5: return WALLET_TYPE_SELF_CUSTODY_COLD_SINGLE_SIG;
         default: return null;
       }
     }
@@ -2382,6 +2391,10 @@ public final class Enum {
      * <code>AUDIT_LOG_GROUP_POLICY = 6;</code>
      */
     AUDIT_LOG_GROUP_POLICY(6),
+    /**
+     * <code>AUDIT_LOG_GROUP_WALLET_GROUP = 7;</code>
+     */
+    AUDIT_LOG_GROUP_WALLET_GROUP(7),
     UNRECOGNIZED(-1),
     ;
 
@@ -2413,6 +2426,10 @@ public final class Enum {
      * <code>AUDIT_LOG_GROUP_POLICY = 6;</code>
      */
     public static final int AUDIT_LOG_GROUP_POLICY_VALUE = 6;
+    /**
+     * <code>AUDIT_LOG_GROUP_WALLET_GROUP = 7;</code>
+     */
+    public static final int AUDIT_LOG_GROUP_WALLET_GROUP_VALUE = 7;
 
 
     public final int getNumber() {
@@ -2440,6 +2457,7 @@ public final class Enum {
         case 4: return AUDIT_LOG_GROUP_WALLET;
         case 5: return AUDIT_LOG_GROUP_TRANSACTION;
         case 6: return AUDIT_LOG_GROUP_POLICY;
+        case 7: return AUDIT_LOG_GROUP_WALLET_GROUP;
         default: return null;
       }
     }
@@ -2577,6 +2595,18 @@ public final class Enum {
      * <code>AUDIT_LOG_TYPE_WALLET_ADDRESS_DELETE = 53;</code>
      */
     AUDIT_LOG_TYPE_WALLET_ADDRESS_DELETE(53),
+    /**
+     * <code>AUDIT_LOG_TYPE_WALLET_GROUP_CREATE = 54;</code>
+     */
+    AUDIT_LOG_TYPE_WALLET_GROUP_CREATE(54),
+    /**
+     * <code>AUDIT_LOG_TYPE_WALLET_GROUP_NAME_CHANGE = 55;</code>
+     */
+    AUDIT_LOG_TYPE_WALLET_GROUP_NAME_CHANGE(55),
+    /**
+     * <code>AUDIT_LOG_TYPE_WALLET_GROUP_CHANGE = 56;</code>
+     */
+    AUDIT_LOG_TYPE_WALLET_GROUP_CHANGE(56),
     /**
      * <code>AUDIT_LOG_TYPE_TRANSACTION_CREATE = 15;</code>
      */
@@ -2797,6 +2827,18 @@ public final class Enum {
      */
     public static final int AUDIT_LOG_TYPE_WALLET_ADDRESS_DELETE_VALUE = 53;
     /**
+     * <code>AUDIT_LOG_TYPE_WALLET_GROUP_CREATE = 54;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_WALLET_GROUP_CREATE_VALUE = 54;
+    /**
+     * <code>AUDIT_LOG_TYPE_WALLET_GROUP_NAME_CHANGE = 55;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_WALLET_GROUP_NAME_CHANGE_VALUE = 55;
+    /**
+     * <code>AUDIT_LOG_TYPE_WALLET_GROUP_CHANGE = 56;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_WALLET_GROUP_CHANGE_VALUE = 56;
+    /**
      * <code>AUDIT_LOG_TYPE_TRANSACTION_CREATE = 15;</code>
      */
     public static final int AUDIT_LOG_TYPE_TRANSACTION_CREATE_VALUE = 15;
@@ -2975,6 +3017,9 @@ public final class Enum {
         case 51: return AUDIT_LOG_TYPE_WALLET_ADDRESS_UPLOAD;
         case 52: return AUDIT_LOG_TYPE_WALLET_ADDRESS_DOWNLOAD;
         case 53: return AUDIT_LOG_TYPE_WALLET_ADDRESS_DELETE;
+        case 54: return AUDIT_LOG_TYPE_WALLET_GROUP_CREATE;
+        case 55: return AUDIT_LOG_TYPE_WALLET_GROUP_NAME_CHANGE;
+        case 56: return AUDIT_LOG_TYPE_WALLET_GROUP_CHANGE;
         case 15: return AUDIT_LOG_TYPE_TRANSACTION_CREATE;
         case 16: return AUDIT_LOG_TYPE_TRANSACTION_APPROVE;
         case 17: return AUDIT_LOG_TYPE_TRANSACTION_CANCEL;
@@ -3660,6 +3705,14 @@ public final class Enum {
      * <code>MAIL_TYPE_VALIDATOR_CHANGE_REQUESTED = 8;</code>
      */
     MAIL_TYPE_VALIDATOR_CHANGE_REQUESTED(8),
+    /**
+     * <code>MAIL_TYPE_UNCHECKED_TRANSFER_EXISTS = 9;</code>
+     */
+    MAIL_TYPE_UNCHECKED_TRANSFER_EXISTS(9),
+    /**
+     * <code>MAIL_TYPE_DOWNLOAD_RESOURCE = 10;</code>
+     */
+    MAIL_TYPE_DOWNLOAD_RESOURCE(10),
     UNRECOGNIZED(-1),
     ;
 
@@ -3699,6 +3752,14 @@ public final class Enum {
      * <code>MAIL_TYPE_VALIDATOR_CHANGE_REQUESTED = 8;</code>
      */
     public static final int MAIL_TYPE_VALIDATOR_CHANGE_REQUESTED_VALUE = 8;
+    /**
+     * <code>MAIL_TYPE_UNCHECKED_TRANSFER_EXISTS = 9;</code>
+     */
+    public static final int MAIL_TYPE_UNCHECKED_TRANSFER_EXISTS_VALUE = 9;
+    /**
+     * <code>MAIL_TYPE_DOWNLOAD_RESOURCE = 10;</code>
+     */
+    public static final int MAIL_TYPE_DOWNLOAD_RESOURCE_VALUE = 10;
 
 
     public final int getNumber() {
@@ -3728,6 +3789,8 @@ public final class Enum {
         case 6: return MAIL_TYPE_FRAUD_TRANSACTION_SUBMITTED;
         case 7: return MAIL_TYPE_IMPORT_ADDRESS_COMPLETED;
         case 8: return MAIL_TYPE_VALIDATOR_CHANGE_REQUESTED;
+        case 9: return MAIL_TYPE_UNCHECKED_TRANSFER_EXISTS;
+        case 10: return MAIL_TYPE_DOWNLOAD_RESOURCE;
         default: return null;
       }
     }
@@ -4084,6 +4147,461 @@ public final class Enum {
     // @@protoc_insertion_point(enum_scope:adamant.global.v1.SubstrateCallType)
   }
 
+  /**
+   * Protobuf enum {@code adamant.global.v1.DownloadResourceType}
+   */
+  public enum DownloadResourceType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>DOWNLOAD_RESOURCE_TYPE_INVALID = 0;</code>
+     */
+    DOWNLOAD_RESOURCE_TYPE_INVALID(0),
+    /**
+     * <code>DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_BALANCE_SNAPSHOT_EOD = 1;</code>
+     */
+    DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_BALANCE_SNAPSHOT_EOD(1),
+    /**
+     * <code>DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_GROUP_BALANCE_SNAPSHOT_EOD = 2;</code>
+     */
+    DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_GROUP_BALANCE_SNAPSHOT_EOD(2),
+    /**
+     * <code>DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_BALANCE_SNAPSHOT_ON_DEMAND = 3;</code>
+     */
+    DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_BALANCE_SNAPSHOT_ON_DEMAND(3),
+    /**
+     * <code>DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_GROUP_BALANCE_SNAPSHOT_ON_DEMAND = 4;</code>
+     */
+    DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_GROUP_BALANCE_SNAPSHOT_ON_DEMAND(4),
+    /**
+     * <code>DOWNLOAD_RESOURCE_TYPE_WALLET_TRANSFER = 5;</code>
+     */
+    DOWNLOAD_RESOURCE_TYPE_WALLET_TRANSFER(5),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>DOWNLOAD_RESOURCE_TYPE_INVALID = 0;</code>
+     */
+    public static final int DOWNLOAD_RESOURCE_TYPE_INVALID_VALUE = 0;
+    /**
+     * <code>DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_BALANCE_SNAPSHOT_EOD = 1;</code>
+     */
+    public static final int DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_BALANCE_SNAPSHOT_EOD_VALUE = 1;
+    /**
+     * <code>DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_GROUP_BALANCE_SNAPSHOT_EOD = 2;</code>
+     */
+    public static final int DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_GROUP_BALANCE_SNAPSHOT_EOD_VALUE = 2;
+    /**
+     * <code>DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_BALANCE_SNAPSHOT_ON_DEMAND = 3;</code>
+     */
+    public static final int DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_BALANCE_SNAPSHOT_ON_DEMAND_VALUE = 3;
+    /**
+     * <code>DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_GROUP_BALANCE_SNAPSHOT_ON_DEMAND = 4;</code>
+     */
+    public static final int DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_GROUP_BALANCE_SNAPSHOT_ON_DEMAND_VALUE = 4;
+    /**
+     * <code>DOWNLOAD_RESOURCE_TYPE_WALLET_TRANSFER = 5;</code>
+     */
+    public static final int DOWNLOAD_RESOURCE_TYPE_WALLET_TRANSFER_VALUE = 5;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static DownloadResourceType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static DownloadResourceType forNumber(int value) {
+      switch (value) {
+        case 0: return DOWNLOAD_RESOURCE_TYPE_INVALID;
+        case 1: return DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_BALANCE_SNAPSHOT_EOD;
+        case 2: return DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_GROUP_BALANCE_SNAPSHOT_EOD;
+        case 3: return DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_BALANCE_SNAPSHOT_ON_DEMAND;
+        case 4: return DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_GROUP_BALANCE_SNAPSHOT_ON_DEMAND;
+        case 5: return DOWNLOAD_RESOURCE_TYPE_WALLET_TRANSFER;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<DownloadResourceType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        DownloadResourceType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<DownloadResourceType>() {
+            public DownloadResourceType findValueByNumber(int number) {
+              return DownloadResourceType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(20);
+    }
+
+    private static final DownloadResourceType[] VALUES = values();
+
+    public static DownloadResourceType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private DownloadResourceType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:adamant.global.v1.DownloadResourceType)
+  }
+
+  /**
+   * Protobuf enum {@code adamant.global.v1.EventTriggeredMessageType}
+   */
+  public enum EventTriggeredMessageType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>EVENT_TRIGGERED_MESSAGE_TYPE_INVALID = 0;</code>
+     */
+    EVENT_TRIGGERED_MESSAGE_TYPE_INVALID(0),
+    /**
+     * <code>EVENT_TRIGGERED_MESSAGE_TYPE_UNCHECKED_TRANSFER_ALERT = 1;</code>
+     */
+    EVENT_TRIGGERED_MESSAGE_TYPE_UNCHECKED_TRANSFER_ALERT(1),
+    /**
+     * <code>EVENT_TRIGGERED_MESSAGE_TYPE_FRAUDULENT_TRANSFER_ALERT = 2;</code>
+     */
+    EVENT_TRIGGERED_MESSAGE_TYPE_FRAUDULENT_TRANSFER_ALERT(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>EVENT_TRIGGERED_MESSAGE_TYPE_INVALID = 0;</code>
+     */
+    public static final int EVENT_TRIGGERED_MESSAGE_TYPE_INVALID_VALUE = 0;
+    /**
+     * <code>EVENT_TRIGGERED_MESSAGE_TYPE_UNCHECKED_TRANSFER_ALERT = 1;</code>
+     */
+    public static final int EVENT_TRIGGERED_MESSAGE_TYPE_UNCHECKED_TRANSFER_ALERT_VALUE = 1;
+    /**
+     * <code>EVENT_TRIGGERED_MESSAGE_TYPE_FRAUDULENT_TRANSFER_ALERT = 2;</code>
+     */
+    public static final int EVENT_TRIGGERED_MESSAGE_TYPE_FRAUDULENT_TRANSFER_ALERT_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static EventTriggeredMessageType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static EventTriggeredMessageType forNumber(int value) {
+      switch (value) {
+        case 0: return EVENT_TRIGGERED_MESSAGE_TYPE_INVALID;
+        case 1: return EVENT_TRIGGERED_MESSAGE_TYPE_UNCHECKED_TRANSFER_ALERT;
+        case 2: return EVENT_TRIGGERED_MESSAGE_TYPE_FRAUDULENT_TRANSFER_ALERT;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<EventTriggeredMessageType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        EventTriggeredMessageType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<EventTriggeredMessageType>() {
+            public EventTriggeredMessageType findValueByNumber(int number) {
+              return EventTriggeredMessageType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(21);
+    }
+
+    private static final EventTriggeredMessageType[] VALUES = values();
+
+    public static EventTriggeredMessageType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private EventTriggeredMessageType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:adamant.global.v1.EventTriggeredMessageType)
+  }
+
+  /**
+   * Protobuf enum {@code adamant.global.v1.WalletConnectCallRequestType}
+   */
+  public enum WalletConnectCallRequestType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>WALLET_CONNECT_CALL_REQUEST_TYPE_INVALID = 0;</code>
+     */
+    WALLET_CONNECT_CALL_REQUEST_TYPE_INVALID(0),
+    /**
+     * <code>WALLET_CONNECT_CALL_REQUEST_TYPE_ETH_SEND_TRANSACTION = 1;</code>
+     */
+    WALLET_CONNECT_CALL_REQUEST_TYPE_ETH_SEND_TRANSACTION(1),
+    /**
+     * <code>WALLET_CONNECT_CALL_REQUEST_TYPE_ETH_SIGN_TYPED_DATA = 2;</code>
+     */
+    WALLET_CONNECT_CALL_REQUEST_TYPE_ETH_SIGN_TYPED_DATA(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>WALLET_CONNECT_CALL_REQUEST_TYPE_INVALID = 0;</code>
+     */
+    public static final int WALLET_CONNECT_CALL_REQUEST_TYPE_INVALID_VALUE = 0;
+    /**
+     * <code>WALLET_CONNECT_CALL_REQUEST_TYPE_ETH_SEND_TRANSACTION = 1;</code>
+     */
+    public static final int WALLET_CONNECT_CALL_REQUEST_TYPE_ETH_SEND_TRANSACTION_VALUE = 1;
+    /**
+     * <code>WALLET_CONNECT_CALL_REQUEST_TYPE_ETH_SIGN_TYPED_DATA = 2;</code>
+     */
+    public static final int WALLET_CONNECT_CALL_REQUEST_TYPE_ETH_SIGN_TYPED_DATA_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static WalletConnectCallRequestType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static WalletConnectCallRequestType forNumber(int value) {
+      switch (value) {
+        case 0: return WALLET_CONNECT_CALL_REQUEST_TYPE_INVALID;
+        case 1: return WALLET_CONNECT_CALL_REQUEST_TYPE_ETH_SEND_TRANSACTION;
+        case 2: return WALLET_CONNECT_CALL_REQUEST_TYPE_ETH_SIGN_TYPED_DATA;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<WalletConnectCallRequestType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        WalletConnectCallRequestType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<WalletConnectCallRequestType>() {
+            public WalletConnectCallRequestType findValueByNumber(int number) {
+              return WalletConnectCallRequestType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(22);
+    }
+
+    private static final WalletConnectCallRequestType[] VALUES = values();
+
+    public static WalletConnectCallRequestType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private WalletConnectCallRequestType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:adamant.global.v1.WalletConnectCallRequestType)
+  }
+
+  /**
+   * Protobuf enum {@code adamant.global.v1.EthereumContractMethodIDType}
+   */
+  public enum EthereumContractMethodIDType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>ETHEREUM_CONTRACT_METHOD_ID_TYPE_INVALID = 0;</code>
+     */
+    ETHEREUM_CONTRACT_METHOD_ID_TYPE_INVALID(0),
+    /**
+     * <code>ETHEREUM_CONTRACT_METHOD_ID_TYPE_ERC20_APPROVE = 1;</code>
+     */
+    ETHEREUM_CONTRACT_METHOD_ID_TYPE_ERC20_APPROVE(1),
+    /**
+     * <code>ETHEREUM_CONTRACT_METHOD_ID_TYPE_UNISWAP_MULTICALL = 2;</code>
+     */
+    ETHEREUM_CONTRACT_METHOD_ID_TYPE_UNISWAP_MULTICALL(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>ETHEREUM_CONTRACT_METHOD_ID_TYPE_INVALID = 0;</code>
+     */
+    public static final int ETHEREUM_CONTRACT_METHOD_ID_TYPE_INVALID_VALUE = 0;
+    /**
+     * <code>ETHEREUM_CONTRACT_METHOD_ID_TYPE_ERC20_APPROVE = 1;</code>
+     */
+    public static final int ETHEREUM_CONTRACT_METHOD_ID_TYPE_ERC20_APPROVE_VALUE = 1;
+    /**
+     * <code>ETHEREUM_CONTRACT_METHOD_ID_TYPE_UNISWAP_MULTICALL = 2;</code>
+     */
+    public static final int ETHEREUM_CONTRACT_METHOD_ID_TYPE_UNISWAP_MULTICALL_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static EthereumContractMethodIDType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static EthereumContractMethodIDType forNumber(int value) {
+      switch (value) {
+        case 0: return ETHEREUM_CONTRACT_METHOD_ID_TYPE_INVALID;
+        case 1: return ETHEREUM_CONTRACT_METHOD_ID_TYPE_ERC20_APPROVE;
+        case 2: return ETHEREUM_CONTRACT_METHOD_ID_TYPE_UNISWAP_MULTICALL;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<EthereumContractMethodIDType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        EthereumContractMethodIDType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<EthereumContractMethodIDType>() {
+            public EthereumContractMethodIDType findValueByNumber(int number) {
+              return EthereumContractMethodIDType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(23);
+    }
+
+    private static final EthereumContractMethodIDType[] VALUES = values();
+
+    public static EthereumContractMethodIDType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private EthereumContractMethodIDType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:adamant.global.v1.EthereumContractMethodIDType)
+  }
+
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -4094,110 +4612,112 @@ public final class Enum {
   static {
     java.lang.String[] descriptorData = {
       "\n5gincoinc/adamant/global/v1/adamantglob" +
-      "alv1/enum.proto\022\021adamant.global.v1*\306\001\n\nW" +
+      "alv1/enum.proto\022\021adamant.global.v1*\364\001\n\nW" +
       "alletType\022\027\n\023WALLET_TYPE_INVALID\020\000\022 \n\034WA" +
       "LLET_TYPE_SELF_CUSTODY_HOT\020\001\022!\n\035WALLET_T" +
       "YPE_SELF_CUSTODY_COLD\020\002\022+\n\'WALLET_TYPE_S" +
       "ELF_CUSTODY_HOT_SINGLE_SIG\020\003\022-\n)WALLET_T" +
-      "YPE_SELF_CUSTODY_HOT_RECEIVE_ONLY\020\004*\306\005\n\013" +
-      "WalletState\022\030\n\024WALLET_STATE_INVALID\020\000\022\031\n" +
-      "\025WALLET_STATE_PROPOSED\020\001\022 \n\034WALLET_STATE" +
-      "_KEY_REGISTERING\020\002\022\037\n\033WALLET_STATE_KEY_R" +
-      "EGISTERED\020\003\022$\n WALLET_STATE_VALIDATOR_RE" +
-      "VIEWING\020\004\022#\n\037WALLET_STATE_VALIDATOR_REVI" +
-      "EWED\020\005\022\033\n\027WALLET_STATE_ACTIVATING\020\006\022\032\n\026W" +
-      "ALLET_STATE_ACTIVATED\020\007\022\030\n\024WALLET_STATE_" +
-      "SIGNING\020\010\022\027\n\023WALLET_STATE_SIGNED\020\t\022\033\n\027WA" +
-      "LLET_STATE_SUBMITTING\020\n\022\032\n\026WALLET_STATE_" +
-      "SUBMITTED\020\013\022\032\n\026WALLET_STATE_COMPLETED\020\014\022" +
-      "\032\n\026WALLET_STATE_CANCELLED\020\r\022\031\n\025WALLET_ST" +
-      "ATE_ARCHIVED\020\016\022\'\n#WALLET_STATE_ADDRESS_I" +
-      "MPORT_WAITING\020\017\022\"\n\036WALLET_STATE_ADDRESS_" +
-      "IMPORTING\020\020\022&\n\"WALLET_STATE_ADDRESS_IMPO" +
-      "RT_FAILED\020\021\022!\n\035WALLET_STATE_ADDRESS_DELE" +
-      "TING\020\022\022&\n\"WALLET_STATE_ADDRESS_DELETE_FA" +
-      "ILED\020\023\022\031\n\025WALLET_STATE_FLUSHING\020\024\022!\n\035WAL" +
-      "LET_STATE_ACCOUNT_CREATING\020\025*{\n\022WalletPr" +
-      "oposalType\022 \n\034WALLET_PROPOSAL_TYPE_INVAL" +
-      "ID\020\000\022\037\n\033WALLET_PROPOSAL_TYPE_POLICY\020\001\022\"\n" +
-      "\036WALLET_PROPOSAL_TYPE_VALIDATOR\020\002*\201\001\n\014Ad" +
-      "dressState\022\031\n\025ADDRESS_STATE_INVALID\020\000\022\034\n" +
-      "\030ADDRESS_STATE_SUBMITTING\020\001\022\033\n\027ADDRESS_S" +
-      "TATE_SUBMITTED\020\002\022\033\n\027ADDRESS_STATE_COMPLE" +
-      "TED\020\003*\265\002\n\020TransactionState\022\035\n\031TRANSACTIO" +
-      "N_STATE_INVALID\020\000\022\035\n\031TRANSACTION_STATE_S" +
-      "IGNING\020\001\022\034\n\030TRANSACTION_STATE_SIGNED\020\002\022\037" +
-      "\n\033TRANSACTION_STATE_REVIEWING\020\003\022\036\n\032TRANS" +
-      "ACTION_STATE_REVIEWED\020\004\022 \n\034TRANSACTION_S" +
-      "TATE_SUBMITTING\020\005\022\037\n\033TRANSACTION_STATE_S" +
-      "UBMITTED\020\006\022 \n\034TRANSACTION_STATE_CANCELLI" +
-      "NG\020\010\022\037\n\033TRANSACTION_STATE_CANCELLED\020\007*`\n" +
-      "\013AccountType\022\030\n\024ACCOUNT_TYPE_INVALID\020\000\022\025" +
-      "\n\021ACCOUNT_TYPE_USER\020\001\022 \n\034ACCOUNT_TYPE_SE" +
-      "RVICE_ACCOUNT\020\002*u\n\tUserState\022\026\n\022USER_STA" +
-      "TE_INVALID\020\000\022\032\n\026USER_STATE_UNCONFIRMED\020\001" +
-      "\022\030\n\024USER_STATE_CONFIRMED\020\002\022\032\n\026USER_STATE" +
-      "_DEACTIVATED\020\003*\353\001\n\010RoleType\022\025\n\021ROLE_TYPE" +
-      "_INVALID\020\000\022\031\n\025ROLE_TYPE_ORG_MANAGER\020\001\022\030\n" +
-      "\024ROLE_TYPE_ORG_SIGNER\020\002\022\033\n\027ROLE_TYPE_ORG" +
-      "_VALIDATOR\020\003\022\030\n\024ROLE_TYPE_ORG_VIEWER\020\004\022\033" +
-      "\n\027ROLE_TYPE_ORG_DEVELOPER\020\005\022\036\n\032ROLE_TYPE" +
-      "_HOT_WALLET_ADMIN\020\006\022\037\n\033ROLE_TYPE_HOT_WAL" +
-      "LET_VIEWER\020\007*c\n\014ResourceType\022\031\n\025RESOURCE" +
-      "_TYPE_INVALID\020\000\022\030\n\024RESOURCE_TYPE_WALLET\020" +
-      "\001\022\036\n\032RESOURCE_TYPE_ORGANIZATION\020\002*\340\001\n\tTo" +
-      "kenType\022\026\n\022TOKEN_TYPE_INVALID\020\000\022\032\n\026TOKEN" +
-      "_TYPE_LOGIN_TOKEN\020\001\022\031\n\025TOKEN_TYPE_MAIL_T" +
-      "OKEN\020\002\022#\n\037TOKEN_TYPE_PASSWORD_RESET_TOKE" +
-      "N\020\003\022$\n TOKEN_TYPE_PASSWORD_UPDATE_TOKEN\020" +
-      "\004\022\033\n\027TOKEN_TYPE_SIGNUP_TOKEN\020\005\022\034\n\030TOKEN_" +
-      "TYPE_REFRESH_TOKEN\020\006*l\n\nPolicyType\022\027\n\023PO" +
-      "LICY_TYPE_INVALID\020\000\022!\n\035POLICY_TYPE_HOT_W" +
-      "ALLET_POLICY\020\001\022\"\n\036POLICY_TYPE_COLD_WALLE" +
-      "T_POLICY\020\002*\225\001\n\021TransferLimitType\022\037\n\033TRAN" +
-      "SFER_LIMIT_TYPE_INVALID\020\000\022\036\n\032TRANSFER_LI" +
-      "MIT_TYPE_HOURLY\020\001\022\035\n\031TRANSFER_LIMIT_TYPE" +
-      "_DAILY\020\002\022 \n\034TRANSFER_LIMIT_TYPE_ONE_TIME" +
-      "\020\003*\313\n\n\020NotificationType\022\035\n\031NOTIFICATION_" +
-      "TYPE_INVALID\020\000\0223\n/NOTIFICATION_TYPE_WALL" +
-      "ET_SIGNER_APPROVE_REQUEST\020\001\0226\n2NOTIFICAT" +
-      "ION_TYPE_WALLET_VALIDATOR_APPROVE_REQUES" +
-      "T\020\002\022,\n(NOTIFICATION_TYPE_WALLET_ACTIVATE" +
-      "_FAILED\020\003\022&\n\"NOTIFICATION_TYPE_WALLET_CA" +
-      "NCELLED\020\004\022&\n\"NOTIFICATION_TYPE_WALLET_CO" +
-      "MPLETED\020\005\022#\n\037NOTIFICATION_TYPE_WALLET_FA" +
-      "ILED\020\006\0224\n0NOTIFICATION_TYPE_WALLET_ADDRE" +
-      "SS_APPROVE_REQUEST\020\027\0221\n-NOTIFICATION_TYP" +
-      "E_WALLET_XRP_ACTIVATE_REQUEST\020\030\0224\n0NOTIF" +
-      "ICATION_TYPE_WALLET_MULTISIG_CONFIG_REQU" +
-      "EST\020\031\0228\n4NOTIFICATION_TYPE_WALLET_MANAGE" +
-      "R_TRANSACTION_REQUEST\020\032\0225\n1NOTIFICATION_" +
-      "TYPE_WALLET_VALIDATOR_CHANGE_REQUEST\020\033\0228" +
-      "\n4NOTIFICATION_TYPE_TRANSACTION_SIGNER_A" +
-      "PPROVE_REQUEST\020\007\022;\n7NOTIFICATION_TYPE_TR" +
-      "ANSACTION_VALIDATOR_APPROVE_REQUEST\020\010\022\'\n" +
-      "#NOTIFICATION_TYPE_TRANSACTION_READY\020\026\022+" +
-      "\n\'NOTIFICATION_TYPE_TRANSACTION_SUBMITTE" +
-      "D\020\t\022+\n\'NOTIFICATION_TYPE_TRANSACTION_CAN" +
-      "CELLED\020\n\022-\n)NOTIFICATION_TYPE_TRANSFER_S" +
-      "END_COMPLETED\020\013\022*\n&NOTIFICATION_TYPE_TRA" +
-      "NSFER_SEND_FAILED\020\014\0220\n,NOTIFICATION_TYPE" +
-      "_TRANSFER_RECEIVE_COMPLETED\020\r\022-\n)NOTIFIC" +
-      "ATION_TYPE_TRANSFER_RECEIVE_FAILED\020\016\022-\n)" +
-      "NOTIFICATION_TYPE_ADDRESS_APPROVE_REQUES" +
-      "T\020\017\022\'\n#NOTIFICATION_TYPE_ADDRESS_COMPLET" +
-      "ED\020\020\022\'\n#NOTIFICATION_TYPE_ADDRESS_CANCEL" +
-      "LED\020\021\0223\n/NOTIFICATION_TYPE_TRANSFERLIMIT" +
-      "_APPROVE_REQUEST\020\022\022-\n)NOTIFICATION_TYPE_" +
-      "TRANSFERLIMIT_COMPLETED\020\023\022-\n)NOTIFICATIO" +
-      "N_TYPE_TRANSFERLIMIT_CANCELLED\020\024\022.\n*NOTI" +
-      "FICATION_TYPE_WHITELIST_DETACH_REQUEST\020\025" +
-      "*\342\001\n\rAuditLogGroup\022\033\n\027AUDIT_LOG_GROUP_IN" +
-      "VALID\020\000\022\031\n\025AUDIT_LOG_GROUP_LOGIN\020\001\022\033\n\027AU" +
-      "DIT_LOG_GROUP_ACCOUNT\020\002\022#\n\037AUDIT_LOG_GRO" +
-      "UP_SERVICE_ACCOUNT\020\003\022\032\n\026AUDIT_LOG_GROUP_" +
-      "WALLET\020\004\022\037\n\033AUDIT_LOG_GROUP_TRANSACTION\020" +
-      "\005\022\032\n\026AUDIT_LOG_GROUP_POLICY\020\006*\327\021\n\014AuditL" +
+      "YPE_SELF_CUSTODY_HOT_RECEIVE_ONLY\020\004\022,\n(W" +
+      "ALLET_TYPE_SELF_CUSTODY_COLD_SINGLE_SIG\020" +
+      "\005*\306\005\n\013WalletState\022\030\n\024WALLET_STATE_INVALI" +
+      "D\020\000\022\031\n\025WALLET_STATE_PROPOSED\020\001\022 \n\034WALLET" +
+      "_STATE_KEY_REGISTERING\020\002\022\037\n\033WALLET_STATE" +
+      "_KEY_REGISTERED\020\003\022$\n WALLET_STATE_VALIDA" +
+      "TOR_REVIEWING\020\004\022#\n\037WALLET_STATE_VALIDATO" +
+      "R_REVIEWED\020\005\022\033\n\027WALLET_STATE_ACTIVATING\020" +
+      "\006\022\032\n\026WALLET_STATE_ACTIVATED\020\007\022\030\n\024WALLET_" +
+      "STATE_SIGNING\020\010\022\027\n\023WALLET_STATE_SIGNED\020\t" +
+      "\022\033\n\027WALLET_STATE_SUBMITTING\020\n\022\032\n\026WALLET_" +
+      "STATE_SUBMITTED\020\013\022\032\n\026WALLET_STATE_COMPLE" +
+      "TED\020\014\022\032\n\026WALLET_STATE_CANCELLED\020\r\022\031\n\025WAL" +
+      "LET_STATE_ARCHIVED\020\016\022\'\n#WALLET_STATE_ADD" +
+      "RESS_IMPORT_WAITING\020\017\022\"\n\036WALLET_STATE_AD" +
+      "DRESS_IMPORTING\020\020\022&\n\"WALLET_STATE_ADDRES" +
+      "S_IMPORT_FAILED\020\021\022!\n\035WALLET_STATE_ADDRES" +
+      "S_DELETING\020\022\022&\n\"WALLET_STATE_ADDRESS_DEL" +
+      "ETE_FAILED\020\023\022\031\n\025WALLET_STATE_FLUSHING\020\024\022" +
+      "!\n\035WALLET_STATE_ACCOUNT_CREATING\020\025*{\n\022Wa" +
+      "lletProposalType\022 \n\034WALLET_PROPOSAL_TYPE" +
+      "_INVALID\020\000\022\037\n\033WALLET_PROPOSAL_TYPE_POLIC" +
+      "Y\020\001\022\"\n\036WALLET_PROPOSAL_TYPE_VALIDATOR\020\002*" +
+      "\201\001\n\014AddressState\022\031\n\025ADDRESS_STATE_INVALI" +
+      "D\020\000\022\034\n\030ADDRESS_STATE_SUBMITTING\020\001\022\033\n\027ADD" +
+      "RESS_STATE_SUBMITTED\020\002\022\033\n\027ADDRESS_STATE_" +
+      "COMPLETED\020\003*\265\002\n\020TransactionState\022\035\n\031TRAN" +
+      "SACTION_STATE_INVALID\020\000\022\035\n\031TRANSACTION_S" +
+      "TATE_SIGNING\020\001\022\034\n\030TRANSACTION_STATE_SIGN" +
+      "ED\020\002\022\037\n\033TRANSACTION_STATE_REVIEWING\020\003\022\036\n" +
+      "\032TRANSACTION_STATE_REVIEWED\020\004\022 \n\034TRANSAC" +
+      "TION_STATE_SUBMITTING\020\005\022\037\n\033TRANSACTION_S" +
+      "TATE_SUBMITTED\020\006\022 \n\034TRANSACTION_STATE_CA" +
+      "NCELLING\020\010\022\037\n\033TRANSACTION_STATE_CANCELLE" +
+      "D\020\007*`\n\013AccountType\022\030\n\024ACCOUNT_TYPE_INVAL" +
+      "ID\020\000\022\025\n\021ACCOUNT_TYPE_USER\020\001\022 \n\034ACCOUNT_T" +
+      "YPE_SERVICE_ACCOUNT\020\002*u\n\tUserState\022\026\n\022US" +
+      "ER_STATE_INVALID\020\000\022\032\n\026USER_STATE_UNCONFI" +
+      "RMED\020\001\022\030\n\024USER_STATE_CONFIRMED\020\002\022\032\n\026USER" +
+      "_STATE_DEACTIVATED\020\003*\353\001\n\010RoleType\022\025\n\021ROL" +
+      "E_TYPE_INVALID\020\000\022\031\n\025ROLE_TYPE_ORG_MANAGE" +
+      "R\020\001\022\030\n\024ROLE_TYPE_ORG_SIGNER\020\002\022\033\n\027ROLE_TY" +
+      "PE_ORG_VALIDATOR\020\003\022\030\n\024ROLE_TYPE_ORG_VIEW" +
+      "ER\020\004\022\033\n\027ROLE_TYPE_ORG_DEVELOPER\020\005\022\036\n\032ROL" +
+      "E_TYPE_HOT_WALLET_ADMIN\020\006\022\037\n\033ROLE_TYPE_H" +
+      "OT_WALLET_VIEWER\020\007*c\n\014ResourceType\022\031\n\025RE" +
+      "SOURCE_TYPE_INVALID\020\000\022\030\n\024RESOURCE_TYPE_W" +
+      "ALLET\020\001\022\036\n\032RESOURCE_TYPE_ORGANIZATION\020\002*" +
+      "\340\001\n\tTokenType\022\026\n\022TOKEN_TYPE_INVALID\020\000\022\032\n" +
+      "\026TOKEN_TYPE_LOGIN_TOKEN\020\001\022\031\n\025TOKEN_TYPE_" +
+      "MAIL_TOKEN\020\002\022#\n\037TOKEN_TYPE_PASSWORD_RESE" +
+      "T_TOKEN\020\003\022$\n TOKEN_TYPE_PASSWORD_UPDATE_" +
+      "TOKEN\020\004\022\033\n\027TOKEN_TYPE_SIGNUP_TOKEN\020\005\022\034\n\030" +
+      "TOKEN_TYPE_REFRESH_TOKEN\020\006*l\n\nPolicyType" +
+      "\022\027\n\023POLICY_TYPE_INVALID\020\000\022!\n\035POLICY_TYPE" +
+      "_HOT_WALLET_POLICY\020\001\022\"\n\036POLICY_TYPE_COLD" +
+      "_WALLET_POLICY\020\002*\225\001\n\021TransferLimitType\022\037" +
+      "\n\033TRANSFER_LIMIT_TYPE_INVALID\020\000\022\036\n\032TRANS" +
+      "FER_LIMIT_TYPE_HOURLY\020\001\022\035\n\031TRANSFER_LIMI" +
+      "T_TYPE_DAILY\020\002\022 \n\034TRANSFER_LIMIT_TYPE_ON" +
+      "E_TIME\020\003*\313\n\n\020NotificationType\022\035\n\031NOTIFIC" +
+      "ATION_TYPE_INVALID\020\000\0223\n/NOTIFICATION_TYP" +
+      "E_WALLET_SIGNER_APPROVE_REQUEST\020\001\0226\n2NOT" +
+      "IFICATION_TYPE_WALLET_VALIDATOR_APPROVE_" +
+      "REQUEST\020\002\022,\n(NOTIFICATION_TYPE_WALLET_AC" +
+      "TIVATE_FAILED\020\003\022&\n\"NOTIFICATION_TYPE_WAL" +
+      "LET_CANCELLED\020\004\022&\n\"NOTIFICATION_TYPE_WAL" +
+      "LET_COMPLETED\020\005\022#\n\037NOTIFICATION_TYPE_WAL" +
+      "LET_FAILED\020\006\0224\n0NOTIFICATION_TYPE_WALLET" +
+      "_ADDRESS_APPROVE_REQUEST\020\027\0221\n-NOTIFICATI" +
+      "ON_TYPE_WALLET_XRP_ACTIVATE_REQUEST\020\030\0224\n" +
+      "0NOTIFICATION_TYPE_WALLET_MULTISIG_CONFI" +
+      "G_REQUEST\020\031\0228\n4NOTIFICATION_TYPE_WALLET_" +
+      "MANAGER_TRANSACTION_REQUEST\020\032\0225\n1NOTIFIC" +
+      "ATION_TYPE_WALLET_VALIDATOR_CHANGE_REQUE" +
+      "ST\020\033\0228\n4NOTIFICATION_TYPE_TRANSACTION_SI" +
+      "GNER_APPROVE_REQUEST\020\007\022;\n7NOTIFICATION_T" +
+      "YPE_TRANSACTION_VALIDATOR_APPROVE_REQUES" +
+      "T\020\010\022\'\n#NOTIFICATION_TYPE_TRANSACTION_REA" +
+      "DY\020\026\022+\n\'NOTIFICATION_TYPE_TRANSACTION_SU" +
+      "BMITTED\020\t\022+\n\'NOTIFICATION_TYPE_TRANSACTI" +
+      "ON_CANCELLED\020\n\022-\n)NOTIFICATION_TYPE_TRAN" +
+      "SFER_SEND_COMPLETED\020\013\022*\n&NOTIFICATION_TY" +
+      "PE_TRANSFER_SEND_FAILED\020\014\0220\n,NOTIFICATIO" +
+      "N_TYPE_TRANSFER_RECEIVE_COMPLETED\020\r\022-\n)N" +
+      "OTIFICATION_TYPE_TRANSFER_RECEIVE_FAILED" +
+      "\020\016\022-\n)NOTIFICATION_TYPE_ADDRESS_APPROVE_" +
+      "REQUEST\020\017\022\'\n#NOTIFICATION_TYPE_ADDRESS_C" +
+      "OMPLETED\020\020\022\'\n#NOTIFICATION_TYPE_ADDRESS_" +
+      "CANCELLED\020\021\0223\n/NOTIFICATION_TYPE_TRANSFE" +
+      "RLIMIT_APPROVE_REQUEST\020\022\022-\n)NOTIFICATION" +
+      "_TYPE_TRANSFERLIMIT_COMPLETED\020\023\022-\n)NOTIF" +
+      "ICATION_TYPE_TRANSFERLIMIT_CANCELLED\020\024\022." +
+      "\n*NOTIFICATION_TYPE_WHITELIST_DETACH_REQ" +
+      "UEST\020\025*\204\002\n\rAuditLogGroup\022\033\n\027AUDIT_LOG_GR" +
+      "OUP_INVALID\020\000\022\031\n\025AUDIT_LOG_GROUP_LOGIN\020\001" +
+      "\022\033\n\027AUDIT_LOG_GROUP_ACCOUNT\020\002\022#\n\037AUDIT_L" +
+      "OG_GROUP_SERVICE_ACCOUNT\020\003\022\032\n\026AUDIT_LOG_" +
+      "GROUP_WALLET\020\004\022\037\n\033AUDIT_LOG_GROUP_TRANSA" +
+      "CTION\020\005\022\032\n\026AUDIT_LOG_GROUP_POLICY\020\006\022 \n\034A" +
+      "UDIT_LOG_GROUP_WALLET_GROUP\020\007*\324\022\n\014AuditL" +
       "ogType\022\032\n\026AUDIT_LOG_TYPE_INVALID\020\000\022\030\n\024AU" +
       "DIT_LOG_TYPE_LOGIN\020\001\022\035\n\031AUDIT_LOG_TYPE_L" +
       "OGIN_FAIL\020\002\022\033\n\027AUDIT_LOG_TYPE_2FA_FAIL\0202" +
@@ -4215,126 +4735,154 @@ public final class Enum {
       "WALLET_NO_WHITELIST_CANCEL\020\016\022(\n$AUDIT_LO" +
       "G_TYPE_WALLET_ADDRESS_UPLOAD\0203\022*\n&AUDIT_" +
       "LOG_TYPE_WALLET_ADDRESS_DOWNLOAD\0204\022(\n$AU" +
-      "DIT_LOG_TYPE_WALLET_ADDRESS_DELETE\0205\022%\n!" +
-      "AUDIT_LOG_TYPE_TRANSACTION_CREATE\020\017\022&\n\"A" +
-      "UDIT_LOG_TYPE_TRANSACTION_APPROVE\020\020\022%\n!A" +
-      "UDIT_LOG_TYPE_TRANSACTION_CANCEL\020\021\0221\n-AU" +
-      "DIT_LOG_TYPE_TRANSACTION_REGISTER_SIGNAT" +
-      "URE\020\022\022%\n!AUDIT_LOG_TYPE_TRANSACTION_SUBM" +
-      "IT\020\023\022*\n&AUDIT_LOG_TYPE_ACCOUNT_PASSWORD_" +
-      "CHANGE\020\024\022\'\n#AUDIT_LOG_TYPE_ACCOUNT_EMAIL" +
-      "_CHANGE\020\025\022!\n\035AUDIT_LOG_TYPE_ACCOUNT_INVI" +
-      "TE\020\026\022\"\n\036AUDIT_LOG_TYPE_ACCOUNT_ARCHIVE\020\027" +
-      "\022$\n AUDIT_LOG_TYPE_ACCOUNT_UNARCHIVE\020\030\022)" +
-      "\n%AUDIT_LOG_TYPE_SERVICE_ACCOUNT_CREATE\020" +
-      "\031\0224\n0AUDIT_LOG_TYPE_SERVICE_ACCOUNT_CHAN" +
-      "GE_PERMISSION\020\032\022+\n\'AUDIT_LOG_TYPE_SERVIC" +
-      "E_ACCOUNT_ACTIVATE\020\033\022+\n\'AUDIT_LOG_TYPE_S" +
-      "ERVICE_ACCOUNT_INACTIVE\020\034\022)\n%AUDIT_LOG_T" +
-      "YPE_SERVICE_ACCOUNT_DELETE\020\035\022-\n)AUDIT_LO" +
-      "G_TYPE_SERVICE_ACCOUNT_KEY_CREATE\020\036\022-\n)A" +
-      "UDIT_LOG_TYPE_SERVICE_ACCOUNT_KEY_DELETE" +
-      "\020\037\022(\n$AUDIT_LOG_TYPE_POLICY_ADDRESS_CREA" +
-      "TE\020 \022(\n$AUDIT_LOG_TYPE_POLICY_ADDRESS_DE" +
-      "LETE\020!\022)\n%AUDIT_LOG_TYPE_POLICY_ADDRESS_" +
-      "APPROVE\020\"\022(\n$AUDIT_LOG_TYPE_POLICY_ADDRE" +
-      "SS_CANCEL\020#\022/\n+AUDIT_LOG_TYPE_POLICY_SPE" +
-      "NDING_LIMIT_CREATE\020$\022/\n+AUDIT_LOG_TYPE_P" +
-      "OLICY_SPENDING_LIMIT_CHANGE\020%\022/\n+AUDIT_L" +
-      "OG_TYPE_POLICY_SPENDING_LIMIT_DELETE\020&\0220" +
-      "\n,AUDIT_LOG_TYPE_POLICY_SPENDING_LIMIT_A" +
-      "PPROVE\020\'\022/\n+AUDIT_LOG_TYPE_POLICY_SPENDI" +
-      "NG_LIMIT_CANCEL\020(\022*\n&AUDIT_LOG_TYPE_POLI" +
-      "CY_WHITELIST_CREATE\020)\022*\n&AUDIT_LOG_TYPE_" +
-      "POLICY_WHITELIST_CHANGE\020*\022*\n&AUDIT_LOG_T" +
-      "YPE_POLICY_WHITELIST_DELETE\020+\022\'\n#AUDIT_L" +
-      "OG_TYPE_POLICY_POLICY_CREATE\020,\022\'\n#AUDIT_" +
-      "LOG_TYPE_POLICY_POLICY_CHANGE\020-\022\'\n#AUDIT" +
-      "_LOG_TYPE_POLICY_POLICY_DELETE\020.\022.\n*AUDI" +
-      "T_LOG_TYPE_POLICY_REQUEST_NO_WHITELIST\020/" +
-      "\022.\n*AUDIT_LOG_TYPE_POLICY_APPROVE_NO_WHI" +
-      "TELIST\0200\022-\n)AUDIT_LOG_TYPE_POLICY_CANCEL" +
-      "_NO_WHITELIST\0201*\321\r\n\027PreconditionFailureT" +
-      "ype\022%\n!PRECONDITION_FAILURE_TYPE_INVALID" +
-      "\020\000\022*\n&PRECONDITION_FAILURE_TYPE_MFA_REQU" +
-      "IRED\020\001\0220\n,PRECONDITION_FAILURE_TYPE_MFA_" +
-      "NOT_REGISTERED\020\002\022-\n)PRECONDITION_FAILURE" +
-      "_TYPE_USER_NOT_ACTIVE\020\003\022.\n*PRECONDITION_" +
-      "FAILURE_TYPE_USER_IS_ARCHIVED\020\004\0223\n/PRECO" +
-      "NDITION_FAILURE_TYPE_EMAIL_IS_ALREADY_US" +
-      "ED\020\005\0229\n5PRECONDITION_FAILURE_TYPE_INVITA" +
-      "TION_TOKEN_IS_INVALID\020\033\0229\n5PRECONDITION_" +
-      "FAILURE_TYPE_INVITATION_TOKEN_IS_EXPIRED" +
-      "\020\034\022<\n8PRECONDITION_FAILURE_TYPE_INSUFFIC" +
-      "IENT_SPENDABLE_BALANCE\020\006\0223\n/PRECONDITION" +
-      "_FAILURE_TYPE_HOURLY_LIMIT_EXCEEDED\020\007\0222\n" +
-      ".PRECONDITION_FAILURE_TYPE_DAILY_LIMIT_E" +
-      "XCEEDED\020\010\0224\n0PRECONDITION_FAILURE_TYPE_O" +
-      "NETIME_LIMIT_EXCEEDED\020\t\0229\n5PRECONDITION_" +
-      "FAILURE_TYPE_WALLET_NAME_IS_ALREADY_USED" +
-      "\020\n\0220\n,PRECONDITION_FAILURE_TYPE_WALLET_I" +
-      "S_CANCELED\020\013\0220\n,PRECONDITION_FAILURE_TYP" +
-      "E_WALLET_IS_ARCHIVED\020\014\0225\n1PRECONDITION_F" +
-      "AILURE_TYPE_TRANSACTION_IS_CANCELED\020\r\0225\n" +
-      "1PRECONDITION_FAILURE_TYPE_PROPOSAL_ALRE" +
-      "ADY_EXISTS\020\016\022%\n!PRECONDITION_FAILURE_TYP" +
-      "E_NO_RATE\020\017\0225\n1PRECONDITION_FAILURE_TYPE" +
-      "_WHITELIST_OF_BASEPOLICY\020\020\022@\n<PRECONDITI" +
-      "ON_FAILURE_TYPE_CANNOT_ARCHIVE_WALLET_WI" +
-      "TH_BALANCE\020\021\022;\n7PRECONDITION_FAILURE_TYP" +
-      "E_TEMPORARY_INCREASE_IN_FEERATE\020\022\022>\n:PRE" +
-      "CONDITION_FAILURE_TYPE_INSUFFICIENT_FEE_" +
-      "ACCOUNT_BALANCE\020\024\022X\nTPRECONDITION_FAILUR" +
-      "E_TYPE_CANNOT_FLUSH_BALANCE_DUE_TO_EXIST" +
-      "ING_UNCONFIRMED_TRANSFERS\020\025\0226\n2PRECONDIT" +
-      "ION_FAILURE_TYPE_WALLET_STATE_IS_FLUSHIN" +
-      "G\020\026\022A\n=PRECONDITION_FAILURE_TYPE_WALLET_" +
-      "FLUSH_SETTING_DOES_NOT_EXIST\020\027\022:\n6PRECON" +
-      "DITION_FAILURE_TYPE_TRANSACTION_ALREADY_" +
-      "CANCELED\020\030\022;\n7PRECONDITION_FAILURE_TYPE_" +
-      "TRANSACTION_ALREADY_SUBMITTED\020\031\022X\nTPRECO" +
-      "NDITION_FAILURE_TYPE_CANNOT_OPERATE_TRAN" +
-      "SACTION_DUE_TO_WALLET_STATE_IS_CREATING\020" +
-      "\032\022>\n:PRECONDITION_FAILURE_TYPE_TRANSACTI" +
-      "ON_INCLUDE_SELF_ADDRESS\020\035\0228\n4PRECONDITIO" +
-      "N_FAILURE_TYPE_PROHIBITED_BY_SUBSCRIPTIO" +
-      "N\020\023*\203\003\n\016ListFilterType\022\034\n\030LIST_FILTER_TY" +
-      "PE_INVALID\020\000\022\036\n\032LIST_FILTER_TYPE_WALLET_" +
-      "ID\020\001\022 \n\034LIST_FILTER_TYPE_WALLET_NAME\020\002\022#" +
-      "\n\037LIST_FILTER_TYPE_WALLET_ADDRESS\020\003\022#\n\037L" +
-      "IST_FILTER_TYPE_TRANSACTION_ID\020\004\022 \n\034LIST" +
-      "_FILTER_TYPE_TRANSFER_ID\020\005\022!\n\035LIST_FILTE" +
-      "R_TYPE_ADDRESS_NAME\020\006\022\034\n\030LIST_FILTER_TYP" +
-      "E_ADDRESS\020\007\022\031\n\025LIST_FILTER_TYPE_TXID\020\010\022\035" +
-      "\n\031LIST_FILTER_TYPE_OWNER_ID\020\t\022*\n&LIST_FI" +
-      "LTER_TYPE_WALLET_ID_CREATE_TIME\020\n*\301\002\n\010Ma" +
-      "ilType\022\025\n\021MAIL_TYPE_INVALID\020\000\022\032\n\026MAIL_TY" +
-      "PE_USER_INVITED\020\001\022$\n MAIL_TYPE_PASSWORD_" +
-      "RESET_REQUEST\020\002\022\036\n\032MAIL_TYPE_PASSWORD_UP" +
-      "DATED\020\003\022\"\n\036MAIL_TYPE_EMAIL_UPDATE_REQUES" +
-      "T\020\004\022\033\n\027MAIL_TYPE_EMAIL_UPDATED\020\005\022)\n%MAIL" +
-      "_TYPE_FRAUD_TRANSACTION_SUBMITTED\020\006\022&\n\"M" +
-      "AIL_TYPE_IMPORT_ADDRESS_COMPLETED\020\007\022(\n$M" +
-      "AIL_TYPE_VALIDATOR_CHANGE_REQUESTED\020\010*\370\002" +
-      "\n\025WatchOnlyAddressState\022$\n WATCH_ONLY_AD" +
-      "DRESS_STATE_INVALID\020\000\022.\n*WATCH_ONLY_ADDR" +
-      "ESS_STATE_ADDRESS_IMPORTING\020\001\022-\n)WATCH_O" +
-      "NLY_ADDRESS_STATE_ADDRESS_IMPORTED\020\002\022*\n&" +
-      "WATCH_ONLY_ADDRESS_STATE_IMPORT_FAILED\020\003" +
-      "\022-\n)WATCH_ONLY_ADDRESS_STATE_ADDRESS_DEL" +
-      "ETING\020\004\022,\n(WATCH_ONLY_ADDRESS_STATE_ADDR" +
-      "ESS_DELETED\020\005\022*\n&WATCH_ONLY_ADDRESS_STAT" +
-      "E_DELETE_FAILED\020\006\022%\n!WATCH_ONLY_ADDRESS_" +
-      "STATE_DOWNLOAD\020\007*\313\002\n\021SubstrateCallType\022\037" +
-      "\n\033SUBSTRATE_CALL_TYPE_INVALID\020\000\022 \n\034SUBST" +
-      "RATE_CALL_TYPE_TRANSFER\020\001\022$\n SUBSTRATE_C" +
-      "ALL_TYPE_TRANSFER_ALL\020\002\022+\n\'SUBSTRATE_CAL" +
-      "L_TYPE_TRANSFER_KEEP_ALIVE\020\003\022(\n$SUBSTRAT" +
-      "E_CALL_TYPE_APPROVE_AS_MULTI\020\004\022 \n\034SUBSTR" +
-      "ATE_CALL_TYPE_AS_MULTI\020\005\022+\n\'SUBSTRATE_CA" +
-      "LL_TYPE_AS_MULTI_THRESHOLD1\020\006\022\'\n#SUBSTRA" +
-      "TE_CALL_TYPE_CANCEL_AS_MULTI\020\007B\021Z\017adaman" +
-      "tglobalv1b\006proto3"
+      "DIT_LOG_TYPE_WALLET_ADDRESS_DELETE\0205\022&\n\"" +
+      "AUDIT_LOG_TYPE_WALLET_GROUP_CREATE\0206\022+\n\'" +
+      "AUDIT_LOG_TYPE_WALLET_GROUP_NAME_CHANGE\020" +
+      "7\022&\n\"AUDIT_LOG_TYPE_WALLET_GROUP_CHANGE\020" +
+      "8\022%\n!AUDIT_LOG_TYPE_TRANSACTION_CREATE\020\017" +
+      "\022&\n\"AUDIT_LOG_TYPE_TRANSACTION_APPROVE\020\020" +
+      "\022%\n!AUDIT_LOG_TYPE_TRANSACTION_CANCEL\020\021\022" +
+      "1\n-AUDIT_LOG_TYPE_TRANSACTION_REGISTER_S" +
+      "IGNATURE\020\022\022%\n!AUDIT_LOG_TYPE_TRANSACTION" +
+      "_SUBMIT\020\023\022*\n&AUDIT_LOG_TYPE_ACCOUNT_PASS" +
+      "WORD_CHANGE\020\024\022\'\n#AUDIT_LOG_TYPE_ACCOUNT_" +
+      "EMAIL_CHANGE\020\025\022!\n\035AUDIT_LOG_TYPE_ACCOUNT" +
+      "_INVITE\020\026\022\"\n\036AUDIT_LOG_TYPE_ACCOUNT_ARCH" +
+      "IVE\020\027\022$\n AUDIT_LOG_TYPE_ACCOUNT_UNARCHIV" +
+      "E\020\030\022)\n%AUDIT_LOG_TYPE_SERVICE_ACCOUNT_CR" +
+      "EATE\020\031\0224\n0AUDIT_LOG_TYPE_SERVICE_ACCOUNT" +
+      "_CHANGE_PERMISSION\020\032\022+\n\'AUDIT_LOG_TYPE_S" +
+      "ERVICE_ACCOUNT_ACTIVATE\020\033\022+\n\'AUDIT_LOG_T" +
+      "YPE_SERVICE_ACCOUNT_INACTIVE\020\034\022)\n%AUDIT_" +
+      "LOG_TYPE_SERVICE_ACCOUNT_DELETE\020\035\022-\n)AUD" +
+      "IT_LOG_TYPE_SERVICE_ACCOUNT_KEY_CREATE\020\036" +
+      "\022-\n)AUDIT_LOG_TYPE_SERVICE_ACCOUNT_KEY_D" +
+      "ELETE\020\037\022(\n$AUDIT_LOG_TYPE_POLICY_ADDRESS" +
+      "_CREATE\020 \022(\n$AUDIT_LOG_TYPE_POLICY_ADDRE" +
+      "SS_DELETE\020!\022)\n%AUDIT_LOG_TYPE_POLICY_ADD" +
+      "RESS_APPROVE\020\"\022(\n$AUDIT_LOG_TYPE_POLICY_" +
+      "ADDRESS_CANCEL\020#\022/\n+AUDIT_LOG_TYPE_POLIC" +
+      "Y_SPENDING_LIMIT_CREATE\020$\022/\n+AUDIT_LOG_T" +
+      "YPE_POLICY_SPENDING_LIMIT_CHANGE\020%\022/\n+AU" +
+      "DIT_LOG_TYPE_POLICY_SPENDING_LIMIT_DELET" +
+      "E\020&\0220\n,AUDIT_LOG_TYPE_POLICY_SPENDING_LI" +
+      "MIT_APPROVE\020\'\022/\n+AUDIT_LOG_TYPE_POLICY_S" +
+      "PENDING_LIMIT_CANCEL\020(\022*\n&AUDIT_LOG_TYPE" +
+      "_POLICY_WHITELIST_CREATE\020)\022*\n&AUDIT_LOG_" +
+      "TYPE_POLICY_WHITELIST_CHANGE\020*\022*\n&AUDIT_" +
+      "LOG_TYPE_POLICY_WHITELIST_DELETE\020+\022\'\n#AU" +
+      "DIT_LOG_TYPE_POLICY_POLICY_CREATE\020,\022\'\n#A" +
+      "UDIT_LOG_TYPE_POLICY_POLICY_CHANGE\020-\022\'\n#" +
+      "AUDIT_LOG_TYPE_POLICY_POLICY_DELETE\020.\022.\n" +
+      "*AUDIT_LOG_TYPE_POLICY_REQUEST_NO_WHITEL" +
+      "IST\020/\022.\n*AUDIT_LOG_TYPE_POLICY_APPROVE_N" +
+      "O_WHITELIST\0200\022-\n)AUDIT_LOG_TYPE_POLICY_C" +
+      "ANCEL_NO_WHITELIST\0201*\321\r\n\027PreconditionFai" +
+      "lureType\022%\n!PRECONDITION_FAILURE_TYPE_IN" +
+      "VALID\020\000\022*\n&PRECONDITION_FAILURE_TYPE_MFA" +
+      "_REQUIRED\020\001\0220\n,PRECONDITION_FAILURE_TYPE" +
+      "_MFA_NOT_REGISTERED\020\002\022-\n)PRECONDITION_FA" +
+      "ILURE_TYPE_USER_NOT_ACTIVE\020\003\022.\n*PRECONDI" +
+      "TION_FAILURE_TYPE_USER_IS_ARCHIVED\020\004\0223\n/" +
+      "PRECONDITION_FAILURE_TYPE_EMAIL_IS_ALREA" +
+      "DY_USED\020\005\0229\n5PRECONDITION_FAILURE_TYPE_I" +
+      "NVITATION_TOKEN_IS_INVALID\020\033\0229\n5PRECONDI" +
+      "TION_FAILURE_TYPE_INVITATION_TOKEN_IS_EX" +
+      "PIRED\020\034\022<\n8PRECONDITION_FAILURE_TYPE_INS" +
+      "UFFICIENT_SPENDABLE_BALANCE\020\006\0223\n/PRECOND" +
+      "ITION_FAILURE_TYPE_HOURLY_LIMIT_EXCEEDED" +
+      "\020\007\0222\n.PRECONDITION_FAILURE_TYPE_DAILY_LI" +
+      "MIT_EXCEEDED\020\010\0224\n0PRECONDITION_FAILURE_T" +
+      "YPE_ONETIME_LIMIT_EXCEEDED\020\t\0229\n5PRECONDI" +
+      "TION_FAILURE_TYPE_WALLET_NAME_IS_ALREADY" +
+      "_USED\020\n\0220\n,PRECONDITION_FAILURE_TYPE_WAL" +
+      "LET_IS_CANCELED\020\013\0220\n,PRECONDITION_FAILUR" +
+      "E_TYPE_WALLET_IS_ARCHIVED\020\014\0225\n1PRECONDIT" +
+      "ION_FAILURE_TYPE_TRANSACTION_IS_CANCELED" +
+      "\020\r\0225\n1PRECONDITION_FAILURE_TYPE_PROPOSAL" +
+      "_ALREADY_EXISTS\020\016\022%\n!PRECONDITION_FAILUR" +
+      "E_TYPE_NO_RATE\020\017\0225\n1PRECONDITION_FAILURE" +
+      "_TYPE_WHITELIST_OF_BASEPOLICY\020\020\022@\n<PRECO" +
+      "NDITION_FAILURE_TYPE_CANNOT_ARCHIVE_WALL" +
+      "ET_WITH_BALANCE\020\021\022;\n7PRECONDITION_FAILUR" +
+      "E_TYPE_TEMPORARY_INCREASE_IN_FEERATE\020\022\022>" +
+      "\n:PRECONDITION_FAILURE_TYPE_INSUFFICIENT" +
+      "_FEE_ACCOUNT_BALANCE\020\024\022X\nTPRECONDITION_F" +
+      "AILURE_TYPE_CANNOT_FLUSH_BALANCE_DUE_TO_" +
+      "EXISTING_UNCONFIRMED_TRANSFERS\020\025\0226\n2PREC" +
+      "ONDITION_FAILURE_TYPE_WALLET_STATE_IS_FL" +
+      "USHING\020\026\022A\n=PRECONDITION_FAILURE_TYPE_WA" +
+      "LLET_FLUSH_SETTING_DOES_NOT_EXIST\020\027\022:\n6P" +
+      "RECONDITION_FAILURE_TYPE_TRANSACTION_ALR" +
+      "EADY_CANCELED\020\030\022;\n7PRECONDITION_FAILURE_" +
+      "TYPE_TRANSACTION_ALREADY_SUBMITTED\020\031\022X\nT" +
+      "PRECONDITION_FAILURE_TYPE_CANNOT_OPERATE" +
+      "_TRANSACTION_DUE_TO_WALLET_STATE_IS_CREA" +
+      "TING\020\032\022>\n:PRECONDITION_FAILURE_TYPE_TRAN" +
+      "SACTION_INCLUDE_SELF_ADDRESS\020\035\0228\n4PRECON" +
+      "DITION_FAILURE_TYPE_PROHIBITED_BY_SUBSCR" +
+      "IPTION\020\023*\203\003\n\016ListFilterType\022\034\n\030LIST_FILT" +
+      "ER_TYPE_INVALID\020\000\022\036\n\032LIST_FILTER_TYPE_WA" +
+      "LLET_ID\020\001\022 \n\034LIST_FILTER_TYPE_WALLET_NAM" +
+      "E\020\002\022#\n\037LIST_FILTER_TYPE_WALLET_ADDRESS\020\003" +
+      "\022#\n\037LIST_FILTER_TYPE_TRANSACTION_ID\020\004\022 \n" +
+      "\034LIST_FILTER_TYPE_TRANSFER_ID\020\005\022!\n\035LIST_" +
+      "FILTER_TYPE_ADDRESS_NAME\020\006\022\034\n\030LIST_FILTE" +
+      "R_TYPE_ADDRESS\020\007\022\031\n\025LIST_FILTER_TYPE_TXI" +
+      "D\020\010\022\035\n\031LIST_FILTER_TYPE_OWNER_ID\020\t\022*\n&LI" +
+      "ST_FILTER_TYPE_WALLET_ID_CREATE_TIME\020\n*\213" +
+      "\003\n\010MailType\022\025\n\021MAIL_TYPE_INVALID\020\000\022\032\n\026MA" +
+      "IL_TYPE_USER_INVITED\020\001\022$\n MAIL_TYPE_PASS" +
+      "WORD_RESET_REQUEST\020\002\022\036\n\032MAIL_TYPE_PASSWO" +
+      "RD_UPDATED\020\003\022\"\n\036MAIL_TYPE_EMAIL_UPDATE_R" +
+      "EQUEST\020\004\022\033\n\027MAIL_TYPE_EMAIL_UPDATED\020\005\022)\n" +
+      "%MAIL_TYPE_FRAUD_TRANSACTION_SUBMITTED\020\006" +
+      "\022&\n\"MAIL_TYPE_IMPORT_ADDRESS_COMPLETED\020\007" +
+      "\022(\n$MAIL_TYPE_VALIDATOR_CHANGE_REQUESTED" +
+      "\020\010\022\'\n#MAIL_TYPE_UNCHECKED_TRANSFER_EXIST" +
+      "S\020\t\022\037\n\033MAIL_TYPE_DOWNLOAD_RESOURCE\020\n*\370\002\n" +
+      "\025WatchOnlyAddressState\022$\n WATCH_ONLY_ADD" +
+      "RESS_STATE_INVALID\020\000\022.\n*WATCH_ONLY_ADDRE" +
+      "SS_STATE_ADDRESS_IMPORTING\020\001\022-\n)WATCH_ON" +
+      "LY_ADDRESS_STATE_ADDRESS_IMPORTED\020\002\022*\n&W" +
+      "ATCH_ONLY_ADDRESS_STATE_IMPORT_FAILED\020\003\022" +
+      "-\n)WATCH_ONLY_ADDRESS_STATE_ADDRESS_DELE" +
+      "TING\020\004\022,\n(WATCH_ONLY_ADDRESS_STATE_ADDRE" +
+      "SS_DELETED\020\005\022*\n&WATCH_ONLY_ADDRESS_STATE" +
+      "_DELETE_FAILED\020\006\022%\n!WATCH_ONLY_ADDRESS_S" +
+      "TATE_DOWNLOAD\020\007*\313\002\n\021SubstrateCallType\022\037\n" +
+      "\033SUBSTRATE_CALL_TYPE_INVALID\020\000\022 \n\034SUBSTR" +
+      "ATE_CALL_TYPE_TRANSFER\020\001\022$\n SUBSTRATE_CA" +
+      "LL_TYPE_TRANSFER_ALL\020\002\022+\n\'SUBSTRATE_CALL" +
+      "_TYPE_TRANSFER_KEEP_ALIVE\020\003\022(\n$SUBSTRATE" +
+      "_CALL_TYPE_APPROVE_AS_MULTI\020\004\022 \n\034SUBSTRA" +
+      "TE_CALL_TYPE_AS_MULTI\020\005\022+\n\'SUBSTRATE_CAL" +
+      "L_TYPE_AS_MULTI_THRESHOLD1\020\006\022\'\n#SUBSTRAT" +
+      "E_CALL_TYPE_CANCEL_AS_MULTI\020\007*\356\002\n\024Downlo" +
+      "adResourceType\022\"\n\036DOWNLOAD_RESOURCE_TYPE" +
+      "_INVALID\020\000\022:\n6DOWNLOAD_RESOURCE_TYPE_ALL" +
+      "_WALLET_BALANCE_SNAPSHOT_EOD\020\001\022@\n<DOWNLO" +
+      "AD_RESOURCE_TYPE_ALL_WALLET_GROUP_BALANC" +
+      "E_SNAPSHOT_EOD\020\002\022@\n<DOWNLOAD_RESOURCE_TY" +
+      "PE_ALL_WALLET_BALANCE_SNAPSHOT_ON_DEMAND" +
+      "\020\003\022F\nBDOWNLOAD_RESOURCE_TYPE_ALL_WALLET_" +
+      "GROUP_BALANCE_SNAPSHOT_ON_DEMAND\020\004\022*\n&DO" +
+      "WNLOAD_RESOURCE_TYPE_WALLET_TRANSFER\020\005*\274" +
+      "\001\n\031EventTriggeredMessageType\022(\n$EVENT_TR" +
+      "IGGERED_MESSAGE_TYPE_INVALID\020\000\0229\n5EVENT_" +
+      "TRIGGERED_MESSAGE_TYPE_UNCHECKED_TRANSFE" +
+      "R_ALERT\020\001\022:\n6EVENT_TRIGGERED_MESSAGE_TYP" +
+      "E_FRAUDULENT_TRANSFER_ALERT\020\002*\301\001\n\034Wallet" +
+      "ConnectCallRequestType\022,\n(WALLET_CONNECT" +
+      "_CALL_REQUEST_TYPE_INVALID\020\000\0229\n5WALLET_C" +
+      "ONNECT_CALL_REQUEST_TYPE_ETH_SEND_TRANSA" +
+      "CTION\020\001\0228\n4WALLET_CONNECT_CALL_REQUEST_T" +
+      "YPE_ETH_SIGN_TYPED_DATA\020\002*\270\001\n\034EthereumCo" +
+      "ntractMethodIDType\022,\n(ETHEREUM_CONTRACT_" +
+      "METHOD_ID_TYPE_INVALID\020\000\0222\n.ETHEREUM_CON" +
+      "TRACT_METHOD_ID_TYPE_ERC20_APPROVE\020\001\0226\n2" +
+      "ETHEREUM_CONTRACT_METHOD_ID_TYPE_UNISWAP" +
+      "_MULTICALL\020\002B\021Z\017adamantglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
