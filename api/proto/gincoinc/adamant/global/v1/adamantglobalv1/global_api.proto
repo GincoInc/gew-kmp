@@ -2,139 +2,141 @@ syntax = "proto3";
 
 package adamant.global.v1;
 
-option go_package = "adamantglobalv1";
-option java_outer_classname = "GlobalAPIProto";
-option java_multiple_files = true;
-
-import "google/protobuf/timestamp.proto";
-import "google/protobuf/empty.proto";
-import "validate/validate.proto";
-import "gincoinc/global/v1/gincoincglobalv1/enum.proto";
 import "gincoinc/adamant/global/v1/adamantglobalv1/enum.proto";
 import "gincoinc/adamant/global/v1/adamantglobalv1/model.proto";
+import "gincoinc/global/v1/gincoincglobalv1/enum.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "validate/validate.proto";
+
+option go_package = "github.com/GincoInc/protobuf/gen/go/gincoinc/adamant/global/v1/adamantglobalv1";
+option java_multiple_files = true;
+option java_outer_classname = "GlobalAPIProto";
 
 // =============================================================================
 //  Service
 // =============================================================================
 
 service GlobalAPI {
-    // Wallet
-    rpc CreateWallet (CreateWalletRequest) returns (CreateWalletResponse) {}
-    // Get wallet information. the wallet model includes balance, address etc.
-    rpc GetWallet (GetWalletRequest) returns (Wallet) {}
-    rpc CancelWallet (CancelWalletRequest) returns (google.protobuf.Empty) {}
-    rpc ArchiveWallet (ArchiveWalletRequest) returns (google.protobuf.Empty) {}
-    rpc UnArchiveWallet (UnArchiveWalletRequest) returns (google.protobuf.Empty) {}
-    rpc ListWallets (ListWalletsRequest) returns (ListWalletsResponse) {}
-    rpc ListWalletsByFilter (ListWalletsByFilterRequest) returns (ListWalletsResponse) {}
-    rpc ListBaseWallets (ListBaseWalletsRequest) returns (ListBaseWalletsResponse) {}
-    rpc UpdateWalletName (UpdateWalletNameRequest) returns (google.protobuf.Empty) {}
-    rpc UpdateWalletValidation (UpdateWalletValidationRequest) returns (google.protobuf.Empty) {}
-    rpc UpdateWalletPolicy (UpdateWalletPolicyRequest) returns (google.protobuf.Empty) {}
-    rpc ReviewWalletProposal (ReviewWalletProposalRequest) returns (google.protobuf.Empty) {}
-    rpc FlushBalance (FlushBalanceRequest) returns (FlushBalanceResponse) {}
-    rpc CreateWalletGroup (CreateWalletGroupRequest) returns (CreateWalletGroupResponse) {}
-    rpc UpdateWalletGroupName (UpdateWalletGroupNameRequest) returns (google.protobuf.Empty) {}
-    rpc UpdateWalletGroup (UpdateWalletGroupRequest) returns (google.protobuf.Empty) {}
-    rpc GetWalletGroup (GetWalletGroupRequest) returns (WalletGroup) {}
-    rpc ListWalletGroups (ListWalletGroupsRequest) returns (ListWalletGroupsResponse) {}
+  // Wallet
+  rpc CreateWallet(CreateWalletRequest) returns (CreateWalletResponse) {}
+  // Get wallet information. the wallet model includes balance, address etc.
+  rpc GetWallet(GetWalletRequest) returns (Wallet) {}
+  rpc CancelWallet(CancelWalletRequest) returns (google.protobuf.Empty) {}
+  rpc ArchiveWallet(ArchiveWalletRequest) returns (google.protobuf.Empty) {}
+  rpc UnArchiveWallet(UnArchiveWalletRequest) returns (google.protobuf.Empty) {}
+  rpc ListWallets(ListWalletsRequest) returns (ListWalletsResponse) {}
+  rpc ListWalletsByFilter(ListWalletsByFilterRequest) returns (ListWalletsResponse) {}
+  rpc ListBaseWallets(ListBaseWalletsRequest) returns (ListBaseWalletsResponse) {}
+  rpc UpdateWalletName(UpdateWalletNameRequest) returns (google.protobuf.Empty) {}
+  rpc UpdateWalletValidation(UpdateWalletValidationRequest) returns (google.protobuf.Empty) {}
+  rpc UpdateWalletPolicy(UpdateWalletPolicyRequest) returns (google.protobuf.Empty) {}
+  rpc ReviewWalletProposal(ReviewWalletProposalRequest) returns (google.protobuf.Empty) {}
+  rpc FlushBalance(FlushBalanceRequest) returns (FlushBalanceResponse) {}
+  rpc CreateWalletGroup(CreateWalletGroupRequest) returns (CreateWalletGroupResponse) {}
+  rpc UpdateWalletGroupName(UpdateWalletGroupNameRequest) returns (google.protobuf.Empty) {}
+  rpc UpdateWalletGroup(UpdateWalletGroupRequest) returns (google.protobuf.Empty) {}
+  rpc GetWalletGroup(GetWalletGroupRequest) returns (WalletGroup) {}
+  rpc ListWalletGroups(ListWalletGroupsRequest) returns (ListWalletGroupsResponse) {}
 
-    // Review
-    rpc ApproveWallet (ApproveWalletRequest) returns (google.protobuf.Empty) {}
-    rpc ApproveTransaction (ApproveTransactionRequest) returns (google.protobuf.Empty) {}
+  // Review
+  rpc ApproveWallet(ApproveWalletRequest) returns (google.protobuf.Empty) {}
+  rpc ApproveTransaction(ApproveTransactionRequest) returns (google.protobuf.Empty) {}
 
-    // Address
-    // Create a new address for an existing wallet
-    rpc CreateAddress (CreateAddressRequest) returns (CreateAddressResponse) {}
-    rpc GetAddress (GetAddressRequest) returns (Address) {}
-    rpc GetAddressByAddress (GetAddressByAddressRequest) returns (Address) {}
-    rpc GetAddressByIndex (GetAddressByIndexRequest) returns (Address) {}
-    rpc ListAddresses (ListAddressesRequest) returns (ListAddressesResponse) {}
-    rpc ListAddressesWithBalance (ListAddressesWithBalanceRequest) returns (ListAddressesWithBalanceResponse) {}
-    rpc UpdateAddressBalance (UpdateAddressBalanceRequest) returns (google.protobuf.Empty) {}
-    // Get an address which hold ETH for ethereum wallet/address creation etc
-    rpc GetEthereumFeeAddress (GetEthereumFeeAddressRequest) returns (EthereumFeeAddress) {}
-    // Get addresses associated with the Polkadot signer
-    rpc ListSubstrateChildAddresses (ListSubstrateChildAddressesRequest) returns (ListSubstrateChildAddressesResponse) {}
+  // Address
+  // Create a new address for an existing wallet
+  rpc CreateAddress(CreateAddressRequest) returns (CreateAddressResponse) {}
+  rpc GetAddress(GetAddressRequest) returns (Address) {}
+  rpc GetAddressByAddress(GetAddressByAddressRequest) returns (Address) {}
+  rpc GetAddressByIndex(GetAddressByIndexRequest) returns (Address) {}
+  rpc ListAddresses(ListAddressesRequest) returns (ListAddressesResponse) {}
+  rpc ListAddressesWithBalance(ListAddressesWithBalanceRequest) returns (ListAddressesWithBalanceResponse) {}
+  rpc UpdateAddressBalance(UpdateAddressBalanceRequest) returns (google.protobuf.Empty) {}
+  // Get an address which hold ETH for ethereum wallet/address creation etc
+  rpc GetEthereumFeeAddress(GetEthereumFeeAddressRequest) returns (EthereumFeeAddress) {}
+  // Get addresses associated with the Polkadot signer
+  rpc ListSubstrateChildAddresses(ListSubstrateChildAddressesRequest) returns (ListSubstrateChildAddressesResponse) {}
+  rpc ImportAddress(ImportAddressRequest) returns (ImportAddressResponse) {}
 
-    // RegisterKey
-    rpc RegisterKey (RegisterKeyRequest) returns (RegisterKeyResponse) {}
+  // RegisterKey
+  rpc RegisterKey(RegisterKeyRequest) returns (RegisterKeyResponse) {}
 
-    // Transaction
-    rpc CreateTransaction (CreateTransactionRequest) returns (CreateTransactionResponse) {}
-    rpc CreateXRPInitTransactions (CreateXRPInitTransactionsRequest) returns (google.protobuf.Empty) {}
-    rpc SignTransaction (SignTransactionRequest) returns (google.protobuf.Empty) {}
-    rpc SignXRPInitTransactions (SignXRPInitTransactionsRequest) returns (google.protobuf.Empty) {}
-    rpc SendTransaction (SendTransactionRequest) returns (SendTransactionResponse) {}
-    rpc SendXRPInitTransactions (SendXRPInitTransactionsRequest) returns (SendXRPInitTransactionsResponse) {}
-    rpc CancelTransaction (CancelTransactionRequest) returns (google.protobuf.Empty) {}
-    rpc GetTransaction (GetTransactionRequest) returns (Transaction) {}
-    rpc GetTransactionByTxID (GetTransactionByTxIDRequest) returns (Transaction) {}
-    rpc ListTransactions (ListTransactionsRequest) returns (ListTransactionsResponse) {}
-    rpc ListTransactionsByFilter (ListTransactionsByFilterRequest) returns (ListTransactionsResponse) {}
+  // Transaction
+  rpc CreateTransaction(CreateTransactionRequest) returns (CreateTransactionResponse) {}
+  rpc CreateXRPInitTransactions(CreateXRPInitTransactionsRequest) returns (google.protobuf.Empty) {}
+  rpc SignTransaction(SignTransactionRequest) returns (google.protobuf.Empty) {}
+  rpc SignXRPInitTransactions(SignXRPInitTransactionsRequest) returns (google.protobuf.Empty) {}
+  rpc SendTransaction(SendTransactionRequest) returns (SendTransactionResponse) {}
+  rpc SendXRPInitTransactions(SendXRPInitTransactionsRequest) returns (SendXRPInitTransactionsResponse) {}
+  rpc CancelTransaction(CancelTransactionRequest) returns (google.protobuf.Empty) {}
+  rpc GetTransaction(GetTransactionRequest) returns (Transaction) {}
+  rpc GetTransactionByTxID(GetTransactionByTxIDRequest) returns (Transaction) {}
+  rpc ListTransactions(ListTransactionsRequest) returns (ListTransactionsResponse) {}
+  rpc ListTransactionsByFilter(ListTransactionsByFilterRequest) returns (ListTransactionsResponse) {}
 
-    // SignInfo
-    rpc GetSignInfo (GetSignInfoRequest) returns (SignInfo) {}
-    rpc ListSignInfo (ListSignInfoRequest) returns (ListSignInfoResponse) {}
-    rpc ListXRPInitSignInfo (ListXRPInitSignInfoRequest) returns (ListXRPInitSignInfoResponse) {}
+  // SignInfo
+  rpc GetSignInfo(GetSignInfoRequest) returns (SignInfo) {}
+  rpc ListSignInfo(ListSignInfoRequest) returns (ListSignInfoResponse) {}
+  rpc ListXRPInitSignInfo(ListXRPInitSignInfoRequest) returns (ListXRPInitSignInfoResponse) {}
 
-    // Transfer
-    // List transfers for a given wallet. Ordered by update time desc
-    rpc ListTransfers (ListTransfersRequest) returns (ListTransfersResponse) {}
-    rpc ListTransfersByFilter (ListTransfersByFilterRequest) returns (ListTransfersResponse) {}
+  // Transfer
+  // List transfers for a given wallet. Ordered by update time desc
+  rpc ListTransfers(ListTransfersRequest) returns (ListTransfersResponse) {}
+  rpc ListTransfersByFilter(ListTransfersByFilterRequest) returns (ListTransfersResponse) {}
 
-    // Rate
-    // Get rates by snapshot id
-    rpc GetRateSnapshot (GetRateSnapshotRequest) returns (RateSnapshot) {}
-    // Get latest rates set to your organization
-    rpc GetLatestRateSnapshot (GetLatestRateSnapshotRequest) returns (RateSnapshot) {}
-    // Set rates to your organization
-    rpc SetRates (SetRatesRequest) returns (SetRatesResponse) {}
-    rpc SetDefaultRates (SetDefaultRatesRequest) returns (SetDefaultRatesResponse) {}
+  // Rate
+  // Get rates by snapshot id
+  rpc GetRateSnapshot(GetRateSnapshotRequest) returns (RateSnapshot) {}
+  // Get latest rates set to your organization
+  rpc GetLatestRateSnapshot(GetLatestRateSnapshotRequest) returns (RateSnapshot) {}
+  // Set rates to your organization
+  rpc SetRates(SetRatesRequest) returns (SetRatesResponse) {}
+  rpc SetDefaultRates(SetDefaultRatesRequest) returns (SetDefaultRatesResponse) {}
 
-    // policy
-    rpc CreateLabeledAddress (CreateLabeledAddressRequest) returns (CreateLabeledAddressResponse) {}
-    rpc GetLabeledAddress (GetLabeledAddressRequest) returns (LabeledAddress) {}
-    rpc ListLabeledAddresses (ListLabeledAddressesRequest) returns (ListLabeledAddressesResponse) {}
-    rpc IsDeletableLabeledAddress (IsDeletableLabeledAddressRequest) returns (IsDeletableLabeledAddressResponse) {}
-    rpc UpdateLabeledAddress (UpdateLabeledAddressRequest) returns (LabeledAddress) {}
-    rpc DeleteAddress (DeleteLabeledAddressRequest) returns (google.protobuf.Empty) {}
-    rpc ReviewLabeledAddressProposal (ReviewLabeledAddressProposalRequest) returns (google.protobuf.Empty) {}
+  // policy
+  rpc CreateLabeledAddress(CreateLabeledAddressRequest) returns (CreateLabeledAddressResponse) {}
+  rpc GetLabeledAddress(GetLabeledAddressRequest) returns (LabeledAddress) {}
+  rpc ListLabeledAddresses(ListLabeledAddressesRequest) returns (ListLabeledAddressesResponse) {}
+  rpc IsDeletableLabeledAddress(IsDeletableLabeledAddressRequest) returns (IsDeletableLabeledAddressResponse) {}
+  rpc UpdateLabeledAddress(UpdateLabeledAddressRequest) returns (LabeledAddress) {}
+  // buf:lint:ignore RPC_REQUEST_STANDARD_NAME
+  rpc DeleteAddress(DeleteLabeledAddressRequest) returns (google.protobuf.Empty) {}
+  rpc ReviewLabeledAddressProposal(ReviewLabeledAddressProposalRequest) returns (google.protobuf.Empty) {}
 
-    rpc CreateWhitelist (CreateWhitelistRequest) returns (CreateWhitelistResponse) {}
-    rpc GetWhitelist (GetWhitelistRequest) returns (Whitelist) {}
-    rpc ListWhitelists (ListWhitelistsRequest) returns (ListWhitelistsResponse) {}
-    rpc IsDeletableWhitelist (IsDeletableWhitelistRequest) returns (IsDeletableWhitelistResponse) {}
-    rpc UpdateWhitelist (UpdateWhitelistRequest) returns (Whitelist) {}
-    rpc UpdateWhitelistAddresses (UpdateWhitelistAddressesRequest) returns (Whitelist) {}
-    rpc DeleteWhitelist (DeleteWhitelistRequest) returns (google.protobuf.Empty) {}
+  rpc CreateWhitelist(CreateWhitelistRequest) returns (CreateWhitelistResponse) {}
+  rpc GetWhitelist(GetWhitelistRequest) returns (Whitelist) {}
+  rpc ListWhitelists(ListWhitelistsRequest) returns (ListWhitelistsResponse) {}
+  rpc IsDeletableWhitelist(IsDeletableWhitelistRequest) returns (IsDeletableWhitelistResponse) {}
+  rpc UpdateWhitelist(UpdateWhitelistRequest) returns (Whitelist) {}
+  rpc UpdateWhitelistAddresses(UpdateWhitelistAddressesRequest) returns (Whitelist) {}
+  rpc DeleteWhitelist(DeleteWhitelistRequest) returns (google.protobuf.Empty) {}
 
-    rpc CreateTransferLimit (CreateTransferLimitRequest) returns (CreateTransferLimitResponse) {}
-    rpc GetTransferLimit (GetTransferLimitRequest) returns (TransferLimit) {}
-    rpc ListTransferLimits (ListTransferLimitsRequest) returns (ListTransferLimitsResponse) {}
-    rpc IsDeletableTransferLimit (IsDeletableTransferLimitRequest) returns (IsDeletableTransferLimitResponse) {}
-    rpc UpdateTransferLimit (UpdateTransferLimitRequest) returns (TransferLimit) {}
-    rpc UpdateTransferLimitName (UpdateTransferLimitNameRequest) returns (adamant.global.v1.TransferLimit) {}
-    rpc DeleteTransferLimit (DeleteTransferLimitRequest) returns (google.protobuf.Empty) {}
-    rpc ReviewTransferLimitProposal (ReviewTransferLimitProposalRequest) returns (google.protobuf.Empty) {}
+  rpc CreateTransferLimit(CreateTransferLimitRequest) returns (CreateTransferLimitResponse) {}
+  rpc GetTransferLimit(GetTransferLimitRequest) returns (TransferLimit) {}
+  rpc ListTransferLimits(ListTransferLimitsRequest) returns (ListTransferLimitsResponse) {}
+  rpc IsDeletableTransferLimit(IsDeletableTransferLimitRequest) returns (IsDeletableTransferLimitResponse) {}
+  rpc UpdateTransferLimit(UpdateTransferLimitRequest) returns (TransferLimit) {}
+  rpc UpdateTransferLimitName(UpdateTransferLimitNameRequest) returns (adamant.global.v1.TransferLimit) {}
+  rpc DeleteTransferLimit(DeleteTransferLimitRequest) returns (google.protobuf.Empty) {}
+  rpc ReviewTransferLimitProposal(ReviewTransferLimitProposalRequest) returns (google.protobuf.Empty) {}
 
-    rpc CreatePolicy (CreatePolicyRequest) returns (CreatePolicyResponse) {}
-    rpc GetPolicy (GetPolicyRequest) returns (Policy) {}
-    rpc ListPolicies (ListPoliciesRequest) returns (ListPoliciesResponse) {}
-    rpc IsDeletablePolicy (IsDeletablePolicyRequest) returns (IsDeletablePolicyResponse) {}
-    rpc UpdatePolicy (UpdatePolicyRequest) returns (Policy) {}
-    rpc DeletePolicy (DeletePolicyRequest) returns (google.protobuf.Empty) {}
-    rpc ReviewPolicyProposal (ReviewPolicyProposalRequest) returns (google.protobuf.Empty) {}
+  rpc CreatePolicy(CreatePolicyRequest) returns (CreatePolicyResponse) {}
+  rpc GetPolicy(GetPolicyRequest) returns (Policy) {}
+  rpc ListPolicies(ListPoliciesRequest) returns (ListPoliciesResponse) {}
+  rpc IsDeletablePolicy(IsDeletablePolicyRequest) returns (IsDeletablePolicyResponse) {}
+  rpc UpdatePolicy(UpdatePolicyRequest) returns (Policy) {}
+  rpc DeletePolicy(DeletePolicyRequest) returns (google.protobuf.Empty) {}
+  rpc ReviewPolicyProposal(ReviewPolicyProposalRequest) returns (google.protobuf.Empty) {}
 
-    // Utility
-    rpc GetSpendableBalance (GetSpendableBalanceRequest) returns (GetSpendableBalanceResponse) {}
-    rpc GetTotalBalance (GetTotalBalanceRequest) returns (TotalBalance) {}
-    rpc ListBalanceSnapshots (ListBalanceSnapshotsRequest) returns (ListBalanceSnapshotsResponse) {}
-    rpc CalculateFee (CalculateFeeRequest) returns (CalculateFeeResponse) {}
-    rpc GetMembersDeactivatabilities (GetMembersDeactivatabilitiesRequest) returns (GetMembersDeactivatabilitiesResponse) {}
-    rpc GetRecommendedFeeRate (GetRecommendedFeeRateRequest) returns (GetRecommendedFeeRateResponse) {}
-    // Validate format of given address
-    rpc ValidateAddress (ValidateAddressRequest) returns (ValidateAddressResponse) {}
+  // Utility
+  rpc GetSpendableBalance(GetSpendableBalanceRequest) returns (GetSpendableBalanceResponse) {}
+  rpc GetTotalBalance(GetTotalBalanceRequest) returns (TotalBalance) {}
+  rpc ListBalanceSnapshots(ListBalanceSnapshotsRequest) returns (ListBalanceSnapshotsResponse) {}
+  rpc CalculateFee(CalculateFeeRequest) returns (CalculateFeeResponse) {}
+  rpc GetMembersDeactivatabilities(GetMembersDeactivatabilitiesRequest) returns (GetMembersDeactivatabilitiesResponse) {}
+  rpc GetRecommendedFeeRate(GetRecommendedFeeRateRequest) returns (GetRecommendedFeeRateResponse) {}
+  // Validate format of given address
+  rpc ValidateAddress(ValidateAddressRequest) returns (ValidateAddressResponse) {}
 }
 
 // =============================================================================
@@ -146,11 +148,17 @@ service GlobalAPI {
 // -----------------------------------------------------------------------------
 
 message ApproveWalletRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 message ApproveTransactionRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string transaction_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 // -----------------------------------------------------------------------------
@@ -158,208 +166,312 @@ message ApproveTransactionRequest {
 // -----------------------------------------------------------------------------
 
 message CreateWalletRequest {
-    string wallet_name = 1 [(validate.rules).string = {min_len: 1, max_len: 20}];
-    gincoinc.global.v1.Coin coin = 2 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
-    WalletType wallet_type = 3 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
-    gincoinc.global.v1.AddressType address_type = 4 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
-    // and must be m <= n
-    uint32 m = 5 [(validate.rules).uint32 = {gte: 1, lte: 5}];
-    uint32 n = 6 [(validate.rules).uint32 = {gte: 1, lte: 5}];
-    repeated string members = 7 [(validate.rules).repeated.min_items = 1, (validate.rules).repeated.unique = true];
+  string wallet_name = 1 [(validate.rules).string = {
+    min_len: 1,
+    max_len: 40
+  }];
+  gincoinc.global.v1.Coin coin = 2 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  WalletType wallet_type = 3 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  gincoinc.global.v1.AddressType address_type = 4 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  // and must be m <= n
+  uint32 m = 5 [(validate.rules).uint32 = {
+    gte: 1,
+    lte: 5
+  }];
+  uint32 n = 6 [(validate.rules).uint32 = {
+    gte: 1,
+    lte: 5
+  }];
+  repeated string members = 7 [
+    (validate.rules).repeated.min_items = 1,
+    (validate.rules).repeated.unique = true
+  ];
 
-    uint32 required_approval_count = 10;
+  uint32 required_approval_count = 10;
 
-    // optional
-    string policy_id = 8 [(validate.rules).string = {pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  // optional
+  string policy_id = 8 [(validate.rules).string = {
+    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 
-    // required when create receive only wallet
-    string destination_wallet_id = 9 [(validate.rules).string = {pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    bool watch_only = 11;
+  // required when create receive only wallet
+  string destination_wallet_id = 9 [(validate.rules).string = {
+    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  bool watch_only = 11;
 
-    // optional
-    string inherit_wallet_id = 12 [(validate.rules).string = {pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  // optional
+  string inherit_wallet_id = 12 [(validate.rules).string = {
+    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 message CreateWalletResponse {
-    string wallet_id = 1;
+  string wallet_id = 1;
 }
 
 message GetWalletRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}]; // The id of wallet
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }]; // The id of wallet
 }
 
 message BatchGetWalletsWithoutBalanceRequest {
-    repeated string wallet_ids = 1;
+  repeated string wallet_ids = 1;
 }
 message BatchGetWalletsWithoutBalanceResponse {
-    repeated WalletWithoutBalance wallets = 1;
+  repeated WalletWithoutBalance wallets = 1;
 }
 
 message CancelWalletRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message ArchiveWalletRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message UnArchiveWalletRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message ListWalletsRequest {
-    uint32 page_size = 1 [(validate.rules).uint32.lte = 100];
-    string page_token = 2 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
+  uint32 page_size = 1 [(validate.rules).uint32.lte = 100];
+  string page_token = 2 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
 }
 
 message ListWalletsByFilterRequest {
-    ListFilterType filter_type = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
-    // optional
-    string wallet_id = 2;
+  ListFilterType filter_type = 1 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  // optional
+  string wallet_id = 2;
 
-    // optional
-    string wallet_name = 3 [(validate.rules).string = {max_len: 20}];
+  // optional
+  string wallet_name = 3 [(validate.rules).string = {
+    max_len: 40
+  }];
 
-    // optional
-    string address = 4;
+  // optional
+  string address = 4;
 
-    // optional
-    bool watch_only = 10;
+  // optional
+  bool watch_only = 10;
 
-    // optional
-    gincoinc.global.v1.Coin coin = 5 [(validate.rules).enum = {defined_only: true}];
+  // optional
+  gincoinc.global.v1.Coin coin = 5 [(validate.rules).enum = {
+    defined_only: true
+  }];
 
-    repeated WalletType wallet_type = 6;
-    repeated WalletState wallet_state = 7;
+  repeated WalletType wallet_type = 6;
+  repeated WalletState wallet_state = 7;
 
-    // optional
-    uint32 page_size = 8 [(validate.rules).uint32.lte = 100];
+  // optional
+  uint32 page_size = 8 [(validate.rules).uint32.lte = 100];
 
-    // optional
-    string page_token = 9 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
+  // optional
+  string page_token = 9 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
 }
 
 message ListWalletsResponse {
-    repeated Wallet wallets = 1;
-    string next_page_token = 2;
+  repeated Wallet wallets = 1;
+  string next_page_token = 2;
 }
 
 message ListBaseWalletsRequest {}
 
 message ListBaseWalletsResponse {
-    repeated WalletWithoutBalance wallets = 1;
+  repeated WalletWithoutBalance wallets = 1;
 }
 
 message UpdateWalletNameRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string name = 2 [(validate.rules).string = {min_len: 1, max_len: 20}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string name = 2 [(validate.rules).string = {
+    min_len: 1,
+    max_len: 40
+  }];
 }
 
 message UpdateWalletValidationRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    repeated string new_validator_ids = 2 [(validate.rules).repeated.items.string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    uint32 new_required_approval_count = 3;
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  repeated string new_validator_ids = 2 [(validate.rules).repeated.items.string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint32 new_required_approval_count = 3;
 }
 
 message UpdateWalletPolicyRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string policy_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string policy_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message ReviewWalletProposalRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    bool approve = 2;
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  bool approve = 2;
 }
 
 message ExistsWalletByNameRequest {
-    string name = 1;
+  string name = 1;
 }
 
 message ExistsWalletByNameResponse {
-    bool exists = 1;
+  bool exists = 1;
 }
 
 message ExistsWalletGroupByNameRequest {
-    string name = 1;
+  string name = 1;
 }
 
 message ExistsWalletGroupByNameResponse {
-    bool exists = 1;
+  bool exists = 1;
 }
 
 message FlushBalanceRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message FlushBalanceResponse {
-    repeated FlushedAddress flushed_addresses = 1;
+  repeated FlushedAddress flushed_addresses = 1;
 }
 
 message ListWalletFlushSettingsResponse {
-    repeated WalletFlushSetting wallet_flush_settings = 1;
+  repeated WalletFlushSetting wallet_flush_settings = 1;
 }
 
 message UpdateWalletFlushSettingRequest {
-    gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
-    string destination_wallet_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  string destination_wallet_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
-
 message ListCompensationFeeHistoriesRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string address = 2 [(validate.rules).string = {min_len: 25}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string address = 2 [(validate.rules).string = {
+    min_len: 25
+  }];
 }
 
 message ListCompensationFeeHistoriesResponse {
-    repeated CompensationFee compensation_fees = 1;
+  repeated CompensationFee compensation_fees = 1;
 }
 
 message ListUTXOsRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message ListUTXOsResponse {
-    repeated UTXO utxos = 1;
+  repeated UTXO utxos = 1;
 }
 
 message UpdateShouldCheckRemittanceFlagRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    bool should_check_remittance = 2;
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  bool should_check_remittance = 2;
 }
 
 message CreateWalletGroupRequest {
-    string name = 1 [(validate.rules).string = {min_len: 1, max_len: 20}];
-    gincoinc.global.v1.Coin coin = 2 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
-    repeated string wallet_ids = 3 [(validate.rules).repeated.min_items = 1];
-    bool watch_only = 4;
+  string name = 1 [(validate.rules).string = {
+    min_len: 1,
+    max_len: 40
+  }];
+  gincoinc.global.v1.Coin coin = 2 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  repeated string wallet_ids = 3 [(validate.rules).repeated.min_items = 1];
+  bool watch_only = 4;
 }
 
 message CreateWalletGroupResponse {
-    string wallet_group_id = 1;
+  string wallet_group_id = 1;
 }
 
 message UpdateWalletGroupRequest {
-    string wallet_group_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    repeated string wallet_ids = 2 [(validate.rules).repeated.min_items = 1];
+  string wallet_group_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  repeated string wallet_ids = 2 [(validate.rules).repeated.min_items = 1];
 }
 
 message UpdateWalletGroupNameRequest {
-    string wallet_group_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string name = 2 [(validate.rules).string = {min_len: 1, max_len: 20}];
+  string wallet_group_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string name = 2 [(validate.rules).string = {
+    min_len: 1,
+    max_len: 40
+  }];
 }
 
 message GetWalletGroupRequest {
-    string wallet_group_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_group_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message ListWalletGroupsRequest {
-    bool watch_only = 3;
-    uint32 page_size = 1 [(validate.rules).uint32.lte = 100];
-    string page_token = 2 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
+  bool watch_only = 3;
+  uint32 page_size = 1 [(validate.rules).uint32.lte = 100];
+  string page_token = 2 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
 }
 
 message ListWalletGroupsResponse {
-    repeated WalletGroup wallet_groups = 1;
-    string next_page_token = 2;
+  repeated WalletGroup wallet_groups = 1;
+  string next_page_token = 2;
 }
 
 // -----------------------------------------------------------------------------
@@ -367,11 +479,15 @@ message ListWalletGroupsResponse {
 // -----------------------------------------------------------------------------
 
 message RegisterKeyRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string pub_key = 2 [(validate.rules).string = {min_len: 64}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string pub_key = 2 [(validate.rules).string = {
+    min_len: 64
+  }];
 }
 message RegisterKeyResponse {
-    string key_id = 1;
+  string key_id = 1;
 }
 
 // -----------------------------------------------------------------------------
@@ -379,73 +495,111 @@ message RegisterKeyResponse {
 // -----------------------------------------------------------------------------
 
 message CreateAddressRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}]; // The id of wallet
-    uint64 fee_rate = 2; // for contract wallet
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }]; // The id of wallet
+  uint64 fee_rate = 2; // for contract wallet
 }
 message CreateAddressResponse {
-    string address_id = 1; // The id of created address
+  string address_id = 1; // The id of created address
 }
 
 message GetAddressRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string address_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string address_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message GetAddressByAddressRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string address = 2 [(validate.rules).string = {min_len: 25}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string address = 2 [(validate.rules).string = {
+    min_len: 25
+  }];
 }
 
 message GetAddressByIndexRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    uint32 index = 2 [(validate.rules).uint32.gte = 0];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint32 index = 2 [(validate.rules).uint32.gte = 0];
 }
 
 message GetAddressWithoutBalanceByIndexRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    uint32 index = 2 [(validate.rules).uint32.gte = 0];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint32 index = 2 [(validate.rules).uint32.gte = 0];
 }
 
 message ListAddressesRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    bool omit_change = 2;
-    uint32 page_size = 3 [(validate.rules).uint32.lte = 100];
-    string page_token = 4 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  bool omit_change = 2;
+  uint32 page_size = 3 [(validate.rules).uint32.lte = 100];
+  string page_token = 4 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
 }
 message ListAddressesResponse {
-    repeated Address addresses = 1;
-    string next_page_token = 2;
+  repeated Address addresses = 1;
+  string next_page_token = 2;
 }
 
 message ListAddressesWithBalanceRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message ListAddressesWithBalanceResponse {
-    repeated AddressWithBalance addresses = 1;
+  repeated AddressWithBalance addresses = 1;
 }
 
 message UpdateAddressBalanceRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string address = 2;
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string address = 2;
 }
 
 message ListAddressesWithoutBalanceRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    bool omit_change = 2;
-    uint32 page_size = 3 [(validate.rules).uint32.lte = 100];
-    string page_token = 4 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  bool omit_change = 2;
+  uint32 page_size = 3 [(validate.rules).uint32.lte = 100];
+  string page_token = 4 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
 }
 
 message ListAddressesWithoutBalanceResponse {
-    repeated AddressWithoutBalance addresses = 1;
-    string next_page_token = 2;
+  repeated AddressWithoutBalance addresses = 1;
+  string next_page_token = 2;
 }
 
 message GetEthereumFeeAddressRequest {}
 
 message DeleteAllWatchOnlyAddressesByWalletIDRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+}
+
+message ImportAddressRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string address = 2;
+}
+message ImportAddressResponse {
+  string address_id = 1;
 }
 
 // -----------------------------------------------------------------------------
@@ -453,130 +607,186 @@ message DeleteAllWatchOnlyAddressesByWalletIDRequest {
 // -----------------------------------------------------------------------------
 
 message CreateTransactionRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    uint64 fee_rate = 2;
-    repeated RequestTxOutput tx_outputs = 3;
-    string address = 4;
-    uint32 destination_tag = 5;
-    uint64 memo_id = 6 [jstype = JS_STRING];
-    string string_value = 7;
-    adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;
-    adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint64 fee_rate = 2;
+  repeated RequestTxOutput tx_outputs = 3;
+  string address = 4;
+  uint32 destination_tag = 5;
+  uint64 memo_id = 6 [jstype = JS_STRING];
+  string string_value = 7;
+  adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;
+  adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;
 }
 
 message CreateTransactionResponse {
-    string transaction_id = 1;
+  string transaction_id = 1;
 }
 
 message CreateXRPInitTransactionsRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    // feature: bool require_dest
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  // feature: bool require_dest
 }
 
-
 message CreateInitTransactionRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message SignTransactionRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string key_id = 3 [(validate.rules).string = {pattern: "^$|^[0-9A-F]{64}$"}];
-    adamant.global.v1.RequestSignedInfo signed_info = 4 [(validate.rules).message.required = true];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string transaction_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string key_id = 3 [(validate.rules).string = {
+    pattern: "^$|^[0-9A-F]{64}$"
+  }];
+  adamant.global.v1.RequestSignedInfo signed_info = 4 [(validate.rules).message.required = true];
 }
 
 message SignXRPInitTransactionsRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string key_id = 2 [(validate.rules).string = {pattern: "^[0-9A-F]{64}$"}];
-    repeated adamant.global.v1.RequestSignedInfo signed_info = 4 [(validate.rules).repeated.min_items = 1];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string key_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9A-F]{64}$"
+  }];
+  repeated adamant.global.v1.RequestSignedInfo signed_info = 4 [(validate.rules).repeated.min_items = 1];
 }
 
 message SignInitTransactionRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string key_id = 2 [(validate.rules).string = {pattern: "^[0-9A-F]{64}$"}];
-    repeated adamant.global.v1.RequestSignedInfo signed_info = 4 [(validate.rules).repeated.min_items = 1];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string key_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9A-F]{64}$"
+  }];
+  repeated adamant.global.v1.RequestSignedInfo signed_info = 4 [(validate.rules).repeated.min_items = 1];
 }
 message SendTransactionRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string transaction_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 message SendTransactionResponse {
-    string tx_id = 1;
+  string tx_id = 1;
 }
 
 message SendXRPInitTransactionsRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 message SendXRPInitTransactionsResponse {
-    repeated string tx_ids = 1;
+  repeated string tx_ids = 1;
 }
 
 message SendInitTransactionRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message SendInitTransactionResponse {
-    repeated string tx_ids = 1;
+  repeated string tx_ids = 1;
 }
 
 message CancelTransactionRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string transaction_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message GetTransactionRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string transaction_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message GetTransactionByTxIDRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string tx_id = 2 [(validate.rules).string = {pattern: "^(0x)?[0-9a-fA-F]{64}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string tx_id = 2 [(validate.rules).string = {
+    pattern: "^(0x)?[0-9a-fA-F]{64}$"
+  }];
 }
 
 message ListTransactionsRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    uint32 page_size = 2 [(validate.rules).uint32.lte = 100];
-    string page_token = 3 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint32 page_size = 2 [(validate.rules).uint32.lte = 100];
+  string page_token = 3 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
 }
 
 message ListTransactionsByFilterRequest {
-    ListFilterType filter_type = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
+  ListFilterType filter_type = 1 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
 
-    // optional
-    string transaction_id = 2;
+  // optional
+  string transaction_id = 2;
 
-    // optional
-    string wallet_id = 12;
+  // optional
+  string wallet_id = 12;
 
-    // optional
-    string wallet_name = 3 [(validate.rules).string = {max_len: 20}];
+  // optional
+  string wallet_name = 3 [(validate.rules).string = {
+    max_len: 40
+  }];
 
-    // optional
-    string address_name = 4 [(validate.rules).string = {max_len: 20}];
+  // optional
+  string address_name = 4 [(validate.rules).string = {
+    max_len: 40
+  }];
 
-    // optional
-    string address = 5;
+  // optional
+  string address = 5;
 
-    // optional
-    string txid = 6;
+  // optional
+  string txid = 6;
 
-    // optional
-    gincoinc.global.v1.Coin coin = 7 [(validate.rules).enum = {defined_only: true}];
+  // optional
+  gincoinc.global.v1.Coin coin = 7 [(validate.rules).enum = {
+    defined_only: true
+  }];
 
-    repeated WalletType wallet_type = 8;
-    repeated TransactionState transaction_state = 9;
+  repeated WalletType wallet_type = 8;
+  repeated TransactionState transaction_state = 9;
 
-    // optional
-    uint32 page_size = 10 [(validate.rules).uint32.lte = 100];
+  // optional
+  uint32 page_size = 10 [(validate.rules).uint32.lte = 100];
 
-    // optional
-    string page_token = 11 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
+  // optional
+  string page_token = 11 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
 }
 
 message ListTransactionsResponse {
-    repeated Transaction transactions = 1;
-    string next_page_token = 2;
+  repeated Transaction transactions = 1;
+  string next_page_token = 2;
 }
 
 // -----------------------------------------------------------------------------
@@ -584,27 +794,39 @@ message ListTransactionsResponse {
 // -----------------------------------------------------------------------------
 
 message GetSignInfoRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string transaction_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message ListSignInfoRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string transaction_id = 2 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string transaction_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 message ListSignInfoResponse {
-    repeated SignInfo sign_info_list = 1;
+  repeated SignInfo sign_info_list = 1;
 }
 
 message ListXRPInitSignInfoRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 message ListXRPInitSignInfoResponse {
-    repeated SignInfo sign_info_list = 1;
+  repeated SignInfo sign_info_list = 1;
 }
 
 message ListInitSignInfoRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 // -----------------------------------------------------------------------------
@@ -612,58 +834,77 @@ message ListInitSignInfoRequest {
 // -----------------------------------------------------------------------------
 
 message ListTransfersRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}]; //The id of wallet
-    uint32 page_size = 2 [(validate.rules).uint32.lte = 100]; //indicate how many objects to return in a single response
-    string page_token = 3 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}]; //retrieve the next page
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }]; // The id of wallet
+  uint32 page_size = 2 [(validate.rules).uint32.lte = 100]; // indicate how many objects to return in a single response
+  string page_token = 3 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }]; // retrieve the next page
 }
 
 message ListTransfersByFilterRequest {
-    ListFilterType filter_type = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
-    // optional
-    string transfer_id = 2;
+  ListFilterType filter_type = 1 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  // optional
+  string transfer_id = 2;
 
-    // optional
-    string wallet_id = 13;
+  // optional
+  string wallet_id = 13;
 
-    // optional
-    string wallet_name = 3 [(validate.rules).string = {max_len: 20}];
+  // optional
+  string wallet_name = 3 [(validate.rules).string = {
+    max_len: 40
+  }];
 
-    // optional
-    string address_name = 4 [(validate.rules).string = {max_len: 20}];
+  // optional
+  string address_name = 4 [(validate.rules).string = {
+    max_len: 40
+  }];
 
-    // optional
-    string address = 5;
+  // optional
+  string address = 5;
 
-    // optional
-    string txid = 6;
+  // optional
+  string txid = 6;
 
-    // optional
-    bool watch_only = 12;
+  // optional
+  bool watch_only = 12;
 
-    // optional
-    gincoinc.global.v1.Coin coin = 7 [(validate.rules).enum = {defined_only: true}];
+  // optional
+  gincoinc.global.v1.Coin coin = 7 [(validate.rules).enum = {
+    defined_only: true
+  }];
 
-    repeated WalletType wallet_type = 8;
+  repeated WalletType wallet_type = 8;
 
-    // optional
-    gincoinc.global.v1.TransferType transfer_type = 9 [(validate.rules).enum = {defined_only: true}];
+  // optional
+  gincoinc.global.v1.TransferType transfer_type = 9 [(validate.rules).enum = {
+    defined_only: true
+  }];
 
-    // optional
-    uint32 page_size = 10 [(validate.rules).uint32.lte = 100];
+  // optional
+  uint32 page_size = 10 [(validate.rules).uint32.lte = 100];
 
-    // optional
-    string page_token = 11 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}];
+  // optional
+  string page_token = 11 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
 
-    // optional
-    google.protobuf.Timestamp start_time = 14;
+  // optional
+  google.protobuf.Timestamp start_time = 14;
 
-    // optional
-    google.protobuf.Timestamp end_time = 15;
+  // optional
+  google.protobuf.Timestamp end_time = 15;
 }
 
 message ListTransfersResponse {
-    repeated Transfer transfers = 1; // Array of transfer objects
-    string next_page_token = 2; // The token for requesting the next page
+  repeated Transfer transfers = 1; // Array of transfer objects
+  string next_page_token = 2; // The token for requesting the next page
 }
 
 // -----------------------------------------------------------------------------
@@ -671,44 +912,54 @@ message ListTransfersResponse {
 // -----------------------------------------------------------------------------
 
 message ListUncheckedTransfersByFilterRequest {
-    bool has_checked = 1;
-    repeated WalletType wallet_type = 2;
-    uint32 page_size = 3 [(validate.rules).uint32.lte = 100]; //indicate how many objects to return in a single response
-    string page_token = 4 [(validate.rules).string = {pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"}]; //retrieve the next page
+  bool has_checked = 1;
+  repeated WalletType wallet_type = 2;
+  uint32 page_size = 3 [(validate.rules).uint32.lte = 100]; // indicate how many objects to return in a single response
+  string page_token = 4 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }]; // retrieve the next page
 }
 
 message UpdateUncheckedTransferHasCheckedFlagRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string unchecked_transfer_id = 2[(validate.rules).string = {pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string unchecked_transfer_id = 2 [(validate.rules).string = {
+    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message ListUncheckedTransfersResponse {
-    repeated UncheckedTransfer unchecked_transfers = 1; // Array of transfer objects
-    string next_page_token = 2; // The token for requesting the next page
+  repeated UncheckedTransfer unchecked_transfers = 1; // Array of transfer objects
+  string next_page_token = 2; // The token for requesting the next page
 }
 
 message ListEventTriggeredMessagesRequest {}
 
 message ListEventTriggeredMessagesResponse {
-    repeated EventTriggeredMessage event_triggered_messages = 1;
+  repeated EventTriggeredMessage event_triggered_messages = 1;
 }
 
 message CreateEventTriggeredMessageRequest {
-    adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 1;
-    string destination = 2;
+  adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 1;
+  string destination = 2;
 }
 
 message CreateEventTriggeredMessageResponce {
-    string event_triggered_message_id = 1;
+  string event_triggered_message_id = 1;
 }
 
 message UpdateEventTriggeredMessageRequest {
-    string event_triggered_message_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string destination = 2;
+  string event_triggered_message_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string destination = 2;
 }
 
 message DeleteEventTriggeredMessageRequest {
-    string event_triggered_message_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string event_triggered_message_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 // -----------------------------------------------------------------------------
@@ -716,23 +967,25 @@ message DeleteEventTriggeredMessageRequest {
 // -----------------------------------------------------------------------------
 
 message GetRateSnapshotRequest {
-    string rate_snapshot_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}]; // The id of rate-snapshot
+  string rate_snapshot_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }]; // The id of rate-snapshot
 }
 
 message GetLatestRateSnapshotRequest {}
 
 message SetRatesRequest {
-    repeated RequestRate rates = 1; //Array of rate objects
+  repeated RequestRate rates = 1; // Array of rate objects
 }
 
 message SetDefaultRatesRequest {}
 
 message SetRatesResponse {
-    string rate_snapshot_id = 1; //The id of rate-snapshot
+  string rate_snapshot_id = 1; // The id of rate-snapshot
 }
 
 message SetDefaultRatesResponse {
-    repeated string rate_snapshot_ids = 1; // Array of ids of rate-snapshots
+  repeated string rate_snapshot_ids = 1; // Array of ids of rate-snapshots
 }
 
 // -----------------------------------------------------------------------------
@@ -740,155 +993,202 @@ message SetDefaultRatesResponse {
 // -----------------------------------------------------------------------------
 
 message GetSpendableBalanceRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message GetSpendableBalanceResponse {
-    double total_spendable_balance = 1;
-    string string_total_spendable_balance = 2;
-    double daily_spendable_balance = 3;
-    string string_daily_spendable_balance = 4;
-    double hourly_spendable_balance = 5;
-    string string_hourly_spendable_balance = 6;
-    double one_time_spendable_balance = 7;
-    string string_one_time_spendable_balance = 8;
+  double total_spendable_balance = 1;
+  string string_total_spendable_balance = 2;
+  double daily_spendable_balance = 3;
+  string string_daily_spendable_balance = 4;
+  double hourly_spendable_balance = 5;
+  string string_hourly_spendable_balance = 6;
+  double one_time_spendable_balance = 7;
+  string string_one_time_spendable_balance = 8;
 }
 
 message GetTotalBalanceRequest {
-    bool watch_only = 1;
+  bool watch_only = 1;
 }
 
 message ListBalanceSnapshotsRequest {
-    bool watch_only = 3;
-    google.protobuf.Timestamp start_time = 1;
-    google.protobuf.Timestamp end_time = 2;
+  bool watch_only = 3;
+  google.protobuf.Timestamp start_time = 1;
+  google.protobuf.Timestamp end_time = 2;
 }
 
 message ListBalanceSnapshotsResponse {
-    repeated BalanceSnapshot balance_snapshots = 1;
+  repeated BalanceSnapshot balance_snapshots = 1;
 }
 
 message ListWalletBalanceSnapshotsRequest {
-    repeated string wallet_ids = 1 [(validate.rules).repeated.items.string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    google.protobuf.Timestamp start_time = 2;
-    google.protobuf.Timestamp end_time = 3;
+  repeated string wallet_ids = 1 [(validate.rules).repeated.items.string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  google.protobuf.Timestamp start_time = 2;
+  google.protobuf.Timestamp end_time = 3;
 }
 
 message ListWalletBalanceSnapshotsResponse {
-    WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1;
+  WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1;
 }
 
 message ListTransferVolumeSnapshotsRequest {
-    bool watch_only = 1;
-    google.protobuf.Timestamp start_time = 2 [(validate.rules).timestamp.required = true];
-    google.protobuf.Timestamp end_time = 3 [(validate.rules).timestamp.required = true];
+  bool watch_only = 1;
+  google.protobuf.Timestamp start_time = 2 [(validate.rules).timestamp.required = true];
+  google.protobuf.Timestamp end_time = 3 [(validate.rules).timestamp.required = true];
 }
 
 message ListTransferVolumeSnapshotsResponse {
-    TransferVolumeSnapshots transfer_volume_snapshots = 1;
+  TransferVolumeSnapshots transfer_volume_snapshots = 1;
 }
 
 message ListWalletTransferVolumeSnapshotsRequest {
-    repeated string wallet_ids = 1 [(validate.rules).repeated.items.string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    google.protobuf.Timestamp start_time = 2 [(validate.rules).timestamp.required = true];
-    google.protobuf.Timestamp end_time = 3 [(validate.rules).timestamp.required = true];
+  repeated string wallet_ids = 1 [(validate.rules).repeated.items.string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  google.protobuf.Timestamp start_time = 2 [(validate.rules).timestamp.required = true];
+  google.protobuf.Timestamp end_time = 3 [(validate.rules).timestamp.required = true];
 }
 
 message ListWalletTransferVolumeSnapshotsResponse {
-    WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1;
+  WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1;
 }
 
 message CalculateFeeRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    uint64 fee_rate = 2;
-    repeated RequestTxOutput tx_outputs = 3;
-    string address = 4;
-    uint32 destination_tag = 5;
-    string string_value = 6;
-    CalculateFeeSubstrateSpecific substrate_specific = 7;
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint64 fee_rate = 2;
+  repeated RequestTxOutput tx_outputs = 3;
+  string address = 4;
+  uint32 destination_tag = 5;
+  string string_value = 6;
+  CalculateFeeSubstrateSpecific substrate_specific = 7;
 }
 
 // The model of Substrate specific fields of CreateTransaction
 message CalculateFeeSubstrateSpecific {
-    SubstrateCallType call_type = 1;
-    SubstrateCallType multisig_call_type = 2;
+  SubstrateCallType call_type = 1;
+  SubstrateCallType multisig_call_type = 2;
 }
 
 message CalculateFeeResponse {
-    double fee = 1;
-    string string_fee = 2;
+  double fee = 1;
+  string string_fee = 2;
 }
 
 message GetMembersDeactivatabilitiesRequest {}
 
 message GetMembersDeactivatabilitiesResponse {
-    repeated Deactivatability deactivatabilities = 1;
+  repeated Deactivatability deactivatabilities = 1;
 }
 
-
 message GetRecommendedFeeRateRequest {
-    gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
+  gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
 }
 
 message GetRecommendedFeeRateResponse {
-    uint64 fastest = 1;
-    uint64 fast = 2;
-    uint64 average = 3;
-    uint64 safe_low = 4;
+  uint64 fastest = 1;
+  uint64 fast = 2;
+  uint64 average = 3;
+  uint64 safe_low = 4;
 }
 
 message ValidateAddressRequest {
-    gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {defined_only: true, not_in: [0]}]; // The type of coin
-    string address = 2 [(validate.rules).string = {min_len: 25}]; // The address string to be validated
+  gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }]; // The type of coin
+  string address = 2 [(validate.rules).string = {
+    min_len: 25
+  }]; // The address string to be validated
 }
 
 message ValidateAddressResponse {
-    bool valid = 1; // The flag which indicates given address is valid or not
+  bool valid = 1; // The flag which indicates given address is valid or not
 }
 
 message ListConfirmationsRequest {}
 
 message ListConfirmationsResponse {
-    repeated Confirmation confirmations = 1;
+  repeated Confirmation confirmations = 1;
 }
 
 // -----------------------------------------------------------------------------
 // Labeled Address
 // -----------------------------------------------------------------------------
 
-message CreateLabeledAddressRequest{
-    string name = 1 [(validate.rules).string = {min_len: 1, max_len: 20}];
-    gincoinc.global.v1.Coin coin = 2 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
-    string address = 3 [(validate.rules).string = {min_len: 25}];
+message CreateLabeledAddressRequest {
+  string name = 1 [(validate.rules).string = {
+    min_len: 1,
+    max_len: 40
+  }];
+  gincoinc.global.v1.Coin coin = 2 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  string address = 3 [(validate.rules).string = {
+    min_len: 25
+  }];
 }
 
 message CreateLabeledAddressResponse {
-    string labeled_address_id = 1;
+  string labeled_address_id = 1;
 }
 
 message UpdateLabeledAddressRequest {
-    string labeled_address_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string name = 2 [(validate.rules).string = {min_len: 1, max_len: 20}];
-    gincoinc.global.v1.Coin coin = 3 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
-    string address = 4 [(validate.rules).string = {min_len: 25}];
+  string labeled_address_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string name = 2 [(validate.rules).string = {
+    min_len: 1,
+    max_len: 40
+  }];
+  gincoinc.global.v1.Coin coin = 3 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  string address = 4 [(validate.rules).string = {
+    min_len: 25
+  }];
 }
 
 message GetLabeledAddressRequest {
-    string labeled_address_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string labeled_address_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message ListLabeledAddressesRequest {}
 message ListLabeledAddressesResponse {
-    repeated LabeledAddress addresses = 1;
+  repeated LabeledAddress addresses = 1;
 }
 
 message DeleteLabeledAddressRequest {
-    string labeled_address_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string labeled_address_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message ReviewLabeledAddressProposalRequest {
-    string labeled_address_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    bool approve = 2;
+  string labeled_address_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  bool approve = 2;
 }
 
 // -----------------------------------------------------------------------------
@@ -896,39 +1196,63 @@ message ReviewLabeledAddressProposalRequest {
 // -----------------------------------------------------------------------------
 
 message CreateWhitelistRequest {
-    string name = 1 [(validate.rules).string = {min_len: 1, max_len: 20}];
-    gincoinc.global.v1.Coin coin = 2 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
-    repeated string address_ids = 3 [(validate.rules).repeated.unique = true];
+  string name = 1 [(validate.rules).string = {
+    min_len: 1,
+    max_len: 40
+  }];
+  gincoinc.global.v1.Coin coin = 2 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  repeated string address_ids = 3 [(validate.rules).repeated.unique = true];
 }
 
 message CreateWhitelistResponse {
-    string whitelist_id = 1;
+  string whitelist_id = 1;
 }
 
 message GetWhitelistRequest {
-    string whitelist_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string whitelist_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message ListWhitelistsRequest {}
 
 message ListWhitelistsResponse {
-    repeated Whitelist whitelists = 1;
+  repeated Whitelist whitelists = 1;
 }
 
 message UpdateWhitelistRequest {
-    string whitelist_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string name = 2 [(validate.rules).string = {min_len: 1, max_len: 20}];
-    gincoinc.global.v1.Coin coin = 3 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
-    repeated string address_ids = 4 [(validate.rules).repeated.unique = true];
+  string whitelist_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string name = 2 [(validate.rules).string = {
+    min_len: 1,
+    max_len: 40
+  }];
+  gincoinc.global.v1.Coin coin = 3 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  repeated string address_ids = 4 [(validate.rules).repeated.unique = true];
 }
 
 message UpdateWhitelistAddressesRequest {
-    string whitelist_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    repeated string address_ids = 2 [(validate.rules).repeated.unique = true];
+  string whitelist_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  repeated string address_ids = 2 [(validate.rules).repeated.unique = true];
 }
 
 message DeleteWhitelistRequest {
-    string whitelist_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string whitelist_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 // -----------------------------------------------------------------------------
@@ -936,42 +1260,63 @@ message DeleteWhitelistRequest {
 // -----------------------------------------------------------------------------
 
 message CreateTransferLimitRequest {
-    string name = 1 [(validate.rules).string = {min_len: 1, max_len: 20}];
-    gincoinc.global.v1.Coin coin = 2 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
-    repeated RequestTransferLimitEntry transfer_limits = 3 [(validate.rules).repeated.min_items = 1];
+  string name = 1 [(validate.rules).string = {
+    min_len: 1,
+    max_len: 40
+  }];
+  gincoinc.global.v1.Coin coin = 2 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  repeated RequestTransferLimitEntry transfer_limits = 3 [(validate.rules).repeated.min_items = 1];
 }
 
 message CreateTransferLimitResponse {
-    string transfer_limit_id = 1;
+  string transfer_limit_id = 1;
 }
 
 message GetTransferLimitRequest {
-    string transfer_limit_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string transfer_limit_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message ListTransferLimitsRequest {}
 
 message ListTransferLimitsResponse {
-    repeated TransferLimit transfer_limits = 1;
+  repeated TransferLimit transfer_limits = 1;
 }
 
 message UpdateTransferLimitRequest {
-    string transfer_limit_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    repeated RequestTransferLimitEntry transfer_limits = 2 [(validate.rules).repeated.min_items = 1];
+  string transfer_limit_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  repeated RequestTransferLimitEntry transfer_limits = 2 [(validate.rules).repeated.min_items = 1];
 }
 
 message UpdateTransferLimitNameRequest {
-    string transfer_limit_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string name = 2 [(validate.rules).string = {min_len: 1, max_len: 20}];
+  string transfer_limit_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string name = 2 [(validate.rules).string = {
+    min_len: 1,
+    max_len: 40
+  }];
 }
 
 message DeleteTransferLimitRequest {
-    string transfer_limit_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string transfer_limit_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message ReviewTransferLimitProposalRequest {
-    string transfer_limit_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    bool approve = 2;
+  string transfer_limit_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  bool approve = 2;
 }
 
 // -----------------------------------------------------------------------------
@@ -979,98 +1324,137 @@ message ReviewTransferLimitProposalRequest {
 // -----------------------------------------------------------------------------
 
 message CreatePolicyRequest {
-    string name = 1 [(validate.rules).string = {min_len: 1, max_len: 20}];
-    gincoinc.global.v1.Coin coin = 3 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
-    PolicyType type = 4 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
-    string whitelist_id = 5 [(validate.rules).string = {pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string transfer_limit_id = 6 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string name = 1 [(validate.rules).string = {
+    min_len: 1,
+    max_len: 40
+  }];
+  gincoinc.global.v1.Coin coin = 3 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  PolicyType type = 4 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  string whitelist_id = 5 [(validate.rules).string = {
+    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string transfer_limit_id = 6 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message CreatePolicyResponse {
-    string policy_id = 1;
+  string policy_id = 1;
 }
 
 message GetPolicyRequest {
-    string policy_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string policy_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
-message ListPoliciesRequest {
+message ListPoliciesRequest {}
+
+message IsDeletablePolicyRequest {
+  string policy_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
-message IsDeletablePolicyRequest{
-    string policy_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+message IsDeletablePolicyResponse {
+  bool is_deletable = 1;
 }
 
-message IsDeletablePolicyResponse{
-    bool is_deletable = 1;
+message IsDeletableLabeledAddressRequest {
+  string labeled_address_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
-message IsDeletableLabeledAddressRequest{
-    string labeled_address_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+message IsDeletableLabeledAddressResponse {
+  bool is_deletable = 1;
 }
 
-message IsDeletableLabeledAddressResponse{
-    bool is_deletable = 1;
+message IsDeletableWhitelistRequest {
+  string whitelist_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
-message IsDeletableWhitelistRequest{
-    string whitelist_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+message IsDeletableWhitelistResponse {
+  bool is_deletable = 1;
 }
 
-message IsDeletableWhitelistResponse{
-    bool is_deletable = 1;
+message IsDeletableTransferLimitRequest {
+  string transfer_limit_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
-message IsDeletableTransferLimitRequest{
-    string transfer_limit_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-}
-
-message IsDeletableTransferLimitResponse{
-    bool is_deletable = 1;
+message IsDeletableTransferLimitResponse {
+  bool is_deletable = 1;
 }
 
 message ListPoliciesResponse {
-    repeated Policy policies = 1;
+  repeated Policy policies = 1;
 }
 
 message UpdatePolicyRequest {
-    string policy_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string name = 2 [(validate.rules).string = {min_len: 1, max_len: 20}];
-    string whitelist_id = 3 [(validate.rules).string = {pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    string transfer_limit_id = 4 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string policy_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string name = 2 [(validate.rules).string = {
+    min_len: 1,
+    max_len: 40
+  }];
+  string whitelist_id = 3 [(validate.rules).string = {
+    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string transfer_limit_id = 4 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message DeletePolicyRequest {
-    string policy_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string policy_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message ReviewPolicyProposalRequest {
-    string policy_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
-    bool approve = 2;
+  string policy_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  bool approve = 2;
 }
-
 
 // -----------------------------------------------------------------------------
 // Substrate Child Address
 // -----------------------------------------------------------------------------
 
 message ListSubstrateChildAddressesRequest {
-    string wallet_id = 1 [(validate.rules).string = {pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"}];
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message ListSubstrateChildAddressesResponse {
-    repeated SubstrateChildAddress substrate_child_addresses = 1;
+  repeated SubstrateChildAddress substrate_child_addresses = 1;
 }
-
 
 // -----------------------------------------------------------------------------
 // Download Resource
 // -----------------------------------------------------------------------------
 
 message DownloadResourceRequest {
-    adamant.global.v1.DownloadResourceType download_resource_type = 1;
-    bool watch_only = 5;
-    string wallet_id = 2;
-    google.protobuf.Timestamp start_time = 3;
-    google.protobuf.Timestamp end_time = 4;
+  adamant.global.v1.DownloadResourceType download_resource_type = 1;
+  bool watch_only = 5;
+  string wallet_id = 2;
+  google.protobuf.Timestamp start_time = 3;
+  google.protobuf.Timestamp end_time = 4;
 }

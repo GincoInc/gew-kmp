@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package adamant.global.v1;
 
-option go_package = "adamantglobalv1";
+option go_package = "github.com/GincoInc/protobuf/gen/go/gincoinc/adamant/global/v1/adamantglobalv1";
 
 // =============================================================================
 // Enum
@@ -26,26 +26,26 @@ enum WalletType {
 enum WalletState {
   WALLET_STATE_INVALID = 0;
   WALLET_STATE_PROPOSED = 1;
-  WALLET_STATE_KEY_REGISTERING = 2;//Waiting for key register
-  WALLET_STATE_KEY_REGISTERED = 3;//Key was registed to Wallet
-  WALLET_STATE_VALIDATOR_REVIEWING = 4;//Waiting for review for validator
-  WALLET_STATE_VALIDATOR_REVIEWED = 5;//Validator reviewd
-  WALLET_STATE_ACTIVATING = 6;// Waiting for activate
-  WALLET_STATE_ACTIVATED = 7;// Wallet was activated
-  WALLET_STATE_SIGNING = 8;// Waiting for sign
-  WALLET_STATE_SIGNED = 9;// was signed
-  WALLET_STATE_SUBMITTING = 10;//Waiting for submit transaction which regist public key to contract
-  WALLET_STATE_SUBMITTED = 11;//Transaction was submitted
-  WALLET_STATE_COMPLETED = 12;//Creating wallet successfuly completed
-  WALLET_STATE_CANCELLED = 13;//Wallet was cancelled
-  WALLET_STATE_ARCHIVED = 14;//Wallet was archived
-  WALLET_STATE_ADDRESS_IMPORT_WAITING = 15;//Waiting for import address
-  WALLET_STATE_ADDRESS_IMPORTING = 16;//Importing address
-  WALLET_STATE_ADDRESS_IMPORT_FAILED = 17;// Failed import address
-  WALLET_STATE_ADDRESS_DELETING = 18;// Deleting address
-  WALLET_STATE_ADDRESS_DELETE_FAILED = 19;// Failed delete address
-  WALLET_STATE_FLUSHING = 20;// Balance flushing
-  WALLET_STATE_ACCOUNT_CREATING = 21;// Waiting for create account
+  WALLET_STATE_KEY_REGISTERING = 2; // Waiting for key register
+  WALLET_STATE_KEY_REGISTERED = 3; // Key was registed to Wallet
+  WALLET_STATE_VALIDATOR_REVIEWING = 4; // Waiting for review for validator
+  WALLET_STATE_VALIDATOR_REVIEWED = 5; // Validator reviewd
+  WALLET_STATE_ACTIVATING = 6; // Waiting for activate
+  WALLET_STATE_ACTIVATED = 7; // Wallet was activated
+  WALLET_STATE_SIGNING = 8; // Waiting for sign
+  WALLET_STATE_SIGNED = 9; // was signed
+  WALLET_STATE_SUBMITTING = 10; // Waiting for submit transaction which regist public key to contract
+  WALLET_STATE_SUBMITTED = 11; // Transaction was submitted
+  WALLET_STATE_COMPLETED = 12; // Creating wallet successfuly completed
+  WALLET_STATE_CANCELLED = 13; // Wallet was cancelled
+  WALLET_STATE_ARCHIVED = 14; // Wallet was archived
+  WALLET_STATE_ADDRESS_IMPORT_WAITING = 15; // Waiting for import address
+  WALLET_STATE_ADDRESS_IMPORTING = 16; // Importing address
+  WALLET_STATE_ADDRESS_IMPORT_FAILED = 17; // Failed import address
+  WALLET_STATE_ADDRESS_DELETING = 18; // Deleting address
+  WALLET_STATE_ADDRESS_DELETE_FAILED = 19; // Failed delete address
+  WALLET_STATE_FLUSHING = 20; // Balance flushing
+  WALLET_STATE_ACCOUNT_CREATING = 21; // Waiting for create account
 }
 
 // WalletProposalType is a type of proposal
@@ -76,14 +76,14 @@ enum AddressState {
 // TransactionState is a state of transaction.
 enum TransactionState {
   TRANSACTION_STATE_INVALID = 0;
-  TRANSACTION_STATE_SIGNING = 1; //Waiting for sign
-  TRANSACTION_STATE_SIGNED = 2; //Transaction was Signed
-  TRANSACTION_STATE_REVIEWING = 3; //Waiting for review
-  TRANSACTION_STATE_REVIEWED = 4; //Transaction was reviewd
-  TRANSACTION_STATE_SUBMITTING = 5; //Waiting for submit
-  TRANSACTION_STATE_SUBMITTED = 6; //Transaction was submitted
-  TRANSACTION_STATE_CANCELLING = 8; //Waiting for cancel
-  TRANSACTION_STATE_CANCELLED = 7; //Transaction was cancelled
+  TRANSACTION_STATE_SIGNING = 1; // Waiting for sign
+  TRANSACTION_STATE_SIGNED = 2; // Transaction was Signed
+  TRANSACTION_STATE_REVIEWING = 3; // Waiting for review
+  TRANSACTION_STATE_REVIEWED = 4; // Transaction was reviewd
+  TRANSACTION_STATE_SUBMITTING = 5; // Waiting for submit
+  TRANSACTION_STATE_SUBMITTED = 6; // Transaction was submitted
+  TRANSACTION_STATE_CANCELLING = 8; // Waiting for cancel
+  TRANSACTION_STATE_CANCELLED = 7; // Transaction was cancelled
 }
 
 // -----------------------------------------------------------------------------
@@ -283,7 +283,8 @@ enum AuditLogType {
 // Error Detail Type
 // -----------------------------------------------------------------------------
 
-// ErrDetailViolationType define violation type of errdetails.PreconditionFailure of grpc
+// ErrDetailViolationType define violation type of
+// errdetails.PreconditionFailure of grpc
 enum PreconditionFailureType {
   PRECONDITION_FAILURE_TYPE_INVALID = 0;
 
@@ -374,7 +375,6 @@ enum WatchOnlyAddressState {
   WATCH_ONLY_ADDRESS_STATE_DOWNLOAD = 7;
 }
 
-
 // -----------------------------------------------------------------------------
 // Substrate Call Type
 // -----------------------------------------------------------------------------
@@ -389,7 +389,6 @@ enum SubstrateCallType {
   SUBSTRATE_CALL_TYPE_AS_MULTI_THRESHOLD1 = 6;
   SUBSTRATE_CALL_TYPE_CANCEL_AS_MULTI = 7;
 }
-
 
 // -----------------------------------------------------------------------------
 // Download Resource Type
@@ -413,7 +412,6 @@ enum EventTriggeredMessageType {
   EVENT_TRIGGERED_MESSAGE_TYPE_UNCHECKED_TRANSFER_ALERT = 1;
   EVENT_TRIGGERED_MESSAGE_TYPE_FRAUDULENT_TRANSFER_ALERT = 2;
 }
-
 
 // -----------------------------------------------------------------------------
 // Wallet Connect Call Request Type

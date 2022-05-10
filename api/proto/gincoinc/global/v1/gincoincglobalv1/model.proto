@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package gincoinc.global.v1;
 
-option go_package = "gincoincglobalv1";
+option go_package = "github.com/GincoInc/protobuf/gen/go/gincoinc/global/v1/gincoincglobalv1";
 
 // =============================================================================
 //  Model
