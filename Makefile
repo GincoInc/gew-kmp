@@ -24,7 +24,8 @@ tidy:
 .PHONY: generate
 generate: $(BIN)/buf $(BIN)/protoc-gen-go $(BIN)/protoc-gen-validate
 	@rm -r ./gen || :
-	$(BIN)/buf generate
+	$(BIN)/buf generate --template buf.gen.go.yaml
+	$(BIN)/buf generate --template buf.gen.java.yaml
 
 .PHONY: protodep-up
 protodep-up: SSH_KEY ?= github_id_rsa
