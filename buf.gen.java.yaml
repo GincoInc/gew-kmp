@@ -8,3 +8,4 @@ plugins:
    opt:
     - lang=java
    out: gen/java
+   path: ./bin/protoc-gen-validate

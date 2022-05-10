@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ListWalletsRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ListWalletsRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListWalletsRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListWalletsRequest.class)) return new ListWalletsRequestValidator();

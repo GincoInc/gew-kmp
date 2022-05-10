@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code DeleteEventTriggeredMessageRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class DeleteEventTriggeredMessageRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.DeleteEventTriggeredMessageRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.DeleteEventTriggeredMessageRequest.class)) return new DeleteEventTriggeredMessageRequestValidator();

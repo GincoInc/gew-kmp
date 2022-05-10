@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code CreateXRPInitTransactionsRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class CreateXRPInitTransactionsRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.CreateXRPInitTransactionsRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.CreateXRPInitTransactionsRequest.class)) return new CreateXRPInitTransactionsRequestValidator();

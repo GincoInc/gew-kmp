@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ListBaseWalletsResponse} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ListBaseWalletsResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListBaseWalletsResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListBaseWalletsResponse.class)) return new ListBaseWalletsResponseValidator();
@@ -23,7 +25,6 @@ public class ListBaseWalletsResponseValidator implements io.envoyproxy.pgv.Valid
 			// Validate wallets
 			if (true) index.validatorFor(item).assertValid(item);
 			});
-
 	
 	}
 

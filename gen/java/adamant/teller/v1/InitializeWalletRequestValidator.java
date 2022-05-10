@@ -3,9 +3,11 @@
 
 package adamant.teller.v1;
 
+
 /**
 * Validates {@code InitializeWalletRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class InitializeWalletRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.teller.v1.InitializeWalletRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.teller.v1.InitializeWalletRequest.class)) return new InitializeWalletRequestValidator();
