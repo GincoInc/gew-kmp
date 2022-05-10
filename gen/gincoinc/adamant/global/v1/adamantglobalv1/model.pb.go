@@ -8,7 +8,7 @@ package globalv1
 
 import (
 	gincoincglobalv1 "github.com/GincoInc/gew-kmp/gen/gincoinc/global/v1/gincoincglobalv1"
-	_ "github.com/GincoInc/gew-kmp/gen/validate"
+	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
