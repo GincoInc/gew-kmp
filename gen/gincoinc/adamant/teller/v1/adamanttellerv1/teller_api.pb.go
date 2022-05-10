@@ -9,7 +9,7 @@ package tellerv1
 import (
 	adamantglobalv1 "github.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1"
 	gincoincglobalv1 "github.com/GincoInc/gew-kmp/gen/gincoinc/global/v1/gincoincglobalv1"
-	_ "github.com/GincoInc/gew-kmp/gen/validate"
+	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
