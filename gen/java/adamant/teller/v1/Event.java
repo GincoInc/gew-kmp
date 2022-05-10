@@ -5066,9 +5066,9 @@ public final class Event {
       "ctionResultR\006result\022E\n\rtransfer_type\030\013 \001" +
       "(\0162 .gincoinc.global.v1.TransferTypeR\014tr" +
       "ansferType\022.\n\004time\030\014 \001(\0132\032.google.protob" +
-      "uf.TimestampR\004timeBPZNgithub.com/GincoIn" +
-      "c/protobuf/gen/go/gincoinc/adamant/telle" +
-      "r/v1/adamanttellerv1b\006proto3"
+      "uf.TimestampR\004timeBLZJgithub.com/GincoIn" +
+      "c/gew-kmp/gen/gincoinc/adamant/teller/v1" +
+      "/adamanttellerv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

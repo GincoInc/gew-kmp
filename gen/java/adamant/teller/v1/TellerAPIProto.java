@@ -163,10 +163,10 @@ public final class TellerAPIProto {
       "nt.global.v1.ValidateAddressResponse\"\000\022a" +
       "\n\014FlushBalance\022&.adamant.global.v1.Flush" +
       "BalanceRequest\032\'.adamant.global.v1.Flush" +
-      "BalanceResponse\"\000BbB\016TellerAPIProtoP\001ZNg" +
-      "ithub.com/GincoInc/protobuf/gen/go/ginco" +
-      "inc/adamant/teller/v1/adamanttellerv1b\006p" +
-      "roto3"
+      "BalanceResponse\"\000B^B\016TellerAPIProtoP\001ZJg" +
+      "ithub.com/GincoInc/gew-kmp/gen/gincoinc/" +
+      "adamant/teller/v1/adamanttellerv1b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

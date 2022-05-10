@@ -1117,9 +1117,9 @@ public final class EventOuterClass {
       "ent_id\030\002 \001(\tR\007eventId\022\035\n\nevent_type\030\003 \001(" +
       "\tR\teventType\022\030\n\007payload\030\004 \001(\014R\007payload\022\030" +
       "\n\007version\030\005 \001(\rR\007version\022\037\n\013create_time\030" +
-      "\006 \001(\003R\ncreateTimeBIZGgithub.com/GincoInc" +
-      "/protobuf/gen/go/gincoinc/global/v1/ginc" +
-      "oincglobalv1b\006proto3"
+      "\006 \001(\003R\ncreateTimeBEZCgithub.com/GincoInc" +
+      "/gew-kmp/gen/gincoinc/global/v1/gincoinc" +
+      "globalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

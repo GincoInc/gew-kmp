@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package adamant.global.v1;
 
-option go_package = "github.com/GincoInc/protobuf/gen/go/gincoinc/adamant/global/v1/adamantglobalv1";
+option go_package = "github.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1";
 
 // =============================================================================
 // Enum
