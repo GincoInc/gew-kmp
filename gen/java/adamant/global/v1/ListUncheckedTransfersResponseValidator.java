@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ListUncheckedTransfersResponse} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ListUncheckedTransfersResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListUncheckedTransfersResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListUncheckedTransfersResponse.class)) return new ListUncheckedTransfersResponseValidator();
@@ -25,7 +27,6 @@ public class ListUncheckedTransfersResponseValidator implements io.envoyproxy.pg
 			// Validate unchecked_transfers
 			if (true) index.validatorFor(item).assertValid(item);
 			});
-
 	// no validation rules for NextPageToken
 
 	

@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code UnArchiveWalletRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class UnArchiveWalletRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.UnArchiveWalletRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.UnArchiveWalletRequest.class)) return new UnArchiveWalletRequestValidator();

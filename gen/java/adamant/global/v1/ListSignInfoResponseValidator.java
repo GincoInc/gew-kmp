@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ListSignInfoResponse} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ListSignInfoResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListSignInfoResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListSignInfoResponse.class)) return new ListSignInfoResponseValidator();
@@ -23,7 +25,6 @@ public class ListSignInfoResponseValidator implements io.envoyproxy.pgv.Validato
 			// Validate sign_info_list
 			if (true) index.validatorFor(item).assertValid(item);
 			});
-
 	
 	}
 

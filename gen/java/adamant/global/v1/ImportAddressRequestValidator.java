@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ImportAddressRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ImportAddressRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ImportAddressRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ImportAddressRequest.class)) return new ImportAddressRequestValidator();

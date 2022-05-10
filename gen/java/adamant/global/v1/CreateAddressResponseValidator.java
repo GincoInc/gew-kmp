@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code CreateAddressResponse} protobuf objects.
 */
+@SuppressWarnings("all")
 public class CreateAddressResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.CreateAddressResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.CreateAddressResponse.class)) return new CreateAddressResponseValidator();

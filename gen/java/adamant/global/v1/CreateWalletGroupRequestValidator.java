@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code CreateWalletGroupRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class CreateWalletGroupRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.CreateWalletGroupRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.CreateWalletGroupRequest.class)) return new CreateWalletGroupRequestValidator();
@@ -38,7 +40,6 @@ public class CreateWalletGroupRequestValidator implements io.envoyproxy.pgv.Vali
 				// no validation rules for WalletIds
 
 			});
-
 	// no validation rules for WatchOnly
 
 	

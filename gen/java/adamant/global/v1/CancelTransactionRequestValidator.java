@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code CancelTransactionRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class CancelTransactionRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.CancelTransactionRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.CancelTransactionRequest.class)) return new CancelTransactionRequestValidator();

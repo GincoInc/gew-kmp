@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ListWalletTransferVolumeSnapshotsResponse} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ListWalletTransferVolumeSnapshotsResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListWalletTransferVolumeSnapshotsResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListWalletTransferVolumeSnapshotsResponse.class)) return new ListWalletTransferVolumeSnapshotsResponseValidator();

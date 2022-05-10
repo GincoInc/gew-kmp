@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code CreateTransactionRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class CreateTransactionRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.CreateTransactionRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.CreateTransactionRequest.class)) return new CreateTransactionRequestValidator();
@@ -44,7 +46,6 @@ public class CreateTransactionRequestValidator implements io.envoyproxy.pgv.Vali
 			// Validate tx_outputs
 			if (true) index.validatorFor(item).assertValid(item);
 			});
-
 	// no validation rules for Address
 
 	// no validation rules for DestinationTag

@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code DeleteLabeledAddressRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class DeleteLabeledAddressRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.DeleteLabeledAddressRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.DeleteLabeledAddressRequest.class)) return new DeleteLabeledAddressRequestValidator();

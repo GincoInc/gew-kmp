@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code CreateWhitelistResponse} protobuf objects.
 */
+@SuppressWarnings("all")
 public class CreateWhitelistResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.CreateWhitelistResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.CreateWhitelistResponse.class)) return new CreateWhitelistResponseValidator();

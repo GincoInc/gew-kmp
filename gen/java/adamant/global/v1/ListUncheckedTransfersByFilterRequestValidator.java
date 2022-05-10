@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ListUncheckedTransfersByFilterRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ListUncheckedTransfersByFilterRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListUncheckedTransfersByFilterRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListUncheckedTransfersByFilterRequest.class)) return new ListUncheckedTransfersByFilterRequestValidator();
@@ -32,7 +34,6 @@ public class ListUncheckedTransfersByFilterRequestValidator implements io.envoyp
 				// no validation rules for WalletType
 
 			});
-
 	
 			io.envoyproxy.pgv.ComparativeValidation.lessThanOrEqual(".adamant.global.v1.ListUncheckedTransfersByFilterRequest.page_size", proto.getPageSize(), PAGE_SIZE__LTE, java.util.Comparator.naturalOrder());
 	
