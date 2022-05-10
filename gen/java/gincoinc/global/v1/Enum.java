@@ -1891,9 +1891,9 @@ public final class Enum {
       "TRANSACTION_TYPE_PROVISION_NAMESPACE_TYP" +
       "E\020\006\022/\n+NEM_TRANSACTION_TYPE_MOSAIC_DEFIN" +
       "ITION_TYPE\020\007\022+\n\'NEM_TRANSACTION_TYPE_MOS" +
-      "AIC_SUPPLY_TYPE\020\010BIZGgithub.com/GincoInc" +
-      "/protobuf/gen/go/gincoinc/global/v1/ginc" +
-      "oincglobalv1b\006proto3"
+      "AIC_SUPPLY_TYPE\020\010BEZCgithub.com/GincoInc" +
+      "/gew-kmp/gen/gincoinc/global/v1/gincoinc" +
+      "globalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -94010,9 +94010,9 @@ public final class Model {
       "\001 \001(\tR\010walletId\022\035\n\naccount_id\030\002 \001(\tR\tacc" +
       "ountId\022\030\n\007address\030\003 \001(\tR\007address\022\030\n\007bala" +
       "nce\030\004 \001(\001R\007balance\022%\n\016string_balance\030\005 \001" +
-      "(\tR\rstringBalanceBPZNgithub.com/GincoInc" +
-      "/protobuf/gen/go/gincoinc/adamant/global" +
-      "/v1/adamantglobalv1b\006proto3"
+      "(\tR\rstringBalanceBLZJgithub.com/GincoInc" +
+      "/gew-kmp/gen/gincoinc/adamant/global/v1/" +
+      "adamantglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

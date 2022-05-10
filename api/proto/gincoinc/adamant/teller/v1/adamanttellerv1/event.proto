@@ -5,7 +5,7 @@ package adamant.teller.v1;
 import "gincoinc/global/v1/gincoincglobalv1/enum.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/GincoInc/protobuf/gen/go/gincoinc/adamant/teller/v1/adamanttellerv1";
+option go_package = "github.com/GincoInc/gew-kmp/gen/gincoinc/adamant/teller/v1/adamanttellerv1";
 
 message TransferUpdated {
   string wallet_id = 1;

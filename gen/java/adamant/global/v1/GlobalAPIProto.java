@@ -1785,10 +1785,9 @@ public final class GlobalAPIProto {
       "commendedFeeRateResponse\"\000\022j\n\017ValidateAd" +
       "dress\022).adamant.global.v1.ValidateAddres" +
       "sRequest\032*.adamant.global.v1.ValidateAdd" +
-      "ressResponse\"\000BbB\016GlobalAPIProtoP\001ZNgith" +
-      "ub.com/GincoInc/protobuf/gen/go/gincoinc" +
-      "/adamant/global/v1/adamantglobalv1b\006prot" +
-      "o3"
+      "ressResponse\"\000B^B\016GlobalAPIProtoP\001ZJgith" +
+      "ub.com/GincoInc/gew-kmp/gen/gincoinc/ada" +
+      "mant/global/v1/adamantglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -31,6 +31,7 @@ generate: $(BIN)/buf $(BIN)/protoc-gen-go $(BIN)/protoc-gen-validate
 protodep-up: SSH_KEY ?= github_id_rsa
 protodep-up: $(BIN)/protodep
 	@$(BIN)/protodep up -f --identity-file=$(SSH_KEY)
+	find ./api/proto/gincoinc -type f | xargs sed -i '' -e 's/GincoInc\/protobuf\/gen\/go/GincoInc\/gew-kmp\/gen/g'
 
 .PHONY: evans
 evans:

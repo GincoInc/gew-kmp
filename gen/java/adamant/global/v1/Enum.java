@@ -5123,9 +5123,9 @@ public final class Enum {
       "METHOD_ID_TYPE_INVALID\020\000\0222\n.ETHEREUM_CON" +
       "TRACT_METHOD_ID_TYPE_ERC20_APPROVE\020\001\0226\n2" +
       "ETHEREUM_CONTRACT_METHOD_ID_TYPE_UNISWAP" +
-      "_MULTICALL\020\002BPZNgithub.com/GincoInc/prot" +
-      "obuf/gen/go/gincoinc/adamant/global/v1/a" +
-      "damantglobalv1b\006proto3"
+      "_MULTICALL\020\002BLZJgithub.com/GincoInc/gew-" +
+      "kmp/gen/gincoinc/adamant/global/v1/adama" +
+      "ntglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
