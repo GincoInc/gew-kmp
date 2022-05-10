@@ -3,6 +3,7 @@ managed:
   enabled: true
   go_package_prefix:
     default: github.com/GincoInc/gew-kmp/gen
+  java_package_prefix: java
 plugins:
  - name: go
    out: gen
@@ -16,10 +17,10 @@ plugins:
    out: gen
    path: ./bin/protoc-gen-validate
  - remote: buf.build/protocolbuffers/plugins/java:v3.19.1-1
-   out: gen/java
+   out: gen
  - remote: buf.build/grpc/plugins/java:v1.40.2-1
-   out: gen/java
+   out: gen
  - name: validate
    opt:
     - lang=java
-   out: gen/java
+   out: gen
