@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.UpdateWalletGroupRequest}
  */
-public  final class UpdateWalletGroupRequest extends
+public final class UpdateWalletGroupRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.UpdateWalletGroupRequest)
     UpdateWalletGroupRequestOrBuilder {
@@ -104,8 +104,10 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_GROUP_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object walletGroupId_;
   /**
-   * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+   * @return The walletGroupId.
    */
+  @java.lang.Override
   public java.lang.String getWalletGroupId() {
     java.lang.Object ref = walletGroupId_;
     if (ref instanceof java.lang.String) {
@@ -119,8 +121,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletGroupId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWalletGroupIdBytes() {
     java.lang.Object ref = walletGroupId_;
@@ -138,26 +142,32 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_IDS_FIELD_NUMBER = 2;
   private com.google.protobuf.LazyStringList walletIds_;
   /**
-   * <code>repeated string wallet_ids = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated string wallet_ids = 2 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+   * @return A list containing the walletIds.
    */
   public com.google.protobuf.ProtocolStringList
       getWalletIdsList() {
     return walletIds_;
   }
   /**
-   * <code>repeated string wallet_ids = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated string wallet_ids = 2 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+   * @return The count of walletIds.
    */
   public int getWalletIdsCount() {
     return walletIds_.size();
   }
   /**
-   * <code>repeated string wallet_ids = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated string wallet_ids = 2 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+   * @param index The index of the element to return.
+   * @return The walletIds at the given index.
    */
   public java.lang.String getWalletIds(int index) {
     return walletIds_.get(index);
   }
   /**
-   * <code>repeated string wallet_ids = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated string wallet_ids = 2 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the walletIds at the given index.
    */
   public com.google.protobuf.ByteString
       getWalletIdsBytes(int index) {
@@ -178,7 +188,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getWalletGroupIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletGroupId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletGroupId_);
     }
     for (int i = 0; i < walletIds_.size(); i++) {
@@ -193,7 +203,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getWalletGroupIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletGroupId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletGroupId_);
     }
     {
@@ -504,7 +514,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object walletGroupId_ = "";
     /**
-     * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+     * @return The walletGroupId.
      */
     public java.lang.String getWalletGroupId() {
       java.lang.Object ref = walletGroupId_;
@@ -519,7 +530,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+     * @return The bytes for walletGroupId.
      */
     public com.google.protobuf.ByteString
         getWalletGroupIdBytes() {
@@ -535,7 +547,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+     * @param value The walletGroupId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletGroupId(
         java.lang.String value) {
@@ -548,7 +562,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletGroupId() {
       
@@ -557,7 +572,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for walletGroupId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletGroupIdBytes(
         com.google.protobuf.ByteString value) {
@@ -579,33 +596,42 @@ private static final long serialVersionUID = 0L;
        }
     }
     /**
-     * <code>repeated string wallet_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string wallet_ids = 2 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+     * @return A list containing the walletIds.
      */
     public com.google.protobuf.ProtocolStringList
         getWalletIdsList() {
       return walletIds_.getUnmodifiableView();
     }
     /**
-     * <code>repeated string wallet_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string wallet_ids = 2 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+     * @return The count of walletIds.
      */
     public int getWalletIdsCount() {
       return walletIds_.size();
     }
     /**
-     * <code>repeated string wallet_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string wallet_ids = 2 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+     * @param index The index of the element to return.
+     * @return The walletIds at the given index.
      */
     public java.lang.String getWalletIds(int index) {
       return walletIds_.get(index);
     }
     /**
-     * <code>repeated string wallet_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string wallet_ids = 2 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the walletIds at the given index.
      */
     public com.google.protobuf.ByteString
         getWalletIdsBytes(int index) {
       return walletIds_.getByteString(index);
     }
     /**
-     * <code>repeated string wallet_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string wallet_ids = 2 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+     * @param index The index to set the value at.
+     * @param value The walletIds to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletIds(
         int index, java.lang.String value) {
@@ -618,7 +644,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string wallet_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string wallet_ids = 2 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+     * @param value The walletIds to add.
+     * @return This builder for chaining.
      */
     public Builder addWalletIds(
         java.lang.String value) {
@@ -631,7 +659,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string wallet_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string wallet_ids = 2 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+     * @param values The walletIds to add.
+     * @return This builder for chaining.
      */
     public Builder addAllWalletIds(
         java.lang.Iterable<java.lang.String> values) {
@@ -642,7 +672,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string wallet_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string wallet_ids = 2 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletIds() {
       walletIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -651,7 +682,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string wallet_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string wallet_ids = 2 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+     * @param value The bytes of the walletIds to add.
+     * @return This builder for chaining.
      */
     public Builder addWalletIdsBytes(
         com.google.protobuf.ByteString value) {

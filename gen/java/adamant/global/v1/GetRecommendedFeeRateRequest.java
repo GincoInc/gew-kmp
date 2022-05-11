@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.GetRecommendedFeeRateRequest}
  */
-public  final class GetRecommendedFeeRateRequest extends
+public final class GetRecommendedFeeRateRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.GetRecommendedFeeRateRequest)
     GetRecommendedFeeRateRequestOrBuilder {
@@ -90,15 +90,17 @@ private static final long serialVersionUID = 0L;
   public static final int COIN_FIELD_NUMBER = 1;
   private int coin_;
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
    */
-  public int getCoinValue() {
+  @java.lang.Override public int getCoinValue() {
     return coin_;
   }
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
    */
-  public gincoinc.global.v1.Enum.Coin getCoin() {
+  @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
     @SuppressWarnings("deprecation")
     gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
     return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
@@ -407,29 +409,37 @@ private static final long serialVersionUID = 0L;
 
     private int coin_ = 0;
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for coin.
      */
-    public int getCoinValue() {
+    @java.lang.Override public int getCoinValue() {
       return coin_;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for coin to set.
+     * @return This builder for chaining.
      */
     public Builder setCoinValue(int value) {
+      
       coin_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return The coin.
      */
+    @java.lang.Override
     public gincoinc.global.v1.Enum.Coin getCoin() {
       @SuppressWarnings("deprecation")
       gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
       return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @param value The coin to set.
+     * @return This builder for chaining.
      */
     public Builder setCoin(gincoinc.global.v1.Enum.Coin value) {
       if (value == null) {
@@ -441,7 +451,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearCoin() {
       

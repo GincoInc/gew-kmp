@@ -8,49 +8,59 @@ public interface CreatePolicyRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string name = 1 [(.validate.rules) = { ... }</code>
+   * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The name.
    */
   java.lang.String getName();
   /**
-   * <code>string name = 1 [(.validate.rules) = { ... }</code>
+   * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
    */
   int getCoinValue();
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
    */
   gincoinc.global.v1.Enum.Coin getCoin();
 
   /**
-   * <code>.adamant.global.v1.PolicyType type = 4 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.PolicyType type = 4 [json_name = "type", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for type.
    */
   int getTypeValue();
   /**
-   * <code>.adamant.global.v1.PolicyType type = 4 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.PolicyType type = 4 [json_name = "type", (.validate.rules) = { ... }</code>
+   * @return The type.
    */
   adamant.global.v1.Enum.PolicyType getType();
 
   /**
-   * <code>string whitelist_id = 5 [(.validate.rules) = { ... }</code>
+   * <code>string whitelist_id = 5 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+   * @return The whitelistId.
    */
   java.lang.String getWhitelistId();
   /**
-   * <code>string whitelist_id = 5 [(.validate.rules) = { ... }</code>
+   * <code>string whitelist_id = 5 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+   * @return The bytes for whitelistId.
    */
   com.google.protobuf.ByteString
       getWhitelistIdBytes();
 
   /**
-   * <code>string transfer_limit_id = 6 [(.validate.rules) = { ... }</code>
+   * <code>string transfer_limit_id = 6 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+   * @return The transferLimitId.
    */
   java.lang.String getTransferLimitId();
   /**
-   * <code>string transfer_limit_id = 6 [(.validate.rules) = { ... }</code>
+   * <code>string transfer_limit_id = 6 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+   * @return The bytes for transferLimitId.
    */
   com.google.protobuf.ByteString
       getTransferLimitIdBytes();

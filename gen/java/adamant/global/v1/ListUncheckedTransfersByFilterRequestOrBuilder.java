@@ -8,55 +8,66 @@ public interface ListUncheckedTransfersByFilterRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bool has_checked = 1;</code>
+   * <code>bool has_checked = 1 [json_name = "hasChecked"];</code>
+   * @return The hasChecked.
    */
   boolean getHasChecked();
 
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+   * @return A list containing the walletType.
    */
   java.util.List<adamant.global.v1.Enum.WalletType> getWalletTypeList();
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+   * @return The count of walletType.
    */
   int getWalletTypeCount();
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+   * @param index The index of the element to return.
+   * @return The walletType at the given index.
    */
   adamant.global.v1.Enum.WalletType getWalletType(int index);
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+   * @return A list containing the enum numeric values on the wire for walletType.
    */
   java.util.List<java.lang.Integer>
   getWalletTypeValueList();
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of walletType at the given index.
    */
   int getWalletTypeValue(int index);
 
   /**
    * <pre>
-   *indicate how many objects to return in a single response
+   * indicate how many objects to return in a single response
    * </pre>
    *
-   * <code>uint32 page_size = 3 [(.validate.rules) = { ... }</code>
+   * <code>uint32 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+   * @return The pageSize.
    */
   int getPageSize();
 
   /**
    * <pre>
-   *retrieve the next page
+   * retrieve the next page
    * </pre>
    *
-   * <code>string page_token = 4 [(.validate.rules) = { ... }</code>
+   * <code>string page_token = 4 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The pageToken.
    */
   java.lang.String getPageToken();
   /**
    * <pre>
-   *retrieve the next page
+   * retrieve the next page
    * </pre>
    *
-   * <code>string page_token = 4 [(.validate.rules) = { ... }</code>
+   * <code>string page_token = 4 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The bytes for pageToken.
    */
   com.google.protobuf.ByteString
       getPageTokenBytes();

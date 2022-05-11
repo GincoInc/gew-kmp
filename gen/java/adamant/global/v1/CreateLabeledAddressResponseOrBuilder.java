@@ -8,11 +8,13 @@ public interface CreateLabeledAddressResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string labeled_address_id = 1;</code>
+   * <code>string labeled_address_id = 1 [json_name = "labeledAddressId"];</code>
+   * @return The labeledAddressId.
    */
   java.lang.String getLabeledAddressId();
   /**
-   * <code>string labeled_address_id = 1;</code>
+   * <code>string labeled_address_id = 1 [json_name = "labeledAddressId"];</code>
+   * @return The bytes for labeledAddressId.
    */
   com.google.protobuf.ByteString
       getLabeledAddressIdBytes();

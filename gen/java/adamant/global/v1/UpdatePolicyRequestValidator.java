@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code UpdatePolicyRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class UpdatePolicyRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.UpdatePolicyRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.UpdatePolicyRequest.class)) return new UpdatePolicyRequestValidator();
@@ -30,7 +32,7 @@ public class UpdatePolicyRequestValidator implements io.envoyproxy.pgv.Validator
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.UpdatePolicyRequest.policy_id", proto.getPolicyId(), POLICY_ID__PATTERN);
 	
 			io.envoyproxy.pgv.StringValidation.minLength(".adamant.global.v1.UpdatePolicyRequest.name", proto.getName(), 1);
-			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.global.v1.UpdatePolicyRequest.name", proto.getName(), 20);
+			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.global.v1.UpdatePolicyRequest.name", proto.getName(), 40);
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.UpdatePolicyRequest.whitelist_id", proto.getWhitelistId(), WHITELIST_ID__PATTERN);
 	

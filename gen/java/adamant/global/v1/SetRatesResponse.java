@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.SetRatesResponse}
  */
-public  final class SetRatesResponse extends
+public final class SetRatesResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.SetRatesResponse)
     SetRatesResponseOrBuilder {
@@ -91,11 +91,13 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object rateSnapshotId_;
   /**
    * <pre>
-   *The id of rate-snapshot
+   * The id of rate-snapshot
    * </pre>
    *
-   * <code>string rate_snapshot_id = 1;</code>
+   * <code>string rate_snapshot_id = 1 [json_name = "rateSnapshotId"];</code>
+   * @return The rateSnapshotId.
    */
+  @java.lang.Override
   public java.lang.String getRateSnapshotId() {
     java.lang.Object ref = rateSnapshotId_;
     if (ref instanceof java.lang.String) {
@@ -110,11 +112,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *The id of rate-snapshot
+   * The id of rate-snapshot
    * </pre>
    *
-   * <code>string rate_snapshot_id = 1;</code>
+   * <code>string rate_snapshot_id = 1 [json_name = "rateSnapshotId"];</code>
+   * @return The bytes for rateSnapshotId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getRateSnapshotIdBytes() {
     java.lang.Object ref = rateSnapshotId_;
@@ -143,7 +147,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getRateSnapshotIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rateSnapshotId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, rateSnapshotId_);
     }
     unknownFields.writeTo(output);
@@ -155,7 +159,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getRateSnapshotIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rateSnapshotId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, rateSnapshotId_);
     }
     size += unknownFields.getSerializedSize();
@@ -434,10 +438,11 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object rateSnapshotId_ = "";
     /**
      * <pre>
-     *The id of rate-snapshot
+     * The id of rate-snapshot
      * </pre>
      *
-     * <code>string rate_snapshot_id = 1;</code>
+     * <code>string rate_snapshot_id = 1 [json_name = "rateSnapshotId"];</code>
+     * @return The rateSnapshotId.
      */
     public java.lang.String getRateSnapshotId() {
       java.lang.Object ref = rateSnapshotId_;
@@ -453,10 +458,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The id of rate-snapshot
+     * The id of rate-snapshot
      * </pre>
      *
-     * <code>string rate_snapshot_id = 1;</code>
+     * <code>string rate_snapshot_id = 1 [json_name = "rateSnapshotId"];</code>
+     * @return The bytes for rateSnapshotId.
      */
     public com.google.protobuf.ByteString
         getRateSnapshotIdBytes() {
@@ -473,10 +479,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The id of rate-snapshot
+     * The id of rate-snapshot
      * </pre>
      *
-     * <code>string rate_snapshot_id = 1;</code>
+     * <code>string rate_snapshot_id = 1 [json_name = "rateSnapshotId"];</code>
+     * @param value The rateSnapshotId to set.
+     * @return This builder for chaining.
      */
     public Builder setRateSnapshotId(
         java.lang.String value) {
@@ -490,10 +498,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The id of rate-snapshot
+     * The id of rate-snapshot
      * </pre>
      *
-     * <code>string rate_snapshot_id = 1;</code>
+     * <code>string rate_snapshot_id = 1 [json_name = "rateSnapshotId"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearRateSnapshotId() {
       
@@ -503,10 +512,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *The id of rate-snapshot
+     * The id of rate-snapshot
      * </pre>
      *
-     * <code>string rate_snapshot_id = 1;</code>
+     * <code>string rate_snapshot_id = 1 [json_name = "rateSnapshotId"];</code>
+     * @param value The bytes for rateSnapshotId to set.
+     * @return This builder for chaining.
      */
     public Builder setRateSnapshotIdBytes(
         com.google.protobuf.ByteString value) {

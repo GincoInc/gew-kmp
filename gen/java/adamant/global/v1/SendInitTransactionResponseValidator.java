@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code SendInitTransactionResponse} protobuf objects.
 */
+@SuppressWarnings("all")
 public class SendInitTransactionResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.SendInitTransactionResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.SendInitTransactionResponse.class)) return new SendInitTransactionResponseValidator();
@@ -22,7 +24,6 @@ public class SendInitTransactionResponseValidator implements io.envoyproxy.pgv.V
 				// no validation rules for TxIds
 
 			});
-
 	
 	}
 

@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.CreateWalletRequest}
  */
-public  final class CreateWalletRequest extends
+public final class CreateWalletRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.CreateWalletRequest)
     CreateWalletRequestOrBuilder {
@@ -166,8 +166,10 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_NAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object walletName_;
   /**
-   * <code>string wallet_name = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_name = 1 [json_name = "walletName", (.validate.rules) = { ... }</code>
+   * @return The walletName.
    */
+  @java.lang.Override
   public java.lang.String getWalletName() {
     java.lang.Object ref = walletName_;
     if (ref instanceof java.lang.String) {
@@ -181,8 +183,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string wallet_name = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_name = 1 [json_name = "walletName", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletName.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWalletNameBytes() {
     java.lang.Object ref = walletName_;
@@ -200,15 +204,17 @@ private static final long serialVersionUID = 0L;
   public static final int COIN_FIELD_NUMBER = 2;
   private int coin_;
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
    */
-  public int getCoinValue() {
+  @java.lang.Override public int getCoinValue() {
     return coin_;
   }
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
    */
-  public gincoinc.global.v1.Enum.Coin getCoin() {
+  @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
     @SuppressWarnings("deprecation")
     gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
     return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
@@ -217,15 +223,17 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_TYPE_FIELD_NUMBER = 3;
   private int walletType_;
   /**
-   * <code>.adamant.global.v1.WalletType wallet_type = 3 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.WalletType wallet_type = 3 [json_name = "walletType", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for walletType.
    */
-  public int getWalletTypeValue() {
+  @java.lang.Override public int getWalletTypeValue() {
     return walletType_;
   }
   /**
-   * <code>.adamant.global.v1.WalletType wallet_type = 3 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.WalletType wallet_type = 3 [json_name = "walletType", (.validate.rules) = { ... }</code>
+   * @return The walletType.
    */
-  public adamant.global.v1.Enum.WalletType getWalletType() {
+  @java.lang.Override public adamant.global.v1.Enum.WalletType getWalletType() {
     @SuppressWarnings("deprecation")
     adamant.global.v1.Enum.WalletType result = adamant.global.v1.Enum.WalletType.valueOf(walletType_);
     return result == null ? adamant.global.v1.Enum.WalletType.UNRECOGNIZED : result;
@@ -234,15 +242,17 @@ private static final long serialVersionUID = 0L;
   public static final int ADDRESS_TYPE_FIELD_NUMBER = 4;
   private int addressType_;
   /**
-   * <code>.gincoinc.global.v1.AddressType address_type = 4 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.AddressType address_type = 4 [json_name = "addressType", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for addressType.
    */
-  public int getAddressTypeValue() {
+  @java.lang.Override public int getAddressTypeValue() {
     return addressType_;
   }
   /**
-   * <code>.gincoinc.global.v1.AddressType address_type = 4 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.AddressType address_type = 4 [json_name = "addressType", (.validate.rules) = { ... }</code>
+   * @return The addressType.
    */
-  public gincoinc.global.v1.Enum.AddressType getAddressType() {
+  @java.lang.Override public gincoinc.global.v1.Enum.AddressType getAddressType() {
     @SuppressWarnings("deprecation")
     gincoinc.global.v1.Enum.AddressType result = gincoinc.global.v1.Enum.AddressType.valueOf(addressType_);
     return result == null ? gincoinc.global.v1.Enum.AddressType.UNRECOGNIZED : result;
@@ -255,8 +265,10 @@ private static final long serialVersionUID = 0L;
    * and must be m &lt;= n
    * </pre>
    *
-   * <code>uint32 m = 5 [(.validate.rules) = { ... }</code>
+   * <code>uint32 m = 5 [json_name = "m", (.validate.rules) = { ... }</code>
+   * @return The m.
    */
+  @java.lang.Override
   public int getM() {
     return m_;
   }
@@ -264,8 +276,10 @@ private static final long serialVersionUID = 0L;
   public static final int N_FIELD_NUMBER = 6;
   private int n_;
   /**
-   * <code>uint32 n = 6 [(.validate.rules) = { ... }</code>
+   * <code>uint32 n = 6 [json_name = "n", (.validate.rules) = { ... }</code>
+   * @return The n.
    */
+  @java.lang.Override
   public int getN() {
     return n_;
   }
@@ -273,26 +287,32 @@ private static final long serialVersionUID = 0L;
   public static final int MEMBERS_FIELD_NUMBER = 7;
   private com.google.protobuf.LazyStringList members_;
   /**
-   * <code>repeated string members = 7 [(.validate.rules) = { ... }</code>
+   * <code>repeated string members = 7 [json_name = "members", (.validate.rules) = { ... }</code>
+   * @return A list containing the members.
    */
   public com.google.protobuf.ProtocolStringList
       getMembersList() {
     return members_;
   }
   /**
-   * <code>repeated string members = 7 [(.validate.rules) = { ... }</code>
+   * <code>repeated string members = 7 [json_name = "members", (.validate.rules) = { ... }</code>
+   * @return The count of members.
    */
   public int getMembersCount() {
     return members_.size();
   }
   /**
-   * <code>repeated string members = 7 [(.validate.rules) = { ... }</code>
+   * <code>repeated string members = 7 [json_name = "members", (.validate.rules) = { ... }</code>
+   * @param index The index of the element to return.
+   * @return The members at the given index.
    */
   public java.lang.String getMembers(int index) {
     return members_.get(index);
   }
   /**
-   * <code>repeated string members = 7 [(.validate.rules) = { ... }</code>
+   * <code>repeated string members = 7 [json_name = "members", (.validate.rules) = { ... }</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the members at the given index.
    */
   public com.google.protobuf.ByteString
       getMembersBytes(int index) {
@@ -302,8 +322,10 @@ private static final long serialVersionUID = 0L;
   public static final int REQUIRED_APPROVAL_COUNT_FIELD_NUMBER = 10;
   private int requiredApprovalCount_;
   /**
-   * <code>uint32 required_approval_count = 10;</code>
+   * <code>uint32 required_approval_count = 10 [json_name = "requiredApprovalCount"];</code>
+   * @return The requiredApprovalCount.
    */
+  @java.lang.Override
   public int getRequiredApprovalCount() {
     return requiredApprovalCount_;
   }
@@ -315,8 +337,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string policy_id = 8 [(.validate.rules) = { ... }</code>
+   * <code>string policy_id = 8 [json_name = "policyId", (.validate.rules) = { ... }</code>
+   * @return The policyId.
    */
+  @java.lang.Override
   public java.lang.String getPolicyId() {
     java.lang.Object ref = policyId_;
     if (ref instanceof java.lang.String) {
@@ -334,8 +358,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string policy_id = 8 [(.validate.rules) = { ... }</code>
+   * <code>string policy_id = 8 [json_name = "policyId", (.validate.rules) = { ... }</code>
+   * @return The bytes for policyId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getPolicyIdBytes() {
     java.lang.Object ref = policyId_;
@@ -357,8 +383,10 @@ private static final long serialVersionUID = 0L;
    * required when create receive only wallet
    * </pre>
    *
-   * <code>string destination_wallet_id = 9 [(.validate.rules) = { ... }</code>
+   * <code>string destination_wallet_id = 9 [json_name = "destinationWalletId", (.validate.rules) = { ... }</code>
+   * @return The destinationWalletId.
    */
+  @java.lang.Override
   public java.lang.String getDestinationWalletId() {
     java.lang.Object ref = destinationWalletId_;
     if (ref instanceof java.lang.String) {
@@ -376,8 +404,10 @@ private static final long serialVersionUID = 0L;
    * required when create receive only wallet
    * </pre>
    *
-   * <code>string destination_wallet_id = 9 [(.validate.rules) = { ... }</code>
+   * <code>string destination_wallet_id = 9 [json_name = "destinationWalletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for destinationWalletId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getDestinationWalletIdBytes() {
     java.lang.Object ref = destinationWalletId_;
@@ -395,8 +425,10 @@ private static final long serialVersionUID = 0L;
   public static final int WATCH_ONLY_FIELD_NUMBER = 11;
   private boolean watchOnly_;
   /**
-   * <code>bool watch_only = 11;</code>
+   * <code>bool watch_only = 11 [json_name = "watchOnly"];</code>
+   * @return The watchOnly.
    */
+  @java.lang.Override
   public boolean getWatchOnly() {
     return watchOnly_;
   }
@@ -408,8 +440,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string inherit_wallet_id = 12 [(.validate.rules) = { ... }</code>
+   * <code>string inherit_wallet_id = 12 [json_name = "inheritWalletId", (.validate.rules) = { ... }</code>
+   * @return The inheritWalletId.
    */
+  @java.lang.Override
   public java.lang.String getInheritWalletId() {
     java.lang.Object ref = inheritWalletId_;
     if (ref instanceof java.lang.String) {
@@ -427,8 +461,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string inherit_wallet_id = 12 [(.validate.rules) = { ... }</code>
+   * <code>string inherit_wallet_id = 12 [json_name = "inheritWalletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for inheritWalletId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getInheritWalletIdBytes() {
     java.lang.Object ref = inheritWalletId_;
@@ -457,7 +493,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getWalletNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletName_);
     }
     if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
@@ -478,10 +514,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < members_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, members_.getRaw(i));
     }
-    if (!getPolicyIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(policyId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, policyId_);
     }
-    if (!getDestinationWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destinationWalletId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, destinationWalletId_);
     }
     if (requiredApprovalCount_ != 0) {
@@ -490,7 +526,7 @@ private static final long serialVersionUID = 0L;
     if (watchOnly_ != false) {
       output.writeBool(11, watchOnly_);
     }
-    if (!getInheritWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(inheritWalletId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, inheritWalletId_);
     }
     unknownFields.writeTo(output);
@@ -502,7 +538,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getWalletNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletName_);
     }
     if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
@@ -533,10 +569,10 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getMembersList().size();
     }
-    if (!getPolicyIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(policyId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, policyId_);
     }
-    if (!getDestinationWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destinationWalletId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, destinationWalletId_);
     }
     if (requiredApprovalCount_ != 0) {
@@ -547,7 +583,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(11, watchOnly_);
     }
-    if (!getInheritWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(inheritWalletId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, inheritWalletId_);
     }
     size += unknownFields.getSerializedSize();
@@ -951,7 +987,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object walletName_ = "";
     /**
-     * <code>string wallet_name = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_name = 1 [json_name = "walletName", (.validate.rules) = { ... }</code>
+     * @return The walletName.
      */
     public java.lang.String getWalletName() {
       java.lang.Object ref = walletName_;
@@ -966,7 +1003,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_name = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_name = 1 [json_name = "walletName", (.validate.rules) = { ... }</code>
+     * @return The bytes for walletName.
      */
     public com.google.protobuf.ByteString
         getWalletNameBytes() {
@@ -982,7 +1020,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_name = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_name = 1 [json_name = "walletName", (.validate.rules) = { ... }</code>
+     * @param value The walletName to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletName(
         java.lang.String value) {
@@ -995,7 +1035,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_name = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_name = 1 [json_name = "walletName", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletName() {
       
@@ -1004,7 +1045,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_name = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_name = 1 [json_name = "walletName", (.validate.rules) = { ... }</code>
+     * @param value The bytes for walletName to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletNameBytes(
         com.google.protobuf.ByteString value) {
@@ -1020,29 +1063,37 @@ private static final long serialVersionUID = 0L;
 
     private int coin_ = 0;
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for coin.
      */
-    public int getCoinValue() {
+    @java.lang.Override public int getCoinValue() {
       return coin_;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for coin to set.
+     * @return This builder for chaining.
      */
     public Builder setCoinValue(int value) {
+      
       coin_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return The coin.
      */
+    @java.lang.Override
     public gincoinc.global.v1.Enum.Coin getCoin() {
       @SuppressWarnings("deprecation")
       gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
       return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @param value The coin to set.
+     * @return This builder for chaining.
      */
     public Builder setCoin(gincoinc.global.v1.Enum.Coin value) {
       if (value == null) {
@@ -1054,7 +1105,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearCoin() {
       
@@ -1065,29 +1117,37 @@ private static final long serialVersionUID = 0L;
 
     private int walletType_ = 0;
     /**
-     * <code>.adamant.global.v1.WalletType wallet_type = 3 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.WalletType wallet_type = 3 [json_name = "walletType", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for walletType.
      */
-    public int getWalletTypeValue() {
+    @java.lang.Override public int getWalletTypeValue() {
       return walletType_;
     }
     /**
-     * <code>.adamant.global.v1.WalletType wallet_type = 3 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.WalletType wallet_type = 3 [json_name = "walletType", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for walletType to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletTypeValue(int value) {
+      
       walletType_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>.adamant.global.v1.WalletType wallet_type = 3 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.WalletType wallet_type = 3 [json_name = "walletType", (.validate.rules) = { ... }</code>
+     * @return The walletType.
      */
+    @java.lang.Override
     public adamant.global.v1.Enum.WalletType getWalletType() {
       @SuppressWarnings("deprecation")
       adamant.global.v1.Enum.WalletType result = adamant.global.v1.Enum.WalletType.valueOf(walletType_);
       return result == null ? adamant.global.v1.Enum.WalletType.UNRECOGNIZED : result;
     }
     /**
-     * <code>.adamant.global.v1.WalletType wallet_type = 3 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.WalletType wallet_type = 3 [json_name = "walletType", (.validate.rules) = { ... }</code>
+     * @param value The walletType to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletType(adamant.global.v1.Enum.WalletType value) {
       if (value == null) {
@@ -1099,7 +1159,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.WalletType wallet_type = 3 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.WalletType wallet_type = 3 [json_name = "walletType", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletType() {
       
@@ -1110,29 +1171,37 @@ private static final long serialVersionUID = 0L;
 
     private int addressType_ = 0;
     /**
-     * <code>.gincoinc.global.v1.AddressType address_type = 4 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.AddressType address_type = 4 [json_name = "addressType", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for addressType.
      */
-    public int getAddressTypeValue() {
+    @java.lang.Override public int getAddressTypeValue() {
       return addressType_;
     }
     /**
-     * <code>.gincoinc.global.v1.AddressType address_type = 4 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.AddressType address_type = 4 [json_name = "addressType", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for addressType to set.
+     * @return This builder for chaining.
      */
     public Builder setAddressTypeValue(int value) {
+      
       addressType_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>.gincoinc.global.v1.AddressType address_type = 4 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.AddressType address_type = 4 [json_name = "addressType", (.validate.rules) = { ... }</code>
+     * @return The addressType.
      */
+    @java.lang.Override
     public gincoinc.global.v1.Enum.AddressType getAddressType() {
       @SuppressWarnings("deprecation")
       gincoinc.global.v1.Enum.AddressType result = gincoinc.global.v1.Enum.AddressType.valueOf(addressType_);
       return result == null ? gincoinc.global.v1.Enum.AddressType.UNRECOGNIZED : result;
     }
     /**
-     * <code>.gincoinc.global.v1.AddressType address_type = 4 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.AddressType address_type = 4 [json_name = "addressType", (.validate.rules) = { ... }</code>
+     * @param value The addressType to set.
+     * @return This builder for chaining.
      */
     public Builder setAddressType(gincoinc.global.v1.Enum.AddressType value) {
       if (value == null) {
@@ -1144,7 +1213,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.gincoinc.global.v1.AddressType address_type = 4 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.AddressType address_type = 4 [json_name = "addressType", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearAddressType() {
       
@@ -1159,8 +1229,10 @@ private static final long serialVersionUID = 0L;
      * and must be m &lt;= n
      * </pre>
      *
-     * <code>uint32 m = 5 [(.validate.rules) = { ... }</code>
+     * <code>uint32 m = 5 [json_name = "m", (.validate.rules) = { ... }</code>
+     * @return The m.
      */
+    @java.lang.Override
     public int getM() {
       return m_;
     }
@@ -1169,7 +1241,9 @@ private static final long serialVersionUID = 0L;
      * and must be m &lt;= n
      * </pre>
      *
-     * <code>uint32 m = 5 [(.validate.rules) = { ... }</code>
+     * <code>uint32 m = 5 [json_name = "m", (.validate.rules) = { ... }</code>
+     * @param value The m to set.
+     * @return This builder for chaining.
      */
     public Builder setM(int value) {
       
@@ -1182,7 +1256,8 @@ private static final long serialVersionUID = 0L;
      * and must be m &lt;= n
      * </pre>
      *
-     * <code>uint32 m = 5 [(.validate.rules) = { ... }</code>
+     * <code>uint32 m = 5 [json_name = "m", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearM() {
       
@@ -1193,13 +1268,17 @@ private static final long serialVersionUID = 0L;
 
     private int n_ ;
     /**
-     * <code>uint32 n = 6 [(.validate.rules) = { ... }</code>
+     * <code>uint32 n = 6 [json_name = "n", (.validate.rules) = { ... }</code>
+     * @return The n.
      */
+    @java.lang.Override
     public int getN() {
       return n_;
     }
     /**
-     * <code>uint32 n = 6 [(.validate.rules) = { ... }</code>
+     * <code>uint32 n = 6 [json_name = "n", (.validate.rules) = { ... }</code>
+     * @param value The n to set.
+     * @return This builder for chaining.
      */
     public Builder setN(int value) {
       
@@ -1208,7 +1287,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint32 n = 6 [(.validate.rules) = { ... }</code>
+     * <code>uint32 n = 6 [json_name = "n", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearN() {
       
@@ -1225,33 +1305,42 @@ private static final long serialVersionUID = 0L;
        }
     }
     /**
-     * <code>repeated string members = 7 [(.validate.rules) = { ... }</code>
+     * <code>repeated string members = 7 [json_name = "members", (.validate.rules) = { ... }</code>
+     * @return A list containing the members.
      */
     public com.google.protobuf.ProtocolStringList
         getMembersList() {
       return members_.getUnmodifiableView();
     }
     /**
-     * <code>repeated string members = 7 [(.validate.rules) = { ... }</code>
+     * <code>repeated string members = 7 [json_name = "members", (.validate.rules) = { ... }</code>
+     * @return The count of members.
      */
     public int getMembersCount() {
       return members_.size();
     }
     /**
-     * <code>repeated string members = 7 [(.validate.rules) = { ... }</code>
+     * <code>repeated string members = 7 [json_name = "members", (.validate.rules) = { ... }</code>
+     * @param index The index of the element to return.
+     * @return The members at the given index.
      */
     public java.lang.String getMembers(int index) {
       return members_.get(index);
     }
     /**
-     * <code>repeated string members = 7 [(.validate.rules) = { ... }</code>
+     * <code>repeated string members = 7 [json_name = "members", (.validate.rules) = { ... }</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the members at the given index.
      */
     public com.google.protobuf.ByteString
         getMembersBytes(int index) {
       return members_.getByteString(index);
     }
     /**
-     * <code>repeated string members = 7 [(.validate.rules) = { ... }</code>
+     * <code>repeated string members = 7 [json_name = "members", (.validate.rules) = { ... }</code>
+     * @param index The index to set the value at.
+     * @param value The members to set.
+     * @return This builder for chaining.
      */
     public Builder setMembers(
         int index, java.lang.String value) {
@@ -1264,7 +1353,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string members = 7 [(.validate.rules) = { ... }</code>
+     * <code>repeated string members = 7 [json_name = "members", (.validate.rules) = { ... }</code>
+     * @param value The members to add.
+     * @return This builder for chaining.
      */
     public Builder addMembers(
         java.lang.String value) {
@@ -1277,7 +1368,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string members = 7 [(.validate.rules) = { ... }</code>
+     * <code>repeated string members = 7 [json_name = "members", (.validate.rules) = { ... }</code>
+     * @param values The members to add.
+     * @return This builder for chaining.
      */
     public Builder addAllMembers(
         java.lang.Iterable<java.lang.String> values) {
@@ -1288,7 +1381,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string members = 7 [(.validate.rules) = { ... }</code>
+     * <code>repeated string members = 7 [json_name = "members", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearMembers() {
       members_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -1297,7 +1391,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string members = 7 [(.validate.rules) = { ... }</code>
+     * <code>repeated string members = 7 [json_name = "members", (.validate.rules) = { ... }</code>
+     * @param value The bytes of the members to add.
+     * @return This builder for chaining.
      */
     public Builder addMembersBytes(
         com.google.protobuf.ByteString value) {
@@ -1313,13 +1409,17 @@ private static final long serialVersionUID = 0L;
 
     private int requiredApprovalCount_ ;
     /**
-     * <code>uint32 required_approval_count = 10;</code>
+     * <code>uint32 required_approval_count = 10 [json_name = "requiredApprovalCount"];</code>
+     * @return The requiredApprovalCount.
      */
+    @java.lang.Override
     public int getRequiredApprovalCount() {
       return requiredApprovalCount_;
     }
     /**
-     * <code>uint32 required_approval_count = 10;</code>
+     * <code>uint32 required_approval_count = 10 [json_name = "requiredApprovalCount"];</code>
+     * @param value The requiredApprovalCount to set.
+     * @return This builder for chaining.
      */
     public Builder setRequiredApprovalCount(int value) {
       
@@ -1328,7 +1428,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint32 required_approval_count = 10;</code>
+     * <code>uint32 required_approval_count = 10 [json_name = "requiredApprovalCount"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearRequiredApprovalCount() {
       
@@ -1343,7 +1444,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string policy_id = 8 [(.validate.rules) = { ... }</code>
+     * <code>string policy_id = 8 [json_name = "policyId", (.validate.rules) = { ... }</code>
+     * @return The policyId.
      */
     public java.lang.String getPolicyId() {
       java.lang.Object ref = policyId_;
@@ -1362,7 +1464,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string policy_id = 8 [(.validate.rules) = { ... }</code>
+     * <code>string policy_id = 8 [json_name = "policyId", (.validate.rules) = { ... }</code>
+     * @return The bytes for policyId.
      */
     public com.google.protobuf.ByteString
         getPolicyIdBytes() {
@@ -1382,7 +1485,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string policy_id = 8 [(.validate.rules) = { ... }</code>
+     * <code>string policy_id = 8 [json_name = "policyId", (.validate.rules) = { ... }</code>
+     * @param value The policyId to set.
+     * @return This builder for chaining.
      */
     public Builder setPolicyId(
         java.lang.String value) {
@@ -1399,7 +1504,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string policy_id = 8 [(.validate.rules) = { ... }</code>
+     * <code>string policy_id = 8 [json_name = "policyId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearPolicyId() {
       
@@ -1412,7 +1518,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string policy_id = 8 [(.validate.rules) = { ... }</code>
+     * <code>string policy_id = 8 [json_name = "policyId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for policyId to set.
+     * @return This builder for chaining.
      */
     public Builder setPolicyIdBytes(
         com.google.protobuf.ByteString value) {
@@ -1432,7 +1540,8 @@ private static final long serialVersionUID = 0L;
      * required when create receive only wallet
      * </pre>
      *
-     * <code>string destination_wallet_id = 9 [(.validate.rules) = { ... }</code>
+     * <code>string destination_wallet_id = 9 [json_name = "destinationWalletId", (.validate.rules) = { ... }</code>
+     * @return The destinationWalletId.
      */
     public java.lang.String getDestinationWalletId() {
       java.lang.Object ref = destinationWalletId_;
@@ -1451,7 +1560,8 @@ private static final long serialVersionUID = 0L;
      * required when create receive only wallet
      * </pre>
      *
-     * <code>string destination_wallet_id = 9 [(.validate.rules) = { ... }</code>
+     * <code>string destination_wallet_id = 9 [json_name = "destinationWalletId", (.validate.rules) = { ... }</code>
+     * @return The bytes for destinationWalletId.
      */
     public com.google.protobuf.ByteString
         getDestinationWalletIdBytes() {
@@ -1471,7 +1581,9 @@ private static final long serialVersionUID = 0L;
      * required when create receive only wallet
      * </pre>
      *
-     * <code>string destination_wallet_id = 9 [(.validate.rules) = { ... }</code>
+     * <code>string destination_wallet_id = 9 [json_name = "destinationWalletId", (.validate.rules) = { ... }</code>
+     * @param value The destinationWalletId to set.
+     * @return This builder for chaining.
      */
     public Builder setDestinationWalletId(
         java.lang.String value) {
@@ -1488,7 +1600,8 @@ private static final long serialVersionUID = 0L;
      * required when create receive only wallet
      * </pre>
      *
-     * <code>string destination_wallet_id = 9 [(.validate.rules) = { ... }</code>
+     * <code>string destination_wallet_id = 9 [json_name = "destinationWalletId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearDestinationWalletId() {
       
@@ -1501,7 +1614,9 @@ private static final long serialVersionUID = 0L;
      * required when create receive only wallet
      * </pre>
      *
-     * <code>string destination_wallet_id = 9 [(.validate.rules) = { ... }</code>
+     * <code>string destination_wallet_id = 9 [json_name = "destinationWalletId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for destinationWalletId to set.
+     * @return This builder for chaining.
      */
     public Builder setDestinationWalletIdBytes(
         com.google.protobuf.ByteString value) {
@@ -1517,13 +1632,17 @@ private static final long serialVersionUID = 0L;
 
     private boolean watchOnly_ ;
     /**
-     * <code>bool watch_only = 11;</code>
+     * <code>bool watch_only = 11 [json_name = "watchOnly"];</code>
+     * @return The watchOnly.
      */
+    @java.lang.Override
     public boolean getWatchOnly() {
       return watchOnly_;
     }
     /**
-     * <code>bool watch_only = 11;</code>
+     * <code>bool watch_only = 11 [json_name = "watchOnly"];</code>
+     * @param value The watchOnly to set.
+     * @return This builder for chaining.
      */
     public Builder setWatchOnly(boolean value) {
       
@@ -1532,7 +1651,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool watch_only = 11;</code>
+     * <code>bool watch_only = 11 [json_name = "watchOnly"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearWatchOnly() {
       
@@ -1547,7 +1667,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string inherit_wallet_id = 12 [(.validate.rules) = { ... }</code>
+     * <code>string inherit_wallet_id = 12 [json_name = "inheritWalletId", (.validate.rules) = { ... }</code>
+     * @return The inheritWalletId.
      */
     public java.lang.String getInheritWalletId() {
       java.lang.Object ref = inheritWalletId_;
@@ -1566,7 +1687,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string inherit_wallet_id = 12 [(.validate.rules) = { ... }</code>
+     * <code>string inherit_wallet_id = 12 [json_name = "inheritWalletId", (.validate.rules) = { ... }</code>
+     * @return The bytes for inheritWalletId.
      */
     public com.google.protobuf.ByteString
         getInheritWalletIdBytes() {
@@ -1586,7 +1708,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string inherit_wallet_id = 12 [(.validate.rules) = { ... }</code>
+     * <code>string inherit_wallet_id = 12 [json_name = "inheritWalletId", (.validate.rules) = { ... }</code>
+     * @param value The inheritWalletId to set.
+     * @return This builder for chaining.
      */
     public Builder setInheritWalletId(
         java.lang.String value) {
@@ -1603,7 +1727,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string inherit_wallet_id = 12 [(.validate.rules) = { ... }</code>
+     * <code>string inherit_wallet_id = 12 [json_name = "inheritWalletId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearInheritWalletId() {
       
@@ -1616,7 +1741,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string inherit_wallet_id = 12 [(.validate.rules) = { ... }</code>
+     * <code>string inherit_wallet_id = 12 [json_name = "inheritWalletId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for inheritWalletId to set.
+     * @return This builder for chaining.
      */
     public Builder setInheritWalletIdBytes(
         com.google.protobuf.ByteString value) {

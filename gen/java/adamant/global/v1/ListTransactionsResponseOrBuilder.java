@@ -8,35 +8,37 @@ public interface ListTransactionsResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.Transaction transactions = 1;</code>
+   * <code>repeated .adamant.global.v1.Transaction transactions = 1 [json_name = "transactions"];</code>
    */
   java.util.List<adamant.global.v1.Model.Transaction> 
       getTransactionsList();
   /**
-   * <code>repeated .adamant.global.v1.Transaction transactions = 1;</code>
+   * <code>repeated .adamant.global.v1.Transaction transactions = 1 [json_name = "transactions"];</code>
    */
   adamant.global.v1.Model.Transaction getTransactions(int index);
   /**
-   * <code>repeated .adamant.global.v1.Transaction transactions = 1;</code>
+   * <code>repeated .adamant.global.v1.Transaction transactions = 1 [json_name = "transactions"];</code>
    */
   int getTransactionsCount();
   /**
-   * <code>repeated .adamant.global.v1.Transaction transactions = 1;</code>
+   * <code>repeated .adamant.global.v1.Transaction transactions = 1 [json_name = "transactions"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.TransactionOrBuilder> 
       getTransactionsOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.Transaction transactions = 1;</code>
+   * <code>repeated .adamant.global.v1.Transaction transactions = 1 [json_name = "transactions"];</code>
    */
   adamant.global.v1.Model.TransactionOrBuilder getTransactionsOrBuilder(
       int index);
 
   /**
-   * <code>string next_page_token = 2;</code>
+   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+   * @return The nextPageToken.
    */
   java.lang.String getNextPageToken();
   /**
-   * <code>string next_page_token = 2;</code>
+   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+   * @return The bytes for nextPageToken.
    */
   com.google.protobuf.ByteString
       getNextPageTokenBytes();

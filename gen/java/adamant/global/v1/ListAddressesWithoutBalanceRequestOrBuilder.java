@@ -8,31 +8,37 @@ public interface ListAddressesWithoutBalanceRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The walletId.
    */
   java.lang.String getWalletId();
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletId.
    */
   com.google.protobuf.ByteString
       getWalletIdBytes();
 
   /**
-   * <code>bool omit_change = 2;</code>
+   * <code>bool omit_change = 2 [json_name = "omitChange"];</code>
+   * @return The omitChange.
    */
   boolean getOmitChange();
 
   /**
-   * <code>uint32 page_size = 3 [(.validate.rules) = { ... }</code>
+   * <code>uint32 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+   * @return The pageSize.
    */
   int getPageSize();
 
   /**
-   * <code>string page_token = 4 [(.validate.rules) = { ... }</code>
+   * <code>string page_token = 4 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The pageToken.
    */
   java.lang.String getPageToken();
   /**
-   * <code>string page_token = 4 [(.validate.rules) = { ... }</code>
+   * <code>string page_token = 4 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The bytes for pageToken.
    */
   com.google.protobuf.ByteString
       getPageTokenBytes();

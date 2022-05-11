@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.BatchGetWalletsWithoutBalanceRequest}
  */
-public  final class BatchGetWalletsWithoutBalanceRequest extends
+public final class BatchGetWalletsWithoutBalanceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.BatchGetWalletsWithoutBalanceRequest)
     BatchGetWalletsWithoutBalanceRequestOrBuilder {
@@ -97,26 +97,32 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_IDS_FIELD_NUMBER = 1;
   private com.google.protobuf.LazyStringList walletIds_;
   /**
-   * <code>repeated string wallet_ids = 1;</code>
+   * <code>repeated string wallet_ids = 1 [json_name = "walletIds"];</code>
+   * @return A list containing the walletIds.
    */
   public com.google.protobuf.ProtocolStringList
       getWalletIdsList() {
     return walletIds_;
   }
   /**
-   * <code>repeated string wallet_ids = 1;</code>
+   * <code>repeated string wallet_ids = 1 [json_name = "walletIds"];</code>
+   * @return The count of walletIds.
    */
   public int getWalletIdsCount() {
     return walletIds_.size();
   }
   /**
-   * <code>repeated string wallet_ids = 1;</code>
+   * <code>repeated string wallet_ids = 1 [json_name = "walletIds"];</code>
+   * @param index The index of the element to return.
+   * @return The walletIds at the given index.
    */
   public java.lang.String getWalletIds(int index) {
     return walletIds_.get(index);
   }
   /**
-   * <code>repeated string wallet_ids = 1;</code>
+   * <code>repeated string wallet_ids = 1 [json_name = "walletIds"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the walletIds at the given index.
    */
   public com.google.protobuf.ByteString
       getWalletIdsBytes(int index) {
@@ -452,33 +458,42 @@ private static final long serialVersionUID = 0L;
        }
     }
     /**
-     * <code>repeated string wallet_ids = 1;</code>
+     * <code>repeated string wallet_ids = 1 [json_name = "walletIds"];</code>
+     * @return A list containing the walletIds.
      */
     public com.google.protobuf.ProtocolStringList
         getWalletIdsList() {
       return walletIds_.getUnmodifiableView();
     }
     /**
-     * <code>repeated string wallet_ids = 1;</code>
+     * <code>repeated string wallet_ids = 1 [json_name = "walletIds"];</code>
+     * @return The count of walletIds.
      */
     public int getWalletIdsCount() {
       return walletIds_.size();
     }
     /**
-     * <code>repeated string wallet_ids = 1;</code>
+     * <code>repeated string wallet_ids = 1 [json_name = "walletIds"];</code>
+     * @param index The index of the element to return.
+     * @return The walletIds at the given index.
      */
     public java.lang.String getWalletIds(int index) {
       return walletIds_.get(index);
     }
     /**
-     * <code>repeated string wallet_ids = 1;</code>
+     * <code>repeated string wallet_ids = 1 [json_name = "walletIds"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the walletIds at the given index.
      */
     public com.google.protobuf.ByteString
         getWalletIdsBytes(int index) {
       return walletIds_.getByteString(index);
     }
     /**
-     * <code>repeated string wallet_ids = 1;</code>
+     * <code>repeated string wallet_ids = 1 [json_name = "walletIds"];</code>
+     * @param index The index to set the value at.
+     * @param value The walletIds to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletIds(
         int index, java.lang.String value) {
@@ -491,7 +506,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string wallet_ids = 1;</code>
+     * <code>repeated string wallet_ids = 1 [json_name = "walletIds"];</code>
+     * @param value The walletIds to add.
+     * @return This builder for chaining.
      */
     public Builder addWalletIds(
         java.lang.String value) {
@@ -504,7 +521,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string wallet_ids = 1;</code>
+     * <code>repeated string wallet_ids = 1 [json_name = "walletIds"];</code>
+     * @param values The walletIds to add.
+     * @return This builder for chaining.
      */
     public Builder addAllWalletIds(
         java.lang.Iterable<java.lang.String> values) {
@@ -515,7 +534,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string wallet_ids = 1;</code>
+     * <code>repeated string wallet_ids = 1 [json_name = "walletIds"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletIds() {
       walletIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -524,7 +544,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string wallet_ids = 1;</code>
+     * <code>repeated string wallet_ids = 1 [json_name = "walletIds"];</code>
+     * @param value The bytes of the walletIds to add.
+     * @return This builder for chaining.
      */
     public Builder addWalletIdsBytes(
         com.google.protobuf.ByteString value) {

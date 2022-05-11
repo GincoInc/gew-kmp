@@ -8,25 +8,25 @@ public interface BatchGetWalletsWithoutBalanceResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
    */
   java.util.List<adamant.global.v1.Model.WalletWithoutBalance> 
       getWalletsList();
   /**
-   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
    */
   adamant.global.v1.Model.WalletWithoutBalance getWallets(int index);
   /**
-   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
    */
   int getWalletsCount();
   /**
-   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.WalletWithoutBalanceOrBuilder> 
       getWalletsOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
    */
   adamant.global.v1.Model.WalletWithoutBalanceOrBuilder getWalletsOrBuilder(
       int index);

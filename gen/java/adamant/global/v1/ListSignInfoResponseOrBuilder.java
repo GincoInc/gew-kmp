@@ -8,25 +8,25 @@ public interface ListSignInfoResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
    */
   java.util.List<adamant.global.v1.Model.SignInfo> 
       getSignInfoListList();
   /**
-   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
    */
   adamant.global.v1.Model.SignInfo getSignInfoList(int index);
   /**
-   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
    */
   int getSignInfoListCount();
   /**
-   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.SignInfoOrBuilder> 
       getSignInfoListOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
    */
   adamant.global.v1.Model.SignInfoOrBuilder getSignInfoListOrBuilder(
       int index);

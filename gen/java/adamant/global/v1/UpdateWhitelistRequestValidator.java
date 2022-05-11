@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code UpdateWhitelistRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class UpdateWhitelistRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.UpdateWhitelistRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.UpdateWhitelistRequest.class)) return new UpdateWhitelistRequestValidator();
@@ -31,7 +33,7 @@ public class UpdateWhitelistRequestValidator implements io.envoyproxy.pgv.Valida
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.UpdateWhitelistRequest.whitelist_id", proto.getWhitelistId(), WHITELIST_ID__PATTERN);
 	
 			io.envoyproxy.pgv.StringValidation.minLength(".adamant.global.v1.UpdateWhitelistRequest.name", proto.getName(), 1);
-			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.global.v1.UpdateWhitelistRequest.name", proto.getName(), 20);
+			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.global.v1.UpdateWhitelistRequest.name", proto.getName(), 40);
 	
 			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.UpdateWhitelistRequest.coin", proto.getCoin());
 			io.envoyproxy.pgv.CollectiveValidation.notIn(".adamant.global.v1.UpdateWhitelistRequest.coin", proto.getCoin(), COIN__NOT_IN);
@@ -41,7 +43,6 @@ public class UpdateWhitelistRequestValidator implements io.envoyproxy.pgv.Valida
 				// no validation rules for AddressIds
 
 			});
-
 	
 	}
 

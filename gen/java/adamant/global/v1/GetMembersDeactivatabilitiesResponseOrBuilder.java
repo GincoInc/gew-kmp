@@ -8,25 +8,25 @@ public interface GetMembersDeactivatabilitiesResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
    */
   java.util.List<adamant.global.v1.Model.Deactivatability> 
       getDeactivatabilitiesList();
   /**
-   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
    */
   adamant.global.v1.Model.Deactivatability getDeactivatabilities(int index);
   /**
-   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
    */
   int getDeactivatabilitiesCount();
   /**
-   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.DeactivatabilityOrBuilder> 
       getDeactivatabilitiesOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
    */
   adamant.global.v1.Model.DeactivatabilityOrBuilder getDeactivatabilitiesOrBuilder(
       int index);

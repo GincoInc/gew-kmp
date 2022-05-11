@@ -8,11 +8,13 @@ public interface CreateWhitelistResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string whitelist_id = 1;</code>
+   * <code>string whitelist_id = 1 [json_name = "whitelistId"];</code>
+   * @return The whitelistId.
    */
   java.lang.String getWhitelistId();
   /**
-   * <code>string whitelist_id = 1;</code>
+   * <code>string whitelist_id = 1 [json_name = "whitelistId"];</code>
+   * @return The bytes for whitelistId.
    */
   com.google.protobuf.ByteString
       getWhitelistIdBytes();

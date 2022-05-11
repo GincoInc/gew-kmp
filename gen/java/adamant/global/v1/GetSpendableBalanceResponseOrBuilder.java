@@ -8,61 +8,73 @@ public interface GetSpendableBalanceResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>double total_spendable_balance = 1;</code>
+   * <code>double total_spendable_balance = 1 [json_name = "totalSpendableBalance"];</code>
+   * @return The totalSpendableBalance.
    */
   double getTotalSpendableBalance();
 
   /**
-   * <code>string string_total_spendable_balance = 2;</code>
+   * <code>string string_total_spendable_balance = 2 [json_name = "stringTotalSpendableBalance"];</code>
+   * @return The stringTotalSpendableBalance.
    */
   java.lang.String getStringTotalSpendableBalance();
   /**
-   * <code>string string_total_spendable_balance = 2;</code>
+   * <code>string string_total_spendable_balance = 2 [json_name = "stringTotalSpendableBalance"];</code>
+   * @return The bytes for stringTotalSpendableBalance.
    */
   com.google.protobuf.ByteString
       getStringTotalSpendableBalanceBytes();
 
   /**
-   * <code>double daily_spendable_balance = 3;</code>
+   * <code>double daily_spendable_balance = 3 [json_name = "dailySpendableBalance"];</code>
+   * @return The dailySpendableBalance.
    */
   double getDailySpendableBalance();
 
   /**
-   * <code>string string_daily_spendable_balance = 4;</code>
+   * <code>string string_daily_spendable_balance = 4 [json_name = "stringDailySpendableBalance"];</code>
+   * @return The stringDailySpendableBalance.
    */
   java.lang.String getStringDailySpendableBalance();
   /**
-   * <code>string string_daily_spendable_balance = 4;</code>
+   * <code>string string_daily_spendable_balance = 4 [json_name = "stringDailySpendableBalance"];</code>
+   * @return The bytes for stringDailySpendableBalance.
    */
   com.google.protobuf.ByteString
       getStringDailySpendableBalanceBytes();
 
   /**
-   * <code>double hourly_spendable_balance = 5;</code>
+   * <code>double hourly_spendable_balance = 5 [json_name = "hourlySpendableBalance"];</code>
+   * @return The hourlySpendableBalance.
    */
   double getHourlySpendableBalance();
 
   /**
-   * <code>string string_hourly_spendable_balance = 6;</code>
+   * <code>string string_hourly_spendable_balance = 6 [json_name = "stringHourlySpendableBalance"];</code>
+   * @return The stringHourlySpendableBalance.
    */
   java.lang.String getStringHourlySpendableBalance();
   /**
-   * <code>string string_hourly_spendable_balance = 6;</code>
+   * <code>string string_hourly_spendable_balance = 6 [json_name = "stringHourlySpendableBalance"];</code>
+   * @return The bytes for stringHourlySpendableBalance.
    */
   com.google.protobuf.ByteString
       getStringHourlySpendableBalanceBytes();
 
   /**
-   * <code>double one_time_spendable_balance = 7;</code>
+   * <code>double one_time_spendable_balance = 7 [json_name = "oneTimeSpendableBalance"];</code>
+   * @return The oneTimeSpendableBalance.
    */
   double getOneTimeSpendableBalance();
 
   /**
-   * <code>string string_one_time_spendable_balance = 8;</code>
+   * <code>string string_one_time_spendable_balance = 8 [json_name = "stringOneTimeSpendableBalance"];</code>
+   * @return The stringOneTimeSpendableBalance.
    */
   java.lang.String getStringOneTimeSpendableBalance();
   /**
-   * <code>string string_one_time_spendable_balance = 8;</code>
+   * <code>string string_one_time_spendable_balance = 8 [json_name = "stringOneTimeSpendableBalance"];</code>
+   * @return The bytes for stringOneTimeSpendableBalance.
    */
   com.google.protobuf.ByteString
       getStringOneTimeSpendableBalanceBytes();

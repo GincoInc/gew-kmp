@@ -8,25 +8,25 @@ public interface FlushBalanceResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
    */
   java.util.List<adamant.global.v1.Model.FlushedAddress> 
       getFlushedAddressesList();
   /**
-   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
    */
   adamant.global.v1.Model.FlushedAddress getFlushedAddresses(int index);
   /**
-   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
    */
   int getFlushedAddressesCount();
   /**
-   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.FlushedAddressOrBuilder> 
       getFlushedAddressesOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
    */
   adamant.global.v1.Model.FlushedAddressOrBuilder getFlushedAddressesOrBuilder(
       int index);

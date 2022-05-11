@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListUncheckedTransfersByFilterRequest}
  */
-public  final class ListUncheckedTransfersByFilterRequest extends
+public final class ListUncheckedTransfersByFilterRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListUncheckedTransfersByFilterRequest)
     ListUncheckedTransfersByFilterRequestOrBuilder {
@@ -128,8 +128,10 @@ private static final long serialVersionUID = 0L;
   public static final int HAS_CHECKED_FIELD_NUMBER = 1;
   private boolean hasChecked_;
   /**
-   * <code>bool has_checked = 1;</code>
+   * <code>bool has_checked = 1 [json_name = "hasChecked"];</code>
+   * @return The hasChecked.
    */
+  @java.lang.Override
   public boolean getHasChecked() {
     return hasChecked_;
   }
@@ -147,34 +149,46 @@ private static final long serialVersionUID = 0L;
             }
           };
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+   * @return A list containing the walletType.
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Enum.WalletType> getWalletTypeList() {
     return new com.google.protobuf.Internal.ListAdapter<
         java.lang.Integer, adamant.global.v1.Enum.WalletType>(walletType_, walletType_converter_);
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+   * @return The count of walletType.
    */
+  @java.lang.Override
   public int getWalletTypeCount() {
     return walletType_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+   * @param index The index of the element to return.
+   * @return The walletType at the given index.
    */
+  @java.lang.Override
   public adamant.global.v1.Enum.WalletType getWalletType(int index) {
     return walletType_converter_.convert(walletType_.get(index));
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+   * @return A list containing the enum numeric values on the wire for walletType.
    */
+  @java.lang.Override
   public java.util.List<java.lang.Integer>
   getWalletTypeValueList() {
     return walletType_;
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of walletType at the given index.
    */
+  @java.lang.Override
   public int getWalletTypeValue(int index) {
     return walletType_.get(index);
   }
@@ -184,11 +198,13 @@ private static final long serialVersionUID = 0L;
   private int pageSize_;
   /**
    * <pre>
-   *indicate how many objects to return in a single response
+   * indicate how many objects to return in a single response
    * </pre>
    *
-   * <code>uint32 page_size = 3 [(.validate.rules) = { ... }</code>
+   * <code>uint32 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+   * @return The pageSize.
    */
+  @java.lang.Override
   public int getPageSize() {
     return pageSize_;
   }
@@ -197,11 +213,13 @@ private static final long serialVersionUID = 0L;
   private volatile java.lang.Object pageToken_;
   /**
    * <pre>
-   *retrieve the next page
+   * retrieve the next page
    * </pre>
    *
-   * <code>string page_token = 4 [(.validate.rules) = { ... }</code>
+   * <code>string page_token = 4 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The pageToken.
    */
+  @java.lang.Override
   public java.lang.String getPageToken() {
     java.lang.Object ref = pageToken_;
     if (ref instanceof java.lang.String) {
@@ -216,11 +234,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *retrieve the next page
+   * retrieve the next page
    * </pre>
    *
-   * <code>string page_token = 4 [(.validate.rules) = { ... }</code>
+   * <code>string page_token = 4 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The bytes for pageToken.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getPageTokenBytes() {
     java.lang.Object ref = pageToken_;
@@ -263,7 +283,7 @@ private static final long serialVersionUID = 0L;
     if (pageSize_ != 0) {
       output.writeUInt32(3, pageSize_);
     }
-    if (!getPageTokenBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, pageToken_);
     }
     unknownFields.writeTo(output);
@@ -295,7 +315,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(3, pageSize_);
     }
-    if (!getPageTokenBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, pageToken_);
     }
     size += unknownFields.getSerializedSize();
@@ -618,13 +638,17 @@ private static final long serialVersionUID = 0L;
 
     private boolean hasChecked_ ;
     /**
-     * <code>bool has_checked = 1;</code>
+     * <code>bool has_checked = 1 [json_name = "hasChecked"];</code>
+     * @return The hasChecked.
      */
+    @java.lang.Override
     public boolean getHasChecked() {
       return hasChecked_;
     }
     /**
-     * <code>bool has_checked = 1;</code>
+     * <code>bool has_checked = 1 [json_name = "hasChecked"];</code>
+     * @param value The hasChecked to set.
+     * @return This builder for chaining.
      */
     public Builder setHasChecked(boolean value) {
       
@@ -633,7 +657,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool has_checked = 1;</code>
+     * <code>bool has_checked = 1 [json_name = "hasChecked"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearHasChecked() {
       
@@ -651,26 +676,33 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+     * @return A list containing the walletType.
      */
     public java.util.List<adamant.global.v1.Enum.WalletType> getWalletTypeList() {
       return new com.google.protobuf.Internal.ListAdapter<
           java.lang.Integer, adamant.global.v1.Enum.WalletType>(walletType_, walletType_converter_);
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+     * @return The count of walletType.
      */
     public int getWalletTypeCount() {
       return walletType_.size();
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+     * @param index The index of the element to return.
+     * @return The walletType at the given index.
      */
     public adamant.global.v1.Enum.WalletType getWalletType(int index) {
       return walletType_converter_.convert(walletType_.get(index));
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+     * @param index The index to set the value at.
+     * @param value The walletType to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletType(
         int index, adamant.global.v1.Enum.WalletType value) {
@@ -683,7 +715,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+     * @param value The walletType to add.
+     * @return This builder for chaining.
      */
     public Builder addWalletType(adamant.global.v1.Enum.WalletType value) {
       if (value == null) {
@@ -695,7 +729,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+     * @param values The walletType to add.
+     * @return This builder for chaining.
      */
     public Builder addAllWalletType(
         java.lang.Iterable<? extends adamant.global.v1.Enum.WalletType> values) {
@@ -707,7 +743,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletType() {
       walletType_ = java.util.Collections.emptyList();
@@ -716,20 +753,26 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+     * @return A list containing the enum numeric values on the wire for walletType.
      */
     public java.util.List<java.lang.Integer>
     getWalletTypeValueList() {
       return java.util.Collections.unmodifiableList(walletType_);
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of walletType at the given index.
      */
     public int getWalletTypeValue(int index) {
       return walletType_.get(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of walletType at the given index.
+     * @return This builder for chaining.
      */
     public Builder setWalletTypeValue(
         int index, int value) {
@@ -739,7 +782,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+     * @param value The enum numeric value on the wire for walletType to add.
+     * @return This builder for chaining.
      */
     public Builder addWalletTypeValue(int value) {
       ensureWalletTypeIsMutable();
@@ -748,7 +793,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 2 [json_name = "walletType"];</code>
+     * @param values The enum numeric values on the wire for walletType to add.
+     * @return This builder for chaining.
      */
     public Builder addAllWalletTypeValue(
         java.lang.Iterable<java.lang.Integer> values) {
@@ -763,20 +810,24 @@ private static final long serialVersionUID = 0L;
     private int pageSize_ ;
     /**
      * <pre>
-     *indicate how many objects to return in a single response
+     * indicate how many objects to return in a single response
      * </pre>
      *
-     * <code>uint32 page_size = 3 [(.validate.rules) = { ... }</code>
+     * <code>uint32 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+     * @return The pageSize.
      */
+    @java.lang.Override
     public int getPageSize() {
       return pageSize_;
     }
     /**
      * <pre>
-     *indicate how many objects to return in a single response
+     * indicate how many objects to return in a single response
      * </pre>
      *
-     * <code>uint32 page_size = 3 [(.validate.rules) = { ... }</code>
+     * <code>uint32 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+     * @param value The pageSize to set.
+     * @return This builder for chaining.
      */
     public Builder setPageSize(int value) {
       
@@ -786,10 +837,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *indicate how many objects to return in a single response
+     * indicate how many objects to return in a single response
      * </pre>
      *
-     * <code>uint32 page_size = 3 [(.validate.rules) = { ... }</code>
+     * <code>uint32 page_size = 3 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearPageSize() {
       
@@ -801,10 +853,11 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object pageToken_ = "";
     /**
      * <pre>
-     *retrieve the next page
+     * retrieve the next page
      * </pre>
      *
-     * <code>string page_token = 4 [(.validate.rules) = { ... }</code>
+     * <code>string page_token = 4 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+     * @return The pageToken.
      */
     public java.lang.String getPageToken() {
       java.lang.Object ref = pageToken_;
@@ -820,10 +873,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *retrieve the next page
+     * retrieve the next page
      * </pre>
      *
-     * <code>string page_token = 4 [(.validate.rules) = { ... }</code>
+     * <code>string page_token = 4 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+     * @return The bytes for pageToken.
      */
     public com.google.protobuf.ByteString
         getPageTokenBytes() {
@@ -840,10 +894,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *retrieve the next page
+     * retrieve the next page
      * </pre>
      *
-     * <code>string page_token = 4 [(.validate.rules) = { ... }</code>
+     * <code>string page_token = 4 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+     * @param value The pageToken to set.
+     * @return This builder for chaining.
      */
     public Builder setPageToken(
         java.lang.String value) {
@@ -857,10 +913,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *retrieve the next page
+     * retrieve the next page
      * </pre>
      *
-     * <code>string page_token = 4 [(.validate.rules) = { ... }</code>
+     * <code>string page_token = 4 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearPageToken() {
       
@@ -870,10 +927,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *retrieve the next page
+     * retrieve the next page
      * </pre>
      *
-     * <code>string page_token = 4 [(.validate.rules) = { ... }</code>
+     * <code>string page_token = 4 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+     * @param value The bytes for pageToken to set.
+     * @return This builder for chaining.
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {

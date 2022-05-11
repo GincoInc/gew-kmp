@@ -8,15 +8,17 @@ public interface ListWalletTransferVolumeSnapshotsResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1;</code>
+   * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
+   * @return Whether the walletTransferVolumeSnapshots field is set.
    */
   boolean hasWalletTransferVolumeSnapshots();
   /**
-   * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1;</code>
+   * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
+   * @return The walletTransferVolumeSnapshots.
    */
   adamant.global.v1.Model.WalletTransferVolumeSnapshots getWalletTransferVolumeSnapshots();
   /**
-   * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1;</code>
+   * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
    */
   adamant.global.v1.Model.WalletTransferVolumeSnapshotsOrBuilder getWalletTransferVolumeSnapshotsOrBuilder();
 }

@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListCompensationFeeHistoriesResponse}
  */
-public  final class ListCompensationFeeHistoriesResponse extends
+public final class ListCompensationFeeHistoriesResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListCompensationFeeHistoriesResponse)
     ListCompensationFeeHistoriesResponseOrBuilder {
@@ -97,33 +97,38 @@ private static final long serialVersionUID = 0L;
   public static final int COMPENSATION_FEES_FIELD_NUMBER = 1;
   private java.util.List<adamant.global.v1.Model.CompensationFee> compensationFees_;
   /**
-   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.CompensationFee> getCompensationFeesList() {
     return compensationFees_;
   }
   /**
-   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.CompensationFeeOrBuilder> 
       getCompensationFeesOrBuilderList() {
     return compensationFees_;
   }
   /**
-   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
    */
+  @java.lang.Override
   public int getCompensationFeesCount() {
     return compensationFees_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.CompensationFee getCompensationFees(int index) {
     return compensationFees_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.CompensationFeeOrBuilder getCompensationFeesOrBuilder(
       int index) {
     return compensationFees_.get(index);
@@ -484,7 +489,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.CompensationFee, adamant.global.v1.Model.CompensationFee.Builder, adamant.global.v1.Model.CompensationFeeOrBuilder> compensationFeesBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public java.util.List<adamant.global.v1.Model.CompensationFee> getCompensationFeesList() {
       if (compensationFeesBuilder_ == null) {
@@ -494,7 +499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public int getCompensationFeesCount() {
       if (compensationFeesBuilder_ == null) {
@@ -504,7 +509,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public adamant.global.v1.Model.CompensationFee getCompensationFees(int index) {
       if (compensationFeesBuilder_ == null) {
@@ -514,7 +519,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public Builder setCompensationFees(
         int index, adamant.global.v1.Model.CompensationFee value) {
@@ -531,7 +536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public Builder setCompensationFees(
         int index, adamant.global.v1.Model.CompensationFee.Builder builderForValue) {
@@ -545,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public Builder addCompensationFees(adamant.global.v1.Model.CompensationFee value) {
       if (compensationFeesBuilder_ == null) {
@@ -561,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public Builder addCompensationFees(
         int index, adamant.global.v1.Model.CompensationFee value) {
@@ -578,7 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public Builder addCompensationFees(
         adamant.global.v1.Model.CompensationFee.Builder builderForValue) {
@@ -592,7 +597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public Builder addCompensationFees(
         int index, adamant.global.v1.Model.CompensationFee.Builder builderForValue) {
@@ -606,7 +611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public Builder addAllCompensationFees(
         java.lang.Iterable<? extends adamant.global.v1.Model.CompensationFee> values) {
@@ -621,7 +626,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public Builder clearCompensationFees() {
       if (compensationFeesBuilder_ == null) {
@@ -634,7 +639,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public Builder removeCompensationFees(int index) {
       if (compensationFeesBuilder_ == null) {
@@ -647,14 +652,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public adamant.global.v1.Model.CompensationFee.Builder getCompensationFeesBuilder(
         int index) {
       return getCompensationFeesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public adamant.global.v1.Model.CompensationFeeOrBuilder getCompensationFeesOrBuilder(
         int index) {
@@ -664,7 +669,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.CompensationFeeOrBuilder> 
          getCompensationFeesOrBuilderList() {
@@ -675,14 +680,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public adamant.global.v1.Model.CompensationFee.Builder addCompensationFeesBuilder() {
       return getCompensationFeesFieldBuilder().addBuilder(
           adamant.global.v1.Model.CompensationFee.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public adamant.global.v1.Model.CompensationFee.Builder addCompensationFeesBuilder(
         int index) {
@@ -690,7 +695,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.CompensationFee.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+     * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
      */
     public java.util.List<adamant.global.v1.Model.CompensationFee.Builder> 
          getCompensationFeesBuilderList() {

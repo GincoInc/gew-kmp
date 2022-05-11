@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.SendInitTransactionResponse}
  */
-public  final class SendInitTransactionResponse extends
+public final class SendInitTransactionResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.SendInitTransactionResponse)
     SendInitTransactionResponseOrBuilder {
@@ -97,26 +97,32 @@ private static final long serialVersionUID = 0L;
   public static final int TX_IDS_FIELD_NUMBER = 1;
   private com.google.protobuf.LazyStringList txIds_;
   /**
-   * <code>repeated string tx_ids = 1;</code>
+   * <code>repeated string tx_ids = 1 [json_name = "txIds"];</code>
+   * @return A list containing the txIds.
    */
   public com.google.protobuf.ProtocolStringList
       getTxIdsList() {
     return txIds_;
   }
   /**
-   * <code>repeated string tx_ids = 1;</code>
+   * <code>repeated string tx_ids = 1 [json_name = "txIds"];</code>
+   * @return The count of txIds.
    */
   public int getTxIdsCount() {
     return txIds_.size();
   }
   /**
-   * <code>repeated string tx_ids = 1;</code>
+   * <code>repeated string tx_ids = 1 [json_name = "txIds"];</code>
+   * @param index The index of the element to return.
+   * @return The txIds at the given index.
    */
   public java.lang.String getTxIds(int index) {
     return txIds_.get(index);
   }
   /**
-   * <code>repeated string tx_ids = 1;</code>
+   * <code>repeated string tx_ids = 1 [json_name = "txIds"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the txIds at the given index.
    */
   public com.google.protobuf.ByteString
       getTxIdsBytes(int index) {
@@ -452,33 +458,42 @@ private static final long serialVersionUID = 0L;
        }
     }
     /**
-     * <code>repeated string tx_ids = 1;</code>
+     * <code>repeated string tx_ids = 1 [json_name = "txIds"];</code>
+     * @return A list containing the txIds.
      */
     public com.google.protobuf.ProtocolStringList
         getTxIdsList() {
       return txIds_.getUnmodifiableView();
     }
     /**
-     * <code>repeated string tx_ids = 1;</code>
+     * <code>repeated string tx_ids = 1 [json_name = "txIds"];</code>
+     * @return The count of txIds.
      */
     public int getTxIdsCount() {
       return txIds_.size();
     }
     /**
-     * <code>repeated string tx_ids = 1;</code>
+     * <code>repeated string tx_ids = 1 [json_name = "txIds"];</code>
+     * @param index The index of the element to return.
+     * @return The txIds at the given index.
      */
     public java.lang.String getTxIds(int index) {
       return txIds_.get(index);
     }
     /**
-     * <code>repeated string tx_ids = 1;</code>
+     * <code>repeated string tx_ids = 1 [json_name = "txIds"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the txIds at the given index.
      */
     public com.google.protobuf.ByteString
         getTxIdsBytes(int index) {
       return txIds_.getByteString(index);
     }
     /**
-     * <code>repeated string tx_ids = 1;</code>
+     * <code>repeated string tx_ids = 1 [json_name = "txIds"];</code>
+     * @param index The index to set the value at.
+     * @param value The txIds to set.
+     * @return This builder for chaining.
      */
     public Builder setTxIds(
         int index, java.lang.String value) {
@@ -491,7 +506,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string tx_ids = 1;</code>
+     * <code>repeated string tx_ids = 1 [json_name = "txIds"];</code>
+     * @param value The txIds to add.
+     * @return This builder for chaining.
      */
     public Builder addTxIds(
         java.lang.String value) {
@@ -504,7 +521,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string tx_ids = 1;</code>
+     * <code>repeated string tx_ids = 1 [json_name = "txIds"];</code>
+     * @param values The txIds to add.
+     * @return This builder for chaining.
      */
     public Builder addAllTxIds(
         java.lang.Iterable<java.lang.String> values) {
@@ -515,7 +534,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string tx_ids = 1;</code>
+     * <code>repeated string tx_ids = 1 [json_name = "txIds"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearTxIds() {
       txIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -524,7 +544,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string tx_ids = 1;</code>
+     * <code>repeated string tx_ids = 1 [json_name = "txIds"];</code>
+     * @param value The bytes of the txIds to add.
+     * @return This builder for chaining.
      */
     public Builder addTxIdsBytes(
         com.google.protobuf.ByteString value) {

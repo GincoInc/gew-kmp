@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListEventTriggeredMessagesResponse}
  */
-public  final class ListEventTriggeredMessagesResponse extends
+public final class ListEventTriggeredMessagesResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListEventTriggeredMessagesResponse)
     ListEventTriggeredMessagesResponseOrBuilder {
@@ -97,33 +97,38 @@ private static final long serialVersionUID = 0L;
   public static final int EVENT_TRIGGERED_MESSAGES_FIELD_NUMBER = 1;
   private java.util.List<adamant.global.v1.Model.EventTriggeredMessage> eventTriggeredMessages_;
   /**
-   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.EventTriggeredMessage> getEventTriggeredMessagesList() {
     return eventTriggeredMessages_;
   }
   /**
-   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.EventTriggeredMessageOrBuilder> 
       getEventTriggeredMessagesOrBuilderList() {
     return eventTriggeredMessages_;
   }
   /**
-   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
    */
+  @java.lang.Override
   public int getEventTriggeredMessagesCount() {
     return eventTriggeredMessages_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.EventTriggeredMessage getEventTriggeredMessages(int index) {
     return eventTriggeredMessages_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.EventTriggeredMessageOrBuilder getEventTriggeredMessagesOrBuilder(
       int index) {
     return eventTriggeredMessages_.get(index);
@@ -484,7 +489,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.EventTriggeredMessage, adamant.global.v1.Model.EventTriggeredMessage.Builder, adamant.global.v1.Model.EventTriggeredMessageOrBuilder> eventTriggeredMessagesBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public java.util.List<adamant.global.v1.Model.EventTriggeredMessage> getEventTriggeredMessagesList() {
       if (eventTriggeredMessagesBuilder_ == null) {
@@ -494,7 +499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public int getEventTriggeredMessagesCount() {
       if (eventTriggeredMessagesBuilder_ == null) {
@@ -504,7 +509,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public adamant.global.v1.Model.EventTriggeredMessage getEventTriggeredMessages(int index) {
       if (eventTriggeredMessagesBuilder_ == null) {
@@ -514,7 +519,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public Builder setEventTriggeredMessages(
         int index, adamant.global.v1.Model.EventTriggeredMessage value) {
@@ -531,7 +536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public Builder setEventTriggeredMessages(
         int index, adamant.global.v1.Model.EventTriggeredMessage.Builder builderForValue) {
@@ -545,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public Builder addEventTriggeredMessages(adamant.global.v1.Model.EventTriggeredMessage value) {
       if (eventTriggeredMessagesBuilder_ == null) {
@@ -561,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public Builder addEventTriggeredMessages(
         int index, adamant.global.v1.Model.EventTriggeredMessage value) {
@@ -578,7 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public Builder addEventTriggeredMessages(
         adamant.global.v1.Model.EventTriggeredMessage.Builder builderForValue) {
@@ -592,7 +597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public Builder addEventTriggeredMessages(
         int index, adamant.global.v1.Model.EventTriggeredMessage.Builder builderForValue) {
@@ -606,7 +611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public Builder addAllEventTriggeredMessages(
         java.lang.Iterable<? extends adamant.global.v1.Model.EventTriggeredMessage> values) {
@@ -621,7 +626,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public Builder clearEventTriggeredMessages() {
       if (eventTriggeredMessagesBuilder_ == null) {
@@ -634,7 +639,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public Builder removeEventTriggeredMessages(int index) {
       if (eventTriggeredMessagesBuilder_ == null) {
@@ -647,14 +652,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public adamant.global.v1.Model.EventTriggeredMessage.Builder getEventTriggeredMessagesBuilder(
         int index) {
       return getEventTriggeredMessagesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public adamant.global.v1.Model.EventTriggeredMessageOrBuilder getEventTriggeredMessagesOrBuilder(
         int index) {
@@ -664,7 +669,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.EventTriggeredMessageOrBuilder> 
          getEventTriggeredMessagesOrBuilderList() {
@@ -675,14 +680,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public adamant.global.v1.Model.EventTriggeredMessage.Builder addEventTriggeredMessagesBuilder() {
       return getEventTriggeredMessagesFieldBuilder().addBuilder(
           adamant.global.v1.Model.EventTriggeredMessage.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public adamant.global.v1.Model.EventTriggeredMessage.Builder addEventTriggeredMessagesBuilder(
         int index) {
@@ -690,7 +695,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.EventTriggeredMessage.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+     * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
      */
     public java.util.List<adamant.global.v1.Model.EventTriggeredMessage.Builder> 
          getEventTriggeredMessagesBuilderList() {

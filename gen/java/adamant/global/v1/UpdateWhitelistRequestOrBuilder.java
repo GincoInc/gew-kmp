@@ -8,49 +8,61 @@ public interface UpdateWhitelistRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string whitelist_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string whitelist_id = 1 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+   * @return The whitelistId.
    */
   java.lang.String getWhitelistId();
   /**
-   * <code>string whitelist_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string whitelist_id = 1 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+   * @return The bytes for whitelistId.
    */
   com.google.protobuf.ByteString
       getWhitelistIdBytes();
 
   /**
-   * <code>string name = 2 [(.validate.rules) = { ... }</code>
+   * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The name.
    */
   java.lang.String getName();
   /**
-   * <code>string name = 2 [(.validate.rules) = { ... }</code>
+   * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
    */
   int getCoinValue();
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
    */
   gincoinc.global.v1.Enum.Coin getCoin();
 
   /**
-   * <code>repeated string address_ids = 4 [(.validate.rules) = { ... }</code>
+   * <code>repeated string address_ids = 4 [json_name = "addressIds", (.validate.rules) = { ... }</code>
+   * @return A list containing the addressIds.
    */
   java.util.List<java.lang.String>
       getAddressIdsList();
   /**
-   * <code>repeated string address_ids = 4 [(.validate.rules) = { ... }</code>
+   * <code>repeated string address_ids = 4 [json_name = "addressIds", (.validate.rules) = { ... }</code>
+   * @return The count of addressIds.
    */
   int getAddressIdsCount();
   /**
-   * <code>repeated string address_ids = 4 [(.validate.rules) = { ... }</code>
+   * <code>repeated string address_ids = 4 [json_name = "addressIds", (.validate.rules) = { ... }</code>
+   * @param index The index of the element to return.
+   * @return The addressIds at the given index.
    */
   java.lang.String getAddressIds(int index);
   /**
-   * <code>repeated string address_ids = 4 [(.validate.rules) = { ... }</code>
+   * <code>repeated string address_ids = 4 [json_name = "addressIds", (.validate.rules) = { ... }</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the addressIds at the given index.
    */
   com.google.protobuf.ByteString
       getAddressIdsBytes(int index);

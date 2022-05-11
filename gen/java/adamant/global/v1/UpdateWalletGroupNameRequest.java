@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.UpdateWalletGroupNameRequest}
  */
-public  final class UpdateWalletGroupNameRequest extends
+public final class UpdateWalletGroupNameRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.UpdateWalletGroupNameRequest)
     UpdateWalletGroupNameRequestOrBuilder {
@@ -97,8 +97,10 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_GROUP_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object walletGroupId_;
   /**
-   * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+   * @return The walletGroupId.
    */
+  @java.lang.Override
   public java.lang.String getWalletGroupId() {
     java.lang.Object ref = walletGroupId_;
     if (ref instanceof java.lang.String) {
@@ -112,8 +114,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletGroupId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWalletGroupIdBytes() {
     java.lang.Object ref = walletGroupId_;
@@ -131,8 +135,10 @@ private static final long serialVersionUID = 0L;
   public static final int NAME_FIELD_NUMBER = 2;
   private volatile java.lang.Object name_;
   /**
-   * <code>string name = 2 [(.validate.rules) = { ... }</code>
+   * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The name.
    */
+  @java.lang.Override
   public java.lang.String getName() {
     java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
@@ -146,8 +152,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string name = 2 [(.validate.rules) = { ... }</code>
+   * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The bytes for name.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getNameBytes() {
     java.lang.Object ref = name_;
@@ -176,10 +184,10 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getWalletGroupIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletGroupId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletGroupId_);
     }
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
     }
     unknownFields.writeTo(output);
@@ -191,10 +199,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getWalletGroupIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletGroupId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletGroupId_);
     }
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
     }
     size += unknownFields.getSerializedSize();
@@ -483,7 +491,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object walletGroupId_ = "";
     /**
-     * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+     * @return The walletGroupId.
      */
     public java.lang.String getWalletGroupId() {
       java.lang.Object ref = walletGroupId_;
@@ -498,7 +507,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+     * @return The bytes for walletGroupId.
      */
     public com.google.protobuf.ByteString
         getWalletGroupIdBytes() {
@@ -514,7 +524,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+     * @param value The walletGroupId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletGroupId(
         java.lang.String value) {
@@ -527,7 +539,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletGroupId() {
       
@@ -536,7 +549,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for walletGroupId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletGroupIdBytes(
         com.google.protobuf.ByteString value) {
@@ -552,7 +567,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object name_ = "";
     /**
-     * <code>string name = 2 [(.validate.rules) = { ... }</code>
+     * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -567,7 +583,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 2 [(.validate.rules) = { ... }</code>
+     * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -583,7 +600,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 2 [(.validate.rules) = { ... }</code>
+     * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @param value The name to set.
+     * @return This builder for chaining.
      */
     public Builder setName(
         java.lang.String value) {
@@ -596,7 +615,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 2 [(.validate.rules) = { ... }</code>
+     * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearName() {
       
@@ -605,7 +625,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 2 [(.validate.rules) = { ... }</code>
+     * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @param value The bytes for name to set.
+     * @return This builder for chaining.
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {

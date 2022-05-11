@@ -8,20 +8,24 @@ public interface UpdateWalletFlushSettingRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
    */
   int getCoinValue();
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
    */
   gincoinc.global.v1.Enum.Coin getCoin();
 
   /**
-   * <code>string destination_wallet_id = 2 [(.validate.rules) = { ... }</code>
+   * <code>string destination_wallet_id = 2 [json_name = "destinationWalletId", (.validate.rules) = { ... }</code>
+   * @return The destinationWalletId.
    */
   java.lang.String getDestinationWalletId();
   /**
-   * <code>string destination_wallet_id = 2 [(.validate.rules) = { ... }</code>
+   * <code>string destination_wallet_id = 2 [json_name = "destinationWalletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for destinationWalletId.
    */
   com.google.protobuf.ByteString
       getDestinationWalletIdBytes();

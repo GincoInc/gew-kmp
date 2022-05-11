@@ -8,21 +8,25 @@ public interface RegisterKeyRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The walletId.
    */
   java.lang.String getWalletId();
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletId.
    */
   com.google.protobuf.ByteString
       getWalletIdBytes();
 
   /**
-   * <code>string pub_key = 2 [(.validate.rules) = { ... }</code>
+   * <code>string pub_key = 2 [json_name = "pubKey", (.validate.rules) = { ... }</code>
+   * @return The pubKey.
    */
   java.lang.String getPubKey();
   /**
-   * <code>string pub_key = 2 [(.validate.rules) = { ... }</code>
+   * <code>string pub_key = 2 [json_name = "pubKey", (.validate.rules) = { ... }</code>
+   * @return The bytes for pubKey.
    */
   com.google.protobuf.ByteString
       getPubKeyBytes();

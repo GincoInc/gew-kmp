@@ -3,9 +3,11 @@
 
 package adamant.teller.v1;
 
+
 /**
 * Validates {@code CreateWalletRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class CreateWalletRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.teller.v1.CreateWalletRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.teller.v1.CreateWalletRequest.class)) return new CreateWalletRequestValidator();
@@ -41,7 +43,7 @@ public class CreateWalletRequestValidator implements io.envoyproxy.pgv.Validator
 	public void assertValid(adamant.teller.v1.CreateWalletRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
 			io.envoyproxy.pgv.StringValidation.minLength(".adamant.teller.v1.CreateWalletRequest.wallet_name", proto.getWalletName(), 1);
-			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.teller.v1.CreateWalletRequest.wallet_name", proto.getWalletName(), 20);
+			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.teller.v1.CreateWalletRequest.wallet_name", proto.getWalletName(), 40);
 	
 			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.teller.v1.CreateWalletRequest.coin", proto.getCoin());
 			io.envoyproxy.pgv.CollectiveValidation.notIn(".adamant.teller.v1.CreateWalletRequest.coin", proto.getCoin(), COIN__NOT_IN);

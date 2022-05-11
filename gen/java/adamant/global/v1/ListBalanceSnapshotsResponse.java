@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListBalanceSnapshotsResponse}
  */
-public  final class ListBalanceSnapshotsResponse extends
+public final class ListBalanceSnapshotsResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListBalanceSnapshotsResponse)
     ListBalanceSnapshotsResponseOrBuilder {
@@ -97,33 +97,38 @@ private static final long serialVersionUID = 0L;
   public static final int BALANCE_SNAPSHOTS_FIELD_NUMBER = 1;
   private java.util.List<adamant.global.v1.Model.BalanceSnapshot> balanceSnapshots_;
   /**
-   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.BalanceSnapshot> getBalanceSnapshotsList() {
     return balanceSnapshots_;
   }
   /**
-   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.BalanceSnapshotOrBuilder> 
       getBalanceSnapshotsOrBuilderList() {
     return balanceSnapshots_;
   }
   /**
-   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
    */
+  @java.lang.Override
   public int getBalanceSnapshotsCount() {
     return balanceSnapshots_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.BalanceSnapshot getBalanceSnapshots(int index) {
     return balanceSnapshots_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.BalanceSnapshotOrBuilder getBalanceSnapshotsOrBuilder(
       int index) {
     return balanceSnapshots_.get(index);
@@ -484,7 +489,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.BalanceSnapshot, adamant.global.v1.Model.BalanceSnapshot.Builder, adamant.global.v1.Model.BalanceSnapshotOrBuilder> balanceSnapshotsBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public java.util.List<adamant.global.v1.Model.BalanceSnapshot> getBalanceSnapshotsList() {
       if (balanceSnapshotsBuilder_ == null) {
@@ -494,7 +499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public int getBalanceSnapshotsCount() {
       if (balanceSnapshotsBuilder_ == null) {
@@ -504,7 +509,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public adamant.global.v1.Model.BalanceSnapshot getBalanceSnapshots(int index) {
       if (balanceSnapshotsBuilder_ == null) {
@@ -514,7 +519,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public Builder setBalanceSnapshots(
         int index, adamant.global.v1.Model.BalanceSnapshot value) {
@@ -531,7 +536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public Builder setBalanceSnapshots(
         int index, adamant.global.v1.Model.BalanceSnapshot.Builder builderForValue) {
@@ -545,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public Builder addBalanceSnapshots(adamant.global.v1.Model.BalanceSnapshot value) {
       if (balanceSnapshotsBuilder_ == null) {
@@ -561,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public Builder addBalanceSnapshots(
         int index, adamant.global.v1.Model.BalanceSnapshot value) {
@@ -578,7 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public Builder addBalanceSnapshots(
         adamant.global.v1.Model.BalanceSnapshot.Builder builderForValue) {
@@ -592,7 +597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public Builder addBalanceSnapshots(
         int index, adamant.global.v1.Model.BalanceSnapshot.Builder builderForValue) {
@@ -606,7 +611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public Builder addAllBalanceSnapshots(
         java.lang.Iterable<? extends adamant.global.v1.Model.BalanceSnapshot> values) {
@@ -621,7 +626,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public Builder clearBalanceSnapshots() {
       if (balanceSnapshotsBuilder_ == null) {
@@ -634,7 +639,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public Builder removeBalanceSnapshots(int index) {
       if (balanceSnapshotsBuilder_ == null) {
@@ -647,14 +652,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public adamant.global.v1.Model.BalanceSnapshot.Builder getBalanceSnapshotsBuilder(
         int index) {
       return getBalanceSnapshotsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public adamant.global.v1.Model.BalanceSnapshotOrBuilder getBalanceSnapshotsOrBuilder(
         int index) {
@@ -664,7 +669,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.BalanceSnapshotOrBuilder> 
          getBalanceSnapshotsOrBuilderList() {
@@ -675,14 +680,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public adamant.global.v1.Model.BalanceSnapshot.Builder addBalanceSnapshotsBuilder() {
       return getBalanceSnapshotsFieldBuilder().addBuilder(
           adamant.global.v1.Model.BalanceSnapshot.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public adamant.global.v1.Model.BalanceSnapshot.Builder addBalanceSnapshotsBuilder(
         int index) {
@@ -690,7 +695,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.BalanceSnapshot.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+     * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
      */
     public java.util.List<adamant.global.v1.Model.BalanceSnapshot.Builder> 
          getBalanceSnapshotsBuilderList() {

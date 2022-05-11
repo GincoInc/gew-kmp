@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.GetMembersDeactivatabilitiesResponse}
  */
-public  final class GetMembersDeactivatabilitiesResponse extends
+public final class GetMembersDeactivatabilitiesResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.GetMembersDeactivatabilitiesResponse)
     GetMembersDeactivatabilitiesResponseOrBuilder {
@@ -97,33 +97,38 @@ private static final long serialVersionUID = 0L;
   public static final int DEACTIVATABILITIES_FIELD_NUMBER = 1;
   private java.util.List<adamant.global.v1.Model.Deactivatability> deactivatabilities_;
   /**
-   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.Deactivatability> getDeactivatabilitiesList() {
     return deactivatabilities_;
   }
   /**
-   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.DeactivatabilityOrBuilder> 
       getDeactivatabilitiesOrBuilderList() {
     return deactivatabilities_;
   }
   /**
-   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
    */
+  @java.lang.Override
   public int getDeactivatabilitiesCount() {
     return deactivatabilities_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.Deactivatability getDeactivatabilities(int index) {
     return deactivatabilities_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+   * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.DeactivatabilityOrBuilder getDeactivatabilitiesOrBuilder(
       int index) {
     return deactivatabilities_.get(index);
@@ -484,7 +489,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.Deactivatability, adamant.global.v1.Model.Deactivatability.Builder, adamant.global.v1.Model.DeactivatabilityOrBuilder> deactivatabilitiesBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public java.util.List<adamant.global.v1.Model.Deactivatability> getDeactivatabilitiesList() {
       if (deactivatabilitiesBuilder_ == null) {
@@ -494,7 +499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public int getDeactivatabilitiesCount() {
       if (deactivatabilitiesBuilder_ == null) {
@@ -504,7 +509,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public adamant.global.v1.Model.Deactivatability getDeactivatabilities(int index) {
       if (deactivatabilitiesBuilder_ == null) {
@@ -514,7 +519,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public Builder setDeactivatabilities(
         int index, adamant.global.v1.Model.Deactivatability value) {
@@ -531,7 +536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public Builder setDeactivatabilities(
         int index, adamant.global.v1.Model.Deactivatability.Builder builderForValue) {
@@ -545,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public Builder addDeactivatabilities(adamant.global.v1.Model.Deactivatability value) {
       if (deactivatabilitiesBuilder_ == null) {
@@ -561,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public Builder addDeactivatabilities(
         int index, adamant.global.v1.Model.Deactivatability value) {
@@ -578,7 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public Builder addDeactivatabilities(
         adamant.global.v1.Model.Deactivatability.Builder builderForValue) {
@@ -592,7 +597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public Builder addDeactivatabilities(
         int index, adamant.global.v1.Model.Deactivatability.Builder builderForValue) {
@@ -606,7 +611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public Builder addAllDeactivatabilities(
         java.lang.Iterable<? extends adamant.global.v1.Model.Deactivatability> values) {
@@ -621,7 +626,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public Builder clearDeactivatabilities() {
       if (deactivatabilitiesBuilder_ == null) {
@@ -634,7 +639,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public Builder removeDeactivatabilities(int index) {
       if (deactivatabilitiesBuilder_ == null) {
@@ -647,14 +652,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public adamant.global.v1.Model.Deactivatability.Builder getDeactivatabilitiesBuilder(
         int index) {
       return getDeactivatabilitiesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public adamant.global.v1.Model.DeactivatabilityOrBuilder getDeactivatabilitiesOrBuilder(
         int index) {
@@ -664,7 +669,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.DeactivatabilityOrBuilder> 
          getDeactivatabilitiesOrBuilderList() {
@@ -675,14 +680,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public adamant.global.v1.Model.Deactivatability.Builder addDeactivatabilitiesBuilder() {
       return getDeactivatabilitiesFieldBuilder().addBuilder(
           adamant.global.v1.Model.Deactivatability.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public adamant.global.v1.Model.Deactivatability.Builder addDeactivatabilitiesBuilder(
         int index) {
@@ -690,7 +695,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.Deactivatability.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1;</code>
+     * <code>repeated .adamant.global.v1.Deactivatability deactivatabilities = 1 [json_name = "deactivatabilities"];</code>
      */
     public java.util.List<adamant.global.v1.Model.Deactivatability.Builder> 
          getDeactivatabilitiesBuilderList() {

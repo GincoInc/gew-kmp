@@ -8,35 +8,37 @@ public interface UpdateTransferLimitRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string transfer_limit_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string transfer_limit_id = 1 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+   * @return The transferLimitId.
    */
   java.lang.String getTransferLimitId();
   /**
-   * <code>string transfer_limit_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string transfer_limit_id = 1 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+   * @return The bytes for transferLimitId.
    */
   com.google.protobuf.ByteString
       getTransferLimitIdBytes();
 
   /**
-   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
    */
   java.util.List<adamant.global.v1.Model.RequestTransferLimitEntry> 
       getTransferLimitsList();
   /**
-   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
    */
   adamant.global.v1.Model.RequestTransferLimitEntry getTransferLimits(int index);
   /**
-   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
    */
   int getTransferLimitsCount();
   /**
-   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
    */
   java.util.List<? extends adamant.global.v1.Model.RequestTransferLimitEntryOrBuilder> 
       getTransferLimitsOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
    */
   adamant.global.v1.Model.RequestTransferLimitEntryOrBuilder getTransferLimitsOrBuilder(
       int index);

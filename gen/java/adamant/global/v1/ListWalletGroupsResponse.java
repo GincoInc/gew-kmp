@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListWalletGroupsResponse}
  */
-public  final class ListWalletGroupsResponse extends
+public final class ListWalletGroupsResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListWalletGroupsResponse)
     ListWalletGroupsResponseOrBuilder {
@@ -104,33 +104,38 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_GROUPS_FIELD_NUMBER = 1;
   private java.util.List<adamant.global.v1.Model.WalletGroup> walletGroups_;
   /**
-   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.WalletGroup> getWalletGroupsList() {
     return walletGroups_;
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.WalletGroupOrBuilder> 
       getWalletGroupsOrBuilderList() {
     return walletGroups_;
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
    */
+  @java.lang.Override
   public int getWalletGroupsCount() {
     return walletGroups_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.WalletGroup getWalletGroups(int index) {
     return walletGroups_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.WalletGroupOrBuilder getWalletGroupsOrBuilder(
       int index) {
     return walletGroups_.get(index);
@@ -139,8 +144,10 @@ private static final long serialVersionUID = 0L;
   public static final int NEXT_PAGE_TOKEN_FIELD_NUMBER = 2;
   private volatile java.lang.Object nextPageToken_;
   /**
-   * <code>string next_page_token = 2;</code>
+   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+   * @return The nextPageToken.
    */
+  @java.lang.Override
   public java.lang.String getNextPageToken() {
     java.lang.Object ref = nextPageToken_;
     if (ref instanceof java.lang.String) {
@@ -154,8 +161,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string next_page_token = 2;</code>
+   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+   * @return The bytes for nextPageToken.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getNextPageTokenBytes() {
     java.lang.Object ref = nextPageToken_;
@@ -187,7 +196,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < walletGroups_.size(); i++) {
       output.writeMessage(1, walletGroups_.get(i));
     }
-    if (!getNextPageTokenBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nextPageToken_);
     }
     unknownFields.writeTo(output);
@@ -203,7 +212,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, walletGroups_.get(i));
     }
-    if (!getNextPageTokenBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nextPageToken_);
     }
     size += unknownFields.getSerializedSize();
@@ -542,7 +551,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.WalletGroup, adamant.global.v1.Model.WalletGroup.Builder, adamant.global.v1.Model.WalletGroupOrBuilder> walletGroupsBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public java.util.List<adamant.global.v1.Model.WalletGroup> getWalletGroupsList() {
       if (walletGroupsBuilder_ == null) {
@@ -552,7 +561,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public int getWalletGroupsCount() {
       if (walletGroupsBuilder_ == null) {
@@ -562,7 +571,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public adamant.global.v1.Model.WalletGroup getWalletGroups(int index) {
       if (walletGroupsBuilder_ == null) {
@@ -572,7 +581,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public Builder setWalletGroups(
         int index, adamant.global.v1.Model.WalletGroup value) {
@@ -589,7 +598,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public Builder setWalletGroups(
         int index, adamant.global.v1.Model.WalletGroup.Builder builderForValue) {
@@ -603,7 +612,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public Builder addWalletGroups(adamant.global.v1.Model.WalletGroup value) {
       if (walletGroupsBuilder_ == null) {
@@ -619,7 +628,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public Builder addWalletGroups(
         int index, adamant.global.v1.Model.WalletGroup value) {
@@ -636,7 +645,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public Builder addWalletGroups(
         adamant.global.v1.Model.WalletGroup.Builder builderForValue) {
@@ -650,7 +659,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public Builder addWalletGroups(
         int index, adamant.global.v1.Model.WalletGroup.Builder builderForValue) {
@@ -664,7 +673,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public Builder addAllWalletGroups(
         java.lang.Iterable<? extends adamant.global.v1.Model.WalletGroup> values) {
@@ -679,7 +688,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public Builder clearWalletGroups() {
       if (walletGroupsBuilder_ == null) {
@@ -692,7 +701,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public Builder removeWalletGroups(int index) {
       if (walletGroupsBuilder_ == null) {
@@ -705,14 +714,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public adamant.global.v1.Model.WalletGroup.Builder getWalletGroupsBuilder(
         int index) {
       return getWalletGroupsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public adamant.global.v1.Model.WalletGroupOrBuilder getWalletGroupsOrBuilder(
         int index) {
@@ -722,7 +731,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.WalletGroupOrBuilder> 
          getWalletGroupsOrBuilderList() {
@@ -733,14 +742,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public adamant.global.v1.Model.WalletGroup.Builder addWalletGroupsBuilder() {
       return getWalletGroupsFieldBuilder().addBuilder(
           adamant.global.v1.Model.WalletGroup.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public adamant.global.v1.Model.WalletGroup.Builder addWalletGroupsBuilder(
         int index) {
@@ -748,7 +757,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.WalletGroup.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
      */
     public java.util.List<adamant.global.v1.Model.WalletGroup.Builder> 
          getWalletGroupsBuilderList() {
@@ -771,7 +780,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object nextPageToken_ = "";
     /**
-     * <code>string next_page_token = 2;</code>
+     * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+     * @return The nextPageToken.
      */
     public java.lang.String getNextPageToken() {
       java.lang.Object ref = nextPageToken_;
@@ -786,7 +796,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string next_page_token = 2;</code>
+     * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+     * @return The bytes for nextPageToken.
      */
     public com.google.protobuf.ByteString
         getNextPageTokenBytes() {
@@ -802,7 +813,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string next_page_token = 2;</code>
+     * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+     * @param value The nextPageToken to set.
+     * @return This builder for chaining.
      */
     public Builder setNextPageToken(
         java.lang.String value) {
@@ -815,7 +828,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string next_page_token = 2;</code>
+     * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearNextPageToken() {
       
@@ -824,7 +838,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string next_page_token = 2;</code>
+     * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+     * @param value The bytes for nextPageToken to set.
+     * @return This builder for chaining.
      */
     public Builder setNextPageTokenBytes(
         com.google.protobuf.ByteString value) {

@@ -9,44 +9,44 @@ public interface SetRatesRequestOrBuilder extends
 
   /**
    * <pre>
-   *Array of rate objects
+   * Array of rate objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+   * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
    */
   java.util.List<adamant.global.v1.Model.RequestRate> 
       getRatesList();
   /**
    * <pre>
-   *Array of rate objects
+   * Array of rate objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+   * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
    */
   adamant.global.v1.Model.RequestRate getRates(int index);
   /**
    * <pre>
-   *Array of rate objects
+   * Array of rate objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+   * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
    */
   int getRatesCount();
   /**
    * <pre>
-   *Array of rate objects
+   * Array of rate objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+   * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.RequestRateOrBuilder> 
       getRatesOrBuilderList();
   /**
    * <pre>
-   *Array of rate objects
+   * Array of rate objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+   * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
    */
   adamant.global.v1.Model.RequestRateOrBuilder getRatesOrBuilder(
       int index);

@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.CalculateFeeRequest}
  */
-public  final class CalculateFeeRequest extends
+public final class CalculateFeeRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.CalculateFeeRequest)
     CalculateFeeRequestOrBuilder {
@@ -141,8 +141,10 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object walletId_;
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The walletId.
    */
+  @java.lang.Override
   public java.lang.String getWalletId() {
     java.lang.Object ref = walletId_;
     if (ref instanceof java.lang.String) {
@@ -156,8 +158,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWalletIdBytes() {
     java.lang.Object ref = walletId_;
@@ -175,8 +179,10 @@ private static final long serialVersionUID = 0L;
   public static final int FEE_RATE_FIELD_NUMBER = 2;
   private long feeRate_;
   /**
-   * <code>uint64 fee_rate = 2;</code>
+   * <code>uint64 fee_rate = 2 [json_name = "feeRate"];</code>
+   * @return The feeRate.
    */
+  @java.lang.Override
   public long getFeeRate() {
     return feeRate_;
   }
@@ -184,33 +190,38 @@ private static final long serialVersionUID = 0L;
   public static final int TX_OUTPUTS_FIELD_NUMBER = 3;
   private java.util.List<adamant.global.v1.Model.RequestTxOutput> txOutputs_;
   /**
-   * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+   * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.RequestTxOutput> getTxOutputsList() {
     return txOutputs_;
   }
   /**
-   * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+   * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.RequestTxOutputOrBuilder> 
       getTxOutputsOrBuilderList() {
     return txOutputs_;
   }
   /**
-   * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+   * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
    */
+  @java.lang.Override
   public int getTxOutputsCount() {
     return txOutputs_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+   * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.RequestTxOutput getTxOutputs(int index) {
     return txOutputs_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+   * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.RequestTxOutputOrBuilder getTxOutputsOrBuilder(
       int index) {
     return txOutputs_.get(index);
@@ -219,8 +230,10 @@ private static final long serialVersionUID = 0L;
   public static final int ADDRESS_FIELD_NUMBER = 4;
   private volatile java.lang.Object address_;
   /**
-   * <code>string address = 4;</code>
+   * <code>string address = 4 [json_name = "address"];</code>
+   * @return The address.
    */
+  @java.lang.Override
   public java.lang.String getAddress() {
     java.lang.Object ref = address_;
     if (ref instanceof java.lang.String) {
@@ -234,8 +247,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string address = 4;</code>
+   * <code>string address = 4 [json_name = "address"];</code>
+   * @return The bytes for address.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getAddressBytes() {
     java.lang.Object ref = address_;
@@ -253,8 +268,10 @@ private static final long serialVersionUID = 0L;
   public static final int DESTINATION_TAG_FIELD_NUMBER = 5;
   private int destinationTag_;
   /**
-   * <code>uint32 destination_tag = 5;</code>
+   * <code>uint32 destination_tag = 5 [json_name = "destinationTag"];</code>
+   * @return The destinationTag.
    */
+  @java.lang.Override
   public int getDestinationTag() {
     return destinationTag_;
   }
@@ -262,8 +279,10 @@ private static final long serialVersionUID = 0L;
   public static final int STRING_VALUE_FIELD_NUMBER = 6;
   private volatile java.lang.Object stringValue_;
   /**
-   * <code>string string_value = 6;</code>
+   * <code>string string_value = 6 [json_name = "stringValue"];</code>
+   * @return The stringValue.
    */
+  @java.lang.Override
   public java.lang.String getStringValue() {
     java.lang.Object ref = stringValue_;
     if (ref instanceof java.lang.String) {
@@ -277,8 +296,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string string_value = 6;</code>
+   * <code>string string_value = 6 [json_name = "stringValue"];</code>
+   * @return The bytes for stringValue.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getStringValueBytes() {
     java.lang.Object ref = stringValue_;
@@ -296,20 +317,25 @@ private static final long serialVersionUID = 0L;
   public static final int SUBSTRATE_SPECIFIC_FIELD_NUMBER = 7;
   private adamant.global.v1.CalculateFeeSubstrateSpecific substrateSpecific_;
   /**
-   * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7;</code>
+   * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7 [json_name = "substrateSpecific"];</code>
+   * @return Whether the substrateSpecific field is set.
    */
+  @java.lang.Override
   public boolean hasSubstrateSpecific() {
     return substrateSpecific_ != null;
   }
   /**
-   * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7;</code>
+   * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7 [json_name = "substrateSpecific"];</code>
+   * @return The substrateSpecific.
    */
+  @java.lang.Override
   public adamant.global.v1.CalculateFeeSubstrateSpecific getSubstrateSpecific() {
     return substrateSpecific_ == null ? adamant.global.v1.CalculateFeeSubstrateSpecific.getDefaultInstance() : substrateSpecific_;
   }
   /**
-   * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7;</code>
+   * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7 [json_name = "substrateSpecific"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.CalculateFeeSubstrateSpecificOrBuilder getSubstrateSpecificOrBuilder() {
     return getSubstrateSpecific();
   }
@@ -328,7 +354,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletId_);
     }
     if (feeRate_ != 0L) {
@@ -337,13 +363,13 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < txOutputs_.size(); i++) {
       output.writeMessage(3, txOutputs_.get(i));
     }
-    if (!getAddressBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, address_);
     }
     if (destinationTag_ != 0) {
       output.writeUInt32(5, destinationTag_);
     }
-    if (!getStringValueBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringValue_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, stringValue_);
     }
     if (substrateSpecific_ != null) {
@@ -358,7 +384,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletId_);
     }
     if (feeRate_ != 0L) {
@@ -369,14 +395,14 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, txOutputs_.get(i));
     }
-    if (!getAddressBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, address_);
     }
     if (destinationTag_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(5, destinationTag_);
     }
-    if (!getStringValueBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringValue_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, stringValue_);
     }
     if (substrateSpecific_ != null) {
@@ -774,7 +800,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object walletId_ = "";
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The walletId.
      */
     public java.lang.String getWalletId() {
       java.lang.Object ref = walletId_;
@@ -789,7 +816,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The bytes for walletId.
      */
     public com.google.protobuf.ByteString
         getWalletIdBytes() {
@@ -805,7 +833,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @param value The walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletId(
         java.lang.String value) {
@@ -818,7 +848,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletId() {
       
@@ -827,7 +858,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletIdBytes(
         com.google.protobuf.ByteString value) {
@@ -843,13 +876,17 @@ private static final long serialVersionUID = 0L;
 
     private long feeRate_ ;
     /**
-     * <code>uint64 fee_rate = 2;</code>
+     * <code>uint64 fee_rate = 2 [json_name = "feeRate"];</code>
+     * @return The feeRate.
      */
+    @java.lang.Override
     public long getFeeRate() {
       return feeRate_;
     }
     /**
-     * <code>uint64 fee_rate = 2;</code>
+     * <code>uint64 fee_rate = 2 [json_name = "feeRate"];</code>
+     * @param value The feeRate to set.
+     * @return This builder for chaining.
      */
     public Builder setFeeRate(long value) {
       
@@ -858,7 +895,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint64 fee_rate = 2;</code>
+     * <code>uint64 fee_rate = 2 [json_name = "feeRate"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearFeeRate() {
       
@@ -880,7 +918,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.RequestTxOutput, adamant.global.v1.Model.RequestTxOutput.Builder, adamant.global.v1.Model.RequestTxOutputOrBuilder> txOutputsBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public java.util.List<adamant.global.v1.Model.RequestTxOutput> getTxOutputsList() {
       if (txOutputsBuilder_ == null) {
@@ -890,7 +928,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public int getTxOutputsCount() {
       if (txOutputsBuilder_ == null) {
@@ -900,7 +938,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public adamant.global.v1.Model.RequestTxOutput getTxOutputs(int index) {
       if (txOutputsBuilder_ == null) {
@@ -910,7 +948,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public Builder setTxOutputs(
         int index, adamant.global.v1.Model.RequestTxOutput value) {
@@ -927,7 +965,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public Builder setTxOutputs(
         int index, adamant.global.v1.Model.RequestTxOutput.Builder builderForValue) {
@@ -941,7 +979,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public Builder addTxOutputs(adamant.global.v1.Model.RequestTxOutput value) {
       if (txOutputsBuilder_ == null) {
@@ -957,7 +995,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public Builder addTxOutputs(
         int index, adamant.global.v1.Model.RequestTxOutput value) {
@@ -974,7 +1012,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public Builder addTxOutputs(
         adamant.global.v1.Model.RequestTxOutput.Builder builderForValue) {
@@ -988,7 +1026,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public Builder addTxOutputs(
         int index, adamant.global.v1.Model.RequestTxOutput.Builder builderForValue) {
@@ -1002,7 +1040,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public Builder addAllTxOutputs(
         java.lang.Iterable<? extends adamant.global.v1.Model.RequestTxOutput> values) {
@@ -1017,7 +1055,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public Builder clearTxOutputs() {
       if (txOutputsBuilder_ == null) {
@@ -1030,7 +1068,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public Builder removeTxOutputs(int index) {
       if (txOutputsBuilder_ == null) {
@@ -1043,14 +1081,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public adamant.global.v1.Model.RequestTxOutput.Builder getTxOutputsBuilder(
         int index) {
       return getTxOutputsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public adamant.global.v1.Model.RequestTxOutputOrBuilder getTxOutputsOrBuilder(
         int index) {
@@ -1060,7 +1098,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.RequestTxOutputOrBuilder> 
          getTxOutputsOrBuilderList() {
@@ -1071,14 +1109,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public adamant.global.v1.Model.RequestTxOutput.Builder addTxOutputsBuilder() {
       return getTxOutputsFieldBuilder().addBuilder(
           adamant.global.v1.Model.RequestTxOutput.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public adamant.global.v1.Model.RequestTxOutput.Builder addTxOutputsBuilder(
         int index) {
@@ -1086,7 +1124,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.RequestTxOutput.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3;</code>
+     * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     public java.util.List<adamant.global.v1.Model.RequestTxOutput.Builder> 
          getTxOutputsBuilderList() {
@@ -1109,7 +1147,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object address_ = "";
     /**
-     * <code>string address = 4;</code>
+     * <code>string address = 4 [json_name = "address"];</code>
+     * @return The address.
      */
     public java.lang.String getAddress() {
       java.lang.Object ref = address_;
@@ -1124,7 +1163,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string address = 4;</code>
+     * <code>string address = 4 [json_name = "address"];</code>
+     * @return The bytes for address.
      */
     public com.google.protobuf.ByteString
         getAddressBytes() {
@@ -1140,7 +1180,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string address = 4;</code>
+     * <code>string address = 4 [json_name = "address"];</code>
+     * @param value The address to set.
+     * @return This builder for chaining.
      */
     public Builder setAddress(
         java.lang.String value) {
@@ -1153,7 +1195,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string address = 4;</code>
+     * <code>string address = 4 [json_name = "address"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearAddress() {
       
@@ -1162,7 +1205,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string address = 4;</code>
+     * <code>string address = 4 [json_name = "address"];</code>
+     * @param value The bytes for address to set.
+     * @return This builder for chaining.
      */
     public Builder setAddressBytes(
         com.google.protobuf.ByteString value) {
@@ -1178,13 +1223,17 @@ private static final long serialVersionUID = 0L;
 
     private int destinationTag_ ;
     /**
-     * <code>uint32 destination_tag = 5;</code>
+     * <code>uint32 destination_tag = 5 [json_name = "destinationTag"];</code>
+     * @return The destinationTag.
      */
+    @java.lang.Override
     public int getDestinationTag() {
       return destinationTag_;
     }
     /**
-     * <code>uint32 destination_tag = 5;</code>
+     * <code>uint32 destination_tag = 5 [json_name = "destinationTag"];</code>
+     * @param value The destinationTag to set.
+     * @return This builder for chaining.
      */
     public Builder setDestinationTag(int value) {
       
@@ -1193,7 +1242,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint32 destination_tag = 5;</code>
+     * <code>uint32 destination_tag = 5 [json_name = "destinationTag"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearDestinationTag() {
       
@@ -1204,7 +1254,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object stringValue_ = "";
     /**
-     * <code>string string_value = 6;</code>
+     * <code>string string_value = 6 [json_name = "stringValue"];</code>
+     * @return The stringValue.
      */
     public java.lang.String getStringValue() {
       java.lang.Object ref = stringValue_;
@@ -1219,7 +1270,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string string_value = 6;</code>
+     * <code>string string_value = 6 [json_name = "stringValue"];</code>
+     * @return The bytes for stringValue.
      */
     public com.google.protobuf.ByteString
         getStringValueBytes() {
@@ -1235,7 +1287,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string string_value = 6;</code>
+     * <code>string string_value = 6 [json_name = "stringValue"];</code>
+     * @param value The stringValue to set.
+     * @return This builder for chaining.
      */
     public Builder setStringValue(
         java.lang.String value) {
@@ -1248,7 +1302,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string string_value = 6;</code>
+     * <code>string string_value = 6 [json_name = "stringValue"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearStringValue() {
       
@@ -1257,7 +1312,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string string_value = 6;</code>
+     * <code>string string_value = 6 [json_name = "stringValue"];</code>
+     * @param value The bytes for stringValue to set.
+     * @return This builder for chaining.
      */
     public Builder setStringValueBytes(
         com.google.protobuf.ByteString value) {
@@ -1275,13 +1332,15 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         adamant.global.v1.CalculateFeeSubstrateSpecific, adamant.global.v1.CalculateFeeSubstrateSpecific.Builder, adamant.global.v1.CalculateFeeSubstrateSpecificOrBuilder> substrateSpecificBuilder_;
     /**
-     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7;</code>
+     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7 [json_name = "substrateSpecific"];</code>
+     * @return Whether the substrateSpecific field is set.
      */
     public boolean hasSubstrateSpecific() {
       return substrateSpecificBuilder_ != null || substrateSpecific_ != null;
     }
     /**
-     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7;</code>
+     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7 [json_name = "substrateSpecific"];</code>
+     * @return The substrateSpecific.
      */
     public adamant.global.v1.CalculateFeeSubstrateSpecific getSubstrateSpecific() {
       if (substrateSpecificBuilder_ == null) {
@@ -1291,7 +1350,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7;</code>
+     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7 [json_name = "substrateSpecific"];</code>
      */
     public Builder setSubstrateSpecific(adamant.global.v1.CalculateFeeSubstrateSpecific value) {
       if (substrateSpecificBuilder_ == null) {
@@ -1307,7 +1366,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7;</code>
+     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7 [json_name = "substrateSpecific"];</code>
      */
     public Builder setSubstrateSpecific(
         adamant.global.v1.CalculateFeeSubstrateSpecific.Builder builderForValue) {
@@ -1321,7 +1380,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7;</code>
+     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7 [json_name = "substrateSpecific"];</code>
      */
     public Builder mergeSubstrateSpecific(adamant.global.v1.CalculateFeeSubstrateSpecific value) {
       if (substrateSpecificBuilder_ == null) {
@@ -1339,7 +1398,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7;</code>
+     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7 [json_name = "substrateSpecific"];</code>
      */
     public Builder clearSubstrateSpecific() {
       if (substrateSpecificBuilder_ == null) {
@@ -1353,7 +1412,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7;</code>
+     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7 [json_name = "substrateSpecific"];</code>
      */
     public adamant.global.v1.CalculateFeeSubstrateSpecific.Builder getSubstrateSpecificBuilder() {
       
@@ -1361,7 +1420,7 @@ private static final long serialVersionUID = 0L;
       return getSubstrateSpecificFieldBuilder().getBuilder();
     }
     /**
-     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7;</code>
+     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7 [json_name = "substrateSpecific"];</code>
      */
     public adamant.global.v1.CalculateFeeSubstrateSpecificOrBuilder getSubstrateSpecificOrBuilder() {
       if (substrateSpecificBuilder_ != null) {
@@ -1372,7 +1431,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7;</code>
+     * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7 [json_name = "substrateSpecific"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         adamant.global.v1.CalculateFeeSubstrateSpecific, adamant.global.v1.CalculateFeeSubstrateSpecific.Builder, adamant.global.v1.CalculateFeeSubstrateSpecificOrBuilder> 

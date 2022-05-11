@@ -8,11 +8,13 @@ public interface ListTransfersByFilterRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.adamant.global.v1.ListFilterType filter_type = 1 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.ListFilterType filter_type = 1 [json_name = "filterType", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for filterType.
    */
   int getFilterTypeValue();
   /**
-   * <code>.adamant.global.v1.ListFilterType filter_type = 1 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.ListFilterType filter_type = 1 [json_name = "filterType", (.validate.rules) = { ... }</code>
+   * @return The filterType.
    */
   adamant.global.v1.Enum.ListFilterType getFilterType();
 
@@ -21,7 +23,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string transfer_id = 2;</code>
+   * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+   * @return The transferId.
    */
   java.lang.String getTransferId();
   /**
@@ -29,7 +32,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string transfer_id = 2;</code>
+   * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+   * @return The bytes for transferId.
    */
   com.google.protobuf.ByteString
       getTransferIdBytes();
@@ -39,7 +43,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string wallet_id = 13;</code>
+   * <code>string wallet_id = 13 [json_name = "walletId"];</code>
+   * @return The walletId.
    */
   java.lang.String getWalletId();
   /**
@@ -47,7 +52,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string wallet_id = 13;</code>
+   * <code>string wallet_id = 13 [json_name = "walletId"];</code>
+   * @return The bytes for walletId.
    */
   com.google.protobuf.ByteString
       getWalletIdBytes();
@@ -57,7 +63,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string wallet_name = 3 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_name = 3 [json_name = "walletName", (.validate.rules) = { ... }</code>
+   * @return The walletName.
    */
   java.lang.String getWalletName();
   /**
@@ -65,7 +72,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string wallet_name = 3 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_name = 3 [json_name = "walletName", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletName.
    */
   com.google.protobuf.ByteString
       getWalletNameBytes();
@@ -75,7 +83,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string address_name = 4 [(.validate.rules) = { ... }</code>
+   * <code>string address_name = 4 [json_name = "addressName", (.validate.rules) = { ... }</code>
+   * @return The addressName.
    */
   java.lang.String getAddressName();
   /**
@@ -83,7 +92,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string address_name = 4 [(.validate.rules) = { ... }</code>
+   * <code>string address_name = 4 [json_name = "addressName", (.validate.rules) = { ... }</code>
+   * @return The bytes for addressName.
    */
   com.google.protobuf.ByteString
       getAddressNameBytes();
@@ -93,7 +103,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string address = 5;</code>
+   * <code>string address = 5 [json_name = "address"];</code>
+   * @return The address.
    */
   java.lang.String getAddress();
   /**
@@ -101,7 +112,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string address = 5;</code>
+   * <code>string address = 5 [json_name = "address"];</code>
+   * @return The bytes for address.
    */
   com.google.protobuf.ByteString
       getAddressBytes();
@@ -111,7 +123,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string txid = 6;</code>
+   * <code>string txid = 6 [json_name = "txid"];</code>
+   * @return The txid.
    */
   java.lang.String getTxid();
   /**
@@ -119,7 +132,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string txid = 6;</code>
+   * <code>string txid = 6 [json_name = "txid"];</code>
+   * @return The bytes for txid.
    */
   com.google.protobuf.ByteString
       getTxidBytes();
@@ -129,7 +143,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>bool watch_only = 12;</code>
+   * <code>bool watch_only = 12 [json_name = "watchOnly"];</code>
+   * @return The watchOnly.
    */
   boolean getWatchOnly();
 
@@ -138,7 +153,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>.gincoinc.global.v1.Coin coin = 7 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 7 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
    */
   int getCoinValue();
   /**
@@ -146,29 +162,37 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>.gincoinc.global.v1.Coin coin = 7 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 7 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
    */
   gincoinc.global.v1.Enum.Coin getCoin();
 
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+   * @return A list containing the walletType.
    */
   java.util.List<adamant.global.v1.Enum.WalletType> getWalletTypeList();
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+   * @return The count of walletType.
    */
   int getWalletTypeCount();
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+   * @param index The index of the element to return.
+   * @return The walletType at the given index.
    */
   adamant.global.v1.Enum.WalletType getWalletType(int index);
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+   * @return A list containing the enum numeric values on the wire for walletType.
    */
   java.util.List<java.lang.Integer>
   getWalletTypeValueList();
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of walletType at the given index.
    */
   int getWalletTypeValue(int index);
 
@@ -177,7 +201,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [json_name = "transferType", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for transferType.
    */
   int getTransferTypeValue();
   /**
@@ -185,7 +210,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [json_name = "transferType", (.validate.rules) = { ... }</code>
+   * @return The transferType.
    */
   gincoinc.global.v1.Enum.TransferType getTransferType();
 
@@ -194,7 +220,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>uint32 page_size = 10 [(.validate.rules) = { ... }</code>
+   * <code>uint32 page_size = 10 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+   * @return The pageSize.
    */
   int getPageSize();
 
@@ -203,7 +230,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string page_token = 11 [(.validate.rules) = { ... }</code>
+   * <code>string page_token = 11 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The pageToken.
    */
   java.lang.String getPageToken();
   /**
@@ -211,7 +239,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string page_token = 11 [(.validate.rules) = { ... }</code>
+   * <code>string page_token = 11 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The bytes for pageToken.
    */
   com.google.protobuf.ByteString
       getPageTokenBytes();
@@ -221,7 +250,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp start_time = 14;</code>
+   * <code>.google.protobuf.Timestamp start_time = 14 [json_name = "startTime"];</code>
+   * @return Whether the startTime field is set.
    */
   boolean hasStartTime();
   /**
@@ -229,7 +259,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp start_time = 14;</code>
+   * <code>.google.protobuf.Timestamp start_time = 14 [json_name = "startTime"];</code>
+   * @return The startTime.
    */
   com.google.protobuf.Timestamp getStartTime();
   /**
@@ -237,7 +268,7 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp start_time = 14;</code>
+   * <code>.google.protobuf.Timestamp start_time = 14 [json_name = "startTime"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder();
 
@@ -246,7 +277,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp end_time = 15;</code>
+   * <code>.google.protobuf.Timestamp end_time = 15 [json_name = "endTime"];</code>
+   * @return Whether the endTime field is set.
    */
   boolean hasEndTime();
   /**
@@ -254,7 +286,8 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp end_time = 15;</code>
+   * <code>.google.protobuf.Timestamp end_time = 15 [json_name = "endTime"];</code>
+   * @return The endTime.
    */
   com.google.protobuf.Timestamp getEndTime();
   /**
@@ -262,7 +295,7 @@ public interface ListTransfersByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp end_time = 15;</code>
+   * <code>.google.protobuf.Timestamp end_time = 15 [json_name = "endTime"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder();
 }

@@ -12,7 +12,8 @@ public interface CreateAddressResponseOrBuilder extends
    * The id of created address
    * </pre>
    *
-   * <code>string address_id = 1;</code>
+   * <code>string address_id = 1 [json_name = "addressId"];</code>
+   * @return The addressId.
    */
   java.lang.String getAddressId();
   /**
@@ -20,7 +21,8 @@ public interface CreateAddressResponseOrBuilder extends
    * The id of created address
    * </pre>
    *
-   * <code>string address_id = 1;</code>
+   * <code>string address_id = 1 [json_name = "addressId"];</code>
+   * @return The bytes for addressId.
    */
   com.google.protobuf.ByteString
       getAddressIdBytes();

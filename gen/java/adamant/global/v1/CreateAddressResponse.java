@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.CreateAddressResponse}
  */
-public  final class CreateAddressResponse extends
+public final class CreateAddressResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.CreateAddressResponse)
     CreateAddressResponseOrBuilder {
@@ -94,8 +94,10 @@ private static final long serialVersionUID = 0L;
    * The id of created address
    * </pre>
    *
-   * <code>string address_id = 1;</code>
+   * <code>string address_id = 1 [json_name = "addressId"];</code>
+   * @return The addressId.
    */
+  @java.lang.Override
   public java.lang.String getAddressId() {
     java.lang.Object ref = addressId_;
     if (ref instanceof java.lang.String) {
@@ -113,8 +115,10 @@ private static final long serialVersionUID = 0L;
    * The id of created address
    * </pre>
    *
-   * <code>string address_id = 1;</code>
+   * <code>string address_id = 1 [json_name = "addressId"];</code>
+   * @return The bytes for addressId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getAddressIdBytes() {
     java.lang.Object ref = addressId_;
@@ -143,7 +147,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getAddressIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(addressId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, addressId_);
     }
     unknownFields.writeTo(output);
@@ -155,7 +159,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getAddressIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(addressId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, addressId_);
     }
     size += unknownFields.getSerializedSize();
@@ -437,7 +441,8 @@ private static final long serialVersionUID = 0L;
      * The id of created address
      * </pre>
      *
-     * <code>string address_id = 1;</code>
+     * <code>string address_id = 1 [json_name = "addressId"];</code>
+     * @return The addressId.
      */
     public java.lang.String getAddressId() {
       java.lang.Object ref = addressId_;
@@ -456,7 +461,8 @@ private static final long serialVersionUID = 0L;
      * The id of created address
      * </pre>
      *
-     * <code>string address_id = 1;</code>
+     * <code>string address_id = 1 [json_name = "addressId"];</code>
+     * @return The bytes for addressId.
      */
     public com.google.protobuf.ByteString
         getAddressIdBytes() {
@@ -476,7 +482,9 @@ private static final long serialVersionUID = 0L;
      * The id of created address
      * </pre>
      *
-     * <code>string address_id = 1;</code>
+     * <code>string address_id = 1 [json_name = "addressId"];</code>
+     * @param value The addressId to set.
+     * @return This builder for chaining.
      */
     public Builder setAddressId(
         java.lang.String value) {
@@ -493,7 +501,8 @@ private static final long serialVersionUID = 0L;
      * The id of created address
      * </pre>
      *
-     * <code>string address_id = 1;</code>
+     * <code>string address_id = 1 [json_name = "addressId"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearAddressId() {
       
@@ -506,7 +515,9 @@ private static final long serialVersionUID = 0L;
      * The id of created address
      * </pre>
      *
-     * <code>string address_id = 1;</code>
+     * <code>string address_id = 1 [json_name = "addressId"];</code>
+     * @param value The bytes for addressId to set.
+     * @return This builder for chaining.
      */
     public Builder setAddressIdBytes(
         com.google.protobuf.ByteString value) {

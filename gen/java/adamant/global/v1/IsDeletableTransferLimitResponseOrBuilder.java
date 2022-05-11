@@ -8,7 +8,8 @@ public interface IsDeletableTransferLimitResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bool is_deletable = 1;</code>
+   * <code>bool is_deletable = 1 [json_name = "isDeletable"];</code>
+   * @return The isDeletable.
    */
   boolean getIsDeletable();
 }

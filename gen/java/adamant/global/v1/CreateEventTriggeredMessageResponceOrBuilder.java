@@ -8,11 +8,13 @@ public interface CreateEventTriggeredMessageResponceOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string event_triggered_message_id = 1;</code>
+   * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId"];</code>
+   * @return The eventTriggeredMessageId.
    */
   java.lang.String getEventTriggeredMessageId();
   /**
-   * <code>string event_triggered_message_id = 1;</code>
+   * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId"];</code>
+   * @return The bytes for eventTriggeredMessageId.
    */
   com.google.protobuf.ByteString
       getEventTriggeredMessageIdBytes();

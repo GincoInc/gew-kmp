@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code GetRateSnapshotRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class GetRateSnapshotRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.GetRateSnapshotRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.GetRateSnapshotRequest.class)) return new GetRateSnapshotRequestValidator();

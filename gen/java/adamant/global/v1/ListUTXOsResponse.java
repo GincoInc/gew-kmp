@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListUTXOsResponse}
  */
-public  final class ListUTXOsResponse extends
+public final class ListUTXOsResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListUTXOsResponse)
     ListUTXOsResponseOrBuilder {
@@ -97,33 +97,38 @@ private static final long serialVersionUID = 0L;
   public static final int UTXOS_FIELD_NUMBER = 1;
   private java.util.List<adamant.global.v1.Model.UTXO> utxos_;
   /**
-   * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+   * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.UTXO> getUtxosList() {
     return utxos_;
   }
   /**
-   * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+   * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.UTXOOrBuilder> 
       getUtxosOrBuilderList() {
     return utxos_;
   }
   /**
-   * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+   * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
    */
+  @java.lang.Override
   public int getUtxosCount() {
     return utxos_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+   * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.UTXO getUtxos(int index) {
     return utxos_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+   * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.UTXOOrBuilder getUtxosOrBuilder(
       int index) {
     return utxos_.get(index);
@@ -484,7 +489,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.UTXO, adamant.global.v1.Model.UTXO.Builder, adamant.global.v1.Model.UTXOOrBuilder> utxosBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public java.util.List<adamant.global.v1.Model.UTXO> getUtxosList() {
       if (utxosBuilder_ == null) {
@@ -494,7 +499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public int getUtxosCount() {
       if (utxosBuilder_ == null) {
@@ -504,7 +509,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public adamant.global.v1.Model.UTXO getUtxos(int index) {
       if (utxosBuilder_ == null) {
@@ -514,7 +519,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public Builder setUtxos(
         int index, adamant.global.v1.Model.UTXO value) {
@@ -531,7 +536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public Builder setUtxos(
         int index, adamant.global.v1.Model.UTXO.Builder builderForValue) {
@@ -545,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public Builder addUtxos(adamant.global.v1.Model.UTXO value) {
       if (utxosBuilder_ == null) {
@@ -561,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public Builder addUtxos(
         int index, adamant.global.v1.Model.UTXO value) {
@@ -578,7 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public Builder addUtxos(
         adamant.global.v1.Model.UTXO.Builder builderForValue) {
@@ -592,7 +597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public Builder addUtxos(
         int index, adamant.global.v1.Model.UTXO.Builder builderForValue) {
@@ -606,7 +611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public Builder addAllUtxos(
         java.lang.Iterable<? extends adamant.global.v1.Model.UTXO> values) {
@@ -621,7 +626,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public Builder clearUtxos() {
       if (utxosBuilder_ == null) {
@@ -634,7 +639,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public Builder removeUtxos(int index) {
       if (utxosBuilder_ == null) {
@@ -647,14 +652,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public adamant.global.v1.Model.UTXO.Builder getUtxosBuilder(
         int index) {
       return getUtxosFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public adamant.global.v1.Model.UTXOOrBuilder getUtxosOrBuilder(
         int index) {
@@ -664,7 +669,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.UTXOOrBuilder> 
          getUtxosOrBuilderList() {
@@ -675,14 +680,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public adamant.global.v1.Model.UTXO.Builder addUtxosBuilder() {
       return getUtxosFieldBuilder().addBuilder(
           adamant.global.v1.Model.UTXO.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public adamant.global.v1.Model.UTXO.Builder addUtxosBuilder(
         int index) {
@@ -690,7 +695,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.UTXO.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+     * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
      */
     public java.util.List<adamant.global.v1.Model.UTXO.Builder> 
          getUtxosBuilderList() {

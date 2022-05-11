@@ -8,22 +8,26 @@ public interface GetRecommendedFeeRateResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>uint64 fastest = 1;</code>
+   * <code>uint64 fastest = 1 [json_name = "fastest"];</code>
+   * @return The fastest.
    */
   long getFastest();
 
   /**
-   * <code>uint64 fast = 2;</code>
+   * <code>uint64 fast = 2 [json_name = "fast"];</code>
+   * @return The fast.
    */
   long getFast();
 
   /**
-   * <code>uint64 average = 3;</code>
+   * <code>uint64 average = 3 [json_name = "average"];</code>
+   * @return The average.
    */
   long getAverage();
 
   /**
-   * <code>uint64 safe_low = 4;</code>
+   * <code>uint64 safe_low = 4 [json_name = "safeLow"];</code>
+   * @return The safeLow.
    */
   long getSafeLow();
 }

@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.CreateWalletGroupResponse}
  */
-public  final class CreateWalletGroupResponse extends
+public final class CreateWalletGroupResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.CreateWalletGroupResponse)
     CreateWalletGroupResponseOrBuilder {
@@ -90,8 +90,10 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_GROUP_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object walletGroupId_;
   /**
-   * <code>string wallet_group_id = 1;</code>
+   * <code>string wallet_group_id = 1 [json_name = "walletGroupId"];</code>
+   * @return The walletGroupId.
    */
+  @java.lang.Override
   public java.lang.String getWalletGroupId() {
     java.lang.Object ref = walletGroupId_;
     if (ref instanceof java.lang.String) {
@@ -105,8 +107,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string wallet_group_id = 1;</code>
+   * <code>string wallet_group_id = 1 [json_name = "walletGroupId"];</code>
+   * @return The bytes for walletGroupId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWalletGroupIdBytes() {
     java.lang.Object ref = walletGroupId_;
@@ -135,7 +139,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getWalletGroupIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletGroupId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletGroupId_);
     }
     unknownFields.writeTo(output);
@@ -147,7 +151,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getWalletGroupIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletGroupId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletGroupId_);
     }
     size += unknownFields.getSerializedSize();
@@ -425,7 +429,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object walletGroupId_ = "";
     /**
-     * <code>string wallet_group_id = 1;</code>
+     * <code>string wallet_group_id = 1 [json_name = "walletGroupId"];</code>
+     * @return The walletGroupId.
      */
     public java.lang.String getWalletGroupId() {
       java.lang.Object ref = walletGroupId_;
@@ -440,7 +445,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_group_id = 1;</code>
+     * <code>string wallet_group_id = 1 [json_name = "walletGroupId"];</code>
+     * @return The bytes for walletGroupId.
      */
     public com.google.protobuf.ByteString
         getWalletGroupIdBytes() {
@@ -456,7 +462,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_group_id = 1;</code>
+     * <code>string wallet_group_id = 1 [json_name = "walletGroupId"];</code>
+     * @param value The walletGroupId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletGroupId(
         java.lang.String value) {
@@ -469,7 +477,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_group_id = 1;</code>
+     * <code>string wallet_group_id = 1 [json_name = "walletGroupId"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletGroupId() {
       
@@ -478,7 +487,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_group_id = 1;</code>
+     * <code>string wallet_group_id = 1 [json_name = "walletGroupId"];</code>
+     * @param value The bytes for walletGroupId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletGroupIdBytes(
         com.google.protobuf.ByteString value) {

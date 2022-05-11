@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code UpdateTransferLimitNameRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class UpdateTransferLimitNameRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.UpdateTransferLimitNameRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.UpdateTransferLimitNameRequest.class)) return new UpdateTransferLimitNameRequestValidator();
@@ -24,7 +26,7 @@ public class UpdateTransferLimitNameRequestValidator implements io.envoyproxy.pg
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.UpdateTransferLimitNameRequest.transfer_limit_id", proto.getTransferLimitId(), TRANSFER_LIMIT_ID__PATTERN);
 	
 			io.envoyproxy.pgv.StringValidation.minLength(".adamant.global.v1.UpdateTransferLimitNameRequest.name", proto.getName(), 1);
-			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.global.v1.UpdateTransferLimitNameRequest.name", proto.getName(), 20);
+			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.global.v1.UpdateTransferLimitNameRequest.name", proto.getName(), 40);
 	
 	}
 

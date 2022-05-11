@@ -8,25 +8,25 @@ public interface ListLabeledAddressesResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.LabeledAddress addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.LabeledAddress addresses = 1 [json_name = "addresses"];</code>
    */
   java.util.List<adamant.global.v1.Model.LabeledAddress> 
       getAddressesList();
   /**
-   * <code>repeated .adamant.global.v1.LabeledAddress addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.LabeledAddress addresses = 1 [json_name = "addresses"];</code>
    */
   adamant.global.v1.Model.LabeledAddress getAddresses(int index);
   /**
-   * <code>repeated .adamant.global.v1.LabeledAddress addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.LabeledAddress addresses = 1 [json_name = "addresses"];</code>
    */
   int getAddressesCount();
   /**
-   * <code>repeated .adamant.global.v1.LabeledAddress addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.LabeledAddress addresses = 1 [json_name = "addresses"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.LabeledAddressOrBuilder> 
       getAddressesOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.LabeledAddress addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.LabeledAddress addresses = 1 [json_name = "addresses"];</code>
    */
   adamant.global.v1.Model.LabeledAddressOrBuilder getAddressesOrBuilder(
       int index);

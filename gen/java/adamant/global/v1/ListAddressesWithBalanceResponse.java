@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListAddressesWithBalanceResponse}
  */
-public  final class ListAddressesWithBalanceResponse extends
+public final class ListAddressesWithBalanceResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListAddressesWithBalanceResponse)
     ListAddressesWithBalanceResponseOrBuilder {
@@ -97,33 +97,38 @@ private static final long serialVersionUID = 0L;
   public static final int ADDRESSES_FIELD_NUMBER = 1;
   private java.util.List<adamant.global.v1.Model.AddressWithBalance> addresses_;
   /**
-   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.AddressWithBalance> getAddressesList() {
     return addresses_;
   }
   /**
-   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.AddressWithBalanceOrBuilder> 
       getAddressesOrBuilderList() {
     return addresses_;
   }
   /**
-   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
    */
+  @java.lang.Override
   public int getAddressesCount() {
     return addresses_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.AddressWithBalance getAddresses(int index) {
     return addresses_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.AddressWithBalanceOrBuilder getAddressesOrBuilder(
       int index) {
     return addresses_.get(index);
@@ -484,7 +489,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.AddressWithBalance, adamant.global.v1.Model.AddressWithBalance.Builder, adamant.global.v1.Model.AddressWithBalanceOrBuilder> addressesBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public java.util.List<adamant.global.v1.Model.AddressWithBalance> getAddressesList() {
       if (addressesBuilder_ == null) {
@@ -494,7 +499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public int getAddressesCount() {
       if (addressesBuilder_ == null) {
@@ -504,7 +509,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public adamant.global.v1.Model.AddressWithBalance getAddresses(int index) {
       if (addressesBuilder_ == null) {
@@ -514,7 +519,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public Builder setAddresses(
         int index, adamant.global.v1.Model.AddressWithBalance value) {
@@ -531,7 +536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public Builder setAddresses(
         int index, adamant.global.v1.Model.AddressWithBalance.Builder builderForValue) {
@@ -545,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public Builder addAddresses(adamant.global.v1.Model.AddressWithBalance value) {
       if (addressesBuilder_ == null) {
@@ -561,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public Builder addAddresses(
         int index, adamant.global.v1.Model.AddressWithBalance value) {
@@ -578,7 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public Builder addAddresses(
         adamant.global.v1.Model.AddressWithBalance.Builder builderForValue) {
@@ -592,7 +597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public Builder addAddresses(
         int index, adamant.global.v1.Model.AddressWithBalance.Builder builderForValue) {
@@ -606,7 +611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public Builder addAllAddresses(
         java.lang.Iterable<? extends adamant.global.v1.Model.AddressWithBalance> values) {
@@ -621,7 +626,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public Builder clearAddresses() {
       if (addressesBuilder_ == null) {
@@ -634,7 +639,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public Builder removeAddresses(int index) {
       if (addressesBuilder_ == null) {
@@ -647,14 +652,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public adamant.global.v1.Model.AddressWithBalance.Builder getAddressesBuilder(
         int index) {
       return getAddressesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public adamant.global.v1.Model.AddressWithBalanceOrBuilder getAddressesOrBuilder(
         int index) {
@@ -664,7 +669,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.AddressWithBalanceOrBuilder> 
          getAddressesOrBuilderList() {
@@ -675,14 +680,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public adamant.global.v1.Model.AddressWithBalance.Builder addAddressesBuilder() {
       return getAddressesFieldBuilder().addBuilder(
           adamant.global.v1.Model.AddressWithBalance.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public adamant.global.v1.Model.AddressWithBalance.Builder addAddressesBuilder(
         int index) {
@@ -690,7 +695,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.AddressWithBalance.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
      */
     public java.util.List<adamant.global.v1.Model.AddressWithBalance.Builder> 
          getAddressesBuilderList() {

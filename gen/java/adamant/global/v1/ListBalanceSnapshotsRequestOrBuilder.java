@@ -8,33 +8,38 @@ public interface ListBalanceSnapshotsRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bool watch_only = 3;</code>
+   * <code>bool watch_only = 3 [json_name = "watchOnly"];</code>
+   * @return The watchOnly.
    */
   boolean getWatchOnly();
 
   /**
-   * <code>.google.protobuf.Timestamp start_time = 1;</code>
+   * <code>.google.protobuf.Timestamp start_time = 1 [json_name = "startTime"];</code>
+   * @return Whether the startTime field is set.
    */
   boolean hasStartTime();
   /**
-   * <code>.google.protobuf.Timestamp start_time = 1;</code>
+   * <code>.google.protobuf.Timestamp start_time = 1 [json_name = "startTime"];</code>
+   * @return The startTime.
    */
   com.google.protobuf.Timestamp getStartTime();
   /**
-   * <code>.google.protobuf.Timestamp start_time = 1;</code>
+   * <code>.google.protobuf.Timestamp start_time = 1 [json_name = "startTime"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder();
 
   /**
-   * <code>.google.protobuf.Timestamp end_time = 2;</code>
+   * <code>.google.protobuf.Timestamp end_time = 2 [json_name = "endTime"];</code>
+   * @return Whether the endTime field is set.
    */
   boolean hasEndTime();
   /**
-   * <code>.google.protobuf.Timestamp end_time = 2;</code>
+   * <code>.google.protobuf.Timestamp end_time = 2 [json_name = "endTime"];</code>
+   * @return The endTime.
    */
   com.google.protobuf.Timestamp getEndTime();
   /**
-   * <code>.google.protobuf.Timestamp end_time = 2;</code>
+   * <code>.google.protobuf.Timestamp end_time = 2 [json_name = "endTime"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder();
 }

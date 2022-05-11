@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ExistsWalletGroupByNameResponse}
  */
-public  final class ExistsWalletGroupByNameResponse extends
+public final class ExistsWalletGroupByNameResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ExistsWalletGroupByNameResponse)
     ExistsWalletGroupByNameResponseOrBuilder {
@@ -88,8 +88,10 @@ private static final long serialVersionUID = 0L;
   public static final int EXISTS_FIELD_NUMBER = 1;
   private boolean exists_;
   /**
-   * <code>bool exists = 1;</code>
+   * <code>bool exists = 1 [json_name = "exists"];</code>
+   * @return The exists.
    */
+  @java.lang.Override
   public boolean getExists() {
     return exists_;
   }
@@ -399,13 +401,17 @@ private static final long serialVersionUID = 0L;
 
     private boolean exists_ ;
     /**
-     * <code>bool exists = 1;</code>
+     * <code>bool exists = 1 [json_name = "exists"];</code>
+     * @return The exists.
      */
+    @java.lang.Override
     public boolean getExists() {
       return exists_;
     }
     /**
-     * <code>bool exists = 1;</code>
+     * <code>bool exists = 1 [json_name = "exists"];</code>
+     * @param value The exists to set.
+     * @return This builder for chaining.
      */
     public Builder setExists(boolean value) {
       
@@ -414,7 +420,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool exists = 1;</code>
+     * <code>bool exists = 1 [json_name = "exists"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearExists() {
       

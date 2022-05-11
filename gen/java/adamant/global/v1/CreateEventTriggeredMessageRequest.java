@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.CreateEventTriggeredMessageRequest}
  */
-public  final class CreateEventTriggeredMessageRequest extends
+public final class CreateEventTriggeredMessageRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.CreateEventTriggeredMessageRequest)
     CreateEventTriggeredMessageRequestOrBuilder {
@@ -97,15 +97,17 @@ private static final long serialVersionUID = 0L;
   public static final int EVENT_TRIGGERED_MESSAGE_TYPE_FIELD_NUMBER = 1;
   private int eventTriggeredMessageType_;
   /**
-   * <code>.adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 1;</code>
+   * <code>.adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 1 [json_name = "eventTriggeredMessageType"];</code>
+   * @return The enum numeric value on the wire for eventTriggeredMessageType.
    */
-  public int getEventTriggeredMessageTypeValue() {
+  @java.lang.Override public int getEventTriggeredMessageTypeValue() {
     return eventTriggeredMessageType_;
   }
   /**
-   * <code>.adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 1;</code>
+   * <code>.adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 1 [json_name = "eventTriggeredMessageType"];</code>
+   * @return The eventTriggeredMessageType.
    */
-  public adamant.global.v1.Enum.EventTriggeredMessageType getEventTriggeredMessageType() {
+  @java.lang.Override public adamant.global.v1.Enum.EventTriggeredMessageType getEventTriggeredMessageType() {
     @SuppressWarnings("deprecation")
     adamant.global.v1.Enum.EventTriggeredMessageType result = adamant.global.v1.Enum.EventTriggeredMessageType.valueOf(eventTriggeredMessageType_);
     return result == null ? adamant.global.v1.Enum.EventTriggeredMessageType.UNRECOGNIZED : result;
@@ -114,8 +116,10 @@ private static final long serialVersionUID = 0L;
   public static final int DESTINATION_FIELD_NUMBER = 2;
   private volatile java.lang.Object destination_;
   /**
-   * <code>string destination = 2;</code>
+   * <code>string destination = 2 [json_name = "destination"];</code>
+   * @return The destination.
    */
+  @java.lang.Override
   public java.lang.String getDestination() {
     java.lang.Object ref = destination_;
     if (ref instanceof java.lang.String) {
@@ -129,8 +133,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string destination = 2;</code>
+   * <code>string destination = 2 [json_name = "destination"];</code>
+   * @return The bytes for destination.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getDestinationBytes() {
     java.lang.Object ref = destination_;
@@ -162,7 +168,7 @@ private static final long serialVersionUID = 0L;
     if (eventTriggeredMessageType_ != adamant.global.v1.Enum.EventTriggeredMessageType.EVENT_TRIGGERED_MESSAGE_TYPE_INVALID.getNumber()) {
       output.writeEnum(1, eventTriggeredMessageType_);
     }
-    if (!getDestinationBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destination_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, destination_);
     }
     unknownFields.writeTo(output);
@@ -178,7 +184,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, eventTriggeredMessageType_);
     }
-    if (!getDestinationBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destination_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, destination_);
     }
     size += unknownFields.getSerializedSize();
@@ -465,29 +471,37 @@ private static final long serialVersionUID = 0L;
 
     private int eventTriggeredMessageType_ = 0;
     /**
-     * <code>.adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 1;</code>
+     * <code>.adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 1 [json_name = "eventTriggeredMessageType"];</code>
+     * @return The enum numeric value on the wire for eventTriggeredMessageType.
      */
-    public int getEventTriggeredMessageTypeValue() {
+    @java.lang.Override public int getEventTriggeredMessageTypeValue() {
       return eventTriggeredMessageType_;
     }
     /**
-     * <code>.adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 1;</code>
+     * <code>.adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 1 [json_name = "eventTriggeredMessageType"];</code>
+     * @param value The enum numeric value on the wire for eventTriggeredMessageType to set.
+     * @return This builder for chaining.
      */
     public Builder setEventTriggeredMessageTypeValue(int value) {
+      
       eventTriggeredMessageType_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>.adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 1;</code>
+     * <code>.adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 1 [json_name = "eventTriggeredMessageType"];</code>
+     * @return The eventTriggeredMessageType.
      */
+    @java.lang.Override
     public adamant.global.v1.Enum.EventTriggeredMessageType getEventTriggeredMessageType() {
       @SuppressWarnings("deprecation")
       adamant.global.v1.Enum.EventTriggeredMessageType result = adamant.global.v1.Enum.EventTriggeredMessageType.valueOf(eventTriggeredMessageType_);
       return result == null ? adamant.global.v1.Enum.EventTriggeredMessageType.UNRECOGNIZED : result;
     }
     /**
-     * <code>.adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 1;</code>
+     * <code>.adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 1 [json_name = "eventTriggeredMessageType"];</code>
+     * @param value The eventTriggeredMessageType to set.
+     * @return This builder for chaining.
      */
     public Builder setEventTriggeredMessageType(adamant.global.v1.Enum.EventTriggeredMessageType value) {
       if (value == null) {
@@ -499,7 +513,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 1;</code>
+     * <code>.adamant.global.v1.EventTriggeredMessageType event_triggered_message_type = 1 [json_name = "eventTriggeredMessageType"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearEventTriggeredMessageType() {
       
@@ -510,7 +525,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object destination_ = "";
     /**
-     * <code>string destination = 2;</code>
+     * <code>string destination = 2 [json_name = "destination"];</code>
+     * @return The destination.
      */
     public java.lang.String getDestination() {
       java.lang.Object ref = destination_;
@@ -525,7 +541,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string destination = 2;</code>
+     * <code>string destination = 2 [json_name = "destination"];</code>
+     * @return The bytes for destination.
      */
     public com.google.protobuf.ByteString
         getDestinationBytes() {
@@ -541,7 +558,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string destination = 2;</code>
+     * <code>string destination = 2 [json_name = "destination"];</code>
+     * @param value The destination to set.
+     * @return This builder for chaining.
      */
     public Builder setDestination(
         java.lang.String value) {
@@ -554,7 +573,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string destination = 2;</code>
+     * <code>string destination = 2 [json_name = "destination"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearDestination() {
       
@@ -563,7 +583,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string destination = 2;</code>
+     * <code>string destination = 2 [json_name = "destination"];</code>
+     * @param value The bytes for destination to set.
+     * @return This builder for chaining.
      */
     public Builder setDestinationBytes(
         com.google.protobuf.ByteString value) {

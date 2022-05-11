@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code DownloadResourceRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class DownloadResourceRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.DownloadResourceRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.DownloadResourceRequest.class)) return new DownloadResourceRequestValidator();

@@ -8,11 +8,13 @@ public interface GetWalletGroupRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+   * @return The walletGroupId.
    */
   java.lang.String getWalletGroupId();
   /**
-   * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletGroupId.
    */
   com.google.protobuf.ByteString
       getWalletGroupIdBytes();

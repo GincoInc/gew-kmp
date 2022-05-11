@@ -8,25 +8,25 @@ public interface ListAddressesWithBalanceResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
    */
   java.util.List<adamant.global.v1.Model.AddressWithBalance> 
       getAddressesList();
   /**
-   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
    */
   adamant.global.v1.Model.AddressWithBalance getAddresses(int index);
   /**
-   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
    */
   int getAddressesCount();
   /**
-   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.AddressWithBalanceOrBuilder> 
       getAddressesOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.AddressWithBalance addresses = 1 [json_name = "addresses"];</code>
    */
   adamant.global.v1.Model.AddressWithBalanceOrBuilder getAddressesOrBuilder(
       int index);

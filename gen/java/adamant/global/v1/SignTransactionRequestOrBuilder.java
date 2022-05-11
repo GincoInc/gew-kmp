@@ -8,45 +8,53 @@ public interface SignTransactionRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The walletId.
    */
   java.lang.String getWalletId();
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletId.
    */
   com.google.protobuf.ByteString
       getWalletIdBytes();
 
   /**
-   * <code>string transaction_id = 2 [(.validate.rules) = { ... }</code>
+   * <code>string transaction_id = 2 [json_name = "transactionId", (.validate.rules) = { ... }</code>
+   * @return The transactionId.
    */
   java.lang.String getTransactionId();
   /**
-   * <code>string transaction_id = 2 [(.validate.rules) = { ... }</code>
+   * <code>string transaction_id = 2 [json_name = "transactionId", (.validate.rules) = { ... }</code>
+   * @return The bytes for transactionId.
    */
   com.google.protobuf.ByteString
       getTransactionIdBytes();
 
   /**
-   * <code>string key_id = 3 [(.validate.rules) = { ... }</code>
+   * <code>string key_id = 3 [json_name = "keyId", (.validate.rules) = { ... }</code>
+   * @return The keyId.
    */
   java.lang.String getKeyId();
   /**
-   * <code>string key_id = 3 [(.validate.rules) = { ... }</code>
+   * <code>string key_id = 3 [json_name = "keyId", (.validate.rules) = { ... }</code>
+   * @return The bytes for keyId.
    */
   com.google.protobuf.ByteString
       getKeyIdBytes();
 
   /**
-   * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
+   * @return Whether the signedInfo field is set.
    */
   boolean hasSignedInfo();
   /**
-   * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
+   * @return The signedInfo.
    */
   adamant.global.v1.Model.RequestSignedInfo getSignedInfo();
   /**
-   * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
    */
   adamant.global.v1.Model.RequestSignedInfoOrBuilder getSignedInfoOrBuilder();
 }

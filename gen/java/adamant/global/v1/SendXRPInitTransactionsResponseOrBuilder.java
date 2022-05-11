@@ -8,20 +8,26 @@ public interface SendXRPInitTransactionsResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated string tx_ids = 1;</code>
+   * <code>repeated string tx_ids = 1 [json_name = "txIds"];</code>
+   * @return A list containing the txIds.
    */
   java.util.List<java.lang.String>
       getTxIdsList();
   /**
-   * <code>repeated string tx_ids = 1;</code>
+   * <code>repeated string tx_ids = 1 [json_name = "txIds"];</code>
+   * @return The count of txIds.
    */
   int getTxIdsCount();
   /**
-   * <code>repeated string tx_ids = 1;</code>
+   * <code>repeated string tx_ids = 1 [json_name = "txIds"];</code>
+   * @param index The index of the element to return.
+   * @return The txIds at the given index.
    */
   java.lang.String getTxIds(int index);
   /**
-   * <code>repeated string tx_ids = 1;</code>
+   * <code>repeated string tx_ids = 1 [json_name = "txIds"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the txIds at the given index.
    */
   com.google.protobuf.ByteString
       getTxIdsBytes(int index);

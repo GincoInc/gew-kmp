@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.DeleteEventTriggeredMessageRequest}
  */
-public  final class DeleteEventTriggeredMessageRequest extends
+public final class DeleteEventTriggeredMessageRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.DeleteEventTriggeredMessageRequest)
     DeleteEventTriggeredMessageRequestOrBuilder {
@@ -90,8 +90,10 @@ private static final long serialVersionUID = 0L;
   public static final int EVENT_TRIGGERED_MESSAGE_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object eventTriggeredMessageId_;
   /**
-   * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+   * @return The eventTriggeredMessageId.
    */
+  @java.lang.Override
   public java.lang.String getEventTriggeredMessageId() {
     java.lang.Object ref = eventTriggeredMessageId_;
     if (ref instanceof java.lang.String) {
@@ -105,8 +107,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+   * @return The bytes for eventTriggeredMessageId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getEventTriggeredMessageIdBytes() {
     java.lang.Object ref = eventTriggeredMessageId_;
@@ -135,7 +139,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getEventTriggeredMessageIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(eventTriggeredMessageId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, eventTriggeredMessageId_);
     }
     unknownFields.writeTo(output);
@@ -147,7 +151,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getEventTriggeredMessageIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(eventTriggeredMessageId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, eventTriggeredMessageId_);
     }
     size += unknownFields.getSerializedSize();
@@ -425,7 +429,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object eventTriggeredMessageId_ = "";
     /**
-     * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+     * @return The eventTriggeredMessageId.
      */
     public java.lang.String getEventTriggeredMessageId() {
       java.lang.Object ref = eventTriggeredMessageId_;
@@ -440,7 +445,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+     * @return The bytes for eventTriggeredMessageId.
      */
     public com.google.protobuf.ByteString
         getEventTriggeredMessageIdBytes() {
@@ -456,7 +462,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+     * @param value The eventTriggeredMessageId to set.
+     * @return This builder for chaining.
      */
     public Builder setEventTriggeredMessageId(
         java.lang.String value) {
@@ -469,7 +477,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearEventTriggeredMessageId() {
       
@@ -478,7 +487,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for eventTriggeredMessageId to set.
+     * @return This builder for chaining.
      */
     public Builder setEventTriggeredMessageIdBytes(
         com.google.protobuf.ByteString value) {

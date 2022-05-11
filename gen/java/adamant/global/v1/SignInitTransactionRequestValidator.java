@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code SignInitTransactionRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class SignInitTransactionRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.SignInitTransactionRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.SignInitTransactionRequest.class)) return new SignInitTransactionRequestValidator();
@@ -34,7 +36,6 @@ public class SignInitTransactionRequestValidator implements io.envoyproxy.pgv.Va
 			// Validate signed_info
 			if (true) index.validatorFor(item).assertValid(item);
 			});
-
 	
 	}
 

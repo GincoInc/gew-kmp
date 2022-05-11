@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.CreateLabeledAddressResponse}
  */
-public  final class CreateLabeledAddressResponse extends
+public final class CreateLabeledAddressResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.CreateLabeledAddressResponse)
     CreateLabeledAddressResponseOrBuilder {
@@ -90,8 +90,10 @@ private static final long serialVersionUID = 0L;
   public static final int LABELED_ADDRESS_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object labeledAddressId_;
   /**
-   * <code>string labeled_address_id = 1;</code>
+   * <code>string labeled_address_id = 1 [json_name = "labeledAddressId"];</code>
+   * @return The labeledAddressId.
    */
+  @java.lang.Override
   public java.lang.String getLabeledAddressId() {
     java.lang.Object ref = labeledAddressId_;
     if (ref instanceof java.lang.String) {
@@ -105,8 +107,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string labeled_address_id = 1;</code>
+   * <code>string labeled_address_id = 1 [json_name = "labeledAddressId"];</code>
+   * @return The bytes for labeledAddressId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getLabeledAddressIdBytes() {
     java.lang.Object ref = labeledAddressId_;
@@ -135,7 +139,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getLabeledAddressIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(labeledAddressId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, labeledAddressId_);
     }
     unknownFields.writeTo(output);
@@ -147,7 +151,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getLabeledAddressIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(labeledAddressId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, labeledAddressId_);
     }
     size += unknownFields.getSerializedSize();
@@ -425,7 +429,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object labeledAddressId_ = "";
     /**
-     * <code>string labeled_address_id = 1;</code>
+     * <code>string labeled_address_id = 1 [json_name = "labeledAddressId"];</code>
+     * @return The labeledAddressId.
      */
     public java.lang.String getLabeledAddressId() {
       java.lang.Object ref = labeledAddressId_;
@@ -440,7 +445,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string labeled_address_id = 1;</code>
+     * <code>string labeled_address_id = 1 [json_name = "labeledAddressId"];</code>
+     * @return The bytes for labeledAddressId.
      */
     public com.google.protobuf.ByteString
         getLabeledAddressIdBytes() {
@@ -456,7 +462,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string labeled_address_id = 1;</code>
+     * <code>string labeled_address_id = 1 [json_name = "labeledAddressId"];</code>
+     * @param value The labeledAddressId to set.
+     * @return This builder for chaining.
      */
     public Builder setLabeledAddressId(
         java.lang.String value) {
@@ -469,7 +477,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string labeled_address_id = 1;</code>
+     * <code>string labeled_address_id = 1 [json_name = "labeledAddressId"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearLabeledAddressId() {
       
@@ -478,7 +487,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string labeled_address_id = 1;</code>
+     * <code>string labeled_address_id = 1 [json_name = "labeledAddressId"];</code>
+     * @param value The bytes for labeledAddressId to set.
+     * @return This builder for chaining.
      */
     public Builder setLabeledAddressIdBytes(
         com.google.protobuf.ByteString value) {

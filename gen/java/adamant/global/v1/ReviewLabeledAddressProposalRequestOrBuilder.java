@@ -8,17 +8,20 @@ public interface ReviewLabeledAddressProposalRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string labeled_address_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string labeled_address_id = 1 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+   * @return The labeledAddressId.
    */
   java.lang.String getLabeledAddressId();
   /**
-   * <code>string labeled_address_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string labeled_address_id = 1 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+   * @return The bytes for labeledAddressId.
    */
   com.google.protobuf.ByteString
       getLabeledAddressIdBytes();
 
   /**
-   * <code>bool approve = 2;</code>
+   * <code>bool approve = 2 [json_name = "approve"];</code>
+   * @return The approve.
    */
   boolean getApprove();
 }

@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.UpdateTransferLimitRequest}
  */
-public  final class UpdateTransferLimitRequest extends
+public final class UpdateTransferLimitRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.UpdateTransferLimitRequest)
     UpdateTransferLimitRequestOrBuilder {
@@ -104,8 +104,10 @@ private static final long serialVersionUID = 0L;
   public static final int TRANSFER_LIMIT_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object transferLimitId_;
   /**
-   * <code>string transfer_limit_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string transfer_limit_id = 1 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+   * @return The transferLimitId.
    */
+  @java.lang.Override
   public java.lang.String getTransferLimitId() {
     java.lang.Object ref = transferLimitId_;
     if (ref instanceof java.lang.String) {
@@ -119,8 +121,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string transfer_limit_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string transfer_limit_id = 1 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+   * @return The bytes for transferLimitId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTransferLimitIdBytes() {
     java.lang.Object ref = transferLimitId_;
@@ -138,33 +142,38 @@ private static final long serialVersionUID = 0L;
   public static final int TRANSFER_LIMITS_FIELD_NUMBER = 2;
   private java.util.List<adamant.global.v1.Model.RequestTransferLimitEntry> transferLimits_;
   /**
-   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.RequestTransferLimitEntry> getTransferLimitsList() {
     return transferLimits_;
   }
   /**
-   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.RequestTransferLimitEntryOrBuilder> 
       getTransferLimitsOrBuilderList() {
     return transferLimits_;
   }
   /**
-   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public int getTransferLimitsCount() {
     return transferLimits_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.RequestTransferLimitEntry getTransferLimits(int index) {
     return transferLimits_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.RequestTransferLimitEntryOrBuilder getTransferLimitsOrBuilder(
       int index) {
     return transferLimits_.get(index);
@@ -184,7 +193,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getTransferLimitIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transferLimitId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, transferLimitId_);
     }
     for (int i = 0; i < transferLimits_.size(); i++) {
@@ -199,7 +208,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getTransferLimitIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transferLimitId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, transferLimitId_);
     }
     for (int i = 0; i < transferLimits_.size(); i++) {
@@ -531,7 +540,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object transferLimitId_ = "";
     /**
-     * <code>string transfer_limit_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 1 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @return The transferLimitId.
      */
     public java.lang.String getTransferLimitId() {
       java.lang.Object ref = transferLimitId_;
@@ -546,7 +556,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string transfer_limit_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 1 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @return The bytes for transferLimitId.
      */
     public com.google.protobuf.ByteString
         getTransferLimitIdBytes() {
@@ -562,7 +573,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string transfer_limit_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 1 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @param value The transferLimitId to set.
+     * @return This builder for chaining.
      */
     public Builder setTransferLimitId(
         java.lang.String value) {
@@ -575,7 +588,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string transfer_limit_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 1 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearTransferLimitId() {
       
@@ -584,7 +598,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string transfer_limit_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 1 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for transferLimitId to set.
+     * @return This builder for chaining.
      */
     public Builder setTransferLimitIdBytes(
         com.google.protobuf.ByteString value) {
@@ -611,7 +627,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.RequestTransferLimitEntry, adamant.global.v1.Model.RequestTransferLimitEntry.Builder, adamant.global.v1.Model.RequestTransferLimitEntryOrBuilder> transferLimitsBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public java.util.List<adamant.global.v1.Model.RequestTransferLimitEntry> getTransferLimitsList() {
       if (transferLimitsBuilder_ == null) {
@@ -621,7 +637,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public int getTransferLimitsCount() {
       if (transferLimitsBuilder_ == null) {
@@ -631,7 +647,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public adamant.global.v1.Model.RequestTransferLimitEntry getTransferLimits(int index) {
       if (transferLimitsBuilder_ == null) {
@@ -641,7 +657,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder setTransferLimits(
         int index, adamant.global.v1.Model.RequestTransferLimitEntry value) {
@@ -658,7 +674,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder setTransferLimits(
         int index, adamant.global.v1.Model.RequestTransferLimitEntry.Builder builderForValue) {
@@ -672,7 +688,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder addTransferLimits(adamant.global.v1.Model.RequestTransferLimitEntry value) {
       if (transferLimitsBuilder_ == null) {
@@ -688,7 +704,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder addTransferLimits(
         int index, adamant.global.v1.Model.RequestTransferLimitEntry value) {
@@ -705,7 +721,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder addTransferLimits(
         adamant.global.v1.Model.RequestTransferLimitEntry.Builder builderForValue) {
@@ -719,7 +735,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder addTransferLimits(
         int index, adamant.global.v1.Model.RequestTransferLimitEntry.Builder builderForValue) {
@@ -733,7 +749,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder addAllTransferLimits(
         java.lang.Iterable<? extends adamant.global.v1.Model.RequestTransferLimitEntry> values) {
@@ -748,7 +764,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder clearTransferLimits() {
       if (transferLimitsBuilder_ == null) {
@@ -761,7 +777,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder removeTransferLimits(int index) {
       if (transferLimitsBuilder_ == null) {
@@ -774,14 +790,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public adamant.global.v1.Model.RequestTransferLimitEntry.Builder getTransferLimitsBuilder(
         int index) {
       return getTransferLimitsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public adamant.global.v1.Model.RequestTransferLimitEntryOrBuilder getTransferLimitsOrBuilder(
         int index) {
@@ -791,7 +807,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.RequestTransferLimitEntryOrBuilder> 
          getTransferLimitsOrBuilderList() {
@@ -802,14 +818,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public adamant.global.v1.Model.RequestTransferLimitEntry.Builder addTransferLimitsBuilder() {
       return getTransferLimitsFieldBuilder().addBuilder(
           adamant.global.v1.Model.RequestTransferLimitEntry.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public adamant.global.v1.Model.RequestTransferLimitEntry.Builder addTransferLimitsBuilder(
         int index) {
@@ -817,7 +833,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.RequestTransferLimitEntry.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public java.util.List<adamant.global.v1.Model.RequestTransferLimitEntry.Builder> 
          getTransferLimitsBuilderList() {

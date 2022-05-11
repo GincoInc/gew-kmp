@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ReviewWalletProposalRequest}
  */
-public  final class ReviewWalletProposalRequest extends
+public final class ReviewWalletProposalRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ReviewWalletProposalRequest)
     ReviewWalletProposalRequestOrBuilder {
@@ -95,8 +95,10 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object walletId_;
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The walletId.
    */
+  @java.lang.Override
   public java.lang.String getWalletId() {
     java.lang.Object ref = walletId_;
     if (ref instanceof java.lang.String) {
@@ -110,8 +112,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWalletIdBytes() {
     java.lang.Object ref = walletId_;
@@ -129,8 +133,10 @@ private static final long serialVersionUID = 0L;
   public static final int APPROVE_FIELD_NUMBER = 2;
   private boolean approve_;
   /**
-   * <code>bool approve = 2;</code>
+   * <code>bool approve = 2 [json_name = "approve"];</code>
+   * @return The approve.
    */
+  @java.lang.Override
   public boolean getApprove() {
     return approve_;
   }
@@ -149,7 +155,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletId_);
     }
     if (approve_ != false) {
@@ -164,7 +170,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletId_);
     }
     if (approve_ != false) {
@@ -457,7 +463,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object walletId_ = "";
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The walletId.
      */
     public java.lang.String getWalletId() {
       java.lang.Object ref = walletId_;
@@ -472,7 +479,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The bytes for walletId.
      */
     public com.google.protobuf.ByteString
         getWalletIdBytes() {
@@ -488,7 +496,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @param value The walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletId(
         java.lang.String value) {
@@ -501,7 +511,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletId() {
       
@@ -510,7 +521,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletIdBytes(
         com.google.protobuf.ByteString value) {
@@ -526,13 +539,17 @@ private static final long serialVersionUID = 0L;
 
     private boolean approve_ ;
     /**
-     * <code>bool approve = 2;</code>
+     * <code>bool approve = 2 [json_name = "approve"];</code>
+     * @return The approve.
      */
+    @java.lang.Override
     public boolean getApprove() {
       return approve_;
     }
     /**
-     * <code>bool approve = 2;</code>
+     * <code>bool approve = 2 [json_name = "approve"];</code>
+     * @param value The approve to set.
+     * @return This builder for chaining.
      */
     public Builder setApprove(boolean value) {
       
@@ -541,7 +558,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool approve = 2;</code>
+     * <code>bool approve = 2 [json_name = "approve"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearApprove() {
       

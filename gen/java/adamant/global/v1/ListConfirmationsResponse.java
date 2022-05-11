@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListConfirmationsResponse}
  */
-public  final class ListConfirmationsResponse extends
+public final class ListConfirmationsResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListConfirmationsResponse)
     ListConfirmationsResponseOrBuilder {
@@ -97,33 +97,38 @@ private static final long serialVersionUID = 0L;
   public static final int CONFIRMATIONS_FIELD_NUMBER = 1;
   private java.util.List<adamant.global.v1.Model.Confirmation> confirmations_;
   /**
-   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.Confirmation> getConfirmationsList() {
     return confirmations_;
   }
   /**
-   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.ConfirmationOrBuilder> 
       getConfirmationsOrBuilderList() {
     return confirmations_;
   }
   /**
-   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
    */
+  @java.lang.Override
   public int getConfirmationsCount() {
     return confirmations_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.Confirmation getConfirmations(int index) {
     return confirmations_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.ConfirmationOrBuilder getConfirmationsOrBuilder(
       int index) {
     return confirmations_.get(index);
@@ -484,7 +489,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.Confirmation, adamant.global.v1.Model.Confirmation.Builder, adamant.global.v1.Model.ConfirmationOrBuilder> confirmationsBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public java.util.List<adamant.global.v1.Model.Confirmation> getConfirmationsList() {
       if (confirmationsBuilder_ == null) {
@@ -494,7 +499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public int getConfirmationsCount() {
       if (confirmationsBuilder_ == null) {
@@ -504,7 +509,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public adamant.global.v1.Model.Confirmation getConfirmations(int index) {
       if (confirmationsBuilder_ == null) {
@@ -514,7 +519,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public Builder setConfirmations(
         int index, adamant.global.v1.Model.Confirmation value) {
@@ -531,7 +536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public Builder setConfirmations(
         int index, adamant.global.v1.Model.Confirmation.Builder builderForValue) {
@@ -545,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public Builder addConfirmations(adamant.global.v1.Model.Confirmation value) {
       if (confirmationsBuilder_ == null) {
@@ -561,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public Builder addConfirmations(
         int index, adamant.global.v1.Model.Confirmation value) {
@@ -578,7 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public Builder addConfirmations(
         adamant.global.v1.Model.Confirmation.Builder builderForValue) {
@@ -592,7 +597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public Builder addConfirmations(
         int index, adamant.global.v1.Model.Confirmation.Builder builderForValue) {
@@ -606,7 +611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public Builder addAllConfirmations(
         java.lang.Iterable<? extends adamant.global.v1.Model.Confirmation> values) {
@@ -621,7 +626,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public Builder clearConfirmations() {
       if (confirmationsBuilder_ == null) {
@@ -634,7 +639,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public Builder removeConfirmations(int index) {
       if (confirmationsBuilder_ == null) {
@@ -647,14 +652,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public adamant.global.v1.Model.Confirmation.Builder getConfirmationsBuilder(
         int index) {
       return getConfirmationsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public adamant.global.v1.Model.ConfirmationOrBuilder getConfirmationsOrBuilder(
         int index) {
@@ -664,7 +669,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.ConfirmationOrBuilder> 
          getConfirmationsOrBuilderList() {
@@ -675,14 +680,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public adamant.global.v1.Model.Confirmation.Builder addConfirmationsBuilder() {
       return getConfirmationsFieldBuilder().addBuilder(
           adamant.global.v1.Model.Confirmation.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public adamant.global.v1.Model.Confirmation.Builder addConfirmationsBuilder(
         int index) {
@@ -690,7 +695,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.Confirmation.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+     * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
      */
     public java.util.List<adamant.global.v1.Model.Confirmation.Builder> 
          getConfirmationsBuilderList() {

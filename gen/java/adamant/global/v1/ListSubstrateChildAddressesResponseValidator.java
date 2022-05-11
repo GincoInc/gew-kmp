@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ListSubstrateChildAddressesResponse} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ListSubstrateChildAddressesResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListSubstrateChildAddressesResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListSubstrateChildAddressesResponse.class)) return new ListSubstrateChildAddressesResponseValidator();
@@ -23,7 +25,6 @@ public class ListSubstrateChildAddressesResponseValidator implements io.envoypro
 			// Validate substrate_child_addresses
 			if (true) index.validatorFor(item).assertValid(item);
 			});
-
 	
 	}
 

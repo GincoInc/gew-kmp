@@ -12,7 +12,7 @@ public interface ListUncheckedTransfersResponseOrBuilder extends
    * Array of transfer objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.UncheckedTransfer unchecked_transfers = 1;</code>
+   * <code>repeated .adamant.global.v1.UncheckedTransfer unchecked_transfers = 1 [json_name = "uncheckedTransfers"];</code>
    */
   java.util.List<adamant.global.v1.Model.UncheckedTransfer> 
       getUncheckedTransfersList();
@@ -21,7 +21,7 @@ public interface ListUncheckedTransfersResponseOrBuilder extends
    * Array of transfer objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.UncheckedTransfer unchecked_transfers = 1;</code>
+   * <code>repeated .adamant.global.v1.UncheckedTransfer unchecked_transfers = 1 [json_name = "uncheckedTransfers"];</code>
    */
   adamant.global.v1.Model.UncheckedTransfer getUncheckedTransfers(int index);
   /**
@@ -29,7 +29,7 @@ public interface ListUncheckedTransfersResponseOrBuilder extends
    * Array of transfer objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.UncheckedTransfer unchecked_transfers = 1;</code>
+   * <code>repeated .adamant.global.v1.UncheckedTransfer unchecked_transfers = 1 [json_name = "uncheckedTransfers"];</code>
    */
   int getUncheckedTransfersCount();
   /**
@@ -37,7 +37,7 @@ public interface ListUncheckedTransfersResponseOrBuilder extends
    * Array of transfer objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.UncheckedTransfer unchecked_transfers = 1;</code>
+   * <code>repeated .adamant.global.v1.UncheckedTransfer unchecked_transfers = 1 [json_name = "uncheckedTransfers"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.UncheckedTransferOrBuilder> 
       getUncheckedTransfersOrBuilderList();
@@ -46,7 +46,7 @@ public interface ListUncheckedTransfersResponseOrBuilder extends
    * Array of transfer objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.UncheckedTransfer unchecked_transfers = 1;</code>
+   * <code>repeated .adamant.global.v1.UncheckedTransfer unchecked_transfers = 1 [json_name = "uncheckedTransfers"];</code>
    */
   adamant.global.v1.Model.UncheckedTransferOrBuilder getUncheckedTransfersOrBuilder(
       int index);
@@ -56,7 +56,8 @@ public interface ListUncheckedTransfersResponseOrBuilder extends
    * The token for requesting the next page
    * </pre>
    *
-   * <code>string next_page_token = 2;</code>
+   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+   * @return The nextPageToken.
    */
   java.lang.String getNextPageToken();
   /**
@@ -64,7 +65,8 @@ public interface ListUncheckedTransfersResponseOrBuilder extends
    * The token for requesting the next page
    * </pre>
    *
-   * <code>string next_page_token = 2;</code>
+   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+   * @return The bytes for nextPageToken.
    */
   com.google.protobuf.ByteString
       getNextPageTokenBytes();

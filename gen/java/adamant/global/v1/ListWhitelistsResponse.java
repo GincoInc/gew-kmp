@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListWhitelistsResponse}
  */
-public  final class ListWhitelistsResponse extends
+public final class ListWhitelistsResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListWhitelistsResponse)
     ListWhitelistsResponseOrBuilder {
@@ -97,33 +97,38 @@ private static final long serialVersionUID = 0L;
   public static final int WHITELISTS_FIELD_NUMBER = 1;
   private java.util.List<adamant.global.v1.Model.Whitelist> whitelists_;
   /**
-   * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+   * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.Whitelist> getWhitelistsList() {
     return whitelists_;
   }
   /**
-   * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+   * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.WhitelistOrBuilder> 
       getWhitelistsOrBuilderList() {
     return whitelists_;
   }
   /**
-   * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+   * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
    */
+  @java.lang.Override
   public int getWhitelistsCount() {
     return whitelists_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+   * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.Whitelist getWhitelists(int index) {
     return whitelists_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+   * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.WhitelistOrBuilder getWhitelistsOrBuilder(
       int index) {
     return whitelists_.get(index);
@@ -484,7 +489,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.Whitelist, adamant.global.v1.Model.Whitelist.Builder, adamant.global.v1.Model.WhitelistOrBuilder> whitelistsBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public java.util.List<adamant.global.v1.Model.Whitelist> getWhitelistsList() {
       if (whitelistsBuilder_ == null) {
@@ -494,7 +499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public int getWhitelistsCount() {
       if (whitelistsBuilder_ == null) {
@@ -504,7 +509,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public adamant.global.v1.Model.Whitelist getWhitelists(int index) {
       if (whitelistsBuilder_ == null) {
@@ -514,7 +519,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public Builder setWhitelists(
         int index, adamant.global.v1.Model.Whitelist value) {
@@ -531,7 +536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public Builder setWhitelists(
         int index, adamant.global.v1.Model.Whitelist.Builder builderForValue) {
@@ -545,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public Builder addWhitelists(adamant.global.v1.Model.Whitelist value) {
       if (whitelistsBuilder_ == null) {
@@ -561,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public Builder addWhitelists(
         int index, adamant.global.v1.Model.Whitelist value) {
@@ -578,7 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public Builder addWhitelists(
         adamant.global.v1.Model.Whitelist.Builder builderForValue) {
@@ -592,7 +597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public Builder addWhitelists(
         int index, adamant.global.v1.Model.Whitelist.Builder builderForValue) {
@@ -606,7 +611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public Builder addAllWhitelists(
         java.lang.Iterable<? extends adamant.global.v1.Model.Whitelist> values) {
@@ -621,7 +626,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public Builder clearWhitelists() {
       if (whitelistsBuilder_ == null) {
@@ -634,7 +639,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public Builder removeWhitelists(int index) {
       if (whitelistsBuilder_ == null) {
@@ -647,14 +652,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public adamant.global.v1.Model.Whitelist.Builder getWhitelistsBuilder(
         int index) {
       return getWhitelistsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public adamant.global.v1.Model.WhitelistOrBuilder getWhitelistsOrBuilder(
         int index) {
@@ -664,7 +669,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.WhitelistOrBuilder> 
          getWhitelistsOrBuilderList() {
@@ -675,14 +680,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public adamant.global.v1.Model.Whitelist.Builder addWhitelistsBuilder() {
       return getWhitelistsFieldBuilder().addBuilder(
           adamant.global.v1.Model.Whitelist.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public adamant.global.v1.Model.Whitelist.Builder addWhitelistsBuilder(
         int index) {
@@ -690,7 +695,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.Whitelist.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1;</code>
+     * <code>repeated .adamant.global.v1.Whitelist whitelists = 1 [json_name = "whitelists"];</code>
      */
     public java.util.List<adamant.global.v1.Model.Whitelist.Builder> 
          getWhitelistsBuilderList() {

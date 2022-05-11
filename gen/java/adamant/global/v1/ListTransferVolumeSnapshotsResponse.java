@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListTransferVolumeSnapshotsResponse}
  */
-public  final class ListTransferVolumeSnapshotsResponse extends
+public final class ListTransferVolumeSnapshotsResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListTransferVolumeSnapshotsResponse)
     ListTransferVolumeSnapshotsResponseOrBuilder {
@@ -96,20 +96,25 @@ private static final long serialVersionUID = 0L;
   public static final int TRANSFER_VOLUME_SNAPSHOTS_FIELD_NUMBER = 1;
   private adamant.global.v1.Model.TransferVolumeSnapshots transferVolumeSnapshots_;
   /**
-   * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1;</code>
+   * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1 [json_name = "transferVolumeSnapshots"];</code>
+   * @return Whether the transferVolumeSnapshots field is set.
    */
+  @java.lang.Override
   public boolean hasTransferVolumeSnapshots() {
     return transferVolumeSnapshots_ != null;
   }
   /**
-   * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1;</code>
+   * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1 [json_name = "transferVolumeSnapshots"];</code>
+   * @return The transferVolumeSnapshots.
    */
+  @java.lang.Override
   public adamant.global.v1.Model.TransferVolumeSnapshots getTransferVolumeSnapshots() {
     return transferVolumeSnapshots_ == null ? adamant.global.v1.Model.TransferVolumeSnapshots.getDefaultInstance() : transferVolumeSnapshots_;
   }
   /**
-   * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1;</code>
+   * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1 [json_name = "transferVolumeSnapshots"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.TransferVolumeSnapshotsOrBuilder getTransferVolumeSnapshotsOrBuilder() {
     return getTransferVolumeSnapshots();
   }
@@ -433,13 +438,15 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         adamant.global.v1.Model.TransferVolumeSnapshots, adamant.global.v1.Model.TransferVolumeSnapshots.Builder, adamant.global.v1.Model.TransferVolumeSnapshotsOrBuilder> transferVolumeSnapshotsBuilder_;
     /**
-     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1 [json_name = "transferVolumeSnapshots"];</code>
+     * @return Whether the transferVolumeSnapshots field is set.
      */
     public boolean hasTransferVolumeSnapshots() {
       return transferVolumeSnapshotsBuilder_ != null || transferVolumeSnapshots_ != null;
     }
     /**
-     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1 [json_name = "transferVolumeSnapshots"];</code>
+     * @return The transferVolumeSnapshots.
      */
     public adamant.global.v1.Model.TransferVolumeSnapshots getTransferVolumeSnapshots() {
       if (transferVolumeSnapshotsBuilder_ == null) {
@@ -449,7 +456,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1 [json_name = "transferVolumeSnapshots"];</code>
      */
     public Builder setTransferVolumeSnapshots(adamant.global.v1.Model.TransferVolumeSnapshots value) {
       if (transferVolumeSnapshotsBuilder_ == null) {
@@ -465,7 +472,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1 [json_name = "transferVolumeSnapshots"];</code>
      */
     public Builder setTransferVolumeSnapshots(
         adamant.global.v1.Model.TransferVolumeSnapshots.Builder builderForValue) {
@@ -479,7 +486,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1 [json_name = "transferVolumeSnapshots"];</code>
      */
     public Builder mergeTransferVolumeSnapshots(adamant.global.v1.Model.TransferVolumeSnapshots value) {
       if (transferVolumeSnapshotsBuilder_ == null) {
@@ -497,7 +504,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1 [json_name = "transferVolumeSnapshots"];</code>
      */
     public Builder clearTransferVolumeSnapshots() {
       if (transferVolumeSnapshotsBuilder_ == null) {
@@ -511,7 +518,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1 [json_name = "transferVolumeSnapshots"];</code>
      */
     public adamant.global.v1.Model.TransferVolumeSnapshots.Builder getTransferVolumeSnapshotsBuilder() {
       
@@ -519,7 +526,7 @@ private static final long serialVersionUID = 0L;
       return getTransferVolumeSnapshotsFieldBuilder().getBuilder();
     }
     /**
-     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1 [json_name = "transferVolumeSnapshots"];</code>
      */
     public adamant.global.v1.Model.TransferVolumeSnapshotsOrBuilder getTransferVolumeSnapshotsOrBuilder() {
       if (transferVolumeSnapshotsBuilder_ != null) {
@@ -530,7 +537,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1 [json_name = "transferVolumeSnapshots"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         adamant.global.v1.Model.TransferVolumeSnapshots, adamant.global.v1.Model.TransferVolumeSnapshots.Builder, adamant.global.v1.Model.TransferVolumeSnapshotsOrBuilder> 

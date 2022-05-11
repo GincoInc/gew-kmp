@@ -8,45 +8,49 @@ public interface SignInitTransactionRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The walletId.
    */
   java.lang.String getWalletId();
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletId.
    */
   com.google.protobuf.ByteString
       getWalletIdBytes();
 
   /**
-   * <code>string key_id = 2 [(.validate.rules) = { ... }</code>
+   * <code>string key_id = 2 [json_name = "keyId", (.validate.rules) = { ... }</code>
+   * @return The keyId.
    */
   java.lang.String getKeyId();
   /**
-   * <code>string key_id = 2 [(.validate.rules) = { ... }</code>
+   * <code>string key_id = 2 [json_name = "keyId", (.validate.rules) = { ... }</code>
+   * @return The bytes for keyId.
    */
   com.google.protobuf.ByteString
       getKeyIdBytes();
 
   /**
-   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
    */
   java.util.List<adamant.global.v1.Model.RequestSignedInfo> 
       getSignedInfoList();
   /**
-   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
    */
   adamant.global.v1.Model.RequestSignedInfo getSignedInfo(int index);
   /**
-   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
    */
   int getSignedInfoCount();
   /**
-   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
    */
   java.util.List<? extends adamant.global.v1.Model.RequestSignedInfoOrBuilder> 
       getSignedInfoOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
    */
   adamant.global.v1.Model.RequestSignedInfoOrBuilder getSignedInfoOrBuilder(
       int index);

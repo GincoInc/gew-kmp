@@ -8,30 +8,38 @@ public interface UpdateWalletGroupRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+   * @return The walletGroupId.
    */
   java.lang.String getWalletGroupId();
   /**
-   * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletGroupId.
    */
   com.google.protobuf.ByteString
       getWalletGroupIdBytes();
 
   /**
-   * <code>repeated string wallet_ids = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated string wallet_ids = 2 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+   * @return A list containing the walletIds.
    */
   java.util.List<java.lang.String>
       getWalletIdsList();
   /**
-   * <code>repeated string wallet_ids = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated string wallet_ids = 2 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+   * @return The count of walletIds.
    */
   int getWalletIdsCount();
   /**
-   * <code>repeated string wallet_ids = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated string wallet_ids = 2 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+   * @param index The index of the element to return.
+   * @return The walletIds at the given index.
    */
   java.lang.String getWalletIds(int index);
   /**
-   * <code>repeated string wallet_ids = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated string wallet_ids = 2 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the walletIds at the given index.
    */
   com.google.protobuf.ByteString
       getWalletIdsBytes(int index);

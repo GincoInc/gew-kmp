@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code CreateWhitelistRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class CreateWhitelistRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.CreateWhitelistRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.CreateWhitelistRequest.class)) return new CreateWhitelistRequestValidator();
@@ -26,7 +28,7 @@ public class CreateWhitelistRequestValidator implements io.envoyproxy.pgv.Valida
 	public void assertValid(adamant.global.v1.CreateWhitelistRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
 			io.envoyproxy.pgv.StringValidation.minLength(".adamant.global.v1.CreateWhitelistRequest.name", proto.getName(), 1);
-			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.global.v1.CreateWhitelistRequest.name", proto.getName(), 20);
+			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.global.v1.CreateWhitelistRequest.name", proto.getName(), 40);
 	
 			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.CreateWhitelistRequest.coin", proto.getCoin());
 			io.envoyproxy.pgv.CollectiveValidation.notIn(".adamant.global.v1.CreateWhitelistRequest.coin", proto.getCoin(), COIN__NOT_IN);
@@ -36,7 +38,6 @@ public class CreateWhitelistRequestValidator implements io.envoyproxy.pgv.Valida
 				// no validation rules for AddressIds
 
 			});
-
 	
 	}
 

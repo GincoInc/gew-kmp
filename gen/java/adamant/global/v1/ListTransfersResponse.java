@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListTransfersResponse}
  */
-public  final class ListTransfersResponse extends
+public final class ListTransfersResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListTransfersResponse)
     ListTransfersResponseOrBuilder {
@@ -108,8 +108,9 @@ private static final long serialVersionUID = 0L;
    * Array of transfer objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+   * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.Transfer> getTransfersList() {
     return transfers_;
   }
@@ -118,8 +119,9 @@ private static final long serialVersionUID = 0L;
    * Array of transfer objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+   * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.TransferOrBuilder> 
       getTransfersOrBuilderList() {
     return transfers_;
@@ -129,8 +131,9 @@ private static final long serialVersionUID = 0L;
    * Array of transfer objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+   * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
    */
+  @java.lang.Override
   public int getTransfersCount() {
     return transfers_.size();
   }
@@ -139,8 +142,9 @@ private static final long serialVersionUID = 0L;
    * Array of transfer objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+   * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.Transfer getTransfers(int index) {
     return transfers_.get(index);
   }
@@ -149,8 +153,9 @@ private static final long serialVersionUID = 0L;
    * Array of transfer objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+   * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.TransferOrBuilder getTransfersOrBuilder(
       int index) {
     return transfers_.get(index);
@@ -163,8 +168,10 @@ private static final long serialVersionUID = 0L;
    * The token for requesting the next page
    * </pre>
    *
-   * <code>string next_page_token = 2;</code>
+   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+   * @return The nextPageToken.
    */
+  @java.lang.Override
   public java.lang.String getNextPageToken() {
     java.lang.Object ref = nextPageToken_;
     if (ref instanceof java.lang.String) {
@@ -182,8 +189,10 @@ private static final long serialVersionUID = 0L;
    * The token for requesting the next page
    * </pre>
    *
-   * <code>string next_page_token = 2;</code>
+   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+   * @return The bytes for nextPageToken.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getNextPageTokenBytes() {
     java.lang.Object ref = nextPageToken_;
@@ -215,7 +224,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < transfers_.size(); i++) {
       output.writeMessage(1, transfers_.get(i));
     }
-    if (!getNextPageTokenBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nextPageToken_);
     }
     unknownFields.writeTo(output);
@@ -231,7 +240,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, transfers_.get(i));
     }
-    if (!getNextPageTokenBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nextPageToken_);
     }
     size += unknownFields.getSerializedSize();
@@ -574,7 +583,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public java.util.List<adamant.global.v1.Model.Transfer> getTransfersList() {
       if (transfersBuilder_ == null) {
@@ -588,7 +597,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public int getTransfersCount() {
       if (transfersBuilder_ == null) {
@@ -602,7 +611,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public adamant.global.v1.Model.Transfer getTransfers(int index) {
       if (transfersBuilder_ == null) {
@@ -616,7 +625,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public Builder setTransfers(
         int index, adamant.global.v1.Model.Transfer value) {
@@ -637,7 +646,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public Builder setTransfers(
         int index, adamant.global.v1.Model.Transfer.Builder builderForValue) {
@@ -655,7 +664,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public Builder addTransfers(adamant.global.v1.Model.Transfer value) {
       if (transfersBuilder_ == null) {
@@ -675,7 +684,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public Builder addTransfers(
         int index, adamant.global.v1.Model.Transfer value) {
@@ -696,7 +705,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public Builder addTransfers(
         adamant.global.v1.Model.Transfer.Builder builderForValue) {
@@ -714,7 +723,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public Builder addTransfers(
         int index, adamant.global.v1.Model.Transfer.Builder builderForValue) {
@@ -732,7 +741,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public Builder addAllTransfers(
         java.lang.Iterable<? extends adamant.global.v1.Model.Transfer> values) {
@@ -751,7 +760,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public Builder clearTransfers() {
       if (transfersBuilder_ == null) {
@@ -768,7 +777,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public Builder removeTransfers(int index) {
       if (transfersBuilder_ == null) {
@@ -785,7 +794,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public adamant.global.v1.Model.Transfer.Builder getTransfersBuilder(
         int index) {
@@ -796,7 +805,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public adamant.global.v1.Model.TransferOrBuilder getTransfersOrBuilder(
         int index) {
@@ -810,7 +819,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.TransferOrBuilder> 
          getTransfersOrBuilderList() {
@@ -825,7 +834,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public adamant.global.v1.Model.Transfer.Builder addTransfersBuilder() {
       return getTransfersFieldBuilder().addBuilder(
@@ -836,7 +845,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public adamant.global.v1.Model.Transfer.Builder addTransfersBuilder(
         int index) {
@@ -848,7 +857,7 @@ private static final long serialVersionUID = 0L;
      * Array of transfer objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.Transfer transfers = 1;</code>
+     * <code>repeated .adamant.global.v1.Transfer transfers = 1 [json_name = "transfers"];</code>
      */
     public java.util.List<adamant.global.v1.Model.Transfer.Builder> 
          getTransfersBuilderList() {
@@ -875,7 +884,8 @@ private static final long serialVersionUID = 0L;
      * The token for requesting the next page
      * </pre>
      *
-     * <code>string next_page_token = 2;</code>
+     * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+     * @return The nextPageToken.
      */
     public java.lang.String getNextPageToken() {
       java.lang.Object ref = nextPageToken_;
@@ -894,7 +904,8 @@ private static final long serialVersionUID = 0L;
      * The token for requesting the next page
      * </pre>
      *
-     * <code>string next_page_token = 2;</code>
+     * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+     * @return The bytes for nextPageToken.
      */
     public com.google.protobuf.ByteString
         getNextPageTokenBytes() {
@@ -914,7 +925,9 @@ private static final long serialVersionUID = 0L;
      * The token for requesting the next page
      * </pre>
      *
-     * <code>string next_page_token = 2;</code>
+     * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+     * @param value The nextPageToken to set.
+     * @return This builder for chaining.
      */
     public Builder setNextPageToken(
         java.lang.String value) {
@@ -931,7 +944,8 @@ private static final long serialVersionUID = 0L;
      * The token for requesting the next page
      * </pre>
      *
-     * <code>string next_page_token = 2;</code>
+     * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearNextPageToken() {
       
@@ -944,7 +958,9 @@ private static final long serialVersionUID = 0L;
      * The token for requesting the next page
      * </pre>
      *
-     * <code>string next_page_token = 2;</code>
+     * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+     * @param value The bytes for nextPageToken to set.
+     * @return This builder for chaining.
      */
     public Builder setNextPageTokenBytes(
         com.google.protobuf.ByteString value) {

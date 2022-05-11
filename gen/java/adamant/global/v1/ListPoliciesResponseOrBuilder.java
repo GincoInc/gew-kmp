@@ -8,25 +8,25 @@ public interface ListPoliciesResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+   * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
    */
   java.util.List<adamant.global.v1.Model.Policy> 
       getPoliciesList();
   /**
-   * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+   * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
    */
   adamant.global.v1.Model.Policy getPolicies(int index);
   /**
-   * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+   * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
    */
   int getPoliciesCount();
   /**
-   * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+   * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.PolicyOrBuilder> 
       getPoliciesOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+   * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
    */
   adamant.global.v1.Model.PolicyOrBuilder getPoliciesOrBuilder(
       int index);

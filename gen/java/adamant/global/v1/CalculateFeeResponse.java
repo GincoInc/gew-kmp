@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.CalculateFeeResponse}
  */
-public  final class CalculateFeeResponse extends
+public final class CalculateFeeResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.CalculateFeeResponse)
     CalculateFeeResponseOrBuilder {
@@ -95,8 +95,10 @@ private static final long serialVersionUID = 0L;
   public static final int FEE_FIELD_NUMBER = 1;
   private double fee_;
   /**
-   * <code>double fee = 1;</code>
+   * <code>double fee = 1 [json_name = "fee"];</code>
+   * @return The fee.
    */
+  @java.lang.Override
   public double getFee() {
     return fee_;
   }
@@ -104,8 +106,10 @@ private static final long serialVersionUID = 0L;
   public static final int STRING_FEE_FIELD_NUMBER = 2;
   private volatile java.lang.Object stringFee_;
   /**
-   * <code>string string_fee = 2;</code>
+   * <code>string string_fee = 2 [json_name = "stringFee"];</code>
+   * @return The stringFee.
    */
+  @java.lang.Override
   public java.lang.String getStringFee() {
     java.lang.Object ref = stringFee_;
     if (ref instanceof java.lang.String) {
@@ -119,8 +123,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string string_fee = 2;</code>
+   * <code>string string_fee = 2 [json_name = "stringFee"];</code>
+   * @return The bytes for stringFee.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getStringFeeBytes() {
     java.lang.Object ref = stringFee_;
@@ -149,10 +155,10 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (fee_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(fee_) != 0) {
       output.writeDouble(1, fee_);
     }
-    if (!getStringFeeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringFee_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, stringFee_);
     }
     unknownFields.writeTo(output);
@@ -164,11 +170,11 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (fee_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(fee_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(1, fee_);
     }
-    if (!getStringFeeBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringFee_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, stringFee_);
     }
     size += unknownFields.getSerializedSize();
@@ -458,13 +464,17 @@ private static final long serialVersionUID = 0L;
 
     private double fee_ ;
     /**
-     * <code>double fee = 1;</code>
+     * <code>double fee = 1 [json_name = "fee"];</code>
+     * @return The fee.
      */
+    @java.lang.Override
     public double getFee() {
       return fee_;
     }
     /**
-     * <code>double fee = 1;</code>
+     * <code>double fee = 1 [json_name = "fee"];</code>
+     * @param value The fee to set.
+     * @return This builder for chaining.
      */
     public Builder setFee(double value) {
       
@@ -473,7 +483,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double fee = 1;</code>
+     * <code>double fee = 1 [json_name = "fee"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearFee() {
       
@@ -484,7 +495,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object stringFee_ = "";
     /**
-     * <code>string string_fee = 2;</code>
+     * <code>string string_fee = 2 [json_name = "stringFee"];</code>
+     * @return The stringFee.
      */
     public java.lang.String getStringFee() {
       java.lang.Object ref = stringFee_;
@@ -499,7 +511,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string string_fee = 2;</code>
+     * <code>string string_fee = 2 [json_name = "stringFee"];</code>
+     * @return The bytes for stringFee.
      */
     public com.google.protobuf.ByteString
         getStringFeeBytes() {
@@ -515,7 +528,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string string_fee = 2;</code>
+     * <code>string string_fee = 2 [json_name = "stringFee"];</code>
+     * @param value The stringFee to set.
+     * @return This builder for chaining.
      */
     public Builder setStringFee(
         java.lang.String value) {
@@ -528,7 +543,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string string_fee = 2;</code>
+     * <code>string string_fee = 2 [json_name = "stringFee"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearStringFee() {
       
@@ -537,7 +553,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string string_fee = 2;</code>
+     * <code>string string_fee = 2 [json_name = "stringFee"];</code>
+     * @param value The bytes for stringFee to set.
+     * @return This builder for chaining.
      */
     public Builder setStringFeeBytes(
         com.google.protobuf.ByteString value) {

@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.CreateAddressRequest}
  */
-public  final class CreateAddressRequest extends
+public final class CreateAddressRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.CreateAddressRequest)
     CreateAddressRequestOrBuilder {
@@ -99,8 +99,10 @@ private static final long serialVersionUID = 0L;
    * The id of wallet
    * </pre>
    *
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The walletId.
    */
+  @java.lang.Override
   public java.lang.String getWalletId() {
     java.lang.Object ref = walletId_;
     if (ref instanceof java.lang.String) {
@@ -118,8 +120,10 @@ private static final long serialVersionUID = 0L;
    * The id of wallet
    * </pre>
    *
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWalletIdBytes() {
     java.lang.Object ref = walletId_;
@@ -141,8 +145,10 @@ private static final long serialVersionUID = 0L;
    * for contract wallet
    * </pre>
    *
-   * <code>uint64 fee_rate = 2;</code>
+   * <code>uint64 fee_rate = 2 [json_name = "feeRate"];</code>
+   * @return The feeRate.
    */
+  @java.lang.Override
   public long getFeeRate() {
     return feeRate_;
   }
@@ -161,7 +167,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletId_);
     }
     if (feeRate_ != 0L) {
@@ -176,7 +182,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletId_);
     }
     if (feeRate_ != 0L) {
@@ -473,7 +479,8 @@ private static final long serialVersionUID = 0L;
      * The id of wallet
      * </pre>
      *
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The walletId.
      */
     public java.lang.String getWalletId() {
       java.lang.Object ref = walletId_;
@@ -492,7 +499,8 @@ private static final long serialVersionUID = 0L;
      * The id of wallet
      * </pre>
      *
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The bytes for walletId.
      */
     public com.google.protobuf.ByteString
         getWalletIdBytes() {
@@ -512,7 +520,9 @@ private static final long serialVersionUID = 0L;
      * The id of wallet
      * </pre>
      *
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @param value The walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletId(
         java.lang.String value) {
@@ -529,7 +539,8 @@ private static final long serialVersionUID = 0L;
      * The id of wallet
      * </pre>
      *
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletId() {
       
@@ -542,7 +553,9 @@ private static final long serialVersionUID = 0L;
      * The id of wallet
      * </pre>
      *
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletIdBytes(
         com.google.protobuf.ByteString value) {
@@ -562,8 +575,10 @@ private static final long serialVersionUID = 0L;
      * for contract wallet
      * </pre>
      *
-     * <code>uint64 fee_rate = 2;</code>
+     * <code>uint64 fee_rate = 2 [json_name = "feeRate"];</code>
+     * @return The feeRate.
      */
+    @java.lang.Override
     public long getFeeRate() {
       return feeRate_;
     }
@@ -572,7 +587,9 @@ private static final long serialVersionUID = 0L;
      * for contract wallet
      * </pre>
      *
-     * <code>uint64 fee_rate = 2;</code>
+     * <code>uint64 fee_rate = 2 [json_name = "feeRate"];</code>
+     * @param value The feeRate to set.
+     * @return This builder for chaining.
      */
     public Builder setFeeRate(long value) {
       
@@ -585,7 +602,8 @@ private static final long serialVersionUID = 0L;
      * for contract wallet
      * </pre>
      *
-     * <code>uint64 fee_rate = 2;</code>
+     * <code>uint64 fee_rate = 2 [json_name = "feeRate"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearFeeRate() {
       

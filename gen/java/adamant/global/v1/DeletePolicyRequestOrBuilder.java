@@ -8,11 +8,13 @@ public interface DeletePolicyRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string policy_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string policy_id = 1 [json_name = "policyId", (.validate.rules) = { ... }</code>
+   * @return The policyId.
    */
   java.lang.String getPolicyId();
   /**
-   * <code>string policy_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string policy_id = 1 [json_name = "policyId", (.validate.rules) = { ... }</code>
+   * @return The bytes for policyId.
    */
   com.google.protobuf.ByteString
       getPolicyIdBytes();

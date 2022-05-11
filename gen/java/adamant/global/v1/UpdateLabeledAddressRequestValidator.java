@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code UpdateLabeledAddressRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class UpdateLabeledAddressRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.UpdateLabeledAddressRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.UpdateLabeledAddressRequest.class)) return new UpdateLabeledAddressRequestValidator();
@@ -31,7 +33,7 @@ public class UpdateLabeledAddressRequestValidator implements io.envoyproxy.pgv.V
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.UpdateLabeledAddressRequest.labeled_address_id", proto.getLabeledAddressId(), LABELED_ADDRESS_ID__PATTERN);
 	
 			io.envoyproxy.pgv.StringValidation.minLength(".adamant.global.v1.UpdateLabeledAddressRequest.name", proto.getName(), 1);
-			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.global.v1.UpdateLabeledAddressRequest.name", proto.getName(), 20);
+			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.global.v1.UpdateLabeledAddressRequest.name", proto.getName(), 40);
 	
 			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.UpdateLabeledAddressRequest.coin", proto.getCoin());
 			io.envoyproxy.pgv.CollectiveValidation.notIn(".adamant.global.v1.UpdateLabeledAddressRequest.coin", proto.getCoin(), COIN__NOT_IN);

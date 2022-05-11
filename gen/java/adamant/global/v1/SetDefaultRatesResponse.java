@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.SetDefaultRatesResponse}
  */
-public  final class SetDefaultRatesResponse extends
+public final class SetDefaultRatesResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.SetDefaultRatesResponse)
     SetDefaultRatesResponseOrBuilder {
@@ -101,7 +101,8 @@ private static final long serialVersionUID = 0L;
    * Array of ids of rate-snapshots
    * </pre>
    *
-   * <code>repeated string rate_snapshot_ids = 1;</code>
+   * <code>repeated string rate_snapshot_ids = 1 [json_name = "rateSnapshotIds"];</code>
+   * @return A list containing the rateSnapshotIds.
    */
   public com.google.protobuf.ProtocolStringList
       getRateSnapshotIdsList() {
@@ -112,7 +113,8 @@ private static final long serialVersionUID = 0L;
    * Array of ids of rate-snapshots
    * </pre>
    *
-   * <code>repeated string rate_snapshot_ids = 1;</code>
+   * <code>repeated string rate_snapshot_ids = 1 [json_name = "rateSnapshotIds"];</code>
+   * @return The count of rateSnapshotIds.
    */
   public int getRateSnapshotIdsCount() {
     return rateSnapshotIds_.size();
@@ -122,7 +124,9 @@ private static final long serialVersionUID = 0L;
    * Array of ids of rate-snapshots
    * </pre>
    *
-   * <code>repeated string rate_snapshot_ids = 1;</code>
+   * <code>repeated string rate_snapshot_ids = 1 [json_name = "rateSnapshotIds"];</code>
+   * @param index The index of the element to return.
+   * @return The rateSnapshotIds at the given index.
    */
   public java.lang.String getRateSnapshotIds(int index) {
     return rateSnapshotIds_.get(index);
@@ -132,7 +136,9 @@ private static final long serialVersionUID = 0L;
    * Array of ids of rate-snapshots
    * </pre>
    *
-   * <code>repeated string rate_snapshot_ids = 1;</code>
+   * <code>repeated string rate_snapshot_ids = 1 [json_name = "rateSnapshotIds"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the rateSnapshotIds at the given index.
    */
   public com.google.protobuf.ByteString
       getRateSnapshotIdsBytes(int index) {
@@ -472,7 +478,8 @@ private static final long serialVersionUID = 0L;
      * Array of ids of rate-snapshots
      * </pre>
      *
-     * <code>repeated string rate_snapshot_ids = 1;</code>
+     * <code>repeated string rate_snapshot_ids = 1 [json_name = "rateSnapshotIds"];</code>
+     * @return A list containing the rateSnapshotIds.
      */
     public com.google.protobuf.ProtocolStringList
         getRateSnapshotIdsList() {
@@ -483,7 +490,8 @@ private static final long serialVersionUID = 0L;
      * Array of ids of rate-snapshots
      * </pre>
      *
-     * <code>repeated string rate_snapshot_ids = 1;</code>
+     * <code>repeated string rate_snapshot_ids = 1 [json_name = "rateSnapshotIds"];</code>
+     * @return The count of rateSnapshotIds.
      */
     public int getRateSnapshotIdsCount() {
       return rateSnapshotIds_.size();
@@ -493,7 +501,9 @@ private static final long serialVersionUID = 0L;
      * Array of ids of rate-snapshots
      * </pre>
      *
-     * <code>repeated string rate_snapshot_ids = 1;</code>
+     * <code>repeated string rate_snapshot_ids = 1 [json_name = "rateSnapshotIds"];</code>
+     * @param index The index of the element to return.
+     * @return The rateSnapshotIds at the given index.
      */
     public java.lang.String getRateSnapshotIds(int index) {
       return rateSnapshotIds_.get(index);
@@ -503,7 +513,9 @@ private static final long serialVersionUID = 0L;
      * Array of ids of rate-snapshots
      * </pre>
      *
-     * <code>repeated string rate_snapshot_ids = 1;</code>
+     * <code>repeated string rate_snapshot_ids = 1 [json_name = "rateSnapshotIds"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the rateSnapshotIds at the given index.
      */
     public com.google.protobuf.ByteString
         getRateSnapshotIdsBytes(int index) {
@@ -514,7 +526,10 @@ private static final long serialVersionUID = 0L;
      * Array of ids of rate-snapshots
      * </pre>
      *
-     * <code>repeated string rate_snapshot_ids = 1;</code>
+     * <code>repeated string rate_snapshot_ids = 1 [json_name = "rateSnapshotIds"];</code>
+     * @param index The index to set the value at.
+     * @param value The rateSnapshotIds to set.
+     * @return This builder for chaining.
      */
     public Builder setRateSnapshotIds(
         int index, java.lang.String value) {
@@ -531,7 +546,9 @@ private static final long serialVersionUID = 0L;
      * Array of ids of rate-snapshots
      * </pre>
      *
-     * <code>repeated string rate_snapshot_ids = 1;</code>
+     * <code>repeated string rate_snapshot_ids = 1 [json_name = "rateSnapshotIds"];</code>
+     * @param value The rateSnapshotIds to add.
+     * @return This builder for chaining.
      */
     public Builder addRateSnapshotIds(
         java.lang.String value) {
@@ -548,7 +565,9 @@ private static final long serialVersionUID = 0L;
      * Array of ids of rate-snapshots
      * </pre>
      *
-     * <code>repeated string rate_snapshot_ids = 1;</code>
+     * <code>repeated string rate_snapshot_ids = 1 [json_name = "rateSnapshotIds"];</code>
+     * @param values The rateSnapshotIds to add.
+     * @return This builder for chaining.
      */
     public Builder addAllRateSnapshotIds(
         java.lang.Iterable<java.lang.String> values) {
@@ -563,7 +582,8 @@ private static final long serialVersionUID = 0L;
      * Array of ids of rate-snapshots
      * </pre>
      *
-     * <code>repeated string rate_snapshot_ids = 1;</code>
+     * <code>repeated string rate_snapshot_ids = 1 [json_name = "rateSnapshotIds"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearRateSnapshotIds() {
       rateSnapshotIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -576,7 +596,9 @@ private static final long serialVersionUID = 0L;
      * Array of ids of rate-snapshots
      * </pre>
      *
-     * <code>repeated string rate_snapshot_ids = 1;</code>
+     * <code>repeated string rate_snapshot_ids = 1 [json_name = "rateSnapshotIds"];</code>
+     * @param value The bytes of the rateSnapshotIds to add.
+     * @return This builder for chaining.
      */
     public Builder addRateSnapshotIdsBytes(
         com.google.protobuf.ByteString value) {

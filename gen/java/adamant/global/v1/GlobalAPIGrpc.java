@@ -5,8 +5,9 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.38.0)",
+    value = "by gRPC proto compiler (version 1.42.1)",
     comments = "Source: gincoinc/adamant/global/v1/adamantglobalv1/global_api.proto")
+@io.grpc.stub.annotations.GrpcGenerated
 public final class GlobalAPIGrpc {
 
   private GlobalAPIGrpc() {}
@@ -417,6 +418,161 @@ public final class GlobalAPIGrpc {
     return getFlushBalanceMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.CreateWalletGroupRequest,
+      adamant.global.v1.CreateWalletGroupResponse> getCreateWalletGroupMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "CreateWalletGroup",
+      requestType = adamant.global.v1.CreateWalletGroupRequest.class,
+      responseType = adamant.global.v1.CreateWalletGroupResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.CreateWalletGroupRequest,
+      adamant.global.v1.CreateWalletGroupResponse> getCreateWalletGroupMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.CreateWalletGroupRequest, adamant.global.v1.CreateWalletGroupResponse> getCreateWalletGroupMethod;
+    if ((getCreateWalletGroupMethod = GlobalAPIGrpc.getCreateWalletGroupMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getCreateWalletGroupMethod = GlobalAPIGrpc.getCreateWalletGroupMethod) == null) {
+          GlobalAPIGrpc.getCreateWalletGroupMethod = getCreateWalletGroupMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.CreateWalletGroupRequest, adamant.global.v1.CreateWalletGroupResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateWalletGroup"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateWalletGroupRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateWalletGroupResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("CreateWalletGroup"))
+              .build();
+        }
+      }
+    }
+    return getCreateWalletGroupMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.UpdateWalletGroupNameRequest,
+      com.google.protobuf.Empty> getUpdateWalletGroupNameMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UpdateWalletGroupName",
+      requestType = adamant.global.v1.UpdateWalletGroupNameRequest.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.UpdateWalletGroupNameRequest,
+      com.google.protobuf.Empty> getUpdateWalletGroupNameMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.UpdateWalletGroupNameRequest, com.google.protobuf.Empty> getUpdateWalletGroupNameMethod;
+    if ((getUpdateWalletGroupNameMethod = GlobalAPIGrpc.getUpdateWalletGroupNameMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getUpdateWalletGroupNameMethod = GlobalAPIGrpc.getUpdateWalletGroupNameMethod) == null) {
+          GlobalAPIGrpc.getUpdateWalletGroupNameMethod = getUpdateWalletGroupNameMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.UpdateWalletGroupNameRequest, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateWalletGroupName"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.UpdateWalletGroupNameRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("UpdateWalletGroupName"))
+              .build();
+        }
+      }
+    }
+    return getUpdateWalletGroupNameMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.UpdateWalletGroupRequest,
+      com.google.protobuf.Empty> getUpdateWalletGroupMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UpdateWalletGroup",
+      requestType = adamant.global.v1.UpdateWalletGroupRequest.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.UpdateWalletGroupRequest,
+      com.google.protobuf.Empty> getUpdateWalletGroupMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.UpdateWalletGroupRequest, com.google.protobuf.Empty> getUpdateWalletGroupMethod;
+    if ((getUpdateWalletGroupMethod = GlobalAPIGrpc.getUpdateWalletGroupMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getUpdateWalletGroupMethod = GlobalAPIGrpc.getUpdateWalletGroupMethod) == null) {
+          GlobalAPIGrpc.getUpdateWalletGroupMethod = getUpdateWalletGroupMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.UpdateWalletGroupRequest, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateWalletGroup"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.UpdateWalletGroupRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("UpdateWalletGroup"))
+              .build();
+        }
+      }
+    }
+    return getUpdateWalletGroupMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.GetWalletGroupRequest,
+      adamant.global.v1.Model.WalletGroup> getGetWalletGroupMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetWalletGroup",
+      requestType = adamant.global.v1.GetWalletGroupRequest.class,
+      responseType = adamant.global.v1.Model.WalletGroup.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.GetWalletGroupRequest,
+      adamant.global.v1.Model.WalletGroup> getGetWalletGroupMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.GetWalletGroupRequest, adamant.global.v1.Model.WalletGroup> getGetWalletGroupMethod;
+    if ((getGetWalletGroupMethod = GlobalAPIGrpc.getGetWalletGroupMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getGetWalletGroupMethod = GlobalAPIGrpc.getGetWalletGroupMethod) == null) {
+          GlobalAPIGrpc.getGetWalletGroupMethod = getGetWalletGroupMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.GetWalletGroupRequest, adamant.global.v1.Model.WalletGroup>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetWalletGroup"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.GetWalletGroupRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.Model.WalletGroup.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("GetWalletGroup"))
+              .build();
+        }
+      }
+    }
+    return getGetWalletGroupMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListWalletGroupsRequest,
+      adamant.global.v1.ListWalletGroupsResponse> getListWalletGroupsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListWalletGroups",
+      requestType = adamant.global.v1.ListWalletGroupsRequest.class,
+      responseType = adamant.global.v1.ListWalletGroupsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListWalletGroupsRequest,
+      adamant.global.v1.ListWalletGroupsResponse> getListWalletGroupsMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListWalletGroupsRequest, adamant.global.v1.ListWalletGroupsResponse> getListWalletGroupsMethod;
+    if ((getListWalletGroupsMethod = GlobalAPIGrpc.getListWalletGroupsMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getListWalletGroupsMethod = GlobalAPIGrpc.getListWalletGroupsMethod) == null) {
+          GlobalAPIGrpc.getListWalletGroupsMethod = getListWalletGroupsMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListWalletGroupsRequest, adamant.global.v1.ListWalletGroupsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListWalletGroups"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListWalletGroupsRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListWalletGroupsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ListWalletGroups"))
+              .build();
+        }
+      }
+    }
+    return getListWalletGroupsMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ApproveWalletRequest,
       com.google.protobuf.Empty> getApproveWalletMethod;
 
@@ -725,6 +881,68 @@ public final class GlobalAPIGrpc {
       }
     }
     return getGetEthereumFeeAddressMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListSubstrateChildAddressesRequest,
+      adamant.global.v1.ListSubstrateChildAddressesResponse> getListSubstrateChildAddressesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListSubstrateChildAddresses",
+      requestType = adamant.global.v1.ListSubstrateChildAddressesRequest.class,
+      responseType = adamant.global.v1.ListSubstrateChildAddressesResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListSubstrateChildAddressesRequest,
+      adamant.global.v1.ListSubstrateChildAddressesResponse> getListSubstrateChildAddressesMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListSubstrateChildAddressesRequest, adamant.global.v1.ListSubstrateChildAddressesResponse> getListSubstrateChildAddressesMethod;
+    if ((getListSubstrateChildAddressesMethod = GlobalAPIGrpc.getListSubstrateChildAddressesMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getListSubstrateChildAddressesMethod = GlobalAPIGrpc.getListSubstrateChildAddressesMethod) == null) {
+          GlobalAPIGrpc.getListSubstrateChildAddressesMethod = getListSubstrateChildAddressesMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListSubstrateChildAddressesRequest, adamant.global.v1.ListSubstrateChildAddressesResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListSubstrateChildAddresses"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListSubstrateChildAddressesRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListSubstrateChildAddressesResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ListSubstrateChildAddresses"))
+              .build();
+        }
+      }
+    }
+    return getListSubstrateChildAddressesMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ImportAddressRequest,
+      adamant.global.v1.ImportAddressResponse> getImportAddressMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ImportAddress",
+      requestType = adamant.global.v1.ImportAddressRequest.class,
+      responseType = adamant.global.v1.ImportAddressResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ImportAddressRequest,
+      adamant.global.v1.ImportAddressResponse> getImportAddressMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ImportAddressRequest, adamant.global.v1.ImportAddressResponse> getImportAddressMethod;
+    if ((getImportAddressMethod = GlobalAPIGrpc.getImportAddressMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getImportAddressMethod = GlobalAPIGrpc.getImportAddressMethod) == null) {
+          GlobalAPIGrpc.getImportAddressMethod = getImportAddressMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ImportAddressRequest, adamant.global.v1.ImportAddressResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ImportAddress"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ImportAddressRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ImportAddressResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ImportAddress"))
+              .build();
+        }
+      }
+    }
+    return getImportAddressMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.RegisterKeyRequest,
@@ -1345,6 +1563,37 @@ public final class GlobalAPIGrpc {
       }
     }
     return getSetRatesMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.SetDefaultRatesRequest,
+      adamant.global.v1.SetDefaultRatesResponse> getSetDefaultRatesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "SetDefaultRates",
+      requestType = adamant.global.v1.SetDefaultRatesRequest.class,
+      responseType = adamant.global.v1.SetDefaultRatesResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.SetDefaultRatesRequest,
+      adamant.global.v1.SetDefaultRatesResponse> getSetDefaultRatesMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.SetDefaultRatesRequest, adamant.global.v1.SetDefaultRatesResponse> getSetDefaultRatesMethod;
+    if ((getSetDefaultRatesMethod = GlobalAPIGrpc.getSetDefaultRatesMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getSetDefaultRatesMethod = GlobalAPIGrpc.getSetDefaultRatesMethod) == null) {
+          GlobalAPIGrpc.getSetDefaultRatesMethod = getSetDefaultRatesMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.SetDefaultRatesRequest, adamant.global.v1.SetDefaultRatesResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SetDefaultRates"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.SetDefaultRatesRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.SetDefaultRatesResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("SetDefaultRates"))
+              .build();
+        }
+      }
+    }
+    return getSetDefaultRatesMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.CreateLabeledAddressRequest,
@@ -2609,6 +2858,41 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    public void createWalletGroup(adamant.global.v1.CreateWalletGroupRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateWalletGroupResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateWalletGroupMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void updateWalletGroupName(adamant.global.v1.UpdateWalletGroupNameRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateWalletGroupNameMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void updateWalletGroup(adamant.global.v1.UpdateWalletGroupRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateWalletGroupMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getWalletGroup(adamant.global.v1.GetWalletGroupRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.Model.WalletGroup> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetWalletGroupMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void listWalletGroups(adamant.global.v1.ListWalletGroupsRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListWalletGroupsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListWalletGroupsMethod(), responseObserver);
+    }
+
+    /**
      * <pre>
      * Review
      * </pre>
@@ -2686,6 +2970,23 @@ public final class GlobalAPIGrpc {
     public void getEthereumFeeAddress(adamant.global.v1.GetEthereumFeeAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.EthereumFeeAddress> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetEthereumFeeAddressMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Get addresses associated with the Polkadot signer
+     * </pre>
+     */
+    public void listSubstrateChildAddresses(adamant.global.v1.ListSubstrateChildAddressesRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListSubstrateChildAddressesResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListSubstrateChildAddressesMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void importAddress(adamant.global.v1.ImportAddressRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ImportAddressResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getImportAddressMethod(), responseObserver);
     }
 
     /**
@@ -2852,6 +3153,13 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    public void setDefaultRates(adamant.global.v1.SetDefaultRatesRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.SetDefaultRatesResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSetDefaultRatesMethod(), responseObserver);
+    }
+
+    /**
      * <pre>
      * policy
      * </pre>
@@ -2890,6 +3198,9 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     * <pre>
+     * buf:lint:ignore RPC_REQUEST_STANDARD_NAME
+     * </pre>
      */
     public void deleteAddress(adamant.global.v1.DeleteLabeledAddressRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
@@ -3206,6 +3517,41 @@ public final class GlobalAPIGrpc {
                 adamant.global.v1.FlushBalanceResponse>(
                   this, METHODID_FLUSH_BALANCE)))
           .addMethod(
+            getCreateWalletGroupMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                adamant.global.v1.CreateWalletGroupRequest,
+                adamant.global.v1.CreateWalletGroupResponse>(
+                  this, METHODID_CREATE_WALLET_GROUP)))
+          .addMethod(
+            getUpdateWalletGroupNameMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                adamant.global.v1.UpdateWalletGroupNameRequest,
+                com.google.protobuf.Empty>(
+                  this, METHODID_UPDATE_WALLET_GROUP_NAME)))
+          .addMethod(
+            getUpdateWalletGroupMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                adamant.global.v1.UpdateWalletGroupRequest,
+                com.google.protobuf.Empty>(
+                  this, METHODID_UPDATE_WALLET_GROUP)))
+          .addMethod(
+            getGetWalletGroupMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                adamant.global.v1.GetWalletGroupRequest,
+                adamant.global.v1.Model.WalletGroup>(
+                  this, METHODID_GET_WALLET_GROUP)))
+          .addMethod(
+            getListWalletGroupsMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                adamant.global.v1.ListWalletGroupsRequest,
+                adamant.global.v1.ListWalletGroupsResponse>(
+                  this, METHODID_LIST_WALLET_GROUPS)))
+          .addMethod(
             getApproveWalletMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
@@ -3275,6 +3621,20 @@ public final class GlobalAPIGrpc {
                 adamant.global.v1.GetEthereumFeeAddressRequest,
                 adamant.global.v1.Model.EthereumFeeAddress>(
                   this, METHODID_GET_ETHEREUM_FEE_ADDRESS)))
+          .addMethod(
+            getListSubstrateChildAddressesMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                adamant.global.v1.ListSubstrateChildAddressesRequest,
+                adamant.global.v1.ListSubstrateChildAddressesResponse>(
+                  this, METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES)))
+          .addMethod(
+            getImportAddressMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                adamant.global.v1.ImportAddressRequest,
+                adamant.global.v1.ImportAddressResponse>(
+                  this, METHODID_IMPORT_ADDRESS)))
           .addMethod(
             getRegisterKeyMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -3415,6 +3775,13 @@ public final class GlobalAPIGrpc {
                 adamant.global.v1.SetRatesRequest,
                 adamant.global.v1.SetRatesResponse>(
                   this, METHODID_SET_RATES)))
+          .addMethod(
+            getSetDefaultRatesMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                adamant.global.v1.SetDefaultRatesRequest,
+                adamant.global.v1.SetDefaultRatesResponse>(
+                  this, METHODID_SET_DEFAULT_RATES)))
           .addMethod(
             getCreateLabeledAddressMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -3796,6 +4163,46 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    public void createWalletGroup(adamant.global.v1.CreateWalletGroupRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateWalletGroupResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getCreateWalletGroupMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateWalletGroupName(adamant.global.v1.UpdateWalletGroupNameRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getUpdateWalletGroupNameMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateWalletGroup(adamant.global.v1.UpdateWalletGroupRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getUpdateWalletGroupMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getWalletGroup(adamant.global.v1.GetWalletGroupRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.Model.WalletGroup> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetWalletGroupMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listWalletGroups(adamant.global.v1.ListWalletGroupsRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListWalletGroupsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListWalletGroupsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
      * <pre>
      * Review
      * </pre>
@@ -3883,6 +4290,25 @@ public final class GlobalAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.EthereumFeeAddress> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetEthereumFeeAddressMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Get addresses associated with the Polkadot signer
+     * </pre>
+     */
+    public void listSubstrateChildAddresses(adamant.global.v1.ListSubstrateChildAddressesRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListSubstrateChildAddressesResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListSubstrateChildAddressesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void importAddress(adamant.global.v1.ImportAddressRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ImportAddressResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getImportAddressMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -4069,6 +4495,14 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    public void setDefaultRates(adamant.global.v1.SetDefaultRatesRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.SetDefaultRatesResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getSetDefaultRatesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
      * <pre>
      * policy
      * </pre>
@@ -4112,6 +4546,9 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     * <pre>
+     * buf:lint:ignore RPC_REQUEST_STANDARD_NAME
+     * </pre>
      */
     public void deleteAddress(adamant.global.v1.DeleteLabeledAddressRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
@@ -4478,6 +4915,41 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    public adamant.global.v1.CreateWalletGroupResponse createWalletGroup(adamant.global.v1.CreateWalletGroupRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getCreateWalletGroupMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.google.protobuf.Empty updateWalletGroupName(adamant.global.v1.UpdateWalletGroupNameRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getUpdateWalletGroupNameMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.google.protobuf.Empty updateWalletGroup(adamant.global.v1.UpdateWalletGroupRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getUpdateWalletGroupMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.Model.WalletGroup getWalletGroup(adamant.global.v1.GetWalletGroupRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetWalletGroupMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.ListWalletGroupsResponse listWalletGroups(adamant.global.v1.ListWalletGroupsRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListWalletGroupsMethod(), getCallOptions(), request);
+    }
+
+    /**
      * <pre>
      * Review
      * </pre>
@@ -4555,6 +5027,23 @@ public final class GlobalAPIGrpc {
     public adamant.global.v1.Model.EthereumFeeAddress getEthereumFeeAddress(adamant.global.v1.GetEthereumFeeAddressRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetEthereumFeeAddressMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * Get addresses associated with the Polkadot signer
+     * </pre>
+     */
+    public adamant.global.v1.ListSubstrateChildAddressesResponse listSubstrateChildAddresses(adamant.global.v1.ListSubstrateChildAddressesRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListSubstrateChildAddressesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.ImportAddressResponse importAddress(adamant.global.v1.ImportAddressRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getImportAddressMethod(), getCallOptions(), request);
     }
 
     /**
@@ -4721,6 +5210,13 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    public adamant.global.v1.SetDefaultRatesResponse setDefaultRates(adamant.global.v1.SetDefaultRatesRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getSetDefaultRatesMethod(), getCallOptions(), request);
+    }
+
+    /**
      * <pre>
      * policy
      * </pre>
@@ -4759,6 +5255,9 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     * <pre>
+     * buf:lint:ignore RPC_REQUEST_STANDARD_NAME
+     * </pre>
      */
     public com.google.protobuf.Empty deleteAddress(adamant.global.v1.DeleteLabeledAddressRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
@@ -5107,6 +5606,46 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateWalletGroupResponse> createWalletGroup(
+        adamant.global.v1.CreateWalletGroupRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getCreateWalletGroupMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> updateWalletGroupName(
+        adamant.global.v1.UpdateWalletGroupNameRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getUpdateWalletGroupNameMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> updateWalletGroup(
+        adamant.global.v1.UpdateWalletGroupRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getUpdateWalletGroupMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.Model.WalletGroup> getWalletGroup(
+        adamant.global.v1.GetWalletGroupRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetWalletGroupMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListWalletGroupsResponse> listWalletGroups(
+        adamant.global.v1.ListWalletGroupsRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListWalletGroupsMethod(), getCallOptions()), request);
+    }
+
+    /**
      * <pre>
      * Review
      * </pre>
@@ -5194,6 +5733,25 @@ public final class GlobalAPIGrpc {
         adamant.global.v1.GetEthereumFeeAddressRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetEthereumFeeAddressMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * Get addresses associated with the Polkadot signer
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListSubstrateChildAddressesResponse> listSubstrateChildAddresses(
+        adamant.global.v1.ListSubstrateChildAddressesRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListSubstrateChildAddressesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ImportAddressResponse> importAddress(
+        adamant.global.v1.ImportAddressRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getImportAddressMethod(), getCallOptions()), request);
     }
 
     /**
@@ -5380,6 +5938,14 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.SetDefaultRatesResponse> setDefaultRates(
+        adamant.global.v1.SetDefaultRatesRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getSetDefaultRatesMethod(), getCallOptions()), request);
+    }
+
+    /**
      * <pre>
      * policy
      * </pre>
@@ -5423,6 +5989,9 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     * <pre>
+     * buf:lint:ignore RPC_REQUEST_STANDARD_NAME
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> deleteAddress(
         adamant.global.v1.DeleteLabeledAddressRequest request) {
@@ -5690,72 +6259,80 @@ public final class GlobalAPIGrpc {
   private static final int METHODID_UPDATE_WALLET_POLICY = 10;
   private static final int METHODID_REVIEW_WALLET_PROPOSAL = 11;
   private static final int METHODID_FLUSH_BALANCE = 12;
-  private static final int METHODID_APPROVE_WALLET = 13;
-  private static final int METHODID_APPROVE_TRANSACTION = 14;
-  private static final int METHODID_CREATE_ADDRESS = 15;
-  private static final int METHODID_GET_ADDRESS = 16;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 17;
-  private static final int METHODID_GET_ADDRESS_BY_INDEX = 18;
-  private static final int METHODID_LIST_ADDRESSES = 19;
-  private static final int METHODID_LIST_ADDRESSES_WITH_BALANCE = 20;
-  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 21;
-  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 22;
-  private static final int METHODID_REGISTER_KEY = 23;
-  private static final int METHODID_CREATE_TRANSACTION = 24;
-  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 25;
-  private static final int METHODID_SIGN_TRANSACTION = 26;
-  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 27;
-  private static final int METHODID_SEND_TRANSACTION = 28;
-  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 29;
-  private static final int METHODID_CANCEL_TRANSACTION = 30;
-  private static final int METHODID_GET_TRANSACTION = 31;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 32;
-  private static final int METHODID_LIST_TRANSACTIONS = 33;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 34;
-  private static final int METHODID_GET_SIGN_INFO = 35;
-  private static final int METHODID_LIST_SIGN_INFO = 36;
-  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 37;
-  private static final int METHODID_LIST_TRANSFERS = 38;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 39;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 40;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 41;
-  private static final int METHODID_SET_RATES = 42;
-  private static final int METHODID_CREATE_LABELED_ADDRESS = 43;
-  private static final int METHODID_GET_LABELED_ADDRESS = 44;
-  private static final int METHODID_LIST_LABELED_ADDRESSES = 45;
-  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 46;
-  private static final int METHODID_UPDATE_LABELED_ADDRESS = 47;
-  private static final int METHODID_DELETE_ADDRESS = 48;
-  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 49;
-  private static final int METHODID_CREATE_WHITELIST = 50;
-  private static final int METHODID_GET_WHITELIST = 51;
-  private static final int METHODID_LIST_WHITELISTS = 52;
-  private static final int METHODID_IS_DELETABLE_WHITELIST = 53;
-  private static final int METHODID_UPDATE_WHITELIST = 54;
-  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 55;
-  private static final int METHODID_DELETE_WHITELIST = 56;
-  private static final int METHODID_CREATE_TRANSFER_LIMIT = 57;
-  private static final int METHODID_GET_TRANSFER_LIMIT = 58;
-  private static final int METHODID_LIST_TRANSFER_LIMITS = 59;
-  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 60;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 61;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 62;
-  private static final int METHODID_DELETE_TRANSFER_LIMIT = 63;
-  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 64;
-  private static final int METHODID_CREATE_POLICY = 65;
-  private static final int METHODID_GET_POLICY = 66;
-  private static final int METHODID_LIST_POLICIES = 67;
-  private static final int METHODID_IS_DELETABLE_POLICY = 68;
-  private static final int METHODID_UPDATE_POLICY = 69;
-  private static final int METHODID_DELETE_POLICY = 70;
-  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 71;
-  private static final int METHODID_GET_SPENDABLE_BALANCE = 72;
-  private static final int METHODID_GET_TOTAL_BALANCE = 73;
-  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 74;
-  private static final int METHODID_CALCULATE_FEE = 75;
-  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 76;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 77;
-  private static final int METHODID_VALIDATE_ADDRESS = 78;
+  private static final int METHODID_CREATE_WALLET_GROUP = 13;
+  private static final int METHODID_UPDATE_WALLET_GROUP_NAME = 14;
+  private static final int METHODID_UPDATE_WALLET_GROUP = 15;
+  private static final int METHODID_GET_WALLET_GROUP = 16;
+  private static final int METHODID_LIST_WALLET_GROUPS = 17;
+  private static final int METHODID_APPROVE_WALLET = 18;
+  private static final int METHODID_APPROVE_TRANSACTION = 19;
+  private static final int METHODID_CREATE_ADDRESS = 20;
+  private static final int METHODID_GET_ADDRESS = 21;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 22;
+  private static final int METHODID_GET_ADDRESS_BY_INDEX = 23;
+  private static final int METHODID_LIST_ADDRESSES = 24;
+  private static final int METHODID_LIST_ADDRESSES_WITH_BALANCE = 25;
+  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 26;
+  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 27;
+  private static final int METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES = 28;
+  private static final int METHODID_IMPORT_ADDRESS = 29;
+  private static final int METHODID_REGISTER_KEY = 30;
+  private static final int METHODID_CREATE_TRANSACTION = 31;
+  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 32;
+  private static final int METHODID_SIGN_TRANSACTION = 33;
+  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 34;
+  private static final int METHODID_SEND_TRANSACTION = 35;
+  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 36;
+  private static final int METHODID_CANCEL_TRANSACTION = 37;
+  private static final int METHODID_GET_TRANSACTION = 38;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 39;
+  private static final int METHODID_LIST_TRANSACTIONS = 40;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 41;
+  private static final int METHODID_GET_SIGN_INFO = 42;
+  private static final int METHODID_LIST_SIGN_INFO = 43;
+  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 44;
+  private static final int METHODID_LIST_TRANSFERS = 45;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 46;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 47;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 48;
+  private static final int METHODID_SET_RATES = 49;
+  private static final int METHODID_SET_DEFAULT_RATES = 50;
+  private static final int METHODID_CREATE_LABELED_ADDRESS = 51;
+  private static final int METHODID_GET_LABELED_ADDRESS = 52;
+  private static final int METHODID_LIST_LABELED_ADDRESSES = 53;
+  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 54;
+  private static final int METHODID_UPDATE_LABELED_ADDRESS = 55;
+  private static final int METHODID_DELETE_ADDRESS = 56;
+  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 57;
+  private static final int METHODID_CREATE_WHITELIST = 58;
+  private static final int METHODID_GET_WHITELIST = 59;
+  private static final int METHODID_LIST_WHITELISTS = 60;
+  private static final int METHODID_IS_DELETABLE_WHITELIST = 61;
+  private static final int METHODID_UPDATE_WHITELIST = 62;
+  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 63;
+  private static final int METHODID_DELETE_WHITELIST = 64;
+  private static final int METHODID_CREATE_TRANSFER_LIMIT = 65;
+  private static final int METHODID_GET_TRANSFER_LIMIT = 66;
+  private static final int METHODID_LIST_TRANSFER_LIMITS = 67;
+  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 68;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 69;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 70;
+  private static final int METHODID_DELETE_TRANSFER_LIMIT = 71;
+  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 72;
+  private static final int METHODID_CREATE_POLICY = 73;
+  private static final int METHODID_GET_POLICY = 74;
+  private static final int METHODID_LIST_POLICIES = 75;
+  private static final int METHODID_IS_DELETABLE_POLICY = 76;
+  private static final int METHODID_UPDATE_POLICY = 77;
+  private static final int METHODID_DELETE_POLICY = 78;
+  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 79;
+  private static final int METHODID_GET_SPENDABLE_BALANCE = 80;
+  private static final int METHODID_GET_TOTAL_BALANCE = 81;
+  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 82;
+  private static final int METHODID_CALCULATE_FEE = 83;
+  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 84;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 85;
+  private static final int METHODID_VALIDATE_ADDRESS = 86;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -5826,6 +6403,26 @@ public final class GlobalAPIGrpc {
           serviceImpl.flushBalance((adamant.global.v1.FlushBalanceRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.FlushBalanceResponse>) responseObserver);
           break;
+        case METHODID_CREATE_WALLET_GROUP:
+          serviceImpl.createWalletGroup((adamant.global.v1.CreateWalletGroupRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateWalletGroupResponse>) responseObserver);
+          break;
+        case METHODID_UPDATE_WALLET_GROUP_NAME:
+          serviceImpl.updateWalletGroupName((adamant.global.v1.UpdateWalletGroupNameRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_UPDATE_WALLET_GROUP:
+          serviceImpl.updateWalletGroup((adamant.global.v1.UpdateWalletGroupRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_GET_WALLET_GROUP:
+          serviceImpl.getWalletGroup((adamant.global.v1.GetWalletGroupRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.Model.WalletGroup>) responseObserver);
+          break;
+        case METHODID_LIST_WALLET_GROUPS:
+          serviceImpl.listWalletGroups((adamant.global.v1.ListWalletGroupsRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListWalletGroupsResponse>) responseObserver);
+          break;
         case METHODID_APPROVE_WALLET:
           serviceImpl.approveWallet((adamant.global.v1.ApproveWalletRequest) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
@@ -5865,6 +6462,14 @@ public final class GlobalAPIGrpc {
         case METHODID_GET_ETHEREUM_FEE_ADDRESS:
           serviceImpl.getEthereumFeeAddress((adamant.global.v1.GetEthereumFeeAddressRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.Model.EthereumFeeAddress>) responseObserver);
+          break;
+        case METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES:
+          serviceImpl.listSubstrateChildAddresses((adamant.global.v1.ListSubstrateChildAddressesRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListSubstrateChildAddressesResponse>) responseObserver);
+          break;
+        case METHODID_IMPORT_ADDRESS:
+          serviceImpl.importAddress((adamant.global.v1.ImportAddressRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ImportAddressResponse>) responseObserver);
           break;
         case METHODID_REGISTER_KEY:
           serviceImpl.registerKey((adamant.global.v1.RegisterKeyRequest) request,
@@ -5945,6 +6550,10 @@ public final class GlobalAPIGrpc {
         case METHODID_SET_RATES:
           serviceImpl.setRates((adamant.global.v1.SetRatesRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.SetRatesResponse>) responseObserver);
+          break;
+        case METHODID_SET_DEFAULT_RATES:
+          serviceImpl.setDefaultRates((adamant.global.v1.SetDefaultRatesRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.SetDefaultRatesResponse>) responseObserver);
           break;
         case METHODID_CREATE_LABELED_ADDRESS:
           serviceImpl.createLabeledAddress((adamant.global.v1.CreateLabeledAddressRequest) request,
@@ -6164,6 +6773,11 @@ public final class GlobalAPIGrpc {
               .addMethod(getUpdateWalletPolicyMethod())
               .addMethod(getReviewWalletProposalMethod())
               .addMethod(getFlushBalanceMethod())
+              .addMethod(getCreateWalletGroupMethod())
+              .addMethod(getUpdateWalletGroupNameMethod())
+              .addMethod(getUpdateWalletGroupMethod())
+              .addMethod(getGetWalletGroupMethod())
+              .addMethod(getListWalletGroupsMethod())
               .addMethod(getApproveWalletMethod())
               .addMethod(getApproveTransactionMethod())
               .addMethod(getCreateAddressMethod())
@@ -6174,6 +6788,8 @@ public final class GlobalAPIGrpc {
               .addMethod(getListAddressesWithBalanceMethod())
               .addMethod(getUpdateAddressBalanceMethod())
               .addMethod(getGetEthereumFeeAddressMethod())
+              .addMethod(getListSubstrateChildAddressesMethod())
+              .addMethod(getImportAddressMethod())
               .addMethod(getRegisterKeyMethod())
               .addMethod(getCreateTransactionMethod())
               .addMethod(getCreateXRPInitTransactionsMethod())
@@ -6194,6 +6810,7 @@ public final class GlobalAPIGrpc {
               .addMethod(getGetRateSnapshotMethod())
               .addMethod(getGetLatestRateSnapshotMethod())
               .addMethod(getSetRatesMethod())
+              .addMethod(getSetDefaultRatesMethod())
               .addMethod(getCreateLabeledAddressMethod())
               .addMethod(getGetLabeledAddressMethod())
               .addMethod(getListLabeledAddressesMethod())

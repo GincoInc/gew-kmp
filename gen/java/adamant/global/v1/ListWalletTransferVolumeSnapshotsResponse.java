@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListWalletTransferVolumeSnapshotsResponse}
  */
-public  final class ListWalletTransferVolumeSnapshotsResponse extends
+public final class ListWalletTransferVolumeSnapshotsResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListWalletTransferVolumeSnapshotsResponse)
     ListWalletTransferVolumeSnapshotsResponseOrBuilder {
@@ -96,20 +96,25 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_TRANSFER_VOLUME_SNAPSHOTS_FIELD_NUMBER = 1;
   private adamant.global.v1.Model.WalletTransferVolumeSnapshots walletTransferVolumeSnapshots_;
   /**
-   * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1;</code>
+   * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
+   * @return Whether the walletTransferVolumeSnapshots field is set.
    */
+  @java.lang.Override
   public boolean hasWalletTransferVolumeSnapshots() {
     return walletTransferVolumeSnapshots_ != null;
   }
   /**
-   * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1;</code>
+   * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
+   * @return The walletTransferVolumeSnapshots.
    */
+  @java.lang.Override
   public adamant.global.v1.Model.WalletTransferVolumeSnapshots getWalletTransferVolumeSnapshots() {
     return walletTransferVolumeSnapshots_ == null ? adamant.global.v1.Model.WalletTransferVolumeSnapshots.getDefaultInstance() : walletTransferVolumeSnapshots_;
   }
   /**
-   * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1;</code>
+   * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.WalletTransferVolumeSnapshotsOrBuilder getWalletTransferVolumeSnapshotsOrBuilder() {
     return getWalletTransferVolumeSnapshots();
   }
@@ -433,13 +438,15 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         adamant.global.v1.Model.WalletTransferVolumeSnapshots, adamant.global.v1.Model.WalletTransferVolumeSnapshots.Builder, adamant.global.v1.Model.WalletTransferVolumeSnapshotsOrBuilder> walletTransferVolumeSnapshotsBuilder_;
     /**
-     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
+     * @return Whether the walletTransferVolumeSnapshots field is set.
      */
     public boolean hasWalletTransferVolumeSnapshots() {
       return walletTransferVolumeSnapshotsBuilder_ != null || walletTransferVolumeSnapshots_ != null;
     }
     /**
-     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
+     * @return The walletTransferVolumeSnapshots.
      */
     public adamant.global.v1.Model.WalletTransferVolumeSnapshots getWalletTransferVolumeSnapshots() {
       if (walletTransferVolumeSnapshotsBuilder_ == null) {
@@ -449,7 +456,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
      */
     public Builder setWalletTransferVolumeSnapshots(adamant.global.v1.Model.WalletTransferVolumeSnapshots value) {
       if (walletTransferVolumeSnapshotsBuilder_ == null) {
@@ -465,7 +472,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
      */
     public Builder setWalletTransferVolumeSnapshots(
         adamant.global.v1.Model.WalletTransferVolumeSnapshots.Builder builderForValue) {
@@ -479,7 +486,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
      */
     public Builder mergeWalletTransferVolumeSnapshots(adamant.global.v1.Model.WalletTransferVolumeSnapshots value) {
       if (walletTransferVolumeSnapshotsBuilder_ == null) {
@@ -497,7 +504,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
      */
     public Builder clearWalletTransferVolumeSnapshots() {
       if (walletTransferVolumeSnapshotsBuilder_ == null) {
@@ -511,7 +518,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
      */
     public adamant.global.v1.Model.WalletTransferVolumeSnapshots.Builder getWalletTransferVolumeSnapshotsBuilder() {
       
@@ -519,7 +526,7 @@ private static final long serialVersionUID = 0L;
       return getWalletTransferVolumeSnapshotsFieldBuilder().getBuilder();
     }
     /**
-     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
      */
     public adamant.global.v1.Model.WalletTransferVolumeSnapshotsOrBuilder getWalletTransferVolumeSnapshotsOrBuilder() {
       if (walletTransferVolumeSnapshotsBuilder_ != null) {
@@ -530,7 +537,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1;</code>
+     * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         adamant.global.v1.Model.WalletTransferVolumeSnapshots, adamant.global.v1.Model.WalletTransferVolumeSnapshots.Builder, adamant.global.v1.Model.WalletTransferVolumeSnapshotsOrBuilder> 

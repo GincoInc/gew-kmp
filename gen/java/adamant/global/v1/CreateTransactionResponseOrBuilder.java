@@ -8,11 +8,13 @@ public interface CreateTransactionResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string transaction_id = 1;</code>
+   * <code>string transaction_id = 1 [json_name = "transactionId"];</code>
+   * @return The transactionId.
    */
   java.lang.String getTransactionId();
   /**
-   * <code>string transaction_id = 1;</code>
+   * <code>string transaction_id = 1 [json_name = "transactionId"];</code>
+   * @return The bytes for transactionId.
    */
   com.google.protobuf.ByteString
       getTransactionIdBytes();

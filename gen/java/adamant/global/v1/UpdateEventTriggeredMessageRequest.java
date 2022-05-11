@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.UpdateEventTriggeredMessageRequest}
  */
-public  final class UpdateEventTriggeredMessageRequest extends
+public final class UpdateEventTriggeredMessageRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.UpdateEventTriggeredMessageRequest)
     UpdateEventTriggeredMessageRequestOrBuilder {
@@ -97,8 +97,10 @@ private static final long serialVersionUID = 0L;
   public static final int EVENT_TRIGGERED_MESSAGE_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object eventTriggeredMessageId_;
   /**
-   * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+   * @return The eventTriggeredMessageId.
    */
+  @java.lang.Override
   public java.lang.String getEventTriggeredMessageId() {
     java.lang.Object ref = eventTriggeredMessageId_;
     if (ref instanceof java.lang.String) {
@@ -112,8 +114,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+   * @return The bytes for eventTriggeredMessageId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getEventTriggeredMessageIdBytes() {
     java.lang.Object ref = eventTriggeredMessageId_;
@@ -131,8 +135,10 @@ private static final long serialVersionUID = 0L;
   public static final int DESTINATION_FIELD_NUMBER = 2;
   private volatile java.lang.Object destination_;
   /**
-   * <code>string destination = 2;</code>
+   * <code>string destination = 2 [json_name = "destination"];</code>
+   * @return The destination.
    */
+  @java.lang.Override
   public java.lang.String getDestination() {
     java.lang.Object ref = destination_;
     if (ref instanceof java.lang.String) {
@@ -146,8 +152,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string destination = 2;</code>
+   * <code>string destination = 2 [json_name = "destination"];</code>
+   * @return The bytes for destination.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getDestinationBytes() {
     java.lang.Object ref = destination_;
@@ -176,10 +184,10 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getEventTriggeredMessageIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(eventTriggeredMessageId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, eventTriggeredMessageId_);
     }
-    if (!getDestinationBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destination_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, destination_);
     }
     unknownFields.writeTo(output);
@@ -191,10 +199,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getEventTriggeredMessageIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(eventTriggeredMessageId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, eventTriggeredMessageId_);
     }
-    if (!getDestinationBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destination_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, destination_);
     }
     size += unknownFields.getSerializedSize();
@@ -483,7 +491,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object eventTriggeredMessageId_ = "";
     /**
-     * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+     * @return The eventTriggeredMessageId.
      */
     public java.lang.String getEventTriggeredMessageId() {
       java.lang.Object ref = eventTriggeredMessageId_;
@@ -498,7 +507,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+     * @return The bytes for eventTriggeredMessageId.
      */
     public com.google.protobuf.ByteString
         getEventTriggeredMessageIdBytes() {
@@ -514,7 +524,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+     * @param value The eventTriggeredMessageId to set.
+     * @return This builder for chaining.
      */
     public Builder setEventTriggeredMessageId(
         java.lang.String value) {
@@ -527,7 +539,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearEventTriggeredMessageId() {
       
@@ -536,7 +549,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for eventTriggeredMessageId to set.
+     * @return This builder for chaining.
      */
     public Builder setEventTriggeredMessageIdBytes(
         com.google.protobuf.ByteString value) {
@@ -552,7 +567,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object destination_ = "";
     /**
-     * <code>string destination = 2;</code>
+     * <code>string destination = 2 [json_name = "destination"];</code>
+     * @return The destination.
      */
     public java.lang.String getDestination() {
       java.lang.Object ref = destination_;
@@ -567,7 +583,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string destination = 2;</code>
+     * <code>string destination = 2 [json_name = "destination"];</code>
+     * @return The bytes for destination.
      */
     public com.google.protobuf.ByteString
         getDestinationBytes() {
@@ -583,7 +600,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string destination = 2;</code>
+     * <code>string destination = 2 [json_name = "destination"];</code>
+     * @param value The destination to set.
+     * @return This builder for chaining.
      */
     public Builder setDestination(
         java.lang.String value) {
@@ -596,7 +615,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string destination = 2;</code>
+     * <code>string destination = 2 [json_name = "destination"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearDestination() {
       
@@ -605,7 +625,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string destination = 2;</code>
+     * <code>string destination = 2 [json_name = "destination"];</code>
+     * @param value The bytes for destination to set.
+     * @return This builder for chaining.
      */
     public Builder setDestinationBytes(
         com.google.protobuf.ByteString value) {

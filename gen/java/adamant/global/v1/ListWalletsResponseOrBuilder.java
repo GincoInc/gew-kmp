@@ -8,35 +8,37 @@ public interface ListWalletsResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.Wallet wallets = 1;</code>
+   * <code>repeated .adamant.global.v1.Wallet wallets = 1 [json_name = "wallets"];</code>
    */
   java.util.List<adamant.global.v1.Model.Wallet> 
       getWalletsList();
   /**
-   * <code>repeated .adamant.global.v1.Wallet wallets = 1;</code>
+   * <code>repeated .adamant.global.v1.Wallet wallets = 1 [json_name = "wallets"];</code>
    */
   adamant.global.v1.Model.Wallet getWallets(int index);
   /**
-   * <code>repeated .adamant.global.v1.Wallet wallets = 1;</code>
+   * <code>repeated .adamant.global.v1.Wallet wallets = 1 [json_name = "wallets"];</code>
    */
   int getWalletsCount();
   /**
-   * <code>repeated .adamant.global.v1.Wallet wallets = 1;</code>
+   * <code>repeated .adamant.global.v1.Wallet wallets = 1 [json_name = "wallets"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.WalletOrBuilder> 
       getWalletsOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.Wallet wallets = 1;</code>
+   * <code>repeated .adamant.global.v1.Wallet wallets = 1 [json_name = "wallets"];</code>
    */
   adamant.global.v1.Model.WalletOrBuilder getWalletsOrBuilder(
       int index);
 
   /**
-   * <code>string next_page_token = 2;</code>
+   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+   * @return The nextPageToken.
    */
   java.lang.String getNextPageToken();
   /**
-   * <code>string next_page_token = 2;</code>
+   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+   * @return The bytes for nextPageToken.
    */
   com.google.protobuf.ByteString
       getNextPageTokenBytes();

@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ListAddressesWithoutBalanceResponse} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ListAddressesWithoutBalanceResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListAddressesWithoutBalanceResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListAddressesWithoutBalanceResponse.class)) return new ListAddressesWithoutBalanceResponseValidator();
@@ -25,7 +27,6 @@ public class ListAddressesWithoutBalanceResponseValidator implements io.envoypro
 			// Validate addresses
 			if (true) index.validatorFor(item).assertValid(item);
 			});
-
 	// no validation rules for NextPageToken
 
 	

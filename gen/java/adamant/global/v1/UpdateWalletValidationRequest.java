@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.UpdateWalletValidationRequest}
  */
-public  final class UpdateWalletValidationRequest extends
+public final class UpdateWalletValidationRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.UpdateWalletValidationRequest)
     UpdateWalletValidationRequestOrBuilder {
@@ -109,8 +109,10 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object walletId_;
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The walletId.
    */
+  @java.lang.Override
   public java.lang.String getWalletId() {
     java.lang.Object ref = walletId_;
     if (ref instanceof java.lang.String) {
@@ -124,8 +126,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWalletIdBytes() {
     java.lang.Object ref = walletId_;
@@ -143,26 +147,32 @@ private static final long serialVersionUID = 0L;
   public static final int NEW_VALIDATOR_IDS_FIELD_NUMBER = 2;
   private com.google.protobuf.LazyStringList newValidatorIds_;
   /**
-   * <code>repeated string new_validator_ids = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated string new_validator_ids = 2 [json_name = "newValidatorIds", (.validate.rules) = { ... }</code>
+   * @return A list containing the newValidatorIds.
    */
   public com.google.protobuf.ProtocolStringList
       getNewValidatorIdsList() {
     return newValidatorIds_;
   }
   /**
-   * <code>repeated string new_validator_ids = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated string new_validator_ids = 2 [json_name = "newValidatorIds", (.validate.rules) = { ... }</code>
+   * @return The count of newValidatorIds.
    */
   public int getNewValidatorIdsCount() {
     return newValidatorIds_.size();
   }
   /**
-   * <code>repeated string new_validator_ids = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated string new_validator_ids = 2 [json_name = "newValidatorIds", (.validate.rules) = { ... }</code>
+   * @param index The index of the element to return.
+   * @return The newValidatorIds at the given index.
    */
   public java.lang.String getNewValidatorIds(int index) {
     return newValidatorIds_.get(index);
   }
   /**
-   * <code>repeated string new_validator_ids = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated string new_validator_ids = 2 [json_name = "newValidatorIds", (.validate.rules) = { ... }</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the newValidatorIds at the given index.
    */
   public com.google.protobuf.ByteString
       getNewValidatorIdsBytes(int index) {
@@ -172,8 +182,10 @@ private static final long serialVersionUID = 0L;
   public static final int NEW_REQUIRED_APPROVAL_COUNT_FIELD_NUMBER = 3;
   private int newRequiredApprovalCount_;
   /**
-   * <code>uint32 new_required_approval_count = 3;</code>
+   * <code>uint32 new_required_approval_count = 3 [json_name = "newRequiredApprovalCount"];</code>
+   * @return The newRequiredApprovalCount.
    */
+  @java.lang.Override
   public int getNewRequiredApprovalCount() {
     return newRequiredApprovalCount_;
   }
@@ -192,7 +204,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletId_);
     }
     for (int i = 0; i < newValidatorIds_.size(); i++) {
@@ -210,7 +222,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletId_);
     }
     {
@@ -535,7 +547,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object walletId_ = "";
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The walletId.
      */
     public java.lang.String getWalletId() {
       java.lang.Object ref = walletId_;
@@ -550,7 +563,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The bytes for walletId.
      */
     public com.google.protobuf.ByteString
         getWalletIdBytes() {
@@ -566,7 +580,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @param value The walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletId(
         java.lang.String value) {
@@ -579,7 +595,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletId() {
       
@@ -588,7 +605,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletIdBytes(
         com.google.protobuf.ByteString value) {
@@ -610,33 +629,42 @@ private static final long serialVersionUID = 0L;
        }
     }
     /**
-     * <code>repeated string new_validator_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string new_validator_ids = 2 [json_name = "newValidatorIds", (.validate.rules) = { ... }</code>
+     * @return A list containing the newValidatorIds.
      */
     public com.google.protobuf.ProtocolStringList
         getNewValidatorIdsList() {
       return newValidatorIds_.getUnmodifiableView();
     }
     /**
-     * <code>repeated string new_validator_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string new_validator_ids = 2 [json_name = "newValidatorIds", (.validate.rules) = { ... }</code>
+     * @return The count of newValidatorIds.
      */
     public int getNewValidatorIdsCount() {
       return newValidatorIds_.size();
     }
     /**
-     * <code>repeated string new_validator_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string new_validator_ids = 2 [json_name = "newValidatorIds", (.validate.rules) = { ... }</code>
+     * @param index The index of the element to return.
+     * @return The newValidatorIds at the given index.
      */
     public java.lang.String getNewValidatorIds(int index) {
       return newValidatorIds_.get(index);
     }
     /**
-     * <code>repeated string new_validator_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string new_validator_ids = 2 [json_name = "newValidatorIds", (.validate.rules) = { ... }</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the newValidatorIds at the given index.
      */
     public com.google.protobuf.ByteString
         getNewValidatorIdsBytes(int index) {
       return newValidatorIds_.getByteString(index);
     }
     /**
-     * <code>repeated string new_validator_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string new_validator_ids = 2 [json_name = "newValidatorIds", (.validate.rules) = { ... }</code>
+     * @param index The index to set the value at.
+     * @param value The newValidatorIds to set.
+     * @return This builder for chaining.
      */
     public Builder setNewValidatorIds(
         int index, java.lang.String value) {
@@ -649,7 +677,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string new_validator_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string new_validator_ids = 2 [json_name = "newValidatorIds", (.validate.rules) = { ... }</code>
+     * @param value The newValidatorIds to add.
+     * @return This builder for chaining.
      */
     public Builder addNewValidatorIds(
         java.lang.String value) {
@@ -662,7 +692,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string new_validator_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string new_validator_ids = 2 [json_name = "newValidatorIds", (.validate.rules) = { ... }</code>
+     * @param values The newValidatorIds to add.
+     * @return This builder for chaining.
      */
     public Builder addAllNewValidatorIds(
         java.lang.Iterable<java.lang.String> values) {
@@ -673,7 +705,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string new_validator_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string new_validator_ids = 2 [json_name = "newValidatorIds", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearNewValidatorIds() {
       newValidatorIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -682,7 +715,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string new_validator_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string new_validator_ids = 2 [json_name = "newValidatorIds", (.validate.rules) = { ... }</code>
+     * @param value The bytes of the newValidatorIds to add.
+     * @return This builder for chaining.
      */
     public Builder addNewValidatorIdsBytes(
         com.google.protobuf.ByteString value) {
@@ -698,13 +733,17 @@ private static final long serialVersionUID = 0L;
 
     private int newRequiredApprovalCount_ ;
     /**
-     * <code>uint32 new_required_approval_count = 3;</code>
+     * <code>uint32 new_required_approval_count = 3 [json_name = "newRequiredApprovalCount"];</code>
+     * @return The newRequiredApprovalCount.
      */
+    @java.lang.Override
     public int getNewRequiredApprovalCount() {
       return newRequiredApprovalCount_;
     }
     /**
-     * <code>uint32 new_required_approval_count = 3;</code>
+     * <code>uint32 new_required_approval_count = 3 [json_name = "newRequiredApprovalCount"];</code>
+     * @param value The newRequiredApprovalCount to set.
+     * @return This builder for chaining.
      */
     public Builder setNewRequiredApprovalCount(int value) {
       
@@ -713,7 +752,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint32 new_required_approval_count = 3;</code>
+     * <code>uint32 new_required_approval_count = 3 [json_name = "newRequiredApprovalCount"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearNewRequiredApprovalCount() {
       

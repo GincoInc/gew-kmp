@@ -8,25 +8,25 @@ public interface ListCompensationFeeHistoriesResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
    */
   java.util.List<adamant.global.v1.Model.CompensationFee> 
       getCompensationFeesList();
   /**
-   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
    */
   adamant.global.v1.Model.CompensationFee getCompensationFees(int index);
   /**
-   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
    */
   int getCompensationFeesCount();
   /**
-   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.CompensationFeeOrBuilder> 
       getCompensationFeesOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1;</code>
+   * <code>repeated .adamant.global.v1.CompensationFee compensation_fees = 1 [json_name = "compensationFees"];</code>
    */
   adamant.global.v1.Model.CompensationFeeOrBuilder getCompensationFeesOrBuilder(
       int index);

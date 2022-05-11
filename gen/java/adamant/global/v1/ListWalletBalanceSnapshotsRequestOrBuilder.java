@@ -8,47 +8,57 @@ public interface ListWalletBalanceSnapshotsRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated string wallet_ids = 1 [(.validate.rules) = { ... }</code>
+   * <code>repeated string wallet_ids = 1 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+   * @return A list containing the walletIds.
    */
   java.util.List<java.lang.String>
       getWalletIdsList();
   /**
-   * <code>repeated string wallet_ids = 1 [(.validate.rules) = { ... }</code>
+   * <code>repeated string wallet_ids = 1 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+   * @return The count of walletIds.
    */
   int getWalletIdsCount();
   /**
-   * <code>repeated string wallet_ids = 1 [(.validate.rules) = { ... }</code>
+   * <code>repeated string wallet_ids = 1 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+   * @param index The index of the element to return.
+   * @return The walletIds at the given index.
    */
   java.lang.String getWalletIds(int index);
   /**
-   * <code>repeated string wallet_ids = 1 [(.validate.rules) = { ... }</code>
+   * <code>repeated string wallet_ids = 1 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the walletIds at the given index.
    */
   com.google.protobuf.ByteString
       getWalletIdsBytes(int index);
 
   /**
-   * <code>.google.protobuf.Timestamp start_time = 2;</code>
+   * <code>.google.protobuf.Timestamp start_time = 2 [json_name = "startTime"];</code>
+   * @return Whether the startTime field is set.
    */
   boolean hasStartTime();
   /**
-   * <code>.google.protobuf.Timestamp start_time = 2;</code>
+   * <code>.google.protobuf.Timestamp start_time = 2 [json_name = "startTime"];</code>
+   * @return The startTime.
    */
   com.google.protobuf.Timestamp getStartTime();
   /**
-   * <code>.google.protobuf.Timestamp start_time = 2;</code>
+   * <code>.google.protobuf.Timestamp start_time = 2 [json_name = "startTime"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder();
 
   /**
-   * <code>.google.protobuf.Timestamp end_time = 3;</code>
+   * <code>.google.protobuf.Timestamp end_time = 3 [json_name = "endTime"];</code>
+   * @return Whether the endTime field is set.
    */
   boolean hasEndTime();
   /**
-   * <code>.google.protobuf.Timestamp end_time = 3;</code>
+   * <code>.google.protobuf.Timestamp end_time = 3 [json_name = "endTime"];</code>
+   * @return The endTime.
    */
   com.google.protobuf.Timestamp getEndTime();
   /**
-   * <code>.google.protobuf.Timestamp end_time = 3;</code>
+   * <code>.google.protobuf.Timestamp end_time = 3 [json_name = "endTime"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder();
 }
