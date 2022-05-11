@@ -33,5 +33,5 @@ protodep-up: $(BIN)/protodep
 	find ./api/proto/gincoinc -type f | xargs sed -i '' -e 's/GincoInc\/protobuf\/gen\/go/GincoInc\/gew-kmp\/gen/g'
 
 .PHONY: evans
-evans:
-	@cd ./api/proto && evans --path=./../../vendor --path=. --port 50051 --package adamant.teller.v1 --service TellerAPI ./gincoinc/adamant/teller/v1/adamanttellerv1/teller_api.proto
+evans: $(BIN)/evans
+	@cd ./api/proto && $(BIN)/evans --path=./../../vendor --path=. --port 50051 --package adamant.teller.v1 --service TellerAPI ./gincoinc/adamant/teller/v1/adamanttellerv1/teller_api.proto

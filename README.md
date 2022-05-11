@@ -27,9 +27,5 @@ docker-compose up -d
 ### CUI
 
 ```
-# Install
-brew tap ktr0731/evans
-brew install evans
-
 make evans
 ```
