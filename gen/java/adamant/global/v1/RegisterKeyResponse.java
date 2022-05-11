@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.RegisterKeyResponse}
  */
-public  final class RegisterKeyResponse extends
+public final class RegisterKeyResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.RegisterKeyResponse)
     RegisterKeyResponseOrBuilder {
@@ -90,8 +90,10 @@ private static final long serialVersionUID = 0L;
   public static final int KEY_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object keyId_;
   /**
-   * <code>string key_id = 1;</code>
+   * <code>string key_id = 1 [json_name = "keyId"];</code>
+   * @return The keyId.
    */
+  @java.lang.Override
   public java.lang.String getKeyId() {
     java.lang.Object ref = keyId_;
     if (ref instanceof java.lang.String) {
@@ -105,8 +107,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string key_id = 1;</code>
+   * <code>string key_id = 1 [json_name = "keyId"];</code>
+   * @return The bytes for keyId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getKeyIdBytes() {
     java.lang.Object ref = keyId_;
@@ -135,7 +139,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getKeyIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, keyId_);
     }
     unknownFields.writeTo(output);
@@ -147,7 +151,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getKeyIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, keyId_);
     }
     size += unknownFields.getSerializedSize();
@@ -425,7 +429,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object keyId_ = "";
     /**
-     * <code>string key_id = 1;</code>
+     * <code>string key_id = 1 [json_name = "keyId"];</code>
+     * @return The keyId.
      */
     public java.lang.String getKeyId() {
       java.lang.Object ref = keyId_;
@@ -440,7 +445,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string key_id = 1;</code>
+     * <code>string key_id = 1 [json_name = "keyId"];</code>
+     * @return The bytes for keyId.
      */
     public com.google.protobuf.ByteString
         getKeyIdBytes() {
@@ -456,7 +462,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string key_id = 1;</code>
+     * <code>string key_id = 1 [json_name = "keyId"];</code>
+     * @param value The keyId to set.
+     * @return This builder for chaining.
      */
     public Builder setKeyId(
         java.lang.String value) {
@@ -469,7 +477,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string key_id = 1;</code>
+     * <code>string key_id = 1 [json_name = "keyId"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearKeyId() {
       
@@ -478,7 +487,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string key_id = 1;</code>
+     * <code>string key_id = 1 [json_name = "keyId"];</code>
+     * @param value The bytes for keyId to set.
+     * @return This builder for chaining.
      */
     public Builder setKeyIdBytes(
         com.google.protobuf.ByteString value) {

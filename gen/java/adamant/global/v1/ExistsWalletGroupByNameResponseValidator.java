@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ExistsWalletGroupByNameResponse} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ExistsWalletGroupByNameResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ExistsWalletGroupByNameResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ExistsWalletGroupByNameResponse.class)) return new ExistsWalletGroupByNameResponseValidator();

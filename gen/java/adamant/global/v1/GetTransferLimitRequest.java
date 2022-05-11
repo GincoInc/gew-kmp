@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.GetTransferLimitRequest}
  */
-public  final class GetTransferLimitRequest extends
+public final class GetTransferLimitRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.GetTransferLimitRequest)
     GetTransferLimitRequestOrBuilder {
@@ -90,8 +90,10 @@ private static final long serialVersionUID = 0L;
   public static final int TRANSFER_LIMIT_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object transferLimitId_;
   /**
-   * <code>string transfer_limit_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string transfer_limit_id = 1 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+   * @return The transferLimitId.
    */
+  @java.lang.Override
   public java.lang.String getTransferLimitId() {
     java.lang.Object ref = transferLimitId_;
     if (ref instanceof java.lang.String) {
@@ -105,8 +107,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string transfer_limit_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string transfer_limit_id = 1 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+   * @return The bytes for transferLimitId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTransferLimitIdBytes() {
     java.lang.Object ref = transferLimitId_;
@@ -135,7 +139,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getTransferLimitIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transferLimitId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, transferLimitId_);
     }
     unknownFields.writeTo(output);
@@ -147,7 +151,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getTransferLimitIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transferLimitId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, transferLimitId_);
     }
     size += unknownFields.getSerializedSize();
@@ -425,7 +429,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object transferLimitId_ = "";
     /**
-     * <code>string transfer_limit_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 1 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @return The transferLimitId.
      */
     public java.lang.String getTransferLimitId() {
       java.lang.Object ref = transferLimitId_;
@@ -440,7 +445,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string transfer_limit_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 1 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @return The bytes for transferLimitId.
      */
     public com.google.protobuf.ByteString
         getTransferLimitIdBytes() {
@@ -456,7 +462,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string transfer_limit_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 1 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @param value The transferLimitId to set.
+     * @return This builder for chaining.
      */
     public Builder setTransferLimitId(
         java.lang.String value) {
@@ -469,7 +477,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string transfer_limit_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 1 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearTransferLimitId() {
       
@@ -478,7 +487,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string transfer_limit_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 1 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for transferLimitId to set.
+     * @return This builder for chaining.
      */
     public Builder setTransferLimitIdBytes(
         com.google.protobuf.ByteString value) {

@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.RegisterKeyRequest}
  */
-public  final class RegisterKeyRequest extends
+public final class RegisterKeyRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.RegisterKeyRequest)
     RegisterKeyRequestOrBuilder {
@@ -97,8 +97,10 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object walletId_;
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The walletId.
    */
+  @java.lang.Override
   public java.lang.String getWalletId() {
     java.lang.Object ref = walletId_;
     if (ref instanceof java.lang.String) {
@@ -112,8 +114,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWalletIdBytes() {
     java.lang.Object ref = walletId_;
@@ -131,8 +135,10 @@ private static final long serialVersionUID = 0L;
   public static final int PUB_KEY_FIELD_NUMBER = 2;
   private volatile java.lang.Object pubKey_;
   /**
-   * <code>string pub_key = 2 [(.validate.rules) = { ... }</code>
+   * <code>string pub_key = 2 [json_name = "pubKey", (.validate.rules) = { ... }</code>
+   * @return The pubKey.
    */
+  @java.lang.Override
   public java.lang.String getPubKey() {
     java.lang.Object ref = pubKey_;
     if (ref instanceof java.lang.String) {
@@ -146,8 +152,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string pub_key = 2 [(.validate.rules) = { ... }</code>
+   * <code>string pub_key = 2 [json_name = "pubKey", (.validate.rules) = { ... }</code>
+   * @return The bytes for pubKey.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getPubKeyBytes() {
     java.lang.Object ref = pubKey_;
@@ -176,10 +184,10 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletId_);
     }
-    if (!getPubKeyBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pubKey_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, pubKey_);
     }
     unknownFields.writeTo(output);
@@ -191,10 +199,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletId_);
     }
-    if (!getPubKeyBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pubKey_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, pubKey_);
     }
     size += unknownFields.getSerializedSize();
@@ -483,7 +491,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object walletId_ = "";
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The walletId.
      */
     public java.lang.String getWalletId() {
       java.lang.Object ref = walletId_;
@@ -498,7 +507,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The bytes for walletId.
      */
     public com.google.protobuf.ByteString
         getWalletIdBytes() {
@@ -514,7 +524,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @param value The walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletId(
         java.lang.String value) {
@@ -527,7 +539,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletId() {
       
@@ -536,7 +549,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletIdBytes(
         com.google.protobuf.ByteString value) {
@@ -552,7 +567,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object pubKey_ = "";
     /**
-     * <code>string pub_key = 2 [(.validate.rules) = { ... }</code>
+     * <code>string pub_key = 2 [json_name = "pubKey", (.validate.rules) = { ... }</code>
+     * @return The pubKey.
      */
     public java.lang.String getPubKey() {
       java.lang.Object ref = pubKey_;
@@ -567,7 +583,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string pub_key = 2 [(.validate.rules) = { ... }</code>
+     * <code>string pub_key = 2 [json_name = "pubKey", (.validate.rules) = { ... }</code>
+     * @return The bytes for pubKey.
      */
     public com.google.protobuf.ByteString
         getPubKeyBytes() {
@@ -583,7 +600,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string pub_key = 2 [(.validate.rules) = { ... }</code>
+     * <code>string pub_key = 2 [json_name = "pubKey", (.validate.rules) = { ... }</code>
+     * @param value The pubKey to set.
+     * @return This builder for chaining.
      */
     public Builder setPubKey(
         java.lang.String value) {
@@ -596,7 +615,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string pub_key = 2 [(.validate.rules) = { ... }</code>
+     * <code>string pub_key = 2 [json_name = "pubKey", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearPubKey() {
       
@@ -605,7 +625,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string pub_key = 2 [(.validate.rules) = { ... }</code>
+     * <code>string pub_key = 2 [json_name = "pubKey", (.validate.rules) = { ... }</code>
+     * @param value The bytes for pubKey to set.
+     * @return This builder for chaining.
      */
     public Builder setPubKeyBytes(
         com.google.protobuf.ByteString value) {

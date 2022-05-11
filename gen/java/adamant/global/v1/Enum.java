@@ -85,6 +85,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -92,6 +94,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static WalletType forNumber(int value) {
       switch (value) {
         case 0: return WALLET_TYPE_INVALID;
@@ -118,6 +124,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -171,7 +181,7 @@ public final class Enum {
     WALLET_STATE_PROPOSED(1),
     /**
      * <pre>
-     *Waiting for key register
+     * Waiting for key register
      * </pre>
      *
      * <code>WALLET_STATE_KEY_REGISTERING = 2;</code>
@@ -179,7 +189,7 @@ public final class Enum {
     WALLET_STATE_KEY_REGISTERING(2),
     /**
      * <pre>
-     *Key was registed to Wallet
+     * Key was registed to Wallet
      * </pre>
      *
      * <code>WALLET_STATE_KEY_REGISTERED = 3;</code>
@@ -187,7 +197,7 @@ public final class Enum {
     WALLET_STATE_KEY_REGISTERED(3),
     /**
      * <pre>
-     *Waiting for review for validator
+     * Waiting for review for validator
      * </pre>
      *
      * <code>WALLET_STATE_VALIDATOR_REVIEWING = 4;</code>
@@ -195,7 +205,7 @@ public final class Enum {
     WALLET_STATE_VALIDATOR_REVIEWING(4),
     /**
      * <pre>
-     *Validator reviewd
+     * Validator reviewd
      * </pre>
      *
      * <code>WALLET_STATE_VALIDATOR_REVIEWED = 5;</code>
@@ -235,7 +245,7 @@ public final class Enum {
     WALLET_STATE_SIGNED(9),
     /**
      * <pre>
-     *Waiting for submit transaction which regist public key to contract
+     * Waiting for submit transaction which regist public key to contract
      * </pre>
      *
      * <code>WALLET_STATE_SUBMITTING = 10;</code>
@@ -243,7 +253,7 @@ public final class Enum {
     WALLET_STATE_SUBMITTING(10),
     /**
      * <pre>
-     *Transaction was submitted
+     * Transaction was submitted
      * </pre>
      *
      * <code>WALLET_STATE_SUBMITTED = 11;</code>
@@ -251,7 +261,7 @@ public final class Enum {
     WALLET_STATE_SUBMITTED(11),
     /**
      * <pre>
-     *Creating wallet successfuly completed
+     * Creating wallet successfuly completed
      * </pre>
      *
      * <code>WALLET_STATE_COMPLETED = 12;</code>
@@ -259,7 +269,7 @@ public final class Enum {
     WALLET_STATE_COMPLETED(12),
     /**
      * <pre>
-     *Wallet was cancelled
+     * Wallet was cancelled
      * </pre>
      *
      * <code>WALLET_STATE_CANCELLED = 13;</code>
@@ -267,7 +277,7 @@ public final class Enum {
     WALLET_STATE_CANCELLED(13),
     /**
      * <pre>
-     *Wallet was archived
+     * Wallet was archived
      * </pre>
      *
      * <code>WALLET_STATE_ARCHIVED = 14;</code>
@@ -275,7 +285,7 @@ public final class Enum {
     WALLET_STATE_ARCHIVED(14),
     /**
      * <pre>
-     *Waiting for import address
+     * Waiting for import address
      * </pre>
      *
      * <code>WALLET_STATE_ADDRESS_IMPORT_WAITING = 15;</code>
@@ -283,7 +293,7 @@ public final class Enum {
     WALLET_STATE_ADDRESS_IMPORT_WAITING(15),
     /**
      * <pre>
-     *Importing address
+     * Importing address
      * </pre>
      *
      * <code>WALLET_STATE_ADDRESS_IMPORTING = 16;</code>
@@ -342,7 +352,7 @@ public final class Enum {
     public static final int WALLET_STATE_PROPOSED_VALUE = 1;
     /**
      * <pre>
-     *Waiting for key register
+     * Waiting for key register
      * </pre>
      *
      * <code>WALLET_STATE_KEY_REGISTERING = 2;</code>
@@ -350,7 +360,7 @@ public final class Enum {
     public static final int WALLET_STATE_KEY_REGISTERING_VALUE = 2;
     /**
      * <pre>
-     *Key was registed to Wallet
+     * Key was registed to Wallet
      * </pre>
      *
      * <code>WALLET_STATE_KEY_REGISTERED = 3;</code>
@@ -358,7 +368,7 @@ public final class Enum {
     public static final int WALLET_STATE_KEY_REGISTERED_VALUE = 3;
     /**
      * <pre>
-     *Waiting for review for validator
+     * Waiting for review for validator
      * </pre>
      *
      * <code>WALLET_STATE_VALIDATOR_REVIEWING = 4;</code>
@@ -366,7 +376,7 @@ public final class Enum {
     public static final int WALLET_STATE_VALIDATOR_REVIEWING_VALUE = 4;
     /**
      * <pre>
-     *Validator reviewd
+     * Validator reviewd
      * </pre>
      *
      * <code>WALLET_STATE_VALIDATOR_REVIEWED = 5;</code>
@@ -406,7 +416,7 @@ public final class Enum {
     public static final int WALLET_STATE_SIGNED_VALUE = 9;
     /**
      * <pre>
-     *Waiting for submit transaction which regist public key to contract
+     * Waiting for submit transaction which regist public key to contract
      * </pre>
      *
      * <code>WALLET_STATE_SUBMITTING = 10;</code>
@@ -414,7 +424,7 @@ public final class Enum {
     public static final int WALLET_STATE_SUBMITTING_VALUE = 10;
     /**
      * <pre>
-     *Transaction was submitted
+     * Transaction was submitted
      * </pre>
      *
      * <code>WALLET_STATE_SUBMITTED = 11;</code>
@@ -422,7 +432,7 @@ public final class Enum {
     public static final int WALLET_STATE_SUBMITTED_VALUE = 11;
     /**
      * <pre>
-     *Creating wallet successfuly completed
+     * Creating wallet successfuly completed
      * </pre>
      *
      * <code>WALLET_STATE_COMPLETED = 12;</code>
@@ -430,7 +440,7 @@ public final class Enum {
     public static final int WALLET_STATE_COMPLETED_VALUE = 12;
     /**
      * <pre>
-     *Wallet was cancelled
+     * Wallet was cancelled
      * </pre>
      *
      * <code>WALLET_STATE_CANCELLED = 13;</code>
@@ -438,7 +448,7 @@ public final class Enum {
     public static final int WALLET_STATE_CANCELLED_VALUE = 13;
     /**
      * <pre>
-     *Wallet was archived
+     * Wallet was archived
      * </pre>
      *
      * <code>WALLET_STATE_ARCHIVED = 14;</code>
@@ -446,7 +456,7 @@ public final class Enum {
     public static final int WALLET_STATE_ARCHIVED_VALUE = 14;
     /**
      * <pre>
-     *Waiting for import address
+     * Waiting for import address
      * </pre>
      *
      * <code>WALLET_STATE_ADDRESS_IMPORT_WAITING = 15;</code>
@@ -454,7 +464,7 @@ public final class Enum {
     public static final int WALLET_STATE_ADDRESS_IMPORT_WAITING_VALUE = 15;
     /**
      * <pre>
-     *Importing address
+     * Importing address
      * </pre>
      *
      * <code>WALLET_STATE_ADDRESS_IMPORTING = 16;</code>
@@ -511,6 +521,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -518,6 +530,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static WalletState forNumber(int value) {
       switch (value) {
         case 0: return WALLET_STATE_INVALID;
@@ -560,6 +576,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -657,6 +677,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -664,6 +686,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static WalletProposalType forNumber(int value) {
       switch (value) {
         case 0: return WALLET_PROPOSAL_TYPE_INVALID;
@@ -687,6 +713,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -776,6 +806,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -783,6 +815,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static AddressState forNumber(int value) {
       switch (value) {
         case 0: return ADDRESS_STATE_INVALID;
@@ -807,6 +843,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -856,7 +896,7 @@ public final class Enum {
     TRANSACTION_STATE_INVALID(0),
     /**
      * <pre>
-     *Waiting for sign
+     * Waiting for sign
      * </pre>
      *
      * <code>TRANSACTION_STATE_SIGNING = 1;</code>
@@ -864,7 +904,7 @@ public final class Enum {
     TRANSACTION_STATE_SIGNING(1),
     /**
      * <pre>
-     *Transaction was Signed
+     * Transaction was Signed
      * </pre>
      *
      * <code>TRANSACTION_STATE_SIGNED = 2;</code>
@@ -872,7 +912,7 @@ public final class Enum {
     TRANSACTION_STATE_SIGNED(2),
     /**
      * <pre>
-     *Waiting for review
+     * Waiting for review
      * </pre>
      *
      * <code>TRANSACTION_STATE_REVIEWING = 3;</code>
@@ -880,7 +920,7 @@ public final class Enum {
     TRANSACTION_STATE_REVIEWING(3),
     /**
      * <pre>
-     *Transaction was reviewd
+     * Transaction was reviewd
      * </pre>
      *
      * <code>TRANSACTION_STATE_REVIEWED = 4;</code>
@@ -888,7 +928,7 @@ public final class Enum {
     TRANSACTION_STATE_REVIEWED(4),
     /**
      * <pre>
-     *Waiting for submit
+     * Waiting for submit
      * </pre>
      *
      * <code>TRANSACTION_STATE_SUBMITTING = 5;</code>
@@ -896,7 +936,7 @@ public final class Enum {
     TRANSACTION_STATE_SUBMITTING(5),
     /**
      * <pre>
-     *Transaction was submitted
+     * Transaction was submitted
      * </pre>
      *
      * <code>TRANSACTION_STATE_SUBMITTED = 6;</code>
@@ -904,7 +944,7 @@ public final class Enum {
     TRANSACTION_STATE_SUBMITTED(6),
     /**
      * <pre>
-     *Waiting for cancel
+     * Waiting for cancel
      * </pre>
      *
      * <code>TRANSACTION_STATE_CANCELLING = 8;</code>
@@ -912,7 +952,7 @@ public final class Enum {
     TRANSACTION_STATE_CANCELLING(8),
     /**
      * <pre>
-     *Transaction was cancelled
+     * Transaction was cancelled
      * </pre>
      *
      * <code>TRANSACTION_STATE_CANCELLED = 7;</code>
@@ -927,7 +967,7 @@ public final class Enum {
     public static final int TRANSACTION_STATE_INVALID_VALUE = 0;
     /**
      * <pre>
-     *Waiting for sign
+     * Waiting for sign
      * </pre>
      *
      * <code>TRANSACTION_STATE_SIGNING = 1;</code>
@@ -935,7 +975,7 @@ public final class Enum {
     public static final int TRANSACTION_STATE_SIGNING_VALUE = 1;
     /**
      * <pre>
-     *Transaction was Signed
+     * Transaction was Signed
      * </pre>
      *
      * <code>TRANSACTION_STATE_SIGNED = 2;</code>
@@ -943,7 +983,7 @@ public final class Enum {
     public static final int TRANSACTION_STATE_SIGNED_VALUE = 2;
     /**
      * <pre>
-     *Waiting for review
+     * Waiting for review
      * </pre>
      *
      * <code>TRANSACTION_STATE_REVIEWING = 3;</code>
@@ -951,7 +991,7 @@ public final class Enum {
     public static final int TRANSACTION_STATE_REVIEWING_VALUE = 3;
     /**
      * <pre>
-     *Transaction was reviewd
+     * Transaction was reviewd
      * </pre>
      *
      * <code>TRANSACTION_STATE_REVIEWED = 4;</code>
@@ -959,7 +999,7 @@ public final class Enum {
     public static final int TRANSACTION_STATE_REVIEWED_VALUE = 4;
     /**
      * <pre>
-     *Waiting for submit
+     * Waiting for submit
      * </pre>
      *
      * <code>TRANSACTION_STATE_SUBMITTING = 5;</code>
@@ -967,7 +1007,7 @@ public final class Enum {
     public static final int TRANSACTION_STATE_SUBMITTING_VALUE = 5;
     /**
      * <pre>
-     *Transaction was submitted
+     * Transaction was submitted
      * </pre>
      *
      * <code>TRANSACTION_STATE_SUBMITTED = 6;</code>
@@ -975,7 +1015,7 @@ public final class Enum {
     public static final int TRANSACTION_STATE_SUBMITTED_VALUE = 6;
     /**
      * <pre>
-     *Waiting for cancel
+     * Waiting for cancel
      * </pre>
      *
      * <code>TRANSACTION_STATE_CANCELLING = 8;</code>
@@ -983,7 +1023,7 @@ public final class Enum {
     public static final int TRANSACTION_STATE_CANCELLING_VALUE = 8;
     /**
      * <pre>
-     *Transaction was cancelled
+     * Transaction was cancelled
      * </pre>
      *
      * <code>TRANSACTION_STATE_CANCELLED = 7;</code>
@@ -1000,6 +1040,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -1007,6 +1049,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static TransactionState forNumber(int value) {
       switch (value) {
         case 0: return TRANSACTION_STATE_INVALID;
@@ -1036,6 +1082,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -1133,6 +1183,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -1140,6 +1192,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static AccountType forNumber(int value) {
       switch (value) {
         case 0: return ACCOUNT_TYPE_INVALID;
@@ -1163,6 +1219,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -1252,6 +1312,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -1259,6 +1321,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static UserState forNumber(int value) {
       switch (value) {
         case 0: return USER_STATE_INVALID;
@@ -1283,6 +1349,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -1460,6 +1530,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -1467,6 +1539,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static RoleType forNumber(int value) {
       switch (value) {
         case 0: return ROLE_TYPE_INVALID;
@@ -1495,6 +1571,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -1576,6 +1656,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -1583,6 +1665,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static ResourceType forNumber(int value) {
       switch (value) {
         case 0: return RESOURCE_TYPE_INVALID;
@@ -1606,6 +1692,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -1719,6 +1809,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -1726,6 +1818,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static TokenType forNumber(int value) {
       switch (value) {
         case 0: return TOKEN_TYPE_INVALID;
@@ -1753,6 +1849,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -1834,6 +1934,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -1841,6 +1943,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static PolicyType forNumber(int value) {
       switch (value) {
         case 0: return POLICY_TYPE_INVALID;
@@ -1864,6 +1970,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -1953,6 +2063,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -1960,6 +2072,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static TransferLimitType forNumber(int value) {
       switch (value) {
         case 0: return TRANSFER_LIMIT_TYPE_INVALID;
@@ -1984,6 +2100,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -2265,6 +2385,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -2272,6 +2394,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static NotificationType forNumber(int value) {
       switch (value) {
         case 0: return NOTIFICATION_TYPE_INVALID;
@@ -2320,6 +2446,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -2441,6 +2571,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -2448,6 +2580,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static AuditLogGroup forNumber(int value) {
       switch (value) {
         case 0: return AUDIT_LOG_GROUP_INVALID;
@@ -2476,6 +2612,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -2989,6 +3129,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -2996,6 +3138,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static AuditLogType forNumber(int value) {
       switch (value) {
         case 0: return AUDIT_LOG_TYPE_INVALID;
@@ -3073,6 +3219,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -3109,7 +3259,8 @@ public final class Enum {
 
   /**
    * <pre>
-   * ErrDetailViolationType define violation type of errdetails.PreconditionFailure of grpc
+   * ErrDetailViolationType define violation type of
+   * errdetails.PreconditionFailure of grpc
    * </pre>
    *
    * Protobuf enum {@code adamant.global.v1.PreconditionFailureType}
@@ -3394,6 +3545,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -3401,6 +3554,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static PreconditionFailureType forNumber(int value) {
       switch (value) {
         case 0: return PRECONDITION_FAILURE_TYPE_INVALID;
@@ -3451,6 +3608,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -3592,6 +3753,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -3599,6 +3762,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static ListFilterType forNumber(int value) {
       switch (value) {
         case 0: return LIST_FILTER_TYPE_INVALID;
@@ -3630,6 +3797,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -3771,6 +3942,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -3778,6 +3951,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static MailType forNumber(int value) {
       switch (value) {
         case 0: return MAIL_TYPE_INVALID;
@@ -3809,6 +3986,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -3926,6 +4107,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -3933,6 +4116,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static WatchOnlyAddressState forNumber(int value) {
       switch (value) {
         case 0: return WATCH_ONLY_ADDRESS_STATE_INVALID;
@@ -3961,6 +4148,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -4078,6 +4269,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -4085,6 +4278,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static SubstrateCallType forNumber(int value) {
       switch (value) {
         case 0: return SUBSTRATE_CALL_TYPE_INVALID;
@@ -4113,6 +4310,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -4214,6 +4415,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -4221,6 +4424,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static DownloadResourceType forNumber(int value) {
       switch (value) {
         case 0: return DOWNLOAD_RESOURCE_TYPE_INVALID;
@@ -4247,6 +4454,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -4324,6 +4535,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -4331,6 +4544,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static EventTriggeredMessageType forNumber(int value) {
       switch (value) {
         case 0: return EVENT_TRIGGERED_MESSAGE_TYPE_INVALID;
@@ -4354,6 +4571,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -4431,6 +4652,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -4438,6 +4661,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static WalletConnectCallRequestType forNumber(int value) {
       switch (value) {
         case 0: return WALLET_CONNECT_CALL_REQUEST_TYPE_INVALID;
@@ -4461,6 +4688,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -4538,6 +4769,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -4545,6 +4778,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static EthereumContractMethodIDType forNumber(int value) {
       switch (value) {
         case 0: return ETHEREUM_CONTRACT_METHOD_ID_TYPE_INVALID;
@@ -4568,6 +4805,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -4882,7 +5123,9 @@ public final class Enum {
       "METHOD_ID_TYPE_INVALID\020\000\0222\n.ETHEREUM_CON" +
       "TRACT_METHOD_ID_TYPE_ERC20_APPROVE\020\001\0226\n2" +
       "ETHEREUM_CONTRACT_METHOD_ID_TYPE_UNISWAP" +
-      "_MULTICALL\020\002B\021Z\017adamantglobalv1b\006proto3"
+      "_MULTICALL\020\002BLZJgithub.com/GincoInc/gew-" +
+      "kmp/gen/gincoinc/adamant/global/v1/adama" +
+      "ntglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

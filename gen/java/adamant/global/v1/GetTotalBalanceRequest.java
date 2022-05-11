@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.GetTotalBalanceRequest}
  */
-public  final class GetTotalBalanceRequest extends
+public final class GetTotalBalanceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.GetTotalBalanceRequest)
     GetTotalBalanceRequestOrBuilder {
@@ -88,8 +88,10 @@ private static final long serialVersionUID = 0L;
   public static final int WATCH_ONLY_FIELD_NUMBER = 1;
   private boolean watchOnly_;
   /**
-   * <code>bool watch_only = 1;</code>
+   * <code>bool watch_only = 1 [json_name = "watchOnly"];</code>
+   * @return The watchOnly.
    */
+  @java.lang.Override
   public boolean getWatchOnly() {
     return watchOnly_;
   }
@@ -399,13 +401,17 @@ private static final long serialVersionUID = 0L;
 
     private boolean watchOnly_ ;
     /**
-     * <code>bool watch_only = 1;</code>
+     * <code>bool watch_only = 1 [json_name = "watchOnly"];</code>
+     * @return The watchOnly.
      */
+    @java.lang.Override
     public boolean getWatchOnly() {
       return watchOnly_;
     }
     /**
-     * <code>bool watch_only = 1;</code>
+     * <code>bool watch_only = 1 [json_name = "watchOnly"];</code>
+     * @param value The watchOnly to set.
+     * @return This builder for chaining.
      */
     public Builder setWatchOnly(boolean value) {
       
@@ -414,7 +420,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool watch_only = 1;</code>
+     * <code>bool watch_only = 1 [json_name = "watchOnly"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearWatchOnly() {
       

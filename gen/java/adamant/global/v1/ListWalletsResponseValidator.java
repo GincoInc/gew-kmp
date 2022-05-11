@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ListWalletsResponse} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ListWalletsResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListWalletsResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListWalletsResponse.class)) return new ListWalletsResponseValidator();
@@ -25,7 +27,6 @@ public class ListWalletsResponseValidator implements io.envoyproxy.pgv.Validator
 			// Validate wallets
 			if (true) index.validatorFor(item).assertValid(item);
 			});
-
 	// no validation rules for NextPageToken
 
 	

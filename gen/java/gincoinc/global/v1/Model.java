@@ -24,8 +24,9 @@ public final class Model {
   static {
     java.lang.String[] descriptorData = {
       "\n/gincoinc/global/v1/gincoincglobalv1/mo" +
-      "del.proto\022\022gincoinc.global.v1B\022Z\020gincoin" +
-      "cglobalv1b\006proto3"
+      "del.proto\022\022gincoinc.global.v1BEZCgithub." +
+      "com/GincoInc/gew-kmp/gen/gincoinc/global" +
+      "/v1/gincoincglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -8,21 +8,25 @@ public interface ListWalletGroupsRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bool watch_only = 3;</code>
+   * <code>bool watch_only = 3 [json_name = "watchOnly"];</code>
+   * @return The watchOnly.
    */
   boolean getWatchOnly();
 
   /**
-   * <code>uint32 page_size = 1 [(.validate.rules) = { ... }</code>
+   * <code>uint32 page_size = 1 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+   * @return The pageSize.
    */
   int getPageSize();
 
   /**
-   * <code>string page_token = 2 [(.validate.rules) = { ... }</code>
+   * <code>string page_token = 2 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The pageToken.
    */
   java.lang.String getPageToken();
   /**
-   * <code>string page_token = 2 [(.validate.rules) = { ... }</code>
+   * <code>string page_token = 2 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The bytes for pageToken.
    */
   com.google.protobuf.ByteString
       getPageTokenBytes();

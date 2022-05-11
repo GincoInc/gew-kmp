@@ -8,25 +8,25 @@ public interface ListConfirmationsResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
    */
   java.util.List<adamant.global.v1.Model.Confirmation> 
       getConfirmationsList();
   /**
-   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
    */
   adamant.global.v1.Model.Confirmation getConfirmations(int index);
   /**
-   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
    */
   int getConfirmationsCount();
   /**
-   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.ConfirmationOrBuilder> 
       getConfirmationsOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1;</code>
+   * <code>repeated .adamant.global.v1.Confirmation confirmations = 1 [json_name = "confirmations"];</code>
    */
   adamant.global.v1.Model.ConfirmationOrBuilder getConfirmationsOrBuilder(
       int index);

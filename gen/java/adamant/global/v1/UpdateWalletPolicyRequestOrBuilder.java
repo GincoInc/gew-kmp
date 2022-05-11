@@ -8,21 +8,25 @@ public interface UpdateWalletPolicyRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The walletId.
    */
   java.lang.String getWalletId();
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletId.
    */
   com.google.protobuf.ByteString
       getWalletIdBytes();
 
   /**
-   * <code>string policy_id = 2 [(.validate.rules) = { ... }</code>
+   * <code>string policy_id = 2 [json_name = "policyId", (.validate.rules) = { ... }</code>
+   * @return The policyId.
    */
   java.lang.String getPolicyId();
   /**
-   * <code>string policy_id = 2 [(.validate.rules) = { ... }</code>
+   * <code>string policy_id = 2 [json_name = "policyId", (.validate.rules) = { ... }</code>
+   * @return The bytes for policyId.
    */
   com.google.protobuf.ByteString
       getPolicyIdBytes();

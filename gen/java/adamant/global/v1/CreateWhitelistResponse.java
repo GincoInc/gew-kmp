@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.CreateWhitelistResponse}
  */
-public  final class CreateWhitelistResponse extends
+public final class CreateWhitelistResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.CreateWhitelistResponse)
     CreateWhitelistResponseOrBuilder {
@@ -90,8 +90,10 @@ private static final long serialVersionUID = 0L;
   public static final int WHITELIST_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object whitelistId_;
   /**
-   * <code>string whitelist_id = 1;</code>
+   * <code>string whitelist_id = 1 [json_name = "whitelistId"];</code>
+   * @return The whitelistId.
    */
+  @java.lang.Override
   public java.lang.String getWhitelistId() {
     java.lang.Object ref = whitelistId_;
     if (ref instanceof java.lang.String) {
@@ -105,8 +107,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string whitelist_id = 1;</code>
+   * <code>string whitelist_id = 1 [json_name = "whitelistId"];</code>
+   * @return The bytes for whitelistId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWhitelistIdBytes() {
     java.lang.Object ref = whitelistId_;
@@ -135,7 +139,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getWhitelistIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(whitelistId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, whitelistId_);
     }
     unknownFields.writeTo(output);
@@ -147,7 +151,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getWhitelistIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(whitelistId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, whitelistId_);
     }
     size += unknownFields.getSerializedSize();
@@ -425,7 +429,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object whitelistId_ = "";
     /**
-     * <code>string whitelist_id = 1;</code>
+     * <code>string whitelist_id = 1 [json_name = "whitelistId"];</code>
+     * @return The whitelistId.
      */
     public java.lang.String getWhitelistId() {
       java.lang.Object ref = whitelistId_;
@@ -440,7 +445,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string whitelist_id = 1;</code>
+     * <code>string whitelist_id = 1 [json_name = "whitelistId"];</code>
+     * @return The bytes for whitelistId.
      */
     public com.google.protobuf.ByteString
         getWhitelistIdBytes() {
@@ -456,7 +462,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string whitelist_id = 1;</code>
+     * <code>string whitelist_id = 1 [json_name = "whitelistId"];</code>
+     * @param value The whitelistId to set.
+     * @return This builder for chaining.
      */
     public Builder setWhitelistId(
         java.lang.String value) {
@@ -469,7 +477,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string whitelist_id = 1;</code>
+     * <code>string whitelist_id = 1 [json_name = "whitelistId"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearWhitelistId() {
       
@@ -478,7 +487,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string whitelist_id = 1;</code>
+     * <code>string whitelist_id = 1 [json_name = "whitelistId"];</code>
+     * @param value The bytes for whitelistId to set.
+     * @return This builder for chaining.
      */
     public Builder setWhitelistIdBytes(
         com.google.protobuf.ByteString value) {

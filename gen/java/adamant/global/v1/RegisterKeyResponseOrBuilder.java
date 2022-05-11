@@ -8,11 +8,13 @@ public interface RegisterKeyResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string key_id = 1;</code>
+   * <code>string key_id = 1 [json_name = "keyId"];</code>
+   * @return The keyId.
    */
   java.lang.String getKeyId();
   /**
-   * <code>string key_id = 1;</code>
+   * <code>string key_id = 1 [json_name = "keyId"];</code>
+   * @return The bytes for keyId.
    */
   com.google.protobuf.ByteString
       getKeyIdBytes();

@@ -15,7 +15,7 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"github.com/golang/protobuf/ptypes"
+	"google.golang.org/protobuf/types/known/anypb"
 
 	gincoincglobalv1 "github.com/GincoInc/gew-kmp/gen/gincoinc/global/v1/gincoincglobalv1"
 )
@@ -32,7 +32,7 @@ var (
 	_ = time.Duration(0)
 	_ = (*url.URL)(nil)
 	_ = (*mail.Address)(nil)
-	_ = ptypes.DynamicAny{}
+	_ = anypb.Any{}
 
 	_ = gincoincglobalv1.Coin(0)
 
@@ -67,26 +67,52 @@ var (
 	_ = gincoincglobalv1.Coin(0)
 )
 
-// define the regex for a UUID once up-front
-var _global_api_uuidPattern = regexp.MustCompile("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
-
 // Validate checks the field values on ApproveWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ApproveWalletRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ApproveWalletRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ApproveWalletRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ApproveWalletRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return ApproveWalletRequestValidationError{
+		err := ApproveWalletRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ApproveWalletRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ApproveWalletRequestMultiError is an error wrapping multiple validation
+// errors returned by ApproveWalletRequest.Validate(true) if the designated
+// constraints aren't met.
+type ApproveWalletRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApproveWalletRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApproveWalletRequestMultiError) AllErrors() []error { return m }
 
 // ApproveWalletRequestValidationError is the validation error returned by
 // ApproveWalletRequest.Validate if the designated constraints aren't met.
@@ -148,28 +174,61 @@ var _ApproveWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0
 
 // Validate checks the field values on ApproveTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ApproveTransactionRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ApproveTransactionRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ApproveTransactionRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ApproveTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return ApproveTransactionRequestValidationError{
+		err := ApproveTransactionRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_ApproveTransactionRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
-		return ApproveTransactionRequestValidationError{
+		err := ApproveTransactionRequestValidationError{
 			field:  "TransactionId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ApproveTransactionRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ApproveTransactionRequestMultiError is an error wrapping multiple validation
+// errors returned by ApproveTransactionRequest.Validate(true) if the
+// designated constraints aren't met.
+type ApproveTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApproveTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApproveTransactionRequestMultiError) AllErrors() []error { return m }
 
 // ApproveTransactionRequestValidationError is the validation error returned by
 // ApproveTransactionRequest.Validate if the designated constraints aren't met.
@@ -233,80 +292,125 @@ var _ApproveTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9
 
 // Validate checks the field values on CreateWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreateWalletRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateWalletRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CreateWalletRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
-	if l := utf8.RuneCountInString(m.GetWalletName()); l < 1 || l > 20 {
-		return CreateWalletRequestValidationError{
+	var errors []error
+
+	if l := utf8.RuneCountInString(m.GetWalletName()); l < 1 || l > 40 {
+		err := CreateWalletRequestValidationError{
 			field:  "WalletName",
-			reason: "value length must be between 1 and 20 runes, inclusive",
+			reason: "value length must be between 1 and 40 runes, inclusive",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := _CreateWalletRequest_Coin_NotInLookup[m.GetCoin()]; ok {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "Coin",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "Coin",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := _CreateWalletRequest_WalletType_NotInLookup[m.GetWalletType()]; ok {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "WalletType",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := WalletType_name[int32(m.GetWalletType())]; !ok {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "WalletType",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := _CreateWalletRequest_AddressType_NotInLookup[m.GetAddressType()]; ok {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "AddressType",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := gincoincglobalv1.AddressType_name[int32(m.GetAddressType())]; !ok {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "AddressType",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if val := m.GetM(); val < 1 || val > 5 {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "M",
 			reason: "value must be inside range [1, 5]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if val := m.GetN(); val < 1 || val > 5 {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "N",
 			reason: "value must be inside range [1, 5]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if len(m.GetMembers()) < 1 {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "Members",
 			reason: "value must contain at least 1 item(s)",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	_CreateWalletRequest_Members_Unique := make(map[string]struct{}, len(m.GetMembers()))
@@ -315,10 +419,14 @@ func (m *CreateWalletRequest) Validate() error {
 		_, _ = idx, item
 
 		if _, exists := _CreateWalletRequest_Members_Unique[item]; exists {
-			return CreateWalletRequestValidationError{
+			err := CreateWalletRequestValidationError{
 				field:  fmt.Sprintf("Members[%v]", idx),
 				reason: "repeated value must contain unique items",
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		} else {
 			_CreateWalletRequest_Members_Unique[item] = struct{}{}
 		}
@@ -329,30 +437,62 @@ func (m *CreateWalletRequest) Validate() error {
 	// no validation rules for RequiredApprovalCount
 
 	if !_CreateWalletRequest_PolicyId_Pattern.MatchString(m.GetPolicyId()) {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "PolicyId",
 			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_CreateWalletRequest_DestinationWalletId_Pattern.MatchString(m.GetDestinationWalletId()) {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "DestinationWalletId",
 			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for WatchOnly
 
 	if !_CreateWalletRequest_InheritWalletId_Pattern.MatchString(m.GetInheritWalletId()) {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "InheritWalletId",
 			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return CreateWalletRequestMultiError(errors)
+	}
 	return nil
 }
+
+// CreateWalletRequestMultiError is an error wrapping multiple validation
+// errors returned by CreateWalletRequest.Validate(true) if the designated
+// constraints aren't met.
+type CreateWalletRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateWalletRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateWalletRequestMultiError) AllErrors() []error { return m }
 
 // CreateWalletRequestValidationError is the validation error returned by
 // CreateWalletRequest.Validate if the designated constraints aren't met.
@@ -430,16 +570,41 @@ var _CreateWalletRequest_InheritWalletId_Pattern = regexp.MustCompile("^$|^[0-9a
 
 // Validate checks the field values on CreateWalletResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreateWalletResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateWalletResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CreateWalletResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for WalletId
 
+	if len(errors) > 0 {
+		return CreateWalletResponseMultiError(errors)
+	}
 	return nil
 }
+
+// CreateWalletResponseMultiError is an error wrapping multiple validation
+// errors returned by CreateWalletResponse.Validate(true) if the designated
+// constraints aren't met.
+type CreateWalletResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateWalletResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateWalletResponseMultiError) AllErrors() []error { return m }
 
 // CreateWalletResponseValidationError is the validation error returned by
 // CreateWalletResponse.Validate if the designated constraints aren't met.
@@ -499,21 +664,50 @@ var _ interface {
 
 // Validate checks the field values on GetWalletRequest with the rules defined
 // in the proto definition for this message. If any rules are violated, an
-// error is returned.
-func (m *GetWalletRequest) Validate() error {
+// error is returned. When asked to return all errors, validation continues
+// after first violation, and the result is a list of violation errors wrapped
+// in GetWalletRequestMultiError, or nil if none found. Otherwise, only the
+// first error is returned, if any.
+func (m *GetWalletRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_GetWalletRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return GetWalletRequestValidationError{
+		err := GetWalletRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return GetWalletRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetWalletRequestMultiError is an error wrapping multiple validation errors
+// returned by GetWalletRequest.Validate(true) if the designated constraints
+// aren't met.
+type GetWalletRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetWalletRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetWalletRequestMultiError) AllErrors() []error { return m }
 
 // GetWalletRequestValidationError is the validation error returned by
 // GetWalletRequest.Validate if the designated constraints aren't met.
@@ -573,14 +767,40 @@ var _GetWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-
 
 // Validate checks the field values on BatchGetWalletsWithoutBalanceRequest
 // with the rules defined in the proto definition for this message. If any
-// rules are violated, an error is returned.
-func (m *BatchGetWalletsWithoutBalanceRequest) Validate() error {
+// rules are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in BatchGetWalletsWithoutBalanceRequestMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *BatchGetWalletsWithoutBalanceRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
+	if len(errors) > 0 {
+		return BatchGetWalletsWithoutBalanceRequestMultiError(errors)
+	}
 	return nil
 }
+
+// BatchGetWalletsWithoutBalanceRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// BatchGetWalletsWithoutBalanceRequest.Validate(true) if the designated
+// constraints aren't met.
+type BatchGetWalletsWithoutBalanceRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m BatchGetWalletsWithoutBalanceRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m BatchGetWalletsWithoutBalanceRequestMultiError) AllErrors() []error { return m }
 
 // BatchGetWalletsWithoutBalanceRequestValidationError is the validation error
 // returned by BatchGetWalletsWithoutBalanceRequest.Validate if the designated
@@ -641,29 +861,60 @@ var _ interface {
 
 // Validate checks the field values on BatchGetWalletsWithoutBalanceResponse
 // with the rules defined in the proto definition for this message. If any
-// rules are violated, an error is returned.
-func (m *BatchGetWalletsWithoutBalanceResponse) Validate() error {
+// rules are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in
+// BatchGetWalletsWithoutBalanceResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *BatchGetWalletsWithoutBalanceResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetWallets() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return BatchGetWalletsWithoutBalanceResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = BatchGetWalletsWithoutBalanceResponseValidationError{
 					field:  fmt.Sprintf("Wallets[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return BatchGetWalletsWithoutBalanceResponseMultiError(errors)
+	}
 	return nil
 }
+
+// BatchGetWalletsWithoutBalanceResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// BatchGetWalletsWithoutBalanceResponse.Validate(true) if the designated
+// constraints aren't met.
+type BatchGetWalletsWithoutBalanceResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m BatchGetWalletsWithoutBalanceResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m BatchGetWalletsWithoutBalanceResponseMultiError) AllErrors() []error { return m }
 
 // BatchGetWalletsWithoutBalanceResponseValidationError is the validation error
 // returned by BatchGetWalletsWithoutBalanceResponse.Validate if the
@@ -724,21 +975,50 @@ var _ interface {
 
 // Validate checks the field values on CancelWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CancelWalletRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CancelWalletRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CancelWalletRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_CancelWalletRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return CancelWalletRequestValidationError{
+		err := CancelWalletRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return CancelWalletRequestMultiError(errors)
+	}
 	return nil
 }
+
+// CancelWalletRequestMultiError is an error wrapping multiple validation
+// errors returned by CancelWalletRequest.Validate(true) if the designated
+// constraints aren't met.
+type CancelWalletRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CancelWalletRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CancelWalletRequestMultiError) AllErrors() []error { return m }
 
 // CancelWalletRequestValidationError is the validation error returned by
 // CancelWalletRequest.Validate if the designated constraints aren't met.
@@ -800,21 +1080,50 @@ var _CancelWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-
 
 // Validate checks the field values on ArchiveWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ArchiveWalletRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ArchiveWalletRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ArchiveWalletRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ArchiveWalletRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return ArchiveWalletRequestValidationError{
+		err := ArchiveWalletRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ArchiveWalletRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ArchiveWalletRequestMultiError is an error wrapping multiple validation
+// errors returned by ArchiveWalletRequest.Validate(true) if the designated
+// constraints aren't met.
+type ArchiveWalletRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ArchiveWalletRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ArchiveWalletRequestMultiError) AllErrors() []error { return m }
 
 // ArchiveWalletRequestValidationError is the validation error returned by
 // ArchiveWalletRequest.Validate if the designated constraints aren't met.
@@ -876,21 +1185,50 @@ var _ArchiveWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0
 
 // Validate checks the field values on UnArchiveWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *UnArchiveWalletRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in UnArchiveWalletRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *UnArchiveWalletRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_UnArchiveWalletRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return UnArchiveWalletRequestValidationError{
+		err := UnArchiveWalletRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return UnArchiveWalletRequestMultiError(errors)
+	}
 	return nil
 }
+
+// UnArchiveWalletRequestMultiError is an error wrapping multiple validation
+// errors returned by UnArchiveWalletRequest.Validate(true) if the designated
+// constraints aren't met.
+type UnArchiveWalletRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UnArchiveWalletRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UnArchiveWalletRequestMultiError) AllErrors() []error { return m }
 
 // UnArchiveWalletRequestValidationError is the validation error returned by
 // UnArchiveWalletRequest.Validate if the designated constraints aren't met.
@@ -952,28 +1290,61 @@ var _UnArchiveWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-
 
 // Validate checks the field values on ListWalletsRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListWalletsRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListWalletsRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListWalletsRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if m.GetPageSize() > 100 {
-		return ListWalletsRequestValidationError{
+		err := ListWalletsRequestValidationError{
 			field:  "PageSize",
 			reason: "value must be less than or equal to 100",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_ListWalletsRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
-		return ListWalletsRequestValidationError{
+		err := ListWalletsRequestValidationError{
 			field:  "PageToken",
 			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListWalletsRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListWalletsRequestMultiError is an error wrapping multiple validation errors
+// returned by ListWalletsRequest.Validate(true) if the designated constraints
+// aren't met.
+type ListWalletsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListWalletsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListWalletsRequestMultiError) AllErrors() []error { return m }
 
 // ListWalletsRequestValidationError is the validation error returned by
 // ListWalletsRequest.Validate if the designated constraints aren't met.
@@ -1035,33 +1406,50 @@ var _ListWalletsRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJK
 
 // Validate checks the field values on ListWalletsByFilterRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListWalletsByFilterRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListWalletsByFilterRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListWalletsByFilterRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if _, ok := _ListWalletsByFilterRequest_FilterType_NotInLookup[m.GetFilterType()]; ok {
-		return ListWalletsByFilterRequestValidationError{
+		err := ListWalletsByFilterRequestValidationError{
 			field:  "FilterType",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
-		return ListWalletsByFilterRequestValidationError{
+		err := ListWalletsByFilterRequestValidationError{
 			field:  "FilterType",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for WalletId
 
-	if utf8.RuneCountInString(m.GetWalletName()) > 20 {
-		return ListWalletsByFilterRequestValidationError{
+	if utf8.RuneCountInString(m.GetWalletName()) > 40 {
+		err := ListWalletsByFilterRequestValidationError{
 			field:  "WalletName",
-			reason: "value length must be at most 20 runes",
+			reason: "value length must be at most 40 runes",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for Address
@@ -1069,28 +1457,60 @@ func (m *ListWalletsByFilterRequest) Validate() error {
 	// no validation rules for WatchOnly
 
 	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
-		return ListWalletsByFilterRequestValidationError{
+		err := ListWalletsByFilterRequestValidationError{
 			field:  "Coin",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if m.GetPageSize() > 100 {
-		return ListWalletsByFilterRequestValidationError{
+		err := ListWalletsByFilterRequestValidationError{
 			field:  "PageSize",
 			reason: "value must be less than or equal to 100",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_ListWalletsByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
-		return ListWalletsByFilterRequestValidationError{
+		err := ListWalletsByFilterRequestValidationError{
 			field:  "PageToken",
 			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListWalletsByFilterRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListWalletsByFilterRequestMultiError is an error wrapping multiple
+// validation errors returned by ListWalletsByFilterRequest.Validate(true) if
+// the designated constraints aren't met.
+type ListWalletsByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListWalletsByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListWalletsByFilterRequestMultiError) AllErrors() []error { return m }
 
 // ListWalletsByFilterRequestValidationError is the validation error returned
 // by ListWalletsByFilterRequest.Validate if the designated constraints aren't met.
@@ -1156,22 +1576,31 @@ var _ListWalletsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABC
 
 // Validate checks the field values on ListWalletsResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListWalletsResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListWalletsResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListWalletsResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetWallets() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListWalletsResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListWalletsResponseValidationError{
 					field:  fmt.Sprintf("Wallets[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
@@ -1179,8 +1608,28 @@ func (m *ListWalletsResponse) Validate() error {
 
 	// no validation rules for NextPageToken
 
+	if len(errors) > 0 {
+		return ListWalletsResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListWalletsResponseMultiError is an error wrapping multiple validation
+// errors returned by ListWalletsResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListWalletsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListWalletsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListWalletsResponseMultiError) AllErrors() []error { return m }
 
 // ListWalletsResponseValidationError is the validation error returned by
 // ListWalletsResponse.Validate if the designated constraints aren't met.
@@ -1240,14 +1689,39 @@ var _ interface {
 
 // Validate checks the field values on ListBaseWalletsRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListBaseWalletsRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListBaseWalletsRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListBaseWalletsRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
+	if len(errors) > 0 {
+		return ListBaseWalletsRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListBaseWalletsRequestMultiError is an error wrapping multiple validation
+// errors returned by ListBaseWalletsRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListBaseWalletsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListBaseWalletsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListBaseWalletsRequestMultiError) AllErrors() []error { return m }
 
 // ListBaseWalletsRequestValidationError is the validation error returned by
 // ListBaseWalletsRequest.Validate if the designated constraints aren't met.
@@ -1307,29 +1781,58 @@ var _ interface {
 
 // Validate checks the field values on ListBaseWalletsResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListBaseWalletsResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListBaseWalletsResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListBaseWalletsResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetWallets() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListBaseWalletsResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListBaseWalletsResponseValidationError{
 					field:  fmt.Sprintf("Wallets[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return ListBaseWalletsResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListBaseWalletsResponseMultiError is an error wrapping multiple validation
+// errors returned by ListBaseWalletsResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListBaseWalletsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListBaseWalletsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListBaseWalletsResponseMultiError) AllErrors() []error { return m }
 
 // ListBaseWalletsResponseValidationError is the validation error returned by
 // ListBaseWalletsResponse.Validate if the designated constraints aren't met.
@@ -1389,28 +1892,61 @@ var _ interface {
 
 // Validate checks the field values on UpdateWalletNameRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *UpdateWalletNameRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in UpdateWalletNameRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *UpdateWalletNameRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_UpdateWalletNameRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return UpdateWalletNameRequestValidationError{
+		err := UpdateWalletNameRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
-	}
-
-	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
-		return UpdateWalletNameRequestValidationError{
-			field:  "Name",
-			reason: "value length must be between 1 and 20 runes, inclusive",
+		if !all {
+			return err
 		}
+		errors = append(errors, err)
 	}
 
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 40 {
+		err := UpdateWalletNameRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 40 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return UpdateWalletNameRequestMultiError(errors)
+	}
 	return nil
 }
+
+// UpdateWalletNameRequestMultiError is an error wrapping multiple validation
+// errors returned by UpdateWalletNameRequest.Validate(true) if the designated
+// constraints aren't met.
+type UpdateWalletNameRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateWalletNameRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateWalletNameRequestMultiError) AllErrors() []error { return m }
 
 // UpdateWalletNameRequestValidationError is the validation error returned by
 // UpdateWalletNameRequest.Validate if the designated constraints aren't met.
@@ -1472,35 +2008,68 @@ var _UpdateWalletNameRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}
 
 // Validate checks the field values on UpdateWalletValidationRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *UpdateWalletValidationRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in UpdateWalletValidationRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *UpdateWalletValidationRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_UpdateWalletValidationRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return UpdateWalletValidationRequestValidationError{
+		err := UpdateWalletValidationRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	for idx, item := range m.GetNewValidatorIds() {
 		_, _ = idx, item
 
 		if !_UpdateWalletValidationRequest_NewValidatorIds_Pattern.MatchString(item) {
-			return UpdateWalletValidationRequestValidationError{
+			err := UpdateWalletValidationRequestValidationError{
 				field:  fmt.Sprintf("NewValidatorIds[%v]", idx),
 				reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 
 	}
 
 	// no validation rules for NewRequiredApprovalCount
 
+	if len(errors) > 0 {
+		return UpdateWalletValidationRequestMultiError(errors)
+	}
 	return nil
 }
+
+// UpdateWalletValidationRequestMultiError is an error wrapping multiple
+// validation errors returned by UpdateWalletValidationRequest.Validate(true)
+// if the designated constraints aren't met.
+type UpdateWalletValidationRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateWalletValidationRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateWalletValidationRequestMultiError) AllErrors() []error { return m }
 
 // UpdateWalletValidationRequestValidationError is the validation error
 // returned by UpdateWalletValidationRequest.Validate if the designated
@@ -1565,28 +2134,61 @@ var _UpdateWalletValidationRequest_NewValidatorIds_Pattern = regexp.MustCompile(
 
 // Validate checks the field values on UpdateWalletPolicyRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *UpdateWalletPolicyRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in UpdateWalletPolicyRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *UpdateWalletPolicyRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_UpdateWalletPolicyRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return UpdateWalletPolicyRequestValidationError{
+		err := UpdateWalletPolicyRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_UpdateWalletPolicyRequest_PolicyId_Pattern.MatchString(m.GetPolicyId()) {
-		return UpdateWalletPolicyRequestValidationError{
+		err := UpdateWalletPolicyRequestValidationError{
 			field:  "PolicyId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return UpdateWalletPolicyRequestMultiError(errors)
+	}
 	return nil
 }
+
+// UpdateWalletPolicyRequestMultiError is an error wrapping multiple validation
+// errors returned by UpdateWalletPolicyRequest.Validate(true) if the
+// designated constraints aren't met.
+type UpdateWalletPolicyRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateWalletPolicyRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateWalletPolicyRequestMultiError) AllErrors() []error { return m }
 
 // UpdateWalletPolicyRequestValidationError is the validation error returned by
 // UpdateWalletPolicyRequest.Validate if the designated constraints aren't met.
@@ -1650,23 +2252,52 @@ var _UpdateWalletPolicyRequest_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f]{
 
 // Validate checks the field values on ReviewWalletProposalRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ReviewWalletProposalRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ReviewWalletProposalRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ReviewWalletProposalRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ReviewWalletProposalRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return ReviewWalletProposalRequestValidationError{
+		err := ReviewWalletProposalRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for Approve
 
+	if len(errors) > 0 {
+		return ReviewWalletProposalRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ReviewWalletProposalRequestMultiError is an error wrapping multiple
+// validation errors returned by ReviewWalletProposalRequest.Validate(true) if
+// the designated constraints aren't met.
+type ReviewWalletProposalRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ReviewWalletProposalRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ReviewWalletProposalRequestMultiError) AllErrors() []error { return m }
 
 // ReviewWalletProposalRequestValidationError is the validation error returned
 // by ReviewWalletProposalRequest.Validate if the designated constraints
@@ -1729,16 +2360,41 @@ var _ReviewWalletProposalRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f
 
 // Validate checks the field values on ExistsWalletByNameRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ExistsWalletByNameRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ExistsWalletByNameRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ExistsWalletByNameRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for Name
 
+	if len(errors) > 0 {
+		return ExistsWalletByNameRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ExistsWalletByNameRequestMultiError is an error wrapping multiple validation
+// errors returned by ExistsWalletByNameRequest.Validate(true) if the
+// designated constraints aren't met.
+type ExistsWalletByNameRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ExistsWalletByNameRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ExistsWalletByNameRequestMultiError) AllErrors() []error { return m }
 
 // ExistsWalletByNameRequestValidationError is the validation error returned by
 // ExistsWalletByNameRequest.Validate if the designated constraints aren't met.
@@ -1798,16 +2454,41 @@ var _ interface {
 
 // Validate checks the field values on ExistsWalletByNameResponse with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ExistsWalletByNameResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ExistsWalletByNameResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ExistsWalletByNameResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for Exists
 
+	if len(errors) > 0 {
+		return ExistsWalletByNameResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ExistsWalletByNameResponseMultiError is an error wrapping multiple
+// validation errors returned by ExistsWalletByNameResponse.Validate(true) if
+// the designated constraints aren't met.
+type ExistsWalletByNameResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ExistsWalletByNameResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ExistsWalletByNameResponseMultiError) AllErrors() []error { return m }
 
 // ExistsWalletByNameResponseValidationError is the validation error returned
 // by ExistsWalletByNameResponse.Validate if the designated constraints aren't met.
@@ -1867,16 +2548,41 @@ var _ interface {
 
 // Validate checks the field values on ExistsWalletGroupByNameRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ExistsWalletGroupByNameRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ExistsWalletGroupByNameRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ExistsWalletGroupByNameRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for Name
 
+	if len(errors) > 0 {
+		return ExistsWalletGroupByNameRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ExistsWalletGroupByNameRequestMultiError is an error wrapping multiple
+// validation errors returned by ExistsWalletGroupByNameRequest.Validate(true)
+// if the designated constraints aren't met.
+type ExistsWalletGroupByNameRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ExistsWalletGroupByNameRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ExistsWalletGroupByNameRequestMultiError) AllErrors() []error { return m }
 
 // ExistsWalletGroupByNameRequestValidationError is the validation error
 // returned by ExistsWalletGroupByNameRequest.Validate if the designated
@@ -1937,16 +2643,42 @@ var _ interface {
 
 // Validate checks the field values on ExistsWalletGroupByNameResponse with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ExistsWalletGroupByNameResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ExistsWalletGroupByNameResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ExistsWalletGroupByNameResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for Exists
 
+	if len(errors) > 0 {
+		return ExistsWalletGroupByNameResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ExistsWalletGroupByNameResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ExistsWalletGroupByNameResponse.Validate(true) if the designated
+// constraints aren't met.
+type ExistsWalletGroupByNameResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ExistsWalletGroupByNameResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ExistsWalletGroupByNameResponseMultiError) AllErrors() []error { return m }
 
 // ExistsWalletGroupByNameResponseValidationError is the validation error
 // returned by ExistsWalletGroupByNameResponse.Validate if the designated
@@ -2007,21 +2739,50 @@ var _ interface {
 
 // Validate checks the field values on FlushBalanceRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *FlushBalanceRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in FlushBalanceRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *FlushBalanceRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_FlushBalanceRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return FlushBalanceRequestValidationError{
+		err := FlushBalanceRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return FlushBalanceRequestMultiError(errors)
+	}
 	return nil
 }
+
+// FlushBalanceRequestMultiError is an error wrapping multiple validation
+// errors returned by FlushBalanceRequest.Validate(true) if the designated
+// constraints aren't met.
+type FlushBalanceRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m FlushBalanceRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m FlushBalanceRequestMultiError) AllErrors() []error { return m }
 
 // FlushBalanceRequestValidationError is the validation error returned by
 // FlushBalanceRequest.Validate if the designated constraints aren't met.
@@ -2083,29 +2844,58 @@ var _FlushBalanceRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-
 
 // Validate checks the field values on FlushBalanceResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *FlushBalanceResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in FlushBalanceResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *FlushBalanceResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetFlushedAddresses() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return FlushBalanceResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = FlushBalanceResponseValidationError{
 					field:  fmt.Sprintf("FlushedAddresses[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return FlushBalanceResponseMultiError(errors)
+	}
 	return nil
 }
+
+// FlushBalanceResponseMultiError is an error wrapping multiple validation
+// errors returned by FlushBalanceResponse.Validate(true) if the designated
+// constraints aren't met.
+type FlushBalanceResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m FlushBalanceResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m FlushBalanceResponseMultiError) AllErrors() []error { return m }
 
 // FlushBalanceResponseValidationError is the validation error returned by
 // FlushBalanceResponse.Validate if the designated constraints aren't met.
@@ -2165,29 +2955,59 @@ var _ interface {
 
 // Validate checks the field values on ListWalletFlushSettingsResponse with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListWalletFlushSettingsResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListWalletFlushSettingsResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListWalletFlushSettingsResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetWalletFlushSettings() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListWalletFlushSettingsResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListWalletFlushSettingsResponseValidationError{
 					field:  fmt.Sprintf("WalletFlushSettings[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return ListWalletFlushSettingsResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListWalletFlushSettingsResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListWalletFlushSettingsResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListWalletFlushSettingsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListWalletFlushSettingsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListWalletFlushSettingsResponseMultiError) AllErrors() []error { return m }
 
 // ListWalletFlushSettingsResponseValidationError is the validation error
 // returned by ListWalletFlushSettingsResponse.Validate if the designated
@@ -2248,35 +3068,73 @@ var _ interface {
 
 // Validate checks the field values on UpdateWalletFlushSettingRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *UpdateWalletFlushSettingRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in UpdateWalletFlushSettingRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *UpdateWalletFlushSettingRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if _, ok := _UpdateWalletFlushSettingRequest_Coin_NotInLookup[m.GetCoin()]; ok {
-		return UpdateWalletFlushSettingRequestValidationError{
+		err := UpdateWalletFlushSettingRequestValidationError{
 			field:  "Coin",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
-		return UpdateWalletFlushSettingRequestValidationError{
+		err := UpdateWalletFlushSettingRequestValidationError{
 			field:  "Coin",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_UpdateWalletFlushSettingRequest_DestinationWalletId_Pattern.MatchString(m.GetDestinationWalletId()) {
-		return UpdateWalletFlushSettingRequestValidationError{
+		err := UpdateWalletFlushSettingRequestValidationError{
 			field:  "DestinationWalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return UpdateWalletFlushSettingRequestMultiError(errors)
+	}
 	return nil
 }
+
+// UpdateWalletFlushSettingRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// UpdateWalletFlushSettingRequest.Validate(true) if the designated
+// constraints aren't met.
+type UpdateWalletFlushSettingRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateWalletFlushSettingRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateWalletFlushSettingRequestMultiError) AllErrors() []error { return m }
 
 // UpdateWalletFlushSettingRequestValidationError is the validation error
 // returned by UpdateWalletFlushSettingRequest.Validate if the designated
@@ -2343,28 +3201,62 @@ var _UpdateWalletFlushSettingRequest_DestinationWalletId_Pattern = regexp.MustCo
 
 // Validate checks the field values on ListCompensationFeeHistoriesRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *ListCompensationFeeHistoriesRequest) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListCompensationFeeHistoriesRequestMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListCompensationFeeHistoriesRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ListCompensationFeeHistoriesRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return ListCompensationFeeHistoriesRequestValidationError{
+		err := ListCompensationFeeHistoriesRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if utf8.RuneCountInString(m.GetAddress()) < 25 {
-		return ListCompensationFeeHistoriesRequestValidationError{
+		err := ListCompensationFeeHistoriesRequestValidationError{
 			field:  "Address",
 			reason: "value length must be at least 25 runes",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListCompensationFeeHistoriesRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListCompensationFeeHistoriesRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListCompensationFeeHistoriesRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListCompensationFeeHistoriesRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListCompensationFeeHistoriesRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListCompensationFeeHistoriesRequestMultiError) AllErrors() []error { return m }
 
 // ListCompensationFeeHistoriesRequestValidationError is the validation error
 // returned by ListCompensationFeeHistoriesRequest.Validate if the designated
@@ -2427,29 +3319,59 @@ var _ListCompensationFeeHistoriesRequest_WalletId_Pattern = regexp.MustCompile("
 
 // Validate checks the field values on ListCompensationFeeHistoriesResponse
 // with the rules defined in the proto definition for this message. If any
-// rules are violated, an error is returned.
-func (m *ListCompensationFeeHistoriesResponse) Validate() error {
+// rules are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListCompensationFeeHistoriesResponseMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListCompensationFeeHistoriesResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetCompensationFees() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListCompensationFeeHistoriesResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListCompensationFeeHistoriesResponseValidationError{
 					field:  fmt.Sprintf("CompensationFees[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return ListCompensationFeeHistoriesResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListCompensationFeeHistoriesResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListCompensationFeeHistoriesResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListCompensationFeeHistoriesResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListCompensationFeeHistoriesResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListCompensationFeeHistoriesResponseMultiError) AllErrors() []error { return m }
 
 // ListCompensationFeeHistoriesResponseValidationError is the validation error
 // returned by ListCompensationFeeHistoriesResponse.Validate if the designated
@@ -2510,21 +3432,50 @@ var _ interface {
 
 // Validate checks the field values on ListUTXOsRequest with the rules defined
 // in the proto definition for this message. If any rules are violated, an
-// error is returned.
-func (m *ListUTXOsRequest) Validate() error {
+// error is returned. When asked to return all errors, validation continues
+// after first violation, and the result is a list of violation errors wrapped
+// in ListUTXOsRequestMultiError, or nil if none found. Otherwise, only the
+// first error is returned, if any.
+func (m *ListUTXOsRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ListUTXOsRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return ListUTXOsRequestValidationError{
+		err := ListUTXOsRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListUTXOsRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListUTXOsRequestMultiError is an error wrapping multiple validation errors
+// returned by ListUTXOsRequest.Validate(true) if the designated constraints
+// aren't met.
+type ListUTXOsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListUTXOsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListUTXOsRequestMultiError) AllErrors() []error { return m }
 
 // ListUTXOsRequestValidationError is the validation error returned by
 // ListUTXOsRequest.Validate if the designated constraints aren't met.
@@ -2584,29 +3535,58 @@ var _ListUTXOsRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-
 
 // Validate checks the field values on ListUTXOsResponse with the rules defined
 // in the proto definition for this message. If any rules are violated, an
-// error is returned.
-func (m *ListUTXOsResponse) Validate() error {
+// error is returned. When asked to return all errors, validation continues
+// after first violation, and the result is a list of violation errors wrapped
+// in ListUTXOsResponseMultiError, or nil if none found. Otherwise, only the
+// first error is returned, if any.
+func (m *ListUTXOsResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetUtxos() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListUTXOsResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListUTXOsResponseValidationError{
 					field:  fmt.Sprintf("Utxos[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return ListUTXOsResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListUTXOsResponseMultiError is an error wrapping multiple validation errors
+// returned by ListUTXOsResponse.Validate(true) if the designated constraints
+// aren't met.
+type ListUTXOsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListUTXOsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListUTXOsResponseMultiError) AllErrors() []error { return m }
 
 // ListUTXOsResponseValidationError is the validation error returned by
 // ListUTXOsResponse.Validate if the designated constraints aren't met.
@@ -2666,23 +3646,54 @@ var _ interface {
 
 // Validate checks the field values on UpdateShouldCheckRemittanceFlagRequest
 // with the rules defined in the proto definition for this message. If any
-// rules are violated, an error is returned.
-func (m *UpdateShouldCheckRemittanceFlagRequest) Validate() error {
+// rules are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in
+// UpdateShouldCheckRemittanceFlagRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *UpdateShouldCheckRemittanceFlagRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_UpdateShouldCheckRemittanceFlagRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return UpdateShouldCheckRemittanceFlagRequestValidationError{
+		err := UpdateShouldCheckRemittanceFlagRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for ShouldCheckRemittance
 
+	if len(errors) > 0 {
+		return UpdateShouldCheckRemittanceFlagRequestMultiError(errors)
+	}
 	return nil
 }
+
+// UpdateShouldCheckRemittanceFlagRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// UpdateShouldCheckRemittanceFlagRequest.Validate(true) if the designated
+// constraints aren't met.
+type UpdateShouldCheckRemittanceFlagRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateShouldCheckRemittanceFlagRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateShouldCheckRemittanceFlagRequestMultiError) AllErrors() []error { return m }
 
 // UpdateShouldCheckRemittanceFlagRequestValidationError is the validation
 // error returned by UpdateShouldCheckRemittanceFlagRequest.Validate if the
@@ -2745,44 +3756,85 @@ var _UpdateShouldCheckRemittanceFlagRequest_WalletId_Pattern = regexp.MustCompil
 
 // Validate checks the field values on CreateWalletGroupRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreateWalletGroupRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateWalletGroupRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CreateWalletGroupRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
-	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
-		return CreateWalletGroupRequestValidationError{
+	var errors []error
+
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 40 {
+		err := CreateWalletGroupRequestValidationError{
 			field:  "Name",
-			reason: "value length must be between 1 and 20 runes, inclusive",
+			reason: "value length must be between 1 and 40 runes, inclusive",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := _CreateWalletGroupRequest_Coin_NotInLookup[m.GetCoin()]; ok {
-		return CreateWalletGroupRequestValidationError{
+		err := CreateWalletGroupRequestValidationError{
 			field:  "Coin",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
-		return CreateWalletGroupRequestValidationError{
+		err := CreateWalletGroupRequestValidationError{
 			field:  "Coin",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if len(m.GetWalletIds()) < 1 {
-		return CreateWalletGroupRequestValidationError{
+		err := CreateWalletGroupRequestValidationError{
 			field:  "WalletIds",
 			reason: "value must contain at least 1 item(s)",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for WatchOnly
 
+	if len(errors) > 0 {
+		return CreateWalletGroupRequestMultiError(errors)
+	}
 	return nil
 }
+
+// CreateWalletGroupRequestMultiError is an error wrapping multiple validation
+// errors returned by CreateWalletGroupRequest.Validate(true) if the
+// designated constraints aren't met.
+type CreateWalletGroupRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateWalletGroupRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateWalletGroupRequestMultiError) AllErrors() []error { return m }
 
 // CreateWalletGroupRequestValidationError is the validation error returned by
 // CreateWalletGroupRequest.Validate if the designated constraints aren't met.
@@ -2846,16 +3898,41 @@ var _CreateWalletGroupRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struc
 
 // Validate checks the field values on CreateWalletGroupResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreateWalletGroupResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateWalletGroupResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *CreateWalletGroupResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for WalletGroupId
 
+	if len(errors) > 0 {
+		return CreateWalletGroupResponseMultiError(errors)
+	}
 	return nil
 }
+
+// CreateWalletGroupResponseMultiError is an error wrapping multiple validation
+// errors returned by CreateWalletGroupResponse.Validate(true) if the
+// designated constraints aren't met.
+type CreateWalletGroupResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateWalletGroupResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateWalletGroupResponseMultiError) AllErrors() []error { return m }
 
 // CreateWalletGroupResponseValidationError is the validation error returned by
 // CreateWalletGroupResponse.Validate if the designated constraints aren't met.
@@ -2915,28 +3992,61 @@ var _ interface {
 
 // Validate checks the field values on UpdateWalletGroupRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *UpdateWalletGroupRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in UpdateWalletGroupRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *UpdateWalletGroupRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_UpdateWalletGroupRequest_WalletGroupId_Pattern.MatchString(m.GetWalletGroupId()) {
-		return UpdateWalletGroupRequestValidationError{
+		err := UpdateWalletGroupRequestValidationError{
 			field:  "WalletGroupId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if len(m.GetWalletIds()) < 1 {
-		return UpdateWalletGroupRequestValidationError{
+		err := UpdateWalletGroupRequestValidationError{
 			field:  "WalletIds",
 			reason: "value must contain at least 1 item(s)",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return UpdateWalletGroupRequestMultiError(errors)
+	}
 	return nil
 }
+
+// UpdateWalletGroupRequestMultiError is an error wrapping multiple validation
+// errors returned by UpdateWalletGroupRequest.Validate(true) if the
+// designated constraints aren't met.
+type UpdateWalletGroupRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateWalletGroupRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateWalletGroupRequestMultiError) AllErrors() []error { return m }
 
 // UpdateWalletGroupRequestValidationError is the validation error returned by
 // UpdateWalletGroupRequest.Validate if the designated constraints aren't met.
@@ -2998,28 +4108,61 @@ var _UpdateWalletGroupRequest_WalletGroupId_Pattern = regexp.MustCompile("^[0-9a
 
 // Validate checks the field values on UpdateWalletGroupNameRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *UpdateWalletGroupNameRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in UpdateWalletGroupNameRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *UpdateWalletGroupNameRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_UpdateWalletGroupNameRequest_WalletGroupId_Pattern.MatchString(m.GetWalletGroupId()) {
-		return UpdateWalletGroupNameRequestValidationError{
+		err := UpdateWalletGroupNameRequestValidationError{
 			field:  "WalletGroupId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
-	}
-
-	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
-		return UpdateWalletGroupNameRequestValidationError{
-			field:  "Name",
-			reason: "value length must be between 1 and 20 runes, inclusive",
+		if !all {
+			return err
 		}
+		errors = append(errors, err)
 	}
 
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 40 {
+		err := UpdateWalletGroupNameRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 40 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return UpdateWalletGroupNameRequestMultiError(errors)
+	}
 	return nil
 }
+
+// UpdateWalletGroupNameRequestMultiError is an error wrapping multiple
+// validation errors returned by UpdateWalletGroupNameRequest.Validate(true)
+// if the designated constraints aren't met.
+type UpdateWalletGroupNameRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateWalletGroupNameRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateWalletGroupNameRequestMultiError) AllErrors() []error { return m }
 
 // UpdateWalletGroupNameRequestValidationError is the validation error returned
 // by UpdateWalletGroupNameRequest.Validate if the designated constraints
@@ -3082,21 +4225,50 @@ var _UpdateWalletGroupNameRequest_WalletGroupId_Pattern = regexp.MustCompile("^[
 
 // Validate checks the field values on GetWalletGroupRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetWalletGroupRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetWalletGroupRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *GetWalletGroupRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_GetWalletGroupRequest_WalletGroupId_Pattern.MatchString(m.GetWalletGroupId()) {
-		return GetWalletGroupRequestValidationError{
+		err := GetWalletGroupRequestValidationError{
 			field:  "WalletGroupId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return GetWalletGroupRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetWalletGroupRequestMultiError is an error wrapping multiple validation
+// errors returned by GetWalletGroupRequest.Validate(true) if the designated
+// constraints aren't met.
+type GetWalletGroupRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetWalletGroupRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetWalletGroupRequestMultiError) AllErrors() []error { return m }
 
 // GetWalletGroupRequestValidationError is the validation error returned by
 // GetWalletGroupRequest.Validate if the designated constraints aren't met.
@@ -3158,30 +4330,63 @@ var _GetWalletGroupRequest_WalletGroupId_Pattern = regexp.MustCompile("^[0-9a-f]
 
 // Validate checks the field values on ListWalletGroupsRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListWalletGroupsRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListWalletGroupsRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListWalletGroupsRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for WatchOnly
 
 	if m.GetPageSize() > 100 {
-		return ListWalletGroupsRequestValidationError{
+		err := ListWalletGroupsRequestValidationError{
 			field:  "PageSize",
 			reason: "value must be less than or equal to 100",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_ListWalletGroupsRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
-		return ListWalletGroupsRequestValidationError{
+		err := ListWalletGroupsRequestValidationError{
 			field:  "PageToken",
 			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListWalletGroupsRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListWalletGroupsRequestMultiError is an error wrapping multiple validation
+// errors returned by ListWalletGroupsRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListWalletGroupsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListWalletGroupsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListWalletGroupsRequestMultiError) AllErrors() []error { return m }
 
 // ListWalletGroupsRequestValidationError is the validation error returned by
 // ListWalletGroupsRequest.Validate if the designated constraints aren't met.
@@ -3243,22 +4448,31 @@ var _ListWalletGroupsRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEF
 
 // Validate checks the field values on ListWalletGroupsResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListWalletGroupsResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListWalletGroupsResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListWalletGroupsResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetWalletGroups() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListWalletGroupsResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListWalletGroupsResponseValidationError{
 					field:  fmt.Sprintf("WalletGroups[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
@@ -3266,8 +4480,28 @@ func (m *ListWalletGroupsResponse) Validate() error {
 
 	// no validation rules for NextPageToken
 
+	if len(errors) > 0 {
+		return ListWalletGroupsResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListWalletGroupsResponseMultiError is an error wrapping multiple validation
+// errors returned by ListWalletGroupsResponse.Validate(true) if the
+// designated constraints aren't met.
+type ListWalletGroupsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListWalletGroupsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListWalletGroupsResponseMultiError) AllErrors() []error { return m }
 
 // ListWalletGroupsResponseValidationError is the validation error returned by
 // ListWalletGroupsResponse.Validate if the designated constraints aren't met.
@@ -3327,28 +4561,61 @@ var _ interface {
 
 // Validate checks the field values on RegisterKeyRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *RegisterKeyRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in RegisterKeyRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *RegisterKeyRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_RegisterKeyRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return RegisterKeyRequestValidationError{
+		err := RegisterKeyRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if utf8.RuneCountInString(m.GetPubKey()) < 64 {
-		return RegisterKeyRequestValidationError{
+		err := RegisterKeyRequestValidationError{
 			field:  "PubKey",
 			reason: "value length must be at least 64 runes",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return RegisterKeyRequestMultiError(errors)
+	}
 	return nil
 }
+
+// RegisterKeyRequestMultiError is an error wrapping multiple validation errors
+// returned by RegisterKeyRequest.Validate(true) if the designated constraints
+// aren't met.
+type RegisterKeyRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m RegisterKeyRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m RegisterKeyRequestMultiError) AllErrors() []error { return m }
 
 // RegisterKeyRequestValidationError is the validation error returned by
 // RegisterKeyRequest.Validate if the designated constraints aren't met.
@@ -3410,16 +4677,41 @@ var _RegisterKeyRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9
 
 // Validate checks the field values on RegisterKeyResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *RegisterKeyResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in RegisterKeyResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *RegisterKeyResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for KeyId
 
+	if len(errors) > 0 {
+		return RegisterKeyResponseMultiError(errors)
+	}
 	return nil
 }
+
+// RegisterKeyResponseMultiError is an error wrapping multiple validation
+// errors returned by RegisterKeyResponse.Validate(true) if the designated
+// constraints aren't met.
+type RegisterKeyResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m RegisterKeyResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m RegisterKeyResponseMultiError) AllErrors() []error { return m }
 
 // RegisterKeyResponseValidationError is the validation error returned by
 // RegisterKeyResponse.Validate if the designated constraints aren't met.
@@ -3479,23 +4771,52 @@ var _ interface {
 
 // Validate checks the field values on CreateAddressRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreateAddressRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateAddressRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CreateAddressRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_CreateAddressRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return CreateAddressRequestValidationError{
+		err := CreateAddressRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for FeeRate
 
+	if len(errors) > 0 {
+		return CreateAddressRequestMultiError(errors)
+	}
 	return nil
 }
+
+// CreateAddressRequestMultiError is an error wrapping multiple validation
+// errors returned by CreateAddressRequest.Validate(true) if the designated
+// constraints aren't met.
+type CreateAddressRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateAddressRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateAddressRequestMultiError) AllErrors() []error { return m }
 
 // CreateAddressRequestValidationError is the validation error returned by
 // CreateAddressRequest.Validate if the designated constraints aren't met.
@@ -3557,16 +4878,41 @@ var _CreateAddressRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0
 
 // Validate checks the field values on CreateAddressResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreateAddressResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateAddressResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CreateAddressResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for AddressId
 
+	if len(errors) > 0 {
+		return CreateAddressResponseMultiError(errors)
+	}
 	return nil
 }
+
+// CreateAddressResponseMultiError is an error wrapping multiple validation
+// errors returned by CreateAddressResponse.Validate(true) if the designated
+// constraints aren't met.
+type CreateAddressResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateAddressResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateAddressResponseMultiError) AllErrors() []error { return m }
 
 // CreateAddressResponseValidationError is the validation error returned by
 // CreateAddressResponse.Validate if the designated constraints aren't met.
@@ -3626,28 +4972,61 @@ var _ interface {
 
 // Validate checks the field values on GetAddressRequest with the rules defined
 // in the proto definition for this message. If any rules are violated, an
-// error is returned.
-func (m *GetAddressRequest) Validate() error {
+// error is returned. When asked to return all errors, validation continues
+// after first violation, and the result is a list of violation errors wrapped
+// in GetAddressRequestMultiError, or nil if none found. Otherwise, only the
+// first error is returned, if any.
+func (m *GetAddressRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_GetAddressRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return GetAddressRequestValidationError{
+		err := GetAddressRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_GetAddressRequest_AddressId_Pattern.MatchString(m.GetAddressId()) {
-		return GetAddressRequestValidationError{
+		err := GetAddressRequestValidationError{
 			field:  "AddressId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return GetAddressRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetAddressRequestMultiError is an error wrapping multiple validation errors
+// returned by GetAddressRequest.Validate(true) if the designated constraints
+// aren't met.
+type GetAddressRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetAddressRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetAddressRequestMultiError) AllErrors() []error { return m }
 
 // GetAddressRequestValidationError is the validation error returned by
 // GetAddressRequest.Validate if the designated constraints aren't met.
@@ -3711,28 +5090,61 @@ var _GetAddressRequest_AddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9
 
 // Validate checks the field values on GetAddressByAddressRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetAddressByAddressRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetAddressByAddressRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *GetAddressByAddressRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_GetAddressByAddressRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return GetAddressByAddressRequestValidationError{
+		err := GetAddressByAddressRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if utf8.RuneCountInString(m.GetAddress()) < 25 {
-		return GetAddressByAddressRequestValidationError{
+		err := GetAddressByAddressRequestValidationError{
 			field:  "Address",
 			reason: "value length must be at least 25 runes",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return GetAddressByAddressRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetAddressByAddressRequestMultiError is an error wrapping multiple
+// validation errors returned by GetAddressByAddressRequest.Validate(true) if
+// the designated constraints aren't met.
+type GetAddressByAddressRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetAddressByAddressRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetAddressByAddressRequestMultiError) AllErrors() []error { return m }
 
 // GetAddressByAddressRequestValidationError is the validation error returned
 // by GetAddressByAddressRequest.Validate if the designated constraints aren't met.
@@ -3794,28 +5206,61 @@ var _GetAddressByAddressRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]
 
 // Validate checks the field values on GetAddressByIndexRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetAddressByIndexRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetAddressByIndexRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *GetAddressByIndexRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_GetAddressByIndexRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return GetAddressByIndexRequestValidationError{
+		err := GetAddressByIndexRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if m.GetIndex() < 0 {
-		return GetAddressByIndexRequestValidationError{
+		err := GetAddressByIndexRequestValidationError{
 			field:  "Index",
 			reason: "value must be greater than or equal to 0",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return GetAddressByIndexRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetAddressByIndexRequestMultiError is an error wrapping multiple validation
+// errors returned by GetAddressByIndexRequest.Validate(true) if the
+// designated constraints aren't met.
+type GetAddressByIndexRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetAddressByIndexRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetAddressByIndexRequestMultiError) AllErrors() []error { return m }
 
 // GetAddressByIndexRequestValidationError is the validation error returned by
 // GetAddressByIndexRequest.Validate if the designated constraints aren't met.
@@ -3877,28 +5322,63 @@ var _GetAddressByIndexRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8
 
 // Validate checks the field values on GetAddressWithoutBalanceByIndexRequest
 // with the rules defined in the proto definition for this message. If any
-// rules are violated, an error is returned.
-func (m *GetAddressWithoutBalanceByIndexRequest) Validate() error {
+// rules are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in
+// GetAddressWithoutBalanceByIndexRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *GetAddressWithoutBalanceByIndexRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_GetAddressWithoutBalanceByIndexRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return GetAddressWithoutBalanceByIndexRequestValidationError{
+		err := GetAddressWithoutBalanceByIndexRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if m.GetIndex() < 0 {
-		return GetAddressWithoutBalanceByIndexRequestValidationError{
+		err := GetAddressWithoutBalanceByIndexRequestValidationError{
 			field:  "Index",
 			reason: "value must be greater than or equal to 0",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return GetAddressWithoutBalanceByIndexRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetAddressWithoutBalanceByIndexRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// GetAddressWithoutBalanceByIndexRequest.Validate(true) if the designated
+// constraints aren't met.
+type GetAddressWithoutBalanceByIndexRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetAddressWithoutBalanceByIndexRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetAddressWithoutBalanceByIndexRequestMultiError) AllErrors() []error { return m }
 
 // GetAddressWithoutBalanceByIndexRequestValidationError is the validation
 // error returned by GetAddressWithoutBalanceByIndexRequest.Validate if the
@@ -3961,37 +5441,74 @@ var _GetAddressWithoutBalanceByIndexRequest_WalletId_Pattern = regexp.MustCompil
 
 // Validate checks the field values on ListAddressesRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListAddressesRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListAddressesRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListAddressesRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ListAddressesRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return ListAddressesRequestValidationError{
+		err := ListAddressesRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for OmitChange
 
 	if m.GetPageSize() > 100 {
-		return ListAddressesRequestValidationError{
+		err := ListAddressesRequestValidationError{
 			field:  "PageSize",
 			reason: "value must be less than or equal to 100",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_ListAddressesRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
-		return ListAddressesRequestValidationError{
+		err := ListAddressesRequestValidationError{
 			field:  "PageToken",
 			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListAddressesRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListAddressesRequestMultiError is an error wrapping multiple validation
+// errors returned by ListAddressesRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListAddressesRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListAddressesRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListAddressesRequestMultiError) AllErrors() []error { return m }
 
 // ListAddressesRequestValidationError is the validation error returned by
 // ListAddressesRequest.Validate if the designated constraints aren't met.
@@ -4055,22 +5572,31 @@ var _ListAddressesRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHI
 
 // Validate checks the field values on ListAddressesResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListAddressesResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListAddressesResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListAddressesResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetAddresses() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListAddressesResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListAddressesResponseValidationError{
 					field:  fmt.Sprintf("Addresses[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
@@ -4078,8 +5604,28 @@ func (m *ListAddressesResponse) Validate() error {
 
 	// no validation rules for NextPageToken
 
+	if len(errors) > 0 {
+		return ListAddressesResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListAddressesResponseMultiError is an error wrapping multiple validation
+// errors returned by ListAddressesResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListAddressesResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListAddressesResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListAddressesResponseMultiError) AllErrors() []error { return m }
 
 // ListAddressesResponseValidationError is the validation error returned by
 // ListAddressesResponse.Validate if the designated constraints aren't met.
@@ -4139,21 +5685,51 @@ var _ interface {
 
 // Validate checks the field values on ListAddressesWithBalanceRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListAddressesWithBalanceRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListAddressesWithBalanceRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListAddressesWithBalanceRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ListAddressesWithBalanceRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return ListAddressesWithBalanceRequestValidationError{
+		err := ListAddressesWithBalanceRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListAddressesWithBalanceRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListAddressesWithBalanceRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListAddressesWithBalanceRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListAddressesWithBalanceRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListAddressesWithBalanceRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListAddressesWithBalanceRequestMultiError) AllErrors() []error { return m }
 
 // ListAddressesWithBalanceRequestValidationError is the validation error
 // returned by ListAddressesWithBalanceRequest.Validate if the designated
@@ -4216,29 +5792,59 @@ var _ListAddressesWithBalanceRequest_WalletId_Pattern = regexp.MustCompile("^[0-
 
 // Validate checks the field values on ListAddressesWithBalanceResponse with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *ListAddressesWithBalanceResponse) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListAddressesWithBalanceResponseMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListAddressesWithBalanceResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetAddresses() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListAddressesWithBalanceResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListAddressesWithBalanceResponseValidationError{
 					field:  fmt.Sprintf("Addresses[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return ListAddressesWithBalanceResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListAddressesWithBalanceResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListAddressesWithBalanceResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListAddressesWithBalanceResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListAddressesWithBalanceResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListAddressesWithBalanceResponseMultiError) AllErrors() []error { return m }
 
 // ListAddressesWithBalanceResponseValidationError is the validation error
 // returned by ListAddressesWithBalanceResponse.Validate if the designated
@@ -4299,23 +5905,52 @@ var _ interface {
 
 // Validate checks the field values on UpdateAddressBalanceRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *UpdateAddressBalanceRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in UpdateAddressBalanceRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *UpdateAddressBalanceRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_UpdateAddressBalanceRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return UpdateAddressBalanceRequestValidationError{
+		err := UpdateAddressBalanceRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for Address
 
+	if len(errors) > 0 {
+		return UpdateAddressBalanceRequestMultiError(errors)
+	}
 	return nil
 }
+
+// UpdateAddressBalanceRequestMultiError is an error wrapping multiple
+// validation errors returned by UpdateAddressBalanceRequest.Validate(true) if
+// the designated constraints aren't met.
+type UpdateAddressBalanceRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateAddressBalanceRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateAddressBalanceRequestMultiError) AllErrors() []error { return m }
 
 // UpdateAddressBalanceRequestValidationError is the validation error returned
 // by UpdateAddressBalanceRequest.Validate if the designated constraints
@@ -4378,37 +6013,75 @@ var _UpdateAddressBalanceRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f
 
 // Validate checks the field values on ListAddressesWithoutBalanceRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *ListAddressesWithoutBalanceRequest) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListAddressesWithoutBalanceRequestMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListAddressesWithoutBalanceRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ListAddressesWithoutBalanceRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return ListAddressesWithoutBalanceRequestValidationError{
+		err := ListAddressesWithoutBalanceRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for OmitChange
 
 	if m.GetPageSize() > 100 {
-		return ListAddressesWithoutBalanceRequestValidationError{
+		err := ListAddressesWithoutBalanceRequestValidationError{
 			field:  "PageSize",
 			reason: "value must be less than or equal to 100",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_ListAddressesWithoutBalanceRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
-		return ListAddressesWithoutBalanceRequestValidationError{
+		err := ListAddressesWithoutBalanceRequestValidationError{
 			field:  "PageToken",
 			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListAddressesWithoutBalanceRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListAddressesWithoutBalanceRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListAddressesWithoutBalanceRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListAddressesWithoutBalanceRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListAddressesWithoutBalanceRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListAddressesWithoutBalanceRequestMultiError) AllErrors() []error { return m }
 
 // ListAddressesWithoutBalanceRequestValidationError is the validation error
 // returned by ListAddressesWithoutBalanceRequest.Validate if the designated
@@ -4473,22 +6146,31 @@ var _ListAddressesWithoutBalanceRequest_PageToken_Pattern = regexp.MustCompile("
 
 // Validate checks the field values on ListAddressesWithoutBalanceResponse with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *ListAddressesWithoutBalanceResponse) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListAddressesWithoutBalanceResponseMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListAddressesWithoutBalanceResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetAddresses() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListAddressesWithoutBalanceResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListAddressesWithoutBalanceResponseValidationError{
 					field:  fmt.Sprintf("Addresses[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
@@ -4496,8 +6178,29 @@ func (m *ListAddressesWithoutBalanceResponse) Validate() error {
 
 	// no validation rules for NextPageToken
 
+	if len(errors) > 0 {
+		return ListAddressesWithoutBalanceResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListAddressesWithoutBalanceResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListAddressesWithoutBalanceResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListAddressesWithoutBalanceResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListAddressesWithoutBalanceResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListAddressesWithoutBalanceResponseMultiError) AllErrors() []error { return m }
 
 // ListAddressesWithoutBalanceResponseValidationError is the validation error
 // returned by ListAddressesWithoutBalanceResponse.Validate if the designated
@@ -4558,14 +6261,39 @@ var _ interface {
 
 // Validate checks the field values on GetEthereumFeeAddressRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetEthereumFeeAddressRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetEthereumFeeAddressRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *GetEthereumFeeAddressRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
+	if len(errors) > 0 {
+		return GetEthereumFeeAddressRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetEthereumFeeAddressRequestMultiError is an error wrapping multiple
+// validation errors returned by GetEthereumFeeAddressRequest.Validate(true)
+// if the designated constraints aren't met.
+type GetEthereumFeeAddressRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetEthereumFeeAddressRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetEthereumFeeAddressRequestMultiError) AllErrors() []error { return m }
 
 // GetEthereumFeeAddressRequestValidationError is the validation error returned
 // by GetEthereumFeeAddressRequest.Validate if the designated constraints
@@ -4626,21 +6354,52 @@ var _ interface {
 
 // Validate checks the field values on
 // DeleteAllWatchOnlyAddressesByWalletIDRequest with the rules defined in the
-// proto definition for this message. If any rules are violated, an error is returned.
-func (m *DeleteAllWatchOnlyAddressesByWalletIDRequest) Validate() error {
+// proto definition for this message. If any rules are violated, an error is
+// returned. When asked to return all errors, validation continues after first
+// violation, and the result is a list of violation errors wrapped in
+// DeleteAllWatchOnlyAddressesByWalletIDRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *DeleteAllWatchOnlyAddressesByWalletIDRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_DeleteAllWatchOnlyAddressesByWalletIDRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return DeleteAllWatchOnlyAddressesByWalletIDRequestValidationError{
+		err := DeleteAllWatchOnlyAddressesByWalletIDRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return DeleteAllWatchOnlyAddressesByWalletIDRequestMultiError(errors)
+	}
 	return nil
 }
+
+// DeleteAllWatchOnlyAddressesByWalletIDRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// DeleteAllWatchOnlyAddressesByWalletIDRequest.Validate(true) if the
+// designated constraints aren't met.
+type DeleteAllWatchOnlyAddressesByWalletIDRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DeleteAllWatchOnlyAddressesByWalletIDRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DeleteAllWatchOnlyAddressesByWalletIDRequestMultiError) AllErrors() []error { return m }
 
 // DeleteAllWatchOnlyAddressesByWalletIDRequestValidationError is the
 // validation error returned by
@@ -4702,19 +6461,229 @@ var _ interface {
 
 var _DeleteAllWatchOnlyAddressesByWalletIDRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
-// Validate checks the field values on CreateTransactionRequest with the rules
+// Validate checks the field values on ImportAddressRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreateTransactionRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ImportAddressRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ImportAddressRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
-	if !_CreateTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return CreateTransactionRequestValidationError{
+	var errors []error
+
+	if !_ImportAddressRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ImportAddressRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for Address
+
+	if len(errors) > 0 {
+		return ImportAddressRequestMultiError(errors)
+	}
+	return nil
+}
+
+// ImportAddressRequestMultiError is an error wrapping multiple validation
+// errors returned by ImportAddressRequest.Validate(true) if the designated
+// constraints aren't met.
+type ImportAddressRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ImportAddressRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ImportAddressRequestMultiError) AllErrors() []error { return m }
+
+// ImportAddressRequestValidationError is the validation error returned by
+// ImportAddressRequest.Validate if the designated constraints aren't met.
+type ImportAddressRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ImportAddressRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ImportAddressRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ImportAddressRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ImportAddressRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ImportAddressRequestValidationError) ErrorName() string {
+	return "ImportAddressRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ImportAddressRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sImportAddressRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ImportAddressRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ImportAddressRequestValidationError{}
+
+var _ImportAddressRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ImportAddressResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ImportAddressResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ImportAddressResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for AddressId
+
+	if len(errors) > 0 {
+		return ImportAddressResponseMultiError(errors)
+	}
+	return nil
+}
+
+// ImportAddressResponseMultiError is an error wrapping multiple validation
+// errors returned by ImportAddressResponse.Validate(true) if the designated
+// constraints aren't met.
+type ImportAddressResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ImportAddressResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ImportAddressResponseMultiError) AllErrors() []error { return m }
+
+// ImportAddressResponseValidationError is the validation error returned by
+// ImportAddressResponse.Validate if the designated constraints aren't met.
+type ImportAddressResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ImportAddressResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ImportAddressResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ImportAddressResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ImportAddressResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ImportAddressResponseValidationError) ErrorName() string {
+	return "ImportAddressResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ImportAddressResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sImportAddressResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ImportAddressResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ImportAddressResponseValidationError{}
+
+// Validate checks the field values on CreateTransactionRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateTransactionRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CreateTransactionRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_CreateTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := CreateTransactionRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for FeeRate
@@ -4722,13 +6691,17 @@ func (m *CreateTransactionRequest) Validate() error {
 	for idx, item := range m.GetTxOutputs() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return CreateTransactionRequestValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = CreateTransactionRequestValidationError{
 					field:  fmt.Sprintf("TxOutputs[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
@@ -4742,28 +6715,56 @@ func (m *CreateTransactionRequest) Validate() error {
 
 	// no validation rules for StringValue
 
-	if v, ok := interface{}(m.GetSubstrateSpecific()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return CreateTransactionRequestValidationError{
+	if v, ok := interface{}(m.GetSubstrateSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = CreateTransactionRequestValidationError{
 				field:  "SubstrateSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
-	if v, ok := interface{}(m.GetWalletConnectSpecific()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return CreateTransactionRequestValidationError{
+	if v, ok := interface{}(m.GetWalletConnectSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = CreateTransactionRequestValidationError{
 				field:  "WalletConnectSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
+	if len(errors) > 0 {
+		return CreateTransactionRequestMultiError(errors)
+	}
 	return nil
 }
+
+// CreateTransactionRequestMultiError is an error wrapping multiple validation
+// errors returned by CreateTransactionRequest.Validate(true) if the
+// designated constraints aren't met.
+type CreateTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionRequestMultiError) AllErrors() []error { return m }
 
 // CreateTransactionRequestValidationError is the validation error returned by
 // CreateTransactionRequest.Validate if the designated constraints aren't met.
@@ -4825,16 +6826,41 @@ var _CreateTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8
 
 // Validate checks the field values on CreateTransactionResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreateTransactionResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateTransactionResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *CreateTransactionResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for TransactionId
 
+	if len(errors) > 0 {
+		return CreateTransactionResponseMultiError(errors)
+	}
 	return nil
 }
+
+// CreateTransactionResponseMultiError is an error wrapping multiple validation
+// errors returned by CreateTransactionResponse.Validate(true) if the
+// designated constraints aren't met.
+type CreateTransactionResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionResponseMultiError) AllErrors() []error { return m }
 
 // CreateTransactionResponseValidationError is the validation error returned by
 // CreateTransactionResponse.Validate if the designated constraints aren't met.
@@ -4894,21 +6920,51 @@ var _ interface {
 
 // Validate checks the field values on CreateXRPInitTransactionsRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *CreateXRPInitTransactionsRequest) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in CreateXRPInitTransactionsRequestMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *CreateXRPInitTransactionsRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_CreateXRPInitTransactionsRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return CreateXRPInitTransactionsRequestValidationError{
+		err := CreateXRPInitTransactionsRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return CreateXRPInitTransactionsRequestMultiError(errors)
+	}
 	return nil
 }
+
+// CreateXRPInitTransactionsRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// CreateXRPInitTransactionsRequest.Validate(true) if the designated
+// constraints aren't met.
+type CreateXRPInitTransactionsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateXRPInitTransactionsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateXRPInitTransactionsRequestMultiError) AllErrors() []error { return m }
 
 // CreateXRPInitTransactionsRequestValidationError is the validation error
 // returned by CreateXRPInitTransactionsRequest.Validate if the designated
@@ -4971,21 +7027,50 @@ var _CreateXRPInitTransactionsRequest_WalletId_Pattern = regexp.MustCompile("^[0
 
 // Validate checks the field values on CreateInitTransactionRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreateInitTransactionRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateInitTransactionRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *CreateInitTransactionRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_CreateInitTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return CreateInitTransactionRequestValidationError{
+		err := CreateInitTransactionRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return CreateInitTransactionRequestMultiError(errors)
+	}
 	return nil
 }
+
+// CreateInitTransactionRequestMultiError is an error wrapping multiple
+// validation errors returned by CreateInitTransactionRequest.Validate(true)
+// if the designated constraints aren't met.
+type CreateInitTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateInitTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateInitTransactionRequestMultiError) AllErrors() []error { return m }
 
 // CreateInitTransactionRequestValidationError is the validation error returned
 // by CreateInitTransactionRequest.Validate if the designated constraints
@@ -5048,52 +7133,97 @@ var _CreateInitTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-
 
 // Validate checks the field values on SignTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *SignTransactionRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SignTransactionRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *SignTransactionRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_SignTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return SignTransactionRequestValidationError{
+		err := SignTransactionRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_SignTransactionRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
-		return SignTransactionRequestValidationError{
+		err := SignTransactionRequestValidationError{
 			field:  "TransactionId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_SignTransactionRequest_KeyId_Pattern.MatchString(m.GetKeyId()) {
-		return SignTransactionRequestValidationError{
+		err := SignTransactionRequestValidationError{
 			field:  "KeyId",
 			reason: "value does not match regex pattern \"^$|^[0-9A-F]{64}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if m.GetSignedInfo() == nil {
-		return SignTransactionRequestValidationError{
+		err := SignTransactionRequestValidationError{
 			field:  "SignedInfo",
 			reason: "value is required",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
-	if v, ok := interface{}(m.GetSignedInfo()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return SignTransactionRequestValidationError{
+	if v, ok := interface{}(m.GetSignedInfo()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = SignTransactionRequestValidationError{
 				field:  "SignedInfo",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
+	if len(errors) > 0 {
+		return SignTransactionRequestMultiError(errors)
+	}
 	return nil
 }
+
+// SignTransactionRequestMultiError is an error wrapping multiple validation
+// errors returned by SignTransactionRequest.Validate(true) if the designated
+// constraints aren't met.
+type SignTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SignTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SignTransactionRequestMultiError) AllErrors() []error { return m }
 
 // SignTransactionRequestValidationError is the validation error returned by
 // SignTransactionRequest.Validate if the designated constraints aren't met.
@@ -5159,50 +7289,91 @@ var _SignTransactionRequest_KeyId_Pattern = regexp.MustCompile("^$|^[0-9A-F]{64}
 
 // Validate checks the field values on SignXRPInitTransactionsRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *SignXRPInitTransactionsRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SignXRPInitTransactionsRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *SignXRPInitTransactionsRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_SignXRPInitTransactionsRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return SignXRPInitTransactionsRequestValidationError{
+		err := SignXRPInitTransactionsRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_SignXRPInitTransactionsRequest_KeyId_Pattern.MatchString(m.GetKeyId()) {
-		return SignXRPInitTransactionsRequestValidationError{
+		err := SignXRPInitTransactionsRequestValidationError{
 			field:  "KeyId",
 			reason: "value does not match regex pattern \"^[0-9A-F]{64}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if len(m.GetSignedInfo()) < 1 {
-		return SignXRPInitTransactionsRequestValidationError{
+		err := SignXRPInitTransactionsRequestValidationError{
 			field:  "SignedInfo",
 			reason: "value must contain at least 1 item(s)",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	for idx, item := range m.GetSignedInfo() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return SignXRPInitTransactionsRequestValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = SignXRPInitTransactionsRequestValidationError{
 					field:  fmt.Sprintf("SignedInfo[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return SignXRPInitTransactionsRequestMultiError(errors)
+	}
 	return nil
 }
+
+// SignXRPInitTransactionsRequestMultiError is an error wrapping multiple
+// validation errors returned by SignXRPInitTransactionsRequest.Validate(true)
+// if the designated constraints aren't met.
+type SignXRPInitTransactionsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SignXRPInitTransactionsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SignXRPInitTransactionsRequestMultiError) AllErrors() []error { return m }
 
 // SignXRPInitTransactionsRequestValidationError is the validation error
 // returned by SignXRPInitTransactionsRequest.Validate if the designated
@@ -5267,50 +7438,91 @@ var _SignXRPInitTransactionsRequest_KeyId_Pattern = regexp.MustCompile("^[0-9A-F
 
 // Validate checks the field values on SignInitTransactionRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *SignInitTransactionRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SignInitTransactionRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *SignInitTransactionRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_SignInitTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return SignInitTransactionRequestValidationError{
+		err := SignInitTransactionRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_SignInitTransactionRequest_KeyId_Pattern.MatchString(m.GetKeyId()) {
-		return SignInitTransactionRequestValidationError{
+		err := SignInitTransactionRequestValidationError{
 			field:  "KeyId",
 			reason: "value does not match regex pattern \"^[0-9A-F]{64}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if len(m.GetSignedInfo()) < 1 {
-		return SignInitTransactionRequestValidationError{
+		err := SignInitTransactionRequestValidationError{
 			field:  "SignedInfo",
 			reason: "value must contain at least 1 item(s)",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	for idx, item := range m.GetSignedInfo() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return SignInitTransactionRequestValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = SignInitTransactionRequestValidationError{
 					field:  fmt.Sprintf("SignedInfo[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return SignInitTransactionRequestMultiError(errors)
+	}
 	return nil
 }
+
+// SignInitTransactionRequestMultiError is an error wrapping multiple
+// validation errors returned by SignInitTransactionRequest.Validate(true) if
+// the designated constraints aren't met.
+type SignInitTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SignInitTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SignInitTransactionRequestMultiError) AllErrors() []error { return m }
 
 // SignInitTransactionRequestValidationError is the validation error returned
 // by SignInitTransactionRequest.Validate if the designated constraints aren't met.
@@ -5374,28 +7586,61 @@ var _SignInitTransactionRequest_KeyId_Pattern = regexp.MustCompile("^[0-9A-F]{64
 
 // Validate checks the field values on SendTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *SendTransactionRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SendTransactionRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *SendTransactionRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_SendTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return SendTransactionRequestValidationError{
+		err := SendTransactionRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_SendTransactionRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
-		return SendTransactionRequestValidationError{
+		err := SendTransactionRequestValidationError{
 			field:  "TransactionId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return SendTransactionRequestMultiError(errors)
+	}
 	return nil
 }
+
+// SendTransactionRequestMultiError is an error wrapping multiple validation
+// errors returned by SendTransactionRequest.Validate(true) if the designated
+// constraints aren't met.
+type SendTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SendTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SendTransactionRequestMultiError) AllErrors() []error { return m }
 
 // SendTransactionRequestValidationError is the validation error returned by
 // SendTransactionRequest.Validate if the designated constraints aren't met.
@@ -5459,16 +7704,41 @@ var _SendTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f
 
 // Validate checks the field values on SendTransactionResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *SendTransactionResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SendTransactionResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *SendTransactionResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for TxId
 
+	if len(errors) > 0 {
+		return SendTransactionResponseMultiError(errors)
+	}
 	return nil
 }
+
+// SendTransactionResponseMultiError is an error wrapping multiple validation
+// errors returned by SendTransactionResponse.Validate(true) if the designated
+// constraints aren't met.
+type SendTransactionResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SendTransactionResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SendTransactionResponseMultiError) AllErrors() []error { return m }
 
 // SendTransactionResponseValidationError is the validation error returned by
 // SendTransactionResponse.Validate if the designated constraints aren't met.
@@ -5528,21 +7798,50 @@ var _ interface {
 
 // Validate checks the field values on SendXRPInitTransactionsRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *SendXRPInitTransactionsRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SendXRPInitTransactionsRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *SendXRPInitTransactionsRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_SendXRPInitTransactionsRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return SendXRPInitTransactionsRequestValidationError{
+		err := SendXRPInitTransactionsRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return SendXRPInitTransactionsRequestMultiError(errors)
+	}
 	return nil
 }
+
+// SendXRPInitTransactionsRequestMultiError is an error wrapping multiple
+// validation errors returned by SendXRPInitTransactionsRequest.Validate(true)
+// if the designated constraints aren't met.
+type SendXRPInitTransactionsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SendXRPInitTransactionsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SendXRPInitTransactionsRequestMultiError) AllErrors() []error { return m }
 
 // SendXRPInitTransactionsRequestValidationError is the validation error
 // returned by SendXRPInitTransactionsRequest.Validate if the designated
@@ -5605,14 +7904,40 @@ var _SendXRPInitTransactionsRequest_WalletId_Pattern = regexp.MustCompile("^[0-9
 
 // Validate checks the field values on SendXRPInitTransactionsResponse with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *SendXRPInitTransactionsResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SendXRPInitTransactionsResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *SendXRPInitTransactionsResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
+	if len(errors) > 0 {
+		return SendXRPInitTransactionsResponseMultiError(errors)
+	}
 	return nil
 }
+
+// SendXRPInitTransactionsResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// SendXRPInitTransactionsResponse.Validate(true) if the designated
+// constraints aren't met.
+type SendXRPInitTransactionsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SendXRPInitTransactionsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SendXRPInitTransactionsResponseMultiError) AllErrors() []error { return m }
 
 // SendXRPInitTransactionsResponseValidationError is the validation error
 // returned by SendXRPInitTransactionsResponse.Validate if the designated
@@ -5673,21 +7998,50 @@ var _ interface {
 
 // Validate checks the field values on SendInitTransactionRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *SendInitTransactionRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SendInitTransactionRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *SendInitTransactionRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_SendInitTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return SendInitTransactionRequestValidationError{
+		err := SendInitTransactionRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return SendInitTransactionRequestMultiError(errors)
+	}
 	return nil
 }
+
+// SendInitTransactionRequestMultiError is an error wrapping multiple
+// validation errors returned by SendInitTransactionRequest.Validate(true) if
+// the designated constraints aren't met.
+type SendInitTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SendInitTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SendInitTransactionRequestMultiError) AllErrors() []error { return m }
 
 // SendInitTransactionRequestValidationError is the validation error returned
 // by SendInitTransactionRequest.Validate if the designated constraints aren't met.
@@ -5749,14 +8103,39 @@ var _SendInitTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]
 
 // Validate checks the field values on SendInitTransactionResponse with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *SendInitTransactionResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SendInitTransactionResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *SendInitTransactionResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
+	if len(errors) > 0 {
+		return SendInitTransactionResponseMultiError(errors)
+	}
 	return nil
 }
+
+// SendInitTransactionResponseMultiError is an error wrapping multiple
+// validation errors returned by SendInitTransactionResponse.Validate(true) if
+// the designated constraints aren't met.
+type SendInitTransactionResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SendInitTransactionResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SendInitTransactionResponseMultiError) AllErrors() []error { return m }
 
 // SendInitTransactionResponseValidationError is the validation error returned
 // by SendInitTransactionResponse.Validate if the designated constraints
@@ -5817,28 +8196,61 @@ var _ interface {
 
 // Validate checks the field values on CancelTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CancelTransactionRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CancelTransactionRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CancelTransactionRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_CancelTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return CancelTransactionRequestValidationError{
+		err := CancelTransactionRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_CancelTransactionRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
-		return CancelTransactionRequestValidationError{
+		err := CancelTransactionRequestValidationError{
 			field:  "TransactionId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return CancelTransactionRequestMultiError(errors)
+	}
 	return nil
 }
+
+// CancelTransactionRequestMultiError is an error wrapping multiple validation
+// errors returned by CancelTransactionRequest.Validate(true) if the
+// designated constraints aren't met.
+type CancelTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CancelTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CancelTransactionRequestMultiError) AllErrors() []error { return m }
 
 // CancelTransactionRequestValidationError is the validation error returned by
 // CancelTransactionRequest.Validate if the designated constraints aren't met.
@@ -5902,28 +8314,61 @@ var _CancelTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a
 
 // Validate checks the field values on GetTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetTransactionRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetTransactionRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *GetTransactionRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_GetTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return GetTransactionRequestValidationError{
+		err := GetTransactionRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_GetTransactionRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
-		return GetTransactionRequestValidationError{
+		err := GetTransactionRequestValidationError{
 			field:  "TransactionId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return GetTransactionRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetTransactionRequestMultiError is an error wrapping multiple validation
+// errors returned by GetTransactionRequest.Validate(true) if the designated
+// constraints aren't met.
+type GetTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetTransactionRequestMultiError) AllErrors() []error { return m }
 
 // GetTransactionRequestValidationError is the validation error returned by
 // GetTransactionRequest.Validate if the designated constraints aren't met.
@@ -5987,28 +8432,61 @@ var _GetTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]
 
 // Validate checks the field values on GetTransactionByTxIDRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetTransactionByTxIDRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetTransactionByTxIDRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *GetTransactionByTxIDRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_GetTransactionByTxIDRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return GetTransactionByTxIDRequestValidationError{
+		err := GetTransactionByTxIDRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_GetTransactionByTxIDRequest_TxId_Pattern.MatchString(m.GetTxId()) {
-		return GetTransactionByTxIDRequestValidationError{
+		err := GetTransactionByTxIDRequestValidationError{
 			field:  "TxId",
 			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{64}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return GetTransactionByTxIDRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetTransactionByTxIDRequestMultiError is an error wrapping multiple
+// validation errors returned by GetTransactionByTxIDRequest.Validate(true) if
+// the designated constraints aren't met.
+type GetTransactionByTxIDRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetTransactionByTxIDRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetTransactionByTxIDRequestMultiError) AllErrors() []error { return m }
 
 // GetTransactionByTxIDRequestValidationError is the validation error returned
 // by GetTransactionByTxIDRequest.Validate if the designated constraints
@@ -6073,35 +8551,72 @@ var _GetTransactionByTxIDRequest_TxId_Pattern = regexp.MustCompile("^(0x)?[0-9a-
 
 // Validate checks the field values on ListTransactionsRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListTransactionsRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListTransactionsRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListTransactionsRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ListTransactionsRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return ListTransactionsRequestValidationError{
+		err := ListTransactionsRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if m.GetPageSize() > 100 {
-		return ListTransactionsRequestValidationError{
+		err := ListTransactionsRequestValidationError{
 			field:  "PageSize",
 			reason: "value must be less than or equal to 100",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_ListTransactionsRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
-		return ListTransactionsRequestValidationError{
+		err := ListTransactionsRequestValidationError{
 			field:  "PageToken",
 			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListTransactionsRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListTransactionsRequestMultiError is an error wrapping multiple validation
+// errors returned by ListTransactionsRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListTransactionsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListTransactionsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListTransactionsRequestMultiError) AllErrors() []error { return m }
 
 // ListTransactionsRequestValidationError is the validation error returned by
 // ListTransactionsRequest.Validate if the designated constraints aren't met.
@@ -6165,42 +8680,63 @@ var _ListTransactionsRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEF
 
 // Validate checks the field values on ListTransactionsByFilterRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListTransactionsByFilterRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListTransactionsByFilterRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListTransactionsByFilterRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if _, ok := _ListTransactionsByFilterRequest_FilterType_NotInLookup[m.GetFilterType()]; ok {
-		return ListTransactionsByFilterRequestValidationError{
+		err := ListTransactionsByFilterRequestValidationError{
 			field:  "FilterType",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
-		return ListTransactionsByFilterRequestValidationError{
+		err := ListTransactionsByFilterRequestValidationError{
 			field:  "FilterType",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for TransactionId
 
 	// no validation rules for WalletId
 
-	if utf8.RuneCountInString(m.GetWalletName()) > 20 {
-		return ListTransactionsByFilterRequestValidationError{
+	if utf8.RuneCountInString(m.GetWalletName()) > 40 {
+		err := ListTransactionsByFilterRequestValidationError{
 			field:  "WalletName",
-			reason: "value length must be at most 20 runes",
+			reason: "value length must be at most 40 runes",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
-	if utf8.RuneCountInString(m.GetAddressName()) > 20 {
-		return ListTransactionsByFilterRequestValidationError{
+	if utf8.RuneCountInString(m.GetAddressName()) > 40 {
+		err := ListTransactionsByFilterRequestValidationError{
 			field:  "AddressName",
-			reason: "value length must be at most 20 runes",
+			reason: "value length must be at most 40 runes",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for Address
@@ -6208,28 +8744,61 @@ func (m *ListTransactionsByFilterRequest) Validate() error {
 	// no validation rules for Txid
 
 	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
-		return ListTransactionsByFilterRequestValidationError{
+		err := ListTransactionsByFilterRequestValidationError{
 			field:  "Coin",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if m.GetPageSize() > 100 {
-		return ListTransactionsByFilterRequestValidationError{
+		err := ListTransactionsByFilterRequestValidationError{
 			field:  "PageSize",
 			reason: "value must be less than or equal to 100",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_ListTransactionsByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
-		return ListTransactionsByFilterRequestValidationError{
+		err := ListTransactionsByFilterRequestValidationError{
 			field:  "PageToken",
 			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListTransactionsByFilterRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListTransactionsByFilterRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListTransactionsByFilterRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListTransactionsByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListTransactionsByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListTransactionsByFilterRequestMultiError) AllErrors() []error { return m }
 
 // ListTransactionsByFilterRequestValidationError is the validation error
 // returned by ListTransactionsByFilterRequest.Validate if the designated
@@ -6296,22 +8865,31 @@ var _ListTransactionsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|
 
 // Validate checks the field values on ListTransactionsResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListTransactionsResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListTransactionsResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListTransactionsResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetTransactions() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListTransactionsResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListTransactionsResponseValidationError{
 					field:  fmt.Sprintf("Transactions[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
@@ -6319,8 +8897,28 @@ func (m *ListTransactionsResponse) Validate() error {
 
 	// no validation rules for NextPageToken
 
+	if len(errors) > 0 {
+		return ListTransactionsResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListTransactionsResponseMultiError is an error wrapping multiple validation
+// errors returned by ListTransactionsResponse.Validate(true) if the
+// designated constraints aren't met.
+type ListTransactionsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListTransactionsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListTransactionsResponseMultiError) AllErrors() []error { return m }
 
 // ListTransactionsResponseValidationError is the validation error returned by
 // ListTransactionsResponse.Validate if the designated constraints aren't met.
@@ -6380,28 +8978,61 @@ var _ interface {
 
 // Validate checks the field values on GetSignInfoRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetSignInfoRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetSignInfoRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *GetSignInfoRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_GetSignInfoRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return GetSignInfoRequestValidationError{
+		err := GetSignInfoRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_GetSignInfoRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
-		return GetSignInfoRequestValidationError{
+		err := GetSignInfoRequestValidationError{
 			field:  "TransactionId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return GetSignInfoRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetSignInfoRequestMultiError is an error wrapping multiple validation errors
+// returned by GetSignInfoRequest.Validate(true) if the designated constraints
+// aren't met.
+type GetSignInfoRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetSignInfoRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetSignInfoRequestMultiError) AllErrors() []error { return m }
 
 // GetSignInfoRequestValidationError is the validation error returned by
 // GetSignInfoRequest.Validate if the designated constraints aren't met.
@@ -6465,28 +9096,61 @@ var _GetSignInfoRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}
 
 // Validate checks the field values on ListSignInfoRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListSignInfoRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListSignInfoRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListSignInfoRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ListSignInfoRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return ListSignInfoRequestValidationError{
+		err := ListSignInfoRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_ListSignInfoRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
-		return ListSignInfoRequestValidationError{
+		err := ListSignInfoRequestValidationError{
 			field:  "TransactionId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListSignInfoRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListSignInfoRequestMultiError is an error wrapping multiple validation
+// errors returned by ListSignInfoRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListSignInfoRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListSignInfoRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListSignInfoRequestMultiError) AllErrors() []error { return m }
 
 // ListSignInfoRequestValidationError is the validation error returned by
 // ListSignInfoRequest.Validate if the designated constraints aren't met.
@@ -6550,29 +9214,58 @@ var _ListSignInfoRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8
 
 // Validate checks the field values on ListSignInfoResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListSignInfoResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListSignInfoResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListSignInfoResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetSignInfoList() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListSignInfoResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListSignInfoResponseValidationError{
 					field:  fmt.Sprintf("SignInfoList[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return ListSignInfoResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListSignInfoResponseMultiError is an error wrapping multiple validation
+// errors returned by ListSignInfoResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListSignInfoResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListSignInfoResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListSignInfoResponseMultiError) AllErrors() []error { return m }
 
 // ListSignInfoResponseValidationError is the validation error returned by
 // ListSignInfoResponse.Validate if the designated constraints aren't met.
@@ -6632,21 +9325,50 @@ var _ interface {
 
 // Validate checks the field values on ListXRPInitSignInfoRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListXRPInitSignInfoRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListXRPInitSignInfoRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListXRPInitSignInfoRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ListXRPInitSignInfoRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return ListXRPInitSignInfoRequestValidationError{
+		err := ListXRPInitSignInfoRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListXRPInitSignInfoRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListXRPInitSignInfoRequestMultiError is an error wrapping multiple
+// validation errors returned by ListXRPInitSignInfoRequest.Validate(true) if
+// the designated constraints aren't met.
+type ListXRPInitSignInfoRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListXRPInitSignInfoRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListXRPInitSignInfoRequestMultiError) AllErrors() []error { return m }
 
 // ListXRPInitSignInfoRequestValidationError is the validation error returned
 // by ListXRPInitSignInfoRequest.Validate if the designated constraints aren't met.
@@ -6708,29 +9430,58 @@ var _ListXRPInitSignInfoRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]
 
 // Validate checks the field values on ListXRPInitSignInfoResponse with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListXRPInitSignInfoResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListXRPInitSignInfoResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListXRPInitSignInfoResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetSignInfoList() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListXRPInitSignInfoResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListXRPInitSignInfoResponseValidationError{
 					field:  fmt.Sprintf("SignInfoList[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return ListXRPInitSignInfoResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListXRPInitSignInfoResponseMultiError is an error wrapping multiple
+// validation errors returned by ListXRPInitSignInfoResponse.Validate(true) if
+// the designated constraints aren't met.
+type ListXRPInitSignInfoResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListXRPInitSignInfoResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListXRPInitSignInfoResponseMultiError) AllErrors() []error { return m }
 
 // ListXRPInitSignInfoResponseValidationError is the validation error returned
 // by ListXRPInitSignInfoResponse.Validate if the designated constraints
@@ -6791,21 +9542,50 @@ var _ interface {
 
 // Validate checks the field values on ListInitSignInfoRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListInitSignInfoRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListInitSignInfoRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListInitSignInfoRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ListInitSignInfoRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return ListInitSignInfoRequestValidationError{
+		err := ListInitSignInfoRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListInitSignInfoRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListInitSignInfoRequestMultiError is an error wrapping multiple validation
+// errors returned by ListInitSignInfoRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListInitSignInfoRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListInitSignInfoRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListInitSignInfoRequestMultiError) AllErrors() []error { return m }
 
 // ListInitSignInfoRequestValidationError is the validation error returned by
 // ListInitSignInfoRequest.Validate if the designated constraints aren't met.
@@ -6867,35 +9647,72 @@ var _ListInitSignInfoRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}
 
 // Validate checks the field values on ListTransfersRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListTransfersRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListTransfersRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListTransfersRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ListTransfersRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return ListTransfersRequestValidationError{
+		err := ListTransfersRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if m.GetPageSize() > 100 {
-		return ListTransfersRequestValidationError{
+		err := ListTransfersRequestValidationError{
 			field:  "PageSize",
 			reason: "value must be less than or equal to 100",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_ListTransfersRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
-		return ListTransfersRequestValidationError{
+		err := ListTransfersRequestValidationError{
 			field:  "PageToken",
 			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListTransfersRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListTransfersRequestMultiError is an error wrapping multiple validation
+// errors returned by ListTransfersRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListTransfersRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListTransfersRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListTransfersRequestMultiError) AllErrors() []error { return m }
 
 // ListTransfersRequestValidationError is the validation error returned by
 // ListTransfersRequest.Validate if the designated constraints aren't met.
@@ -6959,42 +9776,63 @@ var _ListTransfersRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHI
 
 // Validate checks the field values on ListTransfersByFilterRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListTransfersByFilterRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListTransfersByFilterRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListTransfersByFilterRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if _, ok := _ListTransfersByFilterRequest_FilterType_NotInLookup[m.GetFilterType()]; ok {
-		return ListTransfersByFilterRequestValidationError{
+		err := ListTransfersByFilterRequestValidationError{
 			field:  "FilterType",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
-		return ListTransfersByFilterRequestValidationError{
+		err := ListTransfersByFilterRequestValidationError{
 			field:  "FilterType",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for TransferId
 
 	// no validation rules for WalletId
 
-	if utf8.RuneCountInString(m.GetWalletName()) > 20 {
-		return ListTransfersByFilterRequestValidationError{
+	if utf8.RuneCountInString(m.GetWalletName()) > 40 {
+		err := ListTransfersByFilterRequestValidationError{
 			field:  "WalletName",
-			reason: "value length must be at most 20 runes",
+			reason: "value length must be at most 40 runes",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
-	if utf8.RuneCountInString(m.GetAddressName()) > 20 {
-		return ListTransfersByFilterRequestValidationError{
+	if utf8.RuneCountInString(m.GetAddressName()) > 40 {
+		err := ListTransfersByFilterRequestValidationError{
 			field:  "AddressName",
-			reason: "value length must be at most 20 runes",
+			reason: "value length must be at most 40 runes",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for Address
@@ -7004,55 +9842,99 @@ func (m *ListTransfersByFilterRequest) Validate() error {
 	// no validation rules for WatchOnly
 
 	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
-		return ListTransfersByFilterRequestValidationError{
+		err := ListTransfersByFilterRequestValidationError{
 			field:  "Coin",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := gincoincglobalv1.TransferType_name[int32(m.GetTransferType())]; !ok {
-		return ListTransfersByFilterRequestValidationError{
+		err := ListTransfersByFilterRequestValidationError{
 			field:  "TransferType",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if m.GetPageSize() > 100 {
-		return ListTransfersByFilterRequestValidationError{
+		err := ListTransfersByFilterRequestValidationError{
 			field:  "PageSize",
 			reason: "value must be less than or equal to 100",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_ListTransfersByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
-		return ListTransfersByFilterRequestValidationError{
+		err := ListTransfersByFilterRequestValidationError{
 			field:  "PageToken",
 			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
-	if v, ok := interface{}(m.GetStartTime()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return ListTransfersByFilterRequestValidationError{
+	if v, ok := interface{}(m.GetStartTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = ListTransfersByFilterRequestValidationError{
 				field:  "StartTime",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
-	if v, ok := interface{}(m.GetEndTime()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return ListTransfersByFilterRequestValidationError{
+	if v, ok := interface{}(m.GetEndTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = ListTransfersByFilterRequestValidationError{
 				field:  "EndTime",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
+	if len(errors) > 0 {
+		return ListTransfersByFilterRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListTransfersByFilterRequestMultiError is an error wrapping multiple
+// validation errors returned by ListTransfersByFilterRequest.Validate(true)
+// if the designated constraints aren't met.
+type ListTransfersByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListTransfersByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListTransfersByFilterRequestMultiError) AllErrors() []error { return m }
 
 // ListTransfersByFilterRequestValidationError is the validation error returned
 // by ListTransfersByFilterRequest.Validate if the designated constraints
@@ -7119,22 +10001,31 @@ var _ListTransfersByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[A
 
 // Validate checks the field values on ListTransfersResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListTransfersResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListTransfersResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListTransfersResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetTransfers() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListTransfersResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListTransfersResponseValidationError{
 					field:  fmt.Sprintf("Transfers[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
@@ -7142,8 +10033,28 @@ func (m *ListTransfersResponse) Validate() error {
 
 	// no validation rules for NextPageToken
 
+	if len(errors) > 0 {
+		return ListTransfersResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListTransfersResponseMultiError is an error wrapping multiple validation
+// errors returned by ListTransfersResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListTransfersResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListTransfersResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListTransfersResponseMultiError) AllErrors() []error { return m }
 
 // ListTransfersResponseValidationError is the validation error returned by
 // ListTransfersResponse.Validate if the designated constraints aren't met.
@@ -7203,30 +10114,65 @@ var _ interface {
 
 // Validate checks the field values on ListUncheckedTransfersByFilterRequest
 // with the rules defined in the proto definition for this message. If any
-// rules are violated, an error is returned.
-func (m *ListUncheckedTransfersByFilterRequest) Validate() error {
+// rules are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in
+// ListUncheckedTransfersByFilterRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListUncheckedTransfersByFilterRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for HasChecked
 
 	if m.GetPageSize() > 100 {
-		return ListUncheckedTransfersByFilterRequestValidationError{
+		err := ListUncheckedTransfersByFilterRequestValidationError{
 			field:  "PageSize",
 			reason: "value must be less than or equal to 100",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_ListUncheckedTransfersByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
-		return ListUncheckedTransfersByFilterRequestValidationError{
+		err := ListUncheckedTransfersByFilterRequestValidationError{
 			field:  "PageToken",
 			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListUncheckedTransfersByFilterRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListUncheckedTransfersByFilterRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ListUncheckedTransfersByFilterRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListUncheckedTransfersByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListUncheckedTransfersByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListUncheckedTransfersByFilterRequestMultiError) AllErrors() []error { return m }
 
 // ListUncheckedTransfersByFilterRequestValidationError is the validation error
 // returned by ListUncheckedTransfersByFilterRequest.Validate if the
@@ -7289,28 +10235,63 @@ var _ListUncheckedTransfersByFilterRequest_PageToken_Pattern = regexp.MustCompil
 
 // Validate checks the field values on
 // UpdateUncheckedTransferHasCheckedFlagRequest with the rules defined in the
-// proto definition for this message. If any rules are violated, an error is returned.
-func (m *UpdateUncheckedTransferHasCheckedFlagRequest) Validate() error {
+// proto definition for this message. If any rules are violated, an error is
+// returned. When asked to return all errors, validation continues after first
+// violation, and the result is a list of violation errors wrapped in
+// UpdateUncheckedTransferHasCheckedFlagRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *UpdateUncheckedTransferHasCheckedFlagRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_UpdateUncheckedTransferHasCheckedFlagRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return UpdateUncheckedTransferHasCheckedFlagRequestValidationError{
+		err := UpdateUncheckedTransferHasCheckedFlagRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_UpdateUncheckedTransferHasCheckedFlagRequest_UncheckedTransferId_Pattern.MatchString(m.GetUncheckedTransferId()) {
-		return UpdateUncheckedTransferHasCheckedFlagRequestValidationError{
+		err := UpdateUncheckedTransferHasCheckedFlagRequestValidationError{
 			field:  "UncheckedTransferId",
 			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return UpdateUncheckedTransferHasCheckedFlagRequestMultiError(errors)
+	}
 	return nil
 }
+
+// UpdateUncheckedTransferHasCheckedFlagRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// UpdateUncheckedTransferHasCheckedFlagRequest.Validate(true) if the
+// designated constraints aren't met.
+type UpdateUncheckedTransferHasCheckedFlagRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateUncheckedTransferHasCheckedFlagRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateUncheckedTransferHasCheckedFlagRequestMultiError) AllErrors() []error { return m }
 
 // UpdateUncheckedTransferHasCheckedFlagRequestValidationError is the
 // validation error returned by
@@ -7376,22 +10357,31 @@ var _UpdateUncheckedTransferHasCheckedFlagRequest_UncheckedTransferId_Pattern = 
 
 // Validate checks the field values on ListUncheckedTransfersResponse with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListUncheckedTransfersResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListUncheckedTransfersResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListUncheckedTransfersResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetUncheckedTransfers() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListUncheckedTransfersResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListUncheckedTransfersResponseValidationError{
 					field:  fmt.Sprintf("UncheckedTransfers[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
@@ -7399,8 +10389,28 @@ func (m *ListUncheckedTransfersResponse) Validate() error {
 
 	// no validation rules for NextPageToken
 
+	if len(errors) > 0 {
+		return ListUncheckedTransfersResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListUncheckedTransfersResponseMultiError is an error wrapping multiple
+// validation errors returned by ListUncheckedTransfersResponse.Validate(true)
+// if the designated constraints aren't met.
+type ListUncheckedTransfersResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListUncheckedTransfersResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListUncheckedTransfersResponseMultiError) AllErrors() []error { return m }
 
 // ListUncheckedTransfersResponseValidationError is the validation error
 // returned by ListUncheckedTransfersResponse.Validate if the designated
@@ -7461,14 +10471,40 @@ var _ interface {
 
 // Validate checks the field values on ListEventTriggeredMessagesRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *ListEventTriggeredMessagesRequest) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListEventTriggeredMessagesRequestMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListEventTriggeredMessagesRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
+	if len(errors) > 0 {
+		return ListEventTriggeredMessagesRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListEventTriggeredMessagesRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListEventTriggeredMessagesRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListEventTriggeredMessagesRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListEventTriggeredMessagesRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListEventTriggeredMessagesRequestMultiError) AllErrors() []error { return m }
 
 // ListEventTriggeredMessagesRequestValidationError is the validation error
 // returned by ListEventTriggeredMessagesRequest.Validate if the designated
@@ -7529,29 +10565,59 @@ var _ interface {
 
 // Validate checks the field values on ListEventTriggeredMessagesResponse with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *ListEventTriggeredMessagesResponse) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListEventTriggeredMessagesResponseMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListEventTriggeredMessagesResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetEventTriggeredMessages() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListEventTriggeredMessagesResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListEventTriggeredMessagesResponseValidationError{
 					field:  fmt.Sprintf("EventTriggeredMessages[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return ListEventTriggeredMessagesResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListEventTriggeredMessagesResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListEventTriggeredMessagesResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListEventTriggeredMessagesResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListEventTriggeredMessagesResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListEventTriggeredMessagesResponseMultiError) AllErrors() []error { return m }
 
 // ListEventTriggeredMessagesResponseValidationError is the validation error
 // returned by ListEventTriggeredMessagesResponse.Validate if the designated
@@ -7612,18 +10678,44 @@ var _ interface {
 
 // Validate checks the field values on CreateEventTriggeredMessageRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *CreateEventTriggeredMessageRequest) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in CreateEventTriggeredMessageRequestMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *CreateEventTriggeredMessageRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
+
+	var errors []error
 
 	// no validation rules for EventTriggeredMessageType
 
 	// no validation rules for Destination
 
+	if len(errors) > 0 {
+		return CreateEventTriggeredMessageRequestMultiError(errors)
+	}
 	return nil
 }
+
+// CreateEventTriggeredMessageRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// CreateEventTriggeredMessageRequest.Validate(true) if the designated
+// constraints aren't met.
+type CreateEventTriggeredMessageRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateEventTriggeredMessageRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateEventTriggeredMessageRequestMultiError) AllErrors() []error { return m }
 
 // CreateEventTriggeredMessageRequestValidationError is the validation error
 // returned by CreateEventTriggeredMessageRequest.Validate if the designated
@@ -7684,16 +10776,42 @@ var _ interface {
 
 // Validate checks the field values on CreateEventTriggeredMessageResponce with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *CreateEventTriggeredMessageResponce) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in CreateEventTriggeredMessageResponceMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *CreateEventTriggeredMessageResponce) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for EventTriggeredMessageId
 
+	if len(errors) > 0 {
+		return CreateEventTriggeredMessageResponceMultiError(errors)
+	}
 	return nil
 }
+
+// CreateEventTriggeredMessageResponceMultiError is an error wrapping multiple
+// validation errors returned by
+// CreateEventTriggeredMessageResponce.Validate(true) if the designated
+// constraints aren't met.
+type CreateEventTriggeredMessageResponceMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateEventTriggeredMessageResponceMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateEventTriggeredMessageResponceMultiError) AllErrors() []error { return m }
 
 // CreateEventTriggeredMessageResponceValidationError is the validation error
 // returned by CreateEventTriggeredMessageResponce.Validate if the designated
@@ -7754,23 +10872,53 @@ var _ interface {
 
 // Validate checks the field values on UpdateEventTriggeredMessageRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *UpdateEventTriggeredMessageRequest) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in UpdateEventTriggeredMessageRequestMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *UpdateEventTriggeredMessageRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_UpdateEventTriggeredMessageRequest_EventTriggeredMessageId_Pattern.MatchString(m.GetEventTriggeredMessageId()) {
-		return UpdateEventTriggeredMessageRequestValidationError{
+		err := UpdateEventTriggeredMessageRequestValidationError{
 			field:  "EventTriggeredMessageId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for Destination
 
+	if len(errors) > 0 {
+		return UpdateEventTriggeredMessageRequestMultiError(errors)
+	}
 	return nil
 }
+
+// UpdateEventTriggeredMessageRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// UpdateEventTriggeredMessageRequest.Validate(true) if the designated
+// constraints aren't met.
+type UpdateEventTriggeredMessageRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateEventTriggeredMessageRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateEventTriggeredMessageRequestMultiError) AllErrors() []error { return m }
 
 // UpdateEventTriggeredMessageRequestValidationError is the validation error
 // returned by UpdateEventTriggeredMessageRequest.Validate if the designated
@@ -7833,21 +10981,51 @@ var _UpdateEventTriggeredMessageRequest_EventTriggeredMessageId_Pattern = regexp
 
 // Validate checks the field values on DeleteEventTriggeredMessageRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *DeleteEventTriggeredMessageRequest) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in DeleteEventTriggeredMessageRequestMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *DeleteEventTriggeredMessageRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_DeleteEventTriggeredMessageRequest_EventTriggeredMessageId_Pattern.MatchString(m.GetEventTriggeredMessageId()) {
-		return DeleteEventTriggeredMessageRequestValidationError{
+		err := DeleteEventTriggeredMessageRequestValidationError{
 			field:  "EventTriggeredMessageId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return DeleteEventTriggeredMessageRequestMultiError(errors)
+	}
 	return nil
 }
+
+// DeleteEventTriggeredMessageRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// DeleteEventTriggeredMessageRequest.Validate(true) if the designated
+// constraints aren't met.
+type DeleteEventTriggeredMessageRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DeleteEventTriggeredMessageRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DeleteEventTriggeredMessageRequestMultiError) AllErrors() []error { return m }
 
 // DeleteEventTriggeredMessageRequestValidationError is the validation error
 // returned by DeleteEventTriggeredMessageRequest.Validate if the designated
@@ -7910,21 +11088,50 @@ var _DeleteEventTriggeredMessageRequest_EventTriggeredMessageId_Pattern = regexp
 
 // Validate checks the field values on GetRateSnapshotRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetRateSnapshotRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetRateSnapshotRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *GetRateSnapshotRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_GetRateSnapshotRequest_RateSnapshotId_Pattern.MatchString(m.GetRateSnapshotId()) {
-		return GetRateSnapshotRequestValidationError{
+		err := GetRateSnapshotRequestValidationError{
 			field:  "RateSnapshotId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return GetRateSnapshotRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetRateSnapshotRequestMultiError is an error wrapping multiple validation
+// errors returned by GetRateSnapshotRequest.Validate(true) if the designated
+// constraints aren't met.
+type GetRateSnapshotRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetRateSnapshotRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetRateSnapshotRequestMultiError) AllErrors() []error { return m }
 
 // GetRateSnapshotRequestValidationError is the validation error returned by
 // GetRateSnapshotRequest.Validate if the designated constraints aren't met.
@@ -7986,14 +11193,39 @@ var _GetRateSnapshotRequest_RateSnapshotId_Pattern = regexp.MustCompile("^[0-9a-
 
 // Validate checks the field values on GetLatestRateSnapshotRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetLatestRateSnapshotRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetLatestRateSnapshotRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *GetLatestRateSnapshotRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
+	if len(errors) > 0 {
+		return GetLatestRateSnapshotRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetLatestRateSnapshotRequestMultiError is an error wrapping multiple
+// validation errors returned by GetLatestRateSnapshotRequest.Validate(true)
+// if the designated constraints aren't met.
+type GetLatestRateSnapshotRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetLatestRateSnapshotRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetLatestRateSnapshotRequestMultiError) AllErrors() []error { return m }
 
 // GetLatestRateSnapshotRequestValidationError is the validation error returned
 // by GetLatestRateSnapshotRequest.Validate if the designated constraints
@@ -8054,29 +11286,58 @@ var _ interface {
 
 // Validate checks the field values on SetRatesRequest with the rules defined
 // in the proto definition for this message. If any rules are violated, an
-// error is returned.
-func (m *SetRatesRequest) Validate() error {
+// error is returned. When asked to return all errors, validation continues
+// after first violation, and the result is a list of violation errors wrapped
+// in SetRatesRequestMultiError, or nil if none found. Otherwise, only the
+// first error is returned, if any.
+func (m *SetRatesRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetRates() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return SetRatesRequestValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = SetRatesRequestValidationError{
 					field:  fmt.Sprintf("Rates[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return SetRatesRequestMultiError(errors)
+	}
 	return nil
 }
+
+// SetRatesRequestMultiError is an error wrapping multiple validation errors
+// returned by SetRatesRequest.Validate(true) if the designated constraints
+// aren't met.
+type SetRatesRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SetRatesRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SetRatesRequestMultiError) AllErrors() []error { return m }
 
 // SetRatesRequestValidationError is the validation error returned by
 // SetRatesRequest.Validate if the designated constraints aren't met.
@@ -8134,14 +11395,39 @@ var _ interface {
 
 // Validate checks the field values on SetDefaultRatesRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *SetDefaultRatesRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SetDefaultRatesRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *SetDefaultRatesRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
+	if len(errors) > 0 {
+		return SetDefaultRatesRequestMultiError(errors)
+	}
 	return nil
 }
+
+// SetDefaultRatesRequestMultiError is an error wrapping multiple validation
+// errors returned by SetDefaultRatesRequest.Validate(true) if the designated
+// constraints aren't met.
+type SetDefaultRatesRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SetDefaultRatesRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SetDefaultRatesRequestMultiError) AllErrors() []error { return m }
 
 // SetDefaultRatesRequestValidationError is the validation error returned by
 // SetDefaultRatesRequest.Validate if the designated constraints aren't met.
@@ -8201,16 +11487,41 @@ var _ interface {
 
 // Validate checks the field values on SetRatesResponse with the rules defined
 // in the proto definition for this message. If any rules are violated, an
-// error is returned.
-func (m *SetRatesResponse) Validate() error {
+// error is returned. When asked to return all errors, validation continues
+// after first violation, and the result is a list of violation errors wrapped
+// in SetRatesResponseMultiError, or nil if none found. Otherwise, only the
+// first error is returned, if any.
+func (m *SetRatesResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for RateSnapshotId
 
+	if len(errors) > 0 {
+		return SetRatesResponseMultiError(errors)
+	}
 	return nil
 }
+
+// SetRatesResponseMultiError is an error wrapping multiple validation errors
+// returned by SetRatesResponse.Validate(true) if the designated constraints
+// aren't met.
+type SetRatesResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SetRatesResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SetRatesResponseMultiError) AllErrors() []error { return m }
 
 // SetRatesResponseValidationError is the validation error returned by
 // SetRatesResponse.Validate if the designated constraints aren't met.
@@ -8268,14 +11579,39 @@ var _ interface {
 
 // Validate checks the field values on SetDefaultRatesResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *SetDefaultRatesResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SetDefaultRatesResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *SetDefaultRatesResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
+	if len(errors) > 0 {
+		return SetDefaultRatesResponseMultiError(errors)
+	}
 	return nil
 }
+
+// SetDefaultRatesResponseMultiError is an error wrapping multiple validation
+// errors returned by SetDefaultRatesResponse.Validate(true) if the designated
+// constraints aren't met.
+type SetDefaultRatesResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SetDefaultRatesResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SetDefaultRatesResponseMultiError) AllErrors() []error { return m }
 
 // SetDefaultRatesResponseValidationError is the validation error returned by
 // SetDefaultRatesResponse.Validate if the designated constraints aren't met.
@@ -8335,21 +11671,50 @@ var _ interface {
 
 // Validate checks the field values on GetSpendableBalanceRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetSpendableBalanceRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetSpendableBalanceRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *GetSpendableBalanceRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_GetSpendableBalanceRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return GetSpendableBalanceRequestValidationError{
+		err := GetSpendableBalanceRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return GetSpendableBalanceRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetSpendableBalanceRequestMultiError is an error wrapping multiple
+// validation errors returned by GetSpendableBalanceRequest.Validate(true) if
+// the designated constraints aren't met.
+type GetSpendableBalanceRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetSpendableBalanceRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetSpendableBalanceRequestMultiError) AllErrors() []error { return m }
 
 // GetSpendableBalanceRequestValidationError is the validation error returned
 // by GetSpendableBalanceRequest.Validate if the designated constraints aren't met.
@@ -8411,11 +11776,16 @@ var _GetSpendableBalanceRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]
 
 // Validate checks the field values on GetSpendableBalanceResponse with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetSpendableBalanceResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetSpendableBalanceResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *GetSpendableBalanceResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
+
+	var errors []error
 
 	// no validation rules for TotalSpendableBalance
 
@@ -8433,8 +11803,28 @@ func (m *GetSpendableBalanceResponse) Validate() error {
 
 	// no validation rules for StringOneTimeSpendableBalance
 
+	if len(errors) > 0 {
+		return GetSpendableBalanceResponseMultiError(errors)
+	}
 	return nil
 }
+
+// GetSpendableBalanceResponseMultiError is an error wrapping multiple
+// validation errors returned by GetSpendableBalanceResponse.Validate(true) if
+// the designated constraints aren't met.
+type GetSpendableBalanceResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetSpendableBalanceResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetSpendableBalanceResponseMultiError) AllErrors() []error { return m }
 
 // GetSpendableBalanceResponseValidationError is the validation error returned
 // by GetSpendableBalanceResponse.Validate if the designated constraints
@@ -8495,16 +11885,41 @@ var _ interface {
 
 // Validate checks the field values on GetTotalBalanceRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetTotalBalanceRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetTotalBalanceRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *GetTotalBalanceRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for WatchOnly
 
+	if len(errors) > 0 {
+		return GetTotalBalanceRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetTotalBalanceRequestMultiError is an error wrapping multiple validation
+// errors returned by GetTotalBalanceRequest.Validate(true) if the designated
+// constraints aren't met.
+type GetTotalBalanceRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetTotalBalanceRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetTotalBalanceRequestMultiError) AllErrors() []error { return m }
 
 // GetTotalBalanceRequestValidationError is the validation error returned by
 // GetTotalBalanceRequest.Validate if the designated constraints aren't met.
@@ -8564,36 +11979,69 @@ var _ interface {
 
 // Validate checks the field values on ListBalanceSnapshotsRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListBalanceSnapshotsRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListBalanceSnapshotsRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListBalanceSnapshotsRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for WatchOnly
 
-	if v, ok := interface{}(m.GetStartTime()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return ListBalanceSnapshotsRequestValidationError{
+	if v, ok := interface{}(m.GetStartTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = ListBalanceSnapshotsRequestValidationError{
 				field:  "StartTime",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
-	if v, ok := interface{}(m.GetEndTime()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return ListBalanceSnapshotsRequestValidationError{
+	if v, ok := interface{}(m.GetEndTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = ListBalanceSnapshotsRequestValidationError{
 				field:  "EndTime",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
+	if len(errors) > 0 {
+		return ListBalanceSnapshotsRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListBalanceSnapshotsRequestMultiError is an error wrapping multiple
+// validation errors returned by ListBalanceSnapshotsRequest.Validate(true) if
+// the designated constraints aren't met.
+type ListBalanceSnapshotsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListBalanceSnapshotsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListBalanceSnapshotsRequestMultiError) AllErrors() []error { return m }
 
 // ListBalanceSnapshotsRequestValidationError is the validation error returned
 // by ListBalanceSnapshotsRequest.Validate if the designated constraints
@@ -8654,29 +12102,58 @@ var _ interface {
 
 // Validate checks the field values on ListBalanceSnapshotsResponse with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListBalanceSnapshotsResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListBalanceSnapshotsResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListBalanceSnapshotsResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetBalanceSnapshots() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListBalanceSnapshotsResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListBalanceSnapshotsResponseValidationError{
 					field:  fmt.Sprintf("BalanceSnapshots[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return ListBalanceSnapshotsResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListBalanceSnapshotsResponseMultiError is an error wrapping multiple
+// validation errors returned by ListBalanceSnapshotsResponse.Validate(true)
+// if the designated constraints aren't met.
+type ListBalanceSnapshotsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListBalanceSnapshotsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListBalanceSnapshotsResponseMultiError) AllErrors() []error { return m }
 
 // ListBalanceSnapshotsResponseValidationError is the validation error returned
 // by ListBalanceSnapshotsResponse.Validate if the designated constraints
@@ -8737,46 +12214,84 @@ var _ interface {
 
 // Validate checks the field values on ListWalletBalanceSnapshotsRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *ListWalletBalanceSnapshotsRequest) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListWalletBalanceSnapshotsRequestMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListWalletBalanceSnapshotsRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
+
+	var errors []error
 
 	for idx, item := range m.GetWalletIds() {
 		_, _ = idx, item
 
 		if !_ListWalletBalanceSnapshotsRequest_WalletIds_Pattern.MatchString(item) {
-			return ListWalletBalanceSnapshotsRequestValidationError{
+			err := ListWalletBalanceSnapshotsRequestValidationError{
 				field:  fmt.Sprintf("WalletIds[%v]", idx),
 				reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 
 	}
 
-	if v, ok := interface{}(m.GetStartTime()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return ListWalletBalanceSnapshotsRequestValidationError{
+	if v, ok := interface{}(m.GetStartTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = ListWalletBalanceSnapshotsRequestValidationError{
 				field:  "StartTime",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
-	if v, ok := interface{}(m.GetEndTime()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return ListWalletBalanceSnapshotsRequestValidationError{
+	if v, ok := interface{}(m.GetEndTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = ListWalletBalanceSnapshotsRequestValidationError{
 				field:  "EndTime",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
+	if len(errors) > 0 {
+		return ListWalletBalanceSnapshotsRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListWalletBalanceSnapshotsRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListWalletBalanceSnapshotsRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListWalletBalanceSnapshotsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListWalletBalanceSnapshotsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListWalletBalanceSnapshotsRequestMultiError) AllErrors() []error { return m }
 
 // ListWalletBalanceSnapshotsRequestValidationError is the validation error
 // returned by ListWalletBalanceSnapshotsRequest.Validate if the designated
@@ -8839,24 +12354,54 @@ var _ListWalletBalanceSnapshotsRequest_WalletIds_Pattern = regexp.MustCompile("^
 
 // Validate checks the field values on ListWalletBalanceSnapshotsResponse with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *ListWalletBalanceSnapshotsResponse) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListWalletBalanceSnapshotsResponseMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListWalletBalanceSnapshotsResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
-	if v, ok := interface{}(m.GetWalletBalanceSnapshotMap()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return ListWalletBalanceSnapshotsResponseValidationError{
+	var errors []error
+
+	if v, ok := interface{}(m.GetWalletBalanceSnapshotMap()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = ListWalletBalanceSnapshotsResponseValidationError{
 				field:  "WalletBalanceSnapshotMap",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
+	if len(errors) > 0 {
+		return ListWalletBalanceSnapshotsResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListWalletBalanceSnapshotsResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListWalletBalanceSnapshotsResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListWalletBalanceSnapshotsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListWalletBalanceSnapshotsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListWalletBalanceSnapshotsResponseMultiError) AllErrors() []error { return m }
 
 // ListWalletBalanceSnapshotsResponseValidationError is the validation error
 // returned by ListWalletBalanceSnapshotsResponse.Validate if the designated
@@ -8917,30 +12462,64 @@ var _ interface {
 
 // Validate checks the field values on ListTransferVolumeSnapshotsRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *ListTransferVolumeSnapshotsRequest) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListTransferVolumeSnapshotsRequestMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListTransferVolumeSnapshotsRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for WatchOnly
 
 	if m.GetStartTime() == nil {
-		return ListTransferVolumeSnapshotsRequestValidationError{
+		err := ListTransferVolumeSnapshotsRequestValidationError{
 			field:  "StartTime",
 			reason: "value is required",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if m.GetEndTime() == nil {
-		return ListTransferVolumeSnapshotsRequestValidationError{
+		err := ListTransferVolumeSnapshotsRequestValidationError{
 			field:  "EndTime",
 			reason: "value is required",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListTransferVolumeSnapshotsRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListTransferVolumeSnapshotsRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListTransferVolumeSnapshotsRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListTransferVolumeSnapshotsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListTransferVolumeSnapshotsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListTransferVolumeSnapshotsRequestMultiError) AllErrors() []error { return m }
 
 // ListTransferVolumeSnapshotsRequestValidationError is the validation error
 // returned by ListTransferVolumeSnapshotsRequest.Validate if the designated
@@ -9001,24 +12580,54 @@ var _ interface {
 
 // Validate checks the field values on ListTransferVolumeSnapshotsResponse with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *ListTransferVolumeSnapshotsResponse) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListTransferVolumeSnapshotsResponseMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListTransferVolumeSnapshotsResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
-	if v, ok := interface{}(m.GetTransferVolumeSnapshots()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return ListTransferVolumeSnapshotsResponseValidationError{
+	var errors []error
+
+	if v, ok := interface{}(m.GetTransferVolumeSnapshots()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = ListTransferVolumeSnapshotsResponseValidationError{
 				field:  "TransferVolumeSnapshots",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
+	if len(errors) > 0 {
+		return ListTransferVolumeSnapshotsResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListTransferVolumeSnapshotsResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListTransferVolumeSnapshotsResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListTransferVolumeSnapshotsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListTransferVolumeSnapshotsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListTransferVolumeSnapshotsResponseMultiError) AllErrors() []error { return m }
 
 // ListTransferVolumeSnapshotsResponseValidationError is the validation error
 // returned by ListTransferVolumeSnapshotsResponse.Validate if the designated
@@ -9079,40 +12688,79 @@ var _ interface {
 
 // Validate checks the field values on ListWalletTransferVolumeSnapshotsRequest
 // with the rules defined in the proto definition for this message. If any
-// rules are violated, an error is returned.
-func (m *ListWalletTransferVolumeSnapshotsRequest) Validate() error {
+// rules are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in
+// ListWalletTransferVolumeSnapshotsRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListWalletTransferVolumeSnapshotsRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
+
+	var errors []error
 
 	for idx, item := range m.GetWalletIds() {
 		_, _ = idx, item
 
 		if !_ListWalletTransferVolumeSnapshotsRequest_WalletIds_Pattern.MatchString(item) {
-			return ListWalletTransferVolumeSnapshotsRequestValidationError{
+			err := ListWalletTransferVolumeSnapshotsRequestValidationError{
 				field:  fmt.Sprintf("WalletIds[%v]", idx),
 				reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 
 	}
 
 	if m.GetStartTime() == nil {
-		return ListWalletTransferVolumeSnapshotsRequestValidationError{
+		err := ListWalletTransferVolumeSnapshotsRequestValidationError{
 			field:  "StartTime",
 			reason: "value is required",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if m.GetEndTime() == nil {
-		return ListWalletTransferVolumeSnapshotsRequestValidationError{
+		err := ListWalletTransferVolumeSnapshotsRequestValidationError{
 			field:  "EndTime",
 			reason: "value is required",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListWalletTransferVolumeSnapshotsRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListWalletTransferVolumeSnapshotsRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ListWalletTransferVolumeSnapshotsRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListWalletTransferVolumeSnapshotsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListWalletTransferVolumeSnapshotsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListWalletTransferVolumeSnapshotsRequestMultiError) AllErrors() []error { return m }
 
 // ListWalletTransferVolumeSnapshotsRequestValidationError is the validation
 // error returned by ListWalletTransferVolumeSnapshotsRequest.Validate if the
@@ -9175,24 +12823,55 @@ var _ListWalletTransferVolumeSnapshotsRequest_WalletIds_Pattern = regexp.MustCom
 
 // Validate checks the field values on
 // ListWalletTransferVolumeSnapshotsResponse with the rules defined in the
-// proto definition for this message. If any rules are violated, an error is returned.
-func (m *ListWalletTransferVolumeSnapshotsResponse) Validate() error {
+// proto definition for this message. If any rules are violated, an error is
+// returned. When asked to return all errors, validation continues after first
+// violation, and the result is a list of violation errors wrapped in
+// ListWalletTransferVolumeSnapshotsResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListWalletTransferVolumeSnapshotsResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
-	if v, ok := interface{}(m.GetWalletTransferVolumeSnapshots()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return ListWalletTransferVolumeSnapshotsResponseValidationError{
+	var errors []error
+
+	if v, ok := interface{}(m.GetWalletTransferVolumeSnapshots()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = ListWalletTransferVolumeSnapshotsResponseValidationError{
 				field:  "WalletTransferVolumeSnapshots",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
+	if len(errors) > 0 {
+		return ListWalletTransferVolumeSnapshotsResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListWalletTransferVolumeSnapshotsResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// ListWalletTransferVolumeSnapshotsResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListWalletTransferVolumeSnapshotsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListWalletTransferVolumeSnapshotsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListWalletTransferVolumeSnapshotsResponseMultiError) AllErrors() []error { return m }
 
 // ListWalletTransferVolumeSnapshotsResponseValidationError is the validation
 // error returned by ListWalletTransferVolumeSnapshotsResponse.Validate if the
@@ -9253,17 +12932,26 @@ var _ interface {
 
 // Validate checks the field values on CalculateFeeRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CalculateFeeRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CalculateFeeRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CalculateFeeRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_CalculateFeeRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return CalculateFeeRequestValidationError{
+		err := CalculateFeeRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for FeeRate
@@ -9271,13 +12959,17 @@ func (m *CalculateFeeRequest) Validate() error {
 	for idx, item := range m.GetTxOutputs() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return CalculateFeeRequestValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = CalculateFeeRequestValidationError{
 					field:  fmt.Sprintf("TxOutputs[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
@@ -9289,18 +12981,42 @@ func (m *CalculateFeeRequest) Validate() error {
 
 	// no validation rules for StringValue
 
-	if v, ok := interface{}(m.GetSubstrateSpecific()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return CalculateFeeRequestValidationError{
+	if v, ok := interface{}(m.GetSubstrateSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = CalculateFeeRequestValidationError{
 				field:  "SubstrateSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
+	if len(errors) > 0 {
+		return CalculateFeeRequestMultiError(errors)
+	}
 	return nil
 }
+
+// CalculateFeeRequestMultiError is an error wrapping multiple validation
+// errors returned by CalculateFeeRequest.Validate(true) if the designated
+// constraints aren't met.
+type CalculateFeeRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CalculateFeeRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CalculateFeeRequestMultiError) AllErrors() []error { return m }
 
 // CalculateFeeRequestValidationError is the validation error returned by
 // CalculateFeeRequest.Validate if the designated constraints aren't met.
@@ -9362,18 +13078,43 @@ var _CalculateFeeRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-
 
 // Validate checks the field values on CalculateFeeSubstrateSpecific with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CalculateFeeSubstrateSpecific) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CalculateFeeSubstrateSpecificMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *CalculateFeeSubstrateSpecific) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
+
+	var errors []error
 
 	// no validation rules for CallType
 
 	// no validation rules for MultisigCallType
 
+	if len(errors) > 0 {
+		return CalculateFeeSubstrateSpecificMultiError(errors)
+	}
 	return nil
 }
+
+// CalculateFeeSubstrateSpecificMultiError is an error wrapping multiple
+// validation errors returned by CalculateFeeSubstrateSpecific.Validate(true)
+// if the designated constraints aren't met.
+type CalculateFeeSubstrateSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CalculateFeeSubstrateSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CalculateFeeSubstrateSpecificMultiError) AllErrors() []error { return m }
 
 // CalculateFeeSubstrateSpecificValidationError is the validation error
 // returned by CalculateFeeSubstrateSpecific.Validate if the designated
@@ -9434,18 +13175,43 @@ var _ interface {
 
 // Validate checks the field values on CalculateFeeResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CalculateFeeResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CalculateFeeResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CalculateFeeResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
+
+	var errors []error
 
 	// no validation rules for Fee
 
 	// no validation rules for StringFee
 
+	if len(errors) > 0 {
+		return CalculateFeeResponseMultiError(errors)
+	}
 	return nil
 }
+
+// CalculateFeeResponseMultiError is an error wrapping multiple validation
+// errors returned by CalculateFeeResponse.Validate(true) if the designated
+// constraints aren't met.
+type CalculateFeeResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CalculateFeeResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CalculateFeeResponseMultiError) AllErrors() []error { return m }
 
 // CalculateFeeResponseValidationError is the validation error returned by
 // CalculateFeeResponse.Validate if the designated constraints aren't met.
@@ -9505,14 +13271,40 @@ var _ interface {
 
 // Validate checks the field values on GetMembersDeactivatabilitiesRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *GetMembersDeactivatabilitiesRequest) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in GetMembersDeactivatabilitiesRequestMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *GetMembersDeactivatabilitiesRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
+	if len(errors) > 0 {
+		return GetMembersDeactivatabilitiesRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetMembersDeactivatabilitiesRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// GetMembersDeactivatabilitiesRequest.Validate(true) if the designated
+// constraints aren't met.
+type GetMembersDeactivatabilitiesRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetMembersDeactivatabilitiesRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetMembersDeactivatabilitiesRequestMultiError) AllErrors() []error { return m }
 
 // GetMembersDeactivatabilitiesRequestValidationError is the validation error
 // returned by GetMembersDeactivatabilitiesRequest.Validate if the designated
@@ -9573,29 +13365,59 @@ var _ interface {
 
 // Validate checks the field values on GetMembersDeactivatabilitiesResponse
 // with the rules defined in the proto definition for this message. If any
-// rules are violated, an error is returned.
-func (m *GetMembersDeactivatabilitiesResponse) Validate() error {
+// rules are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in GetMembersDeactivatabilitiesResponseMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *GetMembersDeactivatabilitiesResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetDeactivatabilities() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return GetMembersDeactivatabilitiesResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = GetMembersDeactivatabilitiesResponseValidationError{
 					field:  fmt.Sprintf("Deactivatabilities[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return GetMembersDeactivatabilitiesResponseMultiError(errors)
+	}
 	return nil
 }
+
+// GetMembersDeactivatabilitiesResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// GetMembersDeactivatabilitiesResponse.Validate(true) if the designated
+// constraints aren't met.
+type GetMembersDeactivatabilitiesResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetMembersDeactivatabilitiesResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetMembersDeactivatabilitiesResponseMultiError) AllErrors() []error { return m }
 
 // GetMembersDeactivatabilitiesResponseValidationError is the validation error
 // returned by GetMembersDeactivatabilitiesResponse.Validate if the designated
@@ -9656,28 +13478,61 @@ var _ interface {
 
 // Validate checks the field values on GetRecommendedFeeRateRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetRecommendedFeeRateRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetRecommendedFeeRateRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *GetRecommendedFeeRateRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if _, ok := _GetRecommendedFeeRateRequest_Coin_NotInLookup[m.GetCoin()]; ok {
-		return GetRecommendedFeeRateRequestValidationError{
+		err := GetRecommendedFeeRateRequestValidationError{
 			field:  "Coin",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
-		return GetRecommendedFeeRateRequestValidationError{
+		err := GetRecommendedFeeRateRequestValidationError{
 			field:  "Coin",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return GetRecommendedFeeRateRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetRecommendedFeeRateRequestMultiError is an error wrapping multiple
+// validation errors returned by GetRecommendedFeeRateRequest.Validate(true)
+// if the designated constraints aren't met.
+type GetRecommendedFeeRateRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetRecommendedFeeRateRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetRecommendedFeeRateRequestMultiError) AllErrors() []error { return m }
 
 // GetRecommendedFeeRateRequestValidationError is the validation error returned
 // by GetRecommendedFeeRateRequest.Validate if the designated constraints
@@ -9742,11 +13597,16 @@ var _GetRecommendedFeeRateRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]s
 
 // Validate checks the field values on GetRecommendedFeeRateResponse with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetRecommendedFeeRateResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetRecommendedFeeRateResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *GetRecommendedFeeRateResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
+
+	var errors []error
 
 	// no validation rules for Fastest
 
@@ -9756,8 +13616,28 @@ func (m *GetRecommendedFeeRateResponse) Validate() error {
 
 	// no validation rules for SafeLow
 
+	if len(errors) > 0 {
+		return GetRecommendedFeeRateResponseMultiError(errors)
+	}
 	return nil
 }
+
+// GetRecommendedFeeRateResponseMultiError is an error wrapping multiple
+// validation errors returned by GetRecommendedFeeRateResponse.Validate(true)
+// if the designated constraints aren't met.
+type GetRecommendedFeeRateResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetRecommendedFeeRateResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetRecommendedFeeRateResponseMultiError) AllErrors() []error { return m }
 
 // GetRecommendedFeeRateResponseValidationError is the validation error
 // returned by GetRecommendedFeeRateResponse.Validate if the designated
@@ -9818,35 +13698,72 @@ var _ interface {
 
 // Validate checks the field values on ValidateAddressRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ValidateAddressRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ValidateAddressRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ValidateAddressRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if _, ok := _ValidateAddressRequest_Coin_NotInLookup[m.GetCoin()]; ok {
-		return ValidateAddressRequestValidationError{
+		err := ValidateAddressRequestValidationError{
 			field:  "Coin",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
-		return ValidateAddressRequestValidationError{
+		err := ValidateAddressRequestValidationError{
 			field:  "Coin",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if utf8.RuneCountInString(m.GetAddress()) < 25 {
-		return ValidateAddressRequestValidationError{
+		err := ValidateAddressRequestValidationError{
 			field:  "Address",
 			reason: "value length must be at least 25 runes",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ValidateAddressRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ValidateAddressRequestMultiError is an error wrapping multiple validation
+// errors returned by ValidateAddressRequest.Validate(true) if the designated
+// constraints aren't met.
+type ValidateAddressRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ValidateAddressRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ValidateAddressRequestMultiError) AllErrors() []error { return m }
 
 // ValidateAddressRequestValidationError is the validation error returned by
 // ValidateAddressRequest.Validate if the designated constraints aren't met.
@@ -9910,16 +13827,41 @@ var _ValidateAddressRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{
 
 // Validate checks the field values on ValidateAddressResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ValidateAddressResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ValidateAddressResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ValidateAddressResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for Valid
 
+	if len(errors) > 0 {
+		return ValidateAddressResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ValidateAddressResponseMultiError is an error wrapping multiple validation
+// errors returned by ValidateAddressResponse.Validate(true) if the designated
+// constraints aren't met.
+type ValidateAddressResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ValidateAddressResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ValidateAddressResponseMultiError) AllErrors() []error { return m }
 
 // ValidateAddressResponseValidationError is the validation error returned by
 // ValidateAddressResponse.Validate if the designated constraints aren't met.
@@ -9979,14 +13921,39 @@ var _ interface {
 
 // Validate checks the field values on ListConfirmationsRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListConfirmationsRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListConfirmationsRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListConfirmationsRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
+	if len(errors) > 0 {
+		return ListConfirmationsRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListConfirmationsRequestMultiError is an error wrapping multiple validation
+// errors returned by ListConfirmationsRequest.Validate(true) if the
+// designated constraints aren't met.
+type ListConfirmationsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListConfirmationsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListConfirmationsRequestMultiError) AllErrors() []error { return m }
 
 // ListConfirmationsRequestValidationError is the validation error returned by
 // ListConfirmationsRequest.Validate if the designated constraints aren't met.
@@ -10046,29 +14013,58 @@ var _ interface {
 
 // Validate checks the field values on ListConfirmationsResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListConfirmationsResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListConfirmationsResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListConfirmationsResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetConfirmations() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListConfirmationsResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListConfirmationsResponseValidationError{
 					field:  fmt.Sprintf("Confirmations[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return ListConfirmationsResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListConfirmationsResponseMultiError is an error wrapping multiple validation
+// errors returned by ListConfirmationsResponse.Validate(true) if the
+// designated constraints aren't met.
+type ListConfirmationsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListConfirmationsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListConfirmationsResponseMultiError) AllErrors() []error { return m }
 
 // ListConfirmationsResponseValidationError is the validation error returned by
 // ListConfirmationsResponse.Validate if the designated constraints aren't met.
@@ -10128,42 +14124,83 @@ var _ interface {
 
 // Validate checks the field values on CreateLabeledAddressRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreateLabeledAddressRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateLabeledAddressRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *CreateLabeledAddressRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
-	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
-		return CreateLabeledAddressRequestValidationError{
+	var errors []error
+
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 40 {
+		err := CreateLabeledAddressRequestValidationError{
 			field:  "Name",
-			reason: "value length must be between 1 and 20 runes, inclusive",
+			reason: "value length must be between 1 and 40 runes, inclusive",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := _CreateLabeledAddressRequest_Coin_NotInLookup[m.GetCoin()]; ok {
-		return CreateLabeledAddressRequestValidationError{
+		err := CreateLabeledAddressRequestValidationError{
 			field:  "Coin",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
-		return CreateLabeledAddressRequestValidationError{
+		err := CreateLabeledAddressRequestValidationError{
 			field:  "Coin",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if utf8.RuneCountInString(m.GetAddress()) < 25 {
-		return CreateLabeledAddressRequestValidationError{
+		err := CreateLabeledAddressRequestValidationError{
 			field:  "Address",
 			reason: "value length must be at least 25 runes",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return CreateLabeledAddressRequestMultiError(errors)
+	}
 	return nil
 }
+
+// CreateLabeledAddressRequestMultiError is an error wrapping multiple
+// validation errors returned by CreateLabeledAddressRequest.Validate(true) if
+// the designated constraints aren't met.
+type CreateLabeledAddressRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateLabeledAddressRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateLabeledAddressRequestMultiError) AllErrors() []error { return m }
 
 // CreateLabeledAddressRequestValidationError is the validation error returned
 // by CreateLabeledAddressRequest.Validate if the designated constraints
@@ -10228,16 +14265,41 @@ var _CreateLabeledAddressRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]st
 
 // Validate checks the field values on CreateLabeledAddressResponse with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreateLabeledAddressResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateLabeledAddressResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *CreateLabeledAddressResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for LabeledAddressId
 
+	if len(errors) > 0 {
+		return CreateLabeledAddressResponseMultiError(errors)
+	}
 	return nil
 }
+
+// CreateLabeledAddressResponseMultiError is an error wrapping multiple
+// validation errors returned by CreateLabeledAddressResponse.Validate(true)
+// if the designated constraints aren't met.
+type CreateLabeledAddressResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateLabeledAddressResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateLabeledAddressResponseMultiError) AllErrors() []error { return m }
 
 // CreateLabeledAddressResponseValidationError is the validation error returned
 // by CreateLabeledAddressResponse.Validate if the designated constraints
@@ -10298,49 +14360,94 @@ var _ interface {
 
 // Validate checks the field values on UpdateLabeledAddressRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *UpdateLabeledAddressRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in UpdateLabeledAddressRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *UpdateLabeledAddressRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_UpdateLabeledAddressRequest_LabeledAddressId_Pattern.MatchString(m.GetLabeledAddressId()) {
-		return UpdateLabeledAddressRequestValidationError{
+		err := UpdateLabeledAddressRequestValidationError{
 			field:  "LabeledAddressId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
-	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
-		return UpdateLabeledAddressRequestValidationError{
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 40 {
+		err := UpdateLabeledAddressRequestValidationError{
 			field:  "Name",
-			reason: "value length must be between 1 and 20 runes, inclusive",
+			reason: "value length must be between 1 and 40 runes, inclusive",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := _UpdateLabeledAddressRequest_Coin_NotInLookup[m.GetCoin()]; ok {
-		return UpdateLabeledAddressRequestValidationError{
+		err := UpdateLabeledAddressRequestValidationError{
 			field:  "Coin",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
-		return UpdateLabeledAddressRequestValidationError{
+		err := UpdateLabeledAddressRequestValidationError{
 			field:  "Coin",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if utf8.RuneCountInString(m.GetAddress()) < 25 {
-		return UpdateLabeledAddressRequestValidationError{
+		err := UpdateLabeledAddressRequestValidationError{
 			field:  "Address",
 			reason: "value length must be at least 25 runes",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return UpdateLabeledAddressRequestMultiError(errors)
+	}
 	return nil
 }
+
+// UpdateLabeledAddressRequestMultiError is an error wrapping multiple
+// validation errors returned by UpdateLabeledAddressRequest.Validate(true) if
+// the designated constraints aren't met.
+type UpdateLabeledAddressRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateLabeledAddressRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateLabeledAddressRequestMultiError) AllErrors() []error { return m }
 
 // UpdateLabeledAddressRequestValidationError is the validation error returned
 // by UpdateLabeledAddressRequest.Validate if the designated constraints
@@ -10407,21 +14514,50 @@ var _UpdateLabeledAddressRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]st
 
 // Validate checks the field values on GetLabeledAddressRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetLabeledAddressRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetLabeledAddressRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *GetLabeledAddressRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_GetLabeledAddressRequest_LabeledAddressId_Pattern.MatchString(m.GetLabeledAddressId()) {
-		return GetLabeledAddressRequestValidationError{
+		err := GetLabeledAddressRequestValidationError{
 			field:  "LabeledAddressId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return GetLabeledAddressRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetLabeledAddressRequestMultiError is an error wrapping multiple validation
+// errors returned by GetLabeledAddressRequest.Validate(true) if the
+// designated constraints aren't met.
+type GetLabeledAddressRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetLabeledAddressRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetLabeledAddressRequestMultiError) AllErrors() []error { return m }
 
 // GetLabeledAddressRequestValidationError is the validation error returned by
 // GetLabeledAddressRequest.Validate if the designated constraints aren't met.
@@ -10483,14 +14619,39 @@ var _GetLabeledAddressRequest_LabeledAddressId_Pattern = regexp.MustCompile("^[0
 
 // Validate checks the field values on ListLabeledAddressesRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListLabeledAddressesRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListLabeledAddressesRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListLabeledAddressesRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
+	if len(errors) > 0 {
+		return ListLabeledAddressesRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListLabeledAddressesRequestMultiError is an error wrapping multiple
+// validation errors returned by ListLabeledAddressesRequest.Validate(true) if
+// the designated constraints aren't met.
+type ListLabeledAddressesRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListLabeledAddressesRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListLabeledAddressesRequestMultiError) AllErrors() []error { return m }
 
 // ListLabeledAddressesRequestValidationError is the validation error returned
 // by ListLabeledAddressesRequest.Validate if the designated constraints
@@ -10551,29 +14712,58 @@ var _ interface {
 
 // Validate checks the field values on ListLabeledAddressesResponse with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListLabeledAddressesResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListLabeledAddressesResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListLabeledAddressesResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetAddresses() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListLabeledAddressesResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListLabeledAddressesResponseValidationError{
 					field:  fmt.Sprintf("Addresses[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return ListLabeledAddressesResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListLabeledAddressesResponseMultiError is an error wrapping multiple
+// validation errors returned by ListLabeledAddressesResponse.Validate(true)
+// if the designated constraints aren't met.
+type ListLabeledAddressesResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListLabeledAddressesResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListLabeledAddressesResponseMultiError) AllErrors() []error { return m }
 
 // ListLabeledAddressesResponseValidationError is the validation error returned
 // by ListLabeledAddressesResponse.Validate if the designated constraints
@@ -10634,21 +14824,50 @@ var _ interface {
 
 // Validate checks the field values on DeleteLabeledAddressRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *DeleteLabeledAddressRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in DeleteLabeledAddressRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *DeleteLabeledAddressRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_DeleteLabeledAddressRequest_LabeledAddressId_Pattern.MatchString(m.GetLabeledAddressId()) {
-		return DeleteLabeledAddressRequestValidationError{
+		err := DeleteLabeledAddressRequestValidationError{
 			field:  "LabeledAddressId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return DeleteLabeledAddressRequestMultiError(errors)
+	}
 	return nil
 }
+
+// DeleteLabeledAddressRequestMultiError is an error wrapping multiple
+// validation errors returned by DeleteLabeledAddressRequest.Validate(true) if
+// the designated constraints aren't met.
+type DeleteLabeledAddressRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DeleteLabeledAddressRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DeleteLabeledAddressRequestMultiError) AllErrors() []error { return m }
 
 // DeleteLabeledAddressRequestValidationError is the validation error returned
 // by DeleteLabeledAddressRequest.Validate if the designated constraints
@@ -10711,23 +14930,53 @@ var _DeleteLabeledAddressRequest_LabeledAddressId_Pattern = regexp.MustCompile("
 
 // Validate checks the field values on ReviewLabeledAddressProposalRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *ReviewLabeledAddressProposalRequest) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ReviewLabeledAddressProposalRequestMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ReviewLabeledAddressProposalRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ReviewLabeledAddressProposalRequest_LabeledAddressId_Pattern.MatchString(m.GetLabeledAddressId()) {
-		return ReviewLabeledAddressProposalRequestValidationError{
+		err := ReviewLabeledAddressProposalRequestValidationError{
 			field:  "LabeledAddressId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for Approve
 
+	if len(errors) > 0 {
+		return ReviewLabeledAddressProposalRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ReviewLabeledAddressProposalRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ReviewLabeledAddressProposalRequest.Validate(true) if the designated
+// constraints aren't met.
+type ReviewLabeledAddressProposalRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ReviewLabeledAddressProposalRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ReviewLabeledAddressProposalRequestMultiError) AllErrors() []error { return m }
 
 // ReviewLabeledAddressProposalRequestValidationError is the validation error
 // returned by ReviewLabeledAddressProposalRequest.Validate if the designated
@@ -10790,31 +15039,48 @@ var _ReviewLabeledAddressProposalRequest_LabeledAddressId_Pattern = regexp.MustC
 
 // Validate checks the field values on CreateWhitelistRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreateWhitelistRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateWhitelistRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CreateWhitelistRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
-	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
-		return CreateWhitelistRequestValidationError{
+	var errors []error
+
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 40 {
+		err := CreateWhitelistRequestValidationError{
 			field:  "Name",
-			reason: "value length must be between 1 and 20 runes, inclusive",
+			reason: "value length must be between 1 and 40 runes, inclusive",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := _CreateWhitelistRequest_Coin_NotInLookup[m.GetCoin()]; ok {
-		return CreateWhitelistRequestValidationError{
+		err := CreateWhitelistRequestValidationError{
 			field:  "Coin",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
-		return CreateWhitelistRequestValidationError{
+		err := CreateWhitelistRequestValidationError{
 			field:  "Coin",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	_CreateWhitelistRequest_AddressIds_Unique := make(map[string]struct{}, len(m.GetAddressIds()))
@@ -10823,10 +15089,14 @@ func (m *CreateWhitelistRequest) Validate() error {
 		_, _ = idx, item
 
 		if _, exists := _CreateWhitelistRequest_AddressIds_Unique[item]; exists {
-			return CreateWhitelistRequestValidationError{
+			err := CreateWhitelistRequestValidationError{
 				field:  fmt.Sprintf("AddressIds[%v]", idx),
 				reason: "repeated value must contain unique items",
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		} else {
 			_CreateWhitelistRequest_AddressIds_Unique[item] = struct{}{}
 		}
@@ -10834,8 +15104,28 @@ func (m *CreateWhitelistRequest) Validate() error {
 		// no validation rules for AddressIds[idx]
 	}
 
+	if len(errors) > 0 {
+		return CreateWhitelistRequestMultiError(errors)
+	}
 	return nil
 }
+
+// CreateWhitelistRequestMultiError is an error wrapping multiple validation
+// errors returned by CreateWhitelistRequest.Validate(true) if the designated
+// constraints aren't met.
+type CreateWhitelistRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateWhitelistRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateWhitelistRequestMultiError) AllErrors() []error { return m }
 
 // CreateWhitelistRequestValidationError is the validation error returned by
 // CreateWhitelistRequest.Validate if the designated constraints aren't met.
@@ -10899,16 +15189,41 @@ var _CreateWhitelistRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{
 
 // Validate checks the field values on CreateWhitelistResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreateWhitelistResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateWhitelistResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CreateWhitelistResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for WhitelistId
 
+	if len(errors) > 0 {
+		return CreateWhitelistResponseMultiError(errors)
+	}
 	return nil
 }
+
+// CreateWhitelistResponseMultiError is an error wrapping multiple validation
+// errors returned by CreateWhitelistResponse.Validate(true) if the designated
+// constraints aren't met.
+type CreateWhitelistResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateWhitelistResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateWhitelistResponseMultiError) AllErrors() []error { return m }
 
 // CreateWhitelistResponseValidationError is the validation error returned by
 // CreateWhitelistResponse.Validate if the designated constraints aren't met.
@@ -10968,21 +15283,50 @@ var _ interface {
 
 // Validate checks the field values on GetWhitelistRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetWhitelistRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetWhitelistRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *GetWhitelistRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_GetWhitelistRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
-		return GetWhitelistRequestValidationError{
+		err := GetWhitelistRequestValidationError{
 			field:  "WhitelistId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return GetWhitelistRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetWhitelistRequestMultiError is an error wrapping multiple validation
+// errors returned by GetWhitelistRequest.Validate(true) if the designated
+// constraints aren't met.
+type GetWhitelistRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetWhitelistRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetWhitelistRequestMultiError) AllErrors() []error { return m }
 
 // GetWhitelistRequestValidationError is the validation error returned by
 // GetWhitelistRequest.Validate if the designated constraints aren't met.
@@ -11044,14 +15388,39 @@ var _GetWhitelistRequest_WhitelistId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-
 
 // Validate checks the field values on ListWhitelistsRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListWhitelistsRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListWhitelistsRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListWhitelistsRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
+	if len(errors) > 0 {
+		return ListWhitelistsRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListWhitelistsRequestMultiError is an error wrapping multiple validation
+// errors returned by ListWhitelistsRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListWhitelistsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListWhitelistsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListWhitelistsRequestMultiError) AllErrors() []error { return m }
 
 // ListWhitelistsRequestValidationError is the validation error returned by
 // ListWhitelistsRequest.Validate if the designated constraints aren't met.
@@ -11111,29 +15480,58 @@ var _ interface {
 
 // Validate checks the field values on ListWhitelistsResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListWhitelistsResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListWhitelistsResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListWhitelistsResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetWhitelists() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListWhitelistsResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListWhitelistsResponseValidationError{
 					field:  fmt.Sprintf("Whitelists[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return ListWhitelistsResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListWhitelistsResponseMultiError is an error wrapping multiple validation
+// errors returned by ListWhitelistsResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListWhitelistsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListWhitelistsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListWhitelistsResponseMultiError) AllErrors() []error { return m }
 
 // ListWhitelistsResponseValidationError is the validation error returned by
 // ListWhitelistsResponse.Validate if the designated constraints aren't met.
@@ -11193,38 +15591,59 @@ var _ interface {
 
 // Validate checks the field values on UpdateWhitelistRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *UpdateWhitelistRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in UpdateWhitelistRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *UpdateWhitelistRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_UpdateWhitelistRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
-		return UpdateWhitelistRequestValidationError{
+		err := UpdateWhitelistRequestValidationError{
 			field:  "WhitelistId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
-	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
-		return UpdateWhitelistRequestValidationError{
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 40 {
+		err := UpdateWhitelistRequestValidationError{
 			field:  "Name",
-			reason: "value length must be between 1 and 20 runes, inclusive",
+			reason: "value length must be between 1 and 40 runes, inclusive",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := _UpdateWhitelistRequest_Coin_NotInLookup[m.GetCoin()]; ok {
-		return UpdateWhitelistRequestValidationError{
+		err := UpdateWhitelistRequestValidationError{
 			field:  "Coin",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
-		return UpdateWhitelistRequestValidationError{
+		err := UpdateWhitelistRequestValidationError{
 			field:  "Coin",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	_UpdateWhitelistRequest_AddressIds_Unique := make(map[string]struct{}, len(m.GetAddressIds()))
@@ -11233,10 +15652,14 @@ func (m *UpdateWhitelistRequest) Validate() error {
 		_, _ = idx, item
 
 		if _, exists := _UpdateWhitelistRequest_AddressIds_Unique[item]; exists {
-			return UpdateWhitelistRequestValidationError{
+			err := UpdateWhitelistRequestValidationError{
 				field:  fmt.Sprintf("AddressIds[%v]", idx),
 				reason: "repeated value must contain unique items",
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		} else {
 			_UpdateWhitelistRequest_AddressIds_Unique[item] = struct{}{}
 		}
@@ -11244,8 +15667,28 @@ func (m *UpdateWhitelistRequest) Validate() error {
 		// no validation rules for AddressIds[idx]
 	}
 
+	if len(errors) > 0 {
+		return UpdateWhitelistRequestMultiError(errors)
+	}
 	return nil
 }
+
+// UpdateWhitelistRequestMultiError is an error wrapping multiple validation
+// errors returned by UpdateWhitelistRequest.Validate(true) if the designated
+// constraints aren't met.
+type UpdateWhitelistRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateWhitelistRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateWhitelistRequestMultiError) AllErrors() []error { return m }
 
 // UpdateWhitelistRequestValidationError is the validation error returned by
 // UpdateWhitelistRequest.Validate if the designated constraints aren't met.
@@ -11311,17 +15754,26 @@ var _UpdateWhitelistRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{
 
 // Validate checks the field values on UpdateWhitelistAddressesRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *UpdateWhitelistAddressesRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in UpdateWhitelistAddressesRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *UpdateWhitelistAddressesRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_UpdateWhitelistAddressesRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
-		return UpdateWhitelistAddressesRequestValidationError{
+		err := UpdateWhitelistAddressesRequestValidationError{
 			field:  "WhitelistId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	_UpdateWhitelistAddressesRequest_AddressIds_Unique := make(map[string]struct{}, len(m.GetAddressIds()))
@@ -11330,10 +15782,14 @@ func (m *UpdateWhitelistAddressesRequest) Validate() error {
 		_, _ = idx, item
 
 		if _, exists := _UpdateWhitelistAddressesRequest_AddressIds_Unique[item]; exists {
-			return UpdateWhitelistAddressesRequestValidationError{
+			err := UpdateWhitelistAddressesRequestValidationError{
 				field:  fmt.Sprintf("AddressIds[%v]", idx),
 				reason: "repeated value must contain unique items",
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		} else {
 			_UpdateWhitelistAddressesRequest_AddressIds_Unique[item] = struct{}{}
 		}
@@ -11341,8 +15797,29 @@ func (m *UpdateWhitelistAddressesRequest) Validate() error {
 		// no validation rules for AddressIds[idx]
 	}
 
+	if len(errors) > 0 {
+		return UpdateWhitelistAddressesRequestMultiError(errors)
+	}
 	return nil
 }
+
+// UpdateWhitelistAddressesRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// UpdateWhitelistAddressesRequest.Validate(true) if the designated
+// constraints aren't met.
+type UpdateWhitelistAddressesRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateWhitelistAddressesRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateWhitelistAddressesRequestMultiError) AllErrors() []error { return m }
 
 // UpdateWhitelistAddressesRequestValidationError is the validation error
 // returned by UpdateWhitelistAddressesRequest.Validate if the designated
@@ -11405,21 +15882,50 @@ var _UpdateWhitelistAddressesRequest_WhitelistId_Pattern = regexp.MustCompile("^
 
 // Validate checks the field values on DeleteWhitelistRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *DeleteWhitelistRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in DeleteWhitelistRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *DeleteWhitelistRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_DeleteWhitelistRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
-		return DeleteWhitelistRequestValidationError{
+		err := DeleteWhitelistRequestValidationError{
 			field:  "WhitelistId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return DeleteWhitelistRequestMultiError(errors)
+	}
 	return nil
 }
+
+// DeleteWhitelistRequestMultiError is an error wrapping multiple validation
+// errors returned by DeleteWhitelistRequest.Validate(true) if the designated
+// constraints aren't met.
+type DeleteWhitelistRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DeleteWhitelistRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DeleteWhitelistRequestMultiError) AllErrors() []error { return m }
 
 // DeleteWhitelistRequestValidationError is the validation error returned by
 // DeleteWhitelistRequest.Validate if the designated constraints aren't met.
@@ -11481,57 +15987,102 @@ var _DeleteWhitelistRequest_WhitelistId_Pattern = regexp.MustCompile("^[0-9a-f]{
 
 // Validate checks the field values on CreateTransferLimitRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreateTransferLimitRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateTransferLimitRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *CreateTransferLimitRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
-	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
-		return CreateTransferLimitRequestValidationError{
+	var errors []error
+
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 40 {
+		err := CreateTransferLimitRequestValidationError{
 			field:  "Name",
-			reason: "value length must be between 1 and 20 runes, inclusive",
+			reason: "value length must be between 1 and 40 runes, inclusive",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := _CreateTransferLimitRequest_Coin_NotInLookup[m.GetCoin()]; ok {
-		return CreateTransferLimitRequestValidationError{
+		err := CreateTransferLimitRequestValidationError{
 			field:  "Coin",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
-		return CreateTransferLimitRequestValidationError{
+		err := CreateTransferLimitRequestValidationError{
 			field:  "Coin",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if len(m.GetTransferLimits()) < 1 {
-		return CreateTransferLimitRequestValidationError{
+		err := CreateTransferLimitRequestValidationError{
 			field:  "TransferLimits",
 			reason: "value must contain at least 1 item(s)",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	for idx, item := range m.GetTransferLimits() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return CreateTransferLimitRequestValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = CreateTransferLimitRequestValidationError{
 					field:  fmt.Sprintf("TransferLimits[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return CreateTransferLimitRequestMultiError(errors)
+	}
 	return nil
 }
+
+// CreateTransferLimitRequestMultiError is an error wrapping multiple
+// validation errors returned by CreateTransferLimitRequest.Validate(true) if
+// the designated constraints aren't met.
+type CreateTransferLimitRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransferLimitRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransferLimitRequestMultiError) AllErrors() []error { return m }
 
 // CreateTransferLimitRequestValidationError is the validation error returned
 // by CreateTransferLimitRequest.Validate if the designated constraints aren't met.
@@ -11595,16 +16146,41 @@ var _CreateTransferLimitRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]str
 
 // Validate checks the field values on CreateTransferLimitResponse with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreateTransferLimitResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateTransferLimitResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *CreateTransferLimitResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for TransferLimitId
 
+	if len(errors) > 0 {
+		return CreateTransferLimitResponseMultiError(errors)
+	}
 	return nil
 }
+
+// CreateTransferLimitResponseMultiError is an error wrapping multiple
+// validation errors returned by CreateTransferLimitResponse.Validate(true) if
+// the designated constraints aren't met.
+type CreateTransferLimitResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransferLimitResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransferLimitResponseMultiError) AllErrors() []error { return m }
 
 // CreateTransferLimitResponseValidationError is the validation error returned
 // by CreateTransferLimitResponse.Validate if the designated constraints
@@ -11665,21 +16241,50 @@ var _ interface {
 
 // Validate checks the field values on GetTransferLimitRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *GetTransferLimitRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetTransferLimitRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *GetTransferLimitRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_GetTransferLimitRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
-		return GetTransferLimitRequestValidationError{
+		err := GetTransferLimitRequestValidationError{
 			field:  "TransferLimitId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return GetTransferLimitRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetTransferLimitRequestMultiError is an error wrapping multiple validation
+// errors returned by GetTransferLimitRequest.Validate(true) if the designated
+// constraints aren't met.
+type GetTransferLimitRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetTransferLimitRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetTransferLimitRequestMultiError) AllErrors() []error { return m }
 
 // GetTransferLimitRequestValidationError is the validation error returned by
 // GetTransferLimitRequest.Validate if the designated constraints aren't met.
@@ -11741,14 +16346,39 @@ var _GetTransferLimitRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9
 
 // Validate checks the field values on ListTransferLimitsRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListTransferLimitsRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListTransferLimitsRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListTransferLimitsRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
+	if len(errors) > 0 {
+		return ListTransferLimitsRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListTransferLimitsRequestMultiError is an error wrapping multiple validation
+// errors returned by ListTransferLimitsRequest.Validate(true) if the
+// designated constraints aren't met.
+type ListTransferLimitsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListTransferLimitsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListTransferLimitsRequestMultiError) AllErrors() []error { return m }
 
 // ListTransferLimitsRequestValidationError is the validation error returned by
 // ListTransferLimitsRequest.Validate if the designated constraints aren't met.
@@ -11808,29 +16438,58 @@ var _ interface {
 
 // Validate checks the field values on ListTransferLimitsResponse with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListTransferLimitsResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListTransferLimitsResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListTransferLimitsResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetTransferLimits() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListTransferLimitsResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListTransferLimitsResponseValidationError{
 					field:  fmt.Sprintf("TransferLimits[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return ListTransferLimitsResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListTransferLimitsResponseMultiError is an error wrapping multiple
+// validation errors returned by ListTransferLimitsResponse.Validate(true) if
+// the designated constraints aren't met.
+type ListTransferLimitsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListTransferLimitsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListTransferLimitsResponseMultiError) AllErrors() []error { return m }
 
 // ListTransferLimitsResponseValidationError is the validation error returned
 // by ListTransferLimitsResponse.Validate if the designated constraints aren't met.
@@ -11890,43 +16549,80 @@ var _ interface {
 
 // Validate checks the field values on UpdateTransferLimitRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *UpdateTransferLimitRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in UpdateTransferLimitRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *UpdateTransferLimitRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_UpdateTransferLimitRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
-		return UpdateTransferLimitRequestValidationError{
+		err := UpdateTransferLimitRequestValidationError{
 			field:  "TransferLimitId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if len(m.GetTransferLimits()) < 1 {
-		return UpdateTransferLimitRequestValidationError{
+		err := UpdateTransferLimitRequestValidationError{
 			field:  "TransferLimits",
 			reason: "value must contain at least 1 item(s)",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	for idx, item := range m.GetTransferLimits() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return UpdateTransferLimitRequestValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = UpdateTransferLimitRequestValidationError{
 					field:  fmt.Sprintf("TransferLimits[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return UpdateTransferLimitRequestMultiError(errors)
+	}
 	return nil
 }
+
+// UpdateTransferLimitRequestMultiError is an error wrapping multiple
+// validation errors returned by UpdateTransferLimitRequest.Validate(true) if
+// the designated constraints aren't met.
+type UpdateTransferLimitRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateTransferLimitRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateTransferLimitRequestMultiError) AllErrors() []error { return m }
 
 // UpdateTransferLimitRequestValidationError is the validation error returned
 // by UpdateTransferLimitRequest.Validate if the designated constraints aren't met.
@@ -11988,28 +16684,61 @@ var _UpdateTransferLimitRequest_TransferLimitId_Pattern = regexp.MustCompile("^[
 
 // Validate checks the field values on UpdateTransferLimitNameRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *UpdateTransferLimitNameRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in UpdateTransferLimitNameRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *UpdateTransferLimitNameRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_UpdateTransferLimitNameRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
-		return UpdateTransferLimitNameRequestValidationError{
+		err := UpdateTransferLimitNameRequestValidationError{
 			field:  "TransferLimitId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
-	}
-
-	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
-		return UpdateTransferLimitNameRequestValidationError{
-			field:  "Name",
-			reason: "value length must be between 1 and 20 runes, inclusive",
+		if !all {
+			return err
 		}
+		errors = append(errors, err)
 	}
 
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 40 {
+		err := UpdateTransferLimitNameRequestValidationError{
+			field:  "Name",
+			reason: "value length must be between 1 and 40 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return UpdateTransferLimitNameRequestMultiError(errors)
+	}
 	return nil
 }
+
+// UpdateTransferLimitNameRequestMultiError is an error wrapping multiple
+// validation errors returned by UpdateTransferLimitNameRequest.Validate(true)
+// if the designated constraints aren't met.
+type UpdateTransferLimitNameRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateTransferLimitNameRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateTransferLimitNameRequestMultiError) AllErrors() []error { return m }
 
 // UpdateTransferLimitNameRequestValidationError is the validation error
 // returned by UpdateTransferLimitNameRequest.Validate if the designated
@@ -12072,21 +16801,50 @@ var _UpdateTransferLimitNameRequest_TransferLimitId_Pattern = regexp.MustCompile
 
 // Validate checks the field values on DeleteTransferLimitRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *DeleteTransferLimitRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in DeleteTransferLimitRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *DeleteTransferLimitRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_DeleteTransferLimitRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
-		return DeleteTransferLimitRequestValidationError{
+		err := DeleteTransferLimitRequestValidationError{
 			field:  "TransferLimitId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return DeleteTransferLimitRequestMultiError(errors)
+	}
 	return nil
 }
+
+// DeleteTransferLimitRequestMultiError is an error wrapping multiple
+// validation errors returned by DeleteTransferLimitRequest.Validate(true) if
+// the designated constraints aren't met.
+type DeleteTransferLimitRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DeleteTransferLimitRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DeleteTransferLimitRequestMultiError) AllErrors() []error { return m }
 
 // DeleteTransferLimitRequestValidationError is the validation error returned
 // by DeleteTransferLimitRequest.Validate if the designated constraints aren't met.
@@ -12148,23 +16906,53 @@ var _DeleteTransferLimitRequest_TransferLimitId_Pattern = regexp.MustCompile("^[
 
 // Validate checks the field values on ReviewTransferLimitProposalRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *ReviewTransferLimitProposalRequest) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ReviewTransferLimitProposalRequestMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ReviewTransferLimitProposalRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ReviewTransferLimitProposalRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
-		return ReviewTransferLimitProposalRequestValidationError{
+		err := ReviewTransferLimitProposalRequestValidationError{
 			field:  "TransferLimitId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for Approve
 
+	if len(errors) > 0 {
+		return ReviewTransferLimitProposalRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ReviewTransferLimitProposalRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ReviewTransferLimitProposalRequest.Validate(true) if the designated
+// constraints aren't met.
+type ReviewTransferLimitProposalRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ReviewTransferLimitProposalRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ReviewTransferLimitProposalRequestMultiError) AllErrors() []error { return m }
 
 // ReviewTransferLimitProposalRequestValidationError is the validation error
 // returned by ReviewTransferLimitProposalRequest.Validate if the designated
@@ -12227,63 +17015,116 @@ var _ReviewTransferLimitProposalRequest_TransferLimitId_Pattern = regexp.MustCom
 
 // Validate checks the field values on CreatePolicyRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreatePolicyRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreatePolicyRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CreatePolicyRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
-	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
-		return CreatePolicyRequestValidationError{
+	var errors []error
+
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 40 {
+		err := CreatePolicyRequestValidationError{
 			field:  "Name",
-			reason: "value length must be between 1 and 20 runes, inclusive",
+			reason: "value length must be between 1 and 40 runes, inclusive",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := _CreatePolicyRequest_Coin_NotInLookup[m.GetCoin()]; ok {
-		return CreatePolicyRequestValidationError{
+		err := CreatePolicyRequestValidationError{
 			field:  "Coin",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
-		return CreatePolicyRequestValidationError{
+		err := CreatePolicyRequestValidationError{
 			field:  "Coin",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := _CreatePolicyRequest_Type_NotInLookup[m.GetType()]; ok {
-		return CreatePolicyRequestValidationError{
+		err := CreatePolicyRequestValidationError{
 			field:  "Type",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := PolicyType_name[int32(m.GetType())]; !ok {
-		return CreatePolicyRequestValidationError{
+		err := CreatePolicyRequestValidationError{
 			field:  "Type",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_CreatePolicyRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
-		return CreatePolicyRequestValidationError{
+		err := CreatePolicyRequestValidationError{
 			field:  "WhitelistId",
 			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_CreatePolicyRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
-		return CreatePolicyRequestValidationError{
+		err := CreatePolicyRequestValidationError{
 			field:  "TransferLimitId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return CreatePolicyRequestMultiError(errors)
+	}
 	return nil
 }
+
+// CreatePolicyRequestMultiError is an error wrapping multiple validation
+// errors returned by CreatePolicyRequest.Validate(true) if the designated
+// constraints aren't met.
+type CreatePolicyRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreatePolicyRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreatePolicyRequestMultiError) AllErrors() []error { return m }
 
 // CreatePolicyRequestValidationError is the validation error returned by
 // CreatePolicyRequest.Validate if the designated constraints aren't met.
@@ -12355,16 +17196,41 @@ var _CreatePolicyRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]
 
 // Validate checks the field values on CreatePolicyResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreatePolicyResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreatePolicyResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CreatePolicyResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for PolicyId
 
+	if len(errors) > 0 {
+		return CreatePolicyResponseMultiError(errors)
+	}
 	return nil
 }
+
+// CreatePolicyResponseMultiError is an error wrapping multiple validation
+// errors returned by CreatePolicyResponse.Validate(true) if the designated
+// constraints aren't met.
+type CreatePolicyResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreatePolicyResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreatePolicyResponseMultiError) AllErrors() []error { return m }
 
 // CreatePolicyResponseValidationError is the validation error returned by
 // CreatePolicyResponse.Validate if the designated constraints aren't met.
@@ -12424,21 +17290,50 @@ var _ interface {
 
 // Validate checks the field values on GetPolicyRequest with the rules defined
 // in the proto definition for this message. If any rules are violated, an
-// error is returned.
-func (m *GetPolicyRequest) Validate() error {
+// error is returned. When asked to return all errors, validation continues
+// after first violation, and the result is a list of violation errors wrapped
+// in GetPolicyRequestMultiError, or nil if none found. Otherwise, only the
+// first error is returned, if any.
+func (m *GetPolicyRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_GetPolicyRequest_PolicyId_Pattern.MatchString(m.GetPolicyId()) {
-		return GetPolicyRequestValidationError{
+		err := GetPolicyRequestValidationError{
 			field:  "PolicyId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return GetPolicyRequestMultiError(errors)
+	}
 	return nil
 }
+
+// GetPolicyRequestMultiError is an error wrapping multiple validation errors
+// returned by GetPolicyRequest.Validate(true) if the designated constraints
+// aren't met.
+type GetPolicyRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetPolicyRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetPolicyRequestMultiError) AllErrors() []error { return m }
 
 // GetPolicyRequestValidationError is the validation error returned by
 // GetPolicyRequest.Validate if the designated constraints aren't met.
@@ -12498,14 +17393,39 @@ var _GetPolicyRequest_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-
 
 // Validate checks the field values on ListPoliciesRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListPoliciesRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListPoliciesRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListPoliciesRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
+	if len(errors) > 0 {
+		return ListPoliciesRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListPoliciesRequestMultiError is an error wrapping multiple validation
+// errors returned by ListPoliciesRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListPoliciesRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListPoliciesRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListPoliciesRequestMultiError) AllErrors() []error { return m }
 
 // ListPoliciesRequestValidationError is the validation error returned by
 // ListPoliciesRequest.Validate if the designated constraints aren't met.
@@ -12565,21 +17485,50 @@ var _ interface {
 
 // Validate checks the field values on IsDeletablePolicyRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *IsDeletablePolicyRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in IsDeletablePolicyRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *IsDeletablePolicyRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_IsDeletablePolicyRequest_PolicyId_Pattern.MatchString(m.GetPolicyId()) {
-		return IsDeletablePolicyRequestValidationError{
+		err := IsDeletablePolicyRequestValidationError{
 			field:  "PolicyId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return IsDeletablePolicyRequestMultiError(errors)
+	}
 	return nil
 }
+
+// IsDeletablePolicyRequestMultiError is an error wrapping multiple validation
+// errors returned by IsDeletablePolicyRequest.Validate(true) if the
+// designated constraints aren't met.
+type IsDeletablePolicyRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IsDeletablePolicyRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IsDeletablePolicyRequestMultiError) AllErrors() []error { return m }
 
 // IsDeletablePolicyRequestValidationError is the validation error returned by
 // IsDeletablePolicyRequest.Validate if the designated constraints aren't met.
@@ -12641,16 +17590,41 @@ var _IsDeletablePolicyRequest_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f]{8
 
 // Validate checks the field values on IsDeletablePolicyResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *IsDeletablePolicyResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in IsDeletablePolicyResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *IsDeletablePolicyResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for IsDeletable
 
+	if len(errors) > 0 {
+		return IsDeletablePolicyResponseMultiError(errors)
+	}
 	return nil
 }
+
+// IsDeletablePolicyResponseMultiError is an error wrapping multiple validation
+// errors returned by IsDeletablePolicyResponse.Validate(true) if the
+// designated constraints aren't met.
+type IsDeletablePolicyResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IsDeletablePolicyResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IsDeletablePolicyResponseMultiError) AllErrors() []error { return m }
 
 // IsDeletablePolicyResponseValidationError is the validation error returned by
 // IsDeletablePolicyResponse.Validate if the designated constraints aren't met.
@@ -12710,21 +17684,51 @@ var _ interface {
 
 // Validate checks the field values on IsDeletableLabeledAddressRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *IsDeletableLabeledAddressRequest) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in IsDeletableLabeledAddressRequestMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *IsDeletableLabeledAddressRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_IsDeletableLabeledAddressRequest_LabeledAddressId_Pattern.MatchString(m.GetLabeledAddressId()) {
-		return IsDeletableLabeledAddressRequestValidationError{
+		err := IsDeletableLabeledAddressRequestValidationError{
 			field:  "LabeledAddressId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return IsDeletableLabeledAddressRequestMultiError(errors)
+	}
 	return nil
 }
+
+// IsDeletableLabeledAddressRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// IsDeletableLabeledAddressRequest.Validate(true) if the designated
+// constraints aren't met.
+type IsDeletableLabeledAddressRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IsDeletableLabeledAddressRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IsDeletableLabeledAddressRequestMultiError) AllErrors() []error { return m }
 
 // IsDeletableLabeledAddressRequestValidationError is the validation error
 // returned by IsDeletableLabeledAddressRequest.Validate if the designated
@@ -12787,16 +17791,42 @@ var _IsDeletableLabeledAddressRequest_LabeledAddressId_Pattern = regexp.MustComp
 
 // Validate checks the field values on IsDeletableLabeledAddressResponse with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *IsDeletableLabeledAddressResponse) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in IsDeletableLabeledAddressResponseMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *IsDeletableLabeledAddressResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for IsDeletable
 
+	if len(errors) > 0 {
+		return IsDeletableLabeledAddressResponseMultiError(errors)
+	}
 	return nil
 }
+
+// IsDeletableLabeledAddressResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// IsDeletableLabeledAddressResponse.Validate(true) if the designated
+// constraints aren't met.
+type IsDeletableLabeledAddressResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IsDeletableLabeledAddressResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IsDeletableLabeledAddressResponseMultiError) AllErrors() []error { return m }
 
 // IsDeletableLabeledAddressResponseValidationError is the validation error
 // returned by IsDeletableLabeledAddressResponse.Validate if the designated
@@ -12857,21 +17887,50 @@ var _ interface {
 
 // Validate checks the field values on IsDeletableWhitelistRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *IsDeletableWhitelistRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in IsDeletableWhitelistRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *IsDeletableWhitelistRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_IsDeletableWhitelistRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
-		return IsDeletableWhitelistRequestValidationError{
+		err := IsDeletableWhitelistRequestValidationError{
 			field:  "WhitelistId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return IsDeletableWhitelistRequestMultiError(errors)
+	}
 	return nil
 }
+
+// IsDeletableWhitelistRequestMultiError is an error wrapping multiple
+// validation errors returned by IsDeletableWhitelistRequest.Validate(true) if
+// the designated constraints aren't met.
+type IsDeletableWhitelistRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IsDeletableWhitelistRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IsDeletableWhitelistRequestMultiError) AllErrors() []error { return m }
 
 // IsDeletableWhitelistRequestValidationError is the validation error returned
 // by IsDeletableWhitelistRequest.Validate if the designated constraints
@@ -12934,16 +17993,41 @@ var _IsDeletableWhitelistRequest_WhitelistId_Pattern = regexp.MustCompile("^[0-9
 
 // Validate checks the field values on IsDeletableWhitelistResponse with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *IsDeletableWhitelistResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in IsDeletableWhitelistResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *IsDeletableWhitelistResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for IsDeletable
 
+	if len(errors) > 0 {
+		return IsDeletableWhitelistResponseMultiError(errors)
+	}
 	return nil
 }
+
+// IsDeletableWhitelistResponseMultiError is an error wrapping multiple
+// validation errors returned by IsDeletableWhitelistResponse.Validate(true)
+// if the designated constraints aren't met.
+type IsDeletableWhitelistResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IsDeletableWhitelistResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IsDeletableWhitelistResponseMultiError) AllErrors() []error { return m }
 
 // IsDeletableWhitelistResponseValidationError is the validation error returned
 // by IsDeletableWhitelistResponse.Validate if the designated constraints
@@ -13004,21 +18088,51 @@ var _ interface {
 
 // Validate checks the field values on IsDeletableTransferLimitRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *IsDeletableTransferLimitRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in IsDeletableTransferLimitRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *IsDeletableTransferLimitRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_IsDeletableTransferLimitRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
-		return IsDeletableTransferLimitRequestValidationError{
+		err := IsDeletableTransferLimitRequestValidationError{
 			field:  "TransferLimitId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return IsDeletableTransferLimitRequestMultiError(errors)
+	}
 	return nil
 }
+
+// IsDeletableTransferLimitRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// IsDeletableTransferLimitRequest.Validate(true) if the designated
+// constraints aren't met.
+type IsDeletableTransferLimitRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IsDeletableTransferLimitRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IsDeletableTransferLimitRequestMultiError) AllErrors() []error { return m }
 
 // IsDeletableTransferLimitRequestValidationError is the validation error
 // returned by IsDeletableTransferLimitRequest.Validate if the designated
@@ -13081,16 +18195,42 @@ var _IsDeletableTransferLimitRequest_TransferLimitId_Pattern = regexp.MustCompil
 
 // Validate checks the field values on IsDeletableTransferLimitResponse with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *IsDeletableTransferLimitResponse) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in IsDeletableTransferLimitResponseMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *IsDeletableTransferLimitResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	// no validation rules for IsDeletable
 
+	if len(errors) > 0 {
+		return IsDeletableTransferLimitResponseMultiError(errors)
+	}
 	return nil
 }
+
+// IsDeletableTransferLimitResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// IsDeletableTransferLimitResponse.Validate(true) if the designated
+// constraints aren't met.
+type IsDeletableTransferLimitResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IsDeletableTransferLimitResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IsDeletableTransferLimitResponseMultiError) AllErrors() []error { return m }
 
 // IsDeletableTransferLimitResponseValidationError is the validation error
 // returned by IsDeletableTransferLimitResponse.Validate if the designated
@@ -13151,29 +18291,58 @@ var _ interface {
 
 // Validate checks the field values on ListPoliciesResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ListPoliciesResponse) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListPoliciesResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListPoliciesResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetPolicies() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListPoliciesResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListPoliciesResponseValidationError{
 					field:  fmt.Sprintf("Policies[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return ListPoliciesResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListPoliciesResponseMultiError is an error wrapping multiple validation
+// errors returned by ListPoliciesResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListPoliciesResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListPoliciesResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListPoliciesResponseMultiError) AllErrors() []error { return m }
 
 // ListPoliciesResponseValidationError is the validation error returned by
 // ListPoliciesResponse.Validate if the designated constraints aren't met.
@@ -13233,42 +18402,83 @@ var _ interface {
 
 // Validate checks the field values on UpdatePolicyRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *UpdatePolicyRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in UpdatePolicyRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *UpdatePolicyRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_UpdatePolicyRequest_PolicyId_Pattern.MatchString(m.GetPolicyId()) {
-		return UpdatePolicyRequestValidationError{
+		err := UpdatePolicyRequestValidationError{
 			field:  "PolicyId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
-	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 20 {
-		return UpdatePolicyRequestValidationError{
+	if l := utf8.RuneCountInString(m.GetName()); l < 1 || l > 40 {
+		err := UpdatePolicyRequestValidationError{
 			field:  "Name",
-			reason: "value length must be between 1 and 20 runes, inclusive",
+			reason: "value length must be between 1 and 40 runes, inclusive",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_UpdatePolicyRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
-		return UpdatePolicyRequestValidationError{
+		err := UpdatePolicyRequestValidationError{
 			field:  "WhitelistId",
 			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_UpdatePolicyRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
-		return UpdatePolicyRequestValidationError{
+		err := UpdatePolicyRequestValidationError{
 			field:  "TransferLimitId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return UpdatePolicyRequestMultiError(errors)
+	}
 	return nil
 }
+
+// UpdatePolicyRequestMultiError is an error wrapping multiple validation
+// errors returned by UpdatePolicyRequest.Validate(true) if the designated
+// constraints aren't met.
+type UpdatePolicyRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdatePolicyRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdatePolicyRequestMultiError) AllErrors() []error { return m }
 
 // UpdatePolicyRequestValidationError is the validation error returned by
 // UpdatePolicyRequest.Validate if the designated constraints aren't met.
@@ -13334,21 +18544,50 @@ var _UpdatePolicyRequest_TransferLimitId_Pattern = regexp.MustCompile("^[0-9a-f]
 
 // Validate checks the field values on DeletePolicyRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *DeletePolicyRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in DeletePolicyRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *DeletePolicyRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_DeletePolicyRequest_PolicyId_Pattern.MatchString(m.GetPolicyId()) {
-		return DeletePolicyRequestValidationError{
+		err := DeletePolicyRequestValidationError{
 			field:  "PolicyId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return DeletePolicyRequestMultiError(errors)
+	}
 	return nil
 }
+
+// DeletePolicyRequestMultiError is an error wrapping multiple validation
+// errors returned by DeletePolicyRequest.Validate(true) if the designated
+// constraints aren't met.
+type DeletePolicyRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DeletePolicyRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DeletePolicyRequestMultiError) AllErrors() []error { return m }
 
 // DeletePolicyRequestValidationError is the validation error returned by
 // DeletePolicyRequest.Validate if the designated constraints aren't met.
@@ -13410,23 +18649,52 @@ var _DeletePolicyRequest_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-
 
 // Validate checks the field values on ReviewPolicyProposalRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *ReviewPolicyProposalRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ReviewPolicyProposalRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ReviewPolicyProposalRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ReviewPolicyProposalRequest_PolicyId_Pattern.MatchString(m.GetPolicyId()) {
-		return ReviewPolicyProposalRequestValidationError{
+		err := ReviewPolicyProposalRequestValidationError{
 			field:  "PolicyId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	// no validation rules for Approve
 
+	if len(errors) > 0 {
+		return ReviewPolicyProposalRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ReviewPolicyProposalRequestMultiError is an error wrapping multiple
+// validation errors returned by ReviewPolicyProposalRequest.Validate(true) if
+// the designated constraints aren't met.
+type ReviewPolicyProposalRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ReviewPolicyProposalRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ReviewPolicyProposalRequestMultiError) AllErrors() []error { return m }
 
 // ReviewPolicyProposalRequestValidationError is the validation error returned
 // by ReviewPolicyProposalRequest.Validate if the designated constraints
@@ -13489,21 +18757,51 @@ var _ReviewPolicyProposalRequest_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f
 
 // Validate checks the field values on ListSubstrateChildAddressesRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *ListSubstrateChildAddressesRequest) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListSubstrateChildAddressesRequestMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListSubstrateChildAddressesRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_ListSubstrateChildAddressesRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return ListSubstrateChildAddressesRequestValidationError{
+		err := ListSubstrateChildAddressesRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return ListSubstrateChildAddressesRequestMultiError(errors)
+	}
 	return nil
 }
+
+// ListSubstrateChildAddressesRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListSubstrateChildAddressesRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListSubstrateChildAddressesRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListSubstrateChildAddressesRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListSubstrateChildAddressesRequestMultiError) AllErrors() []error { return m }
 
 // ListSubstrateChildAddressesRequestValidationError is the validation error
 // returned by ListSubstrateChildAddressesRequest.Validate if the designated
@@ -13566,29 +18864,59 @@ var _ListSubstrateChildAddressesRequest_WalletId_Pattern = regexp.MustCompile("^
 
 // Validate checks the field values on ListSubstrateChildAddressesResponse with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, an error is returned.
-func (m *ListSubstrateChildAddressesResponse) Validate() error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListSubstrateChildAddressesResponseMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListSubstrateChildAddressesResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	for idx, item := range m.GetSubstrateChildAddresses() {
 		_, _ = idx, item
 
-		if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListSubstrateChildAddressesResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListSubstrateChildAddressesResponseValidationError{
 					field:  fmt.Sprintf("SubstrateChildAddresses[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
 	}
 
+	if len(errors) > 0 {
+		return ListSubstrateChildAddressesResponseMultiError(errors)
+	}
 	return nil
 }
+
+// ListSubstrateChildAddressesResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListSubstrateChildAddressesResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListSubstrateChildAddressesResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListSubstrateChildAddressesResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListSubstrateChildAddressesResponseMultiError) AllErrors() []error { return m }
 
 // ListSubstrateChildAddressesResponseValidationError is the validation error
 // returned by ListSubstrateChildAddressesResponse.Validate if the designated
@@ -13649,11 +18977,16 @@ var _ interface {
 
 // Validate checks the field values on DownloadResourceRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *DownloadResourceRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in DownloadResourceRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *DownloadResourceRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
+
+	var errors []error
 
 	// no validation rules for DownloadResourceType
 
@@ -13661,28 +18994,56 @@ func (m *DownloadResourceRequest) Validate() error {
 
 	// no validation rules for WalletId
 
-	if v, ok := interface{}(m.GetStartTime()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return DownloadResourceRequestValidationError{
+	if v, ok := interface{}(m.GetStartTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = DownloadResourceRequestValidationError{
 				field:  "StartTime",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
-	if v, ok := interface{}(m.GetEndTime()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return DownloadResourceRequestValidationError{
+	if v, ok := interface{}(m.GetEndTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = DownloadResourceRequestValidationError{
 				field:  "EndTime",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
+	if len(errors) > 0 {
+		return DownloadResourceRequestMultiError(errors)
+	}
 	return nil
 }
+
+// DownloadResourceRequestMultiError is an error wrapping multiple validation
+// errors returned by DownloadResourceRequest.Validate(true) if the designated
+// constraints aren't met.
+type DownloadResourceRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DownloadResourceRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DownloadResourceRequestMultiError) AllErrors() []error { return m }
 
 // DownloadResourceRequestValidationError is the validation error returned by
 // DownloadResourceRequest.Validate if the designated constraints aren't met.

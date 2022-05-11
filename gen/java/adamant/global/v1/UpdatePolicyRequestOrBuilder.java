@@ -8,41 +8,49 @@ public interface UpdatePolicyRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string policy_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string policy_id = 1 [json_name = "policyId", (.validate.rules) = { ... }</code>
+   * @return The policyId.
    */
   java.lang.String getPolicyId();
   /**
-   * <code>string policy_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string policy_id = 1 [json_name = "policyId", (.validate.rules) = { ... }</code>
+   * @return The bytes for policyId.
    */
   com.google.protobuf.ByteString
       getPolicyIdBytes();
 
   /**
-   * <code>string name = 2 [(.validate.rules) = { ... }</code>
+   * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The name.
    */
   java.lang.String getName();
   /**
-   * <code>string name = 2 [(.validate.rules) = { ... }</code>
+   * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
-   * <code>string whitelist_id = 3 [(.validate.rules) = { ... }</code>
+   * <code>string whitelist_id = 3 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+   * @return The whitelistId.
    */
   java.lang.String getWhitelistId();
   /**
-   * <code>string whitelist_id = 3 [(.validate.rules) = { ... }</code>
+   * <code>string whitelist_id = 3 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+   * @return The bytes for whitelistId.
    */
   com.google.protobuf.ByteString
       getWhitelistIdBytes();
 
   /**
-   * <code>string transfer_limit_id = 4 [(.validate.rules) = { ... }</code>
+   * <code>string transfer_limit_id = 4 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+   * @return The transferLimitId.
    */
   java.lang.String getTransferLimitId();
   /**
-   * <code>string transfer_limit_id = 4 [(.validate.rules) = { ... }</code>
+   * <code>string transfer_limit_id = 4 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+   * @return The bytes for transferLimitId.
    */
   com.google.protobuf.ByteString
       getTransferLimitIdBytes();

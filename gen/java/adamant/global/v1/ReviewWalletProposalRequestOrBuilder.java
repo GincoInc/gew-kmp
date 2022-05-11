@@ -8,17 +8,20 @@ public interface ReviewWalletProposalRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The walletId.
    */
   java.lang.String getWalletId();
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletId.
    */
   com.google.protobuf.ByteString
       getWalletIdBytes();
 
   /**
-   * <code>bool approve = 2;</code>
+   * <code>bool approve = 2 [json_name = "approve"];</code>
+   * @return The approve.
    */
   boolean getApprove();
 }

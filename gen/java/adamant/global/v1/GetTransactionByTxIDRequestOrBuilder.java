@@ -8,21 +8,25 @@ public interface GetTransactionByTxIDRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The walletId.
    */
   java.lang.String getWalletId();
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletId.
    */
   com.google.protobuf.ByteString
       getWalletIdBytes();
 
   /**
-   * <code>string tx_id = 2 [(.validate.rules) = { ... }</code>
+   * <code>string tx_id = 2 [json_name = "txId", (.validate.rules) = { ... }</code>
+   * @return The txId.
    */
   java.lang.String getTxId();
   /**
-   * <code>string tx_id = 2 [(.validate.rules) = { ... }</code>
+   * <code>string tx_id = 2 [json_name = "txId", (.validate.rules) = { ... }</code>
+   * @return The bytes for txId.
    */
   com.google.protobuf.ByteString
       getTxIdBytes();

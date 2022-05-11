@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ListAddressesWithBalanceRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ListAddressesWithBalanceRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListAddressesWithBalanceRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListAddressesWithBalanceRequest.class)) return new ListAddressesWithBalanceRequestValidator();

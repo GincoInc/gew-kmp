@@ -8,35 +8,37 @@ public interface ListWalletGroupsResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
    */
   java.util.List<adamant.global.v1.Model.WalletGroup> 
       getWalletGroupsList();
   /**
-   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
    */
   adamant.global.v1.Model.WalletGroup getWalletGroups(int index);
   /**
-   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
    */
   int getWalletGroupsCount();
   /**
-   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.WalletGroupOrBuilder> 
       getWalletGroupsOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletGroup wallet_groups = 1 [json_name = "walletGroups"];</code>
    */
   adamant.global.v1.Model.WalletGroupOrBuilder getWalletGroupsOrBuilder(
       int index);
 
   /**
-   * <code>string next_page_token = 2;</code>
+   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+   * @return The nextPageToken.
    */
   java.lang.String getNextPageToken();
   /**
-   * <code>string next_page_token = 2;</code>
+   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+   * @return The bytes for nextPageToken.
    */
   com.google.protobuf.ByteString
       getNextPageTokenBytes();

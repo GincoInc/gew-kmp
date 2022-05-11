@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.BatchGetWalletsWithoutBalanceResponse}
  */
-public  final class BatchGetWalletsWithoutBalanceResponse extends
+public final class BatchGetWalletsWithoutBalanceResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.BatchGetWalletsWithoutBalanceResponse)
     BatchGetWalletsWithoutBalanceResponseOrBuilder {
@@ -97,33 +97,38 @@ private static final long serialVersionUID = 0L;
   public static final int WALLETS_FIELD_NUMBER = 1;
   private java.util.List<adamant.global.v1.Model.WalletWithoutBalance> wallets_;
   /**
-   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.WalletWithoutBalance> getWalletsList() {
     return wallets_;
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.WalletWithoutBalanceOrBuilder> 
       getWalletsOrBuilderList() {
     return wallets_;
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
    */
+  @java.lang.Override
   public int getWalletsCount() {
     return wallets_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.WalletWithoutBalance getWallets(int index) {
     return wallets_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.WalletWithoutBalanceOrBuilder getWalletsOrBuilder(
       int index) {
     return wallets_.get(index);
@@ -484,7 +489,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.WalletWithoutBalance, adamant.global.v1.Model.WalletWithoutBalance.Builder, adamant.global.v1.Model.WalletWithoutBalanceOrBuilder> walletsBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public java.util.List<adamant.global.v1.Model.WalletWithoutBalance> getWalletsList() {
       if (walletsBuilder_ == null) {
@@ -494,7 +499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public int getWalletsCount() {
       if (walletsBuilder_ == null) {
@@ -504,7 +509,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public adamant.global.v1.Model.WalletWithoutBalance getWallets(int index) {
       if (walletsBuilder_ == null) {
@@ -514,7 +519,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public Builder setWallets(
         int index, adamant.global.v1.Model.WalletWithoutBalance value) {
@@ -531,7 +536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public Builder setWallets(
         int index, adamant.global.v1.Model.WalletWithoutBalance.Builder builderForValue) {
@@ -545,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public Builder addWallets(adamant.global.v1.Model.WalletWithoutBalance value) {
       if (walletsBuilder_ == null) {
@@ -561,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public Builder addWallets(
         int index, adamant.global.v1.Model.WalletWithoutBalance value) {
@@ -578,7 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public Builder addWallets(
         adamant.global.v1.Model.WalletWithoutBalance.Builder builderForValue) {
@@ -592,7 +597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public Builder addWallets(
         int index, adamant.global.v1.Model.WalletWithoutBalance.Builder builderForValue) {
@@ -606,7 +611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public Builder addAllWallets(
         java.lang.Iterable<? extends adamant.global.v1.Model.WalletWithoutBalance> values) {
@@ -621,7 +626,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public Builder clearWallets() {
       if (walletsBuilder_ == null) {
@@ -634,7 +639,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public Builder removeWallets(int index) {
       if (walletsBuilder_ == null) {
@@ -647,14 +652,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public adamant.global.v1.Model.WalletWithoutBalance.Builder getWalletsBuilder(
         int index) {
       return getWalletsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public adamant.global.v1.Model.WalletWithoutBalanceOrBuilder getWalletsOrBuilder(
         int index) {
@@ -664,7 +669,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.WalletWithoutBalanceOrBuilder> 
          getWalletsOrBuilderList() {
@@ -675,14 +680,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public adamant.global.v1.Model.WalletWithoutBalance.Builder addWalletsBuilder() {
       return getWalletsFieldBuilder().addBuilder(
           adamant.global.v1.Model.WalletWithoutBalance.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public adamant.global.v1.Model.WalletWithoutBalance.Builder addWalletsBuilder(
         int index) {
@@ -690,7 +695,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.WalletWithoutBalance.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletWithoutBalance wallets = 1 [json_name = "wallets"];</code>
      */
     public java.util.List<adamant.global.v1.Model.WalletWithoutBalance.Builder> 
          getWalletsBuilderList() {

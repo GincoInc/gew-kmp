@@ -8,7 +8,8 @@ public interface ExistsWalletByNameResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bool exists = 1;</code>
+   * <code>bool exists = 1 [json_name = "exists"];</code>
+   * @return The exists.
    */
   boolean getExists();
 }

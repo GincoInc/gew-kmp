@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.UpdateLabeledAddressRequest}
  */
-public  final class UpdateLabeledAddressRequest extends
+public final class UpdateLabeledAddressRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.UpdateLabeledAddressRequest)
     UpdateLabeledAddressRequestOrBuilder {
@@ -111,8 +111,10 @@ private static final long serialVersionUID = 0L;
   public static final int LABELED_ADDRESS_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object labeledAddressId_;
   /**
-   * <code>string labeled_address_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string labeled_address_id = 1 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+   * @return The labeledAddressId.
    */
+  @java.lang.Override
   public java.lang.String getLabeledAddressId() {
     java.lang.Object ref = labeledAddressId_;
     if (ref instanceof java.lang.String) {
@@ -126,8 +128,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string labeled_address_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string labeled_address_id = 1 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+   * @return The bytes for labeledAddressId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getLabeledAddressIdBytes() {
     java.lang.Object ref = labeledAddressId_;
@@ -145,8 +149,10 @@ private static final long serialVersionUID = 0L;
   public static final int NAME_FIELD_NUMBER = 2;
   private volatile java.lang.Object name_;
   /**
-   * <code>string name = 2 [(.validate.rules) = { ... }</code>
+   * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The name.
    */
+  @java.lang.Override
   public java.lang.String getName() {
     java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
@@ -160,8 +166,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string name = 2 [(.validate.rules) = { ... }</code>
+   * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The bytes for name.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getNameBytes() {
     java.lang.Object ref = name_;
@@ -179,15 +187,17 @@ private static final long serialVersionUID = 0L;
   public static final int COIN_FIELD_NUMBER = 3;
   private int coin_;
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
    */
-  public int getCoinValue() {
+  @java.lang.Override public int getCoinValue() {
     return coin_;
   }
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
    */
-  public gincoinc.global.v1.Enum.Coin getCoin() {
+  @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
     @SuppressWarnings("deprecation")
     gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
     return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
@@ -196,8 +206,10 @@ private static final long serialVersionUID = 0L;
   public static final int ADDRESS_FIELD_NUMBER = 4;
   private volatile java.lang.Object address_;
   /**
-   * <code>string address = 4 [(.validate.rules) = { ... }</code>
+   * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+   * @return The address.
    */
+  @java.lang.Override
   public java.lang.String getAddress() {
     java.lang.Object ref = address_;
     if (ref instanceof java.lang.String) {
@@ -211,8 +223,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string address = 4 [(.validate.rules) = { ... }</code>
+   * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+   * @return The bytes for address.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getAddressBytes() {
     java.lang.Object ref = address_;
@@ -241,16 +255,16 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getLabeledAddressIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(labeledAddressId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, labeledAddressId_);
     }
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
     }
     if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
       output.writeEnum(3, coin_);
     }
-    if (!getAddressBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, address_);
     }
     unknownFields.writeTo(output);
@@ -262,17 +276,17 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getLabeledAddressIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(labeledAddressId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, labeledAddressId_);
     }
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
     }
     if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, coin_);
     }
-    if (!getAddressBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, address_);
     }
     size += unknownFields.getSerializedSize();
@@ -581,7 +595,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object labeledAddressId_ = "";
     /**
-     * <code>string labeled_address_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string labeled_address_id = 1 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+     * @return The labeledAddressId.
      */
     public java.lang.String getLabeledAddressId() {
       java.lang.Object ref = labeledAddressId_;
@@ -596,7 +611,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string labeled_address_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string labeled_address_id = 1 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+     * @return The bytes for labeledAddressId.
      */
     public com.google.protobuf.ByteString
         getLabeledAddressIdBytes() {
@@ -612,7 +628,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string labeled_address_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string labeled_address_id = 1 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+     * @param value The labeledAddressId to set.
+     * @return This builder for chaining.
      */
     public Builder setLabeledAddressId(
         java.lang.String value) {
@@ -625,7 +643,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string labeled_address_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string labeled_address_id = 1 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearLabeledAddressId() {
       
@@ -634,7 +653,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string labeled_address_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string labeled_address_id = 1 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for labeledAddressId to set.
+     * @return This builder for chaining.
      */
     public Builder setLabeledAddressIdBytes(
         com.google.protobuf.ByteString value) {
@@ -650,7 +671,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object name_ = "";
     /**
-     * <code>string name = 2 [(.validate.rules) = { ... }</code>
+     * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -665,7 +687,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 2 [(.validate.rules) = { ... }</code>
+     * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -681,7 +704,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 2 [(.validate.rules) = { ... }</code>
+     * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @param value The name to set.
+     * @return This builder for chaining.
      */
     public Builder setName(
         java.lang.String value) {
@@ -694,7 +719,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 2 [(.validate.rules) = { ... }</code>
+     * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearName() {
       
@@ -703,7 +729,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 2 [(.validate.rules) = { ... }</code>
+     * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @param value The bytes for name to set.
+     * @return This builder for chaining.
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
@@ -719,29 +747,37 @@ private static final long serialVersionUID = 0L;
 
     private int coin_ = 0;
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for coin.
      */
-    public int getCoinValue() {
+    @java.lang.Override public int getCoinValue() {
       return coin_;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for coin to set.
+     * @return This builder for chaining.
      */
     public Builder setCoinValue(int value) {
+      
       coin_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return The coin.
      */
+    @java.lang.Override
     public gincoinc.global.v1.Enum.Coin getCoin() {
       @SuppressWarnings("deprecation")
       gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
       return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @param value The coin to set.
+     * @return This builder for chaining.
      */
     public Builder setCoin(gincoinc.global.v1.Enum.Coin value) {
       if (value == null) {
@@ -753,7 +789,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearCoin() {
       
@@ -764,7 +801,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object address_ = "";
     /**
-     * <code>string address = 4 [(.validate.rules) = { ... }</code>
+     * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+     * @return The address.
      */
     public java.lang.String getAddress() {
       java.lang.Object ref = address_;
@@ -779,7 +817,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string address = 4 [(.validate.rules) = { ... }</code>
+     * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+     * @return The bytes for address.
      */
     public com.google.protobuf.ByteString
         getAddressBytes() {
@@ -795,7 +834,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string address = 4 [(.validate.rules) = { ... }</code>
+     * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+     * @param value The address to set.
+     * @return This builder for chaining.
      */
     public Builder setAddress(
         java.lang.String value) {
@@ -808,7 +849,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string address = 4 [(.validate.rules) = { ... }</code>
+     * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearAddress() {
       
@@ -817,7 +859,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string address = 4 [(.validate.rules) = { ... }</code>
+     * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+     * @param value The bytes for address to set.
+     * @return This builder for chaining.
      */
     public Builder setAddressBytes(
         com.google.protobuf.ByteString value) {

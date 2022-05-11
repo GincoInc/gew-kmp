@@ -127,6 +127,14 @@ public final class Enum {
      * <code>COIN_COT = 25;</code>
      */
     COIN_COT(25),
+    /**
+     * <code>COIN_XEM = 26;</code>
+     */
+    COIN_XEM(26),
+    /**
+     * <code>COIN_MONA = 27;</code>
+     */
+    COIN_MONA(27),
     UNRECOGNIZED(-1),
     ;
 
@@ -234,6 +242,14 @@ public final class Enum {
      * <code>COIN_COT = 25;</code>
      */
     public static final int COIN_COT_VALUE = 25;
+    /**
+     * <code>COIN_XEM = 26;</code>
+     */
+    public static final int COIN_XEM_VALUE = 26;
+    /**
+     * <code>COIN_MONA = 27;</code>
+     */
+    public static final int COIN_MONA_VALUE = 27;
 
 
     public final int getNumber() {
@@ -245,6 +261,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -252,6 +270,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static Coin forNumber(int value) {
       switch (value) {
         case 0: return COIN_INVALID;
@@ -280,6 +302,8 @@ public final class Enum {
         case 23: return COIN_CICC;
         case 24: return COIN_NCXC;
         case 25: return COIN_COT;
+        case 26: return COIN_XEM;
+        case 27: return COIN_MONA;
         default: return null;
       }
     }
@@ -298,6 +322,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -425,6 +453,22 @@ public final class Enum {
      * <code>NETWORK_POLKADOT_TESTNET = 20;</code>
      */
     NETWORK_POLKADOT_TESTNET(20),
+    /**
+     * <code>NETWORK_NEM_MAINNET = 21;</code>
+     */
+    NETWORK_NEM_MAINNET(21),
+    /**
+     * <code>NETWORK_NEM_TESTNET = 22;</code>
+     */
+    NETWORK_NEM_TESTNET(22),
+    /**
+     * <code>NETWORK_MONACOIN_MAINNET = 23;</code>
+     */
+    NETWORK_MONACOIN_MAINNET(23),
+    /**
+     * <code>NETWORK_MONACOIN_TESTNET = 24;</code>
+     */
+    NETWORK_MONACOIN_TESTNET(24),
     UNRECOGNIZED(-1),
     ;
 
@@ -512,6 +556,22 @@ public final class Enum {
      * <code>NETWORK_POLKADOT_TESTNET = 20;</code>
      */
     public static final int NETWORK_POLKADOT_TESTNET_VALUE = 20;
+    /**
+     * <code>NETWORK_NEM_MAINNET = 21;</code>
+     */
+    public static final int NETWORK_NEM_MAINNET_VALUE = 21;
+    /**
+     * <code>NETWORK_NEM_TESTNET = 22;</code>
+     */
+    public static final int NETWORK_NEM_TESTNET_VALUE = 22;
+    /**
+     * <code>NETWORK_MONACOIN_MAINNET = 23;</code>
+     */
+    public static final int NETWORK_MONACOIN_MAINNET_VALUE = 23;
+    /**
+     * <code>NETWORK_MONACOIN_TESTNET = 24;</code>
+     */
+    public static final int NETWORK_MONACOIN_TESTNET_VALUE = 24;
 
 
     public final int getNumber() {
@@ -523,6 +583,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -530,6 +592,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static Network forNumber(int value) {
       switch (value) {
         case 0: return NETWORK_INVALID;
@@ -553,6 +619,10 @@ public final class Enum {
         case 18: return NETWORK_CARDANO_TESTNET;
         case 19: return NETWORK_POLKADOT_MAINNET;
         case 20: return NETWORK_POLKADOT_TESTNET;
+        case 21: return NETWORK_NEM_MAINNET;
+        case 22: return NETWORK_NEM_TESTNET;
+        case 23: return NETWORK_MONACOIN_MAINNET;
+        case 24: return NETWORK_MONACOIN_TESTNET;
         default: return null;
       }
     }
@@ -571,6 +641,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -620,7 +694,7 @@ public final class Enum {
     ADDRESS_TYPE_INVALID(0),
     /**
      * <pre>
-     *Pay to Script Hash
+     * Pay to Script Hash
      * </pre>
      *
      * <code>ADDRESS_TYPE_P2SH = 1;</code>
@@ -628,7 +702,7 @@ public final class Enum {
     ADDRESS_TYPE_P2SH(1),
     /**
      * <pre>
-     *Pay to Witness Script Hash nested P2SH
+     * Pay to Witness Script Hash nested P2SH
      * </pre>
      *
      * <code>ADDRESS_TYPE_P2SH_P2WSH = 2;</code>
@@ -636,7 +710,7 @@ public final class Enum {
     ADDRESS_TYPE_P2SH_P2WSH(2),
     /**
      * <pre>
-     *Pay to Witness Script Hash
+     * Pay to Witness Script Hash
      * </pre>
      *
      * <code>ADDRESS_TYPE_P2WSH = 3;</code>
@@ -644,7 +718,7 @@ public final class Enum {
     ADDRESS_TYPE_P2WSH(3),
     /**
      * <pre>
-     *For ETH/XRP
+     * For ETH/XRP
      * </pre>
      *
      * <code>ADDRESS_TYPE_NONE = 100;</code>
@@ -659,7 +733,7 @@ public final class Enum {
     public static final int ADDRESS_TYPE_INVALID_VALUE = 0;
     /**
      * <pre>
-     *Pay to Script Hash
+     * Pay to Script Hash
      * </pre>
      *
      * <code>ADDRESS_TYPE_P2SH = 1;</code>
@@ -667,7 +741,7 @@ public final class Enum {
     public static final int ADDRESS_TYPE_P2SH_VALUE = 1;
     /**
      * <pre>
-     *Pay to Witness Script Hash nested P2SH
+     * Pay to Witness Script Hash nested P2SH
      * </pre>
      *
      * <code>ADDRESS_TYPE_P2SH_P2WSH = 2;</code>
@@ -675,7 +749,7 @@ public final class Enum {
     public static final int ADDRESS_TYPE_P2SH_P2WSH_VALUE = 2;
     /**
      * <pre>
-     *Pay to Witness Script Hash
+     * Pay to Witness Script Hash
      * </pre>
      *
      * <code>ADDRESS_TYPE_P2WSH = 3;</code>
@@ -683,7 +757,7 @@ public final class Enum {
     public static final int ADDRESS_TYPE_P2WSH_VALUE = 3;
     /**
      * <pre>
-     *For ETH/XRP
+     * For ETH/XRP
      * </pre>
      *
      * <code>ADDRESS_TYPE_NONE = 100;</code>
@@ -700,6 +774,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -707,6 +783,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static AddressType forNumber(int value) {
       switch (value) {
         case 0: return ADDRESS_TYPE_INVALID;
@@ -732,6 +812,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -781,7 +865,7 @@ public final class Enum {
     TRANSACTION_STATE_INVALID(0),
     /**
      * <pre>
-     *Transaction is submitted
+     * Transaction is submitted
      * </pre>
      *
      * <code>TRANSACTION_STATE_SUBMITTED = 1;</code>
@@ -789,7 +873,7 @@ public final class Enum {
     TRANSACTION_STATE_SUBMITTED(1),
     /**
      * <pre>
-     *Transaction is included in mempool
+     * Transaction is included in mempool
      * </pre>
      *
      * <code>TRANSACTION_STATE_PENDING = 2;</code>
@@ -797,7 +881,7 @@ public final class Enum {
     TRANSACTION_STATE_PENDING(2),
     /**
      * <pre>
-     *Transaction is included in a block
+     * Transaction is included in a block
      * </pre>
      *
      * <code>TRANSACTION_STATE_PROCESSING = 3;</code>
@@ -805,7 +889,7 @@ public final class Enum {
     TRANSACTION_STATE_PROCESSING(3),
     /**
      * <pre>
-     *Exceeded number of confirmations specified
+     * Exceeded number of confirmations
      * </pre>
      *
      * <code>TRANSACTION_STATE_CONFIRMED = 4;</code>
@@ -813,7 +897,7 @@ public final class Enum {
     TRANSACTION_STATE_CONFIRMED(4),
     /**
      * <pre>
-     *Transaction is dropped
+     * specified
      * </pre>
      *
      * <code>TRANSACTION_STATE_DROPPED = 5;</code>
@@ -828,7 +912,7 @@ public final class Enum {
     public static final int TRANSACTION_STATE_INVALID_VALUE = 0;
     /**
      * <pre>
-     *Transaction is submitted
+     * Transaction is submitted
      * </pre>
      *
      * <code>TRANSACTION_STATE_SUBMITTED = 1;</code>
@@ -836,7 +920,7 @@ public final class Enum {
     public static final int TRANSACTION_STATE_SUBMITTED_VALUE = 1;
     /**
      * <pre>
-     *Transaction is included in mempool
+     * Transaction is included in mempool
      * </pre>
      *
      * <code>TRANSACTION_STATE_PENDING = 2;</code>
@@ -844,7 +928,7 @@ public final class Enum {
     public static final int TRANSACTION_STATE_PENDING_VALUE = 2;
     /**
      * <pre>
-     *Transaction is included in a block
+     * Transaction is included in a block
      * </pre>
      *
      * <code>TRANSACTION_STATE_PROCESSING = 3;</code>
@@ -852,7 +936,7 @@ public final class Enum {
     public static final int TRANSACTION_STATE_PROCESSING_VALUE = 3;
     /**
      * <pre>
-     *Exceeded number of confirmations specified
+     * Exceeded number of confirmations
      * </pre>
      *
      * <code>TRANSACTION_STATE_CONFIRMED = 4;</code>
@@ -860,7 +944,7 @@ public final class Enum {
     public static final int TRANSACTION_STATE_CONFIRMED_VALUE = 4;
     /**
      * <pre>
-     *Transaction is dropped
+     * specified
      * </pre>
      *
      * <code>TRANSACTION_STATE_DROPPED = 5;</code>
@@ -877,6 +961,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -884,6 +970,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static TransactionState forNumber(int value) {
       switch (value) {
         case 0: return TRANSACTION_STATE_INVALID;
@@ -910,6 +1000,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -1007,6 +1101,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -1014,6 +1110,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static UTXOState forNumber(int value) {
       switch (value) {
         case 0: return UTXO_STATE_INVALID;
@@ -1039,6 +1139,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -1088,7 +1192,7 @@ public final class Enum {
     TRANSFER_TYPE_INVALID(0),
     /**
      * <pre>
-     *The type of send
+     * The type of send
      * </pre>
      *
      * <code>TRANSFER_TYPE_SEND = 1;</code>
@@ -1096,7 +1200,7 @@ public final class Enum {
     TRANSFER_TYPE_SEND(1),
     /**
      * <pre>
-     *The type of receive
+     * The type of receive
      * </pre>
      *
      * <code>TRANSFER_TYPE_RECEIVE = 2;</code>
@@ -1104,7 +1208,7 @@ public final class Enum {
     TRANSFER_TYPE_RECEIVE(2),
     /**
      * <pre>
-     *The type of change transaction for BTC/LTC/BCH
+     * The type of change transaction for BTC/LTC/BCH
      * </pre>
      *
      * <code>TRANSFER_TYPE_CHANGE = 3;</code>
@@ -1112,7 +1216,7 @@ public final class Enum {
     TRANSFER_TYPE_CHANGE(3),
     /**
      * <pre>
-     *The type of fraudulent remittance
+     * The type of fraudulent remittance
      * </pre>
      *
      * <code>TRANSFER_TYPE_FATAL = 4;</code>
@@ -1127,7 +1231,7 @@ public final class Enum {
     public static final int TRANSFER_TYPE_INVALID_VALUE = 0;
     /**
      * <pre>
-     *The type of send
+     * The type of send
      * </pre>
      *
      * <code>TRANSFER_TYPE_SEND = 1;</code>
@@ -1135,7 +1239,7 @@ public final class Enum {
     public static final int TRANSFER_TYPE_SEND_VALUE = 1;
     /**
      * <pre>
-     *The type of receive
+     * The type of receive
      * </pre>
      *
      * <code>TRANSFER_TYPE_RECEIVE = 2;</code>
@@ -1143,7 +1247,7 @@ public final class Enum {
     public static final int TRANSFER_TYPE_RECEIVE_VALUE = 2;
     /**
      * <pre>
-     *The type of change transaction for BTC/LTC/BCH
+     * The type of change transaction for BTC/LTC/BCH
      * </pre>
      *
      * <code>TRANSFER_TYPE_CHANGE = 3;</code>
@@ -1151,7 +1255,7 @@ public final class Enum {
     public static final int TRANSFER_TYPE_CHANGE_VALUE = 3;
     /**
      * <pre>
-     *The type of fraudulent remittance
+     * The type of fraudulent remittance
      * </pre>
      *
      * <code>TRANSFER_TYPE_FATAL = 4;</code>
@@ -1168,6 +1272,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -1175,6 +1281,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static TransferType forNumber(int value) {
       switch (value) {
         case 0: return TRANSFER_TYPE_INVALID;
@@ -1200,6 +1310,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -1289,6 +1403,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -1296,6 +1412,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static XRPTransactionType forNumber(int value) {
       switch (value) {
         case 0: return XRP_TRANSACTION_TYPE_INVALID;
@@ -1320,6 +1440,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -1441,6 +1565,8 @@ public final class Enum {
     }
 
     /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @java.lang.Deprecated
@@ -1448,6 +1574,10 @@ public final class Enum {
       return forNumber(value);
     }
 
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
     public static TransactionResult forNumber(int value) {
       switch (value) {
         case 0: return TRANSACTION_RESULT_INVALID;
@@ -1473,6 +1603,10 @@ public final class Enum {
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
       return getDescriptor().getValues().get(ordinal());
     }
     public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -1507,6 +1641,181 @@ public final class Enum {
     // @@protoc_insertion_point(enum_scope:gincoinc.global.v1.TransactionResult)
   }
 
+  /**
+   * <pre>
+   * NemTransactionType is a type of nem transaction.
+   * </pre>
+   *
+   * Protobuf enum {@code gincoinc.global.v1.NemTransactionType}
+   */
+  public enum NemTransactionType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>NEM_TRANSACTION_TYPE_INVALID = 0;</code>
+     */
+    NEM_TRANSACTION_TYPE_INVALID(0),
+    /**
+     * <code>NEM_TRANSACTION_TYPE_TRANSFER_TYPE = 1;</code>
+     */
+    NEM_TRANSACTION_TYPE_TRANSFER_TYPE(1),
+    /**
+     * <code>NEM_TRANSACTION_TYPE_IMPORTANCE_TRANSFER_TYPE = 2;</code>
+     */
+    NEM_TRANSACTION_TYPE_IMPORTANCE_TRANSFER_TYPE(2),
+    /**
+     * <code>NEM_TRANSACTION_TYPE_MULTISIG_MODIFICATION_TYPE = 3;</code>
+     */
+    NEM_TRANSACTION_TYPE_MULTISIG_MODIFICATION_TYPE(3),
+    /**
+     * <code>NEM_TRANSACTION_TYPE_MULTISIG_SIGNATURE_TYPE = 4;</code>
+     */
+    NEM_TRANSACTION_TYPE_MULTISIG_SIGNATURE_TYPE(4),
+    /**
+     * <code>NEM_TRANSACTION_TYPE_MULTISIG_TRANSACTION_TYPE = 5;</code>
+     */
+    NEM_TRANSACTION_TYPE_MULTISIG_TRANSACTION_TYPE(5),
+    /**
+     * <code>NEM_TRANSACTION_TYPE_PROVISION_NAMESPACE_TYPE = 6;</code>
+     */
+    NEM_TRANSACTION_TYPE_PROVISION_NAMESPACE_TYPE(6),
+    /**
+     * <code>NEM_TRANSACTION_TYPE_MOSAIC_DEFINITION_TYPE = 7;</code>
+     */
+    NEM_TRANSACTION_TYPE_MOSAIC_DEFINITION_TYPE(7),
+    /**
+     * <code>NEM_TRANSACTION_TYPE_MOSAIC_SUPPLY_TYPE = 8;</code>
+     */
+    NEM_TRANSACTION_TYPE_MOSAIC_SUPPLY_TYPE(8),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>NEM_TRANSACTION_TYPE_INVALID = 0;</code>
+     */
+    public static final int NEM_TRANSACTION_TYPE_INVALID_VALUE = 0;
+    /**
+     * <code>NEM_TRANSACTION_TYPE_TRANSFER_TYPE = 1;</code>
+     */
+    public static final int NEM_TRANSACTION_TYPE_TRANSFER_TYPE_VALUE = 1;
+    /**
+     * <code>NEM_TRANSACTION_TYPE_IMPORTANCE_TRANSFER_TYPE = 2;</code>
+     */
+    public static final int NEM_TRANSACTION_TYPE_IMPORTANCE_TRANSFER_TYPE_VALUE = 2;
+    /**
+     * <code>NEM_TRANSACTION_TYPE_MULTISIG_MODIFICATION_TYPE = 3;</code>
+     */
+    public static final int NEM_TRANSACTION_TYPE_MULTISIG_MODIFICATION_TYPE_VALUE = 3;
+    /**
+     * <code>NEM_TRANSACTION_TYPE_MULTISIG_SIGNATURE_TYPE = 4;</code>
+     */
+    public static final int NEM_TRANSACTION_TYPE_MULTISIG_SIGNATURE_TYPE_VALUE = 4;
+    /**
+     * <code>NEM_TRANSACTION_TYPE_MULTISIG_TRANSACTION_TYPE = 5;</code>
+     */
+    public static final int NEM_TRANSACTION_TYPE_MULTISIG_TRANSACTION_TYPE_VALUE = 5;
+    /**
+     * <code>NEM_TRANSACTION_TYPE_PROVISION_NAMESPACE_TYPE = 6;</code>
+     */
+    public static final int NEM_TRANSACTION_TYPE_PROVISION_NAMESPACE_TYPE_VALUE = 6;
+    /**
+     * <code>NEM_TRANSACTION_TYPE_MOSAIC_DEFINITION_TYPE = 7;</code>
+     */
+    public static final int NEM_TRANSACTION_TYPE_MOSAIC_DEFINITION_TYPE_VALUE = 7;
+    /**
+     * <code>NEM_TRANSACTION_TYPE_MOSAIC_SUPPLY_TYPE = 8;</code>
+     */
+    public static final int NEM_TRANSACTION_TYPE_MOSAIC_SUPPLY_TYPE_VALUE = 8;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static NemTransactionType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static NemTransactionType forNumber(int value) {
+      switch (value) {
+        case 0: return NEM_TRANSACTION_TYPE_INVALID;
+        case 1: return NEM_TRANSACTION_TYPE_TRANSFER_TYPE;
+        case 2: return NEM_TRANSACTION_TYPE_IMPORTANCE_TRANSFER_TYPE;
+        case 3: return NEM_TRANSACTION_TYPE_MULTISIG_MODIFICATION_TYPE;
+        case 4: return NEM_TRANSACTION_TYPE_MULTISIG_SIGNATURE_TYPE;
+        case 5: return NEM_TRANSACTION_TYPE_MULTISIG_TRANSACTION_TYPE;
+        case 6: return NEM_TRANSACTION_TYPE_PROVISION_NAMESPACE_TYPE;
+        case 7: return NEM_TRANSACTION_TYPE_MOSAIC_DEFINITION_TYPE;
+        case 8: return NEM_TRANSACTION_TYPE_MOSAIC_SUPPLY_TYPE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<NemTransactionType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        NemTransactionType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<NemTransactionType>() {
+            public NemTransactionType findValueByNumber(int number) {
+              return NemTransactionType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(8);
+    }
+
+    private static final NemTransactionType[] VALUES = values();
+
+    public static NemTransactionType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private NemTransactionType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:gincoinc.global.v1.NemTransactionType)
+  }
+
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1517,7 +1826,7 @@ public final class Enum {
   static {
     java.lang.String[] descriptorData = {
       "\n.gincoinc/global/v1/gincoincglobalv1/en" +
-      "um.proto\022\022gincoinc.global.v1*\200\003\n\004Coin\022\020\n" +
+      "um.proto\022\022gincoinc.global.v1*\235\003\n\004Coin\022\020\n" +
       "\014COIN_INVALID\020\000\022\014\n\010COIN_BTC\020\001\022\014\n\010COIN_ET" +
       "H\020\002\022\014\n\010COIN_LTC\020\003\022\014\n\010COIN_BCH\020\004\022\014\n\010COIN_" +
       "XRP\020\005\022\014\n\010COIN_BAT\020\006\022\014\n\010COIN_TRX\020\007\022\r\n\tCOI" +
@@ -1527,48 +1836,64 @@ public final class Enum {
       "K\020\020\022\014\n\010COIN_DEP\020\021\022\r\n\tCOIN_USDC\020\022\022\r\n\tCOIN" +
       "_GYEN\020\023\022\r\n\tCOIN_ZAIF\020\024\022\r\n\tCOIN_FSCC\020\025\022\014\n" +
       "\010COIN_CMS\020\026\022\r\n\tCOIN_CICC\020\027\022\r\n\tCOIN_NCXC\020" +
-      "\030\022\014\n\010COIN_COT\020\031*\344\004\n\007Network\022\023\n\017NETWORK_I" +
-      "NVALID\020\000\022\033\n\027NETWORK_BITCOIN_MAINNET\020\001\022\033\n" +
-      "\027NETWORK_BITCOIN_TESTNET\020\002\022\034\n\030NETWORK_ET" +
-      "HEREUM_MAINNET\020\003\022\034\n\030NETWORK_ETHEREUM_TES" +
-      "TNET\020\004\022\034\n\030NETWORK_LITECOIN_MAINNET\020\005\022\034\n\030" +
-      "NETWORK_LITECOIN_TESTNET\020\006\022\037\n\033NETWORK_BI" +
-      "TCOINCASH_MAINNET\020\007\022\037\n\033NETWORK_BITCOINCA" +
-      "SH_TESTNET\020\010\022\032\n\026NETWORK_RIPPLE_MAINNET\020\t" +
-      "\022\032\n\026NETWORK_RIPPLE_TESTNET\020\n\022\030\n\024NETWORK_" +
-      "TRON_MAINNET\020\013\022\030\n\024NETWORK_TRON_TESTNET\020\014" +
-      "\022\031\n\025NETWORK_C0BAN_MAINNET\020\r\022\031\n\025NETWORK_C" +
-      "0BAN_TESTNET\020\016\022\033\n\027NETWORK_STELLAR_MAINNE" +
-      "T\020\017\022\033\n\027NETWORK_STELLAR_TESTNET\020\020\022\033\n\027NETW" +
-      "ORK_CARDANO_MAINNET\020\021\022\033\n\027NETWORK_CARDANO" +
-      "_TESTNET\020\022\022\034\n\030NETWORK_POLKADOT_MAINNET\020\023" +
-      "\022\034\n\030NETWORK_POLKADOT_TESTNET\020\024*\212\001\n\013Addre" +
-      "ssType\022\030\n\024ADDRESS_TYPE_INVALID\020\000\022\025\n\021ADDR" +
-      "ESS_TYPE_P2SH\020\001\022\033\n\027ADDRESS_TYPE_P2SH_P2W" +
-      "SH\020\002\022\026\n\022ADDRESS_TYPE_P2WSH\020\003\022\025\n\021ADDRESS_" +
-      "TYPE_NONE\020d*\323\001\n\020TransactionState\022\035\n\031TRAN" +
-      "SACTION_STATE_INVALID\020\000\022\037\n\033TRANSACTION_S" +
-      "TATE_SUBMITTED\020\001\022\035\n\031TRANSACTION_STATE_PE" +
-      "NDING\020\002\022 \n\034TRANSACTION_STATE_PROCESSING\020" +
-      "\003\022\037\n\033TRANSACTION_STATE_CONFIRMED\020\004\022\035\n\031TR" +
-      "ANSACTION_STATE_DROPPED\020\005*\217\001\n\tUTXOState\022" +
-      "\026\n\022UTXO_STATE_INVALID\020\000\022\036\n\032UTXO_STATE_PE" +
-      "NDING_UNSPENT\020\001\022\026\n\022UTXO_STATE_UNSPENT\020\002\022" +
-      "\034\n\030UTXO_STATE_PENDING_SPENT\020\003\022\024\n\020UTXO_ST" +
-      "ATE_SPENT\020\004*\217\001\n\014TransferType\022\031\n\025TRANSFER" +
-      "_TYPE_INVALID\020\000\022\026\n\022TRANSFER_TYPE_SEND\020\001\022" +
-      "\031\n\025TRANSFER_TYPE_RECEIVE\020\002\022\030\n\024TRANSFER_T" +
-      "YPE_CHANGE\020\003\022\027\n\023TRANSFER_TYPE_FATAL\020\004*\253\001" +
-      "\n\022XRPTransactionType\022 \n\034XRP_TRANSACTION_" +
-      "TYPE_INVALID\020\000\022 \n\034XRP_TRANSACTION_TYPE_P" +
-      "AYMENT\020\001\022(\n$XRP_TRANSACTION_TYPE_SET_SIG" +
-      "NER_LIST\020\002\022\'\n#XRP_TRANSACTION_TYPE_DISAB" +
-      "LE_MASTER\020\003*\260\001\n\021TransactionResult\022\036\n\032TRA" +
-      "NSACTION_RESULT_INVALID\020\000\022\036\n\032TRANSACTION" +
-      "_RESULT_PENDING\020\001\022\036\n\032TRANSACTION_RESULT_" +
-      "SUCCESS\020\002\022\036\n\032TRANSACTION_RESULT_FAILURE\020" +
-      "\003\022\033\n\027TRANSACTION_RESULT_NONE\020dB\022Z\020gincoi" +
-      "ncglobalv1b\006proto3"
+      "\030\022\014\n\010COIN_COT\020\031\022\014\n\010COIN_XEM\020\032\022\r\n\tCOIN_MO" +
+      "NA\020\033*\322\005\n\007Network\022\023\n\017NETWORK_INVALID\020\000\022\033\n" +
+      "\027NETWORK_BITCOIN_MAINNET\020\001\022\033\n\027NETWORK_BI" +
+      "TCOIN_TESTNET\020\002\022\034\n\030NETWORK_ETHEREUM_MAIN" +
+      "NET\020\003\022\034\n\030NETWORK_ETHEREUM_TESTNET\020\004\022\034\n\030N" +
+      "ETWORK_LITECOIN_MAINNET\020\005\022\034\n\030NETWORK_LIT" +
+      "ECOIN_TESTNET\020\006\022\037\n\033NETWORK_BITCOINCASH_M" +
+      "AINNET\020\007\022\037\n\033NETWORK_BITCOINCASH_TESTNET\020" +
+      "\010\022\032\n\026NETWORK_RIPPLE_MAINNET\020\t\022\032\n\026NETWORK" +
+      "_RIPPLE_TESTNET\020\n\022\030\n\024NETWORK_TRON_MAINNE" +
+      "T\020\013\022\030\n\024NETWORK_TRON_TESTNET\020\014\022\031\n\025NETWORK" +
+      "_C0BAN_MAINNET\020\r\022\031\n\025NETWORK_C0BAN_TESTNE" +
+      "T\020\016\022\033\n\027NETWORK_STELLAR_MAINNET\020\017\022\033\n\027NETW" +
+      "ORK_STELLAR_TESTNET\020\020\022\033\n\027NETWORK_CARDANO" +
+      "_MAINNET\020\021\022\033\n\027NETWORK_CARDANO_TESTNET\020\022\022" +
+      "\034\n\030NETWORK_POLKADOT_MAINNET\020\023\022\034\n\030NETWORK" +
+      "_POLKADOT_TESTNET\020\024\022\027\n\023NETWORK_NEM_MAINN" +
+      "ET\020\025\022\027\n\023NETWORK_NEM_TESTNET\020\026\022\034\n\030NETWORK" +
+      "_MONACOIN_MAINNET\020\027\022\034\n\030NETWORK_MONACOIN_" +
+      "TESTNET\020\030*\212\001\n\013AddressType\022\030\n\024ADDRESS_TYP" +
+      "E_INVALID\020\000\022\025\n\021ADDRESS_TYPE_P2SH\020\001\022\033\n\027AD" +
+      "DRESS_TYPE_P2SH_P2WSH\020\002\022\026\n\022ADDRESS_TYPE_" +
+      "P2WSH\020\003\022\025\n\021ADDRESS_TYPE_NONE\020d*\323\001\n\020Trans" +
+      "actionState\022\035\n\031TRANSACTION_STATE_INVALID" +
+      "\020\000\022\037\n\033TRANSACTION_STATE_SUBMITTED\020\001\022\035\n\031T" +
+      "RANSACTION_STATE_PENDING\020\002\022 \n\034TRANSACTIO" +
+      "N_STATE_PROCESSING\020\003\022\037\n\033TRANSACTION_STAT" +
+      "E_CONFIRMED\020\004\022\035\n\031TRANSACTION_STATE_DROPP" +
+      "ED\020\005*\217\001\n\tUTXOState\022\026\n\022UTXO_STATE_INVALID" +
+      "\020\000\022\036\n\032UTXO_STATE_PENDING_UNSPENT\020\001\022\026\n\022UT" +
+      "XO_STATE_UNSPENT\020\002\022\034\n\030UTXO_STATE_PENDING" +
+      "_SPENT\020\003\022\024\n\020UTXO_STATE_SPENT\020\004*\217\001\n\014Trans" +
+      "ferType\022\031\n\025TRANSFER_TYPE_INVALID\020\000\022\026\n\022TR" +
+      "ANSFER_TYPE_SEND\020\001\022\031\n\025TRANSFER_TYPE_RECE" +
+      "IVE\020\002\022\030\n\024TRANSFER_TYPE_CHANGE\020\003\022\027\n\023TRANS" +
+      "FER_TYPE_FATAL\020\004*\253\001\n\022XRPTransactionType\022" +
+      " \n\034XRP_TRANSACTION_TYPE_INVALID\020\000\022 \n\034XRP" +
+      "_TRANSACTION_TYPE_PAYMENT\020\001\022(\n$XRP_TRANS" +
+      "ACTION_TYPE_SET_SIGNER_LIST\020\002\022\'\n#XRP_TRA" +
+      "NSACTION_TYPE_DISABLE_MASTER\020\003*\260\001\n\021Trans" +
+      "actionResult\022\036\n\032TRANSACTION_RESULT_INVAL" +
+      "ID\020\000\022\036\n\032TRANSACTION_RESULT_PENDING\020\001\022\036\n\032" +
+      "TRANSACTION_RESULT_SUCCESS\020\002\022\036\n\032TRANSACT" +
+      "ION_RESULT_FAILURE\020\003\022\033\n\027TRANSACTION_RESU" +
+      "LT_NONE\020d*\275\003\n\022NemTransactionType\022 \n\034NEM_" +
+      "TRANSACTION_TYPE_INVALID\020\000\022&\n\"NEM_TRANSA" +
+      "CTION_TYPE_TRANSFER_TYPE\020\001\0221\n-NEM_TRANSA" +
+      "CTION_TYPE_IMPORTANCE_TRANSFER_TYPE\020\002\0223\n" +
+      "/NEM_TRANSACTION_TYPE_MULTISIG_MODIFICAT" +
+      "ION_TYPE\020\003\0220\n,NEM_TRANSACTION_TYPE_MULTI" +
+      "SIG_SIGNATURE_TYPE\020\004\0222\n.NEM_TRANSACTION_" +
+      "TYPE_MULTISIG_TRANSACTION_TYPE\020\005\0221\n-NEM_" +
+      "TRANSACTION_TYPE_PROVISION_NAMESPACE_TYP" +
+      "E\020\006\022/\n+NEM_TRANSACTION_TYPE_MOSAIC_DEFIN" +
+      "ITION_TYPE\020\007\022+\n\'NEM_TRANSACTION_TYPE_MOS" +
+      "AIC_SUPPLY_TYPE\020\010BEZCgithub.com/GincoInc" +
+      "/gew-kmp/gen/gincoinc/global/v1/gincoinc" +
+      "globalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

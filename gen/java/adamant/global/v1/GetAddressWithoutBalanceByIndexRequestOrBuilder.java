@@ -8,17 +8,20 @@ public interface GetAddressWithoutBalanceByIndexRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The walletId.
    */
   java.lang.String getWalletId();
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletId.
    */
   com.google.protobuf.ByteString
       getWalletIdBytes();
 
   /**
-   * <code>uint32 index = 2 [(.validate.rules) = { ... }</code>
+   * <code>uint32 index = 2 [json_name = "index", (.validate.rules) = { ... }</code>
+   * @return The index.
    */
   int getIndex();
 }

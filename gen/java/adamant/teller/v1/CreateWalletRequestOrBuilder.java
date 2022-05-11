@@ -8,39 +8,47 @@ public interface CreateWalletRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string wallet_name = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_name = 1 [json_name = "walletName", (.validate.rules) = { ... }</code>
+   * @return The walletName.
    */
   java.lang.String getWalletName();
   /**
-   * <code>string wallet_name = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_name = 1 [json_name = "walletName", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletName.
    */
   com.google.protobuf.ByteString
       getWalletNameBytes();
 
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
    */
   int getCoinValue();
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
    */
   gincoinc.global.v1.Enum.Coin getCoin();
 
   /**
-   * <code>.adamant.global.v1.WalletType wallet_type = 3 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.WalletType wallet_type = 3 [json_name = "walletType", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for walletType.
    */
   int getWalletTypeValue();
   /**
-   * <code>.adamant.global.v1.WalletType wallet_type = 3 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.WalletType wallet_type = 3 [json_name = "walletType", (.validate.rules) = { ... }</code>
+   * @return The walletType.
    */
   adamant.global.v1.Enum.WalletType getWalletType();
 
   /**
-   * <code>.gincoinc.global.v1.AddressType address_type = 4 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.AddressType address_type = 4 [json_name = "addressType", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for addressType.
    */
   int getAddressTypeValue();
   /**
-   * <code>.gincoinc.global.v1.AddressType address_type = 4 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.AddressType address_type = 4 [json_name = "addressType", (.validate.rules) = { ... }</code>
+   * @return The addressType.
    */
   gincoinc.global.v1.Enum.AddressType getAddressType();
 
@@ -49,7 +57,8 @@ public interface CreateWalletRequestOrBuilder extends
    * required when create receive only wallet
    * </pre>
    *
-   * <code>string destination_wallet_id = 5 [(.validate.rules) = { ... }</code>
+   * <code>string destination_wallet_id = 5 [json_name = "destinationWalletId", (.validate.rules) = { ... }</code>
+   * @return The destinationWalletId.
    */
   java.lang.String getDestinationWalletId();
   /**
@@ -57,7 +66,8 @@ public interface CreateWalletRequestOrBuilder extends
    * required when create receive only wallet
    * </pre>
    *
-   * <code>string destination_wallet_id = 5 [(.validate.rules) = { ... }</code>
+   * <code>string destination_wallet_id = 5 [json_name = "destinationWalletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for destinationWalletId.
    */
   com.google.protobuf.ByteString
       getDestinationWalletIdBytes();
@@ -67,7 +77,8 @@ public interface CreateWalletRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string inherit_wallet_id = 6 [(.validate.rules) = { ... }</code>
+   * <code>string inherit_wallet_id = 6 [json_name = "inheritWalletId", (.validate.rules) = { ... }</code>
+   * @return The inheritWalletId.
    */
   java.lang.String getInheritWalletId();
   /**
@@ -75,7 +86,8 @@ public interface CreateWalletRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string inherit_wallet_id = 6 [(.validate.rules) = { ... }</code>
+   * <code>string inherit_wallet_id = 6 [json_name = "inheritWalletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for inheritWalletId.
    */
   com.google.protobuf.ByteString
       getInheritWalletIdBytes();

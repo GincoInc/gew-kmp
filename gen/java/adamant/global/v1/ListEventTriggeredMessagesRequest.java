@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListEventTriggeredMessagesRequest}
  */
-public  final class ListEventTriggeredMessagesRequest extends
+public final class ListEventTriggeredMessagesRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListEventTriggeredMessagesRequest)
     ListEventTriggeredMessagesRequestOrBuilder {

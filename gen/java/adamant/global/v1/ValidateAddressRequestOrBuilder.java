@@ -12,7 +12,8 @@ public interface ValidateAddressRequestOrBuilder extends
    * The type of coin
    * </pre>
    *
-   * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
    */
   int getCoinValue();
   /**
@@ -20,7 +21,8 @@ public interface ValidateAddressRequestOrBuilder extends
    * The type of coin
    * </pre>
    *
-   * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
    */
   gincoinc.global.v1.Enum.Coin getCoin();
 
@@ -29,7 +31,8 @@ public interface ValidateAddressRequestOrBuilder extends
    * The address string to be validated
    * </pre>
    *
-   * <code>string address = 2 [(.validate.rules) = { ... }</code>
+   * <code>string address = 2 [json_name = "address", (.validate.rules) = { ... }</code>
+   * @return The address.
    */
   java.lang.String getAddress();
   /**
@@ -37,7 +40,8 @@ public interface ValidateAddressRequestOrBuilder extends
    * The address string to be validated
    * </pre>
    *
-   * <code>string address = 2 [(.validate.rules) = { ... }</code>
+   * <code>string address = 2 [json_name = "address", (.validate.rules) = { ... }</code>
+   * @return The bytes for address.
    */
   com.google.protobuf.ByteString
       getAddressBytes();

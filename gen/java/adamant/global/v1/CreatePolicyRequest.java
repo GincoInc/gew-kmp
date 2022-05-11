@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.CreatePolicyRequest}
  */
-public  final class CreatePolicyRequest extends
+public final class CreatePolicyRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.CreatePolicyRequest)
     CreatePolicyRequestOrBuilder {
@@ -118,8 +118,10 @@ private static final long serialVersionUID = 0L;
   public static final int NAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object name_;
   /**
-   * <code>string name = 1 [(.validate.rules) = { ... }</code>
+   * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The name.
    */
+  @java.lang.Override
   public java.lang.String getName() {
     java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
@@ -133,8 +135,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string name = 1 [(.validate.rules) = { ... }</code>
+   * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The bytes for name.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getNameBytes() {
     java.lang.Object ref = name_;
@@ -152,15 +156,17 @@ private static final long serialVersionUID = 0L;
   public static final int COIN_FIELD_NUMBER = 3;
   private int coin_;
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
    */
-  public int getCoinValue() {
+  @java.lang.Override public int getCoinValue() {
     return coin_;
   }
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
    */
-  public gincoinc.global.v1.Enum.Coin getCoin() {
+  @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
     @SuppressWarnings("deprecation")
     gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
     return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
@@ -169,15 +175,17 @@ private static final long serialVersionUID = 0L;
   public static final int TYPE_FIELD_NUMBER = 4;
   private int type_;
   /**
-   * <code>.adamant.global.v1.PolicyType type = 4 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.PolicyType type = 4 [json_name = "type", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for type.
    */
-  public int getTypeValue() {
+  @java.lang.Override public int getTypeValue() {
     return type_;
   }
   /**
-   * <code>.adamant.global.v1.PolicyType type = 4 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.PolicyType type = 4 [json_name = "type", (.validate.rules) = { ... }</code>
+   * @return The type.
    */
-  public adamant.global.v1.Enum.PolicyType getType() {
+  @java.lang.Override public adamant.global.v1.Enum.PolicyType getType() {
     @SuppressWarnings("deprecation")
     adamant.global.v1.Enum.PolicyType result = adamant.global.v1.Enum.PolicyType.valueOf(type_);
     return result == null ? adamant.global.v1.Enum.PolicyType.UNRECOGNIZED : result;
@@ -186,8 +194,10 @@ private static final long serialVersionUID = 0L;
   public static final int WHITELIST_ID_FIELD_NUMBER = 5;
   private volatile java.lang.Object whitelistId_;
   /**
-   * <code>string whitelist_id = 5 [(.validate.rules) = { ... }</code>
+   * <code>string whitelist_id = 5 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+   * @return The whitelistId.
    */
+  @java.lang.Override
   public java.lang.String getWhitelistId() {
     java.lang.Object ref = whitelistId_;
     if (ref instanceof java.lang.String) {
@@ -201,8 +211,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string whitelist_id = 5 [(.validate.rules) = { ... }</code>
+   * <code>string whitelist_id = 5 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+   * @return The bytes for whitelistId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWhitelistIdBytes() {
     java.lang.Object ref = whitelistId_;
@@ -220,8 +232,10 @@ private static final long serialVersionUID = 0L;
   public static final int TRANSFER_LIMIT_ID_FIELD_NUMBER = 6;
   private volatile java.lang.Object transferLimitId_;
   /**
-   * <code>string transfer_limit_id = 6 [(.validate.rules) = { ... }</code>
+   * <code>string transfer_limit_id = 6 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+   * @return The transferLimitId.
    */
+  @java.lang.Override
   public java.lang.String getTransferLimitId() {
     java.lang.Object ref = transferLimitId_;
     if (ref instanceof java.lang.String) {
@@ -235,8 +249,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string transfer_limit_id = 6 [(.validate.rules) = { ... }</code>
+   * <code>string transfer_limit_id = 6 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+   * @return The bytes for transferLimitId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTransferLimitIdBytes() {
     java.lang.Object ref = transferLimitId_;
@@ -265,7 +281,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
     if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
@@ -274,10 +290,10 @@ private static final long serialVersionUID = 0L;
     if (type_ != adamant.global.v1.Enum.PolicyType.POLICY_TYPE_INVALID.getNumber()) {
       output.writeEnum(4, type_);
     }
-    if (!getWhitelistIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(whitelistId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, whitelistId_);
     }
-    if (!getTransferLimitIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transferLimitId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, transferLimitId_);
     }
     unknownFields.writeTo(output);
@@ -289,7 +305,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
     if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
@@ -300,10 +316,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, type_);
     }
-    if (!getWhitelistIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(whitelistId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, whitelistId_);
     }
-    if (!getTransferLimitIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transferLimitId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, transferLimitId_);
     }
     size += unknownFields.getSerializedSize();
@@ -621,7 +637,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object name_ = "";
     /**
-     * <code>string name = 1 [(.validate.rules) = { ... }</code>
+     * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -636,7 +653,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 1 [(.validate.rules) = { ... }</code>
+     * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -652,7 +670,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 1 [(.validate.rules) = { ... }</code>
+     * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @param value The name to set.
+     * @return This builder for chaining.
      */
     public Builder setName(
         java.lang.String value) {
@@ -665,7 +685,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 1 [(.validate.rules) = { ... }</code>
+     * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearName() {
       
@@ -674,7 +695,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 1 [(.validate.rules) = { ... }</code>
+     * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @param value The bytes for name to set.
+     * @return This builder for chaining.
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
@@ -690,29 +713,37 @@ private static final long serialVersionUID = 0L;
 
     private int coin_ = 0;
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for coin.
      */
-    public int getCoinValue() {
+    @java.lang.Override public int getCoinValue() {
       return coin_;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for coin to set.
+     * @return This builder for chaining.
      */
     public Builder setCoinValue(int value) {
+      
       coin_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return The coin.
      */
+    @java.lang.Override
     public gincoinc.global.v1.Enum.Coin getCoin() {
       @SuppressWarnings("deprecation")
       gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
       return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @param value The coin to set.
+     * @return This builder for chaining.
      */
     public Builder setCoin(gincoinc.global.v1.Enum.Coin value) {
       if (value == null) {
@@ -724,7 +755,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearCoin() {
       
@@ -735,29 +767,37 @@ private static final long serialVersionUID = 0L;
 
     private int type_ = 0;
     /**
-     * <code>.adamant.global.v1.PolicyType type = 4 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.PolicyType type = 4 [json_name = "type", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for type.
      */
-    public int getTypeValue() {
+    @java.lang.Override public int getTypeValue() {
       return type_;
     }
     /**
-     * <code>.adamant.global.v1.PolicyType type = 4 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.PolicyType type = 4 [json_name = "type", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for type to set.
+     * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
+      
       type_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>.adamant.global.v1.PolicyType type = 4 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.PolicyType type = 4 [json_name = "type", (.validate.rules) = { ... }</code>
+     * @return The type.
      */
+    @java.lang.Override
     public adamant.global.v1.Enum.PolicyType getType() {
       @SuppressWarnings("deprecation")
       adamant.global.v1.Enum.PolicyType result = adamant.global.v1.Enum.PolicyType.valueOf(type_);
       return result == null ? adamant.global.v1.Enum.PolicyType.UNRECOGNIZED : result;
     }
     /**
-     * <code>.adamant.global.v1.PolicyType type = 4 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.PolicyType type = 4 [json_name = "type", (.validate.rules) = { ... }</code>
+     * @param value The type to set.
+     * @return This builder for chaining.
      */
     public Builder setType(adamant.global.v1.Enum.PolicyType value) {
       if (value == null) {
@@ -769,7 +809,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.PolicyType type = 4 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.PolicyType type = 4 [json_name = "type", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearType() {
       
@@ -780,7 +821,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object whitelistId_ = "";
     /**
-     * <code>string whitelist_id = 5 [(.validate.rules) = { ... }</code>
+     * <code>string whitelist_id = 5 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+     * @return The whitelistId.
      */
     public java.lang.String getWhitelistId() {
       java.lang.Object ref = whitelistId_;
@@ -795,7 +837,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string whitelist_id = 5 [(.validate.rules) = { ... }</code>
+     * <code>string whitelist_id = 5 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+     * @return The bytes for whitelistId.
      */
     public com.google.protobuf.ByteString
         getWhitelistIdBytes() {
@@ -811,7 +854,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string whitelist_id = 5 [(.validate.rules) = { ... }</code>
+     * <code>string whitelist_id = 5 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+     * @param value The whitelistId to set.
+     * @return This builder for chaining.
      */
     public Builder setWhitelistId(
         java.lang.String value) {
@@ -824,7 +869,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string whitelist_id = 5 [(.validate.rules) = { ... }</code>
+     * <code>string whitelist_id = 5 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearWhitelistId() {
       
@@ -833,7 +879,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string whitelist_id = 5 [(.validate.rules) = { ... }</code>
+     * <code>string whitelist_id = 5 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for whitelistId to set.
+     * @return This builder for chaining.
      */
     public Builder setWhitelistIdBytes(
         com.google.protobuf.ByteString value) {
@@ -849,7 +897,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object transferLimitId_ = "";
     /**
-     * <code>string transfer_limit_id = 6 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 6 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @return The transferLimitId.
      */
     public java.lang.String getTransferLimitId() {
       java.lang.Object ref = transferLimitId_;
@@ -864,7 +913,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string transfer_limit_id = 6 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 6 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @return The bytes for transferLimitId.
      */
     public com.google.protobuf.ByteString
         getTransferLimitIdBytes() {
@@ -880,7 +930,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string transfer_limit_id = 6 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 6 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @param value The transferLimitId to set.
+     * @return This builder for chaining.
      */
     public Builder setTransferLimitId(
         java.lang.String value) {
@@ -893,7 +945,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string transfer_limit_id = 6 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 6 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearTransferLimitId() {
       
@@ -902,7 +955,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string transfer_limit_id = 6 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 6 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for transferLimitId to set.
+     * @return This builder for chaining.
      */
     public Builder setTransferLimitIdBytes(
         com.google.protobuf.ByteString value) {

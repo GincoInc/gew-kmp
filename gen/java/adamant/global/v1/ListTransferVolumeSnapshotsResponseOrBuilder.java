@@ -8,15 +8,17 @@ public interface ListTransferVolumeSnapshotsResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1;</code>
+   * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1 [json_name = "transferVolumeSnapshots"];</code>
+   * @return Whether the transferVolumeSnapshots field is set.
    */
   boolean hasTransferVolumeSnapshots();
   /**
-   * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1;</code>
+   * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1 [json_name = "transferVolumeSnapshots"];</code>
+   * @return The transferVolumeSnapshots.
    */
   adamant.global.v1.Model.TransferVolumeSnapshots getTransferVolumeSnapshots();
   /**
-   * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1;</code>
+   * <code>.adamant.global.v1.TransferVolumeSnapshots transfer_volume_snapshots = 1 [json_name = "transferVolumeSnapshots"];</code>
    */
   adamant.global.v1.Model.TransferVolumeSnapshotsOrBuilder getTransferVolumeSnapshotsOrBuilder();
 }

@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListWalletBalanceSnapshotsResponse}
  */
-public  final class ListWalletBalanceSnapshotsResponse extends
+public final class ListWalletBalanceSnapshotsResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListWalletBalanceSnapshotsResponse)
     ListWalletBalanceSnapshotsResponseOrBuilder {
@@ -96,20 +96,25 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_BALANCE_SNAPSHOT_MAP_FIELD_NUMBER = 1;
   private adamant.global.v1.Model.WalletBalanceSnapshotMap walletBalanceSnapshotMap_;
   /**
-   * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1;</code>
+   * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1 [json_name = "walletBalanceSnapshotMap"];</code>
+   * @return Whether the walletBalanceSnapshotMap field is set.
    */
+  @java.lang.Override
   public boolean hasWalletBalanceSnapshotMap() {
     return walletBalanceSnapshotMap_ != null;
   }
   /**
-   * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1;</code>
+   * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1 [json_name = "walletBalanceSnapshotMap"];</code>
+   * @return The walletBalanceSnapshotMap.
    */
+  @java.lang.Override
   public adamant.global.v1.Model.WalletBalanceSnapshotMap getWalletBalanceSnapshotMap() {
     return walletBalanceSnapshotMap_ == null ? adamant.global.v1.Model.WalletBalanceSnapshotMap.getDefaultInstance() : walletBalanceSnapshotMap_;
   }
   /**
-   * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1;</code>
+   * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1 [json_name = "walletBalanceSnapshotMap"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.WalletBalanceSnapshotMapOrBuilder getWalletBalanceSnapshotMapOrBuilder() {
     return getWalletBalanceSnapshotMap();
   }
@@ -433,13 +438,15 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         adamant.global.v1.Model.WalletBalanceSnapshotMap, adamant.global.v1.Model.WalletBalanceSnapshotMap.Builder, adamant.global.v1.Model.WalletBalanceSnapshotMapOrBuilder> walletBalanceSnapshotMapBuilder_;
     /**
-     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1;</code>
+     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1 [json_name = "walletBalanceSnapshotMap"];</code>
+     * @return Whether the walletBalanceSnapshotMap field is set.
      */
     public boolean hasWalletBalanceSnapshotMap() {
       return walletBalanceSnapshotMapBuilder_ != null || walletBalanceSnapshotMap_ != null;
     }
     /**
-     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1;</code>
+     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1 [json_name = "walletBalanceSnapshotMap"];</code>
+     * @return The walletBalanceSnapshotMap.
      */
     public adamant.global.v1.Model.WalletBalanceSnapshotMap getWalletBalanceSnapshotMap() {
       if (walletBalanceSnapshotMapBuilder_ == null) {
@@ -449,7 +456,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1;</code>
+     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1 [json_name = "walletBalanceSnapshotMap"];</code>
      */
     public Builder setWalletBalanceSnapshotMap(adamant.global.v1.Model.WalletBalanceSnapshotMap value) {
       if (walletBalanceSnapshotMapBuilder_ == null) {
@@ -465,7 +472,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1;</code>
+     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1 [json_name = "walletBalanceSnapshotMap"];</code>
      */
     public Builder setWalletBalanceSnapshotMap(
         adamant.global.v1.Model.WalletBalanceSnapshotMap.Builder builderForValue) {
@@ -479,7 +486,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1;</code>
+     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1 [json_name = "walletBalanceSnapshotMap"];</code>
      */
     public Builder mergeWalletBalanceSnapshotMap(adamant.global.v1.Model.WalletBalanceSnapshotMap value) {
       if (walletBalanceSnapshotMapBuilder_ == null) {
@@ -497,7 +504,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1;</code>
+     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1 [json_name = "walletBalanceSnapshotMap"];</code>
      */
     public Builder clearWalletBalanceSnapshotMap() {
       if (walletBalanceSnapshotMapBuilder_ == null) {
@@ -511,7 +518,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1;</code>
+     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1 [json_name = "walletBalanceSnapshotMap"];</code>
      */
     public adamant.global.v1.Model.WalletBalanceSnapshotMap.Builder getWalletBalanceSnapshotMapBuilder() {
       
@@ -519,7 +526,7 @@ private static final long serialVersionUID = 0L;
       return getWalletBalanceSnapshotMapFieldBuilder().getBuilder();
     }
     /**
-     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1;</code>
+     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1 [json_name = "walletBalanceSnapshotMap"];</code>
      */
     public adamant.global.v1.Model.WalletBalanceSnapshotMapOrBuilder getWalletBalanceSnapshotMapOrBuilder() {
       if (walletBalanceSnapshotMapBuilder_ != null) {
@@ -530,7 +537,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1;</code>
+     * <code>.adamant.global.v1.WalletBalanceSnapshotMap wallet_balance_snapshot_map = 1 [json_name = "walletBalanceSnapshotMap"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         adamant.global.v1.Model.WalletBalanceSnapshotMap, adamant.global.v1.Model.WalletBalanceSnapshotMap.Builder, adamant.global.v1.Model.WalletBalanceSnapshotMapOrBuilder> 

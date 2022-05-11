@@ -12,7 +12,8 @@ public interface GetRateSnapshotRequestOrBuilder extends
    * The id of rate-snapshot
    * </pre>
    *
-   * <code>string rate_snapshot_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string rate_snapshot_id = 1 [json_name = "rateSnapshotId", (.validate.rules) = { ... }</code>
+   * @return The rateSnapshotId.
    */
   java.lang.String getRateSnapshotId();
   /**
@@ -20,7 +21,8 @@ public interface GetRateSnapshotRequestOrBuilder extends
    * The id of rate-snapshot
    * </pre>
    *
-   * <code>string rate_snapshot_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string rate_snapshot_id = 1 [json_name = "rateSnapshotId", (.validate.rules) = { ... }</code>
+   * @return The bytes for rateSnapshotId.
    */
   com.google.protobuf.ByteString
       getRateSnapshotIdBytes();

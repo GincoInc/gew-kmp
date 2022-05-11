@@ -8,35 +8,37 @@ public interface ListAddressesResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.Address addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.Address addresses = 1 [json_name = "addresses"];</code>
    */
   java.util.List<adamant.global.v1.Model.Address> 
       getAddressesList();
   /**
-   * <code>repeated .adamant.global.v1.Address addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.Address addresses = 1 [json_name = "addresses"];</code>
    */
   adamant.global.v1.Model.Address getAddresses(int index);
   /**
-   * <code>repeated .adamant.global.v1.Address addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.Address addresses = 1 [json_name = "addresses"];</code>
    */
   int getAddressesCount();
   /**
-   * <code>repeated .adamant.global.v1.Address addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.Address addresses = 1 [json_name = "addresses"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.AddressOrBuilder> 
       getAddressesOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.Address addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.Address addresses = 1 [json_name = "addresses"];</code>
    */
   adamant.global.v1.Model.AddressOrBuilder getAddressesOrBuilder(
       int index);
 
   /**
-   * <code>string next_page_token = 2;</code>
+   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+   * @return The nextPageToken.
    */
   java.lang.String getNextPageToken();
   /**
-   * <code>string next_page_token = 2;</code>
+   * <code>string next_page_token = 2 [json_name = "nextPageToken"];</code>
+   * @return The bytes for nextPageToken.
    */
   com.google.protobuf.ByteString
       getNextPageTokenBytes();

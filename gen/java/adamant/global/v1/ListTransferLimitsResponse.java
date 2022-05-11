@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListTransferLimitsResponse}
  */
-public  final class ListTransferLimitsResponse extends
+public final class ListTransferLimitsResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListTransferLimitsResponse)
     ListTransferLimitsResponseOrBuilder {
@@ -97,33 +97,38 @@ private static final long serialVersionUID = 0L;
   public static final int TRANSFER_LIMITS_FIELD_NUMBER = 1;
   private java.util.List<adamant.global.v1.Model.TransferLimit> transferLimits_;
   /**
-   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.TransferLimit> getTransferLimitsList() {
     return transferLimits_;
   }
   /**
-   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.TransferLimitOrBuilder> 
       getTransferLimitsOrBuilderList() {
     return transferLimits_;
   }
   /**
-   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
    */
+  @java.lang.Override
   public int getTransferLimitsCount() {
     return transferLimits_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.TransferLimit getTransferLimits(int index) {
     return transferLimits_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.TransferLimitOrBuilder getTransferLimitsOrBuilder(
       int index) {
     return transferLimits_.get(index);
@@ -484,7 +489,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.TransferLimit, adamant.global.v1.Model.TransferLimit.Builder, adamant.global.v1.Model.TransferLimitOrBuilder> transferLimitsBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public java.util.List<adamant.global.v1.Model.TransferLimit> getTransferLimitsList() {
       if (transferLimitsBuilder_ == null) {
@@ -494,7 +499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public int getTransferLimitsCount() {
       if (transferLimitsBuilder_ == null) {
@@ -504,7 +509,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public adamant.global.v1.Model.TransferLimit getTransferLimits(int index) {
       if (transferLimitsBuilder_ == null) {
@@ -514,7 +519,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public Builder setTransferLimits(
         int index, adamant.global.v1.Model.TransferLimit value) {
@@ -531,7 +536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public Builder setTransferLimits(
         int index, adamant.global.v1.Model.TransferLimit.Builder builderForValue) {
@@ -545,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public Builder addTransferLimits(adamant.global.v1.Model.TransferLimit value) {
       if (transferLimitsBuilder_ == null) {
@@ -561,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public Builder addTransferLimits(
         int index, adamant.global.v1.Model.TransferLimit value) {
@@ -578,7 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public Builder addTransferLimits(
         adamant.global.v1.Model.TransferLimit.Builder builderForValue) {
@@ -592,7 +597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public Builder addTransferLimits(
         int index, adamant.global.v1.Model.TransferLimit.Builder builderForValue) {
@@ -606,7 +611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public Builder addAllTransferLimits(
         java.lang.Iterable<? extends adamant.global.v1.Model.TransferLimit> values) {
@@ -621,7 +626,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public Builder clearTransferLimits() {
       if (transferLimitsBuilder_ == null) {
@@ -634,7 +639,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public Builder removeTransferLimits(int index) {
       if (transferLimitsBuilder_ == null) {
@@ -647,14 +652,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public adamant.global.v1.Model.TransferLimit.Builder getTransferLimitsBuilder(
         int index) {
       return getTransferLimitsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public adamant.global.v1.Model.TransferLimitOrBuilder getTransferLimitsOrBuilder(
         int index) {
@@ -664,7 +669,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.TransferLimitOrBuilder> 
          getTransferLimitsOrBuilderList() {
@@ -675,14 +680,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public adamant.global.v1.Model.TransferLimit.Builder addTransferLimitsBuilder() {
       return getTransferLimitsFieldBuilder().addBuilder(
           adamant.global.v1.Model.TransferLimit.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public adamant.global.v1.Model.TransferLimit.Builder addTransferLimitsBuilder(
         int index) {
@@ -690,7 +695,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.TransferLimit.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+     * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
      */
     public java.util.List<adamant.global.v1.Model.TransferLimit.Builder> 
          getTransferLimitsBuilderList() {

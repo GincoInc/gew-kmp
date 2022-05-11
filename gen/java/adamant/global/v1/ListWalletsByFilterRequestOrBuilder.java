@@ -8,11 +8,13 @@ public interface ListWalletsByFilterRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.adamant.global.v1.ListFilterType filter_type = 1 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.ListFilterType filter_type = 1 [json_name = "filterType", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for filterType.
    */
   int getFilterTypeValue();
   /**
-   * <code>.adamant.global.v1.ListFilterType filter_type = 1 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.ListFilterType filter_type = 1 [json_name = "filterType", (.validate.rules) = { ... }</code>
+   * @return The filterType.
    */
   adamant.global.v1.Enum.ListFilterType getFilterType();
 
@@ -21,7 +23,8 @@ public interface ListWalletsByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string wallet_id = 2;</code>
+   * <code>string wallet_id = 2 [json_name = "walletId"];</code>
+   * @return The walletId.
    */
   java.lang.String getWalletId();
   /**
@@ -29,7 +32,8 @@ public interface ListWalletsByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string wallet_id = 2;</code>
+   * <code>string wallet_id = 2 [json_name = "walletId"];</code>
+   * @return The bytes for walletId.
    */
   com.google.protobuf.ByteString
       getWalletIdBytes();
@@ -39,7 +43,8 @@ public interface ListWalletsByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string wallet_name = 3 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_name = 3 [json_name = "walletName", (.validate.rules) = { ... }</code>
+   * @return The walletName.
    */
   java.lang.String getWalletName();
   /**
@@ -47,7 +52,8 @@ public interface ListWalletsByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string wallet_name = 3 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_name = 3 [json_name = "walletName", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletName.
    */
   com.google.protobuf.ByteString
       getWalletNameBytes();
@@ -57,7 +63,8 @@ public interface ListWalletsByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string address = 4;</code>
+   * <code>string address = 4 [json_name = "address"];</code>
+   * @return The address.
    */
   java.lang.String getAddress();
   /**
@@ -65,7 +72,8 @@ public interface ListWalletsByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string address = 4;</code>
+   * <code>string address = 4 [json_name = "address"];</code>
+   * @return The bytes for address.
    */
   com.google.protobuf.ByteString
       getAddressBytes();
@@ -75,7 +83,8 @@ public interface ListWalletsByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>bool watch_only = 10;</code>
+   * <code>bool watch_only = 10 [json_name = "watchOnly"];</code>
+   * @return The watchOnly.
    */
   boolean getWatchOnly();
 
@@ -84,7 +93,8 @@ public interface ListWalletsByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>.gincoinc.global.v1.Coin coin = 5 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 5 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
    */
   int getCoinValue();
   /**
@@ -92,51 +102,66 @@ public interface ListWalletsByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>.gincoinc.global.v1.Coin coin = 5 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 5 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
    */
   gincoinc.global.v1.Enum.Coin getCoin();
 
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 6;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 6 [json_name = "walletType"];</code>
+   * @return A list containing the walletType.
    */
   java.util.List<adamant.global.v1.Enum.WalletType> getWalletTypeList();
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 6;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 6 [json_name = "walletType"];</code>
+   * @return The count of walletType.
    */
   int getWalletTypeCount();
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 6;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 6 [json_name = "walletType"];</code>
+   * @param index The index of the element to return.
+   * @return The walletType at the given index.
    */
   adamant.global.v1.Enum.WalletType getWalletType(int index);
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 6;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 6 [json_name = "walletType"];</code>
+   * @return A list containing the enum numeric values on the wire for walletType.
    */
   java.util.List<java.lang.Integer>
   getWalletTypeValueList();
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 6;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 6 [json_name = "walletType"];</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of walletType at the given index.
    */
   int getWalletTypeValue(int index);
 
   /**
-   * <code>repeated .adamant.global.v1.WalletState wallet_state = 7;</code>
+   * <code>repeated .adamant.global.v1.WalletState wallet_state = 7 [json_name = "walletState"];</code>
+   * @return A list containing the walletState.
    */
   java.util.List<adamant.global.v1.Enum.WalletState> getWalletStateList();
   /**
-   * <code>repeated .adamant.global.v1.WalletState wallet_state = 7;</code>
+   * <code>repeated .adamant.global.v1.WalletState wallet_state = 7 [json_name = "walletState"];</code>
+   * @return The count of walletState.
    */
   int getWalletStateCount();
   /**
-   * <code>repeated .adamant.global.v1.WalletState wallet_state = 7;</code>
+   * <code>repeated .adamant.global.v1.WalletState wallet_state = 7 [json_name = "walletState"];</code>
+   * @param index The index of the element to return.
+   * @return The walletState at the given index.
    */
   adamant.global.v1.Enum.WalletState getWalletState(int index);
   /**
-   * <code>repeated .adamant.global.v1.WalletState wallet_state = 7;</code>
+   * <code>repeated .adamant.global.v1.WalletState wallet_state = 7 [json_name = "walletState"];</code>
+   * @return A list containing the enum numeric values on the wire for walletState.
    */
   java.util.List<java.lang.Integer>
   getWalletStateValueList();
   /**
-   * <code>repeated .adamant.global.v1.WalletState wallet_state = 7;</code>
+   * <code>repeated .adamant.global.v1.WalletState wallet_state = 7 [json_name = "walletState"];</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of walletState at the given index.
    */
   int getWalletStateValue(int index);
 
@@ -145,7 +170,8 @@ public interface ListWalletsByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>uint32 page_size = 8 [(.validate.rules) = { ... }</code>
+   * <code>uint32 page_size = 8 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+   * @return The pageSize.
    */
   int getPageSize();
 
@@ -154,7 +180,8 @@ public interface ListWalletsByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string page_token = 9 [(.validate.rules) = { ... }</code>
+   * <code>string page_token = 9 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The pageToken.
    */
   java.lang.String getPageToken();
   /**
@@ -162,7 +189,8 @@ public interface ListWalletsByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
-   * <code>string page_token = 9 [(.validate.rules) = { ... }</code>
+   * <code>string page_token = 9 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The bytes for pageToken.
    */
   com.google.protobuf.ByteString
       getPageTokenBytes();

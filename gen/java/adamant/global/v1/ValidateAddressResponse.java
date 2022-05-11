@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ValidateAddressResponse}
  */
-public  final class ValidateAddressResponse extends
+public final class ValidateAddressResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ValidateAddressResponse)
     ValidateAddressResponseOrBuilder {
@@ -92,8 +92,10 @@ private static final long serialVersionUID = 0L;
    * The flag which indicates given address is valid or not
    * </pre>
    *
-   * <code>bool valid = 1;</code>
+   * <code>bool valid = 1 [json_name = "valid"];</code>
+   * @return The valid.
    */
+  @java.lang.Override
   public boolean getValid() {
     return valid_;
   }
@@ -407,8 +409,10 @@ private static final long serialVersionUID = 0L;
      * The flag which indicates given address is valid or not
      * </pre>
      *
-     * <code>bool valid = 1;</code>
+     * <code>bool valid = 1 [json_name = "valid"];</code>
+     * @return The valid.
      */
+    @java.lang.Override
     public boolean getValid() {
       return valid_;
     }
@@ -417,7 +421,9 @@ private static final long serialVersionUID = 0L;
      * The flag which indicates given address is valid or not
      * </pre>
      *
-     * <code>bool valid = 1;</code>
+     * <code>bool valid = 1 [json_name = "valid"];</code>
+     * @param value The valid to set.
+     * @return This builder for chaining.
      */
     public Builder setValid(boolean value) {
       
@@ -430,7 +436,8 @@ private static final long serialVersionUID = 0L;
      * The flag which indicates given address is valid or not
      * </pre>
      *
-     * <code>bool valid = 1;</code>
+     * <code>bool valid = 1 [json_name = "valid"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearValid() {
       

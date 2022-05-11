@@ -8,11 +8,13 @@ public interface DeleteEventTriggeredMessageRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+   * @return The eventTriggeredMessageId.
    */
   java.lang.String getEventTriggeredMessageId();
   /**
-   * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+   * @return The bytes for eventTriggeredMessageId.
    */
   com.google.protobuf.ByteString
       getEventTriggeredMessageIdBytes();

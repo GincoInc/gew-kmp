@@ -8,25 +8,25 @@ public interface ListWalletFlushSettingsResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
    */
   java.util.List<adamant.global.v1.Model.WalletFlushSetting> 
       getWalletFlushSettingsList();
   /**
-   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
    */
   adamant.global.v1.Model.WalletFlushSetting getWalletFlushSettings(int index);
   /**
-   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
    */
   int getWalletFlushSettingsCount();
   /**
-   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.WalletFlushSettingOrBuilder> 
       getWalletFlushSettingsOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
    */
   adamant.global.v1.Model.WalletFlushSettingOrBuilder getWalletFlushSettingsOrBuilder(
       int index);

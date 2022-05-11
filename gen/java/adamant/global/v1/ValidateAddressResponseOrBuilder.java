@@ -12,7 +12,8 @@ public interface ValidateAddressResponseOrBuilder extends
    * The flag which indicates given address is valid or not
    * </pre>
    *
-   * <code>bool valid = 1;</code>
+   * <code>bool valid = 1 [json_name = "valid"];</code>
+   * @return The valid.
    */
   boolean getValid();
 }

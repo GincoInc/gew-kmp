@@ -19,120 +19,214 @@ public final class Event {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string wallet_id = 1;</code>
+     * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+     * @return The walletId.
      */
     java.lang.String getWalletId();
     /**
-     * <code>string wallet_id = 1;</code>
+     * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+     * @return The bytes for walletId.
      */
     com.google.protobuf.ByteString
         getWalletIdBytes();
 
     /**
-     * <code>string transfer_id = 2;</code>
+     * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+     * @return The transferId.
      */
     java.lang.String getTransferId();
     /**
-     * <code>string transfer_id = 2;</code>
+     * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+     * @return The bytes for transferId.
      */
     com.google.protobuf.ByteString
         getTransferIdBytes();
 
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 3;</code>
+     * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin"];</code>
+     * @return The enum numeric value on the wire for coin.
      */
     int getCoinValue();
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 3;</code>
+     * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin"];</code>
+     * @return The coin.
      */
     gincoinc.global.v1.Enum.Coin getCoin();
 
     /**
-     * <code>string tx_id = 4;</code>
+     * <code>string tx_id = 4 [json_name = "txId"];</code>
+     * @return The txId.
      */
     java.lang.String getTxId();
     /**
-     * <code>string tx_id = 4;</code>
+     * <code>string tx_id = 4 [json_name = "txId"];</code>
+     * @return The bytes for txId.
      */
     com.google.protobuf.ByteString
         getTxIdBytes();
 
     /**
-     * <code>uint32 tx_index = 5;</code>
+     * <code>uint32 tx_index = 5 [json_name = "txIndex"];</code>
+     * @return The txIndex.
      */
     int getTxIndex();
 
     /**
-     * <code>double value = 6;</code>
+     * <code>double value = 6 [json_name = "value"];</code>
+     * @return The value.
      */
     double getValue();
 
     /**
-     * <code>string string_value = 7;</code>
+     * <code>string string_value = 7 [json_name = "stringValue"];</code>
+     * @return The stringValue.
      */
     java.lang.String getStringValue();
     /**
-     * <code>string string_value = 7;</code>
+     * <code>string string_value = 7 [json_name = "stringValue"];</code>
+     * @return The bytes for stringValue.
      */
     com.google.protobuf.ByteString
         getStringValueBytes();
 
     /**
-     * <code>double jpy_rate = 8;</code>
+     * <code>double jpy_rate = 8 [json_name = "jpyRate"];</code>
+     * @return The jpyRate.
      */
     double getJpyRate();
 
     /**
-     * <code>string address = 9;</code>
+     * <code>string address = 9 [json_name = "address", deprecated = true];</code>
+     * @deprecated
+     * @return The address.
      */
-    java.lang.String getAddress();
+    @java.lang.Deprecated java.lang.String getAddress();
     /**
-     * <code>string address = 9;</code>
+     * <code>string address = 9 [json_name = "address", deprecated = true];</code>
+     * @deprecated
+     * @return The bytes for address.
      */
-    com.google.protobuf.ByteString
+    @java.lang.Deprecated com.google.protobuf.ByteString
         getAddressBytes();
 
     /**
-     * <code>uint32 destination_tag = 10;</code>
+     * <code>uint32 destination_tag = 10 [json_name = "destinationTag"];</code>
+     * @return The destinationTag.
      */
     int getDestinationTag();
 
     /**
-     * <code>uint64 memo_id = 14;</code>
+     * <code>uint64 memo_id = 14 [json_name = "memoId"];</code>
+     * @return The memoId.
      */
     long getMemoId();
 
     /**
-     * <code>.gincoinc.global.v1.TransactionState state = 11;</code>
+     * <code>.gincoinc.global.v1.TransactionState state = 11 [json_name = "state"];</code>
+     * @return The enum numeric value on the wire for state.
      */
     int getStateValue();
     /**
-     * <code>.gincoinc.global.v1.TransactionState state = 11;</code>
+     * <code>.gincoinc.global.v1.TransactionState state = 11 [json_name = "state"];</code>
+     * @return The state.
      */
     gincoinc.global.v1.Enum.TransactionState getState();
 
     /**
-     * <code>.gincoinc.global.v1.TransactionResult result = 12;</code>
+     * <code>.gincoinc.global.v1.TransactionResult result = 12 [json_name = "result"];</code>
+     * @return The enum numeric value on the wire for result.
      */
     int getResultValue();
     /**
-     * <code>.gincoinc.global.v1.TransactionResult result = 12;</code>
+     * <code>.gincoinc.global.v1.TransactionResult result = 12 [json_name = "result"];</code>
+     * @return The result.
      */
     gincoinc.global.v1.Enum.TransactionResult getResult();
 
     /**
-     * <code>.gincoinc.global.v1.TransferType transfer_type = 13;</code>
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 13 [json_name = "transferType"];</code>
+     * @return The enum numeric value on the wire for transferType.
      */
     int getTransferTypeValue();
     /**
-     * <code>.gincoinc.global.v1.TransferType transfer_type = 13;</code>
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 13 [json_name = "transferType"];</code>
+     * @return The transferType.
      */
     gincoinc.global.v1.Enum.TransferType getTransferType();
+
+    /**
+     * <code>string from = 15 [json_name = "from"];</code>
+     * @return The from.
+     */
+    java.lang.String getFrom();
+    /**
+     * <code>string from = 15 [json_name = "from"];</code>
+     * @return The bytes for from.
+     */
+    com.google.protobuf.ByteString
+        getFromBytes();
+
+    /**
+     * <code>string to = 16 [json_name = "to"];</code>
+     * @return The to.
+     */
+    java.lang.String getTo();
+    /**
+     * <code>string to = 16 [json_name = "to"];</code>
+     * @return The bytes for to.
+     */
+    com.google.protobuf.ByteString
+        getToBytes();
+
+    /**
+     * <code>.google.protobuf.Timestamp time = 17 [json_name = "time"];</code>
+     * @return Whether the time field is set.
+     */
+    boolean hasTime();
+    /**
+     * <code>.google.protobuf.Timestamp time = 17 [json_name = "time"];</code>
+     * @return The time.
+     */
+    com.google.protobuf.Timestamp getTime();
+    /**
+     * <code>.google.protobuf.Timestamp time = 17 [json_name = "time"];</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getTimeOrBuilder();
+
+    /**
+     * <code>string event_id = 18 [json_name = "eventId"];</code>
+     * @return The eventId.
+     */
+    java.lang.String getEventId();
+    /**
+     * <code>string event_id = 18 [json_name = "eventId"];</code>
+     * @return The bytes for eventId.
+     */
+    com.google.protobuf.ByteString
+        getEventIdBytes();
+
+    /**
+     * <code>double fee = 19 [json_name = "fee"];</code>
+     * @return The fee.
+     */
+    double getFee();
+
+    /**
+     * <code>string string_fee = 20 [json_name = "stringFee"];</code>
+     * @return The stringFee.
+     */
+    java.lang.String getStringFee();
+    /**
+     * <code>string string_fee = 20 [json_name = "stringFee"];</code>
+     * @return The bytes for stringFee.
+     */
+    com.google.protobuf.ByteString
+        getStringFeeBytes();
   }
   /**
    * Protobuf type {@code adamant.teller.v1.TransferUpdated}
    */
-  public  static final class TransferUpdated extends
+  public static final class TransferUpdated extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:adamant.teller.v1.TransferUpdated)
       TransferUpdatedOrBuilder {
@@ -151,6 +245,10 @@ public final class Event {
       state_ = 0;
       result_ = 0;
       transferType_ = 0;
+      from_ = "";
+      to_ = "";
+      eventId_ = "";
+      stringFee_ = "";
     }
 
     @java.lang.Override
@@ -262,6 +360,48 @@ public final class Event {
               memoId_ = input.readUInt64();
               break;
             }
+            case 122: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              from_ = s;
+              break;
+            }
+            case 130: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              to_ = s;
+              break;
+            }
+            case 138: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (time_ != null) {
+                subBuilder = time_.toBuilder();
+              }
+              time_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(time_);
+                time_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 146: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              eventId_ = s;
+              break;
+            }
+            case 153: {
+
+              fee_ = input.readDouble();
+              break;
+            }
+            case 162: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              stringFee_ = s;
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -297,8 +437,10 @@ public final class Event {
     public static final int WALLET_ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object walletId_;
     /**
-     * <code>string wallet_id = 1;</code>
+     * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+     * @return The walletId.
      */
+    @java.lang.Override
     public java.lang.String getWalletId() {
       java.lang.Object ref = walletId_;
       if (ref instanceof java.lang.String) {
@@ -312,8 +454,10 @@ public final class Event {
       }
     }
     /**
-     * <code>string wallet_id = 1;</code>
+     * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+     * @return The bytes for walletId.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getWalletIdBytes() {
       java.lang.Object ref = walletId_;
@@ -331,8 +475,10 @@ public final class Event {
     public static final int TRANSFER_ID_FIELD_NUMBER = 2;
     private volatile java.lang.Object transferId_;
     /**
-     * <code>string transfer_id = 2;</code>
+     * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+     * @return The transferId.
      */
+    @java.lang.Override
     public java.lang.String getTransferId() {
       java.lang.Object ref = transferId_;
       if (ref instanceof java.lang.String) {
@@ -346,8 +492,10 @@ public final class Event {
       }
     }
     /**
-     * <code>string transfer_id = 2;</code>
+     * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+     * @return The bytes for transferId.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getTransferIdBytes() {
       java.lang.Object ref = transferId_;
@@ -365,15 +513,17 @@ public final class Event {
     public static final int COIN_FIELD_NUMBER = 3;
     private int coin_;
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 3;</code>
+     * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin"];</code>
+     * @return The enum numeric value on the wire for coin.
      */
-    public int getCoinValue() {
+    @java.lang.Override public int getCoinValue() {
       return coin_;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 3;</code>
+     * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin"];</code>
+     * @return The coin.
      */
-    public gincoinc.global.v1.Enum.Coin getCoin() {
+    @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
       @SuppressWarnings("deprecation")
       gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
       return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
@@ -382,8 +532,10 @@ public final class Event {
     public static final int TX_ID_FIELD_NUMBER = 4;
     private volatile java.lang.Object txId_;
     /**
-     * <code>string tx_id = 4;</code>
+     * <code>string tx_id = 4 [json_name = "txId"];</code>
+     * @return The txId.
      */
+    @java.lang.Override
     public java.lang.String getTxId() {
       java.lang.Object ref = txId_;
       if (ref instanceof java.lang.String) {
@@ -397,8 +549,10 @@ public final class Event {
       }
     }
     /**
-     * <code>string tx_id = 4;</code>
+     * <code>string tx_id = 4 [json_name = "txId"];</code>
+     * @return The bytes for txId.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getTxIdBytes() {
       java.lang.Object ref = txId_;
@@ -416,8 +570,10 @@ public final class Event {
     public static final int TX_INDEX_FIELD_NUMBER = 5;
     private int txIndex_;
     /**
-     * <code>uint32 tx_index = 5;</code>
+     * <code>uint32 tx_index = 5 [json_name = "txIndex"];</code>
+     * @return The txIndex.
      */
+    @java.lang.Override
     public int getTxIndex() {
       return txIndex_;
     }
@@ -425,8 +581,10 @@ public final class Event {
     public static final int VALUE_FIELD_NUMBER = 6;
     private double value_;
     /**
-     * <code>double value = 6;</code>
+     * <code>double value = 6 [json_name = "value"];</code>
+     * @return The value.
      */
+    @java.lang.Override
     public double getValue() {
       return value_;
     }
@@ -434,8 +592,10 @@ public final class Event {
     public static final int STRING_VALUE_FIELD_NUMBER = 7;
     private volatile java.lang.Object stringValue_;
     /**
-     * <code>string string_value = 7;</code>
+     * <code>string string_value = 7 [json_name = "stringValue"];</code>
+     * @return The stringValue.
      */
+    @java.lang.Override
     public java.lang.String getStringValue() {
       java.lang.Object ref = stringValue_;
       if (ref instanceof java.lang.String) {
@@ -449,8 +609,10 @@ public final class Event {
       }
     }
     /**
-     * <code>string string_value = 7;</code>
+     * <code>string string_value = 7 [json_name = "stringValue"];</code>
+     * @return The bytes for stringValue.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getStringValueBytes() {
       java.lang.Object ref = stringValue_;
@@ -468,8 +630,10 @@ public final class Event {
     public static final int JPY_RATE_FIELD_NUMBER = 8;
     private double jpyRate_;
     /**
-     * <code>double jpy_rate = 8;</code>
+     * <code>double jpy_rate = 8 [json_name = "jpyRate"];</code>
+     * @return The jpyRate.
      */
+    @java.lang.Override
     public double getJpyRate() {
       return jpyRate_;
     }
@@ -477,9 +641,12 @@ public final class Event {
     public static final int ADDRESS_FIELD_NUMBER = 9;
     private volatile java.lang.Object address_;
     /**
-     * <code>string address = 9;</code>
+     * <code>string address = 9 [json_name = "address", deprecated = true];</code>
+     * @deprecated
+     * @return The address.
      */
-    public java.lang.String getAddress() {
+    @java.lang.Override
+    @java.lang.Deprecated public java.lang.String getAddress() {
       java.lang.Object ref = address_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
@@ -492,9 +659,12 @@ public final class Event {
       }
     }
     /**
-     * <code>string address = 9;</code>
+     * <code>string address = 9 [json_name = "address", deprecated = true];</code>
+     * @deprecated
+     * @return The bytes for address.
      */
-    public com.google.protobuf.ByteString
+    @java.lang.Override
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getAddressBytes() {
       java.lang.Object ref = address_;
       if (ref instanceof java.lang.String) {
@@ -511,8 +681,10 @@ public final class Event {
     public static final int DESTINATION_TAG_FIELD_NUMBER = 10;
     private int destinationTag_;
     /**
-     * <code>uint32 destination_tag = 10;</code>
+     * <code>uint32 destination_tag = 10 [json_name = "destinationTag"];</code>
+     * @return The destinationTag.
      */
+    @java.lang.Override
     public int getDestinationTag() {
       return destinationTag_;
     }
@@ -520,8 +692,10 @@ public final class Event {
     public static final int MEMO_ID_FIELD_NUMBER = 14;
     private long memoId_;
     /**
-     * <code>uint64 memo_id = 14;</code>
+     * <code>uint64 memo_id = 14 [json_name = "memoId"];</code>
+     * @return The memoId.
      */
+    @java.lang.Override
     public long getMemoId() {
       return memoId_;
     }
@@ -529,15 +703,17 @@ public final class Event {
     public static final int STATE_FIELD_NUMBER = 11;
     private int state_;
     /**
-     * <code>.gincoinc.global.v1.TransactionState state = 11;</code>
+     * <code>.gincoinc.global.v1.TransactionState state = 11 [json_name = "state"];</code>
+     * @return The enum numeric value on the wire for state.
      */
-    public int getStateValue() {
+    @java.lang.Override public int getStateValue() {
       return state_;
     }
     /**
-     * <code>.gincoinc.global.v1.TransactionState state = 11;</code>
+     * <code>.gincoinc.global.v1.TransactionState state = 11 [json_name = "state"];</code>
+     * @return The state.
      */
-    public gincoinc.global.v1.Enum.TransactionState getState() {
+    @java.lang.Override public gincoinc.global.v1.Enum.TransactionState getState() {
       @SuppressWarnings("deprecation")
       gincoinc.global.v1.Enum.TransactionState result = gincoinc.global.v1.Enum.TransactionState.valueOf(state_);
       return result == null ? gincoinc.global.v1.Enum.TransactionState.UNRECOGNIZED : result;
@@ -546,15 +722,17 @@ public final class Event {
     public static final int RESULT_FIELD_NUMBER = 12;
     private int result_;
     /**
-     * <code>.gincoinc.global.v1.TransactionResult result = 12;</code>
+     * <code>.gincoinc.global.v1.TransactionResult result = 12 [json_name = "result"];</code>
+     * @return The enum numeric value on the wire for result.
      */
-    public int getResultValue() {
+    @java.lang.Override public int getResultValue() {
       return result_;
     }
     /**
-     * <code>.gincoinc.global.v1.TransactionResult result = 12;</code>
+     * <code>.gincoinc.global.v1.TransactionResult result = 12 [json_name = "result"];</code>
+     * @return The result.
      */
-    public gincoinc.global.v1.Enum.TransactionResult getResult() {
+    @java.lang.Override public gincoinc.global.v1.Enum.TransactionResult getResult() {
       @SuppressWarnings("deprecation")
       gincoinc.global.v1.Enum.TransactionResult result = gincoinc.global.v1.Enum.TransactionResult.valueOf(result_);
       return result == null ? gincoinc.global.v1.Enum.TransactionResult.UNRECOGNIZED : result;
@@ -563,18 +741,209 @@ public final class Event {
     public static final int TRANSFER_TYPE_FIELD_NUMBER = 13;
     private int transferType_;
     /**
-     * <code>.gincoinc.global.v1.TransferType transfer_type = 13;</code>
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 13 [json_name = "transferType"];</code>
+     * @return The enum numeric value on the wire for transferType.
      */
-    public int getTransferTypeValue() {
+    @java.lang.Override public int getTransferTypeValue() {
       return transferType_;
     }
     /**
-     * <code>.gincoinc.global.v1.TransferType transfer_type = 13;</code>
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 13 [json_name = "transferType"];</code>
+     * @return The transferType.
      */
-    public gincoinc.global.v1.Enum.TransferType getTransferType() {
+    @java.lang.Override public gincoinc.global.v1.Enum.TransferType getTransferType() {
       @SuppressWarnings("deprecation")
       gincoinc.global.v1.Enum.TransferType result = gincoinc.global.v1.Enum.TransferType.valueOf(transferType_);
       return result == null ? gincoinc.global.v1.Enum.TransferType.UNRECOGNIZED : result;
+    }
+
+    public static final int FROM_FIELD_NUMBER = 15;
+    private volatile java.lang.Object from_;
+    /**
+     * <code>string from = 15 [json_name = "from"];</code>
+     * @return The from.
+     */
+    @java.lang.Override
+    public java.lang.String getFrom() {
+      java.lang.Object ref = from_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        from_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string from = 15 [json_name = "from"];</code>
+     * @return The bytes for from.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFromBytes() {
+      java.lang.Object ref = from_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        from_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TO_FIELD_NUMBER = 16;
+    private volatile java.lang.Object to_;
+    /**
+     * <code>string to = 16 [json_name = "to"];</code>
+     * @return The to.
+     */
+    @java.lang.Override
+    public java.lang.String getTo() {
+      java.lang.Object ref = to_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        to_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string to = 16 [json_name = "to"];</code>
+     * @return The bytes for to.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getToBytes() {
+      java.lang.Object ref = to_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        to_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIME_FIELD_NUMBER = 17;
+    private com.google.protobuf.Timestamp time_;
+    /**
+     * <code>.google.protobuf.Timestamp time = 17 [json_name = "time"];</code>
+     * @return Whether the time field is set.
+     */
+    @java.lang.Override
+    public boolean hasTime() {
+      return time_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp time = 17 [json_name = "time"];</code>
+     * @return The time.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getTime() {
+      return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp time = 17 [json_name = "time"];</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
+      return getTime();
+    }
+
+    public static final int EVENT_ID_FIELD_NUMBER = 18;
+    private volatile java.lang.Object eventId_;
+    /**
+     * <code>string event_id = 18 [json_name = "eventId"];</code>
+     * @return The eventId.
+     */
+    @java.lang.Override
+    public java.lang.String getEventId() {
+      java.lang.Object ref = eventId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        eventId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string event_id = 18 [json_name = "eventId"];</code>
+     * @return The bytes for eventId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getEventIdBytes() {
+      java.lang.Object ref = eventId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        eventId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FEE_FIELD_NUMBER = 19;
+    private double fee_;
+    /**
+     * <code>double fee = 19 [json_name = "fee"];</code>
+     * @return The fee.
+     */
+    @java.lang.Override
+    public double getFee() {
+      return fee_;
+    }
+
+    public static final int STRING_FEE_FIELD_NUMBER = 20;
+    private volatile java.lang.Object stringFee_;
+    /**
+     * <code>string string_fee = 20 [json_name = "stringFee"];</code>
+     * @return The stringFee.
+     */
+    @java.lang.Override
+    public java.lang.String getStringFee() {
+      java.lang.Object ref = stringFee_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        stringFee_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string string_fee = 20 [json_name = "stringFee"];</code>
+     * @return The bytes for stringFee.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getStringFeeBytes() {
+      java.lang.Object ref = stringFee_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        stringFee_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -591,31 +960,31 @@ public final class Event {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getWalletIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletId_);
       }
-      if (!getTransferIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transferId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, transferId_);
       }
       if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
         output.writeEnum(3, coin_);
       }
-      if (!getTxIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(txId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, txId_);
       }
       if (txIndex_ != 0) {
         output.writeUInt32(5, txIndex_);
       }
-      if (value_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(value_) != 0) {
         output.writeDouble(6, value_);
       }
-      if (!getStringValueBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringValue_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, stringValue_);
       }
-      if (jpyRate_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(jpyRate_) != 0) {
         output.writeDouble(8, jpyRate_);
       }
-      if (!getAddressBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 9, address_);
       }
       if (destinationTag_ != 0) {
@@ -633,6 +1002,24 @@ public final class Event {
       if (memoId_ != 0L) {
         output.writeUInt64(14, memoId_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(from_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, from_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(to_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 16, to_);
+      }
+      if (time_ != null) {
+        output.writeMessage(17, getTime());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(eventId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 18, eventId_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(fee_) != 0) {
+        output.writeDouble(19, fee_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringFee_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 20, stringFee_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -642,35 +1029,35 @@ public final class Event {
       if (size != -1) return size;
 
       size = 0;
-      if (!getWalletIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletId_);
       }
-      if (!getTransferIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transferId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, transferId_);
       }
       if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, coin_);
       }
-      if (!getTxIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(txId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, txId_);
       }
       if (txIndex_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(5, txIndex_);
       }
-      if (value_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(value_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(6, value_);
       }
-      if (!getStringValueBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringValue_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, stringValue_);
       }
-      if (jpyRate_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(jpyRate_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(8, jpyRate_);
       }
-      if (!getAddressBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, address_);
       }
       if (destinationTag_ != 0) {
@@ -692,6 +1079,26 @@ public final class Event {
       if (memoId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(14, memoId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(from_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, from_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(to_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, to_);
+      }
+      if (time_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(17, getTime());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(eventId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(18, eventId_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(fee_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(19, fee_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringFee_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, stringFee_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -734,6 +1141,22 @@ public final class Event {
       if (state_ != other.state_) return false;
       if (result_ != other.result_) return false;
       if (transferType_ != other.transferType_) return false;
+      if (!getFrom()
+          .equals(other.getFrom())) return false;
+      if (!getTo()
+          .equals(other.getTo())) return false;
+      if (hasTime() != other.hasTime()) return false;
+      if (hasTime()) {
+        if (!getTime()
+            .equals(other.getTime())) return false;
+      }
+      if (!getEventId()
+          .equals(other.getEventId())) return false;
+      if (java.lang.Double.doubleToLongBits(getFee())
+          != java.lang.Double.doubleToLongBits(
+              other.getFee())) return false;
+      if (!getStringFee()
+          .equals(other.getStringFee())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -776,6 +1199,21 @@ public final class Event {
       hash = (53 * hash) + result_;
       hash = (37 * hash) + TRANSFER_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + transferType_;
+      hash = (37 * hash) + FROM_FIELD_NUMBER;
+      hash = (53 * hash) + getFrom().hashCode();
+      hash = (37 * hash) + TO_FIELD_NUMBER;
+      hash = (53 * hash) + getTo().hashCode();
+      if (hasTime()) {
+        hash = (37 * hash) + TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getTime().hashCode();
+      }
+      hash = (37 * hash) + EVENT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getEventId().hashCode();
+      hash = (37 * hash) + FEE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getFee()));
+      hash = (37 * hash) + STRING_FEE_FIELD_NUMBER;
+      hash = (53 * hash) + getStringFee().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -937,6 +1375,22 @@ public final class Event {
 
         transferType_ = 0;
 
+        from_ = "";
+
+        to_ = "";
+
+        if (timeBuilder_ == null) {
+          time_ = null;
+        } else {
+          time_ = null;
+          timeBuilder_ = null;
+        }
+        eventId_ = "";
+
+        fee_ = 0D;
+
+        stringFee_ = "";
+
         return this;
       }
 
@@ -977,6 +1431,16 @@ public final class Event {
         result.state_ = state_;
         result.result_ = result_;
         result.transferType_ = transferType_;
+        result.from_ = from_;
+        result.to_ = to_;
+        if (timeBuilder_ == null) {
+          result.time_ = time_;
+        } else {
+          result.time_ = timeBuilder_.build();
+        }
+        result.eventId_ = eventId_;
+        result.fee_ = fee_;
+        result.stringFee_ = stringFee_;
         onBuilt();
         return result;
       }
@@ -1072,6 +1536,28 @@ public final class Event {
         if (other.transferType_ != 0) {
           setTransferTypeValue(other.getTransferTypeValue());
         }
+        if (!other.getFrom().isEmpty()) {
+          from_ = other.from_;
+          onChanged();
+        }
+        if (!other.getTo().isEmpty()) {
+          to_ = other.to_;
+          onChanged();
+        }
+        if (other.hasTime()) {
+          mergeTime(other.getTime());
+        }
+        if (!other.getEventId().isEmpty()) {
+          eventId_ = other.eventId_;
+          onChanged();
+        }
+        if (other.getFee() != 0D) {
+          setFee(other.getFee());
+        }
+        if (!other.getStringFee().isEmpty()) {
+          stringFee_ = other.stringFee_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -1103,7 +1589,8 @@ public final class Event {
 
       private java.lang.Object walletId_ = "";
       /**
-       * <code>string wallet_id = 1;</code>
+       * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+       * @return The walletId.
        */
       public java.lang.String getWalletId() {
         java.lang.Object ref = walletId_;
@@ -1118,7 +1605,8 @@ public final class Event {
         }
       }
       /**
-       * <code>string wallet_id = 1;</code>
+       * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+       * @return The bytes for walletId.
        */
       public com.google.protobuf.ByteString
           getWalletIdBytes() {
@@ -1134,7 +1622,9 @@ public final class Event {
         }
       }
       /**
-       * <code>string wallet_id = 1;</code>
+       * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+       * @param value The walletId to set.
+       * @return This builder for chaining.
        */
       public Builder setWalletId(
           java.lang.String value) {
@@ -1147,7 +1637,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string wallet_id = 1;</code>
+       * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearWalletId() {
         
@@ -1156,7 +1647,9 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string wallet_id = 1;</code>
+       * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+       * @param value The bytes for walletId to set.
+       * @return This builder for chaining.
        */
       public Builder setWalletIdBytes(
           com.google.protobuf.ByteString value) {
@@ -1172,7 +1665,8 @@ public final class Event {
 
       private java.lang.Object transferId_ = "";
       /**
-       * <code>string transfer_id = 2;</code>
+       * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+       * @return The transferId.
        */
       public java.lang.String getTransferId() {
         java.lang.Object ref = transferId_;
@@ -1187,7 +1681,8 @@ public final class Event {
         }
       }
       /**
-       * <code>string transfer_id = 2;</code>
+       * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+       * @return The bytes for transferId.
        */
       public com.google.protobuf.ByteString
           getTransferIdBytes() {
@@ -1203,7 +1698,9 @@ public final class Event {
         }
       }
       /**
-       * <code>string transfer_id = 2;</code>
+       * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+       * @param value The transferId to set.
+       * @return This builder for chaining.
        */
       public Builder setTransferId(
           java.lang.String value) {
@@ -1216,7 +1713,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string transfer_id = 2;</code>
+       * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearTransferId() {
         
@@ -1225,7 +1723,9 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string transfer_id = 2;</code>
+       * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+       * @param value The bytes for transferId to set.
+       * @return This builder for chaining.
        */
       public Builder setTransferIdBytes(
           com.google.protobuf.ByteString value) {
@@ -1241,29 +1741,37 @@ public final class Event {
 
       private int coin_ = 0;
       /**
-       * <code>.gincoinc.global.v1.Coin coin = 3;</code>
+       * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin"];</code>
+       * @return The enum numeric value on the wire for coin.
        */
-      public int getCoinValue() {
+      @java.lang.Override public int getCoinValue() {
         return coin_;
       }
       /**
-       * <code>.gincoinc.global.v1.Coin coin = 3;</code>
+       * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin"];</code>
+       * @param value The enum numeric value on the wire for coin to set.
+       * @return This builder for chaining.
        */
       public Builder setCoinValue(int value) {
+        
         coin_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.gincoinc.global.v1.Coin coin = 3;</code>
+       * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin"];</code>
+       * @return The coin.
        */
+      @java.lang.Override
       public gincoinc.global.v1.Enum.Coin getCoin() {
         @SuppressWarnings("deprecation")
         gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
         return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
       }
       /**
-       * <code>.gincoinc.global.v1.Coin coin = 3;</code>
+       * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin"];</code>
+       * @param value The coin to set.
+       * @return This builder for chaining.
        */
       public Builder setCoin(gincoinc.global.v1.Enum.Coin value) {
         if (value == null) {
@@ -1275,7 +1783,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>.gincoinc.global.v1.Coin coin = 3;</code>
+       * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearCoin() {
         
@@ -1286,7 +1795,8 @@ public final class Event {
 
       private java.lang.Object txId_ = "";
       /**
-       * <code>string tx_id = 4;</code>
+       * <code>string tx_id = 4 [json_name = "txId"];</code>
+       * @return The txId.
        */
       public java.lang.String getTxId() {
         java.lang.Object ref = txId_;
@@ -1301,7 +1811,8 @@ public final class Event {
         }
       }
       /**
-       * <code>string tx_id = 4;</code>
+       * <code>string tx_id = 4 [json_name = "txId"];</code>
+       * @return The bytes for txId.
        */
       public com.google.protobuf.ByteString
           getTxIdBytes() {
@@ -1317,7 +1828,9 @@ public final class Event {
         }
       }
       /**
-       * <code>string tx_id = 4;</code>
+       * <code>string tx_id = 4 [json_name = "txId"];</code>
+       * @param value The txId to set.
+       * @return This builder for chaining.
        */
       public Builder setTxId(
           java.lang.String value) {
@@ -1330,7 +1843,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string tx_id = 4;</code>
+       * <code>string tx_id = 4 [json_name = "txId"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearTxId() {
         
@@ -1339,7 +1853,9 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string tx_id = 4;</code>
+       * <code>string tx_id = 4 [json_name = "txId"];</code>
+       * @param value The bytes for txId to set.
+       * @return This builder for chaining.
        */
       public Builder setTxIdBytes(
           com.google.protobuf.ByteString value) {
@@ -1355,13 +1871,17 @@ public final class Event {
 
       private int txIndex_ ;
       /**
-       * <code>uint32 tx_index = 5;</code>
+       * <code>uint32 tx_index = 5 [json_name = "txIndex"];</code>
+       * @return The txIndex.
        */
+      @java.lang.Override
       public int getTxIndex() {
         return txIndex_;
       }
       /**
-       * <code>uint32 tx_index = 5;</code>
+       * <code>uint32 tx_index = 5 [json_name = "txIndex"];</code>
+       * @param value The txIndex to set.
+       * @return This builder for chaining.
        */
       public Builder setTxIndex(int value) {
         
@@ -1370,7 +1890,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>uint32 tx_index = 5;</code>
+       * <code>uint32 tx_index = 5 [json_name = "txIndex"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearTxIndex() {
         
@@ -1381,13 +1902,17 @@ public final class Event {
 
       private double value_ ;
       /**
-       * <code>double value = 6;</code>
+       * <code>double value = 6 [json_name = "value"];</code>
+       * @return The value.
        */
+      @java.lang.Override
       public double getValue() {
         return value_;
       }
       /**
-       * <code>double value = 6;</code>
+       * <code>double value = 6 [json_name = "value"];</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
        */
       public Builder setValue(double value) {
         
@@ -1396,7 +1921,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>double value = 6;</code>
+       * <code>double value = 6 [json_name = "value"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -1407,7 +1933,8 @@ public final class Event {
 
       private java.lang.Object stringValue_ = "";
       /**
-       * <code>string string_value = 7;</code>
+       * <code>string string_value = 7 [json_name = "stringValue"];</code>
+       * @return The stringValue.
        */
       public java.lang.String getStringValue() {
         java.lang.Object ref = stringValue_;
@@ -1422,7 +1949,8 @@ public final class Event {
         }
       }
       /**
-       * <code>string string_value = 7;</code>
+       * <code>string string_value = 7 [json_name = "stringValue"];</code>
+       * @return The bytes for stringValue.
        */
       public com.google.protobuf.ByteString
           getStringValueBytes() {
@@ -1438,7 +1966,9 @@ public final class Event {
         }
       }
       /**
-       * <code>string string_value = 7;</code>
+       * <code>string string_value = 7 [json_name = "stringValue"];</code>
+       * @param value The stringValue to set.
+       * @return This builder for chaining.
        */
       public Builder setStringValue(
           java.lang.String value) {
@@ -1451,7 +1981,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string string_value = 7;</code>
+       * <code>string string_value = 7 [json_name = "stringValue"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearStringValue() {
         
@@ -1460,7 +1991,9 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string string_value = 7;</code>
+       * <code>string string_value = 7 [json_name = "stringValue"];</code>
+       * @param value The bytes for stringValue to set.
+       * @return This builder for chaining.
        */
       public Builder setStringValueBytes(
           com.google.protobuf.ByteString value) {
@@ -1476,13 +2009,17 @@ public final class Event {
 
       private double jpyRate_ ;
       /**
-       * <code>double jpy_rate = 8;</code>
+       * <code>double jpy_rate = 8 [json_name = "jpyRate"];</code>
+       * @return The jpyRate.
        */
+      @java.lang.Override
       public double getJpyRate() {
         return jpyRate_;
       }
       /**
-       * <code>double jpy_rate = 8;</code>
+       * <code>double jpy_rate = 8 [json_name = "jpyRate"];</code>
+       * @param value The jpyRate to set.
+       * @return This builder for chaining.
        */
       public Builder setJpyRate(double value) {
         
@@ -1491,7 +2028,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>double jpy_rate = 8;</code>
+       * <code>double jpy_rate = 8 [json_name = "jpyRate"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearJpyRate() {
         
@@ -1502,9 +2040,11 @@ public final class Event {
 
       private java.lang.Object address_ = "";
       /**
-       * <code>string address = 9;</code>
+       * <code>string address = 9 [json_name = "address", deprecated = true];</code>
+       * @deprecated
+       * @return The address.
        */
-      public java.lang.String getAddress() {
+      @java.lang.Deprecated public java.lang.String getAddress() {
         java.lang.Object ref = address_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
@@ -1517,9 +2057,11 @@ public final class Event {
         }
       }
       /**
-       * <code>string address = 9;</code>
+       * <code>string address = 9 [json_name = "address", deprecated = true];</code>
+       * @deprecated
+       * @return The bytes for address.
        */
-      public com.google.protobuf.ByteString
+      @java.lang.Deprecated public com.google.protobuf.ByteString
           getAddressBytes() {
         java.lang.Object ref = address_;
         if (ref instanceof String) {
@@ -1533,9 +2075,12 @@ public final class Event {
         }
       }
       /**
-       * <code>string address = 9;</code>
+       * <code>string address = 9 [json_name = "address", deprecated = true];</code>
+       * @deprecated
+       * @param value The address to set.
+       * @return This builder for chaining.
        */
-      public Builder setAddress(
+      @java.lang.Deprecated public Builder setAddress(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
@@ -1546,18 +2091,23 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string address = 9;</code>
+       * <code>string address = 9 [json_name = "address", deprecated = true];</code>
+       * @deprecated
+       * @return This builder for chaining.
        */
-      public Builder clearAddress() {
+      @java.lang.Deprecated public Builder clearAddress() {
         
         address_ = getDefaultInstance().getAddress();
         onChanged();
         return this;
       }
       /**
-       * <code>string address = 9;</code>
+       * <code>string address = 9 [json_name = "address", deprecated = true];</code>
+       * @deprecated
+       * @param value The bytes for address to set.
+       * @return This builder for chaining.
        */
-      public Builder setAddressBytes(
+      @java.lang.Deprecated public Builder setAddressBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -1571,13 +2121,17 @@ public final class Event {
 
       private int destinationTag_ ;
       /**
-       * <code>uint32 destination_tag = 10;</code>
+       * <code>uint32 destination_tag = 10 [json_name = "destinationTag"];</code>
+       * @return The destinationTag.
        */
+      @java.lang.Override
       public int getDestinationTag() {
         return destinationTag_;
       }
       /**
-       * <code>uint32 destination_tag = 10;</code>
+       * <code>uint32 destination_tag = 10 [json_name = "destinationTag"];</code>
+       * @param value The destinationTag to set.
+       * @return This builder for chaining.
        */
       public Builder setDestinationTag(int value) {
         
@@ -1586,7 +2140,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>uint32 destination_tag = 10;</code>
+       * <code>uint32 destination_tag = 10 [json_name = "destinationTag"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearDestinationTag() {
         
@@ -1597,13 +2152,17 @@ public final class Event {
 
       private long memoId_ ;
       /**
-       * <code>uint64 memo_id = 14;</code>
+       * <code>uint64 memo_id = 14 [json_name = "memoId"];</code>
+       * @return The memoId.
        */
+      @java.lang.Override
       public long getMemoId() {
         return memoId_;
       }
       /**
-       * <code>uint64 memo_id = 14;</code>
+       * <code>uint64 memo_id = 14 [json_name = "memoId"];</code>
+       * @param value The memoId to set.
+       * @return This builder for chaining.
        */
       public Builder setMemoId(long value) {
         
@@ -1612,7 +2171,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>uint64 memo_id = 14;</code>
+       * <code>uint64 memo_id = 14 [json_name = "memoId"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearMemoId() {
         
@@ -1623,29 +2183,37 @@ public final class Event {
 
       private int state_ = 0;
       /**
-       * <code>.gincoinc.global.v1.TransactionState state = 11;</code>
+       * <code>.gincoinc.global.v1.TransactionState state = 11 [json_name = "state"];</code>
+       * @return The enum numeric value on the wire for state.
        */
-      public int getStateValue() {
+      @java.lang.Override public int getStateValue() {
         return state_;
       }
       /**
-       * <code>.gincoinc.global.v1.TransactionState state = 11;</code>
+       * <code>.gincoinc.global.v1.TransactionState state = 11 [json_name = "state"];</code>
+       * @param value The enum numeric value on the wire for state to set.
+       * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
+        
         state_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.gincoinc.global.v1.TransactionState state = 11;</code>
+       * <code>.gincoinc.global.v1.TransactionState state = 11 [json_name = "state"];</code>
+       * @return The state.
        */
+      @java.lang.Override
       public gincoinc.global.v1.Enum.TransactionState getState() {
         @SuppressWarnings("deprecation")
         gincoinc.global.v1.Enum.TransactionState result = gincoinc.global.v1.Enum.TransactionState.valueOf(state_);
         return result == null ? gincoinc.global.v1.Enum.TransactionState.UNRECOGNIZED : result;
       }
       /**
-       * <code>.gincoinc.global.v1.TransactionState state = 11;</code>
+       * <code>.gincoinc.global.v1.TransactionState state = 11 [json_name = "state"];</code>
+       * @param value The state to set.
+       * @return This builder for chaining.
        */
       public Builder setState(gincoinc.global.v1.Enum.TransactionState value) {
         if (value == null) {
@@ -1657,7 +2225,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>.gincoinc.global.v1.TransactionState state = 11;</code>
+       * <code>.gincoinc.global.v1.TransactionState state = 11 [json_name = "state"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearState() {
         
@@ -1668,29 +2237,37 @@ public final class Event {
 
       private int result_ = 0;
       /**
-       * <code>.gincoinc.global.v1.TransactionResult result = 12;</code>
+       * <code>.gincoinc.global.v1.TransactionResult result = 12 [json_name = "result"];</code>
+       * @return The enum numeric value on the wire for result.
        */
-      public int getResultValue() {
+      @java.lang.Override public int getResultValue() {
         return result_;
       }
       /**
-       * <code>.gincoinc.global.v1.TransactionResult result = 12;</code>
+       * <code>.gincoinc.global.v1.TransactionResult result = 12 [json_name = "result"];</code>
+       * @param value The enum numeric value on the wire for result to set.
+       * @return This builder for chaining.
        */
       public Builder setResultValue(int value) {
+        
         result_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.gincoinc.global.v1.TransactionResult result = 12;</code>
+       * <code>.gincoinc.global.v1.TransactionResult result = 12 [json_name = "result"];</code>
+       * @return The result.
        */
+      @java.lang.Override
       public gincoinc.global.v1.Enum.TransactionResult getResult() {
         @SuppressWarnings("deprecation")
         gincoinc.global.v1.Enum.TransactionResult result = gincoinc.global.v1.Enum.TransactionResult.valueOf(result_);
         return result == null ? gincoinc.global.v1.Enum.TransactionResult.UNRECOGNIZED : result;
       }
       /**
-       * <code>.gincoinc.global.v1.TransactionResult result = 12;</code>
+       * <code>.gincoinc.global.v1.TransactionResult result = 12 [json_name = "result"];</code>
+       * @param value The result to set.
+       * @return This builder for chaining.
        */
       public Builder setResult(gincoinc.global.v1.Enum.TransactionResult value) {
         if (value == null) {
@@ -1702,7 +2279,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>.gincoinc.global.v1.TransactionResult result = 12;</code>
+       * <code>.gincoinc.global.v1.TransactionResult result = 12 [json_name = "result"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearResult() {
         
@@ -1713,29 +2291,37 @@ public final class Event {
 
       private int transferType_ = 0;
       /**
-       * <code>.gincoinc.global.v1.TransferType transfer_type = 13;</code>
+       * <code>.gincoinc.global.v1.TransferType transfer_type = 13 [json_name = "transferType"];</code>
+       * @return The enum numeric value on the wire for transferType.
        */
-      public int getTransferTypeValue() {
+      @java.lang.Override public int getTransferTypeValue() {
         return transferType_;
       }
       /**
-       * <code>.gincoinc.global.v1.TransferType transfer_type = 13;</code>
+       * <code>.gincoinc.global.v1.TransferType transfer_type = 13 [json_name = "transferType"];</code>
+       * @param value The enum numeric value on the wire for transferType to set.
+       * @return This builder for chaining.
        */
       public Builder setTransferTypeValue(int value) {
+        
         transferType_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.gincoinc.global.v1.TransferType transfer_type = 13;</code>
+       * <code>.gincoinc.global.v1.TransferType transfer_type = 13 [json_name = "transferType"];</code>
+       * @return The transferType.
        */
+      @java.lang.Override
       public gincoinc.global.v1.Enum.TransferType getTransferType() {
         @SuppressWarnings("deprecation")
         gincoinc.global.v1.Enum.TransferType result = gincoinc.global.v1.Enum.TransferType.valueOf(transferType_);
         return result == null ? gincoinc.global.v1.Enum.TransferType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.gincoinc.global.v1.TransferType transfer_type = 13;</code>
+       * <code>.gincoinc.global.v1.TransferType transfer_type = 13 [json_name = "transferType"];</code>
+       * @param value The transferType to set.
+       * @return This builder for chaining.
        */
       public Builder setTransferType(gincoinc.global.v1.Enum.TransferType value) {
         if (value == null) {
@@ -1747,11 +2333,466 @@ public final class Event {
         return this;
       }
       /**
-       * <code>.gincoinc.global.v1.TransferType transfer_type = 13;</code>
+       * <code>.gincoinc.global.v1.TransferType transfer_type = 13 [json_name = "transferType"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearTransferType() {
         
         transferType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object from_ = "";
+      /**
+       * <code>string from = 15 [json_name = "from"];</code>
+       * @return The from.
+       */
+      public java.lang.String getFrom() {
+        java.lang.Object ref = from_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          from_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string from = 15 [json_name = "from"];</code>
+       * @return The bytes for from.
+       */
+      public com.google.protobuf.ByteString
+          getFromBytes() {
+        java.lang.Object ref = from_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          from_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string from = 15 [json_name = "from"];</code>
+       * @param value The from to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFrom(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        from_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string from = 15 [json_name = "from"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFrom() {
+        
+        from_ = getDefaultInstance().getFrom();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string from = 15 [json_name = "from"];</code>
+       * @param value The bytes for from to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFromBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        from_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object to_ = "";
+      /**
+       * <code>string to = 16 [json_name = "to"];</code>
+       * @return The to.
+       */
+      public java.lang.String getTo() {
+        java.lang.Object ref = to_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          to_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string to = 16 [json_name = "to"];</code>
+       * @return The bytes for to.
+       */
+      public com.google.protobuf.ByteString
+          getToBytes() {
+        java.lang.Object ref = to_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          to_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string to = 16 [json_name = "to"];</code>
+       * @param value The to to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTo(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        to_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string to = 16 [json_name = "to"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTo() {
+        
+        to_ = getDefaultInstance().getTo();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string to = 16 [json_name = "to"];</code>
+       * @param value The bytes for to to set.
+       * @return This builder for chaining.
+       */
+      public Builder setToBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        to_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Timestamp time_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timeBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp time = 17 [json_name = "time"];</code>
+       * @return Whether the time field is set.
+       */
+      public boolean hasTime() {
+        return timeBuilder_ != null || time_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp time = 17 [json_name = "time"];</code>
+       * @return The time.
+       */
+      public com.google.protobuf.Timestamp getTime() {
+        if (timeBuilder_ == null) {
+          return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
+        } else {
+          return timeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp time = 17 [json_name = "time"];</code>
+       */
+      public Builder setTime(com.google.protobuf.Timestamp value) {
+        if (timeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          time_ = value;
+          onChanged();
+        } else {
+          timeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp time = 17 [json_name = "time"];</code>
+       */
+      public Builder setTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (timeBuilder_ == null) {
+          time_ = builderForValue.build();
+          onChanged();
+        } else {
+          timeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp time = 17 [json_name = "time"];</code>
+       */
+      public Builder mergeTime(com.google.protobuf.Timestamp value) {
+        if (timeBuilder_ == null) {
+          if (time_ != null) {
+            time_ =
+              com.google.protobuf.Timestamp.newBuilder(time_).mergeFrom(value).buildPartial();
+          } else {
+            time_ = value;
+          }
+          onChanged();
+        } else {
+          timeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp time = 17 [json_name = "time"];</code>
+       */
+      public Builder clearTime() {
+        if (timeBuilder_ == null) {
+          time_ = null;
+          onChanged();
+        } else {
+          time_ = null;
+          timeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp time = 17 [json_name = "time"];</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getTimeBuilder() {
+        
+        onChanged();
+        return getTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp time = 17 [json_name = "time"];</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
+        if (timeBuilder_ != null) {
+          return timeBuilder_.getMessageOrBuilder();
+        } else {
+          return time_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : time_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp time = 17 [json_name = "time"];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getTimeFieldBuilder() {
+        if (timeBuilder_ == null) {
+          timeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getTime(),
+                  getParentForChildren(),
+                  isClean());
+          time_ = null;
+        }
+        return timeBuilder_;
+      }
+
+      private java.lang.Object eventId_ = "";
+      /**
+       * <code>string event_id = 18 [json_name = "eventId"];</code>
+       * @return The eventId.
+       */
+      public java.lang.String getEventId() {
+        java.lang.Object ref = eventId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          eventId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string event_id = 18 [json_name = "eventId"];</code>
+       * @return The bytes for eventId.
+       */
+      public com.google.protobuf.ByteString
+          getEventIdBytes() {
+        java.lang.Object ref = eventId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          eventId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string event_id = 18 [json_name = "eventId"];</code>
+       * @param value The eventId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEventId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        eventId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string event_id = 18 [json_name = "eventId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEventId() {
+        
+        eventId_ = getDefaultInstance().getEventId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string event_id = 18 [json_name = "eventId"];</code>
+       * @param value The bytes for eventId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEventIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        eventId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private double fee_ ;
+      /**
+       * <code>double fee = 19 [json_name = "fee"];</code>
+       * @return The fee.
+       */
+      @java.lang.Override
+      public double getFee() {
+        return fee_;
+      }
+      /**
+       * <code>double fee = 19 [json_name = "fee"];</code>
+       * @param value The fee to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFee(double value) {
+        
+        fee_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double fee = 19 [json_name = "fee"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFee() {
+        
+        fee_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object stringFee_ = "";
+      /**
+       * <code>string string_fee = 20 [json_name = "stringFee"];</code>
+       * @return The stringFee.
+       */
+      public java.lang.String getStringFee() {
+        java.lang.Object ref = stringFee_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          stringFee_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string string_fee = 20 [json_name = "stringFee"];</code>
+       * @return The bytes for stringFee.
+       */
+      public com.google.protobuf.ByteString
+          getStringFeeBytes() {
+        java.lang.Object ref = stringFee_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          stringFee_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string string_fee = 20 [json_name = "stringFee"];</code>
+       * @param value The stringFee to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStringFee(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        stringFee_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string string_fee = 20 [json_name = "stringFee"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStringFee() {
+        
+        stringFee_ = getDefaultInstance().getStringFee();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string string_fee = 20 [json_name = "stringFee"];</code>
+       * @param value The bytes for stringFee to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStringFeeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        stringFee_ = value;
         onChanged();
         return this;
       }
@@ -1813,126 +2854,151 @@ public final class Event {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string event_id = 1;</code>
+     * <code>string event_id = 1 [json_name = "eventId"];</code>
+     * @return The eventId.
      */
     java.lang.String getEventId();
     /**
-     * <code>string event_id = 1;</code>
+     * <code>string event_id = 1 [json_name = "eventId"];</code>
+     * @return The bytes for eventId.
      */
     com.google.protobuf.ByteString
         getEventIdBytes();
 
     /**
-     * <code>string wallet_id = 14;</code>
+     * <code>string wallet_id = 14 [json_name = "walletId"];</code>
+     * @return The walletId.
      */
     java.lang.String getWalletId();
     /**
-     * <code>string wallet_id = 14;</code>
+     * <code>string wallet_id = 14 [json_name = "walletId"];</code>
+     * @return The bytes for walletId.
      */
     com.google.protobuf.ByteString
         getWalletIdBytes();
 
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 2;</code>
+     * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin"];</code>
+     * @return The enum numeric value on the wire for coin.
      */
     int getCoinValue();
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 2;</code>
+     * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin"];</code>
+     * @return The coin.
      */
     gincoinc.global.v1.Enum.Coin getCoin();
 
     /**
-     * <code>string tx_id = 3;</code>
+     * <code>string tx_id = 3 [json_name = "txId"];</code>
+     * @return The txId.
      */
     java.lang.String getTxId();
     /**
-     * <code>string tx_id = 3;</code>
+     * <code>string tx_id = 3 [json_name = "txId"];</code>
+     * @return The bytes for txId.
      */
     com.google.protobuf.ByteString
         getTxIdBytes();
 
     /**
-     * <code>uint32 tx_index = 4;</code>
+     * <code>uint32 tx_index = 4 [json_name = "txIndex"];</code>
+     * @return The txIndex.
      */
     int getTxIndex();
 
     /**
-     * <code>double value = 5;</code>
+     * <code>double value = 5 [json_name = "value"];</code>
+     * @return The value.
      */
     double getValue();
 
     /**
-     * <code>string string_value = 6;</code>
+     * <code>string string_value = 6 [json_name = "stringValue"];</code>
+     * @return The stringValue.
      */
     java.lang.String getStringValue();
     /**
-     * <code>string string_value = 6;</code>
+     * <code>string string_value = 6 [json_name = "stringValue"];</code>
+     * @return The bytes for stringValue.
      */
     com.google.protobuf.ByteString
         getStringValueBytes();
 
     /**
-     * <code>double jpy_rate = 13;</code>
+     * <code>double jpy_rate = 13 [json_name = "jpyRate"];</code>
+     * @return The jpyRate.
      */
     double getJpyRate();
 
     /**
-     * <code>string address = 7;</code>
+     * <code>string address = 7 [json_name = "address"];</code>
+     * @return The address.
      */
     java.lang.String getAddress();
     /**
-     * <code>string address = 7;</code>
+     * <code>string address = 7 [json_name = "address"];</code>
+     * @return The bytes for address.
      */
     com.google.protobuf.ByteString
         getAddressBytes();
 
     /**
-     * <code>uint32 destination_tag = 8;</code>
+     * <code>uint32 destination_tag = 8 [json_name = "destinationTag"];</code>
+     * @return The destinationTag.
      */
     int getDestinationTag();
 
     /**
-     * <code>uint64 memo_id = 15;</code>
+     * <code>uint64 memo_id = 15 [json_name = "memoId"];</code>
+     * @return The memoId.
      */
     long getMemoId();
 
     /**
-     * <code>.gincoinc.global.v1.TransactionState state = 9;</code>
+     * <code>.gincoinc.global.v1.TransactionState state = 9 [json_name = "state"];</code>
+     * @return The enum numeric value on the wire for state.
      */
     int getStateValue();
     /**
-     * <code>.gincoinc.global.v1.TransactionState state = 9;</code>
+     * <code>.gincoinc.global.v1.TransactionState state = 9 [json_name = "state"];</code>
+     * @return The state.
      */
     gincoinc.global.v1.Enum.TransactionState getState();
 
     /**
-     * <code>.gincoinc.global.v1.TransactionResult result = 10;</code>
+     * <code>.gincoinc.global.v1.TransactionResult result = 10 [json_name = "result"];</code>
+     * @return The enum numeric value on the wire for result.
      */
     int getResultValue();
     /**
-     * <code>.gincoinc.global.v1.TransactionResult result = 10;</code>
+     * <code>.gincoinc.global.v1.TransactionResult result = 10 [json_name = "result"];</code>
+     * @return The result.
      */
     gincoinc.global.v1.Enum.TransactionResult getResult();
 
     /**
-     * <code>.gincoinc.global.v1.TransferType transfer_type = 11;</code>
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 11 [json_name = "transferType"];</code>
+     * @return The enum numeric value on the wire for transferType.
      */
     int getTransferTypeValue();
     /**
-     * <code>.gincoinc.global.v1.TransferType transfer_type = 11;</code>
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 11 [json_name = "transferType"];</code>
+     * @return The transferType.
      */
     gincoinc.global.v1.Enum.TransferType getTransferType();
 
     /**
-     * <code>.google.protobuf.Timestamp time = 12;</code>
+     * <code>.google.protobuf.Timestamp time = 12 [json_name = "time"];</code>
+     * @return Whether the time field is set.
      */
     boolean hasTime();
     /**
-     * <code>.google.protobuf.Timestamp time = 12;</code>
+     * <code>.google.protobuf.Timestamp time = 12 [json_name = "time"];</code>
+     * @return The time.
      */
     com.google.protobuf.Timestamp getTime();
     /**
-     * <code>.google.protobuf.Timestamp time = 12;</code>
+     * <code>.google.protobuf.Timestamp time = 12 [json_name = "time"];</code>
      */
     com.google.protobuf.TimestampOrBuilder getTimeOrBuilder();
   }
@@ -1943,7 +3009,7 @@ public final class Event {
    *
    * Protobuf type {@code adamant.teller.v1.TransferUpdateEvent}
    */
-  public  static final class TransferUpdateEvent extends
+  public static final class TransferUpdateEvent extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:adamant.teller.v1.TransferUpdateEvent)
       TransferUpdateEventOrBuilder {
@@ -2121,8 +3187,10 @@ public final class Event {
     public static final int EVENT_ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object eventId_;
     /**
-     * <code>string event_id = 1;</code>
+     * <code>string event_id = 1 [json_name = "eventId"];</code>
+     * @return The eventId.
      */
+    @java.lang.Override
     public java.lang.String getEventId() {
       java.lang.Object ref = eventId_;
       if (ref instanceof java.lang.String) {
@@ -2136,8 +3204,10 @@ public final class Event {
       }
     }
     /**
-     * <code>string event_id = 1;</code>
+     * <code>string event_id = 1 [json_name = "eventId"];</code>
+     * @return The bytes for eventId.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getEventIdBytes() {
       java.lang.Object ref = eventId_;
@@ -2155,8 +3225,10 @@ public final class Event {
     public static final int WALLET_ID_FIELD_NUMBER = 14;
     private volatile java.lang.Object walletId_;
     /**
-     * <code>string wallet_id = 14;</code>
+     * <code>string wallet_id = 14 [json_name = "walletId"];</code>
+     * @return The walletId.
      */
+    @java.lang.Override
     public java.lang.String getWalletId() {
       java.lang.Object ref = walletId_;
       if (ref instanceof java.lang.String) {
@@ -2170,8 +3242,10 @@ public final class Event {
       }
     }
     /**
-     * <code>string wallet_id = 14;</code>
+     * <code>string wallet_id = 14 [json_name = "walletId"];</code>
+     * @return The bytes for walletId.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getWalletIdBytes() {
       java.lang.Object ref = walletId_;
@@ -2189,15 +3263,17 @@ public final class Event {
     public static final int COIN_FIELD_NUMBER = 2;
     private int coin_;
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 2;</code>
+     * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin"];</code>
+     * @return The enum numeric value on the wire for coin.
      */
-    public int getCoinValue() {
+    @java.lang.Override public int getCoinValue() {
       return coin_;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 2;</code>
+     * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin"];</code>
+     * @return The coin.
      */
-    public gincoinc.global.v1.Enum.Coin getCoin() {
+    @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
       @SuppressWarnings("deprecation")
       gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
       return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
@@ -2206,8 +3282,10 @@ public final class Event {
     public static final int TX_ID_FIELD_NUMBER = 3;
     private volatile java.lang.Object txId_;
     /**
-     * <code>string tx_id = 3;</code>
+     * <code>string tx_id = 3 [json_name = "txId"];</code>
+     * @return The txId.
      */
+    @java.lang.Override
     public java.lang.String getTxId() {
       java.lang.Object ref = txId_;
       if (ref instanceof java.lang.String) {
@@ -2221,8 +3299,10 @@ public final class Event {
       }
     }
     /**
-     * <code>string tx_id = 3;</code>
+     * <code>string tx_id = 3 [json_name = "txId"];</code>
+     * @return The bytes for txId.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getTxIdBytes() {
       java.lang.Object ref = txId_;
@@ -2240,8 +3320,10 @@ public final class Event {
     public static final int TX_INDEX_FIELD_NUMBER = 4;
     private int txIndex_;
     /**
-     * <code>uint32 tx_index = 4;</code>
+     * <code>uint32 tx_index = 4 [json_name = "txIndex"];</code>
+     * @return The txIndex.
      */
+    @java.lang.Override
     public int getTxIndex() {
       return txIndex_;
     }
@@ -2249,8 +3331,10 @@ public final class Event {
     public static final int VALUE_FIELD_NUMBER = 5;
     private double value_;
     /**
-     * <code>double value = 5;</code>
+     * <code>double value = 5 [json_name = "value"];</code>
+     * @return The value.
      */
+    @java.lang.Override
     public double getValue() {
       return value_;
     }
@@ -2258,8 +3342,10 @@ public final class Event {
     public static final int STRING_VALUE_FIELD_NUMBER = 6;
     private volatile java.lang.Object stringValue_;
     /**
-     * <code>string string_value = 6;</code>
+     * <code>string string_value = 6 [json_name = "stringValue"];</code>
+     * @return The stringValue.
      */
+    @java.lang.Override
     public java.lang.String getStringValue() {
       java.lang.Object ref = stringValue_;
       if (ref instanceof java.lang.String) {
@@ -2273,8 +3359,10 @@ public final class Event {
       }
     }
     /**
-     * <code>string string_value = 6;</code>
+     * <code>string string_value = 6 [json_name = "stringValue"];</code>
+     * @return The bytes for stringValue.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getStringValueBytes() {
       java.lang.Object ref = stringValue_;
@@ -2292,8 +3380,10 @@ public final class Event {
     public static final int JPY_RATE_FIELD_NUMBER = 13;
     private double jpyRate_;
     /**
-     * <code>double jpy_rate = 13;</code>
+     * <code>double jpy_rate = 13 [json_name = "jpyRate"];</code>
+     * @return The jpyRate.
      */
+    @java.lang.Override
     public double getJpyRate() {
       return jpyRate_;
     }
@@ -2301,8 +3391,10 @@ public final class Event {
     public static final int ADDRESS_FIELD_NUMBER = 7;
     private volatile java.lang.Object address_;
     /**
-     * <code>string address = 7;</code>
+     * <code>string address = 7 [json_name = "address"];</code>
+     * @return The address.
      */
+    @java.lang.Override
     public java.lang.String getAddress() {
       java.lang.Object ref = address_;
       if (ref instanceof java.lang.String) {
@@ -2316,8 +3408,10 @@ public final class Event {
       }
     }
     /**
-     * <code>string address = 7;</code>
+     * <code>string address = 7 [json_name = "address"];</code>
+     * @return The bytes for address.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getAddressBytes() {
       java.lang.Object ref = address_;
@@ -2335,8 +3429,10 @@ public final class Event {
     public static final int DESTINATION_TAG_FIELD_NUMBER = 8;
     private int destinationTag_;
     /**
-     * <code>uint32 destination_tag = 8;</code>
+     * <code>uint32 destination_tag = 8 [json_name = "destinationTag"];</code>
+     * @return The destinationTag.
      */
+    @java.lang.Override
     public int getDestinationTag() {
       return destinationTag_;
     }
@@ -2344,8 +3440,10 @@ public final class Event {
     public static final int MEMO_ID_FIELD_NUMBER = 15;
     private long memoId_;
     /**
-     * <code>uint64 memo_id = 15;</code>
+     * <code>uint64 memo_id = 15 [json_name = "memoId"];</code>
+     * @return The memoId.
      */
+    @java.lang.Override
     public long getMemoId() {
       return memoId_;
     }
@@ -2353,15 +3451,17 @@ public final class Event {
     public static final int STATE_FIELD_NUMBER = 9;
     private int state_;
     /**
-     * <code>.gincoinc.global.v1.TransactionState state = 9;</code>
+     * <code>.gincoinc.global.v1.TransactionState state = 9 [json_name = "state"];</code>
+     * @return The enum numeric value on the wire for state.
      */
-    public int getStateValue() {
+    @java.lang.Override public int getStateValue() {
       return state_;
     }
     /**
-     * <code>.gincoinc.global.v1.TransactionState state = 9;</code>
+     * <code>.gincoinc.global.v1.TransactionState state = 9 [json_name = "state"];</code>
+     * @return The state.
      */
-    public gincoinc.global.v1.Enum.TransactionState getState() {
+    @java.lang.Override public gincoinc.global.v1.Enum.TransactionState getState() {
       @SuppressWarnings("deprecation")
       gincoinc.global.v1.Enum.TransactionState result = gincoinc.global.v1.Enum.TransactionState.valueOf(state_);
       return result == null ? gincoinc.global.v1.Enum.TransactionState.UNRECOGNIZED : result;
@@ -2370,15 +3470,17 @@ public final class Event {
     public static final int RESULT_FIELD_NUMBER = 10;
     private int result_;
     /**
-     * <code>.gincoinc.global.v1.TransactionResult result = 10;</code>
+     * <code>.gincoinc.global.v1.TransactionResult result = 10 [json_name = "result"];</code>
+     * @return The enum numeric value on the wire for result.
      */
-    public int getResultValue() {
+    @java.lang.Override public int getResultValue() {
       return result_;
     }
     /**
-     * <code>.gincoinc.global.v1.TransactionResult result = 10;</code>
+     * <code>.gincoinc.global.v1.TransactionResult result = 10 [json_name = "result"];</code>
+     * @return The result.
      */
-    public gincoinc.global.v1.Enum.TransactionResult getResult() {
+    @java.lang.Override public gincoinc.global.v1.Enum.TransactionResult getResult() {
       @SuppressWarnings("deprecation")
       gincoinc.global.v1.Enum.TransactionResult result = gincoinc.global.v1.Enum.TransactionResult.valueOf(result_);
       return result == null ? gincoinc.global.v1.Enum.TransactionResult.UNRECOGNIZED : result;
@@ -2387,15 +3489,17 @@ public final class Event {
     public static final int TRANSFER_TYPE_FIELD_NUMBER = 11;
     private int transferType_;
     /**
-     * <code>.gincoinc.global.v1.TransferType transfer_type = 11;</code>
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 11 [json_name = "transferType"];</code>
+     * @return The enum numeric value on the wire for transferType.
      */
-    public int getTransferTypeValue() {
+    @java.lang.Override public int getTransferTypeValue() {
       return transferType_;
     }
     /**
-     * <code>.gincoinc.global.v1.TransferType transfer_type = 11;</code>
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 11 [json_name = "transferType"];</code>
+     * @return The transferType.
      */
-    public gincoinc.global.v1.Enum.TransferType getTransferType() {
+    @java.lang.Override public gincoinc.global.v1.Enum.TransferType getTransferType() {
       @SuppressWarnings("deprecation")
       gincoinc.global.v1.Enum.TransferType result = gincoinc.global.v1.Enum.TransferType.valueOf(transferType_);
       return result == null ? gincoinc.global.v1.Enum.TransferType.UNRECOGNIZED : result;
@@ -2404,20 +3508,25 @@ public final class Event {
     public static final int TIME_FIELD_NUMBER = 12;
     private com.google.protobuf.Timestamp time_;
     /**
-     * <code>.google.protobuf.Timestamp time = 12;</code>
+     * <code>.google.protobuf.Timestamp time = 12 [json_name = "time"];</code>
+     * @return Whether the time field is set.
      */
+    @java.lang.Override
     public boolean hasTime() {
       return time_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp time = 12;</code>
+     * <code>.google.protobuf.Timestamp time = 12 [json_name = "time"];</code>
+     * @return The time.
      */
+    @java.lang.Override
     public com.google.protobuf.Timestamp getTime() {
       return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
     }
     /**
-     * <code>.google.protobuf.Timestamp time = 12;</code>
+     * <code>.google.protobuf.Timestamp time = 12 [json_name = "time"];</code>
      */
+    @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
       return getTime();
     }
@@ -2436,25 +3545,25 @@ public final class Event {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getEventIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(eventId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, eventId_);
       }
       if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
         output.writeEnum(2, coin_);
       }
-      if (!getTxIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(txId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, txId_);
       }
       if (txIndex_ != 0) {
         output.writeUInt32(4, txIndex_);
       }
-      if (value_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(value_) != 0) {
         output.writeDouble(5, value_);
       }
-      if (!getStringValueBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringValue_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, stringValue_);
       }
-      if (!getAddressBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, address_);
       }
       if (destinationTag_ != 0) {
@@ -2472,10 +3581,10 @@ public final class Event {
       if (time_ != null) {
         output.writeMessage(12, getTime());
       }
-      if (jpyRate_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(jpyRate_) != 0) {
         output.writeDouble(13, jpyRate_);
       }
-      if (!getWalletIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 14, walletId_);
       }
       if (memoId_ != 0L) {
@@ -2490,28 +3599,28 @@ public final class Event {
       if (size != -1) return size;
 
       size = 0;
-      if (!getEventIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(eventId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, eventId_);
       }
       if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, coin_);
       }
-      if (!getTxIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(txId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, txId_);
       }
       if (txIndex_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(4, txIndex_);
       }
-      if (value_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(value_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(5, value_);
       }
-      if (!getStringValueBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringValue_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, stringValue_);
       }
-      if (!getAddressBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, address_);
       }
       if (destinationTag_ != 0) {
@@ -2534,11 +3643,11 @@ public final class Event {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(12, getTime());
       }
-      if (jpyRate_ != 0D) {
+      if (java.lang.Double.doubleToRawLongBits(jpyRate_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(13, jpyRate_);
       }
-      if (!getWalletIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, walletId_);
       }
       if (memoId_ != 0L) {
@@ -2982,7 +4091,8 @@ public final class Event {
 
       private java.lang.Object eventId_ = "";
       /**
-       * <code>string event_id = 1;</code>
+       * <code>string event_id = 1 [json_name = "eventId"];</code>
+       * @return The eventId.
        */
       public java.lang.String getEventId() {
         java.lang.Object ref = eventId_;
@@ -2997,7 +4107,8 @@ public final class Event {
         }
       }
       /**
-       * <code>string event_id = 1;</code>
+       * <code>string event_id = 1 [json_name = "eventId"];</code>
+       * @return The bytes for eventId.
        */
       public com.google.protobuf.ByteString
           getEventIdBytes() {
@@ -3013,7 +4124,9 @@ public final class Event {
         }
       }
       /**
-       * <code>string event_id = 1;</code>
+       * <code>string event_id = 1 [json_name = "eventId"];</code>
+       * @param value The eventId to set.
+       * @return This builder for chaining.
        */
       public Builder setEventId(
           java.lang.String value) {
@@ -3026,7 +4139,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string event_id = 1;</code>
+       * <code>string event_id = 1 [json_name = "eventId"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearEventId() {
         
@@ -3035,7 +4149,9 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string event_id = 1;</code>
+       * <code>string event_id = 1 [json_name = "eventId"];</code>
+       * @param value The bytes for eventId to set.
+       * @return This builder for chaining.
        */
       public Builder setEventIdBytes(
           com.google.protobuf.ByteString value) {
@@ -3051,7 +4167,8 @@ public final class Event {
 
       private java.lang.Object walletId_ = "";
       /**
-       * <code>string wallet_id = 14;</code>
+       * <code>string wallet_id = 14 [json_name = "walletId"];</code>
+       * @return The walletId.
        */
       public java.lang.String getWalletId() {
         java.lang.Object ref = walletId_;
@@ -3066,7 +4183,8 @@ public final class Event {
         }
       }
       /**
-       * <code>string wallet_id = 14;</code>
+       * <code>string wallet_id = 14 [json_name = "walletId"];</code>
+       * @return The bytes for walletId.
        */
       public com.google.protobuf.ByteString
           getWalletIdBytes() {
@@ -3082,7 +4200,9 @@ public final class Event {
         }
       }
       /**
-       * <code>string wallet_id = 14;</code>
+       * <code>string wallet_id = 14 [json_name = "walletId"];</code>
+       * @param value The walletId to set.
+       * @return This builder for chaining.
        */
       public Builder setWalletId(
           java.lang.String value) {
@@ -3095,7 +4215,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string wallet_id = 14;</code>
+       * <code>string wallet_id = 14 [json_name = "walletId"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearWalletId() {
         
@@ -3104,7 +4225,9 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string wallet_id = 14;</code>
+       * <code>string wallet_id = 14 [json_name = "walletId"];</code>
+       * @param value The bytes for walletId to set.
+       * @return This builder for chaining.
        */
       public Builder setWalletIdBytes(
           com.google.protobuf.ByteString value) {
@@ -3120,29 +4243,37 @@ public final class Event {
 
       private int coin_ = 0;
       /**
-       * <code>.gincoinc.global.v1.Coin coin = 2;</code>
+       * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin"];</code>
+       * @return The enum numeric value on the wire for coin.
        */
-      public int getCoinValue() {
+      @java.lang.Override public int getCoinValue() {
         return coin_;
       }
       /**
-       * <code>.gincoinc.global.v1.Coin coin = 2;</code>
+       * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin"];</code>
+       * @param value The enum numeric value on the wire for coin to set.
+       * @return This builder for chaining.
        */
       public Builder setCoinValue(int value) {
+        
         coin_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.gincoinc.global.v1.Coin coin = 2;</code>
+       * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin"];</code>
+       * @return The coin.
        */
+      @java.lang.Override
       public gincoinc.global.v1.Enum.Coin getCoin() {
         @SuppressWarnings("deprecation")
         gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
         return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
       }
       /**
-       * <code>.gincoinc.global.v1.Coin coin = 2;</code>
+       * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin"];</code>
+       * @param value The coin to set.
+       * @return This builder for chaining.
        */
       public Builder setCoin(gincoinc.global.v1.Enum.Coin value) {
         if (value == null) {
@@ -3154,7 +4285,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>.gincoinc.global.v1.Coin coin = 2;</code>
+       * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearCoin() {
         
@@ -3165,7 +4297,8 @@ public final class Event {
 
       private java.lang.Object txId_ = "";
       /**
-       * <code>string tx_id = 3;</code>
+       * <code>string tx_id = 3 [json_name = "txId"];</code>
+       * @return The txId.
        */
       public java.lang.String getTxId() {
         java.lang.Object ref = txId_;
@@ -3180,7 +4313,8 @@ public final class Event {
         }
       }
       /**
-       * <code>string tx_id = 3;</code>
+       * <code>string tx_id = 3 [json_name = "txId"];</code>
+       * @return The bytes for txId.
        */
       public com.google.protobuf.ByteString
           getTxIdBytes() {
@@ -3196,7 +4330,9 @@ public final class Event {
         }
       }
       /**
-       * <code>string tx_id = 3;</code>
+       * <code>string tx_id = 3 [json_name = "txId"];</code>
+       * @param value The txId to set.
+       * @return This builder for chaining.
        */
       public Builder setTxId(
           java.lang.String value) {
@@ -3209,7 +4345,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string tx_id = 3;</code>
+       * <code>string tx_id = 3 [json_name = "txId"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearTxId() {
         
@@ -3218,7 +4355,9 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string tx_id = 3;</code>
+       * <code>string tx_id = 3 [json_name = "txId"];</code>
+       * @param value The bytes for txId to set.
+       * @return This builder for chaining.
        */
       public Builder setTxIdBytes(
           com.google.protobuf.ByteString value) {
@@ -3234,13 +4373,17 @@ public final class Event {
 
       private int txIndex_ ;
       /**
-       * <code>uint32 tx_index = 4;</code>
+       * <code>uint32 tx_index = 4 [json_name = "txIndex"];</code>
+       * @return The txIndex.
        */
+      @java.lang.Override
       public int getTxIndex() {
         return txIndex_;
       }
       /**
-       * <code>uint32 tx_index = 4;</code>
+       * <code>uint32 tx_index = 4 [json_name = "txIndex"];</code>
+       * @param value The txIndex to set.
+       * @return This builder for chaining.
        */
       public Builder setTxIndex(int value) {
         
@@ -3249,7 +4392,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>uint32 tx_index = 4;</code>
+       * <code>uint32 tx_index = 4 [json_name = "txIndex"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearTxIndex() {
         
@@ -3260,13 +4404,17 @@ public final class Event {
 
       private double value_ ;
       /**
-       * <code>double value = 5;</code>
+       * <code>double value = 5 [json_name = "value"];</code>
+       * @return The value.
        */
+      @java.lang.Override
       public double getValue() {
         return value_;
       }
       /**
-       * <code>double value = 5;</code>
+       * <code>double value = 5 [json_name = "value"];</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
        */
       public Builder setValue(double value) {
         
@@ -3275,7 +4423,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>double value = 5;</code>
+       * <code>double value = 5 [json_name = "value"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearValue() {
         
@@ -3286,7 +4435,8 @@ public final class Event {
 
       private java.lang.Object stringValue_ = "";
       /**
-       * <code>string string_value = 6;</code>
+       * <code>string string_value = 6 [json_name = "stringValue"];</code>
+       * @return The stringValue.
        */
       public java.lang.String getStringValue() {
         java.lang.Object ref = stringValue_;
@@ -3301,7 +4451,8 @@ public final class Event {
         }
       }
       /**
-       * <code>string string_value = 6;</code>
+       * <code>string string_value = 6 [json_name = "stringValue"];</code>
+       * @return The bytes for stringValue.
        */
       public com.google.protobuf.ByteString
           getStringValueBytes() {
@@ -3317,7 +4468,9 @@ public final class Event {
         }
       }
       /**
-       * <code>string string_value = 6;</code>
+       * <code>string string_value = 6 [json_name = "stringValue"];</code>
+       * @param value The stringValue to set.
+       * @return This builder for chaining.
        */
       public Builder setStringValue(
           java.lang.String value) {
@@ -3330,7 +4483,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string string_value = 6;</code>
+       * <code>string string_value = 6 [json_name = "stringValue"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearStringValue() {
         
@@ -3339,7 +4493,9 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string string_value = 6;</code>
+       * <code>string string_value = 6 [json_name = "stringValue"];</code>
+       * @param value The bytes for stringValue to set.
+       * @return This builder for chaining.
        */
       public Builder setStringValueBytes(
           com.google.protobuf.ByteString value) {
@@ -3355,13 +4511,17 @@ public final class Event {
 
       private double jpyRate_ ;
       /**
-       * <code>double jpy_rate = 13;</code>
+       * <code>double jpy_rate = 13 [json_name = "jpyRate"];</code>
+       * @return The jpyRate.
        */
+      @java.lang.Override
       public double getJpyRate() {
         return jpyRate_;
       }
       /**
-       * <code>double jpy_rate = 13;</code>
+       * <code>double jpy_rate = 13 [json_name = "jpyRate"];</code>
+       * @param value The jpyRate to set.
+       * @return This builder for chaining.
        */
       public Builder setJpyRate(double value) {
         
@@ -3370,7 +4530,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>double jpy_rate = 13;</code>
+       * <code>double jpy_rate = 13 [json_name = "jpyRate"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearJpyRate() {
         
@@ -3381,7 +4542,8 @@ public final class Event {
 
       private java.lang.Object address_ = "";
       /**
-       * <code>string address = 7;</code>
+       * <code>string address = 7 [json_name = "address"];</code>
+       * @return The address.
        */
       public java.lang.String getAddress() {
         java.lang.Object ref = address_;
@@ -3396,7 +4558,8 @@ public final class Event {
         }
       }
       /**
-       * <code>string address = 7;</code>
+       * <code>string address = 7 [json_name = "address"];</code>
+       * @return The bytes for address.
        */
       public com.google.protobuf.ByteString
           getAddressBytes() {
@@ -3412,7 +4575,9 @@ public final class Event {
         }
       }
       /**
-       * <code>string address = 7;</code>
+       * <code>string address = 7 [json_name = "address"];</code>
+       * @param value The address to set.
+       * @return This builder for chaining.
        */
       public Builder setAddress(
           java.lang.String value) {
@@ -3425,7 +4590,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string address = 7;</code>
+       * <code>string address = 7 [json_name = "address"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearAddress() {
         
@@ -3434,7 +4600,9 @@ public final class Event {
         return this;
       }
       /**
-       * <code>string address = 7;</code>
+       * <code>string address = 7 [json_name = "address"];</code>
+       * @param value The bytes for address to set.
+       * @return This builder for chaining.
        */
       public Builder setAddressBytes(
           com.google.protobuf.ByteString value) {
@@ -3450,13 +4618,17 @@ public final class Event {
 
       private int destinationTag_ ;
       /**
-       * <code>uint32 destination_tag = 8;</code>
+       * <code>uint32 destination_tag = 8 [json_name = "destinationTag"];</code>
+       * @return The destinationTag.
        */
+      @java.lang.Override
       public int getDestinationTag() {
         return destinationTag_;
       }
       /**
-       * <code>uint32 destination_tag = 8;</code>
+       * <code>uint32 destination_tag = 8 [json_name = "destinationTag"];</code>
+       * @param value The destinationTag to set.
+       * @return This builder for chaining.
        */
       public Builder setDestinationTag(int value) {
         
@@ -3465,7 +4637,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>uint32 destination_tag = 8;</code>
+       * <code>uint32 destination_tag = 8 [json_name = "destinationTag"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearDestinationTag() {
         
@@ -3476,13 +4649,17 @@ public final class Event {
 
       private long memoId_ ;
       /**
-       * <code>uint64 memo_id = 15;</code>
+       * <code>uint64 memo_id = 15 [json_name = "memoId"];</code>
+       * @return The memoId.
        */
+      @java.lang.Override
       public long getMemoId() {
         return memoId_;
       }
       /**
-       * <code>uint64 memo_id = 15;</code>
+       * <code>uint64 memo_id = 15 [json_name = "memoId"];</code>
+       * @param value The memoId to set.
+       * @return This builder for chaining.
        */
       public Builder setMemoId(long value) {
         
@@ -3491,7 +4668,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>uint64 memo_id = 15;</code>
+       * <code>uint64 memo_id = 15 [json_name = "memoId"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearMemoId() {
         
@@ -3502,29 +4680,37 @@ public final class Event {
 
       private int state_ = 0;
       /**
-       * <code>.gincoinc.global.v1.TransactionState state = 9;</code>
+       * <code>.gincoinc.global.v1.TransactionState state = 9 [json_name = "state"];</code>
+       * @return The enum numeric value on the wire for state.
        */
-      public int getStateValue() {
+      @java.lang.Override public int getStateValue() {
         return state_;
       }
       /**
-       * <code>.gincoinc.global.v1.TransactionState state = 9;</code>
+       * <code>.gincoinc.global.v1.TransactionState state = 9 [json_name = "state"];</code>
+       * @param value The enum numeric value on the wire for state to set.
+       * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
+        
         state_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.gincoinc.global.v1.TransactionState state = 9;</code>
+       * <code>.gincoinc.global.v1.TransactionState state = 9 [json_name = "state"];</code>
+       * @return The state.
        */
+      @java.lang.Override
       public gincoinc.global.v1.Enum.TransactionState getState() {
         @SuppressWarnings("deprecation")
         gincoinc.global.v1.Enum.TransactionState result = gincoinc.global.v1.Enum.TransactionState.valueOf(state_);
         return result == null ? gincoinc.global.v1.Enum.TransactionState.UNRECOGNIZED : result;
       }
       /**
-       * <code>.gincoinc.global.v1.TransactionState state = 9;</code>
+       * <code>.gincoinc.global.v1.TransactionState state = 9 [json_name = "state"];</code>
+       * @param value The state to set.
+       * @return This builder for chaining.
        */
       public Builder setState(gincoinc.global.v1.Enum.TransactionState value) {
         if (value == null) {
@@ -3536,7 +4722,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>.gincoinc.global.v1.TransactionState state = 9;</code>
+       * <code>.gincoinc.global.v1.TransactionState state = 9 [json_name = "state"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearState() {
         
@@ -3547,29 +4734,37 @@ public final class Event {
 
       private int result_ = 0;
       /**
-       * <code>.gincoinc.global.v1.TransactionResult result = 10;</code>
+       * <code>.gincoinc.global.v1.TransactionResult result = 10 [json_name = "result"];</code>
+       * @return The enum numeric value on the wire for result.
        */
-      public int getResultValue() {
+      @java.lang.Override public int getResultValue() {
         return result_;
       }
       /**
-       * <code>.gincoinc.global.v1.TransactionResult result = 10;</code>
+       * <code>.gincoinc.global.v1.TransactionResult result = 10 [json_name = "result"];</code>
+       * @param value The enum numeric value on the wire for result to set.
+       * @return This builder for chaining.
        */
       public Builder setResultValue(int value) {
+        
         result_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.gincoinc.global.v1.TransactionResult result = 10;</code>
+       * <code>.gincoinc.global.v1.TransactionResult result = 10 [json_name = "result"];</code>
+       * @return The result.
        */
+      @java.lang.Override
       public gincoinc.global.v1.Enum.TransactionResult getResult() {
         @SuppressWarnings("deprecation")
         gincoinc.global.v1.Enum.TransactionResult result = gincoinc.global.v1.Enum.TransactionResult.valueOf(result_);
         return result == null ? gincoinc.global.v1.Enum.TransactionResult.UNRECOGNIZED : result;
       }
       /**
-       * <code>.gincoinc.global.v1.TransactionResult result = 10;</code>
+       * <code>.gincoinc.global.v1.TransactionResult result = 10 [json_name = "result"];</code>
+       * @param value The result to set.
+       * @return This builder for chaining.
        */
       public Builder setResult(gincoinc.global.v1.Enum.TransactionResult value) {
         if (value == null) {
@@ -3581,7 +4776,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>.gincoinc.global.v1.TransactionResult result = 10;</code>
+       * <code>.gincoinc.global.v1.TransactionResult result = 10 [json_name = "result"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearResult() {
         
@@ -3592,29 +4788,37 @@ public final class Event {
 
       private int transferType_ = 0;
       /**
-       * <code>.gincoinc.global.v1.TransferType transfer_type = 11;</code>
+       * <code>.gincoinc.global.v1.TransferType transfer_type = 11 [json_name = "transferType"];</code>
+       * @return The enum numeric value on the wire for transferType.
        */
-      public int getTransferTypeValue() {
+      @java.lang.Override public int getTransferTypeValue() {
         return transferType_;
       }
       /**
-       * <code>.gincoinc.global.v1.TransferType transfer_type = 11;</code>
+       * <code>.gincoinc.global.v1.TransferType transfer_type = 11 [json_name = "transferType"];</code>
+       * @param value The enum numeric value on the wire for transferType to set.
+       * @return This builder for chaining.
        */
       public Builder setTransferTypeValue(int value) {
+        
         transferType_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>.gincoinc.global.v1.TransferType transfer_type = 11;</code>
+       * <code>.gincoinc.global.v1.TransferType transfer_type = 11 [json_name = "transferType"];</code>
+       * @return The transferType.
        */
+      @java.lang.Override
       public gincoinc.global.v1.Enum.TransferType getTransferType() {
         @SuppressWarnings("deprecation")
         gincoinc.global.v1.Enum.TransferType result = gincoinc.global.v1.Enum.TransferType.valueOf(transferType_);
         return result == null ? gincoinc.global.v1.Enum.TransferType.UNRECOGNIZED : result;
       }
       /**
-       * <code>.gincoinc.global.v1.TransferType transfer_type = 11;</code>
+       * <code>.gincoinc.global.v1.TransferType transfer_type = 11 [json_name = "transferType"];</code>
+       * @param value The transferType to set.
+       * @return This builder for chaining.
        */
       public Builder setTransferType(gincoinc.global.v1.Enum.TransferType value) {
         if (value == null) {
@@ -3626,7 +4830,8 @@ public final class Event {
         return this;
       }
       /**
-       * <code>.gincoinc.global.v1.TransferType transfer_type = 11;</code>
+       * <code>.gincoinc.global.v1.TransferType transfer_type = 11 [json_name = "transferType"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearTransferType() {
         
@@ -3639,13 +4844,15 @@ public final class Event {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timeBuilder_;
       /**
-       * <code>.google.protobuf.Timestamp time = 12;</code>
+       * <code>.google.protobuf.Timestamp time = 12 [json_name = "time"];</code>
+       * @return Whether the time field is set.
        */
       public boolean hasTime() {
         return timeBuilder_ != null || time_ != null;
       }
       /**
-       * <code>.google.protobuf.Timestamp time = 12;</code>
+       * <code>.google.protobuf.Timestamp time = 12 [json_name = "time"];</code>
+       * @return The time.
        */
       public com.google.protobuf.Timestamp getTime() {
         if (timeBuilder_ == null) {
@@ -3655,7 +4862,7 @@ public final class Event {
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp time = 12;</code>
+       * <code>.google.protobuf.Timestamp time = 12 [json_name = "time"];</code>
        */
       public Builder setTime(com.google.protobuf.Timestamp value) {
         if (timeBuilder_ == null) {
@@ -3671,7 +4878,7 @@ public final class Event {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp time = 12;</code>
+       * <code>.google.protobuf.Timestamp time = 12 [json_name = "time"];</code>
        */
       public Builder setTime(
           com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -3685,7 +4892,7 @@ public final class Event {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp time = 12;</code>
+       * <code>.google.protobuf.Timestamp time = 12 [json_name = "time"];</code>
        */
       public Builder mergeTime(com.google.protobuf.Timestamp value) {
         if (timeBuilder_ == null) {
@@ -3703,7 +4910,7 @@ public final class Event {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp time = 12;</code>
+       * <code>.google.protobuf.Timestamp time = 12 [json_name = "time"];</code>
        */
       public Builder clearTime() {
         if (timeBuilder_ == null) {
@@ -3717,7 +4924,7 @@ public final class Event {
         return this;
       }
       /**
-       * <code>.google.protobuf.Timestamp time = 12;</code>
+       * <code>.google.protobuf.Timestamp time = 12 [json_name = "time"];</code>
        */
       public com.google.protobuf.Timestamp.Builder getTimeBuilder() {
         
@@ -3725,7 +4932,7 @@ public final class Event {
         return getTimeFieldBuilder().getBuilder();
       }
       /**
-       * <code>.google.protobuf.Timestamp time = 12;</code>
+       * <code>.google.protobuf.Timestamp time = 12 [json_name = "time"];</code>
        */
       public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
         if (timeBuilder_ != null) {
@@ -3736,7 +4943,7 @@ public final class Event {
         }
       }
       /**
-       * <code>.google.protobuf.Timestamp time = 12;</code>
+       * <code>.google.protobuf.Timestamp time = 12 [json_name = "time"];</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -3824,53 +5031,65 @@ public final class Event {
   static {
     java.lang.String[] descriptorData = {
       "\n6gincoinc/adamant/teller/v1/adamanttell" +
-      "erv1/event.proto\022\021adamant.teller.v1\032\037goo" +
-      "gle/protobuf/timestamp.proto\032.gincoinc/g" +
-      "lobal/v1/gincoincglobalv1/enum.proto\"\231\003\n" +
-      "\017TransferUpdated\022\021\n\twallet_id\030\001 \001(\t\022\023\n\013t" +
-      "ransfer_id\030\002 \001(\t\022&\n\004coin\030\003 \001(\0162\030.gincoin" +
-      "c.global.v1.Coin\022\r\n\005tx_id\030\004 \001(\t\022\020\n\010tx_in" +
-      "dex\030\005 \001(\r\022\r\n\005value\030\006 \001(\001\022\024\n\014string_value" +
-      "\030\007 \001(\t\022\020\n\010jpy_rate\030\010 \001(\001\022\017\n\007address\030\t \001(" +
-      "\t\022\027\n\017destination_tag\030\n \001(\r\022\017\n\007memo_id\030\016 " +
-      "\001(\004\0223\n\005state\030\013 \001(\0162$.gincoinc.global.v1." +
-      "TransactionState\0225\n\006result\030\014 \001(\0162%.ginco" +
-      "inc.global.v1.TransactionResult\0227\n\rtrans" +
-      "fer_type\030\r \001(\0162 .gincoinc.global.v1.Tran" +
-      "sferType\"\304\003\n\023TransferUpdateEvent\022\020\n\010even" +
-      "t_id\030\001 \001(\t\022\021\n\twallet_id\030\016 \001(\t\022&\n\004coin\030\002 " +
-      "\001(\0162\030.gincoinc.global.v1.Coin\022\r\n\005tx_id\030\003" +
-      " \001(\t\022\020\n\010tx_index\030\004 \001(\r\022\r\n\005value\030\005 \001(\001\022\024\n" +
-      "\014string_value\030\006 \001(\t\022\020\n\010jpy_rate\030\r \001(\001\022\017\n" +
-      "\007address\030\007 \001(\t\022\027\n\017destination_tag\030\010 \001(\r\022" +
-      "\017\n\007memo_id\030\017 \001(\004\0223\n\005state\030\t \001(\0162$.gincoi" +
-      "nc.global.v1.TransactionState\0225\n\006result\030" +
-      "\n \001(\0162%.gincoinc.global.v1.TransactionRe" +
-      "sult\0227\n\rtransfer_type\030\013 \001(\0162 .gincoinc.g" +
-      "lobal.v1.TransferType\022(\n\004time\030\014 \001(\0132\032.go" +
-      "ogle.protobuf.TimestampB\021Z\017adamantteller" +
-      "v1b\006proto3"
+      "erv1/event.proto\022\021adamant.teller.v1\032.gin" +
+      "coinc/global/v1/gincoincglobalv1/enum.pr" +
+      "oto\032\037google/protobuf/timestamp.proto\"\303\005\n" +
+      "\017TransferUpdated\022\033\n\twallet_id\030\001 \001(\tR\010wal" +
+      "letId\022\037\n\013transfer_id\030\002 \001(\tR\ntransferId\022," +
+      "\n\004coin\030\003 \001(\0162\030.gincoinc.global.v1.CoinR\004" +
+      "coin\022\023\n\005tx_id\030\004 \001(\tR\004txId\022\031\n\010tx_index\030\005 " +
+      "\001(\rR\007txIndex\022\024\n\005value\030\006 \001(\001R\005value\022!\n\014st" +
+      "ring_value\030\007 \001(\tR\013stringValue\022\031\n\010jpy_rat" +
+      "e\030\010 \001(\001R\007jpyRate\022\034\n\007address\030\t \001(\tB\002\030\001R\007a" +
+      "ddress\022\'\n\017destination_tag\030\n \001(\rR\016destina" +
+      "tionTag\022\027\n\007memo_id\030\016 \001(\004R\006memoId\022:\n\005stat" +
+      "e\030\013 \001(\0162$.gincoinc.global.v1.Transaction" +
+      "StateR\005state\022=\n\006result\030\014 \001(\0162%.gincoinc." +
+      "global.v1.TransactionResultR\006result\022E\n\rt" +
+      "ransfer_type\030\r \001(\0162 .gincoinc.global.v1." +
+      "TransferTypeR\014transferType\022\022\n\004from\030\017 \001(\t" +
+      "R\004from\022\016\n\002to\030\020 \001(\tR\002to\022.\n\004time\030\021 \001(\0132\032.g" +
+      "oogle.protobuf.TimestampR\004time\022\031\n\010event_" +
+      "id\030\022 \001(\tR\007eventId\022\020\n\003fee\030\023 \001(\001R\003fee\022\035\n\ns" +
+      "tring_fee\030\024 \001(\tR\tstringFee\"\315\004\n\023TransferU" +
+      "pdateEvent\022\031\n\010event_id\030\001 \001(\tR\007eventId\022\033\n" +
+      "\twallet_id\030\016 \001(\tR\010walletId\022,\n\004coin\030\002 \001(\016" +
+      "2\030.gincoinc.global.v1.CoinR\004coin\022\023\n\005tx_i" +
+      "d\030\003 \001(\tR\004txId\022\031\n\010tx_index\030\004 \001(\rR\007txIndex" +
+      "\022\024\n\005value\030\005 \001(\001R\005value\022!\n\014string_value\030\006" +
+      " \001(\tR\013stringValue\022\031\n\010jpy_rate\030\r \001(\001R\007jpy" +
+      "Rate\022\030\n\007address\030\007 \001(\tR\007address\022\'\n\017destin" +
+      "ation_tag\030\010 \001(\rR\016destinationTag\022\027\n\007memo_" +
+      "id\030\017 \001(\004R\006memoId\022:\n\005state\030\t \001(\0162$.gincoi" +
+      "nc.global.v1.TransactionStateR\005state\022=\n\006" +
+      "result\030\n \001(\0162%.gincoinc.global.v1.Transa" +
+      "ctionResultR\006result\022E\n\rtransfer_type\030\013 \001" +
+      "(\0162 .gincoinc.global.v1.TransferTypeR\014tr" +
+      "ansferType\022.\n\004time\030\014 \001(\0132\032.google.protob" +
+      "uf.TimestampR\004timeBLZJgithub.com/GincoIn" +
+      "c/gew-kmp/gen/gincoinc/adamant/teller/v1" +
+      "/adamanttellerv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.protobuf.TimestampProto.getDescriptor(),
           gincoinc.global.v1.Enum.getDescriptor(),
+          com.google.protobuf.TimestampProto.getDescriptor(),
         });
     internal_static_adamant_teller_v1_TransferUpdated_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_adamant_teller_v1_TransferUpdated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_teller_v1_TransferUpdated_descriptor,
-        new java.lang.String[] { "WalletId", "TransferId", "Coin", "TxId", "TxIndex", "Value", "StringValue", "JpyRate", "Address", "DestinationTag", "MemoId", "State", "Result", "TransferType", });
+        new java.lang.String[] { "WalletId", "TransferId", "Coin", "TxId", "TxIndex", "Value", "StringValue", "JpyRate", "Address", "DestinationTag", "MemoId", "State", "Result", "TransferType", "From", "To", "Time", "EventId", "Fee", "StringFee", });
     internal_static_adamant_teller_v1_TransferUpdateEvent_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_adamant_teller_v1_TransferUpdateEvent_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_teller_v1_TransferUpdateEvent_descriptor,
         new java.lang.String[] { "EventId", "WalletId", "Coin", "TxId", "TxIndex", "Value", "StringValue", "JpyRate", "Address", "DestinationTag", "MemoId", "State", "Result", "TransferType", "Time", });
-    com.google.protobuf.TimestampProto.getDescriptor();
     gincoinc.global.v1.Enum.getDescriptor();
+    com.google.protobuf.TimestampProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

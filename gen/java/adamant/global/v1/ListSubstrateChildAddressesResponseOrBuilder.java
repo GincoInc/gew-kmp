@@ -8,25 +8,25 @@ public interface ListSubstrateChildAddressesResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
    */
   java.util.List<adamant.global.v1.Model.SubstrateChildAddress> 
       getSubstrateChildAddressesList();
   /**
-   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
    */
   adamant.global.v1.Model.SubstrateChildAddress getSubstrateChildAddresses(int index);
   /**
-   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
    */
   int getSubstrateChildAddressesCount();
   /**
-   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.SubstrateChildAddressOrBuilder> 
       getSubstrateChildAddressesOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
    */
   adamant.global.v1.Model.SubstrateChildAddressOrBuilder getSubstrateChildAddressesOrBuilder(
       int index);

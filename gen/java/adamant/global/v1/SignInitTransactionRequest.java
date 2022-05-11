@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.SignInitTransactionRequest}
  */
-public  final class SignInitTransactionRequest extends
+public final class SignInitTransactionRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.SignInitTransactionRequest)
     SignInitTransactionRequestOrBuilder {
@@ -111,8 +111,10 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object walletId_;
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The walletId.
    */
+  @java.lang.Override
   public java.lang.String getWalletId() {
     java.lang.Object ref = walletId_;
     if (ref instanceof java.lang.String) {
@@ -126,8 +128,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWalletIdBytes() {
     java.lang.Object ref = walletId_;
@@ -145,8 +149,10 @@ private static final long serialVersionUID = 0L;
   public static final int KEY_ID_FIELD_NUMBER = 2;
   private volatile java.lang.Object keyId_;
   /**
-   * <code>string key_id = 2 [(.validate.rules) = { ... }</code>
+   * <code>string key_id = 2 [json_name = "keyId", (.validate.rules) = { ... }</code>
+   * @return The keyId.
    */
+  @java.lang.Override
   public java.lang.String getKeyId() {
     java.lang.Object ref = keyId_;
     if (ref instanceof java.lang.String) {
@@ -160,8 +166,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string key_id = 2 [(.validate.rules) = { ... }</code>
+   * <code>string key_id = 2 [json_name = "keyId", (.validate.rules) = { ... }</code>
+   * @return The bytes for keyId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getKeyIdBytes() {
     java.lang.Object ref = keyId_;
@@ -179,33 +187,38 @@ private static final long serialVersionUID = 0L;
   public static final int SIGNED_INFO_FIELD_NUMBER = 4;
   private java.util.List<adamant.global.v1.Model.RequestSignedInfo> signedInfo_;
   /**
-   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.RequestSignedInfo> getSignedInfoList() {
     return signedInfo_;
   }
   /**
-   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.RequestSignedInfoOrBuilder> 
       getSignedInfoOrBuilderList() {
     return signedInfo_;
   }
   /**
-   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public int getSignedInfoCount() {
     return signedInfo_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.RequestSignedInfo getSignedInfo(int index) {
     return signedInfo_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.RequestSignedInfoOrBuilder getSignedInfoOrBuilder(
       int index) {
     return signedInfo_.get(index);
@@ -225,10 +238,10 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletId_);
     }
-    if (!getKeyIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, keyId_);
     }
     for (int i = 0; i < signedInfo_.size(); i++) {
@@ -243,10 +256,10 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletId_);
     }
-    if (!getKeyIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, keyId_);
     }
     for (int i = 0; i < signedInfo_.size(); i++) {
@@ -589,7 +602,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object walletId_ = "";
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The walletId.
      */
     public java.lang.String getWalletId() {
       java.lang.Object ref = walletId_;
@@ -604,7 +618,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The bytes for walletId.
      */
     public com.google.protobuf.ByteString
         getWalletIdBytes() {
@@ -620,7 +635,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @param value The walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletId(
         java.lang.String value) {
@@ -633,7 +650,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletId() {
       
@@ -642,7 +660,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletIdBytes(
         com.google.protobuf.ByteString value) {
@@ -658,7 +678,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object keyId_ = "";
     /**
-     * <code>string key_id = 2 [(.validate.rules) = { ... }</code>
+     * <code>string key_id = 2 [json_name = "keyId", (.validate.rules) = { ... }</code>
+     * @return The keyId.
      */
     public java.lang.String getKeyId() {
       java.lang.Object ref = keyId_;
@@ -673,7 +694,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string key_id = 2 [(.validate.rules) = { ... }</code>
+     * <code>string key_id = 2 [json_name = "keyId", (.validate.rules) = { ... }</code>
+     * @return The bytes for keyId.
      */
     public com.google.protobuf.ByteString
         getKeyIdBytes() {
@@ -689,7 +711,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string key_id = 2 [(.validate.rules) = { ... }</code>
+     * <code>string key_id = 2 [json_name = "keyId", (.validate.rules) = { ... }</code>
+     * @param value The keyId to set.
+     * @return This builder for chaining.
      */
     public Builder setKeyId(
         java.lang.String value) {
@@ -702,7 +726,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string key_id = 2 [(.validate.rules) = { ... }</code>
+     * <code>string key_id = 2 [json_name = "keyId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearKeyId() {
       
@@ -711,7 +736,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string key_id = 2 [(.validate.rules) = { ... }</code>
+     * <code>string key_id = 2 [json_name = "keyId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for keyId to set.
+     * @return This builder for chaining.
      */
     public Builder setKeyIdBytes(
         com.google.protobuf.ByteString value) {
@@ -738,7 +765,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.RequestSignedInfo, adamant.global.v1.Model.RequestSignedInfo.Builder, adamant.global.v1.Model.RequestSignedInfoOrBuilder> signedInfoBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public java.util.List<adamant.global.v1.Model.RequestSignedInfo> getSignedInfoList() {
       if (signedInfoBuilder_ == null) {
@@ -748,7 +775,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public int getSignedInfoCount() {
       if (signedInfoBuilder_ == null) {
@@ -758,7 +785,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public adamant.global.v1.Model.RequestSignedInfo getSignedInfo(int index) {
       if (signedInfoBuilder_ == null) {
@@ -768,7 +795,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public Builder setSignedInfo(
         int index, adamant.global.v1.Model.RequestSignedInfo value) {
@@ -785,7 +812,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public Builder setSignedInfo(
         int index, adamant.global.v1.Model.RequestSignedInfo.Builder builderForValue) {
@@ -799,7 +826,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public Builder addSignedInfo(adamant.global.v1.Model.RequestSignedInfo value) {
       if (signedInfoBuilder_ == null) {
@@ -815,7 +842,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public Builder addSignedInfo(
         int index, adamant.global.v1.Model.RequestSignedInfo value) {
@@ -832,7 +859,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public Builder addSignedInfo(
         adamant.global.v1.Model.RequestSignedInfo.Builder builderForValue) {
@@ -846,7 +873,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public Builder addSignedInfo(
         int index, adamant.global.v1.Model.RequestSignedInfo.Builder builderForValue) {
@@ -860,7 +887,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public Builder addAllSignedInfo(
         java.lang.Iterable<? extends adamant.global.v1.Model.RequestSignedInfo> values) {
@@ -875,7 +902,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public Builder clearSignedInfo() {
       if (signedInfoBuilder_ == null) {
@@ -888,7 +915,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public Builder removeSignedInfo(int index) {
       if (signedInfoBuilder_ == null) {
@@ -901,14 +928,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public adamant.global.v1.Model.RequestSignedInfo.Builder getSignedInfoBuilder(
         int index) {
       return getSignedInfoFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public adamant.global.v1.Model.RequestSignedInfoOrBuilder getSignedInfoOrBuilder(
         int index) {
@@ -918,7 +945,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.RequestSignedInfoOrBuilder> 
          getSignedInfoOrBuilderList() {
@@ -929,14 +956,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public adamant.global.v1.Model.RequestSignedInfo.Builder addSignedInfoBuilder() {
       return getSignedInfoFieldBuilder().addBuilder(
           adamant.global.v1.Model.RequestSignedInfo.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public adamant.global.v1.Model.RequestSignedInfo.Builder addSignedInfoBuilder(
         int index) {
@@ -944,7 +971,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.RequestSignedInfo.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public java.util.List<adamant.global.v1.Model.RequestSignedInfo.Builder> 
          getSignedInfoBuilderList() {

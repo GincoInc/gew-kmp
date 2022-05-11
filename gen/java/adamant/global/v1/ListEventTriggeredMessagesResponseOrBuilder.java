@@ -8,25 +8,25 @@ public interface ListEventTriggeredMessagesResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
    */
   java.util.List<adamant.global.v1.Model.EventTriggeredMessage> 
       getEventTriggeredMessagesList();
   /**
-   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
    */
   adamant.global.v1.Model.EventTriggeredMessage getEventTriggeredMessages(int index);
   /**
-   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
    */
   int getEventTriggeredMessagesCount();
   /**
-   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.EventTriggeredMessageOrBuilder> 
       getEventTriggeredMessagesOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1;</code>
+   * <code>repeated .adamant.global.v1.EventTriggeredMessage event_triggered_messages = 1 [json_name = "eventTriggeredMessages"];</code>
    */
   adamant.global.v1.Model.EventTriggeredMessageOrBuilder getEventTriggeredMessagesOrBuilder(
       int index);

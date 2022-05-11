@@ -12,7 +12,8 @@ public interface SetDefaultRatesResponseOrBuilder extends
    * Array of ids of rate-snapshots
    * </pre>
    *
-   * <code>repeated string rate_snapshot_ids = 1;</code>
+   * <code>repeated string rate_snapshot_ids = 1 [json_name = "rateSnapshotIds"];</code>
+   * @return A list containing the rateSnapshotIds.
    */
   java.util.List<java.lang.String>
       getRateSnapshotIdsList();
@@ -21,7 +22,8 @@ public interface SetDefaultRatesResponseOrBuilder extends
    * Array of ids of rate-snapshots
    * </pre>
    *
-   * <code>repeated string rate_snapshot_ids = 1;</code>
+   * <code>repeated string rate_snapshot_ids = 1 [json_name = "rateSnapshotIds"];</code>
+   * @return The count of rateSnapshotIds.
    */
   int getRateSnapshotIdsCount();
   /**
@@ -29,7 +31,9 @@ public interface SetDefaultRatesResponseOrBuilder extends
    * Array of ids of rate-snapshots
    * </pre>
    *
-   * <code>repeated string rate_snapshot_ids = 1;</code>
+   * <code>repeated string rate_snapshot_ids = 1 [json_name = "rateSnapshotIds"];</code>
+   * @param index The index of the element to return.
+   * @return The rateSnapshotIds at the given index.
    */
   java.lang.String getRateSnapshotIds(int index);
   /**
@@ -37,7 +41,9 @@ public interface SetDefaultRatesResponseOrBuilder extends
    * Array of ids of rate-snapshots
    * </pre>
    *
-   * <code>repeated string rate_snapshot_ids = 1;</code>
+   * <code>repeated string rate_snapshot_ids = 1 [json_name = "rateSnapshotIds"];</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the rateSnapshotIds at the given index.
    */
   com.google.protobuf.ByteString
       getRateSnapshotIdsBytes(int index);

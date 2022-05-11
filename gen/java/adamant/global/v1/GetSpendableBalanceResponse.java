@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.GetSpendableBalanceResponse}
  */
-public  final class GetSpendableBalanceResponse extends
+public final class GetSpendableBalanceResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.GetSpendableBalanceResponse)
     GetSpendableBalanceResponseOrBuilder {
@@ -131,8 +131,10 @@ private static final long serialVersionUID = 0L;
   public static final int TOTAL_SPENDABLE_BALANCE_FIELD_NUMBER = 1;
   private double totalSpendableBalance_;
   /**
-   * <code>double total_spendable_balance = 1;</code>
+   * <code>double total_spendable_balance = 1 [json_name = "totalSpendableBalance"];</code>
+   * @return The totalSpendableBalance.
    */
+  @java.lang.Override
   public double getTotalSpendableBalance() {
     return totalSpendableBalance_;
   }
@@ -140,8 +142,10 @@ private static final long serialVersionUID = 0L;
   public static final int STRING_TOTAL_SPENDABLE_BALANCE_FIELD_NUMBER = 2;
   private volatile java.lang.Object stringTotalSpendableBalance_;
   /**
-   * <code>string string_total_spendable_balance = 2;</code>
+   * <code>string string_total_spendable_balance = 2 [json_name = "stringTotalSpendableBalance"];</code>
+   * @return The stringTotalSpendableBalance.
    */
+  @java.lang.Override
   public java.lang.String getStringTotalSpendableBalance() {
     java.lang.Object ref = stringTotalSpendableBalance_;
     if (ref instanceof java.lang.String) {
@@ -155,8 +159,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string string_total_spendable_balance = 2;</code>
+   * <code>string string_total_spendable_balance = 2 [json_name = "stringTotalSpendableBalance"];</code>
+   * @return The bytes for stringTotalSpendableBalance.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getStringTotalSpendableBalanceBytes() {
     java.lang.Object ref = stringTotalSpendableBalance_;
@@ -174,8 +180,10 @@ private static final long serialVersionUID = 0L;
   public static final int DAILY_SPENDABLE_BALANCE_FIELD_NUMBER = 3;
   private double dailySpendableBalance_;
   /**
-   * <code>double daily_spendable_balance = 3;</code>
+   * <code>double daily_spendable_balance = 3 [json_name = "dailySpendableBalance"];</code>
+   * @return The dailySpendableBalance.
    */
+  @java.lang.Override
   public double getDailySpendableBalance() {
     return dailySpendableBalance_;
   }
@@ -183,8 +191,10 @@ private static final long serialVersionUID = 0L;
   public static final int STRING_DAILY_SPENDABLE_BALANCE_FIELD_NUMBER = 4;
   private volatile java.lang.Object stringDailySpendableBalance_;
   /**
-   * <code>string string_daily_spendable_balance = 4;</code>
+   * <code>string string_daily_spendable_balance = 4 [json_name = "stringDailySpendableBalance"];</code>
+   * @return The stringDailySpendableBalance.
    */
+  @java.lang.Override
   public java.lang.String getStringDailySpendableBalance() {
     java.lang.Object ref = stringDailySpendableBalance_;
     if (ref instanceof java.lang.String) {
@@ -198,8 +208,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string string_daily_spendable_balance = 4;</code>
+   * <code>string string_daily_spendable_balance = 4 [json_name = "stringDailySpendableBalance"];</code>
+   * @return The bytes for stringDailySpendableBalance.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getStringDailySpendableBalanceBytes() {
     java.lang.Object ref = stringDailySpendableBalance_;
@@ -217,8 +229,10 @@ private static final long serialVersionUID = 0L;
   public static final int HOURLY_SPENDABLE_BALANCE_FIELD_NUMBER = 5;
   private double hourlySpendableBalance_;
   /**
-   * <code>double hourly_spendable_balance = 5;</code>
+   * <code>double hourly_spendable_balance = 5 [json_name = "hourlySpendableBalance"];</code>
+   * @return The hourlySpendableBalance.
    */
+  @java.lang.Override
   public double getHourlySpendableBalance() {
     return hourlySpendableBalance_;
   }
@@ -226,8 +240,10 @@ private static final long serialVersionUID = 0L;
   public static final int STRING_HOURLY_SPENDABLE_BALANCE_FIELD_NUMBER = 6;
   private volatile java.lang.Object stringHourlySpendableBalance_;
   /**
-   * <code>string string_hourly_spendable_balance = 6;</code>
+   * <code>string string_hourly_spendable_balance = 6 [json_name = "stringHourlySpendableBalance"];</code>
+   * @return The stringHourlySpendableBalance.
    */
+  @java.lang.Override
   public java.lang.String getStringHourlySpendableBalance() {
     java.lang.Object ref = stringHourlySpendableBalance_;
     if (ref instanceof java.lang.String) {
@@ -241,8 +257,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string string_hourly_spendable_balance = 6;</code>
+   * <code>string string_hourly_spendable_balance = 6 [json_name = "stringHourlySpendableBalance"];</code>
+   * @return The bytes for stringHourlySpendableBalance.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getStringHourlySpendableBalanceBytes() {
     java.lang.Object ref = stringHourlySpendableBalance_;
@@ -260,8 +278,10 @@ private static final long serialVersionUID = 0L;
   public static final int ONE_TIME_SPENDABLE_BALANCE_FIELD_NUMBER = 7;
   private double oneTimeSpendableBalance_;
   /**
-   * <code>double one_time_spendable_balance = 7;</code>
+   * <code>double one_time_spendable_balance = 7 [json_name = "oneTimeSpendableBalance"];</code>
+   * @return The oneTimeSpendableBalance.
    */
+  @java.lang.Override
   public double getOneTimeSpendableBalance() {
     return oneTimeSpendableBalance_;
   }
@@ -269,8 +289,10 @@ private static final long serialVersionUID = 0L;
   public static final int STRING_ONE_TIME_SPENDABLE_BALANCE_FIELD_NUMBER = 8;
   private volatile java.lang.Object stringOneTimeSpendableBalance_;
   /**
-   * <code>string string_one_time_spendable_balance = 8;</code>
+   * <code>string string_one_time_spendable_balance = 8 [json_name = "stringOneTimeSpendableBalance"];</code>
+   * @return The stringOneTimeSpendableBalance.
    */
+  @java.lang.Override
   public java.lang.String getStringOneTimeSpendableBalance() {
     java.lang.Object ref = stringOneTimeSpendableBalance_;
     if (ref instanceof java.lang.String) {
@@ -284,8 +306,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string string_one_time_spendable_balance = 8;</code>
+   * <code>string string_one_time_spendable_balance = 8 [json_name = "stringOneTimeSpendableBalance"];</code>
+   * @return The bytes for stringOneTimeSpendableBalance.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getStringOneTimeSpendableBalanceBytes() {
     java.lang.Object ref = stringOneTimeSpendableBalance_;
@@ -314,28 +338,28 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (totalSpendableBalance_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(totalSpendableBalance_) != 0) {
       output.writeDouble(1, totalSpendableBalance_);
     }
-    if (!getStringTotalSpendableBalanceBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringTotalSpendableBalance_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, stringTotalSpendableBalance_);
     }
-    if (dailySpendableBalance_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(dailySpendableBalance_) != 0) {
       output.writeDouble(3, dailySpendableBalance_);
     }
-    if (!getStringDailySpendableBalanceBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringDailySpendableBalance_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, stringDailySpendableBalance_);
     }
-    if (hourlySpendableBalance_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(hourlySpendableBalance_) != 0) {
       output.writeDouble(5, hourlySpendableBalance_);
     }
-    if (!getStringHourlySpendableBalanceBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringHourlySpendableBalance_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, stringHourlySpendableBalance_);
     }
-    if (oneTimeSpendableBalance_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(oneTimeSpendableBalance_) != 0) {
       output.writeDouble(7, oneTimeSpendableBalance_);
     }
-    if (!getStringOneTimeSpendableBalanceBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringOneTimeSpendableBalance_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, stringOneTimeSpendableBalance_);
     }
     unknownFields.writeTo(output);
@@ -347,32 +371,32 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (totalSpendableBalance_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(totalSpendableBalance_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(1, totalSpendableBalance_);
     }
-    if (!getStringTotalSpendableBalanceBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringTotalSpendableBalance_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, stringTotalSpendableBalance_);
     }
-    if (dailySpendableBalance_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(dailySpendableBalance_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(3, dailySpendableBalance_);
     }
-    if (!getStringDailySpendableBalanceBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringDailySpendableBalance_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, stringDailySpendableBalance_);
     }
-    if (hourlySpendableBalance_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(hourlySpendableBalance_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(5, hourlySpendableBalance_);
     }
-    if (!getStringHourlySpendableBalanceBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringHourlySpendableBalance_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, stringHourlySpendableBalance_);
     }
-    if (oneTimeSpendableBalance_ != 0D) {
+    if (java.lang.Double.doubleToRawLongBits(oneTimeSpendableBalance_) != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(7, oneTimeSpendableBalance_);
     }
-    if (!getStringOneTimeSpendableBalanceBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringOneTimeSpendableBalance_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, stringOneTimeSpendableBalance_);
     }
     size += unknownFields.getSerializedSize();
@@ -731,13 +755,17 @@ private static final long serialVersionUID = 0L;
 
     private double totalSpendableBalance_ ;
     /**
-     * <code>double total_spendable_balance = 1;</code>
+     * <code>double total_spendable_balance = 1 [json_name = "totalSpendableBalance"];</code>
+     * @return The totalSpendableBalance.
      */
+    @java.lang.Override
     public double getTotalSpendableBalance() {
       return totalSpendableBalance_;
     }
     /**
-     * <code>double total_spendable_balance = 1;</code>
+     * <code>double total_spendable_balance = 1 [json_name = "totalSpendableBalance"];</code>
+     * @param value The totalSpendableBalance to set.
+     * @return This builder for chaining.
      */
     public Builder setTotalSpendableBalance(double value) {
       
@@ -746,7 +774,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double total_spendable_balance = 1;</code>
+     * <code>double total_spendable_balance = 1 [json_name = "totalSpendableBalance"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearTotalSpendableBalance() {
       
@@ -757,7 +786,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object stringTotalSpendableBalance_ = "";
     /**
-     * <code>string string_total_spendable_balance = 2;</code>
+     * <code>string string_total_spendable_balance = 2 [json_name = "stringTotalSpendableBalance"];</code>
+     * @return The stringTotalSpendableBalance.
      */
     public java.lang.String getStringTotalSpendableBalance() {
       java.lang.Object ref = stringTotalSpendableBalance_;
@@ -772,7 +802,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string string_total_spendable_balance = 2;</code>
+     * <code>string string_total_spendable_balance = 2 [json_name = "stringTotalSpendableBalance"];</code>
+     * @return The bytes for stringTotalSpendableBalance.
      */
     public com.google.protobuf.ByteString
         getStringTotalSpendableBalanceBytes() {
@@ -788,7 +819,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string string_total_spendable_balance = 2;</code>
+     * <code>string string_total_spendable_balance = 2 [json_name = "stringTotalSpendableBalance"];</code>
+     * @param value The stringTotalSpendableBalance to set.
+     * @return This builder for chaining.
      */
     public Builder setStringTotalSpendableBalance(
         java.lang.String value) {
@@ -801,7 +834,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string string_total_spendable_balance = 2;</code>
+     * <code>string string_total_spendable_balance = 2 [json_name = "stringTotalSpendableBalance"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearStringTotalSpendableBalance() {
       
@@ -810,7 +844,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string string_total_spendable_balance = 2;</code>
+     * <code>string string_total_spendable_balance = 2 [json_name = "stringTotalSpendableBalance"];</code>
+     * @param value The bytes for stringTotalSpendableBalance to set.
+     * @return This builder for chaining.
      */
     public Builder setStringTotalSpendableBalanceBytes(
         com.google.protobuf.ByteString value) {
@@ -826,13 +862,17 @@ private static final long serialVersionUID = 0L;
 
     private double dailySpendableBalance_ ;
     /**
-     * <code>double daily_spendable_balance = 3;</code>
+     * <code>double daily_spendable_balance = 3 [json_name = "dailySpendableBalance"];</code>
+     * @return The dailySpendableBalance.
      */
+    @java.lang.Override
     public double getDailySpendableBalance() {
       return dailySpendableBalance_;
     }
     /**
-     * <code>double daily_spendable_balance = 3;</code>
+     * <code>double daily_spendable_balance = 3 [json_name = "dailySpendableBalance"];</code>
+     * @param value The dailySpendableBalance to set.
+     * @return This builder for chaining.
      */
     public Builder setDailySpendableBalance(double value) {
       
@@ -841,7 +881,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double daily_spendable_balance = 3;</code>
+     * <code>double daily_spendable_balance = 3 [json_name = "dailySpendableBalance"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearDailySpendableBalance() {
       
@@ -852,7 +893,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object stringDailySpendableBalance_ = "";
     /**
-     * <code>string string_daily_spendable_balance = 4;</code>
+     * <code>string string_daily_spendable_balance = 4 [json_name = "stringDailySpendableBalance"];</code>
+     * @return The stringDailySpendableBalance.
      */
     public java.lang.String getStringDailySpendableBalance() {
       java.lang.Object ref = stringDailySpendableBalance_;
@@ -867,7 +909,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string string_daily_spendable_balance = 4;</code>
+     * <code>string string_daily_spendable_balance = 4 [json_name = "stringDailySpendableBalance"];</code>
+     * @return The bytes for stringDailySpendableBalance.
      */
     public com.google.protobuf.ByteString
         getStringDailySpendableBalanceBytes() {
@@ -883,7 +926,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string string_daily_spendable_balance = 4;</code>
+     * <code>string string_daily_spendable_balance = 4 [json_name = "stringDailySpendableBalance"];</code>
+     * @param value The stringDailySpendableBalance to set.
+     * @return This builder for chaining.
      */
     public Builder setStringDailySpendableBalance(
         java.lang.String value) {
@@ -896,7 +941,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string string_daily_spendable_balance = 4;</code>
+     * <code>string string_daily_spendable_balance = 4 [json_name = "stringDailySpendableBalance"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearStringDailySpendableBalance() {
       
@@ -905,7 +951,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string string_daily_spendable_balance = 4;</code>
+     * <code>string string_daily_spendable_balance = 4 [json_name = "stringDailySpendableBalance"];</code>
+     * @param value The bytes for stringDailySpendableBalance to set.
+     * @return This builder for chaining.
      */
     public Builder setStringDailySpendableBalanceBytes(
         com.google.protobuf.ByteString value) {
@@ -921,13 +969,17 @@ private static final long serialVersionUID = 0L;
 
     private double hourlySpendableBalance_ ;
     /**
-     * <code>double hourly_spendable_balance = 5;</code>
+     * <code>double hourly_spendable_balance = 5 [json_name = "hourlySpendableBalance"];</code>
+     * @return The hourlySpendableBalance.
      */
+    @java.lang.Override
     public double getHourlySpendableBalance() {
       return hourlySpendableBalance_;
     }
     /**
-     * <code>double hourly_spendable_balance = 5;</code>
+     * <code>double hourly_spendable_balance = 5 [json_name = "hourlySpendableBalance"];</code>
+     * @param value The hourlySpendableBalance to set.
+     * @return This builder for chaining.
      */
     public Builder setHourlySpendableBalance(double value) {
       
@@ -936,7 +988,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double hourly_spendable_balance = 5;</code>
+     * <code>double hourly_spendable_balance = 5 [json_name = "hourlySpendableBalance"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearHourlySpendableBalance() {
       
@@ -947,7 +1000,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object stringHourlySpendableBalance_ = "";
     /**
-     * <code>string string_hourly_spendable_balance = 6;</code>
+     * <code>string string_hourly_spendable_balance = 6 [json_name = "stringHourlySpendableBalance"];</code>
+     * @return The stringHourlySpendableBalance.
      */
     public java.lang.String getStringHourlySpendableBalance() {
       java.lang.Object ref = stringHourlySpendableBalance_;
@@ -962,7 +1016,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string string_hourly_spendable_balance = 6;</code>
+     * <code>string string_hourly_spendable_balance = 6 [json_name = "stringHourlySpendableBalance"];</code>
+     * @return The bytes for stringHourlySpendableBalance.
      */
     public com.google.protobuf.ByteString
         getStringHourlySpendableBalanceBytes() {
@@ -978,7 +1033,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string string_hourly_spendable_balance = 6;</code>
+     * <code>string string_hourly_spendable_balance = 6 [json_name = "stringHourlySpendableBalance"];</code>
+     * @param value The stringHourlySpendableBalance to set.
+     * @return This builder for chaining.
      */
     public Builder setStringHourlySpendableBalance(
         java.lang.String value) {
@@ -991,7 +1048,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string string_hourly_spendable_balance = 6;</code>
+     * <code>string string_hourly_spendable_balance = 6 [json_name = "stringHourlySpendableBalance"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearStringHourlySpendableBalance() {
       
@@ -1000,7 +1058,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string string_hourly_spendable_balance = 6;</code>
+     * <code>string string_hourly_spendable_balance = 6 [json_name = "stringHourlySpendableBalance"];</code>
+     * @param value The bytes for stringHourlySpendableBalance to set.
+     * @return This builder for chaining.
      */
     public Builder setStringHourlySpendableBalanceBytes(
         com.google.protobuf.ByteString value) {
@@ -1016,13 +1076,17 @@ private static final long serialVersionUID = 0L;
 
     private double oneTimeSpendableBalance_ ;
     /**
-     * <code>double one_time_spendable_balance = 7;</code>
+     * <code>double one_time_spendable_balance = 7 [json_name = "oneTimeSpendableBalance"];</code>
+     * @return The oneTimeSpendableBalance.
      */
+    @java.lang.Override
     public double getOneTimeSpendableBalance() {
       return oneTimeSpendableBalance_;
     }
     /**
-     * <code>double one_time_spendable_balance = 7;</code>
+     * <code>double one_time_spendable_balance = 7 [json_name = "oneTimeSpendableBalance"];</code>
+     * @param value The oneTimeSpendableBalance to set.
+     * @return This builder for chaining.
      */
     public Builder setOneTimeSpendableBalance(double value) {
       
@@ -1031,7 +1095,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>double one_time_spendable_balance = 7;</code>
+     * <code>double one_time_spendable_balance = 7 [json_name = "oneTimeSpendableBalance"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearOneTimeSpendableBalance() {
       
@@ -1042,7 +1107,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object stringOneTimeSpendableBalance_ = "";
     /**
-     * <code>string string_one_time_spendable_balance = 8;</code>
+     * <code>string string_one_time_spendable_balance = 8 [json_name = "stringOneTimeSpendableBalance"];</code>
+     * @return The stringOneTimeSpendableBalance.
      */
     public java.lang.String getStringOneTimeSpendableBalance() {
       java.lang.Object ref = stringOneTimeSpendableBalance_;
@@ -1057,7 +1123,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string string_one_time_spendable_balance = 8;</code>
+     * <code>string string_one_time_spendable_balance = 8 [json_name = "stringOneTimeSpendableBalance"];</code>
+     * @return The bytes for stringOneTimeSpendableBalance.
      */
     public com.google.protobuf.ByteString
         getStringOneTimeSpendableBalanceBytes() {
@@ -1073,7 +1140,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string string_one_time_spendable_balance = 8;</code>
+     * <code>string string_one_time_spendable_balance = 8 [json_name = "stringOneTimeSpendableBalance"];</code>
+     * @param value The stringOneTimeSpendableBalance to set.
+     * @return This builder for chaining.
      */
     public Builder setStringOneTimeSpendableBalance(
         java.lang.String value) {
@@ -1086,7 +1155,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string string_one_time_spendable_balance = 8;</code>
+     * <code>string string_one_time_spendable_balance = 8 [json_name = "stringOneTimeSpendableBalance"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearStringOneTimeSpendableBalance() {
       
@@ -1095,7 +1165,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string string_one_time_spendable_balance = 8;</code>
+     * <code>string string_one_time_spendable_balance = 8 [json_name = "stringOneTimeSpendableBalance"];</code>
+     * @param value The bytes for stringOneTimeSpendableBalance to set.
+     * @return This builder for chaining.
      */
     public Builder setStringOneTimeSpendableBalanceBytes(
         com.google.protobuf.ByteString value) {

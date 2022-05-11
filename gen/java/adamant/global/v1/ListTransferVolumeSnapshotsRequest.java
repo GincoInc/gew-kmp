@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListTransferVolumeSnapshotsRequest}
  */
-public  final class ListTransferVolumeSnapshotsRequest extends
+public final class ListTransferVolumeSnapshotsRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListTransferVolumeSnapshotsRequest)
     ListTransferVolumeSnapshotsRequestOrBuilder {
@@ -114,8 +114,10 @@ private static final long serialVersionUID = 0L;
   public static final int WATCH_ONLY_FIELD_NUMBER = 1;
   private boolean watchOnly_;
   /**
-   * <code>bool watch_only = 1;</code>
+   * <code>bool watch_only = 1 [json_name = "watchOnly"];</code>
+   * @return The watchOnly.
    */
+  @java.lang.Override
   public boolean getWatchOnly() {
     return watchOnly_;
   }
@@ -123,20 +125,25 @@ private static final long serialVersionUID = 0L;
   public static final int START_TIME_FIELD_NUMBER = 2;
   private com.google.protobuf.Timestamp startTime_;
   /**
-   * <code>.google.protobuf.Timestamp start_time = 2 [(.validate.rules) = { ... }</code>
+   * <code>.google.protobuf.Timestamp start_time = 2 [json_name = "startTime", (.validate.rules) = { ... }</code>
+   * @return Whether the startTime field is set.
    */
+  @java.lang.Override
   public boolean hasStartTime() {
     return startTime_ != null;
   }
   /**
-   * <code>.google.protobuf.Timestamp start_time = 2 [(.validate.rules) = { ... }</code>
+   * <code>.google.protobuf.Timestamp start_time = 2 [json_name = "startTime", (.validate.rules) = { ... }</code>
+   * @return The startTime.
    */
+  @java.lang.Override
   public com.google.protobuf.Timestamp getStartTime() {
     return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
   }
   /**
-   * <code>.google.protobuf.Timestamp start_time = 2 [(.validate.rules) = { ... }</code>
+   * <code>.google.protobuf.Timestamp start_time = 2 [json_name = "startTime", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
     return getStartTime();
   }
@@ -144,20 +151,25 @@ private static final long serialVersionUID = 0L;
   public static final int END_TIME_FIELD_NUMBER = 3;
   private com.google.protobuf.Timestamp endTime_;
   /**
-   * <code>.google.protobuf.Timestamp end_time = 3 [(.validate.rules) = { ... }</code>
+   * <code>.google.protobuf.Timestamp end_time = 3 [json_name = "endTime", (.validate.rules) = { ... }</code>
+   * @return Whether the endTime field is set.
    */
+  @java.lang.Override
   public boolean hasEndTime() {
     return endTime_ != null;
   }
   /**
-   * <code>.google.protobuf.Timestamp end_time = 3 [(.validate.rules) = { ... }</code>
+   * <code>.google.protobuf.Timestamp end_time = 3 [json_name = "endTime", (.validate.rules) = { ... }</code>
+   * @return The endTime.
    */
+  @java.lang.Override
   public com.google.protobuf.Timestamp getEndTime() {
     return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
   }
   /**
-   * <code>.google.protobuf.Timestamp end_time = 3 [(.validate.rules) = { ... }</code>
+   * <code>.google.protobuf.Timestamp end_time = 3 [json_name = "endTime", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
     return getEndTime();
   }
@@ -527,13 +539,17 @@ private static final long serialVersionUID = 0L;
 
     private boolean watchOnly_ ;
     /**
-     * <code>bool watch_only = 1;</code>
+     * <code>bool watch_only = 1 [json_name = "watchOnly"];</code>
+     * @return The watchOnly.
      */
+    @java.lang.Override
     public boolean getWatchOnly() {
       return watchOnly_;
     }
     /**
-     * <code>bool watch_only = 1;</code>
+     * <code>bool watch_only = 1 [json_name = "watchOnly"];</code>
+     * @param value The watchOnly to set.
+     * @return This builder for chaining.
      */
     public Builder setWatchOnly(boolean value) {
       
@@ -542,7 +558,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool watch_only = 1;</code>
+     * <code>bool watch_only = 1 [json_name = "watchOnly"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearWatchOnly() {
       
@@ -555,13 +572,15 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> startTimeBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp start_time = 2 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_time = 2 [json_name = "startTime", (.validate.rules) = { ... }</code>
+     * @return Whether the startTime field is set.
      */
     public boolean hasStartTime() {
       return startTimeBuilder_ != null || startTime_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp start_time = 2 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_time = 2 [json_name = "startTime", (.validate.rules) = { ... }</code>
+     * @return The startTime.
      */
     public com.google.protobuf.Timestamp getStartTime() {
       if (startTimeBuilder_ == null) {
@@ -571,7 +590,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp start_time = 2 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_time = 2 [json_name = "startTime", (.validate.rules) = { ... }</code>
      */
     public Builder setStartTime(com.google.protobuf.Timestamp value) {
       if (startTimeBuilder_ == null) {
@@ -587,7 +606,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start_time = 2 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_time = 2 [json_name = "startTime", (.validate.rules) = { ... }</code>
      */
     public Builder setStartTime(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -601,7 +620,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start_time = 2 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_time = 2 [json_name = "startTime", (.validate.rules) = { ... }</code>
      */
     public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
       if (startTimeBuilder_ == null) {
@@ -619,7 +638,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start_time = 2 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_time = 2 [json_name = "startTime", (.validate.rules) = { ... }</code>
      */
     public Builder clearStartTime() {
       if (startTimeBuilder_ == null) {
@@ -633,7 +652,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start_time = 2 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_time = 2 [json_name = "startTime", (.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
       
@@ -641,7 +660,7 @@ private static final long serialVersionUID = 0L;
       return getStartTimeFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp start_time = 2 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_time = 2 [json_name = "startTime", (.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
       if (startTimeBuilder_ != null) {
@@ -652,7 +671,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp start_time = 2 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp start_time = 2 [json_name = "startTime", (.validate.rules) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -672,13 +691,15 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> endTimeBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp end_time = 3 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_time = 3 [json_name = "endTime", (.validate.rules) = { ... }</code>
+     * @return Whether the endTime field is set.
      */
     public boolean hasEndTime() {
       return endTimeBuilder_ != null || endTime_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp end_time = 3 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_time = 3 [json_name = "endTime", (.validate.rules) = { ... }</code>
+     * @return The endTime.
      */
     public com.google.protobuf.Timestamp getEndTime() {
       if (endTimeBuilder_ == null) {
@@ -688,7 +709,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp end_time = 3 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_time = 3 [json_name = "endTime", (.validate.rules) = { ... }</code>
      */
     public Builder setEndTime(com.google.protobuf.Timestamp value) {
       if (endTimeBuilder_ == null) {
@@ -704,7 +725,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp end_time = 3 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_time = 3 [json_name = "endTime", (.validate.rules) = { ... }</code>
      */
     public Builder setEndTime(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -718,7 +739,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp end_time = 3 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_time = 3 [json_name = "endTime", (.validate.rules) = { ... }</code>
      */
     public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
       if (endTimeBuilder_ == null) {
@@ -736,7 +757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp end_time = 3 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_time = 3 [json_name = "endTime", (.validate.rules) = { ... }</code>
      */
     public Builder clearEndTime() {
       if (endTimeBuilder_ == null) {
@@ -750,7 +771,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp end_time = 3 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_time = 3 [json_name = "endTime", (.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
       
@@ -758,7 +779,7 @@ private static final long serialVersionUID = 0L;
       return getEndTimeFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp end_time = 3 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_time = 3 [json_name = "endTime", (.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
       if (endTimeBuilder_ != null) {
@@ -769,7 +790,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp end_time = 3 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.Timestamp end_time = 3 [json_name = "endTime", (.validate.rules) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 

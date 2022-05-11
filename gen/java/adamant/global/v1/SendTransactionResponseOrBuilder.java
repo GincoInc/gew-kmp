@@ -8,11 +8,13 @@ public interface SendTransactionResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string tx_id = 1;</code>
+   * <code>string tx_id = 1 [json_name = "txId"];</code>
+   * @return The txId.
    */
   java.lang.String getTxId();
   /**
-   * <code>string tx_id = 1;</code>
+   * <code>string tx_id = 1 [json_name = "txId"];</code>
+   * @return The bytes for txId.
    */
   com.google.protobuf.ByteString
       getTxIdBytes();

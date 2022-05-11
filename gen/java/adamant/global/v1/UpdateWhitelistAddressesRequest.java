@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.UpdateWhitelistAddressesRequest}
  */
-public  final class UpdateWhitelistAddressesRequest extends
+public final class UpdateWhitelistAddressesRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.UpdateWhitelistAddressesRequest)
     UpdateWhitelistAddressesRequestOrBuilder {
@@ -104,8 +104,10 @@ private static final long serialVersionUID = 0L;
   public static final int WHITELIST_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object whitelistId_;
   /**
-   * <code>string whitelist_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string whitelist_id = 1 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+   * @return The whitelistId.
    */
+  @java.lang.Override
   public java.lang.String getWhitelistId() {
     java.lang.Object ref = whitelistId_;
     if (ref instanceof java.lang.String) {
@@ -119,8 +121,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string whitelist_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string whitelist_id = 1 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+   * @return The bytes for whitelistId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWhitelistIdBytes() {
     java.lang.Object ref = whitelistId_;
@@ -138,26 +142,32 @@ private static final long serialVersionUID = 0L;
   public static final int ADDRESS_IDS_FIELD_NUMBER = 2;
   private com.google.protobuf.LazyStringList addressIds_;
   /**
-   * <code>repeated string address_ids = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated string address_ids = 2 [json_name = "addressIds", (.validate.rules) = { ... }</code>
+   * @return A list containing the addressIds.
    */
   public com.google.protobuf.ProtocolStringList
       getAddressIdsList() {
     return addressIds_;
   }
   /**
-   * <code>repeated string address_ids = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated string address_ids = 2 [json_name = "addressIds", (.validate.rules) = { ... }</code>
+   * @return The count of addressIds.
    */
   public int getAddressIdsCount() {
     return addressIds_.size();
   }
   /**
-   * <code>repeated string address_ids = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated string address_ids = 2 [json_name = "addressIds", (.validate.rules) = { ... }</code>
+   * @param index The index of the element to return.
+   * @return The addressIds at the given index.
    */
   public java.lang.String getAddressIds(int index) {
     return addressIds_.get(index);
   }
   /**
-   * <code>repeated string address_ids = 2 [(.validate.rules) = { ... }</code>
+   * <code>repeated string address_ids = 2 [json_name = "addressIds", (.validate.rules) = { ... }</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the addressIds at the given index.
    */
   public com.google.protobuf.ByteString
       getAddressIdsBytes(int index) {
@@ -178,7 +188,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getWhitelistIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(whitelistId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, whitelistId_);
     }
     for (int i = 0; i < addressIds_.size(); i++) {
@@ -193,7 +203,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getWhitelistIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(whitelistId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, whitelistId_);
     }
     {
@@ -504,7 +514,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object whitelistId_ = "";
     /**
-     * <code>string whitelist_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string whitelist_id = 1 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+     * @return The whitelistId.
      */
     public java.lang.String getWhitelistId() {
       java.lang.Object ref = whitelistId_;
@@ -519,7 +530,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string whitelist_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string whitelist_id = 1 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+     * @return The bytes for whitelistId.
      */
     public com.google.protobuf.ByteString
         getWhitelistIdBytes() {
@@ -535,7 +547,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string whitelist_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string whitelist_id = 1 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+     * @param value The whitelistId to set.
+     * @return This builder for chaining.
      */
     public Builder setWhitelistId(
         java.lang.String value) {
@@ -548,7 +562,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string whitelist_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string whitelist_id = 1 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearWhitelistId() {
       
@@ -557,7 +572,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string whitelist_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string whitelist_id = 1 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for whitelistId to set.
+     * @return This builder for chaining.
      */
     public Builder setWhitelistIdBytes(
         com.google.protobuf.ByteString value) {
@@ -579,33 +596,42 @@ private static final long serialVersionUID = 0L;
        }
     }
     /**
-     * <code>repeated string address_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string address_ids = 2 [json_name = "addressIds", (.validate.rules) = { ... }</code>
+     * @return A list containing the addressIds.
      */
     public com.google.protobuf.ProtocolStringList
         getAddressIdsList() {
       return addressIds_.getUnmodifiableView();
     }
     /**
-     * <code>repeated string address_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string address_ids = 2 [json_name = "addressIds", (.validate.rules) = { ... }</code>
+     * @return The count of addressIds.
      */
     public int getAddressIdsCount() {
       return addressIds_.size();
     }
     /**
-     * <code>repeated string address_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string address_ids = 2 [json_name = "addressIds", (.validate.rules) = { ... }</code>
+     * @param index The index of the element to return.
+     * @return The addressIds at the given index.
      */
     public java.lang.String getAddressIds(int index) {
       return addressIds_.get(index);
     }
     /**
-     * <code>repeated string address_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string address_ids = 2 [json_name = "addressIds", (.validate.rules) = { ... }</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the addressIds at the given index.
      */
     public com.google.protobuf.ByteString
         getAddressIdsBytes(int index) {
       return addressIds_.getByteString(index);
     }
     /**
-     * <code>repeated string address_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string address_ids = 2 [json_name = "addressIds", (.validate.rules) = { ... }</code>
+     * @param index The index to set the value at.
+     * @param value The addressIds to set.
+     * @return This builder for chaining.
      */
     public Builder setAddressIds(
         int index, java.lang.String value) {
@@ -618,7 +644,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string address_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string address_ids = 2 [json_name = "addressIds", (.validate.rules) = { ... }</code>
+     * @param value The addressIds to add.
+     * @return This builder for chaining.
      */
     public Builder addAddressIds(
         java.lang.String value) {
@@ -631,7 +659,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string address_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string address_ids = 2 [json_name = "addressIds", (.validate.rules) = { ... }</code>
+     * @param values The addressIds to add.
+     * @return This builder for chaining.
      */
     public Builder addAllAddressIds(
         java.lang.Iterable<java.lang.String> values) {
@@ -642,7 +672,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string address_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string address_ids = 2 [json_name = "addressIds", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearAddressIds() {
       addressIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -651,7 +682,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string address_ids = 2 [(.validate.rules) = { ... }</code>
+     * <code>repeated string address_ids = 2 [json_name = "addressIds", (.validate.rules) = { ... }</code>
+     * @param value The bytes of the addressIds to add.
+     * @return This builder for chaining.
      */
     public Builder addAddressIdsBytes(
         com.google.protobuf.ByteString value) {

@@ -15,7 +15,7 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"github.com/golang/protobuf/ptypes"
+	"google.golang.org/protobuf/types/known/anypb"
 
 	adamantglobalv1 "github.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1"
 
@@ -34,7 +34,7 @@ var (
 	_ = time.Duration(0)
 	_ = (*url.URL)(nil)
 	_ = (*mail.Address)(nil)
-	_ = ptypes.DynamicAny{}
+	_ = anypb.Any{}
 
 	_ = gincoincglobalv1.Coin(0)
 
@@ -43,82 +43,140 @@ var (
 	_ = gincoincglobalv1.AddressType(0)
 )
 
-// define the regex for a UUID once up-front
-var _teller_api_uuidPattern = regexp.MustCompile("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
-
 // Validate checks the field values on CreateWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *CreateWalletRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateWalletRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CreateWalletRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
-	if l := utf8.RuneCountInString(m.GetWalletName()); l < 1 || l > 20 {
-		return CreateWalletRequestValidationError{
+	var errors []error
+
+	if l := utf8.RuneCountInString(m.GetWalletName()); l < 1 || l > 40 {
+		err := CreateWalletRequestValidationError{
 			field:  "WalletName",
-			reason: "value length must be between 1 and 20 runes, inclusive",
+			reason: "value length must be between 1 and 40 runes, inclusive",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := _CreateWalletRequest_Coin_NotInLookup[m.GetCoin()]; ok {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "Coin",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "Coin",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := _CreateWalletRequest_WalletType_NotInLookup[m.GetWalletType()]; ok {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "WalletType",
 			reason: "value must not be in list [0 2]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := adamantglobalv1.WalletType_name[int32(m.GetWalletType())]; !ok {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "WalletType",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := _CreateWalletRequest_AddressType_NotInLookup[m.GetAddressType()]; ok {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "AddressType",
 			reason: "value must not be in list [0]",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if _, ok := gincoincglobalv1.AddressType_name[int32(m.GetAddressType())]; !ok {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "AddressType",
 			reason: "value must be one of the defined enum values",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_CreateWalletRequest_DestinationWalletId_Pattern.MatchString(m.GetDestinationWalletId()) {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "DestinationWalletId",
 			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_CreateWalletRequest_InheritWalletId_Pattern.MatchString(m.GetInheritWalletId()) {
-		return CreateWalletRequestValidationError{
+		err := CreateWalletRequestValidationError{
 			field:  "InheritWalletId",
 			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return CreateWalletRequestMultiError(errors)
+	}
 	return nil
 }
+
+// CreateWalletRequestMultiError is an error wrapping multiple validation
+// errors returned by CreateWalletRequest.Validate(true) if the designated
+// constraints aren't met.
+type CreateWalletRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateWalletRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateWalletRequestMultiError) AllErrors() []error { return m }
 
 // CreateWalletRequestValidationError is the validation error returned by
 // CreateWalletRequest.Validate if the designated constraints aren't met.
@@ -195,21 +253,50 @@ var _CreateWalletRequest_InheritWalletId_Pattern = regexp.MustCompile("^$|^[0-9a
 
 // Validate checks the field values on InitializeXRPWalletRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *InitializeXRPWalletRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in InitializeXRPWalletRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *InitializeXRPWalletRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_InitializeXRPWalletRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return InitializeXRPWalletRequestValidationError{
+		err := InitializeXRPWalletRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return InitializeXRPWalletRequestMultiError(errors)
+	}
 	return nil
 }
+
+// InitializeXRPWalletRequestMultiError is an error wrapping multiple
+// validation errors returned by InitializeXRPWalletRequest.Validate(true) if
+// the designated constraints aren't met.
+type InitializeXRPWalletRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m InitializeXRPWalletRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m InitializeXRPWalletRequestMultiError) AllErrors() []error { return m }
 
 // InitializeXRPWalletRequestValidationError is the validation error returned
 // by InitializeXRPWalletRequest.Validate if the designated constraints aren't met.
@@ -271,21 +358,50 @@ var _InitializeXRPWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]
 
 // Validate checks the field values on InitializeWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *InitializeWalletRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in InitializeWalletRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *InitializeWalletRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_InitializeWalletRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return InitializeWalletRequestValidationError{
+		err := InitializeWalletRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return InitializeWalletRequestMultiError(errors)
+	}
 	return nil
 }
+
+// InitializeWalletRequestMultiError is an error wrapping multiple validation
+// errors returned by InitializeWalletRequest.Validate(true) if the designated
+// constraints aren't met.
+type InitializeWalletRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m InitializeWalletRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m InitializeWalletRequestMultiError) AllErrors() []error { return m }
 
 // InitializeWalletRequestValidationError is the validation error returned by
 // InitializeWalletRequest.Validate if the designated constraints aren't met.
@@ -347,28 +463,61 @@ var _InitializeWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}
 
 // Validate checks the field values on SignTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned.
-func (m *SignTransactionRequest) Validate() error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SignTransactionRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *SignTransactionRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
+	var errors []error
+
 	if !_SignTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		return SignTransactionRequestValidationError{
+		err := SignTransactionRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
 	if !_SignTransactionRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
-		return SignTransactionRequestValidationError{
+		err := SignTransactionRequestValidationError{
 			field:  "TransactionId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
 	}
 
+	if len(errors) > 0 {
+		return SignTransactionRequestMultiError(errors)
+	}
 	return nil
 }
+
+// SignTransactionRequestMultiError is an error wrapping multiple validation
+// errors returned by SignTransactionRequest.Validate(true) if the designated
+// constraints aren't met.
+type SignTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SignTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SignTransactionRequestMultiError) AllErrors() []error { return m }
 
 // SignTransactionRequestValidationError is the validation error returned by
 // SignTransactionRequest.Validate if the designated constraints aren't met.

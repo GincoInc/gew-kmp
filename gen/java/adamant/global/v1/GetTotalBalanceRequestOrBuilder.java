@@ -8,7 +8,8 @@ public interface GetTotalBalanceRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>bool watch_only = 1;</code>
+   * <code>bool watch_only = 1 [json_name = "watchOnly"];</code>
+   * @return The watchOnly.
    */
   boolean getWatchOnly();
 }

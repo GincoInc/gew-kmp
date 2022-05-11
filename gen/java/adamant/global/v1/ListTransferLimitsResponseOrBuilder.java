@@ -8,25 +8,25 @@ public interface ListTransferLimitsResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
    */
   java.util.List<adamant.global.v1.Model.TransferLimit> 
       getTransferLimitsList();
   /**
-   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
    */
   adamant.global.v1.Model.TransferLimit getTransferLimits(int index);
   /**
-   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
    */
   int getTransferLimitsCount();
   /**
-   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.TransferLimitOrBuilder> 
       getTransferLimitsOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1;</code>
+   * <code>repeated .adamant.global.v1.TransferLimit transfer_limits = 1 [json_name = "transferLimits"];</code>
    */
   adamant.global.v1.Model.TransferLimitOrBuilder getTransferLimitsOrBuilder(
       int index);

@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListSignInfoResponse}
  */
-public  final class ListSignInfoResponse extends
+public final class ListSignInfoResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListSignInfoResponse)
     ListSignInfoResponseOrBuilder {
@@ -97,33 +97,38 @@ private static final long serialVersionUID = 0L;
   public static final int SIGN_INFO_LIST_FIELD_NUMBER = 1;
   private java.util.List<adamant.global.v1.Model.SignInfo> signInfoList_;
   /**
-   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.SignInfo> getSignInfoListList() {
     return signInfoList_;
   }
   /**
-   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.SignInfoOrBuilder> 
       getSignInfoListOrBuilderList() {
     return signInfoList_;
   }
   /**
-   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
    */
+  @java.lang.Override
   public int getSignInfoListCount() {
     return signInfoList_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.SignInfo getSignInfoList(int index) {
     return signInfoList_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+   * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.SignInfoOrBuilder getSignInfoListOrBuilder(
       int index) {
     return signInfoList_.get(index);
@@ -484,7 +489,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.SignInfo, adamant.global.v1.Model.SignInfo.Builder, adamant.global.v1.Model.SignInfoOrBuilder> signInfoListBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public java.util.List<adamant.global.v1.Model.SignInfo> getSignInfoListList() {
       if (signInfoListBuilder_ == null) {
@@ -494,7 +499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public int getSignInfoListCount() {
       if (signInfoListBuilder_ == null) {
@@ -504,7 +509,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public adamant.global.v1.Model.SignInfo getSignInfoList(int index) {
       if (signInfoListBuilder_ == null) {
@@ -514,7 +519,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public Builder setSignInfoList(
         int index, adamant.global.v1.Model.SignInfo value) {
@@ -531,7 +536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public Builder setSignInfoList(
         int index, adamant.global.v1.Model.SignInfo.Builder builderForValue) {
@@ -545,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public Builder addSignInfoList(adamant.global.v1.Model.SignInfo value) {
       if (signInfoListBuilder_ == null) {
@@ -561,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public Builder addSignInfoList(
         int index, adamant.global.v1.Model.SignInfo value) {
@@ -578,7 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public Builder addSignInfoList(
         adamant.global.v1.Model.SignInfo.Builder builderForValue) {
@@ -592,7 +597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public Builder addSignInfoList(
         int index, adamant.global.v1.Model.SignInfo.Builder builderForValue) {
@@ -606,7 +611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public Builder addAllSignInfoList(
         java.lang.Iterable<? extends adamant.global.v1.Model.SignInfo> values) {
@@ -621,7 +626,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public Builder clearSignInfoList() {
       if (signInfoListBuilder_ == null) {
@@ -634,7 +639,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public Builder removeSignInfoList(int index) {
       if (signInfoListBuilder_ == null) {
@@ -647,14 +652,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public adamant.global.v1.Model.SignInfo.Builder getSignInfoListBuilder(
         int index) {
       return getSignInfoListFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public adamant.global.v1.Model.SignInfoOrBuilder getSignInfoListOrBuilder(
         int index) {
@@ -664,7 +669,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.SignInfoOrBuilder> 
          getSignInfoListOrBuilderList() {
@@ -675,14 +680,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public adamant.global.v1.Model.SignInfo.Builder addSignInfoListBuilder() {
       return getSignInfoListFieldBuilder().addBuilder(
           adamant.global.v1.Model.SignInfo.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public adamant.global.v1.Model.SignInfo.Builder addSignInfoListBuilder(
         int index) {
@@ -690,7 +695,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.SignInfo.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1;</code>
+     * <code>repeated .adamant.global.v1.SignInfo sign_info_list = 1 [json_name = "signInfoList"];</code>
      */
     public java.util.List<adamant.global.v1.Model.SignInfo.Builder> 
          getSignInfoListBuilderList() {

@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.FlushBalanceResponse}
  */
-public  final class FlushBalanceResponse extends
+public final class FlushBalanceResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.FlushBalanceResponse)
     FlushBalanceResponseOrBuilder {
@@ -97,33 +97,38 @@ private static final long serialVersionUID = 0L;
   public static final int FLUSHED_ADDRESSES_FIELD_NUMBER = 1;
   private java.util.List<adamant.global.v1.Model.FlushedAddress> flushedAddresses_;
   /**
-   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.FlushedAddress> getFlushedAddressesList() {
     return flushedAddresses_;
   }
   /**
-   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.FlushedAddressOrBuilder> 
       getFlushedAddressesOrBuilderList() {
     return flushedAddresses_;
   }
   /**
-   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
    */
+  @java.lang.Override
   public int getFlushedAddressesCount() {
     return flushedAddresses_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.FlushedAddress getFlushedAddresses(int index) {
     return flushedAddresses_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.FlushedAddressOrBuilder getFlushedAddressesOrBuilder(
       int index) {
     return flushedAddresses_.get(index);
@@ -484,7 +489,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.FlushedAddress, adamant.global.v1.Model.FlushedAddress.Builder, adamant.global.v1.Model.FlushedAddressOrBuilder> flushedAddressesBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public java.util.List<adamant.global.v1.Model.FlushedAddress> getFlushedAddressesList() {
       if (flushedAddressesBuilder_ == null) {
@@ -494,7 +499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public int getFlushedAddressesCount() {
       if (flushedAddressesBuilder_ == null) {
@@ -504,7 +509,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public adamant.global.v1.Model.FlushedAddress getFlushedAddresses(int index) {
       if (flushedAddressesBuilder_ == null) {
@@ -514,7 +519,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public Builder setFlushedAddresses(
         int index, adamant.global.v1.Model.FlushedAddress value) {
@@ -531,7 +536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public Builder setFlushedAddresses(
         int index, adamant.global.v1.Model.FlushedAddress.Builder builderForValue) {
@@ -545,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public Builder addFlushedAddresses(adamant.global.v1.Model.FlushedAddress value) {
       if (flushedAddressesBuilder_ == null) {
@@ -561,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public Builder addFlushedAddresses(
         int index, adamant.global.v1.Model.FlushedAddress value) {
@@ -578,7 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public Builder addFlushedAddresses(
         adamant.global.v1.Model.FlushedAddress.Builder builderForValue) {
@@ -592,7 +597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public Builder addFlushedAddresses(
         int index, adamant.global.v1.Model.FlushedAddress.Builder builderForValue) {
@@ -606,7 +611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public Builder addAllFlushedAddresses(
         java.lang.Iterable<? extends adamant.global.v1.Model.FlushedAddress> values) {
@@ -621,7 +626,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public Builder clearFlushedAddresses() {
       if (flushedAddressesBuilder_ == null) {
@@ -634,7 +639,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public Builder removeFlushedAddresses(int index) {
       if (flushedAddressesBuilder_ == null) {
@@ -647,14 +652,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public adamant.global.v1.Model.FlushedAddress.Builder getFlushedAddressesBuilder(
         int index) {
       return getFlushedAddressesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public adamant.global.v1.Model.FlushedAddressOrBuilder getFlushedAddressesOrBuilder(
         int index) {
@@ -664,7 +669,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.FlushedAddressOrBuilder> 
          getFlushedAddressesOrBuilderList() {
@@ -675,14 +680,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public adamant.global.v1.Model.FlushedAddress.Builder addFlushedAddressesBuilder() {
       return getFlushedAddressesFieldBuilder().addBuilder(
           adamant.global.v1.Model.FlushedAddress.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public adamant.global.v1.Model.FlushedAddress.Builder addFlushedAddressesBuilder(
         int index) {
@@ -690,7 +695,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.FlushedAddress.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.FlushedAddress flushed_addresses = 1 [json_name = "flushedAddresses"];</code>
      */
     public java.util.List<adamant.global.v1.Model.FlushedAddress.Builder> 
          getFlushedAddressesBuilderList() {

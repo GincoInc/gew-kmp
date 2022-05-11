@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.SendTransactionResponse}
  */
-public  final class SendTransactionResponse extends
+public final class SendTransactionResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.SendTransactionResponse)
     SendTransactionResponseOrBuilder {
@@ -90,8 +90,10 @@ private static final long serialVersionUID = 0L;
   public static final int TX_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object txId_;
   /**
-   * <code>string tx_id = 1;</code>
+   * <code>string tx_id = 1 [json_name = "txId"];</code>
+   * @return The txId.
    */
+  @java.lang.Override
   public java.lang.String getTxId() {
     java.lang.Object ref = txId_;
     if (ref instanceof java.lang.String) {
@@ -105,8 +107,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string tx_id = 1;</code>
+   * <code>string tx_id = 1 [json_name = "txId"];</code>
+   * @return The bytes for txId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTxIdBytes() {
     java.lang.Object ref = txId_;
@@ -135,7 +139,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getTxIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(txId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, txId_);
     }
     unknownFields.writeTo(output);
@@ -147,7 +151,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getTxIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(txId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, txId_);
     }
     size += unknownFields.getSerializedSize();
@@ -425,7 +429,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object txId_ = "";
     /**
-     * <code>string tx_id = 1;</code>
+     * <code>string tx_id = 1 [json_name = "txId"];</code>
+     * @return The txId.
      */
     public java.lang.String getTxId() {
       java.lang.Object ref = txId_;
@@ -440,7 +445,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string tx_id = 1;</code>
+     * <code>string tx_id = 1 [json_name = "txId"];</code>
+     * @return The bytes for txId.
      */
     public com.google.protobuf.ByteString
         getTxIdBytes() {
@@ -456,7 +462,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string tx_id = 1;</code>
+     * <code>string tx_id = 1 [json_name = "txId"];</code>
+     * @param value The txId to set.
+     * @return This builder for chaining.
      */
     public Builder setTxId(
         java.lang.String value) {
@@ -469,7 +477,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string tx_id = 1;</code>
+     * <code>string tx_id = 1 [json_name = "txId"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearTxId() {
       
@@ -478,7 +487,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string tx_id = 1;</code>
+     * <code>string tx_id = 1 [json_name = "txId"];</code>
+     * @param value The bytes for txId to set.
+     * @return This builder for chaining.
      */
     public Builder setTxIdBytes(
         com.google.protobuf.ByteString value) {

@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.DownloadResourceRequest}
  */
-public  final class DownloadResourceRequest extends
+public final class DownloadResourceRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.DownloadResourceRequest)
     DownloadResourceRequestOrBuilder {
@@ -128,15 +128,17 @@ private static final long serialVersionUID = 0L;
   public static final int DOWNLOAD_RESOURCE_TYPE_FIELD_NUMBER = 1;
   private int downloadResourceType_;
   /**
-   * <code>.adamant.global.v1.DownloadResourceType download_resource_type = 1;</code>
+   * <code>.adamant.global.v1.DownloadResourceType download_resource_type = 1 [json_name = "downloadResourceType"];</code>
+   * @return The enum numeric value on the wire for downloadResourceType.
    */
-  public int getDownloadResourceTypeValue() {
+  @java.lang.Override public int getDownloadResourceTypeValue() {
     return downloadResourceType_;
   }
   /**
-   * <code>.adamant.global.v1.DownloadResourceType download_resource_type = 1;</code>
+   * <code>.adamant.global.v1.DownloadResourceType download_resource_type = 1 [json_name = "downloadResourceType"];</code>
+   * @return The downloadResourceType.
    */
-  public adamant.global.v1.Enum.DownloadResourceType getDownloadResourceType() {
+  @java.lang.Override public adamant.global.v1.Enum.DownloadResourceType getDownloadResourceType() {
     @SuppressWarnings("deprecation")
     adamant.global.v1.Enum.DownloadResourceType result = adamant.global.v1.Enum.DownloadResourceType.valueOf(downloadResourceType_);
     return result == null ? adamant.global.v1.Enum.DownloadResourceType.UNRECOGNIZED : result;
@@ -145,8 +147,10 @@ private static final long serialVersionUID = 0L;
   public static final int WATCH_ONLY_FIELD_NUMBER = 5;
   private boolean watchOnly_;
   /**
-   * <code>bool watch_only = 5;</code>
+   * <code>bool watch_only = 5 [json_name = "watchOnly"];</code>
+   * @return The watchOnly.
    */
+  @java.lang.Override
   public boolean getWatchOnly() {
     return watchOnly_;
   }
@@ -154,8 +158,10 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_ID_FIELD_NUMBER = 2;
   private volatile java.lang.Object walletId_;
   /**
-   * <code>string wallet_id = 2;</code>
+   * <code>string wallet_id = 2 [json_name = "walletId"];</code>
+   * @return The walletId.
    */
+  @java.lang.Override
   public java.lang.String getWalletId() {
     java.lang.Object ref = walletId_;
     if (ref instanceof java.lang.String) {
@@ -169,8 +175,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string wallet_id = 2;</code>
+   * <code>string wallet_id = 2 [json_name = "walletId"];</code>
+   * @return The bytes for walletId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWalletIdBytes() {
     java.lang.Object ref = walletId_;
@@ -188,20 +196,25 @@ private static final long serialVersionUID = 0L;
   public static final int START_TIME_FIELD_NUMBER = 3;
   private com.google.protobuf.Timestamp startTime_;
   /**
-   * <code>.google.protobuf.Timestamp start_time = 3;</code>
+   * <code>.google.protobuf.Timestamp start_time = 3 [json_name = "startTime"];</code>
+   * @return Whether the startTime field is set.
    */
+  @java.lang.Override
   public boolean hasStartTime() {
     return startTime_ != null;
   }
   /**
-   * <code>.google.protobuf.Timestamp start_time = 3;</code>
+   * <code>.google.protobuf.Timestamp start_time = 3 [json_name = "startTime"];</code>
+   * @return The startTime.
    */
+  @java.lang.Override
   public com.google.protobuf.Timestamp getStartTime() {
     return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
   }
   /**
-   * <code>.google.protobuf.Timestamp start_time = 3;</code>
+   * <code>.google.protobuf.Timestamp start_time = 3 [json_name = "startTime"];</code>
    */
+  @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
     return getStartTime();
   }
@@ -209,20 +222,25 @@ private static final long serialVersionUID = 0L;
   public static final int END_TIME_FIELD_NUMBER = 4;
   private com.google.protobuf.Timestamp endTime_;
   /**
-   * <code>.google.protobuf.Timestamp end_time = 4;</code>
+   * <code>.google.protobuf.Timestamp end_time = 4 [json_name = "endTime"];</code>
+   * @return Whether the endTime field is set.
    */
+  @java.lang.Override
   public boolean hasEndTime() {
     return endTime_ != null;
   }
   /**
-   * <code>.google.protobuf.Timestamp end_time = 4;</code>
+   * <code>.google.protobuf.Timestamp end_time = 4 [json_name = "endTime"];</code>
+   * @return The endTime.
    */
+  @java.lang.Override
   public com.google.protobuf.Timestamp getEndTime() {
     return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
   }
   /**
-   * <code>.google.protobuf.Timestamp end_time = 4;</code>
+   * <code>.google.protobuf.Timestamp end_time = 4 [json_name = "endTime"];</code>
    */
+  @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
     return getEndTime();
   }
@@ -244,7 +262,7 @@ private static final long serialVersionUID = 0L;
     if (downloadResourceType_ != adamant.global.v1.Enum.DownloadResourceType.DOWNLOAD_RESOURCE_TYPE_INVALID.getNumber()) {
       output.writeEnum(1, downloadResourceType_);
     }
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, walletId_);
     }
     if (startTime_ != null) {
@@ -269,7 +287,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, downloadResourceType_);
     }
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, walletId_);
     }
     if (startTime_ != null) {
@@ -625,29 +643,37 @@ private static final long serialVersionUID = 0L;
 
     private int downloadResourceType_ = 0;
     /**
-     * <code>.adamant.global.v1.DownloadResourceType download_resource_type = 1;</code>
+     * <code>.adamant.global.v1.DownloadResourceType download_resource_type = 1 [json_name = "downloadResourceType"];</code>
+     * @return The enum numeric value on the wire for downloadResourceType.
      */
-    public int getDownloadResourceTypeValue() {
+    @java.lang.Override public int getDownloadResourceTypeValue() {
       return downloadResourceType_;
     }
     /**
-     * <code>.adamant.global.v1.DownloadResourceType download_resource_type = 1;</code>
+     * <code>.adamant.global.v1.DownloadResourceType download_resource_type = 1 [json_name = "downloadResourceType"];</code>
+     * @param value The enum numeric value on the wire for downloadResourceType to set.
+     * @return This builder for chaining.
      */
     public Builder setDownloadResourceTypeValue(int value) {
+      
       downloadResourceType_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>.adamant.global.v1.DownloadResourceType download_resource_type = 1;</code>
+     * <code>.adamant.global.v1.DownloadResourceType download_resource_type = 1 [json_name = "downloadResourceType"];</code>
+     * @return The downloadResourceType.
      */
+    @java.lang.Override
     public adamant.global.v1.Enum.DownloadResourceType getDownloadResourceType() {
       @SuppressWarnings("deprecation")
       adamant.global.v1.Enum.DownloadResourceType result = adamant.global.v1.Enum.DownloadResourceType.valueOf(downloadResourceType_);
       return result == null ? adamant.global.v1.Enum.DownloadResourceType.UNRECOGNIZED : result;
     }
     /**
-     * <code>.adamant.global.v1.DownloadResourceType download_resource_type = 1;</code>
+     * <code>.adamant.global.v1.DownloadResourceType download_resource_type = 1 [json_name = "downloadResourceType"];</code>
+     * @param value The downloadResourceType to set.
+     * @return This builder for chaining.
      */
     public Builder setDownloadResourceType(adamant.global.v1.Enum.DownloadResourceType value) {
       if (value == null) {
@@ -659,7 +685,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.DownloadResourceType download_resource_type = 1;</code>
+     * <code>.adamant.global.v1.DownloadResourceType download_resource_type = 1 [json_name = "downloadResourceType"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearDownloadResourceType() {
       
@@ -670,13 +697,17 @@ private static final long serialVersionUID = 0L;
 
     private boolean watchOnly_ ;
     /**
-     * <code>bool watch_only = 5;</code>
+     * <code>bool watch_only = 5 [json_name = "watchOnly"];</code>
+     * @return The watchOnly.
      */
+    @java.lang.Override
     public boolean getWatchOnly() {
       return watchOnly_;
     }
     /**
-     * <code>bool watch_only = 5;</code>
+     * <code>bool watch_only = 5 [json_name = "watchOnly"];</code>
+     * @param value The watchOnly to set.
+     * @return This builder for chaining.
      */
     public Builder setWatchOnly(boolean value) {
       
@@ -685,7 +716,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool watch_only = 5;</code>
+     * <code>bool watch_only = 5 [json_name = "watchOnly"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearWatchOnly() {
       
@@ -696,7 +728,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object walletId_ = "";
     /**
-     * <code>string wallet_id = 2;</code>
+     * <code>string wallet_id = 2 [json_name = "walletId"];</code>
+     * @return The walletId.
      */
     public java.lang.String getWalletId() {
       java.lang.Object ref = walletId_;
@@ -711,7 +744,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_id = 2;</code>
+     * <code>string wallet_id = 2 [json_name = "walletId"];</code>
+     * @return The bytes for walletId.
      */
     public com.google.protobuf.ByteString
         getWalletIdBytes() {
@@ -727,7 +761,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_id = 2;</code>
+     * <code>string wallet_id = 2 [json_name = "walletId"];</code>
+     * @param value The walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletId(
         java.lang.String value) {
@@ -740,7 +776,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_id = 2;</code>
+     * <code>string wallet_id = 2 [json_name = "walletId"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletId() {
       
@@ -749,7 +786,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_id = 2;</code>
+     * <code>string wallet_id = 2 [json_name = "walletId"];</code>
+     * @param value The bytes for walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletIdBytes(
         com.google.protobuf.ByteString value) {
@@ -767,13 +806,15 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> startTimeBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp start_time = 3;</code>
+     * <code>.google.protobuf.Timestamp start_time = 3 [json_name = "startTime"];</code>
+     * @return Whether the startTime field is set.
      */
     public boolean hasStartTime() {
       return startTimeBuilder_ != null || startTime_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp start_time = 3;</code>
+     * <code>.google.protobuf.Timestamp start_time = 3 [json_name = "startTime"];</code>
+     * @return The startTime.
      */
     public com.google.protobuf.Timestamp getStartTime() {
       if (startTimeBuilder_ == null) {
@@ -783,7 +824,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp start_time = 3;</code>
+     * <code>.google.protobuf.Timestamp start_time = 3 [json_name = "startTime"];</code>
      */
     public Builder setStartTime(com.google.protobuf.Timestamp value) {
       if (startTimeBuilder_ == null) {
@@ -799,7 +840,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start_time = 3;</code>
+     * <code>.google.protobuf.Timestamp start_time = 3 [json_name = "startTime"];</code>
      */
     public Builder setStartTime(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -813,7 +854,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start_time = 3;</code>
+     * <code>.google.protobuf.Timestamp start_time = 3 [json_name = "startTime"];</code>
      */
     public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
       if (startTimeBuilder_ == null) {
@@ -831,7 +872,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start_time = 3;</code>
+     * <code>.google.protobuf.Timestamp start_time = 3 [json_name = "startTime"];</code>
      */
     public Builder clearStartTime() {
       if (startTimeBuilder_ == null) {
@@ -845,7 +886,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start_time = 3;</code>
+     * <code>.google.protobuf.Timestamp start_time = 3 [json_name = "startTime"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
       
@@ -853,7 +894,7 @@ private static final long serialVersionUID = 0L;
       return getStartTimeFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp start_time = 3;</code>
+     * <code>.google.protobuf.Timestamp start_time = 3 [json_name = "startTime"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
       if (startTimeBuilder_ != null) {
@@ -864,7 +905,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp start_time = 3;</code>
+     * <code>.google.protobuf.Timestamp start_time = 3 [json_name = "startTime"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -884,13 +925,15 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> endTimeBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp end_time = 4;</code>
+     * <code>.google.protobuf.Timestamp end_time = 4 [json_name = "endTime"];</code>
+     * @return Whether the endTime field is set.
      */
     public boolean hasEndTime() {
       return endTimeBuilder_ != null || endTime_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp end_time = 4;</code>
+     * <code>.google.protobuf.Timestamp end_time = 4 [json_name = "endTime"];</code>
+     * @return The endTime.
      */
     public com.google.protobuf.Timestamp getEndTime() {
       if (endTimeBuilder_ == null) {
@@ -900,7 +943,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp end_time = 4;</code>
+     * <code>.google.protobuf.Timestamp end_time = 4 [json_name = "endTime"];</code>
      */
     public Builder setEndTime(com.google.protobuf.Timestamp value) {
       if (endTimeBuilder_ == null) {
@@ -916,7 +959,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp end_time = 4;</code>
+     * <code>.google.protobuf.Timestamp end_time = 4 [json_name = "endTime"];</code>
      */
     public Builder setEndTime(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -930,7 +973,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp end_time = 4;</code>
+     * <code>.google.protobuf.Timestamp end_time = 4 [json_name = "endTime"];</code>
      */
     public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
       if (endTimeBuilder_ == null) {
@@ -948,7 +991,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp end_time = 4;</code>
+     * <code>.google.protobuf.Timestamp end_time = 4 [json_name = "endTime"];</code>
      */
     public Builder clearEndTime() {
       if (endTimeBuilder_ == null) {
@@ -962,7 +1005,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp end_time = 4;</code>
+     * <code>.google.protobuf.Timestamp end_time = 4 [json_name = "endTime"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
       
@@ -970,7 +1013,7 @@ private static final long serialVersionUID = 0L;
       return getEndTimeFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp end_time = 4;</code>
+     * <code>.google.protobuf.Timestamp end_time = 4 [json_name = "endTime"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
       if (endTimeBuilder_ != null) {
@@ -981,7 +1024,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp end_time = 4;</code>
+     * <code>.google.protobuf.Timestamp end_time = 4 [json_name = "endTime"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 

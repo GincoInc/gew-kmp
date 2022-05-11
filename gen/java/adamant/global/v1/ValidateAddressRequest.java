@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ValidateAddressRequest}
  */
-public  final class ValidateAddressRequest extends
+public final class ValidateAddressRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ValidateAddressRequest)
     ValidateAddressRequestOrBuilder {
@@ -101,9 +101,10 @@ private static final long serialVersionUID = 0L;
    * The type of coin
    * </pre>
    *
-   * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
    */
-  public int getCoinValue() {
+  @java.lang.Override public int getCoinValue() {
     return coin_;
   }
   /**
@@ -111,9 +112,10 @@ private static final long serialVersionUID = 0L;
    * The type of coin
    * </pre>
    *
-   * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
    */
-  public gincoinc.global.v1.Enum.Coin getCoin() {
+  @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
     @SuppressWarnings("deprecation")
     gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
     return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
@@ -126,8 +128,10 @@ private static final long serialVersionUID = 0L;
    * The address string to be validated
    * </pre>
    *
-   * <code>string address = 2 [(.validate.rules) = { ... }</code>
+   * <code>string address = 2 [json_name = "address", (.validate.rules) = { ... }</code>
+   * @return The address.
    */
+  @java.lang.Override
   public java.lang.String getAddress() {
     java.lang.Object ref = address_;
     if (ref instanceof java.lang.String) {
@@ -145,8 +149,10 @@ private static final long serialVersionUID = 0L;
    * The address string to be validated
    * </pre>
    *
-   * <code>string address = 2 [(.validate.rules) = { ... }</code>
+   * <code>string address = 2 [json_name = "address", (.validate.rules) = { ... }</code>
+   * @return The bytes for address.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getAddressBytes() {
     java.lang.Object ref = address_;
@@ -178,7 +184,7 @@ private static final long serialVersionUID = 0L;
     if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
       output.writeEnum(1, coin_);
     }
-    if (!getAddressBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, address_);
     }
     unknownFields.writeTo(output);
@@ -194,7 +200,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, coin_);
     }
-    if (!getAddressBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, address_);
     }
     size += unknownFields.getSerializedSize();
@@ -485,9 +491,10 @@ private static final long serialVersionUID = 0L;
      * The type of coin
      * </pre>
      *
-     * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for coin.
      */
-    public int getCoinValue() {
+    @java.lang.Override public int getCoinValue() {
       return coin_;
     }
     /**
@@ -495,9 +502,12 @@ private static final long serialVersionUID = 0L;
      * The type of coin
      * </pre>
      *
-     * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for coin to set.
+     * @return This builder for chaining.
      */
     public Builder setCoinValue(int value) {
+      
       coin_ = value;
       onChanged();
       return this;
@@ -507,8 +517,10 @@ private static final long serialVersionUID = 0L;
      * The type of coin
      * </pre>
      *
-     * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return The coin.
      */
+    @java.lang.Override
     public gincoinc.global.v1.Enum.Coin getCoin() {
       @SuppressWarnings("deprecation")
       gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
@@ -519,7 +531,9 @@ private static final long serialVersionUID = 0L;
      * The type of coin
      * </pre>
      *
-     * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @param value The coin to set.
+     * @return This builder for chaining.
      */
     public Builder setCoin(gincoinc.global.v1.Enum.Coin value) {
       if (value == null) {
@@ -535,7 +549,8 @@ private static final long serialVersionUID = 0L;
      * The type of coin
      * </pre>
      *
-     * <code>.gincoinc.global.v1.Coin coin = 1 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearCoin() {
       
@@ -550,7 +565,8 @@ private static final long serialVersionUID = 0L;
      * The address string to be validated
      * </pre>
      *
-     * <code>string address = 2 [(.validate.rules) = { ... }</code>
+     * <code>string address = 2 [json_name = "address", (.validate.rules) = { ... }</code>
+     * @return The address.
      */
     public java.lang.String getAddress() {
       java.lang.Object ref = address_;
@@ -569,7 +585,8 @@ private static final long serialVersionUID = 0L;
      * The address string to be validated
      * </pre>
      *
-     * <code>string address = 2 [(.validate.rules) = { ... }</code>
+     * <code>string address = 2 [json_name = "address", (.validate.rules) = { ... }</code>
+     * @return The bytes for address.
      */
     public com.google.protobuf.ByteString
         getAddressBytes() {
@@ -589,7 +606,9 @@ private static final long serialVersionUID = 0L;
      * The address string to be validated
      * </pre>
      *
-     * <code>string address = 2 [(.validate.rules) = { ... }</code>
+     * <code>string address = 2 [json_name = "address", (.validate.rules) = { ... }</code>
+     * @param value The address to set.
+     * @return This builder for chaining.
      */
     public Builder setAddress(
         java.lang.String value) {
@@ -606,7 +625,8 @@ private static final long serialVersionUID = 0L;
      * The address string to be validated
      * </pre>
      *
-     * <code>string address = 2 [(.validate.rules) = { ... }</code>
+     * <code>string address = 2 [json_name = "address", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearAddress() {
       
@@ -619,7 +639,9 @@ private static final long serialVersionUID = 0L;
      * The address string to be validated
      * </pre>
      *
-     * <code>string address = 2 [(.validate.rules) = { ... }</code>
+     * <code>string address = 2 [json_name = "address", (.validate.rules) = { ... }</code>
+     * @param value The bytes for address to set.
+     * @return This builder for chaining.
      */
     public Builder setAddressBytes(
         com.google.protobuf.ByteString value) {

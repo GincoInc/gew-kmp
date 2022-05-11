@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListWalletGroupsRequest}
  */
-public  final class ListWalletGroupsRequest extends
+public final class ListWalletGroupsRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListWalletGroupsRequest)
     ListWalletGroupsRequestOrBuilder {
@@ -100,8 +100,10 @@ private static final long serialVersionUID = 0L;
   public static final int WATCH_ONLY_FIELD_NUMBER = 3;
   private boolean watchOnly_;
   /**
-   * <code>bool watch_only = 3;</code>
+   * <code>bool watch_only = 3 [json_name = "watchOnly"];</code>
+   * @return The watchOnly.
    */
+  @java.lang.Override
   public boolean getWatchOnly() {
     return watchOnly_;
   }
@@ -109,8 +111,10 @@ private static final long serialVersionUID = 0L;
   public static final int PAGE_SIZE_FIELD_NUMBER = 1;
   private int pageSize_;
   /**
-   * <code>uint32 page_size = 1 [(.validate.rules) = { ... }</code>
+   * <code>uint32 page_size = 1 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+   * @return The pageSize.
    */
+  @java.lang.Override
   public int getPageSize() {
     return pageSize_;
   }
@@ -118,8 +122,10 @@ private static final long serialVersionUID = 0L;
   public static final int PAGE_TOKEN_FIELD_NUMBER = 2;
   private volatile java.lang.Object pageToken_;
   /**
-   * <code>string page_token = 2 [(.validate.rules) = { ... }</code>
+   * <code>string page_token = 2 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The pageToken.
    */
+  @java.lang.Override
   public java.lang.String getPageToken() {
     java.lang.Object ref = pageToken_;
     if (ref instanceof java.lang.String) {
@@ -133,8 +139,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string page_token = 2 [(.validate.rules) = { ... }</code>
+   * <code>string page_token = 2 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The bytes for pageToken.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getPageTokenBytes() {
     java.lang.Object ref = pageToken_;
@@ -166,7 +174,7 @@ private static final long serialVersionUID = 0L;
     if (pageSize_ != 0) {
       output.writeUInt32(1, pageSize_);
     }
-    if (!getPageTokenBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, pageToken_);
     }
     if (watchOnly_ != false) {
@@ -185,7 +193,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(1, pageSize_);
     }
-    if (!getPageTokenBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, pageToken_);
     }
     if (watchOnly_ != false) {
@@ -488,13 +496,17 @@ private static final long serialVersionUID = 0L;
 
     private boolean watchOnly_ ;
     /**
-     * <code>bool watch_only = 3;</code>
+     * <code>bool watch_only = 3 [json_name = "watchOnly"];</code>
+     * @return The watchOnly.
      */
+    @java.lang.Override
     public boolean getWatchOnly() {
       return watchOnly_;
     }
     /**
-     * <code>bool watch_only = 3;</code>
+     * <code>bool watch_only = 3 [json_name = "watchOnly"];</code>
+     * @param value The watchOnly to set.
+     * @return This builder for chaining.
      */
     public Builder setWatchOnly(boolean value) {
       
@@ -503,7 +515,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool watch_only = 3;</code>
+     * <code>bool watch_only = 3 [json_name = "watchOnly"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearWatchOnly() {
       
@@ -514,13 +527,17 @@ private static final long serialVersionUID = 0L;
 
     private int pageSize_ ;
     /**
-     * <code>uint32 page_size = 1 [(.validate.rules) = { ... }</code>
+     * <code>uint32 page_size = 1 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+     * @return The pageSize.
      */
+    @java.lang.Override
     public int getPageSize() {
       return pageSize_;
     }
     /**
-     * <code>uint32 page_size = 1 [(.validate.rules) = { ... }</code>
+     * <code>uint32 page_size = 1 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+     * @param value The pageSize to set.
+     * @return This builder for chaining.
      */
     public Builder setPageSize(int value) {
       
@@ -529,7 +546,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint32 page_size = 1 [(.validate.rules) = { ... }</code>
+     * <code>uint32 page_size = 1 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearPageSize() {
       
@@ -540,7 +558,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object pageToken_ = "";
     /**
-     * <code>string page_token = 2 [(.validate.rules) = { ... }</code>
+     * <code>string page_token = 2 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+     * @return The pageToken.
      */
     public java.lang.String getPageToken() {
       java.lang.Object ref = pageToken_;
@@ -555,7 +574,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string page_token = 2 [(.validate.rules) = { ... }</code>
+     * <code>string page_token = 2 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+     * @return The bytes for pageToken.
      */
     public com.google.protobuf.ByteString
         getPageTokenBytes() {
@@ -571,7 +591,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string page_token = 2 [(.validate.rules) = { ... }</code>
+     * <code>string page_token = 2 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+     * @param value The pageToken to set.
+     * @return This builder for chaining.
      */
     public Builder setPageToken(
         java.lang.String value) {
@@ -584,7 +606,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string page_token = 2 [(.validate.rules) = { ... }</code>
+     * <code>string page_token = 2 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearPageToken() {
       
@@ -593,7 +616,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string page_token = 2 [(.validate.rules) = { ... }</code>
+     * <code>string page_token = 2 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+     * @param value The bytes for pageToken to set.
+     * @return This builder for chaining.
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {

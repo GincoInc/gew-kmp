@@ -8,21 +8,25 @@ public interface UpdateWalletGroupNameRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+   * @return The walletGroupId.
    */
   java.lang.String getWalletGroupId();
   /**
-   * <code>string wallet_group_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletGroupId.
    */
   com.google.protobuf.ByteString
       getWalletGroupIdBytes();
 
   /**
-   * <code>string name = 2 [(.validate.rules) = { ... }</code>
+   * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The name.
    */
   java.lang.String getName();
   /**
-   * <code>string name = 2 [(.validate.rules) = { ... }</code>
+   * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();

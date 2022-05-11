@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.GetMembersDeactivatabilitiesRequest}
  */
-public  final class GetMembersDeactivatabilitiesRequest extends
+public final class GetMembersDeactivatabilitiesRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.GetMembersDeactivatabilitiesRequest)
     GetMembersDeactivatabilitiesRequestOrBuilder {

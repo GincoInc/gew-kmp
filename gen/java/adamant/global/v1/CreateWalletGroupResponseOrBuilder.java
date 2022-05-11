@@ -8,11 +8,13 @@ public interface CreateWalletGroupResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string wallet_group_id = 1;</code>
+   * <code>string wallet_group_id = 1 [json_name = "walletGroupId"];</code>
+   * @return The walletGroupId.
    */
   java.lang.String getWalletGroupId();
   /**
-   * <code>string wallet_group_id = 1;</code>
+   * <code>string wallet_group_id = 1 [json_name = "walletGroupId"];</code>
+   * @return The bytes for walletGroupId.
    */
   com.google.protobuf.ByteString
       getWalletGroupIdBytes();

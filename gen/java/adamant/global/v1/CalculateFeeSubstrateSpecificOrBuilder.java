@@ -8,20 +8,24 @@ public interface CalculateFeeSubstrateSpecificOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.adamant.global.v1.SubstrateCallType call_type = 1;</code>
+   * <code>.adamant.global.v1.SubstrateCallType call_type = 1 [json_name = "callType"];</code>
+   * @return The enum numeric value on the wire for callType.
    */
   int getCallTypeValue();
   /**
-   * <code>.adamant.global.v1.SubstrateCallType call_type = 1;</code>
+   * <code>.adamant.global.v1.SubstrateCallType call_type = 1 [json_name = "callType"];</code>
+   * @return The callType.
    */
   adamant.global.v1.Enum.SubstrateCallType getCallType();
 
   /**
-   * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2;</code>
+   * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2 [json_name = "multisigCallType"];</code>
+   * @return The enum numeric value on the wire for multisigCallType.
    */
   int getMultisigCallTypeValue();
   /**
-   * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2;</code>
+   * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2 [json_name = "multisigCallType"];</code>
+   * @return The multisigCallType.
    */
   adamant.global.v1.Enum.SubstrateCallType getMultisigCallType();
 }

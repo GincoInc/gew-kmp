@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.SetRatesRequest}
  */
-public  final class SetRatesRequest extends
+public final class SetRatesRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.SetRatesRequest)
     SetRatesRequestOrBuilder {
@@ -98,52 +98,57 @@ private static final long serialVersionUID = 0L;
   private java.util.List<adamant.global.v1.Model.RequestRate> rates_;
   /**
    * <pre>
-   *Array of rate objects
+   * Array of rate objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+   * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.RequestRate> getRatesList() {
     return rates_;
   }
   /**
    * <pre>
-   *Array of rate objects
+   * Array of rate objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+   * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.RequestRateOrBuilder> 
       getRatesOrBuilderList() {
     return rates_;
   }
   /**
    * <pre>
-   *Array of rate objects
+   * Array of rate objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+   * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
    */
+  @java.lang.Override
   public int getRatesCount() {
     return rates_.size();
   }
   /**
    * <pre>
-   *Array of rate objects
+   * Array of rate objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+   * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.RequestRate getRates(int index) {
     return rates_.get(index);
   }
   /**
    * <pre>
-   *Array of rate objects
+   * Array of rate objects
    * </pre>
    *
-   * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+   * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.RequestRateOrBuilder getRatesOrBuilder(
       int index) {
     return rates_.get(index);
@@ -505,10 +510,10 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public java.util.List<adamant.global.v1.Model.RequestRate> getRatesList() {
       if (ratesBuilder_ == null) {
@@ -519,10 +524,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public int getRatesCount() {
       if (ratesBuilder_ == null) {
@@ -533,10 +538,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public adamant.global.v1.Model.RequestRate getRates(int index) {
       if (ratesBuilder_ == null) {
@@ -547,10 +552,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public Builder setRates(
         int index, adamant.global.v1.Model.RequestRate value) {
@@ -568,10 +573,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public Builder setRates(
         int index, adamant.global.v1.Model.RequestRate.Builder builderForValue) {
@@ -586,10 +591,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public Builder addRates(adamant.global.v1.Model.RequestRate value) {
       if (ratesBuilder_ == null) {
@@ -606,10 +611,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public Builder addRates(
         int index, adamant.global.v1.Model.RequestRate value) {
@@ -627,10 +632,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public Builder addRates(
         adamant.global.v1.Model.RequestRate.Builder builderForValue) {
@@ -645,10 +650,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public Builder addRates(
         int index, adamant.global.v1.Model.RequestRate.Builder builderForValue) {
@@ -663,10 +668,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public Builder addAllRates(
         java.lang.Iterable<? extends adamant.global.v1.Model.RequestRate> values) {
@@ -682,10 +687,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public Builder clearRates() {
       if (ratesBuilder_ == null) {
@@ -699,10 +704,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public Builder removeRates(int index) {
       if (ratesBuilder_ == null) {
@@ -716,10 +721,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public adamant.global.v1.Model.RequestRate.Builder getRatesBuilder(
         int index) {
@@ -727,10 +732,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public adamant.global.v1.Model.RequestRateOrBuilder getRatesOrBuilder(
         int index) {
@@ -741,10 +746,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.RequestRateOrBuilder> 
          getRatesOrBuilderList() {
@@ -756,10 +761,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public adamant.global.v1.Model.RequestRate.Builder addRatesBuilder() {
       return getRatesFieldBuilder().addBuilder(
@@ -767,10 +772,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public adamant.global.v1.Model.RequestRate.Builder addRatesBuilder(
         int index) {
@@ -779,10 +784,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     *Array of rate objects
+     * Array of rate objects
      * </pre>
      *
-     * <code>repeated .adamant.global.v1.RequestRate rates = 1;</code>
+     * <code>repeated .adamant.global.v1.RequestRate rates = 1 [json_name = "rates"];</code>
      */
     public java.util.List<adamant.global.v1.Model.RequestRate.Builder> 
          getRatesBuilderList() {

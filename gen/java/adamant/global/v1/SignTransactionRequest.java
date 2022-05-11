@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.SignTransactionRequest}
  */
-public  final class SignTransactionRequest extends
+public final class SignTransactionRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.SignTransactionRequest)
     SignTransactionRequestOrBuilder {
@@ -117,8 +117,10 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object walletId_;
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The walletId.
    */
+  @java.lang.Override
   public java.lang.String getWalletId() {
     java.lang.Object ref = walletId_;
     if (ref instanceof java.lang.String) {
@@ -132,8 +134,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWalletIdBytes() {
     java.lang.Object ref = walletId_;
@@ -151,8 +155,10 @@ private static final long serialVersionUID = 0L;
   public static final int TRANSACTION_ID_FIELD_NUMBER = 2;
   private volatile java.lang.Object transactionId_;
   /**
-   * <code>string transaction_id = 2 [(.validate.rules) = { ... }</code>
+   * <code>string transaction_id = 2 [json_name = "transactionId", (.validate.rules) = { ... }</code>
+   * @return The transactionId.
    */
+  @java.lang.Override
   public java.lang.String getTransactionId() {
     java.lang.Object ref = transactionId_;
     if (ref instanceof java.lang.String) {
@@ -166,8 +172,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string transaction_id = 2 [(.validate.rules) = { ... }</code>
+   * <code>string transaction_id = 2 [json_name = "transactionId", (.validate.rules) = { ... }</code>
+   * @return The bytes for transactionId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTransactionIdBytes() {
     java.lang.Object ref = transactionId_;
@@ -185,8 +193,10 @@ private static final long serialVersionUID = 0L;
   public static final int KEY_ID_FIELD_NUMBER = 3;
   private volatile java.lang.Object keyId_;
   /**
-   * <code>string key_id = 3 [(.validate.rules) = { ... }</code>
+   * <code>string key_id = 3 [json_name = "keyId", (.validate.rules) = { ... }</code>
+   * @return The keyId.
    */
+  @java.lang.Override
   public java.lang.String getKeyId() {
     java.lang.Object ref = keyId_;
     if (ref instanceof java.lang.String) {
@@ -200,8 +210,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string key_id = 3 [(.validate.rules) = { ... }</code>
+   * <code>string key_id = 3 [json_name = "keyId", (.validate.rules) = { ... }</code>
+   * @return The bytes for keyId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getKeyIdBytes() {
     java.lang.Object ref = keyId_;
@@ -219,20 +231,25 @@ private static final long serialVersionUID = 0L;
   public static final int SIGNED_INFO_FIELD_NUMBER = 4;
   private adamant.global.v1.Model.RequestSignedInfo signedInfo_;
   /**
-   * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
+   * @return Whether the signedInfo field is set.
    */
+  @java.lang.Override
   public boolean hasSignedInfo() {
     return signedInfo_ != null;
   }
   /**
-   * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
+   * @return The signedInfo.
    */
+  @java.lang.Override
   public adamant.global.v1.Model.RequestSignedInfo getSignedInfo() {
     return signedInfo_ == null ? adamant.global.v1.Model.RequestSignedInfo.getDefaultInstance() : signedInfo_;
   }
   /**
-   * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.RequestSignedInfoOrBuilder getSignedInfoOrBuilder() {
     return getSignedInfo();
   }
@@ -251,13 +268,13 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletId_);
     }
-    if (!getTransactionIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transactionId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, transactionId_);
     }
-    if (!getKeyIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, keyId_);
     }
     if (signedInfo_ != null) {
@@ -272,13 +289,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletId_);
     }
-    if (!getTransactionIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transactionId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, transactionId_);
     }
-    if (!getKeyIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, keyId_);
     }
     if (signedInfo_ != null) {
@@ -605,7 +622,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object walletId_ = "";
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The walletId.
      */
     public java.lang.String getWalletId() {
       java.lang.Object ref = walletId_;
@@ -620,7 +638,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The bytes for walletId.
      */
     public com.google.protobuf.ByteString
         getWalletIdBytes() {
@@ -636,7 +655,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @param value The walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletId(
         java.lang.String value) {
@@ -649,7 +670,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletId() {
       
@@ -658,7 +680,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletIdBytes(
         com.google.protobuf.ByteString value) {
@@ -674,7 +698,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object transactionId_ = "";
     /**
-     * <code>string transaction_id = 2 [(.validate.rules) = { ... }</code>
+     * <code>string transaction_id = 2 [json_name = "transactionId", (.validate.rules) = { ... }</code>
+     * @return The transactionId.
      */
     public java.lang.String getTransactionId() {
       java.lang.Object ref = transactionId_;
@@ -689,7 +714,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string transaction_id = 2 [(.validate.rules) = { ... }</code>
+     * <code>string transaction_id = 2 [json_name = "transactionId", (.validate.rules) = { ... }</code>
+     * @return The bytes for transactionId.
      */
     public com.google.protobuf.ByteString
         getTransactionIdBytes() {
@@ -705,7 +731,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string transaction_id = 2 [(.validate.rules) = { ... }</code>
+     * <code>string transaction_id = 2 [json_name = "transactionId", (.validate.rules) = { ... }</code>
+     * @param value The transactionId to set.
+     * @return This builder for chaining.
      */
     public Builder setTransactionId(
         java.lang.String value) {
@@ -718,7 +746,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string transaction_id = 2 [(.validate.rules) = { ... }</code>
+     * <code>string transaction_id = 2 [json_name = "transactionId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearTransactionId() {
       
@@ -727,7 +756,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string transaction_id = 2 [(.validate.rules) = { ... }</code>
+     * <code>string transaction_id = 2 [json_name = "transactionId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for transactionId to set.
+     * @return This builder for chaining.
      */
     public Builder setTransactionIdBytes(
         com.google.protobuf.ByteString value) {
@@ -743,7 +774,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object keyId_ = "";
     /**
-     * <code>string key_id = 3 [(.validate.rules) = { ... }</code>
+     * <code>string key_id = 3 [json_name = "keyId", (.validate.rules) = { ... }</code>
+     * @return The keyId.
      */
     public java.lang.String getKeyId() {
       java.lang.Object ref = keyId_;
@@ -758,7 +790,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string key_id = 3 [(.validate.rules) = { ... }</code>
+     * <code>string key_id = 3 [json_name = "keyId", (.validate.rules) = { ... }</code>
+     * @return The bytes for keyId.
      */
     public com.google.protobuf.ByteString
         getKeyIdBytes() {
@@ -774,7 +807,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string key_id = 3 [(.validate.rules) = { ... }</code>
+     * <code>string key_id = 3 [json_name = "keyId", (.validate.rules) = { ... }</code>
+     * @param value The keyId to set.
+     * @return This builder for chaining.
      */
     public Builder setKeyId(
         java.lang.String value) {
@@ -787,7 +822,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string key_id = 3 [(.validate.rules) = { ... }</code>
+     * <code>string key_id = 3 [json_name = "keyId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearKeyId() {
       
@@ -796,7 +832,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string key_id = 3 [(.validate.rules) = { ... }</code>
+     * <code>string key_id = 3 [json_name = "keyId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for keyId to set.
+     * @return This builder for chaining.
      */
     public Builder setKeyIdBytes(
         com.google.protobuf.ByteString value) {
@@ -814,13 +852,15 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         adamant.global.v1.Model.RequestSignedInfo, adamant.global.v1.Model.RequestSignedInfo.Builder, adamant.global.v1.Model.RequestSignedInfoOrBuilder> signedInfoBuilder_;
     /**
-     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
+     * @return Whether the signedInfo field is set.
      */
     public boolean hasSignedInfo() {
       return signedInfoBuilder_ != null || signedInfo_ != null;
     }
     /**
-     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
+     * @return The signedInfo.
      */
     public adamant.global.v1.Model.RequestSignedInfo getSignedInfo() {
       if (signedInfoBuilder_ == null) {
@@ -830,7 +870,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public Builder setSignedInfo(adamant.global.v1.Model.RequestSignedInfo value) {
       if (signedInfoBuilder_ == null) {
@@ -846,7 +886,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public Builder setSignedInfo(
         adamant.global.v1.Model.RequestSignedInfo.Builder builderForValue) {
@@ -860,7 +900,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public Builder mergeSignedInfo(adamant.global.v1.Model.RequestSignedInfo value) {
       if (signedInfoBuilder_ == null) {
@@ -878,7 +918,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public Builder clearSignedInfo() {
       if (signedInfoBuilder_ == null) {
@@ -892,7 +932,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public adamant.global.v1.Model.RequestSignedInfo.Builder getSignedInfoBuilder() {
       
@@ -900,7 +940,7 @@ private static final long serialVersionUID = 0L;
       return getSignedInfoFieldBuilder().getBuilder();
     }
     /**
-     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     public adamant.global.v1.Model.RequestSignedInfoOrBuilder getSignedInfoOrBuilder() {
       if (signedInfoBuilder_ != null) {
@@ -911,7 +951,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.RequestSignedInfo signed_info = 4 [json_name = "signedInfo", (.validate.rules) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         adamant.global.v1.Model.RequestSignedInfo, adamant.global.v1.Model.RequestSignedInfo.Builder, adamant.global.v1.Model.RequestSignedInfoOrBuilder> 

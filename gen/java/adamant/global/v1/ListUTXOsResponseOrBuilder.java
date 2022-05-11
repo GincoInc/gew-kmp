@@ -8,25 +8,25 @@ public interface ListUTXOsResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+   * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
    */
   java.util.List<adamant.global.v1.Model.UTXO> 
       getUtxosList();
   /**
-   * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+   * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
    */
   adamant.global.v1.Model.UTXO getUtxos(int index);
   /**
-   * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+   * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
    */
   int getUtxosCount();
   /**
-   * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+   * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.UTXOOrBuilder> 
       getUtxosOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.UTXO utxos = 1;</code>
+   * <code>repeated .adamant.global.v1.UTXO utxos = 1 [json_name = "utxos"];</code>
    */
   adamant.global.v1.Model.UTXOOrBuilder getUtxosOrBuilder(
       int index);

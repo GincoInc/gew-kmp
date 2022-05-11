@@ -8,16 +8,19 @@ public interface CalculateFeeResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>double fee = 1;</code>
+   * <code>double fee = 1 [json_name = "fee"];</code>
+   * @return The fee.
    */
   double getFee();
 
   /**
-   * <code>string string_fee = 2;</code>
+   * <code>string string_fee = 2 [json_name = "stringFee"];</code>
+   * @return The stringFee.
    */
   java.lang.String getStringFee();
   /**
-   * <code>string string_fee = 2;</code>
+   * <code>string string_fee = 2 [json_name = "stringFee"];</code>
+   * @return The bytes for stringFee.
    */
   com.google.protobuf.ByteString
       getStringFeeBytes();

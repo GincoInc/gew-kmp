@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListSubstrateChildAddressesResponse}
  */
-public  final class ListSubstrateChildAddressesResponse extends
+public final class ListSubstrateChildAddressesResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListSubstrateChildAddressesResponse)
     ListSubstrateChildAddressesResponseOrBuilder {
@@ -97,33 +97,38 @@ private static final long serialVersionUID = 0L;
   public static final int SUBSTRATE_CHILD_ADDRESSES_FIELD_NUMBER = 1;
   private java.util.List<adamant.global.v1.Model.SubstrateChildAddress> substrateChildAddresses_;
   /**
-   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.SubstrateChildAddress> getSubstrateChildAddressesList() {
     return substrateChildAddresses_;
   }
   /**
-   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.SubstrateChildAddressOrBuilder> 
       getSubstrateChildAddressesOrBuilderList() {
     return substrateChildAddresses_;
   }
   /**
-   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
    */
+  @java.lang.Override
   public int getSubstrateChildAddressesCount() {
     return substrateChildAddresses_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.SubstrateChildAddress getSubstrateChildAddresses(int index) {
     return substrateChildAddresses_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+   * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.SubstrateChildAddressOrBuilder getSubstrateChildAddressesOrBuilder(
       int index) {
     return substrateChildAddresses_.get(index);
@@ -484,7 +489,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.SubstrateChildAddress, adamant.global.v1.Model.SubstrateChildAddress.Builder, adamant.global.v1.Model.SubstrateChildAddressOrBuilder> substrateChildAddressesBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public java.util.List<adamant.global.v1.Model.SubstrateChildAddress> getSubstrateChildAddressesList() {
       if (substrateChildAddressesBuilder_ == null) {
@@ -494,7 +499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public int getSubstrateChildAddressesCount() {
       if (substrateChildAddressesBuilder_ == null) {
@@ -504,7 +509,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public adamant.global.v1.Model.SubstrateChildAddress getSubstrateChildAddresses(int index) {
       if (substrateChildAddressesBuilder_ == null) {
@@ -514,7 +519,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public Builder setSubstrateChildAddresses(
         int index, adamant.global.v1.Model.SubstrateChildAddress value) {
@@ -531,7 +536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public Builder setSubstrateChildAddresses(
         int index, adamant.global.v1.Model.SubstrateChildAddress.Builder builderForValue) {
@@ -545,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public Builder addSubstrateChildAddresses(adamant.global.v1.Model.SubstrateChildAddress value) {
       if (substrateChildAddressesBuilder_ == null) {
@@ -561,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public Builder addSubstrateChildAddresses(
         int index, adamant.global.v1.Model.SubstrateChildAddress value) {
@@ -578,7 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public Builder addSubstrateChildAddresses(
         adamant.global.v1.Model.SubstrateChildAddress.Builder builderForValue) {
@@ -592,7 +597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public Builder addSubstrateChildAddresses(
         int index, adamant.global.v1.Model.SubstrateChildAddress.Builder builderForValue) {
@@ -606,7 +611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public Builder addAllSubstrateChildAddresses(
         java.lang.Iterable<? extends adamant.global.v1.Model.SubstrateChildAddress> values) {
@@ -621,7 +626,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public Builder clearSubstrateChildAddresses() {
       if (substrateChildAddressesBuilder_ == null) {
@@ -634,7 +639,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public Builder removeSubstrateChildAddresses(int index) {
       if (substrateChildAddressesBuilder_ == null) {
@@ -647,14 +652,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public adamant.global.v1.Model.SubstrateChildAddress.Builder getSubstrateChildAddressesBuilder(
         int index) {
       return getSubstrateChildAddressesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public adamant.global.v1.Model.SubstrateChildAddressOrBuilder getSubstrateChildAddressesOrBuilder(
         int index) {
@@ -664,7 +669,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.SubstrateChildAddressOrBuilder> 
          getSubstrateChildAddressesOrBuilderList() {
@@ -675,14 +680,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public adamant.global.v1.Model.SubstrateChildAddress.Builder addSubstrateChildAddressesBuilder() {
       return getSubstrateChildAddressesFieldBuilder().addBuilder(
           adamant.global.v1.Model.SubstrateChildAddress.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public adamant.global.v1.Model.SubstrateChildAddress.Builder addSubstrateChildAddressesBuilder(
         int index) {
@@ -690,7 +695,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.SubstrateChildAddress.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1;</code>
+     * <code>repeated .adamant.global.v1.SubstrateChildAddress substrate_child_addresses = 1 [json_name = "substrateChildAddresses"];</code>
      */
     public java.util.List<adamant.global.v1.Model.SubstrateChildAddress.Builder> 
          getSubstrateChildAddressesBuilderList() {

@@ -1,4 +1,4 @@
-proto_outdir = "./vendor"
+proto_outdir = "./api/proto"
 
 [[dependencies]]
   target = "github.com/envoyproxy/protoc-gen-validate"
@@ -7,28 +7,28 @@ proto_outdir = "./vendor"
   branch = ""
   path = ""
   ignores = ["gogoproto", "java", "tests", "vendor"]
-  protocol = "https"
+  protocol = ""
 
 [[dependencies]]
-  target = "github.com/GincoInc/protobuf/gincoinc/global"
+  target = "github.com/GincoInc/protobuf/proto/gincoinc/global"
   subgroup = ""
-  revision = "f83b71681cfe9cf11ed8a95d67f08cc4f50203b1"
+  revision = "9a1284ca6f7beaa59f5cdc3dfe00e61d207b9633"
   branch = ""
   path = "gincoinc/global"
-  protocol = "ssh"
+  protocol = ""
 
 [[dependencies]]
-  target = "github.com/GincoInc/protobuf/gincoinc/adamant/global"
+  target = "github.com/GincoInc/protobuf/proto/gincoinc/adamant/global"
   subgroup = ""
-  revision = "f83b71681cfe9cf11ed8a95d67f08cc4f50203b1"
+  revision = "9a1284ca6f7beaa59f5cdc3dfe00e61d207b9633"
   branch = ""
   path = "gincoinc/adamant/global"
-  protocol = "ssh"
+  protocol = ""
 
 [[dependencies]]
-  target = "github.com/GincoInc/protobuf/gincoinc/adamant/teller"
+  target = "github.com/GincoInc/protobuf/proto/gincoinc/adamant/teller"
   subgroup = ""
-  revision = "f83b71681cfe9cf11ed8a95d67f08cc4f50203b1"
+  revision = "9a1284ca6f7beaa59f5cdc3dfe00e61d207b9633"
   branch = ""
   path = "gincoinc/adamant/teller"
-  protocol = "ssh"
+  protocol = ""

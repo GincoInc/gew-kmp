@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.GetEthereumFeeAddressRequest}
  */
-public  final class GetEthereumFeeAddressRequest extends
+public final class GetEthereumFeeAddressRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.GetEthereumFeeAddressRequest)
     GetEthereumFeeAddressRequestOrBuilder {

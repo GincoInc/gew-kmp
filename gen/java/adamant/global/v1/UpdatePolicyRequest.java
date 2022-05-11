@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.UpdatePolicyRequest}
  */
-public  final class UpdatePolicyRequest extends
+public final class UpdatePolicyRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.UpdatePolicyRequest)
     UpdatePolicyRequestOrBuilder {
@@ -111,8 +111,10 @@ private static final long serialVersionUID = 0L;
   public static final int POLICY_ID_FIELD_NUMBER = 1;
   private volatile java.lang.Object policyId_;
   /**
-   * <code>string policy_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string policy_id = 1 [json_name = "policyId", (.validate.rules) = { ... }</code>
+   * @return The policyId.
    */
+  @java.lang.Override
   public java.lang.String getPolicyId() {
     java.lang.Object ref = policyId_;
     if (ref instanceof java.lang.String) {
@@ -126,8 +128,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string policy_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string policy_id = 1 [json_name = "policyId", (.validate.rules) = { ... }</code>
+   * @return The bytes for policyId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getPolicyIdBytes() {
     java.lang.Object ref = policyId_;
@@ -145,8 +149,10 @@ private static final long serialVersionUID = 0L;
   public static final int NAME_FIELD_NUMBER = 2;
   private volatile java.lang.Object name_;
   /**
-   * <code>string name = 2 [(.validate.rules) = { ... }</code>
+   * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The name.
    */
+  @java.lang.Override
   public java.lang.String getName() {
     java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
@@ -160,8 +166,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string name = 2 [(.validate.rules) = { ... }</code>
+   * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The bytes for name.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getNameBytes() {
     java.lang.Object ref = name_;
@@ -179,8 +187,10 @@ private static final long serialVersionUID = 0L;
   public static final int WHITELIST_ID_FIELD_NUMBER = 3;
   private volatile java.lang.Object whitelistId_;
   /**
-   * <code>string whitelist_id = 3 [(.validate.rules) = { ... }</code>
+   * <code>string whitelist_id = 3 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+   * @return The whitelistId.
    */
+  @java.lang.Override
   public java.lang.String getWhitelistId() {
     java.lang.Object ref = whitelistId_;
     if (ref instanceof java.lang.String) {
@@ -194,8 +204,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string whitelist_id = 3 [(.validate.rules) = { ... }</code>
+   * <code>string whitelist_id = 3 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+   * @return The bytes for whitelistId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWhitelistIdBytes() {
     java.lang.Object ref = whitelistId_;
@@ -213,8 +225,10 @@ private static final long serialVersionUID = 0L;
   public static final int TRANSFER_LIMIT_ID_FIELD_NUMBER = 4;
   private volatile java.lang.Object transferLimitId_;
   /**
-   * <code>string transfer_limit_id = 4 [(.validate.rules) = { ... }</code>
+   * <code>string transfer_limit_id = 4 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+   * @return The transferLimitId.
    */
+  @java.lang.Override
   public java.lang.String getTransferLimitId() {
     java.lang.Object ref = transferLimitId_;
     if (ref instanceof java.lang.String) {
@@ -228,8 +242,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string transfer_limit_id = 4 [(.validate.rules) = { ... }</code>
+   * <code>string transfer_limit_id = 4 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+   * @return The bytes for transferLimitId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTransferLimitIdBytes() {
     java.lang.Object ref = transferLimitId_;
@@ -258,16 +274,16 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getPolicyIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(policyId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, policyId_);
     }
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
     }
-    if (!getWhitelistIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(whitelistId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, whitelistId_);
     }
-    if (!getTransferLimitIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transferLimitId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, transferLimitId_);
     }
     unknownFields.writeTo(output);
@@ -279,16 +295,16 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getPolicyIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(policyId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, policyId_);
     }
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
     }
-    if (!getWhitelistIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(whitelistId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, whitelistId_);
     }
-    if (!getTransferLimitIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transferLimitId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, transferLimitId_);
     }
     size += unknownFields.getSerializedSize();
@@ -599,7 +615,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object policyId_ = "";
     /**
-     * <code>string policy_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string policy_id = 1 [json_name = "policyId", (.validate.rules) = { ... }</code>
+     * @return The policyId.
      */
     public java.lang.String getPolicyId() {
       java.lang.Object ref = policyId_;
@@ -614,7 +631,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string policy_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string policy_id = 1 [json_name = "policyId", (.validate.rules) = { ... }</code>
+     * @return The bytes for policyId.
      */
     public com.google.protobuf.ByteString
         getPolicyIdBytes() {
@@ -630,7 +648,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string policy_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string policy_id = 1 [json_name = "policyId", (.validate.rules) = { ... }</code>
+     * @param value The policyId to set.
+     * @return This builder for chaining.
      */
     public Builder setPolicyId(
         java.lang.String value) {
@@ -643,7 +663,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string policy_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string policy_id = 1 [json_name = "policyId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearPolicyId() {
       
@@ -652,7 +673,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string policy_id = 1 [(.validate.rules) = { ... }</code>
+     * <code>string policy_id = 1 [json_name = "policyId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for policyId to set.
+     * @return This builder for chaining.
      */
     public Builder setPolicyIdBytes(
         com.google.protobuf.ByteString value) {
@@ -668,7 +691,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object name_ = "";
     /**
-     * <code>string name = 2 [(.validate.rules) = { ... }</code>
+     * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -683,7 +707,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 2 [(.validate.rules) = { ... }</code>
+     * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -699,7 +724,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 2 [(.validate.rules) = { ... }</code>
+     * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @param value The name to set.
+     * @return This builder for chaining.
      */
     public Builder setName(
         java.lang.String value) {
@@ -712,7 +739,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 2 [(.validate.rules) = { ... }</code>
+     * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearName() {
       
@@ -721,7 +749,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 2 [(.validate.rules) = { ... }</code>
+     * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @param value The bytes for name to set.
+     * @return This builder for chaining.
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
@@ -737,7 +767,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object whitelistId_ = "";
     /**
-     * <code>string whitelist_id = 3 [(.validate.rules) = { ... }</code>
+     * <code>string whitelist_id = 3 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+     * @return The whitelistId.
      */
     public java.lang.String getWhitelistId() {
       java.lang.Object ref = whitelistId_;
@@ -752,7 +783,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string whitelist_id = 3 [(.validate.rules) = { ... }</code>
+     * <code>string whitelist_id = 3 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+     * @return The bytes for whitelistId.
      */
     public com.google.protobuf.ByteString
         getWhitelistIdBytes() {
@@ -768,7 +800,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string whitelist_id = 3 [(.validate.rules) = { ... }</code>
+     * <code>string whitelist_id = 3 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+     * @param value The whitelistId to set.
+     * @return This builder for chaining.
      */
     public Builder setWhitelistId(
         java.lang.String value) {
@@ -781,7 +815,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string whitelist_id = 3 [(.validate.rules) = { ... }</code>
+     * <code>string whitelist_id = 3 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearWhitelistId() {
       
@@ -790,7 +825,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string whitelist_id = 3 [(.validate.rules) = { ... }</code>
+     * <code>string whitelist_id = 3 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for whitelistId to set.
+     * @return This builder for chaining.
      */
     public Builder setWhitelistIdBytes(
         com.google.protobuf.ByteString value) {
@@ -806,7 +843,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object transferLimitId_ = "";
     /**
-     * <code>string transfer_limit_id = 4 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 4 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @return The transferLimitId.
      */
     public java.lang.String getTransferLimitId() {
       java.lang.Object ref = transferLimitId_;
@@ -821,7 +859,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string transfer_limit_id = 4 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 4 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @return The bytes for transferLimitId.
      */
     public com.google.protobuf.ByteString
         getTransferLimitIdBytes() {
@@ -837,7 +876,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string transfer_limit_id = 4 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 4 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @param value The transferLimitId to set.
+     * @return This builder for chaining.
      */
     public Builder setTransferLimitId(
         java.lang.String value) {
@@ -850,7 +891,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string transfer_limit_id = 4 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 4 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearTransferLimitId() {
       
@@ -859,7 +901,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string transfer_limit_id = 4 [(.validate.rules) = { ... }</code>
+     * <code>string transfer_limit_id = 4 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for transferLimitId to set.
+     * @return This builder for chaining.
      */
     public Builder setTransferLimitIdBytes(
         com.google.protobuf.ByteString value) {

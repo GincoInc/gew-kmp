@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ListBalanceSnapshotsResponse} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ListBalanceSnapshotsResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListBalanceSnapshotsResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListBalanceSnapshotsResponse.class)) return new ListBalanceSnapshotsResponseValidator();
@@ -23,7 +25,6 @@ public class ListBalanceSnapshotsResponseValidator implements io.envoyproxy.pgv.
 			// Validate balance_snapshots
 			if (true) index.validatorFor(item).assertValid(item);
 			});
-
 	
 	}
 

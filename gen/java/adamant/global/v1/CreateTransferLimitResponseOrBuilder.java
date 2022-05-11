@@ -8,11 +8,13 @@ public interface CreateTransferLimitResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string transfer_limit_id = 1;</code>
+   * <code>string transfer_limit_id = 1 [json_name = "transferLimitId"];</code>
+   * @return The transferLimitId.
    */
   java.lang.String getTransferLimitId();
   /**
-   * <code>string transfer_limit_id = 1;</code>
+   * <code>string transfer_limit_id = 1 [json_name = "transferLimitId"];</code>
+   * @return The bytes for transferLimitId.
    */
   com.google.protobuf.ByteString
       getTransferLimitIdBytes();

@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.CreateTransferLimitRequest}
  */
-public  final class CreateTransferLimitRequest extends
+public final class CreateTransferLimitRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.CreateTransferLimitRequest)
     CreateTransferLimitRequestOrBuilder {
@@ -111,8 +111,10 @@ private static final long serialVersionUID = 0L;
   public static final int NAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object name_;
   /**
-   * <code>string name = 1 [(.validate.rules) = { ... }</code>
+   * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The name.
    */
+  @java.lang.Override
   public java.lang.String getName() {
     java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
@@ -126,8 +128,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string name = 1 [(.validate.rules) = { ... }</code>
+   * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The bytes for name.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getNameBytes() {
     java.lang.Object ref = name_;
@@ -145,15 +149,17 @@ private static final long serialVersionUID = 0L;
   public static final int COIN_FIELD_NUMBER = 2;
   private int coin_;
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
    */
-  public int getCoinValue() {
+  @java.lang.Override public int getCoinValue() {
     return coin_;
   }
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
    */
-  public gincoinc.global.v1.Enum.Coin getCoin() {
+  @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
     @SuppressWarnings("deprecation")
     gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
     return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
@@ -162,33 +168,38 @@ private static final long serialVersionUID = 0L;
   public static final int TRANSFER_LIMITS_FIELD_NUMBER = 3;
   private java.util.List<adamant.global.v1.Model.RequestTransferLimitEntry> transferLimits_;
   /**
-   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.RequestTransferLimitEntry> getTransferLimitsList() {
     return transferLimits_;
   }
   /**
-   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.RequestTransferLimitEntryOrBuilder> 
       getTransferLimitsOrBuilderList() {
     return transferLimits_;
   }
   /**
-   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public int getTransferLimitsCount() {
     return transferLimits_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.RequestTransferLimitEntry getTransferLimits(int index) {
     return transferLimits_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+   * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.RequestTransferLimitEntryOrBuilder getTransferLimitsOrBuilder(
       int index) {
     return transferLimits_.get(index);
@@ -208,7 +219,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
     if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
@@ -226,7 +237,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
     if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
@@ -571,7 +582,8 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object name_ = "";
     /**
-     * <code>string name = 1 [(.validate.rules) = { ... }</code>
+     * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @return The name.
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -586,7 +598,8 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 1 [(.validate.rules) = { ... }</code>
+     * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -602,7 +615,9 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string name = 1 [(.validate.rules) = { ... }</code>
+     * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @param value The name to set.
+     * @return This builder for chaining.
      */
     public Builder setName(
         java.lang.String value) {
@@ -615,7 +630,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 1 [(.validate.rules) = { ... }</code>
+     * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearName() {
       
@@ -624,7 +640,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string name = 1 [(.validate.rules) = { ... }</code>
+     * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+     * @param value The bytes for name to set.
+     * @return This builder for chaining.
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
@@ -640,29 +658,37 @@ private static final long serialVersionUID = 0L;
 
     private int coin_ = 0;
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for coin.
      */
-    public int getCoinValue() {
+    @java.lang.Override public int getCoinValue() {
       return coin_;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for coin to set.
+     * @return This builder for chaining.
      */
     public Builder setCoinValue(int value) {
+      
       coin_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return The coin.
      */
+    @java.lang.Override
     public gincoinc.global.v1.Enum.Coin getCoin() {
       @SuppressWarnings("deprecation")
       gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
       return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @param value The coin to set.
+     * @return This builder for chaining.
      */
     public Builder setCoin(gincoinc.global.v1.Enum.Coin value) {
       if (value == null) {
@@ -674,7 +700,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearCoin() {
       
@@ -696,7 +723,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.RequestTransferLimitEntry, adamant.global.v1.Model.RequestTransferLimitEntry.Builder, adamant.global.v1.Model.RequestTransferLimitEntryOrBuilder> transferLimitsBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public java.util.List<adamant.global.v1.Model.RequestTransferLimitEntry> getTransferLimitsList() {
       if (transferLimitsBuilder_ == null) {
@@ -706,7 +733,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public int getTransferLimitsCount() {
       if (transferLimitsBuilder_ == null) {
@@ -716,7 +743,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public adamant.global.v1.Model.RequestTransferLimitEntry getTransferLimits(int index) {
       if (transferLimitsBuilder_ == null) {
@@ -726,7 +753,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder setTransferLimits(
         int index, adamant.global.v1.Model.RequestTransferLimitEntry value) {
@@ -743,7 +770,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder setTransferLimits(
         int index, adamant.global.v1.Model.RequestTransferLimitEntry.Builder builderForValue) {
@@ -757,7 +784,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder addTransferLimits(adamant.global.v1.Model.RequestTransferLimitEntry value) {
       if (transferLimitsBuilder_ == null) {
@@ -773,7 +800,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder addTransferLimits(
         int index, adamant.global.v1.Model.RequestTransferLimitEntry value) {
@@ -790,7 +817,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder addTransferLimits(
         adamant.global.v1.Model.RequestTransferLimitEntry.Builder builderForValue) {
@@ -804,7 +831,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder addTransferLimits(
         int index, adamant.global.v1.Model.RequestTransferLimitEntry.Builder builderForValue) {
@@ -818,7 +845,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder addAllTransferLimits(
         java.lang.Iterable<? extends adamant.global.v1.Model.RequestTransferLimitEntry> values) {
@@ -833,7 +860,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder clearTransferLimits() {
       if (transferLimitsBuilder_ == null) {
@@ -846,7 +873,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public Builder removeTransferLimits(int index) {
       if (transferLimitsBuilder_ == null) {
@@ -859,14 +886,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public adamant.global.v1.Model.RequestTransferLimitEntry.Builder getTransferLimitsBuilder(
         int index) {
       return getTransferLimitsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public adamant.global.v1.Model.RequestTransferLimitEntryOrBuilder getTransferLimitsOrBuilder(
         int index) {
@@ -876,7 +903,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.RequestTransferLimitEntryOrBuilder> 
          getTransferLimitsOrBuilderList() {
@@ -887,14 +914,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public adamant.global.v1.Model.RequestTransferLimitEntry.Builder addTransferLimitsBuilder() {
       return getTransferLimitsFieldBuilder().addBuilder(
           adamant.global.v1.Model.RequestTransferLimitEntry.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public adamant.global.v1.Model.RequestTransferLimitEntry.Builder addTransferLimitsBuilder(
         int index) {
@@ -902,7 +929,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.RequestTransferLimitEntry.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [(.validate.rules) = { ... }</code>
+     * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 3 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
      */
     public java.util.List<adamant.global.v1.Model.RequestTransferLimitEntry.Builder> 
          getTransferLimitsBuilderList() {

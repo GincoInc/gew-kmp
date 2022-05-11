@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code ListEventTriggeredMessagesResponse} protobuf objects.
 */
+@SuppressWarnings("all")
 public class ListEventTriggeredMessagesResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.ListEventTriggeredMessagesResponse>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.ListEventTriggeredMessagesResponse.class)) return new ListEventTriggeredMessagesResponseValidator();
@@ -23,7 +25,6 @@ public class ListEventTriggeredMessagesResponseValidator implements io.envoyprox
 			// Validate event_triggered_messages
 			if (true) index.validatorFor(item).assertValid(item);
 			});
-
 	
 	}
 

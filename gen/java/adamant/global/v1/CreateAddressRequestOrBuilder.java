@@ -12,7 +12,8 @@ public interface CreateAddressRequestOrBuilder extends
    * The id of wallet
    * </pre>
    *
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The walletId.
    */
   java.lang.String getWalletId();
   /**
@@ -20,7 +21,8 @@ public interface CreateAddressRequestOrBuilder extends
    * The id of wallet
    * </pre>
    *
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletId.
    */
   com.google.protobuf.ByteString
       getWalletIdBytes();
@@ -30,7 +32,8 @@ public interface CreateAddressRequestOrBuilder extends
    * for contract wallet
    * </pre>
    *
-   * <code>uint64 fee_rate = 2;</code>
+   * <code>uint64 fee_rate = 2 [json_name = "feeRate"];</code>
+   * @return The feeRate.
    */
   long getFeeRate();
 }

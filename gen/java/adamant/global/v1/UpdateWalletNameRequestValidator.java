@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code UpdateWalletNameRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class UpdateWalletNameRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.UpdateWalletNameRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.UpdateWalletNameRequest.class)) return new UpdateWalletNameRequestValidator();
@@ -24,7 +26,7 @@ public class UpdateWalletNameRequestValidator implements io.envoyproxy.pgv.Valid
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.UpdateWalletNameRequest.wallet_id", proto.getWalletId(), WALLET_ID__PATTERN);
 	
 			io.envoyproxy.pgv.StringValidation.minLength(".adamant.global.v1.UpdateWalletNameRequest.name", proto.getName(), 1);
-			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.global.v1.UpdateWalletNameRequest.name", proto.getName(), 20);
+			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.global.v1.UpdateWalletNameRequest.name", proto.getName(), 40);
 	
 	}
 

@@ -10,7 +10,7 @@ package adamant.global.v1;
  *
  * Protobuf type {@code adamant.global.v1.CalculateFeeSubstrateSpecific}
  */
-public  final class CalculateFeeSubstrateSpecific extends
+public final class CalculateFeeSubstrateSpecific extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.CalculateFeeSubstrateSpecific)
     CalculateFeeSubstrateSpecificOrBuilder {
@@ -101,15 +101,17 @@ private static final long serialVersionUID = 0L;
   public static final int CALL_TYPE_FIELD_NUMBER = 1;
   private int callType_;
   /**
-   * <code>.adamant.global.v1.SubstrateCallType call_type = 1;</code>
+   * <code>.adamant.global.v1.SubstrateCallType call_type = 1 [json_name = "callType"];</code>
+   * @return The enum numeric value on the wire for callType.
    */
-  public int getCallTypeValue() {
+  @java.lang.Override public int getCallTypeValue() {
     return callType_;
   }
   /**
-   * <code>.adamant.global.v1.SubstrateCallType call_type = 1;</code>
+   * <code>.adamant.global.v1.SubstrateCallType call_type = 1 [json_name = "callType"];</code>
+   * @return The callType.
    */
-  public adamant.global.v1.Enum.SubstrateCallType getCallType() {
+  @java.lang.Override public adamant.global.v1.Enum.SubstrateCallType getCallType() {
     @SuppressWarnings("deprecation")
     adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.valueOf(callType_);
     return result == null ? adamant.global.v1.Enum.SubstrateCallType.UNRECOGNIZED : result;
@@ -118,15 +120,17 @@ private static final long serialVersionUID = 0L;
   public static final int MULTISIG_CALL_TYPE_FIELD_NUMBER = 2;
   private int multisigCallType_;
   /**
-   * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2;</code>
+   * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2 [json_name = "multisigCallType"];</code>
+   * @return The enum numeric value on the wire for multisigCallType.
    */
-  public int getMultisigCallTypeValue() {
+  @java.lang.Override public int getMultisigCallTypeValue() {
     return multisigCallType_;
   }
   /**
-   * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2;</code>
+   * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2 [json_name = "multisigCallType"];</code>
+   * @return The multisigCallType.
    */
-  public adamant.global.v1.Enum.SubstrateCallType getMultisigCallType() {
+  @java.lang.Override public adamant.global.v1.Enum.SubstrateCallType getMultisigCallType() {
     @SuppressWarnings("deprecation")
     adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.valueOf(multisigCallType_);
     return result == null ? adamant.global.v1.Enum.SubstrateCallType.UNRECOGNIZED : result;
@@ -455,29 +459,37 @@ private static final long serialVersionUID = 0L;
 
     private int callType_ = 0;
     /**
-     * <code>.adamant.global.v1.SubstrateCallType call_type = 1;</code>
+     * <code>.adamant.global.v1.SubstrateCallType call_type = 1 [json_name = "callType"];</code>
+     * @return The enum numeric value on the wire for callType.
      */
-    public int getCallTypeValue() {
+    @java.lang.Override public int getCallTypeValue() {
       return callType_;
     }
     /**
-     * <code>.adamant.global.v1.SubstrateCallType call_type = 1;</code>
+     * <code>.adamant.global.v1.SubstrateCallType call_type = 1 [json_name = "callType"];</code>
+     * @param value The enum numeric value on the wire for callType to set.
+     * @return This builder for chaining.
      */
     public Builder setCallTypeValue(int value) {
+      
       callType_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>.adamant.global.v1.SubstrateCallType call_type = 1;</code>
+     * <code>.adamant.global.v1.SubstrateCallType call_type = 1 [json_name = "callType"];</code>
+     * @return The callType.
      */
+    @java.lang.Override
     public adamant.global.v1.Enum.SubstrateCallType getCallType() {
       @SuppressWarnings("deprecation")
       adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.valueOf(callType_);
       return result == null ? adamant.global.v1.Enum.SubstrateCallType.UNRECOGNIZED : result;
     }
     /**
-     * <code>.adamant.global.v1.SubstrateCallType call_type = 1;</code>
+     * <code>.adamant.global.v1.SubstrateCallType call_type = 1 [json_name = "callType"];</code>
+     * @param value The callType to set.
+     * @return This builder for chaining.
      */
     public Builder setCallType(adamant.global.v1.Enum.SubstrateCallType value) {
       if (value == null) {
@@ -489,7 +501,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.SubstrateCallType call_type = 1;</code>
+     * <code>.adamant.global.v1.SubstrateCallType call_type = 1 [json_name = "callType"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearCallType() {
       
@@ -500,29 +513,37 @@ private static final long serialVersionUID = 0L;
 
     private int multisigCallType_ = 0;
     /**
-     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2;</code>
+     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2 [json_name = "multisigCallType"];</code>
+     * @return The enum numeric value on the wire for multisigCallType.
      */
-    public int getMultisigCallTypeValue() {
+    @java.lang.Override public int getMultisigCallTypeValue() {
       return multisigCallType_;
     }
     /**
-     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2;</code>
+     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2 [json_name = "multisigCallType"];</code>
+     * @param value The enum numeric value on the wire for multisigCallType to set.
+     * @return This builder for chaining.
      */
     public Builder setMultisigCallTypeValue(int value) {
+      
       multisigCallType_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2;</code>
+     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2 [json_name = "multisigCallType"];</code>
+     * @return The multisigCallType.
      */
+    @java.lang.Override
     public adamant.global.v1.Enum.SubstrateCallType getMultisigCallType() {
       @SuppressWarnings("deprecation")
       adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.valueOf(multisigCallType_);
       return result == null ? adamant.global.v1.Enum.SubstrateCallType.UNRECOGNIZED : result;
     }
     /**
-     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2;</code>
+     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2 [json_name = "multisigCallType"];</code>
+     * @param value The multisigCallType to set.
+     * @return This builder for chaining.
      */
     public Builder setMultisigCallType(adamant.global.v1.Enum.SubstrateCallType value) {
       if (value == null) {
@@ -534,7 +555,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2;</code>
+     * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2 [json_name = "multisigCallType"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearMultisigCallType() {
       

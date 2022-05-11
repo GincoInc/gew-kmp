@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.GetRecommendedFeeRateResponse}
  */
-public  final class GetRecommendedFeeRateResponse extends
+public final class GetRecommendedFeeRateResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.GetRecommendedFeeRateResponse)
     GetRecommendedFeeRateResponseOrBuilder {
@@ -103,8 +103,10 @@ private static final long serialVersionUID = 0L;
   public static final int FASTEST_FIELD_NUMBER = 1;
   private long fastest_;
   /**
-   * <code>uint64 fastest = 1;</code>
+   * <code>uint64 fastest = 1 [json_name = "fastest"];</code>
+   * @return The fastest.
    */
+  @java.lang.Override
   public long getFastest() {
     return fastest_;
   }
@@ -112,8 +114,10 @@ private static final long serialVersionUID = 0L;
   public static final int FAST_FIELD_NUMBER = 2;
   private long fast_;
   /**
-   * <code>uint64 fast = 2;</code>
+   * <code>uint64 fast = 2 [json_name = "fast"];</code>
+   * @return The fast.
    */
+  @java.lang.Override
   public long getFast() {
     return fast_;
   }
@@ -121,8 +125,10 @@ private static final long serialVersionUID = 0L;
   public static final int AVERAGE_FIELD_NUMBER = 3;
   private long average_;
   /**
-   * <code>uint64 average = 3;</code>
+   * <code>uint64 average = 3 [json_name = "average"];</code>
+   * @return The average.
    */
+  @java.lang.Override
   public long getAverage() {
     return average_;
   }
@@ -130,8 +136,10 @@ private static final long serialVersionUID = 0L;
   public static final int SAFE_LOW_FIELD_NUMBER = 4;
   private long safeLow_;
   /**
-   * <code>uint64 safe_low = 4;</code>
+   * <code>uint64 safe_low = 4 [json_name = "safeLow"];</code>
+   * @return The safeLow.
    */
+  @java.lang.Override
   public long getSafeLow() {
     return safeLow_;
   }
@@ -495,13 +503,17 @@ private static final long serialVersionUID = 0L;
 
     private long fastest_ ;
     /**
-     * <code>uint64 fastest = 1;</code>
+     * <code>uint64 fastest = 1 [json_name = "fastest"];</code>
+     * @return The fastest.
      */
+    @java.lang.Override
     public long getFastest() {
       return fastest_;
     }
     /**
-     * <code>uint64 fastest = 1;</code>
+     * <code>uint64 fastest = 1 [json_name = "fastest"];</code>
+     * @param value The fastest to set.
+     * @return This builder for chaining.
      */
     public Builder setFastest(long value) {
       
@@ -510,7 +522,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint64 fastest = 1;</code>
+     * <code>uint64 fastest = 1 [json_name = "fastest"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearFastest() {
       
@@ -521,13 +534,17 @@ private static final long serialVersionUID = 0L;
 
     private long fast_ ;
     /**
-     * <code>uint64 fast = 2;</code>
+     * <code>uint64 fast = 2 [json_name = "fast"];</code>
+     * @return The fast.
      */
+    @java.lang.Override
     public long getFast() {
       return fast_;
     }
     /**
-     * <code>uint64 fast = 2;</code>
+     * <code>uint64 fast = 2 [json_name = "fast"];</code>
+     * @param value The fast to set.
+     * @return This builder for chaining.
      */
     public Builder setFast(long value) {
       
@@ -536,7 +553,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint64 fast = 2;</code>
+     * <code>uint64 fast = 2 [json_name = "fast"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearFast() {
       
@@ -547,13 +565,17 @@ private static final long serialVersionUID = 0L;
 
     private long average_ ;
     /**
-     * <code>uint64 average = 3;</code>
+     * <code>uint64 average = 3 [json_name = "average"];</code>
+     * @return The average.
      */
+    @java.lang.Override
     public long getAverage() {
       return average_;
     }
     /**
-     * <code>uint64 average = 3;</code>
+     * <code>uint64 average = 3 [json_name = "average"];</code>
+     * @param value The average to set.
+     * @return This builder for chaining.
      */
     public Builder setAverage(long value) {
       
@@ -562,7 +584,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint64 average = 3;</code>
+     * <code>uint64 average = 3 [json_name = "average"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearAverage() {
       
@@ -573,13 +596,17 @@ private static final long serialVersionUID = 0L;
 
     private long safeLow_ ;
     /**
-     * <code>uint64 safe_low = 4;</code>
+     * <code>uint64 safe_low = 4 [json_name = "safeLow"];</code>
+     * @return The safeLow.
      */
+    @java.lang.Override
     public long getSafeLow() {
       return safeLow_;
     }
     /**
-     * <code>uint64 safe_low = 4;</code>
+     * <code>uint64 safe_low = 4 [json_name = "safeLow"];</code>
+     * @param value The safeLow to set.
+     * @return This builder for chaining.
      */
     public Builder setSafeLow(long value) {
       
@@ -588,7 +615,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint64 safe_low = 4;</code>
+     * <code>uint64 safe_low = 4 [json_name = "safeLow"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearSafeLow() {
       

@@ -8,21 +8,25 @@ public interface UpdateUncheckedTransferHasCheckedFlagRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The walletId.
    */
   java.lang.String getWalletId();
   /**
-   * <code>string wallet_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletId.
    */
   com.google.protobuf.ByteString
       getWalletIdBytes();
 
   /**
-   * <code>string unchecked_transfer_id = 2 [(.validate.rules) = { ... }</code>
+   * <code>string unchecked_transfer_id = 2 [json_name = "uncheckedTransferId", (.validate.rules) = { ... }</code>
+   * @return The uncheckedTransferId.
    */
   java.lang.String getUncheckedTransferId();
   /**
-   * <code>string unchecked_transfer_id = 2 [(.validate.rules) = { ... }</code>
+   * <code>string unchecked_transfer_id = 2 [json_name = "uncheckedTransferId", (.validate.rules) = { ... }</code>
+   * @return The bytes for uncheckedTransferId.
    */
   com.google.protobuf.ByteString
       getUncheckedTransferIdBytes();

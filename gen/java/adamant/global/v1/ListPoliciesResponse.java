@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListPoliciesResponse}
  */
-public  final class ListPoliciesResponse extends
+public final class ListPoliciesResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListPoliciesResponse)
     ListPoliciesResponseOrBuilder {
@@ -97,33 +97,38 @@ private static final long serialVersionUID = 0L;
   public static final int POLICIES_FIELD_NUMBER = 1;
   private java.util.List<adamant.global.v1.Model.Policy> policies_;
   /**
-   * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+   * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.Policy> getPoliciesList() {
     return policies_;
   }
   /**
-   * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+   * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.PolicyOrBuilder> 
       getPoliciesOrBuilderList() {
     return policies_;
   }
   /**
-   * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+   * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
    */
+  @java.lang.Override
   public int getPoliciesCount() {
     return policies_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+   * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.Policy getPolicies(int index) {
     return policies_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+   * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.PolicyOrBuilder getPoliciesOrBuilder(
       int index) {
     return policies_.get(index);
@@ -484,7 +489,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.Policy, adamant.global.v1.Model.Policy.Builder, adamant.global.v1.Model.PolicyOrBuilder> policiesBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public java.util.List<adamant.global.v1.Model.Policy> getPoliciesList() {
       if (policiesBuilder_ == null) {
@@ -494,7 +499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public int getPoliciesCount() {
       if (policiesBuilder_ == null) {
@@ -504,7 +509,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public adamant.global.v1.Model.Policy getPolicies(int index) {
       if (policiesBuilder_ == null) {
@@ -514,7 +519,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public Builder setPolicies(
         int index, adamant.global.v1.Model.Policy value) {
@@ -531,7 +536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public Builder setPolicies(
         int index, adamant.global.v1.Model.Policy.Builder builderForValue) {
@@ -545,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public Builder addPolicies(adamant.global.v1.Model.Policy value) {
       if (policiesBuilder_ == null) {
@@ -561,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public Builder addPolicies(
         int index, adamant.global.v1.Model.Policy value) {
@@ -578,7 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public Builder addPolicies(
         adamant.global.v1.Model.Policy.Builder builderForValue) {
@@ -592,7 +597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public Builder addPolicies(
         int index, adamant.global.v1.Model.Policy.Builder builderForValue) {
@@ -606,7 +611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public Builder addAllPolicies(
         java.lang.Iterable<? extends adamant.global.v1.Model.Policy> values) {
@@ -621,7 +626,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public Builder clearPolicies() {
       if (policiesBuilder_ == null) {
@@ -634,7 +639,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public Builder removePolicies(int index) {
       if (policiesBuilder_ == null) {
@@ -647,14 +652,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public adamant.global.v1.Model.Policy.Builder getPoliciesBuilder(
         int index) {
       return getPoliciesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public adamant.global.v1.Model.PolicyOrBuilder getPoliciesOrBuilder(
         int index) {
@@ -664,7 +669,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.PolicyOrBuilder> 
          getPoliciesOrBuilderList() {
@@ -675,14 +680,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public adamant.global.v1.Model.Policy.Builder addPoliciesBuilder() {
       return getPoliciesFieldBuilder().addBuilder(
           adamant.global.v1.Model.Policy.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public adamant.global.v1.Model.Policy.Builder addPoliciesBuilder(
         int index) {
@@ -690,7 +695,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.Policy.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.Policy policies = 1;</code>
+     * <code>repeated .adamant.global.v1.Policy policies = 1 [json_name = "policies"];</code>
      */
     public java.util.List<adamant.global.v1.Model.Policy.Builder> 
          getPoliciesBuilderList() {

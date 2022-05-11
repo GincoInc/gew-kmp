@@ -8,45 +8,56 @@ public interface CreateWalletGroupRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string name = 1 [(.validate.rules) = { ... }</code>
+   * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The name.
    */
   java.lang.String getName();
   /**
-   * <code>string name = 1 [(.validate.rules) = { ... }</code>
+   * <code>string name = 1 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
    */
   int getCoinValue();
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 2 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
    */
   gincoinc.global.v1.Enum.Coin getCoin();
 
   /**
-   * <code>repeated string wallet_ids = 3 [(.validate.rules) = { ... }</code>
+   * <code>repeated string wallet_ids = 3 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+   * @return A list containing the walletIds.
    */
   java.util.List<java.lang.String>
       getWalletIdsList();
   /**
-   * <code>repeated string wallet_ids = 3 [(.validate.rules) = { ... }</code>
+   * <code>repeated string wallet_ids = 3 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+   * @return The count of walletIds.
    */
   int getWalletIdsCount();
   /**
-   * <code>repeated string wallet_ids = 3 [(.validate.rules) = { ... }</code>
+   * <code>repeated string wallet_ids = 3 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+   * @param index The index of the element to return.
+   * @return The walletIds at the given index.
    */
   java.lang.String getWalletIds(int index);
   /**
-   * <code>repeated string wallet_ids = 3 [(.validate.rules) = { ... }</code>
+   * <code>repeated string wallet_ids = 3 [json_name = "walletIds", (.validate.rules) = { ... }</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the walletIds at the given index.
    */
   com.google.protobuf.ByteString
       getWalletIdsBytes(int index);
 
   /**
-   * <code>bool watch_only = 4;</code>
+   * <code>bool watch_only = 4 [json_name = "watchOnly"];</code>
+   * @return The watchOnly.
    */
   boolean getWatchOnly();
 }

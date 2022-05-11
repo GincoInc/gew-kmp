@@ -19,54 +19,63 @@ public final class EventOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string aggregate_id = 1;</code>
+     * <code>string aggregate_id = 1 [json_name = "aggregateId"];</code>
+     * @return The aggregateId.
      */
     java.lang.String getAggregateId();
     /**
-     * <code>string aggregate_id = 1;</code>
+     * <code>string aggregate_id = 1 [json_name = "aggregateId"];</code>
+     * @return The bytes for aggregateId.
      */
     com.google.protobuf.ByteString
         getAggregateIdBytes();
 
     /**
-     * <code>string event_id = 2;</code>
+     * <code>string event_id = 2 [json_name = "eventId"];</code>
+     * @return The eventId.
      */
     java.lang.String getEventId();
     /**
-     * <code>string event_id = 2;</code>
+     * <code>string event_id = 2 [json_name = "eventId"];</code>
+     * @return The bytes for eventId.
      */
     com.google.protobuf.ByteString
         getEventIdBytes();
 
     /**
-     * <code>string event_type = 3;</code>
+     * <code>string event_type = 3 [json_name = "eventType"];</code>
+     * @return The eventType.
      */
     java.lang.String getEventType();
     /**
-     * <code>string event_type = 3;</code>
+     * <code>string event_type = 3 [json_name = "eventType"];</code>
+     * @return The bytes for eventType.
      */
     com.google.protobuf.ByteString
         getEventTypeBytes();
 
     /**
-     * <code>bytes payload = 4;</code>
+     * <code>bytes payload = 4 [json_name = "payload"];</code>
+     * @return The payload.
      */
     com.google.protobuf.ByteString getPayload();
 
     /**
-     * <code>uint32 version = 5;</code>
+     * <code>uint32 version = 5 [json_name = "version"];</code>
+     * @return The version.
      */
     int getVersion();
 
     /**
-     * <code>int64 create_time = 6;</code>
+     * <code>int64 create_time = 6 [json_name = "createTime"];</code>
+     * @return The createTime.
      */
     long getCreateTime();
   }
   /**
    * Protobuf type {@code gincoinc.global.v1.Event}
    */
-  public  static final class Event extends
+  public static final class Event extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gincoinc.global.v1.Event)
       EventOrBuilder {
@@ -180,8 +189,10 @@ public final class EventOuterClass {
     public static final int AGGREGATE_ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object aggregateId_;
     /**
-     * <code>string aggregate_id = 1;</code>
+     * <code>string aggregate_id = 1 [json_name = "aggregateId"];</code>
+     * @return The aggregateId.
      */
+    @java.lang.Override
     public java.lang.String getAggregateId() {
       java.lang.Object ref = aggregateId_;
       if (ref instanceof java.lang.String) {
@@ -195,8 +206,10 @@ public final class EventOuterClass {
       }
     }
     /**
-     * <code>string aggregate_id = 1;</code>
+     * <code>string aggregate_id = 1 [json_name = "aggregateId"];</code>
+     * @return The bytes for aggregateId.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getAggregateIdBytes() {
       java.lang.Object ref = aggregateId_;
@@ -214,8 +227,10 @@ public final class EventOuterClass {
     public static final int EVENT_ID_FIELD_NUMBER = 2;
     private volatile java.lang.Object eventId_;
     /**
-     * <code>string event_id = 2;</code>
+     * <code>string event_id = 2 [json_name = "eventId"];</code>
+     * @return The eventId.
      */
+    @java.lang.Override
     public java.lang.String getEventId() {
       java.lang.Object ref = eventId_;
       if (ref instanceof java.lang.String) {
@@ -229,8 +244,10 @@ public final class EventOuterClass {
       }
     }
     /**
-     * <code>string event_id = 2;</code>
+     * <code>string event_id = 2 [json_name = "eventId"];</code>
+     * @return The bytes for eventId.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getEventIdBytes() {
       java.lang.Object ref = eventId_;
@@ -248,8 +265,10 @@ public final class EventOuterClass {
     public static final int EVENT_TYPE_FIELD_NUMBER = 3;
     private volatile java.lang.Object eventType_;
     /**
-     * <code>string event_type = 3;</code>
+     * <code>string event_type = 3 [json_name = "eventType"];</code>
+     * @return The eventType.
      */
+    @java.lang.Override
     public java.lang.String getEventType() {
       java.lang.Object ref = eventType_;
       if (ref instanceof java.lang.String) {
@@ -263,8 +282,10 @@ public final class EventOuterClass {
       }
     }
     /**
-     * <code>string event_type = 3;</code>
+     * <code>string event_type = 3 [json_name = "eventType"];</code>
+     * @return The bytes for eventType.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getEventTypeBytes() {
       java.lang.Object ref = eventType_;
@@ -282,8 +303,10 @@ public final class EventOuterClass {
     public static final int PAYLOAD_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString payload_;
     /**
-     * <code>bytes payload = 4;</code>
+     * <code>bytes payload = 4 [json_name = "payload"];</code>
+     * @return The payload.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString getPayload() {
       return payload_;
     }
@@ -291,8 +314,10 @@ public final class EventOuterClass {
     public static final int VERSION_FIELD_NUMBER = 5;
     private int version_;
     /**
-     * <code>uint32 version = 5;</code>
+     * <code>uint32 version = 5 [json_name = "version"];</code>
+     * @return The version.
      */
+    @java.lang.Override
     public int getVersion() {
       return version_;
     }
@@ -300,8 +325,10 @@ public final class EventOuterClass {
     public static final int CREATE_TIME_FIELD_NUMBER = 6;
     private long createTime_;
     /**
-     * <code>int64 create_time = 6;</code>
+     * <code>int64 create_time = 6 [json_name = "createTime"];</code>
+     * @return The createTime.
      */
+    @java.lang.Override
     public long getCreateTime() {
       return createTime_;
     }
@@ -320,13 +347,13 @@ public final class EventOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getAggregateIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(aggregateId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, aggregateId_);
       }
-      if (!getEventIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(eventId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, eventId_);
       }
-      if (!getEventTypeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(eventType_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, eventType_);
       }
       if (!payload_.isEmpty()) {
@@ -347,13 +374,13 @@ public final class EventOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (!getAggregateIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(aggregateId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, aggregateId_);
       }
-      if (!getEventIdBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(eventId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, eventId_);
       }
-      if (!getEventTypeBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(eventType_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, eventType_);
       }
       if (!payload_.isEmpty()) {
@@ -696,7 +723,8 @@ public final class EventOuterClass {
 
       private java.lang.Object aggregateId_ = "";
       /**
-       * <code>string aggregate_id = 1;</code>
+       * <code>string aggregate_id = 1 [json_name = "aggregateId"];</code>
+       * @return The aggregateId.
        */
       public java.lang.String getAggregateId() {
         java.lang.Object ref = aggregateId_;
@@ -711,7 +739,8 @@ public final class EventOuterClass {
         }
       }
       /**
-       * <code>string aggregate_id = 1;</code>
+       * <code>string aggregate_id = 1 [json_name = "aggregateId"];</code>
+       * @return The bytes for aggregateId.
        */
       public com.google.protobuf.ByteString
           getAggregateIdBytes() {
@@ -727,7 +756,9 @@ public final class EventOuterClass {
         }
       }
       /**
-       * <code>string aggregate_id = 1;</code>
+       * <code>string aggregate_id = 1 [json_name = "aggregateId"];</code>
+       * @param value The aggregateId to set.
+       * @return This builder for chaining.
        */
       public Builder setAggregateId(
           java.lang.String value) {
@@ -740,7 +771,8 @@ public final class EventOuterClass {
         return this;
       }
       /**
-       * <code>string aggregate_id = 1;</code>
+       * <code>string aggregate_id = 1 [json_name = "aggregateId"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearAggregateId() {
         
@@ -749,7 +781,9 @@ public final class EventOuterClass {
         return this;
       }
       /**
-       * <code>string aggregate_id = 1;</code>
+       * <code>string aggregate_id = 1 [json_name = "aggregateId"];</code>
+       * @param value The bytes for aggregateId to set.
+       * @return This builder for chaining.
        */
       public Builder setAggregateIdBytes(
           com.google.protobuf.ByteString value) {
@@ -765,7 +799,8 @@ public final class EventOuterClass {
 
       private java.lang.Object eventId_ = "";
       /**
-       * <code>string event_id = 2;</code>
+       * <code>string event_id = 2 [json_name = "eventId"];</code>
+       * @return The eventId.
        */
       public java.lang.String getEventId() {
         java.lang.Object ref = eventId_;
@@ -780,7 +815,8 @@ public final class EventOuterClass {
         }
       }
       /**
-       * <code>string event_id = 2;</code>
+       * <code>string event_id = 2 [json_name = "eventId"];</code>
+       * @return The bytes for eventId.
        */
       public com.google.protobuf.ByteString
           getEventIdBytes() {
@@ -796,7 +832,9 @@ public final class EventOuterClass {
         }
       }
       /**
-       * <code>string event_id = 2;</code>
+       * <code>string event_id = 2 [json_name = "eventId"];</code>
+       * @param value The eventId to set.
+       * @return This builder for chaining.
        */
       public Builder setEventId(
           java.lang.String value) {
@@ -809,7 +847,8 @@ public final class EventOuterClass {
         return this;
       }
       /**
-       * <code>string event_id = 2;</code>
+       * <code>string event_id = 2 [json_name = "eventId"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearEventId() {
         
@@ -818,7 +857,9 @@ public final class EventOuterClass {
         return this;
       }
       /**
-       * <code>string event_id = 2;</code>
+       * <code>string event_id = 2 [json_name = "eventId"];</code>
+       * @param value The bytes for eventId to set.
+       * @return This builder for chaining.
        */
       public Builder setEventIdBytes(
           com.google.protobuf.ByteString value) {
@@ -834,7 +875,8 @@ public final class EventOuterClass {
 
       private java.lang.Object eventType_ = "";
       /**
-       * <code>string event_type = 3;</code>
+       * <code>string event_type = 3 [json_name = "eventType"];</code>
+       * @return The eventType.
        */
       public java.lang.String getEventType() {
         java.lang.Object ref = eventType_;
@@ -849,7 +891,8 @@ public final class EventOuterClass {
         }
       }
       /**
-       * <code>string event_type = 3;</code>
+       * <code>string event_type = 3 [json_name = "eventType"];</code>
+       * @return The bytes for eventType.
        */
       public com.google.protobuf.ByteString
           getEventTypeBytes() {
@@ -865,7 +908,9 @@ public final class EventOuterClass {
         }
       }
       /**
-       * <code>string event_type = 3;</code>
+       * <code>string event_type = 3 [json_name = "eventType"];</code>
+       * @param value The eventType to set.
+       * @return This builder for chaining.
        */
       public Builder setEventType(
           java.lang.String value) {
@@ -878,7 +923,8 @@ public final class EventOuterClass {
         return this;
       }
       /**
-       * <code>string event_type = 3;</code>
+       * <code>string event_type = 3 [json_name = "eventType"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearEventType() {
         
@@ -887,7 +933,9 @@ public final class EventOuterClass {
         return this;
       }
       /**
-       * <code>string event_type = 3;</code>
+       * <code>string event_type = 3 [json_name = "eventType"];</code>
+       * @param value The bytes for eventType to set.
+       * @return This builder for chaining.
        */
       public Builder setEventTypeBytes(
           com.google.protobuf.ByteString value) {
@@ -903,13 +951,17 @@ public final class EventOuterClass {
 
       private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes payload = 4;</code>
+       * <code>bytes payload = 4 [json_name = "payload"];</code>
+       * @return The payload.
        */
+      @java.lang.Override
       public com.google.protobuf.ByteString getPayload() {
         return payload_;
       }
       /**
-       * <code>bytes payload = 4;</code>
+       * <code>bytes payload = 4 [json_name = "payload"];</code>
+       * @param value The payload to set.
+       * @return This builder for chaining.
        */
       public Builder setPayload(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -921,7 +973,8 @@ public final class EventOuterClass {
         return this;
       }
       /**
-       * <code>bytes payload = 4;</code>
+       * <code>bytes payload = 4 [json_name = "payload"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearPayload() {
         
@@ -932,13 +985,17 @@ public final class EventOuterClass {
 
       private int version_ ;
       /**
-       * <code>uint32 version = 5;</code>
+       * <code>uint32 version = 5 [json_name = "version"];</code>
+       * @return The version.
        */
+      @java.lang.Override
       public int getVersion() {
         return version_;
       }
       /**
-       * <code>uint32 version = 5;</code>
+       * <code>uint32 version = 5 [json_name = "version"];</code>
+       * @param value The version to set.
+       * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
         
@@ -947,7 +1004,8 @@ public final class EventOuterClass {
         return this;
       }
       /**
-       * <code>uint32 version = 5;</code>
+       * <code>uint32 version = 5 [json_name = "version"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearVersion() {
         
@@ -958,13 +1016,17 @@ public final class EventOuterClass {
 
       private long createTime_ ;
       /**
-       * <code>int64 create_time = 6;</code>
+       * <code>int64 create_time = 6 [json_name = "createTime"];</code>
+       * @return The createTime.
        */
+      @java.lang.Override
       public long getCreateTime() {
         return createTime_;
       }
       /**
-       * <code>int64 create_time = 6;</code>
+       * <code>int64 create_time = 6 [json_name = "createTime"];</code>
+       * @param value The createTime to set.
+       * @return This builder for chaining.
        */
       public Builder setCreateTime(long value) {
         
@@ -973,7 +1035,8 @@ public final class EventOuterClass {
         return this;
       }
       /**
-       * <code>int64 create_time = 6;</code>
+       * <code>int64 create_time = 6 [json_name = "createTime"];</code>
+       * @return This builder for chaining.
        */
       public Builder clearCreateTime() {
         
@@ -1049,11 +1112,14 @@ public final class EventOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n/gincoinc/global/v1/gincoincglobalv1/ev" +
-      "ent.proto\022\022gincoinc.global.v1\"z\n\005Event\022\024" +
-      "\n\014aggregate_id\030\001 \001(\t\022\020\n\010event_id\030\002 \001(\t\022\022" +
-      "\n\nevent_type\030\003 \001(\t\022\017\n\007payload\030\004 \001(\014\022\017\n\007v" +
-      "ersion\030\005 \001(\r\022\023\n\013create_time\030\006 \001(\003B\022Z\020gin" +
-      "coincglobalv1b\006proto3"
+      "ent.proto\022\022gincoinc.global.v1\"\271\001\n\005Event\022" +
+      "!\n\014aggregate_id\030\001 \001(\tR\013aggregateId\022\031\n\010ev" +
+      "ent_id\030\002 \001(\tR\007eventId\022\035\n\nevent_type\030\003 \001(" +
+      "\tR\teventType\022\030\n\007payload\030\004 \001(\014R\007payload\022\030" +
+      "\n\007version\030\005 \001(\rR\007version\022\037\n\013create_time\030" +
+      "\006 \001(\003R\ncreateTimeBEZCgithub.com/GincoInc" +
+      "/gew-kmp/gen/gincoinc/global/v1/gincoinc" +
+      "globalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

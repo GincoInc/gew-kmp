@@ -8,40 +8,48 @@ public interface UpdateLabeledAddressRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string labeled_address_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string labeled_address_id = 1 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+   * @return The labeledAddressId.
    */
   java.lang.String getLabeledAddressId();
   /**
-   * <code>string labeled_address_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string labeled_address_id = 1 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+   * @return The bytes for labeledAddressId.
    */
   com.google.protobuf.ByteString
       getLabeledAddressIdBytes();
 
   /**
-   * <code>string name = 2 [(.validate.rules) = { ... }</code>
+   * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The name.
    */
   java.lang.String getName();
   /**
-   * <code>string name = 2 [(.validate.rules) = { ... }</code>
+   * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
+   * @return The bytes for name.
    */
   com.google.protobuf.ByteString
       getNameBytes();
 
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
    */
   int getCoinValue();
   /**
-   * <code>.gincoinc.global.v1.Coin coin = 3 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 3 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
    */
   gincoinc.global.v1.Enum.Coin getCoin();
 
   /**
-   * <code>string address = 4 [(.validate.rules) = { ... }</code>
+   * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+   * @return The address.
    */
   java.lang.String getAddress();
   /**
-   * <code>string address = 4 [(.validate.rules) = { ... }</code>
+   * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+   * @return The bytes for address.
    */
   com.google.protobuf.ByteString
       getAddressBytes();

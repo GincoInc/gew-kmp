@@ -9,18 +9,20 @@ public interface SetRatesResponseOrBuilder extends
 
   /**
    * <pre>
-   *The id of rate-snapshot
+   * The id of rate-snapshot
    * </pre>
    *
-   * <code>string rate_snapshot_id = 1;</code>
+   * <code>string rate_snapshot_id = 1 [json_name = "rateSnapshotId"];</code>
+   * @return The rateSnapshotId.
    */
   java.lang.String getRateSnapshotId();
   /**
    * <pre>
-   *The id of rate-snapshot
+   * The id of rate-snapshot
    * </pre>
    *
-   * <code>string rate_snapshot_id = 1;</code>
+   * <code>string rate_snapshot_id = 1 [json_name = "rateSnapshotId"];</code>
+   * @return The bytes for rateSnapshotId.
    */
   com.google.protobuf.ByteString
       getRateSnapshotIdBytes();

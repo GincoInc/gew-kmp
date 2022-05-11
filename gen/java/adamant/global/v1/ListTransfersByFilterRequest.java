@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListTransfersByFilterRequest}
  */
-public  final class ListTransfersByFilterRequest extends
+public final class ListTransfersByFilterRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListTransfersByFilterRequest)
     ListTransfersByFilterRequestOrBuilder {
@@ -217,15 +217,17 @@ private static final long serialVersionUID = 0L;
   public static final int FILTER_TYPE_FIELD_NUMBER = 1;
   private int filterType_;
   /**
-   * <code>.adamant.global.v1.ListFilterType filter_type = 1 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.ListFilterType filter_type = 1 [json_name = "filterType", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for filterType.
    */
-  public int getFilterTypeValue() {
+  @java.lang.Override public int getFilterTypeValue() {
     return filterType_;
   }
   /**
-   * <code>.adamant.global.v1.ListFilterType filter_type = 1 [(.validate.rules) = { ... }</code>
+   * <code>.adamant.global.v1.ListFilterType filter_type = 1 [json_name = "filterType", (.validate.rules) = { ... }</code>
+   * @return The filterType.
    */
-  public adamant.global.v1.Enum.ListFilterType getFilterType() {
+  @java.lang.Override public adamant.global.v1.Enum.ListFilterType getFilterType() {
     @SuppressWarnings("deprecation")
     adamant.global.v1.Enum.ListFilterType result = adamant.global.v1.Enum.ListFilterType.valueOf(filterType_);
     return result == null ? adamant.global.v1.Enum.ListFilterType.UNRECOGNIZED : result;
@@ -238,8 +240,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string transfer_id = 2;</code>
+   * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+   * @return The transferId.
    */
+  @java.lang.Override
   public java.lang.String getTransferId() {
     java.lang.Object ref = transferId_;
     if (ref instanceof java.lang.String) {
@@ -257,8 +261,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string transfer_id = 2;</code>
+   * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+   * @return The bytes for transferId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTransferIdBytes() {
     java.lang.Object ref = transferId_;
@@ -280,8 +286,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string wallet_id = 13;</code>
+   * <code>string wallet_id = 13 [json_name = "walletId"];</code>
+   * @return The walletId.
    */
+  @java.lang.Override
   public java.lang.String getWalletId() {
     java.lang.Object ref = walletId_;
     if (ref instanceof java.lang.String) {
@@ -299,8 +307,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string wallet_id = 13;</code>
+   * <code>string wallet_id = 13 [json_name = "walletId"];</code>
+   * @return The bytes for walletId.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWalletIdBytes() {
     java.lang.Object ref = walletId_;
@@ -322,8 +332,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string wallet_name = 3 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_name = 3 [json_name = "walletName", (.validate.rules) = { ... }</code>
+   * @return The walletName.
    */
+  @java.lang.Override
   public java.lang.String getWalletName() {
     java.lang.Object ref = walletName_;
     if (ref instanceof java.lang.String) {
@@ -341,8 +353,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string wallet_name = 3 [(.validate.rules) = { ... }</code>
+   * <code>string wallet_name = 3 [json_name = "walletName", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletName.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getWalletNameBytes() {
     java.lang.Object ref = walletName_;
@@ -364,8 +378,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string address_name = 4 [(.validate.rules) = { ... }</code>
+   * <code>string address_name = 4 [json_name = "addressName", (.validate.rules) = { ... }</code>
+   * @return The addressName.
    */
+  @java.lang.Override
   public java.lang.String getAddressName() {
     java.lang.Object ref = addressName_;
     if (ref instanceof java.lang.String) {
@@ -383,8 +399,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string address_name = 4 [(.validate.rules) = { ... }</code>
+   * <code>string address_name = 4 [json_name = "addressName", (.validate.rules) = { ... }</code>
+   * @return The bytes for addressName.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getAddressNameBytes() {
     java.lang.Object ref = addressName_;
@@ -406,8 +424,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string address = 5;</code>
+   * <code>string address = 5 [json_name = "address"];</code>
+   * @return The address.
    */
+  @java.lang.Override
   public java.lang.String getAddress() {
     java.lang.Object ref = address_;
     if (ref instanceof java.lang.String) {
@@ -425,8 +445,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string address = 5;</code>
+   * <code>string address = 5 [json_name = "address"];</code>
+   * @return The bytes for address.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getAddressBytes() {
     java.lang.Object ref = address_;
@@ -448,8 +470,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string txid = 6;</code>
+   * <code>string txid = 6 [json_name = "txid"];</code>
+   * @return The txid.
    */
+  @java.lang.Override
   public java.lang.String getTxid() {
     java.lang.Object ref = txid_;
     if (ref instanceof java.lang.String) {
@@ -467,8 +491,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string txid = 6;</code>
+   * <code>string txid = 6 [json_name = "txid"];</code>
+   * @return The bytes for txid.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getTxidBytes() {
     java.lang.Object ref = txid_;
@@ -490,8 +516,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>bool watch_only = 12;</code>
+   * <code>bool watch_only = 12 [json_name = "watchOnly"];</code>
+   * @return The watchOnly.
    */
+  @java.lang.Override
   public boolean getWatchOnly() {
     return watchOnly_;
   }
@@ -503,9 +531,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>.gincoinc.global.v1.Coin coin = 7 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 7 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
    */
-  public int getCoinValue() {
+  @java.lang.Override public int getCoinValue() {
     return coin_;
   }
   /**
@@ -513,9 +542,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>.gincoinc.global.v1.Coin coin = 7 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.Coin coin = 7 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
    */
-  public gincoinc.global.v1.Enum.Coin getCoin() {
+  @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
     @SuppressWarnings("deprecation")
     gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
     return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
@@ -534,34 +564,46 @@ private static final long serialVersionUID = 0L;
             }
           };
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+   * @return A list containing the walletType.
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Enum.WalletType> getWalletTypeList() {
     return new com.google.protobuf.Internal.ListAdapter<
         java.lang.Integer, adamant.global.v1.Enum.WalletType>(walletType_, walletType_converter_);
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+   * @return The count of walletType.
    */
+  @java.lang.Override
   public int getWalletTypeCount() {
     return walletType_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+   * @param index The index of the element to return.
+   * @return The walletType at the given index.
    */
+  @java.lang.Override
   public adamant.global.v1.Enum.WalletType getWalletType(int index) {
     return walletType_converter_.convert(walletType_.get(index));
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+   * @return A list containing the enum numeric values on the wire for walletType.
    */
+  @java.lang.Override
   public java.util.List<java.lang.Integer>
   getWalletTypeValueList() {
     return walletType_;
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+   * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of walletType at the given index.
    */
+  @java.lang.Override
   public int getWalletTypeValue(int index) {
     return walletType_.get(index);
   }
@@ -574,9 +616,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [json_name = "transferType", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for transferType.
    */
-  public int getTransferTypeValue() {
+  @java.lang.Override public int getTransferTypeValue() {
     return transferType_;
   }
   /**
@@ -584,9 +627,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [(.validate.rules) = { ... }</code>
+   * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [json_name = "transferType", (.validate.rules) = { ... }</code>
+   * @return The transferType.
    */
-  public gincoinc.global.v1.Enum.TransferType getTransferType() {
+  @java.lang.Override public gincoinc.global.v1.Enum.TransferType getTransferType() {
     @SuppressWarnings("deprecation")
     gincoinc.global.v1.Enum.TransferType result = gincoinc.global.v1.Enum.TransferType.valueOf(transferType_);
     return result == null ? gincoinc.global.v1.Enum.TransferType.UNRECOGNIZED : result;
@@ -599,8 +643,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>uint32 page_size = 10 [(.validate.rules) = { ... }</code>
+   * <code>uint32 page_size = 10 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+   * @return The pageSize.
    */
+  @java.lang.Override
   public int getPageSize() {
     return pageSize_;
   }
@@ -612,8 +658,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string page_token = 11 [(.validate.rules) = { ... }</code>
+   * <code>string page_token = 11 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The pageToken.
    */
+  @java.lang.Override
   public java.lang.String getPageToken() {
     java.lang.Object ref = pageToken_;
     if (ref instanceof java.lang.String) {
@@ -631,8 +679,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>string page_token = 11 [(.validate.rules) = { ... }</code>
+   * <code>string page_token = 11 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The bytes for pageToken.
    */
+  @java.lang.Override
   public com.google.protobuf.ByteString
       getPageTokenBytes() {
     java.lang.Object ref = pageToken_;
@@ -654,8 +704,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp start_time = 14;</code>
+   * <code>.google.protobuf.Timestamp start_time = 14 [json_name = "startTime"];</code>
+   * @return Whether the startTime field is set.
    */
+  @java.lang.Override
   public boolean hasStartTime() {
     return startTime_ != null;
   }
@@ -664,8 +716,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp start_time = 14;</code>
+   * <code>.google.protobuf.Timestamp start_time = 14 [json_name = "startTime"];</code>
+   * @return The startTime.
    */
+  @java.lang.Override
   public com.google.protobuf.Timestamp getStartTime() {
     return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
   }
@@ -674,8 +728,9 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp start_time = 14;</code>
+   * <code>.google.protobuf.Timestamp start_time = 14 [json_name = "startTime"];</code>
    */
+  @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
     return getStartTime();
   }
@@ -687,8 +742,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp end_time = 15;</code>
+   * <code>.google.protobuf.Timestamp end_time = 15 [json_name = "endTime"];</code>
+   * @return Whether the endTime field is set.
    */
+  @java.lang.Override
   public boolean hasEndTime() {
     return endTime_ != null;
   }
@@ -697,8 +754,10 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp end_time = 15;</code>
+   * <code>.google.protobuf.Timestamp end_time = 15 [json_name = "endTime"];</code>
+   * @return The endTime.
    */
+  @java.lang.Override
   public com.google.protobuf.Timestamp getEndTime() {
     return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
   }
@@ -707,8 +766,9 @@ private static final long serialVersionUID = 0L;
    * optional
    * </pre>
    *
-   * <code>.google.protobuf.Timestamp end_time = 15;</code>
+   * <code>.google.protobuf.Timestamp end_time = 15 [json_name = "endTime"];</code>
    */
+  @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
     return getEndTime();
   }
@@ -731,19 +791,19 @@ private static final long serialVersionUID = 0L;
     if (filterType_ != adamant.global.v1.Enum.ListFilterType.LIST_FILTER_TYPE_INVALID.getNumber()) {
       output.writeEnum(1, filterType_);
     }
-    if (!getTransferIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transferId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, transferId_);
     }
-    if (!getWalletNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, walletName_);
     }
-    if (!getAddressNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(addressName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, addressName_);
     }
-    if (!getAddressBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, address_);
     }
-    if (!getTxidBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(txid_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, txid_);
     }
     if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
@@ -762,13 +822,13 @@ private static final long serialVersionUID = 0L;
     if (pageSize_ != 0) {
       output.writeUInt32(10, pageSize_);
     }
-    if (!getPageTokenBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 11, pageToken_);
     }
     if (watchOnly_ != false) {
       output.writeBool(12, watchOnly_);
     }
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 13, walletId_);
     }
     if (startTime_ != null) {
@@ -790,19 +850,19 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, filterType_);
     }
-    if (!getTransferIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transferId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, transferId_);
     }
-    if (!getWalletNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, walletName_);
     }
-    if (!getAddressNameBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(addressName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, addressName_);
     }
-    if (!getAddressBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, address_);
     }
-    if (!getTxidBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(txid_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, txid_);
     }
     if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
@@ -829,14 +889,14 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(10, pageSize_);
     }
-    if (!getPageTokenBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, pageToken_);
     }
     if (watchOnly_ != false) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(12, watchOnly_);
     }
-    if (!getWalletIdBytes().isEmpty()) {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, walletId_);
     }
     if (startTime_ != null) {
@@ -1306,29 +1366,37 @@ private static final long serialVersionUID = 0L;
 
     private int filterType_ = 0;
     /**
-     * <code>.adamant.global.v1.ListFilterType filter_type = 1 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.ListFilterType filter_type = 1 [json_name = "filterType", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for filterType.
      */
-    public int getFilterTypeValue() {
+    @java.lang.Override public int getFilterTypeValue() {
       return filterType_;
     }
     /**
-     * <code>.adamant.global.v1.ListFilterType filter_type = 1 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.ListFilterType filter_type = 1 [json_name = "filterType", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for filterType to set.
+     * @return This builder for chaining.
      */
     public Builder setFilterTypeValue(int value) {
+      
       filterType_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>.adamant.global.v1.ListFilterType filter_type = 1 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.ListFilterType filter_type = 1 [json_name = "filterType", (.validate.rules) = { ... }</code>
+     * @return The filterType.
      */
+    @java.lang.Override
     public adamant.global.v1.Enum.ListFilterType getFilterType() {
       @SuppressWarnings("deprecation")
       adamant.global.v1.Enum.ListFilterType result = adamant.global.v1.Enum.ListFilterType.valueOf(filterType_);
       return result == null ? adamant.global.v1.Enum.ListFilterType.UNRECOGNIZED : result;
     }
     /**
-     * <code>.adamant.global.v1.ListFilterType filter_type = 1 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.ListFilterType filter_type = 1 [json_name = "filterType", (.validate.rules) = { ... }</code>
+     * @param value The filterType to set.
+     * @return This builder for chaining.
      */
     public Builder setFilterType(adamant.global.v1.Enum.ListFilterType value) {
       if (value == null) {
@@ -1340,7 +1408,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.adamant.global.v1.ListFilterType filter_type = 1 [(.validate.rules) = { ... }</code>
+     * <code>.adamant.global.v1.ListFilterType filter_type = 1 [json_name = "filterType", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearFilterType() {
       
@@ -1355,7 +1424,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string transfer_id = 2;</code>
+     * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+     * @return The transferId.
      */
     public java.lang.String getTransferId() {
       java.lang.Object ref = transferId_;
@@ -1374,7 +1444,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string transfer_id = 2;</code>
+     * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+     * @return The bytes for transferId.
      */
     public com.google.protobuf.ByteString
         getTransferIdBytes() {
@@ -1394,7 +1465,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string transfer_id = 2;</code>
+     * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+     * @param value The transferId to set.
+     * @return This builder for chaining.
      */
     public Builder setTransferId(
         java.lang.String value) {
@@ -1411,7 +1484,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string transfer_id = 2;</code>
+     * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearTransferId() {
       
@@ -1424,7 +1498,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string transfer_id = 2;</code>
+     * <code>string transfer_id = 2 [json_name = "transferId"];</code>
+     * @param value The bytes for transferId to set.
+     * @return This builder for chaining.
      */
     public Builder setTransferIdBytes(
         com.google.protobuf.ByteString value) {
@@ -1444,7 +1520,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string wallet_id = 13;</code>
+     * <code>string wallet_id = 13 [json_name = "walletId"];</code>
+     * @return The walletId.
      */
     public java.lang.String getWalletId() {
       java.lang.Object ref = walletId_;
@@ -1463,7 +1540,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string wallet_id = 13;</code>
+     * <code>string wallet_id = 13 [json_name = "walletId"];</code>
+     * @return The bytes for walletId.
      */
     public com.google.protobuf.ByteString
         getWalletIdBytes() {
@@ -1483,7 +1561,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string wallet_id = 13;</code>
+     * <code>string wallet_id = 13 [json_name = "walletId"];</code>
+     * @param value The walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletId(
         java.lang.String value) {
@@ -1500,7 +1580,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string wallet_id = 13;</code>
+     * <code>string wallet_id = 13 [json_name = "walletId"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletId() {
       
@@ -1513,7 +1594,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string wallet_id = 13;</code>
+     * <code>string wallet_id = 13 [json_name = "walletId"];</code>
+     * @param value The bytes for walletId to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletIdBytes(
         com.google.protobuf.ByteString value) {
@@ -1533,7 +1616,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string wallet_name = 3 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_name = 3 [json_name = "walletName", (.validate.rules) = { ... }</code>
+     * @return The walletName.
      */
     public java.lang.String getWalletName() {
       java.lang.Object ref = walletName_;
@@ -1552,7 +1636,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string wallet_name = 3 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_name = 3 [json_name = "walletName", (.validate.rules) = { ... }</code>
+     * @return The bytes for walletName.
      */
     public com.google.protobuf.ByteString
         getWalletNameBytes() {
@@ -1572,7 +1657,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string wallet_name = 3 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_name = 3 [json_name = "walletName", (.validate.rules) = { ... }</code>
+     * @param value The walletName to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletName(
         java.lang.String value) {
@@ -1589,7 +1676,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string wallet_name = 3 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_name = 3 [json_name = "walletName", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletName() {
       
@@ -1602,7 +1690,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string wallet_name = 3 [(.validate.rules) = { ... }</code>
+     * <code>string wallet_name = 3 [json_name = "walletName", (.validate.rules) = { ... }</code>
+     * @param value The bytes for walletName to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletNameBytes(
         com.google.protobuf.ByteString value) {
@@ -1622,7 +1712,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string address_name = 4 [(.validate.rules) = { ... }</code>
+     * <code>string address_name = 4 [json_name = "addressName", (.validate.rules) = { ... }</code>
+     * @return The addressName.
      */
     public java.lang.String getAddressName() {
       java.lang.Object ref = addressName_;
@@ -1641,7 +1732,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string address_name = 4 [(.validate.rules) = { ... }</code>
+     * <code>string address_name = 4 [json_name = "addressName", (.validate.rules) = { ... }</code>
+     * @return The bytes for addressName.
      */
     public com.google.protobuf.ByteString
         getAddressNameBytes() {
@@ -1661,7 +1753,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string address_name = 4 [(.validate.rules) = { ... }</code>
+     * <code>string address_name = 4 [json_name = "addressName", (.validate.rules) = { ... }</code>
+     * @param value The addressName to set.
+     * @return This builder for chaining.
      */
     public Builder setAddressName(
         java.lang.String value) {
@@ -1678,7 +1772,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string address_name = 4 [(.validate.rules) = { ... }</code>
+     * <code>string address_name = 4 [json_name = "addressName", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearAddressName() {
       
@@ -1691,7 +1786,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string address_name = 4 [(.validate.rules) = { ... }</code>
+     * <code>string address_name = 4 [json_name = "addressName", (.validate.rules) = { ... }</code>
+     * @param value The bytes for addressName to set.
+     * @return This builder for chaining.
      */
     public Builder setAddressNameBytes(
         com.google.protobuf.ByteString value) {
@@ -1711,7 +1808,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string address = 5;</code>
+     * <code>string address = 5 [json_name = "address"];</code>
+     * @return The address.
      */
     public java.lang.String getAddress() {
       java.lang.Object ref = address_;
@@ -1730,7 +1828,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string address = 5;</code>
+     * <code>string address = 5 [json_name = "address"];</code>
+     * @return The bytes for address.
      */
     public com.google.protobuf.ByteString
         getAddressBytes() {
@@ -1750,7 +1849,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string address = 5;</code>
+     * <code>string address = 5 [json_name = "address"];</code>
+     * @param value The address to set.
+     * @return This builder for chaining.
      */
     public Builder setAddress(
         java.lang.String value) {
@@ -1767,7 +1868,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string address = 5;</code>
+     * <code>string address = 5 [json_name = "address"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearAddress() {
       
@@ -1780,7 +1882,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string address = 5;</code>
+     * <code>string address = 5 [json_name = "address"];</code>
+     * @param value The bytes for address to set.
+     * @return This builder for chaining.
      */
     public Builder setAddressBytes(
         com.google.protobuf.ByteString value) {
@@ -1800,7 +1904,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string txid = 6;</code>
+     * <code>string txid = 6 [json_name = "txid"];</code>
+     * @return The txid.
      */
     public java.lang.String getTxid() {
       java.lang.Object ref = txid_;
@@ -1819,7 +1924,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string txid = 6;</code>
+     * <code>string txid = 6 [json_name = "txid"];</code>
+     * @return The bytes for txid.
      */
     public com.google.protobuf.ByteString
         getTxidBytes() {
@@ -1839,7 +1945,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string txid = 6;</code>
+     * <code>string txid = 6 [json_name = "txid"];</code>
+     * @param value The txid to set.
+     * @return This builder for chaining.
      */
     public Builder setTxid(
         java.lang.String value) {
@@ -1856,7 +1964,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string txid = 6;</code>
+     * <code>string txid = 6 [json_name = "txid"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearTxid() {
       
@@ -1869,7 +1978,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string txid = 6;</code>
+     * <code>string txid = 6 [json_name = "txid"];</code>
+     * @param value The bytes for txid to set.
+     * @return This builder for chaining.
      */
     public Builder setTxidBytes(
         com.google.protobuf.ByteString value) {
@@ -1889,8 +2000,10 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>bool watch_only = 12;</code>
+     * <code>bool watch_only = 12 [json_name = "watchOnly"];</code>
+     * @return The watchOnly.
      */
+    @java.lang.Override
     public boolean getWatchOnly() {
       return watchOnly_;
     }
@@ -1899,7 +2012,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>bool watch_only = 12;</code>
+     * <code>bool watch_only = 12 [json_name = "watchOnly"];</code>
+     * @param value The watchOnly to set.
+     * @return This builder for chaining.
      */
     public Builder setWatchOnly(boolean value) {
       
@@ -1912,7 +2027,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>bool watch_only = 12;</code>
+     * <code>bool watch_only = 12 [json_name = "watchOnly"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearWatchOnly() {
       
@@ -1927,9 +2043,10 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.gincoinc.global.v1.Coin coin = 7 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 7 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for coin.
      */
-    public int getCoinValue() {
+    @java.lang.Override public int getCoinValue() {
       return coin_;
     }
     /**
@@ -1937,9 +2054,12 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.gincoinc.global.v1.Coin coin = 7 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 7 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for coin to set.
+     * @return This builder for chaining.
      */
     public Builder setCoinValue(int value) {
+      
       coin_ = value;
       onChanged();
       return this;
@@ -1949,8 +2069,10 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.gincoinc.global.v1.Coin coin = 7 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 7 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return The coin.
      */
+    @java.lang.Override
     public gincoinc.global.v1.Enum.Coin getCoin() {
       @SuppressWarnings("deprecation")
       gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
@@ -1961,7 +2083,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.gincoinc.global.v1.Coin coin = 7 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 7 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @param value The coin to set.
+     * @return This builder for chaining.
      */
     public Builder setCoin(gincoinc.global.v1.Enum.Coin value) {
       if (value == null) {
@@ -1977,7 +2101,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.gincoinc.global.v1.Coin coin = 7 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.Coin coin = 7 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearCoin() {
       
@@ -1995,26 +2120,33 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+     * @return A list containing the walletType.
      */
     public java.util.List<adamant.global.v1.Enum.WalletType> getWalletTypeList() {
       return new com.google.protobuf.Internal.ListAdapter<
           java.lang.Integer, adamant.global.v1.Enum.WalletType>(walletType_, walletType_converter_);
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+     * @return The count of walletType.
      */
     public int getWalletTypeCount() {
       return walletType_.size();
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+     * @param index The index of the element to return.
+     * @return The walletType at the given index.
      */
     public adamant.global.v1.Enum.WalletType getWalletType(int index) {
       return walletType_converter_.convert(walletType_.get(index));
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+     * @param index The index to set the value at.
+     * @param value The walletType to set.
+     * @return This builder for chaining.
      */
     public Builder setWalletType(
         int index, adamant.global.v1.Enum.WalletType value) {
@@ -2027,7 +2159,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+     * @param value The walletType to add.
+     * @return This builder for chaining.
      */
     public Builder addWalletType(adamant.global.v1.Enum.WalletType value) {
       if (value == null) {
@@ -2039,7 +2173,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+     * @param values The walletType to add.
+     * @return This builder for chaining.
      */
     public Builder addAllWalletType(
         java.lang.Iterable<? extends adamant.global.v1.Enum.WalletType> values) {
@@ -2051,7 +2187,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearWalletType() {
       walletType_ = java.util.Collections.emptyList();
@@ -2060,20 +2197,26 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+     * @return A list containing the enum numeric values on the wire for walletType.
      */
     public java.util.List<java.lang.Integer>
     getWalletTypeValueList() {
       return java.util.Collections.unmodifiableList(walletType_);
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of walletType at the given index.
      */
     public int getWalletTypeValue(int index) {
       return walletType_.get(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of walletType at the given index.
+     * @return This builder for chaining.
      */
     public Builder setWalletTypeValue(
         int index, int value) {
@@ -2083,7 +2226,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+     * @param value The enum numeric value on the wire for walletType to add.
+     * @return This builder for chaining.
      */
     public Builder addWalletTypeValue(int value) {
       ensureWalletTypeIsMutable();
@@ -2092,7 +2237,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8;</code>
+     * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
+     * @param values The enum numeric values on the wire for walletType to add.
+     * @return This builder for chaining.
      */
     public Builder addAllWalletTypeValue(
         java.lang.Iterable<java.lang.Integer> values) {
@@ -2110,9 +2257,10 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [json_name = "transferType", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for transferType.
      */
-    public int getTransferTypeValue() {
+    @java.lang.Override public int getTransferTypeValue() {
       return transferType_;
     }
     /**
@@ -2120,9 +2268,12 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [json_name = "transferType", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for transferType to set.
+     * @return This builder for chaining.
      */
     public Builder setTransferTypeValue(int value) {
+      
       transferType_ = value;
       onChanged();
       return this;
@@ -2132,8 +2283,10 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [json_name = "transferType", (.validate.rules) = { ... }</code>
+     * @return The transferType.
      */
+    @java.lang.Override
     public gincoinc.global.v1.Enum.TransferType getTransferType() {
       @SuppressWarnings("deprecation")
       gincoinc.global.v1.Enum.TransferType result = gincoinc.global.v1.Enum.TransferType.valueOf(transferType_);
@@ -2144,7 +2297,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [json_name = "transferType", (.validate.rules) = { ... }</code>
+     * @param value The transferType to set.
+     * @return This builder for chaining.
      */
     public Builder setTransferType(gincoinc.global.v1.Enum.TransferType value) {
       if (value == null) {
@@ -2160,7 +2315,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [(.validate.rules) = { ... }</code>
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 9 [json_name = "transferType", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearTransferType() {
       
@@ -2175,8 +2331,10 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>uint32 page_size = 10 [(.validate.rules) = { ... }</code>
+     * <code>uint32 page_size = 10 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+     * @return The pageSize.
      */
+    @java.lang.Override
     public int getPageSize() {
       return pageSize_;
     }
@@ -2185,7 +2343,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>uint32 page_size = 10 [(.validate.rules) = { ... }</code>
+     * <code>uint32 page_size = 10 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+     * @param value The pageSize to set.
+     * @return This builder for chaining.
      */
     public Builder setPageSize(int value) {
       
@@ -2198,7 +2358,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>uint32 page_size = 10 [(.validate.rules) = { ... }</code>
+     * <code>uint32 page_size = 10 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearPageSize() {
       
@@ -2213,7 +2374,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string page_token = 11 [(.validate.rules) = { ... }</code>
+     * <code>string page_token = 11 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+     * @return The pageToken.
      */
     public java.lang.String getPageToken() {
       java.lang.Object ref = pageToken_;
@@ -2232,7 +2394,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string page_token = 11 [(.validate.rules) = { ... }</code>
+     * <code>string page_token = 11 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+     * @return The bytes for pageToken.
      */
     public com.google.protobuf.ByteString
         getPageTokenBytes() {
@@ -2252,7 +2415,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string page_token = 11 [(.validate.rules) = { ... }</code>
+     * <code>string page_token = 11 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+     * @param value The pageToken to set.
+     * @return This builder for chaining.
      */
     public Builder setPageToken(
         java.lang.String value) {
@@ -2269,7 +2434,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string page_token = 11 [(.validate.rules) = { ... }</code>
+     * <code>string page_token = 11 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
      */
     public Builder clearPageToken() {
       
@@ -2282,7 +2448,9 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>string page_token = 11 [(.validate.rules) = { ... }</code>
+     * <code>string page_token = 11 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+     * @param value The bytes for pageToken to set.
+     * @return This builder for chaining.
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
@@ -2304,7 +2472,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp start_time = 14;</code>
+     * <code>.google.protobuf.Timestamp start_time = 14 [json_name = "startTime"];</code>
+     * @return Whether the startTime field is set.
      */
     public boolean hasStartTime() {
       return startTimeBuilder_ != null || startTime_ != null;
@@ -2314,7 +2483,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp start_time = 14;</code>
+     * <code>.google.protobuf.Timestamp start_time = 14 [json_name = "startTime"];</code>
+     * @return The startTime.
      */
     public com.google.protobuf.Timestamp getStartTime() {
       if (startTimeBuilder_ == null) {
@@ -2328,7 +2498,7 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp start_time = 14;</code>
+     * <code>.google.protobuf.Timestamp start_time = 14 [json_name = "startTime"];</code>
      */
     public Builder setStartTime(com.google.protobuf.Timestamp value) {
       if (startTimeBuilder_ == null) {
@@ -2348,7 +2518,7 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp start_time = 14;</code>
+     * <code>.google.protobuf.Timestamp start_time = 14 [json_name = "startTime"];</code>
      */
     public Builder setStartTime(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -2366,7 +2536,7 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp start_time = 14;</code>
+     * <code>.google.protobuf.Timestamp start_time = 14 [json_name = "startTime"];</code>
      */
     public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
       if (startTimeBuilder_ == null) {
@@ -2388,7 +2558,7 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp start_time = 14;</code>
+     * <code>.google.protobuf.Timestamp start_time = 14 [json_name = "startTime"];</code>
      */
     public Builder clearStartTime() {
       if (startTimeBuilder_ == null) {
@@ -2406,7 +2576,7 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp start_time = 14;</code>
+     * <code>.google.protobuf.Timestamp start_time = 14 [json_name = "startTime"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
       
@@ -2418,7 +2588,7 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp start_time = 14;</code>
+     * <code>.google.protobuf.Timestamp start_time = 14 [json_name = "startTime"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
       if (startTimeBuilder_ != null) {
@@ -2433,7 +2603,7 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp start_time = 14;</code>
+     * <code>.google.protobuf.Timestamp start_time = 14 [json_name = "startTime"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -2457,7 +2627,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp end_time = 15;</code>
+     * <code>.google.protobuf.Timestamp end_time = 15 [json_name = "endTime"];</code>
+     * @return Whether the endTime field is set.
      */
     public boolean hasEndTime() {
       return endTimeBuilder_ != null || endTime_ != null;
@@ -2467,7 +2638,8 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp end_time = 15;</code>
+     * <code>.google.protobuf.Timestamp end_time = 15 [json_name = "endTime"];</code>
+     * @return The endTime.
      */
     public com.google.protobuf.Timestamp getEndTime() {
       if (endTimeBuilder_ == null) {
@@ -2481,7 +2653,7 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp end_time = 15;</code>
+     * <code>.google.protobuf.Timestamp end_time = 15 [json_name = "endTime"];</code>
      */
     public Builder setEndTime(com.google.protobuf.Timestamp value) {
       if (endTimeBuilder_ == null) {
@@ -2501,7 +2673,7 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp end_time = 15;</code>
+     * <code>.google.protobuf.Timestamp end_time = 15 [json_name = "endTime"];</code>
      */
     public Builder setEndTime(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -2519,7 +2691,7 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp end_time = 15;</code>
+     * <code>.google.protobuf.Timestamp end_time = 15 [json_name = "endTime"];</code>
      */
     public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
       if (endTimeBuilder_ == null) {
@@ -2541,7 +2713,7 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp end_time = 15;</code>
+     * <code>.google.protobuf.Timestamp end_time = 15 [json_name = "endTime"];</code>
      */
     public Builder clearEndTime() {
       if (endTimeBuilder_ == null) {
@@ -2559,7 +2731,7 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp end_time = 15;</code>
+     * <code>.google.protobuf.Timestamp end_time = 15 [json_name = "endTime"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
       
@@ -2571,7 +2743,7 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp end_time = 15;</code>
+     * <code>.google.protobuf.Timestamp end_time = 15 [json_name = "endTime"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
       if (endTimeBuilder_ != null) {
@@ -2586,7 +2758,7 @@ private static final long serialVersionUID = 0L;
      * optional
      * </pre>
      *
-     * <code>.google.protobuf.Timestamp end_time = 15;</code>
+     * <code>.google.protobuf.Timestamp end_time = 15 [json_name = "endTime"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 

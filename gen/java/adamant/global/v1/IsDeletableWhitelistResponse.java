@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.IsDeletableWhitelistResponse}
  */
-public  final class IsDeletableWhitelistResponse extends
+public final class IsDeletableWhitelistResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.IsDeletableWhitelistResponse)
     IsDeletableWhitelistResponseOrBuilder {
@@ -88,8 +88,10 @@ private static final long serialVersionUID = 0L;
   public static final int IS_DELETABLE_FIELD_NUMBER = 1;
   private boolean isDeletable_;
   /**
-   * <code>bool is_deletable = 1;</code>
+   * <code>bool is_deletable = 1 [json_name = "isDeletable"];</code>
+   * @return The isDeletable.
    */
+  @java.lang.Override
   public boolean getIsDeletable() {
     return isDeletable_;
   }
@@ -399,13 +401,17 @@ private static final long serialVersionUID = 0L;
 
     private boolean isDeletable_ ;
     /**
-     * <code>bool is_deletable = 1;</code>
+     * <code>bool is_deletable = 1 [json_name = "isDeletable"];</code>
+     * @return The isDeletable.
      */
+    @java.lang.Override
     public boolean getIsDeletable() {
       return isDeletable_;
     }
     /**
-     * <code>bool is_deletable = 1;</code>
+     * <code>bool is_deletable = 1 [json_name = "isDeletable"];</code>
+     * @param value The isDeletable to set.
+     * @return This builder for chaining.
      */
     public Builder setIsDeletable(boolean value) {
       
@@ -414,7 +420,8 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>bool is_deletable = 1;</code>
+     * <code>bool is_deletable = 1 [json_name = "isDeletable"];</code>
+     * @return This builder for chaining.
      */
     public Builder clearIsDeletable() {
       

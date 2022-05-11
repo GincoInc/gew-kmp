@@ -8,11 +8,13 @@ public interface CreatePolicyResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string policy_id = 1;</code>
+   * <code>string policy_id = 1 [json_name = "policyId"];</code>
+   * @return The policyId.
    */
   java.lang.String getPolicyId();
   /**
-   * <code>string policy_id = 1;</code>
+   * <code>string policy_id = 1 [json_name = "policyId"];</code>
+   * @return The bytes for policyId.
    */
   com.google.protobuf.ByteString
       getPolicyIdBytes();

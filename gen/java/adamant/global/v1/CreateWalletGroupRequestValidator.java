@@ -3,9 +3,11 @@
 
 package adamant.global.v1;
 
+
 /**
 * Validates {@code CreateWalletGroupRequest} protobuf objects.
 */
+@SuppressWarnings("all")
 public class CreateWalletGroupRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.CreateWalletGroupRequest>{
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		if (clazz.equals(adamant.global.v1.CreateWalletGroupRequest.class)) return new CreateWalletGroupRequestValidator();
@@ -28,7 +30,7 @@ public class CreateWalletGroupRequestValidator implements io.envoyproxy.pgv.Vali
 	public void assertValid(adamant.global.v1.CreateWalletGroupRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
 			io.envoyproxy.pgv.StringValidation.minLength(".adamant.global.v1.CreateWalletGroupRequest.name", proto.getName(), 1);
-			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.global.v1.CreateWalletGroupRequest.name", proto.getName(), 20);
+			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.global.v1.CreateWalletGroupRequest.name", proto.getName(), 40);
 	
 			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.CreateWalletGroupRequest.coin", proto.getCoin());
 			io.envoyproxy.pgv.CollectiveValidation.notIn(".adamant.global.v1.CreateWalletGroupRequest.coin", proto.getCoin(), COIN__NOT_IN);
@@ -38,7 +40,6 @@ public class CreateWalletGroupRequestValidator implements io.envoyproxy.pgv.Vali
 				// no validation rules for WalletIds
 
 			});
-
 	// no validation rules for WatchOnly
 
 	

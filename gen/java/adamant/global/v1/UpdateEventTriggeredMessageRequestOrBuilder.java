@@ -8,21 +8,25 @@ public interface UpdateEventTriggeredMessageRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+   * @return The eventTriggeredMessageId.
    */
   java.lang.String getEventTriggeredMessageId();
   /**
-   * <code>string event_triggered_message_id = 1 [(.validate.rules) = { ... }</code>
+   * <code>string event_triggered_message_id = 1 [json_name = "eventTriggeredMessageId", (.validate.rules) = { ... }</code>
+   * @return The bytes for eventTriggeredMessageId.
    */
   com.google.protobuf.ByteString
       getEventTriggeredMessageIdBytes();
 
   /**
-   * <code>string destination = 2;</code>
+   * <code>string destination = 2 [json_name = "destination"];</code>
+   * @return The destination.
    */
   java.lang.String getDestination();
   /**
-   * <code>string destination = 2;</code>
+   * <code>string destination = 2 [json_name = "destination"];</code>
+   * @return The bytes for destination.
    */
   com.google.protobuf.ByteString
       getDestinationBytes();

@@ -6,7 +6,7 @@ package adamant.global.v1;
 /**
  * Protobuf type {@code adamant.global.v1.ListWalletFlushSettingsResponse}
  */
-public  final class ListWalletFlushSettingsResponse extends
+public final class ListWalletFlushSettingsResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
     // @@protoc_insertion_point(message_implements:adamant.global.v1.ListWalletFlushSettingsResponse)
     ListWalletFlushSettingsResponseOrBuilder {
@@ -97,33 +97,38 @@ private static final long serialVersionUID = 0L;
   public static final int WALLET_FLUSH_SETTINGS_FIELD_NUMBER = 1;
   private java.util.List<adamant.global.v1.Model.WalletFlushSetting> walletFlushSettings_;
   /**
-   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
    */
+  @java.lang.Override
   public java.util.List<adamant.global.v1.Model.WalletFlushSetting> getWalletFlushSettingsList() {
     return walletFlushSettings_;
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
    */
+  @java.lang.Override
   public java.util.List<? extends adamant.global.v1.Model.WalletFlushSettingOrBuilder> 
       getWalletFlushSettingsOrBuilderList() {
     return walletFlushSettings_;
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
    */
+  @java.lang.Override
   public int getWalletFlushSettingsCount() {
     return walletFlushSettings_.size();
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.WalletFlushSetting getWalletFlushSettings(int index) {
     return walletFlushSettings_.get(index);
   }
   /**
-   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+   * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
    */
+  @java.lang.Override
   public adamant.global.v1.Model.WalletFlushSettingOrBuilder getWalletFlushSettingsOrBuilder(
       int index) {
     return walletFlushSettings_.get(index);
@@ -484,7 +489,7 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.WalletFlushSetting, adamant.global.v1.Model.WalletFlushSetting.Builder, adamant.global.v1.Model.WalletFlushSettingOrBuilder> walletFlushSettingsBuilder_;
 
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public java.util.List<adamant.global.v1.Model.WalletFlushSetting> getWalletFlushSettingsList() {
       if (walletFlushSettingsBuilder_ == null) {
@@ -494,7 +499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public int getWalletFlushSettingsCount() {
       if (walletFlushSettingsBuilder_ == null) {
@@ -504,7 +509,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public adamant.global.v1.Model.WalletFlushSetting getWalletFlushSettings(int index) {
       if (walletFlushSettingsBuilder_ == null) {
@@ -514,7 +519,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public Builder setWalletFlushSettings(
         int index, adamant.global.v1.Model.WalletFlushSetting value) {
@@ -531,7 +536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public Builder setWalletFlushSettings(
         int index, adamant.global.v1.Model.WalletFlushSetting.Builder builderForValue) {
@@ -545,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public Builder addWalletFlushSettings(adamant.global.v1.Model.WalletFlushSetting value) {
       if (walletFlushSettingsBuilder_ == null) {
@@ -561,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public Builder addWalletFlushSettings(
         int index, adamant.global.v1.Model.WalletFlushSetting value) {
@@ -578,7 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public Builder addWalletFlushSettings(
         adamant.global.v1.Model.WalletFlushSetting.Builder builderForValue) {
@@ -592,7 +597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public Builder addWalletFlushSettings(
         int index, adamant.global.v1.Model.WalletFlushSetting.Builder builderForValue) {
@@ -606,7 +611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public Builder addAllWalletFlushSettings(
         java.lang.Iterable<? extends adamant.global.v1.Model.WalletFlushSetting> values) {
@@ -621,7 +626,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public Builder clearWalletFlushSettings() {
       if (walletFlushSettingsBuilder_ == null) {
@@ -634,7 +639,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public Builder removeWalletFlushSettings(int index) {
       if (walletFlushSettingsBuilder_ == null) {
@@ -647,14 +652,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public adamant.global.v1.Model.WalletFlushSetting.Builder getWalletFlushSettingsBuilder(
         int index) {
       return getWalletFlushSettingsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public adamant.global.v1.Model.WalletFlushSettingOrBuilder getWalletFlushSettingsOrBuilder(
         int index) {
@@ -664,7 +669,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public java.util.List<? extends adamant.global.v1.Model.WalletFlushSettingOrBuilder> 
          getWalletFlushSettingsOrBuilderList() {
@@ -675,14 +680,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public adamant.global.v1.Model.WalletFlushSetting.Builder addWalletFlushSettingsBuilder() {
       return getWalletFlushSettingsFieldBuilder().addBuilder(
           adamant.global.v1.Model.WalletFlushSetting.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public adamant.global.v1.Model.WalletFlushSetting.Builder addWalletFlushSettingsBuilder(
         int index) {
@@ -690,7 +695,7 @@ private static final long serialVersionUID = 0L;
           index, adamant.global.v1.Model.WalletFlushSetting.getDefaultInstance());
     }
     /**
-     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1;</code>
+     * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
      */
     public java.util.List<adamant.global.v1.Model.WalletFlushSetting.Builder> 
          getWalletFlushSettingsBuilderList() {

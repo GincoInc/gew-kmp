@@ -8,25 +8,25 @@ public interface ListBalanceSnapshotsResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
    */
   java.util.List<adamant.global.v1.Model.BalanceSnapshot> 
       getBalanceSnapshotsList();
   /**
-   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
    */
   adamant.global.v1.Model.BalanceSnapshot getBalanceSnapshots(int index);
   /**
-   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
    */
   int getBalanceSnapshotsCount();
   /**
-   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
    */
   java.util.List<? extends adamant.global.v1.Model.BalanceSnapshotOrBuilder> 
       getBalanceSnapshotsOrBuilderList();
   /**
-   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1;</code>
+   * <code>repeated .adamant.global.v1.BalanceSnapshot balance_snapshots = 1 [json_name = "balanceSnapshots"];</code>
    */
   adamant.global.v1.Model.BalanceSnapshotOrBuilder getBalanceSnapshotsOrBuilder(
       int index);
