@@ -65,6 +65,8 @@ service TellerAPI {
   // Validate format of given address
   rpc ValidateAddress(adamant.global.v1.ValidateAddressRequest) returns (adamant.global.v1.ValidateAddressResponse) {}
   rpc FlushBalance(adamant.global.v1.FlushBalanceRequest) returns (adamant.global.v1.FlushBalanceResponse) {}
+
+  rpc ListAuditLogs(adamant.global.v1.ListAuditLogsRequest) returns (adamant.global.v1.ListAuditLogsResponse) {}
 }
 
 message CreateWalletRequest {

@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package adamant.global.v1;
 
+import "gincoinc/adamant/global/v1/adamantglobalv1/audit_logger.proto";
 import "gincoinc/adamant/global/v1/adamantglobalv1/enum.proto";
 import "gincoinc/adamant/global/v1/adamantglobalv1/model.proto";
 import "gincoinc/global/v1/gincoincglobalv1/enum.proto";
@@ -137,6 +138,7 @@ service GlobalAPI {
   rpc GetRecommendedFeeRate(GetRecommendedFeeRateRequest) returns (GetRecommendedFeeRateResponse) {}
   // Validate format of given address
   rpc ValidateAddress(ValidateAddressRequest) returns (ValidateAddressResponse) {}
+  rpc ListAuditLogs(ListAuditLogsRequest) returns (ListAuditLogsResponse) {}
 }
 
 // =============================================================================
@@ -1122,6 +1124,22 @@ message ListConfirmationsRequest {}
 
 message ListConfirmationsResponse {
   repeated Confirmation confirmations = 1;
+}
+
+message ListAuditLogsRequest {
+  adamant.global.v1.AuditLogGroup audit_log_group = 1;
+  string account_id = 2 [(validate.rules).string = {
+    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint32 page_size = 3 [(validate.rules).uint32.lte = 100];
+  string page_token = 4 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
+}
+
+message ListAuditLogsResponse {
+  repeated adamant.global.v1.AuditLog audit_logs = 1;
+  string next_page_token = 2;
 }
 
 // -----------------------------------------------------------------------------
