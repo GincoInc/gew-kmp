@@ -7,28 +7,28 @@ proto_outdir = "./api/proto"
   branch = ""
   path = ""
   ignores = ["gogoproto", "java", "tests", "vendor"]
-  protocol = ""
+  protocol = "https"
 
 [[dependencies]]
   target = "github.com/GincoInc/protobuf/proto/gincoinc/global"
   subgroup = ""
-  revision = "9a1284ca6f7beaa59f5cdc3dfe00e61d207b9633"
+  revision = "b02ab4b04bf1d519787d4d80dffea3ff784a9eee"
   branch = ""
   path = "gincoinc/global"
-  protocol = ""
+  protocol = "ssh"
 
 [[dependencies]]
   target = "github.com/GincoInc/protobuf/proto/gincoinc/adamant/global"
   subgroup = ""
-  revision = "9a1284ca6f7beaa59f5cdc3dfe00e61d207b9633"
+  revision = "b02ab4b04bf1d519787d4d80dffea3ff784a9eee"
   branch = ""
   path = "gincoinc/adamant/global"
-  protocol = ""
+  protocol = "ssh"
 
 [[dependencies]]
   target = "github.com/GincoInc/protobuf/proto/gincoinc/adamant/teller"
   subgroup = ""
-  revision = "9a1284ca6f7beaa59f5cdc3dfe00e61d207b9633"
+  revision = "b02ab4b04bf1d519787d4d80dffea3ff784a9eee"
   branch = ""
   path = "gincoinc/adamant/teller"
-  protocol = ""
+  protocol = "ssh"
