@@ -2712,37 +2712,6 @@ public final class GlobalAPIGrpc {
     return getValidateAddressMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListAuditLogsRequest,
-      adamant.global.v1.ListAuditLogsResponse> getListAuditLogsMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ListAuditLogs",
-      requestType = adamant.global.v1.ListAuditLogsRequest.class,
-      responseType = adamant.global.v1.ListAuditLogsResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<adamant.global.v1.ListAuditLogsRequest,
-      adamant.global.v1.ListAuditLogsResponse> getListAuditLogsMethod() {
-    io.grpc.MethodDescriptor<adamant.global.v1.ListAuditLogsRequest, adamant.global.v1.ListAuditLogsResponse> getListAuditLogsMethod;
-    if ((getListAuditLogsMethod = GlobalAPIGrpc.getListAuditLogsMethod) == null) {
-      synchronized (GlobalAPIGrpc.class) {
-        if ((getListAuditLogsMethod = GlobalAPIGrpc.getListAuditLogsMethod) == null) {
-          GlobalAPIGrpc.getListAuditLogsMethod = getListAuditLogsMethod =
-              io.grpc.MethodDescriptor.<adamant.global.v1.ListAuditLogsRequest, adamant.global.v1.ListAuditLogsResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListAuditLogs"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.ListAuditLogsRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.ListAuditLogsResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ListAuditLogs"))
-              .build();
-        }
-      }
-    }
-    return getListAuditLogsMethod;
-  }
-
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -3454,13 +3423,6 @@ public final class GlobalAPIGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getValidateAddressMethod(), responseObserver);
     }
 
-    /**
-     */
-    public void listAuditLogs(adamant.global.v1.ListAuditLogsRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.ListAuditLogsResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListAuditLogsMethod(), responseObserver);
-    }
-
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -4072,13 +4034,6 @@ public final class GlobalAPIGrpc {
                 adamant.global.v1.ValidateAddressRequest,
                 adamant.global.v1.ValidateAddressResponse>(
                   this, METHODID_VALIDATE_ADDRESS)))
-          .addMethod(
-            getListAuditLogsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListAuditLogsRequest,
-                adamant.global.v1.ListAuditLogsResponse>(
-                  this, METHODID_LIST_AUDIT_LOGS)))
           .build();
     }
   }
@@ -4846,14 +4801,6 @@ public final class GlobalAPIGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getValidateAddressMethod(), getCallOptions()), request, responseObserver);
     }
-
-    /**
-     */
-    public void listAuditLogs(adamant.global.v1.ListAuditLogsRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.ListAuditLogsResponse> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getListAuditLogsMethod(), getCallOptions()), request, responseObserver);
-    }
   }
 
   /**
@@ -5531,13 +5478,6 @@ public final class GlobalAPIGrpc {
     public adamant.global.v1.ValidateAddressResponse validateAddress(adamant.global.v1.ValidateAddressRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getValidateAddressMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public adamant.global.v1.ListAuditLogsResponse listAuditLogs(adamant.global.v1.ListAuditLogsRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getListAuditLogsMethod(), getCallOptions(), request);
     }
   }
 
@@ -6304,14 +6244,6 @@ public final class GlobalAPIGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getValidateAddressMethod(), getCallOptions()), request);
     }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListAuditLogsResponse> listAuditLogs(
-        adamant.global.v1.ListAuditLogsRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getListAuditLogsMethod(), getCallOptions()), request);
-    }
   }
 
   private static final int METHODID_CREATE_WALLET = 0;
@@ -6401,7 +6333,6 @@ public final class GlobalAPIGrpc {
   private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 84;
   private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 85;
   private static final int METHODID_VALIDATE_ADDRESS = 86;
-  private static final int METHODID_LIST_AUDIT_LOGS = 87;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -6768,10 +6699,6 @@ public final class GlobalAPIGrpc {
           serviceImpl.validateAddress((adamant.global.v1.ValidateAddressRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ValidateAddressResponse>) responseObserver);
           break;
-        case METHODID_LIST_AUDIT_LOGS:
-          serviceImpl.listAuditLogs((adamant.global.v1.ListAuditLogsRequest) request,
-              (io.grpc.stub.StreamObserver<adamant.global.v1.ListAuditLogsResponse>) responseObserver);
-          break;
         default:
           throw new AssertionError();
       }
@@ -6920,7 +6847,6 @@ public final class GlobalAPIGrpc {
               .addMethod(getGetMembersDeactivatabilitiesMethod())
               .addMethod(getGetRecommendedFeeRateMethod())
               .addMethod(getValidateAddressMethod())
-              .addMethod(getListAuditLogsMethod())
               .build();
         }
       }

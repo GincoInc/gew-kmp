@@ -1038,37 +1038,6 @@ public final class TellerAPIGrpc {
     return getFlushBalanceMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListAuditLogsRequest,
-      adamant.global.v1.ListAuditLogsResponse> getListAuditLogsMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ListAuditLogs",
-      requestType = adamant.global.v1.ListAuditLogsRequest.class,
-      responseType = adamant.global.v1.ListAuditLogsResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<adamant.global.v1.ListAuditLogsRequest,
-      adamant.global.v1.ListAuditLogsResponse> getListAuditLogsMethod() {
-    io.grpc.MethodDescriptor<adamant.global.v1.ListAuditLogsRequest, adamant.global.v1.ListAuditLogsResponse> getListAuditLogsMethod;
-    if ((getListAuditLogsMethod = TellerAPIGrpc.getListAuditLogsMethod) == null) {
-      synchronized (TellerAPIGrpc.class) {
-        if ((getListAuditLogsMethod = TellerAPIGrpc.getListAuditLogsMethod) == null) {
-          TellerAPIGrpc.getListAuditLogsMethod = getListAuditLogsMethod =
-              io.grpc.MethodDescriptor.<adamant.global.v1.ListAuditLogsRequest, adamant.global.v1.ListAuditLogsResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListAuditLogs"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.ListAuditLogsRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.ListAuditLogsResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ListAuditLogs"))
-              .build();
-        }
-      }
-    }
-    return getListAuditLogsMethod;
-  }
-
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -1372,13 +1341,6 @@ public final class TellerAPIGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFlushBalanceMethod(), responseObserver);
     }
 
-    /**
-     */
-    public void listAuditLogs(adamant.global.v1.ListAuditLogsRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.ListAuditLogsResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListAuditLogsMethod(), responseObserver);
-    }
-
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -1612,13 +1574,6 @@ public final class TellerAPIGrpc {
                 adamant.global.v1.FlushBalanceRequest,
                 adamant.global.v1.FlushBalanceResponse>(
                   this, METHODID_FLUSH_BALANCE)))
-          .addMethod(
-            getListAuditLogsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListAuditLogsRequest,
-                adamant.global.v1.ListAuditLogsResponse>(
-                  this, METHODID_LIST_AUDIT_LOGS)))
           .build();
     }
   }
@@ -1924,14 +1879,6 @@ public final class TellerAPIGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getFlushBalanceMethod(), getCallOptions()), request, responseObserver);
     }
-
-    /**
-     */
-    public void listAuditLogs(adamant.global.v1.ListAuditLogsRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.ListAuditLogsResponse> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getListAuditLogsMethod(), getCallOptions()), request, responseObserver);
-    }
   }
 
   /**
@@ -2201,13 +2148,6 @@ public final class TellerAPIGrpc {
     public adamant.global.v1.FlushBalanceResponse flushBalance(adamant.global.v1.FlushBalanceRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getFlushBalanceMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public adamant.global.v1.ListAuditLogsResponse listAuditLogs(adamant.global.v1.ListAuditLogsRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getListAuditLogsMethod(), getCallOptions(), request);
     }
   }
 
@@ -2512,14 +2452,6 @@ public final class TellerAPIGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getFlushBalanceMethod(), getCallOptions()), request);
     }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListAuditLogsResponse> listAuditLogs(
-        adamant.global.v1.ListAuditLogsRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getListAuditLogsMethod(), getCallOptions()), request);
-    }
   }
 
   private static final int METHODID_CREATE_WALLET = 0;
@@ -2555,7 +2487,6 @@ public final class TellerAPIGrpc {
   private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 30;
   private static final int METHODID_VALIDATE_ADDRESS = 31;
   private static final int METHODID_FLUSH_BALANCE = 32;
-  private static final int METHODID_LIST_AUDIT_LOGS = 33;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -2706,10 +2637,6 @@ public final class TellerAPIGrpc {
           serviceImpl.flushBalance((adamant.global.v1.FlushBalanceRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.FlushBalanceResponse>) responseObserver);
           break;
-        case METHODID_LIST_AUDIT_LOGS:
-          serviceImpl.listAuditLogs((adamant.global.v1.ListAuditLogsRequest) request,
-              (io.grpc.stub.StreamObserver<adamant.global.v1.ListAuditLogsResponse>) responseObserver);
-          break;
         default:
           throw new AssertionError();
       }
@@ -2804,7 +2731,6 @@ public final class TellerAPIGrpc {
               .addMethod(getGetRecommendedFeeRateMethod())
               .addMethod(getValidateAddressMethod())
               .addMethod(getFlushBalanceMethod())
-              .addMethod(getListAuditLogsMethod())
               .build();
         }
       }

@@ -78,7 +78,7 @@ public final class TellerAPIProto {
       "-[0-9a-f]{12}$R\010walletId\022s\n\016transaction_" +
       "id\030\002 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4" +
       "}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f" +
-      "]{12}$R\rtransactionId2\247\033\n\tTellerAPI\022a\n\014C" +
+      "]{12}$R\rtransactionId2\301\032\n\tTellerAPI\022a\n\014C" +
       "reateWallet\022&.adamant.teller.v1.CreateWa" +
       "lletRequest\032\'.adamant.global.v1.CreateWa" +
       "lletResponse\"\000\022M\n\tGetWallet\022#.adamant.gl" +
@@ -163,12 +163,10 @@ public final class TellerAPIProto {
       "nt.global.v1.ValidateAddressResponse\"\000\022a" +
       "\n\014FlushBalance\022&.adamant.global.v1.Flush" +
       "BalanceRequest\032\'.adamant.global.v1.Flush" +
-      "BalanceResponse\"\000\022d\n\rListAuditLogs\022\'.ada" +
-      "mant.global.v1.ListAuditLogsRequest\032(.ad" +
-      "amant.global.v1.ListAuditLogsResponse\"\000B" +
-      "^B\016TellerAPIProtoP\001ZJgithub.com/GincoInc" +
-      "/gew-kmp/gen/gincoinc/adamant/teller/v1/" +
-      "adamanttellerv1b\006proto3"
+      "BalanceResponse\"\000B^B\016TellerAPIProtoP\001ZJg" +
+      "ithub.com/GincoInc/gew-kmp/gen/gincoinc/" +
+      "adamant/teller/v1/adamanttellerv1b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
