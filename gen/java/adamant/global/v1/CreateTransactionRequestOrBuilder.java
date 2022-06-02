@@ -114,4 +114,19 @@ public interface CreateTransactionRequestOrBuilder extends
    * <code>.adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9 [json_name = "walletConnectSpecific"];</code>
    */
   adamant.global.v1.Model.CreateTransactionWalletConnectSpecificOrBuilder getWalletConnectSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CreateTransactionNemSpecific nem_specific = 10 [json_name = "nemSpecific"];</code>
+   * @return Whether the nemSpecific field is set.
+   */
+  boolean hasNemSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionNemSpecific nem_specific = 10 [json_name = "nemSpecific"];</code>
+   * @return The nemSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionNemSpecific getNemSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionNemSpecific nem_specific = 10 [json_name = "nemSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionNemSpecificOrBuilder getNemSpecificOrBuilder();
 }

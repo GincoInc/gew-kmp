@@ -189,6 +189,8 @@ message Transaction {
   StellarSpecific stellar_specific = 27; // The Stellar specific fields
   CardanoSpecific cardano_specific = 28; // The Cardano specific fields
   SubstrateSpecific substrate_specific = 29; // The Substrate specific fields
+  MonacoinSpecific monacoin_specific = 30; // The Monacoin specific fields
+  NemSpecific nem_specific = 31; // The Nem specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -298,6 +300,19 @@ message SubstrateSpecific {
   repeated SubstrateMultisigTransaction substrate_multisig_transactions = 4;
 }
 
+// The model of Monacoin specific fields of transaction
+message MonacoinSpecific {
+  repeated TxInput tx_inputs = 1;
+  repeated TxOutput tx_outputs = 2;
+}
+
+// The model of Substrate specific fields of transaction
+message NemSpecific {
+  string message = 1;
+  gincoinc.global.v1.NemTransactionType tx_type = 2;
+  repeated NemMultisigTransaction nem_multisig_transactions = 3;
+}
+
 // The model of Substrate specific fields of CreateTransaction
 message CreateTransactionSubstrateSpecific {
   string transaction_id = 1;
@@ -309,6 +324,13 @@ message CreateTransactionSubstrateSpecific {
 message CreateTransactionWalletConnectSpecific {
   WalletConnectCallRequestType call_request_type = 1;
   string call_request_params = 2;
+}
+
+// The model of Nem specific fields of CreateTransaction
+message CreateTransactionNemSpecific {
+  string transaction_id = 1;
+  gincoinc.global.v1.NemTransactionType tx_type = 2;
+  string message = 3;
 }
 
 // The model of substrate multisig transaction
@@ -327,6 +349,20 @@ message SubstrateMultisigTransaction {
   TransactionState state = 12; // state
   google.protobuf.Timestamp create_time = 13; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 14; // the time at which the transaction was updated
+}
+
+// The model of nem multisig transaction
+message NemMultisigTransaction {
+  string wallet_id = 1; // The id of wallet
+  string transaction_id = 2; // id
+  string nem_multisig_transaction_id = 3;
+  string account_key_id = 10; // AccountKeyID
+  gincoinc.global.v1.NemTransactionType tx_type = 4;
+  string data = 5; // The string-typed amount of transaction fee
+  string signature = 6; // The string-typed amount of transaction fee
+  TransactionState state = 7; // state
+  google.protobuf.Timestamp create_time = 8; // the time at which the transaction was created
+  google.protobuf.Timestamp update_time = 9; // the time at which the transaction was updated
 }
 
 // The model of information about signing
@@ -366,6 +402,7 @@ message Transfer {
   string partner_address = 11; // The address of wallet to which the transfer send/receive
   uint32 destination_tag = 15; // destination tag (only XRP)
   uint64 memo_id = 17 [jstype = JS_STRING]; // memo id (only XLM)
+  string message = 18; // message (only NEM)
   gincoinc.global.v1.TransactionState state = 12; // state
   gincoinc.global.v1.TransactionResult result = 16; // result
   google.protobuf.Timestamp create_time = 13; // the time at which the transfer was created
@@ -388,6 +425,7 @@ message UncheckedTransfer {
   string partner_address = 12; // The address of wallet to which the transfer send/receive
   uint32 destination_tag = 13; // destination tag (only XRP)
   uint64 memo_id = 14 [jstype = JS_STRING]; // memo id (only XLM)
+  string message = 18; // message (only NEM)
   bool has_checked = 15; // Whether the transfer has been checked or not
   google.protobuf.Timestamp create_time = 16; // the time at which the transfer was created
   google.protobuf.Timestamp update_time = 17; // the time at which the transfer was updated

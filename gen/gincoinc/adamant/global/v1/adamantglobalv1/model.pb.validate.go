@@ -58,6 +58,12 @@ var (
 
 	_ = gincoincglobalv1.XRPTransactionType(0)
 
+	_ = gincoincglobalv1.NemTransactionType(0)
+
+	_ = gincoincglobalv1.NemTransactionType(0)
+
+	_ = gincoincglobalv1.NemTransactionType(0)
+
 	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.Coin(0)
@@ -1615,6 +1621,34 @@ func (m *Transaction) Validate(all bool) error {
 		if err := v.Validate(all); err != nil {
 			err = TransactionValidationError{
 				field:  "SubstrateSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if v, ok := interface{}(m.GetMonacoinSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransactionValidationError{
+				field:  "MonacoinSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if v, ok := interface{}(m.GetNemSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransactionValidationError{
+				field:  "NemSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -3283,6 +3317,246 @@ var _ interface {
 	ErrorName() string
 } = SubstrateSpecificValidationError{}
 
+// Validate checks the field values on MonacoinSpecific with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned. When asked to return all errors, validation continues
+// after first violation, and the result is a list of violation errors wrapped
+// in MonacoinSpecificMultiError, or nil if none found. Otherwise, only the
+// first error is returned, if any.
+func (m *MonacoinSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetTxInputs() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = MonacoinSpecificValidationError{
+					field:  fmt.Sprintf("TxInputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
+			}
+		}
+
+	}
+
+	for idx, item := range m.GetTxOutputs() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = MonacoinSpecificValidationError{
+					field:  fmt.Sprintf("TxOutputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return MonacoinSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// MonacoinSpecificMultiError is an error wrapping multiple validation errors
+// returned by MonacoinSpecific.Validate(true) if the designated constraints
+// aren't met.
+type MonacoinSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m MonacoinSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m MonacoinSpecificMultiError) AllErrors() []error { return m }
+
+// MonacoinSpecificValidationError is the validation error returned by
+// MonacoinSpecific.Validate if the designated constraints aren't met.
+type MonacoinSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e MonacoinSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e MonacoinSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e MonacoinSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e MonacoinSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e MonacoinSpecificValidationError) ErrorName() string { return "MonacoinSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e MonacoinSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sMonacoinSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = MonacoinSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = MonacoinSpecificValidationError{}
+
+// Validate checks the field values on NemSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned. When asked to return all errors, validation continues after
+// first violation, and the result is a list of violation errors wrapped in
+// NemSpecificMultiError, or nil if none found. Otherwise, only the first
+// error is returned, if any.
+func (m *NemSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Message
+
+	// no validation rules for TxType
+
+	for idx, item := range m.GetNemMultisigTransactions() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = NemSpecificValidationError{
+					field:  fmt.Sprintf("NemMultisigTransactions[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return NemSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// NemSpecificMultiError is an error wrapping multiple validation errors
+// returned by NemSpecific.Validate(true) if the designated constraints aren't met.
+type NemSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m NemSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m NemSpecificMultiError) AllErrors() []error { return m }
+
+// NemSpecificValidationError is the validation error returned by
+// NemSpecific.Validate if the designated constraints aren't met.
+type NemSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e NemSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e NemSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e NemSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e NemSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e NemSpecificValidationError) ErrorName() string { return "NemSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e NemSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sNemSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = NemSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = NemSpecificValidationError{}
+
 // Validate checks the field values on CreateTransactionSubstrateSpecific with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, an error is returned. When asked to return all errors,
@@ -3482,6 +3756,105 @@ var _ interface {
 	ErrorName() string
 } = CreateTransactionWalletConnectSpecificValidationError{}
 
+// Validate checks the field values on CreateTransactionNemSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateTransactionNemSpecificMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *CreateTransactionNemSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TransactionId
+
+	// no validation rules for TxType
+
+	// no validation rules for Message
+
+	if len(errors) > 0 {
+		return CreateTransactionNemSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// CreateTransactionNemSpecificMultiError is an error wrapping multiple
+// validation errors returned by CreateTransactionNemSpecific.Validate(true)
+// if the designated constraints aren't met.
+type CreateTransactionNemSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionNemSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionNemSpecificMultiError) AllErrors() []error { return m }
+
+// CreateTransactionNemSpecificValidationError is the validation error returned
+// by CreateTransactionNemSpecific.Validate if the designated constraints
+// aren't met.
+type CreateTransactionNemSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionNemSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionNemSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionNemSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionNemSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionNemSpecificValidationError) ErrorName() string {
+	return "CreateTransactionNemSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionNemSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionNemSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionNemSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionNemSpecificValidationError{}
+
 // Validate checks the field values on SubstrateMultisigTransaction with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned. When asked to return all errors, validation
@@ -3626,6 +3999,142 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = SubstrateMultisigTransactionValidationError{}
+
+// Validate checks the field values on NemMultisigTransaction with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in NemMultisigTransactionMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *NemMultisigTransaction) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for WalletId
+
+	// no validation rules for TransactionId
+
+	// no validation rules for NemMultisigTransactionId
+
+	// no validation rules for AccountKeyId
+
+	// no validation rules for TxType
+
+	// no validation rules for Data
+
+	// no validation rules for Signature
+
+	// no validation rules for State
+
+	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = NemMultisigTransactionValidationError{
+				field:  "CreateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if v, ok := interface{}(m.GetUpdateTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = NemMultisigTransactionValidationError{
+				field:  "UpdateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if len(errors) > 0 {
+		return NemMultisigTransactionMultiError(errors)
+	}
+	return nil
+}
+
+// NemMultisigTransactionMultiError is an error wrapping multiple validation
+// errors returned by NemMultisigTransaction.Validate(true) if the designated
+// constraints aren't met.
+type NemMultisigTransactionMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m NemMultisigTransactionMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m NemMultisigTransactionMultiError) AllErrors() []error { return m }
+
+// NemMultisigTransactionValidationError is the validation error returned by
+// NemMultisigTransaction.Validate if the designated constraints aren't met.
+type NemMultisigTransactionValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e NemMultisigTransactionValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e NemMultisigTransactionValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e NemMultisigTransactionValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e NemMultisigTransactionValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e NemMultisigTransactionValidationError) ErrorName() string {
+	return "NemMultisigTransactionValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e NemMultisigTransactionValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sNemMultisigTransaction.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = NemMultisigTransactionValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = NemMultisigTransactionValidationError{}
 
 // Validate checks the field values on SignInfo with the rules defined in the
 // proto definition for this message. If any rules are violated, an error is
@@ -3889,6 +4398,8 @@ func (m *Transfer) Validate(all bool) error {
 
 	// no validation rules for MemoId
 
+	// no validation rules for Message
+
 	// no validation rules for State
 
 	// no validation rules for Result
@@ -4037,6 +4548,8 @@ func (m *UncheckedTransfer) Validate(all bool) error {
 	// no validation rules for DestinationTag
 
 	// no validation rules for MemoId
+
+	// no validation rules for Message
 
 	// no validation rules for HasChecked
 
