@@ -33,9 +33,13 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.StellarSpecific.class)) return new StellarSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CardanoSpecific.class)) return new CardanoSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SubstrateSpecific.class)) return new SubstrateSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.MonacoinSpecific.class)) return new MonacoinSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.NemSpecific.class)) return new NemSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class)) return new CreateTransactionSubstrateSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.class)) return new CreateTransactionWalletConnectSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionNemSpecific.class)) return new CreateTransactionNemSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SubstrateMultisigTransaction.class)) return new SubstrateMultisigTransactionValidator();
+		if (clazz.equals(adamant.global.v1.Model.NemMultisigTransaction.class)) return new NemMultisigTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.SignInfo.class)) return new SignInfoValidator();
 		if (clazz.equals(adamant.global.v1.Model.SignTxInput.class)) return new SignTxInputValidator();
 		if (clazz.equals(adamant.global.v1.Model.Transfer.class)) return new TransferValidator();
@@ -696,6 +700,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -765,6 +773,12 @@ public class ModelValidator {
 	
 			// Validate substrate_specific
 			if (proto.hasSubstrateSpecific()) index.validatorFor(proto.getSubstrateSpecific()).assertValid(proto.getSubstrateSpecific());
+	
+			// Validate monacoin_specific
+			if (proto.hasMonacoinSpecific()) index.validatorFor(proto.getMonacoinSpecific()).assertValid(proto.getMonacoinSpecific());
+	
+			// Validate nem_specific
+			if (proto.hasNemSpecific()) index.validatorFor(proto.getNemSpecific()).assertValid(proto.getNemSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -1148,6 +1162,58 @@ public class ModelValidator {
 	}
 }
 /**
+	 * Validates {@code MonacoinSpecific} protobuf objects.
+	 */
+	public static class MonacoinSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.MonacoinSpecific> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.MonacoinSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxInputsList(), item -> {
+				
+			// Validate tx_inputs
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxOutputsList(), item -> {
+				
+			// Validate tx_outputs
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+	
+	}
+}
+/**
+	 * Validates {@code NemSpecific} protobuf objects.
+	 */
+	public static class NemSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.NemSpecific> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.NemSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Message
+
+	// no validation rules for TxType
+
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getNemMultisigTransactionsList(), item -> {
+				
+			// Validate nem_multisig_transactions
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+	
+	}
+}
+/**
 	 * Validates {@code CreateTransactionSubstrateSpecific} protobuf objects.
 	 */
 	public static class CreateTransactionSubstrateSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionSubstrateSpecific> {
@@ -1183,6 +1249,28 @@ public class ModelValidator {
 	// no validation rules for CallRequestType
 
 	// no validation rules for CallRequestParams
+
+	
+	}
+}
+/**
+	 * Validates {@code CreateTransactionNemSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionNemSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionNemSpecific> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionNemSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for TransactionId
+
+	// no validation rules for TxType
+
+	// no validation rules for Message
 
 	
 	}
@@ -1243,6 +1331,58 @@ public class ModelValidator {
 	// no validation rules for Nonce
 
 	// no validation rules for MultisigCallType
+
+	// no validation rules for State
+
+	
+			// Validate create_time
+			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+			// Validate update_time
+			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+	}
+}
+/**
+	 * Validates {@code NemMultisigTransaction} protobuf objects.
+	 */
+	public static class NemMultisigTransactionValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.NemMultisigTransaction> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.NemMultisigTransaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for WalletId
+
+	// no validation rules for TransactionId
+
+	// no validation rules for NemMultisigTransactionId
+
+	// no validation rules for AccountKeyId
+
+	// no validation rules for TxType
+
+	// no validation rules for Data
+
+	// no validation rules for Signature
 
 	// no validation rules for State
 
@@ -1375,6 +1515,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transfer proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1402,6 +1544,8 @@ public class ModelValidator {
 
 	// no validation rules for MemoId
 
+	// no validation rules for Message
+
 	// no validation rules for State
 
 	// no validation rules for Result
@@ -1419,6 +1563,8 @@ public class ModelValidator {
 	 * Validates {@code UncheckedTransfer} protobuf objects.
 	 */
 	public static class UncheckedTransferValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.UncheckedTransfer> {
+		
+	
 		
 	
 		
@@ -1483,6 +1629,8 @@ public class ModelValidator {
 	// no validation rules for DestinationTag
 
 	// no validation rules for MemoId
+
+	// no validation rules for Message
 
 	// no validation rules for HasChecked
 

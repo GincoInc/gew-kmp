@@ -103,6 +103,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 66: {
+            adamant.global.v1.CalculateFeeNemSpecific.Builder subBuilder = null;
+            if (nemSpecific_ != null) {
+              subBuilder = nemSpecific_.toBuilder();
+            }
+            nemSpecific_ = input.readMessage(adamant.global.v1.CalculateFeeNemSpecific.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(nemSpecific_);
+              nemSpecific_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -340,6 +353,32 @@ private static final long serialVersionUID = 0L;
     return getSubstrateSpecific();
   }
 
+  public static final int NEM_SPECIFIC_FIELD_NUMBER = 8;
+  private adamant.global.v1.CalculateFeeNemSpecific nemSpecific_;
+  /**
+   * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
+   * @return Whether the nemSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasNemSpecific() {
+    return nemSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
+   * @return The nemSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.CalculateFeeNemSpecific getNemSpecific() {
+    return nemSpecific_ == null ? adamant.global.v1.CalculateFeeNemSpecific.getDefaultInstance() : nemSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.CalculateFeeNemSpecificOrBuilder getNemSpecificOrBuilder() {
+    return getNemSpecific();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -375,6 +414,9 @@ private static final long serialVersionUID = 0L;
     if (substrateSpecific_ != null) {
       output.writeMessage(7, getSubstrateSpecific());
     }
+    if (nemSpecific_ != null) {
+      output.writeMessage(8, getNemSpecific());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -409,6 +451,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getSubstrateSpecific());
     }
+    if (nemSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, getNemSpecific());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -441,6 +487,11 @@ private static final long serialVersionUID = 0L;
       if (!getSubstrateSpecific()
           .equals(other.getSubstrateSpecific())) return false;
     }
+    if (hasNemSpecific() != other.hasNemSpecific()) return false;
+    if (hasNemSpecific()) {
+      if (!getNemSpecific()
+          .equals(other.getNemSpecific())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -470,6 +521,10 @@ private static final long serialVersionUID = 0L;
     if (hasSubstrateSpecific()) {
       hash = (37 * hash) + SUBSTRATE_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getSubstrateSpecific().hashCode();
+    }
+    if (hasNemSpecific()) {
+      hash = (37 * hash) + NEM_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getNemSpecific().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -627,6 +682,12 @@ private static final long serialVersionUID = 0L;
         substrateSpecific_ = null;
         substrateSpecificBuilder_ = null;
       }
+      if (nemSpecificBuilder_ == null) {
+        nemSpecific_ = null;
+      } else {
+        nemSpecific_ = null;
+        nemSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -672,6 +733,11 @@ private static final long serialVersionUID = 0L;
         result.substrateSpecific_ = substrateSpecific_;
       } else {
         result.substrateSpecific_ = substrateSpecificBuilder_.build();
+      }
+      if (nemSpecificBuilder_ == null) {
+        result.nemSpecific_ = nemSpecific_;
+      } else {
+        result.nemSpecific_ = nemSpecificBuilder_.build();
       }
       onBuilt();
       return result;
@@ -767,6 +833,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasSubstrateSpecific()) {
         mergeSubstrateSpecific(other.getSubstrateSpecific());
+      }
+      if (other.hasNemSpecific()) {
+        mergeNemSpecific(other.getNemSpecific());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1445,6 +1514,125 @@ private static final long serialVersionUID = 0L;
         substrateSpecific_ = null;
       }
       return substrateSpecificBuilder_;
+    }
+
+    private adamant.global.v1.CalculateFeeNemSpecific nemSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.CalculateFeeNemSpecific, adamant.global.v1.CalculateFeeNemSpecific.Builder, adamant.global.v1.CalculateFeeNemSpecificOrBuilder> nemSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
+     * @return Whether the nemSpecific field is set.
+     */
+    public boolean hasNemSpecific() {
+      return nemSpecificBuilder_ != null || nemSpecific_ != null;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
+     * @return The nemSpecific.
+     */
+    public adamant.global.v1.CalculateFeeNemSpecific getNemSpecific() {
+      if (nemSpecificBuilder_ == null) {
+        return nemSpecific_ == null ? adamant.global.v1.CalculateFeeNemSpecific.getDefaultInstance() : nemSpecific_;
+      } else {
+        return nemSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
+     */
+    public Builder setNemSpecific(adamant.global.v1.CalculateFeeNemSpecific value) {
+      if (nemSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        nemSpecific_ = value;
+        onChanged();
+      } else {
+        nemSpecificBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
+     */
+    public Builder setNemSpecific(
+        adamant.global.v1.CalculateFeeNemSpecific.Builder builderForValue) {
+      if (nemSpecificBuilder_ == null) {
+        nemSpecific_ = builderForValue.build();
+        onChanged();
+      } else {
+        nemSpecificBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
+     */
+    public Builder mergeNemSpecific(adamant.global.v1.CalculateFeeNemSpecific value) {
+      if (nemSpecificBuilder_ == null) {
+        if (nemSpecific_ != null) {
+          nemSpecific_ =
+            adamant.global.v1.CalculateFeeNemSpecific.newBuilder(nemSpecific_).mergeFrom(value).buildPartial();
+        } else {
+          nemSpecific_ = value;
+        }
+        onChanged();
+      } else {
+        nemSpecificBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
+     */
+    public Builder clearNemSpecific() {
+      if (nemSpecificBuilder_ == null) {
+        nemSpecific_ = null;
+        onChanged();
+      } else {
+        nemSpecific_ = null;
+        nemSpecificBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
+     */
+    public adamant.global.v1.CalculateFeeNemSpecific.Builder getNemSpecificBuilder() {
+      
+      onChanged();
+      return getNemSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
+     */
+    public adamant.global.v1.CalculateFeeNemSpecificOrBuilder getNemSpecificOrBuilder() {
+      if (nemSpecificBuilder_ != null) {
+        return nemSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return nemSpecific_ == null ?
+            adamant.global.v1.CalculateFeeNemSpecific.getDefaultInstance() : nemSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.CalculateFeeNemSpecific, adamant.global.v1.CalculateFeeNemSpecific.Builder, adamant.global.v1.CalculateFeeNemSpecificOrBuilder> 
+        getNemSpecificFieldBuilder() {
+      if (nemSpecificBuilder_ == null) {
+        nemSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.CalculateFeeNemSpecific, adamant.global.v1.CalculateFeeNemSpecific.Builder, adamant.global.v1.CalculateFeeNemSpecificOrBuilder>(
+                getNemSpecific(),
+                getParentForChildren(),
+                isClean());
+        nemSpecific_ = null;
+      }
+      return nemSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

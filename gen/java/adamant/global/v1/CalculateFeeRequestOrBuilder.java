@@ -93,4 +93,19 @@ public interface CalculateFeeRequestOrBuilder extends
    * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7 [json_name = "substrateSpecific"];</code>
    */
   adamant.global.v1.CalculateFeeSubstrateSpecificOrBuilder getSubstrateSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
+   * @return Whether the nemSpecific field is set.
+   */
+  boolean hasNemSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
+   * @return The nemSpecific.
+   */
+  adamant.global.v1.CalculateFeeNemSpecific getNemSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
+   */
+  adamant.global.v1.CalculateFeeNemSpecificOrBuilder getNemSpecificOrBuilder();
 }
