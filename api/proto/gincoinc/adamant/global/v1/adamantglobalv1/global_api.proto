@@ -620,6 +620,7 @@ message CreateTransactionRequest {
   string string_value = 7;
   adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;
   adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;
+  adamant.global.v1.CreateTransactionNemSpecific nem_specific = 10;
 }
 
 message CreateTransactionResponse {
@@ -1069,12 +1070,18 @@ message CalculateFeeRequest {
   uint32 destination_tag = 5;
   string string_value = 6;
   CalculateFeeSubstrateSpecific substrate_specific = 7;
+  CalculateFeeNemSpecific nem_specific = 8;
 }
 
 // The model of Substrate specific fields of CreateTransaction
 message CalculateFeeSubstrateSpecific {
   SubstrateCallType call_type = 1;
   SubstrateCallType multisig_call_type = 2;
+}
+
+// The model of Nem specific fields of CalculateFee
+message CalculateFeeNemSpecific {
+  string message = 1;
 }
 
 message CalculateFeeResponse {
