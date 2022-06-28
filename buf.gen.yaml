@@ -20,3 +20,7 @@ plugins:
     - lang=java
    out: gen/java
    path: ./bin/protoc-gen-validate
+ - remote: buf.build/protocolbuffers/plugins/php:v21.2.0-1
+   out: gen/php
+ - remote: buf.build/grpc/plugins/php:v1.47.0-1
+   out: gen/php
