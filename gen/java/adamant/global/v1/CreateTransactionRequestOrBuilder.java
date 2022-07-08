@@ -129,4 +129,19 @@ public interface CreateTransactionRequestOrBuilder extends
    * <code>.adamant.global.v1.CreateTransactionNemSpecific nem_specific = 10 [json_name = "nemSpecific"];</code>
    */
   adamant.global.v1.Model.CreateTransactionNemSpecificOrBuilder getNemSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11 [json_name = "iostSpecific"];</code>
+   * @return Whether the iostSpecific field is set.
+   */
+  boolean hasIostSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11 [json_name = "iostSpecific"];</code>
+   * @return The iostSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionIOSTSpecific getIostSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11 [json_name = "iostSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionIOSTSpecificOrBuilder getIostSpecificOrBuilder();
 }

@@ -191,6 +191,7 @@ message Transaction {
   SubstrateSpecific substrate_specific = 29; // The Substrate specific fields
   MonacoinSpecific monacoin_specific = 30; // The Monacoin specific fields
   NemSpecific nem_specific = 31; // The Nem specific fields
+  IOSTSpecific iost_specific = 32; // The Nem specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -311,6 +312,14 @@ message NemSpecific {
   string message = 1;
   gincoinc.global.v1.NemTransactionType tx_type = 2;
   repeated NemMultisigTransaction nem_multisig_transactions = 3;
+  uint64 expiration = 4;
+}
+
+// The model of IOST specific fields of transaction
+message IOSTSpecific {
+  string memo = 1;
+  uint64 timestamp = 2;
+  uint64 expiration = 3;
 }
 
 // The model of Substrate specific fields of CreateTransaction
@@ -331,6 +340,12 @@ message CreateTransactionNemSpecific {
   string transaction_id = 1;
   gincoinc.global.v1.NemTransactionType tx_type = 2;
   string message = 3;
+}
+
+// The model of IOST specific fields of CreateTransaction
+message CreateTransactionIOSTSpecific {
+  string memo = 1;
+  uint64 timestamp = 2;
 }
 
 // The model of substrate multisig transaction
@@ -356,7 +371,7 @@ message NemMultisigTransaction {
   string wallet_id = 1; // The id of wallet
   string transaction_id = 2; // id
   string nem_multisig_transaction_id = 3;
-  string account_key_id = 10; // AccountKeyID
+  string account_id = 10; // AccountID
   gincoinc.global.v1.NemTransactionType tx_type = 4;
   string data = 5; // The string-typed amount of transaction fee
   string signature = 6; // The string-typed amount of transaction fee
@@ -697,4 +712,10 @@ message SubstrateChildAddress {
   string address = 3;
   double balance = 4;
   string string_balance = 5;
+}
+
+message IOSTChildAccount {
+  string wallet_id = 1;
+  string account_id = 2;
+  string account_name = 3;
 }
