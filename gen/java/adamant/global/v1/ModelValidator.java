@@ -35,9 +35,11 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.SubstrateSpecific.class)) return new SubstrateSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.MonacoinSpecific.class)) return new MonacoinSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.NemSpecific.class)) return new NemSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.IOSTSpecific.class)) return new IOSTSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class)) return new CreateTransactionSubstrateSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.class)) return new CreateTransactionWalletConnectSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionNemSpecific.class)) return new CreateTransactionNemSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionIOSTSpecific.class)) return new CreateTransactionIOSTSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SubstrateMultisigTransaction.class)) return new SubstrateMultisigTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.NemMultisigTransaction.class)) return new NemMultisigTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.SignInfo.class)) return new SignInfoValidator();
@@ -79,6 +81,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.RequestTransferLimitEntry.class)) return new RequestTransferLimitEntryValidator();
 		if (clazz.equals(adamant.global.v1.Model.RequestRate.class)) return new RequestRateValidator();
 		if (clazz.equals(adamant.global.v1.Model.SubstrateChildAddress.class)) return new SubstrateChildAddressValidator();
+		if (clazz.equals(adamant.global.v1.Model.IOSTChildAccount.class)) return new IOSTChildAccountValidator();
 		return null;
 	}
 
@@ -704,6 +707,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -779,6 +784,9 @@ public class ModelValidator {
 	
 			// Validate nem_specific
 			if (proto.hasNemSpecific()) index.validatorFor(proto.getNemSpecific()).assertValid(proto.getNemSpecific());
+	
+			// Validate iost_specific
+			if (proto.hasIostSpecific()) index.validatorFor(proto.getIostSpecific()).assertValid(proto.getIostSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -1197,6 +1205,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.NemSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1210,6 +1220,30 @@ public class ModelValidator {
 			// Validate nem_multisig_transactions
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+	// no validation rules for Expiration
+
+	
+	}
+}
+/**
+	 * Validates {@code IOSTSpecific} protobuf objects.
+	 */
+	public static class IOSTSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.IOSTSpecific> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.IOSTSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Memo
+
+	// no validation rules for Timestamp
+
+	// no validation rules for Expiration
+
 	
 	}
 }
@@ -1271,6 +1305,24 @@ public class ModelValidator {
 	// no validation rules for TxType
 
 	// no validation rules for Message
+
+	
+	}
+}
+/**
+	 * Validates {@code CreateTransactionIOSTSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionIOSTSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionIOSTSpecific> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionIOSTSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Memo
+
+	// no validation rules for Timestamp
 
 	
 	}
@@ -1376,7 +1428,7 @@ public class ModelValidator {
 
 	// no validation rules for NemMultisigTransactionId
 
-	// no validation rules for AccountKeyId
+	// no validation rules for AccountId
 
 	// no validation rules for TxType
 
@@ -2657,6 +2709,28 @@ public class ModelValidator {
 	// no validation rules for Balance
 
 	// no validation rules for StringBalance
+
+	
+	}
+}
+/**
+	 * Validates {@code IOSTChildAccount} protobuf objects.
+	 */
+	public static class IOSTChildAccountValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.IOSTChildAccount> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.IOSTChildAccount proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for WalletId
+
+	// no validation rules for AccountId
+
+	// no validation rules for AccountName
 
 	
 	}

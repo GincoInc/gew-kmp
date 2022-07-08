@@ -3,8 +3,8 @@
 
 package adamant.global.v1;
 
-public interface ImportAddressResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:adamant.global.v1.ImportAddressResponse)
+public interface CreateIOSTAccountResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:adamant.global.v1.CreateIOSTAccountResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**

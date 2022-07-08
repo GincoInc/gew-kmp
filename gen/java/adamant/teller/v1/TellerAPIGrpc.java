@@ -294,6 +294,37 @@ public final class TellerAPIGrpc {
     return getCreateAddressMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.CreateIOSTAccountRequest,
+      adamant.global.v1.CreateIOSTAccountResponse> getCreateIOSTAccountMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "CreateIOSTAccount",
+      requestType = adamant.global.v1.CreateIOSTAccountRequest.class,
+      responseType = adamant.global.v1.CreateIOSTAccountResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.CreateIOSTAccountRequest,
+      adamant.global.v1.CreateIOSTAccountResponse> getCreateIOSTAccountMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.CreateIOSTAccountRequest, adamant.global.v1.CreateIOSTAccountResponse> getCreateIOSTAccountMethod;
+    if ((getCreateIOSTAccountMethod = TellerAPIGrpc.getCreateIOSTAccountMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getCreateIOSTAccountMethod = TellerAPIGrpc.getCreateIOSTAccountMethod) == null) {
+          TellerAPIGrpc.getCreateIOSTAccountMethod = getCreateIOSTAccountMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.CreateIOSTAccountRequest, adamant.global.v1.CreateIOSTAccountResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateIOSTAccount"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateIOSTAccountRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateIOSTAccountResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("CreateIOSTAccount"))
+              .build();
+        }
+      }
+    }
+    return getCreateIOSTAccountMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.GetAddressRequest,
       adamant.global.v1.Model.Address> getGetAddressMethod;
 
@@ -419,28 +450,28 @@ public final class TellerAPIGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ImportAddressRequest,
-      adamant.global.v1.ImportAddressResponse> getImportAddressMethod;
+      com.google.protobuf.Empty> getImportAddressMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "ImportAddress",
       requestType = adamant.global.v1.ImportAddressRequest.class,
-      responseType = adamant.global.v1.ImportAddressResponse.class,
+      responseType = com.google.protobuf.Empty.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<adamant.global.v1.ImportAddressRequest,
-      adamant.global.v1.ImportAddressResponse> getImportAddressMethod() {
-    io.grpc.MethodDescriptor<adamant.global.v1.ImportAddressRequest, adamant.global.v1.ImportAddressResponse> getImportAddressMethod;
+      com.google.protobuf.Empty> getImportAddressMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ImportAddressRequest, com.google.protobuf.Empty> getImportAddressMethod;
     if ((getImportAddressMethod = TellerAPIGrpc.getImportAddressMethod) == null) {
       synchronized (TellerAPIGrpc.class) {
         if ((getImportAddressMethod = TellerAPIGrpc.getImportAddressMethod) == null) {
           TellerAPIGrpc.getImportAddressMethod = getImportAddressMethod =
-              io.grpc.MethodDescriptor.<adamant.global.v1.ImportAddressRequest, adamant.global.v1.ImportAddressResponse>newBuilder()
+              io.grpc.MethodDescriptor.<adamant.global.v1.ImportAddressRequest, com.google.protobuf.Empty>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ImportAddress"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   adamant.global.v1.ImportAddressRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.ImportAddressResponse.getDefaultInstance()))
+                  com.google.protobuf.Empty.getDefaultInstance()))
               .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ImportAddress"))
               .build();
         }
@@ -1188,6 +1219,13 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    public void createIOSTAccount(adamant.global.v1.CreateIOSTAccountRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateIOSTAccountResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateIOSTAccountMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void getAddress(adamant.global.v1.GetAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAddressMethod(), responseObserver);
@@ -1217,7 +1255,7 @@ public final class TellerAPIGrpc {
     /**
      */
     public void importAddress(adamant.global.v1.ImportAddressRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.ImportAddressResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getImportAddressMethod(), responseObserver);
     }
 
@@ -1445,6 +1483,13 @@ public final class TellerAPIGrpc {
                 adamant.global.v1.CreateAddressResponse>(
                   this, METHODID_CREATE_ADDRESS)))
           .addMethod(
+            getCreateIOSTAccountMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                adamant.global.v1.CreateIOSTAccountRequest,
+                adamant.global.v1.CreateIOSTAccountResponse>(
+                  this, METHODID_CREATE_IOSTACCOUNT)))
+          .addMethod(
             getGetAddressMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
@@ -1477,7 +1522,7 @@ public final class TellerAPIGrpc {
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 adamant.global.v1.ImportAddressRequest,
-                adamant.global.v1.ImportAddressResponse>(
+                com.google.protobuf.Empty>(
                   this, METHODID_IMPORT_ADDRESS)))
           .addMethod(
             getGetEthereumFeeAddressMethod(),
@@ -1717,6 +1762,14 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    public void createIOSTAccount(adamant.global.v1.CreateIOSTAccountRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateIOSTAccountResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getCreateIOSTAccountMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void getAddress(adamant.global.v1.GetAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -1750,7 +1803,7 @@ public final class TellerAPIGrpc {
     /**
      */
     public void importAddress(adamant.global.v1.ImportAddressRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.ImportAddressResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getImportAddressMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2019,6 +2072,13 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    public adamant.global.v1.CreateIOSTAccountResponse createIOSTAccount(adamant.global.v1.CreateIOSTAccountRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getCreateIOSTAccountMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public adamant.global.v1.Model.Address getAddress(adamant.global.v1.GetAddressRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetAddressMethod(), getCallOptions(), request);
@@ -2047,7 +2107,7 @@ public final class TellerAPIGrpc {
 
     /**
      */
-    public adamant.global.v1.ImportAddressResponse importAddress(adamant.global.v1.ImportAddressRequest request) {
+    public com.google.protobuf.Empty importAddress(adamant.global.v1.ImportAddressRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getImportAddressMethod(), getCallOptions(), request);
     }
@@ -2305,6 +2365,14 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateIOSTAccountResponse> createIOSTAccount(
+        adamant.global.v1.CreateIOSTAccountRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getCreateIOSTAccountMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.Model.Address> getAddress(
         adamant.global.v1.GetAddressRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -2337,7 +2405,7 @@ public final class TellerAPIGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ImportAddressResponse> importAddress(
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> importAddress(
         adamant.global.v1.ImportAddressRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getImportAddressMethod(), getCallOptions()), request);
@@ -2531,31 +2599,32 @@ public final class TellerAPIGrpc {
   private static final int METHODID_INITIALIZE_XRPWALLET = 6;
   private static final int METHODID_INITIALIZE_WALLET = 7;
   private static final int METHODID_CREATE_ADDRESS = 8;
-  private static final int METHODID_GET_ADDRESS = 9;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 10;
-  private static final int METHODID_GET_ADDRESS_BY_INDEX = 11;
-  private static final int METHODID_LIST_ADDRESSES = 12;
-  private static final int METHODID_IMPORT_ADDRESS = 13;
-  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 14;
-  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 15;
-  private static final int METHODID_CREATE_TRANSACTION = 16;
-  private static final int METHODID_SIGN_TRANSACTION = 17;
-  private static final int METHODID_SEND_TRANSACTION = 18;
-  private static final int METHODID_CANCEL_TRANSACTION = 19;
-  private static final int METHODID_GET_TRANSACTION = 20;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 21;
-  private static final int METHODID_LIST_TRANSACTIONS = 22;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 23;
-  private static final int METHODID_LIST_TRANSFERS = 24;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 25;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 26;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 27;
-  private static final int METHODID_SET_RATES = 28;
-  private static final int METHODID_CALCULATE_FEE = 29;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 30;
-  private static final int METHODID_VALIDATE_ADDRESS = 31;
-  private static final int METHODID_FLUSH_BALANCE = 32;
-  private static final int METHODID_LIST_AUDIT_LOGS = 33;
+  private static final int METHODID_CREATE_IOSTACCOUNT = 9;
+  private static final int METHODID_GET_ADDRESS = 10;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 11;
+  private static final int METHODID_GET_ADDRESS_BY_INDEX = 12;
+  private static final int METHODID_LIST_ADDRESSES = 13;
+  private static final int METHODID_IMPORT_ADDRESS = 14;
+  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 15;
+  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 16;
+  private static final int METHODID_CREATE_TRANSACTION = 17;
+  private static final int METHODID_SIGN_TRANSACTION = 18;
+  private static final int METHODID_SEND_TRANSACTION = 19;
+  private static final int METHODID_CANCEL_TRANSACTION = 20;
+  private static final int METHODID_GET_TRANSACTION = 21;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 22;
+  private static final int METHODID_LIST_TRANSACTIONS = 23;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 24;
+  private static final int METHODID_LIST_TRANSFERS = 25;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 26;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 27;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 28;
+  private static final int METHODID_SET_RATES = 29;
+  private static final int METHODID_CALCULATE_FEE = 30;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 31;
+  private static final int METHODID_VALIDATE_ADDRESS = 32;
+  private static final int METHODID_FLUSH_BALANCE = 33;
+  private static final int METHODID_LIST_AUDIT_LOGS = 34;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -2610,6 +2679,10 @@ public final class TellerAPIGrpc {
           serviceImpl.createAddress((adamant.global.v1.CreateAddressRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.CreateAddressResponse>) responseObserver);
           break;
+        case METHODID_CREATE_IOSTACCOUNT:
+          serviceImpl.createIOSTAccount((adamant.global.v1.CreateIOSTAccountRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateIOSTAccountResponse>) responseObserver);
+          break;
         case METHODID_GET_ADDRESS:
           serviceImpl.getAddress((adamant.global.v1.GetAddressRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address>) responseObserver);
@@ -2628,7 +2701,7 @@ public final class TellerAPIGrpc {
           break;
         case METHODID_IMPORT_ADDRESS:
           serviceImpl.importAddress((adamant.global.v1.ImportAddressRequest) request,
-              (io.grpc.stub.StreamObserver<adamant.global.v1.ImportAddressResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         case METHODID_GET_ETHEREUM_FEE_ADDRESS:
           serviceImpl.getEthereumFeeAddress((adamant.global.v1.GetEthereumFeeAddressRequest) request,
@@ -2780,6 +2853,7 @@ public final class TellerAPIGrpc {
               .addMethod(getInitializeXRPWalletMethod())
               .addMethod(getInitializeWalletMethod())
               .addMethod(getCreateAddressMethod())
+              .addMethod(getCreateIOSTAccountMethod())
               .addMethod(getGetAddressMethod())
               .addMethod(getGetAddressByAddressMethod())
               .addMethod(getGetAddressByIndexMethod())

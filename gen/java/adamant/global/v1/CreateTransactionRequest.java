@@ -134,6 +134,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 90: {
+            adamant.global.v1.Model.CreateTransactionIOSTSpecific.Builder subBuilder = null;
+            if (iostSpecific_ != null) {
+              subBuilder = iostSpecific_.toBuilder();
+            }
+            iostSpecific_ = input.readMessage(adamant.global.v1.Model.CreateTransactionIOSTSpecific.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(iostSpecific_);
+              iostSpecific_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -434,6 +447,32 @@ private static final long serialVersionUID = 0L;
     return getNemSpecific();
   }
 
+  public static final int IOST_SPECIFIC_FIELD_NUMBER = 11;
+  private adamant.global.v1.Model.CreateTransactionIOSTSpecific iostSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11 [json_name = "iostSpecific"];</code>
+   * @return Whether the iostSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasIostSpecific() {
+    return iostSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11 [json_name = "iostSpecific"];</code>
+   * @return The iostSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionIOSTSpecific getIostSpecific() {
+    return iostSpecific_ == null ? adamant.global.v1.Model.CreateTransactionIOSTSpecific.getDefaultInstance() : iostSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11 [json_name = "iostSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionIOSTSpecificOrBuilder getIostSpecificOrBuilder() {
+    return getIostSpecific();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -477,6 +516,9 @@ private static final long serialVersionUID = 0L;
     }
     if (nemSpecific_ != null) {
       output.writeMessage(10, getNemSpecific());
+    }
+    if (iostSpecific_ != null) {
+      output.writeMessage(11, getIostSpecific());
     }
     unknownFields.writeTo(output);
   }
@@ -524,6 +566,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, getNemSpecific());
     }
+    if (iostSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(11, getIostSpecific());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -568,6 +614,11 @@ private static final long serialVersionUID = 0L;
       if (!getNemSpecific()
           .equals(other.getNemSpecific())) return false;
     }
+    if (hasIostSpecific() != other.hasIostSpecific()) return false;
+    if (hasIostSpecific()) {
+      if (!getIostSpecific()
+          .equals(other.getIostSpecific())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -608,6 +659,10 @@ private static final long serialVersionUID = 0L;
     if (hasNemSpecific()) {
       hash = (37 * hash) + NEM_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getNemSpecific().hashCode();
+    }
+    if (hasIostSpecific()) {
+      hash = (37 * hash) + IOST_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getIostSpecific().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -779,6 +834,12 @@ private static final long serialVersionUID = 0L;
         nemSpecific_ = null;
         nemSpecificBuilder_ = null;
       }
+      if (iostSpecificBuilder_ == null) {
+        iostSpecific_ = null;
+      } else {
+        iostSpecific_ = null;
+        iostSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -835,6 +896,11 @@ private static final long serialVersionUID = 0L;
         result.nemSpecific_ = nemSpecific_;
       } else {
         result.nemSpecific_ = nemSpecificBuilder_.build();
+      }
+      if (iostSpecificBuilder_ == null) {
+        result.iostSpecific_ = iostSpecific_;
+      } else {
+        result.iostSpecific_ = iostSpecificBuilder_.build();
       }
       onBuilt();
       return result;
@@ -939,6 +1005,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasNemSpecific()) {
         mergeNemSpecific(other.getNemSpecific());
+      }
+      if (other.hasIostSpecific()) {
+        mergeIostSpecific(other.getIostSpecific());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1886,6 +1955,125 @@ private static final long serialVersionUID = 0L;
         nemSpecific_ = null;
       }
       return nemSpecificBuilder_;
+    }
+
+    private adamant.global.v1.Model.CreateTransactionIOSTSpecific iostSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionIOSTSpecific, adamant.global.v1.Model.CreateTransactionIOSTSpecific.Builder, adamant.global.v1.Model.CreateTransactionIOSTSpecificOrBuilder> iostSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11 [json_name = "iostSpecific"];</code>
+     * @return Whether the iostSpecific field is set.
+     */
+    public boolean hasIostSpecific() {
+      return iostSpecificBuilder_ != null || iostSpecific_ != null;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11 [json_name = "iostSpecific"];</code>
+     * @return The iostSpecific.
+     */
+    public adamant.global.v1.Model.CreateTransactionIOSTSpecific getIostSpecific() {
+      if (iostSpecificBuilder_ == null) {
+        return iostSpecific_ == null ? adamant.global.v1.Model.CreateTransactionIOSTSpecific.getDefaultInstance() : iostSpecific_;
+      } else {
+        return iostSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11 [json_name = "iostSpecific"];</code>
+     */
+    public Builder setIostSpecific(adamant.global.v1.Model.CreateTransactionIOSTSpecific value) {
+      if (iostSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        iostSpecific_ = value;
+        onChanged();
+      } else {
+        iostSpecificBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11 [json_name = "iostSpecific"];</code>
+     */
+    public Builder setIostSpecific(
+        adamant.global.v1.Model.CreateTransactionIOSTSpecific.Builder builderForValue) {
+      if (iostSpecificBuilder_ == null) {
+        iostSpecific_ = builderForValue.build();
+        onChanged();
+      } else {
+        iostSpecificBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11 [json_name = "iostSpecific"];</code>
+     */
+    public Builder mergeIostSpecific(adamant.global.v1.Model.CreateTransactionIOSTSpecific value) {
+      if (iostSpecificBuilder_ == null) {
+        if (iostSpecific_ != null) {
+          iostSpecific_ =
+            adamant.global.v1.Model.CreateTransactionIOSTSpecific.newBuilder(iostSpecific_).mergeFrom(value).buildPartial();
+        } else {
+          iostSpecific_ = value;
+        }
+        onChanged();
+      } else {
+        iostSpecificBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11 [json_name = "iostSpecific"];</code>
+     */
+    public Builder clearIostSpecific() {
+      if (iostSpecificBuilder_ == null) {
+        iostSpecific_ = null;
+        onChanged();
+      } else {
+        iostSpecific_ = null;
+        iostSpecificBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11 [json_name = "iostSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionIOSTSpecific.Builder getIostSpecificBuilder() {
+      
+      onChanged();
+      return getIostSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11 [json_name = "iostSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionIOSTSpecificOrBuilder getIostSpecificOrBuilder() {
+      if (iostSpecificBuilder_ != null) {
+        return iostSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return iostSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionIOSTSpecific.getDefaultInstance() : iostSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11 [json_name = "iostSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionIOSTSpecific, adamant.global.v1.Model.CreateTransactionIOSTSpecific.Builder, adamant.global.v1.Model.CreateTransactionIOSTSpecificOrBuilder> 
+        getIostSpecificFieldBuilder() {
+      if (iostSpecificBuilder_ == null) {
+        iostSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionIOSTSpecific, adamant.global.v1.Model.CreateTransactionIOSTSpecific.Builder, adamant.global.v1.Model.CreateTransactionIOSTSpecificOrBuilder>(
+                getIostSpecific(),
+                getParentForChildren(),
+                isClean());
+        iostSpecific_ = null;
+      }
+      return iostSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

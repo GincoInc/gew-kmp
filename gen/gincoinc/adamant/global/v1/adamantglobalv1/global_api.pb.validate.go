@@ -6487,6 +6487,8 @@ func (m *ImportAddressRequest) Validate(all bool) error {
 
 	// no validation rules for Address
 
+	// no validation rules for IsChangeAddress
+
 	if len(errors) > 0 {
 		return ImportAddressRequestMultiError(errors)
 	}
@@ -6567,100 +6569,6 @@ var _ interface {
 } = ImportAddressRequestValidationError{}
 
 var _ImportAddressRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
-
-// Validate checks the field values on ImportAddressResponse with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, an error is returned. When asked to return all errors, validation
-// continues after first violation, and the result is a list of violation
-// errors wrapped in ImportAddressResponseMultiError, or nil if none found.
-// Otherwise, only the first error is returned, if any.
-func (m *ImportAddressResponse) Validate(all bool) error {
-	if m == nil {
-		return nil
-	}
-
-	var errors []error
-
-	// no validation rules for AddressId
-
-	if len(errors) > 0 {
-		return ImportAddressResponseMultiError(errors)
-	}
-	return nil
-}
-
-// ImportAddressResponseMultiError is an error wrapping multiple validation
-// errors returned by ImportAddressResponse.Validate(true) if the designated
-// constraints aren't met.
-type ImportAddressResponseMultiError []error
-
-// Error returns a concatenation of all the error messages it wraps.
-func (m ImportAddressResponseMultiError) Error() string {
-	var msgs []string
-	for _, err := range m {
-		msgs = append(msgs, err.Error())
-	}
-	return strings.Join(msgs, "; ")
-}
-
-// AllErrors returns a list of validation violation errors.
-func (m ImportAddressResponseMultiError) AllErrors() []error { return m }
-
-// ImportAddressResponseValidationError is the validation error returned by
-// ImportAddressResponse.Validate if the designated constraints aren't met.
-type ImportAddressResponseValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e ImportAddressResponseValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e ImportAddressResponseValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e ImportAddressResponseValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e ImportAddressResponseValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e ImportAddressResponseValidationError) ErrorName() string {
-	return "ImportAddressResponseValidationError"
-}
-
-// Error satisfies the builtin error interface
-func (e ImportAddressResponseValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sImportAddressResponse.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = ImportAddressResponseValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = ImportAddressResponseValidationError{}
 
 // Validate checks the field values on CreateTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -6747,6 +6655,20 @@ func (m *CreateTransactionRequest) Validate(all bool) error {
 		if err := v.Validate(all); err != nil {
 			err = CreateTransactionRequestValidationError{
 				field:  "NemSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if v, ok := interface{}(m.GetIostSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = CreateTransactionRequestValidationError{
+				field:  "IostSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -7061,6 +6983,20 @@ func (m *CreateInitTransactionRequest) Validate(all bool) error {
 			return err
 		}
 		errors = append(errors, err)
+	}
+
+	if v, ok := interface{}(m.GetIostSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = CreateInitTransactionRequestValidationError{
+				field:  "IostSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
 	}
 
 	if len(errors) > 0 {
@@ -7632,6 +7568,8 @@ func (m *SendTransactionRequest) Validate(all bool) error {
 		}
 		errors = append(errors, err)
 	}
+
+	// no validation rules for ExecutorType
 
 	if len(errors) > 0 {
 		return SendTransactionRequestMultiError(errors)
@@ -19341,6 +19279,224 @@ var _ interface {
 	ErrorName() string
 } = ListSubstrateChildAddressesResponseValidationError{}
 
+// Validate checks the field values on ListIOSTChildAccountsRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListIOSTChildAccountsRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListIOSTChildAccountsRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ListIOSTChildAccountsRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ListIOSTChildAccountsRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return ListIOSTChildAccountsRequestMultiError(errors)
+	}
+	return nil
+}
+
+// ListIOSTChildAccountsRequestMultiError is an error wrapping multiple
+// validation errors returned by ListIOSTChildAccountsRequest.Validate(true)
+// if the designated constraints aren't met.
+type ListIOSTChildAccountsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListIOSTChildAccountsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListIOSTChildAccountsRequestMultiError) AllErrors() []error { return m }
+
+// ListIOSTChildAccountsRequestValidationError is the validation error returned
+// by ListIOSTChildAccountsRequest.Validate if the designated constraints
+// aren't met.
+type ListIOSTChildAccountsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListIOSTChildAccountsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListIOSTChildAccountsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListIOSTChildAccountsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListIOSTChildAccountsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListIOSTChildAccountsRequestValidationError) ErrorName() string {
+	return "ListIOSTChildAccountsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListIOSTChildAccountsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListIOSTChildAccountsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListIOSTChildAccountsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListIOSTChildAccountsRequestValidationError{}
+
+var _ListIOSTChildAccountsRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ListIOSTChildAccountsResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListIOSTChildAccountsResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListIOSTChildAccountsResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetIostChildAccounts() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListIOSTChildAccountsResponseValidationError{
+					field:  fmt.Sprintf("IostChildAccounts[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ListIOSTChildAccountsResponseMultiError(errors)
+	}
+	return nil
+}
+
+// ListIOSTChildAccountsResponseMultiError is an error wrapping multiple
+// validation errors returned by ListIOSTChildAccountsResponse.Validate(true)
+// if the designated constraints aren't met.
+type ListIOSTChildAccountsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListIOSTChildAccountsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListIOSTChildAccountsResponseMultiError) AllErrors() []error { return m }
+
+// ListIOSTChildAccountsResponseValidationError is the validation error
+// returned by ListIOSTChildAccountsResponse.Validate if the designated
+// constraints aren't met.
+type ListIOSTChildAccountsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListIOSTChildAccountsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListIOSTChildAccountsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListIOSTChildAccountsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListIOSTChildAccountsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListIOSTChildAccountsResponseValidationError) ErrorName() string {
+	return "ListIOSTChildAccountsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListIOSTChildAccountsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListIOSTChildAccountsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListIOSTChildAccountsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListIOSTChildAccountsResponseValidationError{}
+
 // Validate checks the field values on DownloadResourceRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned. When asked to return all errors, validation
@@ -19466,3 +19622,206 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = DownloadResourceRequestValidationError{}
+
+// Validate checks the field values on CreateIOSTAccountRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateIOSTAccountRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CreateIOSTAccountRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_CreateIOSTAccountRequest_AccountName_Pattern.MatchString(m.GetAccountName()) {
+		err := CreateIOSTAccountRequestValidationError{
+			field:  "AccountName",
+			reason: "value does not match regex pattern \"^([a-z0-9_]{5,11})$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for WalletId
+
+	// no validation rules for AccountId
+
+	if len(errors) > 0 {
+		return CreateIOSTAccountRequestMultiError(errors)
+	}
+	return nil
+}
+
+// CreateIOSTAccountRequestMultiError is an error wrapping multiple validation
+// errors returned by CreateIOSTAccountRequest.Validate(true) if the
+// designated constraints aren't met.
+type CreateIOSTAccountRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateIOSTAccountRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateIOSTAccountRequestMultiError) AllErrors() []error { return m }
+
+// CreateIOSTAccountRequestValidationError is the validation error returned by
+// CreateIOSTAccountRequest.Validate if the designated constraints aren't met.
+type CreateIOSTAccountRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateIOSTAccountRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateIOSTAccountRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateIOSTAccountRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateIOSTAccountRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateIOSTAccountRequestValidationError) ErrorName() string {
+	return "CreateIOSTAccountRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateIOSTAccountRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateIOSTAccountRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateIOSTAccountRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateIOSTAccountRequestValidationError{}
+
+var _CreateIOSTAccountRequest_AccountName_Pattern = regexp.MustCompile("^([a-z0-9_]{5,11})$")
+
+// Validate checks the field values on CreateIOSTAccountResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateIOSTAccountResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *CreateIOSTAccountResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for AddressId
+
+	if len(errors) > 0 {
+		return CreateIOSTAccountResponseMultiError(errors)
+	}
+	return nil
+}
+
+// CreateIOSTAccountResponseMultiError is an error wrapping multiple validation
+// errors returned by CreateIOSTAccountResponse.Validate(true) if the
+// designated constraints aren't met.
+type CreateIOSTAccountResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateIOSTAccountResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateIOSTAccountResponseMultiError) AllErrors() []error { return m }
+
+// CreateIOSTAccountResponseValidationError is the validation error returned by
+// CreateIOSTAccountResponse.Validate if the designated constraints aren't met.
+type CreateIOSTAccountResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateIOSTAccountResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateIOSTAccountResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateIOSTAccountResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateIOSTAccountResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateIOSTAccountResponseValidationError) ErrorName() string {
+	return "CreateIOSTAccountResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateIOSTAccountResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateIOSTAccountResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateIOSTAccountResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateIOSTAccountResponseValidationError{}
