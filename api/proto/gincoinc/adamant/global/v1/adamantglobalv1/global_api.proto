@@ -673,6 +673,7 @@ message SignInitTransactionRequest {
   }];
   repeated adamant.global.v1.RequestSignedInfo signed_info = 4 [(validate.rules).repeated.min_items = 1];
 }
+
 message SendTransactionRequest {
   string wallet_id = 1 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
@@ -682,6 +683,7 @@ message SendTransactionRequest {
   }];
   adamant.global.v1.ExecutorType executor_type = 3;
 }
+
 message SendTransactionResponse {
   string tx_id = 1;
 }
