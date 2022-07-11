@@ -604,27 +604,27 @@ public final class TellerAPIGrpc {
     return getSignTransactionMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.SendTransactionRequest,
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.SendTransactionRequest,
       adamant.global.v1.SendTransactionResponse> getSendTransactionMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "SendTransaction",
-      requestType = adamant.global.v1.SendTransactionRequest.class,
+      requestType = adamant.teller.v1.SendTransactionRequest.class,
       responseType = adamant.global.v1.SendTransactionResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<adamant.global.v1.SendTransactionRequest,
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.SendTransactionRequest,
       adamant.global.v1.SendTransactionResponse> getSendTransactionMethod() {
-    io.grpc.MethodDescriptor<adamant.global.v1.SendTransactionRequest, adamant.global.v1.SendTransactionResponse> getSendTransactionMethod;
+    io.grpc.MethodDescriptor<adamant.teller.v1.SendTransactionRequest, adamant.global.v1.SendTransactionResponse> getSendTransactionMethod;
     if ((getSendTransactionMethod = TellerAPIGrpc.getSendTransactionMethod) == null) {
       synchronized (TellerAPIGrpc.class) {
         if ((getSendTransactionMethod = TellerAPIGrpc.getSendTransactionMethod) == null) {
           TellerAPIGrpc.getSendTransactionMethod = getSendTransactionMethod =
-              io.grpc.MethodDescriptor.<adamant.global.v1.SendTransactionRequest, adamant.global.v1.SendTransactionResponse>newBuilder()
+              io.grpc.MethodDescriptor.<adamant.teller.v1.SendTransactionRequest, adamant.global.v1.SendTransactionResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SendTransaction"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.SendTransactionRequest.getDefaultInstance()))
+                  adamant.teller.v1.SendTransactionRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   adamant.global.v1.SendTransactionResponse.getDefaultInstance()))
               .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("SendTransaction"))
@@ -1292,7 +1292,7 @@ public final class TellerAPIGrpc {
 
     /**
      */
-    public void sendTransaction(adamant.global.v1.SendTransactionRequest request,
+    public void sendTransaction(adamant.teller.v1.SendTransactionRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.SendTransactionResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSendTransactionMethod(), responseObserver);
     }
@@ -1556,7 +1556,7 @@ public final class TellerAPIGrpc {
             getSendTransactionMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                adamant.global.v1.SendTransactionRequest,
+                adamant.teller.v1.SendTransactionRequest,
                 adamant.global.v1.SendTransactionResponse>(
                   this, METHODID_SEND_TRANSACTION)))
           .addMethod(
@@ -1845,7 +1845,7 @@ public final class TellerAPIGrpc {
 
     /**
      */
-    public void sendTransaction(adamant.global.v1.SendTransactionRequest request,
+    public void sendTransaction(adamant.teller.v1.SendTransactionRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.SendTransactionResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getSendTransactionMethod(), getCallOptions()), request, responseObserver);
@@ -2145,7 +2145,7 @@ public final class TellerAPIGrpc {
 
     /**
      */
-    public adamant.global.v1.SendTransactionResponse sendTransaction(adamant.global.v1.SendTransactionRequest request) {
+    public adamant.global.v1.SendTransactionResponse sendTransaction(adamant.teller.v1.SendTransactionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getSendTransactionMethod(), getCallOptions(), request);
     }
@@ -2449,7 +2449,7 @@ public final class TellerAPIGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.SendTransactionResponse> sendTransaction(
-        adamant.global.v1.SendTransactionRequest request) {
+        adamant.teller.v1.SendTransactionRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getSendTransactionMethod(), getCallOptions()), request);
     }
@@ -2720,7 +2720,7 @@ public final class TellerAPIGrpc {
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         case METHODID_SEND_TRANSACTION:
-          serviceImpl.sendTransaction((adamant.global.v1.SendTransactionRequest) request,
+          serviceImpl.sendTransaction((adamant.teller.v1.SendTransactionRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.SendTransactionResponse>) responseObserver);
           break;
         case METHODID_CANCEL_TRANSACTION:
