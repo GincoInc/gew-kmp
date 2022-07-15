@@ -7972,6 +7972,8 @@ func (m *SendInitTransactionRequest) Validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	// no validation rules for ExecutorType
+
 	if len(errors) > 0 {
 		return SendInitTransactionRequestMultiError(errors)
 	}

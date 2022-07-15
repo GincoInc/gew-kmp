@@ -18,4 +18,15 @@ public interface SendInitTransactionRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getWalletIdBytes();
+
+  /**
+   * <code>.adamant.global.v1.ExecutorType executor_type = 2 [json_name = "executorType"];</code>
+   * @return The enum numeric value on the wire for executorType.
+   */
+  int getExecutorTypeValue();
+  /**
+   * <code>.adamant.global.v1.ExecutorType executor_type = 2 [json_name = "executorType"];</code>
+   * @return The executorType.
+   */
+  adamant.global.v1.Enum.ExecutorType getExecutorType();
 }
