@@ -47,6 +47,7 @@ enum WalletState {
   WALLET_STATE_FLUSHING = 20; // Balance flushing
   WALLET_STATE_ACCOUNT_CREATING = 21; // Waiting for create account
   WALLET_STATE_ACCOUNT_CREATED = 22; // Account was created
+  WALLET_STATE_MANAGER_APPROVED_SENDING_TRANSACTION = 23; // Manager approved tx
 }
 
 // WalletProposalType is a type of proposal
