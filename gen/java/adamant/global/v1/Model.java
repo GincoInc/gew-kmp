@@ -22341,6 +22341,33 @@ public final class Model {
 
     /**
      * <pre>
+     * The Nem specific fields
+     * </pre>
+     *
+     * <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+     * @return Whether the iostSpecific field is set.
+     */
+    boolean hasIostSpecific();
+    /**
+     * <pre>
+     * The Nem specific fields
+     * </pre>
+     *
+     * <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+     * @return The iostSpecific.
+     */
+    adamant.global.v1.Model.IOSTSpecific getIostSpecific();
+    /**
+     * <pre>
+     * The Nem specific fields
+     * </pre>
+     *
+     * <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+     */
+    adamant.global.v1.Model.IOSTSpecificOrBuilder getIostSpecificOrBuilder();
+
+    /**
+     * <pre>
      * the time at which the transaction was created
      * </pre>
      *
@@ -22717,6 +22744,19 @@ public final class Model {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(nemSpecific_);
                 nemSpecific_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 258: {
+              adamant.global.v1.Model.IOSTSpecific.Builder subBuilder = null;
+              if (iostSpecific_ != null) {
+                subBuilder = iostSpecific_.toBuilder();
+              }
+              iostSpecific_ = input.readMessage(adamant.global.v1.Model.IOSTSpecific.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(iostSpecific_);
+                iostSpecific_ = subBuilder.buildPartial();
               }
 
               break;
@@ -23725,6 +23765,44 @@ public final class Model {
       return getNemSpecific();
     }
 
+    public static final int IOST_SPECIFIC_FIELD_NUMBER = 32;
+    private adamant.global.v1.Model.IOSTSpecific iostSpecific_;
+    /**
+     * <pre>
+     * The Nem specific fields
+     * </pre>
+     *
+     * <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+     * @return Whether the iostSpecific field is set.
+     */
+    @java.lang.Override
+    public boolean hasIostSpecific() {
+      return iostSpecific_ != null;
+    }
+    /**
+     * <pre>
+     * The Nem specific fields
+     * </pre>
+     *
+     * <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+     * @return The iostSpecific.
+     */
+    @java.lang.Override
+    public adamant.global.v1.Model.IOSTSpecific getIostSpecific() {
+      return iostSpecific_ == null ? adamant.global.v1.Model.IOSTSpecific.getDefaultInstance() : iostSpecific_;
+    }
+    /**
+     * <pre>
+     * The Nem specific fields
+     * </pre>
+     *
+     * <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+     */
+    @java.lang.Override
+    public adamant.global.v1.Model.IOSTSpecificOrBuilder getIostSpecificOrBuilder() {
+      return getIostSpecific();
+    }
+
     public static final int CREATE_TIME_FIELD_NUMBER = 18;
     private com.google.protobuf.Timestamp createTime_;
     /**
@@ -23899,6 +23977,9 @@ public final class Model {
       if (nemSpecific_ != null) {
         output.writeMessage(31, getNemSpecific());
       }
+      if (iostSpecific_ != null) {
+        output.writeMessage(32, getIostSpecific());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -24014,6 +24095,10 @@ public final class Model {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(31, getNemSpecific());
       }
+      if (iostSpecific_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(32, getIostSpecific());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -24117,6 +24202,11 @@ public final class Model {
       if (hasNemSpecific()) {
         if (!getNemSpecific()
             .equals(other.getNemSpecific())) return false;
+      }
+      if (hasIostSpecific() != other.hasIostSpecific()) return false;
+      if (hasIostSpecific()) {
+        if (!getIostSpecific()
+            .equals(other.getIostSpecific())) return false;
       }
       if (hasCreateTime() != other.hasCreateTime()) return false;
       if (hasCreateTime()) {
@@ -24222,6 +24312,10 @@ public final class Model {
       if (hasNemSpecific()) {
         hash = (37 * hash) + NEM_SPECIFIC_FIELD_NUMBER;
         hash = (53 * hash) + getNemSpecific().hashCode();
+      }
+      if (hasIostSpecific()) {
+        hash = (37 * hash) + IOST_SPECIFIC_FIELD_NUMBER;
+        hash = (53 * hash) + getIostSpecific().hashCode();
       }
       if (hasCreateTime()) {
         hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
@@ -24478,6 +24572,12 @@ public final class Model {
           nemSpecific_ = null;
           nemSpecificBuilder_ = null;
         }
+        if (iostSpecificBuilder_ == null) {
+          iostSpecific_ = null;
+        } else {
+          iostSpecific_ = null;
+          iostSpecificBuilder_ = null;
+        }
         if (createTimeBuilder_ == null) {
           createTime_ = null;
         } else {
@@ -24606,6 +24706,11 @@ public final class Model {
           result.nemSpecific_ = nemSpecific_;
         } else {
           result.nemSpecific_ = nemSpecificBuilder_.build();
+        }
+        if (iostSpecificBuilder_ == null) {
+          result.iostSpecific_ = iostSpecific_;
+        } else {
+          result.iostSpecific_ = iostSpecificBuilder_.build();
         }
         if (createTimeBuilder_ == null) {
           result.createTime_ = createTime_;
@@ -24794,6 +24899,9 @@ public final class Model {
         }
         if (other.hasNemSpecific()) {
           mergeNemSpecific(other.getNemSpecific());
+        }
+        if (other.hasIostSpecific()) {
+          mergeIostSpecific(other.getIostSpecific());
         }
         if (other.hasCreateTime()) {
           mergeCreateTime(other.getCreateTime());
@@ -28209,6 +28317,161 @@ public final class Model {
           nemSpecific_ = null;
         }
         return nemSpecificBuilder_;
+      }
+
+      private adamant.global.v1.Model.IOSTSpecific iostSpecific_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          adamant.global.v1.Model.IOSTSpecific, adamant.global.v1.Model.IOSTSpecific.Builder, adamant.global.v1.Model.IOSTSpecificOrBuilder> iostSpecificBuilder_;
+      /**
+       * <pre>
+       * The Nem specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+       * @return Whether the iostSpecific field is set.
+       */
+      public boolean hasIostSpecific() {
+        return iostSpecificBuilder_ != null || iostSpecific_ != null;
+      }
+      /**
+       * <pre>
+       * The Nem specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+       * @return The iostSpecific.
+       */
+      public adamant.global.v1.Model.IOSTSpecific getIostSpecific() {
+        if (iostSpecificBuilder_ == null) {
+          return iostSpecific_ == null ? adamant.global.v1.Model.IOSTSpecific.getDefaultInstance() : iostSpecific_;
+        } else {
+          return iostSpecificBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * The Nem specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+       */
+      public Builder setIostSpecific(adamant.global.v1.Model.IOSTSpecific value) {
+        if (iostSpecificBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          iostSpecific_ = value;
+          onChanged();
+        } else {
+          iostSpecificBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The Nem specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+       */
+      public Builder setIostSpecific(
+          adamant.global.v1.Model.IOSTSpecific.Builder builderForValue) {
+        if (iostSpecificBuilder_ == null) {
+          iostSpecific_ = builderForValue.build();
+          onChanged();
+        } else {
+          iostSpecificBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The Nem specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+       */
+      public Builder mergeIostSpecific(adamant.global.v1.Model.IOSTSpecific value) {
+        if (iostSpecificBuilder_ == null) {
+          if (iostSpecific_ != null) {
+            iostSpecific_ =
+              adamant.global.v1.Model.IOSTSpecific.newBuilder(iostSpecific_).mergeFrom(value).buildPartial();
+          } else {
+            iostSpecific_ = value;
+          }
+          onChanged();
+        } else {
+          iostSpecificBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The Nem specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+       */
+      public Builder clearIostSpecific() {
+        if (iostSpecificBuilder_ == null) {
+          iostSpecific_ = null;
+          onChanged();
+        } else {
+          iostSpecific_ = null;
+          iostSpecificBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * The Nem specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+       */
+      public adamant.global.v1.Model.IOSTSpecific.Builder getIostSpecificBuilder() {
+        
+        onChanged();
+        return getIostSpecificFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * The Nem specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+       */
+      public adamant.global.v1.Model.IOSTSpecificOrBuilder getIostSpecificOrBuilder() {
+        if (iostSpecificBuilder_ != null) {
+          return iostSpecificBuilder_.getMessageOrBuilder();
+        } else {
+          return iostSpecific_ == null ?
+              adamant.global.v1.Model.IOSTSpecific.getDefaultInstance() : iostSpecific_;
+        }
+      }
+      /**
+       * <pre>
+       * The Nem specific fields
+       * </pre>
+       *
+       * <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          adamant.global.v1.Model.IOSTSpecific, adamant.global.v1.Model.IOSTSpecific.Builder, adamant.global.v1.Model.IOSTSpecificOrBuilder> 
+          getIostSpecificFieldBuilder() {
+        if (iostSpecificBuilder_ == null) {
+          iostSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              adamant.global.v1.Model.IOSTSpecific, adamant.global.v1.Model.IOSTSpecific.Builder, adamant.global.v1.Model.IOSTSpecificOrBuilder>(
+                  getIostSpecific(),
+                  getParentForChildren(),
+                  isClean());
+          iostSpecific_ = null;
+        }
+        return iostSpecificBuilder_;
       }
 
       private com.google.protobuf.Timestamp createTime_;
@@ -43658,6 +43921,12 @@ public final class Model {
      */
     adamant.global.v1.Model.NemMultisigTransactionOrBuilder getNemMultisigTransactionsOrBuilder(
         int index);
+
+    /**
+     * <code>uint64 expiration = 4 [json_name = "expiration"];</code>
+     * @return The expiration.
+     */
+    long getExpiration();
   }
   /**
    * <pre>
@@ -43731,6 +44000,11 @@ public final class Model {
               }
               nemMultisigTransactions_.add(
                   input.readMessage(adamant.global.v1.Model.NemMultisigTransaction.parser(), extensionRegistry));
+              break;
+            }
+            case 32: {
+
+              expiration_ = input.readUInt64();
               break;
             }
             default: {
@@ -43865,6 +44139,17 @@ public final class Model {
       return nemMultisigTransactions_.get(index);
     }
 
+    public static final int EXPIRATION_FIELD_NUMBER = 4;
+    private long expiration_;
+    /**
+     * <code>uint64 expiration = 4 [json_name = "expiration"];</code>
+     * @return The expiration.
+     */
+    @java.lang.Override
+    public long getExpiration() {
+      return expiration_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -43888,6 +44173,9 @@ public final class Model {
       for (int i = 0; i < nemMultisigTransactions_.size(); i++) {
         output.writeMessage(3, nemMultisigTransactions_.get(i));
       }
+      if (expiration_ != 0L) {
+        output.writeUInt64(4, expiration_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -43907,6 +44195,10 @@ public final class Model {
       for (int i = 0; i < nemMultisigTransactions_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, nemMultisigTransactions_.get(i));
+      }
+      if (expiration_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(4, expiration_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -43928,6 +44220,8 @@ public final class Model {
       if (txType_ != other.txType_) return false;
       if (!getNemMultisigTransactionsList()
           .equals(other.getNemMultisigTransactionsList())) return false;
+      if (getExpiration()
+          != other.getExpiration()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -43947,6 +44241,9 @@ public final class Model {
         hash = (37 * hash) + NEM_MULTISIG_TRANSACTIONS_FIELD_NUMBER;
         hash = (53 * hash) + getNemMultisigTransactionsList().hashCode();
       }
+      hash = (37 * hash) + EXPIRATION_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getExpiration());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -44095,6 +44392,8 @@ public final class Model {
         } else {
           nemMultisigTransactionsBuilder_.clear();
         }
+        expiration_ = 0L;
+
         return this;
       }
 
@@ -44133,6 +44432,7 @@ public final class Model {
         } else {
           result.nemMultisigTransactions_ = nemMultisigTransactionsBuilder_.build();
         }
+        result.expiration_ = expiration_;
         onBuilt();
         return result;
       }
@@ -44213,6 +44513,9 @@ public final class Model {
               nemMultisigTransactionsBuilder_.addAllMessages(other.nemMultisigTransactions_);
             }
           }
+        }
+        if (other.getExpiration() != 0L) {
+          setExpiration(other.getExpiration());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -44613,6 +44916,37 @@ public final class Model {
         }
         return nemMultisigTransactionsBuilder_;
       }
+
+      private long expiration_ ;
+      /**
+       * <code>uint64 expiration = 4 [json_name = "expiration"];</code>
+       * @return The expiration.
+       */
+      @java.lang.Override
+      public long getExpiration() {
+        return expiration_;
+      }
+      /**
+       * <code>uint64 expiration = 4 [json_name = "expiration"];</code>
+       * @param value The expiration to set.
+       * @return This builder for chaining.
+       */
+      public Builder setExpiration(long value) {
+        
+        expiration_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 expiration = 4 [json_name = "expiration"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearExpiration() {
+        
+        expiration_ = 0L;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -44661,6 +44995,724 @@ public final class Model {
 
     @java.lang.Override
     public adamant.global.v1.Model.NemSpecific getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface IOSTSpecificOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:adamant.global.v1.IOSTSpecific)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string memo = 1 [json_name = "memo"];</code>
+     * @return The memo.
+     */
+    java.lang.String getMemo();
+    /**
+     * <code>string memo = 1 [json_name = "memo"];</code>
+     * @return The bytes for memo.
+     */
+    com.google.protobuf.ByteString
+        getMemoBytes();
+
+    /**
+     * <code>uint64 timestamp = 2 [json_name = "timestamp"];</code>
+     * @return The timestamp.
+     */
+    long getTimestamp();
+
+    /**
+     * <code>uint64 expiration = 3 [json_name = "expiration"];</code>
+     * @return The expiration.
+     */
+    long getExpiration();
+  }
+  /**
+   * <pre>
+   * The model of IOST specific fields of transaction
+   * </pre>
+   *
+   * Protobuf type {@code adamant.global.v1.IOSTSpecific}
+   */
+  public static final class IOSTSpecific extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:adamant.global.v1.IOSTSpecific)
+      IOSTSpecificOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use IOSTSpecific.newBuilder() to construct.
+    private IOSTSpecific(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private IOSTSpecific() {
+      memo_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new IOSTSpecific();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private IOSTSpecific(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              memo_ = s;
+              break;
+            }
+            case 16: {
+
+              timestamp_ = input.readUInt64();
+              break;
+            }
+            case 24: {
+
+              expiration_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_IOSTSpecific_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_IOSTSpecific_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              adamant.global.v1.Model.IOSTSpecific.class, adamant.global.v1.Model.IOSTSpecific.Builder.class);
+    }
+
+    public static final int MEMO_FIELD_NUMBER = 1;
+    private volatile java.lang.Object memo_;
+    /**
+     * <code>string memo = 1 [json_name = "memo"];</code>
+     * @return The memo.
+     */
+    @java.lang.Override
+    public java.lang.String getMemo() {
+      java.lang.Object ref = memo_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        memo_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string memo = 1 [json_name = "memo"];</code>
+     * @return The bytes for memo.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMemoBytes() {
+      java.lang.Object ref = memo_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        memo_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 2;
+    private long timestamp_;
+    /**
+     * <code>uint64 timestamp = 2 [json_name = "timestamp"];</code>
+     * @return The timestamp.
+     */
+    @java.lang.Override
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    public static final int EXPIRATION_FIELD_NUMBER = 3;
+    private long expiration_;
+    /**
+     * <code>uint64 expiration = 3 [json_name = "expiration"];</code>
+     * @return The expiration.
+     */
+    @java.lang.Override
+    public long getExpiration() {
+      return expiration_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(memo_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, memo_);
+      }
+      if (timestamp_ != 0L) {
+        output.writeUInt64(2, timestamp_);
+      }
+      if (expiration_ != 0L) {
+        output.writeUInt64(3, expiration_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(memo_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, memo_);
+      }
+      if (timestamp_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, timestamp_);
+      }
+      if (expiration_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, expiration_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof adamant.global.v1.Model.IOSTSpecific)) {
+        return super.equals(obj);
+      }
+      adamant.global.v1.Model.IOSTSpecific other = (adamant.global.v1.Model.IOSTSpecific) obj;
+
+      if (!getMemo()
+          .equals(other.getMemo())) return false;
+      if (getTimestamp()
+          != other.getTimestamp()) return false;
+      if (getExpiration()
+          != other.getExpiration()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + MEMO_FIELD_NUMBER;
+      hash = (53 * hash) + getMemo().hashCode();
+      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimestamp());
+      hash = (37 * hash) + EXPIRATION_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getExpiration());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static adamant.global.v1.Model.IOSTSpecific parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.IOSTSpecific parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.IOSTSpecific parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.IOSTSpecific parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.IOSTSpecific parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.IOSTSpecific parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.IOSTSpecific parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.IOSTSpecific parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.IOSTSpecific parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.IOSTSpecific parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.IOSTSpecific parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.IOSTSpecific parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(adamant.global.v1.Model.IOSTSpecific prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * The model of IOST specific fields of transaction
+     * </pre>
+     *
+     * Protobuf type {@code adamant.global.v1.IOSTSpecific}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:adamant.global.v1.IOSTSpecific)
+        adamant.global.v1.Model.IOSTSpecificOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_IOSTSpecific_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_IOSTSpecific_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                adamant.global.v1.Model.IOSTSpecific.class, adamant.global.v1.Model.IOSTSpecific.Builder.class);
+      }
+
+      // Construct using adamant.global.v1.Model.IOSTSpecific.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        memo_ = "";
+
+        timestamp_ = 0L;
+
+        expiration_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_IOSTSpecific_descriptor;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.IOSTSpecific getDefaultInstanceForType() {
+        return adamant.global.v1.Model.IOSTSpecific.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.IOSTSpecific build() {
+        adamant.global.v1.Model.IOSTSpecific result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.IOSTSpecific buildPartial() {
+        adamant.global.v1.Model.IOSTSpecific result = new adamant.global.v1.Model.IOSTSpecific(this);
+        result.memo_ = memo_;
+        result.timestamp_ = timestamp_;
+        result.expiration_ = expiration_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof adamant.global.v1.Model.IOSTSpecific) {
+          return mergeFrom((adamant.global.v1.Model.IOSTSpecific)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(adamant.global.v1.Model.IOSTSpecific other) {
+        if (other == adamant.global.v1.Model.IOSTSpecific.getDefaultInstance()) return this;
+        if (!other.getMemo().isEmpty()) {
+          memo_ = other.memo_;
+          onChanged();
+        }
+        if (other.getTimestamp() != 0L) {
+          setTimestamp(other.getTimestamp());
+        }
+        if (other.getExpiration() != 0L) {
+          setExpiration(other.getExpiration());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        adamant.global.v1.Model.IOSTSpecific parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (adamant.global.v1.Model.IOSTSpecific) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object memo_ = "";
+      /**
+       * <code>string memo = 1 [json_name = "memo"];</code>
+       * @return The memo.
+       */
+      public java.lang.String getMemo() {
+        java.lang.Object ref = memo_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          memo_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string memo = 1 [json_name = "memo"];</code>
+       * @return The bytes for memo.
+       */
+      public com.google.protobuf.ByteString
+          getMemoBytes() {
+        java.lang.Object ref = memo_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          memo_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string memo = 1 [json_name = "memo"];</code>
+       * @param value The memo to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMemo(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        memo_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string memo = 1 [json_name = "memo"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMemo() {
+        
+        memo_ = getDefaultInstance().getMemo();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string memo = 1 [json_name = "memo"];</code>
+       * @param value The bytes for memo to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMemoBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        memo_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long timestamp_ ;
+      /**
+       * <code>uint64 timestamp = 2 [json_name = "timestamp"];</code>
+       * @return The timestamp.
+       */
+      @java.lang.Override
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>uint64 timestamp = 2 [json_name = "timestamp"];</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestamp(long value) {
+        
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 timestamp = 2 [json_name = "timestamp"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestamp() {
+        
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long expiration_ ;
+      /**
+       * <code>uint64 expiration = 3 [json_name = "expiration"];</code>
+       * @return The expiration.
+       */
+      @java.lang.Override
+      public long getExpiration() {
+        return expiration_;
+      }
+      /**
+       * <code>uint64 expiration = 3 [json_name = "expiration"];</code>
+       * @param value The expiration to set.
+       * @return This builder for chaining.
+       */
+      public Builder setExpiration(long value) {
+        
+        expiration_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 expiration = 3 [json_name = "expiration"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearExpiration() {
+        
+        expiration_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:adamant.global.v1.IOSTSpecific)
+    }
+
+    // @@protoc_insertion_point(class_scope:adamant.global.v1.IOSTSpecific)
+    private static final adamant.global.v1.Model.IOSTSpecific DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new adamant.global.v1.Model.IOSTSpecific();
+    }
+
+    public static adamant.global.v1.Model.IOSTSpecific getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<IOSTSpecific>
+        PARSER = new com.google.protobuf.AbstractParser<IOSTSpecific>() {
+      @java.lang.Override
+      public IOSTSpecific parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new IOSTSpecific(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<IOSTSpecific> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<IOSTSpecific> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public adamant.global.v1.Model.IOSTSpecific getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -46967,6 +48019,653 @@ public final class Model {
 
     @java.lang.Override
     public adamant.global.v1.Model.CreateTransactionNemSpecific getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CreateTransactionIOSTSpecificOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:adamant.global.v1.CreateTransactionIOSTSpecific)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string memo = 1 [json_name = "memo"];</code>
+     * @return The memo.
+     */
+    java.lang.String getMemo();
+    /**
+     * <code>string memo = 1 [json_name = "memo"];</code>
+     * @return The bytes for memo.
+     */
+    com.google.protobuf.ByteString
+        getMemoBytes();
+
+    /**
+     * <code>uint64 timestamp = 2 [json_name = "timestamp"];</code>
+     * @return The timestamp.
+     */
+    long getTimestamp();
+  }
+  /**
+   * <pre>
+   * The model of IOST specific fields of CreateTransaction
+   * </pre>
+   *
+   * Protobuf type {@code adamant.global.v1.CreateTransactionIOSTSpecific}
+   */
+  public static final class CreateTransactionIOSTSpecific extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:adamant.global.v1.CreateTransactionIOSTSpecific)
+      CreateTransactionIOSTSpecificOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CreateTransactionIOSTSpecific.newBuilder() to construct.
+    private CreateTransactionIOSTSpecific(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CreateTransactionIOSTSpecific() {
+      memo_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CreateTransactionIOSTSpecific();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CreateTransactionIOSTSpecific(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              memo_ = s;
+              break;
+            }
+            case 16: {
+
+              timestamp_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_CreateTransactionIOSTSpecific_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_CreateTransactionIOSTSpecific_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              adamant.global.v1.Model.CreateTransactionIOSTSpecific.class, adamant.global.v1.Model.CreateTransactionIOSTSpecific.Builder.class);
+    }
+
+    public static final int MEMO_FIELD_NUMBER = 1;
+    private volatile java.lang.Object memo_;
+    /**
+     * <code>string memo = 1 [json_name = "memo"];</code>
+     * @return The memo.
+     */
+    @java.lang.Override
+    public java.lang.String getMemo() {
+      java.lang.Object ref = memo_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        memo_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string memo = 1 [json_name = "memo"];</code>
+     * @return The bytes for memo.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMemoBytes() {
+      java.lang.Object ref = memo_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        memo_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 2;
+    private long timestamp_;
+    /**
+     * <code>uint64 timestamp = 2 [json_name = "timestamp"];</code>
+     * @return The timestamp.
+     */
+    @java.lang.Override
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(memo_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, memo_);
+      }
+      if (timestamp_ != 0L) {
+        output.writeUInt64(2, timestamp_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(memo_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, memo_);
+      }
+      if (timestamp_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, timestamp_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof adamant.global.v1.Model.CreateTransactionIOSTSpecific)) {
+        return super.equals(obj);
+      }
+      adamant.global.v1.Model.CreateTransactionIOSTSpecific other = (adamant.global.v1.Model.CreateTransactionIOSTSpecific) obj;
+
+      if (!getMemo()
+          .equals(other.getMemo())) return false;
+      if (getTimestamp()
+          != other.getTimestamp()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + MEMO_FIELD_NUMBER;
+      hash = (53 * hash) + getMemo().hashCode();
+      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getTimestamp());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static adamant.global.v1.Model.CreateTransactionIOSTSpecific parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.CreateTransactionIOSTSpecific parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.CreateTransactionIOSTSpecific parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.CreateTransactionIOSTSpecific parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.CreateTransactionIOSTSpecific parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.CreateTransactionIOSTSpecific parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.CreateTransactionIOSTSpecific parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.CreateTransactionIOSTSpecific parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.CreateTransactionIOSTSpecific parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.CreateTransactionIOSTSpecific parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.CreateTransactionIOSTSpecific parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.CreateTransactionIOSTSpecific parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(adamant.global.v1.Model.CreateTransactionIOSTSpecific prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * The model of IOST specific fields of CreateTransaction
+     * </pre>
+     *
+     * Protobuf type {@code adamant.global.v1.CreateTransactionIOSTSpecific}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:adamant.global.v1.CreateTransactionIOSTSpecific)
+        adamant.global.v1.Model.CreateTransactionIOSTSpecificOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_CreateTransactionIOSTSpecific_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_CreateTransactionIOSTSpecific_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                adamant.global.v1.Model.CreateTransactionIOSTSpecific.class, adamant.global.v1.Model.CreateTransactionIOSTSpecific.Builder.class);
+      }
+
+      // Construct using adamant.global.v1.Model.CreateTransactionIOSTSpecific.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        memo_ = "";
+
+        timestamp_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_CreateTransactionIOSTSpecific_descriptor;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.CreateTransactionIOSTSpecific getDefaultInstanceForType() {
+        return adamant.global.v1.Model.CreateTransactionIOSTSpecific.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.CreateTransactionIOSTSpecific build() {
+        adamant.global.v1.Model.CreateTransactionIOSTSpecific result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.CreateTransactionIOSTSpecific buildPartial() {
+        adamant.global.v1.Model.CreateTransactionIOSTSpecific result = new adamant.global.v1.Model.CreateTransactionIOSTSpecific(this);
+        result.memo_ = memo_;
+        result.timestamp_ = timestamp_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof adamant.global.v1.Model.CreateTransactionIOSTSpecific) {
+          return mergeFrom((adamant.global.v1.Model.CreateTransactionIOSTSpecific)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(adamant.global.v1.Model.CreateTransactionIOSTSpecific other) {
+        if (other == adamant.global.v1.Model.CreateTransactionIOSTSpecific.getDefaultInstance()) return this;
+        if (!other.getMemo().isEmpty()) {
+          memo_ = other.memo_;
+          onChanged();
+        }
+        if (other.getTimestamp() != 0L) {
+          setTimestamp(other.getTimestamp());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        adamant.global.v1.Model.CreateTransactionIOSTSpecific parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (adamant.global.v1.Model.CreateTransactionIOSTSpecific) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object memo_ = "";
+      /**
+       * <code>string memo = 1 [json_name = "memo"];</code>
+       * @return The memo.
+       */
+      public java.lang.String getMemo() {
+        java.lang.Object ref = memo_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          memo_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string memo = 1 [json_name = "memo"];</code>
+       * @return The bytes for memo.
+       */
+      public com.google.protobuf.ByteString
+          getMemoBytes() {
+        java.lang.Object ref = memo_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          memo_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string memo = 1 [json_name = "memo"];</code>
+       * @param value The memo to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMemo(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        memo_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string memo = 1 [json_name = "memo"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMemo() {
+        
+        memo_ = getDefaultInstance().getMemo();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string memo = 1 [json_name = "memo"];</code>
+       * @param value The bytes for memo to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMemoBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        memo_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long timestamp_ ;
+      /**
+       * <code>uint64 timestamp = 2 [json_name = "timestamp"];</code>
+       * @return The timestamp.
+       */
+      @java.lang.Override
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>uint64 timestamp = 2 [json_name = "timestamp"];</code>
+       * @param value The timestamp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTimestamp(long value) {
+        
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 timestamp = 2 [json_name = "timestamp"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTimestamp() {
+        
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:adamant.global.v1.CreateTransactionIOSTSpecific)
+    }
+
+    // @@protoc_insertion_point(class_scope:adamant.global.v1.CreateTransactionIOSTSpecific)
+    private static final adamant.global.v1.Model.CreateTransactionIOSTSpecific DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new adamant.global.v1.Model.CreateTransactionIOSTSpecific();
+    }
+
+    public static adamant.global.v1.Model.CreateTransactionIOSTSpecific getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CreateTransactionIOSTSpecific>
+        PARSER = new com.google.protobuf.AbstractParser<CreateTransactionIOSTSpecific>() {
+      @java.lang.Override
+      public CreateTransactionIOSTSpecific parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CreateTransactionIOSTSpecific(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CreateTransactionIOSTSpecific> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CreateTransactionIOSTSpecific> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public adamant.global.v1.Model.CreateTransactionIOSTSpecific getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -49753,23 +51452,23 @@ public final class Model {
 
     /**
      * <pre>
-     * AccountKeyID
+     * AccountID
      * </pre>
      *
-     * <code>string account_key_id = 10 [json_name = "accountKeyId"];</code>
-     * @return The accountKeyId.
+     * <code>string account_id = 10 [json_name = "accountId"];</code>
+     * @return The accountId.
      */
-    java.lang.String getAccountKeyId();
+    java.lang.String getAccountId();
     /**
      * <pre>
-     * AccountKeyID
+     * AccountID
      * </pre>
      *
-     * <code>string account_key_id = 10 [json_name = "accountKeyId"];</code>
-     * @return The bytes for accountKeyId.
+     * <code>string account_id = 10 [json_name = "accountId"];</code>
+     * @return The bytes for accountId.
      */
     com.google.protobuf.ByteString
-        getAccountKeyIdBytes();
+        getAccountIdBytes();
 
     /**
      * <code>.gincoinc.global.v1.NemTransactionType tx_type = 4 [json_name = "txType"];</code>
@@ -49915,7 +51614,7 @@ public final class Model {
       walletId_ = "";
       transactionId_ = "";
       nemMultisigTransactionId_ = "";
-      accountKeyId_ = "";
+      accountId_ = "";
       txType_ = 0;
       data_ = "";
       signature_ = "";
@@ -50023,7 +51722,7 @@ public final class Model {
             case 82: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              accountKeyId_ = s;
+              accountId_ = s;
               break;
             }
             default: {
@@ -50188,46 +51887,46 @@ public final class Model {
       }
     }
 
-    public static final int ACCOUNT_KEY_ID_FIELD_NUMBER = 10;
-    private volatile java.lang.Object accountKeyId_;
+    public static final int ACCOUNT_ID_FIELD_NUMBER = 10;
+    private volatile java.lang.Object accountId_;
     /**
      * <pre>
-     * AccountKeyID
+     * AccountID
      * </pre>
      *
-     * <code>string account_key_id = 10 [json_name = "accountKeyId"];</code>
-     * @return The accountKeyId.
+     * <code>string account_id = 10 [json_name = "accountId"];</code>
+     * @return The accountId.
      */
     @java.lang.Override
-    public java.lang.String getAccountKeyId() {
-      java.lang.Object ref = accountKeyId_;
+    public java.lang.String getAccountId() {
+      java.lang.Object ref = accountId_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        accountKeyId_ = s;
+        accountId_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * AccountKeyID
+     * AccountID
      * </pre>
      *
-     * <code>string account_key_id = 10 [json_name = "accountKeyId"];</code>
-     * @return The bytes for accountKeyId.
+     * <code>string account_id = 10 [json_name = "accountId"];</code>
+     * @return The bytes for accountId.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getAccountKeyIdBytes() {
-      java.lang.Object ref = accountKeyId_;
+        getAccountIdBytes() {
+      java.lang.Object ref = accountId_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        accountKeyId_ = b;
+        accountId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -50489,8 +52188,8 @@ public final class Model {
       if (updateTime_ != null) {
         output.writeMessage(9, getUpdateTime());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountKeyId_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, accountKeyId_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, accountId_);
       }
       unknownFields.writeTo(output);
     }
@@ -50532,8 +52231,8 @@ public final class Model {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(9, getUpdateTime());
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountKeyId_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, accountKeyId_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, accountId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -50556,8 +52255,8 @@ public final class Model {
           .equals(other.getTransactionId())) return false;
       if (!getNemMultisigTransactionId()
           .equals(other.getNemMultisigTransactionId())) return false;
-      if (!getAccountKeyId()
-          .equals(other.getAccountKeyId())) return false;
+      if (!getAccountId()
+          .equals(other.getAccountId())) return false;
       if (txType_ != other.txType_) return false;
       if (!getData()
           .equals(other.getData())) return false;
@@ -50591,8 +52290,8 @@ public final class Model {
       hash = (53 * hash) + getTransactionId().hashCode();
       hash = (37 * hash) + NEM_MULTISIG_TRANSACTION_ID_FIELD_NUMBER;
       hash = (53 * hash) + getNemMultisigTransactionId().hashCode();
-      hash = (37 * hash) + ACCOUNT_KEY_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getAccountKeyId().hashCode();
+      hash = (37 * hash) + ACCOUNT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getAccountId().hashCode();
       hash = (37 * hash) + TX_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + txType_;
       hash = (37 * hash) + DATA_FIELD_NUMBER;
@@ -50752,7 +52451,7 @@ public final class Model {
 
         nemMultisigTransactionId_ = "";
 
-        accountKeyId_ = "";
+        accountId_ = "";
 
         txType_ = 0;
 
@@ -50803,7 +52502,7 @@ public final class Model {
         result.walletId_ = walletId_;
         result.transactionId_ = transactionId_;
         result.nemMultisigTransactionId_ = nemMultisigTransactionId_;
-        result.accountKeyId_ = accountKeyId_;
+        result.accountId_ = accountId_;
         result.txType_ = txType_;
         result.data_ = data_;
         result.signature_ = signature_;
@@ -50878,8 +52577,8 @@ public final class Model {
           nemMultisigTransactionId_ = other.nemMultisigTransactionId_;
           onChanged();
         }
-        if (!other.getAccountKeyId().isEmpty()) {
-          accountKeyId_ = other.accountKeyId_;
+        if (!other.getAccountId().isEmpty()) {
+          accountId_ = other.accountId_;
           onChanged();
         }
         if (other.txType_ != 0) {
@@ -51199,22 +52898,22 @@ public final class Model {
         return this;
       }
 
-      private java.lang.Object accountKeyId_ = "";
+      private java.lang.Object accountId_ = "";
       /**
        * <pre>
-       * AccountKeyID
+       * AccountID
        * </pre>
        *
-       * <code>string account_key_id = 10 [json_name = "accountKeyId"];</code>
-       * @return The accountKeyId.
+       * <code>string account_id = 10 [json_name = "accountId"];</code>
+       * @return The accountId.
        */
-      public java.lang.String getAccountKeyId() {
-        java.lang.Object ref = accountKeyId_;
+      public java.lang.String getAccountId() {
+        java.lang.Object ref = accountId_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          accountKeyId_ = s;
+          accountId_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -51222,20 +52921,20 @@ public final class Model {
       }
       /**
        * <pre>
-       * AccountKeyID
+       * AccountID
        * </pre>
        *
-       * <code>string account_key_id = 10 [json_name = "accountKeyId"];</code>
-       * @return The bytes for accountKeyId.
+       * <code>string account_id = 10 [json_name = "accountId"];</code>
+       * @return The bytes for accountId.
        */
       public com.google.protobuf.ByteString
-          getAccountKeyIdBytes() {
-        java.lang.Object ref = accountKeyId_;
+          getAccountIdBytes() {
+        java.lang.Object ref = accountId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          accountKeyId_ = b;
+          accountId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -51243,54 +52942,54 @@ public final class Model {
       }
       /**
        * <pre>
-       * AccountKeyID
+       * AccountID
        * </pre>
        *
-       * <code>string account_key_id = 10 [json_name = "accountKeyId"];</code>
-       * @param value The accountKeyId to set.
+       * <code>string account_id = 10 [json_name = "accountId"];</code>
+       * @param value The accountId to set.
        * @return This builder for chaining.
        */
-      public Builder setAccountKeyId(
+      public Builder setAccountId(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        accountKeyId_ = value;
+        accountId_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * AccountKeyID
+       * AccountID
        * </pre>
        *
-       * <code>string account_key_id = 10 [json_name = "accountKeyId"];</code>
+       * <code>string account_id = 10 [json_name = "accountId"];</code>
        * @return This builder for chaining.
        */
-      public Builder clearAccountKeyId() {
+      public Builder clearAccountId() {
         
-        accountKeyId_ = getDefaultInstance().getAccountKeyId();
+        accountId_ = getDefaultInstance().getAccountId();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * AccountKeyID
+       * AccountID
        * </pre>
        *
-       * <code>string account_key_id = 10 [json_name = "accountKeyId"];</code>
-       * @param value The bytes for accountKeyId to set.
+       * <code>string account_id = 10 [json_name = "accountId"];</code>
+       * @param value The bytes for accountId to set.
        * @return This builder for chaining.
        */
-      public Builder setAccountKeyIdBytes(
+      public Builder setAccountIdBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        accountKeyId_ = value;
+        accountId_ = value;
         onChanged();
         return this;
       }
@@ -99357,6 +101056,874 @@ public final class Model {
 
   }
 
+  public interface IOSTChildAccountOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:adamant.global.v1.IOSTChildAccount)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+     * @return The walletId.
+     */
+    java.lang.String getWalletId();
+    /**
+     * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+     * @return The bytes for walletId.
+     */
+    com.google.protobuf.ByteString
+        getWalletIdBytes();
+
+    /**
+     * <code>string account_id = 2 [json_name = "accountId"];</code>
+     * @return The accountId.
+     */
+    java.lang.String getAccountId();
+    /**
+     * <code>string account_id = 2 [json_name = "accountId"];</code>
+     * @return The bytes for accountId.
+     */
+    com.google.protobuf.ByteString
+        getAccountIdBytes();
+
+    /**
+     * <code>string account_name = 3 [json_name = "accountName"];</code>
+     * @return The accountName.
+     */
+    java.lang.String getAccountName();
+    /**
+     * <code>string account_name = 3 [json_name = "accountName"];</code>
+     * @return The bytes for accountName.
+     */
+    com.google.protobuf.ByteString
+        getAccountNameBytes();
+  }
+  /**
+   * Protobuf type {@code adamant.global.v1.IOSTChildAccount}
+   */
+  public static final class IOSTChildAccount extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:adamant.global.v1.IOSTChildAccount)
+      IOSTChildAccountOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use IOSTChildAccount.newBuilder() to construct.
+    private IOSTChildAccount(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private IOSTChildAccount() {
+      walletId_ = "";
+      accountId_ = "";
+      accountName_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new IOSTChildAccount();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private IOSTChildAccount(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              walletId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              accountId_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              accountName_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_IOSTChildAccount_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_IOSTChildAccount_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              adamant.global.v1.Model.IOSTChildAccount.class, adamant.global.v1.Model.IOSTChildAccount.Builder.class);
+    }
+
+    public static final int WALLET_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object walletId_;
+    /**
+     * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+     * @return The walletId.
+     */
+    @java.lang.Override
+    public java.lang.String getWalletId() {
+      java.lang.Object ref = walletId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        walletId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+     * @return The bytes for walletId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getWalletIdBytes() {
+      java.lang.Object ref = walletId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        walletId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ACCOUNT_ID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object accountId_;
+    /**
+     * <code>string account_id = 2 [json_name = "accountId"];</code>
+     * @return The accountId.
+     */
+    @java.lang.Override
+    public java.lang.String getAccountId() {
+      java.lang.Object ref = accountId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        accountId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string account_id = 2 [json_name = "accountId"];</code>
+     * @return The bytes for accountId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAccountIdBytes() {
+      java.lang.Object ref = accountId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        accountId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ACCOUNT_NAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object accountName_;
+    /**
+     * <code>string account_name = 3 [json_name = "accountName"];</code>
+     * @return The accountName.
+     */
+    @java.lang.Override
+    public java.lang.String getAccountName() {
+      java.lang.Object ref = accountName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        accountName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string account_name = 3 [json_name = "accountName"];</code>
+     * @return The bytes for accountName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAccountNameBytes() {
+      java.lang.Object ref = accountName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        accountName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, accountId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, accountName_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, accountId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, accountName_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof adamant.global.v1.Model.IOSTChildAccount)) {
+        return super.equals(obj);
+      }
+      adamant.global.v1.Model.IOSTChildAccount other = (adamant.global.v1.Model.IOSTChildAccount) obj;
+
+      if (!getWalletId()
+          .equals(other.getWalletId())) return false;
+      if (!getAccountId()
+          .equals(other.getAccountId())) return false;
+      if (!getAccountName()
+          .equals(other.getAccountName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + WALLET_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getWalletId().hashCode();
+      hash = (37 * hash) + ACCOUNT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getAccountId().hashCode();
+      hash = (37 * hash) + ACCOUNT_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getAccountName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static adamant.global.v1.Model.IOSTChildAccount parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.IOSTChildAccount parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.IOSTChildAccount parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.IOSTChildAccount parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.IOSTChildAccount parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.IOSTChildAccount parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.IOSTChildAccount parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.IOSTChildAccount parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.IOSTChildAccount parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.IOSTChildAccount parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.IOSTChildAccount parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.IOSTChildAccount parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(adamant.global.v1.Model.IOSTChildAccount prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code adamant.global.v1.IOSTChildAccount}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:adamant.global.v1.IOSTChildAccount)
+        adamant.global.v1.Model.IOSTChildAccountOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_IOSTChildAccount_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_IOSTChildAccount_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                adamant.global.v1.Model.IOSTChildAccount.class, adamant.global.v1.Model.IOSTChildAccount.Builder.class);
+      }
+
+      // Construct using adamant.global.v1.Model.IOSTChildAccount.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        walletId_ = "";
+
+        accountId_ = "";
+
+        accountName_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_IOSTChildAccount_descriptor;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.IOSTChildAccount getDefaultInstanceForType() {
+        return adamant.global.v1.Model.IOSTChildAccount.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.IOSTChildAccount build() {
+        adamant.global.v1.Model.IOSTChildAccount result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.IOSTChildAccount buildPartial() {
+        adamant.global.v1.Model.IOSTChildAccount result = new adamant.global.v1.Model.IOSTChildAccount(this);
+        result.walletId_ = walletId_;
+        result.accountId_ = accountId_;
+        result.accountName_ = accountName_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof adamant.global.v1.Model.IOSTChildAccount) {
+          return mergeFrom((adamant.global.v1.Model.IOSTChildAccount)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(adamant.global.v1.Model.IOSTChildAccount other) {
+        if (other == adamant.global.v1.Model.IOSTChildAccount.getDefaultInstance()) return this;
+        if (!other.getWalletId().isEmpty()) {
+          walletId_ = other.walletId_;
+          onChanged();
+        }
+        if (!other.getAccountId().isEmpty()) {
+          accountId_ = other.accountId_;
+          onChanged();
+        }
+        if (!other.getAccountName().isEmpty()) {
+          accountName_ = other.accountName_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        adamant.global.v1.Model.IOSTChildAccount parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (adamant.global.v1.Model.IOSTChildAccount) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object walletId_ = "";
+      /**
+       * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+       * @return The walletId.
+       */
+      public java.lang.String getWalletId() {
+        java.lang.Object ref = walletId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          walletId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+       * @return The bytes for walletId.
+       */
+      public com.google.protobuf.ByteString
+          getWalletIdBytes() {
+        java.lang.Object ref = walletId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          walletId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+       * @param value The walletId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWalletId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        walletId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWalletId() {
+        
+        walletId_ = getDefaultInstance().getWalletId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+       * @param value The bytes for walletId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWalletIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        walletId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object accountId_ = "";
+      /**
+       * <code>string account_id = 2 [json_name = "accountId"];</code>
+       * @return The accountId.
+       */
+      public java.lang.String getAccountId() {
+        java.lang.Object ref = accountId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          accountId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string account_id = 2 [json_name = "accountId"];</code>
+       * @return The bytes for accountId.
+       */
+      public com.google.protobuf.ByteString
+          getAccountIdBytes() {
+        java.lang.Object ref = accountId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          accountId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string account_id = 2 [json_name = "accountId"];</code>
+       * @param value The accountId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccountId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        accountId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string account_id = 2 [json_name = "accountId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAccountId() {
+        
+        accountId_ = getDefaultInstance().getAccountId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string account_id = 2 [json_name = "accountId"];</code>
+       * @param value The bytes for accountId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccountIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        accountId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object accountName_ = "";
+      /**
+       * <code>string account_name = 3 [json_name = "accountName"];</code>
+       * @return The accountName.
+       */
+      public java.lang.String getAccountName() {
+        java.lang.Object ref = accountName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          accountName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string account_name = 3 [json_name = "accountName"];</code>
+       * @return The bytes for accountName.
+       */
+      public com.google.protobuf.ByteString
+          getAccountNameBytes() {
+        java.lang.Object ref = accountName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          accountName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string account_name = 3 [json_name = "accountName"];</code>
+       * @param value The accountName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccountName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        accountName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string account_name = 3 [json_name = "accountName"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAccountName() {
+        
+        accountName_ = getDefaultInstance().getAccountName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string account_name = 3 [json_name = "accountName"];</code>
+       * @param value The bytes for accountName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccountNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        accountName_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:adamant.global.v1.IOSTChildAccount)
+    }
+
+    // @@protoc_insertion_point(class_scope:adamant.global.v1.IOSTChildAccount)
+    private static final adamant.global.v1.Model.IOSTChildAccount DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new adamant.global.v1.Model.IOSTChildAccount();
+    }
+
+    public static adamant.global.v1.Model.IOSTChildAccount getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<IOSTChildAccount>
+        PARSER = new com.google.protobuf.AbstractParser<IOSTChildAccount>() {
+      @java.lang.Override
+      public IOSTChildAccount parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new IOSTChildAccount(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<IOSTChildAccount> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<IOSTChildAccount> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public adamant.global.v1.Model.IOSTChildAccount getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_global_v1_Wallet_descriptor;
   private static final 
@@ -99493,6 +102060,11 @@ public final class Model {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_global_v1_NemSpecific_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_IOSTSpecific_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_IOSTSpecific_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_global_v1_CreateTransactionSubstrateSpecific_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -99507,6 +102079,11 @@ public final class Model {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_global_v1_CreateTransactionNemSpecific_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_CreateTransactionIOSTSpecific_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_CreateTransactionIOSTSpecific_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_global_v1_SubstrateMultisigTransaction_descriptor;
   private static final 
@@ -99757,6 +102334,11 @@ public final class Model {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_global_v1_SubstrateChildAddress_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_IOSTChildAccount_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_IOSTChildAccount_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -99888,7 +102470,7 @@ public final class Model {
       "(\001R\007balance\022%\n\016string_balance\030\003 \001(\tR\rstr" +
       "ingBalance\022\037\n\013fee_balance\030\004 \001(\001R\nfeeBala" +
       "nce\022,\n\022string_fee_balance\030\005 \001(\tR\020stringF" +
-      "eeBalance\"\244\014\n\013Transaction\022\033\n\twallet_id\030\001" +
+      "eeBalance\"\352\014\n\013Transaction\022\033\n\twallet_id\030\001" +
       " \001(\tR\010walletId\022%\n\016transaction_id\030\002 \001(\tR\r" +
       "transactionId\022,\n\004coin\030\003 \001(\0162\030.gincoinc.g" +
       "lobal.v1.CoinR\004coin\022\023\n\005tx_id\030\004 \001(\tR\004txId" +
@@ -99924,76 +102506,81 @@ public final class Model {
       "acoin_specific\030\036 \001(\0132#.adamant.global.v1" +
       ".MonacoinSpecificR\020monacoinSpecific\022A\n\014n" +
       "em_specific\030\037 \001(\0132\036.adamant.global.v1.Ne" +
-      "mSpecificR\013nemSpecific\022;\n\013create_time\030\022 " +
-      "\001(\0132\032.google.protobuf.TimestampR\ncreateT" +
-      "ime\022;\n\013update_time\030\023 \001(\0132\032.google.protob" +
-      "uf.TimestampR\nupdateTime\"\206\002\n\021Transaction" +
-      "Member\022\035\n\naccount_id\030\001 \001(\tR\taccountId\022A\n" +
-      "\014account_type\030\002 \001(\0162\036.adamant.global.v1." +
-      "AccountTypeR\013accountType\022\022\n\004name\030\003 \001(\tR\004" +
-      "name\022\024\n\005email\030\004 \001(\tR\005email\022/\n\004role\030\005 \001(\016" +
-      "2\033.adamant.global.v1.RoleTypeR\004role\022\026\n\006s" +
-      "igned\030\006 \001(\010R\006signed\022\034\n\tvalidated\030\007 \001(\010R\t" +
-      "validated\"r\n\007TxInput\022\023\n\005tx_id\030\001 \001(\tR\004txI" +
-      "d\022\031\n\010tx_index\030\002 \001(\rR\007txIndex\022\024\n\005value\030\003 " +
-      "\001(\001R\005value\022!\n\014string_value\030\004 \001(\tR\013string" +
-      "Value\"z\n\010TxOutput\022\030\n\007address\030\001 \001(\tR\007addr" +
-      "ess\022\024\n\005value\030\002 \001(\001R\005value\022!\n\014string_valu" +
-      "e\030\003 \001(\tR\013stringValue\022\033\n\tis_change\030\004 \001(\010R" +
-      "\010isChange\"\372\001\n\004UTXO\022\023\n\005tx_id\030\001 \001(\tR\004txId\022" +
-      "\022\n\004vout\030\002 \001(\rR\004vout\022\024\n\005value\030\003 \001(\001R\005valu" +
-      "e\022!\n\014string_value\030\004 \001(\tR\013stringValue\022\030\n\007" +
-      "address\030\005 \001(\tR\007address\022v\n\016transaction_id" +
-      "\030\006 \001(\tBO\372BLrJ2H^$|^[0-9a-f]{8}-[0-9a-f]{" +
-      "4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-" +
-      "f]{12}$R\rtransactionId\"\206\001\n\017BitcoinSpecif" +
-      "ic\0227\n\ttx_inputs\030\001 \003(\0132\032.adamant.global.v" +
-      "1.TxInputR\010txInputs\022:\n\ntx_outputs\030\002 \003(\0132" +
-      "\033.adamant.global.v1.TxOutputR\ttxOutputs\"" +
-      "\207\001\n\020LitecoinSpecific\0227\n\ttx_inputs\030\001 \003(\0132" +
-      "\032.adamant.global.v1.TxInputR\010txInputs\022:\n" +
-      "\ntx_outputs\030\002 \003(\0132\033.adamant.global.v1.Tx" +
-      "OutputR\ttxOutputs\"\212\001\n\023BitcoincashSpecifi" +
-      "c\0227\n\ttx_inputs\030\001 \003(\0132\032.adamant.global.v1" +
-      ".TxInputR\010txInputs\022:\n\ntx_outputs\030\002 \003(\0132\033" +
-      ".adamant.global.v1.TxOutputR\ttxOutputs\"\340" +
-      "\001\n\020EthereumSpecific\022\033\n\tgas_limit\030\001 \001(\004R\010" +
-      "gasLimit\022\024\n\005nonce\030\002 \001(\004R\005nonce\022\"\n\ris_nex" +
-      "t_nonce\030\003 \001(\010R\013isNextNonce\022U\n\016method_id_" +
-      "type\030\004 \001(\0162/.adamant.global.v1.EthereumC" +
-      "ontractMethodIDTypeR\014methodIdType\022\036\n\nexp" +
-      "iration\030\005 \001(\004R\nexpiration\"\327\001\n\013XrpSpecifi" +
-      "c\022\'\n\017sequence_number\030\001 \001(\rR\016sequenceNumb" +
-      "er\022\'\n\017destination_tag\030\002 \001(\rR\016destination" +
-      "Tag\022?\n\007tx_type\030\003 \001(\0162&.gincoinc.global.v" +
-      "1.XRPTransactionTypeR\006txType\0225\n\027is_next_" +
-      "sequence_number\030\004 \001(\010R\024isNextSequenceNum" +
-      "ber\".\n\014TronSpecific\022\036\n\nexpiration\030\001 \001(\004R" +
-      "\nexpiration\"\204\001\n\rC0banSpecific\0227\n\ttx_inpu" +
-      "ts\030\001 \003(\0132\032.adamant.global.v1.TxInputR\010tx" +
-      "Inputs\022:\n\ntx_outputs\030\002 \003(\0132\033.adamant.glo" +
-      "bal.v1.TxOutputR\ttxOutputs\"\216\001\n\017StellarSp" +
-      "ecific\022\'\n\017sequence_number\030\001 \001(\003R\016sequenc" +
-      "eNumber\022\033\n\007memo_id\030\002 \001(\004B\0020\001R\006memoId\0225\n\027" +
-      "is_next_sequence_number\030\003 \001(\010R\024isNextSeq" +
-      "uenceNumber\"\206\001\n\017CardanoSpecific\0227\n\ttx_in" +
-      "puts\030\001 \003(\0132\032.adamant.global.v1.TxInputR\010" +
-      "txInputs\022:\n\ntx_outputs\030\002 \003(\0132\033.adamant.g" +
-      "lobal.v1.TxOutputR\ttxOutputs\"\306\001\n\021Substra" +
-      "teSpecific\022\024\n\005nonce\030\001 \001(\004R\005nonce\022\"\n\ris_n" +
-      "ext_nonce\030\002 \001(\010R\013isNextNonce\022w\n\037substrat" +
-      "e_multisig_transactions\030\004 \003(\0132/.adamant." +
-      "global.v1.SubstrateMultisigTransactionR\035" +
-      "substrateMultisigTransactions\"\207\001\n\020Monaco" +
+      "mSpecificR\013nemSpecific\022D\n\riost_specific\030" +
+      "  \001(\0132\037.adamant.global.v1.IOSTSpecificR\014" +
+      "iostSpecific\022;\n\013create_time\030\022 \001(\0132\032.goog" +
+      "le.protobuf.TimestampR\ncreateTime\022;\n\013upd" +
+      "ate_time\030\023 \001(\0132\032.google.protobuf.Timesta" +
+      "mpR\nupdateTime\"\206\002\n\021TransactionMember\022\035\n\n" +
+      "account_id\030\001 \001(\tR\taccountId\022A\n\014account_t" +
+      "ype\030\002 \001(\0162\036.adamant.global.v1.AccountTyp" +
+      "eR\013accountType\022\022\n\004name\030\003 \001(\tR\004name\022\024\n\005em" +
+      "ail\030\004 \001(\tR\005email\022/\n\004role\030\005 \001(\0162\033.adamant" +
+      ".global.v1.RoleTypeR\004role\022\026\n\006signed\030\006 \001(" +
+      "\010R\006signed\022\034\n\tvalidated\030\007 \001(\010R\tvalidated\"" +
+      "r\n\007TxInput\022\023\n\005tx_id\030\001 \001(\tR\004txId\022\031\n\010tx_in" +
+      "dex\030\002 \001(\rR\007txIndex\022\024\n\005value\030\003 \001(\001R\005value" +
+      "\022!\n\014string_value\030\004 \001(\tR\013stringValue\"z\n\010T" +
+      "xOutput\022\030\n\007address\030\001 \001(\tR\007address\022\024\n\005val" +
+      "ue\030\002 \001(\001R\005value\022!\n\014string_value\030\003 \001(\tR\013s" +
+      "tringValue\022\033\n\tis_change\030\004 \001(\010R\010isChange\"" +
+      "\372\001\n\004UTXO\022\023\n\005tx_id\030\001 \001(\tR\004txId\022\022\n\004vout\030\002 " +
+      "\001(\rR\004vout\022\024\n\005value\030\003 \001(\001R\005value\022!\n\014strin" +
+      "g_value\030\004 \001(\tR\013stringValue\022\030\n\007address\030\005 " +
+      "\001(\tR\007address\022v\n\016transaction_id\030\006 \001(\tBO\372B" +
+      "LrJ2H^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-" +
+      "f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\rt" +
+      "ransactionId\"\206\001\n\017BitcoinSpecific\0227\n\ttx_i" +
+      "nputs\030\001 \003(\0132\032.adamant.global.v1.TxInputR" +
+      "\010txInputs\022:\n\ntx_outputs\030\002 \003(\0132\033.adamant." +
+      "global.v1.TxOutputR\ttxOutputs\"\207\001\n\020Liteco" +
       "inSpecific\0227\n\ttx_inputs\030\001 \003(\0132\032.adamant." +
       "global.v1.TxInputR\010txInputs\022:\n\ntx_output" +
       "s\030\002 \003(\0132\033.adamant.global.v1.TxOutputR\ttx" +
-      "Outputs\"\317\001\n\013NemSpecific\022\030\n\007message\030\001 \001(\t" +
-      "R\007message\022?\n\007tx_type\030\002 \001(\0162&.gincoinc.gl" +
-      "obal.v1.NemTransactionTypeR\006txType\022e\n\031ne" +
-      "m_multisig_transactions\030\003 \003(\0132).adamant." +
-      "global.v1.NemMultisigTransactionR\027nemMul" +
-      "tisigTransactions\"\342\001\n\"CreateTransactionS" +
+      "Outputs\"\212\001\n\023BitcoincashSpecific\0227\n\ttx_in" +
+      "puts\030\001 \003(\0132\032.adamant.global.v1.TxInputR\010" +
+      "txInputs\022:\n\ntx_outputs\030\002 \003(\0132\033.adamant.g" +
+      "lobal.v1.TxOutputR\ttxOutputs\"\340\001\n\020Ethereu" +
+      "mSpecific\022\033\n\tgas_limit\030\001 \001(\004R\010gasLimit\022\024" +
+      "\n\005nonce\030\002 \001(\004R\005nonce\022\"\n\ris_next_nonce\030\003 " +
+      "\001(\010R\013isNextNonce\022U\n\016method_id_type\030\004 \001(\016" +
+      "2/.adamant.global.v1.EthereumContractMet" +
+      "hodIDTypeR\014methodIdType\022\036\n\nexpiration\030\005 " +
+      "\001(\004R\nexpiration\"\327\001\n\013XrpSpecific\022\'\n\017seque" +
+      "nce_number\030\001 \001(\rR\016sequenceNumber\022\'\n\017dest" +
+      "ination_tag\030\002 \001(\rR\016destinationTag\022?\n\007tx_" +
+      "type\030\003 \001(\0162&.gincoinc.global.v1.XRPTrans" +
+      "actionTypeR\006txType\0225\n\027is_next_sequence_n" +
+      "umber\030\004 \001(\010R\024isNextSequenceNumber\".\n\014Tro" +
+      "nSpecific\022\036\n\nexpiration\030\001 \001(\004R\nexpiratio" +
+      "n\"\204\001\n\rC0banSpecific\0227\n\ttx_inputs\030\001 \003(\0132\032" +
+      ".adamant.global.v1.TxInputR\010txInputs\022:\n\n" +
+      "tx_outputs\030\002 \003(\0132\033.adamant.global.v1.TxO" +
+      "utputR\ttxOutputs\"\216\001\n\017StellarSpecific\022\'\n\017" +
+      "sequence_number\030\001 \001(\003R\016sequenceNumber\022\033\n" +
+      "\007memo_id\030\002 \001(\004B\0020\001R\006memoId\0225\n\027is_next_se" +
+      "quence_number\030\003 \001(\010R\024isNextSequenceNumbe" +
+      "r\"\206\001\n\017CardanoSpecific\0227\n\ttx_inputs\030\001 \003(\013" +
+      "2\032.adamant.global.v1.TxInputR\010txInputs\022:" +
+      "\n\ntx_outputs\030\002 \003(\0132\033.adamant.global.v1.T" +
+      "xOutputR\ttxOutputs\"\306\001\n\021SubstrateSpecific" +
+      "\022\024\n\005nonce\030\001 \001(\004R\005nonce\022\"\n\ris_next_nonce\030" +
+      "\002 \001(\010R\013isNextNonce\022w\n\037substrate_multisig" +
+      "_transactions\030\004 \003(\0132/.adamant.global.v1." +
+      "SubstrateMultisigTransactionR\035substrateM" +
+      "ultisigTransactions\"\207\001\n\020MonacoinSpecific" +
+      "\0227\n\ttx_inputs\030\001 \003(\0132\032.adamant.global.v1." +
+      "TxInputR\010txInputs\022:\n\ntx_outputs\030\002 \003(\0132\033." +
+      "adamant.global.v1.TxOutputR\ttxOutputs\"\357\001" +
+      "\n\013NemSpecific\022\030\n\007message\030\001 \001(\tR\007message\022" +
+      "?\n\007tx_type\030\002 \001(\0162&.gincoinc.global.v1.Ne" +
+      "mTransactionTypeR\006txType\022e\n\031nem_multisig" +
+      "_transactions\030\003 \003(\0132).adamant.global.v1." +
+      "NemMultisigTransactionR\027nemMultisigTrans" +
+      "actions\022\036\n\nexpiration\030\004 \001(\004R\nexpiration\"" +
+      "`\n\014IOSTSpecific\022\022\n\004memo\030\001 \001(\tR\004memo\022\034\n\tt" +
+      "imestamp\030\002 \001(\004R\ttimestamp\022\036\n\nexpiration\030" +
+      "\003 \001(\004R\nexpiration\"\342\001\n\"CreateTransactionS" +
       "ubstrateSpecific\022%\n\016transaction_id\030\001 \001(\t" +
       "R\rtransactionId\022A\n\tcall_type\030\002 \001(\0162$.ada" +
       "mant.global.v1.SubstrateCallTypeR\010callTy" +
@@ -100007,306 +102594,311 @@ public final class Model {
       "eTransactionNemSpecific\022%\n\016transaction_i" +
       "d\030\001 \001(\tR\rtransactionId\022?\n\007tx_type\030\002 \001(\0162" +
       "&.gincoinc.global.v1.NemTransactionTypeR" +
-      "\006txType\022\030\n\007message\030\003 \001(\tR\007message\"\357\004\n\034Su" +
-      "bstrateMultisigTransaction\022\033\n\twallet_id\030" +
-      "\001 \001(\tR\010walletId\022%\n\016transaction_id\030\002 \001(\tR" +
-      "\rtransactionId\022I\n!substrate_multisig_tra" +
-      "nsaction_id\030\003 \001(\tR\036substrateMultisigTran" +
-      "sactionId\022\035\n\naccount_id\030\004 \001(\tR\taccountId" +
-      "\022\023\n\005tx_id\030\005 \001(\tR\004txId\022!\n\014extrinsic_id\030\006 " +
-      "\001(\tR\013extrinsicId\022\031\n\010jpy_rate\030\007 \001(\001R\007jpyR" +
-      "ate\022\020\n\003fee\030\010 \001(\001R\003fee\022\035\n\nstring_fee\030\t \001(" +
-      "\tR\tstringFee\022\024\n\005nonce\030\n \001(\004R\005nonce\022R\n\022mu" +
-      "ltisig_call_type\030\013 \001(\0162$.adamant.global." +
-      "v1.SubstrateCallTypeR\020multisigCallType\0229" +
-      "\n\005state\030\014 \001(\0162#.adamant.global.v1.Transa" +
-      "ctionStateR\005state\022;\n\013create_time\030\r \001(\0132\032" +
-      ".google.protobuf.TimestampR\ncreateTime\022;" +
-      "\n\013update_time\030\016 \001(\0132\032.google.protobuf.Ti" +
-      "mestampR\nupdateTime\"\351\003\n\026NemMultisigTrans" +
-      "action\022\033\n\twallet_id\030\001 \001(\tR\010walletId\022%\n\016t" +
-      "ransaction_id\030\002 \001(\tR\rtransactionId\022=\n\033ne" +
-      "m_multisig_transaction_id\030\003 \001(\tR\030nemMult" +
-      "isigTransactionId\022$\n\016account_key_id\030\n \001(" +
-      "\tR\014accountKeyId\022?\n\007tx_type\030\004 \001(\0162&.ginco" +
-      "inc.global.v1.NemTransactionTypeR\006txType" +
-      "\022\022\n\004data\030\005 \001(\tR\004data\022\034\n\tsignature\030\006 \001(\tR" +
-      "\tsignature\0229\n\005state\030\007 \001(\0162#.adamant.glob" +
-      "al.v1.TransactionStateR\005state\022;\n\013create_" +
-      "time\030\010 \001(\0132\032.google.protobuf.TimestampR\n" +
-      "createTime\022;\n\013update_time\030\t \001(\0132\032.google" +
-      ".protobuf.TimestampR\nupdateTime\"\207\003\n\010Sign" +
-      "Info\022\033\n\twallet_id\030\001 \001(\tR\010walletId\022%\n\016tra" +
-      "nsaction_id\030\002 \001(\tR\rtransactionId\022\025\n\006key_" +
-      "id\030\003 \001(\tR\005keyId\022\035\n\nhd_account\030\004 \001(\rR\thdA" +
-      "ccount\022,\n\004coin\030\005 \001(\0162\030.gincoinc.global.v" +
-      "1.CoinR\004coin\022\023\n\005tx_id\030\006 \001(\tR\004txId\022\035\n\nsig" +
-      "n_index\030\013 \001(\rR\tsignIndex\022!\n\014sign_message" +
-      "\030\007 \001(\tR\013signMessage\022\033\n\thd_change\030\010 \001(\rR\010" +
-      "hdChange\022\031\n\010hd_index\030\t \001(\rR\007hdIndex\022D\n\016s" +
-      "ign_tx_inputs\030\n \003(\0132\036.adamant.global.v1." +
-      "SignTxInputR\014signTxInputs\"\216\001\n\013SignTxInpu" +
-      "t\022$\n\016tx_input_index\030\001 \001(\rR\014txInputIndex\022" +
-      "!\n\014sign_message\030\002 \001(\tR\013signMessage\022\033\n\thd" +
-      "_change\030\003 \001(\rR\010hdChange\022\031\n\010hd_index\030\004 \001(" +
-      "\rR\007hdIndex\"\320\005\n\010Transfer\022\033\n\twallet_id\030\001 \001" +
-      "(\tR\010walletId\022\037\n\013transfer_id\030\002 \001(\tR\ntrans" +
-      "ferId\022,\n\004coin\030\003 \001(\0162\030.gincoinc.global.v1" +
-      ".CoinR\004coin\022\023\n\005tx_id\030\004 \001(\tR\004txId\022E\n\rtran" +
-      "sfer_type\030\005 \001(\0162 .gincoinc.global.v1.Tra" +
-      "nsferTypeR\014transferType\022\024\n\005value\030\006 \001(\001R\005" +
-      "value\022!\n\014string_value\030\007 \001(\tR\013stringValue" +
-      "\022\031\n\010jpy_rate\030\t \001(\001R\007jpyRate\022*\n\021partner_w" +
-      "allet_id\030\n \001(\tR\017partnerWalletId\022\'\n\017partn" +
-      "er_address\030\013 \001(\tR\016partnerAddress\022\'\n\017dest" +
-      "ination_tag\030\017 \001(\rR\016destinationTag\022\033\n\007mem" +
-      "o_id\030\021 \001(\004B\0020\001R\006memoId\022\030\n\007message\030\022 \001(\tR" +
-      "\007message\022:\n\005state\030\014 \001(\0162$.gincoinc.globa" +
-      "l.v1.TransactionStateR\005state\022=\n\006result\030\020" +
-      " \001(\0162%.gincoinc.global.v1.TransactionRes" +
-      "ultR\006result\022;\n\013create_time\030\r \001(\0132\032.googl" +
-      "e.protobuf.TimestampR\ncreateTime\022;\n\013upda" +
-      "te_time\030\016 \001(\0132\032.google.protobuf.Timestam" +
-      "pR\nupdateTime\"\372\005\n\021UncheckedTransfer\022\033\n\tw" +
-      "allet_id\030\001 \001(\tR\010walletId\022\037\n\013transfer_id\030" +
-      "\002 \001(\tR\ntransferId\022,\n\004coin\030\003 \001(\0162\030.gincoi" +
-      "nc.global.v1.CoinR\004coin\022\023\n\005tx_id\030\004 \001(\tR\004" +
-      "txId\022E\n\rtransfer_type\030\005 \001(\0162 .gincoinc.g" +
-      "lobal.v1.TransferTypeR\014transferType\022:\n\005s" +
-      "tate\030\006 \001(\0162$.gincoinc.global.v1.Transact" +
-      "ionStateR\005state\022=\n\006result\030\007 \001(\0162%.gincoi" +
-      "nc.global.v1.TransactionResultR\006result\022\024" +
-      "\n\005value\030\010 \001(\001R\005value\022!\n\014string_value\030\t \001" +
-      "(\tR\013stringValue\022\031\n\010jpy_rate\030\n \001(\001R\007jpyRa" +
-      "te\022*\n\021partner_wallet_id\030\013 \001(\tR\017partnerWa" +
-      "lletId\022\'\n\017partner_address\030\014 \001(\tR\016partner" +
-      "Address\022\'\n\017destination_tag\030\r \001(\rR\016destin" +
-      "ationTag\022\033\n\007memo_id\030\016 \001(\004B\0020\001R\006memoId\022\030\n" +
-      "\007message\030\022 \001(\tR\007message\022\037\n\013has_checked\030\017" +
-      " \001(\010R\nhasChecked\022;\n\013create_time\030\020 \001(\0132\032." +
-      "google.protobuf.TimestampR\ncreateTime\022;\n" +
-      "\013update_time\030\021 \001(\0132\032.google.protobuf.Tim" +
-      "estampR\nupdateTime\"\372\002\n\025EventTriggeredMes" +
-      "sage\022;\n\032event_triggered_message_id\030\001 \001(\t" +
-      "R\027eventTriggeredMessageId\022m\n\034event_trigg" +
-      "ered_message_type\030\002 \001(\0162,.adamant.global" +
-      ".v1.EventTriggeredMessageTypeR\031eventTrig" +
-      "geredMessageType\022\031\n\010owner_id\030\003 \001(\tR\007owne" +
-      "rId\022 \n\013destination\030\004 \001(\tR\013destination\022;\n" +
-      "\013create_time\030\005 \001(\0132\032.google.protobuf.Tim" +
-      "estampR\ncreateTime\022;\n\013update_time\030\006 \001(\0132" +
-      "\032.google.protobuf.TimestampR\nupdateTime\"" +
-      "F\n\004Rate\022,\n\004coin\030\001 \001(\0162\030.gincoinc.global." +
-      "v1.CoinR\004coin\022\020\n\003jpy\030\002 \001(\001R\003jpy\"\315\001\n\014Rate" +
-      "Snapshot\022(\n\020rate_snapshot_id\030\001 \001(\tR\016rate" +
-      "SnapshotId\022@\n\005rates\030\002 \003(\0132*.adamant.glob" +
-      "al.v1.RateSnapshot.RatesEntryR\005rates\032Q\n\n" +
-      "RatesEntry\022\020\n\003key\030\001 \001(\rR\003key\022-\n\005value\030\002 " +
-      "\001(\0132\027.adamant.global.v1.RateR\005value:\0028\001\"" +
-      "W\n\020Deactivatability\022\035\n\naccount_id\030\001 \001(\tR" +
-      "\taccountId\022$\n\rdeactivatable\030\002 \001(\010R\rdeact" +
-      "ivatable\"\333\002\n\016LabeledAddress\022,\n\022labeled_a" +
-      "ddress_id\030\001 \001(\tR\020labeledAddressId\022\022\n\004nam" +
-      "e\030\002 \001(\tR\004name\022,\n\004coin\030\003 \001(\0162\030.gincoinc.g" +
-      "lobal.v1.CoinR\004coin\022\030\n\007address\030\004 \001(\tR\007ad" +
-      "dress\022E\n\010proposal\030\005 \001(\0132).adamant.global" +
-      ".v1.LabeledAddressProposalR\010proposal\022;\n\013" +
-      "create_time\030\007 \001(\0132\032.google.protobuf.Time" +
-      "stampR\ncreateTime\022;\n\013update_time\030\010 \001(\0132\032" +
-      ".google.protobuf.TimestampR\nupdateTime\"\241" +
-      "\002\n\026LabeledAddressProposal\0220\n\024requester_a" +
-      "ccount_id\030\001 \001(\tR\022requesterAccountId\022%\n\016r" +
-      "equester_name\030\002 \001(\tR\rrequesterName\022.\n\023ap" +
-      "prover_account_id\030\003 \001(\tR\021approverAccount" +
-      "Id\022#\n\rapprover_name\030\004 \001(\tR\014approverName\022" +
-      ")\n\020proposed_address\030\005 \001(\tR\017proposedAddre" +
-      "ss\022.\n\023address_is_reviewed\030\006 \001(\010R\021address" +
-      "IsReviewed\"\253\002\n\tWhitelist\022!\n\014whitelist_id" +
-      "\030\001 \001(\tR\013whitelistId\022\022\n\004name\030\002 \001(\tR\004name\022" +
-      ",\n\004coin\030\003 \001(\0162\030.gincoinc.global.v1.CoinR" +
-      "\004coin\022?\n\taddresses\030\004 \003(\0132!.adamant.globa" +
-      "l.v1.LabeledAddressR\taddresses\022;\n\013create" +
-      "_time\030\006 \001(\0132\032.google.protobuf.TimestampR" +
-      "\ncreateTime\022;\n\013update_time\030\007 \001(\0132\032.googl" +
-      "e.protobuf.TimestampR\nupdateTime\"\310\003\n\rTra" +
-      "nsferLimit\022*\n\021transfer_limit_id\030\001 \001(\tR\017t" +
-      "ransferLimitId\022\022\n\004name\030\002 \001(\tR\004name\022,\n\004co" +
-      "in\030\003 \001(\0162\030.gincoinc.global.v1.CoinR\004coin" +
-      "\022!\n\014hourly_limit\030\004 \001(\003R\013hourlyLimit\022\037\n\013d" +
-      "aily_limit\030\005 \001(\003R\ndailyLimit\022$\n\016one_time" +
-      "_limit\030\006 \001(\003R\014oneTimeLimit\022D\n\010proposal\030\007" +
-      " \001(\0132(.adamant.global.v1.TransferLimitPr" +
-      "oposalR\010proposal\022\037\n\013is_reviewed\030\010 \001(\010R\ni" +
-      "sReviewed\022;\n\013create_time\030\n \001(\0132\032.google." +
-      "protobuf.TimestampR\ncreateTime\022;\n\013update" +
-      "_time\030\013 \001(\0132\032.google.protobuf.TimestampR" +
-      "\nupdateTime\"\203\003\n\025TransferLimitProposal\0220\n" +
-      "\024requester_account_id\030\001 \001(\tR\022requesterAc" +
-      "countId\022%\n\016requester_name\030\002 \001(\tR\rrequest" +
-      "erName\022.\n\023approver_account_id\030\003 \001(\tR\021app" +
-      "roverAccountId\022#\n\rapprover_name\030\004 \001(\tR\014a" +
-      "pproverName\0222\n\025proposed_hourly_limit\030\005 \001" +
-      "(\003R\023proposedHourlyLimit\0220\n\024proposed_dail" +
-      "y_limit\030\006 \001(\003R\022proposedDailyLimit\0225\n\027pro" +
-      "posed_one_time_limit\030\007 \001(\003R\024proposedOneT" +
-      "imeLimit\022\037\n\013is_reviewed\030\010 \001(\010R\nisReviewe" +
-      "d\"\213\004\n\006Policy\022\033\n\tpolicy_id\030\001 \001(\tR\010policyI" +
-      "d\022>\n\013policy_type\030\002 \001(\0162\035.adamant.global." +
-      "v1.PolicyTypeR\npolicyType\022\022\n\004name\030\003 \001(\tR" +
-      "\004name\022$\n\016is_base_policy\030\004 \001(\010R\014isBasePol" +
-      "icy\022,\n\004coin\030\005 \001(\0162\030.gincoinc.global.v1.C" +
-      "oinR\004coin\022:\n\twhitelist\030\006 \001(\0132\034.adamant.g" +
-      "lobal.v1.WhitelistR\twhitelist\022G\n\016transfe" +
-      "r_limit\030\007 \001(\0132 .adamant.global.v1.Transf" +
-      "erLimitR\rtransferLimit\022=\n\010proposal\030\013 \001(\013" +
-      "2!.adamant.global.v1.PolicyProposalR\010pro" +
-      "posal\022;\n\013create_time\030\t \001(\0132\032.google.prot" +
-      "obuf.TimestampR\ncreateTime\022;\n\013update_tim" +
-      "e\030\n \001(\0132\032.google.protobuf.TimestampR\nupd" +
-      "ateTime\"\254\002\n\016PolicyProposal\0220\n\024requester_" +
-      "account_id\030\001 \001(\tR\022requesterAccountId\022%\n\016" +
-      "requester_name\030\002 \001(\tR\rrequesterName\022.\n\023a",
-      "pprover_account_id\030\003 \001(\tR\021approverAccoun" +
-      "tId\022#\n\rapprover_name\030\004 \001(\tR\014approverName" +
-      "\022K\n\022proposed_whitelist\030\005 \001(\0132\034.adamant.g" +
-      "lobal.v1.WhitelistR\021proposedWhitelist\022\037\n" +
-      "\013is_reviewed\030\006 \001(\010R\nisReviewed\"\240\001\n\022Total" +
-      "BalanceByCoin\022,\n\004coin\030\001 \001(\0162\030.gincoinc.g" +
-      "lobal.v1.CoinR\004coin\022.\n\023cold_string_balan" +
-      "ce\030\002 \001(\tR\021coldStringBalance\022,\n\022hot_strin" +
-      "g_balance\030\003 \001(\tR\020hotStringBalance\"\334\001\n\014To" +
-      "talBalance\022c\n\016total_balances\030\001 \003(\01322.ada" +
-      "mant.global.v1.TotalBalance.TotalBalance" +
-      "sEntryB\010\372B\005\232\001\002\030\001R\rtotalBalances\032g\n\022Total" +
-      "BalancesEntry\022\020\n\003key\030\001 \001(\rR\003key\022;\n\005value" +
-      "\030\002 \001(\0132%.adamant.global.v1.TotalBalanceB" +
-      "yCoinR\005value:\0028\001\"\301\003\n\017BalanceSnapshot\022;\n\013" +
-      "create_time\030\001 \001(\0132\032.google.protobuf.Time" +
-      "stampR\ncreateTime\022f\n\016total_balances\030\002 \003(" +
-      "\01325.adamant.global.v1.BalanceSnapshot.To" +
-      "talBalancesEntryB\010\372B\005\232\001\002\030\001R\rtotalBalance" +
-      "s\022M\n\005rates\030\003 \003(\0132-.adamant.global.v1.Bal" +
-      "anceSnapshot.RatesEntryB\010\372B\005\232\001\002\030\001R\005rates" +
-      "\032g\n\022TotalBalancesEntry\022\020\n\003key\030\001 \001(\rR\003key" +
-      "\022;\n\005value\030\002 \001(\0132%.adamant.global.v1.Tota" +
-      "lBalanceByCoinR\005value:\0028\001\032Q\n\nRatesEntry\022" +
-      "\020\n\003key\030\001 \001(\rR\003key\022-\n\005value\030\002 \001(\0132\027.adama" +
-      "nt.global.v1.RateR\005value:\0028\001\"\253\002\n\030WalletB" +
-      "alanceSnapshotMap\022\222\001\n\033wallet_balance_sna" +
-      "pshot_map\030\001 \003(\0132I.adamant.global.v1.Wall" +
-      "etBalanceSnapshotMap.WalletBalanceSnapsh" +
-      "otMapEntryB\010\372B\005\232\001\002\030\001R\030walletBalanceSnaps" +
-      "hotMap\032z\n\035WalletBalanceSnapshotMapEntry\022" +
-      "\020\n\003key\030\001 \001(\tR\003key\022C\n\005value\030\002 \001(\0132-.adama" +
-      "nt.global.v1.ListWalletBalanceSnapshotsR" +
-      "\005value:\0028\001\"\200\001\n\032ListWalletBalanceSnapshot" +
-      "s\022b\n\030wallet_balance_snapshots\030\001 \003(\0132(.ad" +
-      "amant.global.v1.WalletBalanceSnapshotR\026w" +
-      "alletBalanceSnapshots\"\215\001\n\025WalletBalanceS" +
-      "napshot\022;\n\013create_time\030\001 \001(\0132\032.google.pr" +
-      "otobuf.TimestampR\ncreateTime\022%\n\016string_b" +
-      "alance\030\002 \001(\tR\rstringBalance\022\020\n\003jpy\030\003 \001(\001" +
-      "R\003jpy\"\335\002\n\027TransferVolumeSnapshots\022\267\001\n)tr" +
-      "ansfer_volume_snapshot_by_transfer_type\030" +
-      "\001 \003(\0132T.adamant.global.v1.TransferVolume" +
-      "Snapshots.TransferVolumeSnapshotByTransf" +
-      "erTypeEntryB\010\372B\005\232\001\002\030\001R$transferVolumeSna" +
-      "pshotByTransferType\032\207\001\n)TransferVolumeSn" +
-      "apshotByTransferTypeEntry\022\020\n\003key\030\001 \001(\005R\003" +
-      "key\022D\n\005value\030\002 \001(\0132..adamant.global.v1.L" +
-      "istTransferVolumeSnapshotsR\005value:\0028\001\"\204\001" +
-      "\n\033ListTransferVolumeSnapshots\022e\n\031transfe" +
-      "r_volume_snapshots\030\001 \003(\0132).adamant.globa" +
-      "l.v1.TransferVolumeSnapshotR\027transferVol" +
-      "umeSnapshots\"\275\002\n\026TransferVolumeSnapshot\022" +
-      ";\n\013target_time\030\001 \001(\0132\032.google.protobuf.T" +
-      "imestampR\ntargetTime\022z\n\027transfer_volume_" +
-      "by_coin\030\002 \003(\0132C.adamant.global.v1.Transf" +
-      "erVolumeSnapshot.TransferVolumeByCoinEnt" +
-      "ryR\024transferVolumeByCoin\032j\n\031TransferVolu" +
-      "meByCoinEntry\022\020\n\003key\030\001 \001(\005R\003key\0227\n\005value" +
-      "\030\002 \001(\0132!.adamant.global.v1.TransferVolum" +
-      "eR\005value:\0028\001\"\207\003\n\016TransferVolume\022,\n\004coin\030" +
-      "\001 \001(\0162\030.gincoinc.global.v1.CoinR\004coin\022*\n" +
-      "\021hot_string_volume\030\002 \001(\tR\017hotStringVolum" +
-      "e\022,\n\022cold_string_volume\030\003 \001(\tR\020coldStrin" +
-      "gVolume\0221\n\025hot_string_jpy_volume\030\004 \001(\tR\022" +
-      "hotStringJpyVolume\0223\n\026cold_string_jpy_vo" +
-      "lume\030\005 \001(\tR\023coldStringJpyVolume\022\035\n\nhot_n" +
-      "umber\030\006 \001(\003R\thotNumber\022\037\n\013cold_number\030\007 " +
-      "\001(\003R\ncoldNumber\022E\n\rtransfer_type\030\010 \001(\0162 " +
-      ".gincoinc.global.v1.TransferTypeR\014transf" +
-      "erType\"\370\002\n\035WalletTransferVolumeSnapshots" +
-      "\022\304\001\n,wallet_transfer_volume_snapshot_by_" +
-      "wallet_id\030\001 \003(\0132\\.adamant.global.v1.Wall" +
-      "etTransferVolumeSnapshots.WalletTransfer" +
-      "VolumeSnapshotByWalletIdEntryB\010\372B\005\232\001\002\030\001R" +
-      "&walletTransferVolumeSnapshotByWalletId\032" +
-      "\217\001\n+WalletTransferVolumeSnapshotByWallet" +
-      "IdEntry\022\020\n\003key\030\001 \001(\tR\003key\022J\n\005value\030\002 \001(\013" +
-      "24.adamant.global.v1.ListWalletTransferV" +
-      "olumeSnapshotsR\005value:\0028\001\"\235\001\n!ListWallet" +
-      "TransferVolumeSnapshots\022x\n wallet_transf" +
-      "er_volume_snapshots\030\001 \003(\0132/.adamant.glob" +
-      "al.v1.WalletTransferVolumeSnapshotR\035wall" +
-      "etTransferVolumeSnapshots\"\212\003\n\034WalletTran" +
-      "sferVolumeSnapshot\022;\n\013target_time\030\001 \001(\0132" +
-      "\032.google.protobuf.TimestampR\ntargetTime\022" +
-      "\254\001\n\'wallet_transfer_volume_by_transfer_t" +
-      "ype\030\002 \003(\0132W.adamant.global.v1.WalletTran" +
-      "sferVolumeSnapshot.WalletTransferVolumeB" +
-      "yTransferTypeEntryR\"walletTransferVolume" +
-      "ByTransferType\032~\n\'WalletTransferVolumeBy" +
-      "TransferTypeEntry\022\020\n\003key\030\001 \001(\005R\003key\022=\n\005v" +
-      "alue\030\002 \001(\0132\'.adamant.global.v1.WalletTra" +
-      "nsferVolumeR\005value:\0028\001\"\306\001\n\024WalletTransfe" +
-      "rVolume\022#\n\rstring_volume\030\001 \001(\tR\014stringVo" +
-      "lume\022*\n\021string_jpy_volume\030\002 \001(\tR\017stringJ" +
-      "pyVolume\022\026\n\006number\030\003 \001(\003R\006number\022E\n\rtran" +
-      "sfer_type\030\004 \001(\0162 .gincoinc.global.v1.Tra" +
-      "nsferTypeR\014transferType\"`\n\014Confirmation\022" +
-      ",\n\004coin\030\001 \001(\0162\030.gincoinc.global.v1.CoinR" +
-      "\004coin\022\"\n\014confirmation\030\002 \001(\rR\014confirmatio" +
-      "n\"\213\002\n\022WalletFlushSetting\022\031\n\010owner_id\030\001 \001" +
-      "(\tR\007ownerId\022,\n\004coin\030\002 \001(\0162\030.gincoinc.glo" +
-      "bal.v1.CoinR\004coin\0222\n\025destination_wallet_" +
-      "id\030\003 \001(\tR\023destinationWalletId\022;\n\013create_" +
-      "time\030\004 \001(\0132\032.google.protobuf.TimestampR\n" +
-      "createTime\022;\n\013update_time\030\005 \001(\0132\032.google" +
-      ".protobuf.TimestampR\nupdateTime\"\214\001\n\017Comp" +
-      "ensationFee\022!\n\014string_value\030\001 \001(\tR\013strin" +
-      "gValue\022\031\n\010is_spent\030\002 \001(\010R\007isSpent\022;\n\013cre" +
-      "ate_time\030\003 \001(\0132\032.google.protobuf.Timesta" +
-      "mpR\ncreateTime\"\305\002\n\013WalletGroup\022&\n\017wallet" +
-      "_group_id\030\001 \001(\tR\rwalletGroupId\022\022\n\004name\030\002" +
-      " \001(\tR\004name\022,\n\004coin\030\003 \001(\0162\030.gincoinc.glob" +
-      "al.v1.CoinR\004coin\0223\n\007wallets\030\004 \003(\0132\031.adam" +
-      "ant.global.v1.WalletR\007wallets\022\035\n\nwatch_o" +
-      "nly\030\007 \001(\010R\twatchOnly\022;\n\013create_time\030\005 \001(" +
+      "\006txType\022\030\n\007message\030\003 \001(\tR\007message\"Q\n\035Cre" +
+      "ateTransactionIOSTSpecific\022\022\n\004memo\030\001 \001(\t" +
+      "R\004memo\022\034\n\ttimestamp\030\002 \001(\004R\ttimestamp\"\357\004\n" +
+      "\034SubstrateMultisigTransaction\022\033\n\twallet_" +
+      "id\030\001 \001(\tR\010walletId\022%\n\016transaction_id\030\002 \001" +
+      "(\tR\rtransactionId\022I\n!substrate_multisig_" +
+      "transaction_id\030\003 \001(\tR\036substrateMultisigT" +
+      "ransactionId\022\035\n\naccount_id\030\004 \001(\tR\taccoun" +
+      "tId\022\023\n\005tx_id\030\005 \001(\tR\004txId\022!\n\014extrinsic_id" +
+      "\030\006 \001(\tR\013extrinsicId\022\031\n\010jpy_rate\030\007 \001(\001R\007j" +
+      "pyRate\022\020\n\003fee\030\010 \001(\001R\003fee\022\035\n\nstring_fee\030\t" +
+      " \001(\tR\tstringFee\022\024\n\005nonce\030\n \001(\004R\005nonce\022R\n" +
+      "\022multisig_call_type\030\013 \001(\0162$.adamant.glob" +
+      "al.v1.SubstrateCallTypeR\020multisigCallTyp" +
+      "e\0229\n\005state\030\014 \001(\0162#.adamant.global.v1.Tra" +
+      "nsactionStateR\005state\022;\n\013create_time\030\r \001(" +
       "\0132\032.google.protobuf.TimestampR\ncreateTim" +
-      "e\022;\n\013update_time\030\006 \001(\0132\032.google.protobuf" +
-      ".TimestampR\nupdateTime\"`\n\017RequestTxOutpu" +
-      "t\022!\n\007address\030\001 \001(\tB\007\372B\004r\002\020\003R\007address\022*\n\014" +
-      "string_value\030\002 \001(\tB\007\372B\004r\002\020\001R\013stringValue" +
-      "\"b\n\021RequestSignedInfo\022M\n\nsignatures\030\001 \003(" +
-      "\0132#.adamant.global.v1.RequestSignatureB\010" +
-      "\372B\005\222\001\002\010\001R\nsignatures\"X\n\020RequestSignature" +
-      "\022\035\n\nsign_index\030\001 \001(\rR\tsignIndex\022%\n\tsigna" +
-      "ture\030\002 \001(\tB\007\372B\004r\002\020\001R\tsignature\"\270\001\n\031Reque" +
-      "stTransferLimitEntry\022`\n\023transfer_limit_t" +
-      "ype\030\001 \001(\0162$.adamant.global.v1.TransferLi" +
-      "mitTypeB\n\372B\007\202\001\004\020\001 \000R\021transferLimitType\0229" +
-      "\n\024transfer_limit_value\030\002 \001(\003B\007\372B\004\"\002(\000R\022t" +
-      "ransferLimitValue\"i\n\013RequestRate\0228\n\004coin" +
-      "\030\001 \001(\0162\030.gincoinc.global.v1.CoinB\n\372B\007\202\001\004" +
-      "\020\001 \000R\004coin\022 \n\003jpy\030\002 \001(\001B\016\372B\013\022\t)\000\000\000\000\000\000\000\000R" +
-      "\003jpy\"\256\001\n\025SubstrateChildAddress\022\033\n\twallet" +
-      "_id\030\001 \001(\tR\010walletId\022\035\n\naccount_id\030\002 \001(\tR" +
-      "\taccountId\022\030\n\007address\030\003 \001(\tR\007address\022\030\n\007" +
-      "balance\030\004 \001(\001R\007balance\022%\n\016string_balance" +
-      "\030\005 \001(\tR\rstringBalanceBLZJgithub.com/Ginc" +
-      "oInc/gew-kmp/gen/gincoinc/adamant/global" +
-      "/v1/adamantglobalv1b\006proto3"
+      "e\022;\n\013update_time\030\016 \001(\0132\032.google.protobuf" +
+      ".TimestampR\nupdateTime\"\342\003\n\026NemMultisigTr" +
+      "ansaction\022\033\n\twallet_id\030\001 \001(\tR\010walletId\022%" +
+      "\n\016transaction_id\030\002 \001(\tR\rtransactionId\022=\n" +
+      "\033nem_multisig_transaction_id\030\003 \001(\tR\030nemM" +
+      "ultisigTransactionId\022\035\n\naccount_id\030\n \001(\t" +
+      "R\taccountId\022?\n\007tx_type\030\004 \001(\0162&.gincoinc." +
+      "global.v1.NemTransactionTypeR\006txType\022\022\n\004" +
+      "data\030\005 \001(\tR\004data\022\034\n\tsignature\030\006 \001(\tR\tsig" +
+      "nature\0229\n\005state\030\007 \001(\0162#.adamant.global.v" +
+      "1.TransactionStateR\005state\022;\n\013create_time" +
+      "\030\010 \001(\0132\032.google.protobuf.TimestampR\ncrea" +
+      "teTime\022;\n\013update_time\030\t \001(\0132\032.google.pro" +
+      "tobuf.TimestampR\nupdateTime\"\207\003\n\010SignInfo" +
+      "\022\033\n\twallet_id\030\001 \001(\tR\010walletId\022%\n\016transac" +
+      "tion_id\030\002 \001(\tR\rtransactionId\022\025\n\006key_id\030\003" +
+      " \001(\tR\005keyId\022\035\n\nhd_account\030\004 \001(\rR\thdAccou" +
+      "nt\022,\n\004coin\030\005 \001(\0162\030.gincoinc.global.v1.Co" +
+      "inR\004coin\022\023\n\005tx_id\030\006 \001(\tR\004txId\022\035\n\nsign_in" +
+      "dex\030\013 \001(\rR\tsignIndex\022!\n\014sign_message\030\007 \001" +
+      "(\tR\013signMessage\022\033\n\thd_change\030\010 \001(\rR\010hdCh" +
+      "ange\022\031\n\010hd_index\030\t \001(\rR\007hdIndex\022D\n\016sign_" +
+      "tx_inputs\030\n \003(\0132\036.adamant.global.v1.Sign" +
+      "TxInputR\014signTxInputs\"\216\001\n\013SignTxInput\022$\n" +
+      "\016tx_input_index\030\001 \001(\rR\014txInputIndex\022!\n\014s" +
+      "ign_message\030\002 \001(\tR\013signMessage\022\033\n\thd_cha" +
+      "nge\030\003 \001(\rR\010hdChange\022\031\n\010hd_index\030\004 \001(\rR\007h" +
+      "dIndex\"\320\005\n\010Transfer\022\033\n\twallet_id\030\001 \001(\tR\010" +
+      "walletId\022\037\n\013transfer_id\030\002 \001(\tR\ntransferI" +
+      "d\022,\n\004coin\030\003 \001(\0162\030.gincoinc.global.v1.Coi" +
+      "nR\004coin\022\023\n\005tx_id\030\004 \001(\tR\004txId\022E\n\rtransfer" +
+      "_type\030\005 \001(\0162 .gincoinc.global.v1.Transfe" +
+      "rTypeR\014transferType\022\024\n\005value\030\006 \001(\001R\005valu" +
+      "e\022!\n\014string_value\030\007 \001(\tR\013stringValue\022\031\n\010" +
+      "jpy_rate\030\t \001(\001R\007jpyRate\022*\n\021partner_walle" +
+      "t_id\030\n \001(\tR\017partnerWalletId\022\'\n\017partner_a" +
+      "ddress\030\013 \001(\tR\016partnerAddress\022\'\n\017destinat" +
+      "ion_tag\030\017 \001(\rR\016destinationTag\022\033\n\007memo_id" +
+      "\030\021 \001(\004B\0020\001R\006memoId\022\030\n\007message\030\022 \001(\tR\007mes" +
+      "sage\022:\n\005state\030\014 \001(\0162$.gincoinc.global.v1" +
+      ".TransactionStateR\005state\022=\n\006result\030\020 \001(\016" +
+      "2%.gincoinc.global.v1.TransactionResultR" +
+      "\006result\022;\n\013create_time\030\r \001(\0132\032.google.pr" +
+      "otobuf.TimestampR\ncreateTime\022;\n\013update_t" +
+      "ime\030\016 \001(\0132\032.google.protobuf.TimestampR\nu" +
+      "pdateTime\"\372\005\n\021UncheckedTransfer\022\033\n\twalle" +
+      "t_id\030\001 \001(\tR\010walletId\022\037\n\013transfer_id\030\002 \001(" +
+      "\tR\ntransferId\022,\n\004coin\030\003 \001(\0162\030.gincoinc.g" +
+      "lobal.v1.CoinR\004coin\022\023\n\005tx_id\030\004 \001(\tR\004txId" +
+      "\022E\n\rtransfer_type\030\005 \001(\0162 .gincoinc.globa" +
+      "l.v1.TransferTypeR\014transferType\022:\n\005state" +
+      "\030\006 \001(\0162$.gincoinc.global.v1.TransactionS" +
+      "tateR\005state\022=\n\006result\030\007 \001(\0162%.gincoinc.g" +
+      "lobal.v1.TransactionResultR\006result\022\024\n\005va" +
+      "lue\030\010 \001(\001R\005value\022!\n\014string_value\030\t \001(\tR\013" +
+      "stringValue\022\031\n\010jpy_rate\030\n \001(\001R\007jpyRate\022*" +
+      "\n\021partner_wallet_id\030\013 \001(\tR\017partnerWallet" +
+      "Id\022\'\n\017partner_address\030\014 \001(\tR\016partnerAddr" +
+      "ess\022\'\n\017destination_tag\030\r \001(\rR\016destinatio" +
+      "nTag\022\033\n\007memo_id\030\016 \001(\004B\0020\001R\006memoId\022\030\n\007mes" +
+      "sage\030\022 \001(\tR\007message\022\037\n\013has_checked\030\017 \001(\010" +
+      "R\nhasChecked\022;\n\013create_time\030\020 \001(\0132\032.goog" +
+      "le.protobuf.TimestampR\ncreateTime\022;\n\013upd" +
+      "ate_time\030\021 \001(\0132\032.google.protobuf.Timesta" +
+      "mpR\nupdateTime\"\372\002\n\025EventTriggeredMessage" +
+      "\022;\n\032event_triggered_message_id\030\001 \001(\tR\027ev" +
+      "entTriggeredMessageId\022m\n\034event_triggered" +
+      "_message_type\030\002 \001(\0162,.adamant.global.v1." +
+      "EventTriggeredMessageTypeR\031eventTriggere" +
+      "dMessageType\022\031\n\010owner_id\030\003 \001(\tR\007ownerId\022" +
+      " \n\013destination\030\004 \001(\tR\013destination\022;\n\013cre" +
+      "ate_time\030\005 \001(\0132\032.google.protobuf.Timesta" +
+      "mpR\ncreateTime\022;\n\013update_time\030\006 \001(\0132\032.go" +
+      "ogle.protobuf.TimestampR\nupdateTime\"F\n\004R" +
+      "ate\022,\n\004coin\030\001 \001(\0162\030.gincoinc.global.v1.C" +
+      "oinR\004coin\022\020\n\003jpy\030\002 \001(\001R\003jpy\"\315\001\n\014RateSnap" +
+      "shot\022(\n\020rate_snapshot_id\030\001 \001(\tR\016rateSnap" +
+      "shotId\022@\n\005rates\030\002 \003(\0132*.adamant.global.v" +
+      "1.RateSnapshot.RatesEntryR\005rates\032Q\n\nRate" +
+      "sEntry\022\020\n\003key\030\001 \001(\rR\003key\022-\n\005value\030\002 \001(\0132" +
+      "\027.adamant.global.v1.RateR\005value:\0028\001\"W\n\020D" +
+      "eactivatability\022\035\n\naccount_id\030\001 \001(\tR\tacc" +
+      "ountId\022$\n\rdeactivatable\030\002 \001(\010R\rdeactivat" +
+      "able\"\333\002\n\016LabeledAddress\022,\n\022labeled_addre" +
+      "ss_id\030\001 \001(\tR\020labeledAddressId\022\022\n\004name\030\002 " +
+      "\001(\tR\004name\022,\n\004coin\030\003 \001(\0162\030.gincoinc.globa" +
+      "l.v1.CoinR\004coin\022\030\n\007address\030\004 \001(\tR\007addres" +
+      "s\022E\n\010proposal\030\005 \001(\0132).adamant.global.v1." +
+      "LabeledAddressProposalR\010proposal\022;\n\013crea" +
+      "te_time\030\007 \001(\0132\032.google.protobuf.Timestam" +
+      "pR\ncreateTime\022;\n\013update_time\030\010 \001(\0132\032.goo" +
+      "gle.protobuf.TimestampR\nupdateTime\"\241\002\n\026L" +
+      "abeledAddressProposal\0220\n\024requester_accou" +
+      "nt_id\030\001 \001(\tR\022requesterAccountId\022%\n\016reque" +
+      "ster_name\030\002 \001(\tR\rrequesterName\022.\n\023approv" +
+      "er_account_id\030\003 \001(\tR\021approverAccountId\022#" +
+      "\n\rapprover_name\030\004 \001(\tR\014approverName\022)\n\020p" +
+      "roposed_address\030\005 \001(\tR\017proposedAddress\022." +
+      "\n\023address_is_reviewed\030\006 \001(\010R\021addressIsRe" +
+      "viewed\"\253\002\n\tWhitelist\022!\n\014whitelist_id\030\001 \001" +
+      "(\tR\013whitelistId\022\022\n\004name\030\002 \001(\tR\004name\022,\n\004c" +
+      "oin\030\003 \001(\0162\030.gincoinc.global.v1.CoinR\004coi" +
+      "n\022?\n\taddresses\030\004 \003(\0132!.adamant.global.v1" +
+      ".LabeledAddressR\taddresses\022;\n\013create_tim" +
+      "e\030\006 \001(\0132\032.google.protobuf.TimestampR\ncre" +
+      "ateTime\022;\n\013update_time\030\007 \001(\0132\032.google.pr" +
+      "otobuf.TimestampR\nupdateTime\"\310\003\n\rTransfe" +
+      "rLimit\022*\n\021transfer_limit_id\030\001 \001(\tR\017trans" +
+      "ferLimitId\022\022\n\004name\030\002 \001(\tR\004name\022,\n\004coin\030\003" +
+      " \001(\0162\030.gincoinc.global.v1.CoinR\004coin\022!\n\014" +
+      "hourly_limit\030\004 \001(\003R\013hourlyLimit\022\037\n\013daily" +
+      "_limit\030\005 \001(\003R\ndailyLimit\022$\n\016one_time_lim" +
+      "it\030\006 \001(\003R\014oneTimeLimit\022D\n\010proposal\030\007 \001(\013" +
+      "2(.adamant.global.v1.TransferLimitPropos" +
+      "alR\010proposal\022\037\n\013is_reviewed\030\010 \001(\010R\nisRev" +
+      "iewed\022;\n\013create_time\030\n \001(\0132\032.google.prot" +
+      "obuf.TimestampR\ncreateTime\022;\n\013update_tim" +
+      "e\030\013 \001(\0132\032.google.protobuf.TimestampR\nupd" +
+      "ateTime\"\203\003\n\025TransferLimitProposal\0220\n\024req" +
+      "uester_account_id\030\001 \001(\tR\022requesterAccoun" +
+      "tId\022%\n\016requester_name\030\002 \001(\tR\rrequesterNa" +
+      "me\022.\n\023approver_account_id\030\003 \001(\tR\021approve" +
+      "rAccountId\022#\n\rapprover_name\030\004 \001(\tR\014appro" +
+      "verName\0222\n\025proposed_hourly_limit\030\005 \001(\003R\023" +
+      "proposedHourlyLimit\0220\n\024proposed_daily_li" +
+      "mit\030\006 \001(\003R\022proposedDailyLimit\0225\n\027propose" +
+      "d_one_time_limit\030\007 \001(\003R\024proposedOneTimeL" +
+      "imit\022\037\n\013is_reviewed\030\010 \001(\010R\nisReviewed\"\213\004" +
+      "\n\006Policy\022\033\n\tpolicy_id\030\001 \001(\tR\010policyId\022>\n" +
+      "\013policy_type\030\002 \001(\0162\035.adamant.global.v1.P" +
+      "olicyTypeR\npolicyType\022\022\n\004name\030\003 \001(\tR\004nam" +
+      "e\022$\n\016is_base_policy\030\004 \001(\010R\014isBasePolicy\022" +
+      ",\n\004coin\030\005 \001(\0162\030.gincoinc.global.v1.CoinR" +
+      "\004coin\022:\n\twhitelist\030\006 \001(\0132\034.adamant.globa" +
+      "l.v1.WhitelistR\twhitelist\022G\n\016transfer_li" +
+      "mit\030\007 \001(\0132 .adamant.global.v1.TransferLi" +
+      "mitR\rtransferLimit\022=\n\010proposal\030\013 \001(\0132!.a",
+      "damant.global.v1.PolicyProposalR\010proposa" +
+      "l\022;\n\013create_time\030\t \001(\0132\032.google.protobuf" +
+      ".TimestampR\ncreateTime\022;\n\013update_time\030\n " +
+      "\001(\0132\032.google.protobuf.TimestampR\nupdateT" +
+      "ime\"\254\002\n\016PolicyProposal\0220\n\024requester_acco" +
+      "unt_id\030\001 \001(\tR\022requesterAccountId\022%\n\016requ" +
+      "ester_name\030\002 \001(\tR\rrequesterName\022.\n\023appro" +
+      "ver_account_id\030\003 \001(\tR\021approverAccountId\022" +
+      "#\n\rapprover_name\030\004 \001(\tR\014approverName\022K\n\022" +
+      "proposed_whitelist\030\005 \001(\0132\034.adamant.globa" +
+      "l.v1.WhitelistR\021proposedWhitelist\022\037\n\013is_" +
+      "reviewed\030\006 \001(\010R\nisReviewed\"\240\001\n\022TotalBala" +
+      "nceByCoin\022,\n\004coin\030\001 \001(\0162\030.gincoinc.globa" +
+      "l.v1.CoinR\004coin\022.\n\023cold_string_balance\030\002" +
+      " \001(\tR\021coldStringBalance\022,\n\022hot_string_ba" +
+      "lance\030\003 \001(\tR\020hotStringBalance\"\334\001\n\014TotalB" +
+      "alance\022c\n\016total_balances\030\001 \003(\01322.adamant" +
+      ".global.v1.TotalBalance.TotalBalancesEnt" +
+      "ryB\010\372B\005\232\001\002\030\001R\rtotalBalances\032g\n\022TotalBala" +
+      "ncesEntry\022\020\n\003key\030\001 \001(\rR\003key\022;\n\005value\030\002 \001" +
+      "(\0132%.adamant.global.v1.TotalBalanceByCoi" +
+      "nR\005value:\0028\001\"\301\003\n\017BalanceSnapshot\022;\n\013crea" +
+      "te_time\030\001 \001(\0132\032.google.protobuf.Timestam" +
+      "pR\ncreateTime\022f\n\016total_balances\030\002 \003(\01325." +
+      "adamant.global.v1.BalanceSnapshot.TotalB" +
+      "alancesEntryB\010\372B\005\232\001\002\030\001R\rtotalBalances\022M\n" +
+      "\005rates\030\003 \003(\0132-.adamant.global.v1.Balance" +
+      "Snapshot.RatesEntryB\010\372B\005\232\001\002\030\001R\005rates\032g\n\022" +
+      "TotalBalancesEntry\022\020\n\003key\030\001 \001(\rR\003key\022;\n\005" +
+      "value\030\002 \001(\0132%.adamant.global.v1.TotalBal" +
+      "anceByCoinR\005value:\0028\001\032Q\n\nRatesEntry\022\020\n\003k" +
+      "ey\030\001 \001(\rR\003key\022-\n\005value\030\002 \001(\0132\027.adamant.g" +
+      "lobal.v1.RateR\005value:\0028\001\"\253\002\n\030WalletBalan" +
+      "ceSnapshotMap\022\222\001\n\033wallet_balance_snapsho" +
+      "t_map\030\001 \003(\0132I.adamant.global.v1.WalletBa" +
+      "lanceSnapshotMap.WalletBalanceSnapshotMa" +
+      "pEntryB\010\372B\005\232\001\002\030\001R\030walletBalanceSnapshotM" +
+      "ap\032z\n\035WalletBalanceSnapshotMapEntry\022\020\n\003k" +
+      "ey\030\001 \001(\tR\003key\022C\n\005value\030\002 \001(\0132-.adamant.g" +
+      "lobal.v1.ListWalletBalanceSnapshotsR\005val" +
+      "ue:\0028\001\"\200\001\n\032ListWalletBalanceSnapshots\022b\n" +
+      "\030wallet_balance_snapshots\030\001 \003(\0132(.adaman" +
+      "t.global.v1.WalletBalanceSnapshotR\026walle" +
+      "tBalanceSnapshots\"\215\001\n\025WalletBalanceSnaps" +
+      "hot\022;\n\013create_time\030\001 \001(\0132\032.google.protob" +
+      "uf.TimestampR\ncreateTime\022%\n\016string_balan" +
+      "ce\030\002 \001(\tR\rstringBalance\022\020\n\003jpy\030\003 \001(\001R\003jp" +
+      "y\"\335\002\n\027TransferVolumeSnapshots\022\267\001\n)transf" +
+      "er_volume_snapshot_by_transfer_type\030\001 \003(" +
+      "\0132T.adamant.global.v1.TransferVolumeSnap" +
+      "shots.TransferVolumeSnapshotByTransferTy" +
+      "peEntryB\010\372B\005\232\001\002\030\001R$transferVolumeSnapsho" +
+      "tByTransferType\032\207\001\n)TransferVolumeSnapsh" +
+      "otByTransferTypeEntry\022\020\n\003key\030\001 \001(\005R\003key\022" +
+      "D\n\005value\030\002 \001(\0132..adamant.global.v1.ListT" +
+      "ransferVolumeSnapshotsR\005value:\0028\001\"\204\001\n\033Li" +
+      "stTransferVolumeSnapshots\022e\n\031transfer_vo" +
+      "lume_snapshots\030\001 \003(\0132).adamant.global.v1" +
+      ".TransferVolumeSnapshotR\027transferVolumeS" +
+      "napshots\"\275\002\n\026TransferVolumeSnapshot\022;\n\013t" +
+      "arget_time\030\001 \001(\0132\032.google.protobuf.Times" +
+      "tampR\ntargetTime\022z\n\027transfer_volume_by_c" +
+      "oin\030\002 \003(\0132C.adamant.global.v1.TransferVo" +
+      "lumeSnapshot.TransferVolumeByCoinEntryR\024" +
+      "transferVolumeByCoin\032j\n\031TransferVolumeBy" +
+      "CoinEntry\022\020\n\003key\030\001 \001(\005R\003key\0227\n\005value\030\002 \001" +
+      "(\0132!.adamant.global.v1.TransferVolumeR\005v" +
+      "alue:\0028\001\"\207\003\n\016TransferVolume\022,\n\004coin\030\001 \001(" +
+      "\0162\030.gincoinc.global.v1.CoinR\004coin\022*\n\021hot" +
+      "_string_volume\030\002 \001(\tR\017hotStringVolume\022,\n" +
+      "\022cold_string_volume\030\003 \001(\tR\020coldStringVol" +
+      "ume\0221\n\025hot_string_jpy_volume\030\004 \001(\tR\022hotS" +
+      "tringJpyVolume\0223\n\026cold_string_jpy_volume" +
+      "\030\005 \001(\tR\023coldStringJpyVolume\022\035\n\nhot_numbe" +
+      "r\030\006 \001(\003R\thotNumber\022\037\n\013cold_number\030\007 \001(\003R" +
+      "\ncoldNumber\022E\n\rtransfer_type\030\010 \001(\0162 .gin" +
+      "coinc.global.v1.TransferTypeR\014transferTy" +
+      "pe\"\370\002\n\035WalletTransferVolumeSnapshots\022\304\001\n" +
+      ",wallet_transfer_volume_snapshot_by_wall" +
+      "et_id\030\001 \003(\0132\\.adamant.global.v1.WalletTr" +
+      "ansferVolumeSnapshots.WalletTransferVolu" +
+      "meSnapshotByWalletIdEntryB\010\372B\005\232\001\002\030\001R&wal" +
+      "letTransferVolumeSnapshotByWalletId\032\217\001\n+" +
+      "WalletTransferVolumeSnapshotByWalletIdEn" +
+      "try\022\020\n\003key\030\001 \001(\tR\003key\022J\n\005value\030\002 \001(\01324.a" +
+      "damant.global.v1.ListWalletTransferVolum" +
+      "eSnapshotsR\005value:\0028\001\"\235\001\n!ListWalletTran" +
+      "sferVolumeSnapshots\022x\n wallet_transfer_v" +
+      "olume_snapshots\030\001 \003(\0132/.adamant.global.v" +
+      "1.WalletTransferVolumeSnapshotR\035walletTr" +
+      "ansferVolumeSnapshots\"\212\003\n\034WalletTransfer" +
+      "VolumeSnapshot\022;\n\013target_time\030\001 \001(\0132\032.go" +
+      "ogle.protobuf.TimestampR\ntargetTime\022\254\001\n\'" +
+      "wallet_transfer_volume_by_transfer_type\030" +
+      "\002 \003(\0132W.adamant.global.v1.WalletTransfer" +
+      "VolumeSnapshot.WalletTransferVolumeByTra" +
+      "nsferTypeEntryR\"walletTransferVolumeByTr" +
+      "ansferType\032~\n\'WalletTransferVolumeByTran" +
+      "sferTypeEntry\022\020\n\003key\030\001 \001(\005R\003key\022=\n\005value" +
+      "\030\002 \001(\0132\'.adamant.global.v1.WalletTransfe" +
+      "rVolumeR\005value:\0028\001\"\306\001\n\024WalletTransferVol" +
+      "ume\022#\n\rstring_volume\030\001 \001(\tR\014stringVolume" +
+      "\022*\n\021string_jpy_volume\030\002 \001(\tR\017stringJpyVo" +
+      "lume\022\026\n\006number\030\003 \001(\003R\006number\022E\n\rtransfer" +
+      "_type\030\004 \001(\0162 .gincoinc.global.v1.Transfe" +
+      "rTypeR\014transferType\"`\n\014Confirmation\022,\n\004c" +
+      "oin\030\001 \001(\0162\030.gincoinc.global.v1.CoinR\004coi" +
+      "n\022\"\n\014confirmation\030\002 \001(\rR\014confirmation\"\213\002" +
+      "\n\022WalletFlushSetting\022\031\n\010owner_id\030\001 \001(\tR\007" +
+      "ownerId\022,\n\004coin\030\002 \001(\0162\030.gincoinc.global." +
+      "v1.CoinR\004coin\0222\n\025destination_wallet_id\030\003" +
+      " \001(\tR\023destinationWalletId\022;\n\013create_time" +
+      "\030\004 \001(\0132\032.google.protobuf.TimestampR\ncrea" +
+      "teTime\022;\n\013update_time\030\005 \001(\0132\032.google.pro" +
+      "tobuf.TimestampR\nupdateTime\"\214\001\n\017Compensa" +
+      "tionFee\022!\n\014string_value\030\001 \001(\tR\013stringVal" +
+      "ue\022\031\n\010is_spent\030\002 \001(\010R\007isSpent\022;\n\013create_" +
+      "time\030\003 \001(\0132\032.google.protobuf.TimestampR\n" +
+      "createTime\"\305\002\n\013WalletGroup\022&\n\017wallet_gro" +
+      "up_id\030\001 \001(\tR\rwalletGroupId\022\022\n\004name\030\002 \001(\t" +
+      "R\004name\022,\n\004coin\030\003 \001(\0162\030.gincoinc.global.v" +
+      "1.CoinR\004coin\0223\n\007wallets\030\004 \003(\0132\031.adamant." +
+      "global.v1.WalletR\007wallets\022\035\n\nwatch_only\030" +
+      "\007 \001(\010R\twatchOnly\022;\n\013create_time\030\005 \001(\0132\032." +
+      "google.protobuf.TimestampR\ncreateTime\022;\n" +
+      "\013update_time\030\006 \001(\0132\032.google.protobuf.Tim" +
+      "estampR\nupdateTime\"`\n\017RequestTxOutput\022!\n" +
+      "\007address\030\001 \001(\tB\007\372B\004r\002\020\003R\007address\022*\n\014stri" +
+      "ng_value\030\002 \001(\tB\007\372B\004r\002\020\001R\013stringValue\"b\n\021" +
+      "RequestSignedInfo\022M\n\nsignatures\030\001 \003(\0132#." +
+      "adamant.global.v1.RequestSignatureB\010\372B\005\222" +
+      "\001\002\010\001R\nsignatures\"X\n\020RequestSignature\022\035\n\n" +
+      "sign_index\030\001 \001(\rR\tsignIndex\022%\n\tsignature" +
+      "\030\002 \001(\tB\007\372B\004r\002\020\001R\tsignature\"\270\001\n\031RequestTr" +
+      "ansferLimitEntry\022`\n\023transfer_limit_type\030" +
+      "\001 \001(\0162$.adamant.global.v1.TransferLimitT" +
+      "ypeB\n\372B\007\202\001\004\020\001 \000R\021transferLimitType\0229\n\024tr" +
+      "ansfer_limit_value\030\002 \001(\003B\007\372B\004\"\002(\000R\022trans" +
+      "ferLimitValue\"i\n\013RequestRate\0228\n\004coin\030\001 \001" +
+      "(\0162\030.gincoinc.global.v1.CoinB\n\372B\007\202\001\004\020\001 \000" +
+      "R\004coin\022 \n\003jpy\030\002 \001(\001B\016\372B\013\022\t)\000\000\000\000\000\000\000\000R\003jpy" +
+      "\"\256\001\n\025SubstrateChildAddress\022\033\n\twallet_id\030" +
+      "\001 \001(\tR\010walletId\022\035\n\naccount_id\030\002 \001(\tR\tacc" +
+      "ountId\022\030\n\007address\030\003 \001(\tR\007address\022\030\n\007bala" +
+      "nce\030\004 \001(\001R\007balance\022%\n\016string_balance\030\005 \001" +
+      "(\tR\rstringBalance\"q\n\020IOSTChildAccount\022\033\n" +
+      "\twallet_id\030\001 \001(\tR\010walletId\022\035\n\naccount_id" +
+      "\030\002 \001(\tR\taccountId\022!\n\014account_name\030\003 \001(\tR" +
+      "\013accountNameBLZJgithub.com/GincoInc/gew-" +
+      "kmp/gen/gincoinc/adamant/global/v1/adama" +
+      "ntglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -100381,7 +102973,7 @@ public final class Model {
     internal_static_adamant_global_v1_Transaction_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_Transaction_descriptor,
-        new java.lang.String[] { "WalletId", "TransactionId", "Coin", "TxId", "Address", "Value", "StringValue", "JpyRate", "Fee", "StringFee", "FeeRate", "State", "SignedKeys", "Members", "BitcoinSpecific", "EthereumSpecific", "LitecoinSpecific", "BitcoincashSpecific", "XrpSpecific", "TronSpecific", "C0BanSpecific", "StellarSpecific", "CardanoSpecific", "SubstrateSpecific", "MonacoinSpecific", "NemSpecific", "CreateTime", "UpdateTime", });
+        new java.lang.String[] { "WalletId", "TransactionId", "Coin", "TxId", "Address", "Value", "StringValue", "JpyRate", "Fee", "StringFee", "FeeRate", "State", "SignedKeys", "Members", "BitcoinSpecific", "EthereumSpecific", "LitecoinSpecific", "BitcoincashSpecific", "XrpSpecific", "TronSpecific", "C0BanSpecific", "StellarSpecific", "CardanoSpecific", "SubstrateSpecific", "MonacoinSpecific", "NemSpecific", "IostSpecific", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_TransactionMember_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_adamant_global_v1_TransactionMember_fieldAccessorTable = new
@@ -100477,75 +103069,87 @@ public final class Model {
     internal_static_adamant_global_v1_NemSpecific_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_NemSpecific_descriptor,
-        new java.lang.String[] { "Message", "TxType", "NemMultisigTransactions", });
-    internal_static_adamant_global_v1_CreateTransactionSubstrateSpecific_descriptor =
+        new java.lang.String[] { "Message", "TxType", "NemMultisigTransactions", "Expiration", });
+    internal_static_adamant_global_v1_IOSTSpecific_descriptor =
       getDescriptor().getMessageTypes().get(27);
+    internal_static_adamant_global_v1_IOSTSpecific_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_IOSTSpecific_descriptor,
+        new java.lang.String[] { "Memo", "Timestamp", "Expiration", });
+    internal_static_adamant_global_v1_CreateTransactionSubstrateSpecific_descriptor =
+      getDescriptor().getMessageTypes().get(28);
     internal_static_adamant_global_v1_CreateTransactionSubstrateSpecific_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreateTransactionSubstrateSpecific_descriptor,
         new java.lang.String[] { "TransactionId", "CallType", "MultisigCallType", });
     internal_static_adamant_global_v1_CreateTransactionWalletConnectSpecific_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_adamant_global_v1_CreateTransactionWalletConnectSpecific_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreateTransactionWalletConnectSpecific_descriptor,
         new java.lang.String[] { "CallRequestType", "CallRequestParams", });
     internal_static_adamant_global_v1_CreateTransactionNemSpecific_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_adamant_global_v1_CreateTransactionNemSpecific_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreateTransactionNemSpecific_descriptor,
         new java.lang.String[] { "TransactionId", "TxType", "Message", });
+    internal_static_adamant_global_v1_CreateTransactionIOSTSpecific_descriptor =
+      getDescriptor().getMessageTypes().get(31);
+    internal_static_adamant_global_v1_CreateTransactionIOSTSpecific_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_CreateTransactionIOSTSpecific_descriptor,
+        new java.lang.String[] { "Memo", "Timestamp", });
     internal_static_adamant_global_v1_SubstrateMultisigTransaction_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_adamant_global_v1_SubstrateMultisigTransaction_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_SubstrateMultisigTransaction_descriptor,
         new java.lang.String[] { "WalletId", "TransactionId", "SubstrateMultisigTransactionId", "AccountId", "TxId", "ExtrinsicId", "JpyRate", "Fee", "StringFee", "Nonce", "MultisigCallType", "State", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_NemMultisigTransaction_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_adamant_global_v1_NemMultisigTransaction_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_NemMultisigTransaction_descriptor,
-        new java.lang.String[] { "WalletId", "TransactionId", "NemMultisigTransactionId", "AccountKeyId", "TxType", "Data", "Signature", "State", "CreateTime", "UpdateTime", });
+        new java.lang.String[] { "WalletId", "TransactionId", "NemMultisigTransactionId", "AccountId", "TxType", "Data", "Signature", "State", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_SignInfo_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_adamant_global_v1_SignInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_SignInfo_descriptor,
         new java.lang.String[] { "WalletId", "TransactionId", "KeyId", "HdAccount", "Coin", "TxId", "SignIndex", "SignMessage", "HdChange", "HdIndex", "SignTxInputs", });
     internal_static_adamant_global_v1_SignTxInput_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_adamant_global_v1_SignTxInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_SignTxInput_descriptor,
         new java.lang.String[] { "TxInputIndex", "SignMessage", "HdChange", "HdIndex", });
     internal_static_adamant_global_v1_Transfer_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_adamant_global_v1_Transfer_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_Transfer_descriptor,
         new java.lang.String[] { "WalletId", "TransferId", "Coin", "TxId", "TransferType", "Value", "StringValue", "JpyRate", "PartnerWalletId", "PartnerAddress", "DestinationTag", "MemoId", "Message", "State", "Result", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_UncheckedTransfer_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_adamant_global_v1_UncheckedTransfer_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_UncheckedTransfer_descriptor,
         new java.lang.String[] { "WalletId", "TransferId", "Coin", "TxId", "TransferType", "State", "Result", "Value", "StringValue", "JpyRate", "PartnerWalletId", "PartnerAddress", "DestinationTag", "MemoId", "Message", "HasChecked", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_EventTriggeredMessage_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_adamant_global_v1_EventTriggeredMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_EventTriggeredMessage_descriptor,
         new java.lang.String[] { "EventTriggeredMessageId", "EventTriggeredMessageType", "OwnerId", "Destination", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_Rate_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_adamant_global_v1_Rate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_Rate_descriptor,
         new java.lang.String[] { "Coin", "Jpy", });
     internal_static_adamant_global_v1_RateSnapshot_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_adamant_global_v1_RateSnapshot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_RateSnapshot_descriptor,
@@ -100557,61 +103161,61 @@ public final class Model {
         internal_static_adamant_global_v1_RateSnapshot_RatesEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_adamant_global_v1_Deactivatability_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_adamant_global_v1_Deactivatability_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_Deactivatability_descriptor,
         new java.lang.String[] { "AccountId", "Deactivatable", });
     internal_static_adamant_global_v1_LabeledAddress_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(42);
     internal_static_adamant_global_v1_LabeledAddress_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_LabeledAddress_descriptor,
         new java.lang.String[] { "LabeledAddressId", "Name", "Coin", "Address", "Proposal", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_LabeledAddressProposal_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(43);
     internal_static_adamant_global_v1_LabeledAddressProposal_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_LabeledAddressProposal_descriptor,
         new java.lang.String[] { "RequesterAccountId", "RequesterName", "ApproverAccountId", "ApproverName", "ProposedAddress", "AddressIsReviewed", });
     internal_static_adamant_global_v1_Whitelist_descriptor =
-      getDescriptor().getMessageTypes().get(42);
+      getDescriptor().getMessageTypes().get(44);
     internal_static_adamant_global_v1_Whitelist_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_Whitelist_descriptor,
         new java.lang.String[] { "WhitelistId", "Name", "Coin", "Addresses", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_TransferLimit_descriptor =
-      getDescriptor().getMessageTypes().get(43);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_adamant_global_v1_TransferLimit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_TransferLimit_descriptor,
         new java.lang.String[] { "TransferLimitId", "Name", "Coin", "HourlyLimit", "DailyLimit", "OneTimeLimit", "Proposal", "IsReviewed", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_TransferLimitProposal_descriptor =
-      getDescriptor().getMessageTypes().get(44);
+      getDescriptor().getMessageTypes().get(46);
     internal_static_adamant_global_v1_TransferLimitProposal_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_TransferLimitProposal_descriptor,
         new java.lang.String[] { "RequesterAccountId", "RequesterName", "ApproverAccountId", "ApproverName", "ProposedHourlyLimit", "ProposedDailyLimit", "ProposedOneTimeLimit", "IsReviewed", });
     internal_static_adamant_global_v1_Policy_descriptor =
-      getDescriptor().getMessageTypes().get(45);
+      getDescriptor().getMessageTypes().get(47);
     internal_static_adamant_global_v1_Policy_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_Policy_descriptor,
         new java.lang.String[] { "PolicyId", "PolicyType", "Name", "IsBasePolicy", "Coin", "Whitelist", "TransferLimit", "Proposal", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_PolicyProposal_descriptor =
-      getDescriptor().getMessageTypes().get(46);
+      getDescriptor().getMessageTypes().get(48);
     internal_static_adamant_global_v1_PolicyProposal_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_PolicyProposal_descriptor,
         new java.lang.String[] { "RequesterAccountId", "RequesterName", "ApproverAccountId", "ApproverName", "ProposedWhitelist", "IsReviewed", });
     internal_static_adamant_global_v1_TotalBalanceByCoin_descriptor =
-      getDescriptor().getMessageTypes().get(47);
+      getDescriptor().getMessageTypes().get(49);
     internal_static_adamant_global_v1_TotalBalanceByCoin_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_TotalBalanceByCoin_descriptor,
         new java.lang.String[] { "Coin", "ColdStringBalance", "HotStringBalance", });
     internal_static_adamant_global_v1_TotalBalance_descriptor =
-      getDescriptor().getMessageTypes().get(48);
+      getDescriptor().getMessageTypes().get(50);
     internal_static_adamant_global_v1_TotalBalance_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_TotalBalance_descriptor,
@@ -100623,7 +103227,7 @@ public final class Model {
         internal_static_adamant_global_v1_TotalBalance_TotalBalancesEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_adamant_global_v1_BalanceSnapshot_descriptor =
-      getDescriptor().getMessageTypes().get(49);
+      getDescriptor().getMessageTypes().get(51);
     internal_static_adamant_global_v1_BalanceSnapshot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_BalanceSnapshot_descriptor,
@@ -100641,7 +103245,7 @@ public final class Model {
         internal_static_adamant_global_v1_BalanceSnapshot_RatesEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_adamant_global_v1_WalletBalanceSnapshotMap_descriptor =
-      getDescriptor().getMessageTypes().get(50);
+      getDescriptor().getMessageTypes().get(52);
     internal_static_adamant_global_v1_WalletBalanceSnapshotMap_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_WalletBalanceSnapshotMap_descriptor,
@@ -100653,19 +103257,19 @@ public final class Model {
         internal_static_adamant_global_v1_WalletBalanceSnapshotMap_WalletBalanceSnapshotMapEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_adamant_global_v1_ListWalletBalanceSnapshots_descriptor =
-      getDescriptor().getMessageTypes().get(51);
+      getDescriptor().getMessageTypes().get(53);
     internal_static_adamant_global_v1_ListWalletBalanceSnapshots_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListWalletBalanceSnapshots_descriptor,
         new java.lang.String[] { "WalletBalanceSnapshots", });
     internal_static_adamant_global_v1_WalletBalanceSnapshot_descriptor =
-      getDescriptor().getMessageTypes().get(52);
+      getDescriptor().getMessageTypes().get(54);
     internal_static_adamant_global_v1_WalletBalanceSnapshot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_WalletBalanceSnapshot_descriptor,
         new java.lang.String[] { "CreateTime", "StringBalance", "Jpy", });
     internal_static_adamant_global_v1_TransferVolumeSnapshots_descriptor =
-      getDescriptor().getMessageTypes().get(53);
+      getDescriptor().getMessageTypes().get(55);
     internal_static_adamant_global_v1_TransferVolumeSnapshots_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_TransferVolumeSnapshots_descriptor,
@@ -100677,13 +103281,13 @@ public final class Model {
         internal_static_adamant_global_v1_TransferVolumeSnapshots_TransferVolumeSnapshotByTransferTypeEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_adamant_global_v1_ListTransferVolumeSnapshots_descriptor =
-      getDescriptor().getMessageTypes().get(54);
+      getDescriptor().getMessageTypes().get(56);
     internal_static_adamant_global_v1_ListTransferVolumeSnapshots_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListTransferVolumeSnapshots_descriptor,
         new java.lang.String[] { "TransferVolumeSnapshots", });
     internal_static_adamant_global_v1_TransferVolumeSnapshot_descriptor =
-      getDescriptor().getMessageTypes().get(55);
+      getDescriptor().getMessageTypes().get(57);
     internal_static_adamant_global_v1_TransferVolumeSnapshot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_TransferVolumeSnapshot_descriptor,
@@ -100695,13 +103299,13 @@ public final class Model {
         internal_static_adamant_global_v1_TransferVolumeSnapshot_TransferVolumeByCoinEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_adamant_global_v1_TransferVolume_descriptor =
-      getDescriptor().getMessageTypes().get(56);
+      getDescriptor().getMessageTypes().get(58);
     internal_static_adamant_global_v1_TransferVolume_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_TransferVolume_descriptor,
         new java.lang.String[] { "Coin", "HotStringVolume", "ColdStringVolume", "HotStringJpyVolume", "ColdStringJpyVolume", "HotNumber", "ColdNumber", "TransferType", });
     internal_static_adamant_global_v1_WalletTransferVolumeSnapshots_descriptor =
-      getDescriptor().getMessageTypes().get(57);
+      getDescriptor().getMessageTypes().get(59);
     internal_static_adamant_global_v1_WalletTransferVolumeSnapshots_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_WalletTransferVolumeSnapshots_descriptor,
@@ -100713,13 +103317,13 @@ public final class Model {
         internal_static_adamant_global_v1_WalletTransferVolumeSnapshots_WalletTransferVolumeSnapshotByWalletIdEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_adamant_global_v1_ListWalletTransferVolumeSnapshots_descriptor =
-      getDescriptor().getMessageTypes().get(58);
+      getDescriptor().getMessageTypes().get(60);
     internal_static_adamant_global_v1_ListWalletTransferVolumeSnapshots_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListWalletTransferVolumeSnapshots_descriptor,
         new java.lang.String[] { "WalletTransferVolumeSnapshots", });
     internal_static_adamant_global_v1_WalletTransferVolumeSnapshot_descriptor =
-      getDescriptor().getMessageTypes().get(59);
+      getDescriptor().getMessageTypes().get(61);
     internal_static_adamant_global_v1_WalletTransferVolumeSnapshot_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_WalletTransferVolumeSnapshot_descriptor,
@@ -100731,71 +103335,77 @@ public final class Model {
         internal_static_adamant_global_v1_WalletTransferVolumeSnapshot_WalletTransferVolumeByTransferTypeEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_adamant_global_v1_WalletTransferVolume_descriptor =
-      getDescriptor().getMessageTypes().get(60);
+      getDescriptor().getMessageTypes().get(62);
     internal_static_adamant_global_v1_WalletTransferVolume_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_WalletTransferVolume_descriptor,
         new java.lang.String[] { "StringVolume", "StringJpyVolume", "Number", "TransferType", });
     internal_static_adamant_global_v1_Confirmation_descriptor =
-      getDescriptor().getMessageTypes().get(61);
+      getDescriptor().getMessageTypes().get(63);
     internal_static_adamant_global_v1_Confirmation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_Confirmation_descriptor,
         new java.lang.String[] { "Coin", "Confirmation", });
     internal_static_adamant_global_v1_WalletFlushSetting_descriptor =
-      getDescriptor().getMessageTypes().get(62);
+      getDescriptor().getMessageTypes().get(64);
     internal_static_adamant_global_v1_WalletFlushSetting_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_WalletFlushSetting_descriptor,
         new java.lang.String[] { "OwnerId", "Coin", "DestinationWalletId", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_CompensationFee_descriptor =
-      getDescriptor().getMessageTypes().get(63);
+      getDescriptor().getMessageTypes().get(65);
     internal_static_adamant_global_v1_CompensationFee_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CompensationFee_descriptor,
         new java.lang.String[] { "StringValue", "IsSpent", "CreateTime", });
     internal_static_adamant_global_v1_WalletGroup_descriptor =
-      getDescriptor().getMessageTypes().get(64);
+      getDescriptor().getMessageTypes().get(66);
     internal_static_adamant_global_v1_WalletGroup_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_WalletGroup_descriptor,
         new java.lang.String[] { "WalletGroupId", "Name", "Coin", "Wallets", "WatchOnly", "CreateTime", "UpdateTime", });
     internal_static_adamant_global_v1_RequestTxOutput_descriptor =
-      getDescriptor().getMessageTypes().get(65);
+      getDescriptor().getMessageTypes().get(67);
     internal_static_adamant_global_v1_RequestTxOutput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_RequestTxOutput_descriptor,
         new java.lang.String[] { "Address", "StringValue", });
     internal_static_adamant_global_v1_RequestSignedInfo_descriptor =
-      getDescriptor().getMessageTypes().get(66);
+      getDescriptor().getMessageTypes().get(68);
     internal_static_adamant_global_v1_RequestSignedInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_RequestSignedInfo_descriptor,
         new java.lang.String[] { "Signatures", });
     internal_static_adamant_global_v1_RequestSignature_descriptor =
-      getDescriptor().getMessageTypes().get(67);
+      getDescriptor().getMessageTypes().get(69);
     internal_static_adamant_global_v1_RequestSignature_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_RequestSignature_descriptor,
         new java.lang.String[] { "SignIndex", "Signature", });
     internal_static_adamant_global_v1_RequestTransferLimitEntry_descriptor =
-      getDescriptor().getMessageTypes().get(68);
+      getDescriptor().getMessageTypes().get(70);
     internal_static_adamant_global_v1_RequestTransferLimitEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_RequestTransferLimitEntry_descriptor,
         new java.lang.String[] { "TransferLimitType", "TransferLimitValue", });
     internal_static_adamant_global_v1_RequestRate_descriptor =
-      getDescriptor().getMessageTypes().get(69);
+      getDescriptor().getMessageTypes().get(71);
     internal_static_adamant_global_v1_RequestRate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_RequestRate_descriptor,
         new java.lang.String[] { "Coin", "Jpy", });
     internal_static_adamant_global_v1_SubstrateChildAddress_descriptor =
-      getDescriptor().getMessageTypes().get(70);
+      getDescriptor().getMessageTypes().get(72);
     internal_static_adamant_global_v1_SubstrateChildAddress_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_SubstrateChildAddress_descriptor,
         new java.lang.String[] { "WalletId", "AccountId", "Address", "Balance", "StringBalance", });
+    internal_static_adamant_global_v1_IOSTChildAccount_descriptor =
+      getDescriptor().getMessageTypes().get(73);
+    internal_static_adamant_global_v1_IOSTChildAccount_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_IOSTChildAccount_descriptor,
+        new java.lang.String[] { "WalletId", "AccountId", "AccountName", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(io.envoyproxy.pgv.validate.Validate.rules);

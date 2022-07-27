@@ -20,6 +20,8 @@ public class SendTransactionRequestValidator implements io.envoyproxy.pgv.Valida
 		
 		com.google.re2j.Pattern TRANSACTION_ID__PATTERN = com.google.re2j.Pattern.compile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.SendTransactionRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -27,6 +29,8 @@ public class SendTransactionRequestValidator implements io.envoyproxy.pgv.Valida
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.SendTransactionRequest.wallet_id", proto.getWalletId(), WALLET_ID__PATTERN);
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.SendTransactionRequest.transaction_id", proto.getTransactionId(), TRANSACTION_ID__PATTERN);
+	// no validation rules for ExecutorType
+
 	
 	}
 

@@ -4,27 +4,26 @@
 package adamant.global.v1;
 
 /**
- * Protobuf type {@code adamant.global.v1.SendInitTransactionRequest}
+ * Protobuf type {@code adamant.global.v1.CreateIOSTAccountResponse}
  */
-public final class SendInitTransactionRequest extends
+public final class CreateIOSTAccountResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:adamant.global.v1.SendInitTransactionRequest)
-    SendInitTransactionRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:adamant.global.v1.CreateIOSTAccountResponse)
+    CreateIOSTAccountResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use SendInitTransactionRequest.newBuilder() to construct.
-  private SendInitTransactionRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use CreateIOSTAccountResponse.newBuilder() to construct.
+  private CreateIOSTAccountResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private SendInitTransactionRequest() {
-    walletId_ = "";
-    executorType_ = 0;
+  private CreateIOSTAccountResponse() {
+    addressId_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new SendInitTransactionRequest();
+    return new CreateIOSTAccountResponse();
   }
 
   @java.lang.Override
@@ -32,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SendInitTransactionRequest(
+  private CreateIOSTAccountResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -53,13 +52,7 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            walletId_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            executorType_ = rawValue;
+            addressId_ = s;
             break;
           }
           default: {
@@ -83,72 +76,53 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_SendInitTransactionRequest_descriptor;
+    return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_CreateIOSTAccountResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_SendInitTransactionRequest_fieldAccessorTable
+    return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_CreateIOSTAccountResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            adamant.global.v1.SendInitTransactionRequest.class, adamant.global.v1.SendInitTransactionRequest.Builder.class);
+            adamant.global.v1.CreateIOSTAccountResponse.class, adamant.global.v1.CreateIOSTAccountResponse.Builder.class);
   }
 
-  public static final int WALLET_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object walletId_;
+  public static final int ADDRESS_ID_FIELD_NUMBER = 1;
+  private volatile java.lang.Object addressId_;
   /**
-   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
-   * @return The walletId.
+   * <code>string address_id = 1 [json_name = "addressId"];</code>
+   * @return The addressId.
    */
   @java.lang.Override
-  public java.lang.String getWalletId() {
-    java.lang.Object ref = walletId_;
+  public java.lang.String getAddressId() {
+    java.lang.Object ref = addressId_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      walletId_ = s;
+      addressId_ = s;
       return s;
     }
   }
   /**
-   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
-   * @return The bytes for walletId.
+   * <code>string address_id = 1 [json_name = "addressId"];</code>
+   * @return The bytes for addressId.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getWalletIdBytes() {
-    java.lang.Object ref = walletId_;
+      getAddressIdBytes() {
+    java.lang.Object ref = addressId_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      walletId_ = b;
+      addressId_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
-  }
-
-  public static final int EXECUTOR_TYPE_FIELD_NUMBER = 2;
-  private int executorType_;
-  /**
-   * <code>.adamant.global.v1.ExecutorType executor_type = 2 [json_name = "executorType"];</code>
-   * @return The enum numeric value on the wire for executorType.
-   */
-  @java.lang.Override public int getExecutorTypeValue() {
-    return executorType_;
-  }
-  /**
-   * <code>.adamant.global.v1.ExecutorType executor_type = 2 [json_name = "executorType"];</code>
-   * @return The executorType.
-   */
-  @java.lang.Override public adamant.global.v1.Enum.ExecutorType getExecutorType() {
-    @SuppressWarnings("deprecation")
-    adamant.global.v1.Enum.ExecutorType result = adamant.global.v1.Enum.ExecutorType.valueOf(executorType_);
-    return result == null ? adamant.global.v1.Enum.ExecutorType.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -165,11 +139,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletId_);
-    }
-    if (executorType_ != adamant.global.v1.Enum.ExecutorType.EXECUTOR_TYPE_INVALID.getNumber()) {
-      output.writeEnum(2, executorType_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(addressId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, addressId_);
     }
     unknownFields.writeTo(output);
   }
@@ -180,12 +151,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletId_);
-    }
-    if (executorType_ != adamant.global.v1.Enum.ExecutorType.EXECUTOR_TYPE_INVALID.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(2, executorType_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(addressId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, addressId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -197,14 +164,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof adamant.global.v1.SendInitTransactionRequest)) {
+    if (!(obj instanceof adamant.global.v1.CreateIOSTAccountResponse)) {
       return super.equals(obj);
     }
-    adamant.global.v1.SendInitTransactionRequest other = (adamant.global.v1.SendInitTransactionRequest) obj;
+    adamant.global.v1.CreateIOSTAccountResponse other = (adamant.global.v1.CreateIOSTAccountResponse) obj;
 
-    if (!getWalletId()
-        .equals(other.getWalletId())) return false;
-    if (executorType_ != other.executorType_) return false;
+    if (!getAddressId()
+        .equals(other.getAddressId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -216,78 +182,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + WALLET_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getWalletId().hashCode();
-    hash = (37 * hash) + EXECUTOR_TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + executorType_;
+    hash = (37 * hash) + ADDRESS_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getAddressId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static adamant.global.v1.SendInitTransactionRequest parseFrom(
+  public static adamant.global.v1.CreateIOSTAccountResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static adamant.global.v1.SendInitTransactionRequest parseFrom(
+  public static adamant.global.v1.CreateIOSTAccountResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static adamant.global.v1.SendInitTransactionRequest parseFrom(
+  public static adamant.global.v1.CreateIOSTAccountResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static adamant.global.v1.SendInitTransactionRequest parseFrom(
+  public static adamant.global.v1.CreateIOSTAccountResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static adamant.global.v1.SendInitTransactionRequest parseFrom(byte[] data)
+  public static adamant.global.v1.CreateIOSTAccountResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static adamant.global.v1.SendInitTransactionRequest parseFrom(
+  public static adamant.global.v1.CreateIOSTAccountResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static adamant.global.v1.SendInitTransactionRequest parseFrom(java.io.InputStream input)
+  public static adamant.global.v1.CreateIOSTAccountResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static adamant.global.v1.SendInitTransactionRequest parseFrom(
+  public static adamant.global.v1.CreateIOSTAccountResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static adamant.global.v1.SendInitTransactionRequest parseDelimitedFrom(java.io.InputStream input)
+  public static adamant.global.v1.CreateIOSTAccountResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static adamant.global.v1.SendInitTransactionRequest parseDelimitedFrom(
+  public static adamant.global.v1.CreateIOSTAccountResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static adamant.global.v1.SendInitTransactionRequest parseFrom(
+  public static adamant.global.v1.CreateIOSTAccountResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static adamant.global.v1.SendInitTransactionRequest parseFrom(
+  public static adamant.global.v1.CreateIOSTAccountResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -300,7 +264,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(adamant.global.v1.SendInitTransactionRequest prototype) {
+  public static Builder newBuilder(adamant.global.v1.CreateIOSTAccountResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -316,26 +280,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code adamant.global.v1.SendInitTransactionRequest}
+   * Protobuf type {@code adamant.global.v1.CreateIOSTAccountResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:adamant.global.v1.SendInitTransactionRequest)
-      adamant.global.v1.SendInitTransactionRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:adamant.global.v1.CreateIOSTAccountResponse)
+      adamant.global.v1.CreateIOSTAccountResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_SendInitTransactionRequest_descriptor;
+      return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_CreateIOSTAccountResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_SendInitTransactionRequest_fieldAccessorTable
+      return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_CreateIOSTAccountResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              adamant.global.v1.SendInitTransactionRequest.class, adamant.global.v1.SendInitTransactionRequest.Builder.class);
+              adamant.global.v1.CreateIOSTAccountResponse.class, adamant.global.v1.CreateIOSTAccountResponse.Builder.class);
     }
 
-    // Construct using adamant.global.v1.SendInitTransactionRequest.newBuilder()
+    // Construct using adamant.global.v1.CreateIOSTAccountResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -353,9 +317,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      walletId_ = "";
-
-      executorType_ = 0;
+      addressId_ = "";
 
       return this;
     }
@@ -363,17 +325,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_SendInitTransactionRequest_descriptor;
+      return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_CreateIOSTAccountResponse_descriptor;
     }
 
     @java.lang.Override
-    public adamant.global.v1.SendInitTransactionRequest getDefaultInstanceForType() {
-      return adamant.global.v1.SendInitTransactionRequest.getDefaultInstance();
+    public adamant.global.v1.CreateIOSTAccountResponse getDefaultInstanceForType() {
+      return adamant.global.v1.CreateIOSTAccountResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public adamant.global.v1.SendInitTransactionRequest build() {
-      adamant.global.v1.SendInitTransactionRequest result = buildPartial();
+    public adamant.global.v1.CreateIOSTAccountResponse build() {
+      adamant.global.v1.CreateIOSTAccountResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -381,10 +343,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public adamant.global.v1.SendInitTransactionRequest buildPartial() {
-      adamant.global.v1.SendInitTransactionRequest result = new adamant.global.v1.SendInitTransactionRequest(this);
-      result.walletId_ = walletId_;
-      result.executorType_ = executorType_;
+    public adamant.global.v1.CreateIOSTAccountResponse buildPartial() {
+      adamant.global.v1.CreateIOSTAccountResponse result = new adamant.global.v1.CreateIOSTAccountResponse(this);
+      result.addressId_ = addressId_;
       onBuilt();
       return result;
     }
@@ -423,22 +384,19 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof adamant.global.v1.SendInitTransactionRequest) {
-        return mergeFrom((adamant.global.v1.SendInitTransactionRequest)other);
+      if (other instanceof adamant.global.v1.CreateIOSTAccountResponse) {
+        return mergeFrom((adamant.global.v1.CreateIOSTAccountResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(adamant.global.v1.SendInitTransactionRequest other) {
-      if (other == adamant.global.v1.SendInitTransactionRequest.getDefaultInstance()) return this;
-      if (!other.getWalletId().isEmpty()) {
-        walletId_ = other.walletId_;
+    public Builder mergeFrom(adamant.global.v1.CreateIOSTAccountResponse other) {
+      if (other == adamant.global.v1.CreateIOSTAccountResponse.getDefaultInstance()) return this;
+      if (!other.getAddressId().isEmpty()) {
+        addressId_ = other.addressId_;
         onChanged();
-      }
-      if (other.executorType_ != 0) {
-        setExecutorTypeValue(other.getExecutorTypeValue());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -455,11 +413,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      adamant.global.v1.SendInitTransactionRequest parsedMessage = null;
+      adamant.global.v1.CreateIOSTAccountResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (adamant.global.v1.SendInitTransactionRequest) e.getUnfinishedMessage();
+        parsedMessage = (adamant.global.v1.CreateIOSTAccountResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -469,132 +427,78 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object walletId_ = "";
+    private java.lang.Object addressId_ = "";
     /**
-     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
-     * @return The walletId.
+     * <code>string address_id = 1 [json_name = "addressId"];</code>
+     * @return The addressId.
      */
-    public java.lang.String getWalletId() {
-      java.lang.Object ref = walletId_;
+    public java.lang.String getAddressId() {
+      java.lang.Object ref = addressId_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        walletId_ = s;
+        addressId_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
-     * @return The bytes for walletId.
+     * <code>string address_id = 1 [json_name = "addressId"];</code>
+     * @return The bytes for addressId.
      */
     public com.google.protobuf.ByteString
-        getWalletIdBytes() {
-      java.lang.Object ref = walletId_;
+        getAddressIdBytes() {
+      java.lang.Object ref = addressId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        walletId_ = b;
+        addressId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
-     * @param value The walletId to set.
+     * <code>string address_id = 1 [json_name = "addressId"];</code>
+     * @param value The addressId to set.
      * @return This builder for chaining.
      */
-    public Builder setWalletId(
+    public Builder setAddressId(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      walletId_ = value;
+      addressId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * <code>string address_id = 1 [json_name = "addressId"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearWalletId() {
+    public Builder clearAddressId() {
       
-      walletId_ = getDefaultInstance().getWalletId();
+      addressId_ = getDefaultInstance().getAddressId();
       onChanged();
       return this;
     }
     /**
-     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
-     * @param value The bytes for walletId to set.
+     * <code>string address_id = 1 [json_name = "addressId"];</code>
+     * @param value The bytes for addressId to set.
      * @return This builder for chaining.
      */
-    public Builder setWalletIdBytes(
+    public Builder setAddressIdBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      walletId_ = value;
-      onChanged();
-      return this;
-    }
-
-    private int executorType_ = 0;
-    /**
-     * <code>.adamant.global.v1.ExecutorType executor_type = 2 [json_name = "executorType"];</code>
-     * @return The enum numeric value on the wire for executorType.
-     */
-    @java.lang.Override public int getExecutorTypeValue() {
-      return executorType_;
-    }
-    /**
-     * <code>.adamant.global.v1.ExecutorType executor_type = 2 [json_name = "executorType"];</code>
-     * @param value The enum numeric value on the wire for executorType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setExecutorTypeValue(int value) {
-      
-      executorType_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.adamant.global.v1.ExecutorType executor_type = 2 [json_name = "executorType"];</code>
-     * @return The executorType.
-     */
-    @java.lang.Override
-    public adamant.global.v1.Enum.ExecutorType getExecutorType() {
-      @SuppressWarnings("deprecation")
-      adamant.global.v1.Enum.ExecutorType result = adamant.global.v1.Enum.ExecutorType.valueOf(executorType_);
-      return result == null ? adamant.global.v1.Enum.ExecutorType.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.adamant.global.v1.ExecutorType executor_type = 2 [json_name = "executorType"];</code>
-     * @param value The executorType to set.
-     * @return This builder for chaining.
-     */
-    public Builder setExecutorType(adamant.global.v1.Enum.ExecutorType value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      executorType_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.adamant.global.v1.ExecutorType executor_type = 2 [json_name = "executorType"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearExecutorType() {
-      
-      executorType_ = 0;
+      addressId_ = value;
       onChanged();
       return this;
     }
@@ -611,41 +515,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:adamant.global.v1.SendInitTransactionRequest)
+    // @@protoc_insertion_point(builder_scope:adamant.global.v1.CreateIOSTAccountResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:adamant.global.v1.SendInitTransactionRequest)
-  private static final adamant.global.v1.SendInitTransactionRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:adamant.global.v1.CreateIOSTAccountResponse)
+  private static final adamant.global.v1.CreateIOSTAccountResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new adamant.global.v1.SendInitTransactionRequest();
+    DEFAULT_INSTANCE = new adamant.global.v1.CreateIOSTAccountResponse();
   }
 
-  public static adamant.global.v1.SendInitTransactionRequest getDefaultInstance() {
+  public static adamant.global.v1.CreateIOSTAccountResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<SendInitTransactionRequest>
-      PARSER = new com.google.protobuf.AbstractParser<SendInitTransactionRequest>() {
+  private static final com.google.protobuf.Parser<CreateIOSTAccountResponse>
+      PARSER = new com.google.protobuf.AbstractParser<CreateIOSTAccountResponse>() {
     @java.lang.Override
-    public SendInitTransactionRequest parsePartialFrom(
+    public CreateIOSTAccountResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SendInitTransactionRequest(input, extensionRegistry);
+      return new CreateIOSTAccountResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<SendInitTransactionRequest> parser() {
+  public static com.google.protobuf.Parser<CreateIOSTAccountResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<SendInitTransactionRequest> getParserForType() {
+  public com.google.protobuf.Parser<CreateIOSTAccountResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public adamant.global.v1.SendInitTransactionRequest getDefaultInstanceForType() {
+  public adamant.global.v1.CreateIOSTAccountResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -4,27 +4,34 @@
 package adamant.global.v1;
 
 /**
- * Protobuf type {@code adamant.global.v1.ImportAddressRequest}
+ * <pre>
+ * -----------------------------------------------------------------------------
+ * IOST
+ * -----------------------------------------------------------------------------
+ * </pre>
+ *
+ * Protobuf type {@code adamant.global.v1.CreateIOSTAccountRequest}
  */
-public final class ImportAddressRequest extends
+public final class CreateIOSTAccountRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:adamant.global.v1.ImportAddressRequest)
-    ImportAddressRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:adamant.global.v1.CreateIOSTAccountRequest)
+    CreateIOSTAccountRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use ImportAddressRequest.newBuilder() to construct.
-  private ImportAddressRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use CreateIOSTAccountRequest.newBuilder() to construct.
+  private CreateIOSTAccountRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ImportAddressRequest() {
+  private CreateIOSTAccountRequest() {
+    accountName_ = "";
     walletId_ = "";
-    address_ = "";
+    accountId_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new ImportAddressRequest();
+    return new CreateIOSTAccountRequest();
   }
 
   @java.lang.Override
@@ -32,7 +39,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ImportAddressRequest(
+  private CreateIOSTAccountRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -53,18 +60,19 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            walletId_ = s;
+            accountName_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            address_ = s;
+            walletId_ = s;
             break;
           }
-          case 24: {
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            isChangeAddress_ = input.readBool();
+            accountId_ = s;
             break;
           }
           default: {
@@ -88,21 +96,59 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_ImportAddressRequest_descriptor;
+    return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_CreateIOSTAccountRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_ImportAddressRequest_fieldAccessorTable
+    return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_CreateIOSTAccountRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            adamant.global.v1.ImportAddressRequest.class, adamant.global.v1.ImportAddressRequest.Builder.class);
+            adamant.global.v1.CreateIOSTAccountRequest.class, adamant.global.v1.CreateIOSTAccountRequest.Builder.class);
   }
 
-  public static final int WALLET_ID_FIELD_NUMBER = 1;
+  public static final int ACCOUNT_NAME_FIELD_NUMBER = 1;
+  private volatile java.lang.Object accountName_;
+  /**
+   * <code>string account_name = 1 [json_name = "accountName", (.validate.rules) = { ... }</code>
+   * @return The accountName.
+   */
+  @java.lang.Override
+  public java.lang.String getAccountName() {
+    java.lang.Object ref = accountName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      accountName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string account_name = 1 [json_name = "accountName", (.validate.rules) = { ... }</code>
+   * @return The bytes for accountName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAccountNameBytes() {
+    java.lang.Object ref = accountName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      accountName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int WALLET_ID_FIELD_NUMBER = 2;
   private volatile java.lang.Object walletId_;
   /**
-   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 2 [json_name = "walletId"];</code>
    * @return The walletId.
    */
   @java.lang.Override
@@ -119,7 +165,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+   * <code>string wallet_id = 2 [json_name = "walletId"];</code>
    * @return The bytes for walletId.
    */
   @java.lang.Override
@@ -137,53 +183,42 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int ADDRESS_FIELD_NUMBER = 2;
-  private volatile java.lang.Object address_;
+  public static final int ACCOUNT_ID_FIELD_NUMBER = 3;
+  private volatile java.lang.Object accountId_;
   /**
-   * <code>string address = 2 [json_name = "address"];</code>
-   * @return The address.
+   * <code>string account_id = 3 [json_name = "accountId"];</code>
+   * @return The accountId.
    */
   @java.lang.Override
-  public java.lang.String getAddress() {
-    java.lang.Object ref = address_;
+  public java.lang.String getAccountId() {
+    java.lang.Object ref = accountId_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      address_ = s;
+      accountId_ = s;
       return s;
     }
   }
   /**
-   * <code>string address = 2 [json_name = "address"];</code>
-   * @return The bytes for address.
+   * <code>string account_id = 3 [json_name = "accountId"];</code>
+   * @return The bytes for accountId.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getAddressBytes() {
-    java.lang.Object ref = address_;
+      getAccountIdBytes() {
+    java.lang.Object ref = accountId_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      address_ = b;
+      accountId_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
-  }
-
-  public static final int IS_CHANGE_ADDRESS_FIELD_NUMBER = 3;
-  private boolean isChangeAddress_;
-  /**
-   * <code>bool is_change_address = 3 [json_name = "isChangeAddress"];</code>
-   * @return The isChangeAddress.
-   */
-  @java.lang.Override
-  public boolean getIsChangeAddress() {
-    return isChangeAddress_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -200,14 +235,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, accountName_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletId_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, walletId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, address_);
-    }
-    if (isChangeAddress_ != false) {
-      output.writeBool(3, isChangeAddress_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, accountId_);
     }
     unknownFields.writeTo(output);
   }
@@ -218,15 +253,14 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, accountName_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletId_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, walletId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, address_);
-    }
-    if (isChangeAddress_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(3, isChangeAddress_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, accountId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -238,17 +272,17 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof adamant.global.v1.ImportAddressRequest)) {
+    if (!(obj instanceof adamant.global.v1.CreateIOSTAccountRequest)) {
       return super.equals(obj);
     }
-    adamant.global.v1.ImportAddressRequest other = (adamant.global.v1.ImportAddressRequest) obj;
+    adamant.global.v1.CreateIOSTAccountRequest other = (adamant.global.v1.CreateIOSTAccountRequest) obj;
 
+    if (!getAccountName()
+        .equals(other.getAccountName())) return false;
     if (!getWalletId()
         .equals(other.getWalletId())) return false;
-    if (!getAddress()
-        .equals(other.getAddress())) return false;
-    if (getIsChangeAddress()
-        != other.getIsChangeAddress()) return false;
+    if (!getAccountId()
+        .equals(other.getAccountId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -260,81 +294,80 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + ACCOUNT_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getAccountName().hashCode();
     hash = (37 * hash) + WALLET_ID_FIELD_NUMBER;
     hash = (53 * hash) + getWalletId().hashCode();
-    hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
-    hash = (53 * hash) + getAddress().hashCode();
-    hash = (37 * hash) + IS_CHANGE_ADDRESS_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getIsChangeAddress());
+    hash = (37 * hash) + ACCOUNT_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getAccountId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static adamant.global.v1.ImportAddressRequest parseFrom(
+  public static adamant.global.v1.CreateIOSTAccountRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static adamant.global.v1.ImportAddressRequest parseFrom(
+  public static adamant.global.v1.CreateIOSTAccountRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static adamant.global.v1.ImportAddressRequest parseFrom(
+  public static adamant.global.v1.CreateIOSTAccountRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static adamant.global.v1.ImportAddressRequest parseFrom(
+  public static adamant.global.v1.CreateIOSTAccountRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static adamant.global.v1.ImportAddressRequest parseFrom(byte[] data)
+  public static adamant.global.v1.CreateIOSTAccountRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static adamant.global.v1.ImportAddressRequest parseFrom(
+  public static adamant.global.v1.CreateIOSTAccountRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static adamant.global.v1.ImportAddressRequest parseFrom(java.io.InputStream input)
+  public static adamant.global.v1.CreateIOSTAccountRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static adamant.global.v1.ImportAddressRequest parseFrom(
+  public static adamant.global.v1.CreateIOSTAccountRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static adamant.global.v1.ImportAddressRequest parseDelimitedFrom(java.io.InputStream input)
+  public static adamant.global.v1.CreateIOSTAccountRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static adamant.global.v1.ImportAddressRequest parseDelimitedFrom(
+  public static adamant.global.v1.CreateIOSTAccountRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static adamant.global.v1.ImportAddressRequest parseFrom(
+  public static adamant.global.v1.CreateIOSTAccountRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static adamant.global.v1.ImportAddressRequest parseFrom(
+  public static adamant.global.v1.CreateIOSTAccountRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -347,7 +380,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(adamant.global.v1.ImportAddressRequest prototype) {
+  public static Builder newBuilder(adamant.global.v1.CreateIOSTAccountRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -363,26 +396,32 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code adamant.global.v1.ImportAddressRequest}
+   * <pre>
+   * -----------------------------------------------------------------------------
+   * IOST
+   * -----------------------------------------------------------------------------
+   * </pre>
+   *
+   * Protobuf type {@code adamant.global.v1.CreateIOSTAccountRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:adamant.global.v1.ImportAddressRequest)
-      adamant.global.v1.ImportAddressRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:adamant.global.v1.CreateIOSTAccountRequest)
+      adamant.global.v1.CreateIOSTAccountRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_ImportAddressRequest_descriptor;
+      return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_CreateIOSTAccountRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_ImportAddressRequest_fieldAccessorTable
+      return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_CreateIOSTAccountRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              adamant.global.v1.ImportAddressRequest.class, adamant.global.v1.ImportAddressRequest.Builder.class);
+              adamant.global.v1.CreateIOSTAccountRequest.class, adamant.global.v1.CreateIOSTAccountRequest.Builder.class);
     }
 
-    // Construct using adamant.global.v1.ImportAddressRequest.newBuilder()
+    // Construct using adamant.global.v1.CreateIOSTAccountRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -400,11 +439,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      accountName_ = "";
+
       walletId_ = "";
 
-      address_ = "";
-
-      isChangeAddress_ = false;
+      accountId_ = "";
 
       return this;
     }
@@ -412,17 +451,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_ImportAddressRequest_descriptor;
+      return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_CreateIOSTAccountRequest_descriptor;
     }
 
     @java.lang.Override
-    public adamant.global.v1.ImportAddressRequest getDefaultInstanceForType() {
-      return adamant.global.v1.ImportAddressRequest.getDefaultInstance();
+    public adamant.global.v1.CreateIOSTAccountRequest getDefaultInstanceForType() {
+      return adamant.global.v1.CreateIOSTAccountRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public adamant.global.v1.ImportAddressRequest build() {
-      adamant.global.v1.ImportAddressRequest result = buildPartial();
+    public adamant.global.v1.CreateIOSTAccountRequest build() {
+      adamant.global.v1.CreateIOSTAccountRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -430,11 +469,11 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public adamant.global.v1.ImportAddressRequest buildPartial() {
-      adamant.global.v1.ImportAddressRequest result = new adamant.global.v1.ImportAddressRequest(this);
+    public adamant.global.v1.CreateIOSTAccountRequest buildPartial() {
+      adamant.global.v1.CreateIOSTAccountRequest result = new adamant.global.v1.CreateIOSTAccountRequest(this);
+      result.accountName_ = accountName_;
       result.walletId_ = walletId_;
-      result.address_ = address_;
-      result.isChangeAddress_ = isChangeAddress_;
+      result.accountId_ = accountId_;
       onBuilt();
       return result;
     }
@@ -473,26 +512,27 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof adamant.global.v1.ImportAddressRequest) {
-        return mergeFrom((adamant.global.v1.ImportAddressRequest)other);
+      if (other instanceof adamant.global.v1.CreateIOSTAccountRequest) {
+        return mergeFrom((adamant.global.v1.CreateIOSTAccountRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(adamant.global.v1.ImportAddressRequest other) {
-      if (other == adamant.global.v1.ImportAddressRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(adamant.global.v1.CreateIOSTAccountRequest other) {
+      if (other == adamant.global.v1.CreateIOSTAccountRequest.getDefaultInstance()) return this;
+      if (!other.getAccountName().isEmpty()) {
+        accountName_ = other.accountName_;
+        onChanged();
+      }
       if (!other.getWalletId().isEmpty()) {
         walletId_ = other.walletId_;
         onChanged();
       }
-      if (!other.getAddress().isEmpty()) {
-        address_ = other.address_;
+      if (!other.getAccountId().isEmpty()) {
+        accountId_ = other.accountId_;
         onChanged();
-      }
-      if (other.getIsChangeAddress() != false) {
-        setIsChangeAddress(other.getIsChangeAddress());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -509,11 +549,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      adamant.global.v1.ImportAddressRequest parsedMessage = null;
+      adamant.global.v1.CreateIOSTAccountRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (adamant.global.v1.ImportAddressRequest) e.getUnfinishedMessage();
+        parsedMessage = (adamant.global.v1.CreateIOSTAccountRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -523,9 +563,85 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object accountName_ = "";
+    /**
+     * <code>string account_name = 1 [json_name = "accountName", (.validate.rules) = { ... }</code>
+     * @return The accountName.
+     */
+    public java.lang.String getAccountName() {
+      java.lang.Object ref = accountName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        accountName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string account_name = 1 [json_name = "accountName", (.validate.rules) = { ... }</code>
+     * @return The bytes for accountName.
+     */
+    public com.google.protobuf.ByteString
+        getAccountNameBytes() {
+      java.lang.Object ref = accountName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        accountName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string account_name = 1 [json_name = "accountName", (.validate.rules) = { ... }</code>
+     * @param value The accountName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAccountName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      accountName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string account_name = 1 [json_name = "accountName", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAccountName() {
+      
+      accountName_ = getDefaultInstance().getAccountName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string account_name = 1 [json_name = "accountName", (.validate.rules) = { ... }</code>
+     * @param value The bytes for accountName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAccountNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      accountName_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object walletId_ = "";
     /**
-     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 2 [json_name = "walletId"];</code>
      * @return The walletId.
      */
     public java.lang.String getWalletId() {
@@ -541,7 +657,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 2 [json_name = "walletId"];</code>
      * @return The bytes for walletId.
      */
     public com.google.protobuf.ByteString
@@ -558,7 +674,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 2 [json_name = "walletId"];</code>
      * @param value The walletId to set.
      * @return This builder for chaining.
      */
@@ -573,7 +689,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 2 [json_name = "walletId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearWalletId() {
@@ -583,7 +699,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * <code>string wallet_id = 2 [json_name = "walletId"];</code>
      * @param value The bytes for walletId to set.
      * @return This builder for chaining.
      */
@@ -599,109 +715,78 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object address_ = "";
+    private java.lang.Object accountId_ = "";
     /**
-     * <code>string address = 2 [json_name = "address"];</code>
-     * @return The address.
+     * <code>string account_id = 3 [json_name = "accountId"];</code>
+     * @return The accountId.
      */
-    public java.lang.String getAddress() {
-      java.lang.Object ref = address_;
+    public java.lang.String getAccountId() {
+      java.lang.Object ref = accountId_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        address_ = s;
+        accountId_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string address = 2 [json_name = "address"];</code>
-     * @return The bytes for address.
+     * <code>string account_id = 3 [json_name = "accountId"];</code>
+     * @return The bytes for accountId.
      */
     public com.google.protobuf.ByteString
-        getAddressBytes() {
-      java.lang.Object ref = address_;
+        getAccountIdBytes() {
+      java.lang.Object ref = accountId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        address_ = b;
+        accountId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string address = 2 [json_name = "address"];</code>
-     * @param value The address to set.
+     * <code>string account_id = 3 [json_name = "accountId"];</code>
+     * @param value The accountId to set.
      * @return This builder for chaining.
      */
-    public Builder setAddress(
+    public Builder setAccountId(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      address_ = value;
+      accountId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string address = 2 [json_name = "address"];</code>
+     * <code>string account_id = 3 [json_name = "accountId"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearAddress() {
+    public Builder clearAccountId() {
       
-      address_ = getDefaultInstance().getAddress();
+      accountId_ = getDefaultInstance().getAccountId();
       onChanged();
       return this;
     }
     /**
-     * <code>string address = 2 [json_name = "address"];</code>
-     * @param value The bytes for address to set.
+     * <code>string account_id = 3 [json_name = "accountId"];</code>
+     * @param value The bytes for accountId to set.
      * @return This builder for chaining.
      */
-    public Builder setAddressBytes(
+    public Builder setAccountIdBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      address_ = value;
-      onChanged();
-      return this;
-    }
-
-    private boolean isChangeAddress_ ;
-    /**
-     * <code>bool is_change_address = 3 [json_name = "isChangeAddress"];</code>
-     * @return The isChangeAddress.
-     */
-    @java.lang.Override
-    public boolean getIsChangeAddress() {
-      return isChangeAddress_;
-    }
-    /**
-     * <code>bool is_change_address = 3 [json_name = "isChangeAddress"];</code>
-     * @param value The isChangeAddress to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIsChangeAddress(boolean value) {
-      
-      isChangeAddress_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>bool is_change_address = 3 [json_name = "isChangeAddress"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearIsChangeAddress() {
-      
-      isChangeAddress_ = false;
+      accountId_ = value;
       onChanged();
       return this;
     }
@@ -718,41 +803,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:adamant.global.v1.ImportAddressRequest)
+    // @@protoc_insertion_point(builder_scope:adamant.global.v1.CreateIOSTAccountRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:adamant.global.v1.ImportAddressRequest)
-  private static final adamant.global.v1.ImportAddressRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:adamant.global.v1.CreateIOSTAccountRequest)
+  private static final adamant.global.v1.CreateIOSTAccountRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new adamant.global.v1.ImportAddressRequest();
+    DEFAULT_INSTANCE = new adamant.global.v1.CreateIOSTAccountRequest();
   }
 
-  public static adamant.global.v1.ImportAddressRequest getDefaultInstance() {
+  public static adamant.global.v1.CreateIOSTAccountRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ImportAddressRequest>
-      PARSER = new com.google.protobuf.AbstractParser<ImportAddressRequest>() {
+  private static final com.google.protobuf.Parser<CreateIOSTAccountRequest>
+      PARSER = new com.google.protobuf.AbstractParser<CreateIOSTAccountRequest>() {
     @java.lang.Override
-    public ImportAddressRequest parsePartialFrom(
+    public CreateIOSTAccountRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImportAddressRequest(input, extensionRegistry);
+      return new CreateIOSTAccountRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<ImportAddressRequest> parser() {
+  public static com.google.protobuf.Parser<CreateIOSTAccountRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ImportAddressRequest> getParserForType() {
+  public com.google.protobuf.Parser<CreateIOSTAccountRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public adamant.global.v1.ImportAddressRequest getDefaultInstanceForType() {
+  public adamant.global.v1.CreateIOSTAccountRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

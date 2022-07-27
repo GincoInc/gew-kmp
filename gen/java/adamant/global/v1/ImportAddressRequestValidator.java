@@ -19,12 +19,16 @@ public class ImportAddressRequestValidator implements io.envoyproxy.pgv.Validato
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.ImportAddressRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.ImportAddressRequest.wallet_id", proto.getWalletId(), WALLET_ID__PATTERN);
 	// no validation rules for Address
+
+	// no validation rules for IsChangeAddress
 
 	
 	}
