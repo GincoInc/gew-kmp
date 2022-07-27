@@ -46,6 +46,8 @@ enum WalletState {
   WALLET_STATE_ADDRESS_DELETE_FAILED = 19; // Failed delete address
   WALLET_STATE_FLUSHING = 20; // Balance flushing
   WALLET_STATE_ACCOUNT_CREATING = 21; // Waiting for create account
+  WALLET_STATE_ACCOUNT_CREATED = 22; // Account was created
+  WALLET_STATE_MANAGER_APPROVED_SENDING_TRANSACTION = 23; // Manager approved tx
 }
 
 // WalletProposalType is a type of proposal
@@ -84,6 +86,8 @@ enum TransactionState {
   TRANSACTION_STATE_SUBMITTED = 6; // Transaction was submitted
   TRANSACTION_STATE_CANCELLING = 8; // Waiting for cancel
   TRANSACTION_STATE_CANCELLED = 7; // Transaction was cancelled
+  TRANSACTION_STATE_APPROVING = 9; // Waiting for approve
+  TRANSACTION_STATE_APPROVED = 10; // Transaction was approved
 }
 
 // -----------------------------------------------------------------------------
@@ -95,6 +99,13 @@ enum AccountType {
   ACCOUNT_TYPE_INVALID = 0;
   ACCOUNT_TYPE_USER = 1; // User
   ACCOUNT_TYPE_SERVICE_ACCOUNT = 2; // Service Account
+}
+
+// ExecutorType indicates who executes programs
+enum ExecutorType {
+  EXECUTOR_TYPE_INVALID = 0;
+  EXECUTOR_TYPE_USER = 1; // User
+  EXECUTOR_TYPE_SYSTEM = 2; // Pub/Sub etc.
 }
 
 // -----------------------------------------------------------------------------
@@ -401,6 +412,7 @@ enum DownloadResourceType {
   DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_BALANCE_SNAPSHOT_ON_DEMAND = 3;
   DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_GROUP_BALANCE_SNAPSHOT_ON_DEMAND = 4;
   DOWNLOAD_RESOURCE_TYPE_WALLET_TRANSFER = 5;
+  DOWNLOAD_RESOURCE_TYPE_WALLET_ADDRESS = 6;
 }
 
 // -----------------------------------------------------------------------------
@@ -431,4 +443,15 @@ enum EthereumContractMethodIDType {
   ETHEREUM_CONTRACT_METHOD_ID_TYPE_INVALID = 0;
   ETHEREUM_CONTRACT_METHOD_ID_TYPE_ERC20_APPROVE = 1;
   ETHEREUM_CONTRACT_METHOD_ID_TYPE_UNISWAP_MULTICALL = 2;
+}
+
+// -----------------------------------------------------------------------------
+// IOST Action Type
+// -----------------------------------------------------------------------------
+
+enum IOSTActionType {
+  IOST_ACTION_TYPE_INVALID = 0;
+  IOST_ACTION_TYPE_SIGN_UP = 1;
+  IOST_ACTION_TYPE_ASSIGN_PERMISSION = 2;
+  IOST_ACTION_TYPE_TRANSFER = 3;
 }

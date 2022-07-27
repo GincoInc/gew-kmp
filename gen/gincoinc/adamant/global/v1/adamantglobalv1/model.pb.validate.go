@@ -1659,6 +1659,20 @@ func (m *Transaction) Validate(all bool) error {
 		}
 	}
 
+	if v, ok := interface{}(m.GetIostSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransactionValidationError{
+				field:  "IostSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate(bool) error }); ok {
 		if err := v.Validate(all); err != nil {
 			err = TransactionValidationError{
@@ -3481,6 +3495,8 @@ func (m *NemSpecific) Validate(all bool) error {
 
 	}
 
+	// no validation rules for Expiration
+
 	if len(errors) > 0 {
 		return NemSpecificMultiError(errors)
 	}
@@ -3556,6 +3572,102 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = NemSpecificValidationError{}
+
+// Validate checks the field values on IOSTSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned. When asked to return all errors, validation continues after
+// first violation, and the result is a list of violation errors wrapped in
+// IOSTSpecificMultiError, or nil if none found. Otherwise, only the first
+// error is returned, if any.
+func (m *IOSTSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Memo
+
+	// no validation rules for Timestamp
+
+	// no validation rules for Expiration
+
+	if len(errors) > 0 {
+		return IOSTSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// IOSTSpecificMultiError is an error wrapping multiple validation errors
+// returned by IOSTSpecific.Validate(true) if the designated constraints
+// aren't met.
+type IOSTSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IOSTSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IOSTSpecificMultiError) AllErrors() []error { return m }
+
+// IOSTSpecificValidationError is the validation error returned by
+// IOSTSpecific.Validate if the designated constraints aren't met.
+type IOSTSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IOSTSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IOSTSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IOSTSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IOSTSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IOSTSpecificValidationError) ErrorName() string { return "IOSTSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e IOSTSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIOSTSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IOSTSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IOSTSpecificValidationError{}
 
 // Validate checks the field values on CreateTransactionSubstrateSpecific with
 // the rules defined in the proto definition for this message. If any rules
@@ -3855,6 +3967,103 @@ var _ interface {
 	ErrorName() string
 } = CreateTransactionNemSpecificValidationError{}
 
+// Validate checks the field values on CreateTransactionIOSTSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateTransactionIOSTSpecificMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *CreateTransactionIOSTSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Memo
+
+	// no validation rules for Timestamp
+
+	if len(errors) > 0 {
+		return CreateTransactionIOSTSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// CreateTransactionIOSTSpecificMultiError is an error wrapping multiple
+// validation errors returned by CreateTransactionIOSTSpecific.Validate(true)
+// if the designated constraints aren't met.
+type CreateTransactionIOSTSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionIOSTSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionIOSTSpecificMultiError) AllErrors() []error { return m }
+
+// CreateTransactionIOSTSpecificValidationError is the validation error
+// returned by CreateTransactionIOSTSpecific.Validate if the designated
+// constraints aren't met.
+type CreateTransactionIOSTSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionIOSTSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionIOSTSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionIOSTSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionIOSTSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionIOSTSpecificValidationError) ErrorName() string {
+	return "CreateTransactionIOSTSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionIOSTSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionIOSTSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionIOSTSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionIOSTSpecificValidationError{}
+
 // Validate checks the field values on SubstrateMultisigTransaction with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned. When asked to return all errors, validation
@@ -4019,7 +4228,7 @@ func (m *NemMultisigTransaction) Validate(all bool) error {
 
 	// no validation rules for NemMultisigTransactionId
 
-	// no validation rules for AccountKeyId
+	// no validation rules for AccountId
 
 	// no validation rules for TxType
 
@@ -8844,3 +9053,99 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = SubstrateChildAddressValidationError{}
+
+// Validate checks the field values on IOSTChildAccount with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned. When asked to return all errors, validation continues
+// after first violation, and the result is a list of violation errors wrapped
+// in IOSTChildAccountMultiError, or nil if none found. Otherwise, only the
+// first error is returned, if any.
+func (m *IOSTChildAccount) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for WalletId
+
+	// no validation rules for AccountId
+
+	// no validation rules for AccountName
+
+	if len(errors) > 0 {
+		return IOSTChildAccountMultiError(errors)
+	}
+	return nil
+}
+
+// IOSTChildAccountMultiError is an error wrapping multiple validation errors
+// returned by IOSTChildAccount.Validate(true) if the designated constraints
+// aren't met.
+type IOSTChildAccountMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IOSTChildAccountMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IOSTChildAccountMultiError) AllErrors() []error { return m }
+
+// IOSTChildAccountValidationError is the validation error returned by
+// IOSTChildAccount.Validate if the designated constraints aren't met.
+type IOSTChildAccountValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IOSTChildAccountValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IOSTChildAccountValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IOSTChildAccountValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IOSTChildAccountValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IOSTChildAccountValidationError) ErrorName() string { return "IOSTChildAccountValidationError" }
+
+// Error satisfies the builtin error interface
+func (e IOSTChildAccountValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIOSTChildAccount.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IOSTChildAccountValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IOSTChildAccountValidationError{}

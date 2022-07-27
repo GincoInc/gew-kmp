@@ -17,11 +17,15 @@ public class SendInitTransactionRequestValidator implements io.envoyproxy.pgv.Va
 		
 		com.google.re2j.Pattern WALLET_ID__PATTERN = com.google.re2j.Pattern.compile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.SendInitTransactionRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.SendInitTransactionRequest.wallet_id", proto.getWalletId(), WALLET_ID__PATTERN);
+	// no validation rules for ExecutorType
+
 	
 	}
 

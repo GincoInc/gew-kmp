@@ -18,4 +18,19 @@ public interface CreateInitTransactionRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getWalletIdBytes();
+
+  /**
+   * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 2 [json_name = "iostSpecific"];</code>
+   * @return Whether the iostSpecific field is set.
+   */
+  boolean hasIostSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 2 [json_name = "iostSpecific"];</code>
+   * @return The iostSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionIOSTSpecific getIostSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 2 [json_name = "iostSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionIOSTSpecificOrBuilder getIostSpecificOrBuilder();
 }

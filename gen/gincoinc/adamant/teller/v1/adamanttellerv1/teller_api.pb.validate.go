@@ -578,3 +578,121 @@ var _ interface {
 var _SignTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _SignTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on SendTransactionRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SendTransactionRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *SendTransactionRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_SendTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := SendTransactionRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_SendTransactionRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
+		err := SendTransactionRequestValidationError{
+			field:  "TransactionId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return SendTransactionRequestMultiError(errors)
+	}
+	return nil
+}
+
+// SendTransactionRequestMultiError is an error wrapping multiple validation
+// errors returned by SendTransactionRequest.Validate(true) if the designated
+// constraints aren't met.
+type SendTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SendTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SendTransactionRequestMultiError) AllErrors() []error { return m }
+
+// SendTransactionRequestValidationError is the validation error returned by
+// SendTransactionRequest.Validate if the designated constraints aren't met.
+type SendTransactionRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SendTransactionRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SendTransactionRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SendTransactionRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SendTransactionRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SendTransactionRequestValidationError) ErrorName() string {
+	return "SendTransactionRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SendTransactionRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSendTransactionRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SendTransactionRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SendTransactionRequestValidationError{}
+
+var _SendTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _SendTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")

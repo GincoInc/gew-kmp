@@ -57,7 +57,8 @@ service GlobalAPI {
   rpc GetEthereumFeeAddress(GetEthereumFeeAddressRequest) returns (EthereumFeeAddress) {}
   // Get addresses associated with the Polkadot signer
   rpc ListSubstrateChildAddresses(ListSubstrateChildAddressesRequest) returns (ListSubstrateChildAddressesResponse) {}
-  rpc ImportAddress(ImportAddressRequest) returns (ImportAddressResponse) {}
+  rpc ListIOSTChildAccounts(ListIOSTChildAccountsRequest) returns (ListIOSTChildAccountsResponse) {}
+  rpc ImportAddress(ImportAddressRequest) returns (google.protobuf.Empty) {}
 
   // RegisterKey
   rpc RegisterKey(RegisterKeyRequest) returns (RegisterKeyResponse) {}
@@ -599,9 +600,7 @@ message ImportAddressRequest {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
   string address = 2;
-}
-message ImportAddressResponse {
-  string address_id = 1;
+  bool is_change_address = 3;
 }
 
 // -----------------------------------------------------------------------------
@@ -621,6 +620,7 @@ message CreateTransactionRequest {
   adamant.global.v1.CreateTransactionSubstrateSpecific substrate_specific = 8;
   adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;
   adamant.global.v1.CreateTransactionNemSpecific nem_specific = 10;
+  adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11;
 }
 
 message CreateTransactionResponse {
@@ -638,6 +638,7 @@ message CreateInitTransactionRequest {
   string wallet_id = 1 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
+  adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 2;
 }
 
 message SignTransactionRequest {
@@ -672,6 +673,7 @@ message SignInitTransactionRequest {
   }];
   repeated adamant.global.v1.RequestSignedInfo signed_info = 4 [(validate.rules).repeated.min_items = 1];
 }
+
 message SendTransactionRequest {
   string wallet_id = 1 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
@@ -679,7 +681,9 @@ message SendTransactionRequest {
   string transaction_id = 2 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
+  adamant.global.v1.ExecutorType executor_type = 3;
 }
+
 message SendTransactionResponse {
   string tx_id = 1;
 }
@@ -697,6 +701,7 @@ message SendInitTransactionRequest {
   string wallet_id = 1 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
+  adamant.global.v1.ExecutorType executor_type = 2;
 }
 
 message SendInitTransactionResponse {
@@ -1473,6 +1478,20 @@ message ListSubstrateChildAddressesResponse {
 }
 
 // -----------------------------------------------------------------------------
+// IOST Child Account
+// -----------------------------------------------------------------------------
+
+message ListIOSTChildAccountsRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+}
+
+message ListIOSTChildAccountsResponse {
+  repeated IOSTChildAccount iost_child_accounts = 1;
+}
+
+// -----------------------------------------------------------------------------
 // Download Resource
 // -----------------------------------------------------------------------------
 
@@ -1482,4 +1501,19 @@ message DownloadResourceRequest {
   string wallet_id = 2;
   google.protobuf.Timestamp start_time = 3;
   google.protobuf.Timestamp end_time = 4;
+}
+
+// -----------------------------------------------------------------------------
+// IOST
+// -----------------------------------------------------------------------------
+message CreateIOSTAccountRequest {
+  string account_name = 1 [(validate.rules).string = {
+    pattern: "^([a-z0-9_]{5,11})$"
+  }];
+  string wallet_id = 2;
+  string account_id = 3;
+}
+
+message CreateIOSTAccountResponse {
+  string address_id = 1;
 }

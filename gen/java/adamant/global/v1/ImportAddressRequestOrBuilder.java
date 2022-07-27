@@ -30,4 +30,10 @@ public interface ImportAddressRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getAddressBytes();
+
+  /**
+   * <code>bool is_change_address = 3 [json_name = "isChangeAddress"];</code>
+   * @return The isChangeAddress.
+   */
+  boolean getIsChangeAddress();
 }

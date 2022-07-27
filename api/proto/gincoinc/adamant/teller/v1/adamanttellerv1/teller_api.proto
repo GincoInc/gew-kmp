@@ -30,11 +30,12 @@ service TellerAPI {
 
   // Create a new address for an existing wallet
   rpc CreateAddress(adamant.global.v1.CreateAddressRequest) returns (adamant.global.v1.CreateAddressResponse) {}
+  rpc CreateIOSTAccount(adamant.global.v1.CreateIOSTAccountRequest) returns (adamant.global.v1.CreateIOSTAccountResponse) {}
   rpc GetAddress(adamant.global.v1.GetAddressRequest) returns (adamant.global.v1.Address) {}
   rpc GetAddressByAddress(adamant.global.v1.GetAddressByAddressRequest) returns (adamant.global.v1.Address) {}
   rpc GetAddressByIndex(adamant.global.v1.GetAddressByIndexRequest) returns (adamant.global.v1.Address) {}
   rpc ListAddresses(adamant.global.v1.ListAddressesRequest) returns (adamant.global.v1.ListAddressesResponse) {}
-  rpc ImportAddress(adamant.global.v1.ImportAddressRequest) returns (adamant.global.v1.ImportAddressResponse) {}
+  rpc ImportAddress(adamant.global.v1.ImportAddressRequest) returns (google.protobuf.Empty) {}
   // Get an address which hold ETH for ethereum wallet/address creation etc
   rpc GetEthereumFeeAddress(adamant.global.v1.GetEthereumFeeAddressRequest) returns (adamant.global.v1.EthereumFeeAddress) {}
 
@@ -42,7 +43,7 @@ service TellerAPI {
 
   rpc CreateTransaction(adamant.global.v1.CreateTransactionRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
   rpc SignTransaction(SignTransactionRequest) returns (google.protobuf.Empty) {}
-  rpc SendTransaction(adamant.global.v1.SendTransactionRequest) returns (adamant.global.v1.SendTransactionResponse) {}
+  rpc SendTransaction(SendTransactionRequest) returns (adamant.global.v1.SendTransactionResponse) {}
   rpc CancelTransaction(adamant.global.v1.CancelTransactionRequest) returns (google.protobuf.Empty) {}
   rpc GetTransaction(adamant.global.v1.GetTransactionRequest) returns (adamant.global.v1.Transaction) {}
   rpc GetTransactionByTxID(adamant.global.v1.GetTransactionByTxIDRequest) returns (adamant.global.v1.Transaction) {}
@@ -116,6 +117,15 @@ message InitializeWalletRequest {
 }
 
 message SignTransactionRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string transaction_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+}
+
+message SendTransactionRequest {
   string wallet_id = 1 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
