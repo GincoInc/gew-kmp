@@ -141,6 +141,18 @@ class WalletState
      * Generated from protobuf enum <code>WALLET_STATE_ACCOUNT_CREATING = 21;</code>
      */
     const WALLET_STATE_ACCOUNT_CREATING = 21;
+    /**
+     * Account was created
+     *
+     * Generated from protobuf enum <code>WALLET_STATE_ACCOUNT_CREATED = 22;</code>
+     */
+    const WALLET_STATE_ACCOUNT_CREATED = 22;
+    /**
+     * Manager approved tx
+     *
+     * Generated from protobuf enum <code>WALLET_STATE_MANAGER_APPROVED_SENDING_TRANSACTION = 23;</code>
+     */
+    const WALLET_STATE_MANAGER_APPROVED_SENDING_TRANSACTION = 23;
 
     private static $valueToName = [
         self::WALLET_STATE_INVALID => 'WALLET_STATE_INVALID',
@@ -165,6 +177,8 @@ class WalletState
         self::WALLET_STATE_ADDRESS_DELETE_FAILED => 'WALLET_STATE_ADDRESS_DELETE_FAILED',
         self::WALLET_STATE_FLUSHING => 'WALLET_STATE_FLUSHING',
         self::WALLET_STATE_ACCOUNT_CREATING => 'WALLET_STATE_ACCOUNT_CREATING',
+        self::WALLET_STATE_ACCOUNT_CREATED => 'WALLET_STATE_ACCOUNT_CREATED',
+        self::WALLET_STATE_MANAGER_APPROVED_SENDING_TRANSACTION => 'WALLET_STATE_MANAGER_APPROVED_SENDING_TRANSACTION',
     ];
 
     public static function name($value)

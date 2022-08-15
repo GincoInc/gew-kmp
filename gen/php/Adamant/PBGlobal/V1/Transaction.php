@@ -172,6 +172,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $nem_specific = null;
     /**
+     * The Nem specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+     */
+    protected $iost_specific = null;
+    /**
      * the time at which the transaction was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
@@ -241,6 +247,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\MonacoinSpecific $monacoin_specific
      *           The Monacoin specific fields
      *     @type \Adamant\PBGlobal\V1\NemSpecific $nem_specific
+     *           The Nem specific fields
+     *     @type \Adamant\PBGlobal\V1\IOSTSpecific $iost_specific
      *           The Nem specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
@@ -1045,6 +1053,42 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\NemSpecific::class);
         $this->nem_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Nem specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\IOSTSpecific|null
+     */
+    public function getIostSpecific()
+    {
+        return $this->iost_specific;
+    }
+
+    public function hasIostSpecific()
+    {
+        return isset($this->iost_specific);
+    }
+
+    public function clearIostSpecific()
+    {
+        unset($this->iost_specific);
+    }
+
+    /**
+     * The Nem specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\IOSTSpecific $var
+     * @return $this
+     */
+    public function setIostSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\IOSTSpecific::class);
+        $this->iost_specific = $var;
 
         return $this;
     }

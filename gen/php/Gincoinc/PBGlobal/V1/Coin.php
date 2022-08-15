@@ -129,6 +129,10 @@ class Coin
      * Generated from protobuf enum <code>COIN_IOST = 28;</code>
      */
     const COIN_IOST = 28;
+    /**
+     * Generated from protobuf enum <code>COIN_SKEB = 29;</code>
+     */
+    const COIN_SKEB = 29;
 
     private static $valueToName = [
         self::COIN_INVALID => 'COIN_INVALID',
@@ -160,6 +164,7 @@ class Coin
         self::COIN_XEM => 'COIN_XEM',
         self::COIN_MONA => 'COIN_MONA',
         self::COIN_IOST => 'COIN_IOST',
+        self::COIN_SKEB => 'COIN_SKEB',
     ];
 
     public static function name($value)

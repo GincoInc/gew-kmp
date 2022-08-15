@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-Ä¨
+Ä¬
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"¥
 Wallet
 owner_id (	RownerId
@@ -164,7 +164,7 @@ address_id (	R	addressId,
 string_balance (	RstringBalance
 fee_balance (R
 feeBalance,
-string_fee_balance (	RstringFeeBalance"¤
+string_fee_balance (	RstringFeeBalance"ê
 Transaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId,
@@ -194,7 +194,8 @@ signedKeys>
 cardano_specific (2".adamant.global.v1.CardanoSpecificRcardanoSpecificS
 substrate_specific (2$.adamant.global.v1.SubstrateSpecificRsubstrateSpecificP
 monacoin_specific (2#.adamant.global.v1.MonacoinSpecificRmonacoinSpecificA
-nem_specific (2.adamant.global.v1.NemSpecificRnemSpecific;
+nem_specific (2.adamant.global.v1.NemSpecificRnemSpecificD
+iost_specific  (2.adamant.global.v1.IOSTSpecificRiostSpecific;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
@@ -273,11 +274,20 @@ tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"Æ
 MonacoinSpecific7
 	tx_inputs (2.adamant.global.v1.TxInputRtxInputs:
 
-tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"Ï
+tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"ï
 NemSpecific
 message (	Rmessage?
 tx_type (2&.gincoinc.global.v1.NemTransactionTypeRtxTypee
-nem_multisig_transactions (2).adamant.global.v1.NemMultisigTransactionRnemMultisigTransactions"â
+nem_multisig_transactions (2).adamant.global.v1.NemMultisigTransactionRnemMultisigTransactions
+
+expiration (R
+expiration"`
+IOSTSpecific
+memo (	Rmemo
+	timestamp (R	timestamp
+
+expiration (R
+expiration"â
 "CreateTransactionSubstrateSpecific%
 transaction_id (	RtransactionIdA
 	call_type (2$.adamant.global.v1.SubstrateCallTypeRcallTypeR
@@ -288,7 +298,10 @@ tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"Ï
 CreateTransactionNemSpecific%
 transaction_id (	RtransactionId?
 tx_type (2&.gincoinc.global.v1.NemTransactionTypeRtxType
-message (	Rmessage"ï
+message (	Rmessage"Q
+CreateTransactionIOSTSpecific
+memo (	Rmemo
+	timestamp (R	timestamp"ï
 SubstrateMultisigTransaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionIdI
@@ -308,13 +321,14 @@ string_fee	 (	R	stringFee
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
-updateTime"é
+updateTime"â
 NemMultisigTransaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId=
-nem_multisig_transaction_id (	RnemMultisigTransactionId$
-account_key_id
- (	RaccountKeyId?
+nem_multisig_transaction_id (	RnemMultisigTransactionId
+
+account_id
+ (	R	accountId?
 tx_type (2&.gincoinc.global.v1.NemTransactionTypeRtxType
 data (	Rdata
 	signature (	R	signature9
@@ -616,7 +630,16 @@ sign_index (R	signIndex%
 account_id (	R	accountId
 address (	Raddress
 balance (Rbalance%
-string_balance (	RstringBalanceBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
+string_balance (	RstringBalance"q
+IOSTChildAccount
+	wallet_id (	RwalletId
+
+account_id (	R	accountId!
+account_name (	RaccountName"w
+IOSTCallerAccount!
+account_name (	RaccountName
+balance (Rbalance%
+string_balance (	RstringBalanceBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
         , true);
 
         static::$is_initialized = true;

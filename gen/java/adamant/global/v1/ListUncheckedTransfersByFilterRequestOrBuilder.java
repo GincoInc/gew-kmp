@@ -71,4 +71,215 @@ public interface ListUncheckedTransfersByFilterRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getPageTokenBytes();
+
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.adamant.global.v1.ListFilterType filter_type = 5 [json_name = "filterType", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for filterType.
+   */
+  int getFilterTypeValue();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.adamant.global.v1.ListFilterType filter_type = 5 [json_name = "filterType", (.validate.rules) = { ... }</code>
+   * @return The filterType.
+   */
+  adamant.global.v1.Enum.ListFilterType getFilterType();
+
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string transfer_id = 6 [json_name = "transferId"];</code>
+   * @return The transferId.
+   */
+  java.lang.String getTransferId();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string transfer_id = 6 [json_name = "transferId"];</code>
+   * @return The bytes for transferId.
+   */
+  com.google.protobuf.ByteString
+      getTransferIdBytes();
+
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+   * @return The walletId.
+   */
+  java.lang.String getWalletId();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+   * @return The bytes for walletId.
+   */
+  com.google.protobuf.ByteString
+      getWalletIdBytes();
+
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string wallet_name = 8 [json_name = "walletName", (.validate.rules) = { ... }</code>
+   * @return The walletName.
+   */
+  java.lang.String getWalletName();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string wallet_name = 8 [json_name = "walletName", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletName.
+   */
+  com.google.protobuf.ByteString
+      getWalletNameBytes();
+
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string address = 9 [json_name = "address"];</code>
+   * @return The address.
+   */
+  java.lang.String getAddress();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string address = 9 [json_name = "address"];</code>
+   * @return The bytes for address.
+   */
+  com.google.protobuf.ByteString
+      getAddressBytes();
+
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string txid = 10 [json_name = "txid"];</code>
+   * @return The txid.
+   */
+  java.lang.String getTxid();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string txid = 10 [json_name = "txid"];</code>
+   * @return The bytes for txid.
+   */
+  com.google.protobuf.ByteString
+      getTxidBytes();
+
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.gincoinc.global.v1.Coin coin = 11 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
+   */
+  int getCoinValue();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.gincoinc.global.v1.Coin coin = 11 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
+   */
+  gincoinc.global.v1.Enum.Coin getCoin();
+
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.gincoinc.global.v1.TransferType transfer_type = 12 [json_name = "transferType", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for transferType.
+   */
+  int getTransferTypeValue();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.gincoinc.global.v1.TransferType transfer_type = 12 [json_name = "transferType", (.validate.rules) = { ... }</code>
+   * @return The transferType.
+   */
+  gincoinc.global.v1.Enum.TransferType getTransferType();
+
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+   * @return Whether the startTime field is set.
+   */
+  boolean hasStartTime();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+   * @return The startTime.
+   */
+  com.google.protobuf.Timestamp getStartTime();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder();
+
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+   * @return Whether the endTime field is set.
+   */
+  boolean hasEndTime();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+   * @return The endTime.
+   */
+  com.google.protobuf.Timestamp getEndTime();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder();
 }

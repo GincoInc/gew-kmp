@@ -43,6 +43,7 @@ enum Coin {
   COIN_XEM = 26;
   COIN_MONA = 27;
   COIN_IOST = 28;
+  COIN_SKEB = 29;
 }
 
 // Network is a type of blockchain network.
