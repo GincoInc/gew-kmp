@@ -52,6 +52,10 @@ var (
 
 	_ = gincoincglobalv1.Coin(0)
 
+	_ = gincoincglobalv1.TransferType(0)
+
+	_ = gincoincglobalv1.Coin(0)
+
 	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.Coin(0)
@@ -10104,6 +10108,97 @@ func (m *ListUncheckedTransfersByFilterRequest) Validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if _, ok := _ListUncheckedTransfersByFilterRequest_FilterType_NotInLookup[m.GetFilterType()]; ok {
+		err := ListUncheckedTransfersByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must not be in list [0]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		err := ListUncheckedTransfersByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for TransferId
+
+	// no validation rules for WalletId
+
+	if utf8.RuneCountInString(m.GetWalletName()) > 40 {
+		err := ListUncheckedTransfersByFilterRequestValidationError{
+			field:  "WalletName",
+			reason: "value length must be at most 40 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for Address
+
+	// no validation rules for Txid
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		err := ListUncheckedTransfersByFilterRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := gincoincglobalv1.TransferType_name[int32(m.GetTransferType())]; !ok {
+		err := ListUncheckedTransfersByFilterRequestValidationError{
+			field:  "TransferType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if v, ok := interface{}(m.GetStartTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = ListUncheckedTransfersByFilterRequestValidationError{
+				field:  "StartTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if v, ok := interface{}(m.GetEndTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = ListUncheckedTransfersByFilterRequestValidationError{
+				field:  "EndTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
 	if len(errors) > 0 {
 		return ListUncheckedTransfersByFilterRequestMultiError(errors)
 	}
@@ -10186,6 +10281,10 @@ var _ interface {
 } = ListUncheckedTransfersByFilterRequestValidationError{}
 
 var _ListUncheckedTransfersByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+var _ListUncheckedTransfersByFilterRequest_FilterType_NotInLookup = map[ListFilterType]struct{}{
+	0: {},
+}
 
 // Validate checks the field values on
 // UpdateUncheckedTransferHasCheckedFlagRequest with the rules defined in the
@@ -19827,3 +19926,295 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CreateIOSTAccountResponseValidationError{}
+
+// Validate checks the field values on ExistsIOSTAccountRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ExistsIOSTAccountRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ExistsIOSTAccountRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ExistsIOSTAccountRequest_AccountName_Pattern.MatchString(m.GetAccountName()) {
+		err := ExistsIOSTAccountRequestValidationError{
+			field:  "AccountName",
+			reason: "value does not match regex pattern \"^([a-z0-9_]{5,11})$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return ExistsIOSTAccountRequestMultiError(errors)
+	}
+	return nil
+}
+
+// ExistsIOSTAccountRequestMultiError is an error wrapping multiple validation
+// errors returned by ExistsIOSTAccountRequest.Validate(true) if the
+// designated constraints aren't met.
+type ExistsIOSTAccountRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ExistsIOSTAccountRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ExistsIOSTAccountRequestMultiError) AllErrors() []error { return m }
+
+// ExistsIOSTAccountRequestValidationError is the validation error returned by
+// ExistsIOSTAccountRequest.Validate if the designated constraints aren't met.
+type ExistsIOSTAccountRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ExistsIOSTAccountRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ExistsIOSTAccountRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ExistsIOSTAccountRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ExistsIOSTAccountRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ExistsIOSTAccountRequestValidationError) ErrorName() string {
+	return "ExistsIOSTAccountRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ExistsIOSTAccountRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sExistsIOSTAccountRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ExistsIOSTAccountRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ExistsIOSTAccountRequestValidationError{}
+
+var _ExistsIOSTAccountRequest_AccountName_Pattern = regexp.MustCompile("^([a-z0-9_]{5,11})$")
+
+// Validate checks the field values on ExistsIOSTAccountResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ExistsIOSTAccountResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ExistsIOSTAccountResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Exists
+
+	if len(errors) > 0 {
+		return ExistsIOSTAccountResponseMultiError(errors)
+	}
+	return nil
+}
+
+// ExistsIOSTAccountResponseMultiError is an error wrapping multiple validation
+// errors returned by ExistsIOSTAccountResponse.Validate(true) if the
+// designated constraints aren't met.
+type ExistsIOSTAccountResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ExistsIOSTAccountResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ExistsIOSTAccountResponseMultiError) AllErrors() []error { return m }
+
+// ExistsIOSTAccountResponseValidationError is the validation error returned by
+// ExistsIOSTAccountResponse.Validate if the designated constraints aren't met.
+type ExistsIOSTAccountResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ExistsIOSTAccountResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ExistsIOSTAccountResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ExistsIOSTAccountResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ExistsIOSTAccountResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ExistsIOSTAccountResponseValidationError) ErrorName() string {
+	return "ExistsIOSTAccountResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ExistsIOSTAccountResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sExistsIOSTAccountResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ExistsIOSTAccountResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ExistsIOSTAccountResponseValidationError{}
+
+// Validate checks the field values on GetIOSTCallerAccountRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetIOSTCallerAccountRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *GetIOSTCallerAccountRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return GetIOSTCallerAccountRequestMultiError(errors)
+	}
+	return nil
+}
+
+// GetIOSTCallerAccountRequestMultiError is an error wrapping multiple
+// validation errors returned by GetIOSTCallerAccountRequest.Validate(true) if
+// the designated constraints aren't met.
+type GetIOSTCallerAccountRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetIOSTCallerAccountRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetIOSTCallerAccountRequestMultiError) AllErrors() []error { return m }
+
+// GetIOSTCallerAccountRequestValidationError is the validation error returned
+// by GetIOSTCallerAccountRequest.Validate if the designated constraints
+// aren't met.
+type GetIOSTCallerAccountRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetIOSTCallerAccountRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetIOSTCallerAccountRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetIOSTCallerAccountRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetIOSTCallerAccountRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetIOSTCallerAccountRequestValidationError) ErrorName() string {
+	return "GetIOSTCallerAccountRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetIOSTCallerAccountRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetIOSTCallerAccountRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetIOSTCallerAccountRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetIOSTCallerAccountRequestValidationError{}

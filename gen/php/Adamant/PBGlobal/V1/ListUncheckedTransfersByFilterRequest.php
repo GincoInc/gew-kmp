@@ -33,6 +33,66 @@ class ListUncheckedTransfersByFilterRequest extends \Google\Protobuf\Internal\Me
      * Generated from protobuf field <code>string page_token = 4 [json_name = "pageToken", (.validate.rules) = {</code>
      */
     protected $page_token = '';
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.ListFilterType filter_type = 5 [json_name = "filterType", (.validate.rules) = {</code>
+     */
+    protected $filter_type = 0;
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string transfer_id = 6 [json_name = "transferId"];</code>
+     */
+    protected $transfer_id = '';
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string wallet_id = 7 [json_name = "walletId"];</code>
+     */
+    protected $wallet_id = '';
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string wallet_name = 8 [json_name = "walletName", (.validate.rules) = {</code>
+     */
+    protected $wallet_name = '';
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string address = 9 [json_name = "address"];</code>
+     */
+    protected $address = '';
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string txid = 10 [json_name = "txid"];</code>
+     */
+    protected $txid = '';
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Coin coin = 11 [json_name = "coin", (.validate.rules) = {</code>
+     */
+    protected $coin = 0;
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.TransferType transfer_type = 12 [json_name = "transferType", (.validate.rules) = {</code>
+     */
+    protected $transfer_type = 0;
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+     */
+    protected $start_time = null;
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+     */
+    protected $end_time = null;
 
     /**
      * Constructor.
@@ -46,6 +106,26 @@ class ListUncheckedTransfersByFilterRequest extends \Google\Protobuf\Internal\Me
      *           indicate how many objects to return in a single response
      *     @type string $page_token
      *           retrieve the next page
+     *     @type int $filter_type
+     *           optional
+     *     @type string $transfer_id
+     *           optional
+     *     @type string $wallet_id
+     *           optional
+     *     @type string $wallet_name
+     *           optional
+     *     @type string $address
+     *           optional
+     *     @type string $txid
+     *           optional
+     *     @type int $coin
+     *           optional
+     *     @type int $transfer_type
+     *           optional
+     *     @type \Google\Protobuf\Timestamp $start_time
+     *           optional
+     *     @type \Google\Protobuf\Timestamp $end_time
+     *           optional
      * }
      */
     public function __construct($data = NULL) {
@@ -145,6 +225,286 @@ class ListUncheckedTransfersByFilterRequest extends \Google\Protobuf\Internal\Me
     {
         GPBUtil::checkString($var, True);
         $this->page_token = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.ListFilterType filter_type = 5 [json_name = "filterType", (.validate.rules) = {</code>
+     * @return int
+     */
+    public function getFilterType()
+    {
+        return $this->filter_type;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.ListFilterType filter_type = 5 [json_name = "filterType", (.validate.rules) = {</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setFilterType($var)
+    {
+        GPBUtil::checkEnum($var, \Adamant\PBGlobal\V1\ListFilterType::class);
+        $this->filter_type = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string transfer_id = 6 [json_name = "transferId"];</code>
+     * @return string
+     */
+    public function getTransferId()
+    {
+        return $this->transfer_id;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string transfer_id = 6 [json_name = "transferId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTransferId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->transfer_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string wallet_id = 7 [json_name = "walletId"];</code>
+     * @return string
+     */
+    public function getWalletId()
+    {
+        return $this->wallet_id;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string wallet_id = 7 [json_name = "walletId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setWalletId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->wallet_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string wallet_name = 8 [json_name = "walletName", (.validate.rules) = {</code>
+     * @return string
+     */
+    public function getWalletName()
+    {
+        return $this->wallet_name;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string wallet_name = 8 [json_name = "walletName", (.validate.rules) = {</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setWalletName($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->wallet_name = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string address = 9 [json_name = "address"];</code>
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string address = 9 [json_name = "address"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->address = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string txid = 10 [json_name = "txid"];</code>
+     * @return string
+     */
+    public function getTxid()
+    {
+        return $this->txid;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string txid = 10 [json_name = "txid"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTxid($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->txid = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Coin coin = 11 [json_name = "coin", (.validate.rules) = {</code>
+     * @return int
+     */
+    public function getCoin()
+    {
+        return $this->coin;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Coin coin = 11 [json_name = "coin", (.validate.rules) = {</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setCoin($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
+        $this->coin = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.TransferType transfer_type = 12 [json_name = "transferType", (.validate.rules) = {</code>
+     * @return int
+     */
+    public function getTransferType()
+    {
+        return $this->transfer_type;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.TransferType transfer_type = 12 [json_name = "transferType", (.validate.rules) = {</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setTransferType($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\TransferType::class);
+        $this->transfer_type = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+     * @return \Google\Protobuf\Timestamp|null
+     */
+    public function getStartTime()
+    {
+        return $this->start_time;
+    }
+
+    public function hasStartTime()
+    {
+        return isset($this->start_time);
+    }
+
+    public function clearStartTime()
+    {
+        unset($this->start_time);
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+     * @param \Google\Protobuf\Timestamp $var
+     * @return $this
+     */
+    public function setStartTime($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
+        $this->start_time = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+     * @return \Google\Protobuf\Timestamp|null
+     */
+    public function getEndTime()
+    {
+        return $this->end_time;
+    }
+
+    public function hasEndTime()
+    {
+        return isset($this->end_time);
+    }
+
+    public function clearEndTime()
+    {
+        unset($this->end_time);
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+     * @param \Google\Protobuf\Timestamp $var
+     * @return $this
+     */
+    public function setEndTime($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
+        $this->end_time = $var;
 
         return $this;
     }

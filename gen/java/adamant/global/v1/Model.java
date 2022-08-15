@@ -101924,6 +101924,896 @@ public final class Model {
 
   }
 
+  public interface IOSTCallerAccountOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:adamant.global.v1.IOSTCallerAccount)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * iost account name
+     * </pre>
+     *
+     * <code>string account_name = 1 [json_name = "accountName"];</code>
+     * @return The accountName.
+     */
+    java.lang.String getAccountName();
+    /**
+     * <pre>
+     * iost account name
+     * </pre>
+     *
+     * <code>string account_name = 1 [json_name = "accountName"];</code>
+     * @return The bytes for accountName.
+     */
+    com.google.protobuf.ByteString
+        getAccountNameBytes();
+
+    /**
+     * <pre>
+     * The number-typed balance corresponding to the account
+     * </pre>
+     *
+     * <code>double balance = 2 [json_name = "balance"];</code>
+     * @return The balance.
+     */
+    double getBalance();
+
+    /**
+     * <pre>
+     * The string-typed balance corresponding to the account
+     * </pre>
+     *
+     * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+     * @return The stringBalance.
+     */
+    java.lang.String getStringBalance();
+    /**
+     * <pre>
+     * The string-typed balance corresponding to the account
+     * </pre>
+     *
+     * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+     * @return The bytes for stringBalance.
+     */
+    com.google.protobuf.ByteString
+        getStringBalanceBytes();
+  }
+  /**
+   * <pre>
+   * The model of caller account
+   * </pre>
+   *
+   * Protobuf type {@code adamant.global.v1.IOSTCallerAccount}
+   */
+  public static final class IOSTCallerAccount extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:adamant.global.v1.IOSTCallerAccount)
+      IOSTCallerAccountOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use IOSTCallerAccount.newBuilder() to construct.
+    private IOSTCallerAccount(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private IOSTCallerAccount() {
+      accountName_ = "";
+      stringBalance_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new IOSTCallerAccount();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private IOSTCallerAccount(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              accountName_ = s;
+              break;
+            }
+            case 17: {
+
+              balance_ = input.readDouble();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              stringBalance_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_IOSTCallerAccount_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_IOSTCallerAccount_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              adamant.global.v1.Model.IOSTCallerAccount.class, adamant.global.v1.Model.IOSTCallerAccount.Builder.class);
+    }
+
+    public static final int ACCOUNT_NAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object accountName_;
+    /**
+     * <pre>
+     * iost account name
+     * </pre>
+     *
+     * <code>string account_name = 1 [json_name = "accountName"];</code>
+     * @return The accountName.
+     */
+    @java.lang.Override
+    public java.lang.String getAccountName() {
+      java.lang.Object ref = accountName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        accountName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * iost account name
+     * </pre>
+     *
+     * <code>string account_name = 1 [json_name = "accountName"];</code>
+     * @return The bytes for accountName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAccountNameBytes() {
+      java.lang.Object ref = accountName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        accountName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BALANCE_FIELD_NUMBER = 2;
+    private double balance_;
+    /**
+     * <pre>
+     * The number-typed balance corresponding to the account
+     * </pre>
+     *
+     * <code>double balance = 2 [json_name = "balance"];</code>
+     * @return The balance.
+     */
+    @java.lang.Override
+    public double getBalance() {
+      return balance_;
+    }
+
+    public static final int STRING_BALANCE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object stringBalance_;
+    /**
+     * <pre>
+     * The string-typed balance corresponding to the account
+     * </pre>
+     *
+     * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+     * @return The stringBalance.
+     */
+    @java.lang.Override
+    public java.lang.String getStringBalance() {
+      java.lang.Object ref = stringBalance_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        stringBalance_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The string-typed balance corresponding to the account
+     * </pre>
+     *
+     * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+     * @return The bytes for stringBalance.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getStringBalanceBytes() {
+      java.lang.Object ref = stringBalance_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        stringBalance_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, accountName_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(balance_) != 0) {
+        output.writeDouble(2, balance_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringBalance_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, stringBalance_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, accountName_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(balance_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(2, balance_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringBalance_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, stringBalance_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof adamant.global.v1.Model.IOSTCallerAccount)) {
+        return super.equals(obj);
+      }
+      adamant.global.v1.Model.IOSTCallerAccount other = (adamant.global.v1.Model.IOSTCallerAccount) obj;
+
+      if (!getAccountName()
+          .equals(other.getAccountName())) return false;
+      if (java.lang.Double.doubleToLongBits(getBalance())
+          != java.lang.Double.doubleToLongBits(
+              other.getBalance())) return false;
+      if (!getStringBalance()
+          .equals(other.getStringBalance())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ACCOUNT_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getAccountName().hashCode();
+      hash = (37 * hash) + BALANCE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getBalance()));
+      hash = (37 * hash) + STRING_BALANCE_FIELD_NUMBER;
+      hash = (53 * hash) + getStringBalance().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static adamant.global.v1.Model.IOSTCallerAccount parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.IOSTCallerAccount parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.IOSTCallerAccount parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.IOSTCallerAccount parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.IOSTCallerAccount parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.IOSTCallerAccount parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.IOSTCallerAccount parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.IOSTCallerAccount parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.IOSTCallerAccount parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.IOSTCallerAccount parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.IOSTCallerAccount parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.IOSTCallerAccount parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(adamant.global.v1.Model.IOSTCallerAccount prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * The model of caller account
+     * </pre>
+     *
+     * Protobuf type {@code adamant.global.v1.IOSTCallerAccount}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:adamant.global.v1.IOSTCallerAccount)
+        adamant.global.v1.Model.IOSTCallerAccountOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_IOSTCallerAccount_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_IOSTCallerAccount_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                adamant.global.v1.Model.IOSTCallerAccount.class, adamant.global.v1.Model.IOSTCallerAccount.Builder.class);
+      }
+
+      // Construct using adamant.global.v1.Model.IOSTCallerAccount.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        accountName_ = "";
+
+        balance_ = 0D;
+
+        stringBalance_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_IOSTCallerAccount_descriptor;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.IOSTCallerAccount getDefaultInstanceForType() {
+        return adamant.global.v1.Model.IOSTCallerAccount.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.IOSTCallerAccount build() {
+        adamant.global.v1.Model.IOSTCallerAccount result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.IOSTCallerAccount buildPartial() {
+        adamant.global.v1.Model.IOSTCallerAccount result = new adamant.global.v1.Model.IOSTCallerAccount(this);
+        result.accountName_ = accountName_;
+        result.balance_ = balance_;
+        result.stringBalance_ = stringBalance_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof adamant.global.v1.Model.IOSTCallerAccount) {
+          return mergeFrom((adamant.global.v1.Model.IOSTCallerAccount)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(adamant.global.v1.Model.IOSTCallerAccount other) {
+        if (other == adamant.global.v1.Model.IOSTCallerAccount.getDefaultInstance()) return this;
+        if (!other.getAccountName().isEmpty()) {
+          accountName_ = other.accountName_;
+          onChanged();
+        }
+        if (other.getBalance() != 0D) {
+          setBalance(other.getBalance());
+        }
+        if (!other.getStringBalance().isEmpty()) {
+          stringBalance_ = other.stringBalance_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        adamant.global.v1.Model.IOSTCallerAccount parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (adamant.global.v1.Model.IOSTCallerAccount) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object accountName_ = "";
+      /**
+       * <pre>
+       * iost account name
+       * </pre>
+       *
+       * <code>string account_name = 1 [json_name = "accountName"];</code>
+       * @return The accountName.
+       */
+      public java.lang.String getAccountName() {
+        java.lang.Object ref = accountName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          accountName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * iost account name
+       * </pre>
+       *
+       * <code>string account_name = 1 [json_name = "accountName"];</code>
+       * @return The bytes for accountName.
+       */
+      public com.google.protobuf.ByteString
+          getAccountNameBytes() {
+        java.lang.Object ref = accountName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          accountName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * iost account name
+       * </pre>
+       *
+       * <code>string account_name = 1 [json_name = "accountName"];</code>
+       * @param value The accountName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccountName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        accountName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * iost account name
+       * </pre>
+       *
+       * <code>string account_name = 1 [json_name = "accountName"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAccountName() {
+        
+        accountName_ = getDefaultInstance().getAccountName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * iost account name
+       * </pre>
+       *
+       * <code>string account_name = 1 [json_name = "accountName"];</code>
+       * @param value The bytes for accountName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccountNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        accountName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private double balance_ ;
+      /**
+       * <pre>
+       * The number-typed balance corresponding to the account
+       * </pre>
+       *
+       * <code>double balance = 2 [json_name = "balance"];</code>
+       * @return The balance.
+       */
+      @java.lang.Override
+      public double getBalance() {
+        return balance_;
+      }
+      /**
+       * <pre>
+       * The number-typed balance corresponding to the account
+       * </pre>
+       *
+       * <code>double balance = 2 [json_name = "balance"];</code>
+       * @param value The balance to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBalance(double value) {
+        
+        balance_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The number-typed balance corresponding to the account
+       * </pre>
+       *
+       * <code>double balance = 2 [json_name = "balance"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBalance() {
+        
+        balance_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object stringBalance_ = "";
+      /**
+       * <pre>
+       * The string-typed balance corresponding to the account
+       * </pre>
+       *
+       * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+       * @return The stringBalance.
+       */
+      public java.lang.String getStringBalance() {
+        java.lang.Object ref = stringBalance_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          stringBalance_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The string-typed balance corresponding to the account
+       * </pre>
+       *
+       * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+       * @return The bytes for stringBalance.
+       */
+      public com.google.protobuf.ByteString
+          getStringBalanceBytes() {
+        java.lang.Object ref = stringBalance_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          stringBalance_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The string-typed balance corresponding to the account
+       * </pre>
+       *
+       * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+       * @param value The stringBalance to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStringBalance(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        stringBalance_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The string-typed balance corresponding to the account
+       * </pre>
+       *
+       * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStringBalance() {
+        
+        stringBalance_ = getDefaultInstance().getStringBalance();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The string-typed balance corresponding to the account
+       * </pre>
+       *
+       * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+       * @param value The bytes for stringBalance to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStringBalanceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        stringBalance_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:adamant.global.v1.IOSTCallerAccount)
+    }
+
+    // @@protoc_insertion_point(class_scope:adamant.global.v1.IOSTCallerAccount)
+    private static final adamant.global.v1.Model.IOSTCallerAccount DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new adamant.global.v1.Model.IOSTCallerAccount();
+    }
+
+    public static adamant.global.v1.Model.IOSTCallerAccount getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<IOSTCallerAccount>
+        PARSER = new com.google.protobuf.AbstractParser<IOSTCallerAccount>() {
+      @java.lang.Override
+      public IOSTCallerAccount parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new IOSTCallerAccount(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<IOSTCallerAccount> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<IOSTCallerAccount> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public adamant.global.v1.Model.IOSTCallerAccount getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_global_v1_Wallet_descriptor;
   private static final 
@@ -102339,6 +103229,11 @@ public final class Model {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_global_v1_IOSTChildAccount_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_IOSTCallerAccount_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_IOSTCallerAccount_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -102896,9 +103791,12 @@ public final class Model {
       "(\tR\rstringBalance\"q\n\020IOSTChildAccount\022\033\n" +
       "\twallet_id\030\001 \001(\tR\010walletId\022\035\n\naccount_id" +
       "\030\002 \001(\tR\taccountId\022!\n\014account_name\030\003 \001(\tR" +
-      "\013accountNameBLZJgithub.com/GincoInc/gew-" +
-      "kmp/gen/gincoinc/adamant/global/v1/adama" +
-      "ntglobalv1b\006proto3"
+      "\013accountName\"w\n\021IOSTCallerAccount\022!\n\014acc" +
+      "ount_name\030\001 \001(\tR\013accountName\022\030\n\007balance\030" +
+      "\002 \001(\001R\007balance\022%\n\016string_balance\030\003 \001(\tR\r" +
+      "stringBalanceBLZJgithub.com/GincoInc/gew" +
+      "-kmp/gen/gincoinc/adamant/global/v1/adam" +
+      "antglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -103406,6 +104304,12 @@ public final class Model {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IOSTChildAccount_descriptor,
         new java.lang.String[] { "WalletId", "AccountId", "AccountName", });
+    internal_static_adamant_global_v1_IOSTCallerAccount_descriptor =
+      getDescriptor().getMessageTypes().get(74);
+    internal_static_adamant_global_v1_IOSTCallerAccount_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_IOSTCallerAccount_descriptor,
+        new java.lang.String[] { "AccountName", "Balance", "StringBalance", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(io.envoyproxy.pgv.validate.Validate.rules);

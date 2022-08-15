@@ -27,6 +27,10 @@ class NemSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .adamant.global.v1.NemMultisigTransaction nem_multisig_transactions = 3 [json_name = "nemMultisigTransactions"];</code>
      */
     private $nem_multisig_transactions;
+    /**
+     * Generated from protobuf field <code>uint64 expiration = 4 [json_name = "expiration"];</code>
+     */
+    protected $expiration = 0;
 
     /**
      * Constructor.
@@ -37,6 +41,7 @@ class NemSpecific extends \Google\Protobuf\Internal\Message
      *     @type string $message
      *     @type int $tx_type
      *     @type array<\Adamant\PBGlobal\V1\NemMultisigTransaction>|\Google\Protobuf\Internal\RepeatedField $nem_multisig_transactions
+     *     @type int|string $expiration
      * }
      */
     public function __construct($data = NULL) {
@@ -106,6 +111,28 @@ class NemSpecific extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Adamant\PBGlobal\V1\NemMultisigTransaction::class);
         $this->nem_multisig_transactions = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 expiration = 4 [json_name = "expiration"];</code>
+     * @return int|string
+     */
+    public function getExpiration()
+    {
+        return $this->expiration;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 expiration = 4 [json_name = "expiration"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setExpiration($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->expiration = $var;
 
         return $this;
     }
