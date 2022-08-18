@@ -149,6 +149,20 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\CreateIOSTAccountRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function CreateIOSTAccount(\Adamant\Global\V1\CreateIOSTAccountRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/CreateIOSTAccount',
+        $argument,
+        ['\Adamant\Global\V1\CreateIOSTAccountResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\GetAddressRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -214,7 +228,7 @@ class TellerAPIClient extends \Grpc\BaseStub {
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ImportAddress',
         $argument,
-        ['\Adamant\Global\V1\ImportAddressResponse', 'decode'],
+        ['\Google\Protobuf\GPBEmpty', 'decode'],
         $metadata, $options);
     }
 
@@ -276,12 +290,12 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
-     * @param \Adamant\Global\V1\SendTransactionRequest $argument input argument
+     * @param \Adamant\Teller\V1\SendTransactionRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function SendTransaction(\Adamant\Global\V1\SendTransactionRequest $argument,
+    public function SendTransaction(\Adamant\Teller\V1\SendTransactionRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/SendTransaction',
         $argument,

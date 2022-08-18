@@ -17,6 +17,10 @@ class CreateInitTransactionRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = {</code>
      */
     protected $wallet_id = '';
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 2 [json_name = "iostSpecific"];</code>
+     */
+    protected $iost_specific = null;
 
     /**
      * Constructor.
@@ -25,6 +29,7 @@ class CreateInitTransactionRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $wallet_id
+     *     @type \Adamant\PBGlobal\V1\CreateTransactionIOSTSpecific $iost_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -50,6 +55,38 @@ class CreateInitTransactionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->wallet_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 2 [json_name = "iostSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CreateTransactionIOSTSpecific|null
+     */
+    public function getIostSpecific()
+    {
+        return $this->iost_specific;
+    }
+
+    public function hasIostSpecific()
+    {
+        return isset($this->iost_specific);
+    }
+
+    public function clearIostSpecific()
+    {
+        unset($this->iost_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 2 [json_name = "iostSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CreateTransactionIOSTSpecific $var
+     * @return $this
+     */
+    public function setIostSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionIOSTSpecific::class);
+        $this->iost_specific = $var;
 
         return $this;
     }

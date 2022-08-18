@@ -406,6 +406,56 @@ public final class AuditLogger {
         getWhitelistNameBytes();
 
     /**
+     * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+     * @return A list containing the oldValidators.
+     */
+    java.util.List<java.lang.String>
+        getOldValidatorsList();
+    /**
+     * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+     * @return The count of oldValidators.
+     */
+    int getOldValidatorsCount();
+    /**
+     * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+     * @param index The index of the element to return.
+     * @return The oldValidators at the given index.
+     */
+    java.lang.String getOldValidators(int index);
+    /**
+     * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the oldValidators at the given index.
+     */
+    com.google.protobuf.ByteString
+        getOldValidatorsBytes(int index);
+
+    /**
+     * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+     * @return A list containing the newValidators.
+     */
+    java.util.List<java.lang.String>
+        getNewValidatorsList();
+    /**
+     * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+     * @return The count of newValidators.
+     */
+    int getNewValidatorsCount();
+    /**
+     * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+     * @param index The index of the element to return.
+     * @return The newValidators at the given index.
+     */
+    java.lang.String getNewValidators(int index);
+    /**
+     * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the newValidators at the given index.
+     */
+    com.google.protobuf.ByteString
+        getNewValidatorsBytes(int index);
+
+    /**
      * <code>repeated string whitelist_addresses = 31 [json_name = "whitelistAddresses"];</code>
      * @return A list containing the whitelistAddresses.
      */
@@ -507,6 +557,8 @@ public final class AuditLogger {
       transferLimitName_ = "";
       whitelistId_ = "";
       whitelistName_ = "";
+      oldValidators_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      newValidators_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       whitelistAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
@@ -720,9 +772,9 @@ public final class AuditLogger {
             }
             case 250: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
                 whitelistAddresses_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000008;
               }
               whitelistAddresses_.add(s);
               break;
@@ -774,6 +826,24 @@ public final class AuditLogger {
               walletNames_.add(s);
               break;
             }
+            case 298: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                oldValidators_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              oldValidators_.add(s);
+              break;
+            }
+            case 306: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
+                newValidators_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              newValidators_.add(s);
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -789,11 +859,17 @@ public final class AuditLogger {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        if (((mutable_bitField0_ & 0x00000008) != 0)) {
           whitelistAddresses_ = whitelistAddresses_.getUnmodifiableView();
         }
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
           walletNames_ = walletNames_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          oldValidators_ = oldValidators_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000004) != 0)) {
+          newValidators_ = newValidators_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1906,6 +1982,76 @@ public final class AuditLogger {
       }
     }
 
+    public static final int OLD_VALIDATORS_FIELD_NUMBER = 37;
+    private com.google.protobuf.LazyStringList oldValidators_;
+    /**
+     * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+     * @return A list containing the oldValidators.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getOldValidatorsList() {
+      return oldValidators_;
+    }
+    /**
+     * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+     * @return The count of oldValidators.
+     */
+    public int getOldValidatorsCount() {
+      return oldValidators_.size();
+    }
+    /**
+     * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+     * @param index The index of the element to return.
+     * @return The oldValidators at the given index.
+     */
+    public java.lang.String getOldValidators(int index) {
+      return oldValidators_.get(index);
+    }
+    /**
+     * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the oldValidators at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getOldValidatorsBytes(int index) {
+      return oldValidators_.getByteString(index);
+    }
+
+    public static final int NEW_VALIDATORS_FIELD_NUMBER = 38;
+    private com.google.protobuf.LazyStringList newValidators_;
+    /**
+     * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+     * @return A list containing the newValidators.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getNewValidatorsList() {
+      return newValidators_;
+    }
+    /**
+     * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+     * @return The count of newValidators.
+     */
+    public int getNewValidatorsCount() {
+      return newValidators_.size();
+    }
+    /**
+     * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+     * @param index The index of the element to return.
+     * @return The newValidators at the given index.
+     */
+    public java.lang.String getNewValidators(int index) {
+      return newValidators_.get(index);
+    }
+    /**
+     * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the newValidators at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getNewValidatorsBytes(int index) {
+      return newValidators_.getByteString(index);
+    }
+
     public static final int WHITELIST_ADDRESSES_FIELD_NUMBER = 31;
     private com.google.protobuf.LazyStringList whitelistAddresses_;
     /**
@@ -2115,6 +2261,12 @@ public final class AuditLogger {
       for (int i = 0; i < walletNames_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 36, walletNames_.getRaw(i));
       }
+      for (int i = 0; i < oldValidators_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 37, oldValidators_.getRaw(i));
+      }
+      for (int i = 0; i < newValidators_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 38, newValidators_.getRaw(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2251,6 +2403,22 @@ public final class AuditLogger {
         size += dataSize;
         size += 2 * getWalletNamesList().size();
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < oldValidators_.size(); i++) {
+          dataSize += computeStringSizeNoTag(oldValidators_.getRaw(i));
+        }
+        size += dataSize;
+        size += 2 * getOldValidatorsList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < newValidators_.size(); i++) {
+          dataSize += computeStringSizeNoTag(newValidators_.getRaw(i));
+        }
+        size += dataSize;
+        size += 2 * getNewValidatorsList().size();
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2328,6 +2496,10 @@ public final class AuditLogger {
           .equals(other.getWhitelistId())) return false;
       if (!getWhitelistName()
           .equals(other.getWhitelistName())) return false;
+      if (!getOldValidatorsList()
+          .equals(other.getOldValidatorsList())) return false;
+      if (!getNewValidatorsList()
+          .equals(other.getNewValidatorsList())) return false;
       if (!getWhitelistAddressesList()
           .equals(other.getWhitelistAddressesList())) return false;
       if (hasEventTime() != other.hasEventTime()) return false;
@@ -2422,6 +2594,14 @@ public final class AuditLogger {
       hash = (53 * hash) + getWhitelistId().hashCode();
       hash = (37 * hash) + WHITELIST_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getWhitelistName().hashCode();
+      if (getOldValidatorsCount() > 0) {
+        hash = (37 * hash) + OLD_VALIDATORS_FIELD_NUMBER;
+        hash = (53 * hash) + getOldValidatorsList().hashCode();
+      }
+      if (getNewValidatorsCount() > 0) {
+        hash = (37 * hash) + NEW_VALIDATORS_FIELD_NUMBER;
+        hash = (53 * hash) + getNewValidatorsList().hashCode();
+      }
       if (getWhitelistAddressesCount() > 0) {
         hash = (37 * hash) + WHITELIST_ADDRESSES_FIELD_NUMBER;
         hash = (53 * hash) + getWhitelistAddressesList().hashCode();
@@ -2637,8 +2817,12 @@ public final class AuditLogger {
 
         whitelistName_ = "";
 
-        whitelistAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        oldValidators_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
+        newValidators_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        whitelistAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         if (eventTimeBuilder_ == null) {
           eventTime_ = null;
         } else {
@@ -2716,8 +2900,18 @@ public final class AuditLogger {
         result.whitelistId_ = whitelistId_;
         result.whitelistName_ = whitelistName_;
         if (((bitField0_ & 0x00000002) != 0)) {
-          whitelistAddresses_ = whitelistAddresses_.getUnmodifiableView();
+          oldValidators_ = oldValidators_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.oldValidators_ = oldValidators_;
+        if (((bitField0_ & 0x00000004) != 0)) {
+          newValidators_ = newValidators_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.newValidators_ = newValidators_;
+        if (((bitField0_ & 0x00000008) != 0)) {
+          whitelistAddresses_ = whitelistAddresses_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.whitelistAddresses_ = whitelistAddresses_;
         if (eventTimeBuilder_ == null) {
@@ -2909,10 +3103,30 @@ public final class AuditLogger {
           whitelistName_ = other.whitelistName_;
           onChanged();
         }
+        if (!other.oldValidators_.isEmpty()) {
+          if (oldValidators_.isEmpty()) {
+            oldValidators_ = other.oldValidators_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureOldValidatorsIsMutable();
+            oldValidators_.addAll(other.oldValidators_);
+          }
+          onChanged();
+        }
+        if (!other.newValidators_.isEmpty()) {
+          if (newValidators_.isEmpty()) {
+            newValidators_ = other.newValidators_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureNewValidatorsIsMutable();
+            newValidators_.addAll(other.newValidators_);
+          }
+          onChanged();
+        }
         if (!other.whitelistAddresses_.isEmpty()) {
           if (whitelistAddresses_.isEmpty()) {
             whitelistAddresses_ = other.whitelistAddresses_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureWhitelistAddressesIsMutable();
             whitelistAddresses_.addAll(other.whitelistAddresses_);
@@ -5274,11 +5488,231 @@ public final class AuditLogger {
         return this;
       }
 
+      private com.google.protobuf.LazyStringList oldValidators_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureOldValidatorsIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          oldValidators_ = new com.google.protobuf.LazyStringArrayList(oldValidators_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+       * @return A list containing the oldValidators.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getOldValidatorsList() {
+        return oldValidators_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+       * @return The count of oldValidators.
+       */
+      public int getOldValidatorsCount() {
+        return oldValidators_.size();
+      }
+      /**
+       * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+       * @param index The index of the element to return.
+       * @return The oldValidators at the given index.
+       */
+      public java.lang.String getOldValidators(int index) {
+        return oldValidators_.get(index);
+      }
+      /**
+       * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the oldValidators at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getOldValidatorsBytes(int index) {
+        return oldValidators_.getByteString(index);
+      }
+      /**
+       * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+       * @param index The index to set the value at.
+       * @param value The oldValidators to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOldValidators(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureOldValidatorsIsMutable();
+        oldValidators_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+       * @param value The oldValidators to add.
+       * @return This builder for chaining.
+       */
+      public Builder addOldValidators(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureOldValidatorsIsMutable();
+        oldValidators_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+       * @param values The oldValidators to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllOldValidators(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureOldValidatorsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, oldValidators_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOldValidators() {
+        oldValidators_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+       * @param value The bytes of the oldValidators to add.
+       * @return This builder for chaining.
+       */
+      public Builder addOldValidatorsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureOldValidatorsIsMutable();
+        oldValidators_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList newValidators_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureNewValidatorsIsMutable() {
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          newValidators_ = new com.google.protobuf.LazyStringArrayList(newValidators_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+       * @return A list containing the newValidators.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getNewValidatorsList() {
+        return newValidators_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+       * @return The count of newValidators.
+       */
+      public int getNewValidatorsCount() {
+        return newValidators_.size();
+      }
+      /**
+       * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+       * @param index The index of the element to return.
+       * @return The newValidators at the given index.
+       */
+      public java.lang.String getNewValidators(int index) {
+        return newValidators_.get(index);
+      }
+      /**
+       * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the newValidators at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getNewValidatorsBytes(int index) {
+        return newValidators_.getByteString(index);
+      }
+      /**
+       * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+       * @param index The index to set the value at.
+       * @param value The newValidators to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNewValidators(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureNewValidatorsIsMutable();
+        newValidators_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+       * @param value The newValidators to add.
+       * @return This builder for chaining.
+       */
+      public Builder addNewValidators(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureNewValidatorsIsMutable();
+        newValidators_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+       * @param values The newValidators to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllNewValidators(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureNewValidatorsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, newValidators_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNewValidators() {
+        newValidators_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+       * @param value The bytes of the newValidators to add.
+       * @return This builder for chaining.
+       */
+      public Builder addNewValidatorsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureNewValidatorsIsMutable();
+        newValidators_.add(value);
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.LazyStringList whitelistAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureWhitelistAddressesIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           whitelistAddresses_ = new com.google.protobuf.LazyStringArrayList(whitelistAddresses_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000008;
          }
       }
       /**
@@ -5363,7 +5797,7 @@ public final class AuditLogger {
        */
       public Builder clearWhitelistAddresses() {
         whitelistAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -5693,7 +6127,7 @@ public final class AuditLogger {
       "v1\0325gincoinc/adamant/global/v1/adamantgl" +
       "obalv1/enum.proto\032.gincoinc/global/v1/gi" +
       "ncoincglobalv1/enum.proto\032\037google/protob" +
-      "uf/timestamp.proto\"\240\014\n\010AuditLog\022 \n\014audit" +
+      "uf/timestamp.proto\"\356\014\n\010AuditLog\022 \n\014audit" +
       "_log_id\030\001 \001(\tR\nauditLogId\022H\n\017audit_log_g" +
       "roup\030\002 \001(\0162 .adamant.global.v1.AuditLogG" +
       "roupR\rauditLogGroup\022E\n\016audit_log_type\030\003 " +
@@ -5728,13 +6162,15 @@ public final class AuditLogger {
       "nsferHourlyLimit\0220\n\024transfer_daily_limit" +
       "\030\034 \001(\003R\022transferDailyLimit\022!\n\014whitelist_" +
       "id\030\035 \001(\tR\013whitelistId\022%\n\016whitelist_name\030" +
-      "\036 \001(\tR\rwhitelistName\022/\n\023whitelist_addres" +
-      "ses\030\037 \003(\tR\022whitelistAddresses\0229\n\nevent_t" +
-      "ime\030  \001(\0132\032.google.protobuf.TimestampR\te" +
-      "ventTime\022;\n\013create_time\030! \001(\0132\032.google.p" +
-      "rotobuf.TimestampR\ncreateTimeBLZJgithub." +
-      "com/GincoInc/gew-kmp/gen/gincoinc/adaman" +
-      "t/global/v1/adamantglobalv1b\006proto3"
+      "\036 \001(\tR\rwhitelistName\022%\n\016old_validators\030%" +
+      " \003(\tR\roldValidators\022%\n\016new_validators\030& " +
+      "\003(\tR\rnewValidators\022/\n\023whitelist_addresse" +
+      "s\030\037 \003(\tR\022whitelistAddresses\0229\n\nevent_tim" +
+      "e\030  \001(\0132\032.google.protobuf.TimestampR\teve" +
+      "ntTime\022;\n\013create_time\030! \001(\0132\032.google.pro" +
+      "tobuf.TimestampR\ncreateTimeBLZJgithub.co" +
+      "m/GincoInc/gew-kmp/gen/gincoinc/adamant/" +
+      "global/v1/adamantglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -5748,7 +6184,7 @@ public final class AuditLogger {
     internal_static_adamant_global_v1_AuditLog_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_AuditLog_descriptor,
-        new java.lang.String[] { "AuditLogId", "AuditLogGroup", "AuditLogType", "AccountId", "AccountName", "TargetAccountId", "TargetAccountName", "Email", "RoleType", "ServiceAccountId", "ServiceAccountName", "ServiceAccountKeyId", "WalletId", "WalletName", "WalletGroupId", "WalletGroupName", "WalletNames", "TransactionId", "CoinType", "StringValue", "TxId", "PolicyId", "PolicyName", "LabeledAddressId", "Address", "AddressName", "TransferLimitId", "TransferLimitName", "TransferOneTimeLimit", "TransferHourlyLimit", "TransferDailyLimit", "WhitelistId", "WhitelistName", "WhitelistAddresses", "EventTime", "CreateTime", });
+        new java.lang.String[] { "AuditLogId", "AuditLogGroup", "AuditLogType", "AccountId", "AccountName", "TargetAccountId", "TargetAccountName", "Email", "RoleType", "ServiceAccountId", "ServiceAccountName", "ServiceAccountKeyId", "WalletId", "WalletName", "WalletGroupId", "WalletGroupName", "WalletNames", "TransactionId", "CoinType", "StringValue", "TxId", "PolicyId", "PolicyName", "LabeledAddressId", "Address", "AddressName", "TransferLimitId", "TransferLimitName", "TransferOneTimeLimit", "TransferHourlyLimit", "TransferDailyLimit", "WhitelistId", "WhitelistName", "OldValidators", "NewValidators", "WhitelistAddresses", "EventTime", "CreateTime", });
     adamant.global.v1.Enum.getDescriptor();
     gincoinc.global.v1.Enum.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();

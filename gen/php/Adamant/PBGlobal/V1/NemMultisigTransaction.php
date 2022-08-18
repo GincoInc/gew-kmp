@@ -32,11 +32,11 @@ class NemMultisigTransaction extends \Google\Protobuf\Internal\Message
      */
     protected $nem_multisig_transaction_id = '';
     /**
-     * AccountKeyID
+     * AccountID
      *
-     * Generated from protobuf field <code>string account_key_id = 10 [json_name = "accountKeyId"];</code>
+     * Generated from protobuf field <code>string account_id = 10 [json_name = "accountId"];</code>
      */
-    protected $account_key_id = '';
+    protected $account_id = '';
     /**
      * Generated from protobuf field <code>.gincoinc.global.v1.NemTransactionType tx_type = 4 [json_name = "txType"];</code>
      */
@@ -83,8 +83,8 @@ class NemMultisigTransaction extends \Google\Protobuf\Internal\Message
      *     @type string $transaction_id
      *           id
      *     @type string $nem_multisig_transaction_id
-     *     @type string $account_key_id
-     *           AccountKeyID
+     *     @type string $account_id
+     *           AccountID
      *     @type int $tx_type
      *     @type string $data
      *           The string-typed amount of transaction fee
@@ -178,27 +178,27 @@ class NemMultisigTransaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * AccountKeyID
+     * AccountID
      *
-     * Generated from protobuf field <code>string account_key_id = 10 [json_name = "accountKeyId"];</code>
+     * Generated from protobuf field <code>string account_id = 10 [json_name = "accountId"];</code>
      * @return string
      */
-    public function getAccountKeyId()
+    public function getAccountId()
     {
-        return $this->account_key_id;
+        return $this->account_id;
     }
 
     /**
-     * AccountKeyID
+     * AccountID
      *
-     * Generated from protobuf field <code>string account_key_id = 10 [json_name = "accountKeyId"];</code>
+     * Generated from protobuf field <code>string account_id = 10 [json_name = "accountId"];</code>
      * @param string $var
      * @return $this
      */
-    public function setAccountKeyId($var)
+    public function setAccountId($var)
     {
         GPBUtil::checkString($var, True);
-        $this->account_key_id = $var;
+        $this->account_id = $var;
 
         return $this;
     }
