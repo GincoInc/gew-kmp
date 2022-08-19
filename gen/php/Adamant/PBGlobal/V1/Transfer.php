@@ -94,6 +94,18 @@ class Transfer extends \Google\Protobuf\Internal\Message
      */
     protected $message = '';
     /**
+     * The number-typed amount of transfer fee
+     *
+     * Generated from protobuf field <code>double fee = 19 [json_name = "fee"];</code>
+     */
+    protected $fee = 0.0;
+    /**
+     * The string-typed amount of transfer fee
+     *
+     * Generated from protobuf field <code>string string_fee = 20 [json_name = "stringFee"];</code>
+     */
+    protected $string_fee = '';
+    /**
      * state
      *
      * Generated from protobuf field <code>.gincoinc.global.v1.TransactionState state = 12 [json_name = "state"];</code>
@@ -150,6 +162,10 @@ class Transfer extends \Google\Protobuf\Internal\Message
      *           memo id (only XLM)
      *     @type string $message
      *           message (only NEM)
+     *     @type float $fee
+     *           The number-typed amount of transfer fee
+     *     @type string $string_fee
+     *           The string-typed amount of transfer fee
      *     @type int $state
      *           state
      *     @type int $result
@@ -499,6 +515,58 @@ class Transfer extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->message = $var;
+
+        return $this;
+    }
+
+    /**
+     * The number-typed amount of transfer fee
+     *
+     * Generated from protobuf field <code>double fee = 19 [json_name = "fee"];</code>
+     * @return float
+     */
+    public function getFee()
+    {
+        return $this->fee;
+    }
+
+    /**
+     * The number-typed amount of transfer fee
+     *
+     * Generated from protobuf field <code>double fee = 19 [json_name = "fee"];</code>
+     * @param float $var
+     * @return $this
+     */
+    public function setFee($var)
+    {
+        GPBUtil::checkDouble($var);
+        $this->fee = $var;
+
+        return $this;
+    }
+
+    /**
+     * The string-typed amount of transfer fee
+     *
+     * Generated from protobuf field <code>string string_fee = 20 [json_name = "stringFee"];</code>
+     * @return string
+     */
+    public function getStringFee()
+    {
+        return $this->string_fee;
+    }
+
+    /**
+     * The string-typed amount of transfer fee
+     *
+     * Generated from protobuf field <code>string string_fee = 20 [json_name = "stringFee"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setStringFee($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->string_fee = $var;
 
         return $this;
     }

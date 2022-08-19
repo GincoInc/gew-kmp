@@ -47,6 +47,8 @@ message AuditLog {
   int64 transfer_daily_limit = 28;
   string whitelist_id = 29;
   string whitelist_name = 30;
+  repeated string old_validators = 37;
+  repeated string new_validators = 38;
   repeated string whitelist_addresses = 31;
   google.protobuf.Timestamp event_time = 32;
   google.protobuf.Timestamp create_time = 33;

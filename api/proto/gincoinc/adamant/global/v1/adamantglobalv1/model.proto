@@ -418,6 +418,8 @@ message Transfer {
   uint32 destination_tag = 15; // destination tag (only XRP)
   uint64 memo_id = 17 [jstype = JS_STRING]; // memo id (only XLM)
   string message = 18; // message (only NEM)
+  double fee = 19; // The number-typed amount of transfer fee
+  string string_fee = 20; // The string-typed amount of transfer fee
   gincoinc.global.v1.TransactionState state = 12; // state
   gincoinc.global.v1.TransactionResult result = 16; // result
   google.protobuf.Timestamp create_time = 13; // the time at which the transfer was created
@@ -441,6 +443,8 @@ message UncheckedTransfer {
   uint32 destination_tag = 13; // destination tag (only XRP)
   uint64 memo_id = 14 [jstype = JS_STRING]; // memo id (only XLM)
   string message = 18; // message (only NEM)
+  double fee = 19; // The number-typed amount of transfer fee
+  string string_fee = 20; // The string-typed amount of transfer fee
   bool has_checked = 15; // Whether the transfer has been checked or not
   google.protobuf.Timestamp create_time = 16; // the time at which the transfer was created
   google.protobuf.Timestamp update_time = 17; // the time at which the transfer was updated
