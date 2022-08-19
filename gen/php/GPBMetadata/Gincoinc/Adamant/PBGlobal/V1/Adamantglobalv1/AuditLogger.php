@@ -19,8 +19,8 @@ class AuditLogger
         \GPBMetadata\Google\Protobuf\Timestamp::initOnce();
         $pool->internalAddGeneratedFile(
             '
-œ
-=gincoinc/adamant/global/v1/adamantglobalv1/audit_logger.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.proto" 
+ê
+=gincoinc/adamant/global/v1/adamantglobalv1/audit_logger.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.proto"î
 AuditLog 
 audit_log_id (	R
 auditLogIdH
@@ -59,7 +59,9 @@ policyName,
 transfer_hourly_limit (RtransferHourlyLimit0
 transfer_daily_limit (RtransferDailyLimit!
 whitelist_id (	RwhitelistId%
-whitelist_name (	RwhitelistName/
+whitelist_name (	RwhitelistName%
+old_validators% (	RoldValidators%
+new_validators& (	RnewValidators/
 whitelist_addresses (	RwhitelistAddresses9
 
 event_time  (2.google.protobuf.TimestampR	eventTime;

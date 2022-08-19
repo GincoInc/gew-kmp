@@ -148,6 +148,14 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      */
     protected $whitelist_name = '';
     /**
+     * Generated from protobuf field <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+     */
+    private $old_validators;
+    /**
+     * Generated from protobuf field <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+     */
+    private $new_validators;
+    /**
      * Generated from protobuf field <code>repeated string whitelist_addresses = 31 [json_name = "whitelistAddresses"];</code>
      */
     private $whitelist_addresses;
@@ -199,6 +207,8 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      *     @type int|string $transfer_daily_limit
      *     @type string $whitelist_id
      *     @type string $whitelist_name
+     *     @type array<string>|\Google\Protobuf\Internal\RepeatedField $old_validators
+     *     @type array<string>|\Google\Protobuf\Internal\RepeatedField $new_validators
      *     @type array<string>|\Google\Protobuf\Internal\RepeatedField $whitelist_addresses
      *     @type \Google\Protobuf\Timestamp $event_time
      *     @type \Google\Protobuf\Timestamp $create_time
@@ -931,6 +941,50 @@ class AuditLog extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->whitelist_name = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
+     */
+    public function getOldValidators()
+    {
+        return $this->old_validators;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
+     * @param array<string>|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
+     */
+    public function setOldValidators($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->old_validators = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
+     */
+    public function getNewValidators()
+    {
+        return $this->new_validators;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
+     * @param array<string>|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
+     */
+    public function setNewValidators($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->new_validators = $arr;
 
         return $this;
     }

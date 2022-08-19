@@ -4609,6 +4609,10 @@ func (m *Transfer) Validate(all bool) error {
 
 	// no validation rules for Message
 
+	// no validation rules for Fee
+
+	// no validation rules for StringFee
+
 	// no validation rules for State
 
 	// no validation rules for Result
@@ -4759,6 +4763,10 @@ func (m *UncheckedTransfer) Validate(all bool) error {
 	// no validation rules for MemoId
 
 	// no validation rules for Message
+
+	// no validation rules for Fee
+
+	// no validation rules for StringFee
 
 	// no validation rules for HasChecked
 
