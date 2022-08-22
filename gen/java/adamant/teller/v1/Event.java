@@ -122,6 +122,18 @@ public final class Event {
     long getMemoId();
 
     /**
+     * <code>string message = 21 [json_name = "message"];</code>
+     * @return The message.
+     */
+    java.lang.String getMessage();
+    /**
+     * <code>string message = 21 [json_name = "message"];</code>
+     * @return The bytes for message.
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
+
+    /**
      * <code>.gincoinc.global.v1.TransactionState state = 11 [json_name = "state"];</code>
      * @return The enum numeric value on the wire for state.
      */
@@ -242,6 +254,7 @@ public final class Event {
       txId_ = "";
       stringValue_ = "";
       address_ = "";
+      message_ = "";
       state_ = 0;
       result_ = 0;
       transferType_ = 0;
@@ -400,6 +413,12 @@ public final class Event {
               java.lang.String s = input.readStringRequireUtf8();
 
               stringFee_ = s;
+              break;
+            }
+            case 170: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              message_ = s;
               break;
             }
             default: {
@@ -698,6 +717,44 @@ public final class Event {
     @java.lang.Override
     public long getMemoId() {
       return memoId_;
+    }
+
+    public static final int MESSAGE_FIELD_NUMBER = 21;
+    private volatile java.lang.Object message_;
+    /**
+     * <code>string message = 21 [json_name = "message"];</code>
+     * @return The message.
+     */
+    @java.lang.Override
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        message_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string message = 21 [json_name = "message"];</code>
+     * @return The bytes for message.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int STATE_FIELD_NUMBER = 11;
@@ -1020,6 +1077,9 @@ public final class Event {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringFee_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 20, stringFee_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 21, message_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1100,6 +1160,9 @@ public final class Event {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringFee_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, stringFee_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(21, message_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1138,6 +1201,8 @@ public final class Event {
           != other.getDestinationTag()) return false;
       if (getMemoId()
           != other.getMemoId()) return false;
+      if (!getMessage()
+          .equals(other.getMessage())) return false;
       if (state_ != other.state_) return false;
       if (result_ != other.result_) return false;
       if (transferType_ != other.transferType_) return false;
@@ -1193,6 +1258,8 @@ public final class Event {
       hash = (37 * hash) + MEMO_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getMemoId());
+      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessage().hashCode();
       hash = (37 * hash) + STATE_FIELD_NUMBER;
       hash = (53 * hash) + state_;
       hash = (37 * hash) + RESULT_FIELD_NUMBER;
@@ -1369,6 +1436,8 @@ public final class Event {
 
         memoId_ = 0L;
 
+        message_ = "";
+
         state_ = 0;
 
         result_ = 0;
@@ -1428,6 +1497,7 @@ public final class Event {
         result.address_ = address_;
         result.destinationTag_ = destinationTag_;
         result.memoId_ = memoId_;
+        result.message_ = message_;
         result.state_ = state_;
         result.result_ = result_;
         result.transferType_ = transferType_;
@@ -1526,6 +1596,10 @@ public final class Event {
         }
         if (other.getMemoId() != 0L) {
           setMemoId(other.getMemoId());
+        }
+        if (!other.getMessage().isEmpty()) {
+          message_ = other.message_;
+          onChanged();
         }
         if (other.state_ != 0) {
           setStateValue(other.getStateValue());
@@ -2177,6 +2251,82 @@ public final class Event {
       public Builder clearMemoId() {
         
         memoId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object message_ = "";
+      /**
+       * <code>string message = 21 [json_name = "message"];</code>
+       * @return The message.
+       */
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          message_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string message = 21 [json_name = "message"];</code>
+       * @return The bytes for message.
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string message = 21 [json_name = "message"];</code>
+       * @param value The message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 21 [json_name = "message"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMessage() {
+        
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 21 [json_name = "message"];</code>
+       * @param value The bytes for message to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        message_ = value;
         onChanged();
         return this;
       }
@@ -5033,7 +5183,7 @@ public final class Event {
       "\n6gincoinc/adamant/teller/v1/adamanttell" +
       "erv1/event.proto\022\021adamant.teller.v1\032.gin" +
       "coinc/global/v1/gincoincglobalv1/enum.pr" +
-      "oto\032\037google/protobuf/timestamp.proto\"\303\005\n" +
+      "oto\032\037google/protobuf/timestamp.proto\"\335\005\n" +
       "\017TransferUpdated\022\033\n\twallet_id\030\001 \001(\tR\010wal" +
       "letId\022\037\n\013transfer_id\030\002 \001(\tR\ntransferId\022," +
       "\n\004coin\030\003 \001(\0162\030.gincoinc.global.v1.CoinR\004" +
@@ -5042,33 +5192,34 @@ public final class Event {
       "ring_value\030\007 \001(\tR\013stringValue\022\031\n\010jpy_rat" +
       "e\030\010 \001(\001R\007jpyRate\022\034\n\007address\030\t \001(\tB\002\030\001R\007a" +
       "ddress\022\'\n\017destination_tag\030\n \001(\rR\016destina" +
-      "tionTag\022\027\n\007memo_id\030\016 \001(\004R\006memoId\022:\n\005stat" +
-      "e\030\013 \001(\0162$.gincoinc.global.v1.Transaction" +
-      "StateR\005state\022=\n\006result\030\014 \001(\0162%.gincoinc." +
-      "global.v1.TransactionResultR\006result\022E\n\rt" +
-      "ransfer_type\030\r \001(\0162 .gincoinc.global.v1." +
-      "TransferTypeR\014transferType\022\022\n\004from\030\017 \001(\t" +
-      "R\004from\022\016\n\002to\030\020 \001(\tR\002to\022.\n\004time\030\021 \001(\0132\032.g" +
-      "oogle.protobuf.TimestampR\004time\022\031\n\010event_" +
-      "id\030\022 \001(\tR\007eventId\022\020\n\003fee\030\023 \001(\001R\003fee\022\035\n\ns" +
-      "tring_fee\030\024 \001(\tR\tstringFee\"\315\004\n\023TransferU" +
-      "pdateEvent\022\031\n\010event_id\030\001 \001(\tR\007eventId\022\033\n" +
-      "\twallet_id\030\016 \001(\tR\010walletId\022,\n\004coin\030\002 \001(\016" +
-      "2\030.gincoinc.global.v1.CoinR\004coin\022\023\n\005tx_i" +
-      "d\030\003 \001(\tR\004txId\022\031\n\010tx_index\030\004 \001(\rR\007txIndex" +
-      "\022\024\n\005value\030\005 \001(\001R\005value\022!\n\014string_value\030\006" +
-      " \001(\tR\013stringValue\022\031\n\010jpy_rate\030\r \001(\001R\007jpy" +
-      "Rate\022\030\n\007address\030\007 \001(\tR\007address\022\'\n\017destin" +
-      "ation_tag\030\010 \001(\rR\016destinationTag\022\027\n\007memo_" +
-      "id\030\017 \001(\004R\006memoId\022:\n\005state\030\t \001(\0162$.gincoi" +
-      "nc.global.v1.TransactionStateR\005state\022=\n\006" +
-      "result\030\n \001(\0162%.gincoinc.global.v1.Transa" +
-      "ctionResultR\006result\022E\n\rtransfer_type\030\013 \001" +
-      "(\0162 .gincoinc.global.v1.TransferTypeR\014tr" +
-      "ansferType\022.\n\004time\030\014 \001(\0132\032.google.protob" +
-      "uf.TimestampR\004timeBLZJgithub.com/GincoIn" +
-      "c/gew-kmp/gen/gincoinc/adamant/teller/v1" +
-      "/adamanttellerv1b\006proto3"
+      "tionTag\022\027\n\007memo_id\030\016 \001(\004R\006memoId\022\030\n\007mess" +
+      "age\030\025 \001(\tR\007message\022:\n\005state\030\013 \001(\0162$.ginc" +
+      "oinc.global.v1.TransactionStateR\005state\022=" +
+      "\n\006result\030\014 \001(\0162%.gincoinc.global.v1.Tran" +
+      "sactionResultR\006result\022E\n\rtransfer_type\030\r" +
+      " \001(\0162 .gincoinc.global.v1.TransferTypeR\014" +
+      "transferType\022\022\n\004from\030\017 \001(\tR\004from\022\016\n\002to\030\020" +
+      " \001(\tR\002to\022.\n\004time\030\021 \001(\0132\032.google.protobuf" +
+      ".TimestampR\004time\022\031\n\010event_id\030\022 \001(\tR\007even" +
+      "tId\022\020\n\003fee\030\023 \001(\001R\003fee\022\035\n\nstring_fee\030\024 \001(" +
+      "\tR\tstringFee\"\315\004\n\023TransferUpdateEvent\022\031\n\010" +
+      "event_id\030\001 \001(\tR\007eventId\022\033\n\twallet_id\030\016 \001" +
+      "(\tR\010walletId\022,\n\004coin\030\002 \001(\0162\030.gincoinc.gl" +
+      "obal.v1.CoinR\004coin\022\023\n\005tx_id\030\003 \001(\tR\004txId\022" +
+      "\031\n\010tx_index\030\004 \001(\rR\007txIndex\022\024\n\005value\030\005 \001(" +
+      "\001R\005value\022!\n\014string_value\030\006 \001(\tR\013stringVa" +
+      "lue\022\031\n\010jpy_rate\030\r \001(\001R\007jpyRate\022\030\n\007addres" +
+      "s\030\007 \001(\tR\007address\022\'\n\017destination_tag\030\010 \001(" +
+      "\rR\016destinationTag\022\027\n\007memo_id\030\017 \001(\004R\006memo" +
+      "Id\022:\n\005state\030\t \001(\0162$.gincoinc.global.v1.T" +
+      "ransactionStateR\005state\022=\n\006result\030\n \001(\0162%" +
+      ".gincoinc.global.v1.TransactionResultR\006r" +
+      "esult\022E\n\rtransfer_type\030\013 \001(\0162 .gincoinc." +
+      "global.v1.TransferTypeR\014transferType\022.\n\004" +
+      "time\030\014 \001(\0132\032.google.protobuf.TimestampR\004" +
+      "timeBLZJgithub.com/GincoInc/gew-kmp/gen/" +
+      "gincoinc/adamant/teller/v1/adamantteller" +
+      "v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -5081,7 +5232,7 @@ public final class Event {
     internal_static_adamant_teller_v1_TransferUpdated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_teller_v1_TransferUpdated_descriptor,
-        new java.lang.String[] { "WalletId", "TransferId", "Coin", "TxId", "TxIndex", "Value", "StringValue", "JpyRate", "Address", "DestinationTag", "MemoId", "State", "Result", "TransferType", "From", "To", "Time", "EventId", "Fee", "StringFee", });
+        new java.lang.String[] { "WalletId", "TransferId", "Coin", "TxId", "TxIndex", "Value", "StringValue", "JpyRate", "Address", "DestinationTag", "MemoId", "Message", "State", "Result", "TransferType", "From", "To", "Time", "EventId", "Fee", "StringFee", });
     internal_static_adamant_teller_v1_TransferUpdateEvent_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_adamant_teller_v1_TransferUpdateEvent_fieldAccessorTable = new
