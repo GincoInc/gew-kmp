@@ -59,6 +59,10 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
      */
     protected $memo_id = 0;
     /**
+     * Generated from protobuf field <code>string message = 21 [json_name = "message"];</code>
+     */
+    protected $message = '';
+    /**
      * Generated from protobuf field <code>.gincoinc.global.v1.TransactionState state = 11 [json_name = "state"];</code>
      */
     protected $state = 0;
@@ -112,6 +116,7 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
      *     @type string $address
      *     @type int $destination_tag
      *     @type int|string $memo_id
+     *     @type string $message
      *     @type int $state
      *     @type int $result
      *     @type int $transfer_type
@@ -370,6 +375,28 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint64($var);
         $this->memo_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string message = 21 [json_name = "message"];</code>
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /**
+     * Generated from protobuf field <code>string message = 21 [json_name = "message"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setMessage($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->message = $var;
 
         return $this;
     }

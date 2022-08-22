@@ -18,8 +18,8 @@ class Event
         \GPBMetadata\Google\Protobuf\Timestamp::initOnce();
         $pool->internalAddGeneratedFile(
             '
-Ø
-6gincoinc/adamant/teller/v1/adamanttellerv1/event.protoadamant.teller.v1google/protobuf/timestamp.proto"Ã
+ò
+6gincoinc/adamant/teller/v1/adamanttellerv1/event.protoadamant.teller.v1google/protobuf/timestamp.proto"Ý
 TransferUpdated
 	wallet_id (	RwalletId
 transfer_id (	R
@@ -33,7 +33,8 @@ transferId,
 address	 (	BRaddress\'
 destination_tag
  (RdestinationTag
-memo_id (RmemoId:
+memo_id (RmemoId
+message (	Rmessage:
 state (2$.gincoinc.global.v1.TransactionStateRstate=
 result (2%.gincoinc.global.v1.TransactionResultRresultE
 transfer_type (2 .gincoinc.global.v1.TransferTypeRtransferType
