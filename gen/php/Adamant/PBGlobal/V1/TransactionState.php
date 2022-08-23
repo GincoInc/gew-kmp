@@ -65,6 +65,18 @@ class TransactionState
      * Generated from protobuf enum <code>TRANSACTION_STATE_CANCELLED = 7;</code>
      */
     const TRANSACTION_STATE_CANCELLED = 7;
+    /**
+     * Waiting for approve
+     *
+     * Generated from protobuf enum <code>TRANSACTION_STATE_APPROVING = 9;</code>
+     */
+    const TRANSACTION_STATE_APPROVING = 9;
+    /**
+     * Transaction was approved
+     *
+     * Generated from protobuf enum <code>TRANSACTION_STATE_APPROVED = 10;</code>
+     */
+    const TRANSACTION_STATE_APPROVED = 10;
 
     private static $valueToName = [
         self::TRANSACTION_STATE_INVALID => 'TRANSACTION_STATE_INVALID',
@@ -76,6 +88,8 @@ class TransactionState
         self::TRANSACTION_STATE_SUBMITTED => 'TRANSACTION_STATE_SUBMITTED',
         self::TRANSACTION_STATE_CANCELLING => 'TRANSACTION_STATE_CANCELLING',
         self::TRANSACTION_STATE_CANCELLED => 'TRANSACTION_STATE_CANCELLED',
+        self::TRANSACTION_STATE_APPROVING => 'TRANSACTION_STATE_APPROVING',
+        self::TRANSACTION_STATE_APPROVED => 'TRANSACTION_STATE_APPROVED',
     ];
 
     public static function name($value)

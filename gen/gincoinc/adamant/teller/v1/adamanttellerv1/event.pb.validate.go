@@ -86,6 +86,8 @@ func (m *TransferUpdated) Validate(all bool) error {
 
 	// no validation rules for MemoId
 
+	// no validation rules for Message
+
 	// no validation rules for State
 
 	// no validation rules for Result

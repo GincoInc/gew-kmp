@@ -18,6 +18,14 @@ private static final long serialVersionUID = 0L;
   private ListUncheckedTransfersByFilterRequest() {
     walletType_ = java.util.Collections.emptyList();
     pageToken_ = "";
+    filterType_ = 0;
+    transferId_ = "";
+    walletId_ = "";
+    walletName_ = "";
+    address_ = "";
+    txid_ = "";
+    coin_ = 0;
+    transferType_ = 0;
   }
 
   @java.lang.Override
@@ -88,6 +96,80 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             pageToken_ = s;
+            break;
+          }
+          case 40: {
+            int rawValue = input.readEnum();
+
+            filterType_ = rawValue;
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            transferId_ = s;
+            break;
+          }
+          case 58: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            walletId_ = s;
+            break;
+          }
+          case 66: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            walletName_ = s;
+            break;
+          }
+          case 74: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            address_ = s;
+            break;
+          }
+          case 82: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            txid_ = s;
+            break;
+          }
+          case 88: {
+            int rawValue = input.readEnum();
+
+            coin_ = rawValue;
+            break;
+          }
+          case 96: {
+            int rawValue = input.readEnum();
+
+            transferType_ = rawValue;
+            break;
+          }
+          case 106: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (startTime_ != null) {
+              subBuilder = startTime_.toBuilder();
+            }
+            startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(startTime_);
+              startTime_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 114: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (endTime_ != null) {
+              subBuilder = endTime_.toBuilder();
+            }
+            endTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(endTime_);
+              endTime_ = subBuilder.buildPartial();
+            }
+
             break;
           }
           default: {
@@ -255,6 +337,393 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int FILTER_TYPE_FIELD_NUMBER = 5;
+  private int filterType_;
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.adamant.global.v1.ListFilterType filter_type = 5 [json_name = "filterType", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for filterType.
+   */
+  @java.lang.Override public int getFilterTypeValue() {
+    return filterType_;
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.adamant.global.v1.ListFilterType filter_type = 5 [json_name = "filterType", (.validate.rules) = { ... }</code>
+   * @return The filterType.
+   */
+  @java.lang.Override public adamant.global.v1.Enum.ListFilterType getFilterType() {
+    @SuppressWarnings("deprecation")
+    adamant.global.v1.Enum.ListFilterType result = adamant.global.v1.Enum.ListFilterType.valueOf(filterType_);
+    return result == null ? adamant.global.v1.Enum.ListFilterType.UNRECOGNIZED : result;
+  }
+
+  public static final int TRANSFER_ID_FIELD_NUMBER = 6;
+  private volatile java.lang.Object transferId_;
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string transfer_id = 6 [json_name = "transferId"];</code>
+   * @return The transferId.
+   */
+  @java.lang.Override
+  public java.lang.String getTransferId() {
+    java.lang.Object ref = transferId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      transferId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string transfer_id = 6 [json_name = "transferId"];</code>
+   * @return The bytes for transferId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTransferIdBytes() {
+    java.lang.Object ref = transferId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      transferId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int WALLET_ID_FIELD_NUMBER = 7;
+  private volatile java.lang.Object walletId_;
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+   * @return The walletId.
+   */
+  @java.lang.Override
+  public java.lang.String getWalletId() {
+    java.lang.Object ref = walletId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      walletId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+   * @return The bytes for walletId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getWalletIdBytes() {
+    java.lang.Object ref = walletId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      walletId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int WALLET_NAME_FIELD_NUMBER = 8;
+  private volatile java.lang.Object walletName_;
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string wallet_name = 8 [json_name = "walletName", (.validate.rules) = { ... }</code>
+   * @return The walletName.
+   */
+  @java.lang.Override
+  public java.lang.String getWalletName() {
+    java.lang.Object ref = walletName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      walletName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string wallet_name = 8 [json_name = "walletName", (.validate.rules) = { ... }</code>
+   * @return The bytes for walletName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getWalletNameBytes() {
+    java.lang.Object ref = walletName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      walletName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ADDRESS_FIELD_NUMBER = 9;
+  private volatile java.lang.Object address_;
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string address = 9 [json_name = "address"];</code>
+   * @return The address.
+   */
+  @java.lang.Override
+  public java.lang.String getAddress() {
+    java.lang.Object ref = address_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      address_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string address = 9 [json_name = "address"];</code>
+   * @return The bytes for address.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAddressBytes() {
+    java.lang.Object ref = address_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      address_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int TXID_FIELD_NUMBER = 10;
+  private volatile java.lang.Object txid_;
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string txid = 10 [json_name = "txid"];</code>
+   * @return The txid.
+   */
+  @java.lang.Override
+  public java.lang.String getTxid() {
+    java.lang.Object ref = txid_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      txid_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string txid = 10 [json_name = "txid"];</code>
+   * @return The bytes for txid.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTxidBytes() {
+    java.lang.Object ref = txid_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      txid_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int COIN_FIELD_NUMBER = 11;
+  private int coin_;
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.gincoinc.global.v1.Coin coin = 11 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for coin.
+   */
+  @java.lang.Override public int getCoinValue() {
+    return coin_;
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.gincoinc.global.v1.Coin coin = 11 [json_name = "coin", (.validate.rules) = { ... }</code>
+   * @return The coin.
+   */
+  @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
+    @SuppressWarnings("deprecation")
+    gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
+    return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
+  }
+
+  public static final int TRANSFER_TYPE_FIELD_NUMBER = 12;
+  private int transferType_;
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.gincoinc.global.v1.TransferType transfer_type = 12 [json_name = "transferType", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for transferType.
+   */
+  @java.lang.Override public int getTransferTypeValue() {
+    return transferType_;
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.gincoinc.global.v1.TransferType transfer_type = 12 [json_name = "transferType", (.validate.rules) = { ... }</code>
+   * @return The transferType.
+   */
+  @java.lang.Override public gincoinc.global.v1.Enum.TransferType getTransferType() {
+    @SuppressWarnings("deprecation")
+    gincoinc.global.v1.Enum.TransferType result = gincoinc.global.v1.Enum.TransferType.valueOf(transferType_);
+    return result == null ? gincoinc.global.v1.Enum.TransferType.UNRECOGNIZED : result;
+  }
+
+  public static final int START_TIME_FIELD_NUMBER = 13;
+  private com.google.protobuf.Timestamp startTime_;
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+   * @return Whether the startTime field is set.
+   */
+  @java.lang.Override
+  public boolean hasStartTime() {
+    return startTime_ != null;
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+   * @return The startTime.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getStartTime() {
+    return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
+    return getStartTime();
+  }
+
+  public static final int END_TIME_FIELD_NUMBER = 14;
+  private com.google.protobuf.Timestamp endTime_;
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+   * @return Whether the endTime field is set.
+   */
+  @java.lang.Override
+  public boolean hasEndTime() {
+    return endTime_ != null;
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+   * @return The endTime.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getEndTime() {
+    return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
+    return getEndTime();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -285,6 +754,36 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, pageToken_);
+    }
+    if (filterType_ != adamant.global.v1.Enum.ListFilterType.LIST_FILTER_TYPE_INVALID.getNumber()) {
+      output.writeEnum(5, filterType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transferId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, transferId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, walletId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, walletName_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, address_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(txid_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, txid_);
+    }
+    if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
+      output.writeEnum(11, coin_);
+    }
+    if (transferType_ != gincoinc.global.v1.Enum.TransferType.TRANSFER_TYPE_INVALID.getNumber()) {
+      output.writeEnum(12, transferType_);
+    }
+    if (startTime_ != null) {
+      output.writeMessage(13, getStartTime());
+    }
+    if (endTime_ != null) {
+      output.writeMessage(14, getEndTime());
     }
     unknownFields.writeTo(output);
   }
@@ -318,6 +817,41 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, pageToken_);
     }
+    if (filterType_ != adamant.global.v1.Enum.ListFilterType.LIST_FILTER_TYPE_INVALID.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(5, filterType_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transferId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, transferId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, walletId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, walletName_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, address_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(txid_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, txid_);
+    }
+    if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(11, coin_);
+    }
+    if (transferType_ != gincoinc.global.v1.Enum.TransferType.TRANSFER_TYPE_INVALID.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(12, transferType_);
+    }
+    if (startTime_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(13, getStartTime());
+    }
+    if (endTime_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(14, getEndTime());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -340,6 +874,29 @@ private static final long serialVersionUID = 0L;
         != other.getPageSize()) return false;
     if (!getPageToken()
         .equals(other.getPageToken())) return false;
+    if (filterType_ != other.filterType_) return false;
+    if (!getTransferId()
+        .equals(other.getTransferId())) return false;
+    if (!getWalletId()
+        .equals(other.getWalletId())) return false;
+    if (!getWalletName()
+        .equals(other.getWalletName())) return false;
+    if (!getAddress()
+        .equals(other.getAddress())) return false;
+    if (!getTxid()
+        .equals(other.getTxid())) return false;
+    if (coin_ != other.coin_) return false;
+    if (transferType_ != other.transferType_) return false;
+    if (hasStartTime() != other.hasStartTime()) return false;
+    if (hasStartTime()) {
+      if (!getStartTime()
+          .equals(other.getStartTime())) return false;
+    }
+    if (hasEndTime() != other.hasEndTime()) return false;
+    if (hasEndTime()) {
+      if (!getEndTime()
+          .equals(other.getEndTime())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -362,6 +919,30 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPageSize();
     hash = (37 * hash) + PAGE_TOKEN_FIELD_NUMBER;
     hash = (53 * hash) + getPageToken().hashCode();
+    hash = (37 * hash) + FILTER_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + filterType_;
+    hash = (37 * hash) + TRANSFER_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getTransferId().hashCode();
+    hash = (37 * hash) + WALLET_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getWalletId().hashCode();
+    hash = (37 * hash) + WALLET_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getWalletName().hashCode();
+    hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+    hash = (53 * hash) + getAddress().hashCode();
+    hash = (37 * hash) + TXID_FIELD_NUMBER;
+    hash = (53 * hash) + getTxid().hashCode();
+    hash = (37 * hash) + COIN_FIELD_NUMBER;
+    hash = (53 * hash) + coin_;
+    hash = (37 * hash) + TRANSFER_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + transferType_;
+    if (hasStartTime()) {
+      hash = (37 * hash) + START_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getStartTime().hashCode();
+    }
+    if (hasEndTime()) {
+      hash = (37 * hash) + END_TIME_FIELD_NUMBER;
+      hash = (53 * hash) + getEndTime().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -503,6 +1084,34 @@ private static final long serialVersionUID = 0L;
 
       pageToken_ = "";
 
+      filterType_ = 0;
+
+      transferId_ = "";
+
+      walletId_ = "";
+
+      walletName_ = "";
+
+      address_ = "";
+
+      txid_ = "";
+
+      coin_ = 0;
+
+      transferType_ = 0;
+
+      if (startTimeBuilder_ == null) {
+        startTime_ = null;
+      } else {
+        startTime_ = null;
+        startTimeBuilder_ = null;
+      }
+      if (endTimeBuilder_ == null) {
+        endTime_ = null;
+      } else {
+        endTime_ = null;
+        endTimeBuilder_ = null;
+      }
       return this;
     }
 
@@ -538,6 +1147,24 @@ private static final long serialVersionUID = 0L;
       result.walletType_ = walletType_;
       result.pageSize_ = pageSize_;
       result.pageToken_ = pageToken_;
+      result.filterType_ = filterType_;
+      result.transferId_ = transferId_;
+      result.walletId_ = walletId_;
+      result.walletName_ = walletName_;
+      result.address_ = address_;
+      result.txid_ = txid_;
+      result.coin_ = coin_;
+      result.transferType_ = transferType_;
+      if (startTimeBuilder_ == null) {
+        result.startTime_ = startTime_;
+      } else {
+        result.startTime_ = startTimeBuilder_.build();
+      }
+      if (endTimeBuilder_ == null) {
+        result.endTime_ = endTime_;
+      } else {
+        result.endTime_ = endTimeBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -605,6 +1232,41 @@ private static final long serialVersionUID = 0L;
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
         onChanged();
+      }
+      if (other.filterType_ != 0) {
+        setFilterTypeValue(other.getFilterTypeValue());
+      }
+      if (!other.getTransferId().isEmpty()) {
+        transferId_ = other.transferId_;
+        onChanged();
+      }
+      if (!other.getWalletId().isEmpty()) {
+        walletId_ = other.walletId_;
+        onChanged();
+      }
+      if (!other.getWalletName().isEmpty()) {
+        walletName_ = other.walletName_;
+        onChanged();
+      }
+      if (!other.getAddress().isEmpty()) {
+        address_ = other.address_;
+        onChanged();
+      }
+      if (!other.getTxid().isEmpty()) {
+        txid_ = other.txid_;
+        onChanged();
+      }
+      if (other.coin_ != 0) {
+        setCoinValue(other.getCoinValue());
+      }
+      if (other.transferType_ != 0) {
+        setTransferTypeValue(other.getTransferTypeValue());
+      }
+      if (other.hasStartTime()) {
+        mergeStartTime(other.getStartTime());
+      }
+      if (other.hasEndTime()) {
+        mergeEndTime(other.getEndTime());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -944,6 +1606,1018 @@ private static final long serialVersionUID = 0L;
       pageToken_ = value;
       onChanged();
       return this;
+    }
+
+    private int filterType_ = 0;
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.adamant.global.v1.ListFilterType filter_type = 5 [json_name = "filterType", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for filterType.
+     */
+    @java.lang.Override public int getFilterTypeValue() {
+      return filterType_;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.adamant.global.v1.ListFilterType filter_type = 5 [json_name = "filterType", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for filterType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFilterTypeValue(int value) {
+      
+      filterType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.adamant.global.v1.ListFilterType filter_type = 5 [json_name = "filterType", (.validate.rules) = { ... }</code>
+     * @return The filterType.
+     */
+    @java.lang.Override
+    public adamant.global.v1.Enum.ListFilterType getFilterType() {
+      @SuppressWarnings("deprecation")
+      adamant.global.v1.Enum.ListFilterType result = adamant.global.v1.Enum.ListFilterType.valueOf(filterType_);
+      return result == null ? adamant.global.v1.Enum.ListFilterType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.adamant.global.v1.ListFilterType filter_type = 5 [json_name = "filterType", (.validate.rules) = { ... }</code>
+     * @param value The filterType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFilterType(adamant.global.v1.Enum.ListFilterType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      filterType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.adamant.global.v1.ListFilterType filter_type = 5 [json_name = "filterType", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFilterType() {
+      
+      filterType_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object transferId_ = "";
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string transfer_id = 6 [json_name = "transferId"];</code>
+     * @return The transferId.
+     */
+    public java.lang.String getTransferId() {
+      java.lang.Object ref = transferId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        transferId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string transfer_id = 6 [json_name = "transferId"];</code>
+     * @return The bytes for transferId.
+     */
+    public com.google.protobuf.ByteString
+        getTransferIdBytes() {
+      java.lang.Object ref = transferId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        transferId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string transfer_id = 6 [json_name = "transferId"];</code>
+     * @param value The transferId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTransferId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      transferId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string transfer_id = 6 [json_name = "transferId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTransferId() {
+      
+      transferId_ = getDefaultInstance().getTransferId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string transfer_id = 6 [json_name = "transferId"];</code>
+     * @param value The bytes for transferId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTransferIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      transferId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object walletId_ = "";
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+     * @return The walletId.
+     */
+    public java.lang.String getWalletId() {
+      java.lang.Object ref = walletId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        walletId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+     * @return The bytes for walletId.
+     */
+    public com.google.protobuf.ByteString
+        getWalletIdBytes() {
+      java.lang.Object ref = walletId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        walletId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+     * @param value The walletId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWalletId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      walletId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearWalletId() {
+      
+      walletId_ = getDefaultInstance().getWalletId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+     * @param value The bytes for walletId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWalletIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      walletId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object walletName_ = "";
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string wallet_name = 8 [json_name = "walletName", (.validate.rules) = { ... }</code>
+     * @return The walletName.
+     */
+    public java.lang.String getWalletName() {
+      java.lang.Object ref = walletName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        walletName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string wallet_name = 8 [json_name = "walletName", (.validate.rules) = { ... }</code>
+     * @return The bytes for walletName.
+     */
+    public com.google.protobuf.ByteString
+        getWalletNameBytes() {
+      java.lang.Object ref = walletName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        walletName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string wallet_name = 8 [json_name = "walletName", (.validate.rules) = { ... }</code>
+     * @param value The walletName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWalletName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      walletName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string wallet_name = 8 [json_name = "walletName", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearWalletName() {
+      
+      walletName_ = getDefaultInstance().getWalletName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string wallet_name = 8 [json_name = "walletName", (.validate.rules) = { ... }</code>
+     * @param value The bytes for walletName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWalletNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      walletName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object address_ = "";
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string address = 9 [json_name = "address"];</code>
+     * @return The address.
+     */
+    public java.lang.String getAddress() {
+      java.lang.Object ref = address_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        address_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string address = 9 [json_name = "address"];</code>
+     * @return The bytes for address.
+     */
+    public com.google.protobuf.ByteString
+        getAddressBytes() {
+      java.lang.Object ref = address_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        address_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string address = 9 [json_name = "address"];</code>
+     * @param value The address to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAddress(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      address_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string address = 9 [json_name = "address"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAddress() {
+      
+      address_ = getDefaultInstance().getAddress();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string address = 9 [json_name = "address"];</code>
+     * @param value The bytes for address to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAddressBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      address_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object txid_ = "";
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string txid = 10 [json_name = "txid"];</code>
+     * @return The txid.
+     */
+    public java.lang.String getTxid() {
+      java.lang.Object ref = txid_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        txid_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string txid = 10 [json_name = "txid"];</code>
+     * @return The bytes for txid.
+     */
+    public com.google.protobuf.ByteString
+        getTxidBytes() {
+      java.lang.Object ref = txid_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        txid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string txid = 10 [json_name = "txid"];</code>
+     * @param value The txid to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTxid(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      txid_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string txid = 10 [json_name = "txid"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTxid() {
+      
+      txid_ = getDefaultInstance().getTxid();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string txid = 10 [json_name = "txid"];</code>
+     * @param value The bytes for txid to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTxidBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      txid_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int coin_ = 0;
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.gincoinc.global.v1.Coin coin = 11 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for coin.
+     */
+    @java.lang.Override public int getCoinValue() {
+      return coin_;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.gincoinc.global.v1.Coin coin = 11 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for coin to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCoinValue(int value) {
+      
+      coin_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.gincoinc.global.v1.Coin coin = 11 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return The coin.
+     */
+    @java.lang.Override
+    public gincoinc.global.v1.Enum.Coin getCoin() {
+      @SuppressWarnings("deprecation")
+      gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
+      return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.gincoinc.global.v1.Coin coin = 11 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @param value The coin to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCoin(gincoinc.global.v1.Enum.Coin value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      coin_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.gincoinc.global.v1.Coin coin = 11 [json_name = "coin", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCoin() {
+      
+      coin_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int transferType_ = 0;
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 12 [json_name = "transferType", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for transferType.
+     */
+    @java.lang.Override public int getTransferTypeValue() {
+      return transferType_;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 12 [json_name = "transferType", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for transferType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTransferTypeValue(int value) {
+      
+      transferType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 12 [json_name = "transferType", (.validate.rules) = { ... }</code>
+     * @return The transferType.
+     */
+    @java.lang.Override
+    public gincoinc.global.v1.Enum.TransferType getTransferType() {
+      @SuppressWarnings("deprecation")
+      gincoinc.global.v1.Enum.TransferType result = gincoinc.global.v1.Enum.TransferType.valueOf(transferType_);
+      return result == null ? gincoinc.global.v1.Enum.TransferType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 12 [json_name = "transferType", (.validate.rules) = { ... }</code>
+     * @param value The transferType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTransferType(gincoinc.global.v1.Enum.TransferType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      transferType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.gincoinc.global.v1.TransferType transfer_type = 12 [json_name = "transferType", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTransferType() {
+      
+      transferType_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.Timestamp startTime_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> startTimeBuilder_;
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+     * @return Whether the startTime field is set.
+     */
+    public boolean hasStartTime() {
+      return startTimeBuilder_ != null || startTime_ != null;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+     * @return The startTime.
+     */
+    public com.google.protobuf.Timestamp getStartTime() {
+      if (startTimeBuilder_ == null) {
+        return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
+      } else {
+        return startTimeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+     */
+    public Builder setStartTime(com.google.protobuf.Timestamp value) {
+      if (startTimeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        startTime_ = value;
+        onChanged();
+      } else {
+        startTimeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+     */
+    public Builder setStartTime(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (startTimeBuilder_ == null) {
+        startTime_ = builderForValue.build();
+        onChanged();
+      } else {
+        startTimeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+     */
+    public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
+      if (startTimeBuilder_ == null) {
+        if (startTime_ != null) {
+          startTime_ =
+            com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+        } else {
+          startTime_ = value;
+        }
+        onChanged();
+      } else {
+        startTimeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+     */
+    public Builder clearStartTime() {
+      if (startTimeBuilder_ == null) {
+        startTime_ = null;
+        onChanged();
+      } else {
+        startTime_ = null;
+        startTimeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
+      
+      onChanged();
+      return getStartTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
+      if (startTimeBuilder_ != null) {
+        return startTimeBuilder_.getMessageOrBuilder();
+      } else {
+        return startTime_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp start_time = 13 [json_name = "startTime"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getStartTimeFieldBuilder() {
+      if (startTimeBuilder_ == null) {
+        startTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getStartTime(),
+                getParentForChildren(),
+                isClean());
+        startTime_ = null;
+      }
+      return startTimeBuilder_;
+    }
+
+    private com.google.protobuf.Timestamp endTime_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> endTimeBuilder_;
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+     * @return Whether the endTime field is set.
+     */
+    public boolean hasEndTime() {
+      return endTimeBuilder_ != null || endTime_ != null;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+     * @return The endTime.
+     */
+    public com.google.protobuf.Timestamp getEndTime() {
+      if (endTimeBuilder_ == null) {
+        return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
+      } else {
+        return endTimeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+     */
+    public Builder setEndTime(com.google.protobuf.Timestamp value) {
+      if (endTimeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        endTime_ = value;
+        onChanged();
+      } else {
+        endTimeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+     */
+    public Builder setEndTime(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (endTimeBuilder_ == null) {
+        endTime_ = builderForValue.build();
+        onChanged();
+      } else {
+        endTimeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+     */
+    public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
+      if (endTimeBuilder_ == null) {
+        if (endTime_ != null) {
+          endTime_ =
+            com.google.protobuf.Timestamp.newBuilder(endTime_).mergeFrom(value).buildPartial();
+        } else {
+          endTime_ = value;
+        }
+        onChanged();
+      } else {
+        endTimeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+     */
+    public Builder clearEndTime() {
+      if (endTimeBuilder_ == null) {
+        endTime_ = null;
+        onChanged();
+      } else {
+        endTime_ = null;
+        endTimeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
+      
+      onChanged();
+      return getEndTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
+      if (endTimeBuilder_ != null) {
+        return endTimeBuilder_.getMessageOrBuilder();
+      } else {
+        return endTime_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp end_time = 14 [json_name = "endTime"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getEndTimeFieldBuilder() {
+      if (endTimeBuilder_ == null) {
+        endTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getEndTime(),
+                getParentForChildren(),
+                isClean());
+        endTime_ = null;
+      }
+      return endTimeBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

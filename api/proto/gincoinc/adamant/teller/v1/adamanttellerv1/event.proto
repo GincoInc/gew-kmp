@@ -19,6 +19,7 @@ message TransferUpdated {
   string address = 9 [deprecated = true];
   uint32 destination_tag = 10;
   uint64 memo_id = 14;
+  string message = 21;
   gincoinc.global.v1.TransactionState state = 11;
   gincoinc.global.v1.TransactionResult result = 12;
   gincoinc.global.v1.TransferType transfer_type = 13;

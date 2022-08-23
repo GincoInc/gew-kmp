@@ -82,6 +82,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.RequestRate.class)) return new RequestRateValidator();
 		if (clazz.equals(adamant.global.v1.Model.SubstrateChildAddress.class)) return new SubstrateChildAddressValidator();
 		if (clazz.equals(adamant.global.v1.Model.IOSTChildAccount.class)) return new IOSTChildAccountValidator();
+		if (clazz.equals(adamant.global.v1.Model.IOSTCallerAccount.class)) return new IOSTCallerAccountValidator();
 		return null;
 	}
 
@@ -1569,6 +1570,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transfer proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1598,6 +1603,10 @@ public class ModelValidator {
 
 	// no validation rules for Message
 
+	// no validation rules for Fee
+
+	// no validation rules for StringFee
+
 	// no validation rules for State
 
 	// no validation rules for Result
@@ -1615,6 +1624,10 @@ public class ModelValidator {
 	 * Validates {@code UncheckedTransfer} protobuf objects.
 	 */
 	public static class UncheckedTransferValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.UncheckedTransfer> {
+		
+	
+		
+	
 		
 	
 		
@@ -1683,6 +1696,10 @@ public class ModelValidator {
 	// no validation rules for MemoId
 
 	// no validation rules for Message
+
+	// no validation rules for Fee
+
+	// no validation rules for StringFee
 
 	// no validation rules for HasChecked
 
@@ -2731,6 +2748,28 @@ public class ModelValidator {
 	// no validation rules for AccountId
 
 	// no validation rules for AccountName
+
+	
+	}
+}
+/**
+	 * Validates {@code IOSTCallerAccount} protobuf objects.
+	 */
+	public static class IOSTCallerAccountValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.IOSTCallerAccount> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.IOSTCallerAccount proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for AccountName
+
+	// no validation rules for Balance
+
+	// no validation rules for StringBalance
 
 	
 	}

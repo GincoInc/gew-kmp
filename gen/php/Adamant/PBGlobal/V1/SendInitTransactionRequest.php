@@ -17,6 +17,10 @@ class SendInitTransactionRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = {</code>
      */
     protected $wallet_id = '';
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.ExecutorType executor_type = 2 [json_name = "executorType"];</code>
+     */
+    protected $executor_type = 0;
 
     /**
      * Constructor.
@@ -25,6 +29,7 @@ class SendInitTransactionRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $wallet_id
+     *     @type int $executor_type
      * }
      */
     public function __construct($data = NULL) {
@@ -50,6 +55,28 @@ class SendInitTransactionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->wallet_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.ExecutorType executor_type = 2 [json_name = "executorType"];</code>
+     * @return int
+     */
+    public function getExecutorType()
+    {
+        return $this->executor_type;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.ExecutorType executor_type = 2 [json_name = "executorType"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setExecutorType($var)
+    {
+        GPBUtil::checkEnum($var, \Adamant\PBGlobal\V1\ExecutorType::class);
+        $this->executor_type = $var;
 
         return $this;
     }

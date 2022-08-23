@@ -926,6 +926,46 @@ message ListUncheckedTransfersByFilterRequest {
   string page_token = 4 [(validate.rules).string = {
     pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
   }]; // retrieve the next page
+
+  // optional
+  ListFilterType filter_type = 5 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  // optional
+  string transfer_id = 6;
+
+  // optional
+  string wallet_id = 7;
+
+  // optional
+  string wallet_name = 8 [(validate.rules).string = {
+    max_len: 40
+  }];
+
+  // optional
+  string address = 9;
+
+  // optional
+  string txid = 10;
+
+  // optional
+  gincoinc.global.v1.Coin coin = 11 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  // optional
+  gincoinc.global.v1.TransferType transfer_type = 12 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  // optional
+  google.protobuf.Timestamp start_time = 13;
+
+  // optional
+  google.protobuf.Timestamp end_time = 14;
 }
 
 message UpdateUncheckedTransferHasCheckedFlagRequest {
@@ -1517,3 +1557,15 @@ message CreateIOSTAccountRequest {
 message CreateIOSTAccountResponse {
   string address_id = 1;
 }
+
+message ExistsIOSTAccountRequest {
+  string account_name = 1 [(validate.rules).string = {
+    pattern: "^([a-z0-9_]{5,11})$"
+  }];
+}
+
+message ExistsIOSTAccountResponse {
+  bool exists = 1;
+}
+
+message GetIOSTCallerAccountRequest {}
