@@ -24,6 +24,29 @@ public class ListUncheckedTransfersByFilterRequestValidator implements io.envoyp
 		
 		com.google.re2j.Pattern PAGE_TOKEN__PATTERN = com.google.re2j.Pattern.compile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$");
 	
+		
+		private final adamant.global.v1.Enum.ListFilterType[] FILTER_TYPE__NOT_IN = new adamant.global.v1.Enum.ListFilterType[]{
+			adamant.global.v1.Enum.ListFilterType.forNumber(0),
+		};
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.ListUncheckedTransfersByFilterRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -38,6 +61,29 @@ public class ListUncheckedTransfersByFilterRequestValidator implements io.envoyp
 			io.envoyproxy.pgv.ComparativeValidation.lessThanOrEqual(".adamant.global.v1.ListUncheckedTransfersByFilterRequest.page_size", proto.getPageSize(), PAGE_SIZE__LTE, java.util.Comparator.naturalOrder());
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.ListUncheckedTransfersByFilterRequest.page_token", proto.getPageToken(), PAGE_TOKEN__PATTERN);
+	
+			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.ListUncheckedTransfersByFilterRequest.filter_type", proto.getFilterType());
+			io.envoyproxy.pgv.CollectiveValidation.notIn(".adamant.global.v1.ListUncheckedTransfersByFilterRequest.filter_type", proto.getFilterType(), FILTER_TYPE__NOT_IN);
+	// no validation rules for TransferId
+
+	// no validation rules for WalletId
+
+	
+			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.global.v1.ListUncheckedTransfersByFilterRequest.wallet_name", proto.getWalletName(), 40);
+	// no validation rules for Address
+
+	// no validation rules for Txid
+
+	
+			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.ListUncheckedTransfersByFilterRequest.coin", proto.getCoin());
+	
+			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.ListUncheckedTransfersByFilterRequest.transfer_type", proto.getTransferType());
+	
+			// Validate start_time
+			if (proto.hasStartTime()) index.validatorFor(proto.getStartTime()).assertValid(proto.getStartTime());
+	
+			// Validate end_time
+			if (proto.hasEndTime()) index.validatorFor(proto.getEndTime()).assertValid(proto.getEndTime());
 	
 	}
 

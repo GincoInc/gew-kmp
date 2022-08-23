@@ -21,6 +21,10 @@ class ImportAddressRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string address = 2 [json_name = "address"];</code>
      */
     protected $address = '';
+    /**
+     * Generated from protobuf field <code>bool is_change_address = 3 [json_name = "isChangeAddress"];</code>
+     */
+    protected $is_change_address = false;
 
     /**
      * Constructor.
@@ -30,6 +34,7 @@ class ImportAddressRequest extends \Google\Protobuf\Internal\Message
      *
      *     @type string $wallet_id
      *     @type string $address
+     *     @type bool $is_change_address
      * }
      */
     public function __construct($data = NULL) {
@@ -77,6 +82,28 @@ class ImportAddressRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->address = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool is_change_address = 3 [json_name = "isChangeAddress"];</code>
+     * @return bool
+     */
+    public function getIsChangeAddress()
+    {
+        return $this->is_change_address;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool is_change_address = 3 [json_name = "isChangeAddress"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setIsChangeAddress($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->is_change_address = $var;
 
         return $this;
     }

@@ -9,14 +9,14 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>adamant.global.v1.ImportAddressResponse</code>
+ * Generated from protobuf message <code>adamant.global.v1.ExistsIOSTAccountRequest</code>
  */
-class ImportAddressResponse extends \Google\Protobuf\Internal\Message
+class ExistsIOSTAccountRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string address_id = 1 [json_name = "addressId"];</code>
+     * Generated from protobuf field <code>string account_name = 1 [json_name = "accountName", (.validate.rules) = {</code>
      */
-    protected $address_id = '';
+    protected $account_name = '';
 
     /**
      * Constructor.
@@ -24,7 +24,7 @@ class ImportAddressResponse extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string $address_id
+     *     @type string $account_name
      * }
      */
     public function __construct($data = NULL) {
@@ -33,23 +33,23 @@ class ImportAddressResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string address_id = 1 [json_name = "addressId"];</code>
+     * Generated from protobuf field <code>string account_name = 1 [json_name = "accountName", (.validate.rules) = {</code>
      * @return string
      */
-    public function getAddressId()
+    public function getAccountName()
     {
-        return $this->address_id;
+        return $this->account_name;
     }
 
     /**
-     * Generated from protobuf field <code>string address_id = 1 [json_name = "addressId"];</code>
+     * Generated from protobuf field <code>string account_name = 1 [json_name = "accountName", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
-    public function setAddressId($var)
+    public function setAccountName($var)
     {
         GPBUtil::checkString($var, True);
-        $this->address_id = $var;
+        $this->account_name = $var;
 
         return $this;
     }

@@ -434,6 +434,20 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\ListIOSTChildAccountsRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListIOSTChildAccounts(\Adamant\Global\V1\ListIOSTChildAccountsRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ListIOSTChildAccounts',
+        $argument,
+        ['\Adamant\Global\V1\ListIOSTChildAccountsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\ImportAddressRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -443,7 +457,7 @@ class GlobalAPIClient extends \Grpc\BaseStub {
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ImportAddress',
         $argument,
-        ['\Adamant\Global\V1\ImportAddressResponse', 'decode'],
+        ['\Google\Protobuf\GPBEmpty', 'decode'],
         $metadata, $options);
     }
 
