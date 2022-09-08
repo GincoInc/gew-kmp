@@ -33,6 +33,7 @@ service TellerAPI {
   rpc CreateIOSTAccount(adamant.global.v1.CreateIOSTAccountRequest) returns (adamant.global.v1.CreateIOSTAccountResponse) {}
   rpc GetAddress(adamant.global.v1.GetAddressRequest) returns (adamant.global.v1.Address) {}
   rpc GetAddressByAddress(adamant.global.v1.GetAddressByAddressRequest) returns (adamant.global.v1.Address) {}
+  rpc GetAddressByAddressCoin(adamant.global.v1.GetAddressByAddressCoinRequest) returns (adamant.global.v1.Address) {}
   rpc GetAddressByIndex(adamant.global.v1.GetAddressByIndexRequest) returns (adamant.global.v1.Address) {}
   rpc ListAddresses(adamant.global.v1.ListAddressesRequest) returns (adamant.global.v1.ListAddressesResponse) {}
   rpc ImportAddress(adamant.global.v1.ImportAddressRequest) returns (google.protobuf.Empty) {}

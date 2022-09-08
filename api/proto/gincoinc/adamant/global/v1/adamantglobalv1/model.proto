@@ -724,9 +724,17 @@ message IOSTChildAccount {
   string account_name = 3;
 }
 
-// The model of caller account
+// The model of IOST caller account
 message IOSTCallerAccount {
   string account_name = 1; // iost account name
   double balance = 2; // The number-typed balance corresponding to the account
   string string_balance = 3; // The string-typed balance corresponding to the account
+}
+
+// The model of caller account
+message CallerAddress {
+  string address = 1; // Klaytn address
+  double balance = 2; // The number-typed balance corresponding to the address
+  string string_balance = 3; // The string-typed balance corresponding to the address
+  gincoinc.global.v1.Coin coin = 4; // The type of asset
 }

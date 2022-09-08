@@ -49,6 +49,7 @@ service GlobalAPI {
   rpc CreateAddress(CreateAddressRequest) returns (CreateAddressResponse) {}
   rpc GetAddress(GetAddressRequest) returns (Address) {}
   rpc GetAddressByAddress(GetAddressByAddressRequest) returns (Address) {}
+  rpc GetAddressByAddressCoin(GetAddressByAddressCoinRequest) returns (Address) {}
   rpc GetAddressByIndex(GetAddressByIndexRequest) returns (Address) {}
   rpc ListAddresses(ListAddressesRequest) returns (ListAddressesResponse) {}
   rpc ListAddressesWithBalance(ListAddressesWithBalanceRequest) returns (ListAddressesWithBalanceResponse) {}
@@ -59,6 +60,7 @@ service GlobalAPI {
   rpc ListSubstrateChildAddresses(ListSubstrateChildAddressesRequest) returns (ListSubstrateChildAddressesResponse) {}
   rpc ListIOSTChildAccounts(ListIOSTChildAccountsRequest) returns (ListIOSTChildAccountsResponse) {}
   rpc ImportAddress(ImportAddressRequest) returns (google.protobuf.Empty) {}
+  rpc ListCallers(ListCallersRequest) returns (ListCallersResponse) {}
 
   // RegisterKey
   rpc RegisterKey(RegisterKeyRequest) returns (RegisterKeyResponse) {}
@@ -522,6 +524,18 @@ message GetAddressByAddressRequest {
   }];
   string address = 2 [(validate.rules).string = {
     min_len: 25
+  }];
+}
+
+message GetAddressByAddressCoinRequest {
+  string address = 1 [(validate.rules).string = {
+    min_len: 25
+  }];
+  gincoinc.global.v1.Coin coin = 2 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
   }];
 }
 
@@ -1569,3 +1583,10 @@ message ExistsIOSTAccountResponse {
 }
 
 message GetIOSTCallerAccountRequest {}
+
+message ListCallersRequest {}
+
+// The model of callers
+message ListCallersResponse {
+  repeated CallerAddress caller_addresses = 1;
+}
