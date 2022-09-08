@@ -44,6 +44,8 @@ enum Coin {
   COIN_MONA = 27;
   COIN_IOST = 28;
   COIN_SKEB = 29;
+  COIN_KLAY = 30;
+  COIN_MATIC = 31;
 }
 
 // Network is a type of blockchain network.
@@ -75,6 +77,10 @@ enum Network {
   NETWORK_MONACOIN_TESTNET = 24;
   NETWORK_IOST_MAINNET = 25;
   NETWORK_IOST_TESTNET = 26;
+  NETWORK_KLAY_MAINNET = 27;
+  NETWORK_KLAY_TESTNET = 28;
+  NETWORK_POLYGON_MAINNET = 29;
+  NETWORK_POLYGON_TESTNET = 30;
 }
 
 // AddressType is a type of address.
