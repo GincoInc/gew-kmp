@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-жн
+┴о
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"е
 Wallet
 owner_id (	RownerId
@@ -645,7 +645,12 @@ account_id (	R	accountId!
 IOSTCallerAccount!
 account_name (	RaccountName
 balance (Rbalance%
-string_balance (	RstringBalanceBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
+string_balance (	RstringBalance"Ш
+CallerAddress
+address (	Raddress
+balance (Rbalance%
+string_balance (	RstringBalance,
+coin (2.gincoinc.global.v1.CoinRcoinBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
         , true);
 
         static::$is_initialized = true;

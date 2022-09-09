@@ -121,6 +121,22 @@ class Network
      * Generated from protobuf enum <code>NETWORK_IOST_TESTNET = 26;</code>
      */
     const NETWORK_IOST_TESTNET = 26;
+    /**
+     * Generated from protobuf enum <code>NETWORK_KLAY_MAINNET = 27;</code>
+     */
+    const NETWORK_KLAY_MAINNET = 27;
+    /**
+     * Generated from protobuf enum <code>NETWORK_KLAY_TESTNET = 28;</code>
+     */
+    const NETWORK_KLAY_TESTNET = 28;
+    /**
+     * Generated from protobuf enum <code>NETWORK_POLYGON_MAINNET = 29;</code>
+     */
+    const NETWORK_POLYGON_MAINNET = 29;
+    /**
+     * Generated from protobuf enum <code>NETWORK_POLYGON_TESTNET = 30;</code>
+     */
+    const NETWORK_POLYGON_TESTNET = 30;
 
     private static $valueToName = [
         self::NETWORK_INVALID => 'NETWORK_INVALID',
@@ -150,6 +166,10 @@ class Network
         self::NETWORK_MONACOIN_TESTNET => 'NETWORK_MONACOIN_TESTNET',
         self::NETWORK_IOST_MAINNET => 'NETWORK_IOST_MAINNET',
         self::NETWORK_IOST_TESTNET => 'NETWORK_IOST_TESTNET',
+        self::NETWORK_KLAY_MAINNET => 'NETWORK_KLAY_MAINNET',
+        self::NETWORK_KLAY_TESTNET => 'NETWORK_KLAY_TESTNET',
+        self::NETWORK_POLYGON_MAINNET => 'NETWORK_POLYGON_MAINNET',
+        self::NETWORK_POLYGON_TESTNET => 'NETWORK_POLYGON_TESTNET',
     ];
 
     public static function name($value)
