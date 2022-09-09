@@ -420,6 +420,8 @@ message Transfer {
   string message = 18; // message (only NEM)
   double fee = 19; // The number-typed amount of transfer fee
   string string_fee = 20; // The string-typed amount of transfer fee
+  string from = 21; // from address
+  string to = 22; // to address
   gincoinc.global.v1.TransactionState state = 12; // state
   gincoinc.global.v1.TransactionResult result = 16; // result
   google.protobuf.Timestamp create_time = 13; // the time at which the transfer was created
@@ -445,6 +447,8 @@ message UncheckedTransfer {
   string message = 18; // message (only NEM)
   double fee = 19; // The number-typed amount of transfer fee
   string string_fee = 20; // The string-typed amount of transfer fee
+  string from = 21; // from address
+  string to = 22; // to address
   bool has_checked = 15; // Whether the transfer has been checked or not
   google.protobuf.Timestamp create_time = 16; // the time at which the transfer was created
   google.protobuf.Timestamp update_time = 17; // the time at which the transfer was updated
