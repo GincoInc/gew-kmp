@@ -102536,7 +102536,7 @@ public final class Model {
   }
   /**
    * <pre>
-   * The model of caller account
+   * The model of IOST caller account
    * </pre>
    *
    * Protobuf type {@code adamant.global.v1.IOSTCallerAccount}
@@ -102920,7 +102920,7 @@ public final class Model {
     }
     /**
      * <pre>
-     * The model of caller account
+     * The model of IOST caller account
      * </pre>
      *
      * Protobuf type {@code adamant.global.v1.IOSTCallerAccount}
@@ -103370,6 +103370,1039 @@ public final class Model {
 
   }
 
+  public interface CallerAddressOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:adamant.global.v1.CallerAddress)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Klaytn address
+     * </pre>
+     *
+     * <code>string address = 1 [json_name = "address"];</code>
+     * @return The address.
+     */
+    java.lang.String getAddress();
+    /**
+     * <pre>
+     * Klaytn address
+     * </pre>
+     *
+     * <code>string address = 1 [json_name = "address"];</code>
+     * @return The bytes for address.
+     */
+    com.google.protobuf.ByteString
+        getAddressBytes();
+
+    /**
+     * <pre>
+     * The number-typed balance corresponding to the address
+     * </pre>
+     *
+     * <code>double balance = 2 [json_name = "balance"];</code>
+     * @return The balance.
+     */
+    double getBalance();
+
+    /**
+     * <pre>
+     * The string-typed balance corresponding to the address
+     * </pre>
+     *
+     * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+     * @return The stringBalance.
+     */
+    java.lang.String getStringBalance();
+    /**
+     * <pre>
+     * The string-typed balance corresponding to the address
+     * </pre>
+     *
+     * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+     * @return The bytes for stringBalance.
+     */
+    com.google.protobuf.ByteString
+        getStringBalanceBytes();
+
+    /**
+     * <pre>
+     * The type of asset
+     * </pre>
+     *
+     * <code>.gincoinc.global.v1.Coin coin = 4 [json_name = "coin"];</code>
+     * @return The enum numeric value on the wire for coin.
+     */
+    int getCoinValue();
+    /**
+     * <pre>
+     * The type of asset
+     * </pre>
+     *
+     * <code>.gincoinc.global.v1.Coin coin = 4 [json_name = "coin"];</code>
+     * @return The coin.
+     */
+    gincoinc.global.v1.Enum.Coin getCoin();
+  }
+  /**
+   * <pre>
+   * The model of caller account
+   * </pre>
+   *
+   * Protobuf type {@code adamant.global.v1.CallerAddress}
+   */
+  public static final class CallerAddress extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:adamant.global.v1.CallerAddress)
+      CallerAddressOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CallerAddress.newBuilder() to construct.
+    private CallerAddress(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CallerAddress() {
+      address_ = "";
+      stringBalance_ = "";
+      coin_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new CallerAddress();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CallerAddress(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              address_ = s;
+              break;
+            }
+            case 17: {
+
+              balance_ = input.readDouble();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              stringBalance_ = s;
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+
+              coin_ = rawValue;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_CallerAddress_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_CallerAddress_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              adamant.global.v1.Model.CallerAddress.class, adamant.global.v1.Model.CallerAddress.Builder.class);
+    }
+
+    public static final int ADDRESS_FIELD_NUMBER = 1;
+    private volatile java.lang.Object address_;
+    /**
+     * <pre>
+     * Klaytn address
+     * </pre>
+     *
+     * <code>string address = 1 [json_name = "address"];</code>
+     * @return The address.
+     */
+    @java.lang.Override
+    public java.lang.String getAddress() {
+      java.lang.Object ref = address_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        address_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Klaytn address
+     * </pre>
+     *
+     * <code>string address = 1 [json_name = "address"];</code>
+     * @return The bytes for address.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAddressBytes() {
+      java.lang.Object ref = address_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        address_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BALANCE_FIELD_NUMBER = 2;
+    private double balance_;
+    /**
+     * <pre>
+     * The number-typed balance corresponding to the address
+     * </pre>
+     *
+     * <code>double balance = 2 [json_name = "balance"];</code>
+     * @return The balance.
+     */
+    @java.lang.Override
+    public double getBalance() {
+      return balance_;
+    }
+
+    public static final int STRING_BALANCE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object stringBalance_;
+    /**
+     * <pre>
+     * The string-typed balance corresponding to the address
+     * </pre>
+     *
+     * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+     * @return The stringBalance.
+     */
+    @java.lang.Override
+    public java.lang.String getStringBalance() {
+      java.lang.Object ref = stringBalance_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        stringBalance_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * The string-typed balance corresponding to the address
+     * </pre>
+     *
+     * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+     * @return The bytes for stringBalance.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getStringBalanceBytes() {
+      java.lang.Object ref = stringBalance_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        stringBalance_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int COIN_FIELD_NUMBER = 4;
+    private int coin_;
+    /**
+     * <pre>
+     * The type of asset
+     * </pre>
+     *
+     * <code>.gincoinc.global.v1.Coin coin = 4 [json_name = "coin"];</code>
+     * @return The enum numeric value on the wire for coin.
+     */
+    @java.lang.Override public int getCoinValue() {
+      return coin_;
+    }
+    /**
+     * <pre>
+     * The type of asset
+     * </pre>
+     *
+     * <code>.gincoinc.global.v1.Coin coin = 4 [json_name = "coin"];</code>
+     * @return The coin.
+     */
+    @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
+      @SuppressWarnings("deprecation")
+      gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
+      return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, address_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(balance_) != 0) {
+        output.writeDouble(2, balance_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringBalance_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, stringBalance_);
+      }
+      if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
+        output.writeEnum(4, coin_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, address_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(balance_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(2, balance_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringBalance_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, stringBalance_);
+      }
+      if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, coin_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof adamant.global.v1.Model.CallerAddress)) {
+        return super.equals(obj);
+      }
+      adamant.global.v1.Model.CallerAddress other = (adamant.global.v1.Model.CallerAddress) obj;
+
+      if (!getAddress()
+          .equals(other.getAddress())) return false;
+      if (java.lang.Double.doubleToLongBits(getBalance())
+          != java.lang.Double.doubleToLongBits(
+              other.getBalance())) return false;
+      if (!getStringBalance()
+          .equals(other.getStringBalance())) return false;
+      if (coin_ != other.coin_) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAddress().hashCode();
+      hash = (37 * hash) + BALANCE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getBalance()));
+      hash = (37 * hash) + STRING_BALANCE_FIELD_NUMBER;
+      hash = (53 * hash) + getStringBalance().hashCode();
+      hash = (37 * hash) + COIN_FIELD_NUMBER;
+      hash = (53 * hash) + coin_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static adamant.global.v1.Model.CallerAddress parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.CallerAddress parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.CallerAddress parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.CallerAddress parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.CallerAddress parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.CallerAddress parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.CallerAddress parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.CallerAddress parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.CallerAddress parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.CallerAddress parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.CallerAddress parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.CallerAddress parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(adamant.global.v1.Model.CallerAddress prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * The model of caller account
+     * </pre>
+     *
+     * Protobuf type {@code adamant.global.v1.CallerAddress}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:adamant.global.v1.CallerAddress)
+        adamant.global.v1.Model.CallerAddressOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_CallerAddress_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_CallerAddress_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                adamant.global.v1.Model.CallerAddress.class, adamant.global.v1.Model.CallerAddress.Builder.class);
+      }
+
+      // Construct using adamant.global.v1.Model.CallerAddress.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        address_ = "";
+
+        balance_ = 0D;
+
+        stringBalance_ = "";
+
+        coin_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_CallerAddress_descriptor;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.CallerAddress getDefaultInstanceForType() {
+        return adamant.global.v1.Model.CallerAddress.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.CallerAddress build() {
+        adamant.global.v1.Model.CallerAddress result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.CallerAddress buildPartial() {
+        adamant.global.v1.Model.CallerAddress result = new adamant.global.v1.Model.CallerAddress(this);
+        result.address_ = address_;
+        result.balance_ = balance_;
+        result.stringBalance_ = stringBalance_;
+        result.coin_ = coin_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof adamant.global.v1.Model.CallerAddress) {
+          return mergeFrom((adamant.global.v1.Model.CallerAddress)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(adamant.global.v1.Model.CallerAddress other) {
+        if (other == adamant.global.v1.Model.CallerAddress.getDefaultInstance()) return this;
+        if (!other.getAddress().isEmpty()) {
+          address_ = other.address_;
+          onChanged();
+        }
+        if (other.getBalance() != 0D) {
+          setBalance(other.getBalance());
+        }
+        if (!other.getStringBalance().isEmpty()) {
+          stringBalance_ = other.stringBalance_;
+          onChanged();
+        }
+        if (other.coin_ != 0) {
+          setCoinValue(other.getCoinValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        adamant.global.v1.Model.CallerAddress parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (adamant.global.v1.Model.CallerAddress) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object address_ = "";
+      /**
+       * <pre>
+       * Klaytn address
+       * </pre>
+       *
+       * <code>string address = 1 [json_name = "address"];</code>
+       * @return The address.
+       */
+      public java.lang.String getAddress() {
+        java.lang.Object ref = address_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          address_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Klaytn address
+       * </pre>
+       *
+       * <code>string address = 1 [json_name = "address"];</code>
+       * @return The bytes for address.
+       */
+      public com.google.protobuf.ByteString
+          getAddressBytes() {
+        java.lang.Object ref = address_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          address_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Klaytn address
+       * </pre>
+       *
+       * <code>string address = 1 [json_name = "address"];</code>
+       * @param value The address to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddress(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        address_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Klaytn address
+       * </pre>
+       *
+       * <code>string address = 1 [json_name = "address"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAddress() {
+        
+        address_ = getDefaultInstance().getAddress();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Klaytn address
+       * </pre>
+       *
+       * <code>string address = 1 [json_name = "address"];</code>
+       * @param value The bytes for address to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddressBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        address_ = value;
+        onChanged();
+        return this;
+      }
+
+      private double balance_ ;
+      /**
+       * <pre>
+       * The number-typed balance corresponding to the address
+       * </pre>
+       *
+       * <code>double balance = 2 [json_name = "balance"];</code>
+       * @return The balance.
+       */
+      @java.lang.Override
+      public double getBalance() {
+        return balance_;
+      }
+      /**
+       * <pre>
+       * The number-typed balance corresponding to the address
+       * </pre>
+       *
+       * <code>double balance = 2 [json_name = "balance"];</code>
+       * @param value The balance to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBalance(double value) {
+        
+        balance_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The number-typed balance corresponding to the address
+       * </pre>
+       *
+       * <code>double balance = 2 [json_name = "balance"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBalance() {
+        
+        balance_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object stringBalance_ = "";
+      /**
+       * <pre>
+       * The string-typed balance corresponding to the address
+       * </pre>
+       *
+       * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+       * @return The stringBalance.
+       */
+      public java.lang.String getStringBalance() {
+        java.lang.Object ref = stringBalance_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          stringBalance_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The string-typed balance corresponding to the address
+       * </pre>
+       *
+       * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+       * @return The bytes for stringBalance.
+       */
+      public com.google.protobuf.ByteString
+          getStringBalanceBytes() {
+        java.lang.Object ref = stringBalance_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          stringBalance_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * The string-typed balance corresponding to the address
+       * </pre>
+       *
+       * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+       * @param value The stringBalance to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStringBalance(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        stringBalance_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The string-typed balance corresponding to the address
+       * </pre>
+       *
+       * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStringBalance() {
+        
+        stringBalance_ = getDefaultInstance().getStringBalance();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The string-typed balance corresponding to the address
+       * </pre>
+       *
+       * <code>string string_balance = 3 [json_name = "stringBalance"];</code>
+       * @param value The bytes for stringBalance to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStringBalanceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        stringBalance_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int coin_ = 0;
+      /**
+       * <pre>
+       * The type of asset
+       * </pre>
+       *
+       * <code>.gincoinc.global.v1.Coin coin = 4 [json_name = "coin"];</code>
+       * @return The enum numeric value on the wire for coin.
+       */
+      @java.lang.Override public int getCoinValue() {
+        return coin_;
+      }
+      /**
+       * <pre>
+       * The type of asset
+       * </pre>
+       *
+       * <code>.gincoinc.global.v1.Coin coin = 4 [json_name = "coin"];</code>
+       * @param value The enum numeric value on the wire for coin to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCoinValue(int value) {
+        
+        coin_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The type of asset
+       * </pre>
+       *
+       * <code>.gincoinc.global.v1.Coin coin = 4 [json_name = "coin"];</code>
+       * @return The coin.
+       */
+      @java.lang.Override
+      public gincoinc.global.v1.Enum.Coin getCoin() {
+        @SuppressWarnings("deprecation")
+        gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
+        return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       * The type of asset
+       * </pre>
+       *
+       * <code>.gincoinc.global.v1.Coin coin = 4 [json_name = "coin"];</code>
+       * @param value The coin to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCoin(gincoinc.global.v1.Enum.Coin value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        coin_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * The type of asset
+       * </pre>
+       *
+       * <code>.gincoinc.global.v1.Coin coin = 4 [json_name = "coin"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCoin() {
+        
+        coin_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:adamant.global.v1.CallerAddress)
+    }
+
+    // @@protoc_insertion_point(class_scope:adamant.global.v1.CallerAddress)
+    private static final adamant.global.v1.Model.CallerAddress DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new adamant.global.v1.Model.CallerAddress();
+    }
+
+    public static adamant.global.v1.Model.CallerAddress getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CallerAddress>
+        PARSER = new com.google.protobuf.AbstractParser<CallerAddress>() {
+      @java.lang.Override
+      public CallerAddress parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CallerAddress(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CallerAddress> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CallerAddress> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public adamant.global.v1.Model.CallerAddress getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_global_v1_Wallet_descriptor;
   private static final 
@@ -103790,6 +104823,11 @@ public final class Model {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_global_v1_IOSTCallerAccount_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_CallerAddress_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_CallerAddress_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -104352,9 +105390,13 @@ public final class Model {
       "ccount_name\030\003 \001(\tR\013accountName\"w\n\021IOSTCa" +
       "llerAccount\022!\n\014account_name\030\001 \001(\tR\013accou" +
       "ntName\022\030\n\007balance\030\002 \001(\001R\007balance\022%\n\016stri" +
-      "ng_balance\030\003 \001(\tR\rstringBalanceBLZJgithu" +
-      "b.com/GincoInc/gew-kmp/gen/gincoinc/adam" +
-      "ant/global/v1/adamantglobalv1b\006proto3"
+      "ng_balance\030\003 \001(\tR\rstringBalance\"\230\001\n\rCall" +
+      "erAddress\022\030\n\007address\030\001 \001(\tR\007address\022\030\n\007b" +
+      "alance\030\002 \001(\001R\007balance\022%\n\016string_balance\030" +
+      "\003 \001(\tR\rstringBalance\022,\n\004coin\030\004 \001(\0162\030.gin" +
+      "coinc.global.v1.CoinR\004coinBLZJgithub.com" +
+      "/GincoInc/gew-kmp/gen/gincoinc/adamant/g" +
+      "lobal/v1/adamantglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -104868,6 +105910,12 @@ public final class Model {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IOSTCallerAccount_descriptor,
         new java.lang.String[] { "AccountName", "Balance", "StringBalance", });
+    internal_static_adamant_global_v1_CallerAddress_descriptor =
+      getDescriptor().getMessageTypes().get(75);
+    internal_static_adamant_global_v1_CallerAddress_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_CallerAddress_descriptor,
+        new java.lang.String[] { "Address", "Balance", "StringBalance", "Coin", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(io.envoyproxy.pgv.validate.Validate.rules);

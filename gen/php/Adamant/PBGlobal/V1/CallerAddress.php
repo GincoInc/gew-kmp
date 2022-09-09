@@ -9,30 +9,36 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * The model of IOST caller account
+ * The model of caller account
  *
- * Generated from protobuf message <code>adamant.global.v1.IOSTCallerAccount</code>
+ * Generated from protobuf message <code>adamant.global.v1.CallerAddress</code>
  */
-class IOSTCallerAccount extends \Google\Protobuf\Internal\Message
+class CallerAddress extends \Google\Protobuf\Internal\Message
 {
     /**
-     * iost account name
+     * Klaytn address
      *
-     * Generated from protobuf field <code>string account_name = 1 [json_name = "accountName"];</code>
+     * Generated from protobuf field <code>string address = 1 [json_name = "address"];</code>
      */
-    protected $account_name = '';
+    protected $address = '';
     /**
-     * The number-typed balance corresponding to the account
+     * The number-typed balance corresponding to the address
      *
      * Generated from protobuf field <code>double balance = 2 [json_name = "balance"];</code>
      */
     protected $balance = 0.0;
     /**
-     * The string-typed balance corresponding to the account
+     * The string-typed balance corresponding to the address
      *
      * Generated from protobuf field <code>string string_balance = 3 [json_name = "stringBalance"];</code>
      */
     protected $string_balance = '';
+    /**
+     * The type of asset
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Coin coin = 4 [json_name = "coin"];</code>
+     */
+    protected $coin = 0;
 
     /**
      * Constructor.
@@ -40,12 +46,14 @@ class IOSTCallerAccount extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string $account_name
-     *           iost account name
+     *     @type string $address
+     *           Klaytn address
      *     @type float $balance
-     *           The number-typed balance corresponding to the account
+     *           The number-typed balance corresponding to the address
      *     @type string $string_balance
-     *           The string-typed balance corresponding to the account
+     *           The string-typed balance corresponding to the address
+     *     @type int $coin
+     *           The type of asset
      * }
      */
     public function __construct($data = NULL) {
@@ -54,33 +62,33 @@ class IOSTCallerAccount extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * iost account name
+     * Klaytn address
      *
-     * Generated from protobuf field <code>string account_name = 1 [json_name = "accountName"];</code>
+     * Generated from protobuf field <code>string address = 1 [json_name = "address"];</code>
      * @return string
      */
-    public function getAccountName()
+    public function getAddress()
     {
-        return $this->account_name;
+        return $this->address;
     }
 
     /**
-     * iost account name
+     * Klaytn address
      *
-     * Generated from protobuf field <code>string account_name = 1 [json_name = "accountName"];</code>
+     * Generated from protobuf field <code>string address = 1 [json_name = "address"];</code>
      * @param string $var
      * @return $this
      */
-    public function setAccountName($var)
+    public function setAddress($var)
     {
         GPBUtil::checkString($var, True);
-        $this->account_name = $var;
+        $this->address = $var;
 
         return $this;
     }
 
     /**
-     * The number-typed balance corresponding to the account
+     * The number-typed balance corresponding to the address
      *
      * Generated from protobuf field <code>double balance = 2 [json_name = "balance"];</code>
      * @return float
@@ -91,7 +99,7 @@ class IOSTCallerAccount extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * The number-typed balance corresponding to the account
+     * The number-typed balance corresponding to the address
      *
      * Generated from protobuf field <code>double balance = 2 [json_name = "balance"];</code>
      * @param float $var
@@ -106,7 +114,7 @@ class IOSTCallerAccount extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * The string-typed balance corresponding to the account
+     * The string-typed balance corresponding to the address
      *
      * Generated from protobuf field <code>string string_balance = 3 [json_name = "stringBalance"];</code>
      * @return string
@@ -117,7 +125,7 @@ class IOSTCallerAccount extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * The string-typed balance corresponding to the account
+     * The string-typed balance corresponding to the address
      *
      * Generated from protobuf field <code>string string_balance = 3 [json_name = "stringBalance"];</code>
      * @param string $var
@@ -127,6 +135,32 @@ class IOSTCallerAccount extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->string_balance = $var;
+
+        return $this;
+    }
+
+    /**
+     * The type of asset
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Coin coin = 4 [json_name = "coin"];</code>
+     * @return int
+     */
+    public function getCoin()
+    {
+        return $this->coin;
+    }
+
+    /**
+     * The type of asset
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Coin coin = 4 [json_name = "coin"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setCoin($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
+        $this->coin = $var;
 
         return $this;
     }

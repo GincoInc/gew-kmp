@@ -191,6 +191,20 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\GetAddressByAddressCoinRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function GetAddressByAddressCoin(\Adamant\Global\V1\GetAddressByAddressCoinRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/GetAddressByAddressCoin',
+        $argument,
+        ['\Adamant\Global\V1\Address', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\GetAddressByIndexRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options

@@ -48,6 +48,8 @@ var (
 
 	_ = gincoincglobalv1.Coin(0)
 
+	_ = gincoincglobalv1.Coin(0)
+
 	_ = gincoincglobalv1.TransferType(0)
 
 	_ = gincoincglobalv1.Coin(0)
@@ -5207,6 +5209,136 @@ var _ interface {
 } = GetAddressByAddressRequestValidationError{}
 
 var _GetAddressByAddressRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on GetAddressByAddressCoinRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in GetAddressByAddressCoinRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *GetAddressByAddressCoinRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if utf8.RuneCountInString(m.GetAddress()) < 25 {
+		err := GetAddressByAddressCoinRequestValidationError{
+			field:  "Address",
+			reason: "value length must be at least 25 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := _GetAddressByAddressCoinRequest_Coin_NotInLookup[m.GetCoin()]; ok {
+		err := GetAddressByAddressCoinRequestValidationError{
+			field:  "Coin",
+			reason: "value must not be in list [0]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		err := GetAddressByAddressCoinRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return GetAddressByAddressCoinRequestMultiError(errors)
+	}
+	return nil
+}
+
+// GetAddressByAddressCoinRequestMultiError is an error wrapping multiple
+// validation errors returned by GetAddressByAddressCoinRequest.Validate(true)
+// if the designated constraints aren't met.
+type GetAddressByAddressCoinRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetAddressByAddressCoinRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetAddressByAddressCoinRequestMultiError) AllErrors() []error { return m }
+
+// GetAddressByAddressCoinRequestValidationError is the validation error
+// returned by GetAddressByAddressCoinRequest.Validate if the designated
+// constraints aren't met.
+type GetAddressByAddressCoinRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetAddressByAddressCoinRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetAddressByAddressCoinRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetAddressByAddressCoinRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetAddressByAddressCoinRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetAddressByAddressCoinRequestValidationError) ErrorName() string {
+	return "GetAddressByAddressCoinRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetAddressByAddressCoinRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetAddressByAddressCoinRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetAddressByAddressCoinRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetAddressByAddressCoinRequestValidationError{}
+
+var _GetAddressByAddressCoinRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
+	0: {},
+}
 
 // Validate checks the field values on GetAddressByIndexRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -20218,3 +20350,206 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = GetIOSTCallerAccountRequestValidationError{}
+
+// Validate checks the field values on ListCallersRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListCallersRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListCallersRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return ListCallersRequestMultiError(errors)
+	}
+	return nil
+}
+
+// ListCallersRequestMultiError is an error wrapping multiple validation errors
+// returned by ListCallersRequest.Validate(true) if the designated constraints
+// aren't met.
+type ListCallersRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListCallersRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListCallersRequestMultiError) AllErrors() []error { return m }
+
+// ListCallersRequestValidationError is the validation error returned by
+// ListCallersRequest.Validate if the designated constraints aren't met.
+type ListCallersRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListCallersRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListCallersRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListCallersRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListCallersRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListCallersRequestValidationError) ErrorName() string {
+	return "ListCallersRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListCallersRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListCallersRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListCallersRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListCallersRequestValidationError{}
+
+// Validate checks the field values on ListCallersResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListCallersResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListCallersResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetCallerAddresses() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListCallersResponseValidationError{
+					field:  fmt.Sprintf("CallerAddresses[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ListCallersResponseMultiError(errors)
+	}
+	return nil
+}
+
+// ListCallersResponseMultiError is an error wrapping multiple validation
+// errors returned by ListCallersResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListCallersResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListCallersResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListCallersResponseMultiError) AllErrors() []error { return m }
+
+// ListCallersResponseValidationError is the validation error returned by
+// ListCallersResponse.Validate if the designated constraints aren't met.
+type ListCallersResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListCallersResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListCallersResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListCallersResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListCallersResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListCallersResponseValidationError) ErrorName() string {
+	return "ListCallersResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListCallersResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListCallersResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListCallersResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListCallersResponseValidationError{}
