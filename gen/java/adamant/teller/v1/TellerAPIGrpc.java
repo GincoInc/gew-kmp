@@ -387,6 +387,37 @@ public final class TellerAPIGrpc {
     return getGetAddressByAddressMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.GetAddressByAddressCoinRequest,
+      adamant.global.v1.Model.Address> getGetAddressByAddressCoinMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetAddressByAddressCoin",
+      requestType = adamant.global.v1.GetAddressByAddressCoinRequest.class,
+      responseType = adamant.global.v1.Model.Address.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.GetAddressByAddressCoinRequest,
+      adamant.global.v1.Model.Address> getGetAddressByAddressCoinMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.GetAddressByAddressCoinRequest, adamant.global.v1.Model.Address> getGetAddressByAddressCoinMethod;
+    if ((getGetAddressByAddressCoinMethod = TellerAPIGrpc.getGetAddressByAddressCoinMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getGetAddressByAddressCoinMethod = TellerAPIGrpc.getGetAddressByAddressCoinMethod) == null) {
+          TellerAPIGrpc.getGetAddressByAddressCoinMethod = getGetAddressByAddressCoinMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.GetAddressByAddressCoinRequest, adamant.global.v1.Model.Address>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetAddressByAddressCoin"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.GetAddressByAddressCoinRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.Model.Address.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("GetAddressByAddressCoin"))
+              .build();
+        }
+      }
+    }
+    return getGetAddressByAddressCoinMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.GetAddressByIndexRequest,
       adamant.global.v1.Model.Address> getGetAddressByIndexMethod;
 
@@ -1240,6 +1271,13 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    public void getAddressByAddressCoin(adamant.global.v1.GetAddressByAddressCoinRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAddressByAddressCoinMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void getAddressByIndex(adamant.global.v1.GetAddressByIndexRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAddressByIndexMethod(), responseObserver);
@@ -1503,6 +1541,13 @@ public final class TellerAPIGrpc {
                 adamant.global.v1.GetAddressByAddressRequest,
                 adamant.global.v1.Model.Address>(
                   this, METHODID_GET_ADDRESS_BY_ADDRESS)))
+          .addMethod(
+            getGetAddressByAddressCoinMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                adamant.global.v1.GetAddressByAddressCoinRequest,
+                adamant.global.v1.Model.Address>(
+                  this, METHODID_GET_ADDRESS_BY_ADDRESS_COIN)))
           .addMethod(
             getGetAddressByIndexMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -1782,6 +1827,14 @@ public final class TellerAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetAddressByAddressMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getAddressByAddressCoin(adamant.global.v1.GetAddressByAddressCoinRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetAddressByAddressCoinMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -2093,6 +2146,13 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    public adamant.global.v1.Model.Address getAddressByAddressCoin(adamant.global.v1.GetAddressByAddressCoinRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetAddressByAddressCoinMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public adamant.global.v1.Model.Address getAddressByIndex(adamant.global.v1.GetAddressByIndexRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetAddressByIndexMethod(), getCallOptions(), request);
@@ -2389,6 +2449,14 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.Model.Address> getAddressByAddressCoin(
+        adamant.global.v1.GetAddressByAddressCoinRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetAddressByAddressCoinMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.Model.Address> getAddressByIndex(
         adamant.global.v1.GetAddressByIndexRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -2602,29 +2670,30 @@ public final class TellerAPIGrpc {
   private static final int METHODID_CREATE_IOSTACCOUNT = 9;
   private static final int METHODID_GET_ADDRESS = 10;
   private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 11;
-  private static final int METHODID_GET_ADDRESS_BY_INDEX = 12;
-  private static final int METHODID_LIST_ADDRESSES = 13;
-  private static final int METHODID_IMPORT_ADDRESS = 14;
-  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 15;
-  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 16;
-  private static final int METHODID_CREATE_TRANSACTION = 17;
-  private static final int METHODID_SIGN_TRANSACTION = 18;
-  private static final int METHODID_SEND_TRANSACTION = 19;
-  private static final int METHODID_CANCEL_TRANSACTION = 20;
-  private static final int METHODID_GET_TRANSACTION = 21;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 22;
-  private static final int METHODID_LIST_TRANSACTIONS = 23;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 24;
-  private static final int METHODID_LIST_TRANSFERS = 25;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 26;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 27;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 28;
-  private static final int METHODID_SET_RATES = 29;
-  private static final int METHODID_CALCULATE_FEE = 30;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 31;
-  private static final int METHODID_VALIDATE_ADDRESS = 32;
-  private static final int METHODID_FLUSH_BALANCE = 33;
-  private static final int METHODID_LIST_AUDIT_LOGS = 34;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 12;
+  private static final int METHODID_GET_ADDRESS_BY_INDEX = 13;
+  private static final int METHODID_LIST_ADDRESSES = 14;
+  private static final int METHODID_IMPORT_ADDRESS = 15;
+  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 16;
+  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 17;
+  private static final int METHODID_CREATE_TRANSACTION = 18;
+  private static final int METHODID_SIGN_TRANSACTION = 19;
+  private static final int METHODID_SEND_TRANSACTION = 20;
+  private static final int METHODID_CANCEL_TRANSACTION = 21;
+  private static final int METHODID_GET_TRANSACTION = 22;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 23;
+  private static final int METHODID_LIST_TRANSACTIONS = 24;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 25;
+  private static final int METHODID_LIST_TRANSFERS = 26;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 27;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 28;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 29;
+  private static final int METHODID_SET_RATES = 30;
+  private static final int METHODID_CALCULATE_FEE = 31;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 32;
+  private static final int METHODID_VALIDATE_ADDRESS = 33;
+  private static final int METHODID_FLUSH_BALANCE = 34;
+  private static final int METHODID_LIST_AUDIT_LOGS = 35;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -2689,6 +2758,10 @@ public final class TellerAPIGrpc {
           break;
         case METHODID_GET_ADDRESS_BY_ADDRESS:
           serviceImpl.getAddressByAddress((adamant.global.v1.GetAddressByAddressRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address>) responseObserver);
+          break;
+        case METHODID_GET_ADDRESS_BY_ADDRESS_COIN:
+          serviceImpl.getAddressByAddressCoin((adamant.global.v1.GetAddressByAddressCoinRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address>) responseObserver);
           break;
         case METHODID_GET_ADDRESS_BY_INDEX:
@@ -2856,6 +2929,7 @@ public final class TellerAPIGrpc {
               .addMethod(getCreateIOSTAccountMethod())
               .addMethod(getGetAddressMethod())
               .addMethod(getGetAddressByAddressMethod())
+              .addMethod(getGetAddressByAddressCoinMethod())
               .addMethod(getGetAddressByIndexMethod())
               .addMethod(getListAddressesMethod())
               .addMethod(getImportAddressMethod())

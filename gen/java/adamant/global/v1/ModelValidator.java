@@ -83,6 +83,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.SubstrateChildAddress.class)) return new SubstrateChildAddressValidator();
 		if (clazz.equals(adamant.global.v1.Model.IOSTChildAccount.class)) return new IOSTChildAccountValidator();
 		if (clazz.equals(adamant.global.v1.Model.IOSTCallerAccount.class)) return new IOSTCallerAccountValidator();
+		if (clazz.equals(adamant.global.v1.Model.CallerAddress.class)) return new CallerAddressValidator();
 		return null;
 	}
 
@@ -2770,6 +2771,32 @@ public class ModelValidator {
 	// no validation rules for Balance
 
 	// no validation rules for StringBalance
+
+	
+	}
+}
+/**
+	 * Validates {@code CallerAddress} protobuf objects.
+	 */
+	public static class CallerAddressValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CallerAddress> {
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CallerAddress proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Address
+
+	// no validation rules for Balance
+
+	// no validation rules for StringBalance
+
+	// no validation rules for Coin
 
 	
 	}
