@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-¡Æ
+âØ
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"•
 Wallet
 owner_id (	RownerId
@@ -356,7 +356,7 @@ sign_index (R	signIndex!
 tx_input_index (RtxInputIndex!
 sign_message (	RsignMessage
 	hd_change (RhdChange
-hd_index (RhdIndex"Å
+hd_index (RhdIndex"•
 Transfer
 	wallet_id (	RwalletId
 transfer_id (	R
@@ -375,13 +375,15 @@ transferId,
 message (	Rmessage
 fee (Rfee
 
-string_fee (	R	stringFee:
+string_fee (	R	stringFee
+from (	Rfrom
+to (	Rto:
 state (2$.gincoinc.global.v1.TransactionStateRstate=
 result (2%.gincoinc.global.v1.TransactionResultRresult;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
-updateTime"´
+updateTime"œ
 UncheckedTransfer
 	wallet_id (	RwalletId
 transfer_id (	R
@@ -402,7 +404,9 @@ transferId,
 message (	Rmessage
 fee (Rfee
 
-string_fee (	R	stringFee
+string_fee (	R	stringFee
+from (	Rfrom
+to (	Rto
 has_checked (R
 hasChecked;
 create_time (2.google.protobuf.TimestampR
