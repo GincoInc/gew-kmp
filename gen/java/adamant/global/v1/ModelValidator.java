@@ -1575,6 +1575,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transfer proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1608,6 +1612,10 @@ public class ModelValidator {
 
 	// no validation rules for StringFee
 
+	// no validation rules for From
+
+	// no validation rules for To
+
 	// no validation rules for State
 
 	// no validation rules for Result
@@ -1625,6 +1633,10 @@ public class ModelValidator {
 	 * Validates {@code UncheckedTransfer} protobuf objects.
 	 */
 	public static class UncheckedTransferValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.UncheckedTransfer> {
+		
+	
+		
+	
 		
 	
 		
@@ -1701,6 +1713,10 @@ public class ModelValidator {
 	// no validation rules for Fee
 
 	// no validation rules for StringFee
+
+	// no validation rules for From
+
+	// no validation rules for To
 
 	// no validation rules for HasChecked
 

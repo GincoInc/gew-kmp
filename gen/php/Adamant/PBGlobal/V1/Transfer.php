@@ -106,6 +106,18 @@ class Transfer extends \Google\Protobuf\Internal\Message
      */
     protected $string_fee = '';
     /**
+     * from address
+     *
+     * Generated from protobuf field <code>string from = 21 [json_name = "from"];</code>
+     */
+    protected $from = '';
+    /**
+     * to address
+     *
+     * Generated from protobuf field <code>string to = 22 [json_name = "to"];</code>
+     */
+    protected $to = '';
+    /**
      * state
      *
      * Generated from protobuf field <code>.gincoinc.global.v1.TransactionState state = 12 [json_name = "state"];</code>
@@ -166,6 +178,10 @@ class Transfer extends \Google\Protobuf\Internal\Message
      *           The number-typed amount of transfer fee
      *     @type string $string_fee
      *           The string-typed amount of transfer fee
+     *     @type string $from
+     *           from address
+     *     @type string $to
+     *           to address
      *     @type int $state
      *           state
      *     @type int $result
@@ -567,6 +583,58 @@ class Transfer extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->string_fee = $var;
+
+        return $this;
+    }
+
+    /**
+     * from address
+     *
+     * Generated from protobuf field <code>string from = 21 [json_name = "from"];</code>
+     * @return string
+     */
+    public function getFrom()
+    {
+        return $this->from;
+    }
+
+    /**
+     * from address
+     *
+     * Generated from protobuf field <code>string from = 21 [json_name = "from"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setFrom($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->from = $var;
+
+        return $this;
+    }
+
+    /**
+     * to address
+     *
+     * Generated from protobuf field <code>string to = 22 [json_name = "to"];</code>
+     * @return string
+     */
+    public function getTo()
+    {
+        return $this->to;
+    }
+
+    /**
+     * to address
+     *
+     * Generated from protobuf field <code>string to = 22 [json_name = "to"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTo($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->to = $var;
 
         return $this;
     }
