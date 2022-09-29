@@ -36,6 +36,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.MonacoinSpecific.class)) return new MonacoinSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.NemSpecific.class)) return new NemSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.IOSTSpecific.class)) return new IOSTSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.PolygonSpecific.class)) return new PolygonSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class)) return new CreateTransactionSubstrateSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.class)) return new CreateTransactionWalletConnectSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionNemSpecific.class)) return new CreateTransactionNemSpecificValidator();
@@ -711,6 +712,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -789,6 +792,9 @@ public class ModelValidator {
 	
 			// Validate iost_specific
 			if (proto.hasIostSpecific()) index.validatorFor(proto.getIostSpecific()).assertValid(proto.getIostSpecific());
+	
+			// Validate polygon_specific
+			if (proto.hasPolygonSpecific()) index.validatorFor(proto.getPolygonSpecific()).assertValid(proto.getPolygonSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -1245,6 +1251,28 @@ public class ModelValidator {
 	// no validation rules for Timestamp
 
 	// no validation rules for Expiration
+
+	
+	}
+}
+/**
+	 * Validates {@code PolygonSpecific} protobuf objects.
+	 */
+	public static class PolygonSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.PolygonSpecific> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.PolygonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
 
 	
 	}
