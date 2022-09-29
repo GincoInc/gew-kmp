@@ -1675,6 +1675,20 @@ func (m *Transaction) Validate(all bool) error {
 		}
 	}
 
+	if v, ok := interface{}(m.GetPolygonSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransactionValidationError{
+				field:  "PolygonSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate(bool) error }); ok {
 		if err := v.Validate(all); err != nil {
 			err = TransactionValidationError{
@@ -3670,6 +3684,102 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = IOSTSpecificValidationError{}
+
+// Validate checks the field values on PolygonSpecific with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned. When asked to return all errors, validation continues
+// after first violation, and the result is a list of violation errors wrapped
+// in PolygonSpecificMultiError, or nil if none found. Otherwise, only the
+// first error is returned, if any.
+func (m *PolygonSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	if len(errors) > 0 {
+		return PolygonSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// PolygonSpecificMultiError is an error wrapping multiple validation errors
+// returned by PolygonSpecific.Validate(true) if the designated constraints
+// aren't met.
+type PolygonSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m PolygonSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m PolygonSpecificMultiError) AllErrors() []error { return m }
+
+// PolygonSpecificValidationError is the validation error returned by
+// PolygonSpecific.Validate if the designated constraints aren't met.
+type PolygonSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e PolygonSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e PolygonSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e PolygonSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e PolygonSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e PolygonSpecificValidationError) ErrorName() string { return "PolygonSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e PolygonSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sPolygonSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = PolygonSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = PolygonSpecificValidationError{}
 
 // Validate checks the field values on CreateTransactionSubstrateSpecific with
 // the rules defined in the proto definition for this message. If any rules
