@@ -193,6 +193,7 @@ message Transaction {
   NemSpecific nem_specific = 31; // The Nem specific fields
   IOSTSpecific iost_specific = 32; // The Nem specific fields
   PolygonSpecific polygon_specific = 33; // The Polygon specific fields
+  KlaytnSpecific klaytn_specific = 34; // The Klaytn specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -325,6 +326,13 @@ message IOSTSpecific {
 
 // The model of Polygon specific fields of transaction
 message PolygonSpecific {
+  uint64 gas_limit = 1;
+  uint64 nonce = 2;
+  bool is_next_nonce = 3;
+}
+
+// The model of Klaytn specific fields of transaction
+message KlaytnSpecific {
   uint64 gas_limit = 1;
   uint64 nonce = 2;
   bool is_next_nonce = 3;
