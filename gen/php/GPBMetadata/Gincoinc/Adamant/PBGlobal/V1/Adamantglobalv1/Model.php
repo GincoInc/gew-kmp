@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-‰¯
+÷±
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"¥
 Wallet
 owner_id (	RownerId
@@ -164,7 +164,7 @@ address_id (	R	addressId,
 string_balance (	RstringBalance
 fee_balance (R
 feeBalance,
-string_fee_balance (	RstringFeeBalance"ê
+string_fee_balance (	RstringFeeBalance"…
 Transaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId,
@@ -195,7 +195,9 @@ signedKeys>
 substrate_specific (2$.adamant.global.v1.SubstrateSpecificRsubstrateSpecificP
 monacoin_specific (2#.adamant.global.v1.MonacoinSpecificRmonacoinSpecificA
 nem_specific (2.adamant.global.v1.NemSpecificRnemSpecificD
-iost_specific  (2.adamant.global.v1.IOSTSpecificRiostSpecific;
+iost_specific  (2.adamant.global.v1.IOSTSpecificRiostSpecificM
+polygon_specific! (2".adamant.global.v1.PolygonSpecificRpolygonSpecificJ
+klaytn_specific" (2!.adamant.global.v1.KlaytnSpecificRklaytnSpecific;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
@@ -287,7 +289,15 @@ expiration"`
 	timestamp (R	timestamp
 
 expiration (R
-expiration"â
+expiration"h
+PolygonSpecific
+	gas_limit (RgasLimit
+nonce (Rnonce"
+is_next_nonce (RisNextNonce"g
+KlaytnSpecific
+	gas_limit (RgasLimit
+nonce (Rnonce"
+is_next_nonce (RisNextNonce"â
 "CreateTransactionSubstrateSpecific%
 transaction_id (	RtransactionIdA
 	call_type (2$.adamant.global.v1.SubstrateCallTypeRcallTypeR
