@@ -178,6 +178,18 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $iost_specific = null;
     /**
+     * The Polygon specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.PolygonSpecific polygon_specific = 33 [json_name = "polygonSpecific"];</code>
+     */
+    protected $polygon_specific = null;
+    /**
+     * The Klaytn specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.KlaytnSpecific klaytn_specific = 34 [json_name = "klaytnSpecific"];</code>
+     */
+    protected $klaytn_specific = null;
+    /**
      * the time at which the transaction was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
@@ -250,6 +262,10 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The Nem specific fields
      *     @type \Adamant\PBGlobal\V1\IOSTSpecific $iost_specific
      *           The Nem specific fields
+     *     @type \Adamant\PBGlobal\V1\PolygonSpecific $polygon_specific
+     *           The Polygon specific fields
+     *     @type \Adamant\PBGlobal\V1\KlaytnSpecific $klaytn_specific
+     *           The Klaytn specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -1089,6 +1105,78 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\IOSTSpecific::class);
         $this->iost_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Polygon specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.PolygonSpecific polygon_specific = 33 [json_name = "polygonSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\PolygonSpecific|null
+     */
+    public function getPolygonSpecific()
+    {
+        return $this->polygon_specific;
+    }
+
+    public function hasPolygonSpecific()
+    {
+        return isset($this->polygon_specific);
+    }
+
+    public function clearPolygonSpecific()
+    {
+        unset($this->polygon_specific);
+    }
+
+    /**
+     * The Polygon specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.PolygonSpecific polygon_specific = 33 [json_name = "polygonSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\PolygonSpecific $var
+     * @return $this
+     */
+    public function setPolygonSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\PolygonSpecific::class);
+        $this->polygon_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Klaytn specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.KlaytnSpecific klaytn_specific = 34 [json_name = "klaytnSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\KlaytnSpecific|null
+     */
+    public function getKlaytnSpecific()
+    {
+        return $this->klaytn_specific;
+    }
+
+    public function hasKlaytnSpecific()
+    {
+        return isset($this->klaytn_specific);
+    }
+
+    public function clearKlaytnSpecific()
+    {
+        unset($this->klaytn_specific);
+    }
+
+    /**
+     * The Klaytn specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.KlaytnSpecific klaytn_specific = 34 [json_name = "klaytnSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\KlaytnSpecific $var
+     * @return $this
+     */
+    public function setKlaytnSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\KlaytnSpecific::class);
+        $this->klaytn_specific = $var;
 
         return $this;
     }
