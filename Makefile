@@ -11,7 +11,7 @@ $(BIN)/protoc-gen-go:
 $(BIN)/protoc-gen-validate:
 	test -f $(BIN)/protoc-gen-validate || $(GO_ENV) go install github.com/envoyproxy/protoc-gen-validate@v0.6.0
 $(BIN)/evans:
-	test -f $(BIN)/evans || $(GO_ENV) go install github.com/ktr0731/evans@v0.10.6
+	test -f $(BIN)/evans || $(GO_ENV) go install github.com/ktr0731/evans@v0.10.9
 
 .PHONY: vendor
 vendor:
