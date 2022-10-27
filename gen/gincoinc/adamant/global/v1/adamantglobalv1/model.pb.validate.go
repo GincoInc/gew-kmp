@@ -3527,6 +3527,8 @@ func (m *NemSpecific) Validate(all bool) error {
 
 	// no validation rules for Expiration
 
+	// no validation rules for Timestamp
+
 	if len(errors) > 0 {
 		return NemSpecificMultiError(errors)
 	}
@@ -4108,6 +4110,8 @@ func (m *CreateTransactionNemSpecific) Validate(all bool) error {
 	// no validation rules for TxType
 
 	// no validation rules for Message
+
+	// no validation rules for Timestamp
 
 	if len(errors) > 0 {
 		return CreateTransactionNemSpecificMultiError(errors)

@@ -27,6 +27,10 @@ class CreateTransactionNemSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string message = 3 [json_name = "message"];</code>
      */
     protected $message = '';
+    /**
+     * Generated from protobuf field <code>uint64 timestamp = 4 [json_name = "timestamp"];</code>
+     */
+    protected $timestamp = 0;
 
     /**
      * Constructor.
@@ -37,6 +41,7 @@ class CreateTransactionNemSpecific extends \Google\Protobuf\Internal\Message
      *     @type string $transaction_id
      *     @type int $tx_type
      *     @type string $message
+     *     @type int|string $timestamp
      * }
      */
     public function __construct($data = NULL) {
@@ -106,6 +111,28 @@ class CreateTransactionNemSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->message = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 timestamp = 4 [json_name = "timestamp"];</code>
+     * @return int|string
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 timestamp = 4 [json_name = "timestamp"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setTimestamp($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->timestamp = $var;
 
         return $this;
     }
