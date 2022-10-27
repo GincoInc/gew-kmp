@@ -1221,6 +1221,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.NemSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1235,6 +1237,8 @@ public class ModelValidator {
 			if (true) index.validatorFor(item).assertValid(item);
 			});
 	// no validation rules for Expiration
+
+	// no validation rules for Timestamp
 
 	
 	}
@@ -1355,6 +1359,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionNemSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1363,6 +1369,8 @@ public class ModelValidator {
 	// no validation rules for TxType
 
 	// no validation rules for Message
+
+	// no validation rules for Timestamp
 
 	
 	}
