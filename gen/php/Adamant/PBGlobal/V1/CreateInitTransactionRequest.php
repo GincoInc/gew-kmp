@@ -21,6 +21,10 @@ class CreateInitTransactionRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 2 [json_name = "iostSpecific"];</code>
      */
     protected $iost_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
+     */
+    protected $symbol_specific = null;
 
     /**
      * Constructor.
@@ -30,6 +34,7 @@ class CreateInitTransactionRequest extends \Google\Protobuf\Internal\Message
      *
      *     @type string $wallet_id
      *     @type \Adamant\PBGlobal\V1\CreateTransactionIOSTSpecific $iost_specific
+     *     @type \Adamant\PBGlobal\V1\CreateTransactionSymbolSpecific $symbol_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -87,6 +92,38 @@ class CreateInitTransactionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionIOSTSpecific::class);
         $this->iost_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CreateTransactionSymbolSpecific|null
+     */
+    public function getSymbolSpecific()
+    {
+        return $this->symbol_specific;
+    }
+
+    public function hasSymbolSpecific()
+    {
+        return isset($this->symbol_specific);
+    }
+
+    public function clearSymbolSpecific()
+    {
+        unset($this->symbol_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CreateTransactionSymbolSpecific $var
+     * @return $this
+     */
+    public function setSymbolSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionSymbolSpecific::class);
+        $this->symbol_specific = $var;
 
         return $this;
     }

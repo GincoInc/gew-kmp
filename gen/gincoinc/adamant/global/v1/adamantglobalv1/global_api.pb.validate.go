@@ -7135,6 +7135,20 @@ func (m *CreateInitTransactionRequest) Validate(all bool) error {
 		}
 	}
 
+	if v, ok := interface{}(m.GetSymbolSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = CreateInitTransactionRequestValidationError{
+				field:  "SymbolSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
 	if len(errors) > 0 {
 		return CreateInitTransactionRequestMultiError(errors)
 	}

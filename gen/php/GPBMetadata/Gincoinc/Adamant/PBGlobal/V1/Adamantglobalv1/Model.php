@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-³²
+Öº
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"¥
 Wallet
 owner_id (	RownerId
@@ -164,7 +164,7 @@ address_id (	R	addressId,
 string_balance (	RstringBalance
 fee_balance (R
 feeBalance,
-string_fee_balance (	RstringFeeBalance"…
+string_fee_balance (	RstringFeeBalance"Ñ
 Transaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId,
@@ -197,7 +197,8 @@ signedKeys>
 nem_specific (2.adamant.global.v1.NemSpecificRnemSpecificD
 iost_specific  (2.adamant.global.v1.IOSTSpecificRiostSpecificM
 polygon_specific! (2".adamant.global.v1.PolygonSpecificRpolygonSpecificJ
-klaytn_specific" (2!.adamant.global.v1.KlaytnSpecificRklaytnSpecific;
+klaytn_specific" (2!.adamant.global.v1.KlaytnSpecificRklaytnSpecificJ
+symbol_specific# (2!.adamant.global.v1.SymbolSpecificRsymbolSpecific;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
@@ -298,7 +299,15 @@ expiration"h
 KlaytnSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
-is_next_nonce (RisNextNonce"â
+is_next_nonce (RisNextNonce"œ
+SymbolSpecific
+message (	RmessageB
+tx_type (2).gincoinc.global.v1.SymbolTransactionTypeRtxTypen
+symbol_multisig_transactions (2,.adamant.global.v1.SymbolMultisigTransactionRsymbolMultisigTransactions
+
+expiration (R
+expiration
+	timestamp (R	timestamp"â
 "CreateTransactionSubstrateSpecific%
 transaction_id (	RtransactionIdA
 	call_type (2$.adamant.global.v1.SubstrateCallTypeRcallTypeR
@@ -313,7 +322,12 @@ expiration"h
 	timestamp (R	timestamp"Q
 CreateTransactionIOSTSpecific
 memo (	Rmemo
-	timestamp (R	timestamp"ï
+	timestamp (R	timestamp"Ä
+CreateTransactionSymbolSpecific%
+transaction_id (	RtransactionIdB
+tx_type (2).gincoinc.global.v1.SymbolTransactionTypeRtxType
+message (	Rmessage
+	timestamp (R	timestamp"ï
 SubstrateMultisigTransaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionIdI
@@ -342,6 +356,21 @@ updateTime"â
 account_id
  (	R	accountId?
 tx_type (2&.gincoinc.global.v1.NemTransactionTypeRtxType
+data (	Rdata
+	signature (	R	signature9
+state (2#.adamant.global.v1.TransactionStateRstate;
+create_time (2.google.protobuf.TimestampR
+createTime;
+update_time	 (2.google.protobuf.TimestampR
+updateTime"î
+SymbolMultisigTransaction
+	wallet_id (	RwalletId%
+transaction_id (	RtransactionIdC
+symbol_multisig_transaction_id (	RsymbolMultisigTransactionId
+
+account_id
+ (	R	accountIdB
+tx_type (2).gincoinc.global.v1.SymbolTransactionTypeRtxType
 data (	Rdata
 	signature (	R	signature9
 state (2#.adamant.global.v1.TransactionStateRstate;
