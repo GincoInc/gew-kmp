@@ -151,6 +151,10 @@ public final class Enum {
      * <code>COIN_MATIC = 31;</code>
      */
     COIN_MATIC(31),
+    /**
+     * <code>COIN_XYM = 32;</code>
+     */
+    COIN_XYM(32),
     UNRECOGNIZED(-1),
     ;
 
@@ -282,6 +286,10 @@ public final class Enum {
      * <code>COIN_MATIC = 31;</code>
      */
     public static final int COIN_MATIC_VALUE = 31;
+    /**
+     * <code>COIN_XYM = 32;</code>
+     */
+    public static final int COIN_XYM_VALUE = 32;
 
 
     public final int getNumber() {
@@ -340,6 +348,7 @@ public final class Enum {
         case 29: return COIN_SKEB;
         case 30: return COIN_KLAY;
         case 31: return COIN_MATIC;
+        case 32: return COIN_XYM;
         default: return null;
       }
     }
@@ -529,6 +538,14 @@ public final class Enum {
      * <code>NETWORK_POLYGON_TESTNET = 30;</code>
      */
     NETWORK_POLYGON_TESTNET(30),
+    /**
+     * <code>NETWORK_SYMBOL_MAINNET = 31;</code>
+     */
+    NETWORK_SYMBOL_MAINNET(31),
+    /**
+     * <code>NETWORK_SYMBOL_TESTNET = 32;</code>
+     */
+    NETWORK_SYMBOL_TESTNET(32),
     UNRECOGNIZED(-1),
     ;
 
@@ -656,6 +673,14 @@ public final class Enum {
      * <code>NETWORK_POLYGON_TESTNET = 30;</code>
      */
     public static final int NETWORK_POLYGON_TESTNET_VALUE = 30;
+    /**
+     * <code>NETWORK_SYMBOL_MAINNET = 31;</code>
+     */
+    public static final int NETWORK_SYMBOL_MAINNET_VALUE = 31;
+    /**
+     * <code>NETWORK_SYMBOL_TESTNET = 32;</code>
+     */
+    public static final int NETWORK_SYMBOL_TESTNET_VALUE = 32;
 
 
     public final int getNumber() {
@@ -713,6 +738,8 @@ public final class Enum {
         case 28: return NETWORK_KLAY_TESTNET;
         case 29: return NETWORK_POLYGON_MAINNET;
         case 30: return NETWORK_POLYGON_TESTNET;
+        case 31: return NETWORK_SYMBOL_MAINNET;
+        case 32: return NETWORK_SYMBOL_TESTNET;
         default: return null;
       }
     }
@@ -1906,6 +1933,334 @@ public final class Enum {
     // @@protoc_insertion_point(enum_scope:gincoinc.global.v1.NemTransactionType)
   }
 
+  /**
+   * <pre>
+   * SymbolTransactionType is a type of symbol transaction.
+   * </pre>
+   *
+   * Protobuf enum {@code gincoinc.global.v1.SymbolTransactionType}
+   */
+  public enum SymbolTransactionType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_INVALID = 0;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_INVALID(0),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_ACCOUNT_KEY_LINK = 1;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_ACCOUNT_KEY_LINK(1),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_NODE_KEY_LINK = 2;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_NODE_KEY_LINK(2),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_AGGREGATE_COMPLETE = 3;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_AGGREGATE_COMPLETE(3),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_AGGREGATE_BONDED = 4;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_AGGREGATE_BONDED(4),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_VOTING_KEY_LINK = 5;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_VOTING_KEY_LINK(5),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_VRF_KEY_LINK = 6;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_VRF_KEY_LINK(6),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_HASH_LOCK = 7;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_HASH_LOCK(7),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_SECRET_LOCK = 8;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_SECRET_LOCK(8),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_SECRET_PROOF = 9;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_SECRET_PROOF(9),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_ACCOUNT_METADATA = 10;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_ACCOUNT_METADATA(10),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_MOSAIC_METADATA = 11;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_MOSAIC_METADATA(11),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_NAMESPACE_METADATA = 12;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_NAMESPACE_METADATA(12),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_MOSAIC_DEFINITION = 13;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_MOSAIC_DEFINITION(13),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_MOSAIC_SUPPLY_CHANGE = 14;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_MOSAIC_SUPPLY_CHANGE(14),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_MOSAIC_SUPPLY_REVOCATION = 15;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_MOSAIC_SUPPLY_REVOCATION(15),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_MULTISIG_ACCOUNT_MODIFICATION = 16;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_MULTISIG_ACCOUNT_MODIFICATION(16),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_ADDRESS_ALIAS = 17;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_ADDRESS_ALIAS(17),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_MOSAIC_ALIAS = 18;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_MOSAIC_ALIAS(18),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_NAMESPACE_REGISTRATION = 19;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_NAMESPACE_REGISTRATION(19),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_ACCOUNT_ADDRESS_RESTRICTION = 20;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_ACCOUNT_ADDRESS_RESTRICTION(20),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_ACCOUNT_MOSAIC_RESTRICTION = 21;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_ACCOUNT_MOSAIC_RESTRICTION(21),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_ACCOUNT_OPERATION_RESTRICTION = 22;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_ACCOUNT_OPERATION_RESTRICTION(22),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_MOSAIC_ADDRESS_RESTRICTION = 23;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_MOSAIC_ADDRESS_RESTRICTION(23),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_MOSAIC_GLOBAL_RESTRICTION = 24;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_MOSAIC_GLOBAL_RESTRICTION(24),
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_TRANSFER = 25;</code>
+     */
+    SYMBOL_TRANSACTION_TYPE_TRANSFER(25),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_INVALID = 0;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_INVALID_VALUE = 0;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_ACCOUNT_KEY_LINK = 1;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_ACCOUNT_KEY_LINK_VALUE = 1;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_NODE_KEY_LINK = 2;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_NODE_KEY_LINK_VALUE = 2;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_AGGREGATE_COMPLETE = 3;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_AGGREGATE_COMPLETE_VALUE = 3;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_AGGREGATE_BONDED = 4;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_AGGREGATE_BONDED_VALUE = 4;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_VOTING_KEY_LINK = 5;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_VOTING_KEY_LINK_VALUE = 5;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_VRF_KEY_LINK = 6;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_VRF_KEY_LINK_VALUE = 6;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_HASH_LOCK = 7;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_HASH_LOCK_VALUE = 7;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_SECRET_LOCK = 8;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_SECRET_LOCK_VALUE = 8;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_SECRET_PROOF = 9;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_SECRET_PROOF_VALUE = 9;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_ACCOUNT_METADATA = 10;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_ACCOUNT_METADATA_VALUE = 10;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_MOSAIC_METADATA = 11;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_MOSAIC_METADATA_VALUE = 11;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_NAMESPACE_METADATA = 12;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_NAMESPACE_METADATA_VALUE = 12;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_MOSAIC_DEFINITION = 13;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_MOSAIC_DEFINITION_VALUE = 13;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_MOSAIC_SUPPLY_CHANGE = 14;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_MOSAIC_SUPPLY_CHANGE_VALUE = 14;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_MOSAIC_SUPPLY_REVOCATION = 15;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_MOSAIC_SUPPLY_REVOCATION_VALUE = 15;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_MULTISIG_ACCOUNT_MODIFICATION = 16;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_MULTISIG_ACCOUNT_MODIFICATION_VALUE = 16;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_ADDRESS_ALIAS = 17;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_ADDRESS_ALIAS_VALUE = 17;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_MOSAIC_ALIAS = 18;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_MOSAIC_ALIAS_VALUE = 18;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_NAMESPACE_REGISTRATION = 19;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_NAMESPACE_REGISTRATION_VALUE = 19;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_ACCOUNT_ADDRESS_RESTRICTION = 20;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_ACCOUNT_ADDRESS_RESTRICTION_VALUE = 20;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_ACCOUNT_MOSAIC_RESTRICTION = 21;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_ACCOUNT_MOSAIC_RESTRICTION_VALUE = 21;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_ACCOUNT_OPERATION_RESTRICTION = 22;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_ACCOUNT_OPERATION_RESTRICTION_VALUE = 22;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_MOSAIC_ADDRESS_RESTRICTION = 23;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_MOSAIC_ADDRESS_RESTRICTION_VALUE = 23;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_MOSAIC_GLOBAL_RESTRICTION = 24;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_MOSAIC_GLOBAL_RESTRICTION_VALUE = 24;
+    /**
+     * <code>SYMBOL_TRANSACTION_TYPE_TRANSFER = 25;</code>
+     */
+    public static final int SYMBOL_TRANSACTION_TYPE_TRANSFER_VALUE = 25;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static SymbolTransactionType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static SymbolTransactionType forNumber(int value) {
+      switch (value) {
+        case 0: return SYMBOL_TRANSACTION_TYPE_INVALID;
+        case 1: return SYMBOL_TRANSACTION_TYPE_ACCOUNT_KEY_LINK;
+        case 2: return SYMBOL_TRANSACTION_TYPE_NODE_KEY_LINK;
+        case 3: return SYMBOL_TRANSACTION_TYPE_AGGREGATE_COMPLETE;
+        case 4: return SYMBOL_TRANSACTION_TYPE_AGGREGATE_BONDED;
+        case 5: return SYMBOL_TRANSACTION_TYPE_VOTING_KEY_LINK;
+        case 6: return SYMBOL_TRANSACTION_TYPE_VRF_KEY_LINK;
+        case 7: return SYMBOL_TRANSACTION_TYPE_HASH_LOCK;
+        case 8: return SYMBOL_TRANSACTION_TYPE_SECRET_LOCK;
+        case 9: return SYMBOL_TRANSACTION_TYPE_SECRET_PROOF;
+        case 10: return SYMBOL_TRANSACTION_TYPE_ACCOUNT_METADATA;
+        case 11: return SYMBOL_TRANSACTION_TYPE_MOSAIC_METADATA;
+        case 12: return SYMBOL_TRANSACTION_TYPE_NAMESPACE_METADATA;
+        case 13: return SYMBOL_TRANSACTION_TYPE_MOSAIC_DEFINITION;
+        case 14: return SYMBOL_TRANSACTION_TYPE_MOSAIC_SUPPLY_CHANGE;
+        case 15: return SYMBOL_TRANSACTION_TYPE_MOSAIC_SUPPLY_REVOCATION;
+        case 16: return SYMBOL_TRANSACTION_TYPE_MULTISIG_ACCOUNT_MODIFICATION;
+        case 17: return SYMBOL_TRANSACTION_TYPE_ADDRESS_ALIAS;
+        case 18: return SYMBOL_TRANSACTION_TYPE_MOSAIC_ALIAS;
+        case 19: return SYMBOL_TRANSACTION_TYPE_NAMESPACE_REGISTRATION;
+        case 20: return SYMBOL_TRANSACTION_TYPE_ACCOUNT_ADDRESS_RESTRICTION;
+        case 21: return SYMBOL_TRANSACTION_TYPE_ACCOUNT_MOSAIC_RESTRICTION;
+        case 22: return SYMBOL_TRANSACTION_TYPE_ACCOUNT_OPERATION_RESTRICTION;
+        case 23: return SYMBOL_TRANSACTION_TYPE_MOSAIC_ADDRESS_RESTRICTION;
+        case 24: return SYMBOL_TRANSACTION_TYPE_MOSAIC_GLOBAL_RESTRICTION;
+        case 25: return SYMBOL_TRANSACTION_TYPE_TRANSFER;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<SymbolTransactionType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        SymbolTransactionType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<SymbolTransactionType>() {
+            public SymbolTransactionType findValueByNumber(int number) {
+              return SymbolTransactionType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(9);
+    }
+
+    private static final SymbolTransactionType[] VALUES = values();
+
+    public static SymbolTransactionType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private SymbolTransactionType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:gincoinc.global.v1.SymbolTransactionType)
+  }
+
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1916,7 +2271,7 @@ public final class Enum {
   static {
     java.lang.String[] descriptorData = {
       "\n.gincoinc/global/v1/gincoincglobalv1/en" +
-      "um.proto\022\022gincoinc.global.v1*\332\003\n\004Coin\022\020\n" +
+      "um.proto\022\022gincoinc.global.v1*\350\003\n\004Coin\022\020\n" +
       "\014COIN_INVALID\020\000\022\014\n\010COIN_BTC\020\001\022\014\n\010COIN_ET" +
       "H\020\002\022\014\n\010COIN_LTC\020\003\022\014\n\010COIN_BCH\020\004\022\014\n\010COIN_" +
       "XRP\020\005\022\014\n\010COIN_BAT\020\006\022\014\n\010COIN_TRX\020\007\022\r\n\tCOI" +
@@ -1928,67 +2283,101 @@ public final class Enum {
       "\010COIN_CMS\020\026\022\r\n\tCOIN_CICC\020\027\022\r\n\tCOIN_NCXC\020" +
       "\030\022\014\n\010COIN_COT\020\031\022\014\n\010COIN_XEM\020\032\022\r\n\tCOIN_MO" +
       "NA\020\033\022\r\n\tCOIN_IOST\020\034\022\r\n\tCOIN_SKEB\020\035\022\r\n\tCO" +
-      "IN_KLAY\020\036\022\016\n\nCOIN_MATIC\020\037*\364\006\n\007Network\022\023\n" +
-      "\017NETWORK_INVALID\020\000\022\033\n\027NETWORK_BITCOIN_MA" +
-      "INNET\020\001\022\033\n\027NETWORK_BITCOIN_TESTNET\020\002\022\034\n\030" +
-      "NETWORK_ETHEREUM_MAINNET\020\003\022\034\n\030NETWORK_ET" +
-      "HEREUM_TESTNET\020\004\022\034\n\030NETWORK_LITECOIN_MAI" +
-      "NNET\020\005\022\034\n\030NETWORK_LITECOIN_TESTNET\020\006\022\037\n\033" +
-      "NETWORK_BITCOINCASH_MAINNET\020\007\022\037\n\033NETWORK" +
-      "_BITCOINCASH_TESTNET\020\010\022\032\n\026NETWORK_RIPPLE" +
-      "_MAINNET\020\t\022\032\n\026NETWORK_RIPPLE_TESTNET\020\n\022\030" +
-      "\n\024NETWORK_TRON_MAINNET\020\013\022\030\n\024NETWORK_TRON" +
-      "_TESTNET\020\014\022\031\n\025NETWORK_C0BAN_MAINNET\020\r\022\031\n" +
-      "\025NETWORK_C0BAN_TESTNET\020\016\022\033\n\027NETWORK_STEL" +
-      "LAR_MAINNET\020\017\022\033\n\027NETWORK_STELLAR_TESTNET" +
-      "\020\020\022\033\n\027NETWORK_CARDANO_MAINNET\020\021\022\033\n\027NETWO" +
-      "RK_CARDANO_TESTNET\020\022\022\034\n\030NETWORK_POLKADOT" +
-      "_MAINNET\020\023\022\034\n\030NETWORK_POLKADOT_TESTNET\020\024" +
-      "\022\027\n\023NETWORK_NEM_MAINNET\020\025\022\027\n\023NETWORK_NEM" +
-      "_TESTNET\020\026\022\034\n\030NETWORK_MONACOIN_MAINNET\020\027" +
-      "\022\034\n\030NETWORK_MONACOIN_TESTNET\020\030\022\030\n\024NETWOR" +
-      "K_IOST_MAINNET\020\031\022\030\n\024NETWORK_IOST_TESTNET" +
-      "\020\032\022\030\n\024NETWORK_KLAY_MAINNET\020\033\022\030\n\024NETWORK_" +
-      "KLAY_TESTNET\020\034\022\033\n\027NETWORK_POLYGON_MAINNE" +
-      "T\020\035\022\033\n\027NETWORK_POLYGON_TESTNET\020\036*\212\001\n\013Add" +
-      "ressType\022\030\n\024ADDRESS_TYPE_INVALID\020\000\022\025\n\021AD" +
-      "DRESS_TYPE_P2SH\020\001\022\033\n\027ADDRESS_TYPE_P2SH_P" +
-      "2WSH\020\002\022\026\n\022ADDRESS_TYPE_P2WSH\020\003\022\025\n\021ADDRES" +
-      "S_TYPE_NONE\020d*\323\001\n\020TransactionState\022\035\n\031TR" +
-      "ANSACTION_STATE_INVALID\020\000\022\037\n\033TRANSACTION" +
-      "_STATE_SUBMITTED\020\001\022\035\n\031TRANSACTION_STATE_" +
-      "PENDING\020\002\022 \n\034TRANSACTION_STATE_PROCESSIN" +
-      "G\020\003\022\037\n\033TRANSACTION_STATE_CONFIRMED\020\004\022\035\n\031" +
-      "TRANSACTION_STATE_DROPPED\020\005*\217\001\n\tUTXOStat" +
-      "e\022\026\n\022UTXO_STATE_INVALID\020\000\022\036\n\032UTXO_STATE_" +
-      "PENDING_UNSPENT\020\001\022\026\n\022UTXO_STATE_UNSPENT\020" +
-      "\002\022\034\n\030UTXO_STATE_PENDING_SPENT\020\003\022\024\n\020UTXO_" +
-      "STATE_SPENT\020\004*\217\001\n\014TransferType\022\031\n\025TRANSF" +
-      "ER_TYPE_INVALID\020\000\022\026\n\022TRANSFER_TYPE_SEND\020" +
-      "\001\022\031\n\025TRANSFER_TYPE_RECEIVE\020\002\022\030\n\024TRANSFER" +
-      "_TYPE_CHANGE\020\003\022\027\n\023TRANSFER_TYPE_FATAL\020\004*" +
-      "\253\001\n\022XRPTransactionType\022 \n\034XRP_TRANSACTIO" +
-      "N_TYPE_INVALID\020\000\022 \n\034XRP_TRANSACTION_TYPE" +
-      "_PAYMENT\020\001\022(\n$XRP_TRANSACTION_TYPE_SET_S" +
-      "IGNER_LIST\020\002\022\'\n#XRP_TRANSACTION_TYPE_DIS" +
-      "ABLE_MASTER\020\003*\260\001\n\021TransactionResult\022\036\n\032T" +
-      "RANSACTION_RESULT_INVALID\020\000\022\036\n\032TRANSACTI" +
-      "ON_RESULT_PENDING\020\001\022\036\n\032TRANSACTION_RESUL" +
-      "T_SUCCESS\020\002\022\036\n\032TRANSACTION_RESULT_FAILUR" +
-      "E\020\003\022\033\n\027TRANSACTION_RESULT_NONE\020d*\275\003\n\022Nem" +
-      "TransactionType\022 \n\034NEM_TRANSACTION_TYPE_" +
-      "INVALID\020\000\022&\n\"NEM_TRANSACTION_TYPE_TRANSF" +
-      "ER_TYPE\020\001\0221\n-NEM_TRANSACTION_TYPE_IMPORT" +
-      "ANCE_TRANSFER_TYPE\020\002\0223\n/NEM_TRANSACTION_" +
-      "TYPE_MULTISIG_MODIFICATION_TYPE\020\003\0220\n,NEM" +
-      "_TRANSACTION_TYPE_MULTISIG_SIGNATURE_TYP" +
-      "E\020\004\0222\n.NEM_TRANSACTION_TYPE_MULTISIG_TRA" +
-      "NSACTION_TYPE\020\005\0221\n-NEM_TRANSACTION_TYPE_" +
-      "PROVISION_NAMESPACE_TYPE\020\006\022/\n+NEM_TRANSA" +
-      "CTION_TYPE_MOSAIC_DEFINITION_TYPE\020\007\022+\n\'N" +
-      "EM_TRANSACTION_TYPE_MOSAIC_SUPPLY_TYPE\020\010" +
-      "BEZCgithub.com/GincoInc/gew-kmp/gen/ginc" +
-      "oinc/global/v1/gincoincglobalv1b\006proto3"
+      "IN_KLAY\020\036\022\016\n\nCOIN_MATIC\020\037\022\014\n\010COIN_XYM\020 *" +
+      "\254\007\n\007Network\022\023\n\017NETWORK_INVALID\020\000\022\033\n\027NETW" +
+      "ORK_BITCOIN_MAINNET\020\001\022\033\n\027NETWORK_BITCOIN" +
+      "_TESTNET\020\002\022\034\n\030NETWORK_ETHEREUM_MAINNET\020\003" +
+      "\022\034\n\030NETWORK_ETHEREUM_TESTNET\020\004\022\034\n\030NETWOR" +
+      "K_LITECOIN_MAINNET\020\005\022\034\n\030NETWORK_LITECOIN" +
+      "_TESTNET\020\006\022\037\n\033NETWORK_BITCOINCASH_MAINNE" +
+      "T\020\007\022\037\n\033NETWORK_BITCOINCASH_TESTNET\020\010\022\032\n\026" +
+      "NETWORK_RIPPLE_MAINNET\020\t\022\032\n\026NETWORK_RIPP" +
+      "LE_TESTNET\020\n\022\030\n\024NETWORK_TRON_MAINNET\020\013\022\030" +
+      "\n\024NETWORK_TRON_TESTNET\020\014\022\031\n\025NETWORK_C0BA" +
+      "N_MAINNET\020\r\022\031\n\025NETWORK_C0BAN_TESTNET\020\016\022\033" +
+      "\n\027NETWORK_STELLAR_MAINNET\020\017\022\033\n\027NETWORK_S" +
+      "TELLAR_TESTNET\020\020\022\033\n\027NETWORK_CARDANO_MAIN" +
+      "NET\020\021\022\033\n\027NETWORK_CARDANO_TESTNET\020\022\022\034\n\030NE" +
+      "TWORK_POLKADOT_MAINNET\020\023\022\034\n\030NETWORK_POLK" +
+      "ADOT_TESTNET\020\024\022\027\n\023NETWORK_NEM_MAINNET\020\025\022" +
+      "\027\n\023NETWORK_NEM_TESTNET\020\026\022\034\n\030NETWORK_MONA" +
+      "COIN_MAINNET\020\027\022\034\n\030NETWORK_MONACOIN_TESTN" +
+      "ET\020\030\022\030\n\024NETWORK_IOST_MAINNET\020\031\022\030\n\024NETWOR" +
+      "K_IOST_TESTNET\020\032\022\030\n\024NETWORK_KLAY_MAINNET" +
+      "\020\033\022\030\n\024NETWORK_KLAY_TESTNET\020\034\022\033\n\027NETWORK_" +
+      "POLYGON_MAINNET\020\035\022\033\n\027NETWORK_POLYGON_TES" +
+      "TNET\020\036\022\032\n\026NETWORK_SYMBOL_MAINNET\020\037\022\032\n\026NE" +
+      "TWORK_SYMBOL_TESTNET\020 *\212\001\n\013AddressType\022\030" +
+      "\n\024ADDRESS_TYPE_INVALID\020\000\022\025\n\021ADDRESS_TYPE" +
+      "_P2SH\020\001\022\033\n\027ADDRESS_TYPE_P2SH_P2WSH\020\002\022\026\n\022" +
+      "ADDRESS_TYPE_P2WSH\020\003\022\025\n\021ADDRESS_TYPE_NON" +
+      "E\020d*\323\001\n\020TransactionState\022\035\n\031TRANSACTION_" +
+      "STATE_INVALID\020\000\022\037\n\033TRANSACTION_STATE_SUB" +
+      "MITTED\020\001\022\035\n\031TRANSACTION_STATE_PENDING\020\002\022" +
+      " \n\034TRANSACTION_STATE_PROCESSING\020\003\022\037\n\033TRA" +
+      "NSACTION_STATE_CONFIRMED\020\004\022\035\n\031TRANSACTIO" +
+      "N_STATE_DROPPED\020\005*\217\001\n\tUTXOState\022\026\n\022UTXO_" +
+      "STATE_INVALID\020\000\022\036\n\032UTXO_STATE_PENDING_UN" +
+      "SPENT\020\001\022\026\n\022UTXO_STATE_UNSPENT\020\002\022\034\n\030UTXO_" +
+      "STATE_PENDING_SPENT\020\003\022\024\n\020UTXO_STATE_SPEN" +
+      "T\020\004*\217\001\n\014TransferType\022\031\n\025TRANSFER_TYPE_IN" +
+      "VALID\020\000\022\026\n\022TRANSFER_TYPE_SEND\020\001\022\031\n\025TRANS" +
+      "FER_TYPE_RECEIVE\020\002\022\030\n\024TRANSFER_TYPE_CHAN" +
+      "GE\020\003\022\027\n\023TRANSFER_TYPE_FATAL\020\004*\253\001\n\022XRPTra" +
+      "nsactionType\022 \n\034XRP_TRANSACTION_TYPE_INV" +
+      "ALID\020\000\022 \n\034XRP_TRANSACTION_TYPE_PAYMENT\020\001" +
+      "\022(\n$XRP_TRANSACTION_TYPE_SET_SIGNER_LIST" +
+      "\020\002\022\'\n#XRP_TRANSACTION_TYPE_DISABLE_MASTE" +
+      "R\020\003*\260\001\n\021TransactionResult\022\036\n\032TRANSACTION" +
+      "_RESULT_INVALID\020\000\022\036\n\032TRANSACTION_RESULT_" +
+      "PENDING\020\001\022\036\n\032TRANSACTION_RESULT_SUCCESS\020" +
+      "\002\022\036\n\032TRANSACTION_RESULT_FAILURE\020\003\022\033\n\027TRA" +
+      "NSACTION_RESULT_NONE\020d*\275\003\n\022NemTransactio" +
+      "nType\022 \n\034NEM_TRANSACTION_TYPE_INVALID\020\000\022" +
+      "&\n\"NEM_TRANSACTION_TYPE_TRANSFER_TYPE\020\001\022" +
+      "1\n-NEM_TRANSACTION_TYPE_IMPORTANCE_TRANS" +
+      "FER_TYPE\020\002\0223\n/NEM_TRANSACTION_TYPE_MULTI" +
+      "SIG_MODIFICATION_TYPE\020\003\0220\n,NEM_TRANSACTI" +
+      "ON_TYPE_MULTISIG_SIGNATURE_TYPE\020\004\0222\n.NEM" +
+      "_TRANSACTION_TYPE_MULTISIG_TRANSACTION_T" +
+      "YPE\020\005\0221\n-NEM_TRANSACTION_TYPE_PROVISION_" +
+      "NAMESPACE_TYPE\020\006\022/\n+NEM_TRANSACTION_TYPE" +
+      "_MOSAIC_DEFINITION_TYPE\020\007\022+\n\'NEM_TRANSAC" +
+      "TION_TYPE_MOSAIC_SUPPLY_TYPE\020\010*\353\t\n\025Symbo" +
+      "lTransactionType\022#\n\037SYMBOL_TRANSACTION_T" +
+      "YPE_INVALID\020\000\022,\n(SYMBOL_TRANSACTION_TYPE" +
+      "_ACCOUNT_KEY_LINK\020\001\022)\n%SYMBOL_TRANSACTIO" +
+      "N_TYPE_NODE_KEY_LINK\020\002\022.\n*SYMBOL_TRANSAC" +
+      "TION_TYPE_AGGREGATE_COMPLETE\020\003\022,\n(SYMBOL" +
+      "_TRANSACTION_TYPE_AGGREGATE_BONDED\020\004\022+\n\'" +
+      "SYMBOL_TRANSACTION_TYPE_VOTING_KEY_LINK\020" +
+      "\005\022(\n$SYMBOL_TRANSACTION_TYPE_VRF_KEY_LIN" +
+      "K\020\006\022%\n!SYMBOL_TRANSACTION_TYPE_HASH_LOCK" +
+      "\020\007\022\'\n#SYMBOL_TRANSACTION_TYPE_SECRET_LOC" +
+      "K\020\010\022(\n$SYMBOL_TRANSACTION_TYPE_SECRET_PR" +
+      "OOF\020\t\022,\n(SYMBOL_TRANSACTION_TYPE_ACCOUNT" +
+      "_METADATA\020\n\022+\n\'SYMBOL_TRANSACTION_TYPE_M" +
+      "OSAIC_METADATA\020\013\022.\n*SYMBOL_TRANSACTION_T" +
+      "YPE_NAMESPACE_METADATA\020\014\022-\n)SYMBOL_TRANS" +
+      "ACTION_TYPE_MOSAIC_DEFINITION\020\r\0220\n,SYMBO" +
+      "L_TRANSACTION_TYPE_MOSAIC_SUPPLY_CHANGE\020" +
+      "\016\0224\n0SYMBOL_TRANSACTION_TYPE_MOSAIC_SUPP" +
+      "LY_REVOCATION\020\017\0229\n5SYMBOL_TRANSACTION_TY" +
+      "PE_MULTISIG_ACCOUNT_MODIFICATION\020\020\022)\n%SY" +
+      "MBOL_TRANSACTION_TYPE_ADDRESS_ALIAS\020\021\022(\n" +
+      "$SYMBOL_TRANSACTION_TYPE_MOSAIC_ALIAS\020\022\022" +
+      "2\n.SYMBOL_TRANSACTION_TYPE_NAMESPACE_REG" +
+      "ISTRATION\020\023\0227\n3SYMBOL_TRANSACTION_TYPE_A" +
+      "CCOUNT_ADDRESS_RESTRICTION\020\024\0226\n2SYMBOL_T" +
+      "RANSACTION_TYPE_ACCOUNT_MOSAIC_RESTRICTI" +
+      "ON\020\025\0229\n5SYMBOL_TRANSACTION_TYPE_ACCOUNT_" +
+      "OPERATION_RESTRICTION\020\026\0226\n2SYMBOL_TRANSA" +
+      "CTION_TYPE_MOSAIC_ADDRESS_RESTRICTION\020\027\022" +
+      "5\n1SYMBOL_TRANSACTION_TYPE_MOSAIC_GLOBAL" +
+      "_RESTRICTION\020\030\022$\n SYMBOL_TRANSACTION_TYP" +
+      "E_TRANSFER\020\031BEZCgithub.com/GincoInc/gew-" +
+      "kmp/gen/gincoinc/global/v1/gincoincgloba" +
+      "lv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

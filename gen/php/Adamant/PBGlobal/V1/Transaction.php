@@ -172,7 +172,7 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $nem_specific = null;
     /**
-     * The Nem specific fields
+     * The IOST specific fields
      *
      * Generated from protobuf field <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
      */
@@ -189,6 +189,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.KlaytnSpecific klaytn_specific = 34 [json_name = "klaytnSpecific"];</code>
      */
     protected $klaytn_specific = null;
+    /**
+     * The Symbol specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.SymbolSpecific symbol_specific = 35 [json_name = "symbolSpecific"];</code>
+     */
+    protected $symbol_specific = null;
     /**
      * the time at which the transaction was created
      *
@@ -261,11 +267,13 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\NemSpecific $nem_specific
      *           The Nem specific fields
      *     @type \Adamant\PBGlobal\V1\IOSTSpecific $iost_specific
-     *           The Nem specific fields
+     *           The IOST specific fields
      *     @type \Adamant\PBGlobal\V1\PolygonSpecific $polygon_specific
      *           The Polygon specific fields
      *     @type \Adamant\PBGlobal\V1\KlaytnSpecific $klaytn_specific
      *           The Klaytn specific fields
+     *     @type \Adamant\PBGlobal\V1\SymbolSpecific $symbol_specific
+     *           The Symbol specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -1074,7 +1082,7 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * The Nem specific fields
+     * The IOST specific fields
      *
      * Generated from protobuf field <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
      * @return \Adamant\PBGlobal\V1\IOSTSpecific|null
@@ -1095,7 +1103,7 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * The Nem specific fields
+     * The IOST specific fields
      *
      * Generated from protobuf field <code>.adamant.global.v1.IOSTSpecific iost_specific = 32 [json_name = "iostSpecific"];</code>
      * @param \Adamant\PBGlobal\V1\IOSTSpecific $var
@@ -1177,6 +1185,42 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\KlaytnSpecific::class);
         $this->klaytn_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Symbol specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.SymbolSpecific symbol_specific = 35 [json_name = "symbolSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\SymbolSpecific|null
+     */
+    public function getSymbolSpecific()
+    {
+        return $this->symbol_specific;
+    }
+
+    public function hasSymbolSpecific()
+    {
+        return isset($this->symbol_specific);
+    }
+
+    public function clearSymbolSpecific()
+    {
+        unset($this->symbol_specific);
+    }
+
+    /**
+     * The Symbol specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.SymbolSpecific symbol_specific = 35 [json_name = "symbolSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\SymbolSpecific $var
+     * @return $this
+     */
+    public function setSymbolSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\SymbolSpecific::class);
+        $this->symbol_specific = $var;
 
         return $this;
     }
