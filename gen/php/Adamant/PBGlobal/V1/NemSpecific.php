@@ -31,6 +31,10 @@ class NemSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint64 expiration = 4 [json_name = "expiration"];</code>
      */
     protected $expiration = 0;
+    /**
+     * Generated from protobuf field <code>uint64 timestamp = 5 [json_name = "timestamp"];</code>
+     */
+    protected $timestamp = 0;
 
     /**
      * Constructor.
@@ -42,6 +46,7 @@ class NemSpecific extends \Google\Protobuf\Internal\Message
      *     @type int $tx_type
      *     @type array<\Adamant\PBGlobal\V1\NemMultisigTransaction>|\Google\Protobuf\Internal\RepeatedField $nem_multisig_transactions
      *     @type int|string $expiration
+     *     @type int|string $timestamp
      * }
      */
     public function __construct($data = NULL) {
@@ -133,6 +138,28 @@ class NemSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint64($var);
         $this->expiration = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 timestamp = 5 [json_name = "timestamp"];</code>
+     * @return int|string
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 timestamp = 5 [json_name = "timestamp"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setTimestamp($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->timestamp = $var;
 
         return $this;
     }
