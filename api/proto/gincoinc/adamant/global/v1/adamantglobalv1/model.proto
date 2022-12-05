@@ -315,6 +315,7 @@ message NemSpecific {
   gincoinc.global.v1.NemTransactionType tx_type = 2;
   repeated NemMultisigTransaction nem_multisig_transactions = 3;
   uint64 expiration = 4;
+  uint64 timestamp = 5;
 }
 
 // The model of IOST specific fields of transaction
@@ -356,6 +357,7 @@ message CreateTransactionNemSpecific {
   string transaction_id = 1;
   gincoinc.global.v1.NemTransactionType tx_type = 2;
   string message = 3;
+  uint64 timestamp = 4;
 }
 
 // The model of IOST specific fields of CreateTransaction
