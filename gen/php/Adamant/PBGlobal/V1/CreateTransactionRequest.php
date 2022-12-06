@@ -57,6 +57,10 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11 [json_name = "iostSpecific"];</code>
      */
     protected $iost_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+     */
+    protected $xym_specific = null;
 
     /**
      * Constructor.
@@ -75,6 +79,7 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CreateTransactionWalletConnectSpecific $wallet_connect_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionNemSpecific $nem_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionIOSTSpecific $iost_specific
+     *     @type \Adamant\PBGlobal\V1\CreateTransactionSymbolSpecific $xym_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -360,6 +365,38 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionIOSTSpecific::class);
         $this->iost_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CreateTransactionSymbolSpecific|null
+     */
+    public function getXymSpecific()
+    {
+        return $this->xym_specific;
+    }
+
+    public function hasXymSpecific()
+    {
+        return isset($this->xym_specific);
+    }
+
+    public function clearXymSpecific()
+    {
+        unset($this->xym_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CreateTransactionSymbolSpecific $var
+     * @return $this
+     */
+    public function setXymSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionSymbolSpecific::class);
+        $this->xym_specific = $var;
 
         return $this;
     }

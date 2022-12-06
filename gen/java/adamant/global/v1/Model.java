@@ -105995,6 +105995,12 @@ public final class Model {
      */
     com.google.protobuf.ByteString
         getSignatureBytes();
+
+    /**
+     * <code>uint32 hd_index = 3 [json_name = "hdIndex"];</code>
+     * @return The hdIndex.
+     */
+    int getHdIndex();
   }
   /**
    * Protobuf type {@code adamant.global.v1.RequestSignature}
@@ -106051,6 +106057,11 @@ public final class Model {
               java.lang.String s = input.readStringRequireUtf8();
 
               signature_ = s;
+              break;
+            }
+            case 24: {
+
+              hdIndex_ = input.readUInt32();
               break;
             }
             default: {
@@ -106134,6 +106145,17 @@ public final class Model {
       }
     }
 
+    public static final int HD_INDEX_FIELD_NUMBER = 3;
+    private int hdIndex_;
+    /**
+     * <code>uint32 hd_index = 3 [json_name = "hdIndex"];</code>
+     * @return The hdIndex.
+     */
+    @java.lang.Override
+    public int getHdIndex() {
+      return hdIndex_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -106154,6 +106176,9 @@ public final class Model {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(signature_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, signature_);
       }
+      if (hdIndex_ != 0) {
+        output.writeUInt32(3, hdIndex_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -106169,6 +106194,10 @@ public final class Model {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(signature_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, signature_);
+      }
+      if (hdIndex_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(3, hdIndex_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -106189,6 +106218,8 @@ public final class Model {
           != other.getSignIndex()) return false;
       if (!getSignature()
           .equals(other.getSignature())) return false;
+      if (getHdIndex()
+          != other.getHdIndex()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -106204,6 +106235,8 @@ public final class Model {
       hash = (53 * hash) + getSignIndex();
       hash = (37 * hash) + SIGNATURE_FIELD_NUMBER;
       hash = (53 * hash) + getSignature().hashCode();
+      hash = (37 * hash) + HD_INDEX_FIELD_NUMBER;
+      hash = (53 * hash) + getHdIndex();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -106341,6 +106374,8 @@ public final class Model {
 
         signature_ = "";
 
+        hdIndex_ = 0;
+
         return this;
       }
 
@@ -106369,6 +106404,7 @@ public final class Model {
         adamant.global.v1.Model.RequestSignature result = new adamant.global.v1.Model.RequestSignature(this);
         result.signIndex_ = signIndex_;
         result.signature_ = signature_;
+        result.hdIndex_ = hdIndex_;
         onBuilt();
         return result;
       }
@@ -106423,6 +106459,9 @@ public final class Model {
         if (!other.getSignature().isEmpty()) {
           signature_ = other.signature_;
           onChanged();
+        }
+        if (other.getHdIndex() != 0) {
+          setHdIndex(other.getHdIndex());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -106556,6 +106595,37 @@ public final class Model {
   checkByteStringIsUtf8(value);
         
         signature_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int hdIndex_ ;
+      /**
+       * <code>uint32 hd_index = 3 [json_name = "hdIndex"];</code>
+       * @return The hdIndex.
+       */
+      @java.lang.Override
+      public int getHdIndex() {
+        return hdIndex_;
+      }
+      /**
+       * <code>uint32 hd_index = 3 [json_name = "hdIndex"];</code>
+       * @param value The hdIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHdIndex(int value) {
+        
+        hdIndex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 hd_index = 3 [json_name = "hdIndex"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHdIndex() {
+        
+        hdIndex_ = 0;
         onChanged();
         return this;
       }
@@ -108946,6 +109016,1096 @@ public final class Model {
 
     @java.lang.Override
     public adamant.global.v1.Model.SubstrateChildAddress getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SymbolChildAddressOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:adamant.global.v1.SymbolChildAddress)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+     * @return The walletId.
+     */
+    java.lang.String getWalletId();
+    /**
+     * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+     * @return The bytes for walletId.
+     */
+    com.google.protobuf.ByteString
+        getWalletIdBytes();
+
+    /**
+     * <code>string account_id = 2 [json_name = "accountId"];</code>
+     * @return The accountId.
+     */
+    java.lang.String getAccountId();
+    /**
+     * <code>string account_id = 2 [json_name = "accountId"];</code>
+     * @return The bytes for accountId.
+     */
+    com.google.protobuf.ByteString
+        getAccountIdBytes();
+
+    /**
+     * <code>string address = 3 [json_name = "address"];</code>
+     * @return The address.
+     */
+    java.lang.String getAddress();
+    /**
+     * <code>string address = 3 [json_name = "address"];</code>
+     * @return The bytes for address.
+     */
+    com.google.protobuf.ByteString
+        getAddressBytes();
+
+    /**
+     * <code>double balance = 4 [json_name = "balance"];</code>
+     * @return The balance.
+     */
+    double getBalance();
+
+    /**
+     * <code>string string_balance = 5 [json_name = "stringBalance"];</code>
+     * @return The stringBalance.
+     */
+    java.lang.String getStringBalance();
+    /**
+     * <code>string string_balance = 5 [json_name = "stringBalance"];</code>
+     * @return The bytes for stringBalance.
+     */
+    com.google.protobuf.ByteString
+        getStringBalanceBytes();
+  }
+  /**
+   * Protobuf type {@code adamant.global.v1.SymbolChildAddress}
+   */
+  public static final class SymbolChildAddress extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:adamant.global.v1.SymbolChildAddress)
+      SymbolChildAddressOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SymbolChildAddress.newBuilder() to construct.
+    private SymbolChildAddress(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SymbolChildAddress() {
+      walletId_ = "";
+      accountId_ = "";
+      address_ = "";
+      stringBalance_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SymbolChildAddress();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SymbolChildAddress(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              walletId_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              accountId_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              address_ = s;
+              break;
+            }
+            case 33: {
+
+              balance_ = input.readDouble();
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              stringBalance_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_SymbolChildAddress_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return adamant.global.v1.Model.internal_static_adamant_global_v1_SymbolChildAddress_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              adamant.global.v1.Model.SymbolChildAddress.class, adamant.global.v1.Model.SymbolChildAddress.Builder.class);
+    }
+
+    public static final int WALLET_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object walletId_;
+    /**
+     * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+     * @return The walletId.
+     */
+    @java.lang.Override
+    public java.lang.String getWalletId() {
+      java.lang.Object ref = walletId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        walletId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+     * @return The bytes for walletId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getWalletIdBytes() {
+      java.lang.Object ref = walletId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        walletId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ACCOUNT_ID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object accountId_;
+    /**
+     * <code>string account_id = 2 [json_name = "accountId"];</code>
+     * @return The accountId.
+     */
+    @java.lang.Override
+    public java.lang.String getAccountId() {
+      java.lang.Object ref = accountId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        accountId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string account_id = 2 [json_name = "accountId"];</code>
+     * @return The bytes for accountId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAccountIdBytes() {
+      java.lang.Object ref = accountId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        accountId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ADDRESS_FIELD_NUMBER = 3;
+    private volatile java.lang.Object address_;
+    /**
+     * <code>string address = 3 [json_name = "address"];</code>
+     * @return The address.
+     */
+    @java.lang.Override
+    public java.lang.String getAddress() {
+      java.lang.Object ref = address_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        address_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string address = 3 [json_name = "address"];</code>
+     * @return The bytes for address.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAddressBytes() {
+      java.lang.Object ref = address_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        address_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BALANCE_FIELD_NUMBER = 4;
+    private double balance_;
+    /**
+     * <code>double balance = 4 [json_name = "balance"];</code>
+     * @return The balance.
+     */
+    @java.lang.Override
+    public double getBalance() {
+      return balance_;
+    }
+
+    public static final int STRING_BALANCE_FIELD_NUMBER = 5;
+    private volatile java.lang.Object stringBalance_;
+    /**
+     * <code>string string_balance = 5 [json_name = "stringBalance"];</code>
+     * @return The stringBalance.
+     */
+    @java.lang.Override
+    public java.lang.String getStringBalance() {
+      java.lang.Object ref = stringBalance_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        stringBalance_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string string_balance = 5 [json_name = "stringBalance"];</code>
+     * @return The bytes for stringBalance.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getStringBalanceBytes() {
+      java.lang.Object ref = stringBalance_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        stringBalance_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, accountId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, address_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(balance_) != 0) {
+        output.writeDouble(4, balance_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringBalance_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, stringBalance_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(accountId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, accountId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, address_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(balance_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(4, balance_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringBalance_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, stringBalance_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof adamant.global.v1.Model.SymbolChildAddress)) {
+        return super.equals(obj);
+      }
+      adamant.global.v1.Model.SymbolChildAddress other = (adamant.global.v1.Model.SymbolChildAddress) obj;
+
+      if (!getWalletId()
+          .equals(other.getWalletId())) return false;
+      if (!getAccountId()
+          .equals(other.getAccountId())) return false;
+      if (!getAddress()
+          .equals(other.getAddress())) return false;
+      if (java.lang.Double.doubleToLongBits(getBalance())
+          != java.lang.Double.doubleToLongBits(
+              other.getBalance())) return false;
+      if (!getStringBalance()
+          .equals(other.getStringBalance())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + WALLET_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getWalletId().hashCode();
+      hash = (37 * hash) + ACCOUNT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getAccountId().hashCode();
+      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAddress().hashCode();
+      hash = (37 * hash) + BALANCE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getBalance()));
+      hash = (37 * hash) + STRING_BALANCE_FIELD_NUMBER;
+      hash = (53 * hash) + getStringBalance().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static adamant.global.v1.Model.SymbolChildAddress parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.SymbolChildAddress parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SymbolChildAddress parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.SymbolChildAddress parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SymbolChildAddress parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.global.v1.Model.SymbolChildAddress parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SymbolChildAddress parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.SymbolChildAddress parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SymbolChildAddress parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.SymbolChildAddress parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.global.v1.Model.SymbolChildAddress parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.global.v1.Model.SymbolChildAddress parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(adamant.global.v1.Model.SymbolChildAddress prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code adamant.global.v1.SymbolChildAddress}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:adamant.global.v1.SymbolChildAddress)
+        adamant.global.v1.Model.SymbolChildAddressOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_SymbolChildAddress_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_SymbolChildAddress_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                adamant.global.v1.Model.SymbolChildAddress.class, adamant.global.v1.Model.SymbolChildAddress.Builder.class);
+      }
+
+      // Construct using adamant.global.v1.Model.SymbolChildAddress.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        walletId_ = "";
+
+        accountId_ = "";
+
+        address_ = "";
+
+        balance_ = 0D;
+
+        stringBalance_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return adamant.global.v1.Model.internal_static_adamant_global_v1_SymbolChildAddress_descriptor;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.SymbolChildAddress getDefaultInstanceForType() {
+        return adamant.global.v1.Model.SymbolChildAddress.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.SymbolChildAddress build() {
+        adamant.global.v1.Model.SymbolChildAddress result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public adamant.global.v1.Model.SymbolChildAddress buildPartial() {
+        adamant.global.v1.Model.SymbolChildAddress result = new adamant.global.v1.Model.SymbolChildAddress(this);
+        result.walletId_ = walletId_;
+        result.accountId_ = accountId_;
+        result.address_ = address_;
+        result.balance_ = balance_;
+        result.stringBalance_ = stringBalance_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof adamant.global.v1.Model.SymbolChildAddress) {
+          return mergeFrom((adamant.global.v1.Model.SymbolChildAddress)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(adamant.global.v1.Model.SymbolChildAddress other) {
+        if (other == adamant.global.v1.Model.SymbolChildAddress.getDefaultInstance()) return this;
+        if (!other.getWalletId().isEmpty()) {
+          walletId_ = other.walletId_;
+          onChanged();
+        }
+        if (!other.getAccountId().isEmpty()) {
+          accountId_ = other.accountId_;
+          onChanged();
+        }
+        if (!other.getAddress().isEmpty()) {
+          address_ = other.address_;
+          onChanged();
+        }
+        if (other.getBalance() != 0D) {
+          setBalance(other.getBalance());
+        }
+        if (!other.getStringBalance().isEmpty()) {
+          stringBalance_ = other.stringBalance_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        adamant.global.v1.Model.SymbolChildAddress parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (adamant.global.v1.Model.SymbolChildAddress) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object walletId_ = "";
+      /**
+       * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+       * @return The walletId.
+       */
+      public java.lang.String getWalletId() {
+        java.lang.Object ref = walletId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          walletId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+       * @return The bytes for walletId.
+       */
+      public com.google.protobuf.ByteString
+          getWalletIdBytes() {
+        java.lang.Object ref = walletId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          walletId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+       * @param value The walletId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWalletId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        walletId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWalletId() {
+        
+        walletId_ = getDefaultInstance().getWalletId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet_id = 1 [json_name = "walletId"];</code>
+       * @param value The bytes for walletId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWalletIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        walletId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object accountId_ = "";
+      /**
+       * <code>string account_id = 2 [json_name = "accountId"];</code>
+       * @return The accountId.
+       */
+      public java.lang.String getAccountId() {
+        java.lang.Object ref = accountId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          accountId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string account_id = 2 [json_name = "accountId"];</code>
+       * @return The bytes for accountId.
+       */
+      public com.google.protobuf.ByteString
+          getAccountIdBytes() {
+        java.lang.Object ref = accountId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          accountId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string account_id = 2 [json_name = "accountId"];</code>
+       * @param value The accountId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccountId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        accountId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string account_id = 2 [json_name = "accountId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAccountId() {
+        
+        accountId_ = getDefaultInstance().getAccountId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string account_id = 2 [json_name = "accountId"];</code>
+       * @param value The bytes for accountId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAccountIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        accountId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object address_ = "";
+      /**
+       * <code>string address = 3 [json_name = "address"];</code>
+       * @return The address.
+       */
+      public java.lang.String getAddress() {
+        java.lang.Object ref = address_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          address_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string address = 3 [json_name = "address"];</code>
+       * @return The bytes for address.
+       */
+      public com.google.protobuf.ByteString
+          getAddressBytes() {
+        java.lang.Object ref = address_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          address_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string address = 3 [json_name = "address"];</code>
+       * @param value The address to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddress(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        address_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string address = 3 [json_name = "address"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAddress() {
+        
+        address_ = getDefaultInstance().getAddress();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string address = 3 [json_name = "address"];</code>
+       * @param value The bytes for address to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddressBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        address_ = value;
+        onChanged();
+        return this;
+      }
+
+      private double balance_ ;
+      /**
+       * <code>double balance = 4 [json_name = "balance"];</code>
+       * @return The balance.
+       */
+      @java.lang.Override
+      public double getBalance() {
+        return balance_;
+      }
+      /**
+       * <code>double balance = 4 [json_name = "balance"];</code>
+       * @param value The balance to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBalance(double value) {
+        
+        balance_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double balance = 4 [json_name = "balance"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBalance() {
+        
+        balance_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object stringBalance_ = "";
+      /**
+       * <code>string string_balance = 5 [json_name = "stringBalance"];</code>
+       * @return The stringBalance.
+       */
+      public java.lang.String getStringBalance() {
+        java.lang.Object ref = stringBalance_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          stringBalance_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string string_balance = 5 [json_name = "stringBalance"];</code>
+       * @return The bytes for stringBalance.
+       */
+      public com.google.protobuf.ByteString
+          getStringBalanceBytes() {
+        java.lang.Object ref = stringBalance_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          stringBalance_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string string_balance = 5 [json_name = "stringBalance"];</code>
+       * @param value The stringBalance to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStringBalance(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        stringBalance_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string string_balance = 5 [json_name = "stringBalance"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStringBalance() {
+        
+        stringBalance_ = getDefaultInstance().getStringBalance();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string string_balance = 5 [json_name = "stringBalance"];</code>
+       * @param value The bytes for stringBalance to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStringBalanceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        stringBalance_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:adamant.global.v1.SymbolChildAddress)
+    }
+
+    // @@protoc_insertion_point(class_scope:adamant.global.v1.SymbolChildAddress)
+    private static final adamant.global.v1.Model.SymbolChildAddress DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new adamant.global.v1.Model.SymbolChildAddress();
+    }
+
+    public static adamant.global.v1.Model.SymbolChildAddress getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SymbolChildAddress>
+        PARSER = new com.google.protobuf.AbstractParser<SymbolChildAddress>() {
+      @java.lang.Override
+      public SymbolChildAddress parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SymbolChildAddress(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SymbolChildAddress> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SymbolChildAddress> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public adamant.global.v1.Model.SymbolChildAddress getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -112178,6 +113338,11 @@ public final class Model {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_global_v1_SubstrateChildAddress_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_SymbolChildAddress_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_SymbolChildAddress_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_global_v1_IOSTChildAccount_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -112773,33 +113938,38 @@ public final class Model {
       "address\022*\n\014string_value\030\002 \001(\tB\007\372B\004r\002\020\001R\013" +
       "stringValue\"b\n\021RequestSignedInfo\022M\n\nsign" +
       "atures\030\001 \003(\0132#.adamant.global.v1.Request" +
-      "SignatureB\010\372B\005\222\001\002\010\001R\nsignatures\"X\n\020Reque" +
+      "SignatureB\010\372B\005\222\001\002\010\001R\nsignatures\"s\n\020Reque" +
       "stSignature\022\035\n\nsign_index\030\001 \001(\rR\tsignInd" +
       "ex\022%\n\tsignature\030\002 \001(\tB\007\372B\004r\002\020\001R\tsignatur" +
-      "e\"\270\001\n\031RequestTransferLimitEntry\022`\n\023trans" +
-      "fer_limit_type\030\001 \001(\0162$.adamant.global.v1" +
-      ".TransferLimitTypeB\n\372B\007\202\001\004\020\001 \000R\021transfer" +
-      "LimitType\0229\n\024transfer_limit_value\030\002 \001(\003B" +
-      "\007\372B\004\"\002(\000R\022transferLimitValue\"i\n\013RequestR" +
-      "ate\0228\n\004coin\030\001 \001(\0162\030.gincoinc.global.v1.C" +
-      "oinB\n\372B\007\202\001\004\020\001 \000R\004coin\022 \n\003jpy\030\002 \001(\001B\016\372B\013\022" +
-      "\t)\000\000\000\000\000\000\000\000R\003jpy\"\256\001\n\025SubstrateChildAddres" +
-      "s\022\033\n\twallet_id\030\001 \001(\tR\010walletId\022\035\n\naccoun" +
-      "t_id\030\002 \001(\tR\taccountId\022\030\n\007address\030\003 \001(\tR\007" +
-      "address\022\030\n\007balance\030\004 \001(\001R\007balance\022%\n\016str" +
-      "ing_balance\030\005 \001(\tR\rstringBalance\"q\n\020IOST" +
-      "ChildAccount\022\033\n\twallet_id\030\001 \001(\tR\010walletI" +
-      "d\022\035\n\naccount_id\030\002 \001(\tR\taccountId\022!\n\014acco" +
-      "unt_name\030\003 \001(\tR\013accountName\"w\n\021IOSTCalle" +
-      "rAccount\022!\n\014account_name\030\001 \001(\tR\013accountN" +
-      "ame\022\030\n\007balance\030\002 \001(\001R\007balance\022%\n\016string_" +
-      "balance\030\003 \001(\tR\rstringBalance\"\230\001\n\rCallerA" +
-      "ddress\022\030\n\007address\030\001 \001(\tR\007address\022\030\n\007bala" +
-      "nce\030\002 \001(\001R\007balance\022%\n\016string_balance\030\003 \001" +
-      "(\tR\rstringBalance\022,\n\004coin\030\004 \001(\0162\030.gincoi" +
-      "nc.global.v1.CoinR\004coinBLZJgithub.com/Gi" +
-      "ncoInc/gew-kmp/gen/gincoinc/adamant/glob" +
-      "al/v1/adamantglobalv1b\006proto3"
+      "e\022\031\n\010hd_index\030\003 \001(\rR\007hdIndex\"\270\001\n\031Request" +
+      "TransferLimitEntry\022`\n\023transfer_limit_typ" +
+      "e\030\001 \001(\0162$.adamant.global.v1.TransferLimi" +
+      "tTypeB\n\372B\007\202\001\004\020\001 \000R\021transferLimitType\0229\n\024" +
+      "transfer_limit_value\030\002 \001(\003B\007\372B\004\"\002(\000R\022tra" +
+      "nsferLimitValue\"i\n\013RequestRate\0228\n\004coin\030\001" +
+      " \001(\0162\030.gincoinc.global.v1.CoinB\n\372B\007\202\001\004\020\001" +
+      " \000R\004coin\022 \n\003jpy\030\002 \001(\001B\016\372B\013\022\t)\000\000\000\000\000\000\000\000R\003j" +
+      "py\"\256\001\n\025SubstrateChildAddress\022\033\n\twallet_i" +
+      "d\030\001 \001(\tR\010walletId\022\035\n\naccount_id\030\002 \001(\tR\ta" +
+      "ccountId\022\030\n\007address\030\003 \001(\tR\007address\022\030\n\007ba" +
+      "lance\030\004 \001(\001R\007balance\022%\n\016string_balance\030\005" +
+      " \001(\tR\rstringBalance\"\253\001\n\022SymbolChildAddre" +
+      "ss\022\033\n\twallet_id\030\001 \001(\tR\010walletId\022\035\n\naccou" +
+      "nt_id\030\002 \001(\tR\taccountId\022\030\n\007address\030\003 \001(\tR" +
+      "\007address\022\030\n\007balance\030\004 \001(\001R\007balance\022%\n\016st" +
+      "ring_balance\030\005 \001(\tR\rstringBalance\"q\n\020IOS" +
+      "TChildAccount\022\033\n\twallet_id\030\001 \001(\tR\010wallet" +
+      "Id\022\035\n\naccount_id\030\002 \001(\tR\taccountId\022!\n\014acc" +
+      "ount_name\030\003 \001(\tR\013accountName\"w\n\021IOSTCall" +
+      "erAccount\022!\n\014account_name\030\001 \001(\tR\013account" +
+      "Name\022\030\n\007balance\030\002 \001(\001R\007balance\022%\n\016string" +
+      "_balance\030\003 \001(\tR\rstringBalance\"\230\001\n\rCaller" +
+      "Address\022\030\n\007address\030\001 \001(\tR\007address\022\030\n\007bal" +
+      "ance\030\002 \001(\001R\007balance\022%\n\016string_balance\030\003 " +
+      "\001(\tR\rstringBalance\022,\n\004coin\030\004 \001(\0162\030.ginco" +
+      "inc.global.v1.CoinR\004coinBLZJgithub.com/G" +
+      "incoInc/gew-kmp/gen/gincoinc/adamant/glo" +
+      "bal/v1/adamantglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -113312,7 +114482,7 @@ public final class Model {
     internal_static_adamant_global_v1_RequestSignature_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_RequestSignature_descriptor,
-        new java.lang.String[] { "SignIndex", "Signature", });
+        new java.lang.String[] { "SignIndex", "Signature", "HdIndex", });
     internal_static_adamant_global_v1_RequestTransferLimitEntry_descriptor =
       getDescriptor().getMessageTypes().get(75);
     internal_static_adamant_global_v1_RequestTransferLimitEntry_fieldAccessorTable = new
@@ -113331,20 +114501,26 @@ public final class Model {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_SubstrateChildAddress_descriptor,
         new java.lang.String[] { "WalletId", "AccountId", "Address", "Balance", "StringBalance", });
-    internal_static_adamant_global_v1_IOSTChildAccount_descriptor =
+    internal_static_adamant_global_v1_SymbolChildAddress_descriptor =
       getDescriptor().getMessageTypes().get(78);
+    internal_static_adamant_global_v1_SymbolChildAddress_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_SymbolChildAddress_descriptor,
+        new java.lang.String[] { "WalletId", "AccountId", "Address", "Balance", "StringBalance", });
+    internal_static_adamant_global_v1_IOSTChildAccount_descriptor =
+      getDescriptor().getMessageTypes().get(79);
     internal_static_adamant_global_v1_IOSTChildAccount_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IOSTChildAccount_descriptor,
         new java.lang.String[] { "WalletId", "AccountId", "AccountName", });
     internal_static_adamant_global_v1_IOSTCallerAccount_descriptor =
-      getDescriptor().getMessageTypes().get(79);
+      getDescriptor().getMessageTypes().get(80);
     internal_static_adamant_global_v1_IOSTCallerAccount_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IOSTCallerAccount_descriptor,
         new java.lang.String[] { "AccountName", "Balance", "StringBalance", });
     internal_static_adamant_global_v1_CallerAddress_descriptor =
-      getDescriptor().getMessageTypes().get(80);
+      getDescriptor().getMessageTypes().get(81);
     internal_static_adamant_global_v1_CallerAddress_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CallerAddress_descriptor,

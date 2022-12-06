@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-Öº
+Ÿ¼
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"¥
 Wallet
 owner_id (	RownerId
@@ -662,11 +662,12 @@ updateTime"`
 RequestSignedInfoM
 
 signatures (2#.adamant.global.v1.RequestSignatureBúB’R
-signatures"X
+signatures"s
 RequestSignature
 
 sign_index (R	signIndex%
-	signature (	BúBrR	signature"¸
+	signature (	BúBrR	signature
+hd_index (RhdIndex"¸
 RequestTransferLimitEntry`
 transfer_limit_type (2$.adamant.global.v1.TransferLimitTypeB
 úB‚  RtransferLimitType9
@@ -676,6 +677,13 @@ sign_index (R	signIndex%
 úB‚  Rcoin 
 jpy (BúB	)        Rjpy"®
 SubstrateChildAddress
+	wallet_id (	RwalletId
+
+account_id (	R	accountId
+address (	Raddress
+balance (Rbalance%
+string_balance (	RstringBalance"«
+SymbolChildAddress
 	wallet_id (	RwalletId
 
 account_id (	R	accountId

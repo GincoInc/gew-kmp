@@ -37,6 +37,8 @@ public class CreateTransactionRequestValidator implements io.envoyproxy.pgv.Vali
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.CreateTransactionRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -70,6 +72,9 @@ public class CreateTransactionRequestValidator implements io.envoyproxy.pgv.Vali
 	
 			// Validate iost_specific
 			if (proto.hasIostSpecific()) index.validatorFor(proto.getIostSpecific()).assertValid(proto.getIostSpecific());
+	
+			// Validate xym_specific
+			if (proto.hasXymSpecific()) index.validatorFor(proto.getXymSpecific()).assertValid(proto.getXymSpecific());
 	
 	}
 

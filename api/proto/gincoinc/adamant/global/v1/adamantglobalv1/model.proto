@@ -740,6 +740,7 @@ message RequestSignedInfo {
 message RequestSignature {
   uint32 sign_index = 1;
   string signature = 2 [(validate.rules).string.min_len = 1];
+  uint32 hd_index = 3;
 }
 
 message RequestTransferLimitEntry {
@@ -765,6 +766,14 @@ message RequestRate {
 }
 
 message SubstrateChildAddress {
+  string wallet_id = 1;
+  string account_id = 2;
+  string address = 3;
+  double balance = 4;
+  string string_balance = 5;
+}
+
+message SymbolChildAddress {
   string wallet_id = 1;
   string account_id = 2;
   string address = 3;
