@@ -86,6 +86,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.RequestTransferLimitEntry.class)) return new RequestTransferLimitEntryValidator();
 		if (clazz.equals(adamant.global.v1.Model.RequestRate.class)) return new RequestRateValidator();
 		if (clazz.equals(adamant.global.v1.Model.SubstrateChildAddress.class)) return new SubstrateChildAddressValidator();
+		if (clazz.equals(adamant.global.v1.Model.SymbolChildAddress.class)) return new SymbolChildAddressValidator();
 		if (clazz.equals(adamant.global.v1.Model.IOSTChildAccount.class)) return new IOSTChildAccountValidator();
 		if (clazz.equals(adamant.global.v1.Model.IOSTCallerAccount.class)) return new IOSTCallerAccountValidator();
 		if (clazz.equals(adamant.global.v1.Model.CallerAddress.class)) return new CallerAddressValidator();
@@ -2845,6 +2846,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.RequestSignature proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2852,6 +2855,8 @@ public class ModelValidator {
 
 	
 			io.envoyproxy.pgv.StringValidation.minLength(".adamant.global.v1.RequestSignature.signature", proto.getSignature(), 1);
+	// no validation rules for HdIndex
+
 	
 	}
 }
@@ -2918,6 +2923,36 @@ public class ModelValidator {
 	
 
 	public void assertValid(adamant.global.v1.Model.SubstrateChildAddress proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for WalletId
+
+	// no validation rules for AccountId
+
+	// no validation rules for Address
+
+	// no validation rules for Balance
+
+	// no validation rules for StringBalance
+
+	
+	}
+}
+/**
+	 * Validates {@code SymbolChildAddress} protobuf objects.
+	 */
+	public static class SymbolChildAddressValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SymbolChildAddress> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.SymbolChildAddress proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for WalletId
 
 	// no validation rules for AccountId

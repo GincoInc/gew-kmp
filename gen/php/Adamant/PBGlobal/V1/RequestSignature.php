@@ -21,6 +21,10 @@ class RequestSignature extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string signature = 2 [json_name = "signature", (.validate.rules) = {</code>
      */
     protected $signature = '';
+    /**
+     * Generated from protobuf field <code>uint32 hd_index = 3 [json_name = "hdIndex"];</code>
+     */
+    protected $hd_index = 0;
 
     /**
      * Constructor.
@@ -30,6 +34,7 @@ class RequestSignature extends \Google\Protobuf\Internal\Message
      *
      *     @type int $sign_index
      *     @type string $signature
+     *     @type int $hd_index
      * }
      */
     public function __construct($data = NULL) {
@@ -77,6 +82,28 @@ class RequestSignature extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->signature = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 hd_index = 3 [json_name = "hdIndex"];</code>
+     * @return int
+     */
+    public function getHdIndex()
+    {
+        return $this->hd_index;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 hd_index = 3 [json_name = "hdIndex"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setHdIndex($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->hd_index = $var;
 
         return $this;
     }

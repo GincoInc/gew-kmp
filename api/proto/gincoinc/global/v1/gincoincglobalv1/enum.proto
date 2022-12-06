@@ -47,6 +47,7 @@ enum Coin {
   COIN_KLAY = 30;
   COIN_MATIC = 31;
   COIN_XYM = 32;
+  COIN_AVAX = 33;
 }
 
 // Network is a type of blockchain network.
@@ -84,6 +85,8 @@ enum Network {
   NETWORK_POLYGON_TESTNET = 30;
   NETWORK_SYMBOL_MAINNET = 31;
   NETWORK_SYMBOL_TESTNET = 32;
+  NETWORK_AVALANCHE_MAINNET = 33;
+  NETWORK_AVALANCHE_TESTNET = 34;
 }
 
 // AddressType is a type of address.
