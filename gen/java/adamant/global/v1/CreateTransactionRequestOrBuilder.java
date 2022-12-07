@@ -144,4 +144,19 @@ public interface CreateTransactionRequestOrBuilder extends
    * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11 [json_name = "iostSpecific"];</code>
    */
   adamant.global.v1.Model.CreateTransactionIOSTSpecificOrBuilder getIostSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+   * @return Whether the xymSpecific field is set.
+   */
+  boolean hasXymSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+   * @return The xymSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionSymbolSpecific getXymSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionSymbolSpecificOrBuilder getXymSpecificOrBuilder();
 }

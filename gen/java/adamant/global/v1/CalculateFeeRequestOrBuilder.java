@@ -108,4 +108,19 @@ public interface CalculateFeeRequestOrBuilder extends
    * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
    */
   adamant.global.v1.CalculateFeeNemSpecificOrBuilder getNemSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+   * @return Whether the symbolSpecific field is set.
+   */
+  boolean hasSymbolSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+   * @return The symbolSpecific.
+   */
+  adamant.global.v1.CalculateFeeSymbolSpecific getSymbolSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+   */
+  adamant.global.v1.CalculateFeeSymbolSpecificOrBuilder getSymbolSpecificOrBuilder();
 }

@@ -191,9 +191,10 @@ message Transaction {
   SubstrateSpecific substrate_specific = 29; // The Substrate specific fields
   MonacoinSpecific monacoin_specific = 30; // The Monacoin specific fields
   NemSpecific nem_specific = 31; // The Nem specific fields
-  IOSTSpecific iost_specific = 32; // The Nem specific fields
+  IOSTSpecific iost_specific = 32; // The IOST specific fields
   PolygonSpecific polygon_specific = 33; // The Polygon specific fields
   KlaytnSpecific klaytn_specific = 34; // The Klaytn specific fields
+  SymbolSpecific symbol_specific = 35; // The Symbol specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -339,6 +340,15 @@ message KlaytnSpecific {
   bool is_next_nonce = 3;
 }
 
+// The model of Substrate specific fields of transaction
+message SymbolSpecific {
+  string message = 1;
+  gincoinc.global.v1.SymbolTransactionType tx_type = 2;
+  repeated SymbolMultisigTransaction symbol_multisig_transactions = 3;
+  uint64 expiration = 4;
+  uint64 timestamp = 5;
+}
+
 // The model of Substrate specific fields of CreateTransaction
 message CreateTransactionSubstrateSpecific {
   string transaction_id = 1;
@@ -366,6 +376,14 @@ message CreateTransactionIOSTSpecific {
   uint64 timestamp = 2;
 }
 
+// The model of Symbol specific fields of CreateTransaction
+message CreateTransactionSymbolSpecific {
+  string transaction_id = 1;
+  gincoinc.global.v1.SymbolTransactionType tx_type = 2;
+  string message = 3;
+  uint64 timestamp = 4;
+}
+
 // The model of substrate multisig transaction
 message SubstrateMultisigTransaction {
   string wallet_id = 1; // The id of wallet
@@ -391,6 +409,20 @@ message NemMultisigTransaction {
   string nem_multisig_transaction_id = 3;
   string account_id = 10; // AccountID
   gincoinc.global.v1.NemTransactionType tx_type = 4;
+  string data = 5; // The string-typed amount of transaction fee
+  string signature = 6; // The string-typed amount of transaction fee
+  TransactionState state = 7; // state
+  google.protobuf.Timestamp create_time = 8; // the time at which the transaction was created
+  google.protobuf.Timestamp update_time = 9; // the time at which the transaction was updated
+}
+
+// The model of symbol multisig transaction
+message SymbolMultisigTransaction {
+  string wallet_id = 1; // The id of wallet
+  string transaction_id = 2; // id
+  string symbol_multisig_transaction_id = 3;
+  string account_id = 10; // AccountID
+  gincoinc.global.v1.SymbolTransactionType tx_type = 4;
   string data = 5; // The string-typed amount of transaction fee
   string signature = 6; // The string-typed amount of transaction fee
   TransactionState state = 7; // state
@@ -708,6 +740,7 @@ message RequestSignedInfo {
 message RequestSignature {
   uint32 sign_index = 1;
   string signature = 2 [(validate.rules).string.min_len = 1];
+  uint32 hd_index = 3;
 }
 
 message RequestTransferLimitEntry {
@@ -733,6 +766,14 @@ message RequestRate {
 }
 
 message SubstrateChildAddress {
+  string wallet_id = 1;
+  string account_id = 2;
+  string address = 3;
+  double balance = 4;
+  string string_balance = 5;
+}
+
+message SymbolChildAddress {
   string wallet_id = 1;
   string account_id = 2;
   string address = 3;
