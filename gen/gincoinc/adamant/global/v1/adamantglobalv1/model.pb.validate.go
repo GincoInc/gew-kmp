@@ -60,9 +60,15 @@ var (
 
 	_ = gincoincglobalv1.NemTransactionType(0)
 
-	_ = gincoincglobalv1.NemTransactionType(0)
+	_ = gincoincglobalv1.SymbolTransactionType(0)
 
 	_ = gincoincglobalv1.NemTransactionType(0)
+
+	_ = gincoincglobalv1.SymbolTransactionType(0)
+
+	_ = gincoincglobalv1.NemTransactionType(0)
+
+	_ = gincoincglobalv1.SymbolTransactionType(0)
 
 	_ = gincoincglobalv1.Coin(0)
 
@@ -1693,6 +1699,20 @@ func (m *Transaction) Validate(all bool) error {
 		if err := v.Validate(all); err != nil {
 			err = TransactionValidationError{
 				field:  "KlaytnSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if v, ok := interface{}(m.GetSymbolSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransactionValidationError{
+				field:  "SymbolSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -3893,6 +3913,123 @@ var _ interface {
 	ErrorName() string
 } = KlaytnSpecificValidationError{}
 
+// Validate checks the field values on SymbolSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned. When asked to return all errors, validation continues after
+// first violation, and the result is a list of violation errors wrapped in
+// SymbolSpecificMultiError, or nil if none found. Otherwise, only the first
+// error is returned, if any.
+func (m *SymbolSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Message
+
+	// no validation rules for TxType
+
+	for idx, item := range m.GetSymbolMultisigTransactions() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = SymbolSpecificValidationError{
+					field:  fmt.Sprintf("SymbolMultisigTransactions[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
+			}
+		}
+
+	}
+
+	// no validation rules for Expiration
+
+	// no validation rules for Timestamp
+
+	if len(errors) > 0 {
+		return SymbolSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// SymbolSpecificMultiError is an error wrapping multiple validation errors
+// returned by SymbolSpecific.Validate(true) if the designated constraints
+// aren't met.
+type SymbolSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SymbolSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SymbolSpecificMultiError) AllErrors() []error { return m }
+
+// SymbolSpecificValidationError is the validation error returned by
+// SymbolSpecific.Validate if the designated constraints aren't met.
+type SymbolSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SymbolSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SymbolSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SymbolSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SymbolSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SymbolSpecificValidationError) ErrorName() string { return "SymbolSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e SymbolSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSymbolSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SymbolSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SymbolSpecificValidationError{}
+
 // Validate checks the field values on CreateTransactionSubstrateSpecific with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, an error is returned. When asked to return all errors,
@@ -4290,6 +4427,108 @@ var _ interface {
 	ErrorName() string
 } = CreateTransactionIOSTSpecificValidationError{}
 
+// Validate checks the field values on CreateTransactionSymbolSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateTransactionSymbolSpecificMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *CreateTransactionSymbolSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TransactionId
+
+	// no validation rules for TxType
+
+	// no validation rules for Message
+
+	// no validation rules for Timestamp
+
+	if len(errors) > 0 {
+		return CreateTransactionSymbolSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// CreateTransactionSymbolSpecificMultiError is an error wrapping multiple
+// validation errors returned by
+// CreateTransactionSymbolSpecific.Validate(true) if the designated
+// constraints aren't met.
+type CreateTransactionSymbolSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionSymbolSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionSymbolSpecificMultiError) AllErrors() []error { return m }
+
+// CreateTransactionSymbolSpecificValidationError is the validation error
+// returned by CreateTransactionSymbolSpecific.Validate if the designated
+// constraints aren't met.
+type CreateTransactionSymbolSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionSymbolSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionSymbolSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionSymbolSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionSymbolSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionSymbolSpecificValidationError) ErrorName() string {
+	return "CreateTransactionSymbolSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionSymbolSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionSymbolSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionSymbolSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionSymbolSpecificValidationError{}
+
 // Validate checks the field values on SubstrateMultisigTransaction with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned. When asked to return all errors, validation
@@ -4570,6 +4809,142 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = NemMultisigTransactionValidationError{}
+
+// Validate checks the field values on SymbolMultisigTransaction with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SymbolMultisigTransactionMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *SymbolMultisigTransaction) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for WalletId
+
+	// no validation rules for TransactionId
+
+	// no validation rules for SymbolMultisigTransactionId
+
+	// no validation rules for AccountId
+
+	// no validation rules for TxType
+
+	// no validation rules for Data
+
+	// no validation rules for Signature
+
+	// no validation rules for State
+
+	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = SymbolMultisigTransactionValidationError{
+				field:  "CreateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if v, ok := interface{}(m.GetUpdateTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = SymbolMultisigTransactionValidationError{
+				field:  "UpdateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if len(errors) > 0 {
+		return SymbolMultisigTransactionMultiError(errors)
+	}
+	return nil
+}
+
+// SymbolMultisigTransactionMultiError is an error wrapping multiple validation
+// errors returned by SymbolMultisigTransaction.Validate(true) if the
+// designated constraints aren't met.
+type SymbolMultisigTransactionMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SymbolMultisigTransactionMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SymbolMultisigTransactionMultiError) AllErrors() []error { return m }
+
+// SymbolMultisigTransactionValidationError is the validation error returned by
+// SymbolMultisigTransaction.Validate if the designated constraints aren't met.
+type SymbolMultisigTransactionValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SymbolMultisigTransactionValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SymbolMultisigTransactionValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SymbolMultisigTransactionValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SymbolMultisigTransactionValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SymbolMultisigTransactionValidationError) ErrorName() string {
+	return "SymbolMultisigTransactionValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SymbolMultisigTransactionValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSymbolMultisigTransaction.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SymbolMultisigTransactionValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SymbolMultisigTransactionValidationError{}
 
 // Validate checks the field values on SignInfo with the rules defined in the
 // proto definition for this message. If any rules are violated, an error is
@@ -8862,6 +9237,8 @@ func (m *RequestSignature) Validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	// no validation rules for HdIndex
+
 	if len(errors) > 0 {
 		return RequestSignatureMultiError(errors)
 	}
@@ -9295,6 +9672,108 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = SubstrateChildAddressValidationError{}
+
+// Validate checks the field values on SymbolChildAddress with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SymbolChildAddressMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *SymbolChildAddress) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for WalletId
+
+	// no validation rules for AccountId
+
+	// no validation rules for Address
+
+	// no validation rules for Balance
+
+	// no validation rules for StringBalance
+
+	if len(errors) > 0 {
+		return SymbolChildAddressMultiError(errors)
+	}
+	return nil
+}
+
+// SymbolChildAddressMultiError is an error wrapping multiple validation errors
+// returned by SymbolChildAddress.Validate(true) if the designated constraints
+// aren't met.
+type SymbolChildAddressMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SymbolChildAddressMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SymbolChildAddressMultiError) AllErrors() []error { return m }
+
+// SymbolChildAddressValidationError is the validation error returned by
+// SymbolChildAddress.Validate if the designated constraints aren't met.
+type SymbolChildAddressValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SymbolChildAddressValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SymbolChildAddressValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SymbolChildAddressValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SymbolChildAddressValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SymbolChildAddressValidationError) ErrorName() string {
+	return "SymbolChildAddressValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SymbolChildAddressValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSymbolChildAddress.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SymbolChildAddressValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SymbolChildAddressValidationError{}
 
 // Validate checks the field values on IOSTChildAccount with the rules defined
 // in the proto definition for this message. If any rules are violated, an

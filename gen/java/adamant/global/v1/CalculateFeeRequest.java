@@ -116,6 +116,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 74: {
+            adamant.global.v1.CalculateFeeSymbolSpecific.Builder subBuilder = null;
+            if (symbolSpecific_ != null) {
+              subBuilder = symbolSpecific_.toBuilder();
+            }
+            symbolSpecific_ = input.readMessage(adamant.global.v1.CalculateFeeSymbolSpecific.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(symbolSpecific_);
+              symbolSpecific_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -379,6 +392,32 @@ private static final long serialVersionUID = 0L;
     return getNemSpecific();
   }
 
+  public static final int SYMBOL_SPECIFIC_FIELD_NUMBER = 9;
+  private adamant.global.v1.CalculateFeeSymbolSpecific symbolSpecific_;
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+   * @return Whether the symbolSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasSymbolSpecific() {
+    return symbolSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+   * @return The symbolSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.CalculateFeeSymbolSpecific getSymbolSpecific() {
+    return symbolSpecific_ == null ? adamant.global.v1.CalculateFeeSymbolSpecific.getDefaultInstance() : symbolSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.CalculateFeeSymbolSpecificOrBuilder getSymbolSpecificOrBuilder() {
+    return getSymbolSpecific();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -416,6 +455,9 @@ private static final long serialVersionUID = 0L;
     }
     if (nemSpecific_ != null) {
       output.writeMessage(8, getNemSpecific());
+    }
+    if (symbolSpecific_ != null) {
+      output.writeMessage(9, getSymbolSpecific());
     }
     unknownFields.writeTo(output);
   }
@@ -455,6 +497,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getNemSpecific());
     }
+    if (symbolSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, getSymbolSpecific());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -492,6 +538,11 @@ private static final long serialVersionUID = 0L;
       if (!getNemSpecific()
           .equals(other.getNemSpecific())) return false;
     }
+    if (hasSymbolSpecific() != other.hasSymbolSpecific()) return false;
+    if (hasSymbolSpecific()) {
+      if (!getSymbolSpecific()
+          .equals(other.getSymbolSpecific())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -525,6 +576,10 @@ private static final long serialVersionUID = 0L;
     if (hasNemSpecific()) {
       hash = (37 * hash) + NEM_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getNemSpecific().hashCode();
+    }
+    if (hasSymbolSpecific()) {
+      hash = (37 * hash) + SYMBOL_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getSymbolSpecific().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -688,6 +743,12 @@ private static final long serialVersionUID = 0L;
         nemSpecific_ = null;
         nemSpecificBuilder_ = null;
       }
+      if (symbolSpecificBuilder_ == null) {
+        symbolSpecific_ = null;
+      } else {
+        symbolSpecific_ = null;
+        symbolSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -738,6 +799,11 @@ private static final long serialVersionUID = 0L;
         result.nemSpecific_ = nemSpecific_;
       } else {
         result.nemSpecific_ = nemSpecificBuilder_.build();
+      }
+      if (symbolSpecificBuilder_ == null) {
+        result.symbolSpecific_ = symbolSpecific_;
+      } else {
+        result.symbolSpecific_ = symbolSpecificBuilder_.build();
       }
       onBuilt();
       return result;
@@ -836,6 +902,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasNemSpecific()) {
         mergeNemSpecific(other.getNemSpecific());
+      }
+      if (other.hasSymbolSpecific()) {
+        mergeSymbolSpecific(other.getSymbolSpecific());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1633,6 +1702,125 @@ private static final long serialVersionUID = 0L;
         nemSpecific_ = null;
       }
       return nemSpecificBuilder_;
+    }
+
+    private adamant.global.v1.CalculateFeeSymbolSpecific symbolSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.CalculateFeeSymbolSpecific, adamant.global.v1.CalculateFeeSymbolSpecific.Builder, adamant.global.v1.CalculateFeeSymbolSpecificOrBuilder> symbolSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+     * @return Whether the symbolSpecific field is set.
+     */
+    public boolean hasSymbolSpecific() {
+      return symbolSpecificBuilder_ != null || symbolSpecific_ != null;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+     * @return The symbolSpecific.
+     */
+    public adamant.global.v1.CalculateFeeSymbolSpecific getSymbolSpecific() {
+      if (symbolSpecificBuilder_ == null) {
+        return symbolSpecific_ == null ? adamant.global.v1.CalculateFeeSymbolSpecific.getDefaultInstance() : symbolSpecific_;
+      } else {
+        return symbolSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+     */
+    public Builder setSymbolSpecific(adamant.global.v1.CalculateFeeSymbolSpecific value) {
+      if (symbolSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        symbolSpecific_ = value;
+        onChanged();
+      } else {
+        symbolSpecificBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+     */
+    public Builder setSymbolSpecific(
+        adamant.global.v1.CalculateFeeSymbolSpecific.Builder builderForValue) {
+      if (symbolSpecificBuilder_ == null) {
+        symbolSpecific_ = builderForValue.build();
+        onChanged();
+      } else {
+        symbolSpecificBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+     */
+    public Builder mergeSymbolSpecific(adamant.global.v1.CalculateFeeSymbolSpecific value) {
+      if (symbolSpecificBuilder_ == null) {
+        if (symbolSpecific_ != null) {
+          symbolSpecific_ =
+            adamant.global.v1.CalculateFeeSymbolSpecific.newBuilder(symbolSpecific_).mergeFrom(value).buildPartial();
+        } else {
+          symbolSpecific_ = value;
+        }
+        onChanged();
+      } else {
+        symbolSpecificBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+     */
+    public Builder clearSymbolSpecific() {
+      if (symbolSpecificBuilder_ == null) {
+        symbolSpecific_ = null;
+        onChanged();
+      } else {
+        symbolSpecific_ = null;
+        symbolSpecificBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+     */
+    public adamant.global.v1.CalculateFeeSymbolSpecific.Builder getSymbolSpecificBuilder() {
+      
+      onChanged();
+      return getSymbolSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+     */
+    public adamant.global.v1.CalculateFeeSymbolSpecificOrBuilder getSymbolSpecificOrBuilder() {
+      if (symbolSpecificBuilder_ != null) {
+        return symbolSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return symbolSpecific_ == null ?
+            adamant.global.v1.CalculateFeeSymbolSpecific.getDefaultInstance() : symbolSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.CalculateFeeSymbolSpecific, adamant.global.v1.CalculateFeeSymbolSpecific.Builder, adamant.global.v1.CalculateFeeSymbolSpecificOrBuilder> 
+        getSymbolSpecificFieldBuilder() {
+      if (symbolSpecificBuilder_ == null) {
+        symbolSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.CalculateFeeSymbolSpecific, adamant.global.v1.CalculateFeeSymbolSpecific.Builder, adamant.global.v1.CalculateFeeSymbolSpecificOrBuilder>(
+                getSymbolSpecific(),
+                getParentForChildren(),
+                isClean());
+        symbolSpecific_ = null;
+      }
+      return symbolSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

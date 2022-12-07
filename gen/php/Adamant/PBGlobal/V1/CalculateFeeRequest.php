@@ -45,6 +45,10 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
      */
     protected $nem_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+     */
+    protected $symbol_specific = null;
 
     /**
      * Constructor.
@@ -60,6 +64,7 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      *     @type string $string_value
      *     @type \Adamant\PBGlobal\V1\CalculateFeeSubstrateSpecific $substrate_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeNemSpecific $nem_specific
+     *     @type \Adamant\PBGlobal\V1\CalculateFeeSymbolSpecific $symbol_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -259,6 +264,38 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeNemSpecific::class);
         $this->nem_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CalculateFeeSymbolSpecific|null
+     */
+    public function getSymbolSpecific()
+    {
+        return $this->symbol_specific;
+    }
+
+    public function hasSymbolSpecific()
+    {
+        return isset($this->symbol_specific);
+    }
+
+    public function clearSymbolSpecific()
+    {
+        unset($this->symbol_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CalculateFeeSymbolSpecific $var
+     * @return $this
+     */
+    public function setSymbolSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeSymbolSpecific::class);
+        $this->symbol_specific = $var;
 
         return $this;
     }

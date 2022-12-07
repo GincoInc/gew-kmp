@@ -137,6 +137,22 @@ class Network
      * Generated from protobuf enum <code>NETWORK_POLYGON_TESTNET = 30;</code>
      */
     const NETWORK_POLYGON_TESTNET = 30;
+    /**
+     * Generated from protobuf enum <code>NETWORK_SYMBOL_MAINNET = 31;</code>
+     */
+    const NETWORK_SYMBOL_MAINNET = 31;
+    /**
+     * Generated from protobuf enum <code>NETWORK_SYMBOL_TESTNET = 32;</code>
+     */
+    const NETWORK_SYMBOL_TESTNET = 32;
+    /**
+     * Generated from protobuf enum <code>NETWORK_AVALANCHE_MAINNET = 33;</code>
+     */
+    const NETWORK_AVALANCHE_MAINNET = 33;
+    /**
+     * Generated from protobuf enum <code>NETWORK_AVALANCHE_TESTNET = 34;</code>
+     */
+    const NETWORK_AVALANCHE_TESTNET = 34;
 
     private static $valueToName = [
         self::NETWORK_INVALID => 'NETWORK_INVALID',
@@ -170,6 +186,10 @@ class Network
         self::NETWORK_KLAY_TESTNET => 'NETWORK_KLAY_TESTNET',
         self::NETWORK_POLYGON_MAINNET => 'NETWORK_POLYGON_MAINNET',
         self::NETWORK_POLYGON_TESTNET => 'NETWORK_POLYGON_TESTNET',
+        self::NETWORK_SYMBOL_MAINNET => 'NETWORK_SYMBOL_MAINNET',
+        self::NETWORK_SYMBOL_TESTNET => 'NETWORK_SYMBOL_TESTNET',
+        self::NETWORK_AVALANCHE_MAINNET => 'NETWORK_AVALANCHE_MAINNET',
+        self::NETWORK_AVALANCHE_TESTNET => 'NETWORK_AVALANCHE_TESTNET',
     ];
 
     public static function name($value)

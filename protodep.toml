@@ -8,18 +8,18 @@ proto_outdir = "./api/proto"
 
 [[dependencies]]
   target = "github.com/GincoInc/protobuf/proto/gincoinc/global"
-  revision = "v1.78.0"
+  revision = "v1.84.2"
   path = "gincoinc/global"
   protocol = "ssh"
 
 [[dependencies]]
   target = "github.com/GincoInc/protobuf/proto/gincoinc/adamant/global"
-  revision = "v1.78.0"
+  revision = "v1.84.2"
   path = "gincoinc/adamant/global"
   protocol = "ssh"
 
 [[dependencies]]
   target = "github.com/GincoInc/protobuf/proto/gincoinc/adamant/teller"
-  revision = "v1.78.0"
+  revision = "v1.84.2"
   path = "gincoinc/adamant/teller"
   protocol = "ssh"

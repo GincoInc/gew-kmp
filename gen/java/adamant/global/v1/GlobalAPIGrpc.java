@@ -945,6 +945,37 @@ public final class GlobalAPIGrpc {
     return getListSubstrateChildAddressesMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListSymbolChildAddressesRequest,
+      adamant.global.v1.ListSymbolChildAddressesResponse> getListSymbolChildAddressesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListSymbolChildAddresses",
+      requestType = adamant.global.v1.ListSymbolChildAddressesRequest.class,
+      responseType = adamant.global.v1.ListSymbolChildAddressesResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListSymbolChildAddressesRequest,
+      adamant.global.v1.ListSymbolChildAddressesResponse> getListSymbolChildAddressesMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListSymbolChildAddressesRequest, adamant.global.v1.ListSymbolChildAddressesResponse> getListSymbolChildAddressesMethod;
+    if ((getListSymbolChildAddressesMethod = GlobalAPIGrpc.getListSymbolChildAddressesMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getListSymbolChildAddressesMethod = GlobalAPIGrpc.getListSymbolChildAddressesMethod) == null) {
+          GlobalAPIGrpc.getListSymbolChildAddressesMethod = getListSymbolChildAddressesMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListSymbolChildAddressesRequest, adamant.global.v1.ListSymbolChildAddressesResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListSymbolChildAddresses"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListSymbolChildAddressesRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListSymbolChildAddressesResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ListSymbolChildAddresses"))
+              .build();
+        }
+      }
+    }
+    return getListSymbolChildAddressesMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListIOSTChildAccountsRequest,
       adamant.global.v1.ListIOSTChildAccountsResponse> getListIOSTChildAccountsMethod;
 
@@ -3115,6 +3146,13 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    public void listSymbolChildAddresses(adamant.global.v1.ListSymbolChildAddressesRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListSymbolChildAddressesResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListSymbolChildAddressesMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void listIOSTChildAccounts(adamant.global.v1.ListIOSTChildAccountsRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListIOSTChildAccountsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListIOSTChildAccountsMethod(), responseObserver);
@@ -3787,6 +3825,13 @@ public final class GlobalAPIGrpc {
                 adamant.global.v1.ListSubstrateChildAddressesRequest,
                 adamant.global.v1.ListSubstrateChildAddressesResponse>(
                   this, METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES)))
+          .addMethod(
+            getListSymbolChildAddressesMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                adamant.global.v1.ListSymbolChildAddressesRequest,
+                adamant.global.v1.ListSymbolChildAddressesResponse>(
+                  this, METHODID_LIST_SYMBOL_CHILD_ADDRESSES)))
           .addMethod(
             getListIOSTChildAccountsMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -4489,6 +4534,14 @@ public final class GlobalAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.ListSubstrateChildAddressesResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListSubstrateChildAddressesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listSymbolChildAddresses(adamant.global.v1.ListSymbolChildAddressesRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListSymbolChildAddressesResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListSymbolChildAddressesMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -5260,6 +5313,13 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    public adamant.global.v1.ListSymbolChildAddressesResponse listSymbolChildAddresses(adamant.global.v1.ListSymbolChildAddressesRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListSymbolChildAddressesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public adamant.global.v1.ListIOSTChildAccountsResponse listIOSTChildAccounts(adamant.global.v1.ListIOSTChildAccountsRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListIOSTChildAccountsMethod(), getCallOptions(), request);
@@ -5996,6 +6056,14 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListSymbolChildAddressesResponse> listSymbolChildAddresses(
+        adamant.global.v1.ListSymbolChildAddressesRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListSymbolChildAddressesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListIOSTChildAccountsResponse> listIOSTChildAccounts(
         adamant.global.v1.ListIOSTChildAccountsRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -6548,67 +6616,68 @@ public final class GlobalAPIGrpc {
   private static final int METHODID_UPDATE_ADDRESS_BALANCE = 27;
   private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 28;
   private static final int METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES = 29;
-  private static final int METHODID_LIST_IOSTCHILD_ACCOUNTS = 30;
-  private static final int METHODID_IMPORT_ADDRESS = 31;
-  private static final int METHODID_LIST_CALLERS = 32;
-  private static final int METHODID_REGISTER_KEY = 33;
-  private static final int METHODID_CREATE_TRANSACTION = 34;
-  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 35;
-  private static final int METHODID_SIGN_TRANSACTION = 36;
-  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 37;
-  private static final int METHODID_SEND_TRANSACTION = 38;
-  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 39;
-  private static final int METHODID_CANCEL_TRANSACTION = 40;
-  private static final int METHODID_GET_TRANSACTION = 41;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 42;
-  private static final int METHODID_LIST_TRANSACTIONS = 43;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 44;
-  private static final int METHODID_GET_SIGN_INFO = 45;
-  private static final int METHODID_LIST_SIGN_INFO = 46;
-  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 47;
-  private static final int METHODID_LIST_TRANSFERS = 48;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 49;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 50;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 51;
-  private static final int METHODID_SET_RATES = 52;
-  private static final int METHODID_SET_DEFAULT_RATES = 53;
-  private static final int METHODID_CREATE_LABELED_ADDRESS = 54;
-  private static final int METHODID_GET_LABELED_ADDRESS = 55;
-  private static final int METHODID_LIST_LABELED_ADDRESSES = 56;
-  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 57;
-  private static final int METHODID_UPDATE_LABELED_ADDRESS = 58;
-  private static final int METHODID_DELETE_ADDRESS = 59;
-  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 60;
-  private static final int METHODID_CREATE_WHITELIST = 61;
-  private static final int METHODID_GET_WHITELIST = 62;
-  private static final int METHODID_LIST_WHITELISTS = 63;
-  private static final int METHODID_IS_DELETABLE_WHITELIST = 64;
-  private static final int METHODID_UPDATE_WHITELIST = 65;
-  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 66;
-  private static final int METHODID_DELETE_WHITELIST = 67;
-  private static final int METHODID_CREATE_TRANSFER_LIMIT = 68;
-  private static final int METHODID_GET_TRANSFER_LIMIT = 69;
-  private static final int METHODID_LIST_TRANSFER_LIMITS = 70;
-  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 71;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 72;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 73;
-  private static final int METHODID_DELETE_TRANSFER_LIMIT = 74;
-  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 75;
-  private static final int METHODID_CREATE_POLICY = 76;
-  private static final int METHODID_GET_POLICY = 77;
-  private static final int METHODID_LIST_POLICIES = 78;
-  private static final int METHODID_IS_DELETABLE_POLICY = 79;
-  private static final int METHODID_UPDATE_POLICY = 80;
-  private static final int METHODID_DELETE_POLICY = 81;
-  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 82;
-  private static final int METHODID_GET_SPENDABLE_BALANCE = 83;
-  private static final int METHODID_GET_TOTAL_BALANCE = 84;
-  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 85;
-  private static final int METHODID_CALCULATE_FEE = 86;
-  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 87;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 88;
-  private static final int METHODID_VALIDATE_ADDRESS = 89;
-  private static final int METHODID_LIST_AUDIT_LOGS = 90;
+  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 30;
+  private static final int METHODID_LIST_IOSTCHILD_ACCOUNTS = 31;
+  private static final int METHODID_IMPORT_ADDRESS = 32;
+  private static final int METHODID_LIST_CALLERS = 33;
+  private static final int METHODID_REGISTER_KEY = 34;
+  private static final int METHODID_CREATE_TRANSACTION = 35;
+  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 36;
+  private static final int METHODID_SIGN_TRANSACTION = 37;
+  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 38;
+  private static final int METHODID_SEND_TRANSACTION = 39;
+  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 40;
+  private static final int METHODID_CANCEL_TRANSACTION = 41;
+  private static final int METHODID_GET_TRANSACTION = 42;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 43;
+  private static final int METHODID_LIST_TRANSACTIONS = 44;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 45;
+  private static final int METHODID_GET_SIGN_INFO = 46;
+  private static final int METHODID_LIST_SIGN_INFO = 47;
+  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 48;
+  private static final int METHODID_LIST_TRANSFERS = 49;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 50;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 51;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 52;
+  private static final int METHODID_SET_RATES = 53;
+  private static final int METHODID_SET_DEFAULT_RATES = 54;
+  private static final int METHODID_CREATE_LABELED_ADDRESS = 55;
+  private static final int METHODID_GET_LABELED_ADDRESS = 56;
+  private static final int METHODID_LIST_LABELED_ADDRESSES = 57;
+  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 58;
+  private static final int METHODID_UPDATE_LABELED_ADDRESS = 59;
+  private static final int METHODID_DELETE_ADDRESS = 60;
+  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 61;
+  private static final int METHODID_CREATE_WHITELIST = 62;
+  private static final int METHODID_GET_WHITELIST = 63;
+  private static final int METHODID_LIST_WHITELISTS = 64;
+  private static final int METHODID_IS_DELETABLE_WHITELIST = 65;
+  private static final int METHODID_UPDATE_WHITELIST = 66;
+  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 67;
+  private static final int METHODID_DELETE_WHITELIST = 68;
+  private static final int METHODID_CREATE_TRANSFER_LIMIT = 69;
+  private static final int METHODID_GET_TRANSFER_LIMIT = 70;
+  private static final int METHODID_LIST_TRANSFER_LIMITS = 71;
+  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 72;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 73;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 74;
+  private static final int METHODID_DELETE_TRANSFER_LIMIT = 75;
+  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 76;
+  private static final int METHODID_CREATE_POLICY = 77;
+  private static final int METHODID_GET_POLICY = 78;
+  private static final int METHODID_LIST_POLICIES = 79;
+  private static final int METHODID_IS_DELETABLE_POLICY = 80;
+  private static final int METHODID_UPDATE_POLICY = 81;
+  private static final int METHODID_DELETE_POLICY = 82;
+  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 83;
+  private static final int METHODID_GET_SPENDABLE_BALANCE = 84;
+  private static final int METHODID_GET_TOTAL_BALANCE = 85;
+  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 86;
+  private static final int METHODID_CALCULATE_FEE = 87;
+  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 88;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 89;
+  private static final int METHODID_VALIDATE_ADDRESS = 90;
+  private static final int METHODID_LIST_AUDIT_LOGS = 91;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -6746,6 +6815,10 @@ public final class GlobalAPIGrpc {
         case METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES:
           serviceImpl.listSubstrateChildAddresses((adamant.global.v1.ListSubstrateChildAddressesRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListSubstrateChildAddressesResponse>) responseObserver);
+          break;
+        case METHODID_LIST_SYMBOL_CHILD_ADDRESSES:
+          serviceImpl.listSymbolChildAddresses((adamant.global.v1.ListSymbolChildAddressesRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListSymbolChildAddressesResponse>) responseObserver);
           break;
         case METHODID_LIST_IOSTCHILD_ACCOUNTS:
           serviceImpl.listIOSTChildAccounts((adamant.global.v1.ListIOSTChildAccountsRequest) request,
@@ -7082,6 +7155,7 @@ public final class GlobalAPIGrpc {
               .addMethod(getUpdateAddressBalanceMethod())
               .addMethod(getGetEthereumFeeAddressMethod())
               .addMethod(getListSubstrateChildAddressesMethod())
+              .addMethod(getListSymbolChildAddressesMethod())
               .addMethod(getListIOSTChildAccountsMethod())
               .addMethod(getImportAddressMethod())
               .addMethod(getListCallersMethod())

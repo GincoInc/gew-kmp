@@ -58,6 +58,7 @@ service GlobalAPI {
   rpc GetEthereumFeeAddress(GetEthereumFeeAddressRequest) returns (EthereumFeeAddress) {}
   // Get addresses associated with the Polkadot signer
   rpc ListSubstrateChildAddresses(ListSubstrateChildAddressesRequest) returns (ListSubstrateChildAddressesResponse) {}
+  rpc ListSymbolChildAddresses(ListSymbolChildAddressesRequest) returns (ListSymbolChildAddressesResponse) {}
   rpc ListIOSTChildAccounts(ListIOSTChildAccountsRequest) returns (ListIOSTChildAccountsResponse) {}
   rpc ImportAddress(ImportAddressRequest) returns (google.protobuf.Empty) {}
   rpc ListCallers(ListCallersRequest) returns (ListCallersResponse) {}
@@ -635,6 +636,7 @@ message CreateTransactionRequest {
   adamant.global.v1.CreateTransactionWalletConnectSpecific wallet_connect_specific = 9;
   adamant.global.v1.CreateTransactionNemSpecific nem_specific = 10;
   adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11;
+  adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12;
 }
 
 message CreateTransactionResponse {
@@ -653,6 +655,7 @@ message CreateInitTransactionRequest {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
   adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 2;
+  adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3;
 }
 
 message SignTransactionRequest {
@@ -1130,6 +1133,7 @@ message CalculateFeeRequest {
   string string_value = 6;
   CalculateFeeSubstrateSpecific substrate_specific = 7;
   CalculateFeeNemSpecific nem_specific = 8;
+  CalculateFeeSymbolSpecific symbol_specific = 9;
 }
 
 // The model of Substrate specific fields of CreateTransaction
@@ -1140,6 +1144,11 @@ message CalculateFeeSubstrateSpecific {
 
 // The model of Nem specific fields of CalculateFee
 message CalculateFeeNemSpecific {
+  string message = 1;
+}
+
+// The model of Symbol specific fields of CalculateFee
+message CalculateFeeSymbolSpecific {
   string message = 1;
 }
 
@@ -1529,6 +1538,20 @@ message ListSubstrateChildAddressesRequest {
 
 message ListSubstrateChildAddressesResponse {
   repeated SubstrateChildAddress substrate_child_addresses = 1;
+}
+
+// -----------------------------------------------------------------------------
+// Symbol Child Address
+// -----------------------------------------------------------------------------
+
+message ListSymbolChildAddressesRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+}
+
+message ListSymbolChildAddressesResponse {
+  repeated SymbolChildAddress symbol_child_addresses = 1;
 }
 
 // -----------------------------------------------------------------------------

@@ -147,6 +147,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 98: {
+            adamant.global.v1.Model.CreateTransactionSymbolSpecific.Builder subBuilder = null;
+            if (xymSpecific_ != null) {
+              subBuilder = xymSpecific_.toBuilder();
+            }
+            xymSpecific_ = input.readMessage(adamant.global.v1.Model.CreateTransactionSymbolSpecific.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(xymSpecific_);
+              xymSpecific_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -473,6 +486,32 @@ private static final long serialVersionUID = 0L;
     return getIostSpecific();
   }
 
+  public static final int XYM_SPECIFIC_FIELD_NUMBER = 12;
+  private adamant.global.v1.Model.CreateTransactionSymbolSpecific xymSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+   * @return Whether the xymSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasXymSpecific() {
+    return xymSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+   * @return The xymSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionSymbolSpecific getXymSpecific() {
+    return xymSpecific_ == null ? adamant.global.v1.Model.CreateTransactionSymbolSpecific.getDefaultInstance() : xymSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionSymbolSpecificOrBuilder getXymSpecificOrBuilder() {
+    return getXymSpecific();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -519,6 +558,9 @@ private static final long serialVersionUID = 0L;
     }
     if (iostSpecific_ != null) {
       output.writeMessage(11, getIostSpecific());
+    }
+    if (xymSpecific_ != null) {
+      output.writeMessage(12, getXymSpecific());
     }
     unknownFields.writeTo(output);
   }
@@ -570,6 +612,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, getIostSpecific());
     }
+    if (xymSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(12, getXymSpecific());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -619,6 +665,11 @@ private static final long serialVersionUID = 0L;
       if (!getIostSpecific()
           .equals(other.getIostSpecific())) return false;
     }
+    if (hasXymSpecific() != other.hasXymSpecific()) return false;
+    if (hasXymSpecific()) {
+      if (!getXymSpecific()
+          .equals(other.getXymSpecific())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -663,6 +714,10 @@ private static final long serialVersionUID = 0L;
     if (hasIostSpecific()) {
       hash = (37 * hash) + IOST_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getIostSpecific().hashCode();
+    }
+    if (hasXymSpecific()) {
+      hash = (37 * hash) + XYM_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getXymSpecific().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -840,6 +895,12 @@ private static final long serialVersionUID = 0L;
         iostSpecific_ = null;
         iostSpecificBuilder_ = null;
       }
+      if (xymSpecificBuilder_ == null) {
+        xymSpecific_ = null;
+      } else {
+        xymSpecific_ = null;
+        xymSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -901,6 +962,11 @@ private static final long serialVersionUID = 0L;
         result.iostSpecific_ = iostSpecific_;
       } else {
         result.iostSpecific_ = iostSpecificBuilder_.build();
+      }
+      if (xymSpecificBuilder_ == null) {
+        result.xymSpecific_ = xymSpecific_;
+      } else {
+        result.xymSpecific_ = xymSpecificBuilder_.build();
       }
       onBuilt();
       return result;
@@ -1008,6 +1074,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasIostSpecific()) {
         mergeIostSpecific(other.getIostSpecific());
+      }
+      if (other.hasXymSpecific()) {
+        mergeXymSpecific(other.getXymSpecific());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2074,6 +2143,125 @@ private static final long serialVersionUID = 0L;
         iostSpecific_ = null;
       }
       return iostSpecificBuilder_;
+    }
+
+    private adamant.global.v1.Model.CreateTransactionSymbolSpecific xymSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionSymbolSpecific, adamant.global.v1.Model.CreateTransactionSymbolSpecific.Builder, adamant.global.v1.Model.CreateTransactionSymbolSpecificOrBuilder> xymSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+     * @return Whether the xymSpecific field is set.
+     */
+    public boolean hasXymSpecific() {
+      return xymSpecificBuilder_ != null || xymSpecific_ != null;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+     * @return The xymSpecific.
+     */
+    public adamant.global.v1.Model.CreateTransactionSymbolSpecific getXymSpecific() {
+      if (xymSpecificBuilder_ == null) {
+        return xymSpecific_ == null ? adamant.global.v1.Model.CreateTransactionSymbolSpecific.getDefaultInstance() : xymSpecific_;
+      } else {
+        return xymSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+     */
+    public Builder setXymSpecific(adamant.global.v1.Model.CreateTransactionSymbolSpecific value) {
+      if (xymSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        xymSpecific_ = value;
+        onChanged();
+      } else {
+        xymSpecificBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+     */
+    public Builder setXymSpecific(
+        adamant.global.v1.Model.CreateTransactionSymbolSpecific.Builder builderForValue) {
+      if (xymSpecificBuilder_ == null) {
+        xymSpecific_ = builderForValue.build();
+        onChanged();
+      } else {
+        xymSpecificBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+     */
+    public Builder mergeXymSpecific(adamant.global.v1.Model.CreateTransactionSymbolSpecific value) {
+      if (xymSpecificBuilder_ == null) {
+        if (xymSpecific_ != null) {
+          xymSpecific_ =
+            adamant.global.v1.Model.CreateTransactionSymbolSpecific.newBuilder(xymSpecific_).mergeFrom(value).buildPartial();
+        } else {
+          xymSpecific_ = value;
+        }
+        onChanged();
+      } else {
+        xymSpecificBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+     */
+    public Builder clearXymSpecific() {
+      if (xymSpecificBuilder_ == null) {
+        xymSpecific_ = null;
+        onChanged();
+      } else {
+        xymSpecific_ = null;
+        xymSpecificBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionSymbolSpecific.Builder getXymSpecificBuilder() {
+      
+      onChanged();
+      return getXymSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionSymbolSpecificOrBuilder getXymSpecificOrBuilder() {
+      if (xymSpecificBuilder_ != null) {
+        return xymSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return xymSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionSymbolSpecific.getDefaultInstance() : xymSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionSymbolSpecific, adamant.global.v1.Model.CreateTransactionSymbolSpecific.Builder, adamant.global.v1.Model.CreateTransactionSymbolSpecificOrBuilder> 
+        getXymSpecificFieldBuilder() {
+      if (xymSpecificBuilder_ == null) {
+        xymSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionSymbolSpecific, adamant.global.v1.Model.CreateTransactionSymbolSpecific.Builder, adamant.global.v1.Model.CreateTransactionSymbolSpecificOrBuilder>(
+                getXymSpecific(),
+                getParentForChildren(),
+                isClean());
+        xymSpecific_ = null;
+      }
+      return xymSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
