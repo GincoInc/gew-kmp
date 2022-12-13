@@ -31,6 +31,7 @@ service TellerAPI {
   // Create a new address for an existing wallet
   rpc CreateAddress(adamant.global.v1.CreateAddressRequest) returns (adamant.global.v1.CreateAddressResponse) {}
   rpc CreateIOSTAccount(adamant.global.v1.CreateIOSTAccountRequest) returns (adamant.global.v1.CreateIOSTAccountResponse) {}
+  rpc ListSymbolChildAddresses(adamant.global.v1.ListSymbolChildAddressesRequest) returns (adamant.global.v1.ListSymbolChildAddressesResponse) {}
   rpc GetAddress(adamant.global.v1.GetAddressRequest) returns (adamant.global.v1.Address) {}
   rpc GetAddressByAddress(adamant.global.v1.GetAddressByAddressRequest) returns (adamant.global.v1.Address) {}
   rpc GetAddressByAddressCoin(adamant.global.v1.GetAddressByAddressCoinRequest) returns (adamant.global.v1.Address) {}
