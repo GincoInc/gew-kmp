@@ -325,6 +325,37 @@ public final class TellerAPIGrpc {
     return getCreateIOSTAccountMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListSymbolChildAddressesRequest,
+      adamant.global.v1.ListSymbolChildAddressesResponse> getListSymbolChildAddressesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListSymbolChildAddresses",
+      requestType = adamant.global.v1.ListSymbolChildAddressesRequest.class,
+      responseType = adamant.global.v1.ListSymbolChildAddressesResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListSymbolChildAddressesRequest,
+      adamant.global.v1.ListSymbolChildAddressesResponse> getListSymbolChildAddressesMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListSymbolChildAddressesRequest, adamant.global.v1.ListSymbolChildAddressesResponse> getListSymbolChildAddressesMethod;
+    if ((getListSymbolChildAddressesMethod = TellerAPIGrpc.getListSymbolChildAddressesMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getListSymbolChildAddressesMethod = TellerAPIGrpc.getListSymbolChildAddressesMethod) == null) {
+          TellerAPIGrpc.getListSymbolChildAddressesMethod = getListSymbolChildAddressesMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListSymbolChildAddressesRequest, adamant.global.v1.ListSymbolChildAddressesResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListSymbolChildAddresses"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListSymbolChildAddressesRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListSymbolChildAddressesResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ListSymbolChildAddresses"))
+              .build();
+        }
+      }
+    }
+    return getListSymbolChildAddressesMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.GetAddressRequest,
       adamant.global.v1.Model.Address> getGetAddressMethod;
 
@@ -1257,6 +1288,13 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    public void listSymbolChildAddresses(adamant.global.v1.ListSymbolChildAddressesRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListSymbolChildAddressesResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListSymbolChildAddressesMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void getAddress(adamant.global.v1.GetAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAddressMethod(), responseObserver);
@@ -1527,6 +1565,13 @@ public final class TellerAPIGrpc {
                 adamant.global.v1.CreateIOSTAccountRequest,
                 adamant.global.v1.CreateIOSTAccountResponse>(
                   this, METHODID_CREATE_IOSTACCOUNT)))
+          .addMethod(
+            getListSymbolChildAddressesMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                adamant.global.v1.ListSymbolChildAddressesRequest,
+                adamant.global.v1.ListSymbolChildAddressesResponse>(
+                  this, METHODID_LIST_SYMBOL_CHILD_ADDRESSES)))
           .addMethod(
             getGetAddressMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -1811,6 +1856,14 @@ public final class TellerAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateIOSTAccountResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateIOSTAccountMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listSymbolChildAddresses(adamant.global.v1.ListSymbolChildAddressesRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListSymbolChildAddressesResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListSymbolChildAddressesMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -2132,6 +2185,13 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    public adamant.global.v1.ListSymbolChildAddressesResponse listSymbolChildAddresses(adamant.global.v1.ListSymbolChildAddressesRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListSymbolChildAddressesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public adamant.global.v1.Model.Address getAddress(adamant.global.v1.GetAddressRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetAddressMethod(), getCallOptions(), request);
@@ -2433,6 +2493,14 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListSymbolChildAddressesResponse> listSymbolChildAddresses(
+        adamant.global.v1.ListSymbolChildAddressesRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListSymbolChildAddressesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.Model.Address> getAddress(
         adamant.global.v1.GetAddressRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -2668,32 +2736,33 @@ public final class TellerAPIGrpc {
   private static final int METHODID_INITIALIZE_WALLET = 7;
   private static final int METHODID_CREATE_ADDRESS = 8;
   private static final int METHODID_CREATE_IOSTACCOUNT = 9;
-  private static final int METHODID_GET_ADDRESS = 10;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 11;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 12;
-  private static final int METHODID_GET_ADDRESS_BY_INDEX = 13;
-  private static final int METHODID_LIST_ADDRESSES = 14;
-  private static final int METHODID_IMPORT_ADDRESS = 15;
-  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 16;
-  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 17;
-  private static final int METHODID_CREATE_TRANSACTION = 18;
-  private static final int METHODID_SIGN_TRANSACTION = 19;
-  private static final int METHODID_SEND_TRANSACTION = 20;
-  private static final int METHODID_CANCEL_TRANSACTION = 21;
-  private static final int METHODID_GET_TRANSACTION = 22;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 23;
-  private static final int METHODID_LIST_TRANSACTIONS = 24;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 25;
-  private static final int METHODID_LIST_TRANSFERS = 26;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 27;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 28;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 29;
-  private static final int METHODID_SET_RATES = 30;
-  private static final int METHODID_CALCULATE_FEE = 31;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 32;
-  private static final int METHODID_VALIDATE_ADDRESS = 33;
-  private static final int METHODID_FLUSH_BALANCE = 34;
-  private static final int METHODID_LIST_AUDIT_LOGS = 35;
+  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 10;
+  private static final int METHODID_GET_ADDRESS = 11;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 12;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 13;
+  private static final int METHODID_GET_ADDRESS_BY_INDEX = 14;
+  private static final int METHODID_LIST_ADDRESSES = 15;
+  private static final int METHODID_IMPORT_ADDRESS = 16;
+  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 17;
+  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 18;
+  private static final int METHODID_CREATE_TRANSACTION = 19;
+  private static final int METHODID_SIGN_TRANSACTION = 20;
+  private static final int METHODID_SEND_TRANSACTION = 21;
+  private static final int METHODID_CANCEL_TRANSACTION = 22;
+  private static final int METHODID_GET_TRANSACTION = 23;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 24;
+  private static final int METHODID_LIST_TRANSACTIONS = 25;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 26;
+  private static final int METHODID_LIST_TRANSFERS = 27;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 28;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 29;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 30;
+  private static final int METHODID_SET_RATES = 31;
+  private static final int METHODID_CALCULATE_FEE = 32;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 33;
+  private static final int METHODID_VALIDATE_ADDRESS = 34;
+  private static final int METHODID_FLUSH_BALANCE = 35;
+  private static final int METHODID_LIST_AUDIT_LOGS = 36;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -2751,6 +2820,10 @@ public final class TellerAPIGrpc {
         case METHODID_CREATE_IOSTACCOUNT:
           serviceImpl.createIOSTAccount((adamant.global.v1.CreateIOSTAccountRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.CreateIOSTAccountResponse>) responseObserver);
+          break;
+        case METHODID_LIST_SYMBOL_CHILD_ADDRESSES:
+          serviceImpl.listSymbolChildAddresses((adamant.global.v1.ListSymbolChildAddressesRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListSymbolChildAddressesResponse>) responseObserver);
           break;
         case METHODID_GET_ADDRESS:
           serviceImpl.getAddress((adamant.global.v1.GetAddressRequest) request,
@@ -2927,6 +3000,7 @@ public final class TellerAPIGrpc {
               .addMethod(getInitializeWalletMethod())
               .addMethod(getCreateAddressMethod())
               .addMethod(getCreateIOSTAccountMethod())
+              .addMethod(getListSymbolChildAddressesMethod())
               .addMethod(getGetAddressMethod())
               .addMethod(getGetAddressByAddressMethod())
               .addMethod(getGetAddressByAddressCoinMethod())

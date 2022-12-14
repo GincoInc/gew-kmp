@@ -163,6 +163,20 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\ListSymbolChildAddressesRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListSymbolChildAddresses(\Adamant\Global\V1\ListSymbolChildAddressesRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListSymbolChildAddresses',
+        $argument,
+        ['\Adamant\Global\V1\ListSymbolChildAddressesResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\GetAddressRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
