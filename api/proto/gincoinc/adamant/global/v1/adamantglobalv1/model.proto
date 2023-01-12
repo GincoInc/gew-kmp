@@ -103,6 +103,7 @@ message Key {
   adamant.global.v1.AccountType account_type = 3; // The account type of key owner
   string key_id = 4; // id
   uint32 key_index = 5; // The index of key
+  uint32 hd_index = 6; // The index of hdkey
 }
 
 // The model of address
@@ -236,6 +237,19 @@ message UTXO {
   string transaction_id = 6 [(validate.rules).string = {
     pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
+  CardanoUTXOSpecific cardano_specific = 7; // The Cardano specific fields
+}
+
+// The model of Cardano specific fields of UTXO
+message CardanoUTXOSpecific {
+  repeated CardanoCustomToken tokens = 1;
+}
+
+// The model of Cardano custom token
+message CardanoCustomToken {
+  string policy_id = 1;
+  string asset_name = 2;
+  double value = 3;
 }
 
 // The model of Bitcoin specific fields of transaction
