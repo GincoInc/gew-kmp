@@ -68,19 +68,6 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 26: {
-            adamant.global.v1.Model.CreateTransactionSymbolSpecific.Builder subBuilder = null;
-            if (symbolSpecific_ != null) {
-              subBuilder = symbolSpecific_.toBuilder();
-            }
-            symbolSpecific_ = input.readMessage(adamant.global.v1.Model.CreateTransactionSymbolSpecific.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(symbolSpecific_);
-              symbolSpecific_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -177,32 +164,6 @@ private static final long serialVersionUID = 0L;
     return getIostSpecific();
   }
 
-  public static final int SYMBOL_SPECIFIC_FIELD_NUMBER = 3;
-  private adamant.global.v1.Model.CreateTransactionSymbolSpecific symbolSpecific_;
-  /**
-   * <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
-   * @return Whether the symbolSpecific field is set.
-   */
-  @java.lang.Override
-  public boolean hasSymbolSpecific() {
-    return symbolSpecific_ != null;
-  }
-  /**
-   * <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
-   * @return The symbolSpecific.
-   */
-  @java.lang.Override
-  public adamant.global.v1.Model.CreateTransactionSymbolSpecific getSymbolSpecific() {
-    return symbolSpecific_ == null ? adamant.global.v1.Model.CreateTransactionSymbolSpecific.getDefaultInstance() : symbolSpecific_;
-  }
-  /**
-   * <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
-   */
-  @java.lang.Override
-  public adamant.global.v1.Model.CreateTransactionSymbolSpecificOrBuilder getSymbolSpecificOrBuilder() {
-    return getSymbolSpecific();
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -223,9 +184,6 @@ private static final long serialVersionUID = 0L;
     if (iostSpecific_ != null) {
       output.writeMessage(2, getIostSpecific());
     }
-    if (symbolSpecific_ != null) {
-      output.writeMessage(3, getSymbolSpecific());
-    }
     unknownFields.writeTo(output);
   }
 
@@ -241,10 +199,6 @@ private static final long serialVersionUID = 0L;
     if (iostSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getIostSpecific());
-    }
-    if (symbolSpecific_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getSymbolSpecific());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -268,11 +222,6 @@ private static final long serialVersionUID = 0L;
       if (!getIostSpecific()
           .equals(other.getIostSpecific())) return false;
     }
-    if (hasSymbolSpecific() != other.hasSymbolSpecific()) return false;
-    if (hasSymbolSpecific()) {
-      if (!getSymbolSpecific()
-          .equals(other.getSymbolSpecific())) return false;
-    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -289,10 +238,6 @@ private static final long serialVersionUID = 0L;
     if (hasIostSpecific()) {
       hash = (37 * hash) + IOST_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getIostSpecific().hashCode();
-    }
-    if (hasSymbolSpecific()) {
-      hash = (37 * hash) + SYMBOL_SPECIFIC_FIELD_NUMBER;
-      hash = (53 * hash) + getSymbolSpecific().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -435,12 +380,6 @@ private static final long serialVersionUID = 0L;
         iostSpecific_ = null;
         iostSpecificBuilder_ = null;
       }
-      if (symbolSpecificBuilder_ == null) {
-        symbolSpecific_ = null;
-      } else {
-        symbolSpecific_ = null;
-        symbolSpecificBuilder_ = null;
-      }
       return this;
     }
 
@@ -472,11 +411,6 @@ private static final long serialVersionUID = 0L;
         result.iostSpecific_ = iostSpecific_;
       } else {
         result.iostSpecific_ = iostSpecificBuilder_.build();
-      }
-      if (symbolSpecificBuilder_ == null) {
-        result.symbolSpecific_ = symbolSpecific_;
-      } else {
-        result.symbolSpecific_ = symbolSpecificBuilder_.build();
       }
       onBuilt();
       return result;
@@ -532,9 +466,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasIostSpecific()) {
         mergeIostSpecific(other.getIostSpecific());
-      }
-      if (other.hasSymbolSpecific()) {
-        mergeSymbolSpecific(other.getSymbolSpecific());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -758,125 +689,6 @@ private static final long serialVersionUID = 0L;
         iostSpecific_ = null;
       }
       return iostSpecificBuilder_;
-    }
-
-    private adamant.global.v1.Model.CreateTransactionSymbolSpecific symbolSpecific_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        adamant.global.v1.Model.CreateTransactionSymbolSpecific, adamant.global.v1.Model.CreateTransactionSymbolSpecific.Builder, adamant.global.v1.Model.CreateTransactionSymbolSpecificOrBuilder> symbolSpecificBuilder_;
-    /**
-     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
-     * @return Whether the symbolSpecific field is set.
-     */
-    public boolean hasSymbolSpecific() {
-      return symbolSpecificBuilder_ != null || symbolSpecific_ != null;
-    }
-    /**
-     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
-     * @return The symbolSpecific.
-     */
-    public adamant.global.v1.Model.CreateTransactionSymbolSpecific getSymbolSpecific() {
-      if (symbolSpecificBuilder_ == null) {
-        return symbolSpecific_ == null ? adamant.global.v1.Model.CreateTransactionSymbolSpecific.getDefaultInstance() : symbolSpecific_;
-      } else {
-        return symbolSpecificBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
-     */
-    public Builder setSymbolSpecific(adamant.global.v1.Model.CreateTransactionSymbolSpecific value) {
-      if (symbolSpecificBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        symbolSpecific_ = value;
-        onChanged();
-      } else {
-        symbolSpecificBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
-     */
-    public Builder setSymbolSpecific(
-        adamant.global.v1.Model.CreateTransactionSymbolSpecific.Builder builderForValue) {
-      if (symbolSpecificBuilder_ == null) {
-        symbolSpecific_ = builderForValue.build();
-        onChanged();
-      } else {
-        symbolSpecificBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
-     */
-    public Builder mergeSymbolSpecific(adamant.global.v1.Model.CreateTransactionSymbolSpecific value) {
-      if (symbolSpecificBuilder_ == null) {
-        if (symbolSpecific_ != null) {
-          symbolSpecific_ =
-            adamant.global.v1.Model.CreateTransactionSymbolSpecific.newBuilder(symbolSpecific_).mergeFrom(value).buildPartial();
-        } else {
-          symbolSpecific_ = value;
-        }
-        onChanged();
-      } else {
-        symbolSpecificBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
-     */
-    public Builder clearSymbolSpecific() {
-      if (symbolSpecificBuilder_ == null) {
-        symbolSpecific_ = null;
-        onChanged();
-      } else {
-        symbolSpecific_ = null;
-        symbolSpecificBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
-     */
-    public adamant.global.v1.Model.CreateTransactionSymbolSpecific.Builder getSymbolSpecificBuilder() {
-      
-      onChanged();
-      return getSymbolSpecificFieldBuilder().getBuilder();
-    }
-    /**
-     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
-     */
-    public adamant.global.v1.Model.CreateTransactionSymbolSpecificOrBuilder getSymbolSpecificOrBuilder() {
-      if (symbolSpecificBuilder_ != null) {
-        return symbolSpecificBuilder_.getMessageOrBuilder();
-      } else {
-        return symbolSpecific_ == null ?
-            adamant.global.v1.Model.CreateTransactionSymbolSpecific.getDefaultInstance() : symbolSpecific_;
-      }
-    }
-    /**
-     * <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        adamant.global.v1.Model.CreateTransactionSymbolSpecific, adamant.global.v1.Model.CreateTransactionSymbolSpecific.Builder, adamant.global.v1.Model.CreateTransactionSymbolSpecificOrBuilder> 
-        getSymbolSpecificFieldBuilder() {
-      if (symbolSpecificBuilder_ == null) {
-        symbolSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            adamant.global.v1.Model.CreateTransactionSymbolSpecific, adamant.global.v1.Model.CreateTransactionSymbolSpecific.Builder, adamant.global.v1.Model.CreateTransactionSymbolSpecificOrBuilder>(
-                getSymbolSpecific(),
-                getParentForChildren(),
-                isClean());
-        symbolSpecific_ = null;
-      }
-      return symbolSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
