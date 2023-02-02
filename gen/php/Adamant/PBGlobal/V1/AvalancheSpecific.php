@@ -9,11 +9,11 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * The model of Ethereum specific fields of transaction
+ * The model of Avalanche specific fields of transaction
  *
- * Generated from protobuf message <code>adamant.global.v1.EthereumSpecific</code>
+ * Generated from protobuf message <code>adamant.global.v1.AvalancheSpecific</code>
  */
-class EthereumSpecific extends \Google\Protobuf\Internal\Message
+class AvalancheSpecific extends \Google\Protobuf\Internal\Message
 {
     /**
      * Generated from protobuf field <code>uint64 gas_limit = 1 [json_name = "gasLimit"];</code>
@@ -27,20 +27,6 @@ class EthereumSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool is_next_nonce = 3 [json_name = "isNextNonce"];</code>
      */
     protected $is_next_nonce = false;
-    /**
-     * Generated from protobuf field <code>.adamant.global.v1.EthereumContractMethodIDType method_id_type = 4 [json_name = "methodIdType"];</code>
-     */
-    protected $method_id_type = 0;
-    /**
-     * Generated from protobuf field <code>uint64 expiration = 5 [json_name = "expiration"];</code>
-     */
-    protected $expiration = 0;
-    /**
-     * data
-     *
-     * Generated from protobuf field <code>string data = 6 [json_name = "data"];</code>
-     */
-    protected $data = '';
 
     /**
      * Constructor.
@@ -51,10 +37,6 @@ class EthereumSpecific extends \Google\Protobuf\Internal\Message
      *     @type int|string $gas_limit
      *     @type int|string $nonce
      *     @type bool $is_next_nonce
-     *     @type int $method_id_type
-     *     @type int|string $expiration
-     *     @type string $data
-     *           data
      * }
      */
     public function __construct($data = NULL) {
@@ -124,76 +106,6 @@ class EthereumSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->is_next_nonce = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>.adamant.global.v1.EthereumContractMethodIDType method_id_type = 4 [json_name = "methodIdType"];</code>
-     * @return int
-     */
-    public function getMethodIdType()
-    {
-        return $this->method_id_type;
-    }
-
-    /**
-     * Generated from protobuf field <code>.adamant.global.v1.EthereumContractMethodIDType method_id_type = 4 [json_name = "methodIdType"];</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setMethodIdType($var)
-    {
-        GPBUtil::checkEnum($var, \Adamant\PBGlobal\V1\EthereumContractMethodIDType::class);
-        $this->method_id_type = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint64 expiration = 5 [json_name = "expiration"];</code>
-     * @return int|string
-     */
-    public function getExpiration()
-    {
-        return $this->expiration;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint64 expiration = 5 [json_name = "expiration"];</code>
-     * @param int|string $var
-     * @return $this
-     */
-    public function setExpiration($var)
-    {
-        GPBUtil::checkUint64($var);
-        $this->expiration = $var;
-
-        return $this;
-    }
-
-    /**
-     * data
-     *
-     * Generated from protobuf field <code>string data = 6 [json_name = "data"];</code>
-     * @return string
-     */
-    public function getData()
-    {
-        return $this->data;
-    }
-
-    /**
-     * data
-     *
-     * Generated from protobuf field <code>string data = 6 [json_name = "data"];</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setData($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->data = $var;
 
         return $this;
     }

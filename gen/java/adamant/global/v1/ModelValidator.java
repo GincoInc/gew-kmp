@@ -23,6 +23,8 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.TxInput.class)) return new TxInputValidator();
 		if (clazz.equals(adamant.global.v1.Model.TxOutput.class)) return new TxOutputValidator();
 		if (clazz.equals(adamant.global.v1.Model.UTXO.class)) return new UTXOValidator();
+		if (clazz.equals(adamant.global.v1.Model.CardanoUTXOSpecific.class)) return new CardanoUTXOSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CardanoCustomToken.class)) return new CardanoCustomTokenValidator();
 		if (clazz.equals(adamant.global.v1.Model.BitcoinSpecific.class)) return new BitcoinSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.LitecoinSpecific.class)) return new LitecoinSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.BitcoincashSpecific.class)) return new BitcoincashSpecificValidator();
@@ -39,11 +41,13 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.PolygonSpecific.class)) return new PolygonSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.KlaytnSpecific.class)) return new KlaytnSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SymbolSpecific.class)) return new SymbolSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.AvalancheSpecific.class)) return new AvalancheSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class)) return new CreateTransactionSubstrateSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.class)) return new CreateTransactionWalletConnectSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionNemSpecific.class)) return new CreateTransactionNemSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionIOSTSpecific.class)) return new CreateTransactionIOSTSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSymbolSpecific.class)) return new CreateTransactionSymbolSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionEthereumSpecific.class)) return new CreateTransactionEthereumSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SubstrateMultisigTransaction.class)) return new SubstrateMultisigTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.NemMultisigTransaction.class)) return new NemMultisigTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.SymbolMultisigTransaction.class)) return new SymbolMultisigTransactionValidator();
@@ -429,6 +433,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Key proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -441,6 +447,8 @@ public class ModelValidator {
 	// no validation rules for KeyId
 
 	// no validation rules for KeyIndex
+
+	// no validation rules for HdIndex
 
 	
 	}
@@ -723,6 +731,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -810,6 +820,9 @@ public class ModelValidator {
 	
 			// Validate symbol_specific
 			if (proto.hasSymbolSpecific()) index.validatorFor(proto.getSymbolSpecific()).assertValid(proto.getSymbolSpecific());
+	
+			// Validate avalanche_specific
+			if (proto.hasAvalancheSpecific()) index.validatorFor(proto.getAvalancheSpecific()).assertValid(proto.getAvalancheSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -926,6 +939,8 @@ public class ModelValidator {
 		
 		com.google.re2j.Pattern TRANSACTION_ID__PATTERN = com.google.re2j.Pattern.compile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.UTXO proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -941,6 +956,49 @@ public class ModelValidator {
 
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.UTXO.transaction_id", proto.getTransactionId(), TRANSACTION_ID__PATTERN);
+	
+			// Validate cardano_specific
+			if (proto.hasCardanoSpecific()) index.validatorFor(proto.getCardanoSpecific()).assertValid(proto.getCardanoSpecific());
+	
+	}
+}
+/**
+	 * Validates {@code CardanoUTXOSpecific} protobuf objects.
+	 */
+	public static class CardanoUTXOSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CardanoUTXOSpecific> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CardanoUTXOSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTokensList(), item -> {
+				
+			// Validate tokens
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+	
+	}
+}
+/**
+	 * Validates {@code CardanoCustomToken} protobuf objects.
+	 */
+	public static class CardanoCustomTokenValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CardanoCustomToken> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CardanoCustomToken proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for PolicyId
+
+	// no validation rules for AssetName
+
+	// no validation rules for Value
+
 	
 	}
 }
@@ -1036,6 +1094,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.EthereumSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1048,6 +1108,8 @@ public class ModelValidator {
 	// no validation rules for MethodIdType
 
 	// no validation rules for Expiration
+
+	// no validation rules for Data
 
 	
 	}
@@ -1353,6 +1415,28 @@ public class ModelValidator {
 	}
 }
 /**
+	 * Validates {@code AvalancheSpecific} protobuf objects.
+	 */
+	public static class AvalancheSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.AvalancheSpecific> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.AvalancheSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	
+	}
+}
+/**
 	 * Validates {@code CreateTransactionSubstrateSpecific} protobuf objects.
 	 */
 	public static class CreateTransactionSubstrateSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionSubstrateSpecific> {
@@ -1459,6 +1543,21 @@ public class ModelValidator {
 
 	// no validation rules for Timestamp
 
+	
+	}
+}
+/**
+	 * Validates {@code CreateTransactionEthereumSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionEthereumSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionEthereumSpecific> {
+		
+		com.google.re2j.Pattern DATA__PATTERN = com.google.re2j.Pattern.compile("^0x[0-9a-fA-F]*$");
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionEthereumSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.CreateTransactionEthereumSpecific.data", proto.getData(), DATA__PATTERN);
 	
 	}
 }
