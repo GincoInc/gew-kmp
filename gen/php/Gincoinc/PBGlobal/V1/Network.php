@@ -153,6 +153,16 @@ class Network
      * Generated from protobuf enum <code>NETWORK_AVALANCHE_TESTNET = 34;</code>
      */
     const NETWORK_AVALANCHE_TESTNET = 34;
+    /**
+     * For monitoring https://github.com/GincoInc/sre-dev/issues/1312
+     *
+     * Generated from protobuf enum <code>NETWORK_ASTAR_MAINNET = 10001;</code>
+     */
+    const NETWORK_ASTAR_MAINNET = 10001;
+    /**
+     * Generated from protobuf enum <code>NETWORK_SHIDEN_MAINNET = 10002;</code>
+     */
+    const NETWORK_SHIDEN_MAINNET = 10002;
 
     private static $valueToName = [
         self::NETWORK_INVALID => 'NETWORK_INVALID',
@@ -190,6 +200,8 @@ class Network
         self::NETWORK_SYMBOL_TESTNET => 'NETWORK_SYMBOL_TESTNET',
         self::NETWORK_AVALANCHE_MAINNET => 'NETWORK_AVALANCHE_MAINNET',
         self::NETWORK_AVALANCHE_TESTNET => 'NETWORK_AVALANCHE_TESTNET',
+        self::NETWORK_ASTAR_MAINNET => 'NETWORK_ASTAR_MAINNET',
+        self::NETWORK_SHIDEN_MAINNET => 'NETWORK_SHIDEN_MAINNET',
     ];
 
     public static function name($value)

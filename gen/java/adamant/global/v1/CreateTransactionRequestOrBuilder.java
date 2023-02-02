@@ -159,4 +159,19 @@ public interface CreateTransactionRequestOrBuilder extends
    * <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
    */
   adamant.global.v1.Model.CreateTransactionSymbolSpecificOrBuilder getXymSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+   * @return Whether the ethereumSpecific field is set.
+   */
+  boolean hasEthereumSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+   * @return The ethereumSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionEthereumSpecific getEthereumSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionEthereumSpecificOrBuilder getEthereumSpecificOrBuilder();
 }

@@ -767,6 +767,8 @@ func (m *Key) Validate(all bool) error {
 
 	// no validation rules for KeyIndex
 
+	// no validation rules for HdIndex
+
 	if len(errors) > 0 {
 		return KeyMultiError(errors)
 	}
@@ -1723,6 +1725,20 @@ func (m *Transaction) Validate(all bool) error {
 		}
 	}
 
+	if v, ok := interface{}(m.GetAvalancheSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransactionValidationError{
+				field:  "AvalancheSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate(bool) error }); ok {
 		if err := v.Validate(all); err != nil {
 			err = TransactionValidationError{
@@ -2161,6 +2177,20 @@ func (m *UTXO) Validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if v, ok := interface{}(m.GetCardanoSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = UTXOValidationError{
+				field:  "CardanoSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
 	if len(errors) > 0 {
 		return UTXOMultiError(errors)
 	}
@@ -2238,6 +2268,215 @@ var _ interface {
 } = UTXOValidationError{}
 
 var _UTXO_TransactionId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on CardanoUTXOSpecific with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CardanoUTXOSpecificMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CardanoUTXOSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetTokens() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = CardanoUTXOSpecificValidationError{
+					field:  fmt.Sprintf("Tokens[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return CardanoUTXOSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// CardanoUTXOSpecificMultiError is an error wrapping multiple validation
+// errors returned by CardanoUTXOSpecific.Validate(true) if the designated
+// constraints aren't met.
+type CardanoUTXOSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CardanoUTXOSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CardanoUTXOSpecificMultiError) AllErrors() []error { return m }
+
+// CardanoUTXOSpecificValidationError is the validation error returned by
+// CardanoUTXOSpecific.Validate if the designated constraints aren't met.
+type CardanoUTXOSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CardanoUTXOSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CardanoUTXOSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CardanoUTXOSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CardanoUTXOSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CardanoUTXOSpecificValidationError) ErrorName() string {
+	return "CardanoUTXOSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CardanoUTXOSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCardanoUTXOSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CardanoUTXOSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CardanoUTXOSpecificValidationError{}
+
+// Validate checks the field values on CardanoCustomToken with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CardanoCustomTokenMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CardanoCustomToken) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for PolicyId
+
+	// no validation rules for AssetName
+
+	// no validation rules for Value
+
+	if len(errors) > 0 {
+		return CardanoCustomTokenMultiError(errors)
+	}
+	return nil
+}
+
+// CardanoCustomTokenMultiError is an error wrapping multiple validation errors
+// returned by CardanoCustomToken.Validate(true) if the designated constraints
+// aren't met.
+type CardanoCustomTokenMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CardanoCustomTokenMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CardanoCustomTokenMultiError) AllErrors() []error { return m }
+
+// CardanoCustomTokenValidationError is the validation error returned by
+// CardanoCustomToken.Validate if the designated constraints aren't met.
+type CardanoCustomTokenValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CardanoCustomTokenValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CardanoCustomTokenValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CardanoCustomTokenValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CardanoCustomTokenValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CardanoCustomTokenValidationError) ErrorName() string {
+	return "CardanoCustomTokenValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CardanoCustomTokenValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCardanoCustomToken.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CardanoCustomTokenValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CardanoCustomTokenValidationError{}
 
 // Validate checks the field values on BitcoinSpecific with the rules defined
 // in the proto definition for this message. If any rules are violated, an
@@ -2647,6 +2886,8 @@ func (m *EthereumSpecific) Validate(all bool) error {
 	// no validation rules for MethodIdType
 
 	// no validation rules for Expiration
+
+	// no validation rules for Data
 
 	if len(errors) > 0 {
 		return EthereumSpecificMultiError(errors)
@@ -4030,6 +4271,104 @@ var _ interface {
 	ErrorName() string
 } = SymbolSpecificValidationError{}
 
+// Validate checks the field values on AvalancheSpecific with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned. When asked to return all errors, validation continues
+// after first violation, and the result is a list of violation errors wrapped
+// in AvalancheSpecificMultiError, or nil if none found. Otherwise, only the
+// first error is returned, if any.
+func (m *AvalancheSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	if len(errors) > 0 {
+		return AvalancheSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// AvalancheSpecificMultiError is an error wrapping multiple validation errors
+// returned by AvalancheSpecific.Validate(true) if the designated constraints
+// aren't met.
+type AvalancheSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AvalancheSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AvalancheSpecificMultiError) AllErrors() []error { return m }
+
+// AvalancheSpecificValidationError is the validation error returned by
+// AvalancheSpecific.Validate if the designated constraints aren't met.
+type AvalancheSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AvalancheSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AvalancheSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AvalancheSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AvalancheSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AvalancheSpecificValidationError) ErrorName() string {
+	return "AvalancheSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AvalancheSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAvalancheSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AvalancheSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AvalancheSpecificValidationError{}
+
 // Validate checks the field values on CreateTransactionSubstrateSpecific with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, an error is returned. When asked to return all errors,
@@ -4528,6 +4867,113 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CreateTransactionSymbolSpecificValidationError{}
+
+// Validate checks the field values on CreateTransactionEthereumSpecific with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in CreateTransactionEthereumSpecificMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *CreateTransactionEthereumSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_CreateTransactionEthereumSpecific_Data_Pattern.MatchString(m.GetData()) {
+		err := CreateTransactionEthereumSpecificValidationError{
+			field:  "Data",
+			reason: "value does not match regex pattern \"^0x[0-9a-fA-F]*$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return CreateTransactionEthereumSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// CreateTransactionEthereumSpecificMultiError is an error wrapping multiple
+// validation errors returned by
+// CreateTransactionEthereumSpecific.Validate(true) if the designated
+// constraints aren't met.
+type CreateTransactionEthereumSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionEthereumSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionEthereumSpecificMultiError) AllErrors() []error { return m }
+
+// CreateTransactionEthereumSpecificValidationError is the validation error
+// returned by CreateTransactionEthereumSpecific.Validate if the designated
+// constraints aren't met.
+type CreateTransactionEthereumSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionEthereumSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionEthereumSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionEthereumSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionEthereumSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionEthereumSpecificValidationError) ErrorName() string {
+	return "CreateTransactionEthereumSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionEthereumSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionEthereumSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionEthereumSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionEthereumSpecificValidationError{}
+
+var _CreateTransactionEthereumSpecific_Data_Pattern = regexp.MustCompile("^0x[0-9a-fA-F]*$")
 
 // Validate checks the field values on SubstrateMultisigTransaction with the
 // rules defined in the proto definition for this message. If any rules are

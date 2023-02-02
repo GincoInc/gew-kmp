@@ -160,6 +160,19 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 106: {
+            adamant.global.v1.Model.CreateTransactionEthereumSpecific.Builder subBuilder = null;
+            if (ethereumSpecific_ != null) {
+              subBuilder = ethereumSpecific_.toBuilder();
+            }
+            ethereumSpecific_ = input.readMessage(adamant.global.v1.Model.CreateTransactionEthereumSpecific.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(ethereumSpecific_);
+              ethereumSpecific_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -512,6 +525,32 @@ private static final long serialVersionUID = 0L;
     return getXymSpecific();
   }
 
+  public static final int ETHEREUM_SPECIFIC_FIELD_NUMBER = 13;
+  private adamant.global.v1.Model.CreateTransactionEthereumSpecific ethereumSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+   * @return Whether the ethereumSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasEthereumSpecific() {
+    return ethereumSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+   * @return The ethereumSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionEthereumSpecific getEthereumSpecific() {
+    return ethereumSpecific_ == null ? adamant.global.v1.Model.CreateTransactionEthereumSpecific.getDefaultInstance() : ethereumSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionEthereumSpecificOrBuilder getEthereumSpecificOrBuilder() {
+    return getEthereumSpecific();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -561,6 +600,9 @@ private static final long serialVersionUID = 0L;
     }
     if (xymSpecific_ != null) {
       output.writeMessage(12, getXymSpecific());
+    }
+    if (ethereumSpecific_ != null) {
+      output.writeMessage(13, getEthereumSpecific());
     }
     unknownFields.writeTo(output);
   }
@@ -616,6 +658,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, getXymSpecific());
     }
+    if (ethereumSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(13, getEthereumSpecific());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -670,6 +716,11 @@ private static final long serialVersionUID = 0L;
       if (!getXymSpecific()
           .equals(other.getXymSpecific())) return false;
     }
+    if (hasEthereumSpecific() != other.hasEthereumSpecific()) return false;
+    if (hasEthereumSpecific()) {
+      if (!getEthereumSpecific()
+          .equals(other.getEthereumSpecific())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -718,6 +769,10 @@ private static final long serialVersionUID = 0L;
     if (hasXymSpecific()) {
       hash = (37 * hash) + XYM_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getXymSpecific().hashCode();
+    }
+    if (hasEthereumSpecific()) {
+      hash = (37 * hash) + ETHEREUM_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getEthereumSpecific().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -901,6 +956,12 @@ private static final long serialVersionUID = 0L;
         xymSpecific_ = null;
         xymSpecificBuilder_ = null;
       }
+      if (ethereumSpecificBuilder_ == null) {
+        ethereumSpecific_ = null;
+      } else {
+        ethereumSpecific_ = null;
+        ethereumSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -967,6 +1028,11 @@ private static final long serialVersionUID = 0L;
         result.xymSpecific_ = xymSpecific_;
       } else {
         result.xymSpecific_ = xymSpecificBuilder_.build();
+      }
+      if (ethereumSpecificBuilder_ == null) {
+        result.ethereumSpecific_ = ethereumSpecific_;
+      } else {
+        result.ethereumSpecific_ = ethereumSpecificBuilder_.build();
       }
       onBuilt();
       return result;
@@ -1077,6 +1143,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasXymSpecific()) {
         mergeXymSpecific(other.getXymSpecific());
+      }
+      if (other.hasEthereumSpecific()) {
+        mergeEthereumSpecific(other.getEthereumSpecific());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2262,6 +2331,125 @@ private static final long serialVersionUID = 0L;
         xymSpecific_ = null;
       }
       return xymSpecificBuilder_;
+    }
+
+    private adamant.global.v1.Model.CreateTransactionEthereumSpecific ethereumSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionEthereumSpecific, adamant.global.v1.Model.CreateTransactionEthereumSpecific.Builder, adamant.global.v1.Model.CreateTransactionEthereumSpecificOrBuilder> ethereumSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+     * @return Whether the ethereumSpecific field is set.
+     */
+    public boolean hasEthereumSpecific() {
+      return ethereumSpecificBuilder_ != null || ethereumSpecific_ != null;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+     * @return The ethereumSpecific.
+     */
+    public adamant.global.v1.Model.CreateTransactionEthereumSpecific getEthereumSpecific() {
+      if (ethereumSpecificBuilder_ == null) {
+        return ethereumSpecific_ == null ? adamant.global.v1.Model.CreateTransactionEthereumSpecific.getDefaultInstance() : ethereumSpecific_;
+      } else {
+        return ethereumSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+     */
+    public Builder setEthereumSpecific(adamant.global.v1.Model.CreateTransactionEthereumSpecific value) {
+      if (ethereumSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ethereumSpecific_ = value;
+        onChanged();
+      } else {
+        ethereumSpecificBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+     */
+    public Builder setEthereumSpecific(
+        adamant.global.v1.Model.CreateTransactionEthereumSpecific.Builder builderForValue) {
+      if (ethereumSpecificBuilder_ == null) {
+        ethereumSpecific_ = builderForValue.build();
+        onChanged();
+      } else {
+        ethereumSpecificBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+     */
+    public Builder mergeEthereumSpecific(adamant.global.v1.Model.CreateTransactionEthereumSpecific value) {
+      if (ethereumSpecificBuilder_ == null) {
+        if (ethereumSpecific_ != null) {
+          ethereumSpecific_ =
+            adamant.global.v1.Model.CreateTransactionEthereumSpecific.newBuilder(ethereumSpecific_).mergeFrom(value).buildPartial();
+        } else {
+          ethereumSpecific_ = value;
+        }
+        onChanged();
+      } else {
+        ethereumSpecificBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+     */
+    public Builder clearEthereumSpecific() {
+      if (ethereumSpecificBuilder_ == null) {
+        ethereumSpecific_ = null;
+        onChanged();
+      } else {
+        ethereumSpecific_ = null;
+        ethereumSpecificBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionEthereumSpecific.Builder getEthereumSpecificBuilder() {
+      
+      onChanged();
+      return getEthereumSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionEthereumSpecificOrBuilder getEthereumSpecificOrBuilder() {
+      if (ethereumSpecificBuilder_ != null) {
+        return ethereumSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return ethereumSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionEthereumSpecific.getDefaultInstance() : ethereumSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionEthereumSpecific, adamant.global.v1.Model.CreateTransactionEthereumSpecific.Builder, adamant.global.v1.Model.CreateTransactionEthereumSpecificOrBuilder> 
+        getEthereumSpecificFieldBuilder() {
+      if (ethereumSpecificBuilder_ == null) {
+        ethereumSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionEthereumSpecific, adamant.global.v1.Model.CreateTransactionEthereumSpecific.Builder, adamant.global.v1.Model.CreateTransactionEthereumSpecificOrBuilder>(
+                getEthereumSpecific(),
+                getParentForChildren(),
+                isClean());
+        ethereumSpecific_ = null;
+      }
+      return ethereumSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

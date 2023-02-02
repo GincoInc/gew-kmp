@@ -196,6 +196,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $symbol_specific = null;
     /**
+     * The Avalanche specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AvalancheSpecific avalanche_specific = 36 [json_name = "avalancheSpecific"];</code>
+     */
+    protected $avalanche_specific = null;
+    /**
      * the time at which the transaction was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
@@ -274,6 +280,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The Klaytn specific fields
      *     @type \Adamant\PBGlobal\V1\SymbolSpecific $symbol_specific
      *           The Symbol specific fields
+     *     @type \Adamant\PBGlobal\V1\AvalancheSpecific $avalanche_specific
+     *           The Avalanche specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -1221,6 +1229,42 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\SymbolSpecific::class);
         $this->symbol_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Avalanche specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AvalancheSpecific avalanche_specific = 36 [json_name = "avalancheSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\AvalancheSpecific|null
+     */
+    public function getAvalancheSpecific()
+    {
+        return $this->avalanche_specific;
+    }
+
+    public function hasAvalancheSpecific()
+    {
+        return isset($this->avalanche_specific);
+    }
+
+    public function clearAvalancheSpecific()
+    {
+        unset($this->avalanche_specific);
+    }
+
+    /**
+     * The Avalanche specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AvalancheSpecific avalanche_specific = 36 [json_name = "avalancheSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\AvalancheSpecific $var
+     * @return $this
+     */
+    public function setAvalancheSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\AvalancheSpecific::class);
+        $this->avalanche_specific = $var;
 
         return $this;
     }
