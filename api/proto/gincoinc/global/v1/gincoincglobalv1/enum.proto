@@ -48,6 +48,11 @@ enum Coin {
   COIN_MATIC = 31;
   COIN_XYM = 32;
   COIN_AVAX = 33;
+  COIN_ERC20_MATIC = 34;
+  COIN_ERC20_ROND = 35;
+  COIN_ERC20_MV = 36;
+  COIN_ASTR = 10001; // For monitoring https://github.com/GincoInc/sre-dev/issues/1312
+  COIN_SDN = 10002;
 }
 
 // Network is a type of blockchain network.
@@ -87,6 +92,8 @@ enum Network {
   NETWORK_SYMBOL_TESTNET = 32;
   NETWORK_AVALANCHE_MAINNET = 33;
   NETWORK_AVALANCHE_TESTNET = 34;
+  NETWORK_ASTAR_MAINNET = 10001; // For monitoring https://github.com/GincoInc/sre-dev/issues/1312
+  NETWORK_SHIDEN_MAINNET = 10002;
 }
 
 // AddressType is a type of address.
