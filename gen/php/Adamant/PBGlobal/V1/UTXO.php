@@ -39,6 +39,12 @@ class UTXO extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string transaction_id = 6 [json_name = "transactionId", (.validate.rules) = {</code>
      */
     protected $transaction_id = '';
+    /**
+     * The Cardano specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CardanoUTXOSpecific cardano_specific = 7 [json_name = "cardanoSpecific"];</code>
+     */
+    protected $cardano_specific = null;
 
     /**
      * Constructor.
@@ -52,6 +58,8 @@ class UTXO extends \Google\Protobuf\Internal\Message
      *     @type string $string_value
      *     @type string $address
      *     @type string $transaction_id
+     *     @type \Adamant\PBGlobal\V1\CardanoUTXOSpecific $cardano_specific
+     *           The Cardano specific fields
      * }
      */
     public function __construct($data = NULL) {
@@ -187,6 +195,42 @@ class UTXO extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->transaction_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Cardano specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CardanoUTXOSpecific cardano_specific = 7 [json_name = "cardanoSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CardanoUTXOSpecific|null
+     */
+    public function getCardanoSpecific()
+    {
+        return $this->cardano_specific;
+    }
+
+    public function hasCardanoSpecific()
+    {
+        return isset($this->cardano_specific);
+    }
+
+    public function clearCardanoSpecific()
+    {
+        unset($this->cardano_specific);
+    }
+
+    /**
+     * The Cardano specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CardanoUTXOSpecific cardano_specific = 7 [json_name = "cardanoSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CardanoUTXOSpecific $var
+     * @return $this
+     */
+    public function setCardanoSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CardanoUTXOSpecific::class);
+        $this->cardano_specific = $var;
 
         return $this;
     }

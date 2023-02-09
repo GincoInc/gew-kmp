@@ -45,6 +45,12 @@ class Key extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint32 key_index = 5 [json_name = "keyIndex"];</code>
      */
     protected $key_index = 0;
+    /**
+     * The index of hdkey
+     *
+     * Generated from protobuf field <code>uint32 hd_index = 6 [json_name = "hdIndex"];</code>
+     */
+    protected $hd_index = 0;
 
     /**
      * Constructor.
@@ -62,6 +68,8 @@ class Key extends \Google\Protobuf\Internal\Message
      *           id
      *     @type int $key_index
      *           The index of key
+     *     @type int $hd_index
+     *           The index of hdkey
      * }
      */
     public function __construct($data = NULL) {
@@ -195,6 +203,32 @@ class Key extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->key_index = $var;
+
+        return $this;
+    }
+
+    /**
+     * The index of hdkey
+     *
+     * Generated from protobuf field <code>uint32 hd_index = 6 [json_name = "hdIndex"];</code>
+     * @return int
+     */
+    public function getHdIndex()
+    {
+        return $this->hd_index;
+    }
+
+    /**
+     * The index of hdkey
+     *
+     * Generated from protobuf field <code>uint32 hd_index = 6 [json_name = "hdIndex"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setHdIndex($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->hd_index = $var;
 
         return $this;
     }
