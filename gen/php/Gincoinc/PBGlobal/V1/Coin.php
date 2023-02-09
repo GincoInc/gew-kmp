@@ -149,6 +149,28 @@ class Coin
      * Generated from protobuf enum <code>COIN_AVAX = 33;</code>
      */
     const COIN_AVAX = 33;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_MATIC = 34;</code>
+     */
+    const COIN_ERC20_MATIC = 34;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_ROND = 35;</code>
+     */
+    const COIN_ERC20_ROND = 35;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_MV = 36;</code>
+     */
+    const COIN_ERC20_MV = 36;
+    /**
+     * For monitoring https://github.com/GincoInc/sre-dev/issues/1312
+     *
+     * Generated from protobuf enum <code>COIN_ASTR = 10001;</code>
+     */
+    const COIN_ASTR = 10001;
+    /**
+     * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
+     */
+    const COIN_SDN = 10002;
 
     private static $valueToName = [
         self::COIN_INVALID => 'COIN_INVALID',
@@ -185,6 +207,11 @@ class Coin
         self::COIN_MATIC => 'COIN_MATIC',
         self::COIN_XYM => 'COIN_XYM',
         self::COIN_AVAX => 'COIN_AVAX',
+        self::COIN_ERC20_MATIC => 'COIN_ERC20_MATIC',
+        self::COIN_ERC20_ROND => 'COIN_ERC20_ROND',
+        self::COIN_ERC20_MV => 'COIN_ERC20_MV',
+        self::COIN_ASTR => 'COIN_ASTR',
+        self::COIN_SDN => 'COIN_SDN',
     ];
 
     public static function name($value)

@@ -61,6 +61,10 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12 [json_name = "xymSpecific"];</code>
      */
     protected $xym_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+     */
+    protected $ethereum_specific = null;
 
     /**
      * Constructor.
@@ -80,6 +84,7 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CreateTransactionNemSpecific $nem_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionIOSTSpecific $iost_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionSymbolSpecific $xym_specific
+     *     @type \Adamant\PBGlobal\V1\CreateTransactionEthereumSpecific $ethereum_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -397,6 +402,38 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionSymbolSpecific::class);
         $this->xym_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CreateTransactionEthereumSpecific|null
+     */
+    public function getEthereumSpecific()
+    {
+        return $this->ethereum_specific;
+    }
+
+    public function hasEthereumSpecific()
+    {
+        return isset($this->ethereum_specific);
+    }
+
+    public function clearEthereumSpecific()
+    {
+        unset($this->ethereum_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CreateTransactionEthereumSpecific $var
+     * @return $this
+     */
+    public function setEthereumSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionEthereumSpecific::class);
+        $this->ethereum_specific = $var;
 
         return $this;
     }

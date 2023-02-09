@@ -33,19 +33,4 @@ public interface CreateInitTransactionRequestOrBuilder extends
    * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 2 [json_name = "iostSpecific"];</code>
    */
   adamant.global.v1.Model.CreateTransactionIOSTSpecificOrBuilder getIostSpecificOrBuilder();
-
-  /**
-   * <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
-   * @return Whether the symbolSpecific field is set.
-   */
-  boolean hasSymbolSpecific();
-  /**
-   * <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
-   * @return The symbolSpecific.
-   */
-  adamant.global.v1.Model.CreateTransactionSymbolSpecific getSymbolSpecific();
-  /**
-   * <code>.adamant.global.v1.CreateTransactionSymbolSpecific symbol_specific = 3 [json_name = "symbolSpecific"];</code>
-   */
-  adamant.global.v1.Model.CreateTransactionSymbolSpecificOrBuilder getSymbolSpecificOrBuilder();
 }

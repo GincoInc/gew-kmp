@@ -103,6 +103,7 @@ message Key {
   adamant.global.v1.AccountType account_type = 3; // The account type of key owner
   string key_id = 4; // id
   uint32 key_index = 5; // The index of key
+  uint32 hd_index = 6; // The index of hdkey
 }
 
 // The model of address
@@ -195,6 +196,7 @@ message Transaction {
   PolygonSpecific polygon_specific = 33; // The Polygon specific fields
   KlaytnSpecific klaytn_specific = 34; // The Klaytn specific fields
   SymbolSpecific symbol_specific = 35; // The Symbol specific fields
+  AvalancheSpecific avalanche_specific = 36; // The Avalanche specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -236,6 +238,19 @@ message UTXO {
   string transaction_id = 6 [(validate.rules).string = {
     pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
+  CardanoUTXOSpecific cardano_specific = 7; // The Cardano specific fields
+}
+
+// The model of Cardano specific fields of UTXO
+message CardanoUTXOSpecific {
+  repeated CardanoCustomToken tokens = 1;
+}
+
+// The model of Cardano custom token
+message CardanoCustomToken {
+  string policy_id = 1;
+  string asset_name = 2;
+  double value = 3;
 }
 
 // The model of Bitcoin specific fields of transaction
@@ -263,6 +278,7 @@ message EthereumSpecific {
   bool is_next_nonce = 3;
   adamant.global.v1.EthereumContractMethodIDType method_id_type = 4;
   uint64 expiration = 5;
+  string data = 6; // data
 }
 
 // The model of XRP specific fields of transaction
@@ -349,6 +365,13 @@ message SymbolSpecific {
   uint64 timestamp = 5;
 }
 
+// The model of Avalanche specific fields of transaction
+message AvalancheSpecific {
+  uint64 gas_limit = 1;
+  uint64 nonce = 2;
+  bool is_next_nonce = 3;
+}
+
 // The model of Substrate specific fields of CreateTransaction
 message CreateTransactionSubstrateSpecific {
   string transaction_id = 1;
@@ -382,6 +405,13 @@ message CreateTransactionSymbolSpecific {
   gincoinc.global.v1.SymbolTransactionType tx_type = 2;
   string message = 3;
   uint64 timestamp = 4;
+}
+
+// The model of Ethereum specific fields of CreateTransaction
+message CreateTransactionEthereumSpecific {
+  string data = 1 [(validate.rules).string = {
+    pattern: "^0x[0-9a-fA-F]*$"
+  }];
 }
 
 // The model of substrate multisig transaction
