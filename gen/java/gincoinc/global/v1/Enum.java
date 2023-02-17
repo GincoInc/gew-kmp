@@ -48,33 +48,33 @@ public final class Enum {
      */
     COIN_XRP(5),
     /**
-     * <code>COIN_BAT = 6;</code>
+     * <code>COIN_ERC20_BAT = 6;</code>
      */
-    COIN_BAT(6),
+    COIN_ERC20_BAT(6),
     /**
      * <code>COIN_TRX = 7;</code>
      */
     COIN_TRX(7),
     /**
-     * <code>COIN_USDT = 8;</code>
+     * <code>COIN_ERC20_USDT = 8;</code>
      */
-    COIN_USDT(8),
+    COIN_ERC20_USDT(8),
     /**
      * <code>COIN_RYO = 9;</code>
      */
     COIN_RYO(9),
     /**
-     * <code>COIN_JASMY = 10;</code>
+     * <code>COIN_ERC20_JASMY = 10;</code>
      */
-    COIN_JASMY(10),
+    COIN_ERC20_JASMY(10),
     /**
-     * <code>COIN_ENJ = 11;</code>
+     * <code>COIN_ERC20_ENJ = 11;</code>
      */
-    COIN_ENJ(11),
+    COIN_ERC20_ENJ(11),
     /**
-     * <code>COIN_OMG = 12;</code>
+     * <code>COIN_ERC20_OMG = 12;</code>
      */
-    COIN_OMG(12),
+    COIN_ERC20_OMG(12),
     /**
      * <code>COIN_XLM = 13;</code>
      */
@@ -88,45 +88,45 @@ public final class Enum {
      */
     COIN_DOT(15),
     /**
-     * <code>COIN_LINK = 16;</code>
+     * <code>COIN_ERC20_LINK = 16;</code>
      */
-    COIN_LINK(16),
+    COIN_ERC20_LINK(16),
     /**
-     * <code>COIN_DEP = 17;</code>
+     * <code>COIN_ERC20_DEP = 17;</code>
      */
-    COIN_DEP(17),
+    COIN_ERC20_DEP(17),
     /**
-     * <code>COIN_USDC = 18;</code>
+     * <code>COIN_ERC20_USDC = 18;</code>
      */
-    COIN_USDC(18),
+    COIN_ERC20_USDC(18),
     /**
-     * <code>COIN_GYEN = 19;</code>
+     * <code>COIN_ERC20_GYEN = 19;</code>
      */
-    COIN_GYEN(19),
+    COIN_ERC20_GYEN(19),
     /**
-     * <code>COIN_ZAIF = 20;</code>
+     * <code>COIN_ERC20_ZAIF = 20;</code>
      */
-    COIN_ZAIF(20),
+    COIN_ERC20_ZAIF(20),
     /**
-     * <code>COIN_FSCC = 21;</code>
+     * <code>COIN_ERC20_FSCC = 21;</code>
      */
-    COIN_FSCC(21),
+    COIN_ERC20_FSCC(21),
     /**
-     * <code>COIN_CMS = 22;</code>
+     * <code>COIN_ERC20_CMS = 22;</code>
      */
-    COIN_CMS(22),
+    COIN_ERC20_CMS(22),
     /**
-     * <code>COIN_CICC = 23;</code>
+     * <code>COIN_ERC20_CICC = 23;</code>
      */
-    COIN_CICC(23),
+    COIN_ERC20_CICC(23),
     /**
-     * <code>COIN_NCXC = 24;</code>
+     * <code>COIN_ERC20_NCXC = 24;</code>
      */
-    COIN_NCXC(24),
+    COIN_ERC20_NCXC(24),
     /**
-     * <code>COIN_COT = 25;</code>
+     * <code>COIN_ERC20_COT = 25;</code>
      */
-    COIN_COT(25),
+    COIN_ERC20_COT(25),
     /**
      * <code>COIN_XEM = 26;</code>
      */
@@ -140,9 +140,9 @@ public final class Enum {
      */
     COIN_IOST(28),
     /**
-     * <code>COIN_SKEB = 29;</code>
+     * <code>COIN_ERC20_SKEB = 29;</code>
      */
-    COIN_SKEB(29),
+    COIN_ERC20_SKEB(29),
     /**
      * <code>COIN_KLAY = 30;</code>
      */
@@ -171,6 +171,14 @@ public final class Enum {
      * <code>COIN_ERC20_MV = 36;</code>
      */
     COIN_ERC20_MV(36),
+    /**
+     * <code>COIN_POLYGON_ERC20_ROND = 37;</code>
+     */
+    COIN_POLYGON_ERC20_ROND(37),
+    /**
+     * <code>COIN_POLYGON_ERC20_MV = 38;</code>
+     */
+    COIN_POLYGON_ERC20_MV(38),
     /**
      * <pre>
      * For monitoring https://github.com/GincoInc/sre-dev/issues/1312
@@ -211,33 +219,33 @@ public final class Enum {
      */
     public static final int COIN_XRP_VALUE = 5;
     /**
-     * <code>COIN_BAT = 6;</code>
+     * <code>COIN_ERC20_BAT = 6;</code>
      */
-    public static final int COIN_BAT_VALUE = 6;
+    public static final int COIN_ERC20_BAT_VALUE = 6;
     /**
      * <code>COIN_TRX = 7;</code>
      */
     public static final int COIN_TRX_VALUE = 7;
     /**
-     * <code>COIN_USDT = 8;</code>
+     * <code>COIN_ERC20_USDT = 8;</code>
      */
-    public static final int COIN_USDT_VALUE = 8;
+    public static final int COIN_ERC20_USDT_VALUE = 8;
     /**
      * <code>COIN_RYO = 9;</code>
      */
     public static final int COIN_RYO_VALUE = 9;
     /**
-     * <code>COIN_JASMY = 10;</code>
+     * <code>COIN_ERC20_JASMY = 10;</code>
      */
-    public static final int COIN_JASMY_VALUE = 10;
+    public static final int COIN_ERC20_JASMY_VALUE = 10;
     /**
-     * <code>COIN_ENJ = 11;</code>
+     * <code>COIN_ERC20_ENJ = 11;</code>
      */
-    public static final int COIN_ENJ_VALUE = 11;
+    public static final int COIN_ERC20_ENJ_VALUE = 11;
     /**
-     * <code>COIN_OMG = 12;</code>
+     * <code>COIN_ERC20_OMG = 12;</code>
      */
-    public static final int COIN_OMG_VALUE = 12;
+    public static final int COIN_ERC20_OMG_VALUE = 12;
     /**
      * <code>COIN_XLM = 13;</code>
      */
@@ -251,45 +259,45 @@ public final class Enum {
      */
     public static final int COIN_DOT_VALUE = 15;
     /**
-     * <code>COIN_LINK = 16;</code>
+     * <code>COIN_ERC20_LINK = 16;</code>
      */
-    public static final int COIN_LINK_VALUE = 16;
+    public static final int COIN_ERC20_LINK_VALUE = 16;
     /**
-     * <code>COIN_DEP = 17;</code>
+     * <code>COIN_ERC20_DEP = 17;</code>
      */
-    public static final int COIN_DEP_VALUE = 17;
+    public static final int COIN_ERC20_DEP_VALUE = 17;
     /**
-     * <code>COIN_USDC = 18;</code>
+     * <code>COIN_ERC20_USDC = 18;</code>
      */
-    public static final int COIN_USDC_VALUE = 18;
+    public static final int COIN_ERC20_USDC_VALUE = 18;
     /**
-     * <code>COIN_GYEN = 19;</code>
+     * <code>COIN_ERC20_GYEN = 19;</code>
      */
-    public static final int COIN_GYEN_VALUE = 19;
+    public static final int COIN_ERC20_GYEN_VALUE = 19;
     /**
-     * <code>COIN_ZAIF = 20;</code>
+     * <code>COIN_ERC20_ZAIF = 20;</code>
      */
-    public static final int COIN_ZAIF_VALUE = 20;
+    public static final int COIN_ERC20_ZAIF_VALUE = 20;
     /**
-     * <code>COIN_FSCC = 21;</code>
+     * <code>COIN_ERC20_FSCC = 21;</code>
      */
-    public static final int COIN_FSCC_VALUE = 21;
+    public static final int COIN_ERC20_FSCC_VALUE = 21;
     /**
-     * <code>COIN_CMS = 22;</code>
+     * <code>COIN_ERC20_CMS = 22;</code>
      */
-    public static final int COIN_CMS_VALUE = 22;
+    public static final int COIN_ERC20_CMS_VALUE = 22;
     /**
-     * <code>COIN_CICC = 23;</code>
+     * <code>COIN_ERC20_CICC = 23;</code>
      */
-    public static final int COIN_CICC_VALUE = 23;
+    public static final int COIN_ERC20_CICC_VALUE = 23;
     /**
-     * <code>COIN_NCXC = 24;</code>
+     * <code>COIN_ERC20_NCXC = 24;</code>
      */
-    public static final int COIN_NCXC_VALUE = 24;
+    public static final int COIN_ERC20_NCXC_VALUE = 24;
     /**
-     * <code>COIN_COT = 25;</code>
+     * <code>COIN_ERC20_COT = 25;</code>
      */
-    public static final int COIN_COT_VALUE = 25;
+    public static final int COIN_ERC20_COT_VALUE = 25;
     /**
      * <code>COIN_XEM = 26;</code>
      */
@@ -303,9 +311,9 @@ public final class Enum {
      */
     public static final int COIN_IOST_VALUE = 28;
     /**
-     * <code>COIN_SKEB = 29;</code>
+     * <code>COIN_ERC20_SKEB = 29;</code>
      */
-    public static final int COIN_SKEB_VALUE = 29;
+    public static final int COIN_ERC20_SKEB_VALUE = 29;
     /**
      * <code>COIN_KLAY = 30;</code>
      */
@@ -334,6 +342,14 @@ public final class Enum {
      * <code>COIN_ERC20_MV = 36;</code>
      */
     public static final int COIN_ERC20_MV_VALUE = 36;
+    /**
+     * <code>COIN_POLYGON_ERC20_ROND = 37;</code>
+     */
+    public static final int COIN_POLYGON_ERC20_ROND_VALUE = 37;
+    /**
+     * <code>COIN_POLYGON_ERC20_MV = 38;</code>
+     */
+    public static final int COIN_POLYGON_ERC20_MV_VALUE = 38;
     /**
      * <pre>
      * For monitoring https://github.com/GincoInc/sre-dev/issues/1312
@@ -378,30 +394,30 @@ public final class Enum {
         case 3: return COIN_LTC;
         case 4: return COIN_BCH;
         case 5: return COIN_XRP;
-        case 6: return COIN_BAT;
+        case 6: return COIN_ERC20_BAT;
         case 7: return COIN_TRX;
-        case 8: return COIN_USDT;
+        case 8: return COIN_ERC20_USDT;
         case 9: return COIN_RYO;
-        case 10: return COIN_JASMY;
-        case 11: return COIN_ENJ;
-        case 12: return COIN_OMG;
+        case 10: return COIN_ERC20_JASMY;
+        case 11: return COIN_ERC20_ENJ;
+        case 12: return COIN_ERC20_OMG;
         case 13: return COIN_XLM;
         case 14: return COIN_ADA;
         case 15: return COIN_DOT;
-        case 16: return COIN_LINK;
-        case 17: return COIN_DEP;
-        case 18: return COIN_USDC;
-        case 19: return COIN_GYEN;
-        case 20: return COIN_ZAIF;
-        case 21: return COIN_FSCC;
-        case 22: return COIN_CMS;
-        case 23: return COIN_CICC;
-        case 24: return COIN_NCXC;
-        case 25: return COIN_COT;
+        case 16: return COIN_ERC20_LINK;
+        case 17: return COIN_ERC20_DEP;
+        case 18: return COIN_ERC20_USDC;
+        case 19: return COIN_ERC20_GYEN;
+        case 20: return COIN_ERC20_ZAIF;
+        case 21: return COIN_ERC20_FSCC;
+        case 22: return COIN_ERC20_CMS;
+        case 23: return COIN_ERC20_CICC;
+        case 24: return COIN_ERC20_NCXC;
+        case 25: return COIN_ERC20_COT;
         case 26: return COIN_XEM;
         case 27: return COIN_MONA;
         case 28: return COIN_IOST;
-        case 29: return COIN_SKEB;
+        case 29: return COIN_ERC20_SKEB;
         case 30: return COIN_KLAY;
         case 31: return COIN_MATIC;
         case 32: return COIN_XYM;
@@ -409,6 +425,8 @@ public final class Enum {
         case 34: return COIN_ERC20_MATIC;
         case 35: return COIN_ERC20_ROND;
         case 36: return COIN_ERC20_MV;
+        case 37: return COIN_POLYGON_ERC20_ROND;
+        case 38: return COIN_POLYGON_ERC20_MV;
         case 10001: return COIN_ASTR;
         case 10002: return COIN_SDN;
         default: return null;
@@ -2377,118 +2395,122 @@ public final class Enum {
   static {
     java.lang.String[] descriptorData = {
       "\n.gincoinc/global/v1/gincoincglobalv1/en" +
-      "um.proto\022\022gincoinc.global.v1*\324\004\n\004Coin\022\020\n" +
+      "um.proto\022\022gincoinc.global.v1*\354\005\n\004Coin\022\020\n" +
       "\014COIN_INVALID\020\000\022\014\n\010COIN_BTC\020\001\022\014\n\010COIN_ET" +
       "H\020\002\022\014\n\010COIN_LTC\020\003\022\014\n\010COIN_BCH\020\004\022\014\n\010COIN_" +
-      "XRP\020\005\022\014\n\010COIN_BAT\020\006\022\014\n\010COIN_TRX\020\007\022\r\n\tCOI" +
-      "N_USDT\020\010\022\014\n\010COIN_RYO\020\t\022\016\n\nCOIN_JASMY\020\n\022\014" +
-      "\n\010COIN_ENJ\020\013\022\014\n\010COIN_OMG\020\014\022\014\n\010COIN_XLM\020\r" +
-      "\022\014\n\010COIN_ADA\020\016\022\014\n\010COIN_DOT\020\017\022\r\n\tCOIN_LIN" +
-      "K\020\020\022\014\n\010COIN_DEP\020\021\022\r\n\tCOIN_USDC\020\022\022\r\n\tCOIN" +
-      "_GYEN\020\023\022\r\n\tCOIN_ZAIF\020\024\022\r\n\tCOIN_FSCC\020\025\022\014\n" +
-      "\010COIN_CMS\020\026\022\r\n\tCOIN_CICC\020\027\022\r\n\tCOIN_NCXC\020" +
-      "\030\022\014\n\010COIN_COT\020\031\022\014\n\010COIN_XEM\020\032\022\r\n\tCOIN_MO" +
-      "NA\020\033\022\r\n\tCOIN_IOST\020\034\022\r\n\tCOIN_SKEB\020\035\022\r\n\tCO" +
-      "IN_KLAY\020\036\022\016\n\nCOIN_MATIC\020\037\022\014\n\010COIN_XYM\020 \022" +
-      "\r\n\tCOIN_AVAX\020!\022\024\n\020COIN_ERC20_MATIC\020\"\022\023\n\017" +
-      "COIN_ERC20_ROND\020#\022\021\n\rCOIN_ERC20_MV\020$\022\016\n\t" +
-      "COIN_ASTR\020\221N\022\r\n\010COIN_SDN\020\222N*\243\010\n\007Network\022" +
-      "\023\n\017NETWORK_INVALID\020\000\022\033\n\027NETWORK_BITCOIN_" +
-      "MAINNET\020\001\022\033\n\027NETWORK_BITCOIN_TESTNET\020\002\022\034" +
-      "\n\030NETWORK_ETHEREUM_MAINNET\020\003\022\034\n\030NETWORK_" +
-      "ETHEREUM_TESTNET\020\004\022\034\n\030NETWORK_LITECOIN_M" +
-      "AINNET\020\005\022\034\n\030NETWORK_LITECOIN_TESTNET\020\006\022\037" +
-      "\n\033NETWORK_BITCOINCASH_MAINNET\020\007\022\037\n\033NETWO" +
-      "RK_BITCOINCASH_TESTNET\020\010\022\032\n\026NETWORK_RIPP" +
-      "LE_MAINNET\020\t\022\032\n\026NETWORK_RIPPLE_TESTNET\020\n" +
-      "\022\030\n\024NETWORK_TRON_MAINNET\020\013\022\030\n\024NETWORK_TR" +
-      "ON_TESTNET\020\014\022\031\n\025NETWORK_C0BAN_MAINNET\020\r\022" +
-      "\031\n\025NETWORK_C0BAN_TESTNET\020\016\022\033\n\027NETWORK_ST" +
-      "ELLAR_MAINNET\020\017\022\033\n\027NETWORK_STELLAR_TESTN" +
-      "ET\020\020\022\033\n\027NETWORK_CARDANO_MAINNET\020\021\022\033\n\027NET" +
-      "WORK_CARDANO_TESTNET\020\022\022\034\n\030NETWORK_POLKAD" +
-      "OT_MAINNET\020\023\022\034\n\030NETWORK_POLKADOT_TESTNET" +
-      "\020\024\022\027\n\023NETWORK_NEM_MAINNET\020\025\022\027\n\023NETWORK_N" +
-      "EM_TESTNET\020\026\022\034\n\030NETWORK_MONACOIN_MAINNET" +
-      "\020\027\022\034\n\030NETWORK_MONACOIN_TESTNET\020\030\022\030\n\024NETW" +
-      "ORK_IOST_MAINNET\020\031\022\030\n\024NETWORK_IOST_TESTN" +
-      "ET\020\032\022\030\n\024NETWORK_KLAY_MAINNET\020\033\022\030\n\024NETWOR" +
-      "K_KLAY_TESTNET\020\034\022\033\n\027NETWORK_POLYGON_MAIN" +
-      "NET\020\035\022\033\n\027NETWORK_POLYGON_TESTNET\020\036\022\032\n\026NE" +
-      "TWORK_SYMBOL_MAINNET\020\037\022\032\n\026NETWORK_SYMBOL" +
-      "_TESTNET\020 \022\035\n\031NETWORK_AVALANCHE_MAINNET\020" +
-      "!\022\035\n\031NETWORK_AVALANCHE_TESTNET\020\"\022\032\n\025NETW" +
-      "ORK_ASTAR_MAINNET\020\221N\022\033\n\026NETWORK_SHIDEN_M" +
-      "AINNET\020\222N*\212\001\n\013AddressType\022\030\n\024ADDRESS_TYP" +
-      "E_INVALID\020\000\022\025\n\021ADDRESS_TYPE_P2SH\020\001\022\033\n\027AD" +
-      "DRESS_TYPE_P2SH_P2WSH\020\002\022\026\n\022ADDRESS_TYPE_" +
-      "P2WSH\020\003\022\025\n\021ADDRESS_TYPE_NONE\020d*\323\001\n\020Trans" +
-      "actionState\022\035\n\031TRANSACTION_STATE_INVALID" +
-      "\020\000\022\037\n\033TRANSACTION_STATE_SUBMITTED\020\001\022\035\n\031T" +
-      "RANSACTION_STATE_PENDING\020\002\022 \n\034TRANSACTIO" +
-      "N_STATE_PROCESSING\020\003\022\037\n\033TRANSACTION_STAT" +
-      "E_CONFIRMED\020\004\022\035\n\031TRANSACTION_STATE_DROPP" +
-      "ED\020\005*\217\001\n\tUTXOState\022\026\n\022UTXO_STATE_INVALID" +
-      "\020\000\022\036\n\032UTXO_STATE_PENDING_UNSPENT\020\001\022\026\n\022UT" +
-      "XO_STATE_UNSPENT\020\002\022\034\n\030UTXO_STATE_PENDING" +
-      "_SPENT\020\003\022\024\n\020UTXO_STATE_SPENT\020\004*\217\001\n\014Trans" +
-      "ferType\022\031\n\025TRANSFER_TYPE_INVALID\020\000\022\026\n\022TR" +
-      "ANSFER_TYPE_SEND\020\001\022\031\n\025TRANSFER_TYPE_RECE" +
-      "IVE\020\002\022\030\n\024TRANSFER_TYPE_CHANGE\020\003\022\027\n\023TRANS" +
-      "FER_TYPE_FATAL\020\004*\253\001\n\022XRPTransactionType\022" +
-      " \n\034XRP_TRANSACTION_TYPE_INVALID\020\000\022 \n\034XRP" +
-      "_TRANSACTION_TYPE_PAYMENT\020\001\022(\n$XRP_TRANS" +
-      "ACTION_TYPE_SET_SIGNER_LIST\020\002\022\'\n#XRP_TRA" +
-      "NSACTION_TYPE_DISABLE_MASTER\020\003*\260\001\n\021Trans" +
-      "actionResult\022\036\n\032TRANSACTION_RESULT_INVAL" +
-      "ID\020\000\022\036\n\032TRANSACTION_RESULT_PENDING\020\001\022\036\n\032" +
-      "TRANSACTION_RESULT_SUCCESS\020\002\022\036\n\032TRANSACT" +
-      "ION_RESULT_FAILURE\020\003\022\033\n\027TRANSACTION_RESU" +
-      "LT_NONE\020d*\275\003\n\022NemTransactionType\022 \n\034NEM_" +
-      "TRANSACTION_TYPE_INVALID\020\000\022&\n\"NEM_TRANSA" +
-      "CTION_TYPE_TRANSFER_TYPE\020\001\0221\n-NEM_TRANSA" +
-      "CTION_TYPE_IMPORTANCE_TRANSFER_TYPE\020\002\0223\n" +
-      "/NEM_TRANSACTION_TYPE_MULTISIG_MODIFICAT" +
-      "ION_TYPE\020\003\0220\n,NEM_TRANSACTION_TYPE_MULTI" +
-      "SIG_SIGNATURE_TYPE\020\004\0222\n.NEM_TRANSACTION_" +
-      "TYPE_MULTISIG_TRANSACTION_TYPE\020\005\0221\n-NEM_" +
-      "TRANSACTION_TYPE_PROVISION_NAMESPACE_TYP" +
-      "E\020\006\022/\n+NEM_TRANSACTION_TYPE_MOSAIC_DEFIN" +
-      "ITION_TYPE\020\007\022+\n\'NEM_TRANSACTION_TYPE_MOS" +
-      "AIC_SUPPLY_TYPE\020\010*\353\t\n\025SymbolTransactionT" +
-      "ype\022#\n\037SYMBOL_TRANSACTION_TYPE_INVALID\020\000" +
-      "\022,\n(SYMBOL_TRANSACTION_TYPE_ACCOUNT_KEY_" +
-      "LINK\020\001\022)\n%SYMBOL_TRANSACTION_TYPE_NODE_K" +
-      "EY_LINK\020\002\022.\n*SYMBOL_TRANSACTION_TYPE_AGG" +
-      "REGATE_COMPLETE\020\003\022,\n(SYMBOL_TRANSACTION_" +
-      "TYPE_AGGREGATE_BONDED\020\004\022+\n\'SYMBOL_TRANSA" +
-      "CTION_TYPE_VOTING_KEY_LINK\020\005\022(\n$SYMBOL_T" +
-      "RANSACTION_TYPE_VRF_KEY_LINK\020\006\022%\n!SYMBOL" +
-      "_TRANSACTION_TYPE_HASH_LOCK\020\007\022\'\n#SYMBOL_" +
-      "TRANSACTION_TYPE_SECRET_LOCK\020\010\022(\n$SYMBOL" +
-      "_TRANSACTION_TYPE_SECRET_PROOF\020\t\022,\n(SYMB" +
-      "OL_TRANSACTION_TYPE_ACCOUNT_METADATA\020\n\022+" +
-      "\n\'SYMBOL_TRANSACTION_TYPE_MOSAIC_METADAT" +
-      "A\020\013\022.\n*SYMBOL_TRANSACTION_TYPE_NAMESPACE" +
-      "_METADATA\020\014\022-\n)SYMBOL_TRANSACTION_TYPE_M" +
-      "OSAIC_DEFINITION\020\r\0220\n,SYMBOL_TRANSACTION" +
-      "_TYPE_MOSAIC_SUPPLY_CHANGE\020\016\0224\n0SYMBOL_T" +
-      "RANSACTION_TYPE_MOSAIC_SUPPLY_REVOCATION" +
-      "\020\017\0229\n5SYMBOL_TRANSACTION_TYPE_MULTISIG_A" +
-      "CCOUNT_MODIFICATION\020\020\022)\n%SYMBOL_TRANSACT" +
-      "ION_TYPE_ADDRESS_ALIAS\020\021\022(\n$SYMBOL_TRANS" +
-      "ACTION_TYPE_MOSAIC_ALIAS\020\022\0222\n.SYMBOL_TRA" +
-      "NSACTION_TYPE_NAMESPACE_REGISTRATION\020\023\0227" +
-      "\n3SYMBOL_TRANSACTION_TYPE_ACCOUNT_ADDRES" +
-      "S_RESTRICTION\020\024\0226\n2SYMBOL_TRANSACTION_TY" +
-      "PE_ACCOUNT_MOSAIC_RESTRICTION\020\025\0229\n5SYMBO" +
-      "L_TRANSACTION_TYPE_ACCOUNT_OPERATION_RES" +
-      "TRICTION\020\026\0226\n2SYMBOL_TRANSACTION_TYPE_MO" +
-      "SAIC_ADDRESS_RESTRICTION\020\027\0225\n1SYMBOL_TRA" +
-      "NSACTION_TYPE_MOSAIC_GLOBAL_RESTRICTION\020" +
-      "\030\022$\n SYMBOL_TRANSACTION_TYPE_TRANSFER\020\031B" +
-      "EZCgithub.com/GincoInc/gew-kmp/gen/ginco" +
-      "inc/global/v1/gincoincglobalv1b\006proto3"
+      "XRP\020\005\022\022\n\016COIN_ERC20_BAT\020\006\022\014\n\010COIN_TRX\020\007\022" +
+      "\023\n\017COIN_ERC20_USDT\020\010\022\014\n\010COIN_RYO\020\t\022\024\n\020CO" +
+      "IN_ERC20_JASMY\020\n\022\022\n\016COIN_ERC20_ENJ\020\013\022\022\n\016" +
+      "COIN_ERC20_OMG\020\014\022\014\n\010COIN_XLM\020\r\022\014\n\010COIN_A" +
+      "DA\020\016\022\014\n\010COIN_DOT\020\017\022\023\n\017COIN_ERC20_LINK\020\020\022" +
+      "\022\n\016COIN_ERC20_DEP\020\021\022\023\n\017COIN_ERC20_USDC\020\022" +
+      "\022\023\n\017COIN_ERC20_GYEN\020\023\022\023\n\017COIN_ERC20_ZAIF" +
+      "\020\024\022\023\n\017COIN_ERC20_FSCC\020\025\022\022\n\016COIN_ERC20_CM" +
+      "S\020\026\022\023\n\017COIN_ERC20_CICC\020\027\022\023\n\017COIN_ERC20_N" +
+      "CXC\020\030\022\022\n\016COIN_ERC20_COT\020\031\022\014\n\010COIN_XEM\020\032\022" +
+      "\r\n\tCOIN_MONA\020\033\022\r\n\tCOIN_IOST\020\034\022\023\n\017COIN_ER" +
+      "C20_SKEB\020\035\022\r\n\tCOIN_KLAY\020\036\022\016\n\nCOIN_MATIC\020" +
+      "\037\022\014\n\010COIN_XYM\020 \022\r\n\tCOIN_AVAX\020!\022\024\n\020COIN_E" +
+      "RC20_MATIC\020\"\022\023\n\017COIN_ERC20_ROND\020#\022\021\n\rCOI" +
+      "N_ERC20_MV\020$\022\033\n\027COIN_POLYGON_ERC20_ROND\020" +
+      "%\022\031\n\025COIN_POLYGON_ERC20_MV\020&\022\016\n\tCOIN_AST" +
+      "R\020\221N\022\r\n\010COIN_SDN\020\222N*\243\010\n\007Network\022\023\n\017NETWO" +
+      "RK_INVALID\020\000\022\033\n\027NETWORK_BITCOIN_MAINNET\020" +
+      "\001\022\033\n\027NETWORK_BITCOIN_TESTNET\020\002\022\034\n\030NETWOR" +
+      "K_ETHEREUM_MAINNET\020\003\022\034\n\030NETWORK_ETHEREUM" +
+      "_TESTNET\020\004\022\034\n\030NETWORK_LITECOIN_MAINNET\020\005" +
+      "\022\034\n\030NETWORK_LITECOIN_TESTNET\020\006\022\037\n\033NETWOR" +
+      "K_BITCOINCASH_MAINNET\020\007\022\037\n\033NETWORK_BITCO" +
+      "INCASH_TESTNET\020\010\022\032\n\026NETWORK_RIPPLE_MAINN" +
+      "ET\020\t\022\032\n\026NETWORK_RIPPLE_TESTNET\020\n\022\030\n\024NETW" +
+      "ORK_TRON_MAINNET\020\013\022\030\n\024NETWORK_TRON_TESTN" +
+      "ET\020\014\022\031\n\025NETWORK_C0BAN_MAINNET\020\r\022\031\n\025NETWO" +
+      "RK_C0BAN_TESTNET\020\016\022\033\n\027NETWORK_STELLAR_MA" +
+      "INNET\020\017\022\033\n\027NETWORK_STELLAR_TESTNET\020\020\022\033\n\027" +
+      "NETWORK_CARDANO_MAINNET\020\021\022\033\n\027NETWORK_CAR" +
+      "DANO_TESTNET\020\022\022\034\n\030NETWORK_POLKADOT_MAINN" +
+      "ET\020\023\022\034\n\030NETWORK_POLKADOT_TESTNET\020\024\022\027\n\023NE" +
+      "TWORK_NEM_MAINNET\020\025\022\027\n\023NETWORK_NEM_TESTN" +
+      "ET\020\026\022\034\n\030NETWORK_MONACOIN_MAINNET\020\027\022\034\n\030NE" +
+      "TWORK_MONACOIN_TESTNET\020\030\022\030\n\024NETWORK_IOST" +
+      "_MAINNET\020\031\022\030\n\024NETWORK_IOST_TESTNET\020\032\022\030\n\024" +
+      "NETWORK_KLAY_MAINNET\020\033\022\030\n\024NETWORK_KLAY_T" +
+      "ESTNET\020\034\022\033\n\027NETWORK_POLYGON_MAINNET\020\035\022\033\n" +
+      "\027NETWORK_POLYGON_TESTNET\020\036\022\032\n\026NETWORK_SY" +
+      "MBOL_MAINNET\020\037\022\032\n\026NETWORK_SYMBOL_TESTNET" +
+      "\020 \022\035\n\031NETWORK_AVALANCHE_MAINNET\020!\022\035\n\031NET" +
+      "WORK_AVALANCHE_TESTNET\020\"\022\032\n\025NETWORK_ASTA" +
+      "R_MAINNET\020\221N\022\033\n\026NETWORK_SHIDEN_MAINNET\020\222" +
+      "N*\212\001\n\013AddressType\022\030\n\024ADDRESS_TYPE_INVALI" +
+      "D\020\000\022\025\n\021ADDRESS_TYPE_P2SH\020\001\022\033\n\027ADDRESS_TY" +
+      "PE_P2SH_P2WSH\020\002\022\026\n\022ADDRESS_TYPE_P2WSH\020\003\022" +
+      "\025\n\021ADDRESS_TYPE_NONE\020d*\323\001\n\020TransactionSt" +
+      "ate\022\035\n\031TRANSACTION_STATE_INVALID\020\000\022\037\n\033TR" +
+      "ANSACTION_STATE_SUBMITTED\020\001\022\035\n\031TRANSACTI" +
+      "ON_STATE_PENDING\020\002\022 \n\034TRANSACTION_STATE_" +
+      "PROCESSING\020\003\022\037\n\033TRANSACTION_STATE_CONFIR" +
+      "MED\020\004\022\035\n\031TRANSACTION_STATE_DROPPED\020\005*\217\001\n" +
+      "\tUTXOState\022\026\n\022UTXO_STATE_INVALID\020\000\022\036\n\032UT" +
+      "XO_STATE_PENDING_UNSPENT\020\001\022\026\n\022UTXO_STATE" +
+      "_UNSPENT\020\002\022\034\n\030UTXO_STATE_PENDING_SPENT\020\003" +
+      "\022\024\n\020UTXO_STATE_SPENT\020\004*\217\001\n\014TransferType\022" +
+      "\031\n\025TRANSFER_TYPE_INVALID\020\000\022\026\n\022TRANSFER_T" +
+      "YPE_SEND\020\001\022\031\n\025TRANSFER_TYPE_RECEIVE\020\002\022\030\n" +
+      "\024TRANSFER_TYPE_CHANGE\020\003\022\027\n\023TRANSFER_TYPE" +
+      "_FATAL\020\004*\253\001\n\022XRPTransactionType\022 \n\034XRP_T" +
+      "RANSACTION_TYPE_INVALID\020\000\022 \n\034XRP_TRANSAC" +
+      "TION_TYPE_PAYMENT\020\001\022(\n$XRP_TRANSACTION_T" +
+      "YPE_SET_SIGNER_LIST\020\002\022\'\n#XRP_TRANSACTION" +
+      "_TYPE_DISABLE_MASTER\020\003*\260\001\n\021TransactionRe" +
+      "sult\022\036\n\032TRANSACTION_RESULT_INVALID\020\000\022\036\n\032" +
+      "TRANSACTION_RESULT_PENDING\020\001\022\036\n\032TRANSACT" +
+      "ION_RESULT_SUCCESS\020\002\022\036\n\032TRANSACTION_RESU" +
+      "LT_FAILURE\020\003\022\033\n\027TRANSACTION_RESULT_NONE\020" +
+      "d*\275\003\n\022NemTransactionType\022 \n\034NEM_TRANSACT" +
+      "ION_TYPE_INVALID\020\000\022&\n\"NEM_TRANSACTION_TY" +
+      "PE_TRANSFER_TYPE\020\001\0221\n-NEM_TRANSACTION_TY" +
+      "PE_IMPORTANCE_TRANSFER_TYPE\020\002\0223\n/NEM_TRA" +
+      "NSACTION_TYPE_MULTISIG_MODIFICATION_TYPE" +
+      "\020\003\0220\n,NEM_TRANSACTION_TYPE_MULTISIG_SIGN" +
+      "ATURE_TYPE\020\004\0222\n.NEM_TRANSACTION_TYPE_MUL" +
+      "TISIG_TRANSACTION_TYPE\020\005\0221\n-NEM_TRANSACT" +
+      "ION_TYPE_PROVISION_NAMESPACE_TYPE\020\006\022/\n+N" +
+      "EM_TRANSACTION_TYPE_MOSAIC_DEFINITION_TY" +
+      "PE\020\007\022+\n\'NEM_TRANSACTION_TYPE_MOSAIC_SUPP" +
+      "LY_TYPE\020\010*\353\t\n\025SymbolTransactionType\022#\n\037S" +
+      "YMBOL_TRANSACTION_TYPE_INVALID\020\000\022,\n(SYMB" +
+      "OL_TRANSACTION_TYPE_ACCOUNT_KEY_LINK\020\001\022)" +
+      "\n%SYMBOL_TRANSACTION_TYPE_NODE_KEY_LINK\020" +
+      "\002\022.\n*SYMBOL_TRANSACTION_TYPE_AGGREGATE_C" +
+      "OMPLETE\020\003\022,\n(SYMBOL_TRANSACTION_TYPE_AGG" +
+      "REGATE_BONDED\020\004\022+\n\'SYMBOL_TRANSACTION_TY" +
+      "PE_VOTING_KEY_LINK\020\005\022(\n$SYMBOL_TRANSACTI" +
+      "ON_TYPE_VRF_KEY_LINK\020\006\022%\n!SYMBOL_TRANSAC" +
+      "TION_TYPE_HASH_LOCK\020\007\022\'\n#SYMBOL_TRANSACT" +
+      "ION_TYPE_SECRET_LOCK\020\010\022(\n$SYMBOL_TRANSAC" +
+      "TION_TYPE_SECRET_PROOF\020\t\022,\n(SYMBOL_TRANS" +
+      "ACTION_TYPE_ACCOUNT_METADATA\020\n\022+\n\'SYMBOL" +
+      "_TRANSACTION_TYPE_MOSAIC_METADATA\020\013\022.\n*S" +
+      "YMBOL_TRANSACTION_TYPE_NAMESPACE_METADAT" +
+      "A\020\014\022-\n)SYMBOL_TRANSACTION_TYPE_MOSAIC_DE" +
+      "FINITION\020\r\0220\n,SYMBOL_TRANSACTION_TYPE_MO" +
+      "SAIC_SUPPLY_CHANGE\020\016\0224\n0SYMBOL_TRANSACTI" +
+      "ON_TYPE_MOSAIC_SUPPLY_REVOCATION\020\017\0229\n5SY" +
+      "MBOL_TRANSACTION_TYPE_MULTISIG_ACCOUNT_M" +
+      "ODIFICATION\020\020\022)\n%SYMBOL_TRANSACTION_TYPE" +
+      "_ADDRESS_ALIAS\020\021\022(\n$SYMBOL_TRANSACTION_T" +
+      "YPE_MOSAIC_ALIAS\020\022\0222\n.SYMBOL_TRANSACTION" +
+      "_TYPE_NAMESPACE_REGISTRATION\020\023\0227\n3SYMBOL" +
+      "_TRANSACTION_TYPE_ACCOUNT_ADDRESS_RESTRI" +
+      "CTION\020\024\0226\n2SYMBOL_TRANSACTION_TYPE_ACCOU" +
+      "NT_MOSAIC_RESTRICTION\020\025\0229\n5SYMBOL_TRANSA" +
+      "CTION_TYPE_ACCOUNT_OPERATION_RESTRICTION" +
+      "\020\026\0226\n2SYMBOL_TRANSACTION_TYPE_MOSAIC_ADD" +
+      "RESS_RESTRICTION\020\027\0225\n1SYMBOL_TRANSACTION" +
+      "_TYPE_MOSAIC_GLOBAL_RESTRICTION\020\030\022$\n SYM" +
+      "BOL_TRANSACTION_TYPE_TRANSFER\020\031BEZCgithu" +
+      "b.com/GincoInc/gew-kmp/gen/gincoinc/glob" +
+      "al/v1/gincoincglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
