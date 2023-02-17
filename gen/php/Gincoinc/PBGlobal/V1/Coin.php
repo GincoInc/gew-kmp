@@ -38,33 +38,33 @@ class Coin
      */
     const COIN_XRP = 5;
     /**
-     * Generated from protobuf enum <code>COIN_BAT = 6;</code>
+     * Generated from protobuf enum <code>COIN_ERC20_BAT = 6;</code>
      */
-    const COIN_BAT = 6;
+    const COIN_ERC20_BAT = 6;
     /**
      * Generated from protobuf enum <code>COIN_TRX = 7;</code>
      */
     const COIN_TRX = 7;
     /**
-     * Generated from protobuf enum <code>COIN_USDT = 8;</code>
+     * Generated from protobuf enum <code>COIN_ERC20_USDT = 8;</code>
      */
-    const COIN_USDT = 8;
+    const COIN_ERC20_USDT = 8;
     /**
      * Generated from protobuf enum <code>COIN_RYO = 9;</code>
      */
     const COIN_RYO = 9;
     /**
-     * Generated from protobuf enum <code>COIN_JASMY = 10;</code>
+     * Generated from protobuf enum <code>COIN_ERC20_JASMY = 10;</code>
      */
-    const COIN_JASMY = 10;
+    const COIN_ERC20_JASMY = 10;
     /**
-     * Generated from protobuf enum <code>COIN_ENJ = 11;</code>
+     * Generated from protobuf enum <code>COIN_ERC20_ENJ = 11;</code>
      */
-    const COIN_ENJ = 11;
+    const COIN_ERC20_ENJ = 11;
     /**
-     * Generated from protobuf enum <code>COIN_OMG = 12;</code>
+     * Generated from protobuf enum <code>COIN_ERC20_OMG = 12;</code>
      */
-    const COIN_OMG = 12;
+    const COIN_ERC20_OMG = 12;
     /**
      * Generated from protobuf enum <code>COIN_XLM = 13;</code>
      */
@@ -78,45 +78,45 @@ class Coin
      */
     const COIN_DOT = 15;
     /**
-     * Generated from protobuf enum <code>COIN_LINK = 16;</code>
+     * Generated from protobuf enum <code>COIN_ERC20_LINK = 16;</code>
      */
-    const COIN_LINK = 16;
+    const COIN_ERC20_LINK = 16;
     /**
-     * Generated from protobuf enum <code>COIN_DEP = 17;</code>
+     * Generated from protobuf enum <code>COIN_ERC20_DEP = 17;</code>
      */
-    const COIN_DEP = 17;
+    const COIN_ERC20_DEP = 17;
     /**
-     * Generated from protobuf enum <code>COIN_USDC = 18;</code>
+     * Generated from protobuf enum <code>COIN_ERC20_USDC = 18;</code>
      */
-    const COIN_USDC = 18;
+    const COIN_ERC20_USDC = 18;
     /**
-     * Generated from protobuf enum <code>COIN_GYEN = 19;</code>
+     * Generated from protobuf enum <code>COIN_ERC20_GYEN = 19;</code>
      */
-    const COIN_GYEN = 19;
+    const COIN_ERC20_GYEN = 19;
     /**
-     * Generated from protobuf enum <code>COIN_ZAIF = 20;</code>
+     * Generated from protobuf enum <code>COIN_ERC20_ZAIF = 20;</code>
      */
-    const COIN_ZAIF = 20;
+    const COIN_ERC20_ZAIF = 20;
     /**
-     * Generated from protobuf enum <code>COIN_FSCC = 21;</code>
+     * Generated from protobuf enum <code>COIN_ERC20_FSCC = 21;</code>
      */
-    const COIN_FSCC = 21;
+    const COIN_ERC20_FSCC = 21;
     /**
-     * Generated from protobuf enum <code>COIN_CMS = 22;</code>
+     * Generated from protobuf enum <code>COIN_ERC20_CMS = 22;</code>
      */
-    const COIN_CMS = 22;
+    const COIN_ERC20_CMS = 22;
     /**
-     * Generated from protobuf enum <code>COIN_CICC = 23;</code>
+     * Generated from protobuf enum <code>COIN_ERC20_CICC = 23;</code>
      */
-    const COIN_CICC = 23;
+    const COIN_ERC20_CICC = 23;
     /**
-     * Generated from protobuf enum <code>COIN_NCXC = 24;</code>
+     * Generated from protobuf enum <code>COIN_ERC20_NCXC = 24;</code>
      */
-    const COIN_NCXC = 24;
+    const COIN_ERC20_NCXC = 24;
     /**
-     * Generated from protobuf enum <code>COIN_COT = 25;</code>
+     * Generated from protobuf enum <code>COIN_ERC20_COT = 25;</code>
      */
-    const COIN_COT = 25;
+    const COIN_ERC20_COT = 25;
     /**
      * Generated from protobuf enum <code>COIN_XEM = 26;</code>
      */
@@ -130,9 +130,9 @@ class Coin
      */
     const COIN_IOST = 28;
     /**
-     * Generated from protobuf enum <code>COIN_SKEB = 29;</code>
+     * Generated from protobuf enum <code>COIN_ERC20_SKEB = 29;</code>
      */
-    const COIN_SKEB = 29;
+    const COIN_ERC20_SKEB = 29;
     /**
      * Generated from protobuf enum <code>COIN_KLAY = 30;</code>
      */
@@ -162,6 +162,14 @@ class Coin
      */
     const COIN_ERC20_MV = 36;
     /**
+     * Generated from protobuf enum <code>COIN_POLYGON_ERC20_ROND = 37;</code>
+     */
+    const COIN_POLYGON_ERC20_ROND = 37;
+    /**
+     * Generated from protobuf enum <code>COIN_POLYGON_ERC20_MV = 38;</code>
+     */
+    const COIN_POLYGON_ERC20_MV = 38;
+    /**
      * For monitoring https://github.com/GincoInc/sre-dev/issues/1312
      *
      * Generated from protobuf enum <code>COIN_ASTR = 10001;</code>
@@ -179,30 +187,30 @@ class Coin
         self::COIN_LTC => 'COIN_LTC',
         self::COIN_BCH => 'COIN_BCH',
         self::COIN_XRP => 'COIN_XRP',
-        self::COIN_BAT => 'COIN_BAT',
+        self::COIN_ERC20_BAT => 'COIN_ERC20_BAT',
         self::COIN_TRX => 'COIN_TRX',
-        self::COIN_USDT => 'COIN_USDT',
+        self::COIN_ERC20_USDT => 'COIN_ERC20_USDT',
         self::COIN_RYO => 'COIN_RYO',
-        self::COIN_JASMY => 'COIN_JASMY',
-        self::COIN_ENJ => 'COIN_ENJ',
-        self::COIN_OMG => 'COIN_OMG',
+        self::COIN_ERC20_JASMY => 'COIN_ERC20_JASMY',
+        self::COIN_ERC20_ENJ => 'COIN_ERC20_ENJ',
+        self::COIN_ERC20_OMG => 'COIN_ERC20_OMG',
         self::COIN_XLM => 'COIN_XLM',
         self::COIN_ADA => 'COIN_ADA',
         self::COIN_DOT => 'COIN_DOT',
-        self::COIN_LINK => 'COIN_LINK',
-        self::COIN_DEP => 'COIN_DEP',
-        self::COIN_USDC => 'COIN_USDC',
-        self::COIN_GYEN => 'COIN_GYEN',
-        self::COIN_ZAIF => 'COIN_ZAIF',
-        self::COIN_FSCC => 'COIN_FSCC',
-        self::COIN_CMS => 'COIN_CMS',
-        self::COIN_CICC => 'COIN_CICC',
-        self::COIN_NCXC => 'COIN_NCXC',
-        self::COIN_COT => 'COIN_COT',
+        self::COIN_ERC20_LINK => 'COIN_ERC20_LINK',
+        self::COIN_ERC20_DEP => 'COIN_ERC20_DEP',
+        self::COIN_ERC20_USDC => 'COIN_ERC20_USDC',
+        self::COIN_ERC20_GYEN => 'COIN_ERC20_GYEN',
+        self::COIN_ERC20_ZAIF => 'COIN_ERC20_ZAIF',
+        self::COIN_ERC20_FSCC => 'COIN_ERC20_FSCC',
+        self::COIN_ERC20_CMS => 'COIN_ERC20_CMS',
+        self::COIN_ERC20_CICC => 'COIN_ERC20_CICC',
+        self::COIN_ERC20_NCXC => 'COIN_ERC20_NCXC',
+        self::COIN_ERC20_COT => 'COIN_ERC20_COT',
         self::COIN_XEM => 'COIN_XEM',
         self::COIN_MONA => 'COIN_MONA',
         self::COIN_IOST => 'COIN_IOST',
-        self::COIN_SKEB => 'COIN_SKEB',
+        self::COIN_ERC20_SKEB => 'COIN_ERC20_SKEB',
         self::COIN_KLAY => 'COIN_KLAY',
         self::COIN_MATIC => 'COIN_MATIC',
         self::COIN_XYM => 'COIN_XYM',
@@ -210,6 +218,8 @@ class Coin
         self::COIN_ERC20_MATIC => 'COIN_ERC20_MATIC',
         self::COIN_ERC20_ROND => 'COIN_ERC20_ROND',
         self::COIN_ERC20_MV => 'COIN_ERC20_MV',
+        self::COIN_POLYGON_ERC20_ROND => 'COIN_POLYGON_ERC20_ROND',
+        self::COIN_POLYGON_ERC20_MV => 'COIN_POLYGON_ERC20_MV',
         self::COIN_ASTR => 'COIN_ASTR',
         self::COIN_SDN => 'COIN_SDN',
     ];

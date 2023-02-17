@@ -123,4 +123,19 @@ public interface CalculateFeeRequestOrBuilder extends
    * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
    */
   adamant.global.v1.CalculateFeeSymbolSpecificOrBuilder getSymbolSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CalculateFeeEthereumSpecific ethereum_specific = 10 [json_name = "ethereumSpecific"];</code>
+   * @return Whether the ethereumSpecific field is set.
+   */
+  boolean hasEthereumSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeEthereumSpecific ethereum_specific = 10 [json_name = "ethereumSpecific"];</code>
+   * @return The ethereumSpecific.
+   */
+  adamant.global.v1.CalculateFeeEthereumSpecific getEthereumSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeEthereumSpecific ethereum_specific = 10 [json_name = "ethereumSpecific"];</code>
+   */
+  adamant.global.v1.CalculateFeeEthereumSpecificOrBuilder getEthereumSpecificOrBuilder();
 }
