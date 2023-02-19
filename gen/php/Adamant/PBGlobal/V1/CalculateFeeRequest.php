@@ -49,6 +49,10 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
      */
     protected $symbol_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeEthereumSpecific ethereum_specific = 10 [json_name = "ethereumSpecific"];</code>
+     */
+    protected $ethereum_specific = null;
 
     /**
      * Constructor.
@@ -65,6 +69,7 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CalculateFeeSubstrateSpecific $substrate_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeNemSpecific $nem_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeSymbolSpecific $symbol_specific
+     *     @type \Adamant\PBGlobal\V1\CalculateFeeEthereumSpecific $ethereum_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -296,6 +301,38 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeSymbolSpecific::class);
         $this->symbol_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeEthereumSpecific ethereum_specific = 10 [json_name = "ethereumSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CalculateFeeEthereumSpecific|null
+     */
+    public function getEthereumSpecific()
+    {
+        return $this->ethereum_specific;
+    }
+
+    public function hasEthereumSpecific()
+    {
+        return isset($this->ethereum_specific);
+    }
+
+    public function clearEthereumSpecific()
+    {
+        unset($this->ethereum_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeEthereumSpecific ethereum_specific = 10 [json_name = "ethereumSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CalculateFeeEthereumSpecific $var
+     * @return $this
+     */
+    public function setEthereumSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeEthereumSpecific::class);
+        $this->ethereum_specific = $var;
 
         return $this;
     }
