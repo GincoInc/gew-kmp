@@ -13236,6 +13236,20 @@ func (m *CalculateFeeRequest) Validate(all bool) error {
 		}
 	}
 
+	if v, ok := interface{}(m.GetEthereumSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = CalculateFeeRequestValidationError{
+				field:  "EthereumSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
 	if len(errors) > 0 {
 		return CalculateFeeRequestMultiError(errors)
 	}
@@ -13601,6 +13615,112 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CalculateFeeSymbolSpecificValidationError{}
+
+// Validate checks the field values on CalculateFeeEthereumSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CalculateFeeEthereumSpecificMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *CalculateFeeEthereumSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_CalculateFeeEthereumSpecific_Data_Pattern.MatchString(m.GetData()) {
+		err := CalculateFeeEthereumSpecificValidationError{
+			field:  "Data",
+			reason: "value does not match regex pattern \"^0x[0-9a-fA-F]*$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return CalculateFeeEthereumSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// CalculateFeeEthereumSpecificMultiError is an error wrapping multiple
+// validation errors returned by CalculateFeeEthereumSpecific.Validate(true)
+// if the designated constraints aren't met.
+type CalculateFeeEthereumSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CalculateFeeEthereumSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CalculateFeeEthereumSpecificMultiError) AllErrors() []error { return m }
+
+// CalculateFeeEthereumSpecificValidationError is the validation error returned
+// by CalculateFeeEthereumSpecific.Validate if the designated constraints
+// aren't met.
+type CalculateFeeEthereumSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CalculateFeeEthereumSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CalculateFeeEthereumSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CalculateFeeEthereumSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CalculateFeeEthereumSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CalculateFeeEthereumSpecificValidationError) ErrorName() string {
+	return "CalculateFeeEthereumSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CalculateFeeEthereumSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCalculateFeeEthereumSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CalculateFeeEthereumSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CalculateFeeEthereumSpecificValidationError{}
+
+var _CalculateFeeEthereumSpecific_Data_Pattern = regexp.MustCompile("^0x[0-9a-fA-F]*$")
 
 // Validate checks the field values on CalculateFeeResponse with the rules
 // defined in the proto definition for this message. If any rules are
