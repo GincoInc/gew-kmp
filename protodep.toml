@@ -20,6 +20,6 @@ proto_outdir = "./api/proto"
 
 [[dependencies]]
   target = "github.com/GincoInc/protobuf/proto/gincoinc/adamant/teller"
-  revision = "v1.86.0"
+  revision = "v1.86.1"
   path = "gincoinc/adamant/teller"
   protocol = "ssh"

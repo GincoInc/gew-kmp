@@ -28,7 +28,7 @@ proto_outdir = "./api/proto"
 [[dependencies]]
   target = "github.com/GincoInc/protobuf/proto/gincoinc/adamant/teller"
   subgroup = ""
-  revision = "42814700024bad7a5b90a32197cbd5090a06bf8b"
+  revision = "559eb5893570dfb924153d4a43d7039c298c84e5"
   branch = ""
   path = "gincoinc/adamant/teller"
   protocol = "ssh"
