@@ -22,7 +22,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Model
+//  Model
 type AuditLog struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
