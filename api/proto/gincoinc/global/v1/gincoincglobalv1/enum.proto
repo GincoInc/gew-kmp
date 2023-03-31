@@ -54,6 +54,7 @@ enum Coin {
   COIN_POLYGON_ERC20_ROND = 37;
   COIN_POLYGON_ERC20_MV = 38;
   COIN_POLYGON_ERC20_TSUGT = 39;
+  COIN_ERC20_GXE = 40;
   COIN_ASTR = 10001; // For monitoring https://github.com/GincoInc/sre-dev/issues/1312
   COIN_SDN = 10002;
 }
