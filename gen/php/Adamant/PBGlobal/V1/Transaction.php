@@ -202,6 +202,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $avalanche_specific = null;
     /**
+     * The Oasys specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.OasysSpecific oasys_specific = 37 [json_name = "oasysSpecific"];</code>
+     */
+    protected $oasys_specific = null;
+    /**
      * the time at which the transaction was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
@@ -282,6 +288,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The Symbol specific fields
      *     @type \Adamant\PBGlobal\V1\AvalancheSpecific $avalanche_specific
      *           The Avalanche specific fields
+     *     @type \Adamant\PBGlobal\V1\OasysSpecific $oasys_specific
+     *           The Oasys specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -1265,6 +1273,42 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\AvalancheSpecific::class);
         $this->avalanche_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Oasys specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.OasysSpecific oasys_specific = 37 [json_name = "oasysSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\OasysSpecific|null
+     */
+    public function getOasysSpecific()
+    {
+        return $this->oasys_specific;
+    }
+
+    public function hasOasysSpecific()
+    {
+        return isset($this->oasys_specific);
+    }
+
+    public function clearOasysSpecific()
+    {
+        unset($this->oasys_specific);
+    }
+
+    /**
+     * The Oasys specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.OasysSpecific oasys_specific = 37 [json_name = "oasysSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\OasysSpecific $var
+     * @return $this
+     */
+    public function setOasysSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\OasysSpecific::class);
+        $this->oasys_specific = $var;
 
         return $this;
     }

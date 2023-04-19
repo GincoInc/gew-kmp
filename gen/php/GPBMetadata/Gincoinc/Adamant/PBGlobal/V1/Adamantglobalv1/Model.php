@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-òÀ
+£Â
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"¥
 Wallet
 owner_id (	RownerId
@@ -165,7 +165,7 @@ address_id (	R	addressId,
 string_balance (	RstringBalance
 fee_balance (R
 feeBalance,
-string_fee_balance (	RstringFeeBalance"¦
+string_fee_balance (	RstringFeeBalance"ï
 Transaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId,
@@ -200,7 +200,8 @@ signedKeys>
 polygon_specific! (2".adamant.global.v1.PolygonSpecificRpolygonSpecificJ
 klaytn_specific" (2!.adamant.global.v1.KlaytnSpecificRklaytnSpecificJ
 symbol_specific# (2!.adamant.global.v1.SymbolSpecificRsymbolSpecificS
-avalanche_specific$ (2$.adamant.global.v1.AvalancheSpecificRavalancheSpecific;
+avalanche_specific$ (2$.adamant.global.v1.AvalancheSpecificRavalancheSpecificG
+oasys_specific% (2 .adamant.global.v1.OasysSpecificRoasysSpecific;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
@@ -320,6 +321,10 @@ expiration (R
 expiration
 	timestamp (R	timestamp"j
 AvalancheSpecific
+	gas_limit (RgasLimit
+nonce (Rnonce"
+is_next_nonce (RisNextNonce"f
+OasysSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
 is_next_nonce (RisNextNonce"â

@@ -1739,6 +1739,20 @@ func (m *Transaction) Validate(all bool) error {
 		}
 	}
 
+	if v, ok := interface{}(m.GetOasysSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransactionValidationError{
+				field:  "OasysSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate(bool) error }); ok {
 		if err := v.Validate(all); err != nil {
 			err = TransactionValidationError{
@@ -4368,6 +4382,102 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = AvalancheSpecificValidationError{}
+
+// Validate checks the field values on OasysSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned. When asked to return all errors, validation continues after
+// first violation, and the result is a list of violation errors wrapped in
+// OasysSpecificMultiError, or nil if none found. Otherwise, only the first
+// error is returned, if any.
+func (m *OasysSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	if len(errors) > 0 {
+		return OasysSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// OasysSpecificMultiError is an error wrapping multiple validation errors
+// returned by OasysSpecific.Validate(true) if the designated constraints
+// aren't met.
+type OasysSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m OasysSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m OasysSpecificMultiError) AllErrors() []error { return m }
+
+// OasysSpecificValidationError is the validation error returned by
+// OasysSpecific.Validate if the designated constraints aren't met.
+type OasysSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e OasysSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e OasysSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e OasysSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e OasysSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e OasysSpecificValidationError) ErrorName() string { return "OasysSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e OasysSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sOasysSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = OasysSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = OasysSpecificValidationError{}
 
 // Validate checks the field values on CreateTransactionSubstrateSpecific with
 // the rules defined in the proto definition for this message. If any rules
