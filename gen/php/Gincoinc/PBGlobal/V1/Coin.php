@@ -178,11 +178,17 @@ class Coin
      */
     const COIN_ERC20_GXE = 40;
     /**
-     * For monitoring https://github.com/GincoInc/sre-dev/issues/1312
-     *
-     * Generated from protobuf enum <code>COIN_ASTR = 10001;</code>
+     * Generated from protobuf enum <code>COIN_OAS = 41;</code>
      */
-    const COIN_ASTR = 10001;
+    const COIN_OAS = 41;
+    /**
+     * Generated from protobuf enum <code>COIN_ASTR = 42;</code>
+     */
+    const COIN_ASTR = 42;
+    /**
+     * Generated from protobuf enum <code>COIN_XDC = 43;</code>
+     */
+    const COIN_XDC = 43;
     /**
      * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
      */
@@ -230,7 +236,9 @@ class Coin
         self::COIN_POLYGON_ERC20_MV => 'COIN_POLYGON_ERC20_MV',
         self::COIN_POLYGON_ERC20_TSUGT => 'COIN_POLYGON_ERC20_TSUGT',
         self::COIN_ERC20_GXE => 'COIN_ERC20_GXE',
+        self::COIN_OAS => 'COIN_OAS',
         self::COIN_ASTR => 'COIN_ASTR',
+        self::COIN_XDC => 'COIN_XDC',
         self::COIN_SDN => 'COIN_SDN',
     ];
 
