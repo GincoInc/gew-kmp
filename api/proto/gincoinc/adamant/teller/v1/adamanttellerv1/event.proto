@@ -4,6 +4,7 @@ package adamant.teller.v1;
 
 import "gincoinc/global/v1/gincoincglobalv1/enum.proto";
 import "google/protobuf/timestamp.proto";
+import "validate/validate.proto";
 
 option go_package = "github.com/GincoInc/gew-kmp/gen/gincoinc/adamant/teller/v1/adamanttellerv1";
 
@@ -58,4 +59,7 @@ message StakingRewardWithdrew {
   uint64 validator_index = 5;
   string address = 6;
   double amount = 7;
+  string wallet_id = 8 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
