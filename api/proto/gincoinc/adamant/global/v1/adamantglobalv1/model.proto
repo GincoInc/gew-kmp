@@ -198,6 +198,7 @@ message Transaction {
   SymbolSpecific symbol_specific = 35; // The Symbol specific fields
   AvalancheSpecific avalanche_specific = 36; // The Avalanche specific fields
   OasysSpecific oasys_specific = 37; // The Oasys specific fields
+  XdcSpecific xdc_specific = 38; // The Xdc specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -375,6 +376,13 @@ message AvalancheSpecific {
 
 // The model of Oasys specific fields of transaction
 message OasysSpecific {
+  uint64 gas_limit = 1;
+  uint64 nonce = 2;
+  bool is_next_nonce = 3;
+}
+
+// The model of Xdc specific fields of transaction
+message XdcSpecific {
   uint64 gas_limit = 1;
   uint64 nonce = 2;
   bool is_next_nonce = 3;
