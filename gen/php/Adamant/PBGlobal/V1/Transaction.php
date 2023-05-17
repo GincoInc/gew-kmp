@@ -208,6 +208,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $oasys_specific = null;
     /**
+     * The Xdc specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.XdcSpecific xdc_specific = 38 [json_name = "xdcSpecific"];</code>
+     */
+    protected $xdc_specific = null;
+    /**
      * the time at which the transaction was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
@@ -290,6 +296,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The Avalanche specific fields
      *     @type \Adamant\PBGlobal\V1\OasysSpecific $oasys_specific
      *           The Oasys specific fields
+     *     @type \Adamant\PBGlobal\V1\XdcSpecific $xdc_specific
+     *           The Xdc specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -1309,6 +1317,42 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\OasysSpecific::class);
         $this->oasys_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Xdc specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.XdcSpecific xdc_specific = 38 [json_name = "xdcSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\XdcSpecific|null
+     */
+    public function getXdcSpecific()
+    {
+        return $this->xdc_specific;
+    }
+
+    public function hasXdcSpecific()
+    {
+        return isset($this->xdc_specific);
+    }
+
+    public function clearXdcSpecific()
+    {
+        unset($this->xdc_specific);
+    }
+
+    /**
+     * The Xdc specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.XdcSpecific xdc_specific = 38 [json_name = "xdcSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\XdcSpecific $var
+     * @return $this
+     */
+    public function setXdcSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\XdcSpecific::class);
+        $this->xdc_specific = $var;
 
         return $this;
     }

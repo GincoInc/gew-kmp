@@ -2450,6 +2450,123 @@ public final class Enum {
     // @@protoc_insertion_point(enum_scope:gincoinc.global.v1.SymbolTransactionType)
   }
 
+  /**
+   * Protobuf enum {@code gincoinc.global.v1.EthereumStakingRewardLayerType}
+   */
+  public enum EthereumStakingRewardLayerType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>ETHEREUM_STAKING_REWARD_LAYER_TYPE_INVALID = 0;</code>
+     */
+    ETHEREUM_STAKING_REWARD_LAYER_TYPE_INVALID(0),
+    /**
+     * <code>ETHEREUM_STAKING_REWARD_LAYER_TYPE_CONSENSUS = 1;</code>
+     */
+    ETHEREUM_STAKING_REWARD_LAYER_TYPE_CONSENSUS(1),
+    /**
+     * <code>ETHEREUM_STAKING_REWARD_LAYER_TYPE_EXECUTION = 2;</code>
+     */
+    ETHEREUM_STAKING_REWARD_LAYER_TYPE_EXECUTION(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>ETHEREUM_STAKING_REWARD_LAYER_TYPE_INVALID = 0;</code>
+     */
+    public static final int ETHEREUM_STAKING_REWARD_LAYER_TYPE_INVALID_VALUE = 0;
+    /**
+     * <code>ETHEREUM_STAKING_REWARD_LAYER_TYPE_CONSENSUS = 1;</code>
+     */
+    public static final int ETHEREUM_STAKING_REWARD_LAYER_TYPE_CONSENSUS_VALUE = 1;
+    /**
+     * <code>ETHEREUM_STAKING_REWARD_LAYER_TYPE_EXECUTION = 2;</code>
+     */
+    public static final int ETHEREUM_STAKING_REWARD_LAYER_TYPE_EXECUTION_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static EthereumStakingRewardLayerType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static EthereumStakingRewardLayerType forNumber(int value) {
+      switch (value) {
+        case 0: return ETHEREUM_STAKING_REWARD_LAYER_TYPE_INVALID;
+        case 1: return ETHEREUM_STAKING_REWARD_LAYER_TYPE_CONSENSUS;
+        case 2: return ETHEREUM_STAKING_REWARD_LAYER_TYPE_EXECUTION;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<EthereumStakingRewardLayerType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        EthereumStakingRewardLayerType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<EthereumStakingRewardLayerType>() {
+            public EthereumStakingRewardLayerType findValueByNumber(int number) {
+              return EthereumStakingRewardLayerType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(10);
+    }
+
+    private static final EthereumStakingRewardLayerType[] VALUES = values();
+
+    public static EthereumStakingRewardLayerType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private EthereumStakingRewardLayerType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:gincoinc.global.v1.EthereumStakingRewardLayerType)
+  }
+
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2579,8 +2696,13 @@ public final class Enum {
       "OSAIC_ADDRESS_RESTRICTION\020\027\0225\n1SYMBOL_TR" +
       "ANSACTION_TYPE_MOSAIC_GLOBAL_RESTRICTION" +
       "\020\030\022$\n SYMBOL_TRANSACTION_TYPE_TRANSFER\020\031" +
-      "BEZCgithub.com/GincoInc/gew-kmp/gen/ginc" +
-      "oinc/global/v1/gincoincglobalv1b\006proto3"
+      "*\264\001\n\036EthereumStakingRewardLayerType\022.\n*E" +
+      "THEREUM_STAKING_REWARD_LAYER_TYPE_INVALI" +
+      "D\020\000\0220\n,ETHEREUM_STAKING_REWARD_LAYER_TYP" +
+      "E_CONSENSUS\020\001\0220\n,ETHEREUM_STAKING_REWARD" +
+      "_LAYER_TYPE_EXECUTION\020\002BEZCgithub.com/Gi" +
+      "ncoInc/gew-kmp/gen/gincoinc/global/v1/gi" +
+      "ncoincglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

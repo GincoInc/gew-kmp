@@ -43,6 +43,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.SymbolSpecific.class)) return new SymbolSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.AvalancheSpecific.class)) return new AvalancheSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.OasysSpecific.class)) return new OasysSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.XdcSpecific.class)) return new XdcSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class)) return new CreateTransactionSubstrateSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.class)) return new CreateTransactionWalletConnectSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionNemSpecific.class)) return new CreateTransactionNemSpecificValidator();
@@ -736,6 +737,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -829,6 +832,9 @@ public class ModelValidator {
 	
 			// Validate oasys_specific
 			if (proto.hasOasysSpecific()) index.validatorFor(proto.getOasysSpecific()).assertValid(proto.getOasysSpecific());
+	
+			// Validate xdc_specific
+			if (proto.hasXdcSpecific()) index.validatorFor(proto.getXdcSpecific()).assertValid(proto.getXdcSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -1455,6 +1461,28 @@ public class ModelValidator {
 	
 
 	public void assertValid(adamant.global.v1.Model.OasysSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	
+	}
+}
+/**
+	 * Validates {@code XdcSpecific} protobuf objects.
+	 */
+	public static class XdcSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.XdcSpecific> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.XdcSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for GasLimit
 
 	// no validation rules for Nonce
