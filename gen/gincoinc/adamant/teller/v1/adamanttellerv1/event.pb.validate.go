@@ -49,6 +49,8 @@ var (
 	_ = gincoincglobalv1.TransactionResult(0)
 
 	_ = gincoincglobalv1.TransferType(0)
+
+	_ = gincoincglobalv1.EthereumStakingRewardLayerType(0)
 )
 
 // Validate checks the field values on TransferUpdated with the rules defined
@@ -328,3 +330,138 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = TransferUpdateEventValidationError{}
+
+// Validate checks the field values on EthereumStakingReward with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in EthereumStakingRewardMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *EthereumStakingReward) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for EventId
+
+	// no validation rules for WithdrawalIndex
+
+	// no validation rules for BlockNumber
+
+	if v, ok := interface{}(m.GetBlockTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = EthereumStakingRewardValidationError{
+				field:  "BlockTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	// no validation rules for ValidatorIndex
+
+	// no validation rules for Address
+
+	// no validation rules for Value
+
+	if !_EthereumStakingReward_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := EthereumStakingRewardValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for EthereumStakingRewardLayerType
+
+	// no validation rules for StringValue
+
+	if len(errors) > 0 {
+		return EthereumStakingRewardMultiError(errors)
+	}
+	return nil
+}
+
+// EthereumStakingRewardMultiError is an error wrapping multiple validation
+// errors returned by EthereumStakingReward.Validate(true) if the designated
+// constraints aren't met.
+type EthereumStakingRewardMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m EthereumStakingRewardMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m EthereumStakingRewardMultiError) AllErrors() []error { return m }
+
+// EthereumStakingRewardValidationError is the validation error returned by
+// EthereumStakingReward.Validate if the designated constraints aren't met.
+type EthereumStakingRewardValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e EthereumStakingRewardValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e EthereumStakingRewardValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e EthereumStakingRewardValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e EthereumStakingRewardValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e EthereumStakingRewardValidationError) ErrorName() string {
+	return "EthereumStakingRewardValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e EthereumStakingRewardValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sEthereumStakingReward.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = EthereumStakingRewardValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = EthereumStakingRewardValidationError{}
+
+var _EthereumStakingReward_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
