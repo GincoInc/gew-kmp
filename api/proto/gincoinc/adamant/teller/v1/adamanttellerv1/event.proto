@@ -4,6 +4,7 @@ package adamant.teller.v1;
 
 import "gincoinc/global/v1/gincoincglobalv1/enum.proto";
 import "google/protobuf/timestamp.proto";
+import "validate/validate.proto";
 
 option go_package = "github.com/GincoInc/gew-kmp/gen/gincoinc/adamant/teller/v1/adamanttellerv1";
 
@@ -48,4 +49,19 @@ message TransferUpdateEvent {
   gincoinc.global.v1.TransactionResult result = 10;
   gincoinc.global.v1.TransferType transfer_type = 11;
   google.protobuf.Timestamp time = 12;
+}
+
+message EthereumStakingReward {
+  string event_id = 1;
+  uint64 withdrawal_index = 2;
+  uint64 block_number = 3;
+  google.protobuf.Timestamp block_time = 4;
+  uint64 validator_index = 5;
+  string address = 6;
+  double value = 7;
+  string wallet_id = 8 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  gincoinc.global.v1.EthereumStakingRewardLayerType ethereum_staking_reward_layer_type = 9;
+  string string_value = 10;
 }

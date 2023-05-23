@@ -5161,6 +5161,1619 @@ public final class Event {
 
   }
 
+  public interface EthereumStakingRewardOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:adamant.teller.v1.EthereumStakingReward)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string event_id = 1 [json_name = "eventId"];</code>
+     * @return The eventId.
+     */
+    java.lang.String getEventId();
+    /**
+     * <code>string event_id = 1 [json_name = "eventId"];</code>
+     * @return The bytes for eventId.
+     */
+    com.google.protobuf.ByteString
+        getEventIdBytes();
+
+    /**
+     * <code>uint64 withdrawal_index = 2 [json_name = "withdrawalIndex"];</code>
+     * @return The withdrawalIndex.
+     */
+    long getWithdrawalIndex();
+
+    /**
+     * <code>uint64 block_number = 3 [json_name = "blockNumber"];</code>
+     * @return The blockNumber.
+     */
+    long getBlockNumber();
+
+    /**
+     * <code>.google.protobuf.Timestamp block_time = 4 [json_name = "blockTime"];</code>
+     * @return Whether the blockTime field is set.
+     */
+    boolean hasBlockTime();
+    /**
+     * <code>.google.protobuf.Timestamp block_time = 4 [json_name = "blockTime"];</code>
+     * @return The blockTime.
+     */
+    com.google.protobuf.Timestamp getBlockTime();
+    /**
+     * <code>.google.protobuf.Timestamp block_time = 4 [json_name = "blockTime"];</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getBlockTimeOrBuilder();
+
+    /**
+     * <code>uint64 validator_index = 5 [json_name = "validatorIndex"];</code>
+     * @return The validatorIndex.
+     */
+    long getValidatorIndex();
+
+    /**
+     * <code>string address = 6 [json_name = "address"];</code>
+     * @return The address.
+     */
+    java.lang.String getAddress();
+    /**
+     * <code>string address = 6 [json_name = "address"];</code>
+     * @return The bytes for address.
+     */
+    com.google.protobuf.ByteString
+        getAddressBytes();
+
+    /**
+     * <code>double value = 7 [json_name = "value"];</code>
+     * @return The value.
+     */
+    double getValue();
+
+    /**
+     * <code>string wallet_id = 8 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The walletId.
+     */
+    java.lang.String getWalletId();
+    /**
+     * <code>string wallet_id = 8 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The bytes for walletId.
+     */
+    com.google.protobuf.ByteString
+        getWalletIdBytes();
+
+    /**
+     * <code>.gincoinc.global.v1.EthereumStakingRewardLayerType ethereum_staking_reward_layer_type = 9 [json_name = "ethereumStakingRewardLayerType"];</code>
+     * @return The enum numeric value on the wire for ethereumStakingRewardLayerType.
+     */
+    int getEthereumStakingRewardLayerTypeValue();
+    /**
+     * <code>.gincoinc.global.v1.EthereumStakingRewardLayerType ethereum_staking_reward_layer_type = 9 [json_name = "ethereumStakingRewardLayerType"];</code>
+     * @return The ethereumStakingRewardLayerType.
+     */
+    gincoinc.global.v1.Enum.EthereumStakingRewardLayerType getEthereumStakingRewardLayerType();
+
+    /**
+     * <code>string string_value = 10 [json_name = "stringValue"];</code>
+     * @return The stringValue.
+     */
+    java.lang.String getStringValue();
+    /**
+     * <code>string string_value = 10 [json_name = "stringValue"];</code>
+     * @return The bytes for stringValue.
+     */
+    com.google.protobuf.ByteString
+        getStringValueBytes();
+  }
+  /**
+   * Protobuf type {@code adamant.teller.v1.EthereumStakingReward}
+   */
+  public static final class EthereumStakingReward extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:adamant.teller.v1.EthereumStakingReward)
+      EthereumStakingRewardOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use EthereumStakingReward.newBuilder() to construct.
+    private EthereumStakingReward(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private EthereumStakingReward() {
+      eventId_ = "";
+      address_ = "";
+      walletId_ = "";
+      ethereumStakingRewardLayerType_ = 0;
+      stringValue_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new EthereumStakingReward();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private EthereumStakingReward(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              eventId_ = s;
+              break;
+            }
+            case 16: {
+
+              withdrawalIndex_ = input.readUInt64();
+              break;
+            }
+            case 24: {
+
+              blockNumber_ = input.readUInt64();
+              break;
+            }
+            case 34: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (blockTime_ != null) {
+                subBuilder = blockTime_.toBuilder();
+              }
+              blockTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(blockTime_);
+                blockTime_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 40: {
+
+              validatorIndex_ = input.readUInt64();
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              address_ = s;
+              break;
+            }
+            case 57: {
+
+              value_ = input.readDouble();
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              walletId_ = s;
+              break;
+            }
+            case 72: {
+              int rawValue = input.readEnum();
+
+              ethereumStakingRewardLayerType_ = rawValue;
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              stringValue_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return adamant.teller.v1.Event.internal_static_adamant_teller_v1_EthereumStakingReward_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return adamant.teller.v1.Event.internal_static_adamant_teller_v1_EthereumStakingReward_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              adamant.teller.v1.Event.EthereumStakingReward.class, adamant.teller.v1.Event.EthereumStakingReward.Builder.class);
+    }
+
+    public static final int EVENT_ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object eventId_;
+    /**
+     * <code>string event_id = 1 [json_name = "eventId"];</code>
+     * @return The eventId.
+     */
+    @java.lang.Override
+    public java.lang.String getEventId() {
+      java.lang.Object ref = eventId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        eventId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string event_id = 1 [json_name = "eventId"];</code>
+     * @return The bytes for eventId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getEventIdBytes() {
+      java.lang.Object ref = eventId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        eventId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int WITHDRAWAL_INDEX_FIELD_NUMBER = 2;
+    private long withdrawalIndex_;
+    /**
+     * <code>uint64 withdrawal_index = 2 [json_name = "withdrawalIndex"];</code>
+     * @return The withdrawalIndex.
+     */
+    @java.lang.Override
+    public long getWithdrawalIndex() {
+      return withdrawalIndex_;
+    }
+
+    public static final int BLOCK_NUMBER_FIELD_NUMBER = 3;
+    private long blockNumber_;
+    /**
+     * <code>uint64 block_number = 3 [json_name = "blockNumber"];</code>
+     * @return The blockNumber.
+     */
+    @java.lang.Override
+    public long getBlockNumber() {
+      return blockNumber_;
+    }
+
+    public static final int BLOCK_TIME_FIELD_NUMBER = 4;
+    private com.google.protobuf.Timestamp blockTime_;
+    /**
+     * <code>.google.protobuf.Timestamp block_time = 4 [json_name = "blockTime"];</code>
+     * @return Whether the blockTime field is set.
+     */
+    @java.lang.Override
+    public boolean hasBlockTime() {
+      return blockTime_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp block_time = 4 [json_name = "blockTime"];</code>
+     * @return The blockTime.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getBlockTime() {
+      return blockTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : blockTime_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp block_time = 4 [json_name = "blockTime"];</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getBlockTimeOrBuilder() {
+      return getBlockTime();
+    }
+
+    public static final int VALIDATOR_INDEX_FIELD_NUMBER = 5;
+    private long validatorIndex_;
+    /**
+     * <code>uint64 validator_index = 5 [json_name = "validatorIndex"];</code>
+     * @return The validatorIndex.
+     */
+    @java.lang.Override
+    public long getValidatorIndex() {
+      return validatorIndex_;
+    }
+
+    public static final int ADDRESS_FIELD_NUMBER = 6;
+    private volatile java.lang.Object address_;
+    /**
+     * <code>string address = 6 [json_name = "address"];</code>
+     * @return The address.
+     */
+    @java.lang.Override
+    public java.lang.String getAddress() {
+      java.lang.Object ref = address_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        address_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string address = 6 [json_name = "address"];</code>
+     * @return The bytes for address.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAddressBytes() {
+      java.lang.Object ref = address_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        address_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VALUE_FIELD_NUMBER = 7;
+    private double value_;
+    /**
+     * <code>double value = 7 [json_name = "value"];</code>
+     * @return The value.
+     */
+    @java.lang.Override
+    public double getValue() {
+      return value_;
+    }
+
+    public static final int WALLET_ID_FIELD_NUMBER = 8;
+    private volatile java.lang.Object walletId_;
+    /**
+     * <code>string wallet_id = 8 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The walletId.
+     */
+    @java.lang.Override
+    public java.lang.String getWalletId() {
+      java.lang.Object ref = walletId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        walletId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string wallet_id = 8 [json_name = "walletId", (.validate.rules) = { ... }</code>
+     * @return The bytes for walletId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getWalletIdBytes() {
+      java.lang.Object ref = walletId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        walletId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ETHEREUM_STAKING_REWARD_LAYER_TYPE_FIELD_NUMBER = 9;
+    private int ethereumStakingRewardLayerType_;
+    /**
+     * <code>.gincoinc.global.v1.EthereumStakingRewardLayerType ethereum_staking_reward_layer_type = 9 [json_name = "ethereumStakingRewardLayerType"];</code>
+     * @return The enum numeric value on the wire for ethereumStakingRewardLayerType.
+     */
+    @java.lang.Override public int getEthereumStakingRewardLayerTypeValue() {
+      return ethereumStakingRewardLayerType_;
+    }
+    /**
+     * <code>.gincoinc.global.v1.EthereumStakingRewardLayerType ethereum_staking_reward_layer_type = 9 [json_name = "ethereumStakingRewardLayerType"];</code>
+     * @return The ethereumStakingRewardLayerType.
+     */
+    @java.lang.Override public gincoinc.global.v1.Enum.EthereumStakingRewardLayerType getEthereumStakingRewardLayerType() {
+      @SuppressWarnings("deprecation")
+      gincoinc.global.v1.Enum.EthereumStakingRewardLayerType result = gincoinc.global.v1.Enum.EthereumStakingRewardLayerType.valueOf(ethereumStakingRewardLayerType_);
+      return result == null ? gincoinc.global.v1.Enum.EthereumStakingRewardLayerType.UNRECOGNIZED : result;
+    }
+
+    public static final int STRING_VALUE_FIELD_NUMBER = 10;
+    private volatile java.lang.Object stringValue_;
+    /**
+     * <code>string string_value = 10 [json_name = "stringValue"];</code>
+     * @return The stringValue.
+     */
+    @java.lang.Override
+    public java.lang.String getStringValue() {
+      java.lang.Object ref = stringValue_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        stringValue_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string string_value = 10 [json_name = "stringValue"];</code>
+     * @return The bytes for stringValue.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getStringValueBytes() {
+      java.lang.Object ref = stringValue_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        stringValue_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(eventId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, eventId_);
+      }
+      if (withdrawalIndex_ != 0L) {
+        output.writeUInt64(2, withdrawalIndex_);
+      }
+      if (blockNumber_ != 0L) {
+        output.writeUInt64(3, blockNumber_);
+      }
+      if (blockTime_ != null) {
+        output.writeMessage(4, getBlockTime());
+      }
+      if (validatorIndex_ != 0L) {
+        output.writeUInt64(5, validatorIndex_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, address_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(value_) != 0) {
+        output.writeDouble(7, value_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, walletId_);
+      }
+      if (ethereumStakingRewardLayerType_ != gincoinc.global.v1.Enum.EthereumStakingRewardLayerType.ETHEREUM_STAKING_REWARD_LAYER_TYPE_INVALID.getNumber()) {
+        output.writeEnum(9, ethereumStakingRewardLayerType_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringValue_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, stringValue_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(eventId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, eventId_);
+      }
+      if (withdrawalIndex_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, withdrawalIndex_);
+      }
+      if (blockNumber_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, blockNumber_);
+      }
+      if (blockTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getBlockTime());
+      }
+      if (validatorIndex_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(5, validatorIndex_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, address_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(value_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(7, value_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, walletId_);
+      }
+      if (ethereumStakingRewardLayerType_ != gincoinc.global.v1.Enum.EthereumStakingRewardLayerType.ETHEREUM_STAKING_REWARD_LAYER_TYPE_INVALID.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(9, ethereumStakingRewardLayerType_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringValue_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, stringValue_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof adamant.teller.v1.Event.EthereumStakingReward)) {
+        return super.equals(obj);
+      }
+      adamant.teller.v1.Event.EthereumStakingReward other = (adamant.teller.v1.Event.EthereumStakingReward) obj;
+
+      if (!getEventId()
+          .equals(other.getEventId())) return false;
+      if (getWithdrawalIndex()
+          != other.getWithdrawalIndex()) return false;
+      if (getBlockNumber()
+          != other.getBlockNumber()) return false;
+      if (hasBlockTime() != other.hasBlockTime()) return false;
+      if (hasBlockTime()) {
+        if (!getBlockTime()
+            .equals(other.getBlockTime())) return false;
+      }
+      if (getValidatorIndex()
+          != other.getValidatorIndex()) return false;
+      if (!getAddress()
+          .equals(other.getAddress())) return false;
+      if (java.lang.Double.doubleToLongBits(getValue())
+          != java.lang.Double.doubleToLongBits(
+              other.getValue())) return false;
+      if (!getWalletId()
+          .equals(other.getWalletId())) return false;
+      if (ethereumStakingRewardLayerType_ != other.ethereumStakingRewardLayerType_) return false;
+      if (!getStringValue()
+          .equals(other.getStringValue())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + EVENT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getEventId().hashCode();
+      hash = (37 * hash) + WITHDRAWAL_INDEX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getWithdrawalIndex());
+      hash = (37 * hash) + BLOCK_NUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getBlockNumber());
+      if (hasBlockTime()) {
+        hash = (37 * hash) + BLOCK_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getBlockTime().hashCode();
+      }
+      hash = (37 * hash) + VALIDATOR_INDEX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getValidatorIndex());
+      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAddress().hashCode();
+      hash = (37 * hash) + VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getValue()));
+      hash = (37 * hash) + WALLET_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getWalletId().hashCode();
+      hash = (37 * hash) + ETHEREUM_STAKING_REWARD_LAYER_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + ethereumStakingRewardLayerType_;
+      hash = (37 * hash) + STRING_VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + getStringValue().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static adamant.teller.v1.Event.EthereumStakingReward parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.teller.v1.Event.EthereumStakingReward parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.teller.v1.Event.EthereumStakingReward parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.teller.v1.Event.EthereumStakingReward parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.teller.v1.Event.EthereumStakingReward parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.teller.v1.Event.EthereumStakingReward parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.teller.v1.Event.EthereumStakingReward parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.teller.v1.Event.EthereumStakingReward parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.teller.v1.Event.EthereumStakingReward parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static adamant.teller.v1.Event.EthereumStakingReward parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.teller.v1.Event.EthereumStakingReward parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.teller.v1.Event.EthereumStakingReward parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(adamant.teller.v1.Event.EthereumStakingReward prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code adamant.teller.v1.EthereumStakingReward}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:adamant.teller.v1.EthereumStakingReward)
+        adamant.teller.v1.Event.EthereumStakingRewardOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return adamant.teller.v1.Event.internal_static_adamant_teller_v1_EthereumStakingReward_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return adamant.teller.v1.Event.internal_static_adamant_teller_v1_EthereumStakingReward_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                adamant.teller.v1.Event.EthereumStakingReward.class, adamant.teller.v1.Event.EthereumStakingReward.Builder.class);
+      }
+
+      // Construct using adamant.teller.v1.Event.EthereumStakingReward.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        eventId_ = "";
+
+        withdrawalIndex_ = 0L;
+
+        blockNumber_ = 0L;
+
+        if (blockTimeBuilder_ == null) {
+          blockTime_ = null;
+        } else {
+          blockTime_ = null;
+          blockTimeBuilder_ = null;
+        }
+        validatorIndex_ = 0L;
+
+        address_ = "";
+
+        value_ = 0D;
+
+        walletId_ = "";
+
+        ethereumStakingRewardLayerType_ = 0;
+
+        stringValue_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return adamant.teller.v1.Event.internal_static_adamant_teller_v1_EthereumStakingReward_descriptor;
+      }
+
+      @java.lang.Override
+      public adamant.teller.v1.Event.EthereumStakingReward getDefaultInstanceForType() {
+        return adamant.teller.v1.Event.EthereumStakingReward.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public adamant.teller.v1.Event.EthereumStakingReward build() {
+        adamant.teller.v1.Event.EthereumStakingReward result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public adamant.teller.v1.Event.EthereumStakingReward buildPartial() {
+        adamant.teller.v1.Event.EthereumStakingReward result = new adamant.teller.v1.Event.EthereumStakingReward(this);
+        result.eventId_ = eventId_;
+        result.withdrawalIndex_ = withdrawalIndex_;
+        result.blockNumber_ = blockNumber_;
+        if (blockTimeBuilder_ == null) {
+          result.blockTime_ = blockTime_;
+        } else {
+          result.blockTime_ = blockTimeBuilder_.build();
+        }
+        result.validatorIndex_ = validatorIndex_;
+        result.address_ = address_;
+        result.value_ = value_;
+        result.walletId_ = walletId_;
+        result.ethereumStakingRewardLayerType_ = ethereumStakingRewardLayerType_;
+        result.stringValue_ = stringValue_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof adamant.teller.v1.Event.EthereumStakingReward) {
+          return mergeFrom((adamant.teller.v1.Event.EthereumStakingReward)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(adamant.teller.v1.Event.EthereumStakingReward other) {
+        if (other == adamant.teller.v1.Event.EthereumStakingReward.getDefaultInstance()) return this;
+        if (!other.getEventId().isEmpty()) {
+          eventId_ = other.eventId_;
+          onChanged();
+        }
+        if (other.getWithdrawalIndex() != 0L) {
+          setWithdrawalIndex(other.getWithdrawalIndex());
+        }
+        if (other.getBlockNumber() != 0L) {
+          setBlockNumber(other.getBlockNumber());
+        }
+        if (other.hasBlockTime()) {
+          mergeBlockTime(other.getBlockTime());
+        }
+        if (other.getValidatorIndex() != 0L) {
+          setValidatorIndex(other.getValidatorIndex());
+        }
+        if (!other.getAddress().isEmpty()) {
+          address_ = other.address_;
+          onChanged();
+        }
+        if (other.getValue() != 0D) {
+          setValue(other.getValue());
+        }
+        if (!other.getWalletId().isEmpty()) {
+          walletId_ = other.walletId_;
+          onChanged();
+        }
+        if (other.ethereumStakingRewardLayerType_ != 0) {
+          setEthereumStakingRewardLayerTypeValue(other.getEthereumStakingRewardLayerTypeValue());
+        }
+        if (!other.getStringValue().isEmpty()) {
+          stringValue_ = other.stringValue_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        adamant.teller.v1.Event.EthereumStakingReward parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (adamant.teller.v1.Event.EthereumStakingReward) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object eventId_ = "";
+      /**
+       * <code>string event_id = 1 [json_name = "eventId"];</code>
+       * @return The eventId.
+       */
+      public java.lang.String getEventId() {
+        java.lang.Object ref = eventId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          eventId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string event_id = 1 [json_name = "eventId"];</code>
+       * @return The bytes for eventId.
+       */
+      public com.google.protobuf.ByteString
+          getEventIdBytes() {
+        java.lang.Object ref = eventId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          eventId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string event_id = 1 [json_name = "eventId"];</code>
+       * @param value The eventId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEventId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        eventId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string event_id = 1 [json_name = "eventId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEventId() {
+        
+        eventId_ = getDefaultInstance().getEventId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string event_id = 1 [json_name = "eventId"];</code>
+       * @param value The bytes for eventId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEventIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        eventId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long withdrawalIndex_ ;
+      /**
+       * <code>uint64 withdrawal_index = 2 [json_name = "withdrawalIndex"];</code>
+       * @return The withdrawalIndex.
+       */
+      @java.lang.Override
+      public long getWithdrawalIndex() {
+        return withdrawalIndex_;
+      }
+      /**
+       * <code>uint64 withdrawal_index = 2 [json_name = "withdrawalIndex"];</code>
+       * @param value The withdrawalIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWithdrawalIndex(long value) {
+        
+        withdrawalIndex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 withdrawal_index = 2 [json_name = "withdrawalIndex"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWithdrawalIndex() {
+        
+        withdrawalIndex_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long blockNumber_ ;
+      /**
+       * <code>uint64 block_number = 3 [json_name = "blockNumber"];</code>
+       * @return The blockNumber.
+       */
+      @java.lang.Override
+      public long getBlockNumber() {
+        return blockNumber_;
+      }
+      /**
+       * <code>uint64 block_number = 3 [json_name = "blockNumber"];</code>
+       * @param value The blockNumber to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBlockNumber(long value) {
+        
+        blockNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 block_number = 3 [json_name = "blockNumber"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBlockNumber() {
+        
+        blockNumber_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Timestamp blockTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> blockTimeBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp block_time = 4 [json_name = "blockTime"];</code>
+       * @return Whether the blockTime field is set.
+       */
+      public boolean hasBlockTime() {
+        return blockTimeBuilder_ != null || blockTime_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp block_time = 4 [json_name = "blockTime"];</code>
+       * @return The blockTime.
+       */
+      public com.google.protobuf.Timestamp getBlockTime() {
+        if (blockTimeBuilder_ == null) {
+          return blockTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : blockTime_;
+        } else {
+          return blockTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp block_time = 4 [json_name = "blockTime"];</code>
+       */
+      public Builder setBlockTime(com.google.protobuf.Timestamp value) {
+        if (blockTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          blockTime_ = value;
+          onChanged();
+        } else {
+          blockTimeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp block_time = 4 [json_name = "blockTime"];</code>
+       */
+      public Builder setBlockTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (blockTimeBuilder_ == null) {
+          blockTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          blockTimeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp block_time = 4 [json_name = "blockTime"];</code>
+       */
+      public Builder mergeBlockTime(com.google.protobuf.Timestamp value) {
+        if (blockTimeBuilder_ == null) {
+          if (blockTime_ != null) {
+            blockTime_ =
+              com.google.protobuf.Timestamp.newBuilder(blockTime_).mergeFrom(value).buildPartial();
+          } else {
+            blockTime_ = value;
+          }
+          onChanged();
+        } else {
+          blockTimeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp block_time = 4 [json_name = "blockTime"];</code>
+       */
+      public Builder clearBlockTime() {
+        if (blockTimeBuilder_ == null) {
+          blockTime_ = null;
+          onChanged();
+        } else {
+          blockTime_ = null;
+          blockTimeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp block_time = 4 [json_name = "blockTime"];</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getBlockTimeBuilder() {
+        
+        onChanged();
+        return getBlockTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp block_time = 4 [json_name = "blockTime"];</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getBlockTimeOrBuilder() {
+        if (blockTimeBuilder_ != null) {
+          return blockTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return blockTime_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : blockTime_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp block_time = 4 [json_name = "blockTime"];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getBlockTimeFieldBuilder() {
+        if (blockTimeBuilder_ == null) {
+          blockTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getBlockTime(),
+                  getParentForChildren(),
+                  isClean());
+          blockTime_ = null;
+        }
+        return blockTimeBuilder_;
+      }
+
+      private long validatorIndex_ ;
+      /**
+       * <code>uint64 validator_index = 5 [json_name = "validatorIndex"];</code>
+       * @return The validatorIndex.
+       */
+      @java.lang.Override
+      public long getValidatorIndex() {
+        return validatorIndex_;
+      }
+      /**
+       * <code>uint64 validator_index = 5 [json_name = "validatorIndex"];</code>
+       * @param value The validatorIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValidatorIndex(long value) {
+        
+        validatorIndex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 validator_index = 5 [json_name = "validatorIndex"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValidatorIndex() {
+        
+        validatorIndex_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object address_ = "";
+      /**
+       * <code>string address = 6 [json_name = "address"];</code>
+       * @return The address.
+       */
+      public java.lang.String getAddress() {
+        java.lang.Object ref = address_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          address_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string address = 6 [json_name = "address"];</code>
+       * @return The bytes for address.
+       */
+      public com.google.protobuf.ByteString
+          getAddressBytes() {
+        java.lang.Object ref = address_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          address_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string address = 6 [json_name = "address"];</code>
+       * @param value The address to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddress(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        address_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string address = 6 [json_name = "address"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAddress() {
+        
+        address_ = getDefaultInstance().getAddress();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string address = 6 [json_name = "address"];</code>
+       * @param value The bytes for address to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddressBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        address_ = value;
+        onChanged();
+        return this;
+      }
+
+      private double value_ ;
+      /**
+       * <code>double value = 7 [json_name = "value"];</code>
+       * @return The value.
+       */
+      @java.lang.Override
+      public double getValue() {
+        return value_;
+      }
+      /**
+       * <code>double value = 7 [json_name = "value"];</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValue(double value) {
+        
+        value_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double value = 7 [json_name = "value"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValue() {
+        
+        value_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object walletId_ = "";
+      /**
+       * <code>string wallet_id = 8 [json_name = "walletId", (.validate.rules) = { ... }</code>
+       * @return The walletId.
+       */
+      public java.lang.String getWalletId() {
+        java.lang.Object ref = walletId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          walletId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string wallet_id = 8 [json_name = "walletId", (.validate.rules) = { ... }</code>
+       * @return The bytes for walletId.
+       */
+      public com.google.protobuf.ByteString
+          getWalletIdBytes() {
+        java.lang.Object ref = walletId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          walletId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string wallet_id = 8 [json_name = "walletId", (.validate.rules) = { ... }</code>
+       * @param value The walletId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWalletId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        walletId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet_id = 8 [json_name = "walletId", (.validate.rules) = { ... }</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWalletId() {
+        
+        walletId_ = getDefaultInstance().getWalletId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet_id = 8 [json_name = "walletId", (.validate.rules) = { ... }</code>
+       * @param value The bytes for walletId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWalletIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        walletId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int ethereumStakingRewardLayerType_ = 0;
+      /**
+       * <code>.gincoinc.global.v1.EthereumStakingRewardLayerType ethereum_staking_reward_layer_type = 9 [json_name = "ethereumStakingRewardLayerType"];</code>
+       * @return The enum numeric value on the wire for ethereumStakingRewardLayerType.
+       */
+      @java.lang.Override public int getEthereumStakingRewardLayerTypeValue() {
+        return ethereumStakingRewardLayerType_;
+      }
+      /**
+       * <code>.gincoinc.global.v1.EthereumStakingRewardLayerType ethereum_staking_reward_layer_type = 9 [json_name = "ethereumStakingRewardLayerType"];</code>
+       * @param value The enum numeric value on the wire for ethereumStakingRewardLayerType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEthereumStakingRewardLayerTypeValue(int value) {
+        
+        ethereumStakingRewardLayerType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.gincoinc.global.v1.EthereumStakingRewardLayerType ethereum_staking_reward_layer_type = 9 [json_name = "ethereumStakingRewardLayerType"];</code>
+       * @return The ethereumStakingRewardLayerType.
+       */
+      @java.lang.Override
+      public gincoinc.global.v1.Enum.EthereumStakingRewardLayerType getEthereumStakingRewardLayerType() {
+        @SuppressWarnings("deprecation")
+        gincoinc.global.v1.Enum.EthereumStakingRewardLayerType result = gincoinc.global.v1.Enum.EthereumStakingRewardLayerType.valueOf(ethereumStakingRewardLayerType_);
+        return result == null ? gincoinc.global.v1.Enum.EthereumStakingRewardLayerType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.gincoinc.global.v1.EthereumStakingRewardLayerType ethereum_staking_reward_layer_type = 9 [json_name = "ethereumStakingRewardLayerType"];</code>
+       * @param value The ethereumStakingRewardLayerType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEthereumStakingRewardLayerType(gincoinc.global.v1.Enum.EthereumStakingRewardLayerType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        ethereumStakingRewardLayerType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.gincoinc.global.v1.EthereumStakingRewardLayerType ethereum_staking_reward_layer_type = 9 [json_name = "ethereumStakingRewardLayerType"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEthereumStakingRewardLayerType() {
+        
+        ethereumStakingRewardLayerType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object stringValue_ = "";
+      /**
+       * <code>string string_value = 10 [json_name = "stringValue"];</code>
+       * @return The stringValue.
+       */
+      public java.lang.String getStringValue() {
+        java.lang.Object ref = stringValue_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          stringValue_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string string_value = 10 [json_name = "stringValue"];</code>
+       * @return The bytes for stringValue.
+       */
+      public com.google.protobuf.ByteString
+          getStringValueBytes() {
+        java.lang.Object ref = stringValue_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          stringValue_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string string_value = 10 [json_name = "stringValue"];</code>
+       * @param value The stringValue to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStringValue(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        stringValue_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string string_value = 10 [json_name = "stringValue"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStringValue() {
+        
+        stringValue_ = getDefaultInstance().getStringValue();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string string_value = 10 [json_name = "stringValue"];</code>
+       * @param value The bytes for stringValue to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStringValueBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        stringValue_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:adamant.teller.v1.EthereumStakingReward)
+    }
+
+    // @@protoc_insertion_point(class_scope:adamant.teller.v1.EthereumStakingReward)
+    private static final adamant.teller.v1.Event.EthereumStakingReward DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new adamant.teller.v1.Event.EthereumStakingReward();
+    }
+
+    public static adamant.teller.v1.Event.EthereumStakingReward getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<EthereumStakingReward>
+        PARSER = new com.google.protobuf.AbstractParser<EthereumStakingReward>() {
+      @java.lang.Override
+      public EthereumStakingReward parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new EthereumStakingReward(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<EthereumStakingReward> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EthereumStakingReward> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public adamant.teller.v1.Event.EthereumStakingReward getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_teller_v1_TransferUpdated_descriptor;
   private static final 
@@ -5171,6 +6784,11 @@ public final class Event {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_teller_v1_TransferUpdateEvent_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_EthereumStakingReward_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_EthereumStakingReward_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -5183,49 +6801,64 @@ public final class Event {
       "\n6gincoinc/adamant/teller/v1/adamanttell" +
       "erv1/event.proto\022\021adamant.teller.v1\032.gin" +
       "coinc/global/v1/gincoincglobalv1/enum.pr" +
-      "oto\032\037google/protobuf/timestamp.proto\"\335\005\n" +
-      "\017TransferUpdated\022\033\n\twallet_id\030\001 \001(\tR\010wal" +
-      "letId\022\037\n\013transfer_id\030\002 \001(\tR\ntransferId\022," +
-      "\n\004coin\030\003 \001(\0162\030.gincoinc.global.v1.CoinR\004" +
-      "coin\022\023\n\005tx_id\030\004 \001(\tR\004txId\022\031\n\010tx_index\030\005 " +
-      "\001(\rR\007txIndex\022\024\n\005value\030\006 \001(\001R\005value\022!\n\014st" +
-      "ring_value\030\007 \001(\tR\013stringValue\022\031\n\010jpy_rat" +
-      "e\030\010 \001(\001R\007jpyRate\022\034\n\007address\030\t \001(\tB\002\030\001R\007a" +
-      "ddress\022\'\n\017destination_tag\030\n \001(\rR\016destina" +
-      "tionTag\022\027\n\007memo_id\030\016 \001(\004R\006memoId\022\030\n\007mess" +
-      "age\030\025 \001(\tR\007message\022:\n\005state\030\013 \001(\0162$.ginc" +
-      "oinc.global.v1.TransactionStateR\005state\022=" +
-      "\n\006result\030\014 \001(\0162%.gincoinc.global.v1.Tran" +
-      "sactionResultR\006result\022E\n\rtransfer_type\030\r" +
-      " \001(\0162 .gincoinc.global.v1.TransferTypeR\014" +
-      "transferType\022\022\n\004from\030\017 \001(\tR\004from\022\016\n\002to\030\020" +
-      " \001(\tR\002to\022.\n\004time\030\021 \001(\0132\032.google.protobuf" +
-      ".TimestampR\004time\022\031\n\010event_id\030\022 \001(\tR\007even" +
-      "tId\022\020\n\003fee\030\023 \001(\001R\003fee\022\035\n\nstring_fee\030\024 \001(" +
-      "\tR\tstringFee\"\315\004\n\023TransferUpdateEvent\022\031\n\010" +
-      "event_id\030\001 \001(\tR\007eventId\022\033\n\twallet_id\030\016 \001" +
-      "(\tR\010walletId\022,\n\004coin\030\002 \001(\0162\030.gincoinc.gl" +
-      "obal.v1.CoinR\004coin\022\023\n\005tx_id\030\003 \001(\tR\004txId\022" +
-      "\031\n\010tx_index\030\004 \001(\rR\007txIndex\022\024\n\005value\030\005 \001(" +
-      "\001R\005value\022!\n\014string_value\030\006 \001(\tR\013stringVa" +
-      "lue\022\031\n\010jpy_rate\030\r \001(\001R\007jpyRate\022\030\n\007addres" +
-      "s\030\007 \001(\tR\007address\022\'\n\017destination_tag\030\010 \001(" +
-      "\rR\016destinationTag\022\027\n\007memo_id\030\017 \001(\004R\006memo" +
-      "Id\022:\n\005state\030\t \001(\0162$.gincoinc.global.v1.T" +
-      "ransactionStateR\005state\022=\n\006result\030\n \001(\0162%" +
-      ".gincoinc.global.v1.TransactionResultR\006r" +
-      "esult\022E\n\rtransfer_type\030\013 \001(\0162 .gincoinc." +
-      "global.v1.TransferTypeR\014transferType\022.\n\004" +
-      "time\030\014 \001(\0132\032.google.protobuf.TimestampR\004" +
-      "timeBLZJgithub.com/GincoInc/gew-kmp/gen/" +
-      "gincoinc/adamant/teller/v1/adamantteller" +
-      "v1b\006proto3"
+      "oto\032\037google/protobuf/timestamp.proto\032\027va" +
+      "lidate/validate.proto\"\335\005\n\017TransferUpdate" +
+      "d\022\033\n\twallet_id\030\001 \001(\tR\010walletId\022\037\n\013transf" +
+      "er_id\030\002 \001(\tR\ntransferId\022,\n\004coin\030\003 \001(\0162\030." +
+      "gincoinc.global.v1.CoinR\004coin\022\023\n\005tx_id\030\004" +
+      " \001(\tR\004txId\022\031\n\010tx_index\030\005 \001(\rR\007txIndex\022\024\n" +
+      "\005value\030\006 \001(\001R\005value\022!\n\014string_value\030\007 \001(" +
+      "\tR\013stringValue\022\031\n\010jpy_rate\030\010 \001(\001R\007jpyRat" +
+      "e\022\034\n\007address\030\t \001(\tB\002\030\001R\007address\022\'\n\017desti" +
+      "nation_tag\030\n \001(\rR\016destinationTag\022\027\n\007memo" +
+      "_id\030\016 \001(\004R\006memoId\022\030\n\007message\030\025 \001(\tR\007mess" +
+      "age\022:\n\005state\030\013 \001(\0162$.gincoinc.global.v1." +
+      "TransactionStateR\005state\022=\n\006result\030\014 \001(\0162" +
+      "%.gincoinc.global.v1.TransactionResultR\006" +
+      "result\022E\n\rtransfer_type\030\r \001(\0162 .gincoinc" +
+      ".global.v1.TransferTypeR\014transferType\022\022\n" +
+      "\004from\030\017 \001(\tR\004from\022\016\n\002to\030\020 \001(\tR\002to\022.\n\004tim" +
+      "e\030\021 \001(\0132\032.google.protobuf.TimestampR\004tim" +
+      "e\022\031\n\010event_id\030\022 \001(\tR\007eventId\022\020\n\003fee\030\023 \001(" +
+      "\001R\003fee\022\035\n\nstring_fee\030\024 \001(\tR\tstringFee\"\315\004" +
+      "\n\023TransferUpdateEvent\022\031\n\010event_id\030\001 \001(\tR" +
+      "\007eventId\022\033\n\twallet_id\030\016 \001(\tR\010walletId\022,\n" +
+      "\004coin\030\002 \001(\0162\030.gincoinc.global.v1.CoinR\004c" +
+      "oin\022\023\n\005tx_id\030\003 \001(\tR\004txId\022\031\n\010tx_index\030\004 \001" +
+      "(\rR\007txIndex\022\024\n\005value\030\005 \001(\001R\005value\022!\n\014str" +
+      "ing_value\030\006 \001(\tR\013stringValue\022\031\n\010jpy_rate" +
+      "\030\r \001(\001R\007jpyRate\022\030\n\007address\030\007 \001(\tR\007addres" +
+      "s\022\'\n\017destination_tag\030\010 \001(\rR\016destinationT" +
+      "ag\022\027\n\007memo_id\030\017 \001(\004R\006memoId\022:\n\005state\030\t \001" +
+      "(\0162$.gincoinc.global.v1.TransactionState" +
+      "R\005state\022=\n\006result\030\n \001(\0162%.gincoinc.globa" +
+      "l.v1.TransactionResultR\006result\022E\n\rtransf" +
+      "er_type\030\013 \001(\0162 .gincoinc.global.v1.Trans" +
+      "ferTypeR\014transferType\022.\n\004time\030\014 \001(\0132\032.go" +
+      "ogle.protobuf.TimestampR\004time\"\242\004\n\025Ethere" +
+      "umStakingReward\022\031\n\010event_id\030\001 \001(\tR\007event" +
+      "Id\022)\n\020withdrawal_index\030\002 \001(\004R\017withdrawal" +
+      "Index\022!\n\014block_number\030\003 \001(\004R\013blockNumber" +
+      "\0229\n\nblock_time\030\004 \001(\0132\032.google.protobuf.T" +
+      "imestampR\tblockTime\022\'\n\017validator_index\030\005" +
+      " \001(\004R\016validatorIndex\022\030\n\007address\030\006 \001(\tR\007a" +
+      "ddress\022\024\n\005value\030\007 \001(\001R\005value\022i\n\twallet_i" +
+      "d\030\010 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}" +
+      "-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]" +
+      "{12}$R\010walletId\022~\n\"ethereum_staking_rewa" +
+      "rd_layer_type\030\t \001(\01622.gincoinc.global.v1" +
+      ".EthereumStakingRewardLayerTypeR\036ethereu" +
+      "mStakingRewardLayerType\022!\n\014string_value\030" +
+      "\n \001(\tR\013stringValueBLZJgithub.com/GincoIn" +
+      "c/gew-kmp/gen/gincoinc/adamant/teller/v1" +
+      "/adamanttellerv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           gincoinc.global.v1.Enum.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
+          io.envoyproxy.pgv.validate.Validate.getDescriptor(),
         });
     internal_static_adamant_teller_v1_TransferUpdated_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -5239,8 +6872,20 @@ public final class Event {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_teller_v1_TransferUpdateEvent_descriptor,
         new java.lang.String[] { "EventId", "WalletId", "Coin", "TxId", "TxIndex", "Value", "StringValue", "JpyRate", "Address", "DestinationTag", "MemoId", "State", "Result", "TransferType", "Time", });
+    internal_static_adamant_teller_v1_EthereumStakingReward_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_adamant_teller_v1_EthereumStakingReward_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_EthereumStakingReward_descriptor,
+        new java.lang.String[] { "EventId", "WithdrawalIndex", "BlockNumber", "BlockTime", "ValidatorIndex", "Address", "Value", "WalletId", "EthereumStakingRewardLayerType", "StringValue", });
+    com.google.protobuf.ExtensionRegistry registry =
+        com.google.protobuf.ExtensionRegistry.newInstance();
+    registry.add(io.envoyproxy.pgv.validate.Validate.rules);
+    com.google.protobuf.Descriptors.FileDescriptor
+        .internalUpdateFileDescriptor(descriptor, registry);
     gincoinc.global.v1.Enum.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
+    io.envoyproxy.pgv.validate.Validate.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
