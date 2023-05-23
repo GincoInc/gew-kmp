@@ -154,11 +154,29 @@ class Network
      */
     const NETWORK_AVALANCHE_TESTNET = 34;
     /**
-     * For monitoring https://github.com/GincoInc/sre-dev/issues/1312
-     *
-     * Generated from protobuf enum <code>NETWORK_ASTAR_MAINNET = 10001;</code>
+     * Generated from protobuf enum <code>NETWORK_OASYS_MAINNET = 35;</code>
      */
-    const NETWORK_ASTAR_MAINNET = 10001;
+    const NETWORK_OASYS_MAINNET = 35;
+    /**
+     * Generated from protobuf enum <code>NETWORK_OASYS_TESTNET = 36;</code>
+     */
+    const NETWORK_OASYS_TESTNET = 36;
+    /**
+     * Generated from protobuf enum <code>NETWORK_ASTAR_MAINNET = 37;</code>
+     */
+    const NETWORK_ASTAR_MAINNET = 37;
+    /**
+     * Generated from protobuf enum <code>NETWORK_SHIBUYA_TESTNET = 38;</code>
+     */
+    const NETWORK_SHIBUYA_TESTNET = 38;
+    /**
+     * Generated from protobuf enum <code>NETWORK_XDC_MAINNET = 39;</code>
+     */
+    const NETWORK_XDC_MAINNET = 39;
+    /**
+     * Generated from protobuf enum <code>NETWORK_XDC_TESTNET = 40;</code>
+     */
+    const NETWORK_XDC_TESTNET = 40;
     /**
      * Generated from protobuf enum <code>NETWORK_SHIDEN_MAINNET = 10002;</code>
      */
@@ -200,7 +218,12 @@ class Network
         self::NETWORK_SYMBOL_TESTNET => 'NETWORK_SYMBOL_TESTNET',
         self::NETWORK_AVALANCHE_MAINNET => 'NETWORK_AVALANCHE_MAINNET',
         self::NETWORK_AVALANCHE_TESTNET => 'NETWORK_AVALANCHE_TESTNET',
+        self::NETWORK_OASYS_MAINNET => 'NETWORK_OASYS_MAINNET',
+        self::NETWORK_OASYS_TESTNET => 'NETWORK_OASYS_TESTNET',
         self::NETWORK_ASTAR_MAINNET => 'NETWORK_ASTAR_MAINNET',
+        self::NETWORK_SHIBUYA_TESTNET => 'NETWORK_SHIBUYA_TESTNET',
+        self::NETWORK_XDC_MAINNET => 'NETWORK_XDC_MAINNET',
+        self::NETWORK_XDC_TESTNET => 'NETWORK_XDC_TESTNET',
         self::NETWORK_SHIDEN_MAINNET => 'NETWORK_SHIDEN_MAINNET',
     ];
 
