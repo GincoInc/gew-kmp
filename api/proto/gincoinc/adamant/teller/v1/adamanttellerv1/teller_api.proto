@@ -27,6 +27,7 @@ service TellerAPI {
   rpc GetSpendableBalance(adamant.global.v1.GetSpendableBalanceRequest) returns (adamant.global.v1.GetSpendableBalanceResponse) {}
   rpc InitializeXRPWallet(InitializeXRPWalletRequest) returns (google.protobuf.Empty) {}
   rpc InitializeWallet(InitializeWalletRequest) returns (google.protobuf.Empty) {}
+  rpc UpdateDestinationWalletID(adamant.global.v1.UpdateDestinationWalletIDRequest) returns (google.protobuf.Empty) {}
 
   // Create a new address for an existing wallet
   rpc CreateAddress(adamant.global.v1.CreateAddressRequest) returns (adamant.global.v1.CreateAddressResponse) {}
