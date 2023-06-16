@@ -28,6 +28,8 @@ message AuditLog {
   string service_account_key_id = 12;
   string wallet_id = 13;
   string wallet_name = 14;
+  string destination_wallet_id = 39;
+  string destination_wallet_name = 40;
   string wallet_group_id = 34;
   string wallet_group_name = 35;
   repeated string wallet_names = 36;
