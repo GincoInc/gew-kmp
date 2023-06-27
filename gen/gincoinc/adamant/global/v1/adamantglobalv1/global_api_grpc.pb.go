@@ -43,6 +43,7 @@ type GlobalAPIClient interface {
 	UpdateWalletGroup(ctx context.Context, in *UpdateWalletGroupRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	GetWalletGroup(ctx context.Context, in *GetWalletGroupRequest, opts ...grpc.CallOption) (*WalletGroup, error)
 	ListWalletGroups(ctx context.Context, in *ListWalletGroupsRequest, opts ...grpc.CallOption) (*ListWalletGroupsResponse, error)
+	UpdateDestinationWalletID(ctx context.Context, in *UpdateDestinationWalletIDRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Review
 	ApproveWallet(ctx context.Context, in *ApproveWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	ApproveTransaction(ctx context.Context, in *ApproveTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -301,6 +302,15 @@ func (c *globalAPIClient) GetWalletGroup(ctx context.Context, in *GetWalletGroup
 func (c *globalAPIClient) ListWalletGroups(ctx context.Context, in *ListWalletGroupsRequest, opts ...grpc.CallOption) (*ListWalletGroupsResponse, error) {
 	out := new(ListWalletGroupsResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListWalletGroups", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) UpdateDestinationWalletID(ctx context.Context, in *UpdateDestinationWalletIDRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/UpdateDestinationWalletID", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -997,6 +1007,7 @@ type GlobalAPIServer interface {
 	UpdateWalletGroup(context.Context, *UpdateWalletGroupRequest) (*emptypb.Empty, error)
 	GetWalletGroup(context.Context, *GetWalletGroupRequest) (*WalletGroup, error)
 	ListWalletGroups(context.Context, *ListWalletGroupsRequest) (*ListWalletGroupsResponse, error)
+	UpdateDestinationWalletID(context.Context, *UpdateDestinationWalletIDRequest) (*emptypb.Empty, error)
 	// Review
 	ApproveWallet(context.Context, *ApproveWalletRequest) (*emptypb.Empty, error)
 	ApproveTransaction(context.Context, *ApproveTransactionRequest) (*emptypb.Empty, error)
@@ -1148,6 +1159,9 @@ func (UnimplementedGlobalAPIServer) GetWalletGroup(context.Context, *GetWalletGr
 }
 func (UnimplementedGlobalAPIServer) ListWalletGroups(context.Context, *ListWalletGroupsRequest) (*ListWalletGroupsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListWalletGroups not implemented")
+}
+func (UnimplementedGlobalAPIServer) UpdateDestinationWalletID(context.Context, *UpdateDestinationWalletIDRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateDestinationWalletID not implemented")
 }
 func (UnimplementedGlobalAPIServer) ApproveWallet(context.Context, *ApproveWalletRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ApproveWallet not implemented")
@@ -1703,6 +1717,24 @@ func _GlobalAPI_ListWalletGroups_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GlobalAPIServer).ListWalletGroups(ctx, req.(*ListWalletGroupsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_UpdateDestinationWalletID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateDestinationWalletIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).UpdateDestinationWalletID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/UpdateDestinationWalletID",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).UpdateDestinationWalletID(ctx, req.(*UpdateDestinationWalletIDRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3117,6 +3149,10 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListWalletGroups",
 			Handler:    _GlobalAPI_ListWalletGroups_Handler,
+		},
+		{
+			MethodName: "UpdateDestinationWalletID",
+			Handler:    _GlobalAPI_UpdateDestinationWalletID_Handler,
 		},
 		{
 			MethodName: "ApproveWallet",

@@ -275,6 +275,20 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\UpdateDestinationWalletIDRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function UpdateDestinationWalletID(\Adamant\Global\V1\UpdateDestinationWalletIDRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/UpdateDestinationWalletID',
+        $argument,
+        ['\Google\Protobuf\GPBEmpty', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * Review
      * @param \Adamant\Global\V1\ApproveWalletRequest $argument input argument
      * @param array $metadata metadata
