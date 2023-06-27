@@ -72,6 +72,14 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      */
     protected $wallet_name = '';
     /**
+     * Generated from protobuf field <code>string destination_wallet_id = 39 [json_name = "destinationWalletId"];</code>
+     */
+    protected $destination_wallet_id = '';
+    /**
+     * Generated from protobuf field <code>string destination_wallet_name = 40 [json_name = "destinationWalletName"];</code>
+     */
+    protected $destination_wallet_name = '';
+    /**
      * Generated from protobuf field <code>string wallet_group_id = 34 [json_name = "walletGroupId"];</code>
      */
     protected $wallet_group_id = '';
@@ -188,6 +196,8 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      *     @type string $service_account_key_id
      *     @type string $wallet_id
      *     @type string $wallet_name
+     *     @type string $destination_wallet_id
+     *     @type string $destination_wallet_name
      *     @type string $wallet_group_id
      *     @type string $wallet_group_name
      *     @type array<string>|\Google\Protobuf\Internal\RepeatedField $wallet_names
@@ -523,6 +533,50 @@ class AuditLog extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->wallet_name = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string destination_wallet_id = 39 [json_name = "destinationWalletId"];</code>
+     * @return string
+     */
+    public function getDestinationWalletId()
+    {
+        return $this->destination_wallet_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>string destination_wallet_id = 39 [json_name = "destinationWalletId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setDestinationWalletId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->destination_wallet_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string destination_wallet_name = 40 [json_name = "destinationWalletName"];</code>
+     * @return string
+     */
+    public function getDestinationWalletName()
+    {
+        return $this->destination_wallet_name;
+    }
+
+    /**
+     * Generated from protobuf field <code>string destination_wallet_name = 40 [json_name = "destinationWalletName"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setDestinationWalletName($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->destination_wallet_name = $var;
 
         return $this;
     }
