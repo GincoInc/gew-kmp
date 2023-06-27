@@ -8,6 +8,8 @@ $(BIN)/protodep:
 	test -f $(BIN)/protodep || $(GO_ENV) go install github.com/stormcat24/protodep@v0.1.7
 $(BIN)/protoc-gen-go:
 	test -f $(BIN)/protoc-gen-go || $(GO_ENV) go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28.0
+$(BIN)/protoc-gen-go-grpc:
+	test -f $(BIN)/protoc-gen-go-grpc || $(GO_ENV) go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2.0
 $(BIN)/protoc-gen-validate:
 	test -f $(BIN)/protoc-gen-validate || $(GO_ENV) go install github.com/envoyproxy/protoc-gen-validate@v0.6.0
 $(BIN)/evans:
@@ -22,7 +24,7 @@ tidy:
 	go mod tidy
 
 .PHONY: generate
-generate: $(BIN)/buf $(BIN)/protoc-gen-go $(BIN)/protoc-gen-validate
+generate: $(BIN)/buf $(BIN)/protoc-gen-go $(BIN)/protoc-gen-go-grpc $(BIN)/protoc-gen-validate
 	@rm -r ./gen || :
 	$(BIN)/buf generate --path ./api/proto/gincoinc
 
