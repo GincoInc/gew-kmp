@@ -184,6 +184,30 @@ public final class AuditLogger {
         getWalletNameBytes();
 
     /**
+     * <code>string destination_wallet_id = 39 [json_name = "destinationWalletId"];</code>
+     * @return The destinationWalletId.
+     */
+    java.lang.String getDestinationWalletId();
+    /**
+     * <code>string destination_wallet_id = 39 [json_name = "destinationWalletId"];</code>
+     * @return The bytes for destinationWalletId.
+     */
+    com.google.protobuf.ByteString
+        getDestinationWalletIdBytes();
+
+    /**
+     * <code>string destination_wallet_name = 40 [json_name = "destinationWalletName"];</code>
+     * @return The destinationWalletName.
+     */
+    java.lang.String getDestinationWalletName();
+    /**
+     * <code>string destination_wallet_name = 40 [json_name = "destinationWalletName"];</code>
+     * @return The bytes for destinationWalletName.
+     */
+    com.google.protobuf.ByteString
+        getDestinationWalletNameBytes();
+
+    /**
      * <code>string wallet_group_id = 34 [json_name = "walletGroupId"];</code>
      * @return The walletGroupId.
      */
@@ -541,6 +565,8 @@ public final class AuditLogger {
       serviceAccountKeyId_ = "";
       walletId_ = "";
       walletName_ = "";
+      destinationWalletId_ = "";
+      destinationWalletName_ = "";
       walletGroupId_ = "";
       walletGroupName_ = "";
       walletNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -842,6 +868,18 @@ public final class AuditLogger {
                 mutable_bitField0_ |= 0x00000004;
               }
               newValidators_.add(s);
+              break;
+            }
+            case 314: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              destinationWalletId_ = s;
+              break;
+            }
+            case 322: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              destinationWalletName_ = s;
               break;
             }
             default: {
@@ -1357,6 +1395,82 @@ public final class AuditLogger {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         walletName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DESTINATION_WALLET_ID_FIELD_NUMBER = 39;
+    private volatile java.lang.Object destinationWalletId_;
+    /**
+     * <code>string destination_wallet_id = 39 [json_name = "destinationWalletId"];</code>
+     * @return The destinationWalletId.
+     */
+    @java.lang.Override
+    public java.lang.String getDestinationWalletId() {
+      java.lang.Object ref = destinationWalletId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        destinationWalletId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string destination_wallet_id = 39 [json_name = "destinationWalletId"];</code>
+     * @return The bytes for destinationWalletId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDestinationWalletIdBytes() {
+      java.lang.Object ref = destinationWalletId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        destinationWalletId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DESTINATION_WALLET_NAME_FIELD_NUMBER = 40;
+    private volatile java.lang.Object destinationWalletName_;
+    /**
+     * <code>string destination_wallet_name = 40 [json_name = "destinationWalletName"];</code>
+     * @return The destinationWalletName.
+     */
+    @java.lang.Override
+    public java.lang.String getDestinationWalletName() {
+      java.lang.Object ref = destinationWalletName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        destinationWalletName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string destination_wallet_name = 40 [json_name = "destinationWalletName"];</code>
+     * @return The bytes for destinationWalletName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDestinationWalletNameBytes() {
+      java.lang.Object ref = destinationWalletName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        destinationWalletName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -2267,6 +2381,12 @@ public final class AuditLogger {
       for (int i = 0; i < newValidators_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 38, newValidators_.getRaw(i));
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destinationWalletId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 39, destinationWalletId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destinationWalletName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 40, destinationWalletName_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2419,6 +2539,12 @@ public final class AuditLogger {
         size += dataSize;
         size += 2 * getNewValidatorsList().size();
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destinationWalletId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(39, destinationWalletId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destinationWalletName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(40, destinationWalletName_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2459,6 +2585,10 @@ public final class AuditLogger {
           .equals(other.getWalletId())) return false;
       if (!getWalletName()
           .equals(other.getWalletName())) return false;
+      if (!getDestinationWalletId()
+          .equals(other.getDestinationWalletId())) return false;
+      if (!getDestinationWalletName()
+          .equals(other.getDestinationWalletName())) return false;
       if (!getWalletGroupId()
           .equals(other.getWalletGroupId())) return false;
       if (!getWalletGroupName()
@@ -2551,6 +2681,10 @@ public final class AuditLogger {
       hash = (53 * hash) + getWalletId().hashCode();
       hash = (37 * hash) + WALLET_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getWalletName().hashCode();
+      hash = (37 * hash) + DESTINATION_WALLET_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getDestinationWalletId().hashCode();
+      hash = (37 * hash) + DESTINATION_WALLET_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getDestinationWalletName().hashCode();
       hash = (37 * hash) + WALLET_GROUP_ID_FIELD_NUMBER;
       hash = (53 * hash) + getWalletGroupId().hashCode();
       hash = (37 * hash) + WALLET_GROUP_NAME_FIELD_NUMBER;
@@ -2779,6 +2913,10 @@ public final class AuditLogger {
 
         walletName_ = "";
 
+        destinationWalletId_ = "";
+
+        destinationWalletName_ = "";
+
         walletGroupId_ = "";
 
         walletGroupName_ = "";
@@ -2876,6 +3014,8 @@ public final class AuditLogger {
         result.serviceAccountKeyId_ = serviceAccountKeyId_;
         result.walletId_ = walletId_;
         result.walletName_ = walletName_;
+        result.destinationWalletId_ = destinationWalletId_;
+        result.destinationWalletName_ = destinationWalletName_;
         result.walletGroupId_ = walletGroupId_;
         result.walletGroupName_ = walletGroupName_;
         if (((bitField0_ & 0x00000001) != 0)) {
@@ -3023,6 +3163,14 @@ public final class AuditLogger {
         }
         if (!other.getWalletName().isEmpty()) {
           walletName_ = other.walletName_;
+          onChanged();
+        }
+        if (!other.getDestinationWalletId().isEmpty()) {
+          destinationWalletId_ = other.destinationWalletId_;
+          onChanged();
+        }
+        if (!other.getDestinationWalletName().isEmpty()) {
+          destinationWalletName_ = other.destinationWalletName_;
           onChanged();
         }
         if (!other.getWalletGroupId().isEmpty()) {
@@ -4163,6 +4311,158 @@ public final class AuditLogger {
   checkByteStringIsUtf8(value);
         
         walletName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object destinationWalletId_ = "";
+      /**
+       * <code>string destination_wallet_id = 39 [json_name = "destinationWalletId"];</code>
+       * @return The destinationWalletId.
+       */
+      public java.lang.String getDestinationWalletId() {
+        java.lang.Object ref = destinationWalletId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          destinationWalletId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string destination_wallet_id = 39 [json_name = "destinationWalletId"];</code>
+       * @return The bytes for destinationWalletId.
+       */
+      public com.google.protobuf.ByteString
+          getDestinationWalletIdBytes() {
+        java.lang.Object ref = destinationWalletId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          destinationWalletId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string destination_wallet_id = 39 [json_name = "destinationWalletId"];</code>
+       * @param value The destinationWalletId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDestinationWalletId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        destinationWalletId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string destination_wallet_id = 39 [json_name = "destinationWalletId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDestinationWalletId() {
+        
+        destinationWalletId_ = getDefaultInstance().getDestinationWalletId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string destination_wallet_id = 39 [json_name = "destinationWalletId"];</code>
+       * @param value The bytes for destinationWalletId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDestinationWalletIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        destinationWalletId_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object destinationWalletName_ = "";
+      /**
+       * <code>string destination_wallet_name = 40 [json_name = "destinationWalletName"];</code>
+       * @return The destinationWalletName.
+       */
+      public java.lang.String getDestinationWalletName() {
+        java.lang.Object ref = destinationWalletName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          destinationWalletName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string destination_wallet_name = 40 [json_name = "destinationWalletName"];</code>
+       * @return The bytes for destinationWalletName.
+       */
+      public com.google.protobuf.ByteString
+          getDestinationWalletNameBytes() {
+        java.lang.Object ref = destinationWalletName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          destinationWalletName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string destination_wallet_name = 40 [json_name = "destinationWalletName"];</code>
+       * @param value The destinationWalletName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDestinationWalletName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        destinationWalletName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string destination_wallet_name = 40 [json_name = "destinationWalletName"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDestinationWalletName() {
+        
+        destinationWalletName_ = getDefaultInstance().getDestinationWalletName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string destination_wallet_name = 40 [json_name = "destinationWalletName"];</code>
+       * @param value The bytes for destinationWalletName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDestinationWalletNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        destinationWalletName_ = value;
         onChanged();
         return this;
       }
@@ -6127,7 +6427,7 @@ public final class AuditLogger {
       "v1\0325gincoinc/adamant/global/v1/adamantgl" +
       "obalv1/enum.proto\032.gincoinc/global/v1/gi" +
       "ncoincglobalv1/enum.proto\032\037google/protob" +
-      "uf/timestamp.proto\"\356\014\n\010AuditLog\022 \n\014audit" +
+      "uf/timestamp.proto\"\332\r\n\010AuditLog\022 \n\014audit" +
       "_log_id\030\001 \001(\tR\nauditLogId\022H\n\017audit_log_g" +
       "roup\030\002 \001(\0162 .adamant.global.v1.AuditLogG" +
       "roupR\rauditLogGroup\022E\n\016audit_log_type\030\003 " +
@@ -6143,34 +6443,37 @@ public final class AuditLogger {
       " \001(\tR\022serviceAccountName\0223\n\026service_acco" +
       "unt_key_id\030\014 \001(\tR\023serviceAccountKeyId\022\033\n" +
       "\twallet_id\030\r \001(\tR\010walletId\022\037\n\013wallet_nam" +
-      "e\030\016 \001(\tR\nwalletName\022&\n\017wallet_group_id\030\"" +
-      " \001(\tR\rwalletGroupId\022*\n\021wallet_group_name" +
-      "\030# \001(\tR\017walletGroupName\022!\n\014wallet_names\030" +
-      "$ \003(\tR\013walletNames\022%\n\016transaction_id\030\017 \001" +
-      "(\tR\rtransactionId\0225\n\tcoin_type\030\020 \001(\0162\030.g" +
-      "incoinc.global.v1.CoinR\010coinType\022!\n\014stri" +
-      "ng_value\030\021 \001(\tR\013stringValue\022\023\n\005tx_id\030\022 \001" +
-      "(\tR\004txId\022\033\n\tpolicy_id\030\023 \001(\tR\010policyId\022\037\n" +
-      "\013policy_name\030\024 \001(\tR\npolicyName\022,\n\022labele" +
-      "d_address_id\030\025 \001(\tR\020labeledAddressId\022\030\n\007" +
-      "address\030\026 \001(\tR\007address\022!\n\014address_name\030\027" +
-      " \001(\tR\013addressName\022*\n\021transfer_limit_id\030\030" +
-      " \001(\tR\017transferLimitId\022.\n\023transfer_limit_" +
-      "name\030\031 \001(\tR\021transferLimitName\0225\n\027transfe" +
-      "r_one_time_limit\030\032 \001(\003R\024transferOneTimeL" +
-      "imit\0222\n\025transfer_hourly_limit\030\033 \001(\003R\023tra" +
-      "nsferHourlyLimit\0220\n\024transfer_daily_limit" +
-      "\030\034 \001(\003R\022transferDailyLimit\022!\n\014whitelist_" +
-      "id\030\035 \001(\tR\013whitelistId\022%\n\016whitelist_name\030" +
-      "\036 \001(\tR\rwhitelistName\022%\n\016old_validators\030%" +
-      " \003(\tR\roldValidators\022%\n\016new_validators\030& " +
-      "\003(\tR\rnewValidators\022/\n\023whitelist_addresse" +
-      "s\030\037 \003(\tR\022whitelistAddresses\0229\n\nevent_tim" +
-      "e\030  \001(\0132\032.google.protobuf.TimestampR\teve" +
-      "ntTime\022;\n\013create_time\030! \001(\0132\032.google.pro" +
-      "tobuf.TimestampR\ncreateTimeBLZJgithub.co" +
-      "m/GincoInc/gew-kmp/gen/gincoinc/adamant/" +
-      "global/v1/adamantglobalv1b\006proto3"
+      "e\030\016 \001(\tR\nwalletName\0222\n\025destination_walle" +
+      "t_id\030\' \001(\tR\023destinationWalletId\0226\n\027desti" +
+      "nation_wallet_name\030( \001(\tR\025destinationWal" +
+      "letName\022&\n\017wallet_group_id\030\" \001(\tR\rwallet" +
+      "GroupId\022*\n\021wallet_group_name\030# \001(\tR\017wall" +
+      "etGroupName\022!\n\014wallet_names\030$ \003(\tR\013walle" +
+      "tNames\022%\n\016transaction_id\030\017 \001(\tR\rtransact" +
+      "ionId\0225\n\tcoin_type\030\020 \001(\0162\030.gincoinc.glob" +
+      "al.v1.CoinR\010coinType\022!\n\014string_value\030\021 \001" +
+      "(\tR\013stringValue\022\023\n\005tx_id\030\022 \001(\tR\004txId\022\033\n\t" +
+      "policy_id\030\023 \001(\tR\010policyId\022\037\n\013policy_name" +
+      "\030\024 \001(\tR\npolicyName\022,\n\022labeled_address_id" +
+      "\030\025 \001(\tR\020labeledAddressId\022\030\n\007address\030\026 \001(" +
+      "\tR\007address\022!\n\014address_name\030\027 \001(\tR\013addres" +
+      "sName\022*\n\021transfer_limit_id\030\030 \001(\tR\017transf" +
+      "erLimitId\022.\n\023transfer_limit_name\030\031 \001(\tR\021" +
+      "transferLimitName\0225\n\027transfer_one_time_l" +
+      "imit\030\032 \001(\003R\024transferOneTimeLimit\0222\n\025tran" +
+      "sfer_hourly_limit\030\033 \001(\003R\023transferHourlyL" +
+      "imit\0220\n\024transfer_daily_limit\030\034 \001(\003R\022tran" +
+      "sferDailyLimit\022!\n\014whitelist_id\030\035 \001(\tR\013wh" +
+      "itelistId\022%\n\016whitelist_name\030\036 \001(\tR\rwhite" +
+      "listName\022%\n\016old_validators\030% \003(\tR\roldVal" +
+      "idators\022%\n\016new_validators\030& \003(\tR\rnewVali" +
+      "dators\022/\n\023whitelist_addresses\030\037 \003(\tR\022whi" +
+      "telistAddresses\0229\n\nevent_time\030  \001(\0132\032.go" +
+      "ogle.protobuf.TimestampR\teventTime\022;\n\013cr" +
+      "eate_time\030! \001(\0132\032.google.protobuf.Timest" +
+      "ampR\ncreateTimeBLZJgithub.com/GincoInc/g" +
+      "ew-kmp/gen/gincoinc/adamant/global/v1/ad" +
+      "amantglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6184,7 +6487,7 @@ public final class AuditLogger {
     internal_static_adamant_global_v1_AuditLog_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_AuditLog_descriptor,
-        new java.lang.String[] { "AuditLogId", "AuditLogGroup", "AuditLogType", "AccountId", "AccountName", "TargetAccountId", "TargetAccountName", "Email", "RoleType", "ServiceAccountId", "ServiceAccountName", "ServiceAccountKeyId", "WalletId", "WalletName", "WalletGroupId", "WalletGroupName", "WalletNames", "TransactionId", "CoinType", "StringValue", "TxId", "PolicyId", "PolicyName", "LabeledAddressId", "Address", "AddressName", "TransferLimitId", "TransferLimitName", "TransferOneTimeLimit", "TransferHourlyLimit", "TransferDailyLimit", "WhitelistId", "WhitelistName", "OldValidators", "NewValidators", "WhitelistAddresses", "EventTime", "CreateTime", });
+        new java.lang.String[] { "AuditLogId", "AuditLogGroup", "AuditLogType", "AccountId", "AccountName", "TargetAccountId", "TargetAccountName", "Email", "RoleType", "ServiceAccountId", "ServiceAccountName", "ServiceAccountKeyId", "WalletId", "WalletName", "DestinationWalletId", "DestinationWalletName", "WalletGroupId", "WalletGroupName", "WalletNames", "TransactionId", "CoinType", "StringValue", "TxId", "PolicyId", "PolicyName", "LabeledAddressId", "Address", "AddressName", "TransferLimitId", "TransferLimitName", "TransferOneTimeLimit", "TransferHourlyLimit", "TransferDailyLimit", "WhitelistId", "WhitelistName", "OldValidators", "NewValidators", "WhitelistAddresses", "EventTime", "CreateTime", });
     adamant.global.v1.Enum.getDescriptor();
     gincoinc.global.v1.Enum.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();

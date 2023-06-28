@@ -4565,6 +4565,126 @@ var _ interface {
 	ErrorName() string
 } = ListWalletGroupsResponseValidationError{}
 
+// Validate checks the field values on UpdateDestinationWalletIDRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in UpdateDestinationWalletIDRequestMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *UpdateDestinationWalletIDRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_UpdateDestinationWalletIDRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := UpdateDestinationWalletIDRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_UpdateDestinationWalletIDRequest_DestinationWalletId_Pattern.MatchString(m.GetDestinationWalletId()) {
+		err := UpdateDestinationWalletIDRequestValidationError{
+			field:  "DestinationWalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return UpdateDestinationWalletIDRequestMultiError(errors)
+	}
+	return nil
+}
+
+// UpdateDestinationWalletIDRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// UpdateDestinationWalletIDRequest.Validate(true) if the designated
+// constraints aren't met.
+type UpdateDestinationWalletIDRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateDestinationWalletIDRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateDestinationWalletIDRequestMultiError) AllErrors() []error { return m }
+
+// UpdateDestinationWalletIDRequestValidationError is the validation error
+// returned by UpdateDestinationWalletIDRequest.Validate if the designated
+// constraints aren't met.
+type UpdateDestinationWalletIDRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateDestinationWalletIDRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateDestinationWalletIDRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateDestinationWalletIDRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateDestinationWalletIDRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateDestinationWalletIDRequestValidationError) ErrorName() string {
+	return "UpdateDestinationWalletIDRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateDestinationWalletIDRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateDestinationWalletIDRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateDestinationWalletIDRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateDestinationWalletIDRequestValidationError{}
+
+var _UpdateDestinationWalletIDRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _UpdateDestinationWalletIDRequest_DestinationWalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on RegisterKeyRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned. When asked to return all errors, validation
