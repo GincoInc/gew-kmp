@@ -78,6 +78,10 @@ func (m *AuditLog) Validate(all bool) error {
 
 	// no validation rules for WalletName
 
+	// no validation rules for DestinationWalletId
+
+	// no validation rules for DestinationWalletName
+
 	// no validation rules for WalletGroupId
 
 	// no validation rules for WalletGroupName

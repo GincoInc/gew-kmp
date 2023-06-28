@@ -263,6 +263,37 @@ public final class TellerAPIGrpc {
     return getInitializeWalletMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.UpdateDestinationWalletIDRequest,
+      com.google.protobuf.Empty> getUpdateDestinationWalletIDMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UpdateDestinationWalletID",
+      requestType = adamant.global.v1.UpdateDestinationWalletIDRequest.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.UpdateDestinationWalletIDRequest,
+      com.google.protobuf.Empty> getUpdateDestinationWalletIDMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.UpdateDestinationWalletIDRequest, com.google.protobuf.Empty> getUpdateDestinationWalletIDMethod;
+    if ((getUpdateDestinationWalletIDMethod = TellerAPIGrpc.getUpdateDestinationWalletIDMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getUpdateDestinationWalletIDMethod = TellerAPIGrpc.getUpdateDestinationWalletIDMethod) == null) {
+          TellerAPIGrpc.getUpdateDestinationWalletIDMethod = getUpdateDestinationWalletIDMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.UpdateDestinationWalletIDRequest, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateDestinationWalletID"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.UpdateDestinationWalletIDRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("UpdateDestinationWalletID"))
+              .build();
+        }
+      }
+    }
+    return getUpdateDestinationWalletIDMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.CreateAddressRequest,
       adamant.global.v1.CreateAddressResponse> getCreateAddressMethod;
 
@@ -1270,6 +1301,13 @@ public final class TellerAPIGrpc {
     }
 
     /**
+     */
+    public void updateDestinationWalletID(adamant.global.v1.UpdateDestinationWalletIDRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateDestinationWalletIDMethod(), responseObserver);
+    }
+
+    /**
      * <pre>
      * Create a new address for an existing wallet
      * </pre>
@@ -1551,6 +1589,13 @@ public final class TellerAPIGrpc {
                 adamant.teller.v1.InitializeWalletRequest,
                 com.google.protobuf.Empty>(
                   this, METHODID_INITIALIZE_WALLET)))
+          .addMethod(
+            getUpdateDestinationWalletIDMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                adamant.global.v1.UpdateDestinationWalletIDRequest,
+                com.google.protobuf.Empty>(
+                  this, METHODID_UPDATE_DESTINATION_WALLET_ID)))
           .addMethod(
             getCreateAddressMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -1837,6 +1882,14 @@ public final class TellerAPIGrpc {
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getInitializeWalletMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateDestinationWalletID(adamant.global.v1.UpdateDestinationWalletIDRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getUpdateDestinationWalletIDMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -2167,6 +2220,13 @@ public final class TellerAPIGrpc {
     }
 
     /**
+     */
+    public com.google.protobuf.Empty updateDestinationWalletID(adamant.global.v1.UpdateDestinationWalletIDRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getUpdateDestinationWalletIDMethod(), getCallOptions(), request);
+    }
+
+    /**
      * <pre>
      * Create a new address for an existing wallet
      * </pre>
@@ -2473,6 +2533,14 @@ public final class TellerAPIGrpc {
     }
 
     /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> updateDestinationWalletID(
+        adamant.global.v1.UpdateDestinationWalletIDRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getUpdateDestinationWalletIDMethod(), getCallOptions()), request);
+    }
+
+    /**
      * <pre>
      * Create a new address for an existing wallet
      * </pre>
@@ -2734,35 +2802,36 @@ public final class TellerAPIGrpc {
   private static final int METHODID_GET_SPENDABLE_BALANCE = 5;
   private static final int METHODID_INITIALIZE_XRPWALLET = 6;
   private static final int METHODID_INITIALIZE_WALLET = 7;
-  private static final int METHODID_CREATE_ADDRESS = 8;
-  private static final int METHODID_CREATE_IOSTACCOUNT = 9;
-  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 10;
-  private static final int METHODID_GET_ADDRESS = 11;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 12;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 13;
-  private static final int METHODID_GET_ADDRESS_BY_INDEX = 14;
-  private static final int METHODID_LIST_ADDRESSES = 15;
-  private static final int METHODID_IMPORT_ADDRESS = 16;
-  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 17;
-  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 18;
-  private static final int METHODID_CREATE_TRANSACTION = 19;
-  private static final int METHODID_SIGN_TRANSACTION = 20;
-  private static final int METHODID_SEND_TRANSACTION = 21;
-  private static final int METHODID_CANCEL_TRANSACTION = 22;
-  private static final int METHODID_GET_TRANSACTION = 23;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 24;
-  private static final int METHODID_LIST_TRANSACTIONS = 25;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 26;
-  private static final int METHODID_LIST_TRANSFERS = 27;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 28;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 29;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 30;
-  private static final int METHODID_SET_RATES = 31;
-  private static final int METHODID_CALCULATE_FEE = 32;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 33;
-  private static final int METHODID_VALIDATE_ADDRESS = 34;
-  private static final int METHODID_FLUSH_BALANCE = 35;
-  private static final int METHODID_LIST_AUDIT_LOGS = 36;
+  private static final int METHODID_UPDATE_DESTINATION_WALLET_ID = 8;
+  private static final int METHODID_CREATE_ADDRESS = 9;
+  private static final int METHODID_CREATE_IOSTACCOUNT = 10;
+  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 11;
+  private static final int METHODID_GET_ADDRESS = 12;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 13;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 14;
+  private static final int METHODID_GET_ADDRESS_BY_INDEX = 15;
+  private static final int METHODID_LIST_ADDRESSES = 16;
+  private static final int METHODID_IMPORT_ADDRESS = 17;
+  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 18;
+  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 19;
+  private static final int METHODID_CREATE_TRANSACTION = 20;
+  private static final int METHODID_SIGN_TRANSACTION = 21;
+  private static final int METHODID_SEND_TRANSACTION = 22;
+  private static final int METHODID_CANCEL_TRANSACTION = 23;
+  private static final int METHODID_GET_TRANSACTION = 24;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 25;
+  private static final int METHODID_LIST_TRANSACTIONS = 26;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 27;
+  private static final int METHODID_LIST_TRANSFERS = 28;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 29;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 30;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 31;
+  private static final int METHODID_SET_RATES = 32;
+  private static final int METHODID_CALCULATE_FEE = 33;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 34;
+  private static final int METHODID_VALIDATE_ADDRESS = 35;
+  private static final int METHODID_FLUSH_BALANCE = 36;
+  private static final int METHODID_LIST_AUDIT_LOGS = 37;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -2811,6 +2880,10 @@ public final class TellerAPIGrpc {
           break;
         case METHODID_INITIALIZE_WALLET:
           serviceImpl.initializeWallet((adamant.teller.v1.InitializeWalletRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_UPDATE_DESTINATION_WALLET_ID:
+          serviceImpl.updateDestinationWalletID((adamant.global.v1.UpdateDestinationWalletIDRequest) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         case METHODID_CREATE_ADDRESS:
@@ -2998,6 +3071,7 @@ public final class TellerAPIGrpc {
               .addMethod(getGetSpendableBalanceMethod())
               .addMethod(getInitializeXRPWalletMethod())
               .addMethod(getInitializeWalletMethod())
+              .addMethod(getUpdateDestinationWalletIDMethod())
               .addMethod(getCreateAddressMethod())
               .addMethod(getCreateIOSTAccountMethod())
               .addMethod(getListSymbolChildAddressesMethod())
