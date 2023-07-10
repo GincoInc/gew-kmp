@@ -34,6 +34,7 @@ type TellerAPIClient interface {
 	InitializeXRPWallet(ctx context.Context, in *InitializeXRPWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	InitializeWallet(ctx context.Context, in *InitializeWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	UpdateDestinationWalletID(ctx context.Context, in *adamantglobalv1.UpdateDestinationWalletIDRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	GetCosmosBalance(ctx context.Context, in *adamantglobalv1.GetCosmosBalanceRequest, opts ...grpc.CallOption) (*adamantglobalv1.GetCosmosBalanceResponse, error)
 	// Create a new address for an existing wallet
 	CreateAddress(ctx context.Context, in *adamantglobalv1.CreateAddressRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateAddressResponse, error)
 	CreateIOSTAccount(ctx context.Context, in *adamantglobalv1.CreateIOSTAccountRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateIOSTAccountResponse, error)
@@ -155,6 +156,15 @@ func (c *tellerAPIClient) InitializeWallet(ctx context.Context, in *InitializeWa
 func (c *tellerAPIClient) UpdateDestinationWalletID(ctx context.Context, in *adamantglobalv1.UpdateDestinationWalletIDRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/UpdateDestinationWalletID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) GetCosmosBalance(ctx context.Context, in *adamantglobalv1.GetCosmosBalanceRequest, opts ...grpc.CallOption) (*adamantglobalv1.GetCosmosBalanceResponse, error) {
+	out := new(adamantglobalv1.GetCosmosBalanceResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/GetCosmosBalance", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -436,6 +446,7 @@ type TellerAPIServer interface {
 	InitializeXRPWallet(context.Context, *InitializeXRPWalletRequest) (*emptypb.Empty, error)
 	InitializeWallet(context.Context, *InitializeWalletRequest) (*emptypb.Empty, error)
 	UpdateDestinationWalletID(context.Context, *adamantglobalv1.UpdateDestinationWalletIDRequest) (*emptypb.Empty, error)
+	GetCosmosBalance(context.Context, *adamantglobalv1.GetCosmosBalanceRequest) (*adamantglobalv1.GetCosmosBalanceResponse, error)
 	// Create a new address for an existing wallet
 	CreateAddress(context.Context, *adamantglobalv1.CreateAddressRequest) (*adamantglobalv1.CreateAddressResponse, error)
 	CreateIOSTAccount(context.Context, *adamantglobalv1.CreateIOSTAccountRequest) (*adamantglobalv1.CreateIOSTAccountResponse, error)
@@ -504,6 +515,9 @@ func (UnimplementedTellerAPIServer) InitializeWallet(context.Context, *Initializ
 }
 func (UnimplementedTellerAPIServer) UpdateDestinationWalletID(context.Context, *adamantglobalv1.UpdateDestinationWalletIDRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateDestinationWalletID not implemented")
+}
+func (UnimplementedTellerAPIServer) GetCosmosBalance(context.Context, *adamantglobalv1.GetCosmosBalanceRequest) (*adamantglobalv1.GetCosmosBalanceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCosmosBalance not implemented")
 }
 func (UnimplementedTellerAPIServer) CreateAddress(context.Context, *adamantglobalv1.CreateAddressRequest) (*adamantglobalv1.CreateAddressResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateAddress not implemented")
@@ -762,6 +776,24 @@ func _TellerAPI_UpdateDestinationWalletID_Handler(srv interface{}, ctx context.C
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TellerAPIServer).UpdateDestinationWalletID(ctx, req.(*adamantglobalv1.UpdateDestinationWalletIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_GetCosmosBalance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.GetCosmosBalanceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).GetCosmosBalance(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/GetCosmosBalance",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).GetCosmosBalance(ctx, req.(*adamantglobalv1.GetCosmosBalanceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1330,6 +1362,10 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateDestinationWalletID",
 			Handler:    _TellerAPI_UpdateDestinationWalletID_Handler,
+		},
+		{
+			MethodName: "GetCosmosBalance",
+			Handler:    _TellerAPI_GetCosmosBalance_Handler,
 		},
 		{
 			MethodName: "CreateAddress",

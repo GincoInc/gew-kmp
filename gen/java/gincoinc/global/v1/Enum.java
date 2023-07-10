@@ -200,6 +200,10 @@ public final class Enum {
      */
     COIN_XDC(43),
     /**
+     * <code>COIN_ATOM = 44;</code>
+     */
+    COIN_ATOM(44),
+    /**
      * <code>COIN_SDN = 10002;</code>
      */
     COIN_SDN(10002),
@@ -383,6 +387,10 @@ public final class Enum {
      */
     public static final int COIN_XDC_VALUE = 43;
     /**
+     * <code>COIN_ATOM = 44;</code>
+     */
+    public static final int COIN_ATOM_VALUE = 44;
+    /**
      * <code>COIN_SDN = 10002;</code>
      */
     public static final int COIN_SDN_VALUE = 10002;
@@ -456,6 +464,7 @@ public final class Enum {
         case 41: return COIN_OAS;
         case 42: return COIN_ASTR;
         case 43: return COIN_XDC;
+        case 44: return COIN_ATOM;
         case 10002: return COIN_SDN;
         default: return null;
       }
@@ -687,6 +696,14 @@ public final class Enum {
      */
     NETWORK_XDC_TESTNET(40),
     /**
+     * <code>NETWORK_COSMOS_MAINNET = 41;</code>
+     */
+    NETWORK_COSMOS_MAINNET(41),
+    /**
+     * <code>NETWORK_COSMOS_TESTNET = 42;</code>
+     */
+    NETWORK_COSMOS_TESTNET(42),
+    /**
      * <code>NETWORK_SHIDEN_MAINNET = 10002;</code>
      */
     NETWORK_SHIDEN_MAINNET(10002),
@@ -858,6 +875,14 @@ public final class Enum {
      */
     public static final int NETWORK_XDC_TESTNET_VALUE = 40;
     /**
+     * <code>NETWORK_COSMOS_MAINNET = 41;</code>
+     */
+    public static final int NETWORK_COSMOS_MAINNET_VALUE = 41;
+    /**
+     * <code>NETWORK_COSMOS_TESTNET = 42;</code>
+     */
+    public static final int NETWORK_COSMOS_TESTNET_VALUE = 42;
+    /**
      * <code>NETWORK_SHIDEN_MAINNET = 10002;</code>
      */
     public static final int NETWORK_SHIDEN_MAINNET_VALUE = 10002;
@@ -928,6 +953,8 @@ public final class Enum {
         case 38: return NETWORK_SHIBUYA_TESTNET;
         case 39: return NETWORK_XDC_MAINNET;
         case 40: return NETWORK_XDC_TESTNET;
+        case 41: return NETWORK_COSMOS_MAINNET;
+        case 42: return NETWORK_COSMOS_TESTNET;
         case 10002: return NETWORK_SHIDEN_MAINNET;
         default: return null;
       }
@@ -2567,6 +2594,150 @@ public final class Enum {
     // @@protoc_insertion_point(enum_scope:gincoinc.global.v1.EthereumStakingRewardLayerType)
   }
 
+  /**
+   * Protobuf enum {@code gincoinc.global.v1.CosmosMsgType}
+   */
+  public enum CosmosMsgType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>COSMOS_MSG_TYPE_INVALID = 0;</code>
+     */
+    COSMOS_MSG_TYPE_INVALID(0),
+    /**
+     * <code>COSMOS_MSG_TYPE_SEND = 1;</code>
+     */
+    COSMOS_MSG_TYPE_SEND(1),
+    /**
+     * <code>COSMOS_MSG_TYPE_DELEGATE = 2;</code>
+     */
+    COSMOS_MSG_TYPE_DELEGATE(2),
+    /**
+     * <code>COSMOS_MSG_TYPE_UNDELEGATE = 3;</code>
+     */
+    COSMOS_MSG_TYPE_UNDELEGATE(3),
+    /**
+     * <code>COSMOS_MSG_TYPE_UNBONDED = 4;</code>
+     */
+    COSMOS_MSG_TYPE_UNBONDED(4),
+    /**
+     * <code>COSMOS_MSG_TYPE_WITHDRAW_DELEGATOR_REWARD = 5;</code>
+     */
+    COSMOS_MSG_TYPE_WITHDRAW_DELEGATOR_REWARD(5),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>COSMOS_MSG_TYPE_INVALID = 0;</code>
+     */
+    public static final int COSMOS_MSG_TYPE_INVALID_VALUE = 0;
+    /**
+     * <code>COSMOS_MSG_TYPE_SEND = 1;</code>
+     */
+    public static final int COSMOS_MSG_TYPE_SEND_VALUE = 1;
+    /**
+     * <code>COSMOS_MSG_TYPE_DELEGATE = 2;</code>
+     */
+    public static final int COSMOS_MSG_TYPE_DELEGATE_VALUE = 2;
+    /**
+     * <code>COSMOS_MSG_TYPE_UNDELEGATE = 3;</code>
+     */
+    public static final int COSMOS_MSG_TYPE_UNDELEGATE_VALUE = 3;
+    /**
+     * <code>COSMOS_MSG_TYPE_UNBONDED = 4;</code>
+     */
+    public static final int COSMOS_MSG_TYPE_UNBONDED_VALUE = 4;
+    /**
+     * <code>COSMOS_MSG_TYPE_WITHDRAW_DELEGATOR_REWARD = 5;</code>
+     */
+    public static final int COSMOS_MSG_TYPE_WITHDRAW_DELEGATOR_REWARD_VALUE = 5;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static CosmosMsgType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static CosmosMsgType forNumber(int value) {
+      switch (value) {
+        case 0: return COSMOS_MSG_TYPE_INVALID;
+        case 1: return COSMOS_MSG_TYPE_SEND;
+        case 2: return COSMOS_MSG_TYPE_DELEGATE;
+        case 3: return COSMOS_MSG_TYPE_UNDELEGATE;
+        case 4: return COSMOS_MSG_TYPE_UNBONDED;
+        case 5: return COSMOS_MSG_TYPE_WITHDRAW_DELEGATOR_REWARD;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<CosmosMsgType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        CosmosMsgType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<CosmosMsgType>() {
+            public CosmosMsgType findValueByNumber(int number) {
+              return CosmosMsgType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(11);
+    }
+
+    private static final CosmosMsgType[] VALUES = values();
+
+    public static CosmosMsgType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private CosmosMsgType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:gincoinc.global.v1.CosmosMsgType)
+  }
+
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2577,7 +2748,7 @@ public final class Enum {
   static {
     java.lang.String[] descriptorData = {
       "\n.gincoinc/global/v1/gincoincglobalv1/en" +
-      "um.proto\022\022gincoinc.global.v1*\271\006\n\004Coin\022\020\n" +
+      "um.proto\022\022gincoinc.global.v1*\310\006\n\004Coin\022\020\n" +
       "\014COIN_INVALID\020\000\022\014\n\010COIN_BTC\020\001\022\014\n\010COIN_ET" +
       "H\020\002\022\014\n\010COIN_LTC\020\003\022\014\n\010COIN_BCH\020\004\022\014\n\010COIN_" +
       "XRP\020\005\022\022\n\016COIN_ERC20_BAT\020\006\022\014\n\010COIN_TRX\020\007\022" +
@@ -2598,111 +2769,118 @@ public final class Enum {
       "%\022\031\n\025COIN_POLYGON_ERC20_MV\020&\022\034\n\030COIN_POL" +
       "YGON_ERC20_TSUGT\020\'\022\022\n\016COIN_ERC20_GXE\020(\022\014" +
       "\n\010COIN_OAS\020)\022\r\n\tCOIN_ASTR\020*\022\014\n\010COIN_XDC\020" +
-      "+\022\r\n\010COIN_SDN\020\222N*\247\t\n\007Network\022\023\n\017NETWORK_" +
-      "INVALID\020\000\022\033\n\027NETWORK_BITCOIN_MAINNET\020\001\022\033" +
-      "\n\027NETWORK_BITCOIN_TESTNET\020\002\022\034\n\030NETWORK_E" +
-      "THEREUM_MAINNET\020\003\022\034\n\030NETWORK_ETHEREUM_TE" +
-      "STNET\020\004\022\034\n\030NETWORK_LITECOIN_MAINNET\020\005\022\034\n" +
-      "\030NETWORK_LITECOIN_TESTNET\020\006\022\037\n\033NETWORK_B" +
-      "ITCOINCASH_MAINNET\020\007\022\037\n\033NETWORK_BITCOINC" +
-      "ASH_TESTNET\020\010\022\032\n\026NETWORK_RIPPLE_MAINNET\020" +
-      "\t\022\032\n\026NETWORK_RIPPLE_TESTNET\020\n\022\030\n\024NETWORK" +
-      "_TRON_MAINNET\020\013\022\030\n\024NETWORK_TRON_TESTNET\020" +
-      "\014\022\031\n\025NETWORK_C0BAN_MAINNET\020\r\022\031\n\025NETWORK_" +
-      "C0BAN_TESTNET\020\016\022\033\n\027NETWORK_STELLAR_MAINN" +
-      "ET\020\017\022\033\n\027NETWORK_STELLAR_TESTNET\020\020\022\033\n\027NET" +
-      "WORK_CARDANO_MAINNET\020\021\022\033\n\027NETWORK_CARDAN" +
-      "O_TESTNET\020\022\022\034\n\030NETWORK_POLKADOT_MAINNET\020" +
-      "\023\022\034\n\030NETWORK_POLKADOT_TESTNET\020\024\022\027\n\023NETWO" +
-      "RK_NEM_MAINNET\020\025\022\027\n\023NETWORK_NEM_TESTNET\020" +
-      "\026\022\034\n\030NETWORK_MONACOIN_MAINNET\020\027\022\034\n\030NETWO" +
-      "RK_MONACOIN_TESTNET\020\030\022\030\n\024NETWORK_IOST_MA" +
-      "INNET\020\031\022\030\n\024NETWORK_IOST_TESTNET\020\032\022\030\n\024NET" +
-      "WORK_KLAY_MAINNET\020\033\022\030\n\024NETWORK_KLAY_TEST" +
-      "NET\020\034\022\033\n\027NETWORK_POLYGON_MAINNET\020\035\022\033\n\027NE" +
-      "TWORK_POLYGON_TESTNET\020\036\022\032\n\026NETWORK_SYMBO" +
-      "L_MAINNET\020\037\022\032\n\026NETWORK_SYMBOL_TESTNET\020 \022" +
-      "\035\n\031NETWORK_AVALANCHE_MAINNET\020!\022\035\n\031NETWOR" +
-      "K_AVALANCHE_TESTNET\020\"\022\031\n\025NETWORK_OASYS_M" +
-      "AINNET\020#\022\031\n\025NETWORK_OASYS_TESTNET\020$\022\031\n\025N" +
-      "ETWORK_ASTAR_MAINNET\020%\022\033\n\027NETWORK_SHIBUY" +
-      "A_TESTNET\020&\022\027\n\023NETWORK_XDC_MAINNET\020\'\022\027\n\023" +
-      "NETWORK_XDC_TESTNET\020(\022\033\n\026NETWORK_SHIDEN_" +
-      "MAINNET\020\222N*\212\001\n\013AddressType\022\030\n\024ADDRESS_TY" +
-      "PE_INVALID\020\000\022\025\n\021ADDRESS_TYPE_P2SH\020\001\022\033\n\027A" +
-      "DDRESS_TYPE_P2SH_P2WSH\020\002\022\026\n\022ADDRESS_TYPE" +
-      "_P2WSH\020\003\022\025\n\021ADDRESS_TYPE_NONE\020d*\323\001\n\020Tran" +
-      "sactionState\022\035\n\031TRANSACTION_STATE_INVALI" +
-      "D\020\000\022\037\n\033TRANSACTION_STATE_SUBMITTED\020\001\022\035\n\031" +
-      "TRANSACTION_STATE_PENDING\020\002\022 \n\034TRANSACTI" +
-      "ON_STATE_PROCESSING\020\003\022\037\n\033TRANSACTION_STA" +
-      "TE_CONFIRMED\020\004\022\035\n\031TRANSACTION_STATE_DROP" +
-      "PED\020\005*\217\001\n\tUTXOState\022\026\n\022UTXO_STATE_INVALI" +
-      "D\020\000\022\036\n\032UTXO_STATE_PENDING_UNSPENT\020\001\022\026\n\022U" +
-      "TXO_STATE_UNSPENT\020\002\022\034\n\030UTXO_STATE_PENDIN" +
-      "G_SPENT\020\003\022\024\n\020UTXO_STATE_SPENT\020\004*\217\001\n\014Tran" +
-      "sferType\022\031\n\025TRANSFER_TYPE_INVALID\020\000\022\026\n\022T" +
-      "RANSFER_TYPE_SEND\020\001\022\031\n\025TRANSFER_TYPE_REC" +
-      "EIVE\020\002\022\030\n\024TRANSFER_TYPE_CHANGE\020\003\022\027\n\023TRAN" +
-      "SFER_TYPE_FATAL\020\004*\253\001\n\022XRPTransactionType" +
-      "\022 \n\034XRP_TRANSACTION_TYPE_INVALID\020\000\022 \n\034XR" +
-      "P_TRANSACTION_TYPE_PAYMENT\020\001\022(\n$XRP_TRAN" +
-      "SACTION_TYPE_SET_SIGNER_LIST\020\002\022\'\n#XRP_TR" +
-      "ANSACTION_TYPE_DISABLE_MASTER\020\003*\260\001\n\021Tran" +
-      "sactionResult\022\036\n\032TRANSACTION_RESULT_INVA" +
-      "LID\020\000\022\036\n\032TRANSACTION_RESULT_PENDING\020\001\022\036\n" +
-      "\032TRANSACTION_RESULT_SUCCESS\020\002\022\036\n\032TRANSAC" +
-      "TION_RESULT_FAILURE\020\003\022\033\n\027TRANSACTION_RES" +
-      "ULT_NONE\020d*\275\003\n\022NemTransactionType\022 \n\034NEM" +
-      "_TRANSACTION_TYPE_INVALID\020\000\022&\n\"NEM_TRANS" +
-      "ACTION_TYPE_TRANSFER_TYPE\020\001\0221\n-NEM_TRANS" +
-      "ACTION_TYPE_IMPORTANCE_TRANSFER_TYPE\020\002\0223" +
-      "\n/NEM_TRANSACTION_TYPE_MULTISIG_MODIFICA" +
-      "TION_TYPE\020\003\0220\n,NEM_TRANSACTION_TYPE_MULT" +
-      "ISIG_SIGNATURE_TYPE\020\004\0222\n.NEM_TRANSACTION" +
-      "_TYPE_MULTISIG_TRANSACTION_TYPE\020\005\0221\n-NEM" +
-      "_TRANSACTION_TYPE_PROVISION_NAMESPACE_TY" +
-      "PE\020\006\022/\n+NEM_TRANSACTION_TYPE_MOSAIC_DEFI" +
-      "NITION_TYPE\020\007\022+\n\'NEM_TRANSACTION_TYPE_MO" +
-      "SAIC_SUPPLY_TYPE\020\010*\353\t\n\025SymbolTransaction" +
-      "Type\022#\n\037SYMBOL_TRANSACTION_TYPE_INVALID\020" +
-      "\000\022,\n(SYMBOL_TRANSACTION_TYPE_ACCOUNT_KEY" +
-      "_LINK\020\001\022)\n%SYMBOL_TRANSACTION_TYPE_NODE_" +
-      "KEY_LINK\020\002\022.\n*SYMBOL_TRANSACTION_TYPE_AG" +
-      "GREGATE_COMPLETE\020\003\022,\n(SYMBOL_TRANSACTION" +
-      "_TYPE_AGGREGATE_BONDED\020\004\022+\n\'SYMBOL_TRANS" +
-      "ACTION_TYPE_VOTING_KEY_LINK\020\005\022(\n$SYMBOL_" +
-      "TRANSACTION_TYPE_VRF_KEY_LINK\020\006\022%\n!SYMBO" +
-      "L_TRANSACTION_TYPE_HASH_LOCK\020\007\022\'\n#SYMBOL" +
-      "_TRANSACTION_TYPE_SECRET_LOCK\020\010\022(\n$SYMBO" +
-      "L_TRANSACTION_TYPE_SECRET_PROOF\020\t\022,\n(SYM" +
-      "BOL_TRANSACTION_TYPE_ACCOUNT_METADATA\020\n\022" +
-      "+\n\'SYMBOL_TRANSACTION_TYPE_MOSAIC_METADA" +
-      "TA\020\013\022.\n*SYMBOL_TRANSACTION_TYPE_NAMESPAC" +
-      "E_METADATA\020\014\022-\n)SYMBOL_TRANSACTION_TYPE_" +
-      "MOSAIC_DEFINITION\020\r\0220\n,SYMBOL_TRANSACTIO" +
-      "N_TYPE_MOSAIC_SUPPLY_CHANGE\020\016\0224\n0SYMBOL_" +
-      "TRANSACTION_TYPE_MOSAIC_SUPPLY_REVOCATIO" +
-      "N\020\017\0229\n5SYMBOL_TRANSACTION_TYPE_MULTISIG_" +
-      "ACCOUNT_MODIFICATION\020\020\022)\n%SYMBOL_TRANSAC" +
-      "TION_TYPE_ADDRESS_ALIAS\020\021\022(\n$SYMBOL_TRAN" +
-      "SACTION_TYPE_MOSAIC_ALIAS\020\022\0222\n.SYMBOL_TR" +
-      "ANSACTION_TYPE_NAMESPACE_REGISTRATION\020\023\022" +
-      "7\n3SYMBOL_TRANSACTION_TYPE_ACCOUNT_ADDRE" +
-      "SS_RESTRICTION\020\024\0226\n2SYMBOL_TRANSACTION_T" +
-      "YPE_ACCOUNT_MOSAIC_RESTRICTION\020\025\0229\n5SYMB" +
-      "OL_TRANSACTION_TYPE_ACCOUNT_OPERATION_RE" +
-      "STRICTION\020\026\0226\n2SYMBOL_TRANSACTION_TYPE_M" +
-      "OSAIC_ADDRESS_RESTRICTION\020\027\0225\n1SYMBOL_TR" +
-      "ANSACTION_TYPE_MOSAIC_GLOBAL_RESTRICTION" +
-      "\020\030\022$\n SYMBOL_TRANSACTION_TYPE_TRANSFER\020\031" +
-      "*\264\001\n\036EthereumStakingRewardLayerType\022.\n*E" +
-      "THEREUM_STAKING_REWARD_LAYER_TYPE_INVALI" +
-      "D\020\000\0220\n,ETHEREUM_STAKING_REWARD_LAYER_TYP" +
-      "E_CONSENSUS\020\001\0220\n,ETHEREUM_STAKING_REWARD" +
-      "_LAYER_TYPE_EXECUTION\020\002BEZCgithub.com/Gi" +
-      "ncoInc/gew-kmp/gen/gincoinc/global/v1/gi" +
-      "ncoincglobalv1b\006proto3"
+      "+\022\r\n\tCOIN_ATOM\020,\022\r\n\010COIN_SDN\020\222N*\337\t\n\007Netw" +
+      "ork\022\023\n\017NETWORK_INVALID\020\000\022\033\n\027NETWORK_BITC" +
+      "OIN_MAINNET\020\001\022\033\n\027NETWORK_BITCOIN_TESTNET" +
+      "\020\002\022\034\n\030NETWORK_ETHEREUM_MAINNET\020\003\022\034\n\030NETW" +
+      "ORK_ETHEREUM_TESTNET\020\004\022\034\n\030NETWORK_LITECO" +
+      "IN_MAINNET\020\005\022\034\n\030NETWORK_LITECOIN_TESTNET" +
+      "\020\006\022\037\n\033NETWORK_BITCOINCASH_MAINNET\020\007\022\037\n\033N" +
+      "ETWORK_BITCOINCASH_TESTNET\020\010\022\032\n\026NETWORK_" +
+      "RIPPLE_MAINNET\020\t\022\032\n\026NETWORK_RIPPLE_TESTN" +
+      "ET\020\n\022\030\n\024NETWORK_TRON_MAINNET\020\013\022\030\n\024NETWOR" +
+      "K_TRON_TESTNET\020\014\022\031\n\025NETWORK_C0BAN_MAINNE" +
+      "T\020\r\022\031\n\025NETWORK_C0BAN_TESTNET\020\016\022\033\n\027NETWOR" +
+      "K_STELLAR_MAINNET\020\017\022\033\n\027NETWORK_STELLAR_T" +
+      "ESTNET\020\020\022\033\n\027NETWORK_CARDANO_MAINNET\020\021\022\033\n" +
+      "\027NETWORK_CARDANO_TESTNET\020\022\022\034\n\030NETWORK_PO" +
+      "LKADOT_MAINNET\020\023\022\034\n\030NETWORK_POLKADOT_TES" +
+      "TNET\020\024\022\027\n\023NETWORK_NEM_MAINNET\020\025\022\027\n\023NETWO" +
+      "RK_NEM_TESTNET\020\026\022\034\n\030NETWORK_MONACOIN_MAI" +
+      "NNET\020\027\022\034\n\030NETWORK_MONACOIN_TESTNET\020\030\022\030\n\024" +
+      "NETWORK_IOST_MAINNET\020\031\022\030\n\024NETWORK_IOST_T" +
+      "ESTNET\020\032\022\030\n\024NETWORK_KLAY_MAINNET\020\033\022\030\n\024NE" +
+      "TWORK_KLAY_TESTNET\020\034\022\033\n\027NETWORK_POLYGON_" +
+      "MAINNET\020\035\022\033\n\027NETWORK_POLYGON_TESTNET\020\036\022\032" +
+      "\n\026NETWORK_SYMBOL_MAINNET\020\037\022\032\n\026NETWORK_SY" +
+      "MBOL_TESTNET\020 \022\035\n\031NETWORK_AVALANCHE_MAIN" +
+      "NET\020!\022\035\n\031NETWORK_AVALANCHE_TESTNET\020\"\022\031\n\025" +
+      "NETWORK_OASYS_MAINNET\020#\022\031\n\025NETWORK_OASYS" +
+      "_TESTNET\020$\022\031\n\025NETWORK_ASTAR_MAINNET\020%\022\033\n" +
+      "\027NETWORK_SHIBUYA_TESTNET\020&\022\027\n\023NETWORK_XD" +
+      "C_MAINNET\020\'\022\027\n\023NETWORK_XDC_TESTNET\020(\022\032\n\026" +
+      "NETWORK_COSMOS_MAINNET\020)\022\032\n\026NETWORK_COSM" +
+      "OS_TESTNET\020*\022\033\n\026NETWORK_SHIDEN_MAINNET\020\222" +
+      "N*\212\001\n\013AddressType\022\030\n\024ADDRESS_TYPE_INVALI" +
+      "D\020\000\022\025\n\021ADDRESS_TYPE_P2SH\020\001\022\033\n\027ADDRESS_TY" +
+      "PE_P2SH_P2WSH\020\002\022\026\n\022ADDRESS_TYPE_P2WSH\020\003\022" +
+      "\025\n\021ADDRESS_TYPE_NONE\020d*\323\001\n\020TransactionSt" +
+      "ate\022\035\n\031TRANSACTION_STATE_INVALID\020\000\022\037\n\033TR" +
+      "ANSACTION_STATE_SUBMITTED\020\001\022\035\n\031TRANSACTI" +
+      "ON_STATE_PENDING\020\002\022 \n\034TRANSACTION_STATE_" +
+      "PROCESSING\020\003\022\037\n\033TRANSACTION_STATE_CONFIR" +
+      "MED\020\004\022\035\n\031TRANSACTION_STATE_DROPPED\020\005*\217\001\n" +
+      "\tUTXOState\022\026\n\022UTXO_STATE_INVALID\020\000\022\036\n\032UT" +
+      "XO_STATE_PENDING_UNSPENT\020\001\022\026\n\022UTXO_STATE" +
+      "_UNSPENT\020\002\022\034\n\030UTXO_STATE_PENDING_SPENT\020\003" +
+      "\022\024\n\020UTXO_STATE_SPENT\020\004*\217\001\n\014TransferType\022" +
+      "\031\n\025TRANSFER_TYPE_INVALID\020\000\022\026\n\022TRANSFER_T" +
+      "YPE_SEND\020\001\022\031\n\025TRANSFER_TYPE_RECEIVE\020\002\022\030\n" +
+      "\024TRANSFER_TYPE_CHANGE\020\003\022\027\n\023TRANSFER_TYPE" +
+      "_FATAL\020\004*\253\001\n\022XRPTransactionType\022 \n\034XRP_T" +
+      "RANSACTION_TYPE_INVALID\020\000\022 \n\034XRP_TRANSAC" +
+      "TION_TYPE_PAYMENT\020\001\022(\n$XRP_TRANSACTION_T" +
+      "YPE_SET_SIGNER_LIST\020\002\022\'\n#XRP_TRANSACTION" +
+      "_TYPE_DISABLE_MASTER\020\003*\260\001\n\021TransactionRe" +
+      "sult\022\036\n\032TRANSACTION_RESULT_INVALID\020\000\022\036\n\032" +
+      "TRANSACTION_RESULT_PENDING\020\001\022\036\n\032TRANSACT" +
+      "ION_RESULT_SUCCESS\020\002\022\036\n\032TRANSACTION_RESU" +
+      "LT_FAILURE\020\003\022\033\n\027TRANSACTION_RESULT_NONE\020" +
+      "d*\275\003\n\022NemTransactionType\022 \n\034NEM_TRANSACT" +
+      "ION_TYPE_INVALID\020\000\022&\n\"NEM_TRANSACTION_TY" +
+      "PE_TRANSFER_TYPE\020\001\0221\n-NEM_TRANSACTION_TY" +
+      "PE_IMPORTANCE_TRANSFER_TYPE\020\002\0223\n/NEM_TRA" +
+      "NSACTION_TYPE_MULTISIG_MODIFICATION_TYPE" +
+      "\020\003\0220\n,NEM_TRANSACTION_TYPE_MULTISIG_SIGN" +
+      "ATURE_TYPE\020\004\0222\n.NEM_TRANSACTION_TYPE_MUL" +
+      "TISIG_TRANSACTION_TYPE\020\005\0221\n-NEM_TRANSACT" +
+      "ION_TYPE_PROVISION_NAMESPACE_TYPE\020\006\022/\n+N" +
+      "EM_TRANSACTION_TYPE_MOSAIC_DEFINITION_TY" +
+      "PE\020\007\022+\n\'NEM_TRANSACTION_TYPE_MOSAIC_SUPP" +
+      "LY_TYPE\020\010*\353\t\n\025SymbolTransactionType\022#\n\037S" +
+      "YMBOL_TRANSACTION_TYPE_INVALID\020\000\022,\n(SYMB" +
+      "OL_TRANSACTION_TYPE_ACCOUNT_KEY_LINK\020\001\022)" +
+      "\n%SYMBOL_TRANSACTION_TYPE_NODE_KEY_LINK\020" +
+      "\002\022.\n*SYMBOL_TRANSACTION_TYPE_AGGREGATE_C" +
+      "OMPLETE\020\003\022,\n(SYMBOL_TRANSACTION_TYPE_AGG" +
+      "REGATE_BONDED\020\004\022+\n\'SYMBOL_TRANSACTION_TY" +
+      "PE_VOTING_KEY_LINK\020\005\022(\n$SYMBOL_TRANSACTI" +
+      "ON_TYPE_VRF_KEY_LINK\020\006\022%\n!SYMBOL_TRANSAC" +
+      "TION_TYPE_HASH_LOCK\020\007\022\'\n#SYMBOL_TRANSACT" +
+      "ION_TYPE_SECRET_LOCK\020\010\022(\n$SYMBOL_TRANSAC" +
+      "TION_TYPE_SECRET_PROOF\020\t\022,\n(SYMBOL_TRANS" +
+      "ACTION_TYPE_ACCOUNT_METADATA\020\n\022+\n\'SYMBOL" +
+      "_TRANSACTION_TYPE_MOSAIC_METADATA\020\013\022.\n*S" +
+      "YMBOL_TRANSACTION_TYPE_NAMESPACE_METADAT" +
+      "A\020\014\022-\n)SYMBOL_TRANSACTION_TYPE_MOSAIC_DE" +
+      "FINITION\020\r\0220\n,SYMBOL_TRANSACTION_TYPE_MO" +
+      "SAIC_SUPPLY_CHANGE\020\016\0224\n0SYMBOL_TRANSACTI" +
+      "ON_TYPE_MOSAIC_SUPPLY_REVOCATION\020\017\0229\n5SY" +
+      "MBOL_TRANSACTION_TYPE_MULTISIG_ACCOUNT_M" +
+      "ODIFICATION\020\020\022)\n%SYMBOL_TRANSACTION_TYPE" +
+      "_ADDRESS_ALIAS\020\021\022(\n$SYMBOL_TRANSACTION_T" +
+      "YPE_MOSAIC_ALIAS\020\022\0222\n.SYMBOL_TRANSACTION" +
+      "_TYPE_NAMESPACE_REGISTRATION\020\023\0227\n3SYMBOL" +
+      "_TRANSACTION_TYPE_ACCOUNT_ADDRESS_RESTRI" +
+      "CTION\020\024\0226\n2SYMBOL_TRANSACTION_TYPE_ACCOU" +
+      "NT_MOSAIC_RESTRICTION\020\025\0229\n5SYMBOL_TRANSA" +
+      "CTION_TYPE_ACCOUNT_OPERATION_RESTRICTION" +
+      "\020\026\0226\n2SYMBOL_TRANSACTION_TYPE_MOSAIC_ADD" +
+      "RESS_RESTRICTION\020\027\0225\n1SYMBOL_TRANSACTION" +
+      "_TYPE_MOSAIC_GLOBAL_RESTRICTION\020\030\022$\n SYM" +
+      "BOL_TRANSACTION_TYPE_TRANSFER\020\031*\264\001\n\036Ethe" +
+      "reumStakingRewardLayerType\022.\n*ETHEREUM_S" +
+      "TAKING_REWARD_LAYER_TYPE_INVALID\020\000\0220\n,ET" +
+      "HEREUM_STAKING_REWARD_LAYER_TYPE_CONSENS" +
+      "US\020\001\0220\n,ETHEREUM_STAKING_REWARD_LAYER_TY" +
+      "PE_EXECUTION\020\002*\321\001\n\rCosmosMsgType\022\033\n\027COSM" +
+      "OS_MSG_TYPE_INVALID\020\000\022\030\n\024COSMOS_MSG_TYPE" +
+      "_SEND\020\001\022\034\n\030COSMOS_MSG_TYPE_DELEGATE\020\002\022\036\n" +
+      "\032COSMOS_MSG_TYPE_UNDELEGATE\020\003\022\034\n\030COSMOS_" +
+      "MSG_TYPE_UNBONDED\020\004\022-\n)COSMOS_MSG_TYPE_W" +
+      "ITHDRAW_DELEGATOR_REWARD\020\005BEZCgithub.com" +
+      "/GincoInc/gew-kmp/gen/gincoinc/global/v1" +
+      "/gincoincglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

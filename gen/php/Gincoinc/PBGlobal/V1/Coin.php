@@ -190,6 +190,10 @@ class Coin
      */
     const COIN_XDC = 43;
     /**
+     * Generated from protobuf enum <code>COIN_ATOM = 44;</code>
+     */
+    const COIN_ATOM = 44;
+    /**
      * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
      */
     const COIN_SDN = 10002;
@@ -239,6 +243,7 @@ class Coin
         self::COIN_OAS => 'COIN_OAS',
         self::COIN_ASTR => 'COIN_ASTR',
         self::COIN_XDC => 'COIN_XDC',
+        self::COIN_ATOM => 'COIN_ATOM',
         self::COIN_SDN => 'COIN_SDN',
     ];
 
