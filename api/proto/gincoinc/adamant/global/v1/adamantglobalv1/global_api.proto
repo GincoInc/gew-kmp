@@ -40,6 +40,7 @@ service GlobalAPI {
   rpc GetWalletGroup(GetWalletGroupRequest) returns (WalletGroup) {}
   rpc ListWalletGroups(ListWalletGroupsRequest) returns (ListWalletGroupsResponse) {}
   rpc UpdateDestinationWalletID(UpdateDestinationWalletIDRequest) returns (google.protobuf.Empty) {}
+  rpc GetCosmosBalance(GetCosmosBalanceRequest) returns (GetCosmosBalanceResponse) {}
 
   // Review
   rpc ApproveWallet(ApproveWalletRequest) returns (google.protobuf.Empty) {}
@@ -1145,6 +1146,7 @@ message CalculateFeeRequest {
   CalculateFeeNemSpecific nem_specific = 8;
   CalculateFeeSymbolSpecific symbol_specific = 9;
   CalculateFeeEthereumSpecific ethereum_specific = 10;
+  CalculateFeeCosmosSpecific cosmos_specific = 11;
 }
 
 // The model of Substrate specific fields of CreateTransaction
@@ -1168,6 +1170,13 @@ message CalculateFeeEthereumSpecific {
   string data = 1 [(validate.rules).string = {
     pattern: "^0x[0-9a-fA-F]*$"
   }];
+}
+
+// The model of Cosmos specific fields of CalculateFee
+message CalculateFeeCosmosSpecific {
+  gincoinc.global.v1.CosmosMsgType type = 1;
+  string memo = 2;
+  double gas_adjustment = 3;
 }
 
 message CalculateFeeResponse {
@@ -1630,4 +1639,21 @@ message ListCallersRequest {}
 // The model of callers
 message ListCallersResponse {
   repeated CallerAddress caller_addresses = 1;
+}
+
+// -----------------------------------------------------------------------------
+// Cosmos Delegates
+// -----------------------------------------------------------------------------
+
+message GetCosmosBalanceRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+}
+
+message GetCosmosBalanceResponse {
+  repeated CosmosDelegation delegations = 1;
+  double available = 2;
+  double reward = 3;
+  double unbonding = 4;
 }
