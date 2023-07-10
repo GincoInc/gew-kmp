@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-Ã√
+ö»
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"•
 Wallet
 owner_id (	RownerId
@@ -165,7 +165,7 @@ address_id (	R	addressId,
 string_balance (	RstringBalance
 fee_balance (R
 feeBalance,
-string_fee_balance (	RstringFeeBalance"≤
+string_fee_balance (	RstringFeeBalance"˛
 Transaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId,
@@ -202,7 +202,8 @@ signedKeys>
 symbol_specific# (2!.adamant.global.v1.SymbolSpecificRsymbolSpecificS
 avalanche_specific$ (2$.adamant.global.v1.AvalancheSpecificRavalancheSpecificG
 oasys_specific% (2 .adamant.global.v1.OasysSpecificRoasysSpecificA
-xdc_specific& (2.adamant.global.v1.XdcSpecificRxdcSpecific;
+xdc_specific& (2.adamant.global.v1.XdcSpecificRxdcSpecificJ
+cosmos_specific\' (2!.adamant.global.v1.CosmosSpecificRcosmosSpecific;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
@@ -332,7 +333,14 @@ expiration
 XdcSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
-is_next_nonce (RisNextNonce"‚
+is_next_nonce (RisNextNonce"Ÿ
+CosmosSpecific
+	gas_limit (RgasLimit
+nonce (Rnonce"
+is_next_nonce (RisNextNonce5
+type (2!.gincoinc.global.v1.CosmosMsgTypeRtype
+memo (	Rmemo%
+gas_adjustment (RgasAdjustment"‚
 "CreateTransactionSubstrateSpecific%
 transaction_id (	RtransactionIdA
 	call_type (2$.adamant.global.v1.SubstrateCallTypeRcallTypeR
@@ -354,7 +362,11 @@ expiration
 message (	Rmessage
 	timestamp (R	timestamp"P
 !CreateTransactionEthereumSpecific+
-data (	B˙Br2^0x[0-9a-fA-F]*$Rdata"Ô
+data (	B˙Br2^0x[0-9a-fA-F]*$Rdata"ì
+CreateTransactionCosmosSpecific5
+type (2!.gincoinc.global.v1.CosmosMsgTypeRtype
+memo (	Rmemo%
+gas_adjustment (RgasAdjustment"Ô
 SubstrateMultisigTransaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionIdI
@@ -730,7 +742,11 @@ account_id (	R	accountId!
 address (	Raddress
 balance (Rbalance%
 string_balance (	RstringBalance,
-coin (2.gincoinc.global.v1.CoinRcoinBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
+coin (2.gincoinc.global.v1.CoinRcoin"ç
+CosmosDelegation+
+validator_address (	RvalidatorAddress\'
+delegate_amount (RdelegateAmount#
+reward_amount (RrewardAmountBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
         , true);
 
         static::$is_initialized = true;

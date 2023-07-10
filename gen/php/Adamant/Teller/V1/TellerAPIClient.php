@@ -148,6 +148,20 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\GetCosmosBalanceRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function GetCosmosBalance(\Adamant\Global\V1\GetCosmosBalanceRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/GetCosmosBalance',
+        $argument,
+        ['\Adamant\Global\V1\GetCosmosBalanceResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * Create a new address for an existing wallet
      * @param \Adamant\Global\V1\CreateAddressRequest $argument input argument
      * @param array $metadata metadata

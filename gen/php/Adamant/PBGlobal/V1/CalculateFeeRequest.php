@@ -53,6 +53,10 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeEthereumSpecific ethereum_specific = 10 [json_name = "ethereumSpecific"];</code>
      */
     protected $ethereum_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeCosmosSpecific cosmos_specific = 11 [json_name = "cosmosSpecific"];</code>
+     */
+    protected $cosmos_specific = null;
 
     /**
      * Constructor.
@@ -70,6 +74,7 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CalculateFeeNemSpecific $nem_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeSymbolSpecific $symbol_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeEthereumSpecific $ethereum_specific
+     *     @type \Adamant\PBGlobal\V1\CalculateFeeCosmosSpecific $cosmos_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -333,6 +338,38 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeEthereumSpecific::class);
         $this->ethereum_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeCosmosSpecific cosmos_specific = 11 [json_name = "cosmosSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CalculateFeeCosmosSpecific|null
+     */
+    public function getCosmosSpecific()
+    {
+        return $this->cosmos_specific;
+    }
+
+    public function hasCosmosSpecific()
+    {
+        return isset($this->cosmos_specific);
+    }
+
+    public function clearCosmosSpecific()
+    {
+        unset($this->cosmos_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeCosmosSpecific cosmos_specific = 11 [json_name = "cosmosSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CalculateFeeCosmosSpecific $var
+     * @return $this
+     */
+    public function setCosmosSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeCosmosSpecific::class);
+        $this->cosmos_specific = $var;
 
         return $this;
     }

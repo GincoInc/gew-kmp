@@ -289,6 +289,20 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\GetCosmosBalanceRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function GetCosmosBalance(\Adamant\Global\V1\GetCosmosBalanceRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/GetCosmosBalance',
+        $argument,
+        ['\Adamant\Global\V1\GetCosmosBalanceResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * Review
      * @param \Adamant\Global\V1\ApproveWalletRequest $argument input argument
      * @param array $metadata metadata
