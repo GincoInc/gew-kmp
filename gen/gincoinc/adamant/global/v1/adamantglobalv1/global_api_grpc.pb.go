@@ -44,6 +44,7 @@ type GlobalAPIClient interface {
 	GetWalletGroup(ctx context.Context, in *GetWalletGroupRequest, opts ...grpc.CallOption) (*WalletGroup, error)
 	ListWalletGroups(ctx context.Context, in *ListWalletGroupsRequest, opts ...grpc.CallOption) (*ListWalletGroupsResponse, error)
 	UpdateDestinationWalletID(ctx context.Context, in *UpdateDestinationWalletIDRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	GetCosmosBalance(ctx context.Context, in *GetCosmosBalanceRequest, opts ...grpc.CallOption) (*GetCosmosBalanceResponse, error)
 	// Review
 	ApproveWallet(ctx context.Context, in *ApproveWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	ApproveTransaction(ctx context.Context, in *ApproveTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -311,6 +312,15 @@ func (c *globalAPIClient) ListWalletGroups(ctx context.Context, in *ListWalletGr
 func (c *globalAPIClient) UpdateDestinationWalletID(ctx context.Context, in *UpdateDestinationWalletIDRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/UpdateDestinationWalletID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) GetCosmosBalance(ctx context.Context, in *GetCosmosBalanceRequest, opts ...grpc.CallOption) (*GetCosmosBalanceResponse, error) {
+	out := new(GetCosmosBalanceResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/GetCosmosBalance", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1008,6 +1018,7 @@ type GlobalAPIServer interface {
 	GetWalletGroup(context.Context, *GetWalletGroupRequest) (*WalletGroup, error)
 	ListWalletGroups(context.Context, *ListWalletGroupsRequest) (*ListWalletGroupsResponse, error)
 	UpdateDestinationWalletID(context.Context, *UpdateDestinationWalletIDRequest) (*emptypb.Empty, error)
+	GetCosmosBalance(context.Context, *GetCosmosBalanceRequest) (*GetCosmosBalanceResponse, error)
 	// Review
 	ApproveWallet(context.Context, *ApproveWalletRequest) (*emptypb.Empty, error)
 	ApproveTransaction(context.Context, *ApproveTransactionRequest) (*emptypb.Empty, error)
@@ -1162,6 +1173,9 @@ func (UnimplementedGlobalAPIServer) ListWalletGroups(context.Context, *ListWalle
 }
 func (UnimplementedGlobalAPIServer) UpdateDestinationWalletID(context.Context, *UpdateDestinationWalletIDRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateDestinationWalletID not implemented")
+}
+func (UnimplementedGlobalAPIServer) GetCosmosBalance(context.Context, *GetCosmosBalanceRequest) (*GetCosmosBalanceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCosmosBalance not implemented")
 }
 func (UnimplementedGlobalAPIServer) ApproveWallet(context.Context, *ApproveWalletRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ApproveWallet not implemented")
@@ -1735,6 +1749,24 @@ func _GlobalAPI_UpdateDestinationWalletID_Handler(srv interface{}, ctx context.C
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GlobalAPIServer).UpdateDestinationWalletID(ctx, req.(*UpdateDestinationWalletIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_GetCosmosBalance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCosmosBalanceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).GetCosmosBalance(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/GetCosmosBalance",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).GetCosmosBalance(ctx, req.(*GetCosmosBalanceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3153,6 +3185,10 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateDestinationWalletID",
 			Handler:    _GlobalAPI_UpdateDestinationWalletID_Handler,
+		},
+		{
+			MethodName: "GetCosmosBalance",
+			Handler:    _GlobalAPI_GetCosmosBalance_Handler,
 		},
 		{
 			MethodName: "ApproveWallet",

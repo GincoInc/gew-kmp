@@ -294,6 +294,37 @@ public final class TellerAPIGrpc {
     return getUpdateDestinationWalletIDMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.GetCosmosBalanceRequest,
+      adamant.global.v1.GetCosmosBalanceResponse> getGetCosmosBalanceMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetCosmosBalance",
+      requestType = adamant.global.v1.GetCosmosBalanceRequest.class,
+      responseType = adamant.global.v1.GetCosmosBalanceResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.GetCosmosBalanceRequest,
+      adamant.global.v1.GetCosmosBalanceResponse> getGetCosmosBalanceMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.GetCosmosBalanceRequest, adamant.global.v1.GetCosmosBalanceResponse> getGetCosmosBalanceMethod;
+    if ((getGetCosmosBalanceMethod = TellerAPIGrpc.getGetCosmosBalanceMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getGetCosmosBalanceMethod = TellerAPIGrpc.getGetCosmosBalanceMethod) == null) {
+          TellerAPIGrpc.getGetCosmosBalanceMethod = getGetCosmosBalanceMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.GetCosmosBalanceRequest, adamant.global.v1.GetCosmosBalanceResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetCosmosBalance"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.GetCosmosBalanceRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.GetCosmosBalanceResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("GetCosmosBalance"))
+              .build();
+        }
+      }
+    }
+    return getGetCosmosBalanceMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.CreateAddressRequest,
       adamant.global.v1.CreateAddressResponse> getCreateAddressMethod;
 
@@ -1308,6 +1339,13 @@ public final class TellerAPIGrpc {
     }
 
     /**
+     */
+    default void getCosmosBalance(adamant.global.v1.GetCosmosBalanceRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.GetCosmosBalanceResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetCosmosBalanceMethod(), responseObserver);
+    }
+
+    /**
      * <pre>
      * Create a new address for an existing wallet
      * </pre>
@@ -1632,6 +1670,14 @@ public final class TellerAPIGrpc {
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateDestinationWalletIDMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getCosmosBalance(adamant.global.v1.GetCosmosBalanceRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.GetCosmosBalanceResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetCosmosBalanceMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -1971,6 +2017,13 @@ public final class TellerAPIGrpc {
     }
 
     /**
+     */
+    public adamant.global.v1.GetCosmosBalanceResponse getCosmosBalance(adamant.global.v1.GetCosmosBalanceRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetCosmosBalanceMethod(), getCallOptions(), request);
+    }
+
+    /**
      * <pre>
      * Create a new address for an existing wallet
      * </pre>
@@ -2287,6 +2340,14 @@ public final class TellerAPIGrpc {
     }
 
     /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.GetCosmosBalanceResponse> getCosmosBalance(
+        adamant.global.v1.GetCosmosBalanceRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetCosmosBalanceMethod(), getCallOptions()), request);
+    }
+
+    /**
      * <pre>
      * Create a new address for an existing wallet
      * </pre>
@@ -2549,35 +2610,36 @@ public final class TellerAPIGrpc {
   private static final int METHODID_INITIALIZE_XRPWALLET = 6;
   private static final int METHODID_INITIALIZE_WALLET = 7;
   private static final int METHODID_UPDATE_DESTINATION_WALLET_ID = 8;
-  private static final int METHODID_CREATE_ADDRESS = 9;
-  private static final int METHODID_CREATE_IOSTACCOUNT = 10;
-  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 11;
-  private static final int METHODID_GET_ADDRESS = 12;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 13;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 14;
-  private static final int METHODID_GET_ADDRESS_BY_INDEX = 15;
-  private static final int METHODID_LIST_ADDRESSES = 16;
-  private static final int METHODID_IMPORT_ADDRESS = 17;
-  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 18;
-  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 19;
-  private static final int METHODID_CREATE_TRANSACTION = 20;
-  private static final int METHODID_SIGN_TRANSACTION = 21;
-  private static final int METHODID_SEND_TRANSACTION = 22;
-  private static final int METHODID_CANCEL_TRANSACTION = 23;
-  private static final int METHODID_GET_TRANSACTION = 24;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 25;
-  private static final int METHODID_LIST_TRANSACTIONS = 26;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 27;
-  private static final int METHODID_LIST_TRANSFERS = 28;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 29;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 30;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 31;
-  private static final int METHODID_SET_RATES = 32;
-  private static final int METHODID_CALCULATE_FEE = 33;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 34;
-  private static final int METHODID_VALIDATE_ADDRESS = 35;
-  private static final int METHODID_FLUSH_BALANCE = 36;
-  private static final int METHODID_LIST_AUDIT_LOGS = 37;
+  private static final int METHODID_GET_COSMOS_BALANCE = 9;
+  private static final int METHODID_CREATE_ADDRESS = 10;
+  private static final int METHODID_CREATE_IOSTACCOUNT = 11;
+  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 12;
+  private static final int METHODID_GET_ADDRESS = 13;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 14;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 15;
+  private static final int METHODID_GET_ADDRESS_BY_INDEX = 16;
+  private static final int METHODID_LIST_ADDRESSES = 17;
+  private static final int METHODID_IMPORT_ADDRESS = 18;
+  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 19;
+  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 20;
+  private static final int METHODID_CREATE_TRANSACTION = 21;
+  private static final int METHODID_SIGN_TRANSACTION = 22;
+  private static final int METHODID_SEND_TRANSACTION = 23;
+  private static final int METHODID_CANCEL_TRANSACTION = 24;
+  private static final int METHODID_GET_TRANSACTION = 25;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 26;
+  private static final int METHODID_LIST_TRANSACTIONS = 27;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 28;
+  private static final int METHODID_LIST_TRANSFERS = 29;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 30;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 31;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 32;
+  private static final int METHODID_SET_RATES = 33;
+  private static final int METHODID_CALCULATE_FEE = 34;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 35;
+  private static final int METHODID_VALIDATE_ADDRESS = 36;
+  private static final int METHODID_FLUSH_BALANCE = 37;
+  private static final int METHODID_LIST_AUDIT_LOGS = 38;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -2631,6 +2693,10 @@ public final class TellerAPIGrpc {
         case METHODID_UPDATE_DESTINATION_WALLET_ID:
           serviceImpl.updateDestinationWalletID((adamant.global.v1.UpdateDestinationWalletIDRequest) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_GET_COSMOS_BALANCE:
+          serviceImpl.getCosmosBalance((adamant.global.v1.GetCosmosBalanceRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.GetCosmosBalanceResponse>) responseObserver);
           break;
         case METHODID_CREATE_ADDRESS:
           serviceImpl.createAddress((adamant.global.v1.CreateAddressRequest) request,
@@ -2829,6 +2895,13 @@ public final class TellerAPIGrpc {
               adamant.global.v1.UpdateDestinationWalletIDRequest,
               com.google.protobuf.Empty>(
                 service, METHODID_UPDATE_DESTINATION_WALLET_ID)))
+        .addMethod(
+          getGetCosmosBalanceMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetCosmosBalanceRequest,
+              adamant.global.v1.GetCosmosBalanceResponse>(
+                service, METHODID_GET_COSMOS_BALANCE)))
         .addMethod(
           getCreateAddressMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -3089,6 +3162,7 @@ public final class TellerAPIGrpc {
               .addMethod(getInitializeXRPWalletMethod())
               .addMethod(getInitializeWalletMethod())
               .addMethod(getUpdateDestinationWalletIDMethod())
+              .addMethod(getGetCosmosBalanceMethod())
               .addMethod(getCreateAddressMethod())
               .addMethod(getCreateIOSTAccountMethod())
               .addMethod(getListSymbolChildAddressesMethod())

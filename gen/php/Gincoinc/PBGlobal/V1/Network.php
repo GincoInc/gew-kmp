@@ -178,6 +178,14 @@ class Network
      */
     const NETWORK_XDC_TESTNET = 40;
     /**
+     * Generated from protobuf enum <code>NETWORK_COSMOS_MAINNET = 41;</code>
+     */
+    const NETWORK_COSMOS_MAINNET = 41;
+    /**
+     * Generated from protobuf enum <code>NETWORK_COSMOS_TESTNET = 42;</code>
+     */
+    const NETWORK_COSMOS_TESTNET = 42;
+    /**
      * Generated from protobuf enum <code>NETWORK_SHIDEN_MAINNET = 10002;</code>
      */
     const NETWORK_SHIDEN_MAINNET = 10002;
@@ -224,6 +232,8 @@ class Network
         self::NETWORK_SHIBUYA_TESTNET => 'NETWORK_SHIBUYA_TESTNET',
         self::NETWORK_XDC_MAINNET => 'NETWORK_XDC_MAINNET',
         self::NETWORK_XDC_TESTNET => 'NETWORK_XDC_TESTNET',
+        self::NETWORK_COSMOS_MAINNET => 'NETWORK_COSMOS_MAINNET',
+        self::NETWORK_COSMOS_TESTNET => 'NETWORK_COSMOS_TESTNET',
         self::NETWORK_SHIDEN_MAINNET => 'NETWORK_SHIDEN_MAINNET',
     ];
 

@@ -604,6 +604,37 @@ public final class GlobalAPIGrpc {
     return getUpdateDestinationWalletIDMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.GetCosmosBalanceRequest,
+      adamant.global.v1.GetCosmosBalanceResponse> getGetCosmosBalanceMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetCosmosBalance",
+      requestType = adamant.global.v1.GetCosmosBalanceRequest.class,
+      responseType = adamant.global.v1.GetCosmosBalanceResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.GetCosmosBalanceRequest,
+      adamant.global.v1.GetCosmosBalanceResponse> getGetCosmosBalanceMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.GetCosmosBalanceRequest, adamant.global.v1.GetCosmosBalanceResponse> getGetCosmosBalanceMethod;
+    if ((getGetCosmosBalanceMethod = GlobalAPIGrpc.getGetCosmosBalanceMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getGetCosmosBalanceMethod = GlobalAPIGrpc.getGetCosmosBalanceMethod) == null) {
+          GlobalAPIGrpc.getGetCosmosBalanceMethod = getGetCosmosBalanceMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.GetCosmosBalanceRequest, adamant.global.v1.GetCosmosBalanceResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetCosmosBalance"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.GetCosmosBalanceRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.GetCosmosBalanceResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("GetCosmosBalance"))
+              .build();
+        }
+      }
+    }
+    return getGetCosmosBalanceMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ApproveWalletRequest,
       com.google.protobuf.Empty> getApproveWalletMethod;
 
@@ -3086,6 +3117,13 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    default void getCosmosBalance(adamant.global.v1.GetCosmosBalanceRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.GetCosmosBalanceResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetCosmosBalanceMethod(), responseObserver);
+    }
+
+    /**
      * <pre>
      * Review
      * </pre>
@@ -3835,6 +3873,14 @@ public final class GlobalAPIGrpc {
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateDestinationWalletIDMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getCosmosBalance(adamant.global.v1.GetCosmosBalanceRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.GetCosmosBalanceResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetCosmosBalanceMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -4634,6 +4680,13 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    public adamant.global.v1.GetCosmosBalanceResponse getCosmosBalance(adamant.global.v1.GetCosmosBalanceRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetCosmosBalanceMethod(), getCallOptions(), request);
+    }
+
+    /**
      * <pre>
      * Review
      * </pre>
@@ -5375,6 +5428,14 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.GetCosmosBalanceResponse> getCosmosBalance(
+        adamant.global.v1.GetCosmosBalanceRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetCosmosBalanceMethod(), getCallOptions()), request);
+    }
+
+    /**
      * <pre>
      * Review
      * </pre>
@@ -6034,80 +6095,81 @@ public final class GlobalAPIGrpc {
   private static final int METHODID_GET_WALLET_GROUP = 16;
   private static final int METHODID_LIST_WALLET_GROUPS = 17;
   private static final int METHODID_UPDATE_DESTINATION_WALLET_ID = 18;
-  private static final int METHODID_APPROVE_WALLET = 19;
-  private static final int METHODID_APPROVE_TRANSACTION = 20;
-  private static final int METHODID_CREATE_ADDRESS = 21;
-  private static final int METHODID_GET_ADDRESS = 22;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 23;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 24;
-  private static final int METHODID_GET_ADDRESS_BY_INDEX = 25;
-  private static final int METHODID_LIST_ADDRESSES = 26;
-  private static final int METHODID_LIST_ADDRESSES_WITH_BALANCE = 27;
-  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 28;
-  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 29;
-  private static final int METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES = 30;
-  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 31;
-  private static final int METHODID_LIST_IOSTCHILD_ACCOUNTS = 32;
-  private static final int METHODID_IMPORT_ADDRESS = 33;
-  private static final int METHODID_LIST_CALLERS = 34;
-  private static final int METHODID_REGISTER_KEY = 35;
-  private static final int METHODID_CREATE_TRANSACTION = 36;
-  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 37;
-  private static final int METHODID_SIGN_TRANSACTION = 38;
-  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 39;
-  private static final int METHODID_SEND_TRANSACTION = 40;
-  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 41;
-  private static final int METHODID_CANCEL_TRANSACTION = 42;
-  private static final int METHODID_GET_TRANSACTION = 43;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 44;
-  private static final int METHODID_LIST_TRANSACTIONS = 45;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 46;
-  private static final int METHODID_GET_SIGN_INFO = 47;
-  private static final int METHODID_LIST_SIGN_INFO = 48;
-  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 49;
-  private static final int METHODID_LIST_TRANSFERS = 50;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 51;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 52;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 53;
-  private static final int METHODID_SET_RATES = 54;
-  private static final int METHODID_SET_DEFAULT_RATES = 55;
-  private static final int METHODID_CREATE_LABELED_ADDRESS = 56;
-  private static final int METHODID_GET_LABELED_ADDRESS = 57;
-  private static final int METHODID_LIST_LABELED_ADDRESSES = 58;
-  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 59;
-  private static final int METHODID_UPDATE_LABELED_ADDRESS = 60;
-  private static final int METHODID_DELETE_ADDRESS = 61;
-  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 62;
-  private static final int METHODID_CREATE_WHITELIST = 63;
-  private static final int METHODID_GET_WHITELIST = 64;
-  private static final int METHODID_LIST_WHITELISTS = 65;
-  private static final int METHODID_IS_DELETABLE_WHITELIST = 66;
-  private static final int METHODID_UPDATE_WHITELIST = 67;
-  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 68;
-  private static final int METHODID_DELETE_WHITELIST = 69;
-  private static final int METHODID_CREATE_TRANSFER_LIMIT = 70;
-  private static final int METHODID_GET_TRANSFER_LIMIT = 71;
-  private static final int METHODID_LIST_TRANSFER_LIMITS = 72;
-  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 73;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 74;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 75;
-  private static final int METHODID_DELETE_TRANSFER_LIMIT = 76;
-  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 77;
-  private static final int METHODID_CREATE_POLICY = 78;
-  private static final int METHODID_GET_POLICY = 79;
-  private static final int METHODID_LIST_POLICIES = 80;
-  private static final int METHODID_IS_DELETABLE_POLICY = 81;
-  private static final int METHODID_UPDATE_POLICY = 82;
-  private static final int METHODID_DELETE_POLICY = 83;
-  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 84;
-  private static final int METHODID_GET_SPENDABLE_BALANCE = 85;
-  private static final int METHODID_GET_TOTAL_BALANCE = 86;
-  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 87;
-  private static final int METHODID_CALCULATE_FEE = 88;
-  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 89;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 90;
-  private static final int METHODID_VALIDATE_ADDRESS = 91;
-  private static final int METHODID_LIST_AUDIT_LOGS = 92;
+  private static final int METHODID_GET_COSMOS_BALANCE = 19;
+  private static final int METHODID_APPROVE_WALLET = 20;
+  private static final int METHODID_APPROVE_TRANSACTION = 21;
+  private static final int METHODID_CREATE_ADDRESS = 22;
+  private static final int METHODID_GET_ADDRESS = 23;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 24;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 25;
+  private static final int METHODID_GET_ADDRESS_BY_INDEX = 26;
+  private static final int METHODID_LIST_ADDRESSES = 27;
+  private static final int METHODID_LIST_ADDRESSES_WITH_BALANCE = 28;
+  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 29;
+  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 30;
+  private static final int METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES = 31;
+  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 32;
+  private static final int METHODID_LIST_IOSTCHILD_ACCOUNTS = 33;
+  private static final int METHODID_IMPORT_ADDRESS = 34;
+  private static final int METHODID_LIST_CALLERS = 35;
+  private static final int METHODID_REGISTER_KEY = 36;
+  private static final int METHODID_CREATE_TRANSACTION = 37;
+  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 38;
+  private static final int METHODID_SIGN_TRANSACTION = 39;
+  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 40;
+  private static final int METHODID_SEND_TRANSACTION = 41;
+  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 42;
+  private static final int METHODID_CANCEL_TRANSACTION = 43;
+  private static final int METHODID_GET_TRANSACTION = 44;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 45;
+  private static final int METHODID_LIST_TRANSACTIONS = 46;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 47;
+  private static final int METHODID_GET_SIGN_INFO = 48;
+  private static final int METHODID_LIST_SIGN_INFO = 49;
+  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 50;
+  private static final int METHODID_LIST_TRANSFERS = 51;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 52;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 53;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 54;
+  private static final int METHODID_SET_RATES = 55;
+  private static final int METHODID_SET_DEFAULT_RATES = 56;
+  private static final int METHODID_CREATE_LABELED_ADDRESS = 57;
+  private static final int METHODID_GET_LABELED_ADDRESS = 58;
+  private static final int METHODID_LIST_LABELED_ADDRESSES = 59;
+  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 60;
+  private static final int METHODID_UPDATE_LABELED_ADDRESS = 61;
+  private static final int METHODID_DELETE_ADDRESS = 62;
+  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 63;
+  private static final int METHODID_CREATE_WHITELIST = 64;
+  private static final int METHODID_GET_WHITELIST = 65;
+  private static final int METHODID_LIST_WHITELISTS = 66;
+  private static final int METHODID_IS_DELETABLE_WHITELIST = 67;
+  private static final int METHODID_UPDATE_WHITELIST = 68;
+  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 69;
+  private static final int METHODID_DELETE_WHITELIST = 70;
+  private static final int METHODID_CREATE_TRANSFER_LIMIT = 71;
+  private static final int METHODID_GET_TRANSFER_LIMIT = 72;
+  private static final int METHODID_LIST_TRANSFER_LIMITS = 73;
+  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 74;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 75;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 76;
+  private static final int METHODID_DELETE_TRANSFER_LIMIT = 77;
+  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 78;
+  private static final int METHODID_CREATE_POLICY = 79;
+  private static final int METHODID_GET_POLICY = 80;
+  private static final int METHODID_LIST_POLICIES = 81;
+  private static final int METHODID_IS_DELETABLE_POLICY = 82;
+  private static final int METHODID_UPDATE_POLICY = 83;
+  private static final int METHODID_DELETE_POLICY = 84;
+  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 85;
+  private static final int METHODID_GET_SPENDABLE_BALANCE = 86;
+  private static final int METHODID_GET_TOTAL_BALANCE = 87;
+  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 88;
+  private static final int METHODID_CALCULATE_FEE = 89;
+  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 90;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 91;
+  private static final int METHODID_VALIDATE_ADDRESS = 92;
+  private static final int METHODID_LIST_AUDIT_LOGS = 93;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -6201,6 +6263,10 @@ public final class GlobalAPIGrpc {
         case METHODID_UPDATE_DESTINATION_WALLET_ID:
           serviceImpl.updateDestinationWalletID((adamant.global.v1.UpdateDestinationWalletIDRequest) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_GET_COSMOS_BALANCE:
+          serviceImpl.getCosmosBalance((adamant.global.v1.GetCosmosBalanceRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.GetCosmosBalanceResponse>) responseObserver);
           break;
         case METHODID_APPROVE_WALLET:
           serviceImpl.approveWallet((adamant.global.v1.ApproveWalletRequest) request,
@@ -6649,6 +6715,13 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.UpdateDestinationWalletIDRequest,
               com.google.protobuf.Empty>(
                 service, METHODID_UPDATE_DESTINATION_WALLET_ID)))
+        .addMethod(
+          getGetCosmosBalanceMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetCosmosBalanceRequest,
+              adamant.global.v1.GetCosmosBalanceResponse>(
+                service, METHODID_GET_COSMOS_BALANCE)))
         .addMethod(
           getApproveWalletMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -7234,6 +7307,7 @@ public final class GlobalAPIGrpc {
               .addMethod(getGetWalletGroupMethod())
               .addMethod(getListWalletGroupsMethod())
               .addMethod(getUpdateDestinationWalletIDMethod())
+              .addMethod(getGetCosmosBalanceMethod())
               .addMethod(getApproveWalletMethod())
               .addMethod(getApproveTransactionMethod())
               .addMethod(getCreateAddressMethod())
