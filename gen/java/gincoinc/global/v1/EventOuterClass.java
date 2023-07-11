@@ -98,81 +98,6 @@ public final class EventOuterClass {
       return new Event();
     }
 
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Event(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              aggregateId_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              eventId_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              eventType_ = s;
-              break;
-            }
-            case 34: {
-
-              payload_ = input.readBytes();
-              break;
-            }
-            case 40: {
-
-              version_ = input.readUInt32();
-              break;
-            }
-            case 48: {
-
-              createTime_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return gincoinc.global.v1.EventOuterClass.internal_static_gincoinc_global_v1_Event_descriptor;
@@ -187,7 +112,8 @@ public final class EventOuterClass {
     }
 
     public static final int AGGREGATE_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object aggregateId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object aggregateId_ = "";
     /**
      * <code>string aggregate_id = 1 [json_name = "aggregateId"];</code>
      * @return The aggregateId.
@@ -225,7 +151,8 @@ public final class EventOuterClass {
     }
 
     public static final int EVENT_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object eventId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object eventId_ = "";
     /**
      * <code>string event_id = 2 [json_name = "eventId"];</code>
      * @return The eventId.
@@ -263,7 +190,8 @@ public final class EventOuterClass {
     }
 
     public static final int EVENT_TYPE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object eventType_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object eventType_ = "";
     /**
      * <code>string event_type = 3 [json_name = "eventType"];</code>
      * @return The eventType.
@@ -301,7 +229,7 @@ public final class EventOuterClass {
     }
 
     public static final int PAYLOAD_FIELD_NUMBER = 4;
-    private com.google.protobuf.ByteString payload_;
+    private com.google.protobuf.ByteString payload_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <code>bytes payload = 4 [json_name = "payload"];</code>
      * @return The payload.
@@ -312,7 +240,7 @@ public final class EventOuterClass {
     }
 
     public static final int VERSION_FIELD_NUMBER = 5;
-    private int version_;
+    private int version_ = 0;
     /**
      * <code>uint32 version = 5 [json_name = "version"];</code>
      * @return The version.
@@ -323,7 +251,7 @@ public final class EventOuterClass {
     }
 
     public static final int CREATE_TIME_FIELD_NUMBER = 6;
-    private long createTime_;
+    private long createTime_ = 0L;
     /**
      * <code>int64 create_time = 6 [json_name = "createTime"];</code>
      * @return The createTime.
@@ -365,7 +293,7 @@ public final class EventOuterClass {
       if (createTime_ != 0L) {
         output.writeInt64(6, createTime_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -395,7 +323,7 @@ public final class EventOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(6, createTime_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -422,7 +350,7 @@ public final class EventOuterClass {
           != other.getVersion()) return false;
       if (getCreateTime()
           != other.getCreateTime()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -446,7 +374,7 @@ public final class EventOuterClass {
       hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getCreateTime());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -495,11 +423,13 @@ public final class EventOuterClass {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static gincoinc.global.v1.EventOuterClass.Event parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static gincoinc.global.v1.EventOuterClass.Event parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -563,34 +493,24 @@ public final class EventOuterClass {
 
       // Construct using gincoinc.global.v1.EventOuterClass.Event.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         aggregateId_ = "";
-
         eventId_ = "";
-
         eventType_ = "";
-
         payload_ = com.google.protobuf.ByteString.EMPTY;
-
         version_ = 0;
-
         createTime_ = 0L;
-
         return this;
       }
 
@@ -617,14 +537,31 @@ public final class EventOuterClass {
       @java.lang.Override
       public gincoinc.global.v1.EventOuterClass.Event buildPartial() {
         gincoinc.global.v1.EventOuterClass.Event result = new gincoinc.global.v1.EventOuterClass.Event(this);
-        result.aggregateId_ = aggregateId_;
-        result.eventId_ = eventId_;
-        result.eventType_ = eventType_;
-        result.payload_ = payload_;
-        result.version_ = version_;
-        result.createTime_ = createTime_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(gincoinc.global.v1.EventOuterClass.Event result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.aggregateId_ = aggregateId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.eventId_ = eventId_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.eventType_ = eventType_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.payload_ = payload_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.version_ = version_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.createTime_ = createTime_;
+        }
       }
 
       @java.lang.Override
@@ -673,14 +610,17 @@ public final class EventOuterClass {
         if (other == gincoinc.global.v1.EventOuterClass.Event.getDefaultInstance()) return this;
         if (!other.getAggregateId().isEmpty()) {
           aggregateId_ = other.aggregateId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getEventId().isEmpty()) {
           eventId_ = other.eventId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getEventType().isEmpty()) {
           eventType_ = other.eventType_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.getPayload() != com.google.protobuf.ByteString.EMPTY) {
@@ -692,7 +632,7 @@ public final class EventOuterClass {
         if (other.getCreateTime() != 0L) {
           setCreateTime(other.getCreateTime());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -707,19 +647,63 @@ public final class EventOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        gincoinc.global.v1.EventOuterClass.Event parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                aggregateId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                eventId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                eventType_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                payload_ = input.readBytes();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 40: {
+                version_ = input.readUInt32();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 48: {
+                createTime_ = input.readInt64();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (gincoinc.global.v1.EventOuterClass.Event) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object aggregateId_ = "";
       /**
@@ -762,11 +746,9 @@ public final class EventOuterClass {
        */
       public Builder setAggregateId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         aggregateId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -775,8 +757,8 @@ public final class EventOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearAggregateId() {
-        
         aggregateId_ = getDefaultInstance().getAggregateId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -787,12 +769,10 @@ public final class EventOuterClass {
        */
       public Builder setAggregateIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         aggregateId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -838,11 +818,9 @@ public final class EventOuterClass {
        */
       public Builder setEventId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         eventId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -851,8 +829,8 @@ public final class EventOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEventId() {
-        
         eventId_ = getDefaultInstance().getEventId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -863,12 +841,10 @@ public final class EventOuterClass {
        */
       public Builder setEventIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         eventId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -914,11 +890,9 @@ public final class EventOuterClass {
        */
       public Builder setEventType(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         eventType_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -927,8 +901,8 @@ public final class EventOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearEventType() {
-        
         eventType_ = getDefaultInstance().getEventType();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -939,12 +913,10 @@ public final class EventOuterClass {
        */
       public Builder setEventTypeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         eventType_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -964,11 +936,9 @@ public final class EventOuterClass {
        * @return This builder for chaining.
        */
       public Builder setPayload(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         payload_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -977,7 +947,7 @@ public final class EventOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearPayload() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         payload_ = getDefaultInstance().getPayload();
         onChanged();
         return this;
@@ -998,8 +968,9 @@ public final class EventOuterClass {
        * @return This builder for chaining.
        */
       public Builder setVersion(int value) {
-        
+
         version_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1008,7 +979,7 @@ public final class EventOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearVersion() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         version_ = 0;
         onChanged();
         return this;
@@ -1029,8 +1000,9 @@ public final class EventOuterClass {
        * @return This builder for chaining.
        */
       public Builder setCreateTime(long value) {
-        
+
         createTime_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1039,7 +1011,7 @@ public final class EventOuterClass {
        * @return This builder for chaining.
        */
       public Builder clearCreateTime() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         createTime_ = 0L;
         onChanged();
         return this;
@@ -1077,7 +1049,18 @@ public final class EventOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Event(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

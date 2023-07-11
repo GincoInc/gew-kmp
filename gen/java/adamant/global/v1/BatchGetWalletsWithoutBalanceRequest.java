@@ -16,7 +16,8 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private BatchGetWalletsWithoutBalanceRequest() {
-    walletIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    walletIds_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
   }
 
   @java.lang.Override
@@ -26,61 +27,6 @@ private static final long serialVersionUID = 0L;
     return new BatchGetWalletsWithoutBalanceRequest();
   }
 
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private BatchGetWalletsWithoutBalanceRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              walletIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            walletIds_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        walletIds_ = walletIds_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_BatchGetWalletsWithoutBalanceRequest_descriptor;
@@ -95,7 +41,9 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WALLET_IDS_FIELD_NUMBER = 1;
-  private com.google.protobuf.LazyStringList walletIds_;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.LazyStringArrayList walletIds_ =
+      com.google.protobuf.LazyStringArrayList.emptyList();
   /**
    * <code>repeated string wallet_ids = 1 [json_name = "walletIds"];</code>
    * @return A list containing the walletIds.
@@ -146,7 +94,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < walletIds_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletIds_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -163,7 +111,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getWalletIdsList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -180,7 +128,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getWalletIdsList()
         .equals(other.getWalletIdsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -195,7 +143,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + WALLET_IDS_FIELD_NUMBER;
       hash = (53 * hash) + getWalletIdsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -244,11 +192,13 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
+
   public static adamant.global.v1.BatchGetWalletsWithoutBalanceRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
+
   public static adamant.global.v1.BatchGetWalletsWithoutBalanceRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -312,24 +262,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using adamant.global.v1.BatchGetWalletsWithoutBalanceRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      walletIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = 0;
+      walletIds_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
       return this;
     }
 
@@ -356,14 +302,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public adamant.global.v1.BatchGetWalletsWithoutBalanceRequest buildPartial() {
       adamant.global.v1.BatchGetWalletsWithoutBalanceRequest result = new adamant.global.v1.BatchGetWalletsWithoutBalanceRequest(this);
-      int from_bitField0_ = bitField0_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        walletIds_ = walletIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.walletIds_ = walletIds_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(adamant.global.v1.BatchGetWalletsWithoutBalanceRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        walletIds_.makeImmutable();
+        result.walletIds_ = walletIds_;
+      }
     }
 
     @java.lang.Override
@@ -413,14 +362,14 @@ private static final long serialVersionUID = 0L;
       if (!other.walletIds_.isEmpty()) {
         if (walletIds_.isEmpty()) {
           walletIds_ = other.walletIds_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ |= 0x00000001;
         } else {
           ensureWalletIdsIsMutable();
           walletIds_.addAll(other.walletIds_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -435,27 +384,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      adamant.global.v1.BatchGetWalletsWithoutBalanceRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureWalletIdsIsMutable();
+              walletIds_.add(s);
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (adamant.global.v1.BatchGetWalletsWithoutBalanceRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
 
-    private com.google.protobuf.LazyStringList walletIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private com.google.protobuf.LazyStringArrayList walletIds_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
     private void ensureWalletIdsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!walletIds_.isModifiable()) {
         walletIds_ = new com.google.protobuf.LazyStringArrayList(walletIds_);
-        bitField0_ |= 0x00000001;
-       }
+      }
+      bitField0_ |= 0x00000001;
     }
     /**
      * <code>repeated string wallet_ids = 1 [json_name = "walletIds"];</code>
@@ -463,7 +432,8 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ProtocolStringList
         getWalletIdsList() {
-      return walletIds_.getUnmodifiableView();
+      walletIds_.makeImmutable();
+      return walletIds_;
     }
     /**
      * <code>repeated string wallet_ids = 1 [json_name = "walletIds"];</code>
@@ -497,11 +467,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWalletIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureWalletIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureWalletIdsIsMutable();
       walletIds_.set(index, value);
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -512,11 +481,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addWalletIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureWalletIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureWalletIdsIsMutable();
       walletIds_.add(value);
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -530,6 +498,7 @@ private static final long serialVersionUID = 0L;
       ensureWalletIdsIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
           values, walletIds_);
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -538,8 +507,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWalletIds() {
-      walletIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      walletIds_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000001);;
       onChanged();
       return this;
     }
@@ -550,12 +520,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addWalletIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureWalletIdsIsMutable();
       walletIds_.add(value);
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -592,7 +561,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BatchGetWalletsWithoutBalanceRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

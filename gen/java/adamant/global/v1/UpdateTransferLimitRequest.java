@@ -27,67 +27,6 @@ private static final long serialVersionUID = 0L;
     return new UpdateTransferLimitRequest();
   }
 
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private UpdateTransferLimitRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            transferLimitId_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              transferLimits_ = new java.util.ArrayList<adamant.global.v1.Model.RequestTransferLimitEntry>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            transferLimits_.add(
-                input.readMessage(adamant.global.v1.Model.RequestTransferLimitEntry.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        transferLimits_ = java.util.Collections.unmodifiableList(transferLimits_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_UpdateTransferLimitRequest_descriptor;
@@ -102,7 +41,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRANSFER_LIMIT_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object transferLimitId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object transferLimitId_ = "";
   /**
    * <code>string transfer_limit_id = 1 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
    * @return The transferLimitId.
@@ -140,6 +80,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRANSFER_LIMITS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<adamant.global.v1.Model.RequestTransferLimitEntry> transferLimits_;
   /**
    * <code>repeated .adamant.global.v1.RequestTransferLimitEntry transfer_limits = 2 [json_name = "transferLimits", (.validate.rules) = { ... }</code>
@@ -199,7 +140,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < transferLimits_.size(); i++) {
       output.writeMessage(2, transferLimits_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -215,7 +156,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, transferLimits_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -234,7 +175,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTransferLimitId())) return false;
     if (!getTransferLimitsList()
         .equals(other.getTransferLimitsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -251,7 +192,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TRANSFER_LIMITS_FIELD_NUMBER;
       hash = (53 * hash) + getTransferLimitsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -300,11 +241,13 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
+
   public static adamant.global.v1.UpdateTransferLimitRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
+
   public static adamant.global.v1.UpdateTransferLimitRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -368,31 +311,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using adamant.global.v1.UpdateTransferLimitRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTransferLimitsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       transferLimitId_ = "";
-
       if (transferLimitsBuilder_ == null) {
         transferLimits_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        transferLimits_ = null;
         transferLimitsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -419,19 +357,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public adamant.global.v1.UpdateTransferLimitRequest buildPartial() {
       adamant.global.v1.UpdateTransferLimitRequest result = new adamant.global.v1.UpdateTransferLimitRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.transferLimitId_ = transferLimitId_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(adamant.global.v1.UpdateTransferLimitRequest result) {
       if (transferLimitsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           transferLimits_ = java.util.Collections.unmodifiableList(transferLimits_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.transferLimits_ = transferLimits_;
       } else {
         result.transferLimits_ = transferLimitsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(adamant.global.v1.UpdateTransferLimitRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.transferLimitId_ = transferLimitId_;
+      }
     }
 
     @java.lang.Override
@@ -480,13 +428,14 @@ private static final long serialVersionUID = 0L;
       if (other == adamant.global.v1.UpdateTransferLimitRequest.getDefaultInstance()) return this;
       if (!other.getTransferLimitId().isEmpty()) {
         transferLimitId_ = other.transferLimitId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (transferLimitsBuilder_ == null) {
         if (!other.transferLimits_.isEmpty()) {
           if (transferLimits_.isEmpty()) {
             transferLimits_ = other.transferLimits_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureTransferLimitsIsMutable();
             transferLimits_.addAll(other.transferLimits_);
@@ -499,7 +448,7 @@ private static final long serialVersionUID = 0L;
             transferLimitsBuilder_.dispose();
             transferLimitsBuilder_ = null;
             transferLimits_ = other.transferLimits_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             transferLimitsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTransferLimitsFieldBuilder() : null;
@@ -508,7 +457,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -523,17 +472,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      adamant.global.v1.UpdateTransferLimitRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              transferLimitId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              adamant.global.v1.Model.RequestTransferLimitEntry m =
+                  input.readMessage(
+                      adamant.global.v1.Model.RequestTransferLimitEntry.parser(),
+                      extensionRegistry);
+              if (transferLimitsBuilder_ == null) {
+                ensureTransferLimitsIsMutable();
+                transferLimits_.add(m);
+              } else {
+                transferLimitsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (adamant.global.v1.UpdateTransferLimitRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -579,11 +559,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTransferLimitId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       transferLimitId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -592,8 +570,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTransferLimitId() {
-      
       transferLimitId_ = getDefaultInstance().getTransferLimitId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -604,12 +582,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTransferLimitIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       transferLimitId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -617,9 +593,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<adamant.global.v1.Model.RequestTransferLimitEntry> transferLimits_ =
       java.util.Collections.emptyList();
     private void ensureTransferLimitsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         transferLimits_ = new java.util.ArrayList<adamant.global.v1.Model.RequestTransferLimitEntry>(transferLimits_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -769,7 +745,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTransferLimits() {
       if (transferLimitsBuilder_ == null) {
         transferLimits_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         transferLimitsBuilder_.clear();
@@ -846,7 +822,7 @@ private static final long serialVersionUID = 0L;
         transferLimitsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             adamant.global.v1.Model.RequestTransferLimitEntry, adamant.global.v1.Model.RequestTransferLimitEntry.Builder, adamant.global.v1.Model.RequestTransferLimitEntryOrBuilder>(
                 transferLimits_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         transferLimits_ = null;
@@ -886,7 +862,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateTransferLimitRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 
