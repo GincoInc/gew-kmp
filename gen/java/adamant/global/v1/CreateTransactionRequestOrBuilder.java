@@ -174,4 +174,19 @@ public interface CreateTransactionRequestOrBuilder extends
    * <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
    */
   adamant.global.v1.Model.CreateTransactionEthereumSpecificOrBuilder getEthereumSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+   * @return Whether the cosmosSpecific field is set.
+   */
+  boolean hasCosmosSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+   * @return The cosmosSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionCosmosSpecific getCosmosSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionCosmosSpecificOrBuilder getCosmosSpecificOrBuilder();
 }
