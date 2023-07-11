@@ -25,79 +25,6 @@ private static final long serialVersionUID = 0L;
     return new ListBalanceSnapshotsRequest();
   }
 
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private ListBalanceSnapshotsRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (startTime_ != null) {
-              subBuilder = startTime_.toBuilder();
-            }
-            startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(startTime_);
-              startTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (endTime_ != null) {
-              subBuilder = endTime_.toBuilder();
-            }
-            endTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(endTime_);
-              endTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-
-            watchOnly_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_ListBalanceSnapshotsRequest_descriptor;
@@ -112,7 +39,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WATCH_ONLY_FIELD_NUMBER = 3;
-  private boolean watchOnly_;
+  private boolean watchOnly_ = false;
   /**
    * <code>bool watch_only = 3 [json_name = "watchOnly"];</code>
    * @return The watchOnly.
@@ -145,7 +72,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
-    return getStartTime();
+    return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
   }
 
   public static final int END_TIME_FIELD_NUMBER = 2;
@@ -171,7 +98,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
-    return getEndTime();
+    return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -197,7 +124,7 @@ private static final long serialVersionUID = 0L;
     if (watchOnly_ != false) {
       output.writeBool(3, watchOnly_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -218,7 +145,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(3, watchOnly_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -245,7 +172,7 @@ private static final long serialVersionUID = 0L;
       if (!getEndTime()
           .equals(other.getEndTime())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -267,7 +194,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + END_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getEndTime().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -316,11 +243,13 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
+
   public static adamant.global.v1.ListBalanceSnapshotsRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
+
   public static adamant.global.v1.ListBalanceSnapshotsRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -384,34 +313,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using adamant.global.v1.ListBalanceSnapshotsRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       watchOnly_ = false;
-
-      if (startTimeBuilder_ == null) {
-        startTime_ = null;
-      } else {
-        startTime_ = null;
+      startTime_ = null;
+      if (startTimeBuilder_ != null) {
+        startTimeBuilder_.dispose();
         startTimeBuilder_ = null;
       }
-      if (endTimeBuilder_ == null) {
-        endTime_ = null;
-      } else {
-        endTime_ = null;
+      endTime_ = null;
+      if (endTimeBuilder_ != null) {
+        endTimeBuilder_.dispose();
         endTimeBuilder_ = null;
       }
       return this;
@@ -440,19 +362,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public adamant.global.v1.ListBalanceSnapshotsRequest buildPartial() {
       adamant.global.v1.ListBalanceSnapshotsRequest result = new adamant.global.v1.ListBalanceSnapshotsRequest(this);
-      result.watchOnly_ = watchOnly_;
-      if (startTimeBuilder_ == null) {
-        result.startTime_ = startTime_;
-      } else {
-        result.startTime_ = startTimeBuilder_.build();
-      }
-      if (endTimeBuilder_ == null) {
-        result.endTime_ = endTime_;
-      } else {
-        result.endTime_ = endTimeBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(adamant.global.v1.ListBalanceSnapshotsRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.watchOnly_ = watchOnly_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.startTime_ = startTimeBuilder_ == null
+            ? startTime_
+            : startTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.endTime_ = endTimeBuilder_ == null
+            ? endTime_
+            : endTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -508,7 +437,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasEndTime()) {
         mergeEndTime(other.getEndTime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -523,19 +452,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      adamant.global.v1.ListBalanceSnapshotsRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getStartTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getEndTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 24: {
+              watchOnly_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (adamant.global.v1.ListBalanceSnapshotsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean watchOnly_ ;
     /**
@@ -552,8 +514,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setWatchOnly(boolean value) {
-      
+
       watchOnly_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -562,7 +525,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWatchOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       watchOnly_ = false;
       onChanged();
       return this;
@@ -576,7 +539,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the startTime field is set.
      */
     public boolean hasStartTime() {
-      return startTimeBuilder_ != null || startTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>.google.protobuf.Timestamp start_time = 1 [json_name = "startTime"];</code>
@@ -598,11 +561,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         startTime_ = value;
-        onChanged();
       } else {
         startTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -612,11 +575,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (startTimeBuilder_ == null) {
         startTime_ = builderForValue.build();
-        onChanged();
       } else {
         startTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -624,38 +587,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
       if (startTimeBuilder_ == null) {
-        if (startTime_ != null) {
-          startTime_ =
-            com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          startTime_ != null &&
+          startTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getStartTimeBuilder().mergeFrom(value);
         } else {
           startTime_ = value;
         }
-        onChanged();
       } else {
         startTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <code>.google.protobuf.Timestamp start_time = 1 [json_name = "startTime"];</code>
      */
     public Builder clearStartTime() {
-      if (startTimeBuilder_ == null) {
-        startTime_ = null;
-        onChanged();
-      } else {
-        startTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      startTime_ = null;
+      if (startTimeBuilder_ != null) {
+        startTimeBuilder_.dispose();
         startTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.google.protobuf.Timestamp start_time = 1 [json_name = "startTime"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getStartTimeFieldBuilder().getBuilder();
     }
@@ -695,7 +658,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the endTime field is set.
      */
     public boolean hasEndTime() {
-      return endTimeBuilder_ != null || endTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <code>.google.protobuf.Timestamp end_time = 2 [json_name = "endTime"];</code>
@@ -717,11 +680,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         endTime_ = value;
-        onChanged();
       } else {
         endTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -731,11 +694,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (endTimeBuilder_ == null) {
         endTime_ = builderForValue.build();
-        onChanged();
       } else {
         endTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -743,38 +706,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
       if (endTimeBuilder_ == null) {
-        if (endTime_ != null) {
-          endTime_ =
-            com.google.protobuf.Timestamp.newBuilder(endTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          endTime_ != null &&
+          endTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getEndTimeBuilder().mergeFrom(value);
         } else {
           endTime_ = value;
         }
-        onChanged();
       } else {
         endTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <code>.google.protobuf.Timestamp end_time = 2 [json_name = "endTime"];</code>
      */
     public Builder clearEndTime() {
-      if (endTimeBuilder_ == null) {
-        endTime_ = null;
-        onChanged();
-      } else {
-        endTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      endTime_ = null;
+      if (endTimeBuilder_ != null) {
+        endTimeBuilder_.dispose();
         endTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.google.protobuf.Timestamp end_time = 2 [json_name = "endTime"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getEndTimeFieldBuilder().getBuilder();
     }
@@ -838,7 +801,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListBalanceSnapshotsRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

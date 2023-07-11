@@ -36,160 +36,6 @@ private static final long serialVersionUID = 0L;
     return new ListTransactionsByFilterRequest();
   }
 
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private ListTransactionsByFilterRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            filterType_ = rawValue;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            transactionId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            walletName_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            addressName_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            address_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            txid_ = s;
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            coin_ = rawValue;
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              walletType_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            walletType_.add(rawValue);
-            break;
-          }
-          case 66: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                walletType_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              walletType_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              transactionState_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            transactionState_.add(rawValue);
-            break;
-          }
-          case 74: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                transactionState_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              transactionState_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 80: {
-
-            pageSize_ = input.readUInt32();
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            walletId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        walletType_ = java.util.Collections.unmodifiableList(walletType_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        transactionState_ = java.util.Collections.unmodifiableList(transactionState_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_ListTransactionsByFilterRequest_descriptor;
@@ -204,7 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILTER_TYPE_FIELD_NUMBER = 1;
-  private int filterType_;
+  private int filterType_ = 0;
   /**
    * <code>.adamant.global.v1.ListFilterType filter_type = 1 [json_name = "filterType", (.validate.rules) = { ... }</code>
    * @return The enum numeric value on the wire for filterType.
@@ -217,13 +63,13 @@ private static final long serialVersionUID = 0L;
    * @return The filterType.
    */
   @java.lang.Override public adamant.global.v1.Enum.ListFilterType getFilterType() {
-    @SuppressWarnings("deprecation")
-    adamant.global.v1.Enum.ListFilterType result = adamant.global.v1.Enum.ListFilterType.valueOf(filterType_);
+    adamant.global.v1.Enum.ListFilterType result = adamant.global.v1.Enum.ListFilterType.forNumber(filterType_);
     return result == null ? adamant.global.v1.Enum.ListFilterType.UNRECOGNIZED : result;
   }
 
   public static final int TRANSACTION_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object transactionId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object transactionId_ = "";
   /**
    * <pre>
    * optional
@@ -269,7 +115,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WALLET_ID_FIELD_NUMBER = 12;
-  private volatile java.lang.Object walletId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object walletId_ = "";
   /**
    * <pre>
    * optional
@@ -315,7 +162,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WALLET_NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object walletName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object walletName_ = "";
   /**
    * <pre>
    * optional
@@ -361,7 +209,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADDRESS_NAME_FIELD_NUMBER = 4;
-  private volatile java.lang.Object addressName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object addressName_ = "";
   /**
    * <pre>
    * optional
@@ -407,7 +256,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADDRESS_FIELD_NUMBER = 5;
-  private volatile java.lang.Object address_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object address_ = "";
   /**
    * <pre>
    * optional
@@ -453,7 +303,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TXID_FIELD_NUMBER = 6;
-  private volatile java.lang.Object txid_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object txid_ = "";
   /**
    * <pre>
    * optional
@@ -499,7 +350,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COIN_FIELD_NUMBER = 7;
-  private int coin_;
+  private int coin_ = 0;
   /**
    * <pre>
    * optional
@@ -520,20 +371,19 @@ private static final long serialVersionUID = 0L;
    * @return The coin.
    */
   @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
-    @SuppressWarnings("deprecation")
-    gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
+    gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.forNumber(coin_);
     return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
   }
 
   public static final int WALLET_TYPE_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> walletType_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, adamant.global.v1.Enum.WalletType> walletType_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, adamant.global.v1.Enum.WalletType>() {
             public adamant.global.v1.Enum.WalletType convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              adamant.global.v1.Enum.WalletType result = adamant.global.v1.Enum.WalletType.valueOf(from);
+              adamant.global.v1.Enum.WalletType result = adamant.global.v1.Enum.WalletType.forNumber(from);
               return result == null ? adamant.global.v1.Enum.WalletType.UNRECOGNIZED : result;
             }
           };
@@ -584,14 +434,14 @@ private static final long serialVersionUID = 0L;
   private int walletTypeMemoizedSerializedSize;
 
   public static final int TRANSACTION_STATE_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> transactionState_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, adamant.global.v1.Enum.TransactionState> transactionState_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, adamant.global.v1.Enum.TransactionState>() {
             public adamant.global.v1.Enum.TransactionState convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              adamant.global.v1.Enum.TransactionState result = adamant.global.v1.Enum.TransactionState.valueOf(from);
+              adamant.global.v1.Enum.TransactionState result = adamant.global.v1.Enum.TransactionState.forNumber(from);
               return result == null ? adamant.global.v1.Enum.TransactionState.UNRECOGNIZED : result;
             }
           };
@@ -642,7 +492,7 @@ private static final long serialVersionUID = 0L;
   private int transactionStateMemoizedSerializedSize;
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 10;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
    * optional
@@ -657,7 +507,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 11;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
    * optional
@@ -761,7 +612,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, walletId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -827,7 +678,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, walletId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -862,7 +713,7 @@ private static final long serialVersionUID = 0L;
         != other.getPageSize()) return false;
     if (!getPageToken()
         .equals(other.getPageToken())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -901,7 +752,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPageSize();
     hash = (37 * hash) + PAGE_TOKEN_FIELD_NUMBER;
     hash = (53 * hash) + getPageToken().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -950,11 +801,13 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
+
   public static adamant.global.v1.ListTransactionsByFilterRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
+
   public static adamant.global.v1.ListTransactionsByFilterRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1018,46 +871,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using adamant.global.v1.ListTransactionsByFilterRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       filterType_ = 0;
-
       transactionId_ = "";
-
       walletId_ = "";
-
       walletName_ = "";
-
       addressName_ = "";
-
       address_ = "";
-
       txid_ = "";
-
       coin_ = 0;
-
       walletType_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000100);
       transactionState_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000200);
       pageSize_ = 0;
-
       pageToken_ = "";
-
       return this;
     }
 
@@ -1084,29 +923,57 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public adamant.global.v1.ListTransactionsByFilterRequest buildPartial() {
       adamant.global.v1.ListTransactionsByFilterRequest result = new adamant.global.v1.ListTransactionsByFilterRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.filterType_ = filterType_;
-      result.transactionId_ = transactionId_;
-      result.walletId_ = walletId_;
-      result.walletName_ = walletName_;
-      result.addressName_ = addressName_;
-      result.address_ = address_;
-      result.txid_ = txid_;
-      result.coin_ = coin_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        walletType_ = java.util.Collections.unmodifiableList(walletType_);
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.walletType_ = walletType_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        transactionState_ = java.util.Collections.unmodifiableList(transactionState_);
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.transactionState_ = transactionState_;
-      result.pageSize_ = pageSize_;
-      result.pageToken_ = pageToken_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(adamant.global.v1.ListTransactionsByFilterRequest result) {
+      if (((bitField0_ & 0x00000100) != 0)) {
+        walletType_ = java.util.Collections.unmodifiableList(walletType_);
+        bitField0_ = (bitField0_ & ~0x00000100);
+      }
+      result.walletType_ = walletType_;
+      if (((bitField0_ & 0x00000200) != 0)) {
+        transactionState_ = java.util.Collections.unmodifiableList(transactionState_);
+        bitField0_ = (bitField0_ & ~0x00000200);
+      }
+      result.transactionState_ = transactionState_;
+    }
+
+    private void buildPartial0(adamant.global.v1.ListTransactionsByFilterRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.filterType_ = filterType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.transactionId_ = transactionId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.walletId_ = walletId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.walletName_ = walletName_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.addressName_ = addressName_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.address_ = address_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.txid_ = txid_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.coin_ = coin_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
     }
 
     @java.lang.Override
@@ -1158,26 +1025,32 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTransactionId().isEmpty()) {
         transactionId_ = other.transactionId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getWalletId().isEmpty()) {
         walletId_ = other.walletId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getWalletName().isEmpty()) {
         walletName_ = other.walletName_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getAddressName().isEmpty()) {
         addressName_ = other.addressName_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getAddress().isEmpty()) {
         address_ = other.address_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getTxid().isEmpty()) {
         txid_ = other.txid_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.coin_ != 0) {
@@ -1186,7 +1059,7 @@ private static final long serialVersionUID = 0L;
       if (!other.walletType_.isEmpty()) {
         if (walletType_.isEmpty()) {
           walletType_ = other.walletType_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000100);
         } else {
           ensureWalletTypeIsMutable();
           walletType_.addAll(other.walletType_);
@@ -1196,7 +1069,7 @@ private static final long serialVersionUID = 0L;
       if (!other.transactionState_.isEmpty()) {
         if (transactionState_.isEmpty()) {
           transactionState_ = other.transactionState_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000200);
         } else {
           ensureTransactionStateIsMutable();
           transactionState_.addAll(other.transactionState_);
@@ -1208,9 +1081,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1225,17 +1099,114 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      adamant.global.v1.ListTransactionsByFilterRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              filterType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              transactionId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              walletName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              addressName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              address_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              txid_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 56: {
+              coin_ = input.readEnum();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 56
+            case 64: {
+              int tmpRaw = input.readEnum();
+              ensureWalletTypeIsMutable();
+              walletType_.add(tmpRaw);
+              break;
+            } // case 64
+            case 66: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureWalletTypeIsMutable();
+                walletType_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 66
+            case 72: {
+              int tmpRaw = input.readEnum();
+              ensureTransactionStateIsMutable();
+              transactionState_.add(tmpRaw);
+              break;
+            } // case 72
+            case 74: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureTransactionStateIsMutable();
+                transactionState_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 74
+            case 80: {
+              pageSize_ = input.readUInt32();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 80
+            case 90: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 90
+            case 98: {
+              walletId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 98
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (adamant.global.v1.ListTransactionsByFilterRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1254,8 +1225,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFilterTypeValue(int value) {
-      
       filterType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1265,8 +1236,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public adamant.global.v1.Enum.ListFilterType getFilterType() {
-      @SuppressWarnings("deprecation")
-      adamant.global.v1.Enum.ListFilterType result = adamant.global.v1.Enum.ListFilterType.valueOf(filterType_);
+      adamant.global.v1.Enum.ListFilterType result = adamant.global.v1.Enum.ListFilterType.forNumber(filterType_);
       return result == null ? adamant.global.v1.Enum.ListFilterType.UNRECOGNIZED : result;
     }
     /**
@@ -1278,7 +1248,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       filterType_ = value.getNumber();
       onChanged();
       return this;
@@ -1288,7 +1258,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFilterType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       filterType_ = 0;
       onChanged();
       return this;
@@ -1347,11 +1317,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTransactionId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       transactionId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1364,8 +1332,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTransactionId() {
-      
       transactionId_ = getDefaultInstance().getTransactionId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1380,12 +1348,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTransactionIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       transactionId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1443,11 +1409,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWalletId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       walletId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1460,8 +1424,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWalletId() {
-      
       walletId_ = getDefaultInstance().getWalletId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1476,12 +1440,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWalletIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       walletId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1539,11 +1501,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWalletName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       walletName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1556,8 +1516,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWalletName() {
-      
       walletName_ = getDefaultInstance().getWalletName();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1572,12 +1532,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWalletNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       walletName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1635,11 +1593,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAddressName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       addressName_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1652,8 +1608,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAddressName() {
-      
       addressName_ = getDefaultInstance().getAddressName();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1668,12 +1624,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAddressNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       addressName_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1731,11 +1685,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       address_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1748,8 +1700,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAddress() {
-      
       address_ = getDefaultInstance().getAddress();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1764,12 +1716,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       address_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1827,11 +1777,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTxid(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       txid_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1844,8 +1792,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTxid() {
-      
       txid_ = getDefaultInstance().getTxid();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1860,12 +1808,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTxidBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       txid_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1892,8 +1838,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCoinValue(int value) {
-      
       coin_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1907,8 +1853,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public gincoinc.global.v1.Enum.Coin getCoin() {
-      @SuppressWarnings("deprecation")
-      gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
+      gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.forNumber(coin_);
       return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
     }
     /**
@@ -1924,7 +1869,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000080;
       coin_ = value.getNumber();
       onChanged();
       return this;
@@ -1938,7 +1883,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCoin() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       coin_ = 0;
       onChanged();
       return this;
@@ -1947,9 +1892,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> walletType_ =
       java.util.Collections.emptyList();
     private void ensureWalletTypeIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         walletType_ = new java.util.ArrayList<java.lang.Integer>(walletType_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000100;
       }
     }
     /**
@@ -2025,7 +1970,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearWalletType() {
       walletType_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2047,8 +1992,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated .adamant.global.v1.WalletType wallet_type = 8 [json_name = "walletType"];</code>
-     * @param index The index of the value to return.
-     * @return The enum numeric value on the wire of walletType at the given index.
+     * @param index The index to set the value at.
+     * @param value The enum numeric value on the wire for walletType to set.
      * @return This builder for chaining.
      */
     public Builder setWalletTypeValue(
@@ -2087,9 +2032,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> transactionState_ =
       java.util.Collections.emptyList();
     private void ensureTransactionStateIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000200) != 0)) {
         transactionState_ = new java.util.ArrayList<java.lang.Integer>(transactionState_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000200;
       }
     }
     /**
@@ -2165,7 +2110,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearTransactionState() {
       transactionState_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2187,8 +2132,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <code>repeated .adamant.global.v1.TransactionState transaction_state = 9 [json_name = "transactionState"];</code>
-     * @param index The index of the value to return.
-     * @return The enum numeric value on the wire of transactionState at the given index.
+     * @param index The index to set the value at.
+     * @param value The enum numeric value on the wire for transactionState to set.
      * @return This builder for chaining.
      */
     public Builder setTransactionStateValue(
@@ -2247,8 +2192,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPageSize(int value) {
-      
+
       pageSize_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2261,7 +2207,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -2320,11 +2266,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2337,8 +2281,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -2353,12 +2297,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2395,7 +2337,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListTransactionsByFilterRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

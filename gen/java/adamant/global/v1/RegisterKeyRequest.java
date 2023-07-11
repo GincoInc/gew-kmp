@@ -27,60 +27,6 @@ private static final long serialVersionUID = 0L;
     return new RegisterKeyRequest();
   }
 
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private RegisterKeyRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            walletId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pubKey_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_RegisterKeyRequest_descriptor;
@@ -95,7 +41,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WALLET_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object walletId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object walletId_ = "";
   /**
    * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
    * @return The walletId.
@@ -133,7 +80,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PUB_KEY_FIELD_NUMBER = 2;
-  private volatile java.lang.Object pubKey_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pubKey_ = "";
   /**
    * <code>string pub_key = 2 [json_name = "pubKey", (.validate.rules) = { ... }</code>
    * @return The pubKey.
@@ -190,7 +138,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pubKey_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, pubKey_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -205,7 +153,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pubKey_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, pubKey_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -224,7 +172,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getWalletId())) return false;
     if (!getPubKey()
         .equals(other.getPubKey())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -239,7 +187,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getWalletId().hashCode();
     hash = (37 * hash) + PUB_KEY_FIELD_NUMBER;
     hash = (53 * hash) + getPubKey().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -288,11 +236,13 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
+
   public static adamant.global.v1.RegisterKeyRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
+
   public static adamant.global.v1.RegisterKeyRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -356,26 +306,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using adamant.global.v1.RegisterKeyRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       walletId_ = "";
-
       pubKey_ = "";
-
       return this;
     }
 
@@ -402,10 +346,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public adamant.global.v1.RegisterKeyRequest buildPartial() {
       adamant.global.v1.RegisterKeyRequest result = new adamant.global.v1.RegisterKeyRequest(this);
-      result.walletId_ = walletId_;
-      result.pubKey_ = pubKey_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(adamant.global.v1.RegisterKeyRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.walletId_ = walletId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.pubKey_ = pubKey_;
+      }
     }
 
     @java.lang.Override
@@ -454,13 +407,15 @@ private static final long serialVersionUID = 0L;
       if (other == adamant.global.v1.RegisterKeyRequest.getDefaultInstance()) return this;
       if (!other.getWalletId().isEmpty()) {
         walletId_ = other.walletId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getPubKey().isEmpty()) {
         pubKey_ = other.pubKey_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -475,19 +430,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      adamant.global.v1.RegisterKeyRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              walletId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              pubKey_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (adamant.global.v1.RegisterKeyRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object walletId_ = "";
     /**
@@ -530,11 +509,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWalletId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       walletId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -543,8 +520,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWalletId() {
-      
       walletId_ = getDefaultInstance().getWalletId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -555,12 +532,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWalletIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       walletId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -606,11 +581,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPubKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pubKey_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -619,8 +592,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPubKey() {
-      
       pubKey_ = getDefaultInstance().getPubKey();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -631,12 +604,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPubKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pubKey_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -673,7 +644,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RegisterKeyRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

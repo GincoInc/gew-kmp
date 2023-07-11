@@ -31,60 +31,6 @@ private static final long serialVersionUID = 0L;
     return new CalculateFeeSubstrateSpecific();
   }
 
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private CalculateFeeSubstrateSpecific(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            callType_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            multisigCallType_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_CalculateFeeSubstrateSpecific_descriptor;
@@ -99,7 +45,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CALL_TYPE_FIELD_NUMBER = 1;
-  private int callType_;
+  private int callType_ = 0;
   /**
    * <code>.adamant.global.v1.SubstrateCallType call_type = 1 [json_name = "callType"];</code>
    * @return The enum numeric value on the wire for callType.
@@ -112,13 +58,12 @@ private static final long serialVersionUID = 0L;
    * @return The callType.
    */
   @java.lang.Override public adamant.global.v1.Enum.SubstrateCallType getCallType() {
-    @SuppressWarnings("deprecation")
-    adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.valueOf(callType_);
+    adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.forNumber(callType_);
     return result == null ? adamant.global.v1.Enum.SubstrateCallType.UNRECOGNIZED : result;
   }
 
   public static final int MULTISIG_CALL_TYPE_FIELD_NUMBER = 2;
-  private int multisigCallType_;
+  private int multisigCallType_ = 0;
   /**
    * <code>.adamant.global.v1.SubstrateCallType multisig_call_type = 2 [json_name = "multisigCallType"];</code>
    * @return The enum numeric value on the wire for multisigCallType.
@@ -131,8 +76,7 @@ private static final long serialVersionUID = 0L;
    * @return The multisigCallType.
    */
   @java.lang.Override public adamant.global.v1.Enum.SubstrateCallType getMultisigCallType() {
-    @SuppressWarnings("deprecation")
-    adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.valueOf(multisigCallType_);
+    adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.forNumber(multisigCallType_);
     return result == null ? adamant.global.v1.Enum.SubstrateCallType.UNRECOGNIZED : result;
   }
 
@@ -156,7 +100,7 @@ private static final long serialVersionUID = 0L;
     if (multisigCallType_ != adamant.global.v1.Enum.SubstrateCallType.SUBSTRATE_CALL_TYPE_INVALID.getNumber()) {
       output.writeEnum(2, multisigCallType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -173,7 +117,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, multisigCallType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -190,7 +134,7 @@ private static final long serialVersionUID = 0L;
 
     if (callType_ != other.callType_) return false;
     if (multisigCallType_ != other.multisigCallType_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -205,7 +149,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + callType_;
     hash = (37 * hash) + MULTISIG_CALL_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + multisigCallType_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -254,11 +198,13 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
+
   public static adamant.global.v1.CalculateFeeSubstrateSpecific parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
+
   public static adamant.global.v1.CalculateFeeSubstrateSpecific parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -326,26 +272,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using adamant.global.v1.CalculateFeeSubstrateSpecific.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       callType_ = 0;
-
       multisigCallType_ = 0;
-
       return this;
     }
 
@@ -372,10 +312,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public adamant.global.v1.CalculateFeeSubstrateSpecific buildPartial() {
       adamant.global.v1.CalculateFeeSubstrateSpecific result = new adamant.global.v1.CalculateFeeSubstrateSpecific(this);
-      result.callType_ = callType_;
-      result.multisigCallType_ = multisigCallType_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(adamant.global.v1.CalculateFeeSubstrateSpecific result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.callType_ = callType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.multisigCallType_ = multisigCallType_;
+      }
     }
 
     @java.lang.Override
@@ -428,7 +377,7 @@ private static final long serialVersionUID = 0L;
       if (other.multisigCallType_ != 0) {
         setMultisigCallTypeValue(other.getMultisigCallTypeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -443,19 +392,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      adamant.global.v1.CalculateFeeSubstrateSpecific parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              callType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              multisigCallType_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (adamant.global.v1.CalculateFeeSubstrateSpecific) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int callType_ = 0;
     /**
@@ -471,8 +444,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCallTypeValue(int value) {
-      
       callType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -482,8 +455,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public adamant.global.v1.Enum.SubstrateCallType getCallType() {
-      @SuppressWarnings("deprecation")
-      adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.valueOf(callType_);
+      adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.forNumber(callType_);
       return result == null ? adamant.global.v1.Enum.SubstrateCallType.UNRECOGNIZED : result;
     }
     /**
@@ -495,7 +467,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       callType_ = value.getNumber();
       onChanged();
       return this;
@@ -505,7 +477,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCallType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       callType_ = 0;
       onChanged();
       return this;
@@ -525,8 +497,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMultisigCallTypeValue(int value) {
-      
       multisigCallType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -536,8 +508,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public adamant.global.v1.Enum.SubstrateCallType getMultisigCallType() {
-      @SuppressWarnings("deprecation")
-      adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.valueOf(multisigCallType_);
+      adamant.global.v1.Enum.SubstrateCallType result = adamant.global.v1.Enum.SubstrateCallType.forNumber(multisigCallType_);
       return result == null ? adamant.global.v1.Enum.SubstrateCallType.UNRECOGNIZED : result;
     }
     /**
@@ -549,7 +520,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       multisigCallType_ = value.getNumber();
       onChanged();
       return this;
@@ -559,7 +530,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMultisigCallType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       multisigCallType_ = 0;
       onChanged();
       return this;
@@ -597,7 +568,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CalculateFeeSubstrateSpecific(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

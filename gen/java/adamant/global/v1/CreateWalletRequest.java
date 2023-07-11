@@ -20,7 +20,8 @@ private static final long serialVersionUID = 0L;
     coin_ = 0;
     walletType_ = 0;
     addressType_ = 0;
-    members_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    members_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
     policyId_ = "";
     destinationWalletId_ = "";
     inheritWalletId_ = "";
@@ -33,123 +34,6 @@ private static final long serialVersionUID = 0L;
     return new CreateWalletRequest();
   }
 
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private CreateWalletRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            walletName_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            coin_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            walletType_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            addressType_ = rawValue;
-            break;
-          }
-          case 40: {
-
-            m_ = input.readUInt32();
-            break;
-          }
-          case 48: {
-
-            n_ = input.readUInt32();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              members_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            members_.add(s);
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            policyId_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            destinationWalletId_ = s;
-            break;
-          }
-          case 80: {
-
-            requiredApprovalCount_ = input.readUInt32();
-            break;
-          }
-          case 88: {
-
-            watchOnly_ = input.readBool();
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            inheritWalletId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        members_ = members_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_CreateWalletRequest_descriptor;
@@ -164,7 +48,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WALLET_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object walletName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object walletName_ = "";
   /**
    * <code>string wallet_name = 1 [json_name = "walletName", (.validate.rules) = { ... }</code>
    * @return The walletName.
@@ -202,7 +87,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COIN_FIELD_NUMBER = 2;
-  private int coin_;
+  private int coin_ = 0;
   /**
    * <code>.gincoinc.global.v1.Coin coin = 2 [json_name = "coin", (.validate.rules) = { ... }</code>
    * @return The enum numeric value on the wire for coin.
@@ -215,13 +100,12 @@ private static final long serialVersionUID = 0L;
    * @return The coin.
    */
   @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
-    @SuppressWarnings("deprecation")
-    gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
+    gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.forNumber(coin_);
     return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
   }
 
   public static final int WALLET_TYPE_FIELD_NUMBER = 3;
-  private int walletType_;
+  private int walletType_ = 0;
   /**
    * <code>.adamant.global.v1.WalletType wallet_type = 3 [json_name = "walletType", (.validate.rules) = { ... }</code>
    * @return The enum numeric value on the wire for walletType.
@@ -234,13 +118,12 @@ private static final long serialVersionUID = 0L;
    * @return The walletType.
    */
   @java.lang.Override public adamant.global.v1.Enum.WalletType getWalletType() {
-    @SuppressWarnings("deprecation")
-    adamant.global.v1.Enum.WalletType result = adamant.global.v1.Enum.WalletType.valueOf(walletType_);
+    adamant.global.v1.Enum.WalletType result = adamant.global.v1.Enum.WalletType.forNumber(walletType_);
     return result == null ? adamant.global.v1.Enum.WalletType.UNRECOGNIZED : result;
   }
 
   public static final int ADDRESS_TYPE_FIELD_NUMBER = 4;
-  private int addressType_;
+  private int addressType_ = 0;
   /**
    * <code>.gincoinc.global.v1.AddressType address_type = 4 [json_name = "addressType", (.validate.rules) = { ... }</code>
    * @return The enum numeric value on the wire for addressType.
@@ -253,13 +136,12 @@ private static final long serialVersionUID = 0L;
    * @return The addressType.
    */
   @java.lang.Override public gincoinc.global.v1.Enum.AddressType getAddressType() {
-    @SuppressWarnings("deprecation")
-    gincoinc.global.v1.Enum.AddressType result = gincoinc.global.v1.Enum.AddressType.valueOf(addressType_);
+    gincoinc.global.v1.Enum.AddressType result = gincoinc.global.v1.Enum.AddressType.forNumber(addressType_);
     return result == null ? gincoinc.global.v1.Enum.AddressType.UNRECOGNIZED : result;
   }
 
   public static final int M_FIELD_NUMBER = 5;
-  private int m_;
+  private int m_ = 0;
   /**
    * <pre>
    * and must be m &lt;= n
@@ -274,7 +156,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int N_FIELD_NUMBER = 6;
-  private int n_;
+  private int n_ = 0;
   /**
    * <code>uint32 n = 6 [json_name = "n", (.validate.rules) = { ... }</code>
    * @return The n.
@@ -285,7 +167,9 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MEMBERS_FIELD_NUMBER = 7;
-  private com.google.protobuf.LazyStringList members_;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.LazyStringArrayList members_ =
+      com.google.protobuf.LazyStringArrayList.emptyList();
   /**
    * <code>repeated string members = 7 [json_name = "members", (.validate.rules) = { ... }</code>
    * @return A list containing the members.
@@ -320,7 +204,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUIRED_APPROVAL_COUNT_FIELD_NUMBER = 10;
-  private int requiredApprovalCount_;
+  private int requiredApprovalCount_ = 0;
   /**
    * <code>uint32 required_approval_count = 10 [json_name = "requiredApprovalCount"];</code>
    * @return The requiredApprovalCount.
@@ -331,7 +215,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POLICY_ID_FIELD_NUMBER = 8;
-  private volatile java.lang.Object policyId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object policyId_ = "";
   /**
    * <pre>
    * optional
@@ -377,7 +262,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESTINATION_WALLET_ID_FIELD_NUMBER = 9;
-  private volatile java.lang.Object destinationWalletId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object destinationWalletId_ = "";
   /**
    * <pre>
    * required when create receive only wallet
@@ -423,7 +309,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WATCH_ONLY_FIELD_NUMBER = 11;
-  private boolean watchOnly_;
+  private boolean watchOnly_ = false;
   /**
    * <code>bool watch_only = 11 [json_name = "watchOnly"];</code>
    * @return The watchOnly.
@@ -434,7 +320,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INHERIT_WALLET_ID_FIELD_NUMBER = 12;
-  private volatile java.lang.Object inheritWalletId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object inheritWalletId_ = "";
   /**
    * <pre>
    * optional
@@ -529,7 +416,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(inheritWalletId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, inheritWalletId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -586,7 +473,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(inheritWalletId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, inheritWalletId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -622,7 +509,7 @@ private static final long serialVersionUID = 0L;
         != other.getWatchOnly()) return false;
     if (!getInheritWalletId()
         .equals(other.getInheritWalletId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -660,7 +547,7 @@ private static final long serialVersionUID = 0L;
         getWatchOnly());
     hash = (37 * hash) + INHERIT_WALLET_ID_FIELD_NUMBER;
     hash = (53 * hash) + getInheritWalletId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -709,11 +596,13 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
+
   public static adamant.global.v1.CreateWalletRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
+
   public static adamant.global.v1.CreateWalletRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -777,46 +666,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using adamant.global.v1.CreateWalletRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       walletName_ = "";
-
       coin_ = 0;
-
       walletType_ = 0;
-
       addressType_ = 0;
-
       m_ = 0;
-
       n_ = 0;
-
-      members_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      members_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
       requiredApprovalCount_ = 0;
-
       policyId_ = "";
-
       destinationWalletId_ = "";
-
       watchOnly_ = false;
-
       inheritWalletId_ = "";
-
       return this;
     }
 
@@ -843,25 +717,50 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public adamant.global.v1.CreateWalletRequest buildPartial() {
       adamant.global.v1.CreateWalletRequest result = new adamant.global.v1.CreateWalletRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.walletName_ = walletName_;
-      result.coin_ = coin_;
-      result.walletType_ = walletType_;
-      result.addressType_ = addressType_;
-      result.m_ = m_;
-      result.n_ = n_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        members_ = members_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.members_ = members_;
-      result.requiredApprovalCount_ = requiredApprovalCount_;
-      result.policyId_ = policyId_;
-      result.destinationWalletId_ = destinationWalletId_;
-      result.watchOnly_ = watchOnly_;
-      result.inheritWalletId_ = inheritWalletId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(adamant.global.v1.CreateWalletRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.walletName_ = walletName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.coin_ = coin_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.walletType_ = walletType_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.addressType_ = addressType_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.m_ = m_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.n_ = n_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        members_.makeImmutable();
+        result.members_ = members_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.requiredApprovalCount_ = requiredApprovalCount_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.policyId_ = policyId_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.destinationWalletId_ = destinationWalletId_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.watchOnly_ = watchOnly_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.inheritWalletId_ = inheritWalletId_;
+      }
     }
 
     @java.lang.Override
@@ -910,6 +809,7 @@ private static final long serialVersionUID = 0L;
       if (other == adamant.global.v1.CreateWalletRequest.getDefaultInstance()) return this;
       if (!other.getWalletName().isEmpty()) {
         walletName_ = other.walletName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.coin_ != 0) {
@@ -930,7 +830,7 @@ private static final long serialVersionUID = 0L;
       if (!other.members_.isEmpty()) {
         if (members_.isEmpty()) {
           members_ = other.members_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ |= 0x00000040;
         } else {
           ensureMembersIsMutable();
           members_.addAll(other.members_);
@@ -942,10 +842,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPolicyId().isEmpty()) {
         policyId_ = other.policyId_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (!other.getDestinationWalletId().isEmpty()) {
         destinationWalletId_ = other.destinationWalletId_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (other.getWatchOnly() != false) {
@@ -953,9 +855,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getInheritWalletId().isEmpty()) {
         inheritWalletId_ = other.inheritWalletId_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -970,17 +873,91 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      adamant.global.v1.CreateWalletRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              walletName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              coin_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              walletType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              addressType_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              m_ = input.readUInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              n_ = input.readUInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureMembersIsMutable();
+              members_.add(s);
+              break;
+            } // case 58
+            case 66: {
+              policyId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 66
+            case 74: {
+              destinationWalletId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 74
+            case 80: {
+              requiredApprovalCount_ = input.readUInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 80
+            case 88: {
+              watchOnly_ = input.readBool();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 98: {
+              inheritWalletId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (adamant.global.v1.CreateWalletRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1026,11 +1003,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWalletName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       walletName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1039,8 +1014,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWalletName() {
-      
       walletName_ = getDefaultInstance().getWalletName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1051,12 +1026,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWalletNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       walletName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1075,8 +1048,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCoinValue(int value) {
-      
       coin_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1086,8 +1059,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public gincoinc.global.v1.Enum.Coin getCoin() {
-      @SuppressWarnings("deprecation")
-      gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coin_);
+      gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.forNumber(coin_);
       return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
     }
     /**
@@ -1099,7 +1071,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       coin_ = value.getNumber();
       onChanged();
       return this;
@@ -1109,7 +1081,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCoin() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       coin_ = 0;
       onChanged();
       return this;
@@ -1129,8 +1101,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setWalletTypeValue(int value) {
-      
       walletType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1140,8 +1112,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public adamant.global.v1.Enum.WalletType getWalletType() {
-      @SuppressWarnings("deprecation")
-      adamant.global.v1.Enum.WalletType result = adamant.global.v1.Enum.WalletType.valueOf(walletType_);
+      adamant.global.v1.Enum.WalletType result = adamant.global.v1.Enum.WalletType.forNumber(walletType_);
       return result == null ? adamant.global.v1.Enum.WalletType.UNRECOGNIZED : result;
     }
     /**
@@ -1153,7 +1124,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       walletType_ = value.getNumber();
       onChanged();
       return this;
@@ -1163,7 +1134,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWalletType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       walletType_ = 0;
       onChanged();
       return this;
@@ -1183,8 +1154,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAddressTypeValue(int value) {
-      
       addressType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1194,8 +1165,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public gincoinc.global.v1.Enum.AddressType getAddressType() {
-      @SuppressWarnings("deprecation")
-      gincoinc.global.v1.Enum.AddressType result = gincoinc.global.v1.Enum.AddressType.valueOf(addressType_);
+      gincoinc.global.v1.Enum.AddressType result = gincoinc.global.v1.Enum.AddressType.forNumber(addressType_);
       return result == null ? gincoinc.global.v1.Enum.AddressType.UNRECOGNIZED : result;
     }
     /**
@@ -1207,7 +1177,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       addressType_ = value.getNumber();
       onChanged();
       return this;
@@ -1217,7 +1187,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAddressType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       addressType_ = 0;
       onChanged();
       return this;
@@ -1246,8 +1216,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setM(int value) {
-      
+
       m_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1260,7 +1231,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearM() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       m_ = 0;
       onChanged();
       return this;
@@ -1281,8 +1252,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setN(int value) {
-      
+
       n_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1291,18 +1263,19 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearN() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       n_ = 0;
       onChanged();
       return this;
     }
 
-    private com.google.protobuf.LazyStringList members_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private com.google.protobuf.LazyStringArrayList members_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
     private void ensureMembersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!members_.isModifiable()) {
         members_ = new com.google.protobuf.LazyStringArrayList(members_);
-        bitField0_ |= 0x00000001;
-       }
+      }
+      bitField0_ |= 0x00000040;
     }
     /**
      * <code>repeated string members = 7 [json_name = "members", (.validate.rules) = { ... }</code>
@@ -1310,7 +1283,8 @@ private static final long serialVersionUID = 0L;
      */
     public com.google.protobuf.ProtocolStringList
         getMembersList() {
-      return members_.getUnmodifiableView();
+      members_.makeImmutable();
+      return members_;
     }
     /**
      * <code>repeated string members = 7 [json_name = "members", (.validate.rules) = { ... }</code>
@@ -1344,11 +1318,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMembers(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMembersIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureMembersIsMutable();
       members_.set(index, value);
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1359,11 +1332,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addMembers(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMembersIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureMembersIsMutable();
       members_.add(value);
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1377,6 +1349,7 @@ private static final long serialVersionUID = 0L;
       ensureMembersIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
           values, members_);
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1385,8 +1358,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMembers() {
-      members_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      members_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000040);;
       onChanged();
       return this;
     }
@@ -1397,12 +1371,11 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addMembersBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureMembersIsMutable();
       members_.add(value);
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1422,8 +1395,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRequiredApprovalCount(int value) {
-      
+
       requiredApprovalCount_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1432,7 +1406,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequiredApprovalCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       requiredApprovalCount_ = 0;
       onChanged();
       return this;
@@ -1491,11 +1465,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPolicyId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       policyId_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -1508,8 +1480,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPolicyId() {
-      
       policyId_ = getDefaultInstance().getPolicyId();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -1524,12 +1496,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPolicyIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       policyId_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -1587,11 +1557,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestinationWalletId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       destinationWalletId_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -1604,8 +1572,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDestinationWalletId() {
-      
       destinationWalletId_ = getDefaultInstance().getDestinationWalletId();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -1620,12 +1588,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestinationWalletIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       destinationWalletId_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -1645,8 +1611,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setWatchOnly(boolean value) {
-      
+
       watchOnly_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -1655,7 +1622,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWatchOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       watchOnly_ = false;
       onChanged();
       return this;
@@ -1714,11 +1681,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInheritWalletId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       inheritWalletId_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -1731,8 +1696,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInheritWalletId() {
-      
       inheritWalletId_ = getDefaultInstance().getInheritWalletId();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -1747,12 +1712,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInheritWalletIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       inheritWalletId_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -1789,7 +1752,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateWalletRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

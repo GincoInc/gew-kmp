@@ -5,7 +5,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.42.1)",
+    value = "by gRPC proto compiler (version 1.56.1)",
     comments = "Source: gincoinc/adamant/global/v1/adamantglobalv1/global_api.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class GlobalAPIGrpc {
@@ -2944,14 +2944,14 @@ public final class GlobalAPIGrpc {
 
   /**
    */
-  public static abstract class GlobalAPIImplBase implements io.grpc.BindableService {
+  public interface AsyncService {
 
     /**
      * <pre>
      * Wallet
      * </pre>
      */
-    public void createWallet(adamant.global.v1.CreateWalletRequest request,
+    default void createWallet(adamant.global.v1.CreateWalletRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateWalletResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateWalletMethod(), responseObserver);
     }
@@ -2961,126 +2961,126 @@ public final class GlobalAPIGrpc {
      * Get wallet information. the wallet model includes balance, address etc.
      * </pre>
      */
-    public void getWallet(adamant.global.v1.GetWalletRequest request,
+    default void getWallet(adamant.global.v1.GetWalletRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Wallet> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetWalletMethod(), responseObserver);
     }
 
     /**
      */
-    public void cancelWallet(adamant.global.v1.CancelWalletRequest request,
+    default void cancelWallet(adamant.global.v1.CancelWalletRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCancelWalletMethod(), responseObserver);
     }
 
     /**
      */
-    public void archiveWallet(adamant.global.v1.ArchiveWalletRequest request,
+    default void archiveWallet(adamant.global.v1.ArchiveWalletRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getArchiveWalletMethod(), responseObserver);
     }
 
     /**
      */
-    public void unArchiveWallet(adamant.global.v1.UnArchiveWalletRequest request,
+    default void unArchiveWallet(adamant.global.v1.UnArchiveWalletRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUnArchiveWalletMethod(), responseObserver);
     }
 
     /**
      */
-    public void listWallets(adamant.global.v1.ListWalletsRequest request,
+    default void listWallets(adamant.global.v1.ListWalletsRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListWalletsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListWalletsMethod(), responseObserver);
     }
 
     /**
      */
-    public void listWalletsByFilter(adamant.global.v1.ListWalletsByFilterRequest request,
+    default void listWalletsByFilter(adamant.global.v1.ListWalletsByFilterRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListWalletsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListWalletsByFilterMethod(), responseObserver);
     }
 
     /**
      */
-    public void listBaseWallets(adamant.global.v1.ListBaseWalletsRequest request,
+    default void listBaseWallets(adamant.global.v1.ListBaseWalletsRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListBaseWalletsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListBaseWalletsMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateWalletName(adamant.global.v1.UpdateWalletNameRequest request,
+    default void updateWalletName(adamant.global.v1.UpdateWalletNameRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateWalletNameMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateWalletValidation(adamant.global.v1.UpdateWalletValidationRequest request,
+    default void updateWalletValidation(adamant.global.v1.UpdateWalletValidationRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateWalletValidationMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateWalletPolicy(adamant.global.v1.UpdateWalletPolicyRequest request,
+    default void updateWalletPolicy(adamant.global.v1.UpdateWalletPolicyRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateWalletPolicyMethod(), responseObserver);
     }
 
     /**
      */
-    public void reviewWalletProposal(adamant.global.v1.ReviewWalletProposalRequest request,
+    default void reviewWalletProposal(adamant.global.v1.ReviewWalletProposalRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getReviewWalletProposalMethod(), responseObserver);
     }
 
     /**
      */
-    public void flushBalance(adamant.global.v1.FlushBalanceRequest request,
+    default void flushBalance(adamant.global.v1.FlushBalanceRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.FlushBalanceResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFlushBalanceMethod(), responseObserver);
     }
 
     /**
      */
-    public void createWalletGroup(adamant.global.v1.CreateWalletGroupRequest request,
+    default void createWalletGroup(adamant.global.v1.CreateWalletGroupRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateWalletGroupResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateWalletGroupMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateWalletGroupName(adamant.global.v1.UpdateWalletGroupNameRequest request,
+    default void updateWalletGroupName(adamant.global.v1.UpdateWalletGroupNameRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateWalletGroupNameMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateWalletGroup(adamant.global.v1.UpdateWalletGroupRequest request,
+    default void updateWalletGroup(adamant.global.v1.UpdateWalletGroupRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateWalletGroupMethod(), responseObserver);
     }
 
     /**
      */
-    public void getWalletGroup(adamant.global.v1.GetWalletGroupRequest request,
+    default void getWalletGroup(adamant.global.v1.GetWalletGroupRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.WalletGroup> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetWalletGroupMethod(), responseObserver);
     }
 
     /**
      */
-    public void listWalletGroups(adamant.global.v1.ListWalletGroupsRequest request,
+    default void listWalletGroups(adamant.global.v1.ListWalletGroupsRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListWalletGroupsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListWalletGroupsMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateDestinationWalletID(adamant.global.v1.UpdateDestinationWalletIDRequest request,
+    default void updateDestinationWalletID(adamant.global.v1.UpdateDestinationWalletIDRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateDestinationWalletIDMethod(), responseObserver);
     }
@@ -3090,14 +3090,14 @@ public final class GlobalAPIGrpc {
      * Review
      * </pre>
      */
-    public void approveWallet(adamant.global.v1.ApproveWalletRequest request,
+    default void approveWallet(adamant.global.v1.ApproveWalletRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getApproveWalletMethod(), responseObserver);
     }
 
     /**
      */
-    public void approveTransaction(adamant.global.v1.ApproveTransactionRequest request,
+    default void approveTransaction(adamant.global.v1.ApproveTransactionRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getApproveTransactionMethod(), responseObserver);
     }
@@ -3108,56 +3108,56 @@ public final class GlobalAPIGrpc {
      * Create a new address for an existing wallet
      * </pre>
      */
-    public void createAddress(adamant.global.v1.CreateAddressRequest request,
+    default void createAddress(adamant.global.v1.CreateAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateAddressResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateAddressMethod(), responseObserver);
     }
 
     /**
      */
-    public void getAddress(adamant.global.v1.GetAddressRequest request,
+    default void getAddress(adamant.global.v1.GetAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAddressMethod(), responseObserver);
     }
 
     /**
      */
-    public void getAddressByAddress(adamant.global.v1.GetAddressByAddressRequest request,
+    default void getAddressByAddress(adamant.global.v1.GetAddressByAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAddressByAddressMethod(), responseObserver);
     }
 
     /**
      */
-    public void getAddressByAddressCoin(adamant.global.v1.GetAddressByAddressCoinRequest request,
+    default void getAddressByAddressCoin(adamant.global.v1.GetAddressByAddressCoinRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAddressByAddressCoinMethod(), responseObserver);
     }
 
     /**
      */
-    public void getAddressByIndex(adamant.global.v1.GetAddressByIndexRequest request,
+    default void getAddressByIndex(adamant.global.v1.GetAddressByIndexRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAddressByIndexMethod(), responseObserver);
     }
 
     /**
      */
-    public void listAddresses(adamant.global.v1.ListAddressesRequest request,
+    default void listAddresses(adamant.global.v1.ListAddressesRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListAddressesResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListAddressesMethod(), responseObserver);
     }
 
     /**
      */
-    public void listAddressesWithBalance(adamant.global.v1.ListAddressesWithBalanceRequest request,
+    default void listAddressesWithBalance(adamant.global.v1.ListAddressesWithBalanceRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListAddressesWithBalanceResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListAddressesWithBalanceMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateAddressBalance(adamant.global.v1.UpdateAddressBalanceRequest request,
+    default void updateAddressBalance(adamant.global.v1.UpdateAddressBalanceRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateAddressBalanceMethod(), responseObserver);
     }
@@ -3167,7 +3167,7 @@ public final class GlobalAPIGrpc {
      * Get an address which hold ETH for ethereum wallet/address creation etc
      * </pre>
      */
-    public void getEthereumFeeAddress(adamant.global.v1.GetEthereumFeeAddressRequest request,
+    default void getEthereumFeeAddress(adamant.global.v1.GetEthereumFeeAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.EthereumFeeAddress> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetEthereumFeeAddressMethod(), responseObserver);
     }
@@ -3177,35 +3177,35 @@ public final class GlobalAPIGrpc {
      * Get addresses associated with the Polkadot signer
      * </pre>
      */
-    public void listSubstrateChildAddresses(adamant.global.v1.ListSubstrateChildAddressesRequest request,
+    default void listSubstrateChildAddresses(adamant.global.v1.ListSubstrateChildAddressesRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListSubstrateChildAddressesResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListSubstrateChildAddressesMethod(), responseObserver);
     }
 
     /**
      */
-    public void listSymbolChildAddresses(adamant.global.v1.ListSymbolChildAddressesRequest request,
+    default void listSymbolChildAddresses(adamant.global.v1.ListSymbolChildAddressesRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListSymbolChildAddressesResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListSymbolChildAddressesMethod(), responseObserver);
     }
 
     /**
      */
-    public void listIOSTChildAccounts(adamant.global.v1.ListIOSTChildAccountsRequest request,
+    default void listIOSTChildAccounts(adamant.global.v1.ListIOSTChildAccountsRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListIOSTChildAccountsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListIOSTChildAccountsMethod(), responseObserver);
     }
 
     /**
      */
-    public void importAddress(adamant.global.v1.ImportAddressRequest request,
+    default void importAddress(adamant.global.v1.ImportAddressRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getImportAddressMethod(), responseObserver);
     }
 
     /**
      */
-    public void listCallers(adamant.global.v1.ListCallersRequest request,
+    default void listCallers(adamant.global.v1.ListCallersRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListCallersResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListCallersMethod(), responseObserver);
     }
@@ -3215,7 +3215,7 @@ public final class GlobalAPIGrpc {
      * RegisterKey
      * </pre>
      */
-    public void registerKey(adamant.global.v1.RegisterKeyRequest request,
+    default void registerKey(adamant.global.v1.RegisterKeyRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.RegisterKeyResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRegisterKeyMethod(), responseObserver);
     }
@@ -3225,77 +3225,77 @@ public final class GlobalAPIGrpc {
      * Transaction
      * </pre>
      */
-    public void createTransaction(adamant.global.v1.CreateTransactionRequest request,
+    default void createTransaction(adamant.global.v1.CreateTransactionRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateTransactionMethod(), responseObserver);
     }
 
     /**
      */
-    public void createXRPInitTransactions(adamant.global.v1.CreateXRPInitTransactionsRequest request,
+    default void createXRPInitTransactions(adamant.global.v1.CreateXRPInitTransactionsRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateXRPInitTransactionsMethod(), responseObserver);
     }
 
     /**
      */
-    public void signTransaction(adamant.global.v1.SignTransactionRequest request,
+    default void signTransaction(adamant.global.v1.SignTransactionRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSignTransactionMethod(), responseObserver);
     }
 
     /**
      */
-    public void signXRPInitTransactions(adamant.global.v1.SignXRPInitTransactionsRequest request,
+    default void signXRPInitTransactions(adamant.global.v1.SignXRPInitTransactionsRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSignXRPInitTransactionsMethod(), responseObserver);
     }
 
     /**
      */
-    public void sendTransaction(adamant.global.v1.SendTransactionRequest request,
+    default void sendTransaction(adamant.global.v1.SendTransactionRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.SendTransactionResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSendTransactionMethod(), responseObserver);
     }
 
     /**
      */
-    public void sendXRPInitTransactions(adamant.global.v1.SendXRPInitTransactionsRequest request,
+    default void sendXRPInitTransactions(adamant.global.v1.SendXRPInitTransactionsRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.SendXRPInitTransactionsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSendXRPInitTransactionsMethod(), responseObserver);
     }
 
     /**
      */
-    public void cancelTransaction(adamant.global.v1.CancelTransactionRequest request,
+    default void cancelTransaction(adamant.global.v1.CancelTransactionRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCancelTransactionMethod(), responseObserver);
     }
 
     /**
      */
-    public void getTransaction(adamant.global.v1.GetTransactionRequest request,
+    default void getTransaction(adamant.global.v1.GetTransactionRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Transaction> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetTransactionMethod(), responseObserver);
     }
 
     /**
      */
-    public void getTransactionByTxID(adamant.global.v1.GetTransactionByTxIDRequest request,
+    default void getTransactionByTxID(adamant.global.v1.GetTransactionByTxIDRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Transaction> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetTransactionByTxIDMethod(), responseObserver);
     }
 
     /**
      */
-    public void listTransactions(adamant.global.v1.ListTransactionsRequest request,
+    default void listTransactions(adamant.global.v1.ListTransactionsRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListTransactionsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListTransactionsMethod(), responseObserver);
     }
 
     /**
      */
-    public void listTransactionsByFilter(adamant.global.v1.ListTransactionsByFilterRequest request,
+    default void listTransactionsByFilter(adamant.global.v1.ListTransactionsByFilterRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListTransactionsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListTransactionsByFilterMethod(), responseObserver);
     }
@@ -3305,21 +3305,21 @@ public final class GlobalAPIGrpc {
      * SignInfo
      * </pre>
      */
-    public void getSignInfo(adamant.global.v1.GetSignInfoRequest request,
+    default void getSignInfo(adamant.global.v1.GetSignInfoRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.SignInfo> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetSignInfoMethod(), responseObserver);
     }
 
     /**
      */
-    public void listSignInfo(adamant.global.v1.ListSignInfoRequest request,
+    default void listSignInfo(adamant.global.v1.ListSignInfoRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListSignInfoResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListSignInfoMethod(), responseObserver);
     }
 
     /**
      */
-    public void listXRPInitSignInfo(adamant.global.v1.ListXRPInitSignInfoRequest request,
+    default void listXRPInitSignInfo(adamant.global.v1.ListXRPInitSignInfoRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListXRPInitSignInfoResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListXRPInitSignInfoMethod(), responseObserver);
     }
@@ -3330,14 +3330,14 @@ public final class GlobalAPIGrpc {
      * List transfers for a given wallet. Ordered by update time desc
      * </pre>
      */
-    public void listTransfers(adamant.global.v1.ListTransfersRequest request,
+    default void listTransfers(adamant.global.v1.ListTransfersRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListTransfersResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListTransfersMethod(), responseObserver);
     }
 
     /**
      */
-    public void listTransfersByFilter(adamant.global.v1.ListTransfersByFilterRequest request,
+    default void listTransfersByFilter(adamant.global.v1.ListTransfersByFilterRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListTransfersResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListTransfersByFilterMethod(), responseObserver);
     }
@@ -3348,7 +3348,7 @@ public final class GlobalAPIGrpc {
      * Get rates by snapshot id
      * </pre>
      */
-    public void getRateSnapshot(adamant.global.v1.GetRateSnapshotRequest request,
+    default void getRateSnapshot(adamant.global.v1.GetRateSnapshotRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.RateSnapshot> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetRateSnapshotMethod(), responseObserver);
     }
@@ -3358,7 +3358,7 @@ public final class GlobalAPIGrpc {
      * Get latest rates set to your organization
      * </pre>
      */
-    public void getLatestRateSnapshot(adamant.global.v1.GetLatestRateSnapshotRequest request,
+    default void getLatestRateSnapshot(adamant.global.v1.GetLatestRateSnapshotRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.RateSnapshot> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetLatestRateSnapshotMethod(), responseObserver);
     }
@@ -3368,14 +3368,14 @@ public final class GlobalAPIGrpc {
      * Set rates to your organization
      * </pre>
      */
-    public void setRates(adamant.global.v1.SetRatesRequest request,
+    default void setRates(adamant.global.v1.SetRatesRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.SetRatesResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSetRatesMethod(), responseObserver);
     }
 
     /**
      */
-    public void setDefaultRates(adamant.global.v1.SetDefaultRatesRequest request,
+    default void setDefaultRates(adamant.global.v1.SetDefaultRatesRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.SetDefaultRatesResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSetDefaultRatesMethod(), responseObserver);
     }
@@ -3385,35 +3385,35 @@ public final class GlobalAPIGrpc {
      * policy
      * </pre>
      */
-    public void createLabeledAddress(adamant.global.v1.CreateLabeledAddressRequest request,
+    default void createLabeledAddress(adamant.global.v1.CreateLabeledAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateLabeledAddressResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateLabeledAddressMethod(), responseObserver);
     }
 
     /**
      */
-    public void getLabeledAddress(adamant.global.v1.GetLabeledAddressRequest request,
+    default void getLabeledAddress(adamant.global.v1.GetLabeledAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.LabeledAddress> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetLabeledAddressMethod(), responseObserver);
     }
 
     /**
      */
-    public void listLabeledAddresses(adamant.global.v1.ListLabeledAddressesRequest request,
+    default void listLabeledAddresses(adamant.global.v1.ListLabeledAddressesRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListLabeledAddressesResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListLabeledAddressesMethod(), responseObserver);
     }
 
     /**
      */
-    public void isDeletableLabeledAddress(adamant.global.v1.IsDeletableLabeledAddressRequest request,
+    default void isDeletableLabeledAddress(adamant.global.v1.IsDeletableLabeledAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.IsDeletableLabeledAddressResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getIsDeletableLabeledAddressMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateLabeledAddress(adamant.global.v1.UpdateLabeledAddressRequest request,
+    default void updateLabeledAddress(adamant.global.v1.UpdateLabeledAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.LabeledAddress> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateLabeledAddressMethod(), responseObserver);
     }
@@ -3423,168 +3423,168 @@ public final class GlobalAPIGrpc {
      * buf:lint:ignore RPC_REQUEST_STANDARD_NAME
      * </pre>
      */
-    public void deleteAddress(adamant.global.v1.DeleteLabeledAddressRequest request,
+    default void deleteAddress(adamant.global.v1.DeleteLabeledAddressRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteAddressMethod(), responseObserver);
     }
 
     /**
      */
-    public void reviewLabeledAddressProposal(adamant.global.v1.ReviewLabeledAddressProposalRequest request,
+    default void reviewLabeledAddressProposal(adamant.global.v1.ReviewLabeledAddressProposalRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getReviewLabeledAddressProposalMethod(), responseObserver);
     }
 
     /**
      */
-    public void createWhitelist(adamant.global.v1.CreateWhitelistRequest request,
+    default void createWhitelist(adamant.global.v1.CreateWhitelistRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateWhitelistResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateWhitelistMethod(), responseObserver);
     }
 
     /**
      */
-    public void getWhitelist(adamant.global.v1.GetWhitelistRequest request,
+    default void getWhitelist(adamant.global.v1.GetWhitelistRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Whitelist> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetWhitelistMethod(), responseObserver);
     }
 
     /**
      */
-    public void listWhitelists(adamant.global.v1.ListWhitelistsRequest request,
+    default void listWhitelists(adamant.global.v1.ListWhitelistsRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListWhitelistsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListWhitelistsMethod(), responseObserver);
     }
 
     /**
      */
-    public void isDeletableWhitelist(adamant.global.v1.IsDeletableWhitelistRequest request,
+    default void isDeletableWhitelist(adamant.global.v1.IsDeletableWhitelistRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.IsDeletableWhitelistResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getIsDeletableWhitelistMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateWhitelist(adamant.global.v1.UpdateWhitelistRequest request,
+    default void updateWhitelist(adamant.global.v1.UpdateWhitelistRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Whitelist> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateWhitelistMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateWhitelistAddresses(adamant.global.v1.UpdateWhitelistAddressesRequest request,
+    default void updateWhitelistAddresses(adamant.global.v1.UpdateWhitelistAddressesRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Whitelist> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateWhitelistAddressesMethod(), responseObserver);
     }
 
     /**
      */
-    public void deleteWhitelist(adamant.global.v1.DeleteWhitelistRequest request,
+    default void deleteWhitelist(adamant.global.v1.DeleteWhitelistRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteWhitelistMethod(), responseObserver);
     }
 
     /**
      */
-    public void createTransferLimit(adamant.global.v1.CreateTransferLimitRequest request,
+    default void createTransferLimit(adamant.global.v1.CreateTransferLimitRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransferLimitResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateTransferLimitMethod(), responseObserver);
     }
 
     /**
      */
-    public void getTransferLimit(adamant.global.v1.GetTransferLimitRequest request,
+    default void getTransferLimit(adamant.global.v1.GetTransferLimitRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.TransferLimit> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetTransferLimitMethod(), responseObserver);
     }
 
     /**
      */
-    public void listTransferLimits(adamant.global.v1.ListTransferLimitsRequest request,
+    default void listTransferLimits(adamant.global.v1.ListTransferLimitsRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListTransferLimitsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListTransferLimitsMethod(), responseObserver);
     }
 
     /**
      */
-    public void isDeletableTransferLimit(adamant.global.v1.IsDeletableTransferLimitRequest request,
+    default void isDeletableTransferLimit(adamant.global.v1.IsDeletableTransferLimitRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.IsDeletableTransferLimitResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getIsDeletableTransferLimitMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateTransferLimit(adamant.global.v1.UpdateTransferLimitRequest request,
+    default void updateTransferLimit(adamant.global.v1.UpdateTransferLimitRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.TransferLimit> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateTransferLimitMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateTransferLimitName(adamant.global.v1.UpdateTransferLimitNameRequest request,
+    default void updateTransferLimitName(adamant.global.v1.UpdateTransferLimitNameRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.TransferLimit> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateTransferLimitNameMethod(), responseObserver);
     }
 
     /**
      */
-    public void deleteTransferLimit(adamant.global.v1.DeleteTransferLimitRequest request,
+    default void deleteTransferLimit(adamant.global.v1.DeleteTransferLimitRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteTransferLimitMethod(), responseObserver);
     }
 
     /**
      */
-    public void reviewTransferLimitProposal(adamant.global.v1.ReviewTransferLimitProposalRequest request,
+    default void reviewTransferLimitProposal(adamant.global.v1.ReviewTransferLimitProposalRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getReviewTransferLimitProposalMethod(), responseObserver);
     }
 
     /**
      */
-    public void createPolicy(adamant.global.v1.CreatePolicyRequest request,
+    default void createPolicy(adamant.global.v1.CreatePolicyRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreatePolicyResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreatePolicyMethod(), responseObserver);
     }
 
     /**
      */
-    public void getPolicy(adamant.global.v1.GetPolicyRequest request,
+    default void getPolicy(adamant.global.v1.GetPolicyRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Policy> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetPolicyMethod(), responseObserver);
     }
 
     /**
      */
-    public void listPolicies(adamant.global.v1.ListPoliciesRequest request,
+    default void listPolicies(adamant.global.v1.ListPoliciesRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListPoliciesResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListPoliciesMethod(), responseObserver);
     }
 
     /**
      */
-    public void isDeletablePolicy(adamant.global.v1.IsDeletablePolicyRequest request,
+    default void isDeletablePolicy(adamant.global.v1.IsDeletablePolicyRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.IsDeletablePolicyResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getIsDeletablePolicyMethod(), responseObserver);
     }
 
     /**
      */
-    public void updatePolicy(adamant.global.v1.UpdatePolicyRequest request,
+    default void updatePolicy(adamant.global.v1.UpdatePolicyRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Policy> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdatePolicyMethod(), responseObserver);
     }
 
     /**
      */
-    public void deletePolicy(adamant.global.v1.DeletePolicyRequest request,
+    default void deletePolicy(adamant.global.v1.DeletePolicyRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeletePolicyMethod(), responseObserver);
     }
 
     /**
      */
-    public void reviewPolicyProposal(adamant.global.v1.ReviewPolicyProposalRequest request,
+    default void reviewPolicyProposal(adamant.global.v1.ReviewPolicyProposalRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getReviewPolicyProposalMethod(), responseObserver);
     }
@@ -3594,42 +3594,42 @@ public final class GlobalAPIGrpc {
      * Utility
      * </pre>
      */
-    public void getSpendableBalance(adamant.global.v1.GetSpendableBalanceRequest request,
+    default void getSpendableBalance(adamant.global.v1.GetSpendableBalanceRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.GetSpendableBalanceResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetSpendableBalanceMethod(), responseObserver);
     }
 
     /**
      */
-    public void getTotalBalance(adamant.global.v1.GetTotalBalanceRequest request,
+    default void getTotalBalance(adamant.global.v1.GetTotalBalanceRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.TotalBalance> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetTotalBalanceMethod(), responseObserver);
     }
 
     /**
      */
-    public void listBalanceSnapshots(adamant.global.v1.ListBalanceSnapshotsRequest request,
+    default void listBalanceSnapshots(adamant.global.v1.ListBalanceSnapshotsRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListBalanceSnapshotsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListBalanceSnapshotsMethod(), responseObserver);
     }
 
     /**
      */
-    public void calculateFee(adamant.global.v1.CalculateFeeRequest request,
+    default void calculateFee(adamant.global.v1.CalculateFeeRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CalculateFeeResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCalculateFeeMethod(), responseObserver);
     }
 
     /**
      */
-    public void getMembersDeactivatabilities(adamant.global.v1.GetMembersDeactivatabilitiesRequest request,
+    default void getMembersDeactivatabilities(adamant.global.v1.GetMembersDeactivatabilitiesRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.GetMembersDeactivatabilitiesResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetMembersDeactivatabilitiesMethod(), responseObserver);
     }
 
     /**
      */
-    public void getRecommendedFeeRate(adamant.global.v1.GetRecommendedFeeRateRequest request,
+    default void getRecommendedFeeRate(adamant.global.v1.GetRecommendedFeeRateRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.GetRecommendedFeeRateResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetRecommendedFeeRateMethod(), responseObserver);
     }
@@ -3639,678 +3639,35 @@ public final class GlobalAPIGrpc {
      * Validate format of given address
      * </pre>
      */
-    public void validateAddress(adamant.global.v1.ValidateAddressRequest request,
+    default void validateAddress(adamant.global.v1.ValidateAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ValidateAddressResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getValidateAddressMethod(), responseObserver);
     }
 
     /**
      */
-    public void listAuditLogs(adamant.global.v1.ListAuditLogsRequest request,
+    default void listAuditLogs(adamant.global.v1.ListAuditLogsRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListAuditLogsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListAuditLogsMethod(), responseObserver);
-    }
-
-    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
-      return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
-          .addMethod(
-            getCreateWalletMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.CreateWalletRequest,
-                adamant.global.v1.CreateWalletResponse>(
-                  this, METHODID_CREATE_WALLET)))
-          .addMethod(
-            getGetWalletMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetWalletRequest,
-                adamant.global.v1.Model.Wallet>(
-                  this, METHODID_GET_WALLET)))
-          .addMethod(
-            getCancelWalletMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.CancelWalletRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_CANCEL_WALLET)))
-          .addMethod(
-            getArchiveWalletMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ArchiveWalletRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_ARCHIVE_WALLET)))
-          .addMethod(
-            getUnArchiveWalletMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.UnArchiveWalletRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_UN_ARCHIVE_WALLET)))
-          .addMethod(
-            getListWalletsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListWalletsRequest,
-                adamant.global.v1.ListWalletsResponse>(
-                  this, METHODID_LIST_WALLETS)))
-          .addMethod(
-            getListWalletsByFilterMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListWalletsByFilterRequest,
-                adamant.global.v1.ListWalletsResponse>(
-                  this, METHODID_LIST_WALLETS_BY_FILTER)))
-          .addMethod(
-            getListBaseWalletsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListBaseWalletsRequest,
-                adamant.global.v1.ListBaseWalletsResponse>(
-                  this, METHODID_LIST_BASE_WALLETS)))
-          .addMethod(
-            getUpdateWalletNameMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.UpdateWalletNameRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_UPDATE_WALLET_NAME)))
-          .addMethod(
-            getUpdateWalletValidationMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.UpdateWalletValidationRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_UPDATE_WALLET_VALIDATION)))
-          .addMethod(
-            getUpdateWalletPolicyMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.UpdateWalletPolicyRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_UPDATE_WALLET_POLICY)))
-          .addMethod(
-            getReviewWalletProposalMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ReviewWalletProposalRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_REVIEW_WALLET_PROPOSAL)))
-          .addMethod(
-            getFlushBalanceMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.FlushBalanceRequest,
-                adamant.global.v1.FlushBalanceResponse>(
-                  this, METHODID_FLUSH_BALANCE)))
-          .addMethod(
-            getCreateWalletGroupMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.CreateWalletGroupRequest,
-                adamant.global.v1.CreateWalletGroupResponse>(
-                  this, METHODID_CREATE_WALLET_GROUP)))
-          .addMethod(
-            getUpdateWalletGroupNameMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.UpdateWalletGroupNameRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_UPDATE_WALLET_GROUP_NAME)))
-          .addMethod(
-            getUpdateWalletGroupMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.UpdateWalletGroupRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_UPDATE_WALLET_GROUP)))
-          .addMethod(
-            getGetWalletGroupMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetWalletGroupRequest,
-                adamant.global.v1.Model.WalletGroup>(
-                  this, METHODID_GET_WALLET_GROUP)))
-          .addMethod(
-            getListWalletGroupsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListWalletGroupsRequest,
-                adamant.global.v1.ListWalletGroupsResponse>(
-                  this, METHODID_LIST_WALLET_GROUPS)))
-          .addMethod(
-            getUpdateDestinationWalletIDMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.UpdateDestinationWalletIDRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_UPDATE_DESTINATION_WALLET_ID)))
-          .addMethod(
-            getApproveWalletMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ApproveWalletRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_APPROVE_WALLET)))
-          .addMethod(
-            getApproveTransactionMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ApproveTransactionRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_APPROVE_TRANSACTION)))
-          .addMethod(
-            getCreateAddressMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.CreateAddressRequest,
-                adamant.global.v1.CreateAddressResponse>(
-                  this, METHODID_CREATE_ADDRESS)))
-          .addMethod(
-            getGetAddressMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetAddressRequest,
-                adamant.global.v1.Model.Address>(
-                  this, METHODID_GET_ADDRESS)))
-          .addMethod(
-            getGetAddressByAddressMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetAddressByAddressRequest,
-                adamant.global.v1.Model.Address>(
-                  this, METHODID_GET_ADDRESS_BY_ADDRESS)))
-          .addMethod(
-            getGetAddressByAddressCoinMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetAddressByAddressCoinRequest,
-                adamant.global.v1.Model.Address>(
-                  this, METHODID_GET_ADDRESS_BY_ADDRESS_COIN)))
-          .addMethod(
-            getGetAddressByIndexMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetAddressByIndexRequest,
-                adamant.global.v1.Model.Address>(
-                  this, METHODID_GET_ADDRESS_BY_INDEX)))
-          .addMethod(
-            getListAddressesMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListAddressesRequest,
-                adamant.global.v1.ListAddressesResponse>(
-                  this, METHODID_LIST_ADDRESSES)))
-          .addMethod(
-            getListAddressesWithBalanceMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListAddressesWithBalanceRequest,
-                adamant.global.v1.ListAddressesWithBalanceResponse>(
-                  this, METHODID_LIST_ADDRESSES_WITH_BALANCE)))
-          .addMethod(
-            getUpdateAddressBalanceMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.UpdateAddressBalanceRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_UPDATE_ADDRESS_BALANCE)))
-          .addMethod(
-            getGetEthereumFeeAddressMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetEthereumFeeAddressRequest,
-                adamant.global.v1.Model.EthereumFeeAddress>(
-                  this, METHODID_GET_ETHEREUM_FEE_ADDRESS)))
-          .addMethod(
-            getListSubstrateChildAddressesMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListSubstrateChildAddressesRequest,
-                adamant.global.v1.ListSubstrateChildAddressesResponse>(
-                  this, METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES)))
-          .addMethod(
-            getListSymbolChildAddressesMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListSymbolChildAddressesRequest,
-                adamant.global.v1.ListSymbolChildAddressesResponse>(
-                  this, METHODID_LIST_SYMBOL_CHILD_ADDRESSES)))
-          .addMethod(
-            getListIOSTChildAccountsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListIOSTChildAccountsRequest,
-                adamant.global.v1.ListIOSTChildAccountsResponse>(
-                  this, METHODID_LIST_IOSTCHILD_ACCOUNTS)))
-          .addMethod(
-            getImportAddressMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ImportAddressRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_IMPORT_ADDRESS)))
-          .addMethod(
-            getListCallersMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListCallersRequest,
-                adamant.global.v1.ListCallersResponse>(
-                  this, METHODID_LIST_CALLERS)))
-          .addMethod(
-            getRegisterKeyMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.RegisterKeyRequest,
-                adamant.global.v1.RegisterKeyResponse>(
-                  this, METHODID_REGISTER_KEY)))
-          .addMethod(
-            getCreateTransactionMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.CreateTransactionRequest,
-                adamant.global.v1.CreateTransactionResponse>(
-                  this, METHODID_CREATE_TRANSACTION)))
-          .addMethod(
-            getCreateXRPInitTransactionsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.CreateXRPInitTransactionsRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_CREATE_XRPINIT_TRANSACTIONS)))
-          .addMethod(
-            getSignTransactionMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.SignTransactionRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_SIGN_TRANSACTION)))
-          .addMethod(
-            getSignXRPInitTransactionsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.SignXRPInitTransactionsRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_SIGN_XRPINIT_TRANSACTIONS)))
-          .addMethod(
-            getSendTransactionMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.SendTransactionRequest,
-                adamant.global.v1.SendTransactionResponse>(
-                  this, METHODID_SEND_TRANSACTION)))
-          .addMethod(
-            getSendXRPInitTransactionsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.SendXRPInitTransactionsRequest,
-                adamant.global.v1.SendXRPInitTransactionsResponse>(
-                  this, METHODID_SEND_XRPINIT_TRANSACTIONS)))
-          .addMethod(
-            getCancelTransactionMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.CancelTransactionRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_CANCEL_TRANSACTION)))
-          .addMethod(
-            getGetTransactionMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetTransactionRequest,
-                adamant.global.v1.Model.Transaction>(
-                  this, METHODID_GET_TRANSACTION)))
-          .addMethod(
-            getGetTransactionByTxIDMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetTransactionByTxIDRequest,
-                adamant.global.v1.Model.Transaction>(
-                  this, METHODID_GET_TRANSACTION_BY_TX_ID)))
-          .addMethod(
-            getListTransactionsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListTransactionsRequest,
-                adamant.global.v1.ListTransactionsResponse>(
-                  this, METHODID_LIST_TRANSACTIONS)))
-          .addMethod(
-            getListTransactionsByFilterMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListTransactionsByFilterRequest,
-                adamant.global.v1.ListTransactionsResponse>(
-                  this, METHODID_LIST_TRANSACTIONS_BY_FILTER)))
-          .addMethod(
-            getGetSignInfoMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetSignInfoRequest,
-                adamant.global.v1.Model.SignInfo>(
-                  this, METHODID_GET_SIGN_INFO)))
-          .addMethod(
-            getListSignInfoMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListSignInfoRequest,
-                adamant.global.v1.ListSignInfoResponse>(
-                  this, METHODID_LIST_SIGN_INFO)))
-          .addMethod(
-            getListXRPInitSignInfoMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListXRPInitSignInfoRequest,
-                adamant.global.v1.ListXRPInitSignInfoResponse>(
-                  this, METHODID_LIST_XRPINIT_SIGN_INFO)))
-          .addMethod(
-            getListTransfersMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListTransfersRequest,
-                adamant.global.v1.ListTransfersResponse>(
-                  this, METHODID_LIST_TRANSFERS)))
-          .addMethod(
-            getListTransfersByFilterMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListTransfersByFilterRequest,
-                adamant.global.v1.ListTransfersResponse>(
-                  this, METHODID_LIST_TRANSFERS_BY_FILTER)))
-          .addMethod(
-            getGetRateSnapshotMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetRateSnapshotRequest,
-                adamant.global.v1.Model.RateSnapshot>(
-                  this, METHODID_GET_RATE_SNAPSHOT)))
-          .addMethod(
-            getGetLatestRateSnapshotMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetLatestRateSnapshotRequest,
-                adamant.global.v1.Model.RateSnapshot>(
-                  this, METHODID_GET_LATEST_RATE_SNAPSHOT)))
-          .addMethod(
-            getSetRatesMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.SetRatesRequest,
-                adamant.global.v1.SetRatesResponse>(
-                  this, METHODID_SET_RATES)))
-          .addMethod(
-            getSetDefaultRatesMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.SetDefaultRatesRequest,
-                adamant.global.v1.SetDefaultRatesResponse>(
-                  this, METHODID_SET_DEFAULT_RATES)))
-          .addMethod(
-            getCreateLabeledAddressMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.CreateLabeledAddressRequest,
-                adamant.global.v1.CreateLabeledAddressResponse>(
-                  this, METHODID_CREATE_LABELED_ADDRESS)))
-          .addMethod(
-            getGetLabeledAddressMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetLabeledAddressRequest,
-                adamant.global.v1.Model.LabeledAddress>(
-                  this, METHODID_GET_LABELED_ADDRESS)))
-          .addMethod(
-            getListLabeledAddressesMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListLabeledAddressesRequest,
-                adamant.global.v1.ListLabeledAddressesResponse>(
-                  this, METHODID_LIST_LABELED_ADDRESSES)))
-          .addMethod(
-            getIsDeletableLabeledAddressMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.IsDeletableLabeledAddressRequest,
-                adamant.global.v1.IsDeletableLabeledAddressResponse>(
-                  this, METHODID_IS_DELETABLE_LABELED_ADDRESS)))
-          .addMethod(
-            getUpdateLabeledAddressMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.UpdateLabeledAddressRequest,
-                adamant.global.v1.Model.LabeledAddress>(
-                  this, METHODID_UPDATE_LABELED_ADDRESS)))
-          .addMethod(
-            getDeleteAddressMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.DeleteLabeledAddressRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_DELETE_ADDRESS)))
-          .addMethod(
-            getReviewLabeledAddressProposalMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ReviewLabeledAddressProposalRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL)))
-          .addMethod(
-            getCreateWhitelistMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.CreateWhitelistRequest,
-                adamant.global.v1.CreateWhitelistResponse>(
-                  this, METHODID_CREATE_WHITELIST)))
-          .addMethod(
-            getGetWhitelistMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetWhitelistRequest,
-                adamant.global.v1.Model.Whitelist>(
-                  this, METHODID_GET_WHITELIST)))
-          .addMethod(
-            getListWhitelistsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListWhitelistsRequest,
-                adamant.global.v1.ListWhitelistsResponse>(
-                  this, METHODID_LIST_WHITELISTS)))
-          .addMethod(
-            getIsDeletableWhitelistMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.IsDeletableWhitelistRequest,
-                adamant.global.v1.IsDeletableWhitelistResponse>(
-                  this, METHODID_IS_DELETABLE_WHITELIST)))
-          .addMethod(
-            getUpdateWhitelistMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.UpdateWhitelistRequest,
-                adamant.global.v1.Model.Whitelist>(
-                  this, METHODID_UPDATE_WHITELIST)))
-          .addMethod(
-            getUpdateWhitelistAddressesMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.UpdateWhitelistAddressesRequest,
-                adamant.global.v1.Model.Whitelist>(
-                  this, METHODID_UPDATE_WHITELIST_ADDRESSES)))
-          .addMethod(
-            getDeleteWhitelistMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.DeleteWhitelistRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_DELETE_WHITELIST)))
-          .addMethod(
-            getCreateTransferLimitMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.CreateTransferLimitRequest,
-                adamant.global.v1.CreateTransferLimitResponse>(
-                  this, METHODID_CREATE_TRANSFER_LIMIT)))
-          .addMethod(
-            getGetTransferLimitMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetTransferLimitRequest,
-                adamant.global.v1.Model.TransferLimit>(
-                  this, METHODID_GET_TRANSFER_LIMIT)))
-          .addMethod(
-            getListTransferLimitsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListTransferLimitsRequest,
-                adamant.global.v1.ListTransferLimitsResponse>(
-                  this, METHODID_LIST_TRANSFER_LIMITS)))
-          .addMethod(
-            getIsDeletableTransferLimitMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.IsDeletableTransferLimitRequest,
-                adamant.global.v1.IsDeletableTransferLimitResponse>(
-                  this, METHODID_IS_DELETABLE_TRANSFER_LIMIT)))
-          .addMethod(
-            getUpdateTransferLimitMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.UpdateTransferLimitRequest,
-                adamant.global.v1.Model.TransferLimit>(
-                  this, METHODID_UPDATE_TRANSFER_LIMIT)))
-          .addMethod(
-            getUpdateTransferLimitNameMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.UpdateTransferLimitNameRequest,
-                adamant.global.v1.Model.TransferLimit>(
-                  this, METHODID_UPDATE_TRANSFER_LIMIT_NAME)))
-          .addMethod(
-            getDeleteTransferLimitMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.DeleteTransferLimitRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_DELETE_TRANSFER_LIMIT)))
-          .addMethod(
-            getReviewTransferLimitProposalMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ReviewTransferLimitProposalRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL)))
-          .addMethod(
-            getCreatePolicyMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.CreatePolicyRequest,
-                adamant.global.v1.CreatePolicyResponse>(
-                  this, METHODID_CREATE_POLICY)))
-          .addMethod(
-            getGetPolicyMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetPolicyRequest,
-                adamant.global.v1.Model.Policy>(
-                  this, METHODID_GET_POLICY)))
-          .addMethod(
-            getListPoliciesMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListPoliciesRequest,
-                adamant.global.v1.ListPoliciesResponse>(
-                  this, METHODID_LIST_POLICIES)))
-          .addMethod(
-            getIsDeletablePolicyMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.IsDeletablePolicyRequest,
-                adamant.global.v1.IsDeletablePolicyResponse>(
-                  this, METHODID_IS_DELETABLE_POLICY)))
-          .addMethod(
-            getUpdatePolicyMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.UpdatePolicyRequest,
-                adamant.global.v1.Model.Policy>(
-                  this, METHODID_UPDATE_POLICY)))
-          .addMethod(
-            getDeletePolicyMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.DeletePolicyRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_DELETE_POLICY)))
-          .addMethod(
-            getReviewPolicyProposalMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ReviewPolicyProposalRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_REVIEW_POLICY_PROPOSAL)))
-          .addMethod(
-            getGetSpendableBalanceMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetSpendableBalanceRequest,
-                adamant.global.v1.GetSpendableBalanceResponse>(
-                  this, METHODID_GET_SPENDABLE_BALANCE)))
-          .addMethod(
-            getGetTotalBalanceMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetTotalBalanceRequest,
-                adamant.global.v1.Model.TotalBalance>(
-                  this, METHODID_GET_TOTAL_BALANCE)))
-          .addMethod(
-            getListBalanceSnapshotsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListBalanceSnapshotsRequest,
-                adamant.global.v1.ListBalanceSnapshotsResponse>(
-                  this, METHODID_LIST_BALANCE_SNAPSHOTS)))
-          .addMethod(
-            getCalculateFeeMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.CalculateFeeRequest,
-                adamant.global.v1.CalculateFeeResponse>(
-                  this, METHODID_CALCULATE_FEE)))
-          .addMethod(
-            getGetMembersDeactivatabilitiesMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetMembersDeactivatabilitiesRequest,
-                adamant.global.v1.GetMembersDeactivatabilitiesResponse>(
-                  this, METHODID_GET_MEMBERS_DEACTIVATABILITIES)))
-          .addMethod(
-            getGetRecommendedFeeRateMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetRecommendedFeeRateRequest,
-                adamant.global.v1.GetRecommendedFeeRateResponse>(
-                  this, METHODID_GET_RECOMMENDED_FEE_RATE)))
-          .addMethod(
-            getValidateAddressMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ValidateAddressRequest,
-                adamant.global.v1.ValidateAddressResponse>(
-                  this, METHODID_VALIDATE_ADDRESS)))
-          .addMethod(
-            getListAuditLogsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListAuditLogsRequest,
-                adamant.global.v1.ListAuditLogsResponse>(
-                  this, METHODID_LIST_AUDIT_LOGS)))
-          .build();
     }
   }
 
   /**
+   * Base class for the server implementation of the service GlobalAPI.
    */
-  public static final class GlobalAPIStub extends io.grpc.stub.AbstractAsyncStub<GlobalAPIStub> {
+  public static abstract class GlobalAPIImplBase
+      implements io.grpc.BindableService, AsyncService {
+
+    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
+      return GlobalAPIGrpc.bindService(this);
+    }
+  }
+
+  /**
+   * A stub to allow clients to do asynchronous rpc calls to service GlobalAPI.
+   */
+  public static final class GlobalAPIStub
+      extends io.grpc.stub.AbstractAsyncStub<GlobalAPIStub> {
     private GlobalAPIStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
@@ -5122,8 +4479,10 @@ public final class GlobalAPIGrpc {
   }
 
   /**
+   * A stub to allow clients to do synchronous rpc calls to service GlobalAPI.
    */
-  public static final class GlobalAPIBlockingStub extends io.grpc.stub.AbstractBlockingStub<GlobalAPIBlockingStub> {
+  public static final class GlobalAPIBlockingStub
+      extends io.grpc.stub.AbstractBlockingStub<GlobalAPIBlockingStub> {
     private GlobalAPIBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
@@ -5842,8 +5201,10 @@ public final class GlobalAPIGrpc {
   }
 
   /**
+   * A stub to allow clients to do ListenableFuture-style rpc calls to service GlobalAPI.
    */
-  public static final class GlobalAPIFutureStub extends io.grpc.stub.AbstractFutureStub<GlobalAPIFutureStub> {
+  public static final class GlobalAPIFutureStub
+      extends io.grpc.stub.AbstractFutureStub<GlobalAPIFutureStub> {
     private GlobalAPIFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
@@ -6753,10 +6114,10 @@ public final class GlobalAPIGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final GlobalAPIImplBase serviceImpl;
+    private final AsyncService serviceImpl;
     private final int methodId;
 
-    MethodHandlers(GlobalAPIImplBase serviceImpl, int methodId) {
+    MethodHandlers(AsyncService serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -7151,6 +6512,662 @@ public final class GlobalAPIGrpc {
           throw new AssertionError();
       }
     }
+  }
+
+  public static final io.grpc.ServerServiceDefinition bindService(AsyncService service) {
+    return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
+        .addMethod(
+          getCreateWalletMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CreateWalletRequest,
+              adamant.global.v1.CreateWalletResponse>(
+                service, METHODID_CREATE_WALLET)))
+        .addMethod(
+          getGetWalletMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetWalletRequest,
+              adamant.global.v1.Model.Wallet>(
+                service, METHODID_GET_WALLET)))
+        .addMethod(
+          getCancelWalletMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CancelWalletRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_CANCEL_WALLET)))
+        .addMethod(
+          getArchiveWalletMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ArchiveWalletRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_ARCHIVE_WALLET)))
+        .addMethod(
+          getUnArchiveWalletMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UnArchiveWalletRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_UN_ARCHIVE_WALLET)))
+        .addMethod(
+          getListWalletsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListWalletsRequest,
+              adamant.global.v1.ListWalletsResponse>(
+                service, METHODID_LIST_WALLETS)))
+        .addMethod(
+          getListWalletsByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListWalletsByFilterRequest,
+              adamant.global.v1.ListWalletsResponse>(
+                service, METHODID_LIST_WALLETS_BY_FILTER)))
+        .addMethod(
+          getListBaseWalletsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListBaseWalletsRequest,
+              adamant.global.v1.ListBaseWalletsResponse>(
+                service, METHODID_LIST_BASE_WALLETS)))
+        .addMethod(
+          getUpdateWalletNameMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpdateWalletNameRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_UPDATE_WALLET_NAME)))
+        .addMethod(
+          getUpdateWalletValidationMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpdateWalletValidationRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_UPDATE_WALLET_VALIDATION)))
+        .addMethod(
+          getUpdateWalletPolicyMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpdateWalletPolicyRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_UPDATE_WALLET_POLICY)))
+        .addMethod(
+          getReviewWalletProposalMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ReviewWalletProposalRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_REVIEW_WALLET_PROPOSAL)))
+        .addMethod(
+          getFlushBalanceMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.FlushBalanceRequest,
+              adamant.global.v1.FlushBalanceResponse>(
+                service, METHODID_FLUSH_BALANCE)))
+        .addMethod(
+          getCreateWalletGroupMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CreateWalletGroupRequest,
+              adamant.global.v1.CreateWalletGroupResponse>(
+                service, METHODID_CREATE_WALLET_GROUP)))
+        .addMethod(
+          getUpdateWalletGroupNameMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpdateWalletGroupNameRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_UPDATE_WALLET_GROUP_NAME)))
+        .addMethod(
+          getUpdateWalletGroupMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpdateWalletGroupRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_UPDATE_WALLET_GROUP)))
+        .addMethod(
+          getGetWalletGroupMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetWalletGroupRequest,
+              adamant.global.v1.Model.WalletGroup>(
+                service, METHODID_GET_WALLET_GROUP)))
+        .addMethod(
+          getListWalletGroupsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListWalletGroupsRequest,
+              adamant.global.v1.ListWalletGroupsResponse>(
+                service, METHODID_LIST_WALLET_GROUPS)))
+        .addMethod(
+          getUpdateDestinationWalletIDMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpdateDestinationWalletIDRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_UPDATE_DESTINATION_WALLET_ID)))
+        .addMethod(
+          getApproveWalletMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ApproveWalletRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_APPROVE_WALLET)))
+        .addMethod(
+          getApproveTransactionMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ApproveTransactionRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_APPROVE_TRANSACTION)))
+        .addMethod(
+          getCreateAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CreateAddressRequest,
+              adamant.global.v1.CreateAddressResponse>(
+                service, METHODID_CREATE_ADDRESS)))
+        .addMethod(
+          getGetAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetAddressRequest,
+              adamant.global.v1.Model.Address>(
+                service, METHODID_GET_ADDRESS)))
+        .addMethod(
+          getGetAddressByAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetAddressByAddressRequest,
+              adamant.global.v1.Model.Address>(
+                service, METHODID_GET_ADDRESS_BY_ADDRESS)))
+        .addMethod(
+          getGetAddressByAddressCoinMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetAddressByAddressCoinRequest,
+              adamant.global.v1.Model.Address>(
+                service, METHODID_GET_ADDRESS_BY_ADDRESS_COIN)))
+        .addMethod(
+          getGetAddressByIndexMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetAddressByIndexRequest,
+              adamant.global.v1.Model.Address>(
+                service, METHODID_GET_ADDRESS_BY_INDEX)))
+        .addMethod(
+          getListAddressesMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListAddressesRequest,
+              adamant.global.v1.ListAddressesResponse>(
+                service, METHODID_LIST_ADDRESSES)))
+        .addMethod(
+          getListAddressesWithBalanceMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListAddressesWithBalanceRequest,
+              adamant.global.v1.ListAddressesWithBalanceResponse>(
+                service, METHODID_LIST_ADDRESSES_WITH_BALANCE)))
+        .addMethod(
+          getUpdateAddressBalanceMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpdateAddressBalanceRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_UPDATE_ADDRESS_BALANCE)))
+        .addMethod(
+          getGetEthereumFeeAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetEthereumFeeAddressRequest,
+              adamant.global.v1.Model.EthereumFeeAddress>(
+                service, METHODID_GET_ETHEREUM_FEE_ADDRESS)))
+        .addMethod(
+          getListSubstrateChildAddressesMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListSubstrateChildAddressesRequest,
+              adamant.global.v1.ListSubstrateChildAddressesResponse>(
+                service, METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES)))
+        .addMethod(
+          getListSymbolChildAddressesMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListSymbolChildAddressesRequest,
+              adamant.global.v1.ListSymbolChildAddressesResponse>(
+                service, METHODID_LIST_SYMBOL_CHILD_ADDRESSES)))
+        .addMethod(
+          getListIOSTChildAccountsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListIOSTChildAccountsRequest,
+              adamant.global.v1.ListIOSTChildAccountsResponse>(
+                service, METHODID_LIST_IOSTCHILD_ACCOUNTS)))
+        .addMethod(
+          getImportAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ImportAddressRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_IMPORT_ADDRESS)))
+        .addMethod(
+          getListCallersMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListCallersRequest,
+              adamant.global.v1.ListCallersResponse>(
+                service, METHODID_LIST_CALLERS)))
+        .addMethod(
+          getRegisterKeyMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.RegisterKeyRequest,
+              adamant.global.v1.RegisterKeyResponse>(
+                service, METHODID_REGISTER_KEY)))
+        .addMethod(
+          getCreateTransactionMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CreateTransactionRequest,
+              adamant.global.v1.CreateTransactionResponse>(
+                service, METHODID_CREATE_TRANSACTION)))
+        .addMethod(
+          getCreateXRPInitTransactionsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CreateXRPInitTransactionsRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_CREATE_XRPINIT_TRANSACTIONS)))
+        .addMethod(
+          getSignTransactionMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.SignTransactionRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_SIGN_TRANSACTION)))
+        .addMethod(
+          getSignXRPInitTransactionsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.SignXRPInitTransactionsRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_SIGN_XRPINIT_TRANSACTIONS)))
+        .addMethod(
+          getSendTransactionMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.SendTransactionRequest,
+              adamant.global.v1.SendTransactionResponse>(
+                service, METHODID_SEND_TRANSACTION)))
+        .addMethod(
+          getSendXRPInitTransactionsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.SendXRPInitTransactionsRequest,
+              adamant.global.v1.SendXRPInitTransactionsResponse>(
+                service, METHODID_SEND_XRPINIT_TRANSACTIONS)))
+        .addMethod(
+          getCancelTransactionMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CancelTransactionRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_CANCEL_TRANSACTION)))
+        .addMethod(
+          getGetTransactionMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetTransactionRequest,
+              adamant.global.v1.Model.Transaction>(
+                service, METHODID_GET_TRANSACTION)))
+        .addMethod(
+          getGetTransactionByTxIDMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetTransactionByTxIDRequest,
+              adamant.global.v1.Model.Transaction>(
+                service, METHODID_GET_TRANSACTION_BY_TX_ID)))
+        .addMethod(
+          getListTransactionsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListTransactionsRequest,
+              adamant.global.v1.ListTransactionsResponse>(
+                service, METHODID_LIST_TRANSACTIONS)))
+        .addMethod(
+          getListTransactionsByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListTransactionsByFilterRequest,
+              adamant.global.v1.ListTransactionsResponse>(
+                service, METHODID_LIST_TRANSACTIONS_BY_FILTER)))
+        .addMethod(
+          getGetSignInfoMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetSignInfoRequest,
+              adamant.global.v1.Model.SignInfo>(
+                service, METHODID_GET_SIGN_INFO)))
+        .addMethod(
+          getListSignInfoMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListSignInfoRequest,
+              adamant.global.v1.ListSignInfoResponse>(
+                service, METHODID_LIST_SIGN_INFO)))
+        .addMethod(
+          getListXRPInitSignInfoMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListXRPInitSignInfoRequest,
+              adamant.global.v1.ListXRPInitSignInfoResponse>(
+                service, METHODID_LIST_XRPINIT_SIGN_INFO)))
+        .addMethod(
+          getListTransfersMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListTransfersRequest,
+              adamant.global.v1.ListTransfersResponse>(
+                service, METHODID_LIST_TRANSFERS)))
+        .addMethod(
+          getListTransfersByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListTransfersByFilterRequest,
+              adamant.global.v1.ListTransfersResponse>(
+                service, METHODID_LIST_TRANSFERS_BY_FILTER)))
+        .addMethod(
+          getGetRateSnapshotMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetRateSnapshotRequest,
+              adamant.global.v1.Model.RateSnapshot>(
+                service, METHODID_GET_RATE_SNAPSHOT)))
+        .addMethod(
+          getGetLatestRateSnapshotMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetLatestRateSnapshotRequest,
+              adamant.global.v1.Model.RateSnapshot>(
+                service, METHODID_GET_LATEST_RATE_SNAPSHOT)))
+        .addMethod(
+          getSetRatesMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.SetRatesRequest,
+              adamant.global.v1.SetRatesResponse>(
+                service, METHODID_SET_RATES)))
+        .addMethod(
+          getSetDefaultRatesMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.SetDefaultRatesRequest,
+              adamant.global.v1.SetDefaultRatesResponse>(
+                service, METHODID_SET_DEFAULT_RATES)))
+        .addMethod(
+          getCreateLabeledAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CreateLabeledAddressRequest,
+              adamant.global.v1.CreateLabeledAddressResponse>(
+                service, METHODID_CREATE_LABELED_ADDRESS)))
+        .addMethod(
+          getGetLabeledAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetLabeledAddressRequest,
+              adamant.global.v1.Model.LabeledAddress>(
+                service, METHODID_GET_LABELED_ADDRESS)))
+        .addMethod(
+          getListLabeledAddressesMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListLabeledAddressesRequest,
+              adamant.global.v1.ListLabeledAddressesResponse>(
+                service, METHODID_LIST_LABELED_ADDRESSES)))
+        .addMethod(
+          getIsDeletableLabeledAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.IsDeletableLabeledAddressRequest,
+              adamant.global.v1.IsDeletableLabeledAddressResponse>(
+                service, METHODID_IS_DELETABLE_LABELED_ADDRESS)))
+        .addMethod(
+          getUpdateLabeledAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpdateLabeledAddressRequest,
+              adamant.global.v1.Model.LabeledAddress>(
+                service, METHODID_UPDATE_LABELED_ADDRESS)))
+        .addMethod(
+          getDeleteAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.DeleteLabeledAddressRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_DELETE_ADDRESS)))
+        .addMethod(
+          getReviewLabeledAddressProposalMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ReviewLabeledAddressProposalRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL)))
+        .addMethod(
+          getCreateWhitelistMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CreateWhitelistRequest,
+              adamant.global.v1.CreateWhitelistResponse>(
+                service, METHODID_CREATE_WHITELIST)))
+        .addMethod(
+          getGetWhitelistMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetWhitelistRequest,
+              adamant.global.v1.Model.Whitelist>(
+                service, METHODID_GET_WHITELIST)))
+        .addMethod(
+          getListWhitelistsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListWhitelistsRequest,
+              adamant.global.v1.ListWhitelistsResponse>(
+                service, METHODID_LIST_WHITELISTS)))
+        .addMethod(
+          getIsDeletableWhitelistMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.IsDeletableWhitelistRequest,
+              adamant.global.v1.IsDeletableWhitelistResponse>(
+                service, METHODID_IS_DELETABLE_WHITELIST)))
+        .addMethod(
+          getUpdateWhitelistMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpdateWhitelistRequest,
+              adamant.global.v1.Model.Whitelist>(
+                service, METHODID_UPDATE_WHITELIST)))
+        .addMethod(
+          getUpdateWhitelistAddressesMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpdateWhitelistAddressesRequest,
+              adamant.global.v1.Model.Whitelist>(
+                service, METHODID_UPDATE_WHITELIST_ADDRESSES)))
+        .addMethod(
+          getDeleteWhitelistMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.DeleteWhitelistRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_DELETE_WHITELIST)))
+        .addMethod(
+          getCreateTransferLimitMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CreateTransferLimitRequest,
+              adamant.global.v1.CreateTransferLimitResponse>(
+                service, METHODID_CREATE_TRANSFER_LIMIT)))
+        .addMethod(
+          getGetTransferLimitMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetTransferLimitRequest,
+              adamant.global.v1.Model.TransferLimit>(
+                service, METHODID_GET_TRANSFER_LIMIT)))
+        .addMethod(
+          getListTransferLimitsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListTransferLimitsRequest,
+              adamant.global.v1.ListTransferLimitsResponse>(
+                service, METHODID_LIST_TRANSFER_LIMITS)))
+        .addMethod(
+          getIsDeletableTransferLimitMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.IsDeletableTransferLimitRequest,
+              adamant.global.v1.IsDeletableTransferLimitResponse>(
+                service, METHODID_IS_DELETABLE_TRANSFER_LIMIT)))
+        .addMethod(
+          getUpdateTransferLimitMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpdateTransferLimitRequest,
+              adamant.global.v1.Model.TransferLimit>(
+                service, METHODID_UPDATE_TRANSFER_LIMIT)))
+        .addMethod(
+          getUpdateTransferLimitNameMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpdateTransferLimitNameRequest,
+              adamant.global.v1.Model.TransferLimit>(
+                service, METHODID_UPDATE_TRANSFER_LIMIT_NAME)))
+        .addMethod(
+          getDeleteTransferLimitMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.DeleteTransferLimitRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_DELETE_TRANSFER_LIMIT)))
+        .addMethod(
+          getReviewTransferLimitProposalMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ReviewTransferLimitProposalRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL)))
+        .addMethod(
+          getCreatePolicyMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CreatePolicyRequest,
+              adamant.global.v1.CreatePolicyResponse>(
+                service, METHODID_CREATE_POLICY)))
+        .addMethod(
+          getGetPolicyMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetPolicyRequest,
+              adamant.global.v1.Model.Policy>(
+                service, METHODID_GET_POLICY)))
+        .addMethod(
+          getListPoliciesMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListPoliciesRequest,
+              adamant.global.v1.ListPoliciesResponse>(
+                service, METHODID_LIST_POLICIES)))
+        .addMethod(
+          getIsDeletablePolicyMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.IsDeletablePolicyRequest,
+              adamant.global.v1.IsDeletablePolicyResponse>(
+                service, METHODID_IS_DELETABLE_POLICY)))
+        .addMethod(
+          getUpdatePolicyMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpdatePolicyRequest,
+              adamant.global.v1.Model.Policy>(
+                service, METHODID_UPDATE_POLICY)))
+        .addMethod(
+          getDeletePolicyMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.DeletePolicyRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_DELETE_POLICY)))
+        .addMethod(
+          getReviewPolicyProposalMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ReviewPolicyProposalRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_REVIEW_POLICY_PROPOSAL)))
+        .addMethod(
+          getGetSpendableBalanceMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetSpendableBalanceRequest,
+              adamant.global.v1.GetSpendableBalanceResponse>(
+                service, METHODID_GET_SPENDABLE_BALANCE)))
+        .addMethod(
+          getGetTotalBalanceMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetTotalBalanceRequest,
+              adamant.global.v1.Model.TotalBalance>(
+                service, METHODID_GET_TOTAL_BALANCE)))
+        .addMethod(
+          getListBalanceSnapshotsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListBalanceSnapshotsRequest,
+              adamant.global.v1.ListBalanceSnapshotsResponse>(
+                service, METHODID_LIST_BALANCE_SNAPSHOTS)))
+        .addMethod(
+          getCalculateFeeMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CalculateFeeRequest,
+              adamant.global.v1.CalculateFeeResponse>(
+                service, METHODID_CALCULATE_FEE)))
+        .addMethod(
+          getGetMembersDeactivatabilitiesMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetMembersDeactivatabilitiesRequest,
+              adamant.global.v1.GetMembersDeactivatabilitiesResponse>(
+                service, METHODID_GET_MEMBERS_DEACTIVATABILITIES)))
+        .addMethod(
+          getGetRecommendedFeeRateMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetRecommendedFeeRateRequest,
+              adamant.global.v1.GetRecommendedFeeRateResponse>(
+                service, METHODID_GET_RECOMMENDED_FEE_RATE)))
+        .addMethod(
+          getValidateAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ValidateAddressRequest,
+              adamant.global.v1.ValidateAddressResponse>(
+                service, METHODID_VALIDATE_ADDRESS)))
+        .addMethod(
+          getListAuditLogsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListAuditLogsRequest,
+              adamant.global.v1.ListAuditLogsResponse>(
+                service, METHODID_LIST_AUDIT_LOGS)))
+        .build();
   }
 
   private static abstract class GlobalAPIBaseDescriptorSupplier

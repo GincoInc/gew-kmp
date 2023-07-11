@@ -29,141 +29,6 @@ private static final long serialVersionUID = 0L;
     return new CalculateFeeRequest();
   }
 
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private CalculateFeeRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            walletId_ = s;
-            break;
-          }
-          case 16: {
-
-            feeRate_ = input.readUInt64();
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              txOutputs_ = new java.util.ArrayList<adamant.global.v1.Model.RequestTxOutput>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            txOutputs_.add(
-                input.readMessage(adamant.global.v1.Model.RequestTxOutput.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            address_ = s;
-            break;
-          }
-          case 40: {
-
-            destinationTag_ = input.readUInt32();
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            stringValue_ = s;
-            break;
-          }
-          case 58: {
-            adamant.global.v1.CalculateFeeSubstrateSpecific.Builder subBuilder = null;
-            if (substrateSpecific_ != null) {
-              subBuilder = substrateSpecific_.toBuilder();
-            }
-            substrateSpecific_ = input.readMessage(adamant.global.v1.CalculateFeeSubstrateSpecific.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(substrateSpecific_);
-              substrateSpecific_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            adamant.global.v1.CalculateFeeNemSpecific.Builder subBuilder = null;
-            if (nemSpecific_ != null) {
-              subBuilder = nemSpecific_.toBuilder();
-            }
-            nemSpecific_ = input.readMessage(adamant.global.v1.CalculateFeeNemSpecific.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(nemSpecific_);
-              nemSpecific_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            adamant.global.v1.CalculateFeeSymbolSpecific.Builder subBuilder = null;
-            if (symbolSpecific_ != null) {
-              subBuilder = symbolSpecific_.toBuilder();
-            }
-            symbolSpecific_ = input.readMessage(adamant.global.v1.CalculateFeeSymbolSpecific.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(symbolSpecific_);
-              symbolSpecific_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            adamant.global.v1.CalculateFeeEthereumSpecific.Builder subBuilder = null;
-            if (ethereumSpecific_ != null) {
-              subBuilder = ethereumSpecific_.toBuilder();
-            }
-            ethereumSpecific_ = input.readMessage(adamant.global.v1.CalculateFeeEthereumSpecific.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(ethereumSpecific_);
-              ethereumSpecific_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        txOutputs_ = java.util.Collections.unmodifiableList(txOutputs_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_CalculateFeeRequest_descriptor;
@@ -178,7 +43,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WALLET_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object walletId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object walletId_ = "";
   /**
    * <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = { ... }</code>
    * @return The walletId.
@@ -216,7 +82,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FEE_RATE_FIELD_NUMBER = 2;
-  private long feeRate_;
+  private long feeRate_ = 0L;
   /**
    * <code>uint64 fee_rate = 2 [json_name = "feeRate"];</code>
    * @return The feeRate.
@@ -227,6 +93,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TX_OUTPUTS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<adamant.global.v1.Model.RequestTxOutput> txOutputs_;
   /**
    * <code>repeated .adamant.global.v1.RequestTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
@@ -267,7 +134,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADDRESS_FIELD_NUMBER = 4;
-  private volatile java.lang.Object address_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object address_ = "";
   /**
    * <code>string address = 4 [json_name = "address"];</code>
    * @return The address.
@@ -305,7 +173,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESTINATION_TAG_FIELD_NUMBER = 5;
-  private int destinationTag_;
+  private int destinationTag_ = 0;
   /**
    * <code>uint32 destination_tag = 5 [json_name = "destinationTag"];</code>
    * @return The destinationTag.
@@ -316,7 +184,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STRING_VALUE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object stringValue_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object stringValue_ = "";
   /**
    * <code>string string_value = 6 [json_name = "stringValue"];</code>
    * @return The stringValue.
@@ -376,7 +245,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public adamant.global.v1.CalculateFeeSubstrateSpecificOrBuilder getSubstrateSpecificOrBuilder() {
-    return getSubstrateSpecific();
+    return substrateSpecific_ == null ? adamant.global.v1.CalculateFeeSubstrateSpecific.getDefaultInstance() : substrateSpecific_;
   }
 
   public static final int NEM_SPECIFIC_FIELD_NUMBER = 8;
@@ -402,7 +271,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public adamant.global.v1.CalculateFeeNemSpecificOrBuilder getNemSpecificOrBuilder() {
-    return getNemSpecific();
+    return nemSpecific_ == null ? adamant.global.v1.CalculateFeeNemSpecific.getDefaultInstance() : nemSpecific_;
   }
 
   public static final int SYMBOL_SPECIFIC_FIELD_NUMBER = 9;
@@ -428,7 +297,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public adamant.global.v1.CalculateFeeSymbolSpecificOrBuilder getSymbolSpecificOrBuilder() {
-    return getSymbolSpecific();
+    return symbolSpecific_ == null ? adamant.global.v1.CalculateFeeSymbolSpecific.getDefaultInstance() : symbolSpecific_;
   }
 
   public static final int ETHEREUM_SPECIFIC_FIELD_NUMBER = 10;
@@ -454,7 +323,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public adamant.global.v1.CalculateFeeEthereumSpecificOrBuilder getEthereumSpecificOrBuilder() {
-    return getEthereumSpecific();
+    return ethereumSpecific_ == null ? adamant.global.v1.CalculateFeeEthereumSpecific.getDefaultInstance() : ethereumSpecific_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -501,7 +370,7 @@ private static final long serialVersionUID = 0L;
     if (ethereumSpecific_ != null) {
       output.writeMessage(10, getEthereumSpecific());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -547,7 +416,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, getEthereumSpecific());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -594,7 +463,7 @@ private static final long serialVersionUID = 0L;
       if (!getEthereumSpecific()
           .equals(other.getEthereumSpecific())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -636,7 +505,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ETHEREUM_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getEthereumSpecific().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -685,11 +554,13 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
+
   public static adamant.global.v1.CalculateFeeRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
+
   public static adamant.global.v1.CalculateFeeRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -753,61 +624,48 @@ private static final long serialVersionUID = 0L;
 
     // Construct using adamant.global.v1.CalculateFeeRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTxOutputsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       walletId_ = "";
-
       feeRate_ = 0L;
-
       if (txOutputsBuilder_ == null) {
         txOutputs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        txOutputs_ = null;
         txOutputsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       address_ = "";
-
       destinationTag_ = 0;
-
       stringValue_ = "";
-
-      if (substrateSpecificBuilder_ == null) {
-        substrateSpecific_ = null;
-      } else {
-        substrateSpecific_ = null;
+      substrateSpecific_ = null;
+      if (substrateSpecificBuilder_ != null) {
+        substrateSpecificBuilder_.dispose();
         substrateSpecificBuilder_ = null;
       }
-      if (nemSpecificBuilder_ == null) {
-        nemSpecific_ = null;
-      } else {
-        nemSpecific_ = null;
+      nemSpecific_ = null;
+      if (nemSpecificBuilder_ != null) {
+        nemSpecificBuilder_.dispose();
         nemSpecificBuilder_ = null;
       }
-      if (symbolSpecificBuilder_ == null) {
-        symbolSpecific_ = null;
-      } else {
-        symbolSpecific_ = null;
+      symbolSpecific_ = null;
+      if (symbolSpecificBuilder_ != null) {
+        symbolSpecificBuilder_.dispose();
         symbolSpecificBuilder_ = null;
       }
-      if (ethereumSpecificBuilder_ == null) {
-        ethereumSpecific_ = null;
-      } else {
-        ethereumSpecific_ = null;
+      ethereumSpecific_ = null;
+      if (ethereumSpecificBuilder_ != null) {
+        ethereumSpecificBuilder_.dispose();
         ethereumSpecificBuilder_ = null;
       }
       return this;
@@ -836,43 +694,61 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public adamant.global.v1.CalculateFeeRequest buildPartial() {
       adamant.global.v1.CalculateFeeRequest result = new adamant.global.v1.CalculateFeeRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.walletId_ = walletId_;
-      result.feeRate_ = feeRate_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(adamant.global.v1.CalculateFeeRequest result) {
       if (txOutputsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           txOutputs_ = java.util.Collections.unmodifiableList(txOutputs_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.txOutputs_ = txOutputs_;
       } else {
         result.txOutputs_ = txOutputsBuilder_.build();
       }
-      result.address_ = address_;
-      result.destinationTag_ = destinationTag_;
-      result.stringValue_ = stringValue_;
-      if (substrateSpecificBuilder_ == null) {
-        result.substrateSpecific_ = substrateSpecific_;
-      } else {
-        result.substrateSpecific_ = substrateSpecificBuilder_.build();
+    }
+
+    private void buildPartial0(adamant.global.v1.CalculateFeeRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.walletId_ = walletId_;
       }
-      if (nemSpecificBuilder_ == null) {
-        result.nemSpecific_ = nemSpecific_;
-      } else {
-        result.nemSpecific_ = nemSpecificBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.feeRate_ = feeRate_;
       }
-      if (symbolSpecificBuilder_ == null) {
-        result.symbolSpecific_ = symbolSpecific_;
-      } else {
-        result.symbolSpecific_ = symbolSpecificBuilder_.build();
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.address_ = address_;
       }
-      if (ethereumSpecificBuilder_ == null) {
-        result.ethereumSpecific_ = ethereumSpecific_;
-      } else {
-        result.ethereumSpecific_ = ethereumSpecificBuilder_.build();
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.destinationTag_ = destinationTag_;
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.stringValue_ = stringValue_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.substrateSpecific_ = substrateSpecificBuilder_ == null
+            ? substrateSpecific_
+            : substrateSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.nemSpecific_ = nemSpecificBuilder_ == null
+            ? nemSpecific_
+            : nemSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.symbolSpecific_ = symbolSpecificBuilder_ == null
+            ? symbolSpecific_
+            : symbolSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.ethereumSpecific_ = ethereumSpecificBuilder_ == null
+            ? ethereumSpecific_
+            : ethereumSpecificBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -921,6 +797,7 @@ private static final long serialVersionUID = 0L;
       if (other == adamant.global.v1.CalculateFeeRequest.getDefaultInstance()) return this;
       if (!other.getWalletId().isEmpty()) {
         walletId_ = other.walletId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getFeeRate() != 0L) {
@@ -930,7 +807,7 @@ private static final long serialVersionUID = 0L;
         if (!other.txOutputs_.isEmpty()) {
           if (txOutputs_.isEmpty()) {
             txOutputs_ = other.txOutputs_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureTxOutputsIsMutable();
             txOutputs_.addAll(other.txOutputs_);
@@ -943,7 +820,7 @@ private static final long serialVersionUID = 0L;
             txOutputsBuilder_.dispose();
             txOutputsBuilder_ = null;
             txOutputs_ = other.txOutputs_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             txOutputsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTxOutputsFieldBuilder() : null;
@@ -954,6 +831,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAddress().isEmpty()) {
         address_ = other.address_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.getDestinationTag() != 0) {
@@ -961,6 +839,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getStringValue().isEmpty()) {
         stringValue_ = other.stringValue_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasSubstrateSpecific()) {
@@ -975,7 +854,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasEthereumSpecific()) {
         mergeEthereumSpecific(other.getEthereumSpecific());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -990,17 +869,96 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      adamant.global.v1.CalculateFeeRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              walletId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              feeRate_ = input.readUInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              adamant.global.v1.Model.RequestTxOutput m =
+                  input.readMessage(
+                      adamant.global.v1.Model.RequestTxOutput.parser(),
+                      extensionRegistry);
+              if (txOutputsBuilder_ == null) {
+                ensureTxOutputsIsMutable();
+                txOutputs_.add(m);
+              } else {
+                txOutputsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              address_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              destinationTag_ = input.readUInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              stringValue_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getSubstrateSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getNemSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getSymbolSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getEthereumSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (adamant.global.v1.CalculateFeeRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1046,11 +1004,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWalletId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       walletId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1059,8 +1015,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWalletId() {
-      
       walletId_ = getDefaultInstance().getWalletId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1071,12 +1027,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWalletIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       walletId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1096,8 +1050,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFeeRate(long value) {
-      
+
       feeRate_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1106,7 +1061,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFeeRate() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       feeRate_ = 0L;
       onChanged();
       return this;
@@ -1115,9 +1070,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<adamant.global.v1.Model.RequestTxOutput> txOutputs_ =
       java.util.Collections.emptyList();
     private void ensureTxOutputsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         txOutputs_ = new java.util.ArrayList<adamant.global.v1.Model.RequestTxOutput>(txOutputs_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1267,7 +1222,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTxOutputs() {
       if (txOutputsBuilder_ == null) {
         txOutputs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         txOutputsBuilder_.clear();
@@ -1344,7 +1299,7 @@ private static final long serialVersionUID = 0L;
         txOutputsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             adamant.global.v1.Model.RequestTxOutput, adamant.global.v1.Model.RequestTxOutput.Builder, adamant.global.v1.Model.RequestTxOutputOrBuilder>(
                 txOutputs_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         txOutputs_ = null;
@@ -1393,11 +1348,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       address_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1406,8 +1359,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAddress() {
-      
       address_ = getDefaultInstance().getAddress();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1418,12 +1371,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       address_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1443,8 +1394,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDestinationTag(int value) {
-      
+
       destinationTag_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1453,7 +1405,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDestinationTag() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       destinationTag_ = 0;
       onChanged();
       return this;
@@ -1500,11 +1452,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStringValue(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       stringValue_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1513,8 +1463,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStringValue() {
-      
       stringValue_ = getDefaultInstance().getStringValue();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1525,12 +1475,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStringValueBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       stringValue_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1543,7 +1491,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the substrateSpecific field is set.
      */
     public boolean hasSubstrateSpecific() {
-      return substrateSpecificBuilder_ != null || substrateSpecific_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7 [json_name = "substrateSpecific"];</code>
@@ -1565,11 +1513,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         substrateSpecific_ = value;
-        onChanged();
       } else {
         substrateSpecificBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1579,11 +1527,11 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.CalculateFeeSubstrateSpecific.Builder builderForValue) {
       if (substrateSpecificBuilder_ == null) {
         substrateSpecific_ = builderForValue.build();
-        onChanged();
       } else {
         substrateSpecificBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1591,38 +1539,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSubstrateSpecific(adamant.global.v1.CalculateFeeSubstrateSpecific value) {
       if (substrateSpecificBuilder_ == null) {
-        if (substrateSpecific_ != null) {
-          substrateSpecific_ =
-            adamant.global.v1.CalculateFeeSubstrateSpecific.newBuilder(substrateSpecific_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          substrateSpecific_ != null &&
+          substrateSpecific_ != adamant.global.v1.CalculateFeeSubstrateSpecific.getDefaultInstance()) {
+          getSubstrateSpecificBuilder().mergeFrom(value);
         } else {
           substrateSpecific_ = value;
         }
-        onChanged();
       } else {
         substrateSpecificBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7 [json_name = "substrateSpecific"];</code>
      */
     public Builder clearSubstrateSpecific() {
-      if (substrateSpecificBuilder_ == null) {
-        substrateSpecific_ = null;
-        onChanged();
-      } else {
-        substrateSpecific_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      substrateSpecific_ = null;
+      if (substrateSpecificBuilder_ != null) {
+        substrateSpecificBuilder_.dispose();
         substrateSpecificBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.adamant.global.v1.CalculateFeeSubstrateSpecific substrate_specific = 7 [json_name = "substrateSpecific"];</code>
      */
     public adamant.global.v1.CalculateFeeSubstrateSpecific.Builder getSubstrateSpecificBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getSubstrateSpecificFieldBuilder().getBuilder();
     }
@@ -1662,7 +1610,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the nemSpecific field is set.
      */
     public boolean hasNemSpecific() {
-      return nemSpecificBuilder_ != null || nemSpecific_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
@@ -1684,11 +1632,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         nemSpecific_ = value;
-        onChanged();
       } else {
         nemSpecificBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1698,11 +1646,11 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.CalculateFeeNemSpecific.Builder builderForValue) {
       if (nemSpecificBuilder_ == null) {
         nemSpecific_ = builderForValue.build();
-        onChanged();
       } else {
         nemSpecificBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1710,38 +1658,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNemSpecific(adamant.global.v1.CalculateFeeNemSpecific value) {
       if (nemSpecificBuilder_ == null) {
-        if (nemSpecific_ != null) {
-          nemSpecific_ =
-            adamant.global.v1.CalculateFeeNemSpecific.newBuilder(nemSpecific_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          nemSpecific_ != null &&
+          nemSpecific_ != adamant.global.v1.CalculateFeeNemSpecific.getDefaultInstance()) {
+          getNemSpecificBuilder().mergeFrom(value);
         } else {
           nemSpecific_ = value;
         }
-        onChanged();
       } else {
         nemSpecificBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
      * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
      */
     public Builder clearNemSpecific() {
-      if (nemSpecificBuilder_ == null) {
-        nemSpecific_ = null;
-        onChanged();
-      } else {
-        nemSpecific_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      nemSpecific_ = null;
+      if (nemSpecificBuilder_ != null) {
+        nemSpecificBuilder_.dispose();
         nemSpecificBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.adamant.global.v1.CalculateFeeNemSpecific nem_specific = 8 [json_name = "nemSpecific"];</code>
      */
     public adamant.global.v1.CalculateFeeNemSpecific.Builder getNemSpecificBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getNemSpecificFieldBuilder().getBuilder();
     }
@@ -1781,7 +1729,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the symbolSpecific field is set.
      */
     public boolean hasSymbolSpecific() {
-      return symbolSpecificBuilder_ != null || symbolSpecific_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
@@ -1803,11 +1751,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         symbolSpecific_ = value;
-        onChanged();
       } else {
         symbolSpecificBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -1817,11 +1765,11 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.CalculateFeeSymbolSpecific.Builder builderForValue) {
       if (symbolSpecificBuilder_ == null) {
         symbolSpecific_ = builderForValue.build();
-        onChanged();
       } else {
         symbolSpecificBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -1829,38 +1777,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSymbolSpecific(adamant.global.v1.CalculateFeeSymbolSpecific value) {
       if (symbolSpecificBuilder_ == null) {
-        if (symbolSpecific_ != null) {
-          symbolSpecific_ =
-            adamant.global.v1.CalculateFeeSymbolSpecific.newBuilder(symbolSpecific_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          symbolSpecific_ != null &&
+          symbolSpecific_ != adamant.global.v1.CalculateFeeSymbolSpecific.getDefaultInstance()) {
+          getSymbolSpecificBuilder().mergeFrom(value);
         } else {
           symbolSpecific_ = value;
         }
-        onChanged();
       } else {
         symbolSpecificBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
      * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
      */
     public Builder clearSymbolSpecific() {
-      if (symbolSpecificBuilder_ == null) {
-        symbolSpecific_ = null;
-        onChanged();
-      } else {
-        symbolSpecific_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      symbolSpecific_ = null;
+      if (symbolSpecificBuilder_ != null) {
+        symbolSpecificBuilder_.dispose();
         symbolSpecificBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.adamant.global.v1.CalculateFeeSymbolSpecific symbol_specific = 9 [json_name = "symbolSpecific"];</code>
      */
     public adamant.global.v1.CalculateFeeSymbolSpecific.Builder getSymbolSpecificBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getSymbolSpecificFieldBuilder().getBuilder();
     }
@@ -1900,7 +1848,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the ethereumSpecific field is set.
      */
     public boolean hasEthereumSpecific() {
-      return ethereumSpecificBuilder_ != null || ethereumSpecific_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <code>.adamant.global.v1.CalculateFeeEthereumSpecific ethereum_specific = 10 [json_name = "ethereumSpecific"];</code>
@@ -1922,11 +1870,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         ethereumSpecific_ = value;
-        onChanged();
       } else {
         ethereumSpecificBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -1936,11 +1884,11 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.CalculateFeeEthereumSpecific.Builder builderForValue) {
       if (ethereumSpecificBuilder_ == null) {
         ethereumSpecific_ = builderForValue.build();
-        onChanged();
       } else {
         ethereumSpecificBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -1948,38 +1896,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEthereumSpecific(adamant.global.v1.CalculateFeeEthereumSpecific value) {
       if (ethereumSpecificBuilder_ == null) {
-        if (ethereumSpecific_ != null) {
-          ethereumSpecific_ =
-            adamant.global.v1.CalculateFeeEthereumSpecific.newBuilder(ethereumSpecific_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          ethereumSpecific_ != null &&
+          ethereumSpecific_ != adamant.global.v1.CalculateFeeEthereumSpecific.getDefaultInstance()) {
+          getEthereumSpecificBuilder().mergeFrom(value);
         } else {
           ethereumSpecific_ = value;
         }
-        onChanged();
       } else {
         ethereumSpecificBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
      * <code>.adamant.global.v1.CalculateFeeEthereumSpecific ethereum_specific = 10 [json_name = "ethereumSpecific"];</code>
      */
     public Builder clearEthereumSpecific() {
-      if (ethereumSpecificBuilder_ == null) {
-        ethereumSpecific_ = null;
-        onChanged();
-      } else {
-        ethereumSpecific_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      ethereumSpecific_ = null;
+      if (ethereumSpecificBuilder_ != null) {
+        ethereumSpecificBuilder_.dispose();
         ethereumSpecificBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.adamant.global.v1.CalculateFeeEthereumSpecific ethereum_specific = 10 [json_name = "ethereumSpecific"];</code>
      */
     public adamant.global.v1.CalculateFeeEthereumSpecific.Builder getEthereumSpecificBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getEthereumSpecificFieldBuilder().getBuilder();
     }
@@ -2043,7 +1991,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CalculateFeeRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 
