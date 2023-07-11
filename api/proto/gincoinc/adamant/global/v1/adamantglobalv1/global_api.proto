@@ -649,6 +649,7 @@ message CreateTransactionRequest {
   adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 11;
   adamant.global.v1.CreateTransactionSymbolSpecific xym_specific = 12;
   adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13;
+  adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14;
 }
 
 message CreateTransactionResponse {
