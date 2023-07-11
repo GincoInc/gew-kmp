@@ -17,16 +17,16 @@ plugins:
     - module=github.com/GincoInc/gew-kmp/gen
    out: gen
    path: ./bin/protoc-gen-validate
- - remote: buf.build/protocolbuffers/plugins/java:v3.19.1-1
+ - plugin: buf.build/protocolbuffers/java:v23.4
    out: gen/java
- - remote: buf.build/grpc/plugins/java:v1.42.1-1
+ - plugin: buf.build/grpc/java:v1.56.1
    out: gen/java
  - name: validate
    opt:
     - lang=java
    out: gen/java
    path: ./bin/protoc-gen-validate
- - remote: buf.build/protocolbuffers/plugins/php:v21.2.0-1
+ - plugin: buf.build/protocolbuffers/php:v23.4
    out: gen/php
- - remote: buf.build/grpc/plugins/php:v1.47.0-1
+ - plugin: buf.build/grpc/php:v1.56.0
    out: gen/php
