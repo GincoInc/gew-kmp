@@ -65,6 +65,10 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13 [json_name = "ethereumSpecific"];</code>
      */
     protected $ethereum_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+     */
+    protected $cosmos_specific = null;
 
     /**
      * Constructor.
@@ -85,6 +89,7 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CreateTransactionIOSTSpecific $iost_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionSymbolSpecific $xym_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionEthereumSpecific $ethereum_specific
+     *     @type \Adamant\PBGlobal\V1\CreateTransactionCosmosSpecific $cosmos_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -434,6 +439,38 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionEthereumSpecific::class);
         $this->ethereum_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CreateTransactionCosmosSpecific|null
+     */
+    public function getCosmosSpecific()
+    {
+        return $this->cosmos_specific;
+    }
+
+    public function hasCosmosSpecific()
+    {
+        return isset($this->cosmos_specific);
+    }
+
+    public function clearCosmosSpecific()
+    {
+        unset($this->cosmos_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CreateTransactionCosmosSpecific $var
+     * @return $this
+     */
+    public function setCosmosSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionCosmosSpecific::class);
+        $this->cosmos_specific = $var;
 
         return $this;
     }
