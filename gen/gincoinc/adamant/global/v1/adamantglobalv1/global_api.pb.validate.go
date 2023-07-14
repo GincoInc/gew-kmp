@@ -8566,6 +8566,126 @@ var _CancelTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8
 
 var _CancelTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+// Validate checks the field values on ReplaceTransactionRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ReplaceTransactionRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ReplaceTransactionRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ReplaceTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ReplaceTransactionRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ReplaceTransactionRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
+		err := ReplaceTransactionRequestValidationError{
+			field:  "TransactionId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	if len(errors) > 0 {
+		return ReplaceTransactionRequestMultiError(errors)
+	}
+	return nil
+}
+
+// ReplaceTransactionRequestMultiError is an error wrapping multiple validation
+// errors returned by ReplaceTransactionRequest.Validate(true) if the
+// designated constraints aren't met.
+type ReplaceTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ReplaceTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ReplaceTransactionRequestMultiError) AllErrors() []error { return m }
+
+// ReplaceTransactionRequestValidationError is the validation error returned by
+// ReplaceTransactionRequest.Validate if the designated constraints aren't met.
+type ReplaceTransactionRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ReplaceTransactionRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ReplaceTransactionRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ReplaceTransactionRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ReplaceTransactionRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ReplaceTransactionRequestValidationError) ErrorName() string {
+	return "ReplaceTransactionRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ReplaceTransactionRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sReplaceTransactionRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ReplaceTransactionRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ReplaceTransactionRequestValidationError{}
+
+var _ReplaceTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ReplaceTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on GetTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned. When asked to return all errors, validation
@@ -13779,16 +13899,7 @@ func (m *CalculateFeeEthereumSpecific) Validate(all bool) error {
 
 	var errors []error
 
-	if !_CalculateFeeEthereumSpecific_Data_Pattern.MatchString(m.GetData()) {
-		err := CalculateFeeEthereumSpecificValidationError{
-			field:  "Data",
-			reason: "value does not match regex pattern \"^0x[0-9a-fA-F]*$\"",
-		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
-	}
+	// no validation rules for Data
 
 	if len(errors) > 0 {
 		return CalculateFeeEthereumSpecificMultiError(errors)
@@ -13869,8 +13980,6 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CalculateFeeEthereumSpecificValidationError{}
-
-var _CalculateFeeEthereumSpecific_Data_Pattern = regexp.MustCompile("^0x[0-9a-fA-F]*$")
 
 // Validate checks the field values on CalculateFeeCosmosSpecific with the
 // rules defined in the proto definition for this message. If any rules are

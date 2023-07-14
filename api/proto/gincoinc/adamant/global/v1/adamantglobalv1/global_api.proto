@@ -76,6 +76,7 @@ service GlobalAPI {
   rpc SendTransaction(SendTransactionRequest) returns (SendTransactionResponse) {}
   rpc SendXRPInitTransactions(SendXRPInitTransactionsRequest) returns (SendXRPInitTransactionsResponse) {}
   rpc CancelTransaction(CancelTransactionRequest) returns (google.protobuf.Empty) {}
+  rpc ReplaceTransaction(ReplaceTransactionRequest) returns (google.protobuf.Empty) {}
   rpc GetTransaction(GetTransactionRequest) returns (Transaction) {}
   rpc GetTransactionByTxID(GetTransactionByTxIDRequest) returns (Transaction) {}
   rpc ListTransactions(ListTransactionsRequest) returns (ListTransactionsResponse) {}
@@ -746,6 +747,16 @@ message CancelTransactionRequest {
   }];
 }
 
+message ReplaceTransactionRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string transaction_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint64 fee_rate = 3;
+}
+
 message GetTransactionRequest {
   string wallet_id = 1 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
@@ -1168,9 +1179,7 @@ message CalculateFeeSymbolSpecific {
 
 // The model of Ethereum specific fields of CalculateFee
 message CalculateFeeEthereumSpecific {
-  string data = 1 [(validate.rules).string = {
-    pattern: "^0x[0-9a-fA-F]*$"
-  }];
+  string data = 1;
 }
 
 // The model of Cosmos specific fields of CalculateFee

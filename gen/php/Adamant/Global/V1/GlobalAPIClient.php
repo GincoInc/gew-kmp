@@ -646,6 +646,20 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\ReplaceTransactionRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ReplaceTransaction(\Adamant\Global\V1\ReplaceTransactionRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ReplaceTransaction',
+        $argument,
+        ['\Google\Protobuf\GPBEmpty', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\GetTransactionRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options

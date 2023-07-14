@@ -790,6 +790,37 @@ public final class TellerAPIGrpc {
     return getCancelTransactionMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ReplaceTransactionRequest,
+      com.google.protobuf.Empty> getReplaceTransactionMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ReplaceTransaction",
+      requestType = adamant.global.v1.ReplaceTransactionRequest.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ReplaceTransactionRequest,
+      com.google.protobuf.Empty> getReplaceTransactionMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ReplaceTransactionRequest, com.google.protobuf.Empty> getReplaceTransactionMethod;
+    if ((getReplaceTransactionMethod = TellerAPIGrpc.getReplaceTransactionMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getReplaceTransactionMethod = TellerAPIGrpc.getReplaceTransactionMethod) == null) {
+          TellerAPIGrpc.getReplaceTransactionMethod = getReplaceTransactionMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ReplaceTransactionRequest, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ReplaceTransaction"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ReplaceTransactionRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ReplaceTransaction"))
+              .build();
+        }
+      }
+    }
+    return getReplaceTransactionMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.GetTransactionRequest,
       adamant.global.v1.Model.Transaction> getGetTransactionMethod;
 
@@ -1458,6 +1489,13 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    default void replaceTransaction(adamant.global.v1.ReplaceTransactionRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getReplaceTransactionMethod(), responseObserver);
+    }
+
+    /**
+     */
     default void getTransaction(adamant.global.v1.GetTransactionRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Transaction> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetTransactionMethod(), responseObserver);
@@ -1808,6 +1846,14 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    public void replaceTransaction(adamant.global.v1.ReplaceTransactionRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getReplaceTransactionMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void getTransaction(adamant.global.v1.GetTransactionRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Transaction> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -2132,6 +2178,13 @@ public final class TellerAPIGrpc {
     public com.google.protobuf.Empty cancelTransaction(adamant.global.v1.CancelTransactionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCancelTransactionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.google.protobuf.Empty replaceTransaction(adamant.global.v1.ReplaceTransactionRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getReplaceTransactionMethod(), getCallOptions(), request);
     }
 
     /**
@@ -2475,6 +2528,14 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> replaceTransaction(
+        adamant.global.v1.ReplaceTransactionRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getReplaceTransactionMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.Model.Transaction> getTransaction(
         adamant.global.v1.GetTransactionRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -2626,20 +2687,21 @@ public final class TellerAPIGrpc {
   private static final int METHODID_SIGN_TRANSACTION = 22;
   private static final int METHODID_SEND_TRANSACTION = 23;
   private static final int METHODID_CANCEL_TRANSACTION = 24;
-  private static final int METHODID_GET_TRANSACTION = 25;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 26;
-  private static final int METHODID_LIST_TRANSACTIONS = 27;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 28;
-  private static final int METHODID_LIST_TRANSFERS = 29;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 30;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 31;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 32;
-  private static final int METHODID_SET_RATES = 33;
-  private static final int METHODID_CALCULATE_FEE = 34;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 35;
-  private static final int METHODID_VALIDATE_ADDRESS = 36;
-  private static final int METHODID_FLUSH_BALANCE = 37;
-  private static final int METHODID_LIST_AUDIT_LOGS = 38;
+  private static final int METHODID_REPLACE_TRANSACTION = 25;
+  private static final int METHODID_GET_TRANSACTION = 26;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 27;
+  private static final int METHODID_LIST_TRANSACTIONS = 28;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 29;
+  private static final int METHODID_LIST_TRANSFERS = 30;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 31;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 32;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 33;
+  private static final int METHODID_SET_RATES = 34;
+  private static final int METHODID_CALCULATE_FEE = 35;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 36;
+  private static final int METHODID_VALIDATE_ADDRESS = 37;
+  private static final int METHODID_FLUSH_BALANCE = 38;
+  private static final int METHODID_LIST_AUDIT_LOGS = 39;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -2756,6 +2818,10 @@ public final class TellerAPIGrpc {
           break;
         case METHODID_CANCEL_TRANSACTION:
           serviceImpl.cancelTransaction((adamant.global.v1.CancelTransactionRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_REPLACE_TRANSACTION:
+          serviceImpl.replaceTransaction((adamant.global.v1.ReplaceTransactionRequest) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         case METHODID_GET_TRANSACTION:
@@ -3008,6 +3074,13 @@ public final class TellerAPIGrpc {
               com.google.protobuf.Empty>(
                 service, METHODID_CANCEL_TRANSACTION)))
         .addMethod(
+          getReplaceTransactionMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ReplaceTransactionRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_REPLACE_TRANSACTION)))
+        .addMethod(
           getGetTransactionMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
@@ -3178,6 +3251,7 @@ public final class TellerAPIGrpc {
               .addMethod(getSignTransactionMethod())
               .addMethod(getSendTransactionMethod())
               .addMethod(getCancelTransactionMethod())
+              .addMethod(getReplaceTransactionMethod())
               .addMethod(getGetTransactionMethod())
               .addMethod(getGetTransactionByTxIDMethod())
               .addMethod(getListTransactionsMethod())
