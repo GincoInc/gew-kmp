@@ -5220,16 +5220,7 @@ func (m *CreateTransactionEthereumSpecific) Validate(all bool) error {
 
 	var errors []error
 
-	if !_CreateTransactionEthereumSpecific_Data_Pattern.MatchString(m.GetData()) {
-		err := CreateTransactionEthereumSpecificValidationError{
-			field:  "Data",
-			reason: "value does not match regex pattern \"^0x[0-9a-fA-F]*$\"",
-		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
-	}
+	// no validation rules for Data
 
 	if len(errors) > 0 {
 		return CreateTransactionEthereumSpecificMultiError(errors)
@@ -5311,8 +5302,6 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CreateTransactionEthereumSpecificValidationError{}
-
-var _CreateTransactionEthereumSpecific_Data_Pattern = regexp.MustCompile("^0x[0-9a-fA-F]*$")
 
 // Validate checks the field values on CreateTransactionCosmosSpecific with the
 // rules defined in the proto definition for this message. If any rules are

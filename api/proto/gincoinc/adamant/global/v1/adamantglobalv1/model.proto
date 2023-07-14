@@ -436,9 +436,7 @@ message CreateTransactionSymbolSpecific {
 
 // The model of Ethereum specific fields of CreateTransaction
 message CreateTransactionEthereumSpecific {
-  string data = 1 [(validate.rules).string = {
-    pattern: "^0x[0-9a-fA-F]*$"
-  }];
+  string data = 1;
 }
 
 // The model of Cosmos specific fields of CreateTransaction

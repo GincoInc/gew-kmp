@@ -1379,6 +1379,37 @@ public final class GlobalAPIGrpc {
     return getCancelTransactionMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ReplaceTransactionRequest,
+      com.google.protobuf.Empty> getReplaceTransactionMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ReplaceTransaction",
+      requestType = adamant.global.v1.ReplaceTransactionRequest.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ReplaceTransactionRequest,
+      com.google.protobuf.Empty> getReplaceTransactionMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ReplaceTransactionRequest, com.google.protobuf.Empty> getReplaceTransactionMethod;
+    if ((getReplaceTransactionMethod = GlobalAPIGrpc.getReplaceTransactionMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getReplaceTransactionMethod = GlobalAPIGrpc.getReplaceTransactionMethod) == null) {
+          GlobalAPIGrpc.getReplaceTransactionMethod = getReplaceTransactionMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ReplaceTransactionRequest, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ReplaceTransaction"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ReplaceTransactionRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ReplaceTransaction"))
+              .build();
+        }
+      }
+    }
+    return getReplaceTransactionMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.GetTransactionRequest,
       adamant.global.v1.Model.Transaction> getGetTransactionMethod;
 
@@ -3312,6 +3343,13 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    default void replaceTransaction(adamant.global.v1.ReplaceTransactionRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getReplaceTransactionMethod(), responseObserver);
+    }
+
+    /**
+     */
     default void getTransaction(adamant.global.v1.GetTransactionRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Transaction> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetTransactionMethod(), responseObserver);
@@ -4096,6 +4134,14 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    public void replaceTransaction(adamant.global.v1.ReplaceTransactionRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getReplaceTransactionMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void getTransaction(adamant.global.v1.GetTransactionRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Transaction> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -4875,6 +4921,13 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    public com.google.protobuf.Empty replaceTransaction(adamant.global.v1.ReplaceTransactionRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getReplaceTransactionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public adamant.global.v1.Model.Transaction getTransaction(adamant.global.v1.GetTransactionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetTransactionMethod(), getCallOptions(), request);
@@ -5648,6 +5701,14 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> replaceTransaction(
+        adamant.global.v1.ReplaceTransactionRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getReplaceTransactionMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.Model.Transaction> getTransaction(
         adamant.global.v1.GetTransactionRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -6120,56 +6181,57 @@ public final class GlobalAPIGrpc {
   private static final int METHODID_SEND_TRANSACTION = 41;
   private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 42;
   private static final int METHODID_CANCEL_TRANSACTION = 43;
-  private static final int METHODID_GET_TRANSACTION = 44;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 45;
-  private static final int METHODID_LIST_TRANSACTIONS = 46;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 47;
-  private static final int METHODID_GET_SIGN_INFO = 48;
-  private static final int METHODID_LIST_SIGN_INFO = 49;
-  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 50;
-  private static final int METHODID_LIST_TRANSFERS = 51;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 52;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 53;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 54;
-  private static final int METHODID_SET_RATES = 55;
-  private static final int METHODID_SET_DEFAULT_RATES = 56;
-  private static final int METHODID_CREATE_LABELED_ADDRESS = 57;
-  private static final int METHODID_GET_LABELED_ADDRESS = 58;
-  private static final int METHODID_LIST_LABELED_ADDRESSES = 59;
-  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 60;
-  private static final int METHODID_UPDATE_LABELED_ADDRESS = 61;
-  private static final int METHODID_DELETE_ADDRESS = 62;
-  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 63;
-  private static final int METHODID_CREATE_WHITELIST = 64;
-  private static final int METHODID_GET_WHITELIST = 65;
-  private static final int METHODID_LIST_WHITELISTS = 66;
-  private static final int METHODID_IS_DELETABLE_WHITELIST = 67;
-  private static final int METHODID_UPDATE_WHITELIST = 68;
-  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 69;
-  private static final int METHODID_DELETE_WHITELIST = 70;
-  private static final int METHODID_CREATE_TRANSFER_LIMIT = 71;
-  private static final int METHODID_GET_TRANSFER_LIMIT = 72;
-  private static final int METHODID_LIST_TRANSFER_LIMITS = 73;
-  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 74;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 75;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 76;
-  private static final int METHODID_DELETE_TRANSFER_LIMIT = 77;
-  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 78;
-  private static final int METHODID_CREATE_POLICY = 79;
-  private static final int METHODID_GET_POLICY = 80;
-  private static final int METHODID_LIST_POLICIES = 81;
-  private static final int METHODID_IS_DELETABLE_POLICY = 82;
-  private static final int METHODID_UPDATE_POLICY = 83;
-  private static final int METHODID_DELETE_POLICY = 84;
-  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 85;
-  private static final int METHODID_GET_SPENDABLE_BALANCE = 86;
-  private static final int METHODID_GET_TOTAL_BALANCE = 87;
-  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 88;
-  private static final int METHODID_CALCULATE_FEE = 89;
-  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 90;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 91;
-  private static final int METHODID_VALIDATE_ADDRESS = 92;
-  private static final int METHODID_LIST_AUDIT_LOGS = 93;
+  private static final int METHODID_REPLACE_TRANSACTION = 44;
+  private static final int METHODID_GET_TRANSACTION = 45;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 46;
+  private static final int METHODID_LIST_TRANSACTIONS = 47;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 48;
+  private static final int METHODID_GET_SIGN_INFO = 49;
+  private static final int METHODID_LIST_SIGN_INFO = 50;
+  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 51;
+  private static final int METHODID_LIST_TRANSFERS = 52;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 53;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 54;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 55;
+  private static final int METHODID_SET_RATES = 56;
+  private static final int METHODID_SET_DEFAULT_RATES = 57;
+  private static final int METHODID_CREATE_LABELED_ADDRESS = 58;
+  private static final int METHODID_GET_LABELED_ADDRESS = 59;
+  private static final int METHODID_LIST_LABELED_ADDRESSES = 60;
+  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 61;
+  private static final int METHODID_UPDATE_LABELED_ADDRESS = 62;
+  private static final int METHODID_DELETE_ADDRESS = 63;
+  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 64;
+  private static final int METHODID_CREATE_WHITELIST = 65;
+  private static final int METHODID_GET_WHITELIST = 66;
+  private static final int METHODID_LIST_WHITELISTS = 67;
+  private static final int METHODID_IS_DELETABLE_WHITELIST = 68;
+  private static final int METHODID_UPDATE_WHITELIST = 69;
+  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 70;
+  private static final int METHODID_DELETE_WHITELIST = 71;
+  private static final int METHODID_CREATE_TRANSFER_LIMIT = 72;
+  private static final int METHODID_GET_TRANSFER_LIMIT = 73;
+  private static final int METHODID_LIST_TRANSFER_LIMITS = 74;
+  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 75;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 76;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 77;
+  private static final int METHODID_DELETE_TRANSFER_LIMIT = 78;
+  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 79;
+  private static final int METHODID_CREATE_POLICY = 80;
+  private static final int METHODID_GET_POLICY = 81;
+  private static final int METHODID_LIST_POLICIES = 82;
+  private static final int METHODID_IS_DELETABLE_POLICY = 83;
+  private static final int METHODID_UPDATE_POLICY = 84;
+  private static final int METHODID_DELETE_POLICY = 85;
+  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 86;
+  private static final int METHODID_GET_SPENDABLE_BALANCE = 87;
+  private static final int METHODID_GET_TOTAL_BALANCE = 88;
+  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 89;
+  private static final int METHODID_CALCULATE_FEE = 90;
+  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 91;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 92;
+  private static final int METHODID_VALIDATE_ADDRESS = 93;
+  private static final int METHODID_LIST_AUDIT_LOGS = 94;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -6362,6 +6424,10 @@ public final class GlobalAPIGrpc {
           break;
         case METHODID_CANCEL_TRANSACTION:
           serviceImpl.cancelTransaction((adamant.global.v1.CancelTransactionRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_REPLACE_TRANSACTION:
+          serviceImpl.replaceTransaction((adamant.global.v1.ReplaceTransactionRequest) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         case METHODID_GET_TRANSACTION:
@@ -6891,6 +6957,13 @@ public final class GlobalAPIGrpc {
               com.google.protobuf.Empty>(
                 service, METHODID_CANCEL_TRANSACTION)))
         .addMethod(
+          getReplaceTransactionMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ReplaceTransactionRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_REPLACE_TRANSACTION)))
+        .addMethod(
           getGetTransactionMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
@@ -7332,6 +7405,7 @@ public final class GlobalAPIGrpc {
               .addMethod(getSendTransactionMethod())
               .addMethod(getSendXRPInitTransactionsMethod())
               .addMethod(getCancelTransactionMethod())
+              .addMethod(getReplaceTransactionMethod())
               .addMethod(getGetTransactionMethod())
               .addMethod(getGetTransactionByTxIDMethod())
               .addMethod(getListTransactionsMethod())
