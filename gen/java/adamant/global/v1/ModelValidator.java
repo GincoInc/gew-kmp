@@ -1649,13 +1649,12 @@ public class ModelValidator {
 	 */
 	public static class CreateTransactionEthereumSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionEthereumSpecific> {
 		
-		com.google.re2j.Pattern DATA__PATTERN = com.google.re2j.Pattern.compile("^0x[0-9a-fA-F]*$");
 	
 	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionEthereumSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
-	
-			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.CreateTransactionEthereumSpecific.data", proto.getData(), DATA__PATTERN);
+	// no validation rules for Data
+
 	
 	}
 }
