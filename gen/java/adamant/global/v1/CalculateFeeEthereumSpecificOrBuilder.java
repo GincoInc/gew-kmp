@@ -8,12 +8,12 @@ public interface CalculateFeeEthereumSpecificOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string data = 1 [json_name = "data", (.validate.rules) = { ... }</code>
+   * <code>string data = 1 [json_name = "data"];</code>
    * @return The data.
    */
   java.lang.String getData();
   /**
-   * <code>string data = 1 [json_name = "data", (.validate.rules) = { ... }</code>
+   * <code>string data = 1 [json_name = "data"];</code>
    * @return The bytes for data.
    */
   com.google.protobuf.ByteString
