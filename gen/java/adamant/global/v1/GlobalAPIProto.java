@@ -1543,10 +1543,9 @@ public final class GlobalAPIProto {
       "\030\001 \001(\tR\007message\"6\n\032CalculateFeeSymbolSpe" +
       "cific\022\030\n\007message\030\001 \001(\tR\007message\"2\n\034Calcu" +
       "lateFeeEthereumSpecific\022\022\n\004data\030\001 \001(\tR\004d" +
-      "ata\"\216\001\n\032CalculateFeeCosmosSpecific\0225\n\004ty" +
-      "pe\030\001 \001(\0162!.gincoinc.global.v1.CosmosMsgT" +
-      "ypeR\004type\022\022\n\004memo\030\002 \001(\tR\004memo\022%\n\016gas_adj" +
-      "ustment\030\003 \001(\001R\rgasAdjustment\"G\n\024Calculat" +
+      "ata\"g\n\032CalculateFeeCosmosSpecific\0225\n\004typ" +
+      "e\030\001 \001(\0162!.gincoinc.global.v1.CosmosMsgTy" +
+      "peR\004type\022\022\n\004memo\030\002 \001(\tR\004memo\"G\n\024Calculat" +
       "eFeeResponse\022\020\n\003fee\030\001 \001(\001R\003fee\022\035\n\nstring" +
       "_fee\030\002 \001(\tR\tstringFee\"%\n#GetMembersDeact" +
       "ivatabilitiesRequest\"{\n$GetMembersDeacti" +
@@ -1762,8 +1761,8 @@ public final class GlobalAPIProto {
       "onse\022\026\n\006exists\030\001 \001(\010R\006exists\"\035\n\033GetIOSTC" +
       "allerAccountRequest\"\024\n\022ListCallersReques" +
       "t\"b\n\023ListCallersResponse\022K\n\020caller_addre" +
-      "sses\030\001 \003(\0132 .adamant.global.v1.CallerAdd",
-      "ressR\017callerAddresses\"\204\001\n\027GetCosmosBalan" +
+      "sses\030\001 \003(\0132 .adamant.global.v1.CallerAdd" +
+      "ressR\017callerAddresses\"\204\001\n\027GetCosmosBalan",
       "ceRequest\022i\n\twallet_id\030\001 \001(\tBL\372BIrG2E^[0" +
       "-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab" +
       "][0-9a-f]{3}-[0-9a-f]{12}$R\010walletId\"\265\001\n" +
@@ -2755,7 +2754,7 @@ public final class GlobalAPIProto {
     internal_static_adamant_global_v1_CalculateFeeCosmosSpecific_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CalculateFeeCosmosSpecific_descriptor,
-        new java.lang.String[] { "Type", "Memo", "GasAdjustment", });
+        new java.lang.String[] { "Type", "Memo", });
     internal_static_adamant_global_v1_CalculateFeeResponse_descriptor =
       getDescriptor().getMessageTypes().get(120);
     internal_static_adamant_global_v1_CalculateFeeResponse_fieldAccessorTable = new
