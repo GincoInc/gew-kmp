@@ -13998,8 +13998,6 @@ func (m *CalculateFeeCosmosSpecific) Validate(all bool) error {
 
 	// no validation rules for Memo
 
-	// no validation rules for GasAdjustment
-
 	if len(errors) > 0 {
 		return CalculateFeeCosmosSpecificMultiError(errors)
 	}

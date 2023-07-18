@@ -23,10 +23,6 @@ class CreateTransactionCosmosSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string memo = 2 [json_name = "memo"];</code>
      */
     protected $memo = '';
-    /**
-     * Generated from protobuf field <code>double gas_adjustment = 3 [json_name = "gasAdjustment"];</code>
-     */
-    protected $gas_adjustment = 0.0;
 
     /**
      * Constructor.
@@ -36,7 +32,6 @@ class CreateTransactionCosmosSpecific extends \Google\Protobuf\Internal\Message
      *
      *     @type int $type
      *     @type string $memo
-     *     @type float $gas_adjustment
      * }
      */
     public function __construct($data = NULL) {
@@ -84,28 +79,6 @@ class CreateTransactionCosmosSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->memo = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>double gas_adjustment = 3 [json_name = "gasAdjustment"];</code>
-     * @return float
-     */
-    public function getGasAdjustment()
-    {
-        return $this->gas_adjustment;
-    }
-
-    /**
-     * Generated from protobuf field <code>double gas_adjustment = 3 [json_name = "gasAdjustment"];</code>
-     * @param float $var
-     * @return $this
-     */
-    public function setGasAdjustment($var)
-    {
-        GPBUtil::checkDouble($var);
-        $this->gas_adjustment = $var;
 
         return $this;
     }
