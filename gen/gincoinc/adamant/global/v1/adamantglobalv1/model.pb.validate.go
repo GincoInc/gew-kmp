@@ -5320,8 +5320,6 @@ func (m *CreateTransactionCosmosSpecific) Validate(all bool) error {
 
 	// no validation rules for Memo
 
-	// no validation rules for GasAdjustment
-
 	if len(errors) > 0 {
 		return CreateTransactionCosmosSpecificMultiError(errors)
 	}

@@ -59,6 +59,7 @@ enum Coin {
   COIN_ASTR = 42;
   COIN_XDC = 43;
   COIN_ATOM = 44;
+  COIN_KLAYTN_KIP7_MBX = 45;
   COIN_SDN = 10002;
 }
 

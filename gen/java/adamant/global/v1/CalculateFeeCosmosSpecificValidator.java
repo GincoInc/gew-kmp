@@ -18,16 +18,12 @@ public class CalculateFeeCosmosSpecificValidator implements io.envoyproxy.pgv.Va
 	
 		
 	
-		
-	
 	
 
 	public void assertValid(adamant.global.v1.CalculateFeeCosmosSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Type
 
 	// no validation rules for Memo
-
-	// no validation rules for GasAdjustment
 
 	
 	}

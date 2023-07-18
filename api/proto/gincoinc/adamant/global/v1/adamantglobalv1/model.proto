@@ -443,7 +443,6 @@ message CreateTransactionEthereumSpecific {
 message CreateTransactionCosmosSpecific {
   gincoinc.global.v1.CosmosMsgType type = 1;
   string memo = 2;
-  double gas_adjustment = 3;
 }
 
 // The model of substrate multisig transaction

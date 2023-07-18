@@ -101,17 +101,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int GAS_ADJUSTMENT_FIELD_NUMBER = 3;
-  private double gasAdjustment_ = 0D;
-  /**
-   * <code>double gas_adjustment = 3 [json_name = "gasAdjustment"];</code>
-   * @return The gasAdjustment.
-   */
-  @java.lang.Override
-  public double getGasAdjustment() {
-    return gasAdjustment_;
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -132,9 +121,6 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(memo_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, memo_);
     }
-    if (java.lang.Double.doubleToRawLongBits(gasAdjustment_) != 0) {
-      output.writeDouble(3, gasAdjustment_);
-    }
     getUnknownFields().writeTo(output);
   }
 
@@ -150,10 +136,6 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(memo_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, memo_);
-    }
-    if (java.lang.Double.doubleToRawLongBits(gasAdjustment_) != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(3, gasAdjustment_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -173,9 +155,6 @@ private static final long serialVersionUID = 0L;
     if (type_ != other.type_) return false;
     if (!getMemo()
         .equals(other.getMemo())) return false;
-    if (java.lang.Double.doubleToLongBits(getGasAdjustment())
-        != java.lang.Double.doubleToLongBits(
-            other.getGasAdjustment())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -191,9 +170,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + type_;
     hash = (37 * hash) + MEMO_FIELD_NUMBER;
     hash = (53 * hash) + getMemo().hashCode();
-    hash = (37 * hash) + GAS_ADJUSTMENT_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getGasAdjustment()));
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -331,7 +307,6 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       type_ = 0;
       memo_ = "";
-      gasAdjustment_ = 0D;
       return this;
     }
 
@@ -370,9 +345,6 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.memo_ = memo_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.gasAdjustment_ = gasAdjustment_;
       }
     }
 
@@ -428,9 +400,6 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000002;
         onChanged();
       }
-      if (other.getGasAdjustment() != 0D) {
-        setGasAdjustment(other.getGasAdjustment());
-      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -467,11 +436,6 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 18
-            case 25: {
-              gasAdjustment_ = input.readDouble();
-              bitField0_ |= 0x00000004;
-              break;
-            } // case 25
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -610,38 +574,6 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       memo_ = value;
       bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-
-    private double gasAdjustment_ ;
-    /**
-     * <code>double gas_adjustment = 3 [json_name = "gasAdjustment"];</code>
-     * @return The gasAdjustment.
-     */
-    @java.lang.Override
-    public double getGasAdjustment() {
-      return gasAdjustment_;
-    }
-    /**
-     * <code>double gas_adjustment = 3 [json_name = "gasAdjustment"];</code>
-     * @param value The gasAdjustment to set.
-     * @return This builder for chaining.
-     */
-    public Builder setGasAdjustment(double value) {
-
-      gasAdjustment_ = value;
-      bitField0_ |= 0x00000004;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>double gas_adjustment = 3 [json_name = "gasAdjustment"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearGasAdjustment() {
-      bitField0_ = (bitField0_ & ~0x00000004);
-      gasAdjustment_ = 0D;
       onChanged();
       return this;
     }

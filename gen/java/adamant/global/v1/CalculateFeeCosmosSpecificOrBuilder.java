@@ -29,10 +29,4 @@ public interface CalculateFeeCosmosSpecificOrBuilder extends
    */
   com.google.protobuf.ByteString
       getMemoBytes();
-
-  /**
-   * <code>double gas_adjustment = 3 [json_name = "gasAdjustment"];</code>
-   * @return The gasAdjustment.
-   */
-  double getGasAdjustment();
 }

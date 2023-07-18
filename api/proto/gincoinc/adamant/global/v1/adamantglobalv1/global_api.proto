@@ -1186,7 +1186,6 @@ message CalculateFeeEthereumSpecific {
 message CalculateFeeCosmosSpecific {
   gincoinc.global.v1.CosmosMsgType type = 1;
   string memo = 2;
-  double gas_adjustment = 3;
 }
 
 message CalculateFeeResponse {

@@ -1666,16 +1666,12 @@ public class ModelValidator {
 	
 		
 	
-		
-	
 	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionCosmosSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Type
 
 	// no validation rules for Memo
-
-	// no validation rules for GasAdjustment
 
 	
 	}
