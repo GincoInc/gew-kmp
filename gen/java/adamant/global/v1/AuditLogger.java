@@ -569,7 +569,8 @@ public final class AuditLogger {
       destinationWalletName_ = "";
       walletGroupId_ = "";
       walletGroupName_ = "";
-      walletNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      walletNames_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
       transactionId_ = "";
       coinType_ = 0;
       stringValue_ = "";
@@ -583,9 +584,12 @@ public final class AuditLogger {
       transferLimitName_ = "";
       whitelistId_ = "";
       whitelistName_ = "";
-      oldValidators_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      newValidators_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      whitelistAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      oldValidators_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      newValidators_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      whitelistAddresses_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
     }
 
     @java.lang.Override
@@ -595,324 +599,6 @@ public final class AuditLogger {
       return new AuditLog();
     }
 
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private AuditLog(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              auditLogId_ = s;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              auditLogGroup_ = rawValue;
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              auditLogType_ = rawValue;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              accountId_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              accountName_ = s;
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              targetAccountId_ = s;
-              break;
-            }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              targetAccountName_ = s;
-              break;
-            }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              email_ = s;
-              break;
-            }
-            case 72: {
-              int rawValue = input.readEnum();
-
-              roleType_ = rawValue;
-              break;
-            }
-            case 82: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              serviceAccountId_ = s;
-              break;
-            }
-            case 90: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              serviceAccountName_ = s;
-              break;
-            }
-            case 98: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              serviceAccountKeyId_ = s;
-              break;
-            }
-            case 106: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              walletId_ = s;
-              break;
-            }
-            case 114: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              walletName_ = s;
-              break;
-            }
-            case 122: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              transactionId_ = s;
-              break;
-            }
-            case 128: {
-              int rawValue = input.readEnum();
-
-              coinType_ = rawValue;
-              break;
-            }
-            case 138: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              stringValue_ = s;
-              break;
-            }
-            case 146: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              txId_ = s;
-              break;
-            }
-            case 154: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              policyId_ = s;
-              break;
-            }
-            case 162: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              policyName_ = s;
-              break;
-            }
-            case 170: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              labeledAddressId_ = s;
-              break;
-            }
-            case 178: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              address_ = s;
-              break;
-            }
-            case 186: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              addressName_ = s;
-              break;
-            }
-            case 194: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              transferLimitId_ = s;
-              break;
-            }
-            case 202: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              transferLimitName_ = s;
-              break;
-            }
-            case 208: {
-
-              transferOneTimeLimit_ = input.readInt64();
-              break;
-            }
-            case 216: {
-
-              transferHourlyLimit_ = input.readInt64();
-              break;
-            }
-            case 224: {
-
-              transferDailyLimit_ = input.readInt64();
-              break;
-            }
-            case 234: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              whitelistId_ = s;
-              break;
-            }
-            case 242: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              whitelistName_ = s;
-              break;
-            }
-            case 250: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                whitelistAddresses_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              whitelistAddresses_.add(s);
-              break;
-            }
-            case 258: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (eventTime_ != null) {
-                subBuilder = eventTime_.toBuilder();
-              }
-              eventTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(eventTime_);
-                eventTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 266: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (createTime_ != null) {
-                subBuilder = createTime_.toBuilder();
-              }
-              createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(createTime_);
-                createTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 274: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              walletGroupId_ = s;
-              break;
-            }
-            case 282: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              walletGroupName_ = s;
-              break;
-            }
-            case 290: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                walletNames_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              walletNames_.add(s);
-              break;
-            }
-            case 298: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                oldValidators_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              oldValidators_.add(s);
-              break;
-            }
-            case 306: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                newValidators_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              newValidators_.add(s);
-              break;
-            }
-            case 314: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              destinationWalletId_ = s;
-              break;
-            }
-            case 322: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              destinationWalletName_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
-          whitelistAddresses_ = whitelistAddresses_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          walletNames_ = walletNames_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          oldValidators_ = oldValidators_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          newValidators_ = newValidators_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return adamant.global.v1.AuditLogger.internal_static_adamant_global_v1_AuditLog_descriptor;
@@ -927,7 +613,8 @@ public final class AuditLogger {
     }
 
     public static final int AUDIT_LOG_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object auditLogId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object auditLogId_ = "";
     /**
      * <code>string audit_log_id = 1 [json_name = "auditLogId"];</code>
      * @return The auditLogId.
@@ -965,7 +652,7 @@ public final class AuditLogger {
     }
 
     public static final int AUDIT_LOG_GROUP_FIELD_NUMBER = 2;
-    private int auditLogGroup_;
+    private int auditLogGroup_ = 0;
     /**
      * <code>.adamant.global.v1.AuditLogGroup audit_log_group = 2 [json_name = "auditLogGroup"];</code>
      * @return The enum numeric value on the wire for auditLogGroup.
@@ -978,13 +665,12 @@ public final class AuditLogger {
      * @return The auditLogGroup.
      */
     @java.lang.Override public adamant.global.v1.Enum.AuditLogGroup getAuditLogGroup() {
-      @SuppressWarnings("deprecation")
-      adamant.global.v1.Enum.AuditLogGroup result = adamant.global.v1.Enum.AuditLogGroup.valueOf(auditLogGroup_);
+      adamant.global.v1.Enum.AuditLogGroup result = adamant.global.v1.Enum.AuditLogGroup.forNumber(auditLogGroup_);
       return result == null ? adamant.global.v1.Enum.AuditLogGroup.UNRECOGNIZED : result;
     }
 
     public static final int AUDIT_LOG_TYPE_FIELD_NUMBER = 3;
-    private int auditLogType_;
+    private int auditLogType_ = 0;
     /**
      * <code>.adamant.global.v1.AuditLogType audit_log_type = 3 [json_name = "auditLogType"];</code>
      * @return The enum numeric value on the wire for auditLogType.
@@ -997,13 +683,13 @@ public final class AuditLogger {
      * @return The auditLogType.
      */
     @java.lang.Override public adamant.global.v1.Enum.AuditLogType getAuditLogType() {
-      @SuppressWarnings("deprecation")
-      adamant.global.v1.Enum.AuditLogType result = adamant.global.v1.Enum.AuditLogType.valueOf(auditLogType_);
+      adamant.global.v1.Enum.AuditLogType result = adamant.global.v1.Enum.AuditLogType.forNumber(auditLogType_);
       return result == null ? adamant.global.v1.Enum.AuditLogType.UNRECOGNIZED : result;
     }
 
     public static final int ACCOUNT_ID_FIELD_NUMBER = 4;
-    private volatile java.lang.Object accountId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object accountId_ = "";
     /**
      * <code>string account_id = 4 [json_name = "accountId"];</code>
      * @return The accountId.
@@ -1041,7 +727,8 @@ public final class AuditLogger {
     }
 
     public static final int ACCOUNT_NAME_FIELD_NUMBER = 5;
-    private volatile java.lang.Object accountName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object accountName_ = "";
     /**
      * <code>string account_name = 5 [json_name = "accountName"];</code>
      * @return The accountName.
@@ -1079,7 +766,8 @@ public final class AuditLogger {
     }
 
     public static final int TARGET_ACCOUNT_ID_FIELD_NUMBER = 6;
-    private volatile java.lang.Object targetAccountId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object targetAccountId_ = "";
     /**
      * <code>string target_account_id = 6 [json_name = "targetAccountId"];</code>
      * @return The targetAccountId.
@@ -1117,7 +805,8 @@ public final class AuditLogger {
     }
 
     public static final int TARGET_ACCOUNT_NAME_FIELD_NUMBER = 7;
-    private volatile java.lang.Object targetAccountName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object targetAccountName_ = "";
     /**
      * <code>string target_account_name = 7 [json_name = "targetAccountName"];</code>
      * @return The targetAccountName.
@@ -1155,7 +844,8 @@ public final class AuditLogger {
     }
 
     public static final int EMAIL_FIELD_NUMBER = 8;
-    private volatile java.lang.Object email_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object email_ = "";
     /**
      * <code>string email = 8 [json_name = "email"];</code>
      * @return The email.
@@ -1193,7 +883,7 @@ public final class AuditLogger {
     }
 
     public static final int ROLE_TYPE_FIELD_NUMBER = 9;
-    private int roleType_;
+    private int roleType_ = 0;
     /**
      * <code>.adamant.global.v1.RoleType role_type = 9 [json_name = "roleType"];</code>
      * @return The enum numeric value on the wire for roleType.
@@ -1206,13 +896,13 @@ public final class AuditLogger {
      * @return The roleType.
      */
     @java.lang.Override public adamant.global.v1.Enum.RoleType getRoleType() {
-      @SuppressWarnings("deprecation")
-      adamant.global.v1.Enum.RoleType result = adamant.global.v1.Enum.RoleType.valueOf(roleType_);
+      adamant.global.v1.Enum.RoleType result = adamant.global.v1.Enum.RoleType.forNumber(roleType_);
       return result == null ? adamant.global.v1.Enum.RoleType.UNRECOGNIZED : result;
     }
 
     public static final int SERVICE_ACCOUNT_ID_FIELD_NUMBER = 10;
-    private volatile java.lang.Object serviceAccountId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object serviceAccountId_ = "";
     /**
      * <code>string service_account_id = 10 [json_name = "serviceAccountId"];</code>
      * @return The serviceAccountId.
@@ -1250,7 +940,8 @@ public final class AuditLogger {
     }
 
     public static final int SERVICE_ACCOUNT_NAME_FIELD_NUMBER = 11;
-    private volatile java.lang.Object serviceAccountName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object serviceAccountName_ = "";
     /**
      * <code>string service_account_name = 11 [json_name = "serviceAccountName"];</code>
      * @return The serviceAccountName.
@@ -1288,7 +979,8 @@ public final class AuditLogger {
     }
 
     public static final int SERVICE_ACCOUNT_KEY_ID_FIELD_NUMBER = 12;
-    private volatile java.lang.Object serviceAccountKeyId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object serviceAccountKeyId_ = "";
     /**
      * <code>string service_account_key_id = 12 [json_name = "serviceAccountKeyId"];</code>
      * @return The serviceAccountKeyId.
@@ -1326,7 +1018,8 @@ public final class AuditLogger {
     }
 
     public static final int WALLET_ID_FIELD_NUMBER = 13;
-    private volatile java.lang.Object walletId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object walletId_ = "";
     /**
      * <code>string wallet_id = 13 [json_name = "walletId"];</code>
      * @return The walletId.
@@ -1364,7 +1057,8 @@ public final class AuditLogger {
     }
 
     public static final int WALLET_NAME_FIELD_NUMBER = 14;
-    private volatile java.lang.Object walletName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object walletName_ = "";
     /**
      * <code>string wallet_name = 14 [json_name = "walletName"];</code>
      * @return The walletName.
@@ -1402,7 +1096,8 @@ public final class AuditLogger {
     }
 
     public static final int DESTINATION_WALLET_ID_FIELD_NUMBER = 39;
-    private volatile java.lang.Object destinationWalletId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object destinationWalletId_ = "";
     /**
      * <code>string destination_wallet_id = 39 [json_name = "destinationWalletId"];</code>
      * @return The destinationWalletId.
@@ -1440,7 +1135,8 @@ public final class AuditLogger {
     }
 
     public static final int DESTINATION_WALLET_NAME_FIELD_NUMBER = 40;
-    private volatile java.lang.Object destinationWalletName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object destinationWalletName_ = "";
     /**
      * <code>string destination_wallet_name = 40 [json_name = "destinationWalletName"];</code>
      * @return The destinationWalletName.
@@ -1478,7 +1174,8 @@ public final class AuditLogger {
     }
 
     public static final int WALLET_GROUP_ID_FIELD_NUMBER = 34;
-    private volatile java.lang.Object walletGroupId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object walletGroupId_ = "";
     /**
      * <code>string wallet_group_id = 34 [json_name = "walletGroupId"];</code>
      * @return The walletGroupId.
@@ -1516,7 +1213,8 @@ public final class AuditLogger {
     }
 
     public static final int WALLET_GROUP_NAME_FIELD_NUMBER = 35;
-    private volatile java.lang.Object walletGroupName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object walletGroupName_ = "";
     /**
      * <code>string wallet_group_name = 35 [json_name = "walletGroupName"];</code>
      * @return The walletGroupName.
@@ -1554,7 +1252,9 @@ public final class AuditLogger {
     }
 
     public static final int WALLET_NAMES_FIELD_NUMBER = 36;
-    private com.google.protobuf.LazyStringList walletNames_;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.LazyStringArrayList walletNames_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
     /**
      * <code>repeated string wallet_names = 36 [json_name = "walletNames"];</code>
      * @return A list containing the walletNames.
@@ -1589,7 +1289,8 @@ public final class AuditLogger {
     }
 
     public static final int TRANSACTION_ID_FIELD_NUMBER = 15;
-    private volatile java.lang.Object transactionId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object transactionId_ = "";
     /**
      * <code>string transaction_id = 15 [json_name = "transactionId"];</code>
      * @return The transactionId.
@@ -1627,7 +1328,7 @@ public final class AuditLogger {
     }
 
     public static final int COIN_TYPE_FIELD_NUMBER = 16;
-    private int coinType_;
+    private int coinType_ = 0;
     /**
      * <code>.gincoinc.global.v1.Coin coin_type = 16 [json_name = "coinType"];</code>
      * @return The enum numeric value on the wire for coinType.
@@ -1640,13 +1341,13 @@ public final class AuditLogger {
      * @return The coinType.
      */
     @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoinType() {
-      @SuppressWarnings("deprecation")
-      gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coinType_);
+      gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.forNumber(coinType_);
       return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
     }
 
     public static final int STRING_VALUE_FIELD_NUMBER = 17;
-    private volatile java.lang.Object stringValue_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object stringValue_ = "";
     /**
      * <code>string string_value = 17 [json_name = "stringValue"];</code>
      * @return The stringValue.
@@ -1684,7 +1385,8 @@ public final class AuditLogger {
     }
 
     public static final int TX_ID_FIELD_NUMBER = 18;
-    private volatile java.lang.Object txId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object txId_ = "";
     /**
      * <code>string tx_id = 18 [json_name = "txId"];</code>
      * @return The txId.
@@ -1722,7 +1424,8 @@ public final class AuditLogger {
     }
 
     public static final int POLICY_ID_FIELD_NUMBER = 19;
-    private volatile java.lang.Object policyId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object policyId_ = "";
     /**
      * <code>string policy_id = 19 [json_name = "policyId"];</code>
      * @return The policyId.
@@ -1760,7 +1463,8 @@ public final class AuditLogger {
     }
 
     public static final int POLICY_NAME_FIELD_NUMBER = 20;
-    private volatile java.lang.Object policyName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object policyName_ = "";
     /**
      * <code>string policy_name = 20 [json_name = "policyName"];</code>
      * @return The policyName.
@@ -1798,7 +1502,8 @@ public final class AuditLogger {
     }
 
     public static final int LABELED_ADDRESS_ID_FIELD_NUMBER = 21;
-    private volatile java.lang.Object labeledAddressId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object labeledAddressId_ = "";
     /**
      * <code>string labeled_address_id = 21 [json_name = "labeledAddressId"];</code>
      * @return The labeledAddressId.
@@ -1836,7 +1541,8 @@ public final class AuditLogger {
     }
 
     public static final int ADDRESS_FIELD_NUMBER = 22;
-    private volatile java.lang.Object address_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object address_ = "";
     /**
      * <code>string address = 22 [json_name = "address"];</code>
      * @return The address.
@@ -1874,7 +1580,8 @@ public final class AuditLogger {
     }
 
     public static final int ADDRESS_NAME_FIELD_NUMBER = 23;
-    private volatile java.lang.Object addressName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object addressName_ = "";
     /**
      * <code>string address_name = 23 [json_name = "addressName"];</code>
      * @return The addressName.
@@ -1912,7 +1619,8 @@ public final class AuditLogger {
     }
 
     public static final int TRANSFER_LIMIT_ID_FIELD_NUMBER = 24;
-    private volatile java.lang.Object transferLimitId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object transferLimitId_ = "";
     /**
      * <code>string transfer_limit_id = 24 [json_name = "transferLimitId"];</code>
      * @return The transferLimitId.
@@ -1950,7 +1658,8 @@ public final class AuditLogger {
     }
 
     public static final int TRANSFER_LIMIT_NAME_FIELD_NUMBER = 25;
-    private volatile java.lang.Object transferLimitName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object transferLimitName_ = "";
     /**
      * <code>string transfer_limit_name = 25 [json_name = "transferLimitName"];</code>
      * @return The transferLimitName.
@@ -1988,7 +1697,7 @@ public final class AuditLogger {
     }
 
     public static final int TRANSFER_ONE_TIME_LIMIT_FIELD_NUMBER = 26;
-    private long transferOneTimeLimit_;
+    private long transferOneTimeLimit_ = 0L;
     /**
      * <code>int64 transfer_one_time_limit = 26 [json_name = "transferOneTimeLimit"];</code>
      * @return The transferOneTimeLimit.
@@ -1999,7 +1708,7 @@ public final class AuditLogger {
     }
 
     public static final int TRANSFER_HOURLY_LIMIT_FIELD_NUMBER = 27;
-    private long transferHourlyLimit_;
+    private long transferHourlyLimit_ = 0L;
     /**
      * <code>int64 transfer_hourly_limit = 27 [json_name = "transferHourlyLimit"];</code>
      * @return The transferHourlyLimit.
@@ -2010,7 +1719,7 @@ public final class AuditLogger {
     }
 
     public static final int TRANSFER_DAILY_LIMIT_FIELD_NUMBER = 28;
-    private long transferDailyLimit_;
+    private long transferDailyLimit_ = 0L;
     /**
      * <code>int64 transfer_daily_limit = 28 [json_name = "transferDailyLimit"];</code>
      * @return The transferDailyLimit.
@@ -2021,7 +1730,8 @@ public final class AuditLogger {
     }
 
     public static final int WHITELIST_ID_FIELD_NUMBER = 29;
-    private volatile java.lang.Object whitelistId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object whitelistId_ = "";
     /**
      * <code>string whitelist_id = 29 [json_name = "whitelistId"];</code>
      * @return The whitelistId.
@@ -2059,7 +1769,8 @@ public final class AuditLogger {
     }
 
     public static final int WHITELIST_NAME_FIELD_NUMBER = 30;
-    private volatile java.lang.Object whitelistName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object whitelistName_ = "";
     /**
      * <code>string whitelist_name = 30 [json_name = "whitelistName"];</code>
      * @return The whitelistName.
@@ -2097,7 +1808,9 @@ public final class AuditLogger {
     }
 
     public static final int OLD_VALIDATORS_FIELD_NUMBER = 37;
-    private com.google.protobuf.LazyStringList oldValidators_;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.LazyStringArrayList oldValidators_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
     /**
      * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
      * @return A list containing the oldValidators.
@@ -2132,7 +1845,9 @@ public final class AuditLogger {
     }
 
     public static final int NEW_VALIDATORS_FIELD_NUMBER = 38;
-    private com.google.protobuf.LazyStringList newValidators_;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.LazyStringArrayList newValidators_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
     /**
      * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
      * @return A list containing the newValidators.
@@ -2167,7 +1882,9 @@ public final class AuditLogger {
     }
 
     public static final int WHITELIST_ADDRESSES_FIELD_NUMBER = 31;
-    private com.google.protobuf.LazyStringList whitelistAddresses_;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.LazyStringArrayList whitelistAddresses_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
     /**
      * <code>repeated string whitelist_addresses = 31 [json_name = "whitelistAddresses"];</code>
      * @return A list containing the whitelistAddresses.
@@ -2224,7 +1941,7 @@ public final class AuditLogger {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getEventTimeOrBuilder() {
-      return getEventTime();
+      return eventTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : eventTime_;
     }
 
     public static final int CREATE_TIME_FIELD_NUMBER = 33;
@@ -2250,7 +1967,7 @@ public final class AuditLogger {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-      return getCreateTime();
+      return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2387,7 +2104,7 @@ public final class AuditLogger {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destinationWalletName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 40, destinationWalletName_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2545,7 +2262,7 @@ public final class AuditLogger {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destinationWalletName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(40, destinationWalletName_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2642,7 +2359,7 @@ public final class AuditLogger {
         if (!getCreateTime()
             .equals(other.getCreateTime())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2748,7 +2465,7 @@ public final class AuditLogger {
         hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
         hash = (53 * hash) + getCreateTime().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2797,11 +2514,13 @@ public final class AuditLogger {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static adamant.global.v1.AuditLogger.AuditLog parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static adamant.global.v1.AuditLogger.AuditLog parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2869,108 +2588,69 @@ public final class AuditLogger {
 
       // Construct using adamant.global.v1.AuditLogger.AuditLog.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        bitField1_ = 0;
         auditLogId_ = "";
-
         auditLogGroup_ = 0;
-
         auditLogType_ = 0;
-
         accountId_ = "";
-
         accountName_ = "";
-
         targetAccountId_ = "";
-
         targetAccountName_ = "";
-
         email_ = "";
-
         roleType_ = 0;
-
         serviceAccountId_ = "";
-
         serviceAccountName_ = "";
-
         serviceAccountKeyId_ = "";
-
         walletId_ = "";
-
         walletName_ = "";
-
         destinationWalletId_ = "";
-
         destinationWalletName_ = "";
-
         walletGroupId_ = "";
-
         walletGroupName_ = "";
-
-        walletNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        walletNames_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
         transactionId_ = "";
-
         coinType_ = 0;
-
         stringValue_ = "";
-
         txId_ = "";
-
         policyId_ = "";
-
         policyName_ = "";
-
         labeledAddressId_ = "";
-
         address_ = "";
-
         addressName_ = "";
-
         transferLimitId_ = "";
-
         transferLimitName_ = "";
-
         transferOneTimeLimit_ = 0L;
-
         transferHourlyLimit_ = 0L;
-
         transferDailyLimit_ = 0L;
-
         whitelistId_ = "";
-
         whitelistName_ = "";
-
-        oldValidators_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        newValidators_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        whitelistAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        if (eventTimeBuilder_ == null) {
-          eventTime_ = null;
-        } else {
-          eventTime_ = null;
+        oldValidators_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        newValidators_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        whitelistAddresses_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        eventTime_ = null;
+        if (eventTimeBuilder_ != null) {
+          eventTimeBuilder_.dispose();
           eventTimeBuilder_ = null;
         }
-        if (createTimeBuilder_ == null) {
-          createTime_ = null;
-        } else {
-          createTime_ = null;
+        createTime_ = null;
+        if (createTimeBuilder_ != null) {
+          createTimeBuilder_.dispose();
           createTimeBuilder_ = null;
         }
         return this;
@@ -2999,73 +2679,146 @@ public final class AuditLogger {
       @java.lang.Override
       public adamant.global.v1.AuditLogger.AuditLog buildPartial() {
         adamant.global.v1.AuditLogger.AuditLog result = new adamant.global.v1.AuditLogger.AuditLog(this);
-        int from_bitField0_ = bitField0_;
-        result.auditLogId_ = auditLogId_;
-        result.auditLogGroup_ = auditLogGroup_;
-        result.auditLogType_ = auditLogType_;
-        result.accountId_ = accountId_;
-        result.accountName_ = accountName_;
-        result.targetAccountId_ = targetAccountId_;
-        result.targetAccountName_ = targetAccountName_;
-        result.email_ = email_;
-        result.roleType_ = roleType_;
-        result.serviceAccountId_ = serviceAccountId_;
-        result.serviceAccountName_ = serviceAccountName_;
-        result.serviceAccountKeyId_ = serviceAccountKeyId_;
-        result.walletId_ = walletId_;
-        result.walletName_ = walletName_;
-        result.destinationWalletId_ = destinationWalletId_;
-        result.destinationWalletName_ = destinationWalletName_;
-        result.walletGroupId_ = walletGroupId_;
-        result.walletGroupName_ = walletGroupName_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          walletNames_ = walletNames_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.walletNames_ = walletNames_;
-        result.transactionId_ = transactionId_;
-        result.coinType_ = coinType_;
-        result.stringValue_ = stringValue_;
-        result.txId_ = txId_;
-        result.policyId_ = policyId_;
-        result.policyName_ = policyName_;
-        result.labeledAddressId_ = labeledAddressId_;
-        result.address_ = address_;
-        result.addressName_ = addressName_;
-        result.transferLimitId_ = transferLimitId_;
-        result.transferLimitName_ = transferLimitName_;
-        result.transferOneTimeLimit_ = transferOneTimeLimit_;
-        result.transferHourlyLimit_ = transferHourlyLimit_;
-        result.transferDailyLimit_ = transferDailyLimit_;
-        result.whitelistId_ = whitelistId_;
-        result.whitelistName_ = whitelistName_;
-        if (((bitField0_ & 0x00000002) != 0)) {
-          oldValidators_ = oldValidators_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.oldValidators_ = oldValidators_;
-        if (((bitField0_ & 0x00000004) != 0)) {
-          newValidators_ = newValidators_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000004);
-        }
-        result.newValidators_ = newValidators_;
-        if (((bitField0_ & 0x00000008) != 0)) {
-          whitelistAddresses_ = whitelistAddresses_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
-        }
-        result.whitelistAddresses_ = whitelistAddresses_;
-        if (eventTimeBuilder_ == null) {
-          result.eventTime_ = eventTime_;
-        } else {
-          result.eventTime_ = eventTimeBuilder_.build();
-        }
-        if (createTimeBuilder_ == null) {
-          result.createTime_ = createTime_;
-        } else {
-          result.createTime_ = createTimeBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
+        if (bitField1_ != 0) { buildPartial1(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(adamant.global.v1.AuditLogger.AuditLog result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.auditLogId_ = auditLogId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.auditLogGroup_ = auditLogGroup_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.auditLogType_ = auditLogType_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.accountId_ = accountId_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.accountName_ = accountName_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.targetAccountId_ = targetAccountId_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.targetAccountName_ = targetAccountName_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.email_ = email_;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.roleType_ = roleType_;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.serviceAccountId_ = serviceAccountId_;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.serviceAccountName_ = serviceAccountName_;
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.serviceAccountKeyId_ = serviceAccountKeyId_;
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.walletId_ = walletId_;
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.walletName_ = walletName_;
+        }
+        if (((from_bitField0_ & 0x00004000) != 0)) {
+          result.destinationWalletId_ = destinationWalletId_;
+        }
+        if (((from_bitField0_ & 0x00008000) != 0)) {
+          result.destinationWalletName_ = destinationWalletName_;
+        }
+        if (((from_bitField0_ & 0x00010000) != 0)) {
+          result.walletGroupId_ = walletGroupId_;
+        }
+        if (((from_bitField0_ & 0x00020000) != 0)) {
+          result.walletGroupName_ = walletGroupName_;
+        }
+        if (((from_bitField0_ & 0x00040000) != 0)) {
+          walletNames_.makeImmutable();
+          result.walletNames_ = walletNames_;
+        }
+        if (((from_bitField0_ & 0x00080000) != 0)) {
+          result.transactionId_ = transactionId_;
+        }
+        if (((from_bitField0_ & 0x00100000) != 0)) {
+          result.coinType_ = coinType_;
+        }
+        if (((from_bitField0_ & 0x00200000) != 0)) {
+          result.stringValue_ = stringValue_;
+        }
+        if (((from_bitField0_ & 0x00400000) != 0)) {
+          result.txId_ = txId_;
+        }
+        if (((from_bitField0_ & 0x00800000) != 0)) {
+          result.policyId_ = policyId_;
+        }
+        if (((from_bitField0_ & 0x01000000) != 0)) {
+          result.policyName_ = policyName_;
+        }
+        if (((from_bitField0_ & 0x02000000) != 0)) {
+          result.labeledAddressId_ = labeledAddressId_;
+        }
+        if (((from_bitField0_ & 0x04000000) != 0)) {
+          result.address_ = address_;
+        }
+        if (((from_bitField0_ & 0x08000000) != 0)) {
+          result.addressName_ = addressName_;
+        }
+        if (((from_bitField0_ & 0x10000000) != 0)) {
+          result.transferLimitId_ = transferLimitId_;
+        }
+        if (((from_bitField0_ & 0x20000000) != 0)) {
+          result.transferLimitName_ = transferLimitName_;
+        }
+        if (((from_bitField0_ & 0x40000000) != 0)) {
+          result.transferOneTimeLimit_ = transferOneTimeLimit_;
+        }
+        if (((from_bitField0_ & 0x80000000) != 0)) {
+          result.transferHourlyLimit_ = transferHourlyLimit_;
+        }
+      }
+
+      private void buildPartial1(adamant.global.v1.AuditLogger.AuditLog result) {
+        int from_bitField1_ = bitField1_;
+        if (((from_bitField1_ & 0x00000001) != 0)) {
+          result.transferDailyLimit_ = transferDailyLimit_;
+        }
+        if (((from_bitField1_ & 0x00000002) != 0)) {
+          result.whitelistId_ = whitelistId_;
+        }
+        if (((from_bitField1_ & 0x00000004) != 0)) {
+          result.whitelistName_ = whitelistName_;
+        }
+        if (((from_bitField1_ & 0x00000008) != 0)) {
+          oldValidators_.makeImmutable();
+          result.oldValidators_ = oldValidators_;
+        }
+        if (((from_bitField1_ & 0x00000010) != 0)) {
+          newValidators_.makeImmutable();
+          result.newValidators_ = newValidators_;
+        }
+        if (((from_bitField1_ & 0x00000020) != 0)) {
+          whitelistAddresses_.makeImmutable();
+          result.whitelistAddresses_ = whitelistAddresses_;
+        }
+        if (((from_bitField1_ & 0x00000040) != 0)) {
+          result.eventTime_ = eventTimeBuilder_ == null
+              ? eventTime_
+              : eventTimeBuilder_.build();
+        }
+        if (((from_bitField1_ & 0x00000080) != 0)) {
+          result.createTime_ = createTimeBuilder_ == null
+              ? createTime_
+              : createTimeBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3114,6 +2867,7 @@ public final class AuditLogger {
         if (other == adamant.global.v1.AuditLogger.AuditLog.getDefaultInstance()) return this;
         if (!other.getAuditLogId().isEmpty()) {
           auditLogId_ = other.auditLogId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.auditLogGroup_ != 0) {
@@ -3124,22 +2878,27 @@ public final class AuditLogger {
         }
         if (!other.getAccountId().isEmpty()) {
           accountId_ = other.accountId_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (!other.getAccountName().isEmpty()) {
           accountName_ = other.accountName_;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
         if (!other.getTargetAccountId().isEmpty()) {
           targetAccountId_ = other.targetAccountId_;
+          bitField0_ |= 0x00000020;
           onChanged();
         }
         if (!other.getTargetAccountName().isEmpty()) {
           targetAccountName_ = other.targetAccountName_;
+          bitField0_ |= 0x00000040;
           onChanged();
         }
         if (!other.getEmail().isEmpty()) {
           email_ = other.email_;
+          bitField0_ |= 0x00000080;
           onChanged();
         }
         if (other.roleType_ != 0) {
@@ -3147,44 +2906,53 @@ public final class AuditLogger {
         }
         if (!other.getServiceAccountId().isEmpty()) {
           serviceAccountId_ = other.serviceAccountId_;
+          bitField0_ |= 0x00000200;
           onChanged();
         }
         if (!other.getServiceAccountName().isEmpty()) {
           serviceAccountName_ = other.serviceAccountName_;
+          bitField0_ |= 0x00000400;
           onChanged();
         }
         if (!other.getServiceAccountKeyId().isEmpty()) {
           serviceAccountKeyId_ = other.serviceAccountKeyId_;
+          bitField0_ |= 0x00000800;
           onChanged();
         }
         if (!other.getWalletId().isEmpty()) {
           walletId_ = other.walletId_;
+          bitField0_ |= 0x00001000;
           onChanged();
         }
         if (!other.getWalletName().isEmpty()) {
           walletName_ = other.walletName_;
+          bitField0_ |= 0x00002000;
           onChanged();
         }
         if (!other.getDestinationWalletId().isEmpty()) {
           destinationWalletId_ = other.destinationWalletId_;
+          bitField0_ |= 0x00004000;
           onChanged();
         }
         if (!other.getDestinationWalletName().isEmpty()) {
           destinationWalletName_ = other.destinationWalletName_;
+          bitField0_ |= 0x00008000;
           onChanged();
         }
         if (!other.getWalletGroupId().isEmpty()) {
           walletGroupId_ = other.walletGroupId_;
+          bitField0_ |= 0x00010000;
           onChanged();
         }
         if (!other.getWalletGroupName().isEmpty()) {
           walletGroupName_ = other.walletGroupName_;
+          bitField0_ |= 0x00020000;
           onChanged();
         }
         if (!other.walletNames_.isEmpty()) {
           if (walletNames_.isEmpty()) {
             walletNames_ = other.walletNames_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ |= 0x00040000;
           } else {
             ensureWalletNamesIsMutable();
             walletNames_.addAll(other.walletNames_);
@@ -3193,6 +2961,7 @@ public final class AuditLogger {
         }
         if (!other.getTransactionId().isEmpty()) {
           transactionId_ = other.transactionId_;
+          bitField0_ |= 0x00080000;
           onChanged();
         }
         if (other.coinType_ != 0) {
@@ -3200,38 +2969,47 @@ public final class AuditLogger {
         }
         if (!other.getStringValue().isEmpty()) {
           stringValue_ = other.stringValue_;
+          bitField0_ |= 0x00200000;
           onChanged();
         }
         if (!other.getTxId().isEmpty()) {
           txId_ = other.txId_;
+          bitField0_ |= 0x00400000;
           onChanged();
         }
         if (!other.getPolicyId().isEmpty()) {
           policyId_ = other.policyId_;
+          bitField0_ |= 0x00800000;
           onChanged();
         }
         if (!other.getPolicyName().isEmpty()) {
           policyName_ = other.policyName_;
+          bitField0_ |= 0x01000000;
           onChanged();
         }
         if (!other.getLabeledAddressId().isEmpty()) {
           labeledAddressId_ = other.labeledAddressId_;
+          bitField0_ |= 0x02000000;
           onChanged();
         }
         if (!other.getAddress().isEmpty()) {
           address_ = other.address_;
+          bitField0_ |= 0x04000000;
           onChanged();
         }
         if (!other.getAddressName().isEmpty()) {
           addressName_ = other.addressName_;
+          bitField0_ |= 0x08000000;
           onChanged();
         }
         if (!other.getTransferLimitId().isEmpty()) {
           transferLimitId_ = other.transferLimitId_;
+          bitField0_ |= 0x10000000;
           onChanged();
         }
         if (!other.getTransferLimitName().isEmpty()) {
           transferLimitName_ = other.transferLimitName_;
+          bitField0_ |= 0x20000000;
           onChanged();
         }
         if (other.getTransferOneTimeLimit() != 0L) {
@@ -3245,16 +3023,18 @@ public final class AuditLogger {
         }
         if (!other.getWhitelistId().isEmpty()) {
           whitelistId_ = other.whitelistId_;
+          bitField1_ |= 0x00000002;
           onChanged();
         }
         if (!other.getWhitelistName().isEmpty()) {
           whitelistName_ = other.whitelistName_;
+          bitField1_ |= 0x00000004;
           onChanged();
         }
         if (!other.oldValidators_.isEmpty()) {
           if (oldValidators_.isEmpty()) {
             oldValidators_ = other.oldValidators_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField1_ |= 0x00000008;
           } else {
             ensureOldValidatorsIsMutable();
             oldValidators_.addAll(other.oldValidators_);
@@ -3264,7 +3044,7 @@ public final class AuditLogger {
         if (!other.newValidators_.isEmpty()) {
           if (newValidators_.isEmpty()) {
             newValidators_ = other.newValidators_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField1_ |= 0x00000010;
           } else {
             ensureNewValidatorsIsMutable();
             newValidators_.addAll(other.newValidators_);
@@ -3274,7 +3054,7 @@ public final class AuditLogger {
         if (!other.whitelistAddresses_.isEmpty()) {
           if (whitelistAddresses_.isEmpty()) {
             whitelistAddresses_ = other.whitelistAddresses_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField1_ |= 0x00000020;
           } else {
             ensureWhitelistAddressesIsMutable();
             whitelistAddresses_.addAll(other.whitelistAddresses_);
@@ -3287,7 +3067,7 @@ public final class AuditLogger {
         if (other.hasCreateTime()) {
           mergeCreateTime(other.getCreateTime());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3302,20 +3082,242 @@ public final class AuditLogger {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        adamant.global.v1.AuditLogger.AuditLog parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                auditLogId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                auditLogGroup_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                auditLogType_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                accountId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                accountName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 50: {
+                targetAccountId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                targetAccountName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 66: {
+                email_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              case 72: {
+                roleType_ = input.readEnum();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 72
+              case 82: {
+                serviceAccountId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 82
+              case 90: {
+                serviceAccountName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 90
+              case 98: {
+                serviceAccountKeyId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 98
+              case 106: {
+                walletId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00001000;
+                break;
+              } // case 106
+              case 114: {
+                walletName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00002000;
+                break;
+              } // case 114
+              case 122: {
+                transactionId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00080000;
+                break;
+              } // case 122
+              case 128: {
+                coinType_ = input.readEnum();
+                bitField0_ |= 0x00100000;
+                break;
+              } // case 128
+              case 138: {
+                stringValue_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00200000;
+                break;
+              } // case 138
+              case 146: {
+                txId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00400000;
+                break;
+              } // case 146
+              case 154: {
+                policyId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00800000;
+                break;
+              } // case 154
+              case 162: {
+                policyName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x01000000;
+                break;
+              } // case 162
+              case 170: {
+                labeledAddressId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x02000000;
+                break;
+              } // case 170
+              case 178: {
+                address_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x04000000;
+                break;
+              } // case 178
+              case 186: {
+                addressName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x08000000;
+                break;
+              } // case 186
+              case 194: {
+                transferLimitId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x10000000;
+                break;
+              } // case 194
+              case 202: {
+                transferLimitName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x20000000;
+                break;
+              } // case 202
+              case 208: {
+                transferOneTimeLimit_ = input.readInt64();
+                bitField0_ |= 0x40000000;
+                break;
+              } // case 208
+              case 216: {
+                transferHourlyLimit_ = input.readInt64();
+                bitField0_ |= 0x80000000;
+                break;
+              } // case 216
+              case 224: {
+                transferDailyLimit_ = input.readInt64();
+                bitField1_ |= 0x00000001;
+                break;
+              } // case 224
+              case 234: {
+                whitelistId_ = input.readStringRequireUtf8();
+                bitField1_ |= 0x00000002;
+                break;
+              } // case 234
+              case 242: {
+                whitelistName_ = input.readStringRequireUtf8();
+                bitField1_ |= 0x00000004;
+                break;
+              } // case 242
+              case 250: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureWhitelistAddressesIsMutable();
+                whitelistAddresses_.add(s);
+                break;
+              } // case 250
+              case 258: {
+                input.readMessage(
+                    getEventTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField1_ |= 0x00000040;
+                break;
+              } // case 258
+              case 266: {
+                input.readMessage(
+                    getCreateTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField1_ |= 0x00000080;
+                break;
+              } // case 266
+              case 274: {
+                walletGroupId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00010000;
+                break;
+              } // case 274
+              case 282: {
+                walletGroupName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00020000;
+                break;
+              } // case 282
+              case 290: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureWalletNamesIsMutable();
+                walletNames_.add(s);
+                break;
+              } // case 290
+              case 298: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureOldValidatorsIsMutable();
+                oldValidators_.add(s);
+                break;
+              } // case 298
+              case 306: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureNewValidatorsIsMutable();
+                newValidators_.add(s);
+                break;
+              } // case 306
+              case 314: {
+                destinationWalletId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00004000;
+                break;
+              } // case 314
+              case 322: {
+                destinationWalletName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00008000;
+                break;
+              } // case 322
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (adamant.global.v1.AuditLogger.AuditLog) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
+      private int bitField1_;
 
       private java.lang.Object auditLogId_ = "";
       /**
@@ -3358,11 +3360,9 @@ public final class AuditLogger {
        */
       public Builder setAuditLogId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         auditLogId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3371,8 +3371,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearAuditLogId() {
-        
         auditLogId_ = getDefaultInstance().getAuditLogId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3383,12 +3383,10 @@ public final class AuditLogger {
        */
       public Builder setAuditLogIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         auditLogId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3407,8 +3405,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder setAuditLogGroupValue(int value) {
-        
         auditLogGroup_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3418,8 +3416,7 @@ public final class AuditLogger {
        */
       @java.lang.Override
       public adamant.global.v1.Enum.AuditLogGroup getAuditLogGroup() {
-        @SuppressWarnings("deprecation")
-        adamant.global.v1.Enum.AuditLogGroup result = adamant.global.v1.Enum.AuditLogGroup.valueOf(auditLogGroup_);
+        adamant.global.v1.Enum.AuditLogGroup result = adamant.global.v1.Enum.AuditLogGroup.forNumber(auditLogGroup_);
         return result == null ? adamant.global.v1.Enum.AuditLogGroup.UNRECOGNIZED : result;
       }
       /**
@@ -3431,7 +3428,7 @@ public final class AuditLogger {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         auditLogGroup_ = value.getNumber();
         onChanged();
         return this;
@@ -3441,7 +3438,7 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearAuditLogGroup() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         auditLogGroup_ = 0;
         onChanged();
         return this;
@@ -3461,8 +3458,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder setAuditLogTypeValue(int value) {
-        
         auditLogType_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3472,8 +3469,7 @@ public final class AuditLogger {
        */
       @java.lang.Override
       public adamant.global.v1.Enum.AuditLogType getAuditLogType() {
-        @SuppressWarnings("deprecation")
-        adamant.global.v1.Enum.AuditLogType result = adamant.global.v1.Enum.AuditLogType.valueOf(auditLogType_);
+        adamant.global.v1.Enum.AuditLogType result = adamant.global.v1.Enum.AuditLogType.forNumber(auditLogType_);
         return result == null ? adamant.global.v1.Enum.AuditLogType.UNRECOGNIZED : result;
       }
       /**
@@ -3485,7 +3481,7 @@ public final class AuditLogger {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         auditLogType_ = value.getNumber();
         onChanged();
         return this;
@@ -3495,7 +3491,7 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearAuditLogType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         auditLogType_ = 0;
         onChanged();
         return this;
@@ -3542,11 +3538,9 @@ public final class AuditLogger {
        */
       public Builder setAccountId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         accountId_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -3555,8 +3549,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearAccountId() {
-        
         accountId_ = getDefaultInstance().getAccountId();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -3567,12 +3561,10 @@ public final class AuditLogger {
        */
       public Builder setAccountIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         accountId_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -3618,11 +3610,9 @@ public final class AuditLogger {
        */
       public Builder setAccountName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         accountName_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -3631,8 +3621,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearAccountName() {
-        
         accountName_ = getDefaultInstance().getAccountName();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -3643,12 +3633,10 @@ public final class AuditLogger {
        */
       public Builder setAccountNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         accountName_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -3694,11 +3682,9 @@ public final class AuditLogger {
        */
       public Builder setTargetAccountId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         targetAccountId_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -3707,8 +3693,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearTargetAccountId() {
-        
         targetAccountId_ = getDefaultInstance().getTargetAccountId();
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -3719,12 +3705,10 @@ public final class AuditLogger {
        */
       public Builder setTargetAccountIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         targetAccountId_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -3770,11 +3754,9 @@ public final class AuditLogger {
        */
       public Builder setTargetAccountName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         targetAccountName_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -3783,8 +3765,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearTargetAccountName() {
-        
         targetAccountName_ = getDefaultInstance().getTargetAccountName();
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -3795,12 +3777,10 @@ public final class AuditLogger {
        */
       public Builder setTargetAccountNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         targetAccountName_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -3846,11 +3826,9 @@ public final class AuditLogger {
        */
       public Builder setEmail(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         email_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -3859,8 +3837,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearEmail() {
-        
         email_ = getDefaultInstance().getEmail();
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
@@ -3871,12 +3849,10 @@ public final class AuditLogger {
        */
       public Builder setEmailBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         email_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -3895,8 +3871,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder setRoleTypeValue(int value) {
-        
         roleType_ = value;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -3906,8 +3882,7 @@ public final class AuditLogger {
        */
       @java.lang.Override
       public adamant.global.v1.Enum.RoleType getRoleType() {
-        @SuppressWarnings("deprecation")
-        adamant.global.v1.Enum.RoleType result = adamant.global.v1.Enum.RoleType.valueOf(roleType_);
+        adamant.global.v1.Enum.RoleType result = adamant.global.v1.Enum.RoleType.forNumber(roleType_);
         return result == null ? adamant.global.v1.Enum.RoleType.UNRECOGNIZED : result;
       }
       /**
@@ -3919,7 +3894,7 @@ public final class AuditLogger {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000100;
         roleType_ = value.getNumber();
         onChanged();
         return this;
@@ -3929,7 +3904,7 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearRoleType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000100);
         roleType_ = 0;
         onChanged();
         return this;
@@ -3976,11 +3951,9 @@ public final class AuditLogger {
        */
       public Builder setServiceAccountId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         serviceAccountId_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -3989,8 +3962,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearServiceAccountId() {
-        
         serviceAccountId_ = getDefaultInstance().getServiceAccountId();
+        bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
         return this;
       }
@@ -4001,12 +3974,10 @@ public final class AuditLogger {
        */
       public Builder setServiceAccountIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         serviceAccountId_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -4052,11 +4023,9 @@ public final class AuditLogger {
        */
       public Builder setServiceAccountName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         serviceAccountName_ = value;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -4065,8 +4034,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearServiceAccountName() {
-        
         serviceAccountName_ = getDefaultInstance().getServiceAccountName();
+        bitField0_ = (bitField0_ & ~0x00000400);
         onChanged();
         return this;
       }
@@ -4077,12 +4046,10 @@ public final class AuditLogger {
        */
       public Builder setServiceAccountNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         serviceAccountName_ = value;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -4128,11 +4095,9 @@ public final class AuditLogger {
        */
       public Builder setServiceAccountKeyId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         serviceAccountKeyId_ = value;
+        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -4141,8 +4106,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearServiceAccountKeyId() {
-        
         serviceAccountKeyId_ = getDefaultInstance().getServiceAccountKeyId();
+        bitField0_ = (bitField0_ & ~0x00000800);
         onChanged();
         return this;
       }
@@ -4153,12 +4118,10 @@ public final class AuditLogger {
        */
       public Builder setServiceAccountKeyIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         serviceAccountKeyId_ = value;
+        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -4204,11 +4167,9 @@ public final class AuditLogger {
        */
       public Builder setWalletId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         walletId_ = value;
+        bitField0_ |= 0x00001000;
         onChanged();
         return this;
       }
@@ -4217,8 +4178,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearWalletId() {
-        
         walletId_ = getDefaultInstance().getWalletId();
+        bitField0_ = (bitField0_ & ~0x00001000);
         onChanged();
         return this;
       }
@@ -4229,12 +4190,10 @@ public final class AuditLogger {
        */
       public Builder setWalletIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         walletId_ = value;
+        bitField0_ |= 0x00001000;
         onChanged();
         return this;
       }
@@ -4280,11 +4239,9 @@ public final class AuditLogger {
        */
       public Builder setWalletName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         walletName_ = value;
+        bitField0_ |= 0x00002000;
         onChanged();
         return this;
       }
@@ -4293,8 +4250,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearWalletName() {
-        
         walletName_ = getDefaultInstance().getWalletName();
+        bitField0_ = (bitField0_ & ~0x00002000);
         onChanged();
         return this;
       }
@@ -4305,12 +4262,10 @@ public final class AuditLogger {
        */
       public Builder setWalletNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         walletName_ = value;
+        bitField0_ |= 0x00002000;
         onChanged();
         return this;
       }
@@ -4356,11 +4311,9 @@ public final class AuditLogger {
        */
       public Builder setDestinationWalletId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         destinationWalletId_ = value;
+        bitField0_ |= 0x00004000;
         onChanged();
         return this;
       }
@@ -4369,8 +4322,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearDestinationWalletId() {
-        
         destinationWalletId_ = getDefaultInstance().getDestinationWalletId();
+        bitField0_ = (bitField0_ & ~0x00004000);
         onChanged();
         return this;
       }
@@ -4381,12 +4334,10 @@ public final class AuditLogger {
        */
       public Builder setDestinationWalletIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         destinationWalletId_ = value;
+        bitField0_ |= 0x00004000;
         onChanged();
         return this;
       }
@@ -4432,11 +4383,9 @@ public final class AuditLogger {
        */
       public Builder setDestinationWalletName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         destinationWalletName_ = value;
+        bitField0_ |= 0x00008000;
         onChanged();
         return this;
       }
@@ -4445,8 +4394,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearDestinationWalletName() {
-        
         destinationWalletName_ = getDefaultInstance().getDestinationWalletName();
+        bitField0_ = (bitField0_ & ~0x00008000);
         onChanged();
         return this;
       }
@@ -4457,12 +4406,10 @@ public final class AuditLogger {
        */
       public Builder setDestinationWalletNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         destinationWalletName_ = value;
+        bitField0_ |= 0x00008000;
         onChanged();
         return this;
       }
@@ -4508,11 +4455,9 @@ public final class AuditLogger {
        */
       public Builder setWalletGroupId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         walletGroupId_ = value;
+        bitField0_ |= 0x00010000;
         onChanged();
         return this;
       }
@@ -4521,8 +4466,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearWalletGroupId() {
-        
         walletGroupId_ = getDefaultInstance().getWalletGroupId();
+        bitField0_ = (bitField0_ & ~0x00010000);
         onChanged();
         return this;
       }
@@ -4533,12 +4478,10 @@ public final class AuditLogger {
        */
       public Builder setWalletGroupIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         walletGroupId_ = value;
+        bitField0_ |= 0x00010000;
         onChanged();
         return this;
       }
@@ -4584,11 +4527,9 @@ public final class AuditLogger {
        */
       public Builder setWalletGroupName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         walletGroupName_ = value;
+        bitField0_ |= 0x00020000;
         onChanged();
         return this;
       }
@@ -4597,8 +4538,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearWalletGroupName() {
-        
         walletGroupName_ = getDefaultInstance().getWalletGroupName();
+        bitField0_ = (bitField0_ & ~0x00020000);
         onChanged();
         return this;
       }
@@ -4609,22 +4550,21 @@ public final class AuditLogger {
        */
       public Builder setWalletGroupNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         walletGroupName_ = value;
+        bitField0_ |= 0x00020000;
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.LazyStringList walletNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private com.google.protobuf.LazyStringArrayList walletNames_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
       private void ensureWalletNamesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!walletNames_.isModifiable()) {
           walletNames_ = new com.google.protobuf.LazyStringArrayList(walletNames_);
-          bitField0_ |= 0x00000001;
-         }
+        }
+        bitField0_ |= 0x00040000;
       }
       /**
        * <code>repeated string wallet_names = 36 [json_name = "walletNames"];</code>
@@ -4632,7 +4572,8 @@ public final class AuditLogger {
        */
       public com.google.protobuf.ProtocolStringList
           getWalletNamesList() {
-        return walletNames_.getUnmodifiableView();
+        walletNames_.makeImmutable();
+        return walletNames_;
       }
       /**
        * <code>repeated string wallet_names = 36 [json_name = "walletNames"];</code>
@@ -4666,11 +4607,10 @@ public final class AuditLogger {
        */
       public Builder setWalletNames(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureWalletNamesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureWalletNamesIsMutable();
         walletNames_.set(index, value);
+        bitField0_ |= 0x00040000;
         onChanged();
         return this;
       }
@@ -4681,11 +4621,10 @@ public final class AuditLogger {
        */
       public Builder addWalletNames(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureWalletNamesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureWalletNamesIsMutable();
         walletNames_.add(value);
+        bitField0_ |= 0x00040000;
         onChanged();
         return this;
       }
@@ -4699,6 +4638,7 @@ public final class AuditLogger {
         ensureWalletNamesIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, walletNames_);
+        bitField0_ |= 0x00040000;
         onChanged();
         return this;
       }
@@ -4707,8 +4647,9 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearWalletNames() {
-        walletNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        walletNames_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+        bitField0_ = (bitField0_ & ~0x00040000);;
         onChanged();
         return this;
       }
@@ -4719,12 +4660,11 @@ public final class AuditLogger {
        */
       public Builder addWalletNamesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureWalletNamesIsMutable();
         walletNames_.add(value);
+        bitField0_ |= 0x00040000;
         onChanged();
         return this;
       }
@@ -4770,11 +4710,9 @@ public final class AuditLogger {
        */
       public Builder setTransactionId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         transactionId_ = value;
+        bitField0_ |= 0x00080000;
         onChanged();
         return this;
       }
@@ -4783,8 +4721,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearTransactionId() {
-        
         transactionId_ = getDefaultInstance().getTransactionId();
+        bitField0_ = (bitField0_ & ~0x00080000);
         onChanged();
         return this;
       }
@@ -4795,12 +4733,10 @@ public final class AuditLogger {
        */
       public Builder setTransactionIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         transactionId_ = value;
+        bitField0_ |= 0x00080000;
         onChanged();
         return this;
       }
@@ -4819,8 +4755,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder setCoinTypeValue(int value) {
-        
         coinType_ = value;
+        bitField0_ |= 0x00100000;
         onChanged();
         return this;
       }
@@ -4830,8 +4766,7 @@ public final class AuditLogger {
        */
       @java.lang.Override
       public gincoinc.global.v1.Enum.Coin getCoinType() {
-        @SuppressWarnings("deprecation")
-        gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.valueOf(coinType_);
+        gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.forNumber(coinType_);
         return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
       }
       /**
@@ -4843,7 +4778,7 @@ public final class AuditLogger {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00100000;
         coinType_ = value.getNumber();
         onChanged();
         return this;
@@ -4853,7 +4788,7 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearCoinType() {
-        
+        bitField0_ = (bitField0_ & ~0x00100000);
         coinType_ = 0;
         onChanged();
         return this;
@@ -4900,11 +4835,9 @@ public final class AuditLogger {
        */
       public Builder setStringValue(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         stringValue_ = value;
+        bitField0_ |= 0x00200000;
         onChanged();
         return this;
       }
@@ -4913,8 +4846,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearStringValue() {
-        
         stringValue_ = getDefaultInstance().getStringValue();
+        bitField0_ = (bitField0_ & ~0x00200000);
         onChanged();
         return this;
       }
@@ -4925,12 +4858,10 @@ public final class AuditLogger {
        */
       public Builder setStringValueBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         stringValue_ = value;
+        bitField0_ |= 0x00200000;
         onChanged();
         return this;
       }
@@ -4976,11 +4907,9 @@ public final class AuditLogger {
        */
       public Builder setTxId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         txId_ = value;
+        bitField0_ |= 0x00400000;
         onChanged();
         return this;
       }
@@ -4989,8 +4918,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearTxId() {
-        
         txId_ = getDefaultInstance().getTxId();
+        bitField0_ = (bitField0_ & ~0x00400000);
         onChanged();
         return this;
       }
@@ -5001,12 +4930,10 @@ public final class AuditLogger {
        */
       public Builder setTxIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         txId_ = value;
+        bitField0_ |= 0x00400000;
         onChanged();
         return this;
       }
@@ -5052,11 +4979,9 @@ public final class AuditLogger {
        */
       public Builder setPolicyId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         policyId_ = value;
+        bitField0_ |= 0x00800000;
         onChanged();
         return this;
       }
@@ -5065,8 +4990,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearPolicyId() {
-        
         policyId_ = getDefaultInstance().getPolicyId();
+        bitField0_ = (bitField0_ & ~0x00800000);
         onChanged();
         return this;
       }
@@ -5077,12 +5002,10 @@ public final class AuditLogger {
        */
       public Builder setPolicyIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         policyId_ = value;
+        bitField0_ |= 0x00800000;
         onChanged();
         return this;
       }
@@ -5128,11 +5051,9 @@ public final class AuditLogger {
        */
       public Builder setPolicyName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         policyName_ = value;
+        bitField0_ |= 0x01000000;
         onChanged();
         return this;
       }
@@ -5141,8 +5062,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearPolicyName() {
-        
         policyName_ = getDefaultInstance().getPolicyName();
+        bitField0_ = (bitField0_ & ~0x01000000);
         onChanged();
         return this;
       }
@@ -5153,12 +5074,10 @@ public final class AuditLogger {
        */
       public Builder setPolicyNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         policyName_ = value;
+        bitField0_ |= 0x01000000;
         onChanged();
         return this;
       }
@@ -5204,11 +5123,9 @@ public final class AuditLogger {
        */
       public Builder setLabeledAddressId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         labeledAddressId_ = value;
+        bitField0_ |= 0x02000000;
         onChanged();
         return this;
       }
@@ -5217,8 +5134,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearLabeledAddressId() {
-        
         labeledAddressId_ = getDefaultInstance().getLabeledAddressId();
+        bitField0_ = (bitField0_ & ~0x02000000);
         onChanged();
         return this;
       }
@@ -5229,12 +5146,10 @@ public final class AuditLogger {
        */
       public Builder setLabeledAddressIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         labeledAddressId_ = value;
+        bitField0_ |= 0x02000000;
         onChanged();
         return this;
       }
@@ -5280,11 +5195,9 @@ public final class AuditLogger {
        */
       public Builder setAddress(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         address_ = value;
+        bitField0_ |= 0x04000000;
         onChanged();
         return this;
       }
@@ -5293,8 +5206,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearAddress() {
-        
         address_ = getDefaultInstance().getAddress();
+        bitField0_ = (bitField0_ & ~0x04000000);
         onChanged();
         return this;
       }
@@ -5305,12 +5218,10 @@ public final class AuditLogger {
        */
       public Builder setAddressBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         address_ = value;
+        bitField0_ |= 0x04000000;
         onChanged();
         return this;
       }
@@ -5356,11 +5267,9 @@ public final class AuditLogger {
        */
       public Builder setAddressName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         addressName_ = value;
+        bitField0_ |= 0x08000000;
         onChanged();
         return this;
       }
@@ -5369,8 +5278,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearAddressName() {
-        
         addressName_ = getDefaultInstance().getAddressName();
+        bitField0_ = (bitField0_ & ~0x08000000);
         onChanged();
         return this;
       }
@@ -5381,12 +5290,10 @@ public final class AuditLogger {
        */
       public Builder setAddressNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         addressName_ = value;
+        bitField0_ |= 0x08000000;
         onChanged();
         return this;
       }
@@ -5432,11 +5339,9 @@ public final class AuditLogger {
        */
       public Builder setTransferLimitId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         transferLimitId_ = value;
+        bitField0_ |= 0x10000000;
         onChanged();
         return this;
       }
@@ -5445,8 +5350,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearTransferLimitId() {
-        
         transferLimitId_ = getDefaultInstance().getTransferLimitId();
+        bitField0_ = (bitField0_ & ~0x10000000);
         onChanged();
         return this;
       }
@@ -5457,12 +5362,10 @@ public final class AuditLogger {
        */
       public Builder setTransferLimitIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         transferLimitId_ = value;
+        bitField0_ |= 0x10000000;
         onChanged();
         return this;
       }
@@ -5508,11 +5411,9 @@ public final class AuditLogger {
        */
       public Builder setTransferLimitName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         transferLimitName_ = value;
+        bitField0_ |= 0x20000000;
         onChanged();
         return this;
       }
@@ -5521,8 +5422,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearTransferLimitName() {
-        
         transferLimitName_ = getDefaultInstance().getTransferLimitName();
+        bitField0_ = (bitField0_ & ~0x20000000);
         onChanged();
         return this;
       }
@@ -5533,12 +5434,10 @@ public final class AuditLogger {
        */
       public Builder setTransferLimitNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         transferLimitName_ = value;
+        bitField0_ |= 0x20000000;
         onChanged();
         return this;
       }
@@ -5558,8 +5457,9 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder setTransferOneTimeLimit(long value) {
-        
+
         transferOneTimeLimit_ = value;
+        bitField0_ |= 0x40000000;
         onChanged();
         return this;
       }
@@ -5568,7 +5468,7 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearTransferOneTimeLimit() {
-        
+        bitField0_ = (bitField0_ & ~0x40000000);
         transferOneTimeLimit_ = 0L;
         onChanged();
         return this;
@@ -5589,8 +5489,9 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder setTransferHourlyLimit(long value) {
-        
+
         transferHourlyLimit_ = value;
+        bitField0_ |= 0x80000000;
         onChanged();
         return this;
       }
@@ -5599,7 +5500,7 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearTransferHourlyLimit() {
-        
+        bitField0_ = (bitField0_ & ~0x80000000);
         transferHourlyLimit_ = 0L;
         onChanged();
         return this;
@@ -5620,8 +5521,9 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder setTransferDailyLimit(long value) {
-        
+
         transferDailyLimit_ = value;
+        bitField1_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5630,7 +5532,7 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearTransferDailyLimit() {
-        
+        bitField1_ = (bitField1_ & ~0x00000001);
         transferDailyLimit_ = 0L;
         onChanged();
         return this;
@@ -5677,11 +5579,9 @@ public final class AuditLogger {
        */
       public Builder setWhitelistId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         whitelistId_ = value;
+        bitField1_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5690,8 +5590,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearWhitelistId() {
-        
         whitelistId_ = getDefaultInstance().getWhitelistId();
+        bitField1_ = (bitField1_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -5702,12 +5602,10 @@ public final class AuditLogger {
        */
       public Builder setWhitelistIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         whitelistId_ = value;
+        bitField1_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5753,11 +5651,9 @@ public final class AuditLogger {
        */
       public Builder setWhitelistName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         whitelistName_ = value;
+        bitField1_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -5766,8 +5662,8 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearWhitelistName() {
-        
         whitelistName_ = getDefaultInstance().getWhitelistName();
+        bitField1_ = (bitField1_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -5778,22 +5674,21 @@ public final class AuditLogger {
        */
       public Builder setWhitelistNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         whitelistName_ = value;
+        bitField1_ |= 0x00000004;
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.LazyStringList oldValidators_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private com.google.protobuf.LazyStringArrayList oldValidators_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
       private void ensureOldValidatorsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!oldValidators_.isModifiable()) {
           oldValidators_ = new com.google.protobuf.LazyStringArrayList(oldValidators_);
-          bitField0_ |= 0x00000002;
-         }
+        }
+        bitField1_ |= 0x00000008;
       }
       /**
        * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
@@ -5801,7 +5696,8 @@ public final class AuditLogger {
        */
       public com.google.protobuf.ProtocolStringList
           getOldValidatorsList() {
-        return oldValidators_.getUnmodifiableView();
+        oldValidators_.makeImmutable();
+        return oldValidators_;
       }
       /**
        * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
@@ -5835,11 +5731,10 @@ public final class AuditLogger {
        */
       public Builder setOldValidators(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureOldValidatorsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureOldValidatorsIsMutable();
         oldValidators_.set(index, value);
+        bitField1_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -5850,11 +5745,10 @@ public final class AuditLogger {
        */
       public Builder addOldValidators(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureOldValidatorsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureOldValidatorsIsMutable();
         oldValidators_.add(value);
+        bitField1_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -5868,6 +5762,7 @@ public final class AuditLogger {
         ensureOldValidatorsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, oldValidators_);
+        bitField1_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -5876,8 +5771,9 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearOldValidators() {
-        oldValidators_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        oldValidators_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+        bitField1_ = (bitField1_ & ~0x00000008);;
         onChanged();
         return this;
       }
@@ -5888,22 +5784,22 @@ public final class AuditLogger {
        */
       public Builder addOldValidatorsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureOldValidatorsIsMutable();
         oldValidators_.add(value);
+        bitField1_ |= 0x00000008;
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.LazyStringList newValidators_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private com.google.protobuf.LazyStringArrayList newValidators_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
       private void ensureNewValidatorsIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!newValidators_.isModifiable()) {
           newValidators_ = new com.google.protobuf.LazyStringArrayList(newValidators_);
-          bitField0_ |= 0x00000004;
-         }
+        }
+        bitField1_ |= 0x00000010;
       }
       /**
        * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
@@ -5911,7 +5807,8 @@ public final class AuditLogger {
        */
       public com.google.protobuf.ProtocolStringList
           getNewValidatorsList() {
-        return newValidators_.getUnmodifiableView();
+        newValidators_.makeImmutable();
+        return newValidators_;
       }
       /**
        * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
@@ -5945,11 +5842,10 @@ public final class AuditLogger {
        */
       public Builder setNewValidators(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNewValidatorsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureNewValidatorsIsMutable();
         newValidators_.set(index, value);
+        bitField1_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -5960,11 +5856,10 @@ public final class AuditLogger {
        */
       public Builder addNewValidators(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNewValidatorsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureNewValidatorsIsMutable();
         newValidators_.add(value);
+        bitField1_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -5978,6 +5873,7 @@ public final class AuditLogger {
         ensureNewValidatorsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, newValidators_);
+        bitField1_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -5986,8 +5882,9 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearNewValidators() {
-        newValidators_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
+        newValidators_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+        bitField1_ = (bitField1_ & ~0x00000010);;
         onChanged();
         return this;
       }
@@ -5998,22 +5895,22 @@ public final class AuditLogger {
        */
       public Builder addNewValidatorsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureNewValidatorsIsMutable();
         newValidators_.add(value);
+        bitField1_ |= 0x00000010;
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.LazyStringList whitelistAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private com.google.protobuf.LazyStringArrayList whitelistAddresses_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
       private void ensureWhitelistAddressesIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!whitelistAddresses_.isModifiable()) {
           whitelistAddresses_ = new com.google.protobuf.LazyStringArrayList(whitelistAddresses_);
-          bitField0_ |= 0x00000008;
-         }
+        }
+        bitField1_ |= 0x00000020;
       }
       /**
        * <code>repeated string whitelist_addresses = 31 [json_name = "whitelistAddresses"];</code>
@@ -6021,7 +5918,8 @@ public final class AuditLogger {
        */
       public com.google.protobuf.ProtocolStringList
           getWhitelistAddressesList() {
-        return whitelistAddresses_.getUnmodifiableView();
+        whitelistAddresses_.makeImmutable();
+        return whitelistAddresses_;
       }
       /**
        * <code>repeated string whitelist_addresses = 31 [json_name = "whitelistAddresses"];</code>
@@ -6055,11 +5953,10 @@ public final class AuditLogger {
        */
       public Builder setWhitelistAddresses(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureWhitelistAddressesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureWhitelistAddressesIsMutable();
         whitelistAddresses_.set(index, value);
+        bitField1_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -6070,11 +5967,10 @@ public final class AuditLogger {
        */
       public Builder addWhitelistAddresses(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureWhitelistAddressesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureWhitelistAddressesIsMutable();
         whitelistAddresses_.add(value);
+        bitField1_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -6088,6 +5984,7 @@ public final class AuditLogger {
         ensureWhitelistAddressesIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, whitelistAddresses_);
+        bitField1_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -6096,8 +5993,9 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearWhitelistAddresses() {
-        whitelistAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        whitelistAddresses_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+        bitField1_ = (bitField1_ & ~0x00000020);;
         onChanged();
         return this;
       }
@@ -6108,12 +6006,11 @@ public final class AuditLogger {
        */
       public Builder addWhitelistAddressesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureWhitelistAddressesIsMutable();
         whitelistAddresses_.add(value);
+        bitField1_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -6126,7 +6023,7 @@ public final class AuditLogger {
        * @return Whether the eventTime field is set.
        */
       public boolean hasEventTime() {
-        return eventTimeBuilder_ != null || eventTime_ != null;
+        return ((bitField1_ & 0x00000040) != 0);
       }
       /**
        * <code>.google.protobuf.Timestamp event_time = 32 [json_name = "eventTime"];</code>
@@ -6148,11 +6045,11 @@ public final class AuditLogger {
             throw new NullPointerException();
           }
           eventTime_ = value;
-          onChanged();
         } else {
           eventTimeBuilder_.setMessage(value);
         }
-
+        bitField1_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -6162,11 +6059,11 @@ public final class AuditLogger {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (eventTimeBuilder_ == null) {
           eventTime_ = builderForValue.build();
-          onChanged();
         } else {
           eventTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField1_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -6174,38 +6071,38 @@ public final class AuditLogger {
        */
       public Builder mergeEventTime(com.google.protobuf.Timestamp value) {
         if (eventTimeBuilder_ == null) {
-          if (eventTime_ != null) {
-            eventTime_ =
-              com.google.protobuf.Timestamp.newBuilder(eventTime_).mergeFrom(value).buildPartial();
+          if (((bitField1_ & 0x00000040) != 0) &&
+            eventTime_ != null &&
+            eventTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getEventTimeBuilder().mergeFrom(value);
           } else {
             eventTime_ = value;
           }
-          onChanged();
         } else {
           eventTimeBuilder_.mergeFrom(value);
         }
-
+        bitField1_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
        * <code>.google.protobuf.Timestamp event_time = 32 [json_name = "eventTime"];</code>
        */
       public Builder clearEventTime() {
-        if (eventTimeBuilder_ == null) {
-          eventTime_ = null;
-          onChanged();
-        } else {
-          eventTime_ = null;
+        bitField1_ = (bitField1_ & ~0x00000040);
+        eventTime_ = null;
+        if (eventTimeBuilder_ != null) {
+          eventTimeBuilder_.dispose();
           eventTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.google.protobuf.Timestamp event_time = 32 [json_name = "eventTime"];</code>
        */
       public com.google.protobuf.Timestamp.Builder getEventTimeBuilder() {
-        
+        bitField1_ |= 0x00000040;
         onChanged();
         return getEventTimeFieldBuilder().getBuilder();
       }
@@ -6245,7 +6142,7 @@ public final class AuditLogger {
        * @return Whether the createTime field is set.
        */
       public boolean hasCreateTime() {
-        return createTimeBuilder_ != null || createTime_ != null;
+        return ((bitField1_ & 0x00000080) != 0);
       }
       /**
        * <code>.google.protobuf.Timestamp create_time = 33 [json_name = "createTime"];</code>
@@ -6267,11 +6164,11 @@ public final class AuditLogger {
             throw new NullPointerException();
           }
           createTime_ = value;
-          onChanged();
         } else {
           createTimeBuilder_.setMessage(value);
         }
-
+        bitField1_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -6281,11 +6178,11 @@ public final class AuditLogger {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (createTimeBuilder_ == null) {
           createTime_ = builderForValue.build();
-          onChanged();
         } else {
           createTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField1_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -6293,38 +6190,38 @@ public final class AuditLogger {
        */
       public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
         if (createTimeBuilder_ == null) {
-          if (createTime_ != null) {
-            createTime_ =
-              com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+          if (((bitField1_ & 0x00000080) != 0) &&
+            createTime_ != null &&
+            createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getCreateTimeBuilder().mergeFrom(value);
           } else {
             createTime_ = value;
           }
-          onChanged();
         } else {
           createTimeBuilder_.mergeFrom(value);
         }
-
+        bitField1_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
        * <code>.google.protobuf.Timestamp create_time = 33 [json_name = "createTime"];</code>
        */
       public Builder clearCreateTime() {
-        if (createTimeBuilder_ == null) {
-          createTime_ = null;
-          onChanged();
-        } else {
-          createTime_ = null;
+        bitField1_ = (bitField1_ & ~0x00000080);
+        createTime_ = null;
+        if (createTimeBuilder_ != null) {
+          createTimeBuilder_.dispose();
           createTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.google.protobuf.Timestamp create_time = 33 [json_name = "createTime"];</code>
        */
       public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-        
+        bitField1_ |= 0x00000080;
         onChanged();
         return getCreateTimeFieldBuilder().getBuilder();
       }
@@ -6388,7 +6285,18 @@ public final class AuditLogger {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AuditLog(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

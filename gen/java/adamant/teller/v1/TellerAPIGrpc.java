@@ -5,7 +5,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 /**
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.42.1)",
+    value = "by gRPC proto compiler (version 1.56.1)",
     comments = "Source: gincoinc/adamant/teller/v1/adamanttellerv1/teller_api.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class TellerAPIGrpc {
@@ -1239,11 +1239,11 @@ public final class TellerAPIGrpc {
 
   /**
    */
-  public static abstract class TellerAPIImplBase implements io.grpc.BindableService {
+  public interface AsyncService {
 
     /**
      */
-    public void createWallet(adamant.teller.v1.CreateWalletRequest request,
+    default void createWallet(adamant.teller.v1.CreateWalletRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateWalletResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateWalletMethod(), responseObserver);
     }
@@ -1253,56 +1253,56 @@ public final class TellerAPIGrpc {
      * Get wallet information. the wallet model includes balance, address etc.
      * </pre>
      */
-    public void getWallet(adamant.global.v1.GetWalletRequest request,
+    default void getWallet(adamant.global.v1.GetWalletRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Wallet> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetWalletMethod(), responseObserver);
     }
 
     /**
      */
-    public void listWallets(adamant.global.v1.ListWalletsRequest request,
+    default void listWallets(adamant.global.v1.ListWalletsRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListWalletsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListWalletsMethod(), responseObserver);
     }
 
     /**
      */
-    public void listWalletsByFilter(adamant.global.v1.ListWalletsByFilterRequest request,
+    default void listWalletsByFilter(adamant.global.v1.ListWalletsByFilterRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListWalletsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListWalletsByFilterMethod(), responseObserver);
     }
 
     /**
      */
-    public void listBaseWallets(adamant.global.v1.ListBaseWalletsRequest request,
+    default void listBaseWallets(adamant.global.v1.ListBaseWalletsRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListBaseWalletsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListBaseWalletsMethod(), responseObserver);
     }
 
     /**
      */
-    public void getSpendableBalance(adamant.global.v1.GetSpendableBalanceRequest request,
+    default void getSpendableBalance(adamant.global.v1.GetSpendableBalanceRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.GetSpendableBalanceResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetSpendableBalanceMethod(), responseObserver);
     }
 
     /**
      */
-    public void initializeXRPWallet(adamant.teller.v1.InitializeXRPWalletRequest request,
+    default void initializeXRPWallet(adamant.teller.v1.InitializeXRPWalletRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getInitializeXRPWalletMethod(), responseObserver);
     }
 
     /**
      */
-    public void initializeWallet(adamant.teller.v1.InitializeWalletRequest request,
+    default void initializeWallet(adamant.teller.v1.InitializeWalletRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getInitializeWalletMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateDestinationWalletID(adamant.global.v1.UpdateDestinationWalletIDRequest request,
+    default void updateDestinationWalletID(adamant.global.v1.UpdateDestinationWalletIDRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateDestinationWalletIDMethod(), responseObserver);
     }
@@ -1312,63 +1312,63 @@ public final class TellerAPIGrpc {
      * Create a new address for an existing wallet
      * </pre>
      */
-    public void createAddress(adamant.global.v1.CreateAddressRequest request,
+    default void createAddress(adamant.global.v1.CreateAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateAddressResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateAddressMethod(), responseObserver);
     }
 
     /**
      */
-    public void createIOSTAccount(adamant.global.v1.CreateIOSTAccountRequest request,
+    default void createIOSTAccount(adamant.global.v1.CreateIOSTAccountRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateIOSTAccountResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateIOSTAccountMethod(), responseObserver);
     }
 
     /**
      */
-    public void listSymbolChildAddresses(adamant.global.v1.ListSymbolChildAddressesRequest request,
+    default void listSymbolChildAddresses(adamant.global.v1.ListSymbolChildAddressesRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListSymbolChildAddressesResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListSymbolChildAddressesMethod(), responseObserver);
     }
 
     /**
      */
-    public void getAddress(adamant.global.v1.GetAddressRequest request,
+    default void getAddress(adamant.global.v1.GetAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAddressMethod(), responseObserver);
     }
 
     /**
      */
-    public void getAddressByAddress(adamant.global.v1.GetAddressByAddressRequest request,
+    default void getAddressByAddress(adamant.global.v1.GetAddressByAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAddressByAddressMethod(), responseObserver);
     }
 
     /**
      */
-    public void getAddressByAddressCoin(adamant.global.v1.GetAddressByAddressCoinRequest request,
+    default void getAddressByAddressCoin(adamant.global.v1.GetAddressByAddressCoinRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAddressByAddressCoinMethod(), responseObserver);
     }
 
     /**
      */
-    public void getAddressByIndex(adamant.global.v1.GetAddressByIndexRequest request,
+    default void getAddressByIndex(adamant.global.v1.GetAddressByIndexRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Address> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAddressByIndexMethod(), responseObserver);
     }
 
     /**
      */
-    public void listAddresses(adamant.global.v1.ListAddressesRequest request,
+    default void listAddresses(adamant.global.v1.ListAddressesRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListAddressesResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListAddressesMethod(), responseObserver);
     }
 
     /**
      */
-    public void importAddress(adamant.global.v1.ImportAddressRequest request,
+    default void importAddress(adamant.global.v1.ImportAddressRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getImportAddressMethod(), responseObserver);
     }
@@ -1378,70 +1378,70 @@ public final class TellerAPIGrpc {
      * Get an address which hold ETH for ethereum wallet/address creation etc
      * </pre>
      */
-    public void getEthereumFeeAddress(adamant.global.v1.GetEthereumFeeAddressRequest request,
+    default void getEthereumFeeAddress(adamant.global.v1.GetEthereumFeeAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.EthereumFeeAddress> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetEthereumFeeAddressMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateAddressBalance(adamant.global.v1.UpdateAddressBalanceRequest request,
+    default void updateAddressBalance(adamant.global.v1.UpdateAddressBalanceRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateAddressBalanceMethod(), responseObserver);
     }
 
     /**
      */
-    public void createTransaction(adamant.global.v1.CreateTransactionRequest request,
+    default void createTransaction(adamant.global.v1.CreateTransactionRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateTransactionMethod(), responseObserver);
     }
 
     /**
      */
-    public void signTransaction(adamant.teller.v1.SignTransactionRequest request,
+    default void signTransaction(adamant.teller.v1.SignTransactionRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSignTransactionMethod(), responseObserver);
     }
 
     /**
      */
-    public void sendTransaction(adamant.teller.v1.SendTransactionRequest request,
+    default void sendTransaction(adamant.teller.v1.SendTransactionRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.SendTransactionResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSendTransactionMethod(), responseObserver);
     }
 
     /**
      */
-    public void cancelTransaction(adamant.global.v1.CancelTransactionRequest request,
+    default void cancelTransaction(adamant.global.v1.CancelTransactionRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCancelTransactionMethod(), responseObserver);
     }
 
     /**
      */
-    public void getTransaction(adamant.global.v1.GetTransactionRequest request,
+    default void getTransaction(adamant.global.v1.GetTransactionRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Transaction> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetTransactionMethod(), responseObserver);
     }
 
     /**
      */
-    public void getTransactionByTxID(adamant.global.v1.GetTransactionByTxIDRequest request,
+    default void getTransactionByTxID(adamant.global.v1.GetTransactionByTxIDRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.Transaction> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetTransactionByTxIDMethod(), responseObserver);
     }
 
     /**
      */
-    public void listTransactions(adamant.global.v1.ListTransactionsRequest request,
+    default void listTransactions(adamant.global.v1.ListTransactionsRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListTransactionsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListTransactionsMethod(), responseObserver);
     }
 
     /**
      */
-    public void listTransactionsByFilter(adamant.global.v1.ListTransactionsByFilterRequest request,
+    default void listTransactionsByFilter(adamant.global.v1.ListTransactionsByFilterRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListTransactionsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListTransactionsByFilterMethod(), responseObserver);
     }
@@ -1451,14 +1451,14 @@ public final class TellerAPIGrpc {
      * List transfers for a given wallet. Ordered by update time desc
      * </pre>
      */
-    public void listTransfers(adamant.global.v1.ListTransfersRequest request,
+    default void listTransfers(adamant.global.v1.ListTransfersRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListTransfersResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListTransfersMethod(), responseObserver);
     }
 
     /**
      */
-    public void listTransfersByFilter(adamant.global.v1.ListTransfersByFilterRequest request,
+    default void listTransfersByFilter(adamant.global.v1.ListTransfersByFilterRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListTransfersResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListTransfersByFilterMethod(), responseObserver);
     }
@@ -1468,7 +1468,7 @@ public final class TellerAPIGrpc {
      * Get rates by snapshot id
      * </pre>
      */
-    public void getRateSnapshot(adamant.global.v1.GetRateSnapshotRequest request,
+    default void getRateSnapshot(adamant.global.v1.GetRateSnapshotRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.RateSnapshot> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetRateSnapshotMethod(), responseObserver);
     }
@@ -1478,7 +1478,7 @@ public final class TellerAPIGrpc {
      * Get latest rates set to your organization
      * </pre>
      */
-    public void getLatestRateSnapshot(adamant.global.v1.GetLatestRateSnapshotRequest request,
+    default void getLatestRateSnapshot(adamant.global.v1.GetLatestRateSnapshotRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.Model.RateSnapshot> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetLatestRateSnapshotMethod(), responseObserver);
     }
@@ -1488,21 +1488,21 @@ public final class TellerAPIGrpc {
      * Set rates to your organization
      * </pre>
      */
-    public void setRates(adamant.global.v1.SetRatesRequest request,
+    default void setRates(adamant.global.v1.SetRatesRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.SetRatesResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSetRatesMethod(), responseObserver);
     }
 
     /**
      */
-    public void calculateFee(adamant.global.v1.CalculateFeeRequest request,
+    default void calculateFee(adamant.global.v1.CalculateFeeRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CalculateFeeResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCalculateFeeMethod(), responseObserver);
     }
 
     /**
      */
-    public void getRecommendedFeeRate(adamant.global.v1.GetRecommendedFeeRateRequest request,
+    default void getRecommendedFeeRate(adamant.global.v1.GetRecommendedFeeRateRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.GetRecommendedFeeRateResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetRecommendedFeeRateMethod(), responseObserver);
     }
@@ -1512,300 +1512,42 @@ public final class TellerAPIGrpc {
      * Validate format of given address
      * </pre>
      */
-    public void validateAddress(adamant.global.v1.ValidateAddressRequest request,
+    default void validateAddress(adamant.global.v1.ValidateAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ValidateAddressResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getValidateAddressMethod(), responseObserver);
     }
 
     /**
      */
-    public void flushBalance(adamant.global.v1.FlushBalanceRequest request,
+    default void flushBalance(adamant.global.v1.FlushBalanceRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.FlushBalanceResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getFlushBalanceMethod(), responseObserver);
     }
 
     /**
      */
-    public void listAuditLogs(adamant.global.v1.ListAuditLogsRequest request,
+    default void listAuditLogs(adamant.global.v1.ListAuditLogsRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListAuditLogsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListAuditLogsMethod(), responseObserver);
-    }
-
-    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
-      return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
-          .addMethod(
-            getCreateWalletMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.teller.v1.CreateWalletRequest,
-                adamant.global.v1.CreateWalletResponse>(
-                  this, METHODID_CREATE_WALLET)))
-          .addMethod(
-            getGetWalletMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetWalletRequest,
-                adamant.global.v1.Model.Wallet>(
-                  this, METHODID_GET_WALLET)))
-          .addMethod(
-            getListWalletsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListWalletsRequest,
-                adamant.global.v1.ListWalletsResponse>(
-                  this, METHODID_LIST_WALLETS)))
-          .addMethod(
-            getListWalletsByFilterMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListWalletsByFilterRequest,
-                adamant.global.v1.ListWalletsResponse>(
-                  this, METHODID_LIST_WALLETS_BY_FILTER)))
-          .addMethod(
-            getListBaseWalletsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListBaseWalletsRequest,
-                adamant.global.v1.ListBaseWalletsResponse>(
-                  this, METHODID_LIST_BASE_WALLETS)))
-          .addMethod(
-            getGetSpendableBalanceMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetSpendableBalanceRequest,
-                adamant.global.v1.GetSpendableBalanceResponse>(
-                  this, METHODID_GET_SPENDABLE_BALANCE)))
-          .addMethod(
-            getInitializeXRPWalletMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.teller.v1.InitializeXRPWalletRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_INITIALIZE_XRPWALLET)))
-          .addMethod(
-            getInitializeWalletMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.teller.v1.InitializeWalletRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_INITIALIZE_WALLET)))
-          .addMethod(
-            getUpdateDestinationWalletIDMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.UpdateDestinationWalletIDRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_UPDATE_DESTINATION_WALLET_ID)))
-          .addMethod(
-            getCreateAddressMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.CreateAddressRequest,
-                adamant.global.v1.CreateAddressResponse>(
-                  this, METHODID_CREATE_ADDRESS)))
-          .addMethod(
-            getCreateIOSTAccountMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.CreateIOSTAccountRequest,
-                adamant.global.v1.CreateIOSTAccountResponse>(
-                  this, METHODID_CREATE_IOSTACCOUNT)))
-          .addMethod(
-            getListSymbolChildAddressesMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListSymbolChildAddressesRequest,
-                adamant.global.v1.ListSymbolChildAddressesResponse>(
-                  this, METHODID_LIST_SYMBOL_CHILD_ADDRESSES)))
-          .addMethod(
-            getGetAddressMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetAddressRequest,
-                adamant.global.v1.Model.Address>(
-                  this, METHODID_GET_ADDRESS)))
-          .addMethod(
-            getGetAddressByAddressMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetAddressByAddressRequest,
-                adamant.global.v1.Model.Address>(
-                  this, METHODID_GET_ADDRESS_BY_ADDRESS)))
-          .addMethod(
-            getGetAddressByAddressCoinMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetAddressByAddressCoinRequest,
-                adamant.global.v1.Model.Address>(
-                  this, METHODID_GET_ADDRESS_BY_ADDRESS_COIN)))
-          .addMethod(
-            getGetAddressByIndexMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetAddressByIndexRequest,
-                adamant.global.v1.Model.Address>(
-                  this, METHODID_GET_ADDRESS_BY_INDEX)))
-          .addMethod(
-            getListAddressesMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListAddressesRequest,
-                adamant.global.v1.ListAddressesResponse>(
-                  this, METHODID_LIST_ADDRESSES)))
-          .addMethod(
-            getImportAddressMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ImportAddressRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_IMPORT_ADDRESS)))
-          .addMethod(
-            getGetEthereumFeeAddressMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetEthereumFeeAddressRequest,
-                adamant.global.v1.Model.EthereumFeeAddress>(
-                  this, METHODID_GET_ETHEREUM_FEE_ADDRESS)))
-          .addMethod(
-            getUpdateAddressBalanceMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.UpdateAddressBalanceRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_UPDATE_ADDRESS_BALANCE)))
-          .addMethod(
-            getCreateTransactionMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.CreateTransactionRequest,
-                adamant.global.v1.CreateTransactionResponse>(
-                  this, METHODID_CREATE_TRANSACTION)))
-          .addMethod(
-            getSignTransactionMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.teller.v1.SignTransactionRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_SIGN_TRANSACTION)))
-          .addMethod(
-            getSendTransactionMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.teller.v1.SendTransactionRequest,
-                adamant.global.v1.SendTransactionResponse>(
-                  this, METHODID_SEND_TRANSACTION)))
-          .addMethod(
-            getCancelTransactionMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.CancelTransactionRequest,
-                com.google.protobuf.Empty>(
-                  this, METHODID_CANCEL_TRANSACTION)))
-          .addMethod(
-            getGetTransactionMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetTransactionRequest,
-                adamant.global.v1.Model.Transaction>(
-                  this, METHODID_GET_TRANSACTION)))
-          .addMethod(
-            getGetTransactionByTxIDMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetTransactionByTxIDRequest,
-                adamant.global.v1.Model.Transaction>(
-                  this, METHODID_GET_TRANSACTION_BY_TX_ID)))
-          .addMethod(
-            getListTransactionsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListTransactionsRequest,
-                adamant.global.v1.ListTransactionsResponse>(
-                  this, METHODID_LIST_TRANSACTIONS)))
-          .addMethod(
-            getListTransactionsByFilterMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListTransactionsByFilterRequest,
-                adamant.global.v1.ListTransactionsResponse>(
-                  this, METHODID_LIST_TRANSACTIONS_BY_FILTER)))
-          .addMethod(
-            getListTransfersMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListTransfersRequest,
-                adamant.global.v1.ListTransfersResponse>(
-                  this, METHODID_LIST_TRANSFERS)))
-          .addMethod(
-            getListTransfersByFilterMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListTransfersByFilterRequest,
-                adamant.global.v1.ListTransfersResponse>(
-                  this, METHODID_LIST_TRANSFERS_BY_FILTER)))
-          .addMethod(
-            getGetRateSnapshotMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetRateSnapshotRequest,
-                adamant.global.v1.Model.RateSnapshot>(
-                  this, METHODID_GET_RATE_SNAPSHOT)))
-          .addMethod(
-            getGetLatestRateSnapshotMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetLatestRateSnapshotRequest,
-                adamant.global.v1.Model.RateSnapshot>(
-                  this, METHODID_GET_LATEST_RATE_SNAPSHOT)))
-          .addMethod(
-            getSetRatesMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.SetRatesRequest,
-                adamant.global.v1.SetRatesResponse>(
-                  this, METHODID_SET_RATES)))
-          .addMethod(
-            getCalculateFeeMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.CalculateFeeRequest,
-                adamant.global.v1.CalculateFeeResponse>(
-                  this, METHODID_CALCULATE_FEE)))
-          .addMethod(
-            getGetRecommendedFeeRateMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.GetRecommendedFeeRateRequest,
-                adamant.global.v1.GetRecommendedFeeRateResponse>(
-                  this, METHODID_GET_RECOMMENDED_FEE_RATE)))
-          .addMethod(
-            getValidateAddressMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ValidateAddressRequest,
-                adamant.global.v1.ValidateAddressResponse>(
-                  this, METHODID_VALIDATE_ADDRESS)))
-          .addMethod(
-            getFlushBalanceMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.FlushBalanceRequest,
-                adamant.global.v1.FlushBalanceResponse>(
-                  this, METHODID_FLUSH_BALANCE)))
-          .addMethod(
-            getListAuditLogsMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                adamant.global.v1.ListAuditLogsRequest,
-                adamant.global.v1.ListAuditLogsResponse>(
-                  this, METHODID_LIST_AUDIT_LOGS)))
-          .build();
     }
   }
 
   /**
+   * Base class for the server implementation of the service TellerAPI.
    */
-  public static final class TellerAPIStub extends io.grpc.stub.AbstractAsyncStub<TellerAPIStub> {
+  public static abstract class TellerAPIImplBase
+      implements io.grpc.BindableService, AsyncService {
+
+    @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
+      return TellerAPIGrpc.bindService(this);
+    }
+  }
+
+  /**
+   * A stub to allow clients to do asynchronous rpc calls to service TellerAPI.
+   */
+  public static final class TellerAPIStub
+      extends io.grpc.stub.AbstractAsyncStub<TellerAPIStub> {
     private TellerAPIStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
@@ -2147,8 +1889,10 @@ public final class TellerAPIGrpc {
   }
 
   /**
+   * A stub to allow clients to do synchronous rpc calls to service TellerAPI.
    */
-  public static final class TellerAPIBlockingStub extends io.grpc.stub.AbstractBlockingStub<TellerAPIBlockingStub> {
+  public static final class TellerAPIBlockingStub
+      extends io.grpc.stub.AbstractBlockingStub<TellerAPIBlockingStub> {
     private TellerAPIBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
@@ -2452,8 +2196,10 @@ public final class TellerAPIGrpc {
   }
 
   /**
+   * A stub to allow clients to do ListenableFuture-style rpc calls to service TellerAPI.
    */
-  public static final class TellerAPIFutureStub extends io.grpc.stub.AbstractFutureStub<TellerAPIFutureStub> {
+  public static final class TellerAPIFutureStub
+      extends io.grpc.stub.AbstractFutureStub<TellerAPIFutureStub> {
     private TellerAPIFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
@@ -2838,10 +2584,10 @@ public final class TellerAPIGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final TellerAPIImplBase serviceImpl;
+    private final AsyncService serviceImpl;
     private final int methodId;
 
-    MethodHandlers(TellerAPIImplBase serviceImpl, int methodId) {
+    MethodHandlers(AsyncService serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -3016,6 +2762,277 @@ public final class TellerAPIGrpc {
           throw new AssertionError();
       }
     }
+  }
+
+  public static final io.grpc.ServerServiceDefinition bindService(AsyncService service) {
+    return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
+        .addMethod(
+          getCreateWalletMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.CreateWalletRequest,
+              adamant.global.v1.CreateWalletResponse>(
+                service, METHODID_CREATE_WALLET)))
+        .addMethod(
+          getGetWalletMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetWalletRequest,
+              adamant.global.v1.Model.Wallet>(
+                service, METHODID_GET_WALLET)))
+        .addMethod(
+          getListWalletsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListWalletsRequest,
+              adamant.global.v1.ListWalletsResponse>(
+                service, METHODID_LIST_WALLETS)))
+        .addMethod(
+          getListWalletsByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListWalletsByFilterRequest,
+              adamant.global.v1.ListWalletsResponse>(
+                service, METHODID_LIST_WALLETS_BY_FILTER)))
+        .addMethod(
+          getListBaseWalletsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListBaseWalletsRequest,
+              adamant.global.v1.ListBaseWalletsResponse>(
+                service, METHODID_LIST_BASE_WALLETS)))
+        .addMethod(
+          getGetSpendableBalanceMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetSpendableBalanceRequest,
+              adamant.global.v1.GetSpendableBalanceResponse>(
+                service, METHODID_GET_SPENDABLE_BALANCE)))
+        .addMethod(
+          getInitializeXRPWalletMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.InitializeXRPWalletRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_INITIALIZE_XRPWALLET)))
+        .addMethod(
+          getInitializeWalletMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.InitializeWalletRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_INITIALIZE_WALLET)))
+        .addMethod(
+          getUpdateDestinationWalletIDMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpdateDestinationWalletIDRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_UPDATE_DESTINATION_WALLET_ID)))
+        .addMethod(
+          getCreateAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CreateAddressRequest,
+              adamant.global.v1.CreateAddressResponse>(
+                service, METHODID_CREATE_ADDRESS)))
+        .addMethod(
+          getCreateIOSTAccountMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CreateIOSTAccountRequest,
+              adamant.global.v1.CreateIOSTAccountResponse>(
+                service, METHODID_CREATE_IOSTACCOUNT)))
+        .addMethod(
+          getListSymbolChildAddressesMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListSymbolChildAddressesRequest,
+              adamant.global.v1.ListSymbolChildAddressesResponse>(
+                service, METHODID_LIST_SYMBOL_CHILD_ADDRESSES)))
+        .addMethod(
+          getGetAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetAddressRequest,
+              adamant.global.v1.Model.Address>(
+                service, METHODID_GET_ADDRESS)))
+        .addMethod(
+          getGetAddressByAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetAddressByAddressRequest,
+              adamant.global.v1.Model.Address>(
+                service, METHODID_GET_ADDRESS_BY_ADDRESS)))
+        .addMethod(
+          getGetAddressByAddressCoinMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetAddressByAddressCoinRequest,
+              adamant.global.v1.Model.Address>(
+                service, METHODID_GET_ADDRESS_BY_ADDRESS_COIN)))
+        .addMethod(
+          getGetAddressByIndexMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetAddressByIndexRequest,
+              adamant.global.v1.Model.Address>(
+                service, METHODID_GET_ADDRESS_BY_INDEX)))
+        .addMethod(
+          getListAddressesMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListAddressesRequest,
+              adamant.global.v1.ListAddressesResponse>(
+                service, METHODID_LIST_ADDRESSES)))
+        .addMethod(
+          getImportAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ImportAddressRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_IMPORT_ADDRESS)))
+        .addMethod(
+          getGetEthereumFeeAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetEthereumFeeAddressRequest,
+              adamant.global.v1.Model.EthereumFeeAddress>(
+                service, METHODID_GET_ETHEREUM_FEE_ADDRESS)))
+        .addMethod(
+          getUpdateAddressBalanceMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpdateAddressBalanceRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_UPDATE_ADDRESS_BALANCE)))
+        .addMethod(
+          getCreateTransactionMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CreateTransactionRequest,
+              adamant.global.v1.CreateTransactionResponse>(
+                service, METHODID_CREATE_TRANSACTION)))
+        .addMethod(
+          getSignTransactionMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.SignTransactionRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_SIGN_TRANSACTION)))
+        .addMethod(
+          getSendTransactionMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.SendTransactionRequest,
+              adamant.global.v1.SendTransactionResponse>(
+                service, METHODID_SEND_TRANSACTION)))
+        .addMethod(
+          getCancelTransactionMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CancelTransactionRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_CANCEL_TRANSACTION)))
+        .addMethod(
+          getGetTransactionMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetTransactionRequest,
+              adamant.global.v1.Model.Transaction>(
+                service, METHODID_GET_TRANSACTION)))
+        .addMethod(
+          getGetTransactionByTxIDMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetTransactionByTxIDRequest,
+              adamant.global.v1.Model.Transaction>(
+                service, METHODID_GET_TRANSACTION_BY_TX_ID)))
+        .addMethod(
+          getListTransactionsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListTransactionsRequest,
+              adamant.global.v1.ListTransactionsResponse>(
+                service, METHODID_LIST_TRANSACTIONS)))
+        .addMethod(
+          getListTransactionsByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListTransactionsByFilterRequest,
+              adamant.global.v1.ListTransactionsResponse>(
+                service, METHODID_LIST_TRANSACTIONS_BY_FILTER)))
+        .addMethod(
+          getListTransfersMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListTransfersRequest,
+              adamant.global.v1.ListTransfersResponse>(
+                service, METHODID_LIST_TRANSFERS)))
+        .addMethod(
+          getListTransfersByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListTransfersByFilterRequest,
+              adamant.global.v1.ListTransfersResponse>(
+                service, METHODID_LIST_TRANSFERS_BY_FILTER)))
+        .addMethod(
+          getGetRateSnapshotMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetRateSnapshotRequest,
+              adamant.global.v1.Model.RateSnapshot>(
+                service, METHODID_GET_RATE_SNAPSHOT)))
+        .addMethod(
+          getGetLatestRateSnapshotMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetLatestRateSnapshotRequest,
+              adamant.global.v1.Model.RateSnapshot>(
+                service, METHODID_GET_LATEST_RATE_SNAPSHOT)))
+        .addMethod(
+          getSetRatesMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.SetRatesRequest,
+              adamant.global.v1.SetRatesResponse>(
+                service, METHODID_SET_RATES)))
+        .addMethod(
+          getCalculateFeeMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CalculateFeeRequest,
+              adamant.global.v1.CalculateFeeResponse>(
+                service, METHODID_CALCULATE_FEE)))
+        .addMethod(
+          getGetRecommendedFeeRateMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetRecommendedFeeRateRequest,
+              adamant.global.v1.GetRecommendedFeeRateResponse>(
+                service, METHODID_GET_RECOMMENDED_FEE_RATE)))
+        .addMethod(
+          getValidateAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ValidateAddressRequest,
+              adamant.global.v1.ValidateAddressResponse>(
+                service, METHODID_VALIDATE_ADDRESS)))
+        .addMethod(
+          getFlushBalanceMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.FlushBalanceRequest,
+              adamant.global.v1.FlushBalanceResponse>(
+                service, METHODID_FLUSH_BALANCE)))
+        .addMethod(
+          getListAuditLogsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListAuditLogsRequest,
+              adamant.global.v1.ListAuditLogsResponse>(
+                service, METHODID_LIST_AUDIT_LOGS)))
+        .build();
   }
 
   private static abstract class TellerAPIBaseDescriptorSupplier

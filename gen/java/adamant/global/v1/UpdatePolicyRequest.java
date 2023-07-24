@@ -29,72 +29,6 @@ private static final long serialVersionUID = 0L;
     return new UpdatePolicyRequest();
   }
 
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private UpdatePolicyRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            policyId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            whitelistId_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            transferLimitId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_UpdatePolicyRequest_descriptor;
@@ -109,7 +43,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POLICY_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object policyId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object policyId_ = "";
   /**
    * <code>string policy_id = 1 [json_name = "policyId", (.validate.rules) = { ... }</code>
    * @return The policyId.
@@ -147,7 +82,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <code>string name = 2 [json_name = "name", (.validate.rules) = { ... }</code>
    * @return The name.
@@ -185,7 +121,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WHITELIST_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object whitelistId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object whitelistId_ = "";
   /**
    * <code>string whitelist_id = 3 [json_name = "whitelistId", (.validate.rules) = { ... }</code>
    * @return The whitelistId.
@@ -223,7 +160,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRANSFER_LIMIT_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object transferLimitId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object transferLimitId_ = "";
   /**
    * <code>string transfer_limit_id = 4 [json_name = "transferLimitId", (.validate.rules) = { ... }</code>
    * @return The transferLimitId.
@@ -286,7 +224,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transferLimitId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, transferLimitId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -307,7 +245,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(transferLimitId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, transferLimitId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -330,7 +268,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getWhitelistId())) return false;
     if (!getTransferLimitId()
         .equals(other.getTransferLimitId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -349,7 +287,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getWhitelistId().hashCode();
     hash = (37 * hash) + TRANSFER_LIMIT_ID_FIELD_NUMBER;
     hash = (53 * hash) + getTransferLimitId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -398,11 +336,13 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
+
   public static adamant.global.v1.UpdatePolicyRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
+
   public static adamant.global.v1.UpdatePolicyRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -466,30 +406,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using adamant.global.v1.UpdatePolicyRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       policyId_ = "";
-
       name_ = "";
-
       whitelistId_ = "";
-
       transferLimitId_ = "";
-
       return this;
     }
 
@@ -516,12 +448,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public adamant.global.v1.UpdatePolicyRequest buildPartial() {
       adamant.global.v1.UpdatePolicyRequest result = new adamant.global.v1.UpdatePolicyRequest(this);
-      result.policyId_ = policyId_;
-      result.name_ = name_;
-      result.whitelistId_ = whitelistId_;
-      result.transferLimitId_ = transferLimitId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(adamant.global.v1.UpdatePolicyRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.policyId_ = policyId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.whitelistId_ = whitelistId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.transferLimitId_ = transferLimitId_;
+      }
     }
 
     @java.lang.Override
@@ -570,21 +515,25 @@ private static final long serialVersionUID = 0L;
       if (other == adamant.global.v1.UpdatePolicyRequest.getDefaultInstance()) return this;
       if (!other.getPolicyId().isEmpty()) {
         policyId_ = other.policyId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getWhitelistId().isEmpty()) {
         whitelistId_ = other.whitelistId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getTransferLimitId().isEmpty()) {
         transferLimitId_ = other.transferLimitId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -599,19 +548,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      adamant.global.v1.UpdatePolicyRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              policyId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              whitelistId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              transferLimitId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (adamant.global.v1.UpdatePolicyRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object policyId_ = "";
     /**
@@ -654,11 +637,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPolicyId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       policyId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -667,8 +648,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPolicyId() {
-      
       policyId_ = getDefaultInstance().getPolicyId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -679,12 +660,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPolicyIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       policyId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -730,11 +709,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -743,8 +720,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -755,12 +732,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -806,11 +781,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWhitelistId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       whitelistId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -819,8 +792,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWhitelistId() {
-      
       whitelistId_ = getDefaultInstance().getWhitelistId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -831,12 +804,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWhitelistIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       whitelistId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -882,11 +853,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTransferLimitId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       transferLimitId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -895,8 +864,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTransferLimitId() {
-      
       transferLimitId_ = getDefaultInstance().getTransferLimitId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -907,12 +876,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTransferLimitIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       transferLimitId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -949,7 +916,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdatePolicyRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

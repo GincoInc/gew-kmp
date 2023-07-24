@@ -26,61 +26,6 @@ private static final long serialVersionUID = 0L;
     return new ListWalletFlushSettingsResponse();
   }
 
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private ListWalletFlushSettingsResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              walletFlushSettings_ = new java.util.ArrayList<adamant.global.v1.Model.WalletFlushSetting>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            walletFlushSettings_.add(
-                input.readMessage(adamant.global.v1.Model.WalletFlushSetting.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        walletFlushSettings_ = java.util.Collections.unmodifiableList(walletFlushSettings_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_ListWalletFlushSettingsResponse_descriptor;
@@ -95,6 +40,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WALLET_FLUSH_SETTINGS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<adamant.global.v1.Model.WalletFlushSetting> walletFlushSettings_;
   /**
    * <code>repeated .adamant.global.v1.WalletFlushSetting wallet_flush_settings = 1 [json_name = "walletFlushSettings"];</code>
@@ -151,7 +97,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < walletFlushSettings_.size(); i++) {
       output.writeMessage(1, walletFlushSettings_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -164,7 +110,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, walletFlushSettings_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -181,7 +127,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getWalletFlushSettingsList()
         .equals(other.getWalletFlushSettingsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -196,7 +142,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + WALLET_FLUSH_SETTINGS_FIELD_NUMBER;
       hash = (53 * hash) + getWalletFlushSettingsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -245,11 +191,13 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
+
   public static adamant.global.v1.ListWalletFlushSettingsResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
+
   public static adamant.global.v1.ListWalletFlushSettingsResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -313,29 +261,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using adamant.global.v1.ListWalletFlushSettingsResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getWalletFlushSettingsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (walletFlushSettingsBuilder_ == null) {
         walletFlushSettings_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        walletFlushSettings_ = null;
         walletFlushSettingsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -362,7 +306,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public adamant.global.v1.ListWalletFlushSettingsResponse buildPartial() {
       adamant.global.v1.ListWalletFlushSettingsResponse result = new adamant.global.v1.ListWalletFlushSettingsResponse(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(adamant.global.v1.ListWalletFlushSettingsResponse result) {
       if (walletFlushSettingsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           walletFlushSettings_ = java.util.Collections.unmodifiableList(walletFlushSettings_);
@@ -372,8 +322,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.walletFlushSettings_ = walletFlushSettingsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(adamant.global.v1.ListWalletFlushSettingsResponse result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -446,7 +398,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -461,17 +413,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      adamant.global.v1.ListWalletFlushSettingsResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              adamant.global.v1.Model.WalletFlushSetting m =
+                  input.readMessage(
+                      adamant.global.v1.Model.WalletFlushSetting.parser(),
+                      extensionRegistry);
+              if (walletFlushSettingsBuilder_ == null) {
+                ensureWalletFlushSettingsIsMutable();
+                walletFlushSettings_.add(m);
+              } else {
+                walletFlushSettingsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (adamant.global.v1.ListWalletFlushSettingsResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -748,7 +726,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListWalletFlushSettingsResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

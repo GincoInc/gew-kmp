@@ -25,61 +25,6 @@ private static final long serialVersionUID = 0L;
     return new ListWalletTransferVolumeSnapshotsResponse();
   }
 
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private ListWalletTransferVolumeSnapshotsResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            adamant.global.v1.Model.WalletTransferVolumeSnapshots.Builder subBuilder = null;
-            if (walletTransferVolumeSnapshots_ != null) {
-              subBuilder = walletTransferVolumeSnapshots_.toBuilder();
-            }
-            walletTransferVolumeSnapshots_ = input.readMessage(adamant.global.v1.Model.WalletTransferVolumeSnapshots.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(walletTransferVolumeSnapshots_);
-              walletTransferVolumeSnapshots_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_ListWalletTransferVolumeSnapshotsResponse_descriptor;
@@ -116,7 +61,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public adamant.global.v1.Model.WalletTransferVolumeSnapshotsOrBuilder getWalletTransferVolumeSnapshotsOrBuilder() {
-    return getWalletTransferVolumeSnapshots();
+    return walletTransferVolumeSnapshots_ == null ? adamant.global.v1.Model.WalletTransferVolumeSnapshots.getDefaultInstance() : walletTransferVolumeSnapshots_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -136,7 +81,7 @@ private static final long serialVersionUID = 0L;
     if (walletTransferVolumeSnapshots_ != null) {
       output.writeMessage(1, getWalletTransferVolumeSnapshots());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -149,7 +94,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getWalletTransferVolumeSnapshots());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -169,7 +114,7 @@ private static final long serialVersionUID = 0L;
       if (!getWalletTransferVolumeSnapshots()
           .equals(other.getWalletTransferVolumeSnapshots())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -184,7 +129,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + WALLET_TRANSFER_VOLUME_SNAPSHOTS_FIELD_NUMBER;
       hash = (53 * hash) + getWalletTransferVolumeSnapshots().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -233,11 +178,13 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
+
   public static adamant.global.v1.ListWalletTransferVolumeSnapshotsResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
+
   public static adamant.global.v1.ListWalletTransferVolumeSnapshotsResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -301,26 +248,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using adamant.global.v1.ListWalletTransferVolumeSnapshotsResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (walletTransferVolumeSnapshotsBuilder_ == null) {
-        walletTransferVolumeSnapshots_ = null;
-      } else {
-        walletTransferVolumeSnapshots_ = null;
+      bitField0_ = 0;
+      walletTransferVolumeSnapshots_ = null;
+      if (walletTransferVolumeSnapshotsBuilder_ != null) {
+        walletTransferVolumeSnapshotsBuilder_.dispose();
         walletTransferVolumeSnapshotsBuilder_ = null;
       }
       return this;
@@ -349,13 +291,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public adamant.global.v1.ListWalletTransferVolumeSnapshotsResponse buildPartial() {
       adamant.global.v1.ListWalletTransferVolumeSnapshotsResponse result = new adamant.global.v1.ListWalletTransferVolumeSnapshotsResponse(this);
-      if (walletTransferVolumeSnapshotsBuilder_ == null) {
-        result.walletTransferVolumeSnapshots_ = walletTransferVolumeSnapshots_;
-      } else {
-        result.walletTransferVolumeSnapshots_ = walletTransferVolumeSnapshotsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(adamant.global.v1.ListWalletTransferVolumeSnapshotsResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.walletTransferVolumeSnapshots_ = walletTransferVolumeSnapshotsBuilder_ == null
+            ? walletTransferVolumeSnapshots_
+            : walletTransferVolumeSnapshotsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -405,7 +352,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasWalletTransferVolumeSnapshots()) {
         mergeWalletTransferVolumeSnapshots(other.getWalletTransferVolumeSnapshots());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -420,19 +367,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      adamant.global.v1.ListWalletTransferVolumeSnapshotsResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getWalletTransferVolumeSnapshotsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (adamant.global.v1.ListWalletTransferVolumeSnapshotsResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private adamant.global.v1.Model.WalletTransferVolumeSnapshots walletTransferVolumeSnapshots_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -442,7 +410,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the walletTransferVolumeSnapshots field is set.
      */
     public boolean hasWalletTransferVolumeSnapshots() {
-      return walletTransferVolumeSnapshotsBuilder_ != null || walletTransferVolumeSnapshots_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
@@ -464,11 +432,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         walletTransferVolumeSnapshots_ = value;
-        onChanged();
       } else {
         walletTransferVolumeSnapshotsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -478,11 +446,11 @@ private static final long serialVersionUID = 0L;
         adamant.global.v1.Model.WalletTransferVolumeSnapshots.Builder builderForValue) {
       if (walletTransferVolumeSnapshotsBuilder_ == null) {
         walletTransferVolumeSnapshots_ = builderForValue.build();
-        onChanged();
       } else {
         walletTransferVolumeSnapshotsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -490,38 +458,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWalletTransferVolumeSnapshots(adamant.global.v1.Model.WalletTransferVolumeSnapshots value) {
       if (walletTransferVolumeSnapshotsBuilder_ == null) {
-        if (walletTransferVolumeSnapshots_ != null) {
-          walletTransferVolumeSnapshots_ =
-            adamant.global.v1.Model.WalletTransferVolumeSnapshots.newBuilder(walletTransferVolumeSnapshots_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          walletTransferVolumeSnapshots_ != null &&
+          walletTransferVolumeSnapshots_ != adamant.global.v1.Model.WalletTransferVolumeSnapshots.getDefaultInstance()) {
+          getWalletTransferVolumeSnapshotsBuilder().mergeFrom(value);
         } else {
           walletTransferVolumeSnapshots_ = value;
         }
-        onChanged();
       } else {
         walletTransferVolumeSnapshotsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
      */
     public Builder clearWalletTransferVolumeSnapshots() {
-      if (walletTransferVolumeSnapshotsBuilder_ == null) {
-        walletTransferVolumeSnapshots_ = null;
-        onChanged();
-      } else {
-        walletTransferVolumeSnapshots_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      walletTransferVolumeSnapshots_ = null;
+      if (walletTransferVolumeSnapshotsBuilder_ != null) {
+        walletTransferVolumeSnapshotsBuilder_.dispose();
         walletTransferVolumeSnapshotsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.adamant.global.v1.WalletTransferVolumeSnapshots wallet_transfer_volume_snapshots = 1 [json_name = "walletTransferVolumeSnapshots"];</code>
      */
     public adamant.global.v1.Model.WalletTransferVolumeSnapshots.Builder getWalletTransferVolumeSnapshotsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getWalletTransferVolumeSnapshotsFieldBuilder().getBuilder();
     }
@@ -585,7 +553,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListWalletTransferVolumeSnapshotsResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 
