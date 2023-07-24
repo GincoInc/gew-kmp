@@ -3,7 +3,7 @@ BIN := $(abspath ./bin)
 GO_ENV ?= GOBIN=$(BIN)
 
 $(BIN)/buf:
-	test -f $(BIN)/buf || $(GO_ENV) go install github.com/bufbuild/buf/cmd/buf@v1.3.1
+	test -f $(BIN)/buf || $(GO_ENV) go install github.com/bufbuild/buf/cmd/buf@v1.8
 $(BIN)/protodep:
 	test -f $(BIN)/protodep || $(GO_ENV) go install github.com/stormcat24/protodep@v0.1.7
 $(BIN)/protoc-gen-go:

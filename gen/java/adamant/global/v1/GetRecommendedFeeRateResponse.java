@@ -25,68 +25,6 @@ private static final long serialVersionUID = 0L;
     return new GetRecommendedFeeRateResponse();
   }
 
-  @java.lang.Override
-  public final com.google.protobuf.UnknownFieldSet
-  getUnknownFields() {
-    return this.unknownFields;
-  }
-  private GetRecommendedFeeRateResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            fastest_ = input.readUInt64();
-            break;
-          }
-          case 16: {
-
-            fast_ = input.readUInt64();
-            break;
-          }
-          case 24: {
-
-            average_ = input.readUInt64();
-            break;
-          }
-          case 32: {
-
-            safeLow_ = input.readUInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_GetRecommendedFeeRateResponse_descriptor;
@@ -101,7 +39,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FASTEST_FIELD_NUMBER = 1;
-  private long fastest_;
+  private long fastest_ = 0L;
   /**
    * <code>uint64 fastest = 1 [json_name = "fastest"];</code>
    * @return The fastest.
@@ -112,7 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FAST_FIELD_NUMBER = 2;
-  private long fast_;
+  private long fast_ = 0L;
   /**
    * <code>uint64 fast = 2 [json_name = "fast"];</code>
    * @return The fast.
@@ -123,7 +61,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AVERAGE_FIELD_NUMBER = 3;
-  private long average_;
+  private long average_ = 0L;
   /**
    * <code>uint64 average = 3 [json_name = "average"];</code>
    * @return The average.
@@ -134,7 +72,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SAFE_LOW_FIELD_NUMBER = 4;
-  private long safeLow_;
+  private long safeLow_ = 0L;
   /**
    * <code>uint64 safe_low = 4 [json_name = "safeLow"];</code>
    * @return The safeLow.
@@ -170,7 +108,7 @@ private static final long serialVersionUID = 0L;
     if (safeLow_ != 0L) {
       output.writeUInt64(4, safeLow_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -195,7 +133,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt64Size(4, safeLow_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -218,7 +156,7 @@ private static final long serialVersionUID = 0L;
         != other.getAverage()) return false;
     if (getSafeLow()
         != other.getSafeLow()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -241,7 +179,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SAFE_LOW_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getSafeLow());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -290,11 +228,13 @@ private static final long serialVersionUID = 0L;
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
+
   public static adamant.global.v1.GetRecommendedFeeRateResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
+
   public static adamant.global.v1.GetRecommendedFeeRateResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -358,30 +298,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using adamant.global.v1.GetRecommendedFeeRateResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       fastest_ = 0L;
-
       fast_ = 0L;
-
       average_ = 0L;
-
       safeLow_ = 0L;
-
       return this;
     }
 
@@ -408,12 +340,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public adamant.global.v1.GetRecommendedFeeRateResponse buildPartial() {
       adamant.global.v1.GetRecommendedFeeRateResponse result = new adamant.global.v1.GetRecommendedFeeRateResponse(this);
-      result.fastest_ = fastest_;
-      result.fast_ = fast_;
-      result.average_ = average_;
-      result.safeLow_ = safeLow_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(adamant.global.v1.GetRecommendedFeeRateResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.fastest_ = fastest_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.fast_ = fast_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.average_ = average_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.safeLow_ = safeLow_;
+      }
     }
 
     @java.lang.Override
@@ -472,7 +417,7 @@ private static final long serialVersionUID = 0L;
       if (other.getSafeLow() != 0L) {
         setSafeLow(other.getSafeLow());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -487,19 +432,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      adamant.global.v1.GetRecommendedFeeRateResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              fastest_ = input.readUInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              fast_ = input.readUInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              average_ = input.readUInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              safeLow_ = input.readUInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (adamant.global.v1.GetRecommendedFeeRateResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private long fastest_ ;
     /**
@@ -516,8 +495,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFastest(long value) {
-      
+
       fastest_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -526,7 +506,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFastest() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       fastest_ = 0L;
       onChanged();
       return this;
@@ -547,8 +527,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFast(long value) {
-      
+
       fast_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -557,7 +538,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFast() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       fast_ = 0L;
       onChanged();
       return this;
@@ -578,8 +559,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAverage(long value) {
-      
+
       average_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -588,7 +570,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAverage() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       average_ = 0L;
       onChanged();
       return this;
@@ -609,8 +591,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSafeLow(long value) {
-      
+
       safeLow_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -619,7 +602,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSafeLow() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       safeLow_ = 0L;
       onChanged();
       return this;
@@ -657,7 +640,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GetRecommendedFeeRateResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 
