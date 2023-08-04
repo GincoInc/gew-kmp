@@ -19,8 +19,8 @@ class Event
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-°
-6gincoinc/adamant/teller/v1/adamanttellerv1/event.protoadamant.teller.v1google/protobuf/timestamp.protovalidate/validate.proto"Ý
+°
+6gincoinc/adamant/teller/v1/adamanttellerv1/event.protoadamant.teller.v1google/protobuf/timestamp.protovalidate/validate.proto"·
 TransferUpdated
 	wallet_id (	RwalletId
 transfer_id (	R
@@ -45,7 +45,12 @@ transferId,
 event_id (	ReventId
 fee (Rfee
 
-string_fee (	R	stringFee"Í
+string_fee (	R	stringFeeX
+cosmos_specific (2/.adamant.teller.v1.TransferUpdateCosmosSpecificRcosmosSpecific"£
+TransferUpdateCosmosSpecific5
+type (2!.gincoinc.global.v1.CosmosMsgTypeRtype\'
+delegate_amount (RdelegateAmount#
+reward_amount (RrewardAmount"Í
 TransferUpdateEvent
 event_id (	ReventId
 	wallet_id (	RwalletId,
