@@ -84,6 +84,8 @@ var (
 
 	_ = gincoincglobalv1.TransactionResult(0)
 
+	_ = gincoincglobalv1.CosmosMsgType(0)
+
 	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.TransferType(0)
@@ -6122,6 +6124,20 @@ func (m *Transfer) Validate(all bool) error {
 		}
 	}
 
+	if v, ok := interface{}(m.GetCosmosSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransferValidationError{
+				field:  "CosmosSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
 	if len(errors) > 0 {
 		return TransferMultiError(errors)
 	}
@@ -6197,6 +6213,104 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = TransferValidationError{}
+
+// Validate checks the field values on TransferCosmosSpecific with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in TransferCosmosSpecificMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *TransferCosmosSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Type
+
+	// no validation rules for DelegateAmount
+
+	// no validation rules for RewardAmount
+
+	if len(errors) > 0 {
+		return TransferCosmosSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// TransferCosmosSpecificMultiError is an error wrapping multiple validation
+// errors returned by TransferCosmosSpecific.Validate(true) if the designated
+// constraints aren't met.
+type TransferCosmosSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m TransferCosmosSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m TransferCosmosSpecificMultiError) AllErrors() []error { return m }
+
+// TransferCosmosSpecificValidationError is the validation error returned by
+// TransferCosmosSpecific.Validate if the designated constraints aren't met.
+type TransferCosmosSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TransferCosmosSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TransferCosmosSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TransferCosmosSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TransferCosmosSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TransferCosmosSpecificValidationError) ErrorName() string {
+	return "TransferCosmosSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e TransferCosmosSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTransferCosmosSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TransferCosmosSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TransferCosmosSpecificValidationError{}
 
 // Validate checks the field values on UncheckedTransfer with the rules defined
 // in the proto definition for this message. If any rules are violated, an

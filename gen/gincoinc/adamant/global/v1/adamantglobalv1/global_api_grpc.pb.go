@@ -45,6 +45,7 @@ type GlobalAPIClient interface {
 	ListWalletGroups(ctx context.Context, in *ListWalletGroupsRequest, opts ...grpc.CallOption) (*ListWalletGroupsResponse, error)
 	UpdateDestinationWalletID(ctx context.Context, in *UpdateDestinationWalletIDRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	GetCosmosBalance(ctx context.Context, in *GetCosmosBalanceRequest, opts ...grpc.CallOption) (*GetCosmosBalanceResponse, error)
+	ListCosmosDelegateHistories(ctx context.Context, in *ListCosmosDelegateHistoriesRequest, opts ...grpc.CallOption) (*ListCosmosDelegateHistoriesResponse, error)
 	// Review
 	ApproveWallet(ctx context.Context, in *ApproveWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	ApproveTransaction(ctx context.Context, in *ApproveTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -322,6 +323,15 @@ func (c *globalAPIClient) UpdateDestinationWalletID(ctx context.Context, in *Upd
 func (c *globalAPIClient) GetCosmosBalance(ctx context.Context, in *GetCosmosBalanceRequest, opts ...grpc.CallOption) (*GetCosmosBalanceResponse, error) {
 	out := new(GetCosmosBalanceResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/GetCosmosBalance", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) ListCosmosDelegateHistories(ctx context.Context, in *ListCosmosDelegateHistoriesRequest, opts ...grpc.CallOption) (*ListCosmosDelegateHistoriesResponse, error) {
+	out := new(ListCosmosDelegateHistoriesResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListCosmosDelegateHistories", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1029,6 +1039,7 @@ type GlobalAPIServer interface {
 	ListWalletGroups(context.Context, *ListWalletGroupsRequest) (*ListWalletGroupsResponse, error)
 	UpdateDestinationWalletID(context.Context, *UpdateDestinationWalletIDRequest) (*emptypb.Empty, error)
 	GetCosmosBalance(context.Context, *GetCosmosBalanceRequest) (*GetCosmosBalanceResponse, error)
+	ListCosmosDelegateHistories(context.Context, *ListCosmosDelegateHistoriesRequest) (*ListCosmosDelegateHistoriesResponse, error)
 	// Review
 	ApproveWallet(context.Context, *ApproveWalletRequest) (*emptypb.Empty, error)
 	ApproveTransaction(context.Context, *ApproveTransactionRequest) (*emptypb.Empty, error)
@@ -1187,6 +1198,9 @@ func (UnimplementedGlobalAPIServer) UpdateDestinationWalletID(context.Context, *
 }
 func (UnimplementedGlobalAPIServer) GetCosmosBalance(context.Context, *GetCosmosBalanceRequest) (*GetCosmosBalanceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCosmosBalance not implemented")
+}
+func (UnimplementedGlobalAPIServer) ListCosmosDelegateHistories(context.Context, *ListCosmosDelegateHistoriesRequest) (*ListCosmosDelegateHistoriesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListCosmosDelegateHistories not implemented")
 }
 func (UnimplementedGlobalAPIServer) ApproveWallet(context.Context, *ApproveWalletRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ApproveWallet not implemented")
@@ -1781,6 +1795,24 @@ func _GlobalAPI_GetCosmosBalance_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GlobalAPIServer).GetCosmosBalance(ctx, req.(*GetCosmosBalanceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_ListCosmosDelegateHistories_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListCosmosDelegateHistoriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ListCosmosDelegateHistories(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ListCosmosDelegateHistories",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ListCosmosDelegateHistories(ctx, req.(*ListCosmosDelegateHistoriesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3221,6 +3253,10 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetCosmosBalance",
 			Handler:    _GlobalAPI_GetCosmosBalance_Handler,
+		},
+		{
+			MethodName: "ListCosmosDelegateHistories",
+			Handler:    _GlobalAPI_ListCosmosDelegateHistories_Handler,
 		},
 		{
 			MethodName: "ApproveWallet",

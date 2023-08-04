@@ -141,6 +141,12 @@ class Transfer extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Timestamp update_time = 14 [json_name = "updateTime"];</code>
      */
     protected $update_time = null;
+    /**
+     * cosmos_specific
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.TransferCosmosSpecific cosmos_specific = 23 [json_name = "cosmosSpecific"];</code>
+     */
+    protected $cosmos_specific = null;
 
     /**
      * Constructor.
@@ -190,6 +196,8 @@ class Transfer extends \Google\Protobuf\Internal\Message
      *           the time at which the transfer was created
      *     @type \Google\Protobuf\Timestamp $update_time
      *           the time at which the transfer was updated
+     *     @type \Adamant\PBGlobal\V1\TransferCosmosSpecific $cosmos_specific
+     *           cosmos_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -759,6 +767,42 @@ class Transfer extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->update_time = $var;
+
+        return $this;
+    }
+
+    /**
+     * cosmos_specific
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.TransferCosmosSpecific cosmos_specific = 23 [json_name = "cosmosSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\TransferCosmosSpecific|null
+     */
+    public function getCosmosSpecific()
+    {
+        return $this->cosmos_specific;
+    }
+
+    public function hasCosmosSpecific()
+    {
+        return isset($this->cosmos_specific);
+    }
+
+    public function clearCosmosSpecific()
+    {
+        unset($this->cosmos_specific);
+    }
+
+    /**
+     * cosmos_specific
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.TransferCosmosSpecific cosmos_specific = 23 [json_name = "cosmosSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\TransferCosmosSpecific $var
+     * @return $this
+     */
+    public function setCosmosSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\TransferCosmosSpecific::class);
+        $this->cosmos_specific = $var;
 
         return $this;
     }

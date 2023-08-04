@@ -9,6 +9,7 @@ public class EventValidator {
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		
 		if (clazz.equals(adamant.teller.v1.Event.TransferUpdated.class)) return new TransferUpdatedValidator();
+		if (clazz.equals(adamant.teller.v1.Event.TransferUpdateCosmosSpecific.class)) return new TransferUpdateCosmosSpecificValidator();
 		if (clazz.equals(adamant.teller.v1.Event.TransferUpdateEvent.class)) return new TransferUpdateEventValidator();
 		if (clazz.equals(adamant.teller.v1.Event.EthereumStakingReward.class)) return new EthereumStakingRewardValidator();
 		return null;
@@ -19,6 +20,8 @@ public class EventValidator {
 	 * Validates {@code TransferUpdated} protobuf objects.
 	 */
 	public static class TransferUpdatedValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.teller.v1.Event.TransferUpdated> {
+		
+	
 		
 	
 		
@@ -106,6 +109,31 @@ public class EventValidator {
 	// no validation rules for Fee
 
 	// no validation rules for StringFee
+
+	
+			// Validate cosmos_specific
+			if (proto.hasCosmosSpecific()) index.validatorFor(proto.getCosmosSpecific()).assertValid(proto.getCosmosSpecific());
+	
+	}
+}
+/**
+	 * Validates {@code TransferUpdateCosmosSpecific} protobuf objects.
+	 */
+	public static class TransferUpdateCosmosSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.teller.v1.Event.TransferUpdateCosmosSpecific> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.teller.v1.Event.TransferUpdateCosmosSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Type
+
+	// no validation rules for DelegateAmount
+
+	// no validation rules for RewardAmount
 
 	
 	}
