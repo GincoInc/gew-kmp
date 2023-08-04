@@ -537,6 +537,13 @@ message Transfer {
   gincoinc.global.v1.TransactionResult result = 16; // result
   google.protobuf.Timestamp create_time = 13; // the time at which the transfer was created
   google.protobuf.Timestamp update_time = 14; // the time at which the transfer was updated
+  TransferCosmosSpecific cosmos_specific = 23; // cosmos_specific
+}
+
+message TransferCosmosSpecific {
+  gincoinc.global.v1.CosmosMsgType type = 1;
+  double delegate_amount = 2;
+  double reward_amount = 3;
 }
 
 // The model of transfer

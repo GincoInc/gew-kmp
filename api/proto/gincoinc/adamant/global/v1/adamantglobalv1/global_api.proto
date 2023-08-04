@@ -41,6 +41,7 @@ service GlobalAPI {
   rpc ListWalletGroups(ListWalletGroupsRequest) returns (ListWalletGroupsResponse) {}
   rpc UpdateDestinationWalletID(UpdateDestinationWalletIDRequest) returns (google.protobuf.Empty) {}
   rpc GetCosmosBalance(GetCosmosBalanceRequest) returns (GetCosmosBalanceResponse) {}
+  rpc ListCosmosDelegateHistories(ListCosmosDelegateHistoriesRequest) returns (ListCosmosDelegateHistoriesResponse) {}
 
   // Review
   rpc ApproveWallet(ApproveWalletRequest) returns (google.protobuf.Empty) {}
@@ -1665,4 +1666,21 @@ message GetCosmosBalanceResponse {
   double available = 2;
   double reward = 3;
   double unbonding = 4;
+}
+
+message ListCosmosDelegateHistoriesRequest {
+  string wallet_id = 1;
+}
+
+message ListCosmosDelegateHistoriesResponse {
+  repeated CosmosDelegateHistory delegate_histories = 1;
+}
+
+message CosmosDelegateHistory {
+  string tx_id = 1;
+  string wallet_id = 2;
+  gincoinc.global.v1.CosmosMsgType type = 3;
+  double delegate_amount = 4;
+  double reward_amount = 5;
+  google.protobuf.Timestamp time = 6;
 }
