@@ -12,14 +12,14 @@ services:
     env_file:
       - "./envs/teller/.env"
   # postbox:
-  #   image: ginco/postbox:v0.25.1
+  #   image: ginco/postbox:v0.25.2
   #   command: -f /root/configs/config.toml
   #   volumes:
   #     - "./configs/postbox/config.toml:/root/configs/config.toml"
   #   env_file:
   #     - "./envs/postbox/.env"
   # postbox-gateway:
-  #   image: ginco/postbox-gateway:v0.25.1
+  #   image: ginco/postbox-gateway:v0.25.2
   #   ports:
   #     - "8080:8080"
   #   command: >
