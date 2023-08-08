@@ -303,6 +303,20 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\ListCosmosDelegateHistoriesRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListCosmosDelegateHistories(\Adamant\Global\V1\ListCosmosDelegateHistoriesRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ListCosmosDelegateHistories',
+        $argument,
+        ['\Adamant\Global\V1\ListCosmosDelegateHistoriesResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * Review
      * @param \Adamant\Global\V1\ApproveWalletRequest $argument input argument
      * @param array $metadata metadata

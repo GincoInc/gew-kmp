@@ -58,6 +58,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.SignInfo.class)) return new SignInfoValidator();
 		if (clazz.equals(adamant.global.v1.Model.SignTxInput.class)) return new SignTxInputValidator();
 		if (clazz.equals(adamant.global.v1.Model.Transfer.class)) return new TransferValidator();
+		if (clazz.equals(adamant.global.v1.Model.TransferCosmosSpecific.class)) return new TransferCosmosSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.UncheckedTransfer.class)) return new UncheckedTransferValidator();
 		if (clazz.equals(adamant.global.v1.Model.EventTriggeredMessage.class)) return new EventTriggeredMessageValidator();
 		if (clazz.equals(adamant.global.v1.Model.Rate.class)) return new RateValidator();
@@ -1978,6 +1979,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transfer proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2025,6 +2028,31 @@ public class ModelValidator {
 	
 			// Validate update_time
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+			// Validate cosmos_specific
+			if (proto.hasCosmosSpecific()) index.validatorFor(proto.getCosmosSpecific()).assertValid(proto.getCosmosSpecific());
+	
+	}
+}
+/**
+	 * Validates {@code TransferCosmosSpecific} protobuf objects.
+	 */
+	public static class TransferCosmosSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.TransferCosmosSpecific> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.TransferCosmosSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Type
+
+	// no validation rules for DelegateAmount
+
+	// no validation rules for RewardAmount
+
 	
 	}
 }

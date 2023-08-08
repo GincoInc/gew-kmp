@@ -73,6 +73,8 @@ var (
 	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.CosmosMsgType(0)
 )
 
 // Validate checks the field values on ApproveWalletRequest with the rules
@@ -21606,3 +21608,328 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = GetCosmosBalanceResponseValidationError{}
+
+// Validate checks the field values on ListCosmosDelegateHistoriesRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListCosmosDelegateHistoriesRequestMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListCosmosDelegateHistoriesRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for WalletId
+
+	if len(errors) > 0 {
+		return ListCosmosDelegateHistoriesRequestMultiError(errors)
+	}
+	return nil
+}
+
+// ListCosmosDelegateHistoriesRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListCosmosDelegateHistoriesRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListCosmosDelegateHistoriesRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListCosmosDelegateHistoriesRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListCosmosDelegateHistoriesRequestMultiError) AllErrors() []error { return m }
+
+// ListCosmosDelegateHistoriesRequestValidationError is the validation error
+// returned by ListCosmosDelegateHistoriesRequest.Validate if the designated
+// constraints aren't met.
+type ListCosmosDelegateHistoriesRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListCosmosDelegateHistoriesRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListCosmosDelegateHistoriesRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListCosmosDelegateHistoriesRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListCosmosDelegateHistoriesRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListCosmosDelegateHistoriesRequestValidationError) ErrorName() string {
+	return "ListCosmosDelegateHistoriesRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListCosmosDelegateHistoriesRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListCosmosDelegateHistoriesRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListCosmosDelegateHistoriesRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListCosmosDelegateHistoriesRequestValidationError{}
+
+// Validate checks the field values on ListCosmosDelegateHistoriesResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListCosmosDelegateHistoriesResponseMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListCosmosDelegateHistoriesResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetDelegateHistories() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListCosmosDelegateHistoriesResponseValidationError{
+					field:  fmt.Sprintf("DelegateHistories[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ListCosmosDelegateHistoriesResponseMultiError(errors)
+	}
+	return nil
+}
+
+// ListCosmosDelegateHistoriesResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListCosmosDelegateHistoriesResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListCosmosDelegateHistoriesResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListCosmosDelegateHistoriesResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListCosmosDelegateHistoriesResponseMultiError) AllErrors() []error { return m }
+
+// ListCosmosDelegateHistoriesResponseValidationError is the validation error
+// returned by ListCosmosDelegateHistoriesResponse.Validate if the designated
+// constraints aren't met.
+type ListCosmosDelegateHistoriesResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListCosmosDelegateHistoriesResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListCosmosDelegateHistoriesResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListCosmosDelegateHistoriesResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListCosmosDelegateHistoriesResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListCosmosDelegateHistoriesResponseValidationError) ErrorName() string {
+	return "ListCosmosDelegateHistoriesResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListCosmosDelegateHistoriesResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListCosmosDelegateHistoriesResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListCosmosDelegateHistoriesResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListCosmosDelegateHistoriesResponseValidationError{}
+
+// Validate checks the field values on CosmosDelegateHistory with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CosmosDelegateHistoryMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CosmosDelegateHistory) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TxId
+
+	// no validation rules for WalletId
+
+	// no validation rules for Type
+
+	// no validation rules for DelegateAmount
+
+	// no validation rules for RewardAmount
+
+	if v, ok := interface{}(m.GetTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = CosmosDelegateHistoryValidationError{
+				field:  "Time",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if len(errors) > 0 {
+		return CosmosDelegateHistoryMultiError(errors)
+	}
+	return nil
+}
+
+// CosmosDelegateHistoryMultiError is an error wrapping multiple validation
+// errors returned by CosmosDelegateHistory.Validate(true) if the designated
+// constraints aren't met.
+type CosmosDelegateHistoryMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CosmosDelegateHistoryMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CosmosDelegateHistoryMultiError) AllErrors() []error { return m }
+
+// CosmosDelegateHistoryValidationError is the validation error returned by
+// CosmosDelegateHistory.Validate if the designated constraints aren't met.
+type CosmosDelegateHistoryValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CosmosDelegateHistoryValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CosmosDelegateHistoryValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CosmosDelegateHistoryValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CosmosDelegateHistoryValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CosmosDelegateHistoryValidationError) ErrorName() string {
+	return "CosmosDelegateHistoryValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CosmosDelegateHistoryValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCosmosDelegateHistory.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CosmosDelegateHistoryValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CosmosDelegateHistoryValidationError{}
