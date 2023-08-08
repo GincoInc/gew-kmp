@@ -50,6 +50,7 @@ type TransferUpdated struct {
 	EventId        string                             `protobuf:"bytes,18,opt,name=event_id,json=eventId,proto3" json:"event_id,omitempty"`
 	Fee            float64                            `protobuf:"fixed64,19,opt,name=fee,proto3" json:"fee,omitempty"`
 	StringFee      string                             `protobuf:"bytes,20,opt,name=string_fee,json=stringFee,proto3" json:"string_fee,omitempty"`
+	CosmosSpecific *TransferUpdateCosmosSpecific      `protobuf:"bytes,22,opt,name=cosmos_specific,json=cosmosSpecific,proto3" json:"cosmos_specific,omitempty"`
 }
 
 func (x *TransferUpdated) Reset() {
@@ -232,6 +233,76 @@ func (x *TransferUpdated) GetStringFee() string {
 	return ""
 }
 
+func (x *TransferUpdated) GetCosmosSpecific() *TransferUpdateCosmosSpecific {
+	if x != nil {
+		return x.CosmosSpecific
+	}
+	return nil
+}
+
+type TransferUpdateCosmosSpecific struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Type           gincoincglobalv1.CosmosMsgType `protobuf:"varint,1,opt,name=type,proto3,enum=gincoinc.global.v1.CosmosMsgType" json:"type,omitempty"`
+	DelegateAmount float64                        `protobuf:"fixed64,2,opt,name=delegate_amount,json=delegateAmount,proto3" json:"delegate_amount,omitempty"`
+	RewardAmount   float64                        `protobuf:"fixed64,3,opt,name=reward_amount,json=rewardAmount,proto3" json:"reward_amount,omitempty"`
+}
+
+func (x *TransferUpdateCosmosSpecific) Reset() {
+	*x = TransferUpdateCosmosSpecific{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *TransferUpdateCosmosSpecific) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TransferUpdateCosmosSpecific) ProtoMessage() {}
+
+func (x *TransferUpdateCosmosSpecific) ProtoReflect() protoreflect.Message {
+	mi := &file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TransferUpdateCosmosSpecific.ProtoReflect.Descriptor instead.
+func (*TransferUpdateCosmosSpecific) Descriptor() ([]byte, []int) {
+	return file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *TransferUpdateCosmosSpecific) GetType() gincoincglobalv1.CosmosMsgType {
+	if x != nil {
+		return x.Type
+	}
+	return gincoincglobalv1.CosmosMsgType(0)
+}
+
+func (x *TransferUpdateCosmosSpecific) GetDelegateAmount() float64 {
+	if x != nil {
+		return x.DelegateAmount
+	}
+	return 0
+}
+
+func (x *TransferUpdateCosmosSpecific) GetRewardAmount() float64 {
+	if x != nil {
+		return x.RewardAmount
+	}
+	return 0
+}
+
 // TODO deprecate
 type TransferUpdateEvent struct {
 	state         protoimpl.MessageState
@@ -258,7 +329,7 @@ type TransferUpdateEvent struct {
 func (x *TransferUpdateEvent) Reset() {
 	*x = TransferUpdateEvent{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_msgTypes[1]
+		mi := &file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -271,7 +342,7 @@ func (x *TransferUpdateEvent) String() string {
 func (*TransferUpdateEvent) ProtoMessage() {}
 
 func (x *TransferUpdateEvent) ProtoReflect() protoreflect.Message {
-	mi := &file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_msgTypes[1]
+	mi := &file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -284,7 +355,7 @@ func (x *TransferUpdateEvent) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TransferUpdateEvent.ProtoReflect.Descriptor instead.
 func (*TransferUpdateEvent) Descriptor() ([]byte, []int) {
-	return file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_rawDescGZIP(), []int{1}
+	return file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *TransferUpdateEvent) GetEventId() string {
@@ -412,7 +483,7 @@ type EthereumStakingReward struct {
 func (x *EthereumStakingReward) Reset() {
 	*x = EthereumStakingReward{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_msgTypes[2]
+		mi := &file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -425,7 +496,7 @@ func (x *EthereumStakingReward) String() string {
 func (*EthereumStakingReward) ProtoMessage() {}
 
 func (x *EthereumStakingReward) ProtoReflect() protoreflect.Message {
-	mi := &file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_msgTypes[2]
+	mi := &file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -438,7 +509,7 @@ func (x *EthereumStakingReward) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EthereumStakingReward.ProtoReflect.Descriptor instead.
 func (*EthereumStakingReward) Descriptor() ([]byte, []int) {
-	return file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_rawDescGZIP(), []int{2}
+	return file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *EthereumStakingReward) GetEventId() string {
@@ -525,7 +596,7 @@ var file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_rawDesc = []byte
 	0x67, 0x6c, 0x65, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2f, 0x74, 0x69, 0x6d,
 	0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x17, 0x76, 0x61,
 	0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x2e,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0xdd, 0x05, 0x0a, 0x0f, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x66,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0xb7, 0x06, 0x0a, 0x0f, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x66,
 	0x65, 0x72, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x12, 0x1b, 0x0a, 0x09, 0x77, 0x61, 0x6c,
 	0x6c, 0x65, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x77, 0x61,
 	0x6c, 0x6c, 0x65, 0x74, 0x49, 0x64, 0x12, 0x1f, 0x0a, 0x0b, 0x74, 0x72, 0x61, 0x6e, 0x73, 0x66,
@@ -571,7 +642,23 @@ var file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_rawDesc = []byte
 	0x6e, 0x74, 0x49, 0x64, 0x12, 0x10, 0x0a, 0x03, 0x66, 0x65, 0x65, 0x18, 0x13, 0x20, 0x01, 0x28,
 	0x01, 0x52, 0x03, 0x66, 0x65, 0x65, 0x12, 0x1d, 0x0a, 0x0a, 0x73, 0x74, 0x72, 0x69, 0x6e, 0x67,
 	0x5f, 0x66, 0x65, 0x65, 0x18, 0x14, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x73, 0x74, 0x72, 0x69,
-	0x6e, 0x67, 0x46, 0x65, 0x65, 0x22, 0xcd, 0x04, 0x0a, 0x13, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x66,
+	0x6e, 0x67, 0x46, 0x65, 0x65, 0x12, 0x58, 0x0a, 0x0f, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x5f,
+	0x73, 0x70, 0x65, 0x63, 0x69, 0x66, 0x69, 0x63, 0x18, 0x16, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2f,
+	0x2e, 0x61, 0x64, 0x61, 0x6d, 0x61, 0x6e, 0x74, 0x2e, 0x74, 0x65, 0x6c, 0x6c, 0x65, 0x72, 0x2e,
+	0x76, 0x31, 0x2e, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x66, 0x65, 0x72, 0x55, 0x70, 0x64, 0x61, 0x74,
+	0x65, 0x43, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x53, 0x70, 0x65, 0x63, 0x69, 0x66, 0x69, 0x63, 0x52,
+	0x0e, 0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x53, 0x70, 0x65, 0x63, 0x69, 0x66, 0x69, 0x63, 0x22,
+	0xa3, 0x01, 0x0a, 0x1c, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x66, 0x65, 0x72, 0x55, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x43, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x53, 0x70, 0x65, 0x63, 0x69, 0x66, 0x69, 0x63,
+	0x12, 0x35, 0x0a, 0x04, 0x74, 0x79, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x21,
+	0x2e, 0x67, 0x69, 0x6e, 0x63, 0x6f, 0x69, 0x6e, 0x63, 0x2e, 0x67, 0x6c, 0x6f, 0x62, 0x61, 0x6c,
+	0x2e, 0x76, 0x31, 0x2e, 0x43, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x4d, 0x73, 0x67, 0x54, 0x79, 0x70,
+	0x65, 0x52, 0x04, 0x74, 0x79, 0x70, 0x65, 0x12, 0x27, 0x0a, 0x0f, 0x64, 0x65, 0x6c, 0x65, 0x67,
+	0x61, 0x74, 0x65, 0x5f, 0x61, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x01,
+	0x52, 0x0e, 0x64, 0x65, 0x6c, 0x65, 0x67, 0x61, 0x74, 0x65, 0x41, 0x6d, 0x6f, 0x75, 0x6e, 0x74,
+	0x12, 0x23, 0x0a, 0x0d, 0x72, 0x65, 0x77, 0x61, 0x72, 0x64, 0x5f, 0x61, 0x6d, 0x6f, 0x75, 0x6e,
+	0x74, 0x18, 0x03, 0x20, 0x01, 0x28, 0x01, 0x52, 0x0c, 0x72, 0x65, 0x77, 0x61, 0x72, 0x64, 0x41,
+	0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x22, 0xcd, 0x04, 0x0a, 0x13, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x66,
 	0x65, 0x72, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x12, 0x19, 0x0a,
 	0x08, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
 	0x07, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x49, 0x64, 0x12, 0x1b, 0x0a, 0x09, 0x77, 0x61, 0x6c, 0x6c,
@@ -662,36 +749,40 @@ func file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_rawDescGZIP() [
 	return file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_rawDescData
 }
 
-var file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_goTypes = []interface{}{
 	(*TransferUpdated)(nil),                              // 0: adamant.teller.v1.TransferUpdated
-	(*TransferUpdateEvent)(nil),                          // 1: adamant.teller.v1.TransferUpdateEvent
-	(*EthereumStakingReward)(nil),                        // 2: adamant.teller.v1.EthereumStakingReward
-	(gincoincglobalv1.Coin)(0),                           // 3: gincoinc.global.v1.Coin
-	(gincoincglobalv1.TransactionState)(0),               // 4: gincoinc.global.v1.TransactionState
-	(gincoincglobalv1.TransactionResult)(0),              // 5: gincoinc.global.v1.TransactionResult
-	(gincoincglobalv1.TransferType)(0),                   // 6: gincoinc.global.v1.TransferType
-	(*timestamppb.Timestamp)(nil),                        // 7: google.protobuf.Timestamp
-	(gincoincglobalv1.EthereumStakingRewardLayerType)(0), // 8: gincoinc.global.v1.EthereumStakingRewardLayerType
+	(*TransferUpdateCosmosSpecific)(nil),                 // 1: adamant.teller.v1.TransferUpdateCosmosSpecific
+	(*TransferUpdateEvent)(nil),                          // 2: adamant.teller.v1.TransferUpdateEvent
+	(*EthereumStakingReward)(nil),                        // 3: adamant.teller.v1.EthereumStakingReward
+	(gincoincglobalv1.Coin)(0),                           // 4: gincoinc.global.v1.Coin
+	(gincoincglobalv1.TransactionState)(0),               // 5: gincoinc.global.v1.TransactionState
+	(gincoincglobalv1.TransactionResult)(0),              // 6: gincoinc.global.v1.TransactionResult
+	(gincoincglobalv1.TransferType)(0),                   // 7: gincoinc.global.v1.TransferType
+	(*timestamppb.Timestamp)(nil),                        // 8: google.protobuf.Timestamp
+	(gincoincglobalv1.CosmosMsgType)(0),                  // 9: gincoinc.global.v1.CosmosMsgType
+	(gincoincglobalv1.EthereumStakingRewardLayerType)(0), // 10: gincoinc.global.v1.EthereumStakingRewardLayerType
 }
 var file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_depIdxs = []int32{
-	3,  // 0: adamant.teller.v1.TransferUpdated.coin:type_name -> gincoinc.global.v1.Coin
-	4,  // 1: adamant.teller.v1.TransferUpdated.state:type_name -> gincoinc.global.v1.TransactionState
-	5,  // 2: adamant.teller.v1.TransferUpdated.result:type_name -> gincoinc.global.v1.TransactionResult
-	6,  // 3: adamant.teller.v1.TransferUpdated.transfer_type:type_name -> gincoinc.global.v1.TransferType
-	7,  // 4: adamant.teller.v1.TransferUpdated.time:type_name -> google.protobuf.Timestamp
-	3,  // 5: adamant.teller.v1.TransferUpdateEvent.coin:type_name -> gincoinc.global.v1.Coin
-	4,  // 6: adamant.teller.v1.TransferUpdateEvent.state:type_name -> gincoinc.global.v1.TransactionState
-	5,  // 7: adamant.teller.v1.TransferUpdateEvent.result:type_name -> gincoinc.global.v1.TransactionResult
-	6,  // 8: adamant.teller.v1.TransferUpdateEvent.transfer_type:type_name -> gincoinc.global.v1.TransferType
-	7,  // 9: adamant.teller.v1.TransferUpdateEvent.time:type_name -> google.protobuf.Timestamp
-	7,  // 10: adamant.teller.v1.EthereumStakingReward.block_time:type_name -> google.protobuf.Timestamp
-	8,  // 11: adamant.teller.v1.EthereumStakingReward.ethereum_staking_reward_layer_type:type_name -> gincoinc.global.v1.EthereumStakingRewardLayerType
-	12, // [12:12] is the sub-list for method output_type
-	12, // [12:12] is the sub-list for method input_type
-	12, // [12:12] is the sub-list for extension type_name
-	12, // [12:12] is the sub-list for extension extendee
-	0,  // [0:12] is the sub-list for field type_name
+	4,  // 0: adamant.teller.v1.TransferUpdated.coin:type_name -> gincoinc.global.v1.Coin
+	5,  // 1: adamant.teller.v1.TransferUpdated.state:type_name -> gincoinc.global.v1.TransactionState
+	6,  // 2: adamant.teller.v1.TransferUpdated.result:type_name -> gincoinc.global.v1.TransactionResult
+	7,  // 3: adamant.teller.v1.TransferUpdated.transfer_type:type_name -> gincoinc.global.v1.TransferType
+	8,  // 4: adamant.teller.v1.TransferUpdated.time:type_name -> google.protobuf.Timestamp
+	1,  // 5: adamant.teller.v1.TransferUpdated.cosmos_specific:type_name -> adamant.teller.v1.TransferUpdateCosmosSpecific
+	9,  // 6: adamant.teller.v1.TransferUpdateCosmosSpecific.type:type_name -> gincoinc.global.v1.CosmosMsgType
+	4,  // 7: adamant.teller.v1.TransferUpdateEvent.coin:type_name -> gincoinc.global.v1.Coin
+	5,  // 8: adamant.teller.v1.TransferUpdateEvent.state:type_name -> gincoinc.global.v1.TransactionState
+	6,  // 9: adamant.teller.v1.TransferUpdateEvent.result:type_name -> gincoinc.global.v1.TransactionResult
+	7,  // 10: adamant.teller.v1.TransferUpdateEvent.transfer_type:type_name -> gincoinc.global.v1.TransferType
+	8,  // 11: adamant.teller.v1.TransferUpdateEvent.time:type_name -> google.protobuf.Timestamp
+	8,  // 12: adamant.teller.v1.EthereumStakingReward.block_time:type_name -> google.protobuf.Timestamp
+	10, // 13: adamant.teller.v1.EthereumStakingReward.ethereum_staking_reward_layer_type:type_name -> gincoinc.global.v1.EthereumStakingRewardLayerType
+	14, // [14:14] is the sub-list for method output_type
+	14, // [14:14] is the sub-list for method input_type
+	14, // [14:14] is the sub-list for extension type_name
+	14, // [14:14] is the sub-list for extension extendee
+	0,  // [0:14] is the sub-list for field type_name
 }
 
 func init() { file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_init() }
@@ -713,7 +804,7 @@ func file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_init() {
 			}
 		}
 		file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*TransferUpdateEvent); i {
+			switch v := v.(*TransferUpdateCosmosSpecific); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -725,6 +816,18 @@ func file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_init() {
 			}
 		}
 		file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*TransferUpdateEvent); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*EthereumStakingReward); i {
 			case 0:
 				return &v.state
@@ -743,7 +846,7 @@ func file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_gincoinc_adamant_teller_v1_adamanttellerv1_event_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
