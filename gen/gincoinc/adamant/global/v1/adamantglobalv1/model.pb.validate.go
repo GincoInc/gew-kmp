@@ -62,9 +62,13 @@ var (
 
 	_ = gincoincglobalv1.SymbolTransactionType(0)
 
+	_ = gincoincglobalv1.CosmosMsgType(0)
+
 	_ = gincoincglobalv1.NemTransactionType(0)
 
 	_ = gincoincglobalv1.SymbolTransactionType(0)
+
+	_ = gincoincglobalv1.CosmosMsgType(0)
 
 	_ = gincoincglobalv1.NemTransactionType(0)
 
@@ -79,6 +83,8 @@ var (
 	_ = gincoincglobalv1.TransactionState(0)
 
 	_ = gincoincglobalv1.TransactionResult(0)
+
+	_ = gincoincglobalv1.CosmosMsgType(0)
 
 	_ = gincoincglobalv1.Coin(0)
 
@@ -1757,6 +1763,20 @@ func (m *Transaction) Validate(all bool) error {
 		if err := v.Validate(all); err != nil {
 			err = TransactionValidationError{
 				field:  "XdcSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if v, ok := interface{}(m.GetCosmosSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransactionValidationError{
+				field:  "CosmosSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -4588,6 +4608,108 @@ var _ interface {
 	ErrorName() string
 } = XdcSpecificValidationError{}
 
+// Validate checks the field values on CosmosSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned. When asked to return all errors, validation continues after
+// first violation, and the result is a list of violation errors wrapped in
+// CosmosSpecificMultiError, or nil if none found. Otherwise, only the first
+// error is returned, if any.
+func (m *CosmosSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	// no validation rules for Type
+
+	// no validation rules for Memo
+
+	// no validation rules for GasAdjustment
+
+	if len(errors) > 0 {
+		return CosmosSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// CosmosSpecificMultiError is an error wrapping multiple validation errors
+// returned by CosmosSpecific.Validate(true) if the designated constraints
+// aren't met.
+type CosmosSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CosmosSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CosmosSpecificMultiError) AllErrors() []error { return m }
+
+// CosmosSpecificValidationError is the validation error returned by
+// CosmosSpecific.Validate if the designated constraints aren't met.
+type CosmosSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CosmosSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CosmosSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CosmosSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CosmosSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CosmosSpecificValidationError) ErrorName() string { return "CosmosSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e CosmosSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCosmosSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CosmosSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CosmosSpecificValidationError{}
+
 // Validate checks the field values on CreateTransactionSubstrateSpecific with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, an error is returned. When asked to return all errors,
@@ -5100,16 +5222,7 @@ func (m *CreateTransactionEthereumSpecific) Validate(all bool) error {
 
 	var errors []error
 
-	if !_CreateTransactionEthereumSpecific_Data_Pattern.MatchString(m.GetData()) {
-		err := CreateTransactionEthereumSpecificValidationError{
-			field:  "Data",
-			reason: "value does not match regex pattern \"^0x[0-9a-fA-F]*$\"",
-		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
-	}
+	// no validation rules for Data
 
 	if len(errors) > 0 {
 		return CreateTransactionEthereumSpecificMultiError(errors)
@@ -5192,7 +5305,103 @@ var _ interface {
 	ErrorName() string
 } = CreateTransactionEthereumSpecificValidationError{}
 
-var _CreateTransactionEthereumSpecific_Data_Pattern = regexp.MustCompile("^0x[0-9a-fA-F]*$")
+// Validate checks the field values on CreateTransactionCosmosSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateTransactionCosmosSpecificMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *CreateTransactionCosmosSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Type
+
+	// no validation rules for Memo
+
+	if len(errors) > 0 {
+		return CreateTransactionCosmosSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// CreateTransactionCosmosSpecificMultiError is an error wrapping multiple
+// validation errors returned by
+// CreateTransactionCosmosSpecific.Validate(true) if the designated
+// constraints aren't met.
+type CreateTransactionCosmosSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionCosmosSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionCosmosSpecificMultiError) AllErrors() []error { return m }
+
+// CreateTransactionCosmosSpecificValidationError is the validation error
+// returned by CreateTransactionCosmosSpecific.Validate if the designated
+// constraints aren't met.
+type CreateTransactionCosmosSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionCosmosSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionCosmosSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionCosmosSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionCosmosSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionCosmosSpecificValidationError) ErrorName() string {
+	return "CreateTransactionCosmosSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionCosmosSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionCosmosSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionCosmosSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionCosmosSpecificValidationError{}
 
 // Validate checks the field values on SubstrateMultisigTransaction with the
 // rules defined in the proto definition for this message. If any rules are
@@ -5915,6 +6124,20 @@ func (m *Transfer) Validate(all bool) error {
 		}
 	}
 
+	if v, ok := interface{}(m.GetCosmosSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransferValidationError{
+				field:  "CosmosSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
 	if len(errors) > 0 {
 		return TransferMultiError(errors)
 	}
@@ -5990,6 +6213,104 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = TransferValidationError{}
+
+// Validate checks the field values on TransferCosmosSpecific with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in TransferCosmosSpecificMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *TransferCosmosSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Type
+
+	// no validation rules for DelegateAmount
+
+	// no validation rules for RewardAmount
+
+	if len(errors) > 0 {
+		return TransferCosmosSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// TransferCosmosSpecificMultiError is an error wrapping multiple validation
+// errors returned by TransferCosmosSpecific.Validate(true) if the designated
+// constraints aren't met.
+type TransferCosmosSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m TransferCosmosSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m TransferCosmosSpecificMultiError) AllErrors() []error { return m }
+
+// TransferCosmosSpecificValidationError is the validation error returned by
+// TransferCosmosSpecific.Validate if the designated constraints aren't met.
+type TransferCosmosSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TransferCosmosSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TransferCosmosSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TransferCosmosSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TransferCosmosSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TransferCosmosSpecificValidationError) ErrorName() string {
+	return "TransferCosmosSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e TransferCosmosSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTransferCosmosSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TransferCosmosSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TransferCosmosSpecificValidationError{}
 
 // Validate checks the field values on UncheckedTransfer with the rules defined
 // in the proto definition for this message. If any rules are violated, an
@@ -10731,3 +11052,99 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CallerAddressValidationError{}
+
+// Validate checks the field values on CosmosDelegation with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned. When asked to return all errors, validation continues
+// after first violation, and the result is a list of violation errors wrapped
+// in CosmosDelegationMultiError, or nil if none found. Otherwise, only the
+// first error is returned, if any.
+func (m *CosmosDelegation) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for ValidatorAddress
+
+	// no validation rules for DelegateAmount
+
+	// no validation rules for RewardAmount
+
+	if len(errors) > 0 {
+		return CosmosDelegationMultiError(errors)
+	}
+	return nil
+}
+
+// CosmosDelegationMultiError is an error wrapping multiple validation errors
+// returned by CosmosDelegation.Validate(true) if the designated constraints
+// aren't met.
+type CosmosDelegationMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CosmosDelegationMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CosmosDelegationMultiError) AllErrors() []error { return m }
+
+// CosmosDelegationValidationError is the validation error returned by
+// CosmosDelegation.Validate if the designated constraints aren't met.
+type CosmosDelegationValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CosmosDelegationValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CosmosDelegationValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CosmosDelegationValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CosmosDelegationValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CosmosDelegationValidationError) ErrorName() string { return "CosmosDelegationValidationError" }
+
+// Error satisfies the builtin error interface
+func (e CosmosDelegationValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCosmosDelegation.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CosmosDelegationValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CosmosDelegationValidationError{}

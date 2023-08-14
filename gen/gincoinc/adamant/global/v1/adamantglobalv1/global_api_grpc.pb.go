@@ -44,6 +44,8 @@ type GlobalAPIClient interface {
 	GetWalletGroup(ctx context.Context, in *GetWalletGroupRequest, opts ...grpc.CallOption) (*WalletGroup, error)
 	ListWalletGroups(ctx context.Context, in *ListWalletGroupsRequest, opts ...grpc.CallOption) (*ListWalletGroupsResponse, error)
 	UpdateDestinationWalletID(ctx context.Context, in *UpdateDestinationWalletIDRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	GetCosmosBalance(ctx context.Context, in *GetCosmosBalanceRequest, opts ...grpc.CallOption) (*GetCosmosBalanceResponse, error)
+	ListCosmosDelegateHistories(ctx context.Context, in *ListCosmosDelegateHistoriesRequest, opts ...grpc.CallOption) (*ListCosmosDelegateHistoriesResponse, error)
 	// Review
 	ApproveWallet(ctx context.Context, in *ApproveWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	ApproveTransaction(ctx context.Context, in *ApproveTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -75,6 +77,7 @@ type GlobalAPIClient interface {
 	SendTransaction(ctx context.Context, in *SendTransactionRequest, opts ...grpc.CallOption) (*SendTransactionResponse, error)
 	SendXRPInitTransactions(ctx context.Context, in *SendXRPInitTransactionsRequest, opts ...grpc.CallOption) (*SendXRPInitTransactionsResponse, error)
 	CancelTransaction(ctx context.Context, in *CancelTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	ReplaceTransaction(ctx context.Context, in *ReplaceTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	GetTransaction(ctx context.Context, in *GetTransactionRequest, opts ...grpc.CallOption) (*Transaction, error)
 	GetTransactionByTxID(ctx context.Context, in *GetTransactionByTxIDRequest, opts ...grpc.CallOption) (*Transaction, error)
 	ListTransactions(ctx context.Context, in *ListTransactionsRequest, opts ...grpc.CallOption) (*ListTransactionsResponse, error)
@@ -317,6 +320,24 @@ func (c *globalAPIClient) UpdateDestinationWalletID(ctx context.Context, in *Upd
 	return out, nil
 }
 
+func (c *globalAPIClient) GetCosmosBalance(ctx context.Context, in *GetCosmosBalanceRequest, opts ...grpc.CallOption) (*GetCosmosBalanceResponse, error) {
+	out := new(GetCosmosBalanceResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/GetCosmosBalance", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) ListCosmosDelegateHistories(ctx context.Context, in *ListCosmosDelegateHistoriesRequest, opts ...grpc.CallOption) (*ListCosmosDelegateHistoriesResponse, error) {
+	out := new(ListCosmosDelegateHistoriesResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListCosmosDelegateHistories", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *globalAPIClient) ApproveWallet(ctx context.Context, in *ApproveWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ApproveWallet", in, out, opts...)
@@ -527,6 +548,15 @@ func (c *globalAPIClient) SendXRPInitTransactions(ctx context.Context, in *SendX
 func (c *globalAPIClient) CancelTransaction(ctx context.Context, in *CancelTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/CancelTransaction", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) ReplaceTransaction(ctx context.Context, in *ReplaceTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ReplaceTransaction", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1008,6 +1038,8 @@ type GlobalAPIServer interface {
 	GetWalletGroup(context.Context, *GetWalletGroupRequest) (*WalletGroup, error)
 	ListWalletGroups(context.Context, *ListWalletGroupsRequest) (*ListWalletGroupsResponse, error)
 	UpdateDestinationWalletID(context.Context, *UpdateDestinationWalletIDRequest) (*emptypb.Empty, error)
+	GetCosmosBalance(context.Context, *GetCosmosBalanceRequest) (*GetCosmosBalanceResponse, error)
+	ListCosmosDelegateHistories(context.Context, *ListCosmosDelegateHistoriesRequest) (*ListCosmosDelegateHistoriesResponse, error)
 	// Review
 	ApproveWallet(context.Context, *ApproveWalletRequest) (*emptypb.Empty, error)
 	ApproveTransaction(context.Context, *ApproveTransactionRequest) (*emptypb.Empty, error)
@@ -1039,6 +1071,7 @@ type GlobalAPIServer interface {
 	SendTransaction(context.Context, *SendTransactionRequest) (*SendTransactionResponse, error)
 	SendXRPInitTransactions(context.Context, *SendXRPInitTransactionsRequest) (*SendXRPInitTransactionsResponse, error)
 	CancelTransaction(context.Context, *CancelTransactionRequest) (*emptypb.Empty, error)
+	ReplaceTransaction(context.Context, *ReplaceTransactionRequest) (*emptypb.Empty, error)
 	GetTransaction(context.Context, *GetTransactionRequest) (*Transaction, error)
 	GetTransactionByTxID(context.Context, *GetTransactionByTxIDRequest) (*Transaction, error)
 	ListTransactions(context.Context, *ListTransactionsRequest) (*ListTransactionsResponse, error)
@@ -1163,6 +1196,12 @@ func (UnimplementedGlobalAPIServer) ListWalletGroups(context.Context, *ListWalle
 func (UnimplementedGlobalAPIServer) UpdateDestinationWalletID(context.Context, *UpdateDestinationWalletIDRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateDestinationWalletID not implemented")
 }
+func (UnimplementedGlobalAPIServer) GetCosmosBalance(context.Context, *GetCosmosBalanceRequest) (*GetCosmosBalanceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCosmosBalance not implemented")
+}
+func (UnimplementedGlobalAPIServer) ListCosmosDelegateHistories(context.Context, *ListCosmosDelegateHistoriesRequest) (*ListCosmosDelegateHistoriesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListCosmosDelegateHistories not implemented")
+}
 func (UnimplementedGlobalAPIServer) ApproveWallet(context.Context, *ApproveWalletRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ApproveWallet not implemented")
 }
@@ -1234,6 +1273,9 @@ func (UnimplementedGlobalAPIServer) SendXRPInitTransactions(context.Context, *Se
 }
 func (UnimplementedGlobalAPIServer) CancelTransaction(context.Context, *CancelTransactionRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CancelTransaction not implemented")
+}
+func (UnimplementedGlobalAPIServer) ReplaceTransaction(context.Context, *ReplaceTransactionRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReplaceTransaction not implemented")
 }
 func (UnimplementedGlobalAPIServer) GetTransaction(context.Context, *GetTransactionRequest) (*Transaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTransaction not implemented")
@@ -1739,6 +1781,42 @@ func _GlobalAPI_UpdateDestinationWalletID_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GlobalAPI_GetCosmosBalance_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCosmosBalanceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).GetCosmosBalance(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/GetCosmosBalance",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).GetCosmosBalance(ctx, req.(*GetCosmosBalanceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_ListCosmosDelegateHistories_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListCosmosDelegateHistoriesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ListCosmosDelegateHistories(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ListCosmosDelegateHistories",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ListCosmosDelegateHistories(ctx, req.(*ListCosmosDelegateHistoriesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GlobalAPI_ApproveWallet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ApproveWalletRequest)
 	if err := dec(in); err != nil {
@@ -2167,6 +2245,24 @@ func _GlobalAPI_CancelTransaction_Handler(srv interface{}, ctx context.Context, 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GlobalAPIServer).CancelTransaction(ctx, req.(*CancelTransactionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_ReplaceTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReplaceTransactionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ReplaceTransaction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ReplaceTransaction",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ReplaceTransaction(ctx, req.(*ReplaceTransactionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3155,6 +3251,14 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _GlobalAPI_UpdateDestinationWalletID_Handler,
 		},
 		{
+			MethodName: "GetCosmosBalance",
+			Handler:    _GlobalAPI_GetCosmosBalance_Handler,
+		},
+		{
+			MethodName: "ListCosmosDelegateHistories",
+			Handler:    _GlobalAPI_ListCosmosDelegateHistories_Handler,
+		},
+		{
 			MethodName: "ApproveWallet",
 			Handler:    _GlobalAPI_ApproveWallet_Handler,
 		},
@@ -3249,6 +3353,10 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CancelTransaction",
 			Handler:    _GlobalAPI_CancelTransaction_Handler,
+		},
+		{
+			MethodName: "ReplaceTransaction",
+			Handler:    _GlobalAPI_ReplaceTransaction_Handler,
 		},
 		{
 			MethodName: "GetTransaction",

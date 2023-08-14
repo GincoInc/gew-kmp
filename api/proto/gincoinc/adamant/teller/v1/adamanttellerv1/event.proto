@@ -30,6 +30,13 @@ message TransferUpdated {
   string event_id = 18;
   double fee = 19;
   string string_fee = 20;
+  TransferUpdateCosmosSpecific cosmos_specific = 22;
+}
+
+message TransferUpdateCosmosSpecific {
+  gincoinc.global.v1.CosmosMsgType type = 1;
+  double delegate_amount = 2;
+  double reward_amount = 3;
 }
 
 // TODO deprecate

@@ -389,6 +389,32 @@ private static final long serialVersionUID = 0L;
     return ethereumSpecific_ == null ? adamant.global.v1.Model.CreateTransactionEthereumSpecific.getDefaultInstance() : ethereumSpecific_;
   }
 
+  public static final int COSMOS_SPECIFIC_FIELD_NUMBER = 14;
+  private adamant.global.v1.Model.CreateTransactionCosmosSpecific cosmosSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+   * @return Whether the cosmosSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasCosmosSpecific() {
+    return cosmosSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+   * @return The cosmosSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionCosmosSpecific getCosmosSpecific() {
+    return cosmosSpecific_ == null ? adamant.global.v1.Model.CreateTransactionCosmosSpecific.getDefaultInstance() : cosmosSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionCosmosSpecificOrBuilder getCosmosSpecificOrBuilder() {
+    return cosmosSpecific_ == null ? adamant.global.v1.Model.CreateTransactionCosmosSpecific.getDefaultInstance() : cosmosSpecific_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -441,6 +467,9 @@ private static final long serialVersionUID = 0L;
     }
     if (ethereumSpecific_ != null) {
       output.writeMessage(13, getEthereumSpecific());
+    }
+    if (cosmosSpecific_ != null) {
+      output.writeMessage(14, getCosmosSpecific());
     }
     getUnknownFields().writeTo(output);
   }
@@ -499,6 +528,10 @@ private static final long serialVersionUID = 0L;
     if (ethereumSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(13, getEthereumSpecific());
+    }
+    if (cosmosSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(14, getCosmosSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -559,6 +592,11 @@ private static final long serialVersionUID = 0L;
       if (!getEthereumSpecific()
           .equals(other.getEthereumSpecific())) return false;
     }
+    if (hasCosmosSpecific() != other.hasCosmosSpecific()) return false;
+    if (hasCosmosSpecific()) {
+      if (!getCosmosSpecific()
+          .equals(other.getCosmosSpecific())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -611,6 +649,10 @@ private static final long serialVersionUID = 0L;
     if (hasEthereumSpecific()) {
       hash = (37 * hash) + ETHEREUM_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getEthereumSpecific().hashCode();
+    }
+    if (hasCosmosSpecific()) {
+      hash = (37 * hash) + COSMOS_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getCosmosSpecific().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -786,6 +828,11 @@ private static final long serialVersionUID = 0L;
         ethereumSpecificBuilder_.dispose();
         ethereumSpecificBuilder_ = null;
       }
+      cosmosSpecific_ = null;
+      if (cosmosSpecificBuilder_ != null) {
+        cosmosSpecificBuilder_.dispose();
+        cosmosSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -879,6 +926,11 @@ private static final long serialVersionUID = 0L;
         result.ethereumSpecific_ = ethereumSpecificBuilder_ == null
             ? ethereumSpecific_
             : ethereumSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.cosmosSpecific_ = cosmosSpecificBuilder_ == null
+            ? cosmosSpecific_
+            : cosmosSpecificBuilder_.build();
       }
     }
 
@@ -994,6 +1046,9 @@ private static final long serialVersionUID = 0L;
       if (other.hasEthereumSpecific()) {
         mergeEthereumSpecific(other.getEthereumSpecific());
       }
+      if (other.hasCosmosSpecific()) {
+        mergeCosmosSpecific(other.getCosmosSpecific());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -1105,6 +1160,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00001000;
               break;
             } // case 106
+            case 114: {
+              input.readMessage(
+                  getCosmosSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 114
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2386,6 +2448,125 @@ private static final long serialVersionUID = 0L;
         ethereumSpecific_ = null;
       }
       return ethereumSpecificBuilder_;
+    }
+
+    private adamant.global.v1.Model.CreateTransactionCosmosSpecific cosmosSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionCosmosSpecific, adamant.global.v1.Model.CreateTransactionCosmosSpecific.Builder, adamant.global.v1.Model.CreateTransactionCosmosSpecificOrBuilder> cosmosSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+     * @return Whether the cosmosSpecific field is set.
+     */
+    public boolean hasCosmosSpecific() {
+      return ((bitField0_ & 0x00002000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+     * @return The cosmosSpecific.
+     */
+    public adamant.global.v1.Model.CreateTransactionCosmosSpecific getCosmosSpecific() {
+      if (cosmosSpecificBuilder_ == null) {
+        return cosmosSpecific_ == null ? adamant.global.v1.Model.CreateTransactionCosmosSpecific.getDefaultInstance() : cosmosSpecific_;
+      } else {
+        return cosmosSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+     */
+    public Builder setCosmosSpecific(adamant.global.v1.Model.CreateTransactionCosmosSpecific value) {
+      if (cosmosSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        cosmosSpecific_ = value;
+      } else {
+        cosmosSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+     */
+    public Builder setCosmosSpecific(
+        adamant.global.v1.Model.CreateTransactionCosmosSpecific.Builder builderForValue) {
+      if (cosmosSpecificBuilder_ == null) {
+        cosmosSpecific_ = builderForValue.build();
+      } else {
+        cosmosSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+     */
+    public Builder mergeCosmosSpecific(adamant.global.v1.Model.CreateTransactionCosmosSpecific value) {
+      if (cosmosSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00002000) != 0) &&
+          cosmosSpecific_ != null &&
+          cosmosSpecific_ != adamant.global.v1.Model.CreateTransactionCosmosSpecific.getDefaultInstance()) {
+          getCosmosSpecificBuilder().mergeFrom(value);
+        } else {
+          cosmosSpecific_ = value;
+        }
+      } else {
+        cosmosSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+     */
+    public Builder clearCosmosSpecific() {
+      bitField0_ = (bitField0_ & ~0x00002000);
+      cosmosSpecific_ = null;
+      if (cosmosSpecificBuilder_ != null) {
+        cosmosSpecificBuilder_.dispose();
+        cosmosSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionCosmosSpecific.Builder getCosmosSpecificBuilder() {
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return getCosmosSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionCosmosSpecificOrBuilder getCosmosSpecificOrBuilder() {
+      if (cosmosSpecificBuilder_ != null) {
+        return cosmosSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return cosmosSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionCosmosSpecific.getDefaultInstance() : cosmosSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionCosmosSpecific, adamant.global.v1.Model.CreateTransactionCosmosSpecific.Builder, adamant.global.v1.Model.CreateTransactionCosmosSpecificOrBuilder> 
+        getCosmosSpecificFieldBuilder() {
+      if (cosmosSpecificBuilder_ == null) {
+        cosmosSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionCosmosSpecific, adamant.global.v1.Model.CreateTransactionCosmosSpecific.Builder, adamant.global.v1.Model.CreateTransactionCosmosSpecificOrBuilder>(
+                getCosmosSpecific(),
+                getParentForChildren(),
+                isClean());
+        cosmosSpecific_ = null;
+      }
+      return cosmosSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
