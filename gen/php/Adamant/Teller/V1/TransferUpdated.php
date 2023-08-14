@@ -98,6 +98,10 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string string_fee = 20 [json_name = "stringFee"];</code>
      */
     protected $string_fee = '';
+    /**
+     * Generated from protobuf field <code>.adamant.teller.v1.TransferUpdateCosmosSpecific cosmos_specific = 22 [json_name = "cosmosSpecific"];</code>
+     */
+    protected $cosmos_specific = null;
 
     /**
      * Constructor.
@@ -126,6 +130,7 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
      *     @type string $event_id
      *     @type float $fee
      *     @type string $string_fee
+     *     @type \Adamant\Teller\V1\TransferUpdateCosmosSpecific $cosmos_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -605,6 +610,38 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->string_fee = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.teller.v1.TransferUpdateCosmosSpecific cosmos_specific = 22 [json_name = "cosmosSpecific"];</code>
+     * @return \Adamant\Teller\V1\TransferUpdateCosmosSpecific|null
+     */
+    public function getCosmosSpecific()
+    {
+        return $this->cosmos_specific;
+    }
+
+    public function hasCosmosSpecific()
+    {
+        return isset($this->cosmos_specific);
+    }
+
+    public function clearCosmosSpecific()
+    {
+        unset($this->cosmos_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.teller.v1.TransferUpdateCosmosSpecific cosmos_specific = 22 [json_name = "cosmosSpecific"];</code>
+     * @param \Adamant\Teller\V1\TransferUpdateCosmosSpecific $var
+     * @return $this
+     */
+    public function setCosmosSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\Teller\V1\TransferUpdateCosmosSpecific::class);
+        $this->cosmos_specific = $var;
 
         return $this;
     }

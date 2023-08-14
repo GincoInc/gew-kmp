@@ -289,6 +289,34 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\GetCosmosBalanceRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function GetCosmosBalance(\Adamant\Global\V1\GetCosmosBalanceRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/GetCosmosBalance',
+        $argument,
+        ['\Adamant\Global\V1\GetCosmosBalanceResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\ListCosmosDelegateHistoriesRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListCosmosDelegateHistories(\Adamant\Global\V1\ListCosmosDelegateHistoriesRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ListCosmosDelegateHistories',
+        $argument,
+        ['\Adamant\Global\V1\ListCosmosDelegateHistoriesResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * Review
      * @param \Adamant\Global\V1\ApproveWalletRequest $argument input argument
      * @param array $metadata metadata
@@ -626,6 +654,20 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     public function CancelTransaction(\Adamant\Global\V1\CancelTransactionRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/CancelTransaction',
+        $argument,
+        ['\Google\Protobuf\GPBEmpty', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\ReplaceTransactionRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ReplaceTransaction(\Adamant\Global\V1\ReplaceTransactionRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ReplaceTransaction',
         $argument,
         ['\Google\Protobuf\GPBEmpty', 'decode'],
         $metadata, $options);

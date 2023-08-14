@@ -15,13 +15,12 @@ public class CalculateFeeEthereumSpecificValidator implements io.envoyproxy.pgv.
 		return null;
 	}
 		
-		com.google.re2j.Pattern DATA__PATTERN = com.google.re2j.Pattern.compile("^0x[0-9a-fA-F]*$");
 	
 	
 
 	public void assertValid(adamant.global.v1.CalculateFeeEthereumSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
-	
-			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.CalculateFeeEthereumSpecific.data", proto.getData(), DATA__PATTERN);
+	// no validation rules for Data
+
 	
 	}
 

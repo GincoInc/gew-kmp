@@ -138,4 +138,19 @@ public interface CalculateFeeRequestOrBuilder extends
    * <code>.adamant.global.v1.CalculateFeeEthereumSpecific ethereum_specific = 10 [json_name = "ethereumSpecific"];</code>
    */
   adamant.global.v1.CalculateFeeEthereumSpecificOrBuilder getEthereumSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CalculateFeeCosmosSpecific cosmos_specific = 11 [json_name = "cosmosSpecific"];</code>
+   * @return Whether the cosmosSpecific field is set.
+   */
+  boolean hasCosmosSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeCosmosSpecific cosmos_specific = 11 [json_name = "cosmosSpecific"];</code>
+   * @return The cosmosSpecific.
+   */
+  adamant.global.v1.CalculateFeeCosmosSpecific getCosmosSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeCosmosSpecific cosmos_specific = 11 [json_name = "cosmosSpecific"];</code>
+   */
+  adamant.global.v1.CalculateFeeCosmosSpecificOrBuilder getCosmosSpecificOrBuilder();
 }

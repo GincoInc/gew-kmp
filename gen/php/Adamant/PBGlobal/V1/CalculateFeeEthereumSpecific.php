@@ -16,7 +16,7 @@ use Google\Protobuf\Internal\GPBUtil;
 class CalculateFeeEthereumSpecific extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string data = 1 [json_name = "data", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string data = 1 [json_name = "data"];</code>
      */
     protected $data = '';
 
@@ -35,7 +35,7 @@ class CalculateFeeEthereumSpecific extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string data = 1 [json_name = "data", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string data = 1 [json_name = "data"];</code>
      * @return string
      */
     public function getData()
@@ -44,7 +44,7 @@ class CalculateFeeEthereumSpecific extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string data = 1 [json_name = "data", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string data = 1 [json_name = "data"];</code>
      * @param string $var
      * @return $this
      */

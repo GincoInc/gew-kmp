@@ -47,7 +47,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object data_ = "";
   /**
-   * <code>string data = 1 [json_name = "data", (.validate.rules) = { ... }</code>
+   * <code>string data = 1 [json_name = "data"];</code>
    * @return The data.
    */
   @java.lang.Override
@@ -64,7 +64,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string data = 1 [json_name = "data", (.validate.rules) = { ... }</code>
+   * <code>string data = 1 [json_name = "data"];</code>
    * @return The bytes for data.
    */
   @java.lang.Override
@@ -414,7 +414,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object data_ = "";
     /**
-     * <code>string data = 1 [json_name = "data", (.validate.rules) = { ... }</code>
+     * <code>string data = 1 [json_name = "data"];</code>
      * @return The data.
      */
     public java.lang.String getData() {
@@ -430,7 +430,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string data = 1 [json_name = "data", (.validate.rules) = { ... }</code>
+     * <code>string data = 1 [json_name = "data"];</code>
      * @return The bytes for data.
      */
     public com.google.protobuf.ByteString
@@ -447,7 +447,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string data = 1 [json_name = "data", (.validate.rules) = { ... }</code>
+     * <code>string data = 1 [json_name = "data"];</code>
      * @param value The data to set.
      * @return This builder for chaining.
      */
@@ -460,7 +460,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string data = 1 [json_name = "data", (.validate.rules) = { ... }</code>
+     * <code>string data = 1 [json_name = "data"];</code>
      * @return This builder for chaining.
      */
     public Builder clearData() {
@@ -470,7 +470,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string data = 1 [json_name = "data", (.validate.rules) = { ... }</code>
+     * <code>string data = 1 [json_name = "data"];</code>
      * @param value The bytes for data to set.
      * @return This builder for chaining.
      */
