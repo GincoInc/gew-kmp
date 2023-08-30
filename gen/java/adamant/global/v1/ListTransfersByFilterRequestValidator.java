@@ -40,7 +40,7 @@ public class ListTransfersByFilterRequestValidator implements io.envoyproxy.pgv.
 		
 	
 		
-		private final Integer PAGE_SIZE__LTE = 100;
+		private final Integer PAGE_SIZE__LTE = 1000;
 	
 		
 		com.google.re2j.Pattern PAGE_TOKEN__PATTERN = com.google.re2j.Pattern.compile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$");
