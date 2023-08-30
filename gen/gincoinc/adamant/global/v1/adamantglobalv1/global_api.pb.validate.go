@@ -10239,10 +10239,10 @@ func (m *ListTransfersByFilterRequest) Validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if m.GetPageSize() > 100 {
+	if m.GetPageSize() > 1000 {
 		err := ListTransfersByFilterRequestValidationError{
 			field:  "PageSize",
-			reason: "value must be less than or equal to 100",
+			reason: "value must be less than or equal to 1000",
 		}
 		if !all {
 			return err
