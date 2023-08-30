@@ -937,7 +937,7 @@ message ListTransfersByFilterRequest {
   }];
 
   // optional
-  uint32 page_size = 10 [(validate.rules).uint32.lte = 100];
+  uint32 page_size = 10 [(validate.rules).uint32.lte = 1000];
 
   // optional
   string page_token = 11 [(validate.rules).string = {
