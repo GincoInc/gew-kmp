@@ -20,12 +20,12 @@ public interface GetTransactionByTxIDRequestOrBuilder extends
       getWalletIdBytes();
 
   /**
-   * <code>string tx_id = 2 [json_name = "txId", (.validate.rules) = { ... }</code>
+   * <code>string tx_id = 2 [json_name = "txId"];</code>
    * @return The txId.
    */
   java.lang.String getTxId();
   /**
-   * <code>string tx_id = 2 [json_name = "txId", (.validate.rules) = { ... }</code>
+   * <code>string tx_id = 2 [json_name = "txId"];</code>
    * @return The bytes for txId.
    */
   com.google.protobuf.ByteString
