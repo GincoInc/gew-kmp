@@ -8830,16 +8830,7 @@ func (m *GetTransactionByTxIDRequest) Validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if !_GetTransactionByTxIDRequest_TxId_Pattern.MatchString(m.GetTxId()) {
-		err := GetTransactionByTxIDRequestValidationError{
-			field:  "TxId",
-			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{64}$\"",
-		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
-	}
+	// no validation rules for TxId
 
 	if len(errors) > 0 {
 		return GetTransactionByTxIDRequestMultiError(errors)
@@ -8922,8 +8913,6 @@ var _ interface {
 } = GetTransactionByTxIDRequestValidationError{}
 
 var _GetTransactionByTxIDRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
-
-var _GetTransactionByTxIDRequest_TxId_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{64}$")
 
 // Validate checks the field values on ListTransactionsRequest with the rules
 // defined in the proto definition for this message. If any rules are

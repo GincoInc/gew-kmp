@@ -18,15 +18,14 @@ public class GetTransactionByTxIDRequestValidator implements io.envoyproxy.pgv.V
 		com.google.re2j.Pattern WALLET_ID__PATTERN = com.google.re2j.Pattern.compile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
 	
 		
-		com.google.re2j.Pattern TX_ID__PATTERN = com.google.re2j.Pattern.compile("^(0x)?[0-9a-fA-F]{64}$");
 	
 	
 
 	public void assertValid(adamant.global.v1.GetTransactionByTxIDRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.GetTransactionByTxIDRequest.wallet_id", proto.getWalletId(), WALLET_ID__PATTERN);
-	
-			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.GetTransactionByTxIDRequest.tx_id", proto.getTxId(), TX_ID__PATTERN);
+	// no validation rules for TxId
+
 	
 	}
 
