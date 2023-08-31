@@ -18,7 +18,7 @@ class GetTransactionByTxIDRequest extends \Google\Protobuf\Internal\Message
      */
     protected $wallet_id = '';
     /**
-     * Generated from protobuf field <code>string tx_id = 2 [json_name = "txId", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string tx_id = 2 [json_name = "txId"];</code>
      */
     protected $tx_id = '';
 
@@ -60,7 +60,7 @@ class GetTransactionByTxIDRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string tx_id = 2 [json_name = "txId", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string tx_id = 2 [json_name = "txId"];</code>
      * @return string
      */
     public function getTxId()
@@ -69,7 +69,7 @@ class GetTransactionByTxIDRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string tx_id = 2 [json_name = "txId", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string tx_id = 2 [json_name = "txId"];</code>
      * @param string $var
      * @return $this
      */

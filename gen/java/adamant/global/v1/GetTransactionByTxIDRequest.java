@@ -83,7 +83,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object txId_ = "";
   /**
-   * <code>string tx_id = 2 [json_name = "txId", (.validate.rules) = { ... }</code>
+   * <code>string tx_id = 2 [json_name = "txId"];</code>
    * @return The txId.
    */
   @java.lang.Override
@@ -100,7 +100,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string tx_id = 2 [json_name = "txId", (.validate.rules) = { ... }</code>
+   * <code>string tx_id = 2 [json_name = "txId"];</code>
    * @return The bytes for txId.
    */
   @java.lang.Override
@@ -542,7 +542,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object txId_ = "";
     /**
-     * <code>string tx_id = 2 [json_name = "txId", (.validate.rules) = { ... }</code>
+     * <code>string tx_id = 2 [json_name = "txId"];</code>
      * @return The txId.
      */
     public java.lang.String getTxId() {
@@ -558,7 +558,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string tx_id = 2 [json_name = "txId", (.validate.rules) = { ... }</code>
+     * <code>string tx_id = 2 [json_name = "txId"];</code>
      * @return The bytes for txId.
      */
     public com.google.protobuf.ByteString
@@ -575,7 +575,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string tx_id = 2 [json_name = "txId", (.validate.rules) = { ... }</code>
+     * <code>string tx_id = 2 [json_name = "txId"];</code>
      * @param value The txId to set.
      * @return This builder for chaining.
      */
@@ -588,7 +588,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string tx_id = 2 [json_name = "txId", (.validate.rules) = { ... }</code>
+     * <code>string tx_id = 2 [json_name = "txId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearTxId() {
@@ -598,7 +598,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string tx_id = 2 [json_name = "txId", (.validate.rules) = { ... }</code>
+     * <code>string tx_id = 2 [json_name = "txId"];</code>
      * @param value The bytes for txId to set.
      * @return This builder for chaining.
      */
