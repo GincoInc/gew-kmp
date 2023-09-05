@@ -42,6 +42,8 @@ service GlobalAPI {
   rpc UpdateDestinationWalletID(UpdateDestinationWalletIDRequest) returns (google.protobuf.Empty) {}
   rpc GetCosmosBalance(GetCosmosBalanceRequest) returns (GetCosmosBalanceResponse) {}
   rpc ListCosmosDelegateHistories(ListCosmosDelegateHistoriesRequest) returns (ListCosmosDelegateHistoriesResponse) {}
+  rpc EnableUTXO(EnableUTXORequest) returns (google.protobuf.Empty) {}
+  rpc DisableUTXO(DisableUTXORequest) returns (google.protobuf.Empty) {}
 
   // Review
   rpc ApproveWallet(ApproveWalletRequest) returns (google.protobuf.Empty) {}
@@ -65,6 +67,7 @@ service GlobalAPI {
   rpc ListIOSTChildAccounts(ListIOSTChildAccountsRequest) returns (ListIOSTChildAccountsResponse) {}
   rpc ImportAddress(ImportAddressRequest) returns (google.protobuf.Empty) {}
   rpc ListCallers(ListCallersRequest) returns (ListCallersResponse) {}
+  rpc ListFeeDeposits(ListFeeDepositsRequest) returns (ListFeeDepositsResponse) {}
 
   // RegisterKey
   rpc RegisterKey(RegisterKeyRequest) returns (RegisterKeyResponse) {}
@@ -77,7 +80,7 @@ service GlobalAPI {
   rpc SendTransaction(SendTransactionRequest) returns (SendTransactionResponse) {}
   rpc SendXRPInitTransactions(SendXRPInitTransactionsRequest) returns (SendXRPInitTransactionsResponse) {}
   rpc CancelTransaction(CancelTransactionRequest) returns (google.protobuf.Empty) {}
-  rpc ReplaceTransaction(ReplaceTransactionRequest) returns (google.protobuf.Empty) {}
+  rpc ReplaceTransaction(ReplaceTransactionRequest) returns (ReplaceTransactionResponse) {}
   rpc GetTransaction(GetTransactionRequest) returns (Transaction) {}
   rpc GetTransactionByTxID(GetTransactionByTxIDRequest) returns (Transaction) {}
   rpc ListTransactions(ListTransactionsRequest) returns (ListTransactionsResponse) {}
@@ -373,6 +376,14 @@ message ExistsWalletGroupByNameResponse {
   bool exists = 1;
 }
 
+message ExistsEnableWalletByNameRequest {
+  string name = 1;
+}
+
+message ExistsEnableWalletByNameResponse {
+  bool exists = 1;
+}
+
 message FlushBalanceRequest {
   string wallet_id = 1 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
@@ -491,6 +502,22 @@ message UpdateDestinationWalletIDRequest {
   string destination_wallet_id = 2 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
+}
+
+message EnableUTXORequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string tx_id = 2;
+  uint32 vout = 3;
+}
+
+message DisableUTXORequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string tx_id = 2;
+  uint32 vout = 3;
 }
 
 // -----------------------------------------------------------------------------
@@ -756,6 +783,10 @@ message ReplaceTransactionRequest {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
   uint64 fee_rate = 3;
+}
+
+message ReplaceTransactionResponse {
+  string transaction_id = 1;
 }
 
 message GetTransactionRequest {
@@ -1647,6 +1678,13 @@ message ListCallersRequest {}
 // The model of callers
 message ListCallersResponse {
   repeated CallerAddress caller_addresses = 1;
+}
+
+message ListFeeDepositsRequest {}
+
+// The model of callers
+message ListFeeDepositsResponse {
+  repeated FeeDepositAddress fee_deposit_addresses = 1;
 }
 
 // -----------------------------------------------------------------------------

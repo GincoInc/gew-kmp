@@ -418,6 +418,7 @@ enum SubstrateCallType {
   SUBSTRATE_CALL_TYPE_AS_MULTI = 5;
   SUBSTRATE_CALL_TYPE_AS_MULTI_THRESHOLD1 = 6;
   SUBSTRATE_CALL_TYPE_CANCEL_AS_MULTI = 7;
+  SUBSTRATE_CALL_TYPE_TRANSFER_ALLOW_DEATH = 8;
 }
 
 // -----------------------------------------------------------------------------
