@@ -53,7 +53,7 @@ type TellerAPIClient interface {
 	SignTransaction(ctx context.Context, in *SignTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	SendTransaction(ctx context.Context, in *SendTransactionRequest, opts ...grpc.CallOption) (*adamantglobalv1.SendTransactionResponse, error)
 	CancelTransaction(ctx context.Context, in *adamantglobalv1.CancelTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	ReplaceTransaction(ctx context.Context, in *adamantglobalv1.ReplaceTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	ReplaceTransaction(ctx context.Context, in *adamantglobalv1.ReplaceTransactionRequest, opts ...grpc.CallOption) (*adamantglobalv1.ReplaceTransactionResponse, error)
 	GetTransaction(ctx context.Context, in *adamantglobalv1.GetTransactionRequest, opts ...grpc.CallOption) (*adamantglobalv1.Transaction, error)
 	GetTransactionByTxID(ctx context.Context, in *adamantglobalv1.GetTransactionByTxIDRequest, opts ...grpc.CallOption) (*adamantglobalv1.Transaction, error)
 	ListTransactions(ctx context.Context, in *adamantglobalv1.ListTransactionsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListTransactionsResponse, error)
@@ -317,8 +317,8 @@ func (c *tellerAPIClient) CancelTransaction(ctx context.Context, in *adamantglob
 	return out, nil
 }
 
-func (c *tellerAPIClient) ReplaceTransaction(ctx context.Context, in *adamantglobalv1.ReplaceTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *tellerAPIClient) ReplaceTransaction(ctx context.Context, in *adamantglobalv1.ReplaceTransactionRequest, opts ...grpc.CallOption) (*adamantglobalv1.ReplaceTransactionResponse, error) {
+	out := new(adamantglobalv1.ReplaceTransactionResponse)
 	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ReplaceTransaction", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -485,7 +485,7 @@ type TellerAPIServer interface {
 	SignTransaction(context.Context, *SignTransactionRequest) (*emptypb.Empty, error)
 	SendTransaction(context.Context, *SendTransactionRequest) (*adamantglobalv1.SendTransactionResponse, error)
 	CancelTransaction(context.Context, *adamantglobalv1.CancelTransactionRequest) (*emptypb.Empty, error)
-	ReplaceTransaction(context.Context, *adamantglobalv1.ReplaceTransactionRequest) (*emptypb.Empty, error)
+	ReplaceTransaction(context.Context, *adamantglobalv1.ReplaceTransactionRequest) (*adamantglobalv1.ReplaceTransactionResponse, error)
 	GetTransaction(context.Context, *adamantglobalv1.GetTransactionRequest) (*adamantglobalv1.Transaction, error)
 	GetTransactionByTxID(context.Context, *adamantglobalv1.GetTransactionByTxIDRequest) (*adamantglobalv1.Transaction, error)
 	ListTransactions(context.Context, *adamantglobalv1.ListTransactionsRequest) (*adamantglobalv1.ListTransactionsResponse, error)
@@ -589,7 +589,7 @@ func (UnimplementedTellerAPIServer) SendTransaction(context.Context, *SendTransa
 func (UnimplementedTellerAPIServer) CancelTransaction(context.Context, *adamantglobalv1.CancelTransactionRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CancelTransaction not implemented")
 }
-func (UnimplementedTellerAPIServer) ReplaceTransaction(context.Context, *adamantglobalv1.ReplaceTransactionRequest) (*emptypb.Empty, error) {
+func (UnimplementedTellerAPIServer) ReplaceTransaction(context.Context, *adamantglobalv1.ReplaceTransactionRequest) (*adamantglobalv1.ReplaceTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReplaceTransaction not implemented")
 }
 func (UnimplementedTellerAPIServer) GetTransaction(context.Context, *adamantglobalv1.GetTransactionRequest) (*adamantglobalv1.Transaction, error) {

@@ -121,6 +121,8 @@ var (
 	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.Coin(0)
 )
 
 // Validate checks the field values on Wallet with the rules defined in the
@@ -1777,6 +1779,20 @@ func (m *Transaction) Validate(all bool) error {
 		if err := v.Validate(all); err != nil {
 			err = TransactionValidationError{
 				field:  "CosmosSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if v, ok := interface{}(m.GetEthereumClassicSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransactionValidationError{
+				field:  "EthereumClassicSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -4709,6 +4725,104 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CosmosSpecificValidationError{}
+
+// Validate checks the field values on EthereumClassicSpecific with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in EthereumClassicSpecificMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *EthereumClassicSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	if len(errors) > 0 {
+		return EthereumClassicSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// EthereumClassicSpecificMultiError is an error wrapping multiple validation
+// errors returned by EthereumClassicSpecific.Validate(true) if the designated
+// constraints aren't met.
+type EthereumClassicSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m EthereumClassicSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m EthereumClassicSpecificMultiError) AllErrors() []error { return m }
+
+// EthereumClassicSpecificValidationError is the validation error returned by
+// EthereumClassicSpecific.Validate if the designated constraints aren't met.
+type EthereumClassicSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e EthereumClassicSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e EthereumClassicSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e EthereumClassicSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e EthereumClassicSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e EthereumClassicSpecificValidationError) ErrorName() string {
+	return "EthereumClassicSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e EthereumClassicSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sEthereumClassicSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = EthereumClassicSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = EthereumClassicSpecificValidationError{}
 
 // Validate checks the field values on CreateTransactionSubstrateSpecific with
 // the rules defined in the proto definition for this message. If any rules
@@ -11052,6 +11166,106 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CallerAddressValidationError{}
+
+// Validate checks the field values on FeeDepositAddress with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned. When asked to return all errors, validation continues
+// after first violation, and the result is a list of violation errors wrapped
+// in FeeDepositAddressMultiError, or nil if none found. Otherwise, only the
+// first error is returned, if any.
+func (m *FeeDepositAddress) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Address
+
+	// no validation rules for Balance
+
+	// no validation rules for StringBalance
+
+	// no validation rules for Coin
+
+	if len(errors) > 0 {
+		return FeeDepositAddressMultiError(errors)
+	}
+	return nil
+}
+
+// FeeDepositAddressMultiError is an error wrapping multiple validation errors
+// returned by FeeDepositAddress.Validate(true) if the designated constraints
+// aren't met.
+type FeeDepositAddressMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m FeeDepositAddressMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m FeeDepositAddressMultiError) AllErrors() []error { return m }
+
+// FeeDepositAddressValidationError is the validation error returned by
+// FeeDepositAddress.Validate if the designated constraints aren't met.
+type FeeDepositAddressValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e FeeDepositAddressValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e FeeDepositAddressValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e FeeDepositAddressValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e FeeDepositAddressValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e FeeDepositAddressValidationError) ErrorName() string {
+	return "FeeDepositAddressValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e FeeDepositAddressValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sFeeDepositAddress.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = FeeDepositAddressValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = FeeDepositAddressValidationError{}
 
 // Validate checks the field values on CosmosDelegation with the rules defined
 // in the proto definition for this message. If any rules are violated, an

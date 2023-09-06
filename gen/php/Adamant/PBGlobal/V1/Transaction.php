@@ -220,6 +220,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $cosmos_specific = null;
     /**
+     * The Ethereum Classic specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.EthereumClassicSpecific ethereum_classic_specific = 40 [json_name = "ethereumClassicSpecific"];</code>
+     */
+    protected $ethereum_classic_specific = null;
+    /**
      * the time at which the transaction was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
@@ -306,6 +312,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The Xdc specific fields
      *     @type \Adamant\PBGlobal\V1\CosmosSpecific $cosmos_specific
      *           The Cosmos specific fields
+     *     @type \Adamant\PBGlobal\V1\EthereumClassicSpecific $ethereum_classic_specific
+     *           The Ethereum Classic specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -1397,6 +1405,42 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CosmosSpecific::class);
         $this->cosmos_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Ethereum Classic specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.EthereumClassicSpecific ethereum_classic_specific = 40 [json_name = "ethereumClassicSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\EthereumClassicSpecific|null
+     */
+    public function getEthereumClassicSpecific()
+    {
+        return $this->ethereum_classic_specific;
+    }
+
+    public function hasEthereumClassicSpecific()
+    {
+        return isset($this->ethereum_classic_specific);
+    }
+
+    public function clearEthereumClassicSpecific()
+    {
+        unset($this->ethereum_classic_specific);
+    }
+
+    /**
+     * The Ethereum Classic specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.EthereumClassicSpecific ethereum_classic_specific = 40 [json_name = "ethereumClassicSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\EthereumClassicSpecific $var
+     * @return $this
+     */
+    public function setEthereumClassicSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\EthereumClassicSpecific::class);
+        $this->ethereum_classic_specific = $var;
 
         return $this;
     }
