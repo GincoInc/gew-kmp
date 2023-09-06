@@ -43,6 +43,10 @@ class SubstrateCallType
      * Generated from protobuf enum <code>SUBSTRATE_CALL_TYPE_CANCEL_AS_MULTI = 7;</code>
      */
     const SUBSTRATE_CALL_TYPE_CANCEL_AS_MULTI = 7;
+    /**
+     * Generated from protobuf enum <code>SUBSTRATE_CALL_TYPE_TRANSFER_ALLOW_DEATH = 8;</code>
+     */
+    const SUBSTRATE_CALL_TYPE_TRANSFER_ALLOW_DEATH = 8;
 
     private static $valueToName = [
         self::SUBSTRATE_CALL_TYPE_INVALID => 'SUBSTRATE_CALL_TYPE_INVALID',
@@ -53,6 +57,7 @@ class SubstrateCallType
         self::SUBSTRATE_CALL_TYPE_AS_MULTI => 'SUBSTRATE_CALL_TYPE_AS_MULTI',
         self::SUBSTRATE_CALL_TYPE_AS_MULTI_THRESHOLD1 => 'SUBSTRATE_CALL_TYPE_AS_MULTI_THRESHOLD1',
         self::SUBSTRATE_CALL_TYPE_CANCEL_AS_MULTI => 'SUBSTRATE_CALL_TYPE_CANCEL_AS_MULTI',
+        self::SUBSTRATE_CALL_TYPE_TRANSFER_ALLOW_DEATH => 'SUBSTRATE_CALL_TYPE_TRANSFER_ALLOW_DEATH',
     ];
 
     public static function name($value)

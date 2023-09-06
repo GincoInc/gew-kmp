@@ -666,6 +666,68 @@ public final class GlobalAPIGrpc {
     return getListCosmosDelegateHistoriesMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.EnableUTXORequest,
+      com.google.protobuf.Empty> getEnableUTXOMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "EnableUTXO",
+      requestType = adamant.global.v1.EnableUTXORequest.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.EnableUTXORequest,
+      com.google.protobuf.Empty> getEnableUTXOMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.EnableUTXORequest, com.google.protobuf.Empty> getEnableUTXOMethod;
+    if ((getEnableUTXOMethod = GlobalAPIGrpc.getEnableUTXOMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getEnableUTXOMethod = GlobalAPIGrpc.getEnableUTXOMethod) == null) {
+          GlobalAPIGrpc.getEnableUTXOMethod = getEnableUTXOMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.EnableUTXORequest, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "EnableUTXO"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.EnableUTXORequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("EnableUTXO"))
+              .build();
+        }
+      }
+    }
+    return getEnableUTXOMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.DisableUTXORequest,
+      com.google.protobuf.Empty> getDisableUTXOMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "DisableUTXO",
+      requestType = adamant.global.v1.DisableUTXORequest.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.DisableUTXORequest,
+      com.google.protobuf.Empty> getDisableUTXOMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.DisableUTXORequest, com.google.protobuf.Empty> getDisableUTXOMethod;
+    if ((getDisableUTXOMethod = GlobalAPIGrpc.getDisableUTXOMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getDisableUTXOMethod = GlobalAPIGrpc.getDisableUTXOMethod) == null) {
+          GlobalAPIGrpc.getDisableUTXOMethod = getDisableUTXOMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.DisableUTXORequest, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DisableUTXO"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.DisableUTXORequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("DisableUTXO"))
+              .build();
+        }
+      }
+    }
+    return getDisableUTXOMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ApproveWalletRequest,
       com.google.protobuf.Empty> getApproveWalletMethod;
 
@@ -1162,6 +1224,37 @@ public final class GlobalAPIGrpc {
     return getListCallersMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListFeeDepositsRequest,
+      adamant.global.v1.ListFeeDepositsResponse> getListFeeDepositsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListFeeDeposits",
+      requestType = adamant.global.v1.ListFeeDepositsRequest.class,
+      responseType = adamant.global.v1.ListFeeDepositsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListFeeDepositsRequest,
+      adamant.global.v1.ListFeeDepositsResponse> getListFeeDepositsMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListFeeDepositsRequest, adamant.global.v1.ListFeeDepositsResponse> getListFeeDepositsMethod;
+    if ((getListFeeDepositsMethod = GlobalAPIGrpc.getListFeeDepositsMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getListFeeDepositsMethod = GlobalAPIGrpc.getListFeeDepositsMethod) == null) {
+          GlobalAPIGrpc.getListFeeDepositsMethod = getListFeeDepositsMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListFeeDepositsRequest, adamant.global.v1.ListFeeDepositsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListFeeDeposits"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListFeeDepositsRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListFeeDepositsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ListFeeDeposits"))
+              .build();
+        }
+      }
+    }
+    return getListFeeDepositsMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.RegisterKeyRequest,
       adamant.global.v1.RegisterKeyResponse> getRegisterKeyMethod;
 
@@ -1411,28 +1504,28 @@ public final class GlobalAPIGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ReplaceTransactionRequest,
-      com.google.protobuf.Empty> getReplaceTransactionMethod;
+      adamant.global.v1.ReplaceTransactionResponse> getReplaceTransactionMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "ReplaceTransaction",
       requestType = adamant.global.v1.ReplaceTransactionRequest.class,
-      responseType = com.google.protobuf.Empty.class,
+      responseType = adamant.global.v1.ReplaceTransactionResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<adamant.global.v1.ReplaceTransactionRequest,
-      com.google.protobuf.Empty> getReplaceTransactionMethod() {
-    io.grpc.MethodDescriptor<adamant.global.v1.ReplaceTransactionRequest, com.google.protobuf.Empty> getReplaceTransactionMethod;
+      adamant.global.v1.ReplaceTransactionResponse> getReplaceTransactionMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ReplaceTransactionRequest, adamant.global.v1.ReplaceTransactionResponse> getReplaceTransactionMethod;
     if ((getReplaceTransactionMethod = GlobalAPIGrpc.getReplaceTransactionMethod) == null) {
       synchronized (GlobalAPIGrpc.class) {
         if ((getReplaceTransactionMethod = GlobalAPIGrpc.getReplaceTransactionMethod) == null) {
           GlobalAPIGrpc.getReplaceTransactionMethod = getReplaceTransactionMethod =
-              io.grpc.MethodDescriptor.<adamant.global.v1.ReplaceTransactionRequest, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<adamant.global.v1.ReplaceTransactionRequest, adamant.global.v1.ReplaceTransactionResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ReplaceTransaction"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   adamant.global.v1.ReplaceTransactionRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  adamant.global.v1.ReplaceTransactionResponse.getDefaultInstance()))
               .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ReplaceTransaction"))
               .build();
         }
@@ -3193,6 +3286,20 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    default void enableUTXO(adamant.global.v1.EnableUTXORequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getEnableUTXOMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void disableUTXO(adamant.global.v1.DisableUTXORequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDisableUTXOMethod(), responseObserver);
+    }
+
+    /**
      * <pre>
      * Review
      * </pre>
@@ -3318,6 +3425,13 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    default void listFeeDeposits(adamant.global.v1.ListFeeDepositsRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListFeeDepositsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListFeeDepositsMethod(), responseObserver);
+    }
+
+    /**
      * <pre>
      * RegisterKey
      * </pre>
@@ -3382,7 +3496,7 @@ public final class GlobalAPIGrpc {
     /**
      */
     default void replaceTransaction(adamant.global.v1.ReplaceTransactionRequest request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<adamant.global.v1.ReplaceTransactionResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getReplaceTransactionMethod(), responseObserver);
     }
 
@@ -3968,6 +4082,22 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    public void enableUTXO(adamant.global.v1.EnableUTXORequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getEnableUTXOMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void disableUTXO(adamant.global.v1.DisableUTXORequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getDisableUTXOMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
      * <pre>
      * Review
      * </pre>
@@ -4109,6 +4239,14 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    public void listFeeDeposits(adamant.global.v1.ListFeeDepositsRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListFeeDepositsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListFeeDepositsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
      * <pre>
      * RegisterKey
      * </pre>
@@ -4181,7 +4319,7 @@ public final class GlobalAPIGrpc {
     /**
      */
     public void replaceTransaction(adamant.global.v1.ReplaceTransactionRequest request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<adamant.global.v1.ReplaceTransactionResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getReplaceTransactionMethod(), getCallOptions()), request, responseObserver);
     }
@@ -4786,6 +4924,20 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    public com.google.protobuf.Empty enableUTXO(adamant.global.v1.EnableUTXORequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getEnableUTXOMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.google.protobuf.Empty disableUTXO(adamant.global.v1.DisableUTXORequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getDisableUTXOMethod(), getCallOptions(), request);
+    }
+
+    /**
      * <pre>
      * Review
      * </pre>
@@ -4911,6 +5063,13 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    public adamant.global.v1.ListFeeDepositsResponse listFeeDeposits(adamant.global.v1.ListFeeDepositsRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListFeeDepositsMethod(), getCallOptions(), request);
+    }
+
+    /**
      * <pre>
      * RegisterKey
      * </pre>
@@ -4974,7 +5133,7 @@ public final class GlobalAPIGrpc {
 
     /**
      */
-    public com.google.protobuf.Empty replaceTransaction(adamant.global.v1.ReplaceTransactionRequest request) {
+    public adamant.global.v1.ReplaceTransactionResponse replaceTransaction(adamant.global.v1.ReplaceTransactionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getReplaceTransactionMethod(), getCallOptions(), request);
     }
@@ -5550,6 +5709,22 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> enableUTXO(
+        adamant.global.v1.EnableUTXORequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getEnableUTXOMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> disableUTXO(
+        adamant.global.v1.DisableUTXORequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getDisableUTXOMethod(), getCallOptions()), request);
+    }
+
+    /**
      * <pre>
      * Review
      * </pre>
@@ -5691,6 +5866,14 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListFeeDepositsResponse> listFeeDeposits(
+        adamant.global.v1.ListFeeDepositsRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListFeeDepositsMethod(), getCallOptions()), request);
+    }
+
+    /**
      * <pre>
      * RegisterKey
      * </pre>
@@ -5762,7 +5945,7 @@ public final class GlobalAPIGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> replaceTransaction(
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ReplaceTransactionResponse> replaceTransaction(
         adamant.global.v1.ReplaceTransactionRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getReplaceTransactionMethod(), getCallOptions()), request);
@@ -6219,81 +6402,84 @@ public final class GlobalAPIGrpc {
   private static final int METHODID_UPDATE_DESTINATION_WALLET_ID = 18;
   private static final int METHODID_GET_COSMOS_BALANCE = 19;
   private static final int METHODID_LIST_COSMOS_DELEGATE_HISTORIES = 20;
-  private static final int METHODID_APPROVE_WALLET = 21;
-  private static final int METHODID_APPROVE_TRANSACTION = 22;
-  private static final int METHODID_CREATE_ADDRESS = 23;
-  private static final int METHODID_GET_ADDRESS = 24;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 25;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 26;
-  private static final int METHODID_GET_ADDRESS_BY_INDEX = 27;
-  private static final int METHODID_LIST_ADDRESSES = 28;
-  private static final int METHODID_LIST_ADDRESSES_WITH_BALANCE = 29;
-  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 30;
-  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 31;
-  private static final int METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES = 32;
-  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 33;
-  private static final int METHODID_LIST_IOSTCHILD_ACCOUNTS = 34;
-  private static final int METHODID_IMPORT_ADDRESS = 35;
-  private static final int METHODID_LIST_CALLERS = 36;
-  private static final int METHODID_REGISTER_KEY = 37;
-  private static final int METHODID_CREATE_TRANSACTION = 38;
-  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 39;
-  private static final int METHODID_SIGN_TRANSACTION = 40;
-  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 41;
-  private static final int METHODID_SEND_TRANSACTION = 42;
-  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 43;
-  private static final int METHODID_CANCEL_TRANSACTION = 44;
-  private static final int METHODID_REPLACE_TRANSACTION = 45;
-  private static final int METHODID_GET_TRANSACTION = 46;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 47;
-  private static final int METHODID_LIST_TRANSACTIONS = 48;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 49;
-  private static final int METHODID_GET_SIGN_INFO = 50;
-  private static final int METHODID_LIST_SIGN_INFO = 51;
-  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 52;
-  private static final int METHODID_LIST_TRANSFERS = 53;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 54;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 55;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 56;
-  private static final int METHODID_SET_RATES = 57;
-  private static final int METHODID_SET_DEFAULT_RATES = 58;
-  private static final int METHODID_CREATE_LABELED_ADDRESS = 59;
-  private static final int METHODID_GET_LABELED_ADDRESS = 60;
-  private static final int METHODID_LIST_LABELED_ADDRESSES = 61;
-  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 62;
-  private static final int METHODID_UPDATE_LABELED_ADDRESS = 63;
-  private static final int METHODID_DELETE_ADDRESS = 64;
-  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 65;
-  private static final int METHODID_CREATE_WHITELIST = 66;
-  private static final int METHODID_GET_WHITELIST = 67;
-  private static final int METHODID_LIST_WHITELISTS = 68;
-  private static final int METHODID_IS_DELETABLE_WHITELIST = 69;
-  private static final int METHODID_UPDATE_WHITELIST = 70;
-  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 71;
-  private static final int METHODID_DELETE_WHITELIST = 72;
-  private static final int METHODID_CREATE_TRANSFER_LIMIT = 73;
-  private static final int METHODID_GET_TRANSFER_LIMIT = 74;
-  private static final int METHODID_LIST_TRANSFER_LIMITS = 75;
-  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 76;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 77;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 78;
-  private static final int METHODID_DELETE_TRANSFER_LIMIT = 79;
-  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 80;
-  private static final int METHODID_CREATE_POLICY = 81;
-  private static final int METHODID_GET_POLICY = 82;
-  private static final int METHODID_LIST_POLICIES = 83;
-  private static final int METHODID_IS_DELETABLE_POLICY = 84;
-  private static final int METHODID_UPDATE_POLICY = 85;
-  private static final int METHODID_DELETE_POLICY = 86;
-  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 87;
-  private static final int METHODID_GET_SPENDABLE_BALANCE = 88;
-  private static final int METHODID_GET_TOTAL_BALANCE = 89;
-  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 90;
-  private static final int METHODID_CALCULATE_FEE = 91;
-  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 92;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 93;
-  private static final int METHODID_VALIDATE_ADDRESS = 94;
-  private static final int METHODID_LIST_AUDIT_LOGS = 95;
+  private static final int METHODID_ENABLE_UTXO = 21;
+  private static final int METHODID_DISABLE_UTXO = 22;
+  private static final int METHODID_APPROVE_WALLET = 23;
+  private static final int METHODID_APPROVE_TRANSACTION = 24;
+  private static final int METHODID_CREATE_ADDRESS = 25;
+  private static final int METHODID_GET_ADDRESS = 26;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 27;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 28;
+  private static final int METHODID_GET_ADDRESS_BY_INDEX = 29;
+  private static final int METHODID_LIST_ADDRESSES = 30;
+  private static final int METHODID_LIST_ADDRESSES_WITH_BALANCE = 31;
+  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 32;
+  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 33;
+  private static final int METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES = 34;
+  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 35;
+  private static final int METHODID_LIST_IOSTCHILD_ACCOUNTS = 36;
+  private static final int METHODID_IMPORT_ADDRESS = 37;
+  private static final int METHODID_LIST_CALLERS = 38;
+  private static final int METHODID_LIST_FEE_DEPOSITS = 39;
+  private static final int METHODID_REGISTER_KEY = 40;
+  private static final int METHODID_CREATE_TRANSACTION = 41;
+  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 42;
+  private static final int METHODID_SIGN_TRANSACTION = 43;
+  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 44;
+  private static final int METHODID_SEND_TRANSACTION = 45;
+  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 46;
+  private static final int METHODID_CANCEL_TRANSACTION = 47;
+  private static final int METHODID_REPLACE_TRANSACTION = 48;
+  private static final int METHODID_GET_TRANSACTION = 49;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 50;
+  private static final int METHODID_LIST_TRANSACTIONS = 51;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 52;
+  private static final int METHODID_GET_SIGN_INFO = 53;
+  private static final int METHODID_LIST_SIGN_INFO = 54;
+  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 55;
+  private static final int METHODID_LIST_TRANSFERS = 56;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 57;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 58;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 59;
+  private static final int METHODID_SET_RATES = 60;
+  private static final int METHODID_SET_DEFAULT_RATES = 61;
+  private static final int METHODID_CREATE_LABELED_ADDRESS = 62;
+  private static final int METHODID_GET_LABELED_ADDRESS = 63;
+  private static final int METHODID_LIST_LABELED_ADDRESSES = 64;
+  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 65;
+  private static final int METHODID_UPDATE_LABELED_ADDRESS = 66;
+  private static final int METHODID_DELETE_ADDRESS = 67;
+  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 68;
+  private static final int METHODID_CREATE_WHITELIST = 69;
+  private static final int METHODID_GET_WHITELIST = 70;
+  private static final int METHODID_LIST_WHITELISTS = 71;
+  private static final int METHODID_IS_DELETABLE_WHITELIST = 72;
+  private static final int METHODID_UPDATE_WHITELIST = 73;
+  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 74;
+  private static final int METHODID_DELETE_WHITELIST = 75;
+  private static final int METHODID_CREATE_TRANSFER_LIMIT = 76;
+  private static final int METHODID_GET_TRANSFER_LIMIT = 77;
+  private static final int METHODID_LIST_TRANSFER_LIMITS = 78;
+  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 79;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 80;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 81;
+  private static final int METHODID_DELETE_TRANSFER_LIMIT = 82;
+  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 83;
+  private static final int METHODID_CREATE_POLICY = 84;
+  private static final int METHODID_GET_POLICY = 85;
+  private static final int METHODID_LIST_POLICIES = 86;
+  private static final int METHODID_IS_DELETABLE_POLICY = 87;
+  private static final int METHODID_UPDATE_POLICY = 88;
+  private static final int METHODID_DELETE_POLICY = 89;
+  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 90;
+  private static final int METHODID_GET_SPENDABLE_BALANCE = 91;
+  private static final int METHODID_GET_TOTAL_BALANCE = 92;
+  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 93;
+  private static final int METHODID_CALCULATE_FEE = 94;
+  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 95;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 96;
+  private static final int METHODID_VALIDATE_ADDRESS = 97;
+  private static final int METHODID_LIST_AUDIT_LOGS = 98;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -6396,6 +6582,14 @@ public final class GlobalAPIGrpc {
           serviceImpl.listCosmosDelegateHistories((adamant.global.v1.ListCosmosDelegateHistoriesRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListCosmosDelegateHistoriesResponse>) responseObserver);
           break;
+        case METHODID_ENABLE_UTXO:
+          serviceImpl.enableUTXO((adamant.global.v1.EnableUTXORequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_DISABLE_UTXO:
+          serviceImpl.disableUTXO((adamant.global.v1.DisableUTXORequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
         case METHODID_APPROVE_WALLET:
           serviceImpl.approveWallet((adamant.global.v1.ApproveWalletRequest) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
@@ -6460,6 +6654,10 @@ public final class GlobalAPIGrpc {
           serviceImpl.listCallers((adamant.global.v1.ListCallersRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListCallersResponse>) responseObserver);
           break;
+        case METHODID_LIST_FEE_DEPOSITS:
+          serviceImpl.listFeeDeposits((adamant.global.v1.ListFeeDepositsRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListFeeDepositsResponse>) responseObserver);
+          break;
         case METHODID_REGISTER_KEY:
           serviceImpl.registerKey((adamant.global.v1.RegisterKeyRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.RegisterKeyResponse>) responseObserver);
@@ -6494,7 +6692,7 @@ public final class GlobalAPIGrpc {
           break;
         case METHODID_REPLACE_TRANSACTION:
           serviceImpl.replaceTransaction((adamant.global.v1.ReplaceTransactionRequest) request,
-              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ReplaceTransactionResponse>) responseObserver);
           break;
         case METHODID_GET_TRANSACTION:
           serviceImpl.getTransaction((adamant.global.v1.GetTransactionRequest) request,
@@ -6862,6 +7060,20 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.ListCosmosDelegateHistoriesResponse>(
                 service, METHODID_LIST_COSMOS_DELEGATE_HISTORIES)))
         .addMethod(
+          getEnableUTXOMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.EnableUTXORequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_ENABLE_UTXO)))
+        .addMethod(
+          getDisableUTXOMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.DisableUTXORequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_DISABLE_UTXO)))
+        .addMethod(
           getApproveWalletMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
@@ -6974,6 +7186,13 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.ListCallersResponse>(
                 service, METHODID_LIST_CALLERS)))
         .addMethod(
+          getListFeeDepositsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListFeeDepositsRequest,
+              adamant.global.v1.ListFeeDepositsResponse>(
+                service, METHODID_LIST_FEE_DEPOSITS)))
+        .addMethod(
           getRegisterKeyMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
@@ -7034,7 +7253,7 @@ public final class GlobalAPIGrpc {
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
               adamant.global.v1.ReplaceTransactionRequest,
-              com.google.protobuf.Empty>(
+              adamant.global.v1.ReplaceTransactionResponse>(
                 service, METHODID_REPLACE_TRANSACTION)))
         .addMethod(
           getGetTransactionMethod(),
@@ -7455,6 +7674,8 @@ public final class GlobalAPIGrpc {
               .addMethod(getUpdateDestinationWalletIDMethod())
               .addMethod(getGetCosmosBalanceMethod())
               .addMethod(getListCosmosDelegateHistoriesMethod())
+              .addMethod(getEnableUTXOMethod())
+              .addMethod(getDisableUTXOMethod())
               .addMethod(getApproveWalletMethod())
               .addMethod(getApproveTransactionMethod())
               .addMethod(getCreateAddressMethod())
@@ -7471,6 +7692,7 @@ public final class GlobalAPIGrpc {
               .addMethod(getListIOSTChildAccountsMethod())
               .addMethod(getImportAddressMethod())
               .addMethod(getListCallersMethod())
+              .addMethod(getListFeeDepositsMethod())
               .addMethod(getRegisterKeyMethod())
               .addMethod(getCreateTransactionMethod())
               .addMethod(getCreateXRPInitTransactionsMethod())
