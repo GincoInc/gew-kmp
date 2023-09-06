@@ -50,7 +50,7 @@ service TellerAPI {
   rpc SignTransaction(SignTransactionRequest) returns (google.protobuf.Empty) {}
   rpc SendTransaction(SendTransactionRequest) returns (adamant.global.v1.SendTransactionResponse) {}
   rpc CancelTransaction(adamant.global.v1.CancelTransactionRequest) returns (google.protobuf.Empty) {}
-  rpc ReplaceTransaction(adamant.global.v1.ReplaceTransactionRequest) returns (google.protobuf.Empty) {}
+  rpc ReplaceTransaction(adamant.global.v1.ReplaceTransactionRequest) returns (adamant.global.v1.ReplaceTransactionResponse) {}
   rpc GetTransaction(adamant.global.v1.GetTransactionRequest) returns (adamant.global.v1.Transaction) {}
   rpc GetTransactionByTxID(adamant.global.v1.GetTransactionByTxIDRequest) returns (adamant.global.v1.Transaction) {}
   rpc ListTransactions(adamant.global.v1.ListTransactionsRequest) returns (adamant.global.v1.ListTransactionsResponse) {}
