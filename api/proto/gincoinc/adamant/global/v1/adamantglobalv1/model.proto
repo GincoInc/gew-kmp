@@ -200,6 +200,7 @@ message Transaction {
   OasysSpecific oasys_specific = 37; // The Oasys specific fields
   XdcSpecific xdc_specific = 38; // The Xdc specific fields
   CosmosSpecific cosmos_specific = 39; // The Cosmos specific fields
+  EthereumClassicSpecific ethereum_classic_specific = 40; // The Ethereum Classic specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -397,6 +398,13 @@ message CosmosSpecific {
   gincoinc.global.v1.CosmosMsgType type = 4;
   string memo = 5;
   double gas_adjustment = 6;
+}
+
+// The model of Ethereum Classic specific fields of transaction
+message EthereumClassicSpecific {
+  uint64 gas_limit = 1;
+  uint64 nonce = 2;
+  bool is_next_nonce = 3;
 }
 
 // The model of Substrate specific fields of CreateTransaction
@@ -865,6 +873,13 @@ message IOSTCallerAccount {
 // The model of caller account
 message CallerAddress {
   string address = 1; // Klaytn address
+  double balance = 2; // The number-typed balance corresponding to the address
+  string string_balance = 3; // The string-typed balance corresponding to the address
+  gincoinc.global.v1.Coin coin = 4; // The type of asset
+}
+
+message FeeDepositAddress {
+  string address = 1; // address
   double balance = 2; // The number-typed balance corresponding to the address
   string string_balance = 3; // The string-typed balance corresponding to the address
   gincoinc.global.v1.Coin coin = 4; // The type of asset
