@@ -317,6 +317,34 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\EnableUTXORequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function EnableUTXO(\Adamant\Global\V1\EnableUTXORequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/EnableUTXO',
+        $argument,
+        ['\Google\Protobuf\GPBEmpty', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\DisableUTXORequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function DisableUTXO(\Adamant\Global\V1\DisableUTXORequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/DisableUTXO',
+        $argument,
+        ['\Google\Protobuf\GPBEmpty', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * Review
      * @param \Adamant\Global\V1\ApproveWalletRequest $argument input argument
      * @param array $metadata metadata
@@ -546,6 +574,20 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\ListFeeDepositsRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListFeeDeposits(\Adamant\Global\V1\ListFeeDepositsRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ListFeeDeposits',
+        $argument,
+        ['\Adamant\Global\V1\ListFeeDepositsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * RegisterKey
      * @param \Adamant\Global\V1\RegisterKeyRequest $argument input argument
      * @param array $metadata metadata
@@ -669,7 +711,7 @@ class GlobalAPIClient extends \Grpc\BaseStub {
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ReplaceTransaction',
         $argument,
-        ['\Google\Protobuf\GPBEmpty', 'decode'],
+        ['\Adamant\Global\V1\ReplaceTransactionResponse', 'decode'],
         $metadata, $options);
     }
 

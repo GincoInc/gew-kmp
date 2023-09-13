@@ -45,6 +45,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.OasysSpecific.class)) return new OasysSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.XdcSpecific.class)) return new XdcSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CosmosSpecific.class)) return new CosmosSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.EthereumClassicSpecific.class)) return new EthereumClassicSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class)) return new CreateTransactionSubstrateSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.class)) return new CreateTransactionWalletConnectSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionNemSpecific.class)) return new CreateTransactionNemSpecificValidator();
@@ -99,6 +100,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.IOSTChildAccount.class)) return new IOSTChildAccountValidator();
 		if (clazz.equals(adamant.global.v1.Model.IOSTCallerAccount.class)) return new IOSTCallerAccountValidator();
 		if (clazz.equals(adamant.global.v1.Model.CallerAddress.class)) return new CallerAddressValidator();
+		if (clazz.equals(adamant.global.v1.Model.FeeDepositAddress.class)) return new FeeDepositAddressValidator();
 		if (clazz.equals(adamant.global.v1.Model.CosmosDelegation.class)) return new CosmosDelegationValidator();
 		return null;
 	}
@@ -745,6 +747,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -844,6 +848,9 @@ public class ModelValidator {
 	
 			// Validate cosmos_specific
 			if (proto.hasCosmosSpecific()) index.validatorFor(proto.getCosmosSpecific()).assertValid(proto.getCosmosSpecific());
+	
+			// Validate ethereum_classic_specific
+			if (proto.hasEthereumClassicSpecific()) index.validatorFor(proto.getEthereumClassicSpecific()).assertValid(proto.getEthereumClassicSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -1531,6 +1538,28 @@ public class ModelValidator {
 	// no validation rules for Memo
 
 	// no validation rules for GasAdjustment
+
+	
+	}
+}
+/**
+	 * Validates {@code EthereumClassicSpecific} protobuf objects.
+	 */
+	public static class EthereumClassicSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.EthereumClassicSpecific> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.EthereumClassicSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
 
 	
 	}
@@ -3267,6 +3296,32 @@ public class ModelValidator {
 	
 
 	public void assertValid(adamant.global.v1.Model.CallerAddress proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Address
+
+	// no validation rules for Balance
+
+	// no validation rules for StringBalance
+
+	// no validation rules for Coin
+
+	
+	}
+}
+/**
+	 * Validates {@code FeeDepositAddress} protobuf objects.
+	 */
+	public static class FeeDepositAddressValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.FeeDepositAddress> {
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.FeeDepositAddress proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Address
 
 	// no validation rules for Balance

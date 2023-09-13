@@ -2747,6 +2747,198 @@ var _ interface {
 	ErrorName() string
 } = ExistsWalletGroupByNameResponseValidationError{}
 
+// Validate checks the field values on ExistsEnableWalletByNameRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ExistsEnableWalletByNameRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ExistsEnableWalletByNameRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Name
+
+	if len(errors) > 0 {
+		return ExistsEnableWalletByNameRequestMultiError(errors)
+	}
+	return nil
+}
+
+// ExistsEnableWalletByNameRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ExistsEnableWalletByNameRequest.Validate(true) if the designated
+// constraints aren't met.
+type ExistsEnableWalletByNameRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ExistsEnableWalletByNameRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ExistsEnableWalletByNameRequestMultiError) AllErrors() []error { return m }
+
+// ExistsEnableWalletByNameRequestValidationError is the validation error
+// returned by ExistsEnableWalletByNameRequest.Validate if the designated
+// constraints aren't met.
+type ExistsEnableWalletByNameRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ExistsEnableWalletByNameRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ExistsEnableWalletByNameRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ExistsEnableWalletByNameRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ExistsEnableWalletByNameRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ExistsEnableWalletByNameRequestValidationError) ErrorName() string {
+	return "ExistsEnableWalletByNameRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ExistsEnableWalletByNameRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sExistsEnableWalletByNameRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ExistsEnableWalletByNameRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ExistsEnableWalletByNameRequestValidationError{}
+
+// Validate checks the field values on ExistsEnableWalletByNameResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ExistsEnableWalletByNameResponseMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ExistsEnableWalletByNameResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Exists
+
+	if len(errors) > 0 {
+		return ExistsEnableWalletByNameResponseMultiError(errors)
+	}
+	return nil
+}
+
+// ExistsEnableWalletByNameResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ExistsEnableWalletByNameResponse.Validate(true) if the designated
+// constraints aren't met.
+type ExistsEnableWalletByNameResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ExistsEnableWalletByNameResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ExistsEnableWalletByNameResponseMultiError) AllErrors() []error { return m }
+
+// ExistsEnableWalletByNameResponseValidationError is the validation error
+// returned by ExistsEnableWalletByNameResponse.Validate if the designated
+// constraints aren't met.
+type ExistsEnableWalletByNameResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ExistsEnableWalletByNameResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ExistsEnableWalletByNameResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ExistsEnableWalletByNameResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ExistsEnableWalletByNameResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ExistsEnableWalletByNameResponseValidationError) ErrorName() string {
+	return "ExistsEnableWalletByNameResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ExistsEnableWalletByNameResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sExistsEnableWalletByNameResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ExistsEnableWalletByNameResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ExistsEnableWalletByNameResponseValidationError{}
+
 // Validate checks the field values on FlushBalanceRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned. When asked to return all errors, validation
@@ -4688,6 +4880,224 @@ var _ interface {
 var _UpdateDestinationWalletIDRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _UpdateDestinationWalletIDRequest_DestinationWalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on EnableUTXORequest with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned. When asked to return all errors, validation continues
+// after first violation, and the result is a list of violation errors wrapped
+// in EnableUTXORequestMultiError, or nil if none found. Otherwise, only the
+// first error is returned, if any.
+func (m *EnableUTXORequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_EnableUTXORequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := EnableUTXORequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for TxId
+
+	// no validation rules for Vout
+
+	if len(errors) > 0 {
+		return EnableUTXORequestMultiError(errors)
+	}
+	return nil
+}
+
+// EnableUTXORequestMultiError is an error wrapping multiple validation errors
+// returned by EnableUTXORequest.Validate(true) if the designated constraints
+// aren't met.
+type EnableUTXORequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m EnableUTXORequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m EnableUTXORequestMultiError) AllErrors() []error { return m }
+
+// EnableUTXORequestValidationError is the validation error returned by
+// EnableUTXORequest.Validate if the designated constraints aren't met.
+type EnableUTXORequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e EnableUTXORequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e EnableUTXORequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e EnableUTXORequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e EnableUTXORequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e EnableUTXORequestValidationError) ErrorName() string {
+	return "EnableUTXORequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e EnableUTXORequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sEnableUTXORequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = EnableUTXORequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = EnableUTXORequestValidationError{}
+
+var _EnableUTXORequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on DisableUTXORequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in DisableUTXORequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *DisableUTXORequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_DisableUTXORequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := DisableUTXORequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for TxId
+
+	// no validation rules for Vout
+
+	if len(errors) > 0 {
+		return DisableUTXORequestMultiError(errors)
+	}
+	return nil
+}
+
+// DisableUTXORequestMultiError is an error wrapping multiple validation errors
+// returned by DisableUTXORequest.Validate(true) if the designated constraints
+// aren't met.
+type DisableUTXORequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DisableUTXORequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DisableUTXORequestMultiError) AllErrors() []error { return m }
+
+// DisableUTXORequestValidationError is the validation error returned by
+// DisableUTXORequest.Validate if the designated constraints aren't met.
+type DisableUTXORequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DisableUTXORequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DisableUTXORequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DisableUTXORequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DisableUTXORequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DisableUTXORequestValidationError) ErrorName() string {
+	return "DisableUTXORequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e DisableUTXORequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDisableUTXORequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DisableUTXORequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DisableUTXORequestValidationError{}
+
+var _DisableUTXORequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on RegisterKeyRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -8687,6 +9097,100 @@ var _ interface {
 var _ReplaceTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _ReplaceTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ReplaceTransactionResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ReplaceTransactionResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ReplaceTransactionResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TransactionId
+
+	if len(errors) > 0 {
+		return ReplaceTransactionResponseMultiError(errors)
+	}
+	return nil
+}
+
+// ReplaceTransactionResponseMultiError is an error wrapping multiple
+// validation errors returned by ReplaceTransactionResponse.Validate(true) if
+// the designated constraints aren't met.
+type ReplaceTransactionResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ReplaceTransactionResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ReplaceTransactionResponseMultiError) AllErrors() []error { return m }
+
+// ReplaceTransactionResponseValidationError is the validation error returned
+// by ReplaceTransactionResponse.Validate if the designated constraints aren't met.
+type ReplaceTransactionResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ReplaceTransactionResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ReplaceTransactionResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ReplaceTransactionResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ReplaceTransactionResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ReplaceTransactionResponseValidationError) ErrorName() string {
+	return "ReplaceTransactionResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ReplaceTransactionResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sReplaceTransactionResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ReplaceTransactionResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ReplaceTransactionResponseValidationError{}
 
 // Validate checks the field values on GetTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -21375,6 +21879,209 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListCallersResponseValidationError{}
+
+// Validate checks the field values on ListFeeDepositsRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListFeeDepositsRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListFeeDepositsRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return ListFeeDepositsRequestMultiError(errors)
+	}
+	return nil
+}
+
+// ListFeeDepositsRequestMultiError is an error wrapping multiple validation
+// errors returned by ListFeeDepositsRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListFeeDepositsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListFeeDepositsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListFeeDepositsRequestMultiError) AllErrors() []error { return m }
+
+// ListFeeDepositsRequestValidationError is the validation error returned by
+// ListFeeDepositsRequest.Validate if the designated constraints aren't met.
+type ListFeeDepositsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListFeeDepositsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListFeeDepositsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListFeeDepositsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListFeeDepositsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListFeeDepositsRequestValidationError) ErrorName() string {
+	return "ListFeeDepositsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListFeeDepositsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListFeeDepositsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListFeeDepositsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListFeeDepositsRequestValidationError{}
+
+// Validate checks the field values on ListFeeDepositsResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListFeeDepositsResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ListFeeDepositsResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetFeeDepositAddresses() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListFeeDepositsResponseValidationError{
+					field:  fmt.Sprintf("FeeDepositAddresses[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ListFeeDepositsResponseMultiError(errors)
+	}
+	return nil
+}
+
+// ListFeeDepositsResponseMultiError is an error wrapping multiple validation
+// errors returned by ListFeeDepositsResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListFeeDepositsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListFeeDepositsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListFeeDepositsResponseMultiError) AllErrors() []error { return m }
+
+// ListFeeDepositsResponseValidationError is the validation error returned by
+// ListFeeDepositsResponse.Validate if the designated constraints aren't met.
+type ListFeeDepositsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListFeeDepositsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListFeeDepositsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListFeeDepositsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListFeeDepositsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListFeeDepositsResponseValidationError) ErrorName() string {
+	return "ListFeeDepositsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListFeeDepositsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListFeeDepositsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListFeeDepositsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListFeeDepositsResponseValidationError{}
 
 // Validate checks the field values on GetCosmosBalanceRequest with the rules
 // defined in the proto definition for this message. If any rules are

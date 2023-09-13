@@ -397,7 +397,7 @@ class TellerAPIClient extends \Grpc\BaseStub {
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ReplaceTransaction',
         $argument,
-        ['\Google\Protobuf\GPBEmpty', 'decode'],
+        ['\Adamant\Global\V1\ReplaceTransactionResponse', 'decode'],
         $metadata, $options);
     }
 
