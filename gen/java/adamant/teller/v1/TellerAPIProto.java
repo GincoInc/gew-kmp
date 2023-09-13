@@ -89,7 +89,7 @@ public final class TellerAPIProto {
       "[0-9a-f]{3}-[0-9a-f]{12}$R\010walletId\022s\n\016t" +
       "ransaction_id\030\002 \001(\tBL\372BIrG2E^[0-9a-f]{8}" +
       "-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]" +
-      "{3}-[0-9a-f]{12}$R\rtransactionId2\305!\n\tTel" +
+      "{3}-[0-9a-f]{12}$R\rtransactionId2\334!\n\tTel" +
       "lerAPI\022a\n\014CreateWallet\022&.adamant.teller." +
       "v1.CreateWalletRequest\032\'.adamant.global." +
       "v1.CreateWalletResponse\"\000\022M\n\tGetWallet\022#" +
@@ -157,49 +157,50 @@ public final class TellerAPIProto {
       "tionRequest\032*.adamant.global.v1.SendTran" +
       "sactionResponse\"\000\022Z\n\021CancelTransaction\022+" +
       ".adamant.global.v1.CancelTransactionRequ" +
-      "est\032\026.google.protobuf.Empty\"\000\022\\\n\022Replace" +
+      "est\032\026.google.protobuf.Empty\"\000\022s\n\022Replace" +
       "Transaction\022,.adamant.global.v1.ReplaceT" +
-      "ransactionRequest\032\026.google.protobuf.Empt" +
-      "y\"\000\022\\\n\016GetTransaction\022(.adamant.global.v" +
-      "1.GetTransactionRequest\032\036.adamant.global" +
-      ".v1.Transaction\"\000\022h\n\024GetTransactionByTxI" +
-      "D\022..adamant.global.v1.GetTransactionByTx" +
-      "IDRequest\032\036.adamant.global.v1.Transactio" +
-      "n\"\000\022m\n\020ListTransactions\022*.adamant.global" +
-      ".v1.ListTransactionsRequest\032+.adamant.gl" +
-      "obal.v1.ListTransactionsResponse\"\000\022}\n\030Li" +
-      "stTransactionsByFilter\0222.adamant.global." +
-      "v1.ListTransactionsByFilterRequest\032+.ada" +
-      "mant.global.v1.ListTransactionsResponse\"" +
-      "\000\022d\n\rListTransfers\022\'.adamant.global.v1.L" +
-      "istTransfersRequest\032(.adamant.global.v1." +
-      "ListTransfersResponse\"\000\022t\n\025ListTransfers" +
-      "ByFilter\022/.adamant.global.v1.ListTransfe" +
-      "rsByFilterRequest\032(.adamant.global.v1.Li" +
-      "stTransfersResponse\"\000\022_\n\017GetRateSnapshot" +
-      "\022).adamant.global.v1.GetRateSnapshotRequ" +
-      "est\032\037.adamant.global.v1.RateSnapshot\"\000\022k" +
-      "\n\025GetLatestRateSnapshot\022/.adamant.global" +
-      ".v1.GetLatestRateSnapshotRequest\032\037.adama" +
-      "nt.global.v1.RateSnapshot\"\000\022U\n\010SetRates\022" +
-      "\".adamant.global.v1.SetRatesRequest\032#.ad" +
-      "amant.global.v1.SetRatesResponse\"\000\022a\n\014Ca" +
-      "lculateFee\022&.adamant.global.v1.Calculate" +
-      "FeeRequest\032\'.adamant.global.v1.Calculate" +
-      "FeeResponse\"\000\022|\n\025GetRecommendedFeeRate\022/" +
-      ".adamant.global.v1.GetRecommendedFeeRate" +
-      "Request\0320.adamant.global.v1.GetRecommend" +
-      "edFeeRateResponse\"\000\022j\n\017ValidateAddress\022)" +
-      ".adamant.global.v1.ValidateAddressReques" +
-      "t\032*.adamant.global.v1.ValidateAddressRes" +
-      "ponse\"\000\022a\n\014FlushBalance\022&.adamant.global" +
-      ".v1.FlushBalanceRequest\032\'.adamant.global" +
-      ".v1.FlushBalanceResponse\"\000\022d\n\rListAuditL" +
-      "ogs\022\'.adamant.global.v1.ListAuditLogsReq" +
-      "uest\032(.adamant.global.v1.ListAuditLogsRe" +
-      "sponse\"\000B^B\016TellerAPIProtoP\001ZJgithub.com" +
-      "/GincoInc/gew-kmp/gen/gincoinc/adamant/t" +
-      "eller/v1/adamanttellerv1b\006proto3"
+      "ransactionRequest\032-.adamant.global.v1.Re" +
+      "placeTransactionResponse\"\000\022\\\n\016GetTransac" +
+      "tion\022(.adamant.global.v1.GetTransactionR" +
+      "equest\032\036.adamant.global.v1.Transaction\"\000" +
+      "\022h\n\024GetTransactionByTxID\022..adamant.globa" +
+      "l.v1.GetTransactionByTxIDRequest\032\036.adama" +
+      "nt.global.v1.Transaction\"\000\022m\n\020ListTransa" +
+      "ctions\022*.adamant.global.v1.ListTransacti" +
+      "onsRequest\032+.adamant.global.v1.ListTrans" +
+      "actionsResponse\"\000\022}\n\030ListTransactionsByF" +
+      "ilter\0222.adamant.global.v1.ListTransactio" +
+      "nsByFilterRequest\032+.adamant.global.v1.Li" +
+      "stTransactionsResponse\"\000\022d\n\rListTransfer" +
+      "s\022\'.adamant.global.v1.ListTransfersReque" +
+      "st\032(.adamant.global.v1.ListTransfersResp" +
+      "onse\"\000\022t\n\025ListTransfersByFilter\022/.adaman" +
+      "t.global.v1.ListTransfersByFilterRequest" +
+      "\032(.adamant.global.v1.ListTransfersRespon" +
+      "se\"\000\022_\n\017GetRateSnapshot\022).adamant.global" +
+      ".v1.GetRateSnapshotRequest\032\037.adamant.glo" +
+      "bal.v1.RateSnapshot\"\000\022k\n\025GetLatestRateSn" +
+      "apshot\022/.adamant.global.v1.GetLatestRate" +
+      "SnapshotRequest\032\037.adamant.global.v1.Rate" +
+      "Snapshot\"\000\022U\n\010SetRates\022\".adamant.global." +
+      "v1.SetRatesRequest\032#.adamant.global.v1.S" +
+      "etRatesResponse\"\000\022a\n\014CalculateFee\022&.adam" +
+      "ant.global.v1.CalculateFeeRequest\032\'.adam" +
+      "ant.global.v1.CalculateFeeResponse\"\000\022|\n\025" +
+      "GetRecommendedFeeRate\022/.adamant.global.v" +
+      "1.GetRecommendedFeeRateRequest\0320.adamant" +
+      ".global.v1.GetRecommendedFeeRateResponse" +
+      "\"\000\022j\n\017ValidateAddress\022).adamant.global.v" +
+      "1.ValidateAddressRequest\032*.adamant.globa" +
+      "l.v1.ValidateAddressResponse\"\000\022a\n\014FlushB" +
+      "alance\022&.adamant.global.v1.FlushBalanceR" +
+      "equest\032\'.adamant.global.v1.FlushBalanceR" +
+      "esponse\"\000\022d\n\rListAuditLogs\022\'.adamant.glo" +
+      "bal.v1.ListAuditLogsRequest\032(.adamant.gl" +
+      "obal.v1.ListAuditLogsResponse\"\000B^B\016Telle" +
+      "rAPIProtoP\001ZJgithub.com/GincoInc/gew-kmp" +
+      "/gen/gincoinc/adamant/teller/v1/adamantt" +
+      "ellerv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

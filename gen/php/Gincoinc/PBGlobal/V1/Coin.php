@@ -198,6 +198,18 @@ class Coin
      */
     const COIN_KLAYTN_KIP7_MBX = 45;
     /**
+     * Generated from protobuf enum <code>COIN_ETC = 46;</code>
+     */
+    const COIN_ETC = 46;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_DAI = 47;</code>
+     */
+    const COIN_ERC20_DAI = 47;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_WETH = 48;</code>
+     */
+    const COIN_ERC20_WETH = 48;
+    /**
      * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
      */
     const COIN_SDN = 10002;
@@ -249,6 +261,9 @@ class Coin
         self::COIN_XDC => 'COIN_XDC',
         self::COIN_ATOM => 'COIN_ATOM',
         self::COIN_KLAYTN_KIP7_MBX => 'COIN_KLAYTN_KIP7_MBX',
+        self::COIN_ETC => 'COIN_ETC',
+        self::COIN_ERC20_DAI => 'COIN_ERC20_DAI',
+        self::COIN_ERC20_WETH => 'COIN_ERC20_WETH',
         self::COIN_SDN => 'COIN_SDN',
     ];
 

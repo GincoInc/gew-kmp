@@ -186,6 +186,14 @@ class Network
      */
     const NETWORK_COSMOS_TESTNET = 42;
     /**
+     * Generated from protobuf enum <code>NETWORK_ETHEREUM_CLASSIC_MAINNET = 43;</code>
+     */
+    const NETWORK_ETHEREUM_CLASSIC_MAINNET = 43;
+    /**
+     * Generated from protobuf enum <code>NETWORK_ETHEREUM_CLASSIC_TESTNET = 44;</code>
+     */
+    const NETWORK_ETHEREUM_CLASSIC_TESTNET = 44;
+    /**
      * Generated from protobuf enum <code>NETWORK_SHIDEN_MAINNET = 10002;</code>
      */
     const NETWORK_SHIDEN_MAINNET = 10002;
@@ -234,6 +242,8 @@ class Network
         self::NETWORK_XDC_TESTNET => 'NETWORK_XDC_TESTNET',
         self::NETWORK_COSMOS_MAINNET => 'NETWORK_COSMOS_MAINNET',
         self::NETWORK_COSMOS_TESTNET => 'NETWORK_COSMOS_TESTNET',
+        self::NETWORK_ETHEREUM_CLASSIC_MAINNET => 'NETWORK_ETHEREUM_CLASSIC_MAINNET',
+        self::NETWORK_ETHEREUM_CLASSIC_TESTNET => 'NETWORK_ETHEREUM_CLASSIC_TESTNET',
         self::NETWORK_SHIDEN_MAINNET => 'NETWORK_SHIDEN_MAINNET',
     ];
 

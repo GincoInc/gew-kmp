@@ -822,28 +822,28 @@ public final class TellerAPIGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ReplaceTransactionRequest,
-      com.google.protobuf.Empty> getReplaceTransactionMethod;
+      adamant.global.v1.ReplaceTransactionResponse> getReplaceTransactionMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "ReplaceTransaction",
       requestType = adamant.global.v1.ReplaceTransactionRequest.class,
-      responseType = com.google.protobuf.Empty.class,
+      responseType = adamant.global.v1.ReplaceTransactionResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<adamant.global.v1.ReplaceTransactionRequest,
-      com.google.protobuf.Empty> getReplaceTransactionMethod() {
-    io.grpc.MethodDescriptor<adamant.global.v1.ReplaceTransactionRequest, com.google.protobuf.Empty> getReplaceTransactionMethod;
+      adamant.global.v1.ReplaceTransactionResponse> getReplaceTransactionMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ReplaceTransactionRequest, adamant.global.v1.ReplaceTransactionResponse> getReplaceTransactionMethod;
     if ((getReplaceTransactionMethod = TellerAPIGrpc.getReplaceTransactionMethod) == null) {
       synchronized (TellerAPIGrpc.class) {
         if ((getReplaceTransactionMethod = TellerAPIGrpc.getReplaceTransactionMethod) == null) {
           TellerAPIGrpc.getReplaceTransactionMethod = getReplaceTransactionMethod =
-              io.grpc.MethodDescriptor.<adamant.global.v1.ReplaceTransactionRequest, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<adamant.global.v1.ReplaceTransactionRequest, adamant.global.v1.ReplaceTransactionResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ReplaceTransaction"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   adamant.global.v1.ReplaceTransactionRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  adamant.global.v1.ReplaceTransactionResponse.getDefaultInstance()))
               .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ReplaceTransaction"))
               .build();
         }
@@ -1528,7 +1528,7 @@ public final class TellerAPIGrpc {
     /**
      */
     default void replaceTransaction(adamant.global.v1.ReplaceTransactionRequest request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<adamant.global.v1.ReplaceTransactionResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getReplaceTransactionMethod(), responseObserver);
     }
 
@@ -1893,7 +1893,7 @@ public final class TellerAPIGrpc {
     /**
      */
     public void replaceTransaction(adamant.global.v1.ReplaceTransactionRequest request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<adamant.global.v1.ReplaceTransactionResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getReplaceTransactionMethod(), getCallOptions()), request, responseObserver);
     }
@@ -2235,7 +2235,7 @@ public final class TellerAPIGrpc {
 
     /**
      */
-    public com.google.protobuf.Empty replaceTransaction(adamant.global.v1.ReplaceTransactionRequest request) {
+    public adamant.global.v1.ReplaceTransactionResponse replaceTransaction(adamant.global.v1.ReplaceTransactionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getReplaceTransactionMethod(), getCallOptions(), request);
     }
@@ -2589,7 +2589,7 @@ public final class TellerAPIGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> replaceTransaction(
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ReplaceTransactionResponse> replaceTransaction(
         adamant.global.v1.ReplaceTransactionRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getReplaceTransactionMethod(), getCallOptions()), request);
@@ -2888,7 +2888,7 @@ public final class TellerAPIGrpc {
           break;
         case METHODID_REPLACE_TRANSACTION:
           serviceImpl.replaceTransaction((adamant.global.v1.ReplaceTransactionRequest) request,
-              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ReplaceTransactionResponse>) responseObserver);
           break;
         case METHODID_GET_TRANSACTION:
           serviceImpl.getTransaction((adamant.global.v1.GetTransactionRequest) request,
@@ -3151,7 +3151,7 @@ public final class TellerAPIGrpc {
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
               adamant.global.v1.ReplaceTransactionRequest,
-              com.google.protobuf.Empty>(
+              adamant.global.v1.ReplaceTransactionResponse>(
                 service, METHODID_REPLACE_TRANSACTION)))
         .addMethod(
           getGetTransactionMethod(),

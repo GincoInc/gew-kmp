@@ -46,6 +46,8 @@ type GlobalAPIClient interface {
 	UpdateDestinationWalletID(ctx context.Context, in *UpdateDestinationWalletIDRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	GetCosmosBalance(ctx context.Context, in *GetCosmosBalanceRequest, opts ...grpc.CallOption) (*GetCosmosBalanceResponse, error)
 	ListCosmosDelegateHistories(ctx context.Context, in *ListCosmosDelegateHistoriesRequest, opts ...grpc.CallOption) (*ListCosmosDelegateHistoriesResponse, error)
+	EnableUTXO(ctx context.Context, in *EnableUTXORequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DisableUTXO(ctx context.Context, in *DisableUTXORequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Review
 	ApproveWallet(ctx context.Context, in *ApproveWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	ApproveTransaction(ctx context.Context, in *ApproveTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -67,6 +69,7 @@ type GlobalAPIClient interface {
 	ListIOSTChildAccounts(ctx context.Context, in *ListIOSTChildAccountsRequest, opts ...grpc.CallOption) (*ListIOSTChildAccountsResponse, error)
 	ImportAddress(ctx context.Context, in *ImportAddressRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	ListCallers(ctx context.Context, in *ListCallersRequest, opts ...grpc.CallOption) (*ListCallersResponse, error)
+	ListFeeDeposits(ctx context.Context, in *ListFeeDepositsRequest, opts ...grpc.CallOption) (*ListFeeDepositsResponse, error)
 	// RegisterKey
 	RegisterKey(ctx context.Context, in *RegisterKeyRequest, opts ...grpc.CallOption) (*RegisterKeyResponse, error)
 	// Transaction
@@ -77,7 +80,7 @@ type GlobalAPIClient interface {
 	SendTransaction(ctx context.Context, in *SendTransactionRequest, opts ...grpc.CallOption) (*SendTransactionResponse, error)
 	SendXRPInitTransactions(ctx context.Context, in *SendXRPInitTransactionsRequest, opts ...grpc.CallOption) (*SendXRPInitTransactionsResponse, error)
 	CancelTransaction(ctx context.Context, in *CancelTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	ReplaceTransaction(ctx context.Context, in *ReplaceTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	ReplaceTransaction(ctx context.Context, in *ReplaceTransactionRequest, opts ...grpc.CallOption) (*ReplaceTransactionResponse, error)
 	GetTransaction(ctx context.Context, in *GetTransactionRequest, opts ...grpc.CallOption) (*Transaction, error)
 	GetTransactionByTxID(ctx context.Context, in *GetTransactionByTxIDRequest, opts ...grpc.CallOption) (*Transaction, error)
 	ListTransactions(ctx context.Context, in *ListTransactionsRequest, opts ...grpc.CallOption) (*ListTransactionsResponse, error)
@@ -338,6 +341,24 @@ func (c *globalAPIClient) ListCosmosDelegateHistories(ctx context.Context, in *L
 	return out, nil
 }
 
+func (c *globalAPIClient) EnableUTXO(ctx context.Context, in *EnableUTXORequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/EnableUTXO", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) DisableUTXO(ctx context.Context, in *DisableUTXORequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/DisableUTXO", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *globalAPIClient) ApproveWallet(ctx context.Context, in *ApproveWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ApproveWallet", in, out, opts...)
@@ -482,6 +503,15 @@ func (c *globalAPIClient) ListCallers(ctx context.Context, in *ListCallersReques
 	return out, nil
 }
 
+func (c *globalAPIClient) ListFeeDeposits(ctx context.Context, in *ListFeeDepositsRequest, opts ...grpc.CallOption) (*ListFeeDepositsResponse, error) {
+	out := new(ListFeeDepositsResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListFeeDeposits", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *globalAPIClient) RegisterKey(ctx context.Context, in *RegisterKeyRequest, opts ...grpc.CallOption) (*RegisterKeyResponse, error) {
 	out := new(RegisterKeyResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/RegisterKey", in, out, opts...)
@@ -554,8 +584,8 @@ func (c *globalAPIClient) CancelTransaction(ctx context.Context, in *CancelTrans
 	return out, nil
 }
 
-func (c *globalAPIClient) ReplaceTransaction(ctx context.Context, in *ReplaceTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *globalAPIClient) ReplaceTransaction(ctx context.Context, in *ReplaceTransactionRequest, opts ...grpc.CallOption) (*ReplaceTransactionResponse, error) {
+	out := new(ReplaceTransactionResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ReplaceTransaction", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -1040,6 +1070,8 @@ type GlobalAPIServer interface {
 	UpdateDestinationWalletID(context.Context, *UpdateDestinationWalletIDRequest) (*emptypb.Empty, error)
 	GetCosmosBalance(context.Context, *GetCosmosBalanceRequest) (*GetCosmosBalanceResponse, error)
 	ListCosmosDelegateHistories(context.Context, *ListCosmosDelegateHistoriesRequest) (*ListCosmosDelegateHistoriesResponse, error)
+	EnableUTXO(context.Context, *EnableUTXORequest) (*emptypb.Empty, error)
+	DisableUTXO(context.Context, *DisableUTXORequest) (*emptypb.Empty, error)
 	// Review
 	ApproveWallet(context.Context, *ApproveWalletRequest) (*emptypb.Empty, error)
 	ApproveTransaction(context.Context, *ApproveTransactionRequest) (*emptypb.Empty, error)
@@ -1061,6 +1093,7 @@ type GlobalAPIServer interface {
 	ListIOSTChildAccounts(context.Context, *ListIOSTChildAccountsRequest) (*ListIOSTChildAccountsResponse, error)
 	ImportAddress(context.Context, *ImportAddressRequest) (*emptypb.Empty, error)
 	ListCallers(context.Context, *ListCallersRequest) (*ListCallersResponse, error)
+	ListFeeDeposits(context.Context, *ListFeeDepositsRequest) (*ListFeeDepositsResponse, error)
 	// RegisterKey
 	RegisterKey(context.Context, *RegisterKeyRequest) (*RegisterKeyResponse, error)
 	// Transaction
@@ -1071,7 +1104,7 @@ type GlobalAPIServer interface {
 	SendTransaction(context.Context, *SendTransactionRequest) (*SendTransactionResponse, error)
 	SendXRPInitTransactions(context.Context, *SendXRPInitTransactionsRequest) (*SendXRPInitTransactionsResponse, error)
 	CancelTransaction(context.Context, *CancelTransactionRequest) (*emptypb.Empty, error)
-	ReplaceTransaction(context.Context, *ReplaceTransactionRequest) (*emptypb.Empty, error)
+	ReplaceTransaction(context.Context, *ReplaceTransactionRequest) (*ReplaceTransactionResponse, error)
 	GetTransaction(context.Context, *GetTransactionRequest) (*Transaction, error)
 	GetTransactionByTxID(context.Context, *GetTransactionByTxIDRequest) (*Transaction, error)
 	ListTransactions(context.Context, *ListTransactionsRequest) (*ListTransactionsResponse, error)
@@ -1202,6 +1235,12 @@ func (UnimplementedGlobalAPIServer) GetCosmosBalance(context.Context, *GetCosmos
 func (UnimplementedGlobalAPIServer) ListCosmosDelegateHistories(context.Context, *ListCosmosDelegateHistoriesRequest) (*ListCosmosDelegateHistoriesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListCosmosDelegateHistories not implemented")
 }
+func (UnimplementedGlobalAPIServer) EnableUTXO(context.Context, *EnableUTXORequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EnableUTXO not implemented")
+}
+func (UnimplementedGlobalAPIServer) DisableUTXO(context.Context, *DisableUTXORequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DisableUTXO not implemented")
+}
 func (UnimplementedGlobalAPIServer) ApproveWallet(context.Context, *ApproveWalletRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ApproveWallet not implemented")
 }
@@ -1250,6 +1289,9 @@ func (UnimplementedGlobalAPIServer) ImportAddress(context.Context, *ImportAddres
 func (UnimplementedGlobalAPIServer) ListCallers(context.Context, *ListCallersRequest) (*ListCallersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListCallers not implemented")
 }
+func (UnimplementedGlobalAPIServer) ListFeeDeposits(context.Context, *ListFeeDepositsRequest) (*ListFeeDepositsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListFeeDeposits not implemented")
+}
 func (UnimplementedGlobalAPIServer) RegisterKey(context.Context, *RegisterKeyRequest) (*RegisterKeyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterKey not implemented")
 }
@@ -1274,7 +1316,7 @@ func (UnimplementedGlobalAPIServer) SendXRPInitTransactions(context.Context, *Se
 func (UnimplementedGlobalAPIServer) CancelTransaction(context.Context, *CancelTransactionRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CancelTransaction not implemented")
 }
-func (UnimplementedGlobalAPIServer) ReplaceTransaction(context.Context, *ReplaceTransactionRequest) (*emptypb.Empty, error) {
+func (UnimplementedGlobalAPIServer) ReplaceTransaction(context.Context, *ReplaceTransactionRequest) (*ReplaceTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReplaceTransaction not implemented")
 }
 func (UnimplementedGlobalAPIServer) GetTransaction(context.Context, *GetTransactionRequest) (*Transaction, error) {
@@ -1817,6 +1859,42 @@ func _GlobalAPI_ListCosmosDelegateHistories_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GlobalAPI_EnableUTXO_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnableUTXORequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).EnableUTXO(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/EnableUTXO",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).EnableUTXO(ctx, req.(*EnableUTXORequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_DisableUTXO_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisableUTXORequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).DisableUTXO(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/DisableUTXO",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).DisableUTXO(ctx, req.(*DisableUTXORequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GlobalAPI_ApproveWallet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ApproveWalletRequest)
 	if err := dec(in); err != nil {
@@ -2101,6 +2179,24 @@ func _GlobalAPI_ListCallers_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GlobalAPIServer).ListCallers(ctx, req.(*ListCallersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_ListFeeDeposits_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListFeeDepositsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ListFeeDeposits(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ListFeeDeposits",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ListFeeDeposits(ctx, req.(*ListFeeDepositsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3259,6 +3355,14 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _GlobalAPI_ListCosmosDelegateHistories_Handler,
 		},
 		{
+			MethodName: "EnableUTXO",
+			Handler:    _GlobalAPI_EnableUTXO_Handler,
+		},
+		{
+			MethodName: "DisableUTXO",
+			Handler:    _GlobalAPI_DisableUTXO_Handler,
+		},
+		{
 			MethodName: "ApproveWallet",
 			Handler:    _GlobalAPI_ApproveWallet_Handler,
 		},
@@ -3321,6 +3425,10 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListCallers",
 			Handler:    _GlobalAPI_ListCallers_Handler,
+		},
+		{
+			MethodName: "ListFeeDeposits",
+			Handler:    _GlobalAPI_ListFeeDeposits_Handler,
 		},
 		{
 			MethodName: "RegisterKey",
