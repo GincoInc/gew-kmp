@@ -105,6 +105,7 @@ type GlobalAPIClient interface {
 	CreateLabeledAddress(ctx context.Context, in *CreateLabeledAddressRequest, opts ...grpc.CallOption) (*CreateLabeledAddressResponse, error)
 	GetLabeledAddress(ctx context.Context, in *GetLabeledAddressRequest, opts ...grpc.CallOption) (*LabeledAddress, error)
 	ListLabeledAddresses(ctx context.Context, in *ListLabeledAddressesRequest, opts ...grpc.CallOption) (*ListLabeledAddressesResponse, error)
+	ListLabeledAddressesByFilter(ctx context.Context, in *ListLabeledAddressesByFilterRequest, opts ...grpc.CallOption) (*ListLabeledAddressesByFilterResponse, error)
 	IsDeletableLabeledAddress(ctx context.Context, in *IsDeletableLabeledAddressRequest, opts ...grpc.CallOption) (*IsDeletableLabeledAddressResponse, error)
 	UpdateLabeledAddress(ctx context.Context, in *UpdateLabeledAddressRequest, opts ...grpc.CallOption) (*LabeledAddress, error)
 	// buf:lint:ignore RPC_REQUEST_STANDARD_NAME
@@ -128,6 +129,7 @@ type GlobalAPIClient interface {
 	CreatePolicy(ctx context.Context, in *CreatePolicyRequest, opts ...grpc.CallOption) (*CreatePolicyResponse, error)
 	GetPolicy(ctx context.Context, in *GetPolicyRequest, opts ...grpc.CallOption) (*Policy, error)
 	ListPolicies(ctx context.Context, in *ListPoliciesRequest, opts ...grpc.CallOption) (*ListPoliciesResponse, error)
+	ListPoliciesByFilter(ctx context.Context, in *ListPoliciesByFilterRequest, opts ...grpc.CallOption) (*ListPoliciesByFilterResponse, error)
 	IsDeletablePolicy(ctx context.Context, in *IsDeletablePolicyRequest, opts ...grpc.CallOption) (*IsDeletablePolicyResponse, error)
 	UpdatePolicy(ctx context.Context, in *UpdatePolicyRequest, opts ...grpc.CallOption) (*Policy, error)
 	DeletePolicy(ctx context.Context, in *DeletePolicyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -737,6 +739,15 @@ func (c *globalAPIClient) ListLabeledAddresses(ctx context.Context, in *ListLabe
 	return out, nil
 }
 
+func (c *globalAPIClient) ListLabeledAddressesByFilter(ctx context.Context, in *ListLabeledAddressesByFilterRequest, opts ...grpc.CallOption) (*ListLabeledAddressesByFilterResponse, error) {
+	out := new(ListLabeledAddressesByFilterResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListLabeledAddressesByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *globalAPIClient) IsDeletableLabeledAddress(ctx context.Context, in *IsDeletableLabeledAddressRequest, opts ...grpc.CallOption) (*IsDeletableLabeledAddressResponse, error) {
 	out := new(IsDeletableLabeledAddressResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/IsDeletableLabeledAddress", in, out, opts...)
@@ -929,6 +940,15 @@ func (c *globalAPIClient) GetPolicy(ctx context.Context, in *GetPolicyRequest, o
 func (c *globalAPIClient) ListPolicies(ctx context.Context, in *ListPoliciesRequest, opts ...grpc.CallOption) (*ListPoliciesResponse, error) {
 	out := new(ListPoliciesResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListPolicies", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) ListPoliciesByFilter(ctx context.Context, in *ListPoliciesByFilterRequest, opts ...grpc.CallOption) (*ListPoliciesByFilterResponse, error) {
+	out := new(ListPoliciesByFilterResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListPoliciesByFilter", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1129,6 +1149,7 @@ type GlobalAPIServer interface {
 	CreateLabeledAddress(context.Context, *CreateLabeledAddressRequest) (*CreateLabeledAddressResponse, error)
 	GetLabeledAddress(context.Context, *GetLabeledAddressRequest) (*LabeledAddress, error)
 	ListLabeledAddresses(context.Context, *ListLabeledAddressesRequest) (*ListLabeledAddressesResponse, error)
+	ListLabeledAddressesByFilter(context.Context, *ListLabeledAddressesByFilterRequest) (*ListLabeledAddressesByFilterResponse, error)
 	IsDeletableLabeledAddress(context.Context, *IsDeletableLabeledAddressRequest) (*IsDeletableLabeledAddressResponse, error)
 	UpdateLabeledAddress(context.Context, *UpdateLabeledAddressRequest) (*LabeledAddress, error)
 	// buf:lint:ignore RPC_REQUEST_STANDARD_NAME
@@ -1152,6 +1173,7 @@ type GlobalAPIServer interface {
 	CreatePolicy(context.Context, *CreatePolicyRequest) (*CreatePolicyResponse, error)
 	GetPolicy(context.Context, *GetPolicyRequest) (*Policy, error)
 	ListPolicies(context.Context, *ListPoliciesRequest) (*ListPoliciesResponse, error)
+	ListPoliciesByFilter(context.Context, *ListPoliciesByFilterRequest) (*ListPoliciesByFilterResponse, error)
 	IsDeletablePolicy(context.Context, *IsDeletablePolicyRequest) (*IsDeletablePolicyResponse, error)
 	UpdatePolicy(context.Context, *UpdatePolicyRequest) (*Policy, error)
 	DeletePolicy(context.Context, *DeletePolicyRequest) (*emptypb.Empty, error)
@@ -1367,6 +1389,9 @@ func (UnimplementedGlobalAPIServer) GetLabeledAddress(context.Context, *GetLabel
 func (UnimplementedGlobalAPIServer) ListLabeledAddresses(context.Context, *ListLabeledAddressesRequest) (*ListLabeledAddressesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListLabeledAddresses not implemented")
 }
+func (UnimplementedGlobalAPIServer) ListLabeledAddressesByFilter(context.Context, *ListLabeledAddressesByFilterRequest) (*ListLabeledAddressesByFilterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListLabeledAddressesByFilter not implemented")
+}
 func (UnimplementedGlobalAPIServer) IsDeletableLabeledAddress(context.Context, *IsDeletableLabeledAddressRequest) (*IsDeletableLabeledAddressResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method IsDeletableLabeledAddress not implemented")
 }
@@ -1432,6 +1457,9 @@ func (UnimplementedGlobalAPIServer) GetPolicy(context.Context, *GetPolicyRequest
 }
 func (UnimplementedGlobalAPIServer) ListPolicies(context.Context, *ListPoliciesRequest) (*ListPoliciesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListPolicies not implemented")
+}
+func (UnimplementedGlobalAPIServer) ListPoliciesByFilter(context.Context, *ListPoliciesByFilterRequest) (*ListPoliciesByFilterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListPoliciesByFilter not implemented")
 }
 func (UnimplementedGlobalAPIServer) IsDeletablePolicy(context.Context, *IsDeletablePolicyRequest) (*IsDeletablePolicyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method IsDeletablePolicy not implemented")
@@ -2651,6 +2679,24 @@ func _GlobalAPI_ListLabeledAddresses_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GlobalAPI_ListLabeledAddressesByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListLabeledAddressesByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ListLabeledAddressesByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ListLabeledAddressesByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ListLabeledAddressesByFilter(ctx, req.(*ListLabeledAddressesByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GlobalAPI_IsDeletableLabeledAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsDeletableLabeledAddressRequest)
 	if err := dec(in); err != nil {
@@ -3043,6 +3089,24 @@ func _GlobalAPI_ListPolicies_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GlobalAPIServer).ListPolicies(ctx, req.(*ListPoliciesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_ListPoliciesByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListPoliciesByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ListPoliciesByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ListPoliciesByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ListPoliciesByFilter(ctx, req.(*ListPoliciesByFilterRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3531,6 +3595,10 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _GlobalAPI_ListLabeledAddresses_Handler,
 		},
 		{
+			MethodName: "ListLabeledAddressesByFilter",
+			Handler:    _GlobalAPI_ListLabeledAddressesByFilter_Handler,
+		},
+		{
 			MethodName: "IsDeletableLabeledAddress",
 			Handler:    _GlobalAPI_IsDeletableLabeledAddress_Handler,
 		},
@@ -3617,6 +3685,10 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListPolicies",
 			Handler:    _GlobalAPI_ListPolicies_Handler,
+		},
+		{
+			MethodName: "ListPoliciesByFilter",
+			Handler:    _GlobalAPI_ListPoliciesByFilter_Handler,
 		},
 		{
 			MethodName: "IsDeletablePolicy",

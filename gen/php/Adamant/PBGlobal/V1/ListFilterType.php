@@ -55,6 +55,26 @@ class ListFilterType
      * Generated from protobuf enum <code>LIST_FILTER_TYPE_WALLET_ID_CREATE_TIME = 10;</code>
      */
     const LIST_FILTER_TYPE_WALLET_ID_CREATE_TIME = 10;
+    /**
+     * Generated from protobuf enum <code>LIST_FILTER_TYPE_POLICY_ID = 11;</code>
+     */
+    const LIST_FILTER_TYPE_POLICY_ID = 11;
+    /**
+     * Generated from protobuf enum <code>LIST_FILTER_TYPE_POLICY_NAME = 12;</code>
+     */
+    const LIST_FILTER_TYPE_POLICY_NAME = 12;
+    /**
+     * Generated from protobuf enum <code>LIST_FILTER_TYPE_ADDRESS_ID = 13;</code>
+     */
+    const LIST_FILTER_TYPE_ADDRESS_ID = 13;
+    /**
+     * Generated from protobuf enum <code>LIST_FILTER_TYPE_TRANSFER_LIMIT_ID = 16;</code>
+     */
+    const LIST_FILTER_TYPE_TRANSFER_LIMIT_ID = 16;
+    /**
+     * Generated from protobuf enum <code>LIST_FILTER_TYPE_TRANSFER_LIMIT_NAME = 17;</code>
+     */
+    const LIST_FILTER_TYPE_TRANSFER_LIMIT_NAME = 17;
 
     private static $valueToName = [
         self::LIST_FILTER_TYPE_INVALID => 'LIST_FILTER_TYPE_INVALID',
@@ -68,6 +88,11 @@ class ListFilterType
         self::LIST_FILTER_TYPE_TXID => 'LIST_FILTER_TYPE_TXID',
         self::LIST_FILTER_TYPE_OWNER_ID => 'LIST_FILTER_TYPE_OWNER_ID',
         self::LIST_FILTER_TYPE_WALLET_ID_CREATE_TIME => 'LIST_FILTER_TYPE_WALLET_ID_CREATE_TIME',
+        self::LIST_FILTER_TYPE_POLICY_ID => 'LIST_FILTER_TYPE_POLICY_ID',
+        self::LIST_FILTER_TYPE_POLICY_NAME => 'LIST_FILTER_TYPE_POLICY_NAME',
+        self::LIST_FILTER_TYPE_ADDRESS_ID => 'LIST_FILTER_TYPE_ADDRESS_ID',
+        self::LIST_FILTER_TYPE_TRANSFER_LIMIT_ID => 'LIST_FILTER_TYPE_TRANSFER_LIMIT_ID',
+        self::LIST_FILTER_TYPE_TRANSFER_LIMIT_NAME => 'LIST_FILTER_TYPE_TRANSFER_LIMIT_NAME',
     ];
 
     public static function name($value)

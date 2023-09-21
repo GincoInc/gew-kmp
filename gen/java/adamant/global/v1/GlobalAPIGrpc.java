@@ -2030,6 +2030,37 @@ public final class GlobalAPIGrpc {
     return getListLabeledAddressesMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListLabeledAddressesByFilterRequest,
+      adamant.global.v1.ListLabeledAddressesByFilterResponse> getListLabeledAddressesByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListLabeledAddressesByFilter",
+      requestType = adamant.global.v1.ListLabeledAddressesByFilterRequest.class,
+      responseType = adamant.global.v1.ListLabeledAddressesByFilterResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListLabeledAddressesByFilterRequest,
+      adamant.global.v1.ListLabeledAddressesByFilterResponse> getListLabeledAddressesByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListLabeledAddressesByFilterRequest, adamant.global.v1.ListLabeledAddressesByFilterResponse> getListLabeledAddressesByFilterMethod;
+    if ((getListLabeledAddressesByFilterMethod = GlobalAPIGrpc.getListLabeledAddressesByFilterMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getListLabeledAddressesByFilterMethod = GlobalAPIGrpc.getListLabeledAddressesByFilterMethod) == null) {
+          GlobalAPIGrpc.getListLabeledAddressesByFilterMethod = getListLabeledAddressesByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListLabeledAddressesByFilterRequest, adamant.global.v1.ListLabeledAddressesByFilterResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListLabeledAddressesByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListLabeledAddressesByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListLabeledAddressesByFilterResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ListLabeledAddressesByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListLabeledAddressesByFilterMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.IsDeletableLabeledAddressRequest,
       adamant.global.v1.IsDeletableLabeledAddressResponse> getIsDeletableLabeledAddressMethod;
 
@@ -2710,6 +2741,37 @@ public final class GlobalAPIGrpc {
       }
     }
     return getListPoliciesMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListPoliciesByFilterRequest,
+      adamant.global.v1.ListPoliciesByFilterResponse> getListPoliciesByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListPoliciesByFilter",
+      requestType = adamant.global.v1.ListPoliciesByFilterRequest.class,
+      responseType = adamant.global.v1.ListPoliciesByFilterResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListPoliciesByFilterRequest,
+      adamant.global.v1.ListPoliciesByFilterResponse> getListPoliciesByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListPoliciesByFilterRequest, adamant.global.v1.ListPoliciesByFilterResponse> getListPoliciesByFilterMethod;
+    if ((getListPoliciesByFilterMethod = GlobalAPIGrpc.getListPoliciesByFilterMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getListPoliciesByFilterMethod = GlobalAPIGrpc.getListPoliciesByFilterMethod) == null) {
+          GlobalAPIGrpc.getListPoliciesByFilterMethod = getListPoliciesByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListPoliciesByFilterRequest, adamant.global.v1.ListPoliciesByFilterResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListPoliciesByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListPoliciesByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListPoliciesByFilterResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ListPoliciesByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListPoliciesByFilterMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.IsDeletablePolicyRequest,
@@ -3634,6 +3696,13 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    default void listLabeledAddressesByFilter(adamant.global.v1.ListLabeledAddressesByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListLabeledAddressesByFilterResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListLabeledAddressesByFilterMethod(), responseObserver);
+    }
+
+    /**
+     */
     default void isDeletableLabeledAddress(adamant.global.v1.IsDeletableLabeledAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.IsDeletableLabeledAddressResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getIsDeletableLabeledAddressMethod(), responseObserver);
@@ -3787,6 +3856,13 @@ public final class GlobalAPIGrpc {
     default void listPolicies(adamant.global.v1.ListPoliciesRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListPoliciesResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListPoliciesMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void listPoliciesByFilter(adamant.global.v1.ListPoliciesByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListPoliciesByFilterResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListPoliciesByFilterMethod(), responseObserver);
     }
 
     /**
@@ -4474,6 +4550,14 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    public void listLabeledAddressesByFilter(adamant.global.v1.ListLabeledAddressesByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListLabeledAddressesByFilterResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListLabeledAddressesByFilterMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void isDeletableLabeledAddress(adamant.global.v1.IsDeletableLabeledAddressRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.IsDeletableLabeledAddressResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -4649,6 +4733,14 @@ public final class GlobalAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.ListPoliciesResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListPoliciesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listPoliciesByFilter(adamant.global.v1.ListPoliciesByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListPoliciesByFilterResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListPoliciesByFilterMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -5272,6 +5364,13 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    public adamant.global.v1.ListLabeledAddressesByFilterResponse listLabeledAddressesByFilter(adamant.global.v1.ListLabeledAddressesByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListLabeledAddressesByFilterMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public adamant.global.v1.IsDeletableLabeledAddressResponse isDeletableLabeledAddress(adamant.global.v1.IsDeletableLabeledAddressRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getIsDeletableLabeledAddressMethod(), getCallOptions(), request);
@@ -5425,6 +5524,13 @@ public final class GlobalAPIGrpc {
     public adamant.global.v1.ListPoliciesResponse listPolicies(adamant.global.v1.ListPoliciesRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListPoliciesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.ListPoliciesByFilterResponse listPoliciesByFilter(adamant.global.v1.ListPoliciesByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListPoliciesByFilterMethod(), getCallOptions(), request);
     }
 
     /**
@@ -6101,6 +6207,14 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListLabeledAddressesByFilterResponse> listLabeledAddressesByFilter(
+        adamant.global.v1.ListLabeledAddressesByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListLabeledAddressesByFilterMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.IsDeletableLabeledAddressResponse> isDeletableLabeledAddress(
         adamant.global.v1.IsDeletableLabeledAddressRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -6280,6 +6394,14 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListPoliciesByFilterResponse> listPoliciesByFilter(
+        adamant.global.v1.ListPoliciesByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListPoliciesByFilterMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.IsDeletablePolicyResponse> isDeletablePolicy(
         adamant.global.v1.IsDeletablePolicyRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -6446,40 +6568,42 @@ public final class GlobalAPIGrpc {
   private static final int METHODID_CREATE_LABELED_ADDRESS = 62;
   private static final int METHODID_GET_LABELED_ADDRESS = 63;
   private static final int METHODID_LIST_LABELED_ADDRESSES = 64;
-  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 65;
-  private static final int METHODID_UPDATE_LABELED_ADDRESS = 66;
-  private static final int METHODID_DELETE_ADDRESS = 67;
-  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 68;
-  private static final int METHODID_CREATE_WHITELIST = 69;
-  private static final int METHODID_GET_WHITELIST = 70;
-  private static final int METHODID_LIST_WHITELISTS = 71;
-  private static final int METHODID_IS_DELETABLE_WHITELIST = 72;
-  private static final int METHODID_UPDATE_WHITELIST = 73;
-  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 74;
-  private static final int METHODID_DELETE_WHITELIST = 75;
-  private static final int METHODID_CREATE_TRANSFER_LIMIT = 76;
-  private static final int METHODID_GET_TRANSFER_LIMIT = 77;
-  private static final int METHODID_LIST_TRANSFER_LIMITS = 78;
-  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 79;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 80;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 81;
-  private static final int METHODID_DELETE_TRANSFER_LIMIT = 82;
-  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 83;
-  private static final int METHODID_CREATE_POLICY = 84;
-  private static final int METHODID_GET_POLICY = 85;
-  private static final int METHODID_LIST_POLICIES = 86;
-  private static final int METHODID_IS_DELETABLE_POLICY = 87;
-  private static final int METHODID_UPDATE_POLICY = 88;
-  private static final int METHODID_DELETE_POLICY = 89;
-  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 90;
-  private static final int METHODID_GET_SPENDABLE_BALANCE = 91;
-  private static final int METHODID_GET_TOTAL_BALANCE = 92;
-  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 93;
-  private static final int METHODID_CALCULATE_FEE = 94;
-  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 95;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 96;
-  private static final int METHODID_VALIDATE_ADDRESS = 97;
-  private static final int METHODID_LIST_AUDIT_LOGS = 98;
+  private static final int METHODID_LIST_LABELED_ADDRESSES_BY_FILTER = 65;
+  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 66;
+  private static final int METHODID_UPDATE_LABELED_ADDRESS = 67;
+  private static final int METHODID_DELETE_ADDRESS = 68;
+  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 69;
+  private static final int METHODID_CREATE_WHITELIST = 70;
+  private static final int METHODID_GET_WHITELIST = 71;
+  private static final int METHODID_LIST_WHITELISTS = 72;
+  private static final int METHODID_IS_DELETABLE_WHITELIST = 73;
+  private static final int METHODID_UPDATE_WHITELIST = 74;
+  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 75;
+  private static final int METHODID_DELETE_WHITELIST = 76;
+  private static final int METHODID_CREATE_TRANSFER_LIMIT = 77;
+  private static final int METHODID_GET_TRANSFER_LIMIT = 78;
+  private static final int METHODID_LIST_TRANSFER_LIMITS = 79;
+  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 80;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 81;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 82;
+  private static final int METHODID_DELETE_TRANSFER_LIMIT = 83;
+  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 84;
+  private static final int METHODID_CREATE_POLICY = 85;
+  private static final int METHODID_GET_POLICY = 86;
+  private static final int METHODID_LIST_POLICIES = 87;
+  private static final int METHODID_LIST_POLICIES_BY_FILTER = 88;
+  private static final int METHODID_IS_DELETABLE_POLICY = 89;
+  private static final int METHODID_UPDATE_POLICY = 90;
+  private static final int METHODID_DELETE_POLICY = 91;
+  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 92;
+  private static final int METHODID_GET_SPENDABLE_BALANCE = 93;
+  private static final int METHODID_GET_TOTAL_BALANCE = 94;
+  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 95;
+  private static final int METHODID_CALCULATE_FEE = 96;
+  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 97;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 98;
+  private static final int METHODID_VALIDATE_ADDRESS = 99;
+  private static final int METHODID_LIST_AUDIT_LOGS = 100;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -6758,6 +6882,10 @@ public final class GlobalAPIGrpc {
           serviceImpl.listLabeledAddresses((adamant.global.v1.ListLabeledAddressesRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListLabeledAddressesResponse>) responseObserver);
           break;
+        case METHODID_LIST_LABELED_ADDRESSES_BY_FILTER:
+          serviceImpl.listLabeledAddressesByFilter((adamant.global.v1.ListLabeledAddressesByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListLabeledAddressesByFilterResponse>) responseObserver);
+          break;
         case METHODID_IS_DELETABLE_LABELED_ADDRESS:
           serviceImpl.isDeletableLabeledAddress((adamant.global.v1.IsDeletableLabeledAddressRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.IsDeletableLabeledAddressResponse>) responseObserver);
@@ -6845,6 +6973,10 @@ public final class GlobalAPIGrpc {
         case METHODID_LIST_POLICIES:
           serviceImpl.listPolicies((adamant.global.v1.ListPoliciesRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListPoliciesResponse>) responseObserver);
+          break;
+        case METHODID_LIST_POLICIES_BY_FILTER:
+          serviceImpl.listPoliciesByFilter((adamant.global.v1.ListPoliciesByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListPoliciesByFilterResponse>) responseObserver);
           break;
         case METHODID_IS_DELETABLE_POLICY:
           serviceImpl.isDeletablePolicy((adamant.global.v1.IsDeletablePolicyRequest) request,
@@ -7368,6 +7500,13 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.ListLabeledAddressesResponse>(
                 service, METHODID_LIST_LABELED_ADDRESSES)))
         .addMethod(
+          getListLabeledAddressesByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListLabeledAddressesByFilterRequest,
+              adamant.global.v1.ListLabeledAddressesByFilterResponse>(
+                service, METHODID_LIST_LABELED_ADDRESSES_BY_FILTER)))
+        .addMethod(
           getIsDeletableLabeledAddressMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
@@ -7521,6 +7660,13 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.ListPoliciesRequest,
               adamant.global.v1.ListPoliciesResponse>(
                 service, METHODID_LIST_POLICIES)))
+        .addMethod(
+          getListPoliciesByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListPoliciesByFilterRequest,
+              adamant.global.v1.ListPoliciesByFilterResponse>(
+                service, METHODID_LIST_POLICIES_BY_FILTER)))
         .addMethod(
           getIsDeletablePolicyMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -7718,6 +7864,7 @@ public final class GlobalAPIGrpc {
               .addMethod(getCreateLabeledAddressMethod())
               .addMethod(getGetLabeledAddressMethod())
               .addMethod(getListLabeledAddressesMethod())
+              .addMethod(getListLabeledAddressesByFilterMethod())
               .addMethod(getIsDeletableLabeledAddressMethod())
               .addMethod(getUpdateLabeledAddressMethod())
               .addMethod(getDeleteAddressMethod())
@@ -7740,6 +7887,7 @@ public final class GlobalAPIGrpc {
               .addMethod(getCreatePolicyMethod())
               .addMethod(getGetPolicyMethod())
               .addMethod(getListPoliciesMethod())
+              .addMethod(getListPoliciesByFilterMethod())
               .addMethod(getIsDeletablePolicyMethod())
               .addMethod(getUpdatePolicyMethod())
               .addMethod(getDeletePolicyMethod())
