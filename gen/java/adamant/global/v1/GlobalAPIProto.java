@@ -725,6 +725,16 @@ public final class GlobalAPIProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_global_v1_ListLabeledAddressesResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_ListLabeledAddressesByFilterRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_ListLabeledAddressesByFilterRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_ListLabeledAddressesByFilterResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_ListLabeledAddressesByFilterResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_global_v1_DeleteLabeledAddressRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -800,6 +810,16 @@ public final class GlobalAPIProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_global_v1_ListTransferLimitsResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_ListTransferLimitsByFilterRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_ListTransferLimitsByFilterRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_ListTransferLimitsByFilterResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_ListTransferLimitsByFilterResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_global_v1_UpdateTransferLimitRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -834,6 +854,11 @@ public final class GlobalAPIProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_global_v1_GetPolicyRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_ListPoliciesByFilterRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_ListPoliciesByFilterRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_global_v1_ListPoliciesRequest_descriptor;
   static final 
@@ -884,6 +909,11 @@ public final class GlobalAPIProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_global_v1_ListPoliciesResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_global_v1_ListPoliciesByFilterResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_global_v1_ListPoliciesByFilterResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_global_v1_UpdatePolicyRequest_descriptor;
   static final 
@@ -1658,365 +1688,416 @@ public final class GlobalAPIProto {
       "sId\"\035\n\033ListLabeledAddressesRequest\"_\n\034Li" +
       "stLabeledAddressesResponse\022?\n\taddresses\030" +
       "\001 \003(\0132!.adamant.global.v1.LabeledAddress" +
-      "R\taddresses\"\231\001\n\033DeleteLabeledAddressRequ" +
-      "est\022z\n\022labeled_address_id\030\001 \001(\tBL\372BIrG2E" +
-      "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[8" +
-      "9ab][0-9a-f]{3}-[0-9a-f]{12}$R\020labeledAd" +
-      "dressId\"\273\001\n#ReviewLabeledAddressProposal" +
-      "Request\022z\n\022labeled_address_id\030\001 \001(\tBL\372BI" +
-      "rG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3" +
-      "}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\020label" +
-      "edAddressId\022\030\n\007approve\030\002 \001(\010R\007approve\"\234\001" +
-      "\n\026CreateWhitelistRequest\022\035\n\004name\030\001 \001(\tB\t" +
-      "\372B\006r\004\020\001\030(R\004name\0228\n\004coin\030\002 \001(\0162\030.gincoinc" +
-      ".global.v1.CoinB\n\372B\007\202\001\004\020\001 \000R\004coin\022)\n\013add" +
-      "ress_ids\030\003 \003(\tB\010\372B\005\222\001\002\030\001R\naddressIds\"<\n\027" +
-      "CreateWhitelistResponse\022!\n\014whitelist_id\030" +
-      "\001 \001(\tR\013whitelistId\"\206\001\n\023GetWhitelistReque" +
-      "st\022o\n\014whitelist_id\030\001 \001(\tBL\372BIrG2E^[0-9a-" +
-      "f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-" +
-      "9a-f]{3}-[0-9a-f]{12}$R\013whitelistId\"\027\n\025L" +
-      "istWhitelistsRequest\"V\n\026ListWhitelistsRe" +
-      "sponse\022<\n\nwhitelists\030\001 \003(\0132\034.adamant.glo" +
-      "bal.v1.WhitelistR\nwhitelists\"\215\002\n\026UpdateW" +
-      "hitelistRequest\022o\n\014whitelist_id\030\001 \001(\tBL\372" +
-      "BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]" +
-      "{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\013whi" +
-      "telistId\022\035\n\004name\030\002 \001(\tB\t\372B\006r\004\020\001\030(R\004name\022" +
-      "8\n\004coin\030\003 \001(\0162\030.gincoinc.global.v1.CoinB" +
-      "\n\372B\007\202\001\004\020\001 \000R\004coin\022)\n\013address_ids\030\004 \003(\tB\010" +
-      "\372B\005\222\001\002\030\001R\naddressIds\"\275\001\n\037UpdateWhitelist" +
-      "AddressesRequest\022o\n\014whitelist_id\030\001 \001(\tBL" +
-      "\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f" +
-      "]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\013wh" +
-      "itelistId\022)\n\013address_ids\030\002 \003(\tB\010\372B\005\222\001\002\030\001" +
-      "R\naddressIds\"\211\001\n\026DeleteWhitelistRequest\022" +
+      "R\taddresses\"\332\003\n#ListLabeledAddressesByFi" +
+      "lterRequest\022L\n\013filter_type\030\001 \001(\0162!.adama" +
+      "nt.global.v1.ListFilterTypeB\010\372B\005\202\001\002\020\001R\nf" +
+      "ilterType\022n\n\naddress_id\030\002 \001(\tBO\372BLrJ2H^$" +
+      "|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[" +
+      "89ab][0-9a-f]{3}-[0-9a-f]{12}$R\taddressI" +
+      "d\022\030\n\007address\030\003 \001(\tR\007address\022*\n\014address_n" +
+      "ame\030\004 \001(\tB\007\372B\004r\002\030(R\013addressName\0226\n\004coin\030" +
+      "\005 \001(\0162\030.gincoinc.global.v1.CoinB\010\372B\005\202\001\002\020" +
+      "\001R\004coin\022$\n\tpage_size\030\006 \001(\rB\007\372B\004*\002\030dR\010pag" +
+      "eSize\022Q\n\npage_token\030\007 \001(\tB2\372B/r-2+^$|^[A" +
+      "BCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$R\tp" +
+      "ageToken\"\217\001\n$ListLabeledAddressesByFilte" +
+      "rResponse\022?\n\taddresses\030\001 \003(\0132!.adamant.g" +
+      "lobal.v1.LabeledAddressR\taddresses\022&\n\017ne" +
+      "xt_page_token\030\002 \001(\tR\rnextPageToken\"\231\001\n\033D" +
+      "eleteLabeledAddressRequest\022z\n\022labeled_ad" +
+      "dress_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9" +
+      "a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[" +
+      "0-9a-f]{12}$R\020labeledAddressId\"\273\001\n#Revie" +
+      "wLabeledAddressProposalRequest\022z\n\022labele" +
+      "d_address_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-" +
+      "[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{" +
+      "3}-[0-9a-f]{12}$R\020labeledAddressId\022\030\n\007ap" +
+      "prove\030\002 \001(\010R\007approve\"\234\001\n\026CreateWhitelist" +
+      "Request\022\035\n\004name\030\001 \001(\tB\t\372B\006r\004\020\001\030(R\004name\0228" +
+      "\n\004coin\030\002 \001(\0162\030.gincoinc.global.v1.CoinB\n" +
+      "\372B\007\202\001\004\020\001 \000R\004coin\022)\n\013address_ids\030\003 \003(\tB\010\372" +
+      "B\005\222\001\002\030\001R\naddressIds\"<\n\027CreateWhitelistRe" +
+      "sponse\022!\n\014whitelist_id\030\001 \001(\tR\013whitelistI" +
+      "d\"\206\001\n\023GetWhitelistRequest\022o\n\014whitelist_i" +
+      "d\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}" +
+      "-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]" +
+      "{12}$R\013whitelistId\"\027\n\025ListWhitelistsRequ" +
+      "est\"V\n\026ListWhitelistsResponse\022<\n\nwhiteli" +
+      "sts\030\001 \003(\0132\034.adamant.global.v1.WhitelistR" +
+      "\nwhitelists\"\215\002\n\026UpdateWhitelistRequest\022o" +
+      "\n\014whitelist_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8" +
+      "}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f" +
+      "]{3}-[0-9a-f]{12}$R\013whitelistId\022\035\n\004name\030" +
+      "\002 \001(\tB\t\372B\006r\004\020\001\030(R\004name\0228\n\004coin\030\003 \001(\0162\030.g" +
+      "incoinc.global.v1.CoinB\n\372B\007\202\001\004\020\001 \000R\004coin" +
+      "\022)\n\013address_ids\030\004 \003(\tB\010\372B\005\222\001\002\030\001R\naddress" +
+      "Ids\"\275\001\n\037UpdateWhitelistAddressesRequest\022" +
       "o\n\014whitelist_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{" +
       "8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-" +
-      "f]{3}-[0-9a-f]{12}$R\013whitelistId\"\326\001\n\032Cre" +
-      "ateTransferLimitRequest\022\035\n\004name\030\001 \001(\tB\t\372" +
-      "B\006r\004\020\001\030(R\004name\0228\n\004coin\030\002 \001(\0162\030.gincoinc." +
-      "global.v1.CoinB\n\372B\007\202\001\004\020\001 \000R\004coin\022_\n\017tran" +
-      "sfer_limits\030\003 \003(\0132,.adamant.global.v1.Re" +
-      "questTransferLimitEntryB\010\372B\005\222\001\002\010\001R\016trans" +
-      "ferLimits\"I\n\033CreateTransferLimitResponse" +
-      "\022*\n\021transfer_limit_id\030\001 \001(\tR\017transferLim" +
-      "itId\"\223\001\n\027GetTransferLimitRequest\022x\n\021tran" +
-      "sfer_limit_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}" +
-      "-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]" +
-      "{3}-[0-9a-f]{12}$R\017transferLimitId\"\033\n\031Li" +
-      "stTransferLimitsRequest\"g\n\032ListTransferL" +
-      "imitsResponse\022I\n\017transfer_limits\030\001 \003(\0132 " +
-      ".adamant.global.v1.TransferLimitR\016transf" +
-      "erLimits\"\367\001\n\032UpdateTransferLimitRequest\022" +
-      "x\n\021transfer_limit_id\030\001 \001(\tBL\372BIrG2E^[0-9" +
-      "a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][" +
-      "0-9a-f]{3}-[0-9a-f]{12}$R\017transferLimitI" +
-      "d\022_\n\017transfer_limits\030\002 \003(\0132,.adamant.glo" +
-      "bal.v1.RequestTransferLimitEntryB\010\372B\005\222\001\002" +
-      "\010\001R\016transferLimits\"\271\001\n\036UpdateTransferLim" +
-      "itNameRequest\022x\n\021transfer_limit_id\030\001 \001(\t" +
-      "BL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a" +
-      "-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\017" +
-      "transferLimitId\022\035\n\004name\030\002 \001(\tB\t\372B\006r\004\020\001\030(" +
-      "R\004name\"\226\001\n\032DeleteTransferLimitRequest\022x\n" +
-      "\021transfer_limit_id\030\001 \001(\tBL\372BIrG2E^[0-9a-" +
-      "f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-" +
-      "9a-f]{3}-[0-9a-f]{12}$R\017transferLimitId\"" +
-      "\270\001\n\"ReviewTransferLimitProposalRequest\022x" +
-      "\n\021transfer_limit_id\030\001 \001(\tBL\372BIrG2E^[0-9a" +
-      "-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0" +
-      "-9a-f]{3}-[0-9a-f]{12}$R\017transferLimitId" +
-      "\022\030\n\007approve\030\002 \001(\010R\007approve\"\233\003\n\023CreatePol" +
-      "icyRequest\022\035\n\004name\030\001 \001(\tB\t\372B\006r\004\020\001\030(R\004nam" +
-      "e\0228\n\004coin\030\003 \001(\0162\030.gincoinc.global.v1.Coi" +
-      "nB\n\372B\007\202\001\004\020\001 \000R\004coin\022=\n\004type\030\004 \001(\0162\035.adam" +
-      "ant.global.v1.PolicyTypeB\n\372B\007\202\001\004\020\001 \000R\004ty" +
-      "pe\022r\n\014whitelist_id\030\005 \001(\tBO\372BLrJ2H^$|^[0-" +
-      "9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab]" +
-      "[0-9a-f]{3}-[0-9a-f]{12}$R\013whitelistId\022x" +
-      "\n\021transfer_limit_id\030\006 \001(\tBL\372BIrG2E^[0-9a" +
-      "-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0" +
-      "-9a-f]{3}-[0-9a-f]{12}$R\017transferLimitId" +
-      "\"3\n\024CreatePolicyResponse\022\033\n\tpolicy_id\030\001 " +
-      "\001(\tR\010policyId\"}\n\020GetPolicyRequest\022i\n\tpol" +
-      "icy_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-" +
+      "f]{3}-[0-9a-f]{12}$R\013whitelistId\022)\n\013addr" +
+      "ess_ids\030\002 \003(\tB\010\372B\005\222\001\002\030\001R\naddressIds\"\211\001\n\026" +
+      "DeleteWhitelistRequest\022o\n\014whitelist_id\030\001" +
+      " \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[" +
+      "0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12" +
+      "}$R\013whitelistId\"\326\001\n\032CreateTransferLimitR" +
+      "equest\022\035\n\004name\030\001 \001(\tB\t\372B\006r\004\020\001\030(R\004name\0228\n" +
+      "\004coin\030\002 \001(\0162\030.gincoinc.global.v1.CoinB\n\372" +
+      "B\007\202\001\004\020\001 \000R\004coin\022_\n\017transfer_limits\030\003 \003(\013" +
+      "2,.adamant.global.v1.RequestTransferLimi" +
+      "tEntryB\010\372B\005\222\001\002\010\001R\016transferLimits\"I\n\033Crea" +
+      "teTransferLimitResponse\022*\n\021transfer_limi" +
+      "t_id\030\001 \001(\tR\017transferLimitId\"\223\001\n\027GetTrans" +
+      "ferLimitRequest\022x\n\021transfer_limit_id\030\001 \001" +
+      "(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-" +
+      "9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$" +
+      "R\017transferLimitId\"\033\n\031ListTransferLimitsR" +
+      "equest\"g\n\032ListTransferLimitsResponse\022I\n\017" +
+      "transfer_limits\030\001 \003(\0132 .adamant.global.v" +
+      "1.TransferLimitR\016transferLimits\"\330\003\n!List" +
+      "TransferLimitsByFilterRequest\022L\n\013filter_" +
+      "type\030\001 \001(\0162!.adamant.global.v1.ListFilte" +
+      "rTypeB\010\372B\005\202\001\002\020\001R\nfilterType\022{\n\021transfer_" +
+      "limit_id\030\002 \001(\tBO\372BLrJ2H^$|^[0-9a-f]{8}-[" +
+      "0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3" +
+      "}-[0-9a-f]{12}$R\017transferLimitId\0227\n\023tran" +
+      "sfer_limit_name\030\003 \001(\tB\007\372B\004r\002\030(R\021transfer" +
+      "LimitName\0226\n\004coin\030\004 \001(\0162\030.gincoinc.globa" +
+      "l.v1.CoinB\010\372B\005\202\001\002\020\001R\004coin\022$\n\tpage_size\030\005" +
+      " \001(\rB\007\372B\004*\002\030dR\010pageSize\022Q\n\npage_token\030\006 " +
+      "\001(\tB2\372B/r-2+^$|^[ABCDEFGHIJKLMNOPQRSTUVW" +
+      "XYZ234567]{16}$R\tpageToken\"\227\001\n\"ListTrans" +
+      "ferLimitsByFilterResponse\022I\n\017transfer_li" +
+      "mits\030\001 \003(\0132 .adamant.global.v1.TransferL" +
+      "imitR\016transferLimits\022&\n\017next_page_token\030" +
+      "\002 \001(\tR\rnextPageToken\"\367\001\n\032UpdateTransferL" +
+      "imitRequest\022x\n\021transfer_limit_id\030\001 \001(\tBL" +
+      "\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f" +
+      "]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\017tr" +
+      "ansferLimitId\022_\n\017transfer_limits\030\002 \003(\0132," +
+      ".adamant.global.v1.RequestTransferLimitE" +
+      "ntryB\010\372B\005\222\001\002\010\001R\016transferLimits\"\271\001\n\036Updat" +
+      "eTransferLimitNameRequest\022x\n\021transfer_li" +
+      "mit_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-" +
       "f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-" +
-      "9a-f]{12}$R\010policyId\"\025\n\023ListPoliciesRequ" +
-      "est\"\205\001\n\030IsDeletablePolicyRequest\022i\n\tpoli" +
+      "9a-f]{12}$R\017transferLimitId\022\035\n\004name\030\002 \001(" +
+      "\tB\t\372B\006r\004\020\001\030(R\004name\"\226\001\n\032DeleteTransferLim" +
+      "itRequest\022x\n\021transfer_limit_id\030\001 \001(\tBL\372B" +
+      "IrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{" +
+      "3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\017tran" +
+      "sferLimitId\"\270\001\n\"ReviewTransferLimitPropo" +
+      "salRequest\022x\n\021transfer_limit_id\030\001 \001(\tBL\372" +
+      "BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]" +
+      "{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\017tra" +
+      "nsferLimitId\022\030\n\007approve\030\002 \001(\010R\007approve\"\233" +
+      "\003\n\023CreatePolicyRequest\022\035\n\004name\030\001 \001(\tB\t\372B" +
+      "\006r\004\020\001\030(R\004name\0228\n\004coin\030\003 \001(\0162\030.gincoinc.g" +
+      "lobal.v1.CoinB\n\372B\007\202\001\004\020\001 \000R\004coin\022=\n\004type\030" +
+      "\004 \001(\0162\035.adamant.global.v1.PolicyTypeB\n\372B" +
+      "\007\202\001\004\020\001 \000R\004type\022r\n\014whitelist_id\030\005 \001(\tBO\372B" +
+      "LrJ2H^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-" +
+      "f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\013w" +
+      "hitelistId\022x\n\021transfer_limit_id\030\006 \001(\tBL\372" +
+      "BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]" +
+      "{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\017tra" +
+      "nsferLimitId\"3\n\024CreatePolicyResponse\022\033\n\t" +
+      "policy_id\030\001 \001(\tR\010policyId\"}\n\020GetPolicyRe" +
+      "quest\022i\n\tpolicy_id\030\001 \001(\tBL\372BIrG2E^[0-9a-" +
+      "f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-" +
+      "9a-f]{3}-[0-9a-f]{12}$R\010policyId\"\376\003\n\033Lis" +
+      "tPoliciesByFilterRequest\022L\n\013filter_type\030" +
+      "\001 \001(\0162!.adamant.global.v1.ListFilterType" +
+      "B\010\372B\005\202\001\002\020\001R\nfilterType\022l\n\tpolicy_id\030\002 \001(" +
+      "\tBO\372BLrJ2H^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[" +
+      "0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12" +
+      "}$R\010policyId\022(\n\013policy_name\030\003 \001(\tB\007\372B\004r\002" +
+      "\030(R\npolicyName\0226\n\004coin\030\004 \001(\0162\030.gincoinc." +
+      "global.v1.CoinB\010\372B\005\202\001\002\020\001R\004coin\022H\n\013policy" +
+      "_type\030\005 \001(\0162\035.adamant.global.v1.PolicyTy" +
+      "peB\010\372B\005\202\001\002\020\001R\npolicyType\022$\n\tpage_size\030\006 " +
+      "\001(\rB\007\372B\004*\002\030dR\010pageSize\022Q\n\npage_token\030\007 \001" +
+      "(\tB2\372B/r-2+^$|^[ABCDEFGHIJKLMNOPQRSTUVWX" +
+      "YZ234567]{16}$R\tpageToken\"\025\n\023ListPolicie" +
+      "sRequest\"\205\001\n\030IsDeletablePolicyRequest\022i\n" +
+      "\tpolicy_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0" +
+      "-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}" +
+      "-[0-9a-f]{12}$R\010policyId\">\n\031IsDeletableP" +
+      "olicyResponse\022!\n\014is_deletable\030\001 \001(\010R\013isD" +
+      "eletable\"\236\001\n IsDeletableLabeledAddressRe" +
+      "quest\022z\n\022labeled_address_id\030\001 \001(\tBL\372BIrG" +
+      "2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-" +
+      "[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\020labeled" +
+      "AddressId\"F\n!IsDeletableLabeledAddressRe" +
+      "sponse\022!\n\014is_deletable\030\001 \001(\010R\013isDeletabl" +
+      "e\"\216\001\n\033IsDeletableWhitelistRequest\022o\n\014whi" +
+      "telist_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-" +
+      "9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-" +
+      "[0-9a-f]{12}$R\013whitelistId\"A\n\034IsDeletabl" +
+      "eWhitelistResponse\022!\n\014is_deletable\030\001 \001(\010" +
+      "R\013isDeletable\"\233\001\n\037IsDeletableTransferLim" +
+      "itRequest\022x\n\021transfer_limit_id\030\001 \001(\tBL\372B" +
+      "IrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{" +
+      "3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\017tran" +
+      "sferLimitId\"E\n IsDeletableTransferLimitR" +
+      "esponse\022!\n\014is_deletable\030\001 \001(\010R\013isDeletab" +
+      "le\"M\n\024ListPoliciesResponse\0225\n\010policies\030\001" +
+      " \003(\0132\031.adamant.global.v1.PolicyR\010policie" +
+      "s\"}\n\034ListPoliciesByFilterResponse\0225\n\010pol" +
+      "icies\030\001 \003(\0132\031.adamant.global.v1.PolicyR\010",
+      "policies\022&\n\017next_page_token\030\002 \001(\tR\rnextP" +
+      "ageToken\"\215\003\n\023UpdatePolicyRequest\022i\n\tpoli" +
       "cy_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f" +
       "]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9" +
-      "a-f]{12}$R\010policyId\">\n\031IsDeletablePolicy" +
-      "Response\022!\n\014is_deletable\030\001 \001(\010R\013isDeleta" +
-      "ble\"\236\001\n IsDeletableLabeledAddressRequest" +
-      "\022z\n\022labeled_address_id\030\001 \001(\tBL\372BIrG2E^[0" +
-      "-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab" +
-      "][0-9a-f]{3}-[0-9a-f]{12}$R\020labeledAddre" +
-      "ssId\"F\n!IsDeletableLabeledAddressRespons" +
-      "e\022!\n\014is_deletable\030\001 \001(\010R\013isDeletable\"\216\001\n" +
-      "\033IsDeletableWhitelistRequest\022o\n\014whitelis" +
-      "t_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]" +
-      "{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a" +
-      "-f]{12}$R\013whitelistId\"A\n\034IsDeletableWhit" +
-      "elistResponse\022!\n\014is_deletable\030\001 \001(\010R\013isD" +
-      "eletable\"\233\001\n\037IsDeletableTransferLimitReq" +
-      "uest\022x\n\021transfer_limit_id\030\001 \001(\tBL\372BIrG2E" +
-      "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[8" +
-      "9ab][0-9a-f]{3}-[0-9a-f]{12}$R\017transferL" +
-      "imitId\"E\n IsDeletableTransferLimitRespon" +
-      "se\022!\n\014is_deletable\030\001 \001(\010R\013isDeletable\"M\n" +
-      "\024ListPoliciesResponse\0225\n\010policies\030\001 \003(\0132" +
-      "\031.adamant.global.v1.PolicyR\010policies\"\215\003\n" +
-      "\023UpdatePolicyRequest\022i\n\tpolicy_id\030\001 \001(\tB" +
-      "L\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-" +
-      "f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\010p" +
-      "olicyId\022\035\n\004name\030\002 \001(\tB\t\372B\006r\004\020\001\030(R\004name\022r" +
-      "\n\014whitelist_id\030\003 \001(\tBO\372BLrJ2H^$|^[0-9a-f" +
-      "]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9" +
-      "a-f]{3}-[0-9a-f]{12}$R\013whitelistId\022x\n\021tr" +
-      "ansfer_limit_id\030\004 \001(\tBL\372BIrG2E^[0-9a-f]{" +
-      "8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-" +
-      "f]{3}-[0-9a-f]{12}$R\017transferLimitId\"\200\001\n" +
-      "\023DeletePolicyRequest\022i\n\tpolicy_id\030\001 \001(\tB" +
-      "L\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-" +
-      "f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\010p" +
-      "olicyId\"\242\001\n\033ReviewPolicyProposalRequest\022" +
-      "i\n\tpolicy_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-" +
-      "[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{" +
-      "3}-[0-9a-f]{12}$R\010policyId\022\030\n\007approve\030\002 " +
-      "\001(\010R\007approve\"\217\001\n\"ListSubstrateChildAddre" +
-      "ssesRequest\022i\n\twallet_id\030\001 \001(\tBL\372BIrG2E^" +
+      "a-f]{12}$R\010policyId\022\035\n\004name\030\002 \001(\tB\t\372B\006r\004" +
+      "\020\001\030(R\004name\022r\n\014whitelist_id\030\003 \001(\tBO\372BLrJ2" +
+      "H^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3" +
+      "}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\013white" +
+      "listId\022x\n\021transfer_limit_id\030\004 \001(\tBL\372BIrG" +
+      "2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-" +
+      "[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\017transfe" +
+      "rLimitId\"\200\001\n\023DeletePolicyRequest\022i\n\tpoli" +
+      "cy_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f" +
+      "]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9" +
+      "a-f]{12}$R\010policyId\"\242\001\n\033ReviewPolicyProp" +
+      "osalRequest\022i\n\tpolicy_id\030\001 \001(\tBL\372BIrG2E^" +
       "[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89" +
-      "ab][0-9a-f]{3}-[0-9a-f]{12}$R\010walletId\"\213" +
-      "\001\n#ListSubstrateChildAddressesResponse\022d" +
-      "\n\031substrate_child_addresses\030\001 \003(\0132(.adam" +
-      "ant.global.v1.SubstrateChildAddressR\027sub" +
-      "strateChildAddresses\"\214\001\n\037ListSymbolChild" +
-      "AddressesRequest\022i\n\twallet_id\030\001 \001(\tBL\372BI" +
-      "rG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3" +
-      "}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\010walle" +
-      "tId\"\177\n ListSymbolChildAddressesResponse\022" +
-      "[\n\026symbol_child_addresses\030\001 \003(\0132%.adaman" +
-      "t.global.v1.SymbolChildAddressR\024symbolCh" +
-      "ildAddresses\"\211\001\n\034ListIOSTChildAccountsRe" +
-      "quest\022i\n\twallet_id\030\001 \001(\tBL\372BIrG2E^[0-9a-" +
-      "f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-" +
-      "9a-f]{3}-[0-9a-f]{12}$R\010walletId\"t\n\035List" +
-      "IOSTChildAccountsResponse\022S\n\023iost_child_" +
-      "accounts\030\001 \003(\0132#.adamant.global.v1.IOSTC" +
-      "hildAccountR\021iostChildAccounts\"\246\002\n\027Downl" +
-      "oadResourceRequest\022]\n\026download_resource_" +
-      "type\030\001 \001(\0162\'.adamant.global.v1.DownloadR" +
-      "esourceTypeR\024downloadResourceType\022\035\n\nwat" +
-      "ch_only\030\005 \001(\010R\twatchOnly\022\033\n\twallet_id\030\002 " +
-      "\001(\tR\010walletId\0229\n\nstart_time\030\003 \001(\0132\032.goog" +
-      "le.protobuf.TimestampR\tstartTime\0225\n\010end_" +
-      "time\030\004 \001(\0132\032.google.protobuf.TimestampR\007" +
-      "endTime\"\225\001\n\030CreateIOSTAccountRequest\022=\n\014",
-      "account_name\030\001 \001(\tB\032\372B\027r\0252\023^([a-z0-9_]{5" +
-      ",11})$R\013accountName\022\033\n\twallet_id\030\002 \001(\tR\010" +
-      "walletId\022\035\n\naccount_id\030\003 \001(\tR\taccountId\"" +
-      ":\n\031CreateIOSTAccountResponse\022\035\n\naddress_" +
-      "id\030\001 \001(\tR\taddressId\"Y\n\030ExistsIOSTAccount" +
-      "Request\022=\n\014account_name\030\001 \001(\tB\032\372B\027r\0252\023^(" +
-      "[a-z0-9_]{5,11})$R\013accountName\"3\n\031Exists" +
-      "IOSTAccountResponse\022\026\n\006exists\030\001 \001(\010R\006exi" +
-      "sts\"\035\n\033GetIOSTCallerAccountRequest\"\024\n\022Li" +
-      "stCallersRequest\"b\n\023ListCallersResponse\022" +
-      "K\n\020caller_addresses\030\001 \003(\0132 .adamant.glob" +
-      "al.v1.CallerAddressR\017callerAddresses\"\030\n\026" +
-      "ListFeeDepositsRequest\"s\n\027ListFeeDeposit" +
-      "sResponse\022X\n\025fee_deposit_addresses\030\001 \003(\013" +
-      "2$.adamant.global.v1.FeeDepositAddressR\023" +
-      "feeDepositAddresses\"\204\001\n\027GetCosmosBalance" +
-      "Request\022i\n\twallet_id\030\001 \001(\tBL\372BIrG2E^[0-9" +
-      "a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][" +
-      "0-9a-f]{3}-[0-9a-f]{12}$R\010walletId\"\265\001\n\030G" +
-      "etCosmosBalanceResponse\022E\n\013delegations\030\001" +
-      " \003(\0132#.adamant.global.v1.CosmosDelegatio" +
-      "nR\013delegations\022\034\n\tavailable\030\002 \001(\001R\tavail" +
-      "able\022\026\n\006reward\030\003 \001(\001R\006reward\022\034\n\tunbondin" +
-      "g\030\004 \001(\001R\tunbonding\"A\n\"ListCosmosDelegate" +
-      "HistoriesRequest\022\033\n\twallet_id\030\001 \001(\tR\010wal" +
-      "letId\"~\n#ListCosmosDelegateHistoriesResp" +
-      "onse\022W\n\022delegate_histories\030\001 \003(\0132(.adama" +
-      "nt.global.v1.CosmosDelegateHistoryR\021dele" +
-      "gateHistories\"\376\001\n\025CosmosDelegateHistory\022" +
-      "\023\n\005tx_id\030\001 \001(\tR\004txId\022\033\n\twallet_id\030\002 \001(\tR" +
-      "\010walletId\0225\n\004type\030\003 \001(\0162!.gincoinc.globa" +
-      "l.v1.CosmosMsgTypeR\004type\022\'\n\017delegate_amo" +
-      "unt\030\004 \001(\001R\016delegateAmount\022#\n\rreward_amou" +
-      "nt\030\005 \001(\001R\014rewardAmount\022.\n\004time\030\006 \001(\0132\032.g" +
-      "oogle.protobuf.TimestampR\004time2\252Q\n\tGloba" +
-      "lAPI\022a\n\014CreateWallet\022&.adamant.global.v1" +
-      ".CreateWalletRequest\032\'.adamant.global.v1" +
-      ".CreateWalletResponse\"\000\022M\n\tGetWallet\022#.a" +
-      "damant.global.v1.GetWalletRequest\032\031.adam" +
-      "ant.global.v1.Wallet\"\000\022P\n\014CancelWallet\022&" +
-      ".adamant.global.v1.CancelWalletRequest\032\026" +
-      ".google.protobuf.Empty\"\000\022R\n\rArchiveWalle" +
-      "t\022\'.adamant.global.v1.ArchiveWalletReque" +
-      "st\032\026.google.protobuf.Empty\"\000\022V\n\017UnArchiv" +
-      "eWallet\022).adamant.global.v1.UnArchiveWal" +
-      "letRequest\032\026.google.protobuf.Empty\"\000\022^\n\013" +
-      "ListWallets\022%.adamant.global.v1.ListWall" +
-      "etsRequest\032&.adamant.global.v1.ListWalle" +
-      "tsResponse\"\000\022n\n\023ListWalletsByFilter\022-.ad" +
-      "amant.global.v1.ListWalletsByFilterReque" +
-      "st\032&.adamant.global.v1.ListWalletsRespon" +
-      "se\"\000\022j\n\017ListBaseWallets\022).adamant.global" +
-      ".v1.ListBaseWalletsRequest\032*.adamant.glo" +
-      "bal.v1.ListBaseWalletsResponse\"\000\022X\n\020Upda" +
-      "teWalletName\022*.adamant.global.v1.UpdateW" +
-      "alletNameRequest\032\026.google.protobuf.Empty" +
-      "\"\000\022d\n\026UpdateWalletValidation\0220.adamant.g" +
-      "lobal.v1.UpdateWalletValidationRequest\032\026" +
-      ".google.protobuf.Empty\"\000\022\\\n\022UpdateWallet" +
-      "Policy\022,.adamant.global.v1.UpdateWalletP" +
-      "olicyRequest\032\026.google.protobuf.Empty\"\000\022`" +
-      "\n\024ReviewWalletProposal\022..adamant.global." +
-      "v1.ReviewWalletProposalRequest\032\026.google." +
-      "protobuf.Empty\"\000\022a\n\014FlushBalance\022&.adama" +
-      "nt.global.v1.FlushBalanceRequest\032\'.adama" +
-      "nt.global.v1.FlushBalanceResponse\"\000\022p\n\021C" +
-      "reateWalletGroup\022+.adamant.global.v1.Cre" +
-      "ateWalletGroupRequest\032,.adamant.global.v" +
-      "1.CreateWalletGroupResponse\"\000\022b\n\025UpdateW" +
-      "alletGroupName\022/.adamant.global.v1.Updat" +
-      "eWalletGroupNameRequest\032\026.google.protobu" +
-      "f.Empty\"\000\022Z\n\021UpdateWalletGroup\022+.adamant" +
-      ".global.v1.UpdateWalletGroupRequest\032\026.go" +
-      "ogle.protobuf.Empty\"\000\022\\\n\016GetWalletGroup\022" +
-      "(.adamant.global.v1.GetWalletGroupReques" +
-      "t\032\036.adamant.global.v1.WalletGroup\"\000\022m\n\020L" +
-      "istWalletGroups\022*.adamant.global.v1.List" +
-      "WalletGroupsRequest\032+.adamant.global.v1." +
-      "ListWalletGroupsResponse\"\000\022j\n\031UpdateDest" +
-      "inationWalletID\0223.adamant.global.v1.Upda" +
-      "teDestinationWalletIDRequest\032\026.google.pr" +
-      "otobuf.Empty\"\000\022m\n\020GetCosmosBalance\022*.ada" +
-      "mant.global.v1.GetCosmosBalanceRequest\032+" +
-      ".adamant.global.v1.GetCosmosBalanceRespo" +
-      "nse\"\000\022\216\001\n\033ListCosmosDelegateHistories\0225." +
-      "adamant.global.v1.ListCosmosDelegateHist" +
-      "oriesRequest\0326.adamant.global.v1.ListCos" +
-      "mosDelegateHistoriesResponse\"\000\022L\n\nEnable" +
-      "UTXO\022$.adamant.global.v1.EnableUTXOReque" +
-      "st\032\026.google.protobuf.Empty\"\000\022N\n\013DisableU" +
-      "TXO\022%.adamant.global.v1.DisableUTXOReque" +
-      "st\032\026.google.protobuf.Empty\"\000\022R\n\rApproveW" +
-      "allet\022\'.adamant.global.v1.ApproveWalletR" +
-      "equest\032\026.google.protobuf.Empty\"\000\022\\\n\022Appr" +
-      "oveTransaction\022,.adamant.global.v1.Appro" +
-      "veTransactionRequest\032\026.google.protobuf.E" +
-      "mpty\"\000\022d\n\rCreateAddress\022\'.adamant.global" +
-      ".v1.CreateAddressRequest\032(.adamant.globa" +
-      "l.v1.CreateAddressResponse\"\000\022P\n\nGetAddre" +
-      "ss\022$.adamant.global.v1.GetAddressRequest" +
-      "\032\032.adamant.global.v1.Address\"\000\022b\n\023GetAdd" +
-      "ressByAddress\022-.adamant.global.v1.GetAdd" +
-      "ressByAddressRequest\032\032.adamant.global.v1" +
-      ".Address\"\000\022j\n\027GetAddressByAddressCoin\0221." +
-      "adamant.global.v1.GetAddressByAddressCoi" +
-      "nRequest\032\032.adamant.global.v1.Address\"\000\022^" +
-      "\n\021GetAddressByIndex\022+.adamant.global.v1." +
-      "GetAddressByIndexRequest\032\032.adamant.globa" +
-      "l.v1.Address\"\000\022d\n\rListAddresses\022\'.adaman" +
-      "t.global.v1.ListAddressesRequest\032(.adama" +
-      "nt.global.v1.ListAddressesResponse\"\000\022\205\001\n" +
-      "\030ListAddressesWithBalance\0222.adamant.glob" +
-      "al.v1.ListAddressesWithBalanceRequest\0323." +
+      "ab][0-9a-f]{3}-[0-9a-f]{12}$R\010policyId\022\030" +
+      "\n\007approve\030\002 \001(\010R\007approve\"\217\001\n\"ListSubstra" +
+      "teChildAddressesRequest\022i\n\twallet_id\030\001 \001" +
+      "(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-" +
+      "9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$" +
+      "R\010walletId\"\213\001\n#ListSubstrateChildAddress" +
+      "esResponse\022d\n\031substrate_child_addresses\030" +
+      "\001 \003(\0132(.adamant.global.v1.SubstrateChild" +
+      "AddressR\027substrateChildAddresses\"\214\001\n\037Lis" +
+      "tSymbolChildAddressesRequest\022i\n\twallet_i" +
+      "d\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}" +
+      "-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]" +
+      "{12}$R\010walletId\"\177\n ListSymbolChildAddres" +
+      "sesResponse\022[\n\026symbol_child_addresses\030\001 " +
+      "\003(\0132%.adamant.global.v1.SymbolChildAddre" +
+      "ssR\024symbolChildAddresses\"\211\001\n\034ListIOSTChi" +
+      "ldAccountsRequest\022i\n\twallet_id\030\001 \001(\tBL\372B" +
+      "IrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{" +
+      "3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\010wall" +
+      "etId\"t\n\035ListIOSTChildAccountsResponse\022S\n" +
+      "\023iost_child_accounts\030\001 \003(\0132#.adamant.glo" +
+      "bal.v1.IOSTChildAccountR\021iostChildAccoun" +
+      "ts\"\246\002\n\027DownloadResourceRequest\022]\n\026downlo" +
+      "ad_resource_type\030\001 \001(\0162\'.adamant.global." +
+      "v1.DownloadResourceTypeR\024downloadResourc" +
+      "eType\022\035\n\nwatch_only\030\005 \001(\010R\twatchOnly\022\033\n\t" +
+      "wallet_id\030\002 \001(\tR\010walletId\0229\n\nstart_time\030" +
+      "\003 \001(\0132\032.google.protobuf.TimestampR\tstart" +
+      "Time\0225\n\010end_time\030\004 \001(\0132\032.google.protobuf" +
+      ".TimestampR\007endTime\"\225\001\n\030CreateIOSTAccoun" +
+      "tRequest\022=\n\014account_name\030\001 \001(\tB\032\372B\027r\0252\023^" +
+      "([a-z0-9_]{5,11})$R\013accountName\022\033\n\twalle" +
+      "t_id\030\002 \001(\tR\010walletId\022\035\n\naccount_id\030\003 \001(\t" +
+      "R\taccountId\":\n\031CreateIOSTAccountResponse" +
+      "\022\035\n\naddress_id\030\001 \001(\tR\taddressId\"Y\n\030Exist" +
+      "sIOSTAccountRequest\022=\n\014account_name\030\001 \001(" +
+      "\tB\032\372B\027r\0252\023^([a-z0-9_]{5,11})$R\013accountNa" +
+      "me\"3\n\031ExistsIOSTAccountResponse\022\026\n\006exist" +
+      "s\030\001 \001(\010R\006exists\"\035\n\033GetIOSTCallerAccountR" +
+      "equest\"\024\n\022ListCallersRequest\"b\n\023ListCall" +
+      "ersResponse\022K\n\020caller_addresses\030\001 \003(\0132 ." +
+      "adamant.global.v1.CallerAddressR\017callerA" +
+      "ddresses\"\030\n\026ListFeeDepositsRequest\"s\n\027Li" +
+      "stFeeDepositsResponse\022X\n\025fee_deposit_add" +
+      "resses\030\001 \003(\0132$.adamant.global.v1.FeeDepo" +
+      "sitAddressR\023feeDepositAddresses\"\204\001\n\027GetC" +
+      "osmosBalanceRequest\022i\n\twallet_id\030\001 \001(\tBL" +
+      "\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f" +
+      "]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\010wa" +
+      "lletId\"\265\001\n\030GetCosmosBalanceResponse\022E\n\013d" +
+      "elegations\030\001 \003(\0132#.adamant.global.v1.Cos" +
+      "mosDelegationR\013delegations\022\034\n\tavailable\030" +
+      "\002 \001(\001R\tavailable\022\026\n\006reward\030\003 \001(\001R\006reward" +
+      "\022\034\n\tunbonding\030\004 \001(\001R\tunbonding\"A\n\"ListCo" +
+      "smosDelegateHistoriesRequest\022\033\n\twallet_i" +
+      "d\030\001 \001(\tR\010walletId\"~\n#ListCosmosDelegateH" +
+      "istoriesResponse\022W\n\022delegate_histories\030\001" +
+      " \003(\0132(.adamant.global.v1.CosmosDelegateH" +
+      "istoryR\021delegateHistories\"\376\001\n\025CosmosDele" +
+      "gateHistory\022\023\n\005tx_id\030\001 \001(\tR\004txId\022\033\n\twall" +
+      "et_id\030\002 \001(\tR\010walletId\0225\n\004type\030\003 \001(\0162!.gi" +
+      "ncoinc.global.v1.CosmosMsgTypeR\004type\022\'\n\017" +
+      "delegate_amount\030\004 \001(\001R\016delegateAmount\022#\n" +
+      "\rreward_amount\030\005 \001(\001R\014rewardAmount\022.\n\004ti" +
+      "me\030\006 \001(\0132\032.google.protobuf.TimestampR\004ti" +
+      "me2\271S\n\tGlobalAPI\022a\n\014CreateWallet\022&.adama" +
+      "nt.global.v1.CreateWalletRequest\032\'.adama" +
+      "nt.global.v1.CreateWalletResponse\"\000\022M\n\tG" +
+      "etWallet\022#.adamant.global.v1.GetWalletRe" +
+      "quest\032\031.adamant.global.v1.Wallet\"\000\022P\n\014Ca" +
+      "ncelWallet\022&.adamant.global.v1.CancelWal" +
+      "letRequest\032\026.google.protobuf.Empty\"\000\022R\n\r" +
+      "ArchiveWallet\022\'.adamant.global.v1.Archiv" +
+      "eWalletRequest\032\026.google.protobuf.Empty\"\000" +
+      "\022V\n\017UnArchiveWallet\022).adamant.global.v1." +
+      "UnArchiveWalletRequest\032\026.google.protobuf" +
+      ".Empty\"\000\022^\n\013ListWallets\022%.adamant.global" +
+      ".v1.ListWalletsRequest\032&.adamant.global." +
+      "v1.ListWalletsResponse\"\000\022n\n\023ListWalletsB" +
+      "yFilter\022-.adamant.global.v1.ListWalletsB" +
+      "yFilterRequest\032&.adamant.global.v1.ListW" +
+      "alletsResponse\"\000\022j\n\017ListBaseWallets\022).ad" +
+      "amant.global.v1.ListBaseWalletsRequest\032*" +
+      ".adamant.global.v1.ListBaseWalletsRespon" +
+      "se\"\000\022X\n\020UpdateWalletName\022*.adamant.globa" +
+      "l.v1.UpdateWalletNameRequest\032\026.google.pr" +
+      "otobuf.Empty\"\000\022d\n\026UpdateWalletValidation" +
+      "\0220.adamant.global.v1.UpdateWalletValidat" +
+      "ionRequest\032\026.google.protobuf.Empty\"\000\022\\\n\022" +
+      "UpdateWalletPolicy\022,.adamant.global.v1.U" +
+      "pdateWalletPolicyRequest\032\026.google.protob" +
+      "uf.Empty\"\000\022`\n\024ReviewWalletProposal\022..ada" +
+      "mant.global.v1.ReviewWalletProposalReque" +
+      "st\032\026.google.protobuf.Empty\"\000\022a\n\014FlushBal" +
+      "ance\022&.adamant.global.v1.FlushBalanceReq" +
+      "uest\032\'.adamant.global.v1.FlushBalanceRes" +
+      "ponse\"\000\022p\n\021CreateWalletGroup\022+.adamant.g" +
+      "lobal.v1.CreateWalletGroupRequest\032,.adam" +
+      "ant.global.v1.CreateWalletGroupResponse\"" +
+      "\000\022b\n\025UpdateWalletGroupName\022/.adamant.glo" +
+      "bal.v1.UpdateWalletGroupNameRequest\032\026.go" +
+      "ogle.protobuf.Empty\"\000\022Z\n\021UpdateWalletGro" +
+      "up\022+.adamant.global.v1.UpdateWalletGroup" +
+      "Request\032\026.google.protobuf.Empty\"\000\022\\\n\016Get" +
+      "WalletGroup\022(.adamant.global.v1.GetWalle" +
+      "tGroupRequest\032\036.adamant.global.v1.Wallet" +
+      "Group\"\000\022m\n\020ListWalletGroups\022*.adamant.gl" +
+      "obal.v1.ListWalletGroupsRequest\032+.adaman" +
+      "t.global.v1.ListWalletGroupsResponse\"\000\022j" +
+      "\n\031UpdateDestinationWalletID\0223.adamant.gl" +
+      "obal.v1.UpdateDestinationWalletIDRequest" +
+      "\032\026.google.protobuf.Empty\"\000\022m\n\020GetCosmosB" +
+      "alance\022*.adamant.global.v1.GetCosmosBala" +
+      "nceRequest\032+.adamant.global.v1.GetCosmos" +
+      "BalanceResponse\"\000\022\216\001\n\033ListCosmosDelegate" +
+      "Histories\0225.adamant.global.v1.ListCosmos" +
+      "DelegateHistoriesRequest\0326.adamant.globa" +
+      "l.v1.ListCosmosDelegateHistoriesResponse" +
+      "\"\000\022L\n\nEnableUTXO\022$.adamant.global.v1.Ena" +
+      "bleUTXORequest\032\026.google.protobuf.Empty\"\000" +
+      "\022N\n\013DisableUTXO\022%.adamant.global.v1.Disa" +
+      "bleUTXORequest\032\026.google.protobuf.Empty\"\000" +
+      "\022R\n\rApproveWallet\022\'.adamant.global.v1.Ap" +
+      "proveWalletRequest\032\026.google.protobuf.Emp" +
+      "ty\"\000\022\\\n\022ApproveTransaction\022,.adamant.glo" +
+      "bal.v1.ApproveTransactionRequest\032\026.googl" +
+      "e.protobuf.Empty\"\000\022d\n\rCreateAddress\022\'.ad" +
+      "amant.global.v1.CreateAddressRequest\032(.a" +
+      "damant.global.v1.CreateAddressResponse\"\000" +
+      "\022P\n\nGetAddress\022$.adamant.global.v1.GetAd" +
+      "dressRequest\032\032.adamant.global.v1.Address" +
+      "\"\000\022b\n\023GetAddressByAddress\022-.adamant.glob" +
+      "al.v1.GetAddressByAddressRequest\032\032.adama" +
+      "nt.global.v1.Address\"\000\022j\n\027GetAddressByAd" +
+      "dressCoin\0221.adamant.global.v1.GetAddress" +
+      "ByAddressCoinRequest\032\032.adamant.global.v1" +
+      ".Address\"\000\022^\n\021GetAddressByIndex\022+.adaman" +
+      "t.global.v1.GetAddressByIndexRequest\032\032.a" +
+      "damant.global.v1.Address\"\000\022d\n\rListAddres" +
+      "ses\022\'.adamant.global.v1.ListAddressesReq" +
+      "uest\032(.adamant.global.v1.ListAddressesRe" +
+      "sponse\"\000\022\205\001\n\030ListAddressesWithBalance\0222." +
       "adamant.global.v1.ListAddressesWithBalan" +
-      "ceResponse\"\000\022`\n\024UpdateAddressBalance\022..a" +
-      "damant.global.v1.UpdateAddressBalanceReq" +
-      "uest\032\026.google.protobuf.Empty\"\000\022q\n\025GetEth" +
-      "ereumFeeAddress\022/.adamant.global.v1.GetE" +
-      "thereumFeeAddressRequest\032%.adamant.globa" +
-      "l.v1.EthereumFeeAddress\"\000\022\216\001\n\033ListSubstr" +
-      "ateChildAddresses\0225.adamant.global.v1.Li" +
-      "stSubstrateChildAddressesRequest\0326.adama" +
-      "nt.global.v1.ListSubstrateChildAddresses" +
-      "Response\"\000\022\205\001\n\030ListSymbolChildAddresses\022" +
-      "2.adamant.global.v1.ListSymbolChildAddre" +
-      "ssesRequest\0323.adamant.global.v1.ListSymb" +
-      "olChildAddressesResponse\"\000\022|\n\025ListIOSTCh" +
-      "ildAccounts\022/.adamant.global.v1.ListIOST" +
-      "ChildAccountsRequest\0320.adamant.global.v1" +
-      ".ListIOSTChildAccountsResponse\"\000\022R\n\rImpo" +
-      "rtAddress\022\'.adamant.global.v1.ImportAddr" +
-      "essRequest\032\026.google.protobuf.Empty\"\000\022^\n\013" +
-      "ListCallers\022%.adamant.global.v1.ListCall" +
-      "ersRequest\032&.adamant.global.v1.ListCalle" +
-      "rsResponse\"\000\022j\n\017ListFeeDeposits\022).adaman" +
-      "t.global.v1.ListFeeDepositsRequest\032*.ada" +
-      "mant.global.v1.ListFeeDepositsResponse\"\000" +
-      "\022^\n\013RegisterKey\022%.adamant.global.v1.Regi" +
-      "sterKeyRequest\032&.adamant.global.v1.Regis" +
-      "terKeyResponse\"\000\022p\n\021CreateTransaction\022+." +
-      "adamant.global.v1.CreateTransactionReque" +
-      "st\032,.adamant.global.v1.CreateTransaction" +
-      "Response\"\000\022j\n\031CreateXRPInitTransactions\022" +
-      "3.adamant.global.v1.CreateXRPInitTransac" +
-      "tionsRequest\032\026.google.protobuf.Empty\"\000\022V" +
-      "\n\017SignTransaction\022).adamant.global.v1.Si" +
-      "gnTransactionRequest\032\026.google.protobuf.E" +
-      "mpty\"\000\022f\n\027SignXRPInitTransactions\0221.adam" +
-      "ant.global.v1.SignXRPInitTransactionsReq" +
-      "uest\032\026.google.protobuf.Empty\"\000\022j\n\017SendTr" +
-      "ansaction\022).adamant.global.v1.SendTransa" +
-      "ctionRequest\032*.adamant.global.v1.SendTra" +
-      "nsactionResponse\"\000\022\202\001\n\027SendXRPInitTransa" +
-      "ctions\0221.adamant.global.v1.SendXRPInitTr" +
-      "ansactionsRequest\0322.adamant.global.v1.Se" +
-      "ndXRPInitTransactionsResponse\"\000\022Z\n\021Cance" +
-      "lTransaction\022+.adamant.global.v1.CancelT" +
-      "ransactionRequest\032\026.google.protobuf.Empt" +
-      "y\"\000\022s\n\022ReplaceTransaction\022,.adamant.glob" +
-      "al.v1.ReplaceTransactionRequest\032-.adaman" +
-      "t.global.v1.ReplaceTransactionResponse\"\000" +
-      "\022\\\n\016GetTransaction\022(.adamant.global.v1.G" +
-      "etTransactionRequest\032\036.adamant.global.v1" +
-      ".Transaction\"\000\022h\n\024GetTransactionByTxID\022." +
-      ".adamant.global.v1.GetTransactionByTxIDR" +
-      "equest\032\036.adamant.global.v1.Transaction\"\000" +
-      "\022m\n\020ListTransactions\022*.adamant.global.v1" +
-      ".ListTransactionsRequest\032+.adamant.globa" +
-      "l.v1.ListTransactionsResponse\"\000\022}\n\030ListT" +
-      "ransactionsByFilter\0222.adamant.global.v1." +
-      "ListTransactionsByFilterRequest\032+.adaman" +
-      "t.global.v1.ListTransactionsResponse\"\000\022S" +
-      "\n\013GetSignInfo\022%.adamant.global.v1.GetSig" +
-      "nInfoRequest\032\033.adamant.global.v1.SignInf" +
-      "o\"\000\022a\n\014ListSignInfo\022&.adamant.global.v1." +
-      "ListSignInfoRequest\032\'.adamant.global.v1." +
-      "ListSignInfoResponse\"\000\022v\n\023ListXRPInitSig" +
-      "nInfo\022-.adamant.global.v1.ListXRPInitSig" +
-      "nInfoRequest\032..adamant.global.v1.ListXRP" +
-      "InitSignInfoResponse\"\000\022d\n\rListTransfers\022" +
-      "\'.adamant.global.v1.ListTransfersRequest" +
-      "\032(.adamant.global.v1.ListTransfersRespon" +
-      "se\"\000\022t\n\025ListTransfersByFilter\022/.adamant." +
-      "global.v1.ListTransfersByFilterRequest\032(" +
-      ".adamant.global.v1.ListTransfersResponse" +
-      "\"\000\022_\n\017GetRateSnapshot\022).adamant.global.v" +
-      "1.GetRateSnapshotRequest\032\037.adamant.globa" +
-      "l.v1.RateSnapshot\"\000\022k\n\025GetLatestRateSnap" +
-      "shot\022/.adamant.global.v1.GetLatestRateSn" +
-      "apshotRequest\032\037.adamant.global.v1.RateSn" +
-      "apshot\"\000\022U\n\010SetRates\022\".adamant.global.v1" +
-      ".SetRatesRequest\032#.adamant.global.v1.Set" +
-      "RatesResponse\"\000\022j\n\017SetDefaultRates\022).ada" +
-      "mant.global.v1.SetDefaultRatesRequest\032*." +
-      "adamant.global.v1.SetDefaultRatesRespons" +
-      "e\"\000\022y\n\024CreateLabeledAddress\022..adamant.gl" +
-      "obal.v1.CreateLabeledAddressRequest\032/.ad" +
-      "amant.global.v1.CreateLabeledAddressResp" +
-      "onse\"\000\022e\n\021GetLabeledAddress\022+.adamant.gl" +
-      "obal.v1.GetLabeledAddressRequest\032!.adama" +
-      "nt.global.v1.LabeledAddress\"\000\022y\n\024ListLab" +
-      "eledAddresses\022..adamant.global.v1.ListLa" +
-      "beledAddressesRequest\032/.adamant.global.v" +
-      "1.ListLabeledAddressesResponse\"\000\022\210\001\n\031IsD" +
+      "ceRequest\0323.adamant.global.v1.ListAddres" +
+      "sesWithBalanceResponse\"\000\022`\n\024UpdateAddres" +
+      "sBalance\022..adamant.global.v1.UpdateAddre" +
+      "ssBalanceRequest\032\026.google.protobuf.Empty" +
+      "\"\000\022q\n\025GetEthereumFeeAddress\022/.adamant.gl" +
+      "obal.v1.GetEthereumFeeAddressRequest\032%.a" +
+      "damant.global.v1.EthereumFeeAddress\"\000\022\216\001" +
+      "\n\033ListSubstrateChildAddresses\0225.adamant." +
+      "global.v1.ListSubstrateChildAddressesReq" +
+      "uest\0326.adamant.global.v1.ListSubstrateCh" +
+      "ildAddressesResponse\"\000\022\205\001\n\030ListSymbolChi" +
+      "ldAddresses\0222.adamant.global.v1.ListSymb" +
+      "olChildAddressesRequest\0323.adamant.global" +
+      ".v1.ListSymbolChildAddressesResponse\"\000\022|" +
+      "\n\025ListIOSTChildAccounts\022/.adamant.global" +
+      ".v1.ListIOSTChildAccountsRequest\0320.adama" +
+      "nt.global.v1.ListIOSTChildAccountsRespon" +
+      "se\"\000\022R\n\rImportAddress\022\'.adamant.global.v" +
+      "1.ImportAddressRequest\032\026.google.protobuf" +
+      ".Empty\"\000\022^\n\013ListCallers\022%.adamant.global" +
+      ".v1.ListCallersRequest\032&.adamant.global." +
+      "v1.ListCallersResponse\"\000\022j\n\017ListFeeDepos" +
+      "its\022).adamant.global.v1.ListFeeDepositsR" +
+      "equest\032*.adamant.global.v1.ListFeeDeposi" +
+      "tsResponse\"\000\022^\n\013RegisterKey\022%.adamant.gl" +
+      "obal.v1.RegisterKeyRequest\032&.adamant.glo" +
+      "bal.v1.RegisterKeyResponse\"\000\022p\n\021CreateTr" +
+      "ansaction\022+.adamant.global.v1.CreateTran" +
+      "sactionRequest\032,.adamant.global.v1.Creat" +
+      "eTransactionResponse\"\000\022j\n\031CreateXRPInitT" +
+      "ransactions\0223.adamant.global.v1.CreateXR" +
+      "PInitTransactionsRequest\032\026.google.protob" +
+      "uf.Empty\"\000\022V\n\017SignTransaction\022).adamant." +
+      "global.v1.SignTransactionRequest\032\026.googl" +
+      "e.protobuf.Empty\"\000\022f\n\027SignXRPInitTransac" +
+      "tions\0221.adamant.global.v1.SignXRPInitTra" +
+      "nsactionsRequest\032\026.google.protobuf.Empty" +
+      "\"\000\022j\n\017SendTransaction\022).adamant.global.v" +
+      "1.SendTransactionRequest\032*.adamant.globa" +
+      "l.v1.SendTransactionResponse\"\000\022\202\001\n\027SendX" +
+      "RPInitTransactions\0221.adamant.global.v1.S" +
+      "endXRPInitTransactionsRequest\0322.adamant." +
+      "global.v1.SendXRPInitTransactionsRespons" +
+      "e\"\000\022Z\n\021CancelTransaction\022+.adamant.globa" +
+      "l.v1.CancelTransactionRequest\032\026.google.p" +
+      "rotobuf.Empty\"\000\022s\n\022ReplaceTransaction\022,." +
+      "adamant.global.v1.ReplaceTransactionRequ" +
+      "est\032-.adamant.global.v1.ReplaceTransacti" +
+      "onResponse\"\000\022\\\n\016GetTransaction\022(.adamant" +
+      ".global.v1.GetTransactionRequest\032\036.adama" +
+      "nt.global.v1.Transaction\"\000\022h\n\024GetTransac" +
+      "tionByTxID\022..adamant.global.v1.GetTransa" +
+      "ctionByTxIDRequest\032\036.adamant.global.v1.T" +
+      "ransaction\"\000\022m\n\020ListTransactions\022*.adama" +
+      "nt.global.v1.ListTransactionsRequest\032+.a" +
+      "damant.global.v1.ListTransactionsRespons" +
+      "e\"\000\022}\n\030ListTransactionsByFilter\0222.adaman" +
+      "t.global.v1.ListTransactionsByFilterRequ" +
+      "est\032+.adamant.global.v1.ListTransactions" +
+      "Response\"\000\022S\n\013GetSignInfo\022%.adamant.glob" +
+      "al.v1.GetSignInfoRequest\032\033.adamant.globa" +
+      "l.v1.SignInfo\"\000\022a\n\014ListSignInfo\022&.adaman" +
+      "t.global.v1.ListSignInfoRequest\032\'.adaman" +
+      "t.global.v1.ListSignInfoResponse\"\000\022v\n\023Li" +
+      "stXRPInitSignInfo\022-.adamant.global.v1.Li" +
+      "stXRPInitSignInfoRequest\032..adamant.globa" +
+      "l.v1.ListXRPInitSignInfoResponse\"\000\022d\n\rLi" +
+      "stTransfers\022\'.adamant.global.v1.ListTran" +
+      "sfersRequest\032(.adamant.global.v1.ListTra" +
+      "nsfersResponse\"\000\022t\n\025ListTransfersByFilte" +
+      "r\022/.adamant.global.v1.ListTransfersByFil" +
+      "terRequest\032(.adamant.global.v1.ListTrans" +
+      "fersResponse\"\000\022_\n\017GetRateSnapshot\022).adam" +
+      "ant.global.v1.GetRateSnapshotRequest\032\037.a" +
+      "damant.global.v1.RateSnapshot\"\000\022k\n\025GetLa" +
+      "testRateSnapshot\022/.adamant.global.v1.Get" +
+      "LatestRateSnapshotRequest\032\037.adamant.glob" +
+      "al.v1.RateSnapshot\"\000\022U\n\010SetRates\022\".adama" +
+      "nt.global.v1.SetRatesRequest\032#.adamant.g" +
+      "lobal.v1.SetRatesResponse\"\000\022j\n\017SetDefaul" +
+      "tRates\022).adamant.global.v1.SetDefaultRat" +
+      "esRequest\032*.adamant.global.v1.SetDefault" +
+      "RatesResponse\"\000\022y\n\024CreateLabeledAddress\022" +
+      "..adamant.global.v1.CreateLabeledAddress" +
+      "Request\032/.adamant.global.v1.CreateLabele" +
+      "dAddressResponse\"\000\022e\n\021GetLabeledAddress\022" +
+      "+.adamant.global.v1.GetLabeledAddressReq" +
+      "uest\032!.adamant.global.v1.LabeledAddress\"" +
+      "\000\022y\n\024ListLabeledAddresses\022..adamant.glob" +
+      "al.v1.ListLabeledAddressesRequest\032/.adam" +
+      "ant.global.v1.ListLabeledAddressesRespon" +
+      "se\"\000\022\221\001\n\034ListLabeledAddressesByFilter\0226." +
+      "adamant.global.v1.ListLabeledAddressesBy" +
+      "FilterRequest\0327.adamant.global.v1.ListLa" +
+      "beledAddressesByFilterResponse\"\000\022\210\001\n\031IsD" +
       "eletableLabeledAddress\0223.adamant.global." +
       "v1.IsDeletableLabeledAddressRequest\0324.ad" +
       "amant.global.v1.IsDeletableLabeledAddres" +
@@ -2075,42 +2156,45 @@ public final class GlobalAPIProto {
       "PolicyRequest\032\031.adamant.global.v1.Policy" +
       "\"\000\022a\n\014ListPolicies\022&.adamant.global.v1.L" +
       "istPoliciesRequest\032\'.adamant.global.v1.L" +
-      "istPoliciesResponse\"\000\022p\n\021IsDeletablePoli" +
-      "cy\022+.adamant.global.v1.IsDeletablePolicy" +
-      "Request\032,.adamant.global.v1.IsDeletableP" +
-      "olicyResponse\"\000\022S\n\014UpdatePolicy\022&.adaman" +
-      "t.global.v1.UpdatePolicyRequest\032\031.adaman" +
-      "t.global.v1.Policy\"\000\022P\n\014DeletePolicy\022&.a" +
-      "damant.global.v1.DeletePolicyRequest\032\026.g" +
-      "oogle.protobuf.Empty\"\000\022`\n\024ReviewPolicyPr" +
-      "oposal\022..adamant.global.v1.ReviewPolicyP" +
-      "roposalRequest\032\026.google.protobuf.Empty\"\000" +
-      "\022v\n\023GetSpendableBalance\022-.adamant.global" +
-      ".v1.GetSpendableBalanceRequest\032..adamant" +
-      ".global.v1.GetSpendableBalanceResponse\"\000" +
-      "\022_\n\017GetTotalBalance\022).adamant.global.v1." +
-      "GetTotalBalanceRequest\032\037.adamant.global." +
-      "v1.TotalBalance\"\000\022y\n\024ListBalanceSnapshot" +
-      "s\022..adamant.global.v1.ListBalanceSnapsho" +
-      "tsRequest\032/.adamant.global.v1.ListBalanc" +
-      "eSnapshotsResponse\"\000\022a\n\014CalculateFee\022&.a" +
-      "damant.global.v1.CalculateFeeRequest\032\'.a" +
-      "damant.global.v1.CalculateFeeResponse\"\000\022" +
-      "\221\001\n\034GetMembersDeactivatabilities\0226.adama" +
-      "nt.global.v1.GetMembersDeactivatabilitie" +
-      "sRequest\0327.adamant.global.v1.GetMembersD" +
-      "eactivatabilitiesResponse\"\000\022|\n\025GetRecomm" +
-      "endedFeeRate\022/.adamant.global.v1.GetReco" +
-      "mmendedFeeRateRequest\0320.adamant.global.v" +
-      "1.GetRecommendedFeeRateResponse\"\000\022j\n\017Val" +
-      "idateAddress\022).adamant.global.v1.Validat" +
-      "eAddressRequest\032*.adamant.global.v1.Vali" +
-      "dateAddressResponse\"\000\022d\n\rListAuditLogs\022\'" +
-      ".adamant.global.v1.ListAuditLogsRequest\032" +
-      "(.adamant.global.v1.ListAuditLogsRespons" +
-      "e\"\000B^B\016GlobalAPIProtoP\001ZJgithub.com/Ginc" +
-      "oInc/gew-kmp/gen/gincoinc/adamant/global" +
-      "/v1/adamantglobalv1b\006proto3"
+      "istPoliciesResponse\"\000\022y\n\024ListPoliciesByF" +
+      "ilter\022..adamant.global.v1.ListPoliciesBy" +
+      "FilterRequest\032/.adamant.global.v1.ListPo" +
+      "liciesByFilterResponse\"\000\022p\n\021IsDeletableP" +
+      "olicy\022+.adamant.global.v1.IsDeletablePol" +
+      "icyRequest\032,.adamant.global.v1.IsDeletab" +
+      "lePolicyResponse\"\000\022S\n\014UpdatePolicy\022&.ada" +
+      "mant.global.v1.UpdatePolicyRequest\032\031.ada" +
+      "mant.global.v1.Policy\"\000\022P\n\014DeletePolicy\022" +
+      "&.adamant.global.v1.DeletePolicyRequest\032" +
+      "\026.google.protobuf.Empty\"\000\022`\n\024ReviewPolic" +
+      "yProposal\022..adamant.global.v1.ReviewPoli" +
+      "cyProposalRequest\032\026.google.protobuf.Empt" +
+      "y\"\000\022v\n\023GetSpendableBalance\022-.adamant.glo" +
+      "bal.v1.GetSpendableBalanceRequest\032..adam" +
+      "ant.global.v1.GetSpendableBalanceRespons" +
+      "e\"\000\022_\n\017GetTotalBalance\022).adamant.global." +
+      "v1.GetTotalBalanceRequest\032\037.adamant.glob" +
+      "al.v1.TotalBalance\"\000\022y\n\024ListBalanceSnaps" +
+      "hots\022..adamant.global.v1.ListBalanceSnap" +
+      "shotsRequest\032/.adamant.global.v1.ListBal" +
+      "anceSnapshotsResponse\"\000\022a\n\014CalculateFee\022" +
+      "&.adamant.global.v1.CalculateFeeRequest\032" +
+      "\'.adamant.global.v1.CalculateFeeResponse" +
+      "\"\000\022\221\001\n\034GetMembersDeactivatabilities\0226.ad" +
+      "amant.global.v1.GetMembersDeactivatabili" +
+      "tiesRequest\0327.adamant.global.v1.GetMembe" +
+      "rsDeactivatabilitiesResponse\"\000\022|\n\025GetRec" +
+      "ommendedFeeRate\022/.adamant.global.v1.GetR" +
+      "ecommendedFeeRateRequest\0320.adamant.globa" +
+      "l.v1.GetRecommendedFeeRateResponse\"\000\022j\n\017" +
+      "ValidateAddress\022).adamant.global.v1.Vali" +
+      "dateAddressRequest\032*.adamant.global.v1.V" +
+      "alidateAddressResponse\"\000\022d\n\rListAuditLog" +
+      "s\022\'.adamant.global.v1.ListAuditLogsReque" +
+      "st\032(.adamant.global.v1.ListAuditLogsResp" +
+      "onse\"\000B^B\016GlobalAPIProtoP\001ZJgithub.com/G" +
+      "incoInc/gew-kmp/gen/gincoinc/adamant/glo" +
+      "bal/v1/adamantglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2975,338 +3059,374 @@ public final class GlobalAPIProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListLabeledAddressesResponse_descriptor,
         new java.lang.String[] { "Addresses", });
-    internal_static_adamant_global_v1_DeleteLabeledAddressRequest_descriptor =
+    internal_static_adamant_global_v1_ListLabeledAddressesByFilterRequest_descriptor =
       getDescriptor().getMessageTypes().get(142);
+    internal_static_adamant_global_v1_ListLabeledAddressesByFilterRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_ListLabeledAddressesByFilterRequest_descriptor,
+        new java.lang.String[] { "FilterType", "AddressId", "Address", "AddressName", "Coin", "PageSize", "PageToken", });
+    internal_static_adamant_global_v1_ListLabeledAddressesByFilterResponse_descriptor =
+      getDescriptor().getMessageTypes().get(143);
+    internal_static_adamant_global_v1_ListLabeledAddressesByFilterResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_ListLabeledAddressesByFilterResponse_descriptor,
+        new java.lang.String[] { "Addresses", "NextPageToken", });
+    internal_static_adamant_global_v1_DeleteLabeledAddressRequest_descriptor =
+      getDescriptor().getMessageTypes().get(144);
     internal_static_adamant_global_v1_DeleteLabeledAddressRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_DeleteLabeledAddressRequest_descriptor,
         new java.lang.String[] { "LabeledAddressId", });
     internal_static_adamant_global_v1_ReviewLabeledAddressProposalRequest_descriptor =
-      getDescriptor().getMessageTypes().get(143);
+      getDescriptor().getMessageTypes().get(145);
     internal_static_adamant_global_v1_ReviewLabeledAddressProposalRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ReviewLabeledAddressProposalRequest_descriptor,
         new java.lang.String[] { "LabeledAddressId", "Approve", });
     internal_static_adamant_global_v1_CreateWhitelistRequest_descriptor =
-      getDescriptor().getMessageTypes().get(144);
+      getDescriptor().getMessageTypes().get(146);
     internal_static_adamant_global_v1_CreateWhitelistRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreateWhitelistRequest_descriptor,
         new java.lang.String[] { "Name", "Coin", "AddressIds", });
     internal_static_adamant_global_v1_CreateWhitelistResponse_descriptor =
-      getDescriptor().getMessageTypes().get(145);
+      getDescriptor().getMessageTypes().get(147);
     internal_static_adamant_global_v1_CreateWhitelistResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreateWhitelistResponse_descriptor,
         new java.lang.String[] { "WhitelistId", });
     internal_static_adamant_global_v1_GetWhitelistRequest_descriptor =
-      getDescriptor().getMessageTypes().get(146);
+      getDescriptor().getMessageTypes().get(148);
     internal_static_adamant_global_v1_GetWhitelistRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_GetWhitelistRequest_descriptor,
         new java.lang.String[] { "WhitelistId", });
     internal_static_adamant_global_v1_ListWhitelistsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(147);
+      getDescriptor().getMessageTypes().get(149);
     internal_static_adamant_global_v1_ListWhitelistsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListWhitelistsRequest_descriptor,
         new java.lang.String[] { });
     internal_static_adamant_global_v1_ListWhitelistsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(148);
+      getDescriptor().getMessageTypes().get(150);
     internal_static_adamant_global_v1_ListWhitelistsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListWhitelistsResponse_descriptor,
         new java.lang.String[] { "Whitelists", });
     internal_static_adamant_global_v1_UpdateWhitelistRequest_descriptor =
-      getDescriptor().getMessageTypes().get(149);
+      getDescriptor().getMessageTypes().get(151);
     internal_static_adamant_global_v1_UpdateWhitelistRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_UpdateWhitelistRequest_descriptor,
         new java.lang.String[] { "WhitelistId", "Name", "Coin", "AddressIds", });
     internal_static_adamant_global_v1_UpdateWhitelistAddressesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(150);
+      getDescriptor().getMessageTypes().get(152);
     internal_static_adamant_global_v1_UpdateWhitelistAddressesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_UpdateWhitelistAddressesRequest_descriptor,
         new java.lang.String[] { "WhitelistId", "AddressIds", });
     internal_static_adamant_global_v1_DeleteWhitelistRequest_descriptor =
-      getDescriptor().getMessageTypes().get(151);
+      getDescriptor().getMessageTypes().get(153);
     internal_static_adamant_global_v1_DeleteWhitelistRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_DeleteWhitelistRequest_descriptor,
         new java.lang.String[] { "WhitelistId", });
     internal_static_adamant_global_v1_CreateTransferLimitRequest_descriptor =
-      getDescriptor().getMessageTypes().get(152);
+      getDescriptor().getMessageTypes().get(154);
     internal_static_adamant_global_v1_CreateTransferLimitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreateTransferLimitRequest_descriptor,
         new java.lang.String[] { "Name", "Coin", "TransferLimits", });
     internal_static_adamant_global_v1_CreateTransferLimitResponse_descriptor =
-      getDescriptor().getMessageTypes().get(153);
+      getDescriptor().getMessageTypes().get(155);
     internal_static_adamant_global_v1_CreateTransferLimitResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreateTransferLimitResponse_descriptor,
         new java.lang.String[] { "TransferLimitId", });
     internal_static_adamant_global_v1_GetTransferLimitRequest_descriptor =
-      getDescriptor().getMessageTypes().get(154);
+      getDescriptor().getMessageTypes().get(156);
     internal_static_adamant_global_v1_GetTransferLimitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_GetTransferLimitRequest_descriptor,
         new java.lang.String[] { "TransferLimitId", });
     internal_static_adamant_global_v1_ListTransferLimitsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(155);
+      getDescriptor().getMessageTypes().get(157);
     internal_static_adamant_global_v1_ListTransferLimitsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListTransferLimitsRequest_descriptor,
         new java.lang.String[] { });
     internal_static_adamant_global_v1_ListTransferLimitsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(156);
+      getDescriptor().getMessageTypes().get(158);
     internal_static_adamant_global_v1_ListTransferLimitsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListTransferLimitsResponse_descriptor,
         new java.lang.String[] { "TransferLimits", });
+    internal_static_adamant_global_v1_ListTransferLimitsByFilterRequest_descriptor =
+      getDescriptor().getMessageTypes().get(159);
+    internal_static_adamant_global_v1_ListTransferLimitsByFilterRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_ListTransferLimitsByFilterRequest_descriptor,
+        new java.lang.String[] { "FilterType", "TransferLimitId", "TransferLimitName", "Coin", "PageSize", "PageToken", });
+    internal_static_adamant_global_v1_ListTransferLimitsByFilterResponse_descriptor =
+      getDescriptor().getMessageTypes().get(160);
+    internal_static_adamant_global_v1_ListTransferLimitsByFilterResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_ListTransferLimitsByFilterResponse_descriptor,
+        new java.lang.String[] { "TransferLimits", "NextPageToken", });
     internal_static_adamant_global_v1_UpdateTransferLimitRequest_descriptor =
-      getDescriptor().getMessageTypes().get(157);
+      getDescriptor().getMessageTypes().get(161);
     internal_static_adamant_global_v1_UpdateTransferLimitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_UpdateTransferLimitRequest_descriptor,
         new java.lang.String[] { "TransferLimitId", "TransferLimits", });
     internal_static_adamant_global_v1_UpdateTransferLimitNameRequest_descriptor =
-      getDescriptor().getMessageTypes().get(158);
+      getDescriptor().getMessageTypes().get(162);
     internal_static_adamant_global_v1_UpdateTransferLimitNameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_UpdateTransferLimitNameRequest_descriptor,
         new java.lang.String[] { "TransferLimitId", "Name", });
     internal_static_adamant_global_v1_DeleteTransferLimitRequest_descriptor =
-      getDescriptor().getMessageTypes().get(159);
+      getDescriptor().getMessageTypes().get(163);
     internal_static_adamant_global_v1_DeleteTransferLimitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_DeleteTransferLimitRequest_descriptor,
         new java.lang.String[] { "TransferLimitId", });
     internal_static_adamant_global_v1_ReviewTransferLimitProposalRequest_descriptor =
-      getDescriptor().getMessageTypes().get(160);
+      getDescriptor().getMessageTypes().get(164);
     internal_static_adamant_global_v1_ReviewTransferLimitProposalRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ReviewTransferLimitProposalRequest_descriptor,
         new java.lang.String[] { "TransferLimitId", "Approve", });
     internal_static_adamant_global_v1_CreatePolicyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(161);
+      getDescriptor().getMessageTypes().get(165);
     internal_static_adamant_global_v1_CreatePolicyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreatePolicyRequest_descriptor,
         new java.lang.String[] { "Name", "Coin", "Type", "WhitelistId", "TransferLimitId", });
     internal_static_adamant_global_v1_CreatePolicyResponse_descriptor =
-      getDescriptor().getMessageTypes().get(162);
+      getDescriptor().getMessageTypes().get(166);
     internal_static_adamant_global_v1_CreatePolicyResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreatePolicyResponse_descriptor,
         new java.lang.String[] { "PolicyId", });
     internal_static_adamant_global_v1_GetPolicyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(163);
+      getDescriptor().getMessageTypes().get(167);
     internal_static_adamant_global_v1_GetPolicyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_GetPolicyRequest_descriptor,
         new java.lang.String[] { "PolicyId", });
+    internal_static_adamant_global_v1_ListPoliciesByFilterRequest_descriptor =
+      getDescriptor().getMessageTypes().get(168);
+    internal_static_adamant_global_v1_ListPoliciesByFilterRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_ListPoliciesByFilterRequest_descriptor,
+        new java.lang.String[] { "FilterType", "PolicyId", "PolicyName", "Coin", "PolicyType", "PageSize", "PageToken", });
     internal_static_adamant_global_v1_ListPoliciesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(164);
+      getDescriptor().getMessageTypes().get(169);
     internal_static_adamant_global_v1_ListPoliciesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListPoliciesRequest_descriptor,
         new java.lang.String[] { });
     internal_static_adamant_global_v1_IsDeletablePolicyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(165);
+      getDescriptor().getMessageTypes().get(170);
     internal_static_adamant_global_v1_IsDeletablePolicyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IsDeletablePolicyRequest_descriptor,
         new java.lang.String[] { "PolicyId", });
     internal_static_adamant_global_v1_IsDeletablePolicyResponse_descriptor =
-      getDescriptor().getMessageTypes().get(166);
+      getDescriptor().getMessageTypes().get(171);
     internal_static_adamant_global_v1_IsDeletablePolicyResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IsDeletablePolicyResponse_descriptor,
         new java.lang.String[] { "IsDeletable", });
     internal_static_adamant_global_v1_IsDeletableLabeledAddressRequest_descriptor =
-      getDescriptor().getMessageTypes().get(167);
+      getDescriptor().getMessageTypes().get(172);
     internal_static_adamant_global_v1_IsDeletableLabeledAddressRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IsDeletableLabeledAddressRequest_descriptor,
         new java.lang.String[] { "LabeledAddressId", });
     internal_static_adamant_global_v1_IsDeletableLabeledAddressResponse_descriptor =
-      getDescriptor().getMessageTypes().get(168);
+      getDescriptor().getMessageTypes().get(173);
     internal_static_adamant_global_v1_IsDeletableLabeledAddressResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IsDeletableLabeledAddressResponse_descriptor,
         new java.lang.String[] { "IsDeletable", });
     internal_static_adamant_global_v1_IsDeletableWhitelistRequest_descriptor =
-      getDescriptor().getMessageTypes().get(169);
+      getDescriptor().getMessageTypes().get(174);
     internal_static_adamant_global_v1_IsDeletableWhitelistRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IsDeletableWhitelistRequest_descriptor,
         new java.lang.String[] { "WhitelistId", });
     internal_static_adamant_global_v1_IsDeletableWhitelistResponse_descriptor =
-      getDescriptor().getMessageTypes().get(170);
+      getDescriptor().getMessageTypes().get(175);
     internal_static_adamant_global_v1_IsDeletableWhitelistResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IsDeletableWhitelistResponse_descriptor,
         new java.lang.String[] { "IsDeletable", });
     internal_static_adamant_global_v1_IsDeletableTransferLimitRequest_descriptor =
-      getDescriptor().getMessageTypes().get(171);
+      getDescriptor().getMessageTypes().get(176);
     internal_static_adamant_global_v1_IsDeletableTransferLimitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IsDeletableTransferLimitRequest_descriptor,
         new java.lang.String[] { "TransferLimitId", });
     internal_static_adamant_global_v1_IsDeletableTransferLimitResponse_descriptor =
-      getDescriptor().getMessageTypes().get(172);
+      getDescriptor().getMessageTypes().get(177);
     internal_static_adamant_global_v1_IsDeletableTransferLimitResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_IsDeletableTransferLimitResponse_descriptor,
         new java.lang.String[] { "IsDeletable", });
     internal_static_adamant_global_v1_ListPoliciesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(173);
+      getDescriptor().getMessageTypes().get(178);
     internal_static_adamant_global_v1_ListPoliciesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListPoliciesResponse_descriptor,
         new java.lang.String[] { "Policies", });
+    internal_static_adamant_global_v1_ListPoliciesByFilterResponse_descriptor =
+      getDescriptor().getMessageTypes().get(179);
+    internal_static_adamant_global_v1_ListPoliciesByFilterResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_global_v1_ListPoliciesByFilterResponse_descriptor,
+        new java.lang.String[] { "Policies", "NextPageToken", });
     internal_static_adamant_global_v1_UpdatePolicyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(174);
+      getDescriptor().getMessageTypes().get(180);
     internal_static_adamant_global_v1_UpdatePolicyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_UpdatePolicyRequest_descriptor,
         new java.lang.String[] { "PolicyId", "Name", "WhitelistId", "TransferLimitId", });
     internal_static_adamant_global_v1_DeletePolicyRequest_descriptor =
-      getDescriptor().getMessageTypes().get(175);
+      getDescriptor().getMessageTypes().get(181);
     internal_static_adamant_global_v1_DeletePolicyRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_DeletePolicyRequest_descriptor,
         new java.lang.String[] { "PolicyId", });
     internal_static_adamant_global_v1_ReviewPolicyProposalRequest_descriptor =
-      getDescriptor().getMessageTypes().get(176);
+      getDescriptor().getMessageTypes().get(182);
     internal_static_adamant_global_v1_ReviewPolicyProposalRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ReviewPolicyProposalRequest_descriptor,
         new java.lang.String[] { "PolicyId", "Approve", });
     internal_static_adamant_global_v1_ListSubstrateChildAddressesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(177);
+      getDescriptor().getMessageTypes().get(183);
     internal_static_adamant_global_v1_ListSubstrateChildAddressesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListSubstrateChildAddressesRequest_descriptor,
         new java.lang.String[] { "WalletId", });
     internal_static_adamant_global_v1_ListSubstrateChildAddressesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(178);
+      getDescriptor().getMessageTypes().get(184);
     internal_static_adamant_global_v1_ListSubstrateChildAddressesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListSubstrateChildAddressesResponse_descriptor,
         new java.lang.String[] { "SubstrateChildAddresses", });
     internal_static_adamant_global_v1_ListSymbolChildAddressesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(179);
+      getDescriptor().getMessageTypes().get(185);
     internal_static_adamant_global_v1_ListSymbolChildAddressesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListSymbolChildAddressesRequest_descriptor,
         new java.lang.String[] { "WalletId", });
     internal_static_adamant_global_v1_ListSymbolChildAddressesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(180);
+      getDescriptor().getMessageTypes().get(186);
     internal_static_adamant_global_v1_ListSymbolChildAddressesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListSymbolChildAddressesResponse_descriptor,
         new java.lang.String[] { "SymbolChildAddresses", });
     internal_static_adamant_global_v1_ListIOSTChildAccountsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(181);
+      getDescriptor().getMessageTypes().get(187);
     internal_static_adamant_global_v1_ListIOSTChildAccountsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListIOSTChildAccountsRequest_descriptor,
         new java.lang.String[] { "WalletId", });
     internal_static_adamant_global_v1_ListIOSTChildAccountsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(182);
+      getDescriptor().getMessageTypes().get(188);
     internal_static_adamant_global_v1_ListIOSTChildAccountsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListIOSTChildAccountsResponse_descriptor,
         new java.lang.String[] { "IostChildAccounts", });
     internal_static_adamant_global_v1_DownloadResourceRequest_descriptor =
-      getDescriptor().getMessageTypes().get(183);
+      getDescriptor().getMessageTypes().get(189);
     internal_static_adamant_global_v1_DownloadResourceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_DownloadResourceRequest_descriptor,
         new java.lang.String[] { "DownloadResourceType", "WatchOnly", "WalletId", "StartTime", "EndTime", });
     internal_static_adamant_global_v1_CreateIOSTAccountRequest_descriptor =
-      getDescriptor().getMessageTypes().get(184);
+      getDescriptor().getMessageTypes().get(190);
     internal_static_adamant_global_v1_CreateIOSTAccountRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreateIOSTAccountRequest_descriptor,
         new java.lang.String[] { "AccountName", "WalletId", "AccountId", });
     internal_static_adamant_global_v1_CreateIOSTAccountResponse_descriptor =
-      getDescriptor().getMessageTypes().get(185);
+      getDescriptor().getMessageTypes().get(191);
     internal_static_adamant_global_v1_CreateIOSTAccountResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CreateIOSTAccountResponse_descriptor,
         new java.lang.String[] { "AddressId", });
     internal_static_adamant_global_v1_ExistsIOSTAccountRequest_descriptor =
-      getDescriptor().getMessageTypes().get(186);
+      getDescriptor().getMessageTypes().get(192);
     internal_static_adamant_global_v1_ExistsIOSTAccountRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ExistsIOSTAccountRequest_descriptor,
         new java.lang.String[] { "AccountName", });
     internal_static_adamant_global_v1_ExistsIOSTAccountResponse_descriptor =
-      getDescriptor().getMessageTypes().get(187);
+      getDescriptor().getMessageTypes().get(193);
     internal_static_adamant_global_v1_ExistsIOSTAccountResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ExistsIOSTAccountResponse_descriptor,
         new java.lang.String[] { "Exists", });
     internal_static_adamant_global_v1_GetIOSTCallerAccountRequest_descriptor =
-      getDescriptor().getMessageTypes().get(188);
+      getDescriptor().getMessageTypes().get(194);
     internal_static_adamant_global_v1_GetIOSTCallerAccountRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_GetIOSTCallerAccountRequest_descriptor,
         new java.lang.String[] { });
     internal_static_adamant_global_v1_ListCallersRequest_descriptor =
-      getDescriptor().getMessageTypes().get(189);
+      getDescriptor().getMessageTypes().get(195);
     internal_static_adamant_global_v1_ListCallersRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListCallersRequest_descriptor,
         new java.lang.String[] { });
     internal_static_adamant_global_v1_ListCallersResponse_descriptor =
-      getDescriptor().getMessageTypes().get(190);
+      getDescriptor().getMessageTypes().get(196);
     internal_static_adamant_global_v1_ListCallersResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListCallersResponse_descriptor,
         new java.lang.String[] { "CallerAddresses", });
     internal_static_adamant_global_v1_ListFeeDepositsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(191);
+      getDescriptor().getMessageTypes().get(197);
     internal_static_adamant_global_v1_ListFeeDepositsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListFeeDepositsRequest_descriptor,
         new java.lang.String[] { });
     internal_static_adamant_global_v1_ListFeeDepositsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(192);
+      getDescriptor().getMessageTypes().get(198);
     internal_static_adamant_global_v1_ListFeeDepositsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListFeeDepositsResponse_descriptor,
         new java.lang.String[] { "FeeDepositAddresses", });
     internal_static_adamant_global_v1_GetCosmosBalanceRequest_descriptor =
-      getDescriptor().getMessageTypes().get(193);
+      getDescriptor().getMessageTypes().get(199);
     internal_static_adamant_global_v1_GetCosmosBalanceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_GetCosmosBalanceRequest_descriptor,
         new java.lang.String[] { "WalletId", });
     internal_static_adamant_global_v1_GetCosmosBalanceResponse_descriptor =
-      getDescriptor().getMessageTypes().get(194);
+      getDescriptor().getMessageTypes().get(200);
     internal_static_adamant_global_v1_GetCosmosBalanceResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_GetCosmosBalanceResponse_descriptor,
         new java.lang.String[] { "Delegations", "Available", "Reward", "Unbonding", });
     internal_static_adamant_global_v1_ListCosmosDelegateHistoriesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(195);
+      getDescriptor().getMessageTypes().get(201);
     internal_static_adamant_global_v1_ListCosmosDelegateHistoriesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListCosmosDelegateHistoriesRequest_descriptor,
         new java.lang.String[] { "WalletId", });
     internal_static_adamant_global_v1_ListCosmosDelegateHistoriesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(196);
+      getDescriptor().getMessageTypes().get(202);
     internal_static_adamant_global_v1_ListCosmosDelegateHistoriesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_ListCosmosDelegateHistoriesResponse_descriptor,
         new java.lang.String[] { "DelegateHistories", });
     internal_static_adamant_global_v1_CosmosDelegateHistory_descriptor =
-      getDescriptor().getMessageTypes().get(197);
+      getDescriptor().getMessageTypes().get(203);
     internal_static_adamant_global_v1_CosmosDelegateHistory_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_CosmosDelegateHistory_descriptor,

@@ -3,7 +3,7 @@ version: "3"
 
 services:
   teller:
-    image: ginco/teller:v2.40.0
+    image: ginco/teller:v2.41.0
     ports:
       - "50051:50051"
     command: -f /root/configs/config.toml
@@ -12,14 +12,14 @@ services:
     env_file:
       - "./envs/teller/.env"
   # postbox:
-  #   image: ginco/postbox:v0.26.0
+  #   image: ginco/postbox:v0.27.0
   #   command: -f /root/configs/config.toml
   #   volumes:
   #     - "./configs/postbox/config.toml:/root/configs/config.toml"
   #   env_file:
   #     - "./envs/postbox/.env"
   # postbox-gateway:
-  #   image: ginco/postbox-gateway:v0.26.0
+  #   image: ginco/postbox-gateway:v0.27.0
   #   ports:
   #     - "8080:8080"
   #   command: >

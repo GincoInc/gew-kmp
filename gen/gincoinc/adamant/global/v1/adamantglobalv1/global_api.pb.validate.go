@@ -74,6 +74,12 @@ var (
 
 	_ = gincoincglobalv1.Coin(0)
 
+	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.Coin(0)
+
 	_ = gincoincglobalv1.CosmosMsgType(0)
 )
 
@@ -16465,6 +16471,287 @@ var _ interface {
 	ErrorName() string
 } = ListLabeledAddressesResponseValidationError{}
 
+// Validate checks the field values on ListLabeledAddressesByFilterRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListLabeledAddressesByFilterRequestMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListLabeledAddressesByFilterRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		err := ListLabeledAddressesByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ListLabeledAddressesByFilterRequest_AddressId_Pattern.MatchString(m.GetAddressId()) {
+		err := ListLabeledAddressesByFilterRequestValidationError{
+			field:  "AddressId",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for Address
+
+	if utf8.RuneCountInString(m.GetAddressName()) > 40 {
+		err := ListLabeledAddressesByFilterRequestValidationError{
+			field:  "AddressName",
+			reason: "value length must be at most 40 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		err := ListLabeledAddressesByFilterRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetPageSize() > 100 {
+		err := ListLabeledAddressesByFilterRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 100",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ListLabeledAddressesByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		err := ListLabeledAddressesByFilterRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return ListLabeledAddressesByFilterRequestMultiError(errors)
+	}
+	return nil
+}
+
+// ListLabeledAddressesByFilterRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListLabeledAddressesByFilterRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListLabeledAddressesByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListLabeledAddressesByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListLabeledAddressesByFilterRequestMultiError) AllErrors() []error { return m }
+
+// ListLabeledAddressesByFilterRequestValidationError is the validation error
+// returned by ListLabeledAddressesByFilterRequest.Validate if the designated
+// constraints aren't met.
+type ListLabeledAddressesByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListLabeledAddressesByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListLabeledAddressesByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListLabeledAddressesByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListLabeledAddressesByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListLabeledAddressesByFilterRequestValidationError) ErrorName() string {
+	return "ListLabeledAddressesByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListLabeledAddressesByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListLabeledAddressesByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListLabeledAddressesByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListLabeledAddressesByFilterRequestValidationError{}
+
+var _ListLabeledAddressesByFilterRequest_AddressId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ListLabeledAddressesByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListLabeledAddressesByFilterResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListLabeledAddressesByFilterResponseMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListLabeledAddressesByFilterResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetAddresses() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListLabeledAddressesByFilterResponseValidationError{
+					field:  fmt.Sprintf("Addresses[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	if len(errors) > 0 {
+		return ListLabeledAddressesByFilterResponseMultiError(errors)
+	}
+	return nil
+}
+
+// ListLabeledAddressesByFilterResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListLabeledAddressesByFilterResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListLabeledAddressesByFilterResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListLabeledAddressesByFilterResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListLabeledAddressesByFilterResponseMultiError) AllErrors() []error { return m }
+
+// ListLabeledAddressesByFilterResponseValidationError is the validation error
+// returned by ListLabeledAddressesByFilterResponse.Validate if the designated
+// constraints aren't met.
+type ListLabeledAddressesByFilterResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListLabeledAddressesByFilterResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListLabeledAddressesByFilterResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListLabeledAddressesByFilterResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListLabeledAddressesByFilterResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListLabeledAddressesByFilterResponseValidationError) ErrorName() string {
+	return "ListLabeledAddressesByFilterResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListLabeledAddressesByFilterResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListLabeledAddressesByFilterResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListLabeledAddressesByFilterResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListLabeledAddressesByFilterResponseValidationError{}
+
 // Validate checks the field values on DeleteLabeledAddressRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned. When asked to return all errors, validation
@@ -18190,6 +18477,285 @@ var _ interface {
 	ErrorName() string
 } = ListTransferLimitsResponseValidationError{}
 
+// Validate checks the field values on ListTransferLimitsByFilterRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListTransferLimitsByFilterRequestMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListTransferLimitsByFilterRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		err := ListTransferLimitsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ListTransferLimitsByFilterRequest_TransferLimitId_Pattern.MatchString(m.GetTransferLimitId()) {
+		err := ListTransferLimitsByFilterRequestValidationError{
+			field:  "TransferLimitId",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if utf8.RuneCountInString(m.GetTransferLimitName()) > 40 {
+		err := ListTransferLimitsByFilterRequestValidationError{
+			field:  "TransferLimitName",
+			reason: "value length must be at most 40 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		err := ListTransferLimitsByFilterRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetPageSize() > 100 {
+		err := ListTransferLimitsByFilterRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 100",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ListTransferLimitsByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		err := ListTransferLimitsByFilterRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return ListTransferLimitsByFilterRequestMultiError(errors)
+	}
+	return nil
+}
+
+// ListTransferLimitsByFilterRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListTransferLimitsByFilterRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListTransferLimitsByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListTransferLimitsByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListTransferLimitsByFilterRequestMultiError) AllErrors() []error { return m }
+
+// ListTransferLimitsByFilterRequestValidationError is the validation error
+// returned by ListTransferLimitsByFilterRequest.Validate if the designated
+// constraints aren't met.
+type ListTransferLimitsByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListTransferLimitsByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListTransferLimitsByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListTransferLimitsByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListTransferLimitsByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListTransferLimitsByFilterRequestValidationError) ErrorName() string {
+	return "ListTransferLimitsByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListTransferLimitsByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListTransferLimitsByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListTransferLimitsByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListTransferLimitsByFilterRequestValidationError{}
+
+var _ListTransferLimitsByFilterRequest_TransferLimitId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ListTransferLimitsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListTransferLimitsByFilterResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListTransferLimitsByFilterResponseMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListTransferLimitsByFilterResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetTransferLimits() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListTransferLimitsByFilterResponseValidationError{
+					field:  fmt.Sprintf("TransferLimits[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	if len(errors) > 0 {
+		return ListTransferLimitsByFilterResponseMultiError(errors)
+	}
+	return nil
+}
+
+// ListTransferLimitsByFilterResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListTransferLimitsByFilterResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListTransferLimitsByFilterResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListTransferLimitsByFilterResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListTransferLimitsByFilterResponseMultiError) AllErrors() []error { return m }
+
+// ListTransferLimitsByFilterResponseValidationError is the validation error
+// returned by ListTransferLimitsByFilterResponse.Validate if the designated
+// constraints aren't met.
+type ListTransferLimitsByFilterResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListTransferLimitsByFilterResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListTransferLimitsByFilterResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListTransferLimitsByFilterResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListTransferLimitsByFilterResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListTransferLimitsByFilterResponseValidationError) ErrorName() string {
+	return "ListTransferLimitsByFilterResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListTransferLimitsByFilterResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListTransferLimitsByFilterResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListTransferLimitsByFilterResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListTransferLimitsByFilterResponseValidationError{}
+
 // Validate checks the field values on UpdateTransferLimitRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, an error is returned. When asked to return all errors, validation
@@ -19033,6 +19599,180 @@ var _ interface {
 } = GetPolicyRequestValidationError{}
 
 var _GetPolicyRequest_PolicyId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ListPoliciesByFilterRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListPoliciesByFilterRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListPoliciesByFilterRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		err := ListPoliciesByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ListPoliciesByFilterRequest_PolicyId_Pattern.MatchString(m.GetPolicyId()) {
+		err := ListPoliciesByFilterRequestValidationError{
+			field:  "PolicyId",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if utf8.RuneCountInString(m.GetPolicyName()) > 40 {
+		err := ListPoliciesByFilterRequestValidationError{
+			field:  "PolicyName",
+			reason: "value length must be at most 40 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		err := ListPoliciesByFilterRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := PolicyType_name[int32(m.GetPolicyType())]; !ok {
+		err := ListPoliciesByFilterRequestValidationError{
+			field:  "PolicyType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetPageSize() > 100 {
+		err := ListPoliciesByFilterRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 100",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ListPoliciesByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		err := ListPoliciesByFilterRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return ListPoliciesByFilterRequestMultiError(errors)
+	}
+	return nil
+}
+
+// ListPoliciesByFilterRequestMultiError is an error wrapping multiple
+// validation errors returned by ListPoliciesByFilterRequest.Validate(true) if
+// the designated constraints aren't met.
+type ListPoliciesByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListPoliciesByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListPoliciesByFilterRequestMultiError) AllErrors() []error { return m }
+
+// ListPoliciesByFilterRequestValidationError is the validation error returned
+// by ListPoliciesByFilterRequest.Validate if the designated constraints
+// aren't met.
+type ListPoliciesByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListPoliciesByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListPoliciesByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListPoliciesByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListPoliciesByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListPoliciesByFilterRequestValidationError) ErrorName() string {
+	return "ListPoliciesByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListPoliciesByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListPoliciesByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListPoliciesByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListPoliciesByFilterRequestValidationError{}
+
+var _ListPoliciesByFilterRequest_PolicyId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ListPoliciesByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
 
 // Validate checks the field values on ListPoliciesRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -20042,6 +20782,120 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListPoliciesResponseValidationError{}
+
+// Validate checks the field values on ListPoliciesByFilterResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListPoliciesByFilterResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListPoliciesByFilterResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetPolicies() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListPoliciesByFilterResponseValidationError{
+					field:  fmt.Sprintf("Policies[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	if len(errors) > 0 {
+		return ListPoliciesByFilterResponseMultiError(errors)
+	}
+	return nil
+}
+
+// ListPoliciesByFilterResponseMultiError is an error wrapping multiple
+// validation errors returned by ListPoliciesByFilterResponse.Validate(true)
+// if the designated constraints aren't met.
+type ListPoliciesByFilterResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListPoliciesByFilterResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListPoliciesByFilterResponseMultiError) AllErrors() []error { return m }
+
+// ListPoliciesByFilterResponseValidationError is the validation error returned
+// by ListPoliciesByFilterResponse.Validate if the designated constraints
+// aren't met.
+type ListPoliciesByFilterResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListPoliciesByFilterResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListPoliciesByFilterResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListPoliciesByFilterResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListPoliciesByFilterResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListPoliciesByFilterResponseValidationError) ErrorName() string {
+	return "ListPoliciesByFilterResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListPoliciesByFilterResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListPoliciesByFilterResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListPoliciesByFilterResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListPoliciesByFilterResponseValidationError{}
 
 // Validate checks the field values on UpdatePolicyRequest with the rules
 // defined in the proto definition for this message. If any rules are

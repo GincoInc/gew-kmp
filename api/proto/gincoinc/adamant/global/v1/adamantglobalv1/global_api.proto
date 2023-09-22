@@ -109,6 +109,7 @@ service GlobalAPI {
   rpc CreateLabeledAddress(CreateLabeledAddressRequest) returns (CreateLabeledAddressResponse) {}
   rpc GetLabeledAddress(GetLabeledAddressRequest) returns (LabeledAddress) {}
   rpc ListLabeledAddresses(ListLabeledAddressesRequest) returns (ListLabeledAddressesResponse) {}
+  rpc ListLabeledAddressesByFilter(ListLabeledAddressesByFilterRequest) returns (ListLabeledAddressesByFilterResponse) {}
   rpc IsDeletableLabeledAddress(IsDeletableLabeledAddressRequest) returns (IsDeletableLabeledAddressResponse) {}
   rpc UpdateLabeledAddress(UpdateLabeledAddressRequest) returns (LabeledAddress) {}
   // buf:lint:ignore RPC_REQUEST_STANDARD_NAME
@@ -135,6 +136,7 @@ service GlobalAPI {
   rpc CreatePolicy(CreatePolicyRequest) returns (CreatePolicyResponse) {}
   rpc GetPolicy(GetPolicyRequest) returns (Policy) {}
   rpc ListPolicies(ListPoliciesRequest) returns (ListPoliciesResponse) {}
+  rpc ListPoliciesByFilter(ListPoliciesByFilterRequest) returns (ListPoliciesByFilterResponse) {}
   rpc IsDeletablePolicy(IsDeletablePolicyRequest) returns (IsDeletablePolicyResponse) {}
   rpc UpdatePolicy(UpdatePolicyRequest) returns (Policy) {}
   rpc DeletePolicy(DeletePolicyRequest) returns (google.protobuf.Empty) {}
@@ -1337,6 +1339,44 @@ message ListLabeledAddressesResponse {
   repeated LabeledAddress addresses = 1;
 }
 
+message ListLabeledAddressesByFilterRequest {
+  // optional
+  ListFilterType filter_type = 1 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  // optional
+  string address_id = 2 [(validate.rules).string = {
+    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+
+  // optional
+  string address = 3;
+
+  // optional
+  string address_name = 4 [(validate.rules).string = {
+    max_len: 40
+  }];
+
+  // optional
+  gincoinc.global.v1.Coin coin = 5 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  // optional
+  uint32 page_size = 6 [(validate.rules).uint32.lte = 100];
+
+  // optional
+  string page_token = 7 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
+}
+
+message ListLabeledAddressesByFilterResponse {
+  repeated LabeledAddress addresses = 1;
+  string next_page_token = 2;
+}
+
 message DeleteLabeledAddressRequest {
   string labeled_address_id = 1 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
@@ -1448,6 +1488,41 @@ message ListTransferLimitsResponse {
   repeated TransferLimit transfer_limits = 1;
 }
 
+message ListTransferLimitsByFilterRequest {
+  // optional
+  ListFilterType filter_type = 1 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  // optional
+  string transfer_limit_id = 2 [(validate.rules).string = {
+    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+
+  // optional
+  string transfer_limit_name = 3 [(validate.rules).string = {
+    max_len: 40
+  }];
+
+  // optional
+  gincoinc.global.v1.Coin coin = 4 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  // optional
+  uint32 page_size = 5 [(validate.rules).uint32.lte = 100];
+
+  // optional
+  string page_token = 6 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
+}
+
+message ListTransferLimitsByFilterResponse {
+  repeated TransferLimit transfer_limits = 1;
+  string next_page_token = 2;
+}
+
 message UpdateTransferLimitRequest {
   string transfer_limit_id = 1 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
@@ -1517,6 +1592,41 @@ message GetPolicyRequest {
   }];
 }
 
+message ListPoliciesByFilterRequest {
+  // optional
+  ListFilterType filter_type = 1 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  // optional
+  string policy_id = 2 [(validate.rules).string = {
+    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+
+  // optional
+  string policy_name = 3 [(validate.rules).string = {
+    max_len: 40
+  }];
+
+  // optional
+  gincoinc.global.v1.Coin coin = 4 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  // optional
+  PolicyType policy_type = 5 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  // optional
+  uint32 page_size = 6 [(validate.rules).uint32.lte = 100];
+
+  // optional
+  string page_token = 7 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
+}
+
 message ListPoliciesRequest {}
 
 message IsDeletablePolicyRequest {
@@ -1561,6 +1671,11 @@ message IsDeletableTransferLimitResponse {
 
 message ListPoliciesResponse {
   repeated Policy policies = 1;
+}
+
+message ListPoliciesByFilterResponse {
+  repeated Policy policies = 1;
+  string next_page_token = 2;
 }
 
 message UpdatePolicyRequest {
