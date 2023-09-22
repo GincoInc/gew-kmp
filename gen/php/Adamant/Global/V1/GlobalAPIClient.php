@@ -948,6 +948,20 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\ListLabeledAddressesByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListLabeledAddressesByFilter(\Adamant\Global\V1\ListLabeledAddressesByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ListLabeledAddressesByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListLabeledAddressesByFilterResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\IsDeletableLabeledAddressRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -1253,6 +1267,20 @@ class GlobalAPIClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ListPolicies',
         $argument,
         ['\Adamant\Global\V1\ListPoliciesResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\ListPoliciesByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListPoliciesByFilter(\Adamant\Global\V1\ListPoliciesByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ListPoliciesByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListPoliciesByFilterResponse', 'decode'],
         $metadata, $options);
     }
 
