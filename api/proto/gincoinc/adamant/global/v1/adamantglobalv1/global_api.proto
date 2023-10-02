@@ -119,6 +119,7 @@ service GlobalAPI {
   rpc CreateWhitelist(CreateWhitelistRequest) returns (CreateWhitelistResponse) {}
   rpc GetWhitelist(GetWhitelistRequest) returns (Whitelist) {}
   rpc ListWhitelists(ListWhitelistsRequest) returns (ListWhitelistsResponse) {}
+  rpc ListWhitelistsByFilter(ListWhitelistsByFilterRequest) returns (ListWhitelistsByFilterResponse) {}
   rpc IsDeletableWhitelist(IsDeletableWhitelistRequest) returns (IsDeletableWhitelistResponse) {}
   rpc UpdateWhitelist(UpdateWhitelistRequest) returns (Whitelist) {}
   rpc UpdateWhitelistAddresses(UpdateWhitelistAddressesRequest) returns (Whitelist) {}
@@ -565,15 +566,11 @@ message GetAddressByAddressRequest {
   string wallet_id = 1 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
-  string address = 2 [(validate.rules).string = {
-    min_len: 25
-  }];
+  string address = 2;
 }
 
 message GetAddressByAddressCoinRequest {
-  string address = 1 [(validate.rules).string = {
-    min_len: 25
-  }];
+  string address = 1;
   gincoinc.global.v1.Coin coin = 2 [(validate.rules).enum = {
     defined_only: true,
     not_in: [
@@ -1254,9 +1251,7 @@ message ValidateAddressRequest {
       0
     ]
   }]; // The type of coin
-  string address = 2 [(validate.rules).string = {
-    min_len: 25
-  }]; // The address string to be validated
+  string address = 2;
 }
 
 message ValidateAddressResponse {
@@ -1300,9 +1295,7 @@ message CreateLabeledAddressRequest {
       0
     ]
   }];
-  string address = 3 [(validate.rules).string = {
-    min_len: 25
-  }];
+  string address = 3;
 }
 
 message CreateLabeledAddressResponse {
@@ -1323,9 +1316,7 @@ message UpdateLabeledAddressRequest {
       0
     ]
   }];
-  string address = 4 [(validate.rules).string = {
-    min_len: 25
-  }];
+  string address = 4;
 }
 
 message GetLabeledAddressRequest {
@@ -1422,6 +1413,41 @@ message ListWhitelistsRequest {}
 
 message ListWhitelistsResponse {
   repeated Whitelist whitelists = 1;
+}
+
+message ListWhitelistsByFilterRequest {
+  // optional
+  ListFilterType filter_type = 1 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  // optional
+  string whitelist_id = 2 [(validate.rules).string = {
+    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+
+  // optional
+  string whitelist_name = 3 [(validate.rules).string = {
+    max_len: 40
+  }];
+
+  // optional
+  gincoinc.global.v1.Coin coin = 4 [(validate.rules).enum = {
+    defined_only: true,
+  }];
+
+  // optional
+  uint32 page_size = 5 [(validate.rules).uint32.lte = 100];
+
+  // optional
+  string page_token = 6 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
+}
+
+message ListWhitelistsByFilterResponse {
+  repeated Whitelist whitelists = 1;
+  string next_page_token = 2;
 }
 
 message UpdateWhitelistRequest {
