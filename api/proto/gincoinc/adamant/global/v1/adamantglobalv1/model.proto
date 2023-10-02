@@ -201,6 +201,7 @@ message Transaction {
   XdcSpecific xdc_specific = 38; // The Xdc specific fields
   CosmosSpecific cosmos_specific = 39; // The Cosmos specific fields
   EthereumClassicSpecific ethereum_classic_specific = 40; // The Ethereum Classic specific fields
+  AlgorandSpecific algorand_specific = 41; // The Algorand specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -405,6 +406,14 @@ message EthereumClassicSpecific {
   uint64 gas_limit = 1;
   uint64 nonce = 2;
   bool is_next_nonce = 3;
+}
+
+// The model of Algorand specific fields of transaction
+message AlgorandSpecific {
+  uint64 gas_limit = 1;
+  uint64 nonce = 2;
+  bool is_next_nonce = 3;
+  string memo = 4;
 }
 
 // The model of Substrate specific fields of CreateTransaction
