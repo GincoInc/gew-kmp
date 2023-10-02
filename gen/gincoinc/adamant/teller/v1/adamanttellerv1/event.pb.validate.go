@@ -500,6 +500,8 @@ func (m *EthereumStakingReward) Validate(all bool) error {
 
 	// no validation rules for StringValue
 
+	// no validation rules for BlockHash
+
 	if len(errors) > 0 {
 		return EthereumStakingRewardMultiError(errors)
 	}

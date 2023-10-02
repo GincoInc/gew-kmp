@@ -53,6 +53,10 @@ class EthereumStakingReward extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string string_value = 10 [json_name = "stringValue"];</code>
      */
     protected $string_value = '';
+    /**
+     * Generated from protobuf field <code>string block_hash = 11 [json_name = "blockHash"];</code>
+     */
+    protected $block_hash = '';
 
     /**
      * Constructor.
@@ -70,6 +74,7 @@ class EthereumStakingReward extends \Google\Protobuf\Internal\Message
      *     @type string $wallet_id
      *     @type int $ethereum_staking_reward_layer_type
      *     @type string $string_value
+     *     @type string $block_hash
      * }
      */
     public function __construct($data = NULL) {
@@ -303,6 +308,28 @@ class EthereumStakingReward extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->string_value = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string block_hash = 11 [json_name = "blockHash"];</code>
+     * @return string
+     */
+    public function getBlockHash()
+    {
+        return $this->block_hash;
+    }
+
+    /**
+     * Generated from protobuf field <code>string block_hash = 11 [json_name = "blockHash"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setBlockHash($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->block_hash = $var;
 
         return $this;
     }

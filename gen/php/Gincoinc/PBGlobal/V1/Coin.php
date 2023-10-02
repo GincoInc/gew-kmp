@@ -210,6 +210,50 @@ class Coin
      */
     const COIN_ERC20_WETH = 48;
     /**
+     * Generated from protobuf enum <code>COIN_ALGO = 49;</code>
+     */
+    const COIN_ALGO = 49;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_AXS = 50;</code>
+     */
+    const COIN_ERC20_AXS = 50;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_SAND = 51;</code>
+     */
+    const COIN_ERC20_SAND = 51;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_MKR = 52;</code>
+     */
+    const COIN_ERC20_MKR = 52;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_CHZ = 53;</code>
+     */
+    const COIN_ERC20_CHZ = 53;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_NIDT = 54;</code>
+     */
+    const COIN_ERC20_NIDT = 54;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_FNCT = 55;</code>
+     */
+    const COIN_ERC20_FNCT = 55;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_SHIB = 56;</code>
+     */
+    const COIN_ERC20_SHIB = 56;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_APE = 57;</code>
+     */
+    const COIN_ERC20_APE = 57;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_BNB = 58;</code>
+     */
+    const COIN_ERC20_BNB = 58;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_FCR = 59;</code>
+     */
+    const COIN_ERC20_FCR = 59;
+    /**
      * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
      */
     const COIN_SDN = 10002;
@@ -264,6 +308,17 @@ class Coin
         self::COIN_ETC => 'COIN_ETC',
         self::COIN_ERC20_DAI => 'COIN_ERC20_DAI',
         self::COIN_ERC20_WETH => 'COIN_ERC20_WETH',
+        self::COIN_ALGO => 'COIN_ALGO',
+        self::COIN_ERC20_AXS => 'COIN_ERC20_AXS',
+        self::COIN_ERC20_SAND => 'COIN_ERC20_SAND',
+        self::COIN_ERC20_MKR => 'COIN_ERC20_MKR',
+        self::COIN_ERC20_CHZ => 'COIN_ERC20_CHZ',
+        self::COIN_ERC20_NIDT => 'COIN_ERC20_NIDT',
+        self::COIN_ERC20_FNCT => 'COIN_ERC20_FNCT',
+        self::COIN_ERC20_SHIB => 'COIN_ERC20_SHIB',
+        self::COIN_ERC20_APE => 'COIN_ERC20_APE',
+        self::COIN_ERC20_BNB => 'COIN_ERC20_BNB',
+        self::COIN_ERC20_FCR => 'COIN_ERC20_FCR',
         self::COIN_SDN => 'COIN_SDN',
     ];
 

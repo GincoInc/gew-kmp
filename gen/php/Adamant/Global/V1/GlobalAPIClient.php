@@ -1061,6 +1061,20 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\ListWhitelistsByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListWhitelistsByFilter(\Adamant\Global\V1\ListWhitelistsByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ListWhitelistsByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListWhitelistsByFilterResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\IsDeletableWhitelistRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
