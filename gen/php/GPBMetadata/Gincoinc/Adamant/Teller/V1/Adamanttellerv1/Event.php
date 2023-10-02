@@ -19,7 +19,7 @@ class Event
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-°
+Ï
 6gincoinc/adamant/teller/v1/adamanttellerv1/event.protoadamant.teller.v1google/protobuf/timestamp.protovalidate/validate.proto"·
 TransferUpdated
 	wallet_id (	RwalletId
@@ -67,7 +67,7 @@ string_fee (	R	stringFeeX
 result
  (2%.gincoinc.global.v1.TransactionResultRresultE
 transfer_type (2 .gincoinc.global.v1.TransferTypeRtransferType.
-time (2.google.protobuf.TimestampRtime"¢
+time (2.google.protobuf.TimestampRtime"Á
 EthereumStakingReward
 event_id (	ReventId)
 withdrawal_index (RwithdrawalIndex!
@@ -80,7 +80,9 @@ block_time (2.google.protobuf.TimestampR	blockTime\'
 	wallet_id (	BLúBIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$RwalletId~
 "ethereum_staking_reward_layer_type	 (22.gincoinc.global.v1.EthereumStakingRewardLayerTypeRethereumStakingRewardLayerType!
 string_value
- (	RstringValueBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/teller/v1/adamanttellerv1bproto3'
+ (	RstringValue
+
+block_hash (	R	blockHashBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/teller/v1/adamanttellerv1bproto3'
         , true);
 
         static::$is_initialized = true;

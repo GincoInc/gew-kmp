@@ -18,7 +18,7 @@ class GetAddressByAddressRequest extends \Google\Protobuf\Internal\Message
      */
     protected $wallet_id = '';
     /**
-     * Generated from protobuf field <code>string address = 2 [json_name = "address", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string address = 2 [json_name = "address"];</code>
      */
     protected $address = '';
 
@@ -60,7 +60,7 @@ class GetAddressByAddressRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string address = 2 [json_name = "address", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string address = 2 [json_name = "address"];</code>
      * @return string
      */
     public function getAddress()
@@ -69,7 +69,7 @@ class GetAddressByAddressRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string address = 2 [json_name = "address", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string address = 2 [json_name = "address"];</code>
      * @param string $var
      * @return $this
      */

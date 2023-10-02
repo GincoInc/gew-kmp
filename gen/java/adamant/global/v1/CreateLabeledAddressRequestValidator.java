@@ -32,8 +32,8 @@ public class CreateLabeledAddressRequestValidator implements io.envoyproxy.pgv.V
 	
 			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.CreateLabeledAddressRequest.coin", proto.getCoin());
 			io.envoyproxy.pgv.CollectiveValidation.notIn(".adamant.global.v1.CreateLabeledAddressRequest.coin", proto.getCoin(), COIN__NOT_IN);
-	
-			io.envoyproxy.pgv.StringValidation.minLength(".adamant.global.v1.CreateLabeledAddressRequest.address", proto.getAddress(), 25);
+	// no validation rules for Address
+
 	
 	}
 

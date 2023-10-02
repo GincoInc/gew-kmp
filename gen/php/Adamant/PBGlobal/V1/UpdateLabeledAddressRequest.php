@@ -26,7 +26,7 @@ class UpdateLabeledAddressRequest extends \Google\Protobuf\Internal\Message
      */
     protected $coin = 0;
     /**
-     * Generated from protobuf field <code>string address = 4 [json_name = "address", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string address = 4 [json_name = "address"];</code>
      */
     protected $address = '';
 
@@ -114,7 +114,7 @@ class UpdateLabeledAddressRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string address = 4 [json_name = "address", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string address = 4 [json_name = "address"];</code>
      * @return string
      */
     public function getAddress()
@@ -123,7 +123,7 @@ class UpdateLabeledAddressRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string address = 4 [json_name = "address", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string address = 4 [json_name = "address"];</code>
      * @param string $var
      * @return $this
      */

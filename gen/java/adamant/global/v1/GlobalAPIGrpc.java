@@ -2278,6 +2278,37 @@ public final class GlobalAPIGrpc {
     return getListWhitelistsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListWhitelistsByFilterRequest,
+      adamant.global.v1.ListWhitelistsByFilterResponse> getListWhitelistsByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListWhitelistsByFilter",
+      requestType = adamant.global.v1.ListWhitelistsByFilterRequest.class,
+      responseType = adamant.global.v1.ListWhitelistsByFilterResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListWhitelistsByFilterRequest,
+      adamant.global.v1.ListWhitelistsByFilterResponse> getListWhitelistsByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListWhitelistsByFilterRequest, adamant.global.v1.ListWhitelistsByFilterResponse> getListWhitelistsByFilterMethod;
+    if ((getListWhitelistsByFilterMethod = GlobalAPIGrpc.getListWhitelistsByFilterMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getListWhitelistsByFilterMethod = GlobalAPIGrpc.getListWhitelistsByFilterMethod) == null) {
+          GlobalAPIGrpc.getListWhitelistsByFilterMethod = getListWhitelistsByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListWhitelistsByFilterRequest, adamant.global.v1.ListWhitelistsByFilterResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListWhitelistsByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListWhitelistsByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListWhitelistsByFilterResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ListWhitelistsByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListWhitelistsByFilterMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.IsDeletableWhitelistRequest,
       adamant.global.v1.IsDeletableWhitelistResponse> getIsDeletableWhitelistMethod;
 
@@ -3755,6 +3786,13 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    default void listWhitelistsByFilter(adamant.global.v1.ListWhitelistsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListWhitelistsByFilterResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListWhitelistsByFilterMethod(), responseObserver);
+    }
+
+    /**
+     */
     default void isDeletableWhitelist(adamant.global.v1.IsDeletableWhitelistRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.IsDeletableWhitelistResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getIsDeletableWhitelistMethod(), responseObserver);
@@ -4617,6 +4655,14 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    public void listWhitelistsByFilter(adamant.global.v1.ListWhitelistsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListWhitelistsByFilterResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListWhitelistsByFilterMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void isDeletableWhitelist(adamant.global.v1.IsDeletableWhitelistRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.IsDeletableWhitelistResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -5419,6 +5465,13 @@ public final class GlobalAPIGrpc {
     public adamant.global.v1.ListWhitelistsResponse listWhitelists(adamant.global.v1.ListWhitelistsRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListWhitelistsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.ListWhitelistsByFilterResponse listWhitelistsByFilter(adamant.global.v1.ListWhitelistsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListWhitelistsByFilterMethod(), getCallOptions(), request);
     }
 
     /**
@@ -6274,6 +6327,14 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListWhitelistsByFilterResponse> listWhitelistsByFilter(
+        adamant.global.v1.ListWhitelistsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListWhitelistsByFilterMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.IsDeletableWhitelistResponse> isDeletableWhitelist(
         adamant.global.v1.IsDeletableWhitelistRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -6576,34 +6637,35 @@ public final class GlobalAPIGrpc {
   private static final int METHODID_CREATE_WHITELIST = 70;
   private static final int METHODID_GET_WHITELIST = 71;
   private static final int METHODID_LIST_WHITELISTS = 72;
-  private static final int METHODID_IS_DELETABLE_WHITELIST = 73;
-  private static final int METHODID_UPDATE_WHITELIST = 74;
-  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 75;
-  private static final int METHODID_DELETE_WHITELIST = 76;
-  private static final int METHODID_CREATE_TRANSFER_LIMIT = 77;
-  private static final int METHODID_GET_TRANSFER_LIMIT = 78;
-  private static final int METHODID_LIST_TRANSFER_LIMITS = 79;
-  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 80;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 81;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 82;
-  private static final int METHODID_DELETE_TRANSFER_LIMIT = 83;
-  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 84;
-  private static final int METHODID_CREATE_POLICY = 85;
-  private static final int METHODID_GET_POLICY = 86;
-  private static final int METHODID_LIST_POLICIES = 87;
-  private static final int METHODID_LIST_POLICIES_BY_FILTER = 88;
-  private static final int METHODID_IS_DELETABLE_POLICY = 89;
-  private static final int METHODID_UPDATE_POLICY = 90;
-  private static final int METHODID_DELETE_POLICY = 91;
-  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 92;
-  private static final int METHODID_GET_SPENDABLE_BALANCE = 93;
-  private static final int METHODID_GET_TOTAL_BALANCE = 94;
-  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 95;
-  private static final int METHODID_CALCULATE_FEE = 96;
-  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 97;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 98;
-  private static final int METHODID_VALIDATE_ADDRESS = 99;
-  private static final int METHODID_LIST_AUDIT_LOGS = 100;
+  private static final int METHODID_LIST_WHITELISTS_BY_FILTER = 73;
+  private static final int METHODID_IS_DELETABLE_WHITELIST = 74;
+  private static final int METHODID_UPDATE_WHITELIST = 75;
+  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 76;
+  private static final int METHODID_DELETE_WHITELIST = 77;
+  private static final int METHODID_CREATE_TRANSFER_LIMIT = 78;
+  private static final int METHODID_GET_TRANSFER_LIMIT = 79;
+  private static final int METHODID_LIST_TRANSFER_LIMITS = 80;
+  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 81;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 82;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 83;
+  private static final int METHODID_DELETE_TRANSFER_LIMIT = 84;
+  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 85;
+  private static final int METHODID_CREATE_POLICY = 86;
+  private static final int METHODID_GET_POLICY = 87;
+  private static final int METHODID_LIST_POLICIES = 88;
+  private static final int METHODID_LIST_POLICIES_BY_FILTER = 89;
+  private static final int METHODID_IS_DELETABLE_POLICY = 90;
+  private static final int METHODID_UPDATE_POLICY = 91;
+  private static final int METHODID_DELETE_POLICY = 92;
+  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 93;
+  private static final int METHODID_GET_SPENDABLE_BALANCE = 94;
+  private static final int METHODID_GET_TOTAL_BALANCE = 95;
+  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 96;
+  private static final int METHODID_CALCULATE_FEE = 97;
+  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 98;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 99;
+  private static final int METHODID_VALIDATE_ADDRESS = 100;
+  private static final int METHODID_LIST_AUDIT_LOGS = 101;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -6913,6 +6975,10 @@ public final class GlobalAPIGrpc {
         case METHODID_LIST_WHITELISTS:
           serviceImpl.listWhitelists((adamant.global.v1.ListWhitelistsRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListWhitelistsResponse>) responseObserver);
+          break;
+        case METHODID_LIST_WHITELISTS_BY_FILTER:
+          serviceImpl.listWhitelistsByFilter((adamant.global.v1.ListWhitelistsByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListWhitelistsByFilterResponse>) responseObserver);
           break;
         case METHODID_IS_DELETABLE_WHITELIST:
           serviceImpl.isDeletableWhitelist((adamant.global.v1.IsDeletableWhitelistRequest) request,
@@ -7556,6 +7622,13 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.ListWhitelistsResponse>(
                 service, METHODID_LIST_WHITELISTS)))
         .addMethod(
+          getListWhitelistsByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListWhitelistsByFilterRequest,
+              adamant.global.v1.ListWhitelistsByFilterResponse>(
+                service, METHODID_LIST_WHITELISTS_BY_FILTER)))
+        .addMethod(
           getIsDeletableWhitelistMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
@@ -7872,6 +7945,7 @@ public final class GlobalAPIGrpc {
               .addMethod(getCreateWhitelistMethod())
               .addMethod(getGetWhitelistMethod())
               .addMethod(getListWhitelistsMethod())
+              .addMethod(getListWhitelistsByFilterMethod())
               .addMethod(getIsDeletableWhitelistMethod())
               .addMethod(getUpdateWhitelistMethod())
               .addMethod(getUpdateWhitelistAddressesMethod())

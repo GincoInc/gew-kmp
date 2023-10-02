@@ -114,6 +114,7 @@ type GlobalAPIClient interface {
 	CreateWhitelist(ctx context.Context, in *CreateWhitelistRequest, opts ...grpc.CallOption) (*CreateWhitelistResponse, error)
 	GetWhitelist(ctx context.Context, in *GetWhitelistRequest, opts ...grpc.CallOption) (*Whitelist, error)
 	ListWhitelists(ctx context.Context, in *ListWhitelistsRequest, opts ...grpc.CallOption) (*ListWhitelistsResponse, error)
+	ListWhitelistsByFilter(ctx context.Context, in *ListWhitelistsByFilterRequest, opts ...grpc.CallOption) (*ListWhitelistsByFilterResponse, error)
 	IsDeletableWhitelist(ctx context.Context, in *IsDeletableWhitelistRequest, opts ...grpc.CallOption) (*IsDeletableWhitelistResponse, error)
 	UpdateWhitelist(ctx context.Context, in *UpdateWhitelistRequest, opts ...grpc.CallOption) (*Whitelist, error)
 	UpdateWhitelistAddresses(ctx context.Context, in *UpdateWhitelistAddressesRequest, opts ...grpc.CallOption) (*Whitelist, error)
@@ -811,6 +812,15 @@ func (c *globalAPIClient) ListWhitelists(ctx context.Context, in *ListWhitelists
 	return out, nil
 }
 
+func (c *globalAPIClient) ListWhitelistsByFilter(ctx context.Context, in *ListWhitelistsByFilterRequest, opts ...grpc.CallOption) (*ListWhitelistsByFilterResponse, error) {
+	out := new(ListWhitelistsByFilterResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListWhitelistsByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *globalAPIClient) IsDeletableWhitelist(ctx context.Context, in *IsDeletableWhitelistRequest, opts ...grpc.CallOption) (*IsDeletableWhitelistResponse, error) {
 	out := new(IsDeletableWhitelistResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/IsDeletableWhitelist", in, out, opts...)
@@ -1158,6 +1168,7 @@ type GlobalAPIServer interface {
 	CreateWhitelist(context.Context, *CreateWhitelistRequest) (*CreateWhitelistResponse, error)
 	GetWhitelist(context.Context, *GetWhitelistRequest) (*Whitelist, error)
 	ListWhitelists(context.Context, *ListWhitelistsRequest) (*ListWhitelistsResponse, error)
+	ListWhitelistsByFilter(context.Context, *ListWhitelistsByFilterRequest) (*ListWhitelistsByFilterResponse, error)
 	IsDeletableWhitelist(context.Context, *IsDeletableWhitelistRequest) (*IsDeletableWhitelistResponse, error)
 	UpdateWhitelist(context.Context, *UpdateWhitelistRequest) (*Whitelist, error)
 	UpdateWhitelistAddresses(context.Context, *UpdateWhitelistAddressesRequest) (*Whitelist, error)
@@ -1412,6 +1423,9 @@ func (UnimplementedGlobalAPIServer) GetWhitelist(context.Context, *GetWhitelistR
 }
 func (UnimplementedGlobalAPIServer) ListWhitelists(context.Context, *ListWhitelistsRequest) (*ListWhitelistsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListWhitelists not implemented")
+}
+func (UnimplementedGlobalAPIServer) ListWhitelistsByFilter(context.Context, *ListWhitelistsByFilterRequest) (*ListWhitelistsByFilterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListWhitelistsByFilter not implemented")
 }
 func (UnimplementedGlobalAPIServer) IsDeletableWhitelist(context.Context, *IsDeletableWhitelistRequest) (*IsDeletableWhitelistResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method IsDeletableWhitelist not implemented")
@@ -2823,6 +2837,24 @@ func _GlobalAPI_ListWhitelists_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GlobalAPI_ListWhitelistsByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListWhitelistsByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ListWhitelistsByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ListWhitelistsByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ListWhitelistsByFilter(ctx, req.(*ListWhitelistsByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GlobalAPI_IsDeletableWhitelist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(IsDeletableWhitelistRequest)
 	if err := dec(in); err != nil {
@@ -3625,6 +3657,10 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListWhitelists",
 			Handler:    _GlobalAPI_ListWhitelists_Handler,
+		},
+		{
+			MethodName: "ListWhitelistsByFilter",
+			Handler:    _GlobalAPI_ListWhitelistsByFilter_Handler,
 		},
 		{
 			MethodName: "IsDeletableWhitelist",

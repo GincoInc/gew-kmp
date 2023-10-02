@@ -46,6 +46,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.XdcSpecific.class)) return new XdcSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CosmosSpecific.class)) return new CosmosSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.EthereumClassicSpecific.class)) return new EthereumClassicSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.AlgorandSpecific.class)) return new AlgorandSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class)) return new CreateTransactionSubstrateSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.class)) return new CreateTransactionWalletConnectSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionNemSpecific.class)) return new CreateTransactionNemSpecificValidator();
@@ -749,6 +750,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -851,6 +854,9 @@ public class ModelValidator {
 	
 			// Validate ethereum_classic_specific
 			if (proto.hasEthereumClassicSpecific()) index.validatorFor(proto.getEthereumClassicSpecific()).assertValid(proto.getEthereumClassicSpecific());
+	
+			// Validate algorand_specific
+			if (proto.hasAlgorandSpecific()) index.validatorFor(proto.getAlgorandSpecific()).assertValid(proto.getAlgorandSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -1560,6 +1566,32 @@ public class ModelValidator {
 	// no validation rules for Nonce
 
 	// no validation rules for IsNextNonce
+
+	
+	}
+}
+/**
+	 * Validates {@code AlgorandSpecific} protobuf objects.
+	 */
+	public static class AlgorandSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.AlgorandSpecific> {
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.AlgorandSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	// no validation rules for Memo
 
 	
 	}
