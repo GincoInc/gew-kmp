@@ -80,6 +80,8 @@ var (
 
 	_ = gincoincglobalv1.Coin(0)
 
+	_ = gincoincglobalv1.Coin(0)
+
 	_ = gincoincglobalv1.CosmosMsgType(0)
 )
 
@@ -5658,16 +5660,7 @@ func (m *GetAddressByAddressRequest) Validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if utf8.RuneCountInString(m.GetAddress()) < 25 {
-		err := GetAddressByAddressRequestValidationError{
-			field:  "Address",
-			reason: "value length must be at least 25 runes",
-		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
-	}
+	// no validation rules for Address
 
 	if len(errors) > 0 {
 		return GetAddressByAddressRequestMultiError(errors)
@@ -5763,16 +5756,7 @@ func (m *GetAddressByAddressCoinRequest) Validate(all bool) error {
 
 	var errors []error
 
-	if utf8.RuneCountInString(m.GetAddress()) < 25 {
-		err := GetAddressByAddressCoinRequestValidationError{
-			field:  "Address",
-			reason: "value length must be at least 25 runes",
-		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
-	}
+	// no validation rules for Address
 
 	if _, ok := _GetAddressByAddressCoinRequest_Coin_NotInLookup[m.GetCoin()]; ok {
 		err := GetAddressByAddressCoinRequestValidationError{
@@ -15136,16 +15120,7 @@ func (m *ValidateAddressRequest) Validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if utf8.RuneCountInString(m.GetAddress()) < 25 {
-		err := ValidateAddressRequestValidationError{
-			field:  "Address",
-			reason: "value length must be at least 25 runes",
-		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
-	}
+	// no validation rules for Address
 
 	if len(errors) > 0 {
 		return ValidateAddressRequestMultiError(errors)
@@ -15817,16 +15792,7 @@ func (m *CreateLabeledAddressRequest) Validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if utf8.RuneCountInString(m.GetAddress()) < 25 {
-		err := CreateLabeledAddressRequestValidationError{
-			field:  "Address",
-			reason: "value length must be at least 25 runes",
-		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
-	}
+	// no validation rules for Address
 
 	if len(errors) > 0 {
 		return CreateLabeledAddressRequestMultiError(errors)
@@ -16064,16 +16030,7 @@ func (m *UpdateLabeledAddressRequest) Validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if utf8.RuneCountInString(m.GetAddress()) < 25 {
-		err := UpdateLabeledAddressRequestValidationError{
-			field:  "Address",
-			reason: "value length must be at least 25 runes",
-		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
-	}
+	// no validation rules for Address
 
 	if len(errors) > 0 {
 		return UpdateLabeledAddressRequestMultiError(errors)
@@ -17518,6 +17475,283 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListWhitelistsResponseValidationError{}
+
+// Validate checks the field values on ListWhitelistsByFilterRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListWhitelistsByFilterRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListWhitelistsByFilterRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		err := ListWhitelistsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ListWhitelistsByFilterRequest_WhitelistId_Pattern.MatchString(m.GetWhitelistId()) {
+		err := ListWhitelistsByFilterRequestValidationError{
+			field:  "WhitelistId",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if utf8.RuneCountInString(m.GetWhitelistName()) > 40 {
+		err := ListWhitelistsByFilterRequestValidationError{
+			field:  "WhitelistName",
+			reason: "value length must be at most 40 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		err := ListWhitelistsByFilterRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetPageSize() > 100 {
+		err := ListWhitelistsByFilterRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 100",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ListWhitelistsByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		err := ListWhitelistsByFilterRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return ListWhitelistsByFilterRequestMultiError(errors)
+	}
+	return nil
+}
+
+// ListWhitelistsByFilterRequestMultiError is an error wrapping multiple
+// validation errors returned by ListWhitelistsByFilterRequest.Validate(true)
+// if the designated constraints aren't met.
+type ListWhitelistsByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListWhitelistsByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListWhitelistsByFilterRequestMultiError) AllErrors() []error { return m }
+
+// ListWhitelistsByFilterRequestValidationError is the validation error
+// returned by ListWhitelistsByFilterRequest.Validate if the designated
+// constraints aren't met.
+type ListWhitelistsByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListWhitelistsByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListWhitelistsByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListWhitelistsByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListWhitelistsByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListWhitelistsByFilterRequestValidationError) ErrorName() string {
+	return "ListWhitelistsByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListWhitelistsByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListWhitelistsByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListWhitelistsByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListWhitelistsByFilterRequestValidationError{}
+
+var _ListWhitelistsByFilterRequest_WhitelistId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ListWhitelistsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListWhitelistsByFilterResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListWhitelistsByFilterResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListWhitelistsByFilterResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetWhitelists() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListWhitelistsByFilterResponseValidationError{
+					field:  fmt.Sprintf("Whitelists[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	if len(errors) > 0 {
+		return ListWhitelistsByFilterResponseMultiError(errors)
+	}
+	return nil
+}
+
+// ListWhitelistsByFilterResponseMultiError is an error wrapping multiple
+// validation errors returned by ListWhitelistsByFilterResponse.Validate(true)
+// if the designated constraints aren't met.
+type ListWhitelistsByFilterResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListWhitelistsByFilterResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListWhitelistsByFilterResponseMultiError) AllErrors() []error { return m }
+
+// ListWhitelistsByFilterResponseValidationError is the validation error
+// returned by ListWhitelistsByFilterResponse.Validate if the designated
+// constraints aren't met.
+type ListWhitelistsByFilterResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListWhitelistsByFilterResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListWhitelistsByFilterResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListWhitelistsByFilterResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListWhitelistsByFilterResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListWhitelistsByFilterResponseValidationError) ErrorName() string {
+	return "ListWhitelistsByFilterResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListWhitelistsByFilterResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListWhitelistsByFilterResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListWhitelistsByFilterResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListWhitelistsByFilterResponseValidationError{}
 
 // Validate checks the field values on UpdateWhitelistRequest with the rules
 // defined in the proto definition for this message. If any rules are

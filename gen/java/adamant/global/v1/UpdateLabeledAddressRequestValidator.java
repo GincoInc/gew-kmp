@@ -37,8 +37,8 @@ public class UpdateLabeledAddressRequestValidator implements io.envoyproxy.pgv.V
 	
 			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.UpdateLabeledAddressRequest.coin", proto.getCoin());
 			io.envoyproxy.pgv.CollectiveValidation.notIn(".adamant.global.v1.UpdateLabeledAddressRequest.coin", proto.getCoin(), COIN__NOT_IN);
-	
-			io.envoyproxy.pgv.StringValidation.minLength(".adamant.global.v1.UpdateLabeledAddressRequest.address", proto.getAddress(), 25);
+	// no validation rules for Address
+
 	
 	}
 

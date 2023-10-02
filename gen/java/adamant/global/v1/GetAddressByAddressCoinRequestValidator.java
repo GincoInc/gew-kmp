@@ -24,8 +24,8 @@ public class GetAddressByAddressCoinRequestValidator implements io.envoyproxy.pg
 	
 
 	public void assertValid(adamant.global.v1.GetAddressByAddressCoinRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
-	
-			io.envoyproxy.pgv.StringValidation.minLength(".adamant.global.v1.GetAddressByAddressCoinRequest.address", proto.getAddress(), 25);
+	// no validation rules for Address
+
 	
 			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.GetAddressByAddressCoinRequest.coin", proto.getCoin());
 			io.envoyproxy.pgv.CollectiveValidation.notIn(".adamant.global.v1.GetAddressByAddressCoinRequest.coin", proto.getCoin(), COIN__NOT_IN);

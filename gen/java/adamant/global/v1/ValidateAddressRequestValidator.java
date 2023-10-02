@@ -27,8 +27,8 @@ public class ValidateAddressRequestValidator implements io.envoyproxy.pgv.Valida
 	
 			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.ValidateAddressRequest.coin", proto.getCoin());
 			io.envoyproxy.pgv.CollectiveValidation.notIn(".adamant.global.v1.ValidateAddressRequest.coin", proto.getCoin(), COIN__NOT_IN);
-	
-			io.envoyproxy.pgv.StringValidation.minLength(".adamant.global.v1.ValidateAddressRequest.address", proto.getAddress(), 25);
+	// no validation rules for Address
+
 	
 	}
 

@@ -24,8 +24,8 @@ public class GetAddressByAddressRequestValidator implements io.envoyproxy.pgv.Va
 	public void assertValid(adamant.global.v1.GetAddressByAddressRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.GetAddressByAddressRequest.wallet_id", proto.getWalletId(), WALLET_ID__PATTERN);
-	
-			io.envoyproxy.pgv.StringValidation.minLength(".adamant.global.v1.GetAddressByAddressRequest.address", proto.getAddress(), 25);
+	// no validation rules for Address
+
 	
 	}
 

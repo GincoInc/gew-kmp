@@ -20,9 +20,7 @@ class ValidateAddressRequest extends \Google\Protobuf\Internal\Message
      */
     protected $coin = 0;
     /**
-     * The address string to be validated
-     *
-     * Generated from protobuf field <code>string address = 2 [json_name = "address", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string address = 2 [json_name = "address"];</code>
      */
     protected $address = '';
 
@@ -35,7 +33,6 @@ class ValidateAddressRequest extends \Google\Protobuf\Internal\Message
      *     @type int $coin
      *           The type of coin
      *     @type string $address
-     *           The address string to be validated
      * }
      */
     public function __construct($data = NULL) {
@@ -70,9 +67,7 @@ class ValidateAddressRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * The address string to be validated
-     *
-     * Generated from protobuf field <code>string address = 2 [json_name = "address", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string address = 2 [json_name = "address"];</code>
      * @return string
      */
     public function getAddress()
@@ -81,9 +76,7 @@ class ValidateAddressRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * The address string to be validated
-     *
-     * Generated from protobuf field <code>string address = 2 [json_name = "address", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string address = 2 [json_name = "address"];</code>
      * @param string $var
      * @return $this
      */
