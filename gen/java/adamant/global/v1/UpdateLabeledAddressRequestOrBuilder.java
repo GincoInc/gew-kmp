@@ -43,12 +43,12 @@ public interface UpdateLabeledAddressRequestOrBuilder extends
   gincoinc.global.v1.Enum.Coin getCoin();
 
   /**
-   * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+   * <code>string address = 4 [json_name = "address"];</code>
    * @return The address.
    */
   java.lang.String getAddress();
   /**
-   * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+   * <code>string address = 4 [json_name = "address"];</code>
    * @return The bytes for address.
    */
   com.google.protobuf.ByteString

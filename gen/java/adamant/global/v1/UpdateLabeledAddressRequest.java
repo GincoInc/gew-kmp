@@ -142,7 +142,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object address_ = "";
   /**
-   * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+   * <code>string address = 4 [json_name = "address"];</code>
    * @return The address.
    */
   @java.lang.Override
@@ -159,7 +159,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+   * <code>string address = 4 [json_name = "address"];</code>
    * @return The bytes for address.
    */
   @java.lang.Override
@@ -772,7 +772,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object address_ = "";
     /**
-     * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+     * <code>string address = 4 [json_name = "address"];</code>
      * @return The address.
      */
     public java.lang.String getAddress() {
@@ -788,7 +788,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+     * <code>string address = 4 [json_name = "address"];</code>
      * @return The bytes for address.
      */
     public com.google.protobuf.ByteString
@@ -805,7 +805,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+     * <code>string address = 4 [json_name = "address"];</code>
      * @param value The address to set.
      * @return This builder for chaining.
      */
@@ -818,7 +818,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+     * <code>string address = 4 [json_name = "address"];</code>
      * @return This builder for chaining.
      */
     public Builder clearAddress() {
@@ -828,7 +828,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+     * <code>string address = 4 [json_name = "address"];</code>
      * @param value The bytes for address to set.
      * @return This builder for chaining.
      */

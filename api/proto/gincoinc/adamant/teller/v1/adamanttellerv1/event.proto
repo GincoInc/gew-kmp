@@ -71,4 +71,5 @@ message EthereumStakingReward {
   }];
   gincoinc.global.v1.EthereumStakingRewardLayerType ethereum_staking_reward_layer_type = 9;
   string string_value = 10;
+  string block_hash = 11;
 }

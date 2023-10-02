@@ -234,6 +234,8 @@ public class EventValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.teller.v1.Event.EthereumStakingReward proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -257,6 +259,8 @@ public class EventValidator {
 	// no validation rules for EthereumStakingRewardLayerType
 
 	// no validation rules for StringValue
+
+	// no validation rules for BlockHash
 
 	
 	}

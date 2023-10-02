@@ -226,6 +226,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $ethereum_classic_specific = null;
     /**
+     * The Algorand specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AlgorandSpecific algorand_specific = 41 [json_name = "algorandSpecific"];</code>
+     */
+    protected $algorand_specific = null;
+    /**
      * the time at which the transaction was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
@@ -314,6 +320,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The Cosmos specific fields
      *     @type \Adamant\PBGlobal\V1\EthereumClassicSpecific $ethereum_classic_specific
      *           The Ethereum Classic specific fields
+     *     @type \Adamant\PBGlobal\V1\AlgorandSpecific $algorand_specific
+     *           The Algorand specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -1441,6 +1449,42 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\EthereumClassicSpecific::class);
         $this->ethereum_classic_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Algorand specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AlgorandSpecific algorand_specific = 41 [json_name = "algorandSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\AlgorandSpecific|null
+     */
+    public function getAlgorandSpecific()
+    {
+        return $this->algorand_specific;
+    }
+
+    public function hasAlgorandSpecific()
+    {
+        return isset($this->algorand_specific);
+    }
+
+    public function clearAlgorandSpecific()
+    {
+        unset($this->algorand_specific);
+    }
+
+    /**
+     * The Algorand specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AlgorandSpecific algorand_specific = 41 [json_name = "algorandSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\AlgorandSpecific $var
+     * @return $this
+     */
+    public function setAlgorandSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\AlgorandSpecific::class);
+        $this->algorand_specific = $var;
 
         return $this;
     }

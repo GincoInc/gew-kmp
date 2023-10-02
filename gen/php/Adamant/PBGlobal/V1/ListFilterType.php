@@ -68,6 +68,14 @@ class ListFilterType
      */
     const LIST_FILTER_TYPE_ADDRESS_ID = 13;
     /**
+     * Generated from protobuf enum <code>LIST_FILTER_TYPE_WHITELIST_ID = 14;</code>
+     */
+    const LIST_FILTER_TYPE_WHITELIST_ID = 14;
+    /**
+     * Generated from protobuf enum <code>LIST_FILTER_TYPE_WHITELIST_NAME = 15;</code>
+     */
+    const LIST_FILTER_TYPE_WHITELIST_NAME = 15;
+    /**
      * Generated from protobuf enum <code>LIST_FILTER_TYPE_TRANSFER_LIMIT_ID = 16;</code>
      */
     const LIST_FILTER_TYPE_TRANSFER_LIMIT_ID = 16;
@@ -91,6 +99,8 @@ class ListFilterType
         self::LIST_FILTER_TYPE_POLICY_ID => 'LIST_FILTER_TYPE_POLICY_ID',
         self::LIST_FILTER_TYPE_POLICY_NAME => 'LIST_FILTER_TYPE_POLICY_NAME',
         self::LIST_FILTER_TYPE_ADDRESS_ID => 'LIST_FILTER_TYPE_ADDRESS_ID',
+        self::LIST_FILTER_TYPE_WHITELIST_ID => 'LIST_FILTER_TYPE_WHITELIST_ID',
+        self::LIST_FILTER_TYPE_WHITELIST_NAME => 'LIST_FILTER_TYPE_WHITELIST_NAME',
         self::LIST_FILTER_TYPE_TRANSFER_LIMIT_ID => 'LIST_FILTER_TYPE_TRANSFER_LIMIT_ID',
         self::LIST_FILTER_TYPE_TRANSFER_LIMIT_NAME => 'LIST_FILTER_TYPE_TRANSFER_LIMIT_NAME',
     ];
