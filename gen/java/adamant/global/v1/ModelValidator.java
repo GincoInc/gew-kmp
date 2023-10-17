@@ -54,6 +54,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSymbolSpecific.class)) return new CreateTransactionSymbolSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionEthereumSpecific.class)) return new CreateTransactionEthereumSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionCosmosSpecific.class)) return new CreateTransactionCosmosSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionAlgorandSpecific.class)) return new CreateTransactionAlgorandSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SubstrateMultisigTransaction.class)) return new SubstrateMultisigTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.NemMultisigTransaction.class)) return new NemMultisigTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.SymbolMultisigTransaction.class)) return new SymbolMultisigTransactionValidator();
@@ -1582,6 +1583,14 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.AlgorandSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1592,6 +1601,14 @@ public class ModelValidator {
 	// no validation rules for IsNextNonce
 
 	// no validation rules for Memo
+
+	// no validation rules for FirstRound
+
+	// no validation rules for LastRound
+
+	// no validation rules for Expiration
+
+	// no validation rules for Timestamp
 
 	
 	}
@@ -1734,6 +1751,20 @@ public class ModelValidator {
 	// no validation rules for Type
 
 	// no validation rules for Memo
+
+	
+	}
+}
+/**
+	 * Validates {@code CreateTransactionAlgorandSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionAlgorandSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionAlgorandSpecific> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionAlgorandSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Timestamp
 
 	
 	}
