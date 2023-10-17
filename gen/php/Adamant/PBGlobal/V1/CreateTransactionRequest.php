@@ -69,6 +69,10 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14 [json_name = "cosmosSpecific"];</code>
      */
     protected $cosmos_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15 [json_name = "algorandSpecific"];</code>
+     */
+    protected $algorand_specific = null;
 
     /**
      * Constructor.
@@ -90,6 +94,7 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CreateTransactionSymbolSpecific $xym_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionEthereumSpecific $ethereum_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionCosmosSpecific $cosmos_specific
+     *     @type \Adamant\PBGlobal\V1\CreateTransactionAlgorandSpecific $algorand_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -471,6 +476,38 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionCosmosSpecific::class);
         $this->cosmos_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15 [json_name = "algorandSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CreateTransactionAlgorandSpecific|null
+     */
+    public function getAlgorandSpecific()
+    {
+        return $this->algorand_specific;
+    }
+
+    public function hasAlgorandSpecific()
+    {
+        return isset($this->algorand_specific);
+    }
+
+    public function clearAlgorandSpecific()
+    {
+        unset($this->algorand_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15 [json_name = "algorandSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CreateTransactionAlgorandSpecific $var
+     * @return $this
+     */
+    public function setAlgorandSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionAlgorandSpecific::class);
+        $this->algorand_specific = $var;
 
         return $this;
     }
