@@ -415,6 +415,32 @@ private static final long serialVersionUID = 0L;
     return cosmosSpecific_ == null ? adamant.global.v1.Model.CreateTransactionCosmosSpecific.getDefaultInstance() : cosmosSpecific_;
   }
 
+  public static final int ALGORAND_SPECIFIC_FIELD_NUMBER = 15;
+  private adamant.global.v1.Model.CreateTransactionAlgorandSpecific algorandSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15 [json_name = "algorandSpecific"];</code>
+   * @return Whether the algorandSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasAlgorandSpecific() {
+    return algorandSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15 [json_name = "algorandSpecific"];</code>
+   * @return The algorandSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionAlgorandSpecific getAlgorandSpecific() {
+    return algorandSpecific_ == null ? adamant.global.v1.Model.CreateTransactionAlgorandSpecific.getDefaultInstance() : algorandSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15 [json_name = "algorandSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionAlgorandSpecificOrBuilder getAlgorandSpecificOrBuilder() {
+    return algorandSpecific_ == null ? adamant.global.v1.Model.CreateTransactionAlgorandSpecific.getDefaultInstance() : algorandSpecific_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -470,6 +496,9 @@ private static final long serialVersionUID = 0L;
     }
     if (cosmosSpecific_ != null) {
       output.writeMessage(14, getCosmosSpecific());
+    }
+    if (algorandSpecific_ != null) {
+      output.writeMessage(15, getAlgorandSpecific());
     }
     getUnknownFields().writeTo(output);
   }
@@ -532,6 +561,10 @@ private static final long serialVersionUID = 0L;
     if (cosmosSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(14, getCosmosSpecific());
+    }
+    if (algorandSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(15, getAlgorandSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -597,6 +630,11 @@ private static final long serialVersionUID = 0L;
       if (!getCosmosSpecific()
           .equals(other.getCosmosSpecific())) return false;
     }
+    if (hasAlgorandSpecific() != other.hasAlgorandSpecific()) return false;
+    if (hasAlgorandSpecific()) {
+      if (!getAlgorandSpecific()
+          .equals(other.getAlgorandSpecific())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -653,6 +691,10 @@ private static final long serialVersionUID = 0L;
     if (hasCosmosSpecific()) {
       hash = (37 * hash) + COSMOS_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getCosmosSpecific().hashCode();
+    }
+    if (hasAlgorandSpecific()) {
+      hash = (37 * hash) + ALGORAND_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getAlgorandSpecific().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -833,6 +875,11 @@ private static final long serialVersionUID = 0L;
         cosmosSpecificBuilder_.dispose();
         cosmosSpecificBuilder_ = null;
       }
+      algorandSpecific_ = null;
+      if (algorandSpecificBuilder_ != null) {
+        algorandSpecificBuilder_.dispose();
+        algorandSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -931,6 +978,11 @@ private static final long serialVersionUID = 0L;
         result.cosmosSpecific_ = cosmosSpecificBuilder_ == null
             ? cosmosSpecific_
             : cosmosSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.algorandSpecific_ = algorandSpecificBuilder_ == null
+            ? algorandSpecific_
+            : algorandSpecificBuilder_.build();
       }
     }
 
@@ -1048,6 +1100,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasCosmosSpecific()) {
         mergeCosmosSpecific(other.getCosmosSpecific());
+      }
+      if (other.hasAlgorandSpecific()) {
+        mergeAlgorandSpecific(other.getAlgorandSpecific());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1167,6 +1222,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00002000;
               break;
             } // case 114
+            case 122: {
+              input.readMessage(
+                  getAlgorandSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 122
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2567,6 +2629,125 @@ private static final long serialVersionUID = 0L;
         cosmosSpecific_ = null;
       }
       return cosmosSpecificBuilder_;
+    }
+
+    private adamant.global.v1.Model.CreateTransactionAlgorandSpecific algorandSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionAlgorandSpecific, adamant.global.v1.Model.CreateTransactionAlgorandSpecific.Builder, adamant.global.v1.Model.CreateTransactionAlgorandSpecificOrBuilder> algorandSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15 [json_name = "algorandSpecific"];</code>
+     * @return Whether the algorandSpecific field is set.
+     */
+    public boolean hasAlgorandSpecific() {
+      return ((bitField0_ & 0x00004000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15 [json_name = "algorandSpecific"];</code>
+     * @return The algorandSpecific.
+     */
+    public adamant.global.v1.Model.CreateTransactionAlgorandSpecific getAlgorandSpecific() {
+      if (algorandSpecificBuilder_ == null) {
+        return algorandSpecific_ == null ? adamant.global.v1.Model.CreateTransactionAlgorandSpecific.getDefaultInstance() : algorandSpecific_;
+      } else {
+        return algorandSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15 [json_name = "algorandSpecific"];</code>
+     */
+    public Builder setAlgorandSpecific(adamant.global.v1.Model.CreateTransactionAlgorandSpecific value) {
+      if (algorandSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        algorandSpecific_ = value;
+      } else {
+        algorandSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15 [json_name = "algorandSpecific"];</code>
+     */
+    public Builder setAlgorandSpecific(
+        adamant.global.v1.Model.CreateTransactionAlgorandSpecific.Builder builderForValue) {
+      if (algorandSpecificBuilder_ == null) {
+        algorandSpecific_ = builderForValue.build();
+      } else {
+        algorandSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15 [json_name = "algorandSpecific"];</code>
+     */
+    public Builder mergeAlgorandSpecific(adamant.global.v1.Model.CreateTransactionAlgorandSpecific value) {
+      if (algorandSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00004000) != 0) &&
+          algorandSpecific_ != null &&
+          algorandSpecific_ != adamant.global.v1.Model.CreateTransactionAlgorandSpecific.getDefaultInstance()) {
+          getAlgorandSpecificBuilder().mergeFrom(value);
+        } else {
+          algorandSpecific_ = value;
+        }
+      } else {
+        algorandSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15 [json_name = "algorandSpecific"];</code>
+     */
+    public Builder clearAlgorandSpecific() {
+      bitField0_ = (bitField0_ & ~0x00004000);
+      algorandSpecific_ = null;
+      if (algorandSpecificBuilder_ != null) {
+        algorandSpecificBuilder_.dispose();
+        algorandSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15 [json_name = "algorandSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionAlgorandSpecific.Builder getAlgorandSpecificBuilder() {
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return getAlgorandSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15 [json_name = "algorandSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionAlgorandSpecificOrBuilder getAlgorandSpecificOrBuilder() {
+      if (algorandSpecificBuilder_ != null) {
+        return algorandSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return algorandSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionAlgorandSpecific.getDefaultInstance() : algorandSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15 [json_name = "algorandSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionAlgorandSpecific, adamant.global.v1.Model.CreateTransactionAlgorandSpecific.Builder, adamant.global.v1.Model.CreateTransactionAlgorandSpecificOrBuilder> 
+        getAlgorandSpecificFieldBuilder() {
+      if (algorandSpecificBuilder_ == null) {
+        algorandSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionAlgorandSpecific, adamant.global.v1.Model.CreateTransactionAlgorandSpecific.Builder, adamant.global.v1.Model.CreateTransactionAlgorandSpecificOrBuilder>(
+                getAlgorandSpecific(),
+                getParentForChildren(),
+                isClean());
+        algorandSpecific_ = null;
+      }
+      return algorandSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
