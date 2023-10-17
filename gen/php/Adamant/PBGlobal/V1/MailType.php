@@ -55,6 +55,42 @@ class MailType
      * Generated from protobuf enum <code>MAIL_TYPE_DOWNLOAD_RESOURCE = 10;</code>
      */
     const MAIL_TYPE_DOWNLOAD_RESOURCE = 10;
+    /**
+     * Generated from protobuf enum <code>MAIL_TYPE_TRANSFER_RECEIVED = 11;</code>
+     */
+    const MAIL_TYPE_TRANSFER_RECEIVED = 11;
+    /**
+     * Generated from protobuf enum <code>MAIL_TYPE_TRANSACTION_CREATED = 12;</code>
+     */
+    const MAIL_TYPE_TRANSACTION_CREATED = 12;
+    /**
+     * Generated from protobuf enum <code>MAIL_TYPE_TRANSACTION_SUBMITTED = 13;</code>
+     */
+    const MAIL_TYPE_TRANSACTION_SUBMITTED = 13;
+    /**
+     * Generated from protobuf enum <code>MAIL_TYPE_VALIDATOR_APPROVED = 14;</code>
+     */
+    const MAIL_TYPE_VALIDATOR_APPROVED = 14;
+    /**
+     * Generated from protobuf enum <code>MAIL_TYPE_VALIDATOR_CANCELED = 15;</code>
+     */
+    const MAIL_TYPE_VALIDATOR_CANCELED = 15;
+    /**
+     * Generated from protobuf enum <code>MAIL_TYPE_WALLET_POLICY_CHANGED = 16;</code>
+     */
+    const MAIL_TYPE_WALLET_POLICY_CHANGED = 16;
+    /**
+     * Generated from protobuf enum <code>MAIL_TYPE_WALLET_NO_WHITELIST_REQUESTED = 17;</code>
+     */
+    const MAIL_TYPE_WALLET_NO_WHITELIST_REQUESTED = 17;
+    /**
+     * Generated from protobuf enum <code>MAIL_TYPE_WALLET_NO_WHITELIST_APPROVED = 18;</code>
+     */
+    const MAIL_TYPE_WALLET_NO_WHITELIST_APPROVED = 18;
+    /**
+     * Generated from protobuf enum <code>MAIL_TYPE_WALLET_NO_WHITELIST_CANCELED = 19;</code>
+     */
+    const MAIL_TYPE_WALLET_NO_WHITELIST_CANCELED = 19;
 
     private static $valueToName = [
         self::MAIL_TYPE_INVALID => 'MAIL_TYPE_INVALID',
@@ -68,6 +104,15 @@ class MailType
         self::MAIL_TYPE_VALIDATOR_CHANGE_REQUESTED => 'MAIL_TYPE_VALIDATOR_CHANGE_REQUESTED',
         self::MAIL_TYPE_UNCHECKED_TRANSFER_EXISTS => 'MAIL_TYPE_UNCHECKED_TRANSFER_EXISTS',
         self::MAIL_TYPE_DOWNLOAD_RESOURCE => 'MAIL_TYPE_DOWNLOAD_RESOURCE',
+        self::MAIL_TYPE_TRANSFER_RECEIVED => 'MAIL_TYPE_TRANSFER_RECEIVED',
+        self::MAIL_TYPE_TRANSACTION_CREATED => 'MAIL_TYPE_TRANSACTION_CREATED',
+        self::MAIL_TYPE_TRANSACTION_SUBMITTED => 'MAIL_TYPE_TRANSACTION_SUBMITTED',
+        self::MAIL_TYPE_VALIDATOR_APPROVED => 'MAIL_TYPE_VALIDATOR_APPROVED',
+        self::MAIL_TYPE_VALIDATOR_CANCELED => 'MAIL_TYPE_VALIDATOR_CANCELED',
+        self::MAIL_TYPE_WALLET_POLICY_CHANGED => 'MAIL_TYPE_WALLET_POLICY_CHANGED',
+        self::MAIL_TYPE_WALLET_NO_WHITELIST_REQUESTED => 'MAIL_TYPE_WALLET_NO_WHITELIST_REQUESTED',
+        self::MAIL_TYPE_WALLET_NO_WHITELIST_APPROVED => 'MAIL_TYPE_WALLET_NO_WHITELIST_APPROVED',
+        self::MAIL_TYPE_WALLET_NO_WHITELIST_CANCELED => 'MAIL_TYPE_WALLET_NO_WHITELIST_CANCELED',
     ];
 
     public static function name($value)

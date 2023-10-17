@@ -414,6 +414,10 @@ message AlgorandSpecific {
   uint64 nonce = 2;
   bool is_next_nonce = 3;
   string memo = 4;
+  uint64 first_round = 5;
+  uint64 last_round = 6;
+  uint64 expiration = 7;
+  uint64 timestamp = 8;
 }
 
 // The model of Substrate specific fields of CreateTransaction
@@ -460,6 +464,11 @@ message CreateTransactionEthereumSpecific {
 message CreateTransactionCosmosSpecific {
   gincoinc.global.v1.CosmosMsgType type = 1;
   string memo = 2;
+}
+
+// The model of Algorand specific fields of CreateTransaction
+message CreateTransactionAlgorandSpecific {
+  uint64 timestamp = 1;
 }
 
 // The model of substrate multisig transaction
