@@ -57,6 +57,10 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeCosmosSpecific cosmos_specific = 11 [json_name = "cosmosSpecific"];</code>
      */
     protected $cosmos_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeHederaSpecific hedera_specific = 12 [json_name = "hederaSpecific"];</code>
+     */
+    protected $hedera_specific = null;
 
     /**
      * Constructor.
@@ -75,6 +79,7 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CalculateFeeSymbolSpecific $symbol_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeEthereumSpecific $ethereum_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeCosmosSpecific $cosmos_specific
+     *     @type \Adamant\PBGlobal\V1\CalculateFeeHederaSpecific $hedera_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -370,6 +375,38 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeCosmosSpecific::class);
         $this->cosmos_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeHederaSpecific hedera_specific = 12 [json_name = "hederaSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CalculateFeeHederaSpecific|null
+     */
+    public function getHederaSpecific()
+    {
+        return $this->hedera_specific;
+    }
+
+    public function hasHederaSpecific()
+    {
+        return isset($this->hedera_specific);
+    }
+
+    public function clearHederaSpecific()
+    {
+        unset($this->hedera_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeHederaSpecific hedera_specific = 12 [json_name = "hederaSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CalculateFeeHederaSpecific $var
+     * @return $this
+     */
+    public function setHederaSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeHederaSpecific::class);
+        $this->hedera_specific = $var;
 
         return $this;
     }

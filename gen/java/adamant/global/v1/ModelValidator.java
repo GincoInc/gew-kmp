@@ -47,6 +47,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.CosmosSpecific.class)) return new CosmosSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.EthereumClassicSpecific.class)) return new EthereumClassicSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.AlgorandSpecific.class)) return new AlgorandSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.HederaSpecific.class)) return new HederaSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class)) return new CreateTransactionSubstrateSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.class)) return new CreateTransactionWalletConnectSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionNemSpecific.class)) return new CreateTransactionNemSpecificValidator();
@@ -55,6 +56,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionEthereumSpecific.class)) return new CreateTransactionEthereumSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionCosmosSpecific.class)) return new CreateTransactionCosmosSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionAlgorandSpecific.class)) return new CreateTransactionAlgorandSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionHederaSpecific.class)) return new CreateTransactionHederaSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SubstrateMultisigTransaction.class)) return new SubstrateMultisigTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.NemMultisigTransaction.class)) return new NemMultisigTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.SymbolMultisigTransaction.class)) return new SymbolMultisigTransactionValidator();
@@ -753,6 +755,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -858,6 +862,9 @@ public class ModelValidator {
 	
 			// Validate algorand_specific
 			if (proto.hasAlgorandSpecific()) index.validatorFor(proto.getAlgorandSpecific()).assertValid(proto.getAlgorandSpecific());
+	
+			// Validate hedera_specific
+			if (proto.hasHederaSpecific()) index.validatorFor(proto.getHederaSpecific()).assertValid(proto.getHederaSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -1614,6 +1621,28 @@ public class ModelValidator {
 	}
 }
 /**
+	 * Validates {@code HederaSpecific} protobuf objects.
+	 */
+	public static class HederaSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.HederaSpecific> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.HederaSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Memo
+
+	// no validation rules for Timestamp
+
+	// no validation rules for Expiration
+
+	
+	}
+}
+/**
 	 * Validates {@code CreateTransactionSubstrateSpecific} protobuf objects.
 	 */
 	public static class CreateTransactionSubstrateSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionSubstrateSpecific> {
@@ -1765,6 +1794,28 @@ public class ModelValidator {
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionAlgorandSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Timestamp
+
+	
+	}
+}
+/**
+	 * Validates {@code CreateTransactionHederaSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionHederaSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionHederaSpecific> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionHederaSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Memo
+
+	// no validation rules for Timestamp
+
+	// no validation rules for MaxFee
 
 	
 	}
