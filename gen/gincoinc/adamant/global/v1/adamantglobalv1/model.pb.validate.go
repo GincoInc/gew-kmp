@@ -1817,6 +1817,20 @@ func (m *Transaction) Validate(all bool) error {
 		}
 	}
 
+	if v, ok := interface{}(m.GetHederaSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransactionValidationError{
+				field:  "HederaSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate(bool) error }); ok {
 		if err := v.Validate(all); err != nil {
 			err = TransactionValidationError{
@@ -4944,6 +4958,102 @@ var _ interface {
 	ErrorName() string
 } = AlgorandSpecificValidationError{}
 
+// Validate checks the field values on HederaSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned. When asked to return all errors, validation continues after
+// first violation, and the result is a list of violation errors wrapped in
+// HederaSpecificMultiError, or nil if none found. Otherwise, only the first
+// error is returned, if any.
+func (m *HederaSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Memo
+
+	// no validation rules for Timestamp
+
+	// no validation rules for Expiration
+
+	if len(errors) > 0 {
+		return HederaSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// HederaSpecificMultiError is an error wrapping multiple validation errors
+// returned by HederaSpecific.Validate(true) if the designated constraints
+// aren't met.
+type HederaSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m HederaSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m HederaSpecificMultiError) AllErrors() []error { return m }
+
+// HederaSpecificValidationError is the validation error returned by
+// HederaSpecific.Validate if the designated constraints aren't met.
+type HederaSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e HederaSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e HederaSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e HederaSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e HederaSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e HederaSpecificValidationError) ErrorName() string { return "HederaSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e HederaSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sHederaSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = HederaSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = HederaSpecificValidationError{}
+
 // Validate checks the field values on CreateTransactionSubstrateSpecific with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, an error is returned. When asked to return all errors,
@@ -5732,6 +5842,106 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CreateTransactionAlgorandSpecificValidationError{}
+
+// Validate checks the field values on CreateTransactionHederaSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateTransactionHederaSpecificMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *CreateTransactionHederaSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Memo
+
+	// no validation rules for Timestamp
+
+	// no validation rules for MaxFee
+
+	if len(errors) > 0 {
+		return CreateTransactionHederaSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// CreateTransactionHederaSpecificMultiError is an error wrapping multiple
+// validation errors returned by
+// CreateTransactionHederaSpecific.Validate(true) if the designated
+// constraints aren't met.
+type CreateTransactionHederaSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionHederaSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionHederaSpecificMultiError) AllErrors() []error { return m }
+
+// CreateTransactionHederaSpecificValidationError is the validation error
+// returned by CreateTransactionHederaSpecific.Validate if the designated
+// constraints aren't met.
+type CreateTransactionHederaSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionHederaSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionHederaSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionHederaSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionHederaSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionHederaSpecificValidationError) ErrorName() string {
+	return "CreateTransactionHederaSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionHederaSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionHederaSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionHederaSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionHederaSpecificValidationError{}
 
 // Validate checks the field values on SubstrateMultisigTransaction with the
 // rules defined in the proto definition for this message. If any rules are

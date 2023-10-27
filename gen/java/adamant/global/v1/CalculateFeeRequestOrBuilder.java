@@ -153,4 +153,19 @@ public interface CalculateFeeRequestOrBuilder extends
    * <code>.adamant.global.v1.CalculateFeeCosmosSpecific cosmos_specific = 11 [json_name = "cosmosSpecific"];</code>
    */
   adamant.global.v1.CalculateFeeCosmosSpecificOrBuilder getCosmosSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CalculateFeeHederaSpecific hedera_specific = 12 [json_name = "hederaSpecific"];</code>
+   * @return Whether the hederaSpecific field is set.
+   */
+  boolean hasHederaSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeHederaSpecific hedera_specific = 12 [json_name = "hederaSpecific"];</code>
+   * @return The hederaSpecific.
+   */
+  adamant.global.v1.CalculateFeeHederaSpecific getHederaSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeHederaSpecific hedera_specific = 12 [json_name = "hederaSpecific"];</code>
+   */
+  adamant.global.v1.CalculateFeeHederaSpecificOrBuilder getHederaSpecificOrBuilder();
 }
