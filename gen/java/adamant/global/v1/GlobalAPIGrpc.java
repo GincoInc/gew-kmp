@@ -3177,6 +3177,68 @@ public final class GlobalAPIGrpc {
     return getListAuditLogsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListForwardingThresholdsRequest,
+      adamant.global.v1.ListForwardingThresholdsResponse> getListForwardingThresholdsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListForwardingThresholds",
+      requestType = adamant.global.v1.ListForwardingThresholdsRequest.class,
+      responseType = adamant.global.v1.ListForwardingThresholdsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListForwardingThresholdsRequest,
+      adamant.global.v1.ListForwardingThresholdsResponse> getListForwardingThresholdsMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListForwardingThresholdsRequest, adamant.global.v1.ListForwardingThresholdsResponse> getListForwardingThresholdsMethod;
+    if ((getListForwardingThresholdsMethod = GlobalAPIGrpc.getListForwardingThresholdsMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getListForwardingThresholdsMethod = GlobalAPIGrpc.getListForwardingThresholdsMethod) == null) {
+          GlobalAPIGrpc.getListForwardingThresholdsMethod = getListForwardingThresholdsMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListForwardingThresholdsRequest, adamant.global.v1.ListForwardingThresholdsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListForwardingThresholds"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListForwardingThresholdsRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListForwardingThresholdsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ListForwardingThresholds"))
+              .build();
+        }
+      }
+    }
+    return getListForwardingThresholdsMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.UpsertForwardingThresholdRequest,
+      adamant.global.v1.UpsertForwardingThresholdResponse> getUpsertForwardingThresholdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UpsertForwardingThreshold",
+      requestType = adamant.global.v1.UpsertForwardingThresholdRequest.class,
+      responseType = adamant.global.v1.UpsertForwardingThresholdResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.UpsertForwardingThresholdRequest,
+      adamant.global.v1.UpsertForwardingThresholdResponse> getUpsertForwardingThresholdMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.UpsertForwardingThresholdRequest, adamant.global.v1.UpsertForwardingThresholdResponse> getUpsertForwardingThresholdMethod;
+    if ((getUpsertForwardingThresholdMethod = GlobalAPIGrpc.getUpsertForwardingThresholdMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getUpsertForwardingThresholdMethod = GlobalAPIGrpc.getUpsertForwardingThresholdMethod) == null) {
+          GlobalAPIGrpc.getUpsertForwardingThresholdMethod = getUpsertForwardingThresholdMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.UpsertForwardingThresholdRequest, adamant.global.v1.UpsertForwardingThresholdResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpsertForwardingThreshold"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.UpsertForwardingThresholdRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.UpsertForwardingThresholdResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("UpsertForwardingThreshold"))
+              .build();
+        }
+      }
+    }
+    return getUpsertForwardingThresholdMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -3991,6 +4053,23 @@ public final class GlobalAPIGrpc {
     default void listAuditLogs(adamant.global.v1.ListAuditLogsRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListAuditLogsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListAuditLogsMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * ForwardingThresholds
+     * </pre>
+     */
+    default void listForwardingThresholds(adamant.global.v1.ListForwardingThresholdsRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListForwardingThresholdsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListForwardingThresholdsMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void upsertForwardingThreshold(adamant.global.v1.UpsertForwardingThresholdRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.UpsertForwardingThresholdResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpsertForwardingThresholdMethod(), responseObserver);
     }
   }
 
@@ -4890,6 +4969,25 @@ public final class GlobalAPIGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListAuditLogsMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * ForwardingThresholds
+     * </pre>
+     */
+    public void listForwardingThresholds(adamant.global.v1.ListForwardingThresholdsRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListForwardingThresholdsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListForwardingThresholdsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void upsertForwardingThreshold(adamant.global.v1.UpsertForwardingThresholdRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.UpsertForwardingThresholdResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getUpsertForwardingThresholdMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -5674,6 +5772,23 @@ public final class GlobalAPIGrpc {
     public adamant.global.v1.ListAuditLogsResponse listAuditLogs(adamant.global.v1.ListAuditLogsRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListAuditLogsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * ForwardingThresholds
+     * </pre>
+     */
+    public adamant.global.v1.ListForwardingThresholdsResponse listForwardingThresholds(adamant.global.v1.ListForwardingThresholdsRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListForwardingThresholdsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.UpsertForwardingThresholdResponse upsertForwardingThreshold(adamant.global.v1.UpsertForwardingThresholdRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getUpsertForwardingThresholdMethod(), getCallOptions(), request);
     }
   }
 
@@ -6562,6 +6677,25 @@ public final class GlobalAPIGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getListAuditLogsMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * ForwardingThresholds
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListForwardingThresholdsResponse> listForwardingThresholds(
+        adamant.global.v1.ListForwardingThresholdsRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListForwardingThresholdsMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.UpsertForwardingThresholdResponse> upsertForwardingThreshold(
+        adamant.global.v1.UpsertForwardingThresholdRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getUpsertForwardingThresholdMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_WALLET = 0;
@@ -6666,6 +6800,8 @@ public final class GlobalAPIGrpc {
   private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 99;
   private static final int METHODID_VALIDATE_ADDRESS = 100;
   private static final int METHODID_LIST_AUDIT_LOGS = 101;
+  private static final int METHODID_LIST_FORWARDING_THRESHOLDS = 102;
+  private static final int METHODID_UPSERT_FORWARDING_THRESHOLD = 103;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -7091,6 +7227,14 @@ public final class GlobalAPIGrpc {
         case METHODID_LIST_AUDIT_LOGS:
           serviceImpl.listAuditLogs((adamant.global.v1.ListAuditLogsRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListAuditLogsResponse>) responseObserver);
+          break;
+        case METHODID_LIST_FORWARDING_THRESHOLDS:
+          serviceImpl.listForwardingThresholds((adamant.global.v1.ListForwardingThresholdsRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListForwardingThresholdsResponse>) responseObserver);
+          break;
+        case METHODID_UPSERT_FORWARDING_THRESHOLD:
+          serviceImpl.upsertForwardingThreshold((adamant.global.v1.UpsertForwardingThresholdRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.UpsertForwardingThresholdResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -7824,6 +7968,20 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.ListAuditLogsRequest,
               adamant.global.v1.ListAuditLogsResponse>(
                 service, METHODID_LIST_AUDIT_LOGS)))
+        .addMethod(
+          getListForwardingThresholdsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListForwardingThresholdsRequest,
+              adamant.global.v1.ListForwardingThresholdsResponse>(
+                service, METHODID_LIST_FORWARDING_THRESHOLDS)))
+        .addMethod(
+          getUpsertForwardingThresholdMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpsertForwardingThresholdRequest,
+              adamant.global.v1.UpsertForwardingThresholdResponse>(
+                service, METHODID_UPSERT_FORWARDING_THRESHOLD)))
         .build();
   }
 
@@ -7974,6 +8132,8 @@ public final class GlobalAPIGrpc {
               .addMethod(getGetRecommendedFeeRateMethod())
               .addMethod(getValidateAddressMethod())
               .addMethod(getListAuditLogsMethod())
+              .addMethod(getListForwardingThresholdsMethod())
+              .addMethod(getUpsertForwardingThresholdMethod())
               .build();
         }
       }

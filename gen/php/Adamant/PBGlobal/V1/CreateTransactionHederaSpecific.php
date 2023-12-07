@@ -23,10 +23,6 @@ class CreateTransactionHederaSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint64 timestamp = 2 [json_name = "timestamp"];</code>
      */
     protected $timestamp = 0;
-    /**
-     * Generated from protobuf field <code>double max_fee = 3 [json_name = "maxFee"];</code>
-     */
-    protected $max_fee = 0.0;
 
     /**
      * Constructor.
@@ -36,7 +32,6 @@ class CreateTransactionHederaSpecific extends \Google\Protobuf\Internal\Message
      *
      *     @type string $memo
      *     @type int|string $timestamp
-     *     @type float $max_fee
      * }
      */
     public function __construct($data = NULL) {
@@ -84,28 +79,6 @@ class CreateTransactionHederaSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint64($var);
         $this->timestamp = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>double max_fee = 3 [json_name = "maxFee"];</code>
-     * @return float
-     */
-    public function getMaxFee()
-    {
-        return $this->max_fee;
-    }
-
-    /**
-     * Generated from protobuf field <code>double max_fee = 3 [json_name = "maxFee"];</code>
-     * @param float $var
-     * @return $this
-     */
-    public function setMaxFee($var)
-    {
-        GPBUtil::checkDouble($var);
-        $this->max_fee = $var;
 
         return $this;
     }
