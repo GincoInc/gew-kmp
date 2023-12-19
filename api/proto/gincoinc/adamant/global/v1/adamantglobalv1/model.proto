@@ -202,6 +202,8 @@ message Transaction {
   CosmosSpecific cosmos_specific = 39; // The Cosmos specific fields
   EthereumClassicSpecific ethereum_classic_specific = 40; // The Ethereum Classic specific fields
   AlgorandSpecific algorand_specific = 41; // The Algorand specific fields
+  HederaSpecific hedera_specific = 42; // The Hedera specific fields
+  JapanOpenChainSpecific japan_open_chain_specific = 43; // The Japan Open Chain specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -420,6 +422,20 @@ message AlgorandSpecific {
   uint64 timestamp = 8;
 }
 
+// The model of Hedera specific fields of transaction
+message HederaSpecific {
+  string memo = 1;
+  uint64 timestamp = 2;
+  uint64 expiration = 3;
+}
+
+// The model of Japan Open Chain specific fields of transaction
+message JapanOpenChainSpecific {
+  uint64 gas_limit = 1;
+  uint64 nonce = 2;
+  bool is_next_nonce = 3;
+}
+
 // The model of Substrate specific fields of CreateTransaction
 message CreateTransactionSubstrateSpecific {
   string transaction_id = 1;
@@ -469,6 +485,12 @@ message CreateTransactionCosmosSpecific {
 // The model of Algorand specific fields of CreateTransaction
 message CreateTransactionAlgorandSpecific {
   uint64 timestamp = 1;
+}
+
+// The model of Hedera specific fields of CreateTransaction
+message CreateTransactionHederaSpecific {
+  string memo = 1;
+  uint64 timestamp = 2;
 }
 
 // The model of substrate multisig transaction

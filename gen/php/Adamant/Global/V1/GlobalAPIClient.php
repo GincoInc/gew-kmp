@@ -1468,4 +1468,33 @@ class GlobalAPIClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * ForwardingThresholds
+     * @param \Adamant\Global\V1\ListForwardingThresholdsRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListForwardingThresholds(\Adamant\Global\V1\ListForwardingThresholdsRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ListForwardingThresholds',
+        $argument,
+        ['\Adamant\Global\V1\ListForwardingThresholdsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\UpsertForwardingThresholdRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function UpsertForwardingThreshold(\Adamant\Global\V1\UpsertForwardingThresholdRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/UpsertForwardingThreshold',
+        $argument,
+        ['\Adamant\Global\V1\UpsertForwardingThresholdResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }

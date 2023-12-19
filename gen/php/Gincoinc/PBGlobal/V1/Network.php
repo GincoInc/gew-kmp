@@ -202,6 +202,22 @@ class Network
      */
     const NETWORK_ALGORAND_TESTNET = 46;
     /**
+     * Generated from protobuf enum <code>NETWORK_HEDERA_MAINNET = 47;</code>
+     */
+    const NETWORK_HEDERA_MAINNET = 47;
+    /**
+     * Generated from protobuf enum <code>NETWORK_HEDERA_TESTNET = 48;</code>
+     */
+    const NETWORK_HEDERA_TESTNET = 48;
+    /**
+     * Generated from protobuf enum <code>NETWORK_JAPAN_OPEN_CHAIN_MAINNET = 49;</code>
+     */
+    const NETWORK_JAPAN_OPEN_CHAIN_MAINNET = 49;
+    /**
+     * Generated from protobuf enum <code>NETWORK_JAPAN_OPEN_CHAIN_TESTNET = 50;</code>
+     */
+    const NETWORK_JAPAN_OPEN_CHAIN_TESTNET = 50;
+    /**
      * Generated from protobuf enum <code>NETWORK_SHIDEN_MAINNET = 10002;</code>
      */
     const NETWORK_SHIDEN_MAINNET = 10002;
@@ -254,6 +270,10 @@ class Network
         self::NETWORK_ETHEREUM_CLASSIC_TESTNET => 'NETWORK_ETHEREUM_CLASSIC_TESTNET',
         self::NETWORK_ALGORAND_MAINNET => 'NETWORK_ALGORAND_MAINNET',
         self::NETWORK_ALGORAND_TESTNET => 'NETWORK_ALGORAND_TESTNET',
+        self::NETWORK_HEDERA_MAINNET => 'NETWORK_HEDERA_MAINNET',
+        self::NETWORK_HEDERA_TESTNET => 'NETWORK_HEDERA_TESTNET',
+        self::NETWORK_JAPAN_OPEN_CHAIN_MAINNET => 'NETWORK_JAPAN_OPEN_CHAIN_MAINNET',
+        self::NETWORK_JAPAN_OPEN_CHAIN_TESTNET => 'NETWORK_JAPAN_OPEN_CHAIN_TESTNET',
         self::NETWORK_SHIDEN_MAINNET => 'NETWORK_SHIDEN_MAINNET',
     ];
 

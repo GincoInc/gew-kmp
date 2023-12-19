@@ -153,6 +153,10 @@ service GlobalAPI {
   // Validate format of given address
   rpc ValidateAddress(ValidateAddressRequest) returns (ValidateAddressResponse) {}
   rpc ListAuditLogs(ListAuditLogsRequest) returns (ListAuditLogsResponse) {}
+
+  // ForwardingThresholds
+  rpc ListForwardingThresholds(ListForwardingThresholdsRequest) returns (ListForwardingThresholdsResponse) {}
+  rpc UpsertForwardingThreshold(UpsertForwardingThresholdRequest) returns (UpsertForwardingThresholdResponse) {}
 }
 
 // =============================================================================
@@ -679,6 +683,7 @@ message CreateTransactionRequest {
   adamant.global.v1.CreateTransactionEthereumSpecific ethereum_specific = 13;
   adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14;
   adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15;
+  adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16;
 }
 
 message CreateTransactionResponse {
@@ -1189,6 +1194,7 @@ message CalculateFeeRequest {
   CalculateFeeSymbolSpecific symbol_specific = 9;
   CalculateFeeEthereumSpecific ethereum_specific = 10;
   CalculateFeeCosmosSpecific cosmos_specific = 11;
+  CalculateFeeHederaSpecific hedera_specific = 12;
 }
 
 // The model of Substrate specific fields of CreateTransaction
@@ -1216,6 +1222,11 @@ message CalculateFeeEthereumSpecific {
 message CalculateFeeCosmosSpecific {
   gincoinc.global.v1.CosmosMsgType type = 1;
   string memo = 2;
+}
+
+// The model of Hedera specific fields of CalculateFee
+message CalculateFeeHederaSpecific {
+  string memo = 1;
 }
 
 message CalculateFeeResponse {
@@ -1861,4 +1872,26 @@ message CosmosDelegateHistory {
   double delegate_amount = 4;
   double reward_amount = 5;
   google.protobuf.Timestamp time = 6;
+}
+
+message ForwardingThreshold {
+  gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {
+    defined_only: true,
+  }];
+  double fee_rate = 2;
+  double value = 3;
+}
+
+message ListForwardingThresholdsRequest {}
+
+message ListForwardingThresholdsResponse {
+  repeated ForwardingThreshold forwarding_thresholds = 1;
+}
+
+message UpsertForwardingThresholdRequest {
+  ForwardingThreshold forwarding_threshold = 1;
+}
+
+message UpsertForwardingThresholdResponse {
+  ForwardingThreshold forwarding_threshold = 1;
 }

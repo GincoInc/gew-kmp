@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-ÙÏ
+µÓ
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"¥
 Wallet
 owner_id (	RownerId
@@ -165,7 +165,7 @@ address_id (	R	addressId,
 string_balance (	RstringBalance
 fee_balance (R
 feeBalance,
-string_fee_balance (	RstringFeeBalance"¸
+string_fee_balance (	RstringFeeBalance"ê
 Transaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId,
@@ -205,7 +205,9 @@ signedKeys>
 xdc_specific& (2.adamant.global.v1.XdcSpecificRxdcSpecificJ
 cosmos_specific\' (2!.adamant.global.v1.CosmosSpecificRcosmosSpecificf
 ethereum_classic_specific( (2*.adamant.global.v1.EthereumClassicSpecificRethereumClassicSpecificP
-algorand_specific) (2#.adamant.global.v1.AlgorandSpecificRalgorandSpecific;
+algorand_specific) (2#.adamant.global.v1.AlgorandSpecificRalgorandSpecificJ
+hedera_specific* (2!.adamant.global.v1.HederaSpecificRhederaSpecificd
+japan_open_chain_specific+ (2).adamant.global.v1.JapanOpenChainSpecificRjapanOpenChainSpecific;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
@@ -359,7 +361,17 @@ last_round (R	lastRound
 
 expiration (R
 expiration
-	timestamp (R	timestamp"â
+	timestamp (R	timestamp"b
+HederaSpecific
+memo (	Rmemo
+	timestamp (R	timestamp
+
+expiration (R
+expiration"o
+JapanOpenChainSpecific
+	gas_limit (RgasLimit
+nonce (Rnonce"
+is_next_nonce (RisNextNonce"â
 "CreateTransactionSubstrateSpecific%
 transaction_id (	RtransactionIdA
 	call_type (2$.adamant.global.v1.SubstrateCallTypeRcallTypeR
@@ -386,7 +398,10 @@ expiration
 type (2!.gincoinc.global.v1.CosmosMsgTypeRtype
 memo (	Rmemo"A
 !CreateTransactionAlgorandSpecific
-	timestamp (R	timestamp"ï
+	timestamp (R	timestamp"S
+CreateTransactionHederaSpecific
+memo (	Rmemo
+	timestamp (R	timestamp"ï
 SubstrateMultisigTransaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionIdI
