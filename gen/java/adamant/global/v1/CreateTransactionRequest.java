@@ -441,6 +441,32 @@ private static final long serialVersionUID = 0L;
     return algorandSpecific_ == null ? adamant.global.v1.Model.CreateTransactionAlgorandSpecific.getDefaultInstance() : algorandSpecific_;
   }
 
+  public static final int HEDERA_SPECIFIC_FIELD_NUMBER = 16;
+  private adamant.global.v1.Model.CreateTransactionHederaSpecific hederaSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
+   * @return Whether the hederaSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasHederaSpecific() {
+    return hederaSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
+   * @return The hederaSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionHederaSpecific getHederaSpecific() {
+    return hederaSpecific_ == null ? adamant.global.v1.Model.CreateTransactionHederaSpecific.getDefaultInstance() : hederaSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionHederaSpecificOrBuilder getHederaSpecificOrBuilder() {
+    return hederaSpecific_ == null ? adamant.global.v1.Model.CreateTransactionHederaSpecific.getDefaultInstance() : hederaSpecific_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -499,6 +525,9 @@ private static final long serialVersionUID = 0L;
     }
     if (algorandSpecific_ != null) {
       output.writeMessage(15, getAlgorandSpecific());
+    }
+    if (hederaSpecific_ != null) {
+      output.writeMessage(16, getHederaSpecific());
     }
     getUnknownFields().writeTo(output);
   }
@@ -565,6 +594,10 @@ private static final long serialVersionUID = 0L;
     if (algorandSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(15, getAlgorandSpecific());
+    }
+    if (hederaSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(16, getHederaSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -635,6 +668,11 @@ private static final long serialVersionUID = 0L;
       if (!getAlgorandSpecific()
           .equals(other.getAlgorandSpecific())) return false;
     }
+    if (hasHederaSpecific() != other.hasHederaSpecific()) return false;
+    if (hasHederaSpecific()) {
+      if (!getHederaSpecific()
+          .equals(other.getHederaSpecific())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -695,6 +733,10 @@ private static final long serialVersionUID = 0L;
     if (hasAlgorandSpecific()) {
       hash = (37 * hash) + ALGORAND_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getAlgorandSpecific().hashCode();
+    }
+    if (hasHederaSpecific()) {
+      hash = (37 * hash) + HEDERA_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getHederaSpecific().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -880,6 +922,11 @@ private static final long serialVersionUID = 0L;
         algorandSpecificBuilder_.dispose();
         algorandSpecificBuilder_ = null;
       }
+      hederaSpecific_ = null;
+      if (hederaSpecificBuilder_ != null) {
+        hederaSpecificBuilder_.dispose();
+        hederaSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -983,6 +1030,11 @@ private static final long serialVersionUID = 0L;
         result.algorandSpecific_ = algorandSpecificBuilder_ == null
             ? algorandSpecific_
             : algorandSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.hederaSpecific_ = hederaSpecificBuilder_ == null
+            ? hederaSpecific_
+            : hederaSpecificBuilder_.build();
       }
     }
 
@@ -1103,6 +1155,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasAlgorandSpecific()) {
         mergeAlgorandSpecific(other.getAlgorandSpecific());
+      }
+      if (other.hasHederaSpecific()) {
+        mergeHederaSpecific(other.getHederaSpecific());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1229,6 +1284,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00004000;
               break;
             } // case 122
+            case 130: {
+              input.readMessage(
+                  getHederaSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 130
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2748,6 +2810,125 @@ private static final long serialVersionUID = 0L;
         algorandSpecific_ = null;
       }
       return algorandSpecificBuilder_;
+    }
+
+    private adamant.global.v1.Model.CreateTransactionHederaSpecific hederaSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionHederaSpecific, adamant.global.v1.Model.CreateTransactionHederaSpecific.Builder, adamant.global.v1.Model.CreateTransactionHederaSpecificOrBuilder> hederaSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
+     * @return Whether the hederaSpecific field is set.
+     */
+    public boolean hasHederaSpecific() {
+      return ((bitField0_ & 0x00008000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
+     * @return The hederaSpecific.
+     */
+    public adamant.global.v1.Model.CreateTransactionHederaSpecific getHederaSpecific() {
+      if (hederaSpecificBuilder_ == null) {
+        return hederaSpecific_ == null ? adamant.global.v1.Model.CreateTransactionHederaSpecific.getDefaultInstance() : hederaSpecific_;
+      } else {
+        return hederaSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
+     */
+    public Builder setHederaSpecific(adamant.global.v1.Model.CreateTransactionHederaSpecific value) {
+      if (hederaSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        hederaSpecific_ = value;
+      } else {
+        hederaSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
+     */
+    public Builder setHederaSpecific(
+        adamant.global.v1.Model.CreateTransactionHederaSpecific.Builder builderForValue) {
+      if (hederaSpecificBuilder_ == null) {
+        hederaSpecific_ = builderForValue.build();
+      } else {
+        hederaSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
+     */
+    public Builder mergeHederaSpecific(adamant.global.v1.Model.CreateTransactionHederaSpecific value) {
+      if (hederaSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00008000) != 0) &&
+          hederaSpecific_ != null &&
+          hederaSpecific_ != adamant.global.v1.Model.CreateTransactionHederaSpecific.getDefaultInstance()) {
+          getHederaSpecificBuilder().mergeFrom(value);
+        } else {
+          hederaSpecific_ = value;
+        }
+      } else {
+        hederaSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
+     */
+    public Builder clearHederaSpecific() {
+      bitField0_ = (bitField0_ & ~0x00008000);
+      hederaSpecific_ = null;
+      if (hederaSpecificBuilder_ != null) {
+        hederaSpecificBuilder_.dispose();
+        hederaSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionHederaSpecific.Builder getHederaSpecificBuilder() {
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return getHederaSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionHederaSpecificOrBuilder getHederaSpecificOrBuilder() {
+      if (hederaSpecificBuilder_ != null) {
+        return hederaSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return hederaSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionHederaSpecific.getDefaultInstance() : hederaSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionHederaSpecific, adamant.global.v1.Model.CreateTransactionHederaSpecific.Builder, adamant.global.v1.Model.CreateTransactionHederaSpecificOrBuilder> 
+        getHederaSpecificFieldBuilder() {
+      if (hederaSpecificBuilder_ == null) {
+        hederaSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionHederaSpecific, adamant.global.v1.Model.CreateTransactionHederaSpecific.Builder, adamant.global.v1.Model.CreateTransactionHederaSpecificOrBuilder>(
+                getHederaSpecific(),
+                getParentForChildren(),
+                isClean());
+        hederaSpecific_ = null;
+      }
+      return hederaSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

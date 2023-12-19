@@ -232,6 +232,18 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $algorand_specific = null;
     /**
+     * The Hedera specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.HederaSpecific hedera_specific = 42 [json_name = "hederaSpecific"];</code>
+     */
+    protected $hedera_specific = null;
+    /**
+     * The Japan Open Chain specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.JapanOpenChainSpecific japan_open_chain_specific = 43 [json_name = "japanOpenChainSpecific"];</code>
+     */
+    protected $japan_open_chain_specific = null;
+    /**
      * the time at which the transaction was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
@@ -322,6 +334,10 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The Ethereum Classic specific fields
      *     @type \Adamant\PBGlobal\V1\AlgorandSpecific $algorand_specific
      *           The Algorand specific fields
+     *     @type \Adamant\PBGlobal\V1\HederaSpecific $hedera_specific
+     *           The Hedera specific fields
+     *     @type \Adamant\PBGlobal\V1\JapanOpenChainSpecific $japan_open_chain_specific
+     *           The Japan Open Chain specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -1485,6 +1501,78 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\AlgorandSpecific::class);
         $this->algorand_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Hedera specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.HederaSpecific hedera_specific = 42 [json_name = "hederaSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\HederaSpecific|null
+     */
+    public function getHederaSpecific()
+    {
+        return $this->hedera_specific;
+    }
+
+    public function hasHederaSpecific()
+    {
+        return isset($this->hedera_specific);
+    }
+
+    public function clearHederaSpecific()
+    {
+        unset($this->hedera_specific);
+    }
+
+    /**
+     * The Hedera specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.HederaSpecific hedera_specific = 42 [json_name = "hederaSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\HederaSpecific $var
+     * @return $this
+     */
+    public function setHederaSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\HederaSpecific::class);
+        $this->hedera_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Japan Open Chain specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.JapanOpenChainSpecific japan_open_chain_specific = 43 [json_name = "japanOpenChainSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\JapanOpenChainSpecific|null
+     */
+    public function getJapanOpenChainSpecific()
+    {
+        return $this->japan_open_chain_specific;
+    }
+
+    public function hasJapanOpenChainSpecific()
+    {
+        return isset($this->japan_open_chain_specific);
+    }
+
+    public function clearJapanOpenChainSpecific()
+    {
+        unset($this->japan_open_chain_specific);
+    }
+
+    /**
+     * The Japan Open Chain specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.JapanOpenChainSpecific japan_open_chain_specific = 43 [json_name = "japanOpenChainSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\JapanOpenChainSpecific $var
+     * @return $this
+     */
+    public function setJapanOpenChainSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\JapanOpenChainSpecific::class);
+        $this->japan_open_chain_specific = $var;
 
         return $this;
     }

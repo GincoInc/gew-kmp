@@ -73,6 +73,10 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15 [json_name = "algorandSpecific"];</code>
      */
     protected $algorand_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
+     */
+    protected $hedera_specific = null;
 
     /**
      * Constructor.
@@ -95,6 +99,7 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CreateTransactionEthereumSpecific $ethereum_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionCosmosSpecific $cosmos_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionAlgorandSpecific $algorand_specific
+     *     @type \Adamant\PBGlobal\V1\CreateTransactionHederaSpecific $hedera_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -508,6 +513,38 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionAlgorandSpecific::class);
         $this->algorand_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CreateTransactionHederaSpecific|null
+     */
+    public function getHederaSpecific()
+    {
+        return $this->hedera_specific;
+    }
+
+    public function hasHederaSpecific()
+    {
+        return isset($this->hedera_specific);
+    }
+
+    public function clearHederaSpecific()
+    {
+        unset($this->hedera_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CreateTransactionHederaSpecific $var
+     * @return $this
+     */
+    public function setHederaSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionHederaSpecific::class);
+        $this->hedera_specific = $var;
 
         return $this;
     }

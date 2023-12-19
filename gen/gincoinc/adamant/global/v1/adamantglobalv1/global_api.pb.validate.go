@@ -83,6 +83,8 @@ var (
 	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.CosmosMsgType(0)
+
+	_ = gincoincglobalv1.Coin(0)
 )
 
 // Validate checks the field values on ApproveWalletRequest with the rules
@@ -7395,6 +7397,20 @@ func (m *CreateTransactionRequest) Validate(all bool) error {
 		}
 	}
 
+	if v, ok := interface{}(m.GetHederaSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = CreateTransactionRequestValidationError{
+				field:  "HederaSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
 	if len(errors) > 0 {
 		return CreateTransactionRequestMultiError(errors)
 	}
@@ -14019,6 +14035,20 @@ func (m *CalculateFeeRequest) Validate(all bool) error {
 		}
 	}
 
+	if v, ok := interface{}(m.GetHederaSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = CalculateFeeRequestValidationError{
+				field:  "HederaSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
 	if len(errors) > 0 {
 		return CalculateFeeRequestMultiError(errors)
 	}
@@ -14575,6 +14605,100 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CalculateFeeCosmosSpecificValidationError{}
+
+// Validate checks the field values on CalculateFeeHederaSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CalculateFeeHederaSpecificMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *CalculateFeeHederaSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Memo
+
+	if len(errors) > 0 {
+		return CalculateFeeHederaSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// CalculateFeeHederaSpecificMultiError is an error wrapping multiple
+// validation errors returned by CalculateFeeHederaSpecific.Validate(true) if
+// the designated constraints aren't met.
+type CalculateFeeHederaSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CalculateFeeHederaSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CalculateFeeHederaSpecificMultiError) AllErrors() []error { return m }
+
+// CalculateFeeHederaSpecificValidationError is the validation error returned
+// by CalculateFeeHederaSpecific.Validate if the designated constraints aren't met.
+type CalculateFeeHederaSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CalculateFeeHederaSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CalculateFeeHederaSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CalculateFeeHederaSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CalculateFeeHederaSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CalculateFeeHederaSpecificValidationError) ErrorName() string {
+	return "CalculateFeeHederaSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CalculateFeeHederaSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCalculateFeeHederaSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CalculateFeeHederaSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CalculateFeeHederaSpecificValidationError{}
 
 // Validate checks the field values on CalculateFeeResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -23731,3 +23855,533 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CosmosDelegateHistoryValidationError{}
+
+// Validate checks the field values on ForwardingThreshold with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ForwardingThresholdMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ForwardingThreshold) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		err := ForwardingThresholdValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	// no validation rules for Value
+
+	if len(errors) > 0 {
+		return ForwardingThresholdMultiError(errors)
+	}
+	return nil
+}
+
+// ForwardingThresholdMultiError is an error wrapping multiple validation
+// errors returned by ForwardingThreshold.Validate(true) if the designated
+// constraints aren't met.
+type ForwardingThresholdMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ForwardingThresholdMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ForwardingThresholdMultiError) AllErrors() []error { return m }
+
+// ForwardingThresholdValidationError is the validation error returned by
+// ForwardingThreshold.Validate if the designated constraints aren't met.
+type ForwardingThresholdValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ForwardingThresholdValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ForwardingThresholdValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ForwardingThresholdValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ForwardingThresholdValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ForwardingThresholdValidationError) ErrorName() string {
+	return "ForwardingThresholdValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ForwardingThresholdValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sForwardingThreshold.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ForwardingThresholdValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ForwardingThresholdValidationError{}
+
+// Validate checks the field values on ListForwardingThresholdsRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListForwardingThresholdsRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListForwardingThresholdsRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return ListForwardingThresholdsRequestMultiError(errors)
+	}
+	return nil
+}
+
+// ListForwardingThresholdsRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListForwardingThresholdsRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListForwardingThresholdsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListForwardingThresholdsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListForwardingThresholdsRequestMultiError) AllErrors() []error { return m }
+
+// ListForwardingThresholdsRequestValidationError is the validation error
+// returned by ListForwardingThresholdsRequest.Validate if the designated
+// constraints aren't met.
+type ListForwardingThresholdsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListForwardingThresholdsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListForwardingThresholdsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListForwardingThresholdsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListForwardingThresholdsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListForwardingThresholdsRequestValidationError) ErrorName() string {
+	return "ListForwardingThresholdsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListForwardingThresholdsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListForwardingThresholdsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListForwardingThresholdsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListForwardingThresholdsRequestValidationError{}
+
+// Validate checks the field values on ListForwardingThresholdsResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListForwardingThresholdsResponseMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListForwardingThresholdsResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetForwardingThresholds() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListForwardingThresholdsResponseValidationError{
+					field:  fmt.Sprintf("ForwardingThresholds[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ListForwardingThresholdsResponseMultiError(errors)
+	}
+	return nil
+}
+
+// ListForwardingThresholdsResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListForwardingThresholdsResponse.Validate(true) if the designated
+// constraints aren't met.
+type ListForwardingThresholdsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListForwardingThresholdsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListForwardingThresholdsResponseMultiError) AllErrors() []error { return m }
+
+// ListForwardingThresholdsResponseValidationError is the validation error
+// returned by ListForwardingThresholdsResponse.Validate if the designated
+// constraints aren't met.
+type ListForwardingThresholdsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListForwardingThresholdsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListForwardingThresholdsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListForwardingThresholdsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListForwardingThresholdsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListForwardingThresholdsResponseValidationError) ErrorName() string {
+	return "ListForwardingThresholdsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListForwardingThresholdsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListForwardingThresholdsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListForwardingThresholdsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListForwardingThresholdsResponseValidationError{}
+
+// Validate checks the field values on UpsertForwardingThresholdRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in UpsertForwardingThresholdRequestMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *UpsertForwardingThresholdRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if v, ok := interface{}(m.GetForwardingThreshold()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = UpsertForwardingThresholdRequestValidationError{
+				field:  "ForwardingThreshold",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if len(errors) > 0 {
+		return UpsertForwardingThresholdRequestMultiError(errors)
+	}
+	return nil
+}
+
+// UpsertForwardingThresholdRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// UpsertForwardingThresholdRequest.Validate(true) if the designated
+// constraints aren't met.
+type UpsertForwardingThresholdRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpsertForwardingThresholdRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpsertForwardingThresholdRequestMultiError) AllErrors() []error { return m }
+
+// UpsertForwardingThresholdRequestValidationError is the validation error
+// returned by UpsertForwardingThresholdRequest.Validate if the designated
+// constraints aren't met.
+type UpsertForwardingThresholdRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpsertForwardingThresholdRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpsertForwardingThresholdRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpsertForwardingThresholdRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpsertForwardingThresholdRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpsertForwardingThresholdRequestValidationError) ErrorName() string {
+	return "UpsertForwardingThresholdRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpsertForwardingThresholdRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpsertForwardingThresholdRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpsertForwardingThresholdRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpsertForwardingThresholdRequestValidationError{}
+
+// Validate checks the field values on UpsertForwardingThresholdResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in UpsertForwardingThresholdResponseMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *UpsertForwardingThresholdResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if v, ok := interface{}(m.GetForwardingThreshold()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = UpsertForwardingThresholdResponseValidationError{
+				field:  "ForwardingThreshold",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if len(errors) > 0 {
+		return UpsertForwardingThresholdResponseMultiError(errors)
+	}
+	return nil
+}
+
+// UpsertForwardingThresholdResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// UpsertForwardingThresholdResponse.Validate(true) if the designated
+// constraints aren't met.
+type UpsertForwardingThresholdResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpsertForwardingThresholdResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpsertForwardingThresholdResponseMultiError) AllErrors() []error { return m }
+
+// UpsertForwardingThresholdResponseValidationError is the validation error
+// returned by UpsertForwardingThresholdResponse.Validate if the designated
+// constraints aren't met.
+type UpsertForwardingThresholdResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpsertForwardingThresholdResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpsertForwardingThresholdResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpsertForwardingThresholdResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpsertForwardingThresholdResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpsertForwardingThresholdResponseValidationError) ErrorName() string {
+	return "UpsertForwardingThresholdResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpsertForwardingThresholdResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpsertForwardingThresholdResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpsertForwardingThresholdResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpsertForwardingThresholdResponseValidationError{}
