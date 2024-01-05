@@ -50,6 +50,8 @@ var (
 
 	_ = gincoincglobalv1.Coin(0)
 
+	_ = gincoincglobalv1.Coin(0)
+
 	_ = gincoincglobalv1.TransferType(0)
 
 	_ = gincoincglobalv1.Coin(0)
@@ -83,6 +85,10 @@ var (
 	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.CosmosMsgType(0)
+
+	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.Coin(0)
 )
@@ -1509,6 +1515,13 @@ func (m *ListWalletsByFilterRequest) Validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	switch m.XOnlyIsStakingAvailable.(type) {
+
+	case *ListWalletsByFilterRequest_OnlyIsStakingAvailable:
+		// no validation rules for OnlyIsStakingAvailable
+
+	}
+
 	if len(errors) > 0 {
 		return ListWalletsByFilterRequestMultiError(errors)
 	}
@@ -1909,6 +1922,289 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListBaseWalletsResponseValidationError{}
+
+// Validate checks the field values on ListStakingWalletsByFilterRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListStakingWalletsByFilterRequestMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListStakingWalletsByFilterRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := _ListStakingWalletsByFilterRequest_FilterType_NotInLookup[m.GetFilterType()]; ok {
+		err := ListStakingWalletsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must not be in list [0]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		err := ListStakingWalletsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for WalletId
+
+	if utf8.RuneCountInString(m.GetWalletName()) > 40 {
+		err := ListStakingWalletsByFilterRequestValidationError{
+			field:  "WalletName",
+			reason: "value length must be at most 40 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for Address
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		err := ListStakingWalletsByFilterRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetPageSize() > 100 {
+		err := ListStakingWalletsByFilterRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 100",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ListStakingWalletsByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		err := ListStakingWalletsByFilterRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return ListStakingWalletsByFilterRequestMultiError(errors)
+	}
+	return nil
+}
+
+// ListStakingWalletsByFilterRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListStakingWalletsByFilterRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListStakingWalletsByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListStakingWalletsByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListStakingWalletsByFilterRequestMultiError) AllErrors() []error { return m }
+
+// ListStakingWalletsByFilterRequestValidationError is the validation error
+// returned by ListStakingWalletsByFilterRequest.Validate if the designated
+// constraints aren't met.
+type ListStakingWalletsByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListStakingWalletsByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListStakingWalletsByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListStakingWalletsByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListStakingWalletsByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListStakingWalletsByFilterRequestValidationError) ErrorName() string {
+	return "ListStakingWalletsByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListStakingWalletsByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListStakingWalletsByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListStakingWalletsByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListStakingWalletsByFilterRequestValidationError{}
+
+var _ListStakingWalletsByFilterRequest_FilterType_NotInLookup = map[ListFilterType]struct{}{
+	0: {},
+}
+
+var _ListStakingWalletsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListStakingWalletsResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListStakingWalletsResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListStakingWalletsResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetStakingWallets() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListStakingWalletsResponseValidationError{
+					field:  fmt.Sprintf("StakingWallets[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	if len(errors) > 0 {
+		return ListStakingWalletsResponseMultiError(errors)
+	}
+	return nil
+}
+
+// ListStakingWalletsResponseMultiError is an error wrapping multiple
+// validation errors returned by ListStakingWalletsResponse.Validate(true) if
+// the designated constraints aren't met.
+type ListStakingWalletsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListStakingWalletsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListStakingWalletsResponseMultiError) AllErrors() []error { return m }
+
+// ListStakingWalletsResponseValidationError is the validation error returned
+// by ListStakingWalletsResponse.Validate if the designated constraints aren't met.
+type ListStakingWalletsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListStakingWalletsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListStakingWalletsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListStakingWalletsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListStakingWalletsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListStakingWalletsResponseValidationError) ErrorName() string {
+	return "ListStakingWalletsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListStakingWalletsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListStakingWalletsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListStakingWalletsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListStakingWalletsResponseValidationError{}
 
 // Validate checks the field values on UpdateWalletNameRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -5108,6 +5404,323 @@ var _ interface {
 } = DisableUTXORequestValidationError{}
 
 var _DisableUTXORequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on UpdateWalletIsStakingAvailableRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in
+// UpdateWalletIsStakingAvailableRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *UpdateWalletIsStakingAvailableRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_UpdateWalletIsStakingAvailableRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := UpdateWalletIsStakingAvailableRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for IsStakingAvailable
+
+	if len(errors) > 0 {
+		return UpdateWalletIsStakingAvailableRequestMultiError(errors)
+	}
+	return nil
+}
+
+// UpdateWalletIsStakingAvailableRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// UpdateWalletIsStakingAvailableRequest.Validate(true) if the designated
+// constraints aren't met.
+type UpdateWalletIsStakingAvailableRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateWalletIsStakingAvailableRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateWalletIsStakingAvailableRequestMultiError) AllErrors() []error { return m }
+
+// UpdateWalletIsStakingAvailableRequestValidationError is the validation error
+// returned by UpdateWalletIsStakingAvailableRequest.Validate if the
+// designated constraints aren't met.
+type UpdateWalletIsStakingAvailableRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateWalletIsStakingAvailableRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateWalletIsStakingAvailableRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateWalletIsStakingAvailableRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateWalletIsStakingAvailableRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateWalletIsStakingAvailableRequestValidationError) ErrorName() string {
+	return "UpdateWalletIsStakingAvailableRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateWalletIsStakingAvailableRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateWalletIsStakingAvailableRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateWalletIsStakingAvailableRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateWalletIsStakingAvailableRequestValidationError{}
+
+var _UpdateWalletIsStakingAvailableRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on
+// RefreshStakingWalletClaimableRewardRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, an error is
+// returned. When asked to return all errors, validation continues after first
+// violation, and the result is a list of violation errors wrapped in
+// RefreshStakingWalletClaimableRewardRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *RefreshStakingWalletClaimableRewardRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_RefreshStakingWalletClaimableRewardRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := RefreshStakingWalletClaimableRewardRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return RefreshStakingWalletClaimableRewardRequestMultiError(errors)
+	}
+	return nil
+}
+
+// RefreshStakingWalletClaimableRewardRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// RefreshStakingWalletClaimableRewardRequest.Validate(true) if the designated
+// constraints aren't met.
+type RefreshStakingWalletClaimableRewardRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m RefreshStakingWalletClaimableRewardRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m RefreshStakingWalletClaimableRewardRequestMultiError) AllErrors() []error { return m }
+
+// RefreshStakingWalletClaimableRewardRequestValidationError is the validation
+// error returned by RefreshStakingWalletClaimableRewardRequest.Validate if
+// the designated constraints aren't met.
+type RefreshStakingWalletClaimableRewardRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e RefreshStakingWalletClaimableRewardRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e RefreshStakingWalletClaimableRewardRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e RefreshStakingWalletClaimableRewardRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e RefreshStakingWalletClaimableRewardRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e RefreshStakingWalletClaimableRewardRequestValidationError) ErrorName() string {
+	return "RefreshStakingWalletClaimableRewardRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e RefreshStakingWalletClaimableRewardRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sRefreshStakingWalletClaimableRewardRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = RefreshStakingWalletClaimableRewardRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = RefreshStakingWalletClaimableRewardRequestValidationError{}
+
+var _RefreshStakingWalletClaimableRewardRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on
+// RefreshStakingWalletClaimableRewardResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, an error is
+// returned. When asked to return all errors, validation continues after first
+// violation, and the result is a list of violation errors wrapped in
+// RefreshStakingWalletClaimableRewardResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *RefreshStakingWalletClaimableRewardResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for ClaimableReward
+
+	// no validation rules for StringClaimableReward
+
+	if len(errors) > 0 {
+		return RefreshStakingWalletClaimableRewardResponseMultiError(errors)
+	}
+	return nil
+}
+
+// RefreshStakingWalletClaimableRewardResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// RefreshStakingWalletClaimableRewardResponse.Validate(true) if the
+// designated constraints aren't met.
+type RefreshStakingWalletClaimableRewardResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m RefreshStakingWalletClaimableRewardResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m RefreshStakingWalletClaimableRewardResponseMultiError) AllErrors() []error { return m }
+
+// RefreshStakingWalletClaimableRewardResponseValidationError is the validation
+// error returned by RefreshStakingWalletClaimableRewardResponse.Validate if
+// the designated constraints aren't met.
+type RefreshStakingWalletClaimableRewardResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e RefreshStakingWalletClaimableRewardResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e RefreshStakingWalletClaimableRewardResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e RefreshStakingWalletClaimableRewardResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e RefreshStakingWalletClaimableRewardResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e RefreshStakingWalletClaimableRewardResponseValidationError) ErrorName() string {
+	return "RefreshStakingWalletClaimableRewardResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e RefreshStakingWalletClaimableRewardResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sRefreshStakingWalletClaimableRewardResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = RefreshStakingWalletClaimableRewardResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = RefreshStakingWalletClaimableRewardResponseValidationError{}
 
 // Validate checks the field values on RegisterKeyRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -14430,6 +15043,13 @@ func (m *CalculateFeeEthereumSpecific) Validate(all bool) error {
 
 	// no validation rules for Data
 
+	switch m.XIsStakingTransaction.(type) {
+
+	case *CalculateFeeEthereumSpecific_IsStakingTransaction:
+		// no validation rules for IsStakingTransaction
+
+	}
+
 	if len(errors) > 0 {
 		return CalculateFeeEthereumSpecificMultiError(errors)
 	}
@@ -22408,6 +23028,226 @@ var _ interface {
 	ErrorName() string
 } = DownloadResourceRequestValidationError{}
 
+// Validate checks the field values on ExitEthereumStakingValidatorsRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ExitEthereumStakingValidatorsRequestMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ExitEthereumStakingValidatorsRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetValidatorIds() {
+		_, _ = idx, item
+
+		if !_ExitEthereumStakingValidatorsRequest_ValidatorIds_Pattern.MatchString(item) {
+			err := ExitEthereumStakingValidatorsRequestValidationError{
+				field:  fmt.Sprintf("ValidatorIds[%v]", idx),
+				reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if !_ExitEthereumStakingValidatorsRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ExitEthereumStakingValidatorsRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return ExitEthereumStakingValidatorsRequestMultiError(errors)
+	}
+	return nil
+}
+
+// ExitEthereumStakingValidatorsRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ExitEthereumStakingValidatorsRequest.Validate(true) if the designated
+// constraints aren't met.
+type ExitEthereumStakingValidatorsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ExitEthereumStakingValidatorsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ExitEthereumStakingValidatorsRequestMultiError) AllErrors() []error { return m }
+
+// ExitEthereumStakingValidatorsRequestValidationError is the validation error
+// returned by ExitEthereumStakingValidatorsRequest.Validate if the designated
+// constraints aren't met.
+type ExitEthereumStakingValidatorsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ExitEthereumStakingValidatorsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ExitEthereumStakingValidatorsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ExitEthereumStakingValidatorsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ExitEthereumStakingValidatorsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ExitEthereumStakingValidatorsRequestValidationError) ErrorName() string {
+	return "ExitEthereumStakingValidatorsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ExitEthereumStakingValidatorsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sExitEthereumStakingValidatorsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ExitEthereumStakingValidatorsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ExitEthereumStakingValidatorsRequestValidationError{}
+
+var _ExitEthereumStakingValidatorsRequest_ValidatorIds_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ExitEthereumStakingValidatorsRequest_WalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ExitEthereumStakingValidatorsResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in
+// ExitEthereumStakingValidatorsResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ExitEthereumStakingValidatorsResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return ExitEthereumStakingValidatorsResponseMultiError(errors)
+	}
+	return nil
+}
+
+// ExitEthereumStakingValidatorsResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// ExitEthereumStakingValidatorsResponse.Validate(true) if the designated
+// constraints aren't met.
+type ExitEthereumStakingValidatorsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ExitEthereumStakingValidatorsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ExitEthereumStakingValidatorsResponseMultiError) AllErrors() []error { return m }
+
+// ExitEthereumStakingValidatorsResponseValidationError is the validation error
+// returned by ExitEthereumStakingValidatorsResponse.Validate if the
+// designated constraints aren't met.
+type ExitEthereumStakingValidatorsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ExitEthereumStakingValidatorsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ExitEthereumStakingValidatorsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ExitEthereumStakingValidatorsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ExitEthereumStakingValidatorsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ExitEthereumStakingValidatorsResponseValidationError) ErrorName() string {
+	return "ExitEthereumStakingValidatorsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ExitEthereumStakingValidatorsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sExitEthereumStakingValidatorsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ExitEthereumStakingValidatorsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ExitEthereumStakingValidatorsResponseValidationError{}
+
 // Validate checks the field values on CreateIOSTAccountRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, an error is returned. When asked to return all errors, validation
@@ -24385,3 +25225,609 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = UpsertForwardingThresholdResponseValidationError{}
+
+// Validate checks the field values on ListStakingHistoriesByFilterRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListStakingHistoriesByFilterRequestMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListStakingHistoriesByFilterRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := _ListStakingHistoriesByFilterRequest_FilterType_NotInLookup[m.GetFilterType()]; ok {
+		err := ListStakingHistoriesByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must not be in list [0]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		err := ListStakingHistoriesByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for StakingHistoryId
+
+	// no validation rules for WalletId
+
+	if utf8.RuneCountInString(m.GetWalletName()) > 40 {
+		err := ListStakingHistoriesByFilterRequestValidationError{
+			field:  "WalletName",
+			reason: "value length must be at most 40 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for ValidatorId
+
+	// no validation rules for Address
+
+	// no validation rules for Txid
+
+	// no validation rules for BlockHash
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		err := ListStakingHistoriesByFilterRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetPageSize() > 1000 {
+		err := ListStakingHistoriesByFilterRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 1000",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ListStakingHistoriesByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		err := ListStakingHistoriesByFilterRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if v, ok := interface{}(m.GetStartTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = ListStakingHistoriesByFilterRequestValidationError{
+				field:  "StartTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if v, ok := interface{}(m.GetEndTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = ListStakingHistoriesByFilterRequestValidationError{
+				field:  "EndTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if len(errors) > 0 {
+		return ListStakingHistoriesByFilterRequestMultiError(errors)
+	}
+	return nil
+}
+
+// ListStakingHistoriesByFilterRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListStakingHistoriesByFilterRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListStakingHistoriesByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListStakingHistoriesByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListStakingHistoriesByFilterRequestMultiError) AllErrors() []error { return m }
+
+// ListStakingHistoriesByFilterRequestValidationError is the validation error
+// returned by ListStakingHistoriesByFilterRequest.Validate if the designated
+// constraints aren't met.
+type ListStakingHistoriesByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListStakingHistoriesByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListStakingHistoriesByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListStakingHistoriesByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListStakingHistoriesByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListStakingHistoriesByFilterRequestValidationError) ErrorName() string {
+	return "ListStakingHistoriesByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListStakingHistoriesByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListStakingHistoriesByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListStakingHistoriesByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListStakingHistoriesByFilterRequestValidationError{}
+
+var _ListStakingHistoriesByFilterRequest_FilterType_NotInLookup = map[ListFilterType]struct{}{
+	0: {},
+}
+
+var _ListStakingHistoriesByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListStakingHistoriesResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListStakingHistoriesResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListStakingHistoriesResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetStakingHistories() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListStakingHistoriesResponseValidationError{
+					field:  fmt.Sprintf("StakingHistories[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	if len(errors) > 0 {
+		return ListStakingHistoriesResponseMultiError(errors)
+	}
+	return nil
+}
+
+// ListStakingHistoriesResponseMultiError is an error wrapping multiple
+// validation errors returned by ListStakingHistoriesResponse.Validate(true)
+// if the designated constraints aren't met.
+type ListStakingHistoriesResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListStakingHistoriesResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListStakingHistoriesResponseMultiError) AllErrors() []error { return m }
+
+// ListStakingHistoriesResponseValidationError is the validation error returned
+// by ListStakingHistoriesResponse.Validate if the designated constraints
+// aren't met.
+type ListStakingHistoriesResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListStakingHistoriesResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListStakingHistoriesResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListStakingHistoriesResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListStakingHistoriesResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListStakingHistoriesResponseValidationError) ErrorName() string {
+	return "ListStakingHistoriesResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListStakingHistoriesResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListStakingHistoriesResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListStakingHistoriesResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListStakingHistoriesResponseValidationError{}
+
+// Validate checks the field values on ListStakingValidatorsByFilterRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListStakingValidatorsByFilterRequestMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListStakingValidatorsByFilterRequest) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := _ListStakingValidatorsByFilterRequest_FilterType_NotInLookup[m.GetFilterType()]; ok {
+		err := ListStakingValidatorsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must not be in list [0]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		err := ListStakingValidatorsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for StakingValidatorId
+
+	// no validation rules for WalletId
+
+	if utf8.RuneCountInString(m.GetWalletName()) > 40 {
+		err := ListStakingValidatorsByFilterRequestValidationError{
+			field:  "WalletName",
+			reason: "value length must be at most 40 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for ValidatorId
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		err := ListStakingValidatorsByFilterRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetPageSize() > 1000 {
+		err := ListStakingValidatorsByFilterRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 1000",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ListStakingValidatorsByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		err := ListStakingValidatorsByFilterRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return ListStakingValidatorsByFilterRequestMultiError(errors)
+	}
+	return nil
+}
+
+// ListStakingValidatorsByFilterRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListStakingValidatorsByFilterRequest.Validate(true) if the designated
+// constraints aren't met.
+type ListStakingValidatorsByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListStakingValidatorsByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListStakingValidatorsByFilterRequestMultiError) AllErrors() []error { return m }
+
+// ListStakingValidatorsByFilterRequestValidationError is the validation error
+// returned by ListStakingValidatorsByFilterRequest.Validate if the designated
+// constraints aren't met.
+type ListStakingValidatorsByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListStakingValidatorsByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListStakingValidatorsByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListStakingValidatorsByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListStakingValidatorsByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListStakingValidatorsByFilterRequestValidationError) ErrorName() string {
+	return "ListStakingValidatorsByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListStakingValidatorsByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListStakingValidatorsByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListStakingValidatorsByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListStakingValidatorsByFilterRequestValidationError{}
+
+var _ListStakingValidatorsByFilterRequest_FilterType_NotInLookup = map[ListFilterType]struct{}{
+	0: {},
+}
+
+var _ListStakingValidatorsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListStakingValidatorsResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ListStakingValidatorsResponseMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ListStakingValidatorsResponse) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetStakingValidators() {
+		_, _ = idx, item
+
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListStakingValidatorsResponseValidationError{
+					field:  fmt.Sprintf("StakingValidators[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	if len(errors) > 0 {
+		return ListStakingValidatorsResponseMultiError(errors)
+	}
+	return nil
+}
+
+// ListStakingValidatorsResponseMultiError is an error wrapping multiple
+// validation errors returned by ListStakingValidatorsResponse.Validate(true)
+// if the designated constraints aren't met.
+type ListStakingValidatorsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListStakingValidatorsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListStakingValidatorsResponseMultiError) AllErrors() []error { return m }
+
+// ListStakingValidatorsResponseValidationError is the validation error
+// returned by ListStakingValidatorsResponse.Validate if the designated
+// constraints aren't met.
+type ListStakingValidatorsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListStakingValidatorsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListStakingValidatorsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListStakingValidatorsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListStakingValidatorsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListStakingValidatorsResponseValidationError) ErrorName() string {
+	return "ListStakingValidatorsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListStakingValidatorsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListStakingValidatorsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListStakingValidatorsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListStakingValidatorsResponseValidationError{}

@@ -29,6 +29,7 @@ type TellerAPIClient interface {
 	GetWallet(ctx context.Context, in *adamantglobalv1.GetWalletRequest, opts ...grpc.CallOption) (*adamantglobalv1.Wallet, error)
 	ListWallets(ctx context.Context, in *adamantglobalv1.ListWalletsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListWalletsResponse, error)
 	ListWalletsByFilter(ctx context.Context, in *adamantglobalv1.ListWalletsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListWalletsResponse, error)
+	ListStakingWalletsByFilter(ctx context.Context, in *adamantglobalv1.ListStakingWalletsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListStakingWalletsResponse, error)
 	ListBaseWallets(ctx context.Context, in *adamantglobalv1.ListBaseWalletsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListBaseWalletsResponse, error)
 	GetSpendableBalance(ctx context.Context, in *adamantglobalv1.GetSpendableBalanceRequest, opts ...grpc.CallOption) (*adamantglobalv1.GetSpendableBalanceResponse, error)
 	InitializeXRPWallet(ctx context.Context, in *InitializeXRPWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -58,6 +59,8 @@ type TellerAPIClient interface {
 	GetTransactionByTxID(ctx context.Context, in *adamantglobalv1.GetTransactionByTxIDRequest, opts ...grpc.CallOption) (*adamantglobalv1.Transaction, error)
 	ListTransactions(ctx context.Context, in *adamantglobalv1.ListTransactionsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListTransactionsResponse, error)
 	ListTransactionsByFilter(ctx context.Context, in *adamantglobalv1.ListTransactionsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListTransactionsResponse, error)
+	// Exit ethereum validators
+	ExitEthereumStakingValidators(ctx context.Context, in *adamantglobalv1.ExitEthereumStakingValidatorsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ExitEthereumStakingValidatorsResponse, error)
 	// List transfers for a given wallet. Ordered by update time desc
 	ListTransfers(ctx context.Context, in *adamantglobalv1.ListTransfersRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListTransfersResponse, error)
 	ListTransfersByFilter(ctx context.Context, in *adamantglobalv1.ListTransfersByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListTransfersResponse, error)
@@ -73,6 +76,8 @@ type TellerAPIClient interface {
 	ValidateAddress(ctx context.Context, in *adamantglobalv1.ValidateAddressRequest, opts ...grpc.CallOption) (*adamantglobalv1.ValidateAddressResponse, error)
 	FlushBalance(ctx context.Context, in *adamantglobalv1.FlushBalanceRequest, opts ...grpc.CallOption) (*adamantglobalv1.FlushBalanceResponse, error)
 	ListAuditLogs(ctx context.Context, in *adamantglobalv1.ListAuditLogsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListAuditLogsResponse, error)
+	ListStakingHistoriesByFilter(ctx context.Context, in *adamantglobalv1.ListStakingHistoriesByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListStakingHistoriesResponse, error)
+	ListStakingValidatorsByFilter(ctx context.Context, in *adamantglobalv1.ListStakingValidatorsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListStakingValidatorsResponse, error)
 }
 
 type tellerAPIClient struct {
@@ -113,6 +118,15 @@ func (c *tellerAPIClient) ListWallets(ctx context.Context, in *adamantglobalv1.L
 func (c *tellerAPIClient) ListWalletsByFilter(ctx context.Context, in *adamantglobalv1.ListWalletsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListWalletsResponse, error) {
 	out := new(adamantglobalv1.ListWalletsResponse)
 	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListWalletsByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) ListStakingWalletsByFilter(ctx context.Context, in *adamantglobalv1.ListStakingWalletsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListStakingWalletsResponse, error) {
+	out := new(adamantglobalv1.ListStakingWalletsResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListStakingWalletsByFilter", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -362,6 +376,15 @@ func (c *tellerAPIClient) ListTransactionsByFilter(ctx context.Context, in *adam
 	return out, nil
 }
 
+func (c *tellerAPIClient) ExitEthereumStakingValidators(ctx context.Context, in *adamantglobalv1.ExitEthereumStakingValidatorsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ExitEthereumStakingValidatorsResponse, error) {
+	out := new(adamantglobalv1.ExitEthereumStakingValidatorsResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ExitEthereumStakingValidators", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *tellerAPIClient) ListTransfers(ctx context.Context, in *adamantglobalv1.ListTransfersRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListTransfersResponse, error) {
 	out := new(adamantglobalv1.ListTransfersResponse)
 	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListTransfers", in, out, opts...)
@@ -452,6 +475,24 @@ func (c *tellerAPIClient) ListAuditLogs(ctx context.Context, in *adamantglobalv1
 	return out, nil
 }
 
+func (c *tellerAPIClient) ListStakingHistoriesByFilter(ctx context.Context, in *adamantglobalv1.ListStakingHistoriesByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListStakingHistoriesResponse, error) {
+	out := new(adamantglobalv1.ListStakingHistoriesResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListStakingHistoriesByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) ListStakingValidatorsByFilter(ctx context.Context, in *adamantglobalv1.ListStakingValidatorsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListStakingValidatorsResponse, error) {
+	out := new(adamantglobalv1.ListStakingValidatorsResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListStakingValidatorsByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TellerAPIServer is the server API for TellerAPI service.
 // All implementations should embed UnimplementedTellerAPIServer
 // for forward compatibility
@@ -461,6 +502,7 @@ type TellerAPIServer interface {
 	GetWallet(context.Context, *adamantglobalv1.GetWalletRequest) (*adamantglobalv1.Wallet, error)
 	ListWallets(context.Context, *adamantglobalv1.ListWalletsRequest) (*adamantglobalv1.ListWalletsResponse, error)
 	ListWalletsByFilter(context.Context, *adamantglobalv1.ListWalletsByFilterRequest) (*adamantglobalv1.ListWalletsResponse, error)
+	ListStakingWalletsByFilter(context.Context, *adamantglobalv1.ListStakingWalletsByFilterRequest) (*adamantglobalv1.ListStakingWalletsResponse, error)
 	ListBaseWallets(context.Context, *adamantglobalv1.ListBaseWalletsRequest) (*adamantglobalv1.ListBaseWalletsResponse, error)
 	GetSpendableBalance(context.Context, *adamantglobalv1.GetSpendableBalanceRequest) (*adamantglobalv1.GetSpendableBalanceResponse, error)
 	InitializeXRPWallet(context.Context, *InitializeXRPWalletRequest) (*emptypb.Empty, error)
@@ -490,6 +532,8 @@ type TellerAPIServer interface {
 	GetTransactionByTxID(context.Context, *adamantglobalv1.GetTransactionByTxIDRequest) (*adamantglobalv1.Transaction, error)
 	ListTransactions(context.Context, *adamantglobalv1.ListTransactionsRequest) (*adamantglobalv1.ListTransactionsResponse, error)
 	ListTransactionsByFilter(context.Context, *adamantglobalv1.ListTransactionsByFilterRequest) (*adamantglobalv1.ListTransactionsResponse, error)
+	// Exit ethereum validators
+	ExitEthereumStakingValidators(context.Context, *adamantglobalv1.ExitEthereumStakingValidatorsRequest) (*adamantglobalv1.ExitEthereumStakingValidatorsResponse, error)
 	// List transfers for a given wallet. Ordered by update time desc
 	ListTransfers(context.Context, *adamantglobalv1.ListTransfersRequest) (*adamantglobalv1.ListTransfersResponse, error)
 	ListTransfersByFilter(context.Context, *adamantglobalv1.ListTransfersByFilterRequest) (*adamantglobalv1.ListTransfersResponse, error)
@@ -505,6 +549,8 @@ type TellerAPIServer interface {
 	ValidateAddress(context.Context, *adamantglobalv1.ValidateAddressRequest) (*adamantglobalv1.ValidateAddressResponse, error)
 	FlushBalance(context.Context, *adamantglobalv1.FlushBalanceRequest) (*adamantglobalv1.FlushBalanceResponse, error)
 	ListAuditLogs(context.Context, *adamantglobalv1.ListAuditLogsRequest) (*adamantglobalv1.ListAuditLogsResponse, error)
+	ListStakingHistoriesByFilter(context.Context, *adamantglobalv1.ListStakingHistoriesByFilterRequest) (*adamantglobalv1.ListStakingHistoriesResponse, error)
+	ListStakingValidatorsByFilter(context.Context, *adamantglobalv1.ListStakingValidatorsByFilterRequest) (*adamantglobalv1.ListStakingValidatorsResponse, error)
 }
 
 // UnimplementedTellerAPIServer should be embedded to have forward compatible implementations.
@@ -522,6 +568,9 @@ func (UnimplementedTellerAPIServer) ListWallets(context.Context, *adamantglobalv
 }
 func (UnimplementedTellerAPIServer) ListWalletsByFilter(context.Context, *adamantglobalv1.ListWalletsByFilterRequest) (*adamantglobalv1.ListWalletsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListWalletsByFilter not implemented")
+}
+func (UnimplementedTellerAPIServer) ListStakingWalletsByFilter(context.Context, *adamantglobalv1.ListStakingWalletsByFilterRequest) (*adamantglobalv1.ListStakingWalletsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListStakingWalletsByFilter not implemented")
 }
 func (UnimplementedTellerAPIServer) ListBaseWallets(context.Context, *adamantglobalv1.ListBaseWalletsRequest) (*adamantglobalv1.ListBaseWalletsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListBaseWallets not implemented")
@@ -604,6 +653,9 @@ func (UnimplementedTellerAPIServer) ListTransactions(context.Context, *adamantgl
 func (UnimplementedTellerAPIServer) ListTransactionsByFilter(context.Context, *adamantglobalv1.ListTransactionsByFilterRequest) (*adamantglobalv1.ListTransactionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListTransactionsByFilter not implemented")
 }
+func (UnimplementedTellerAPIServer) ExitEthereumStakingValidators(context.Context, *adamantglobalv1.ExitEthereumStakingValidatorsRequest) (*adamantglobalv1.ExitEthereumStakingValidatorsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ExitEthereumStakingValidators not implemented")
+}
 func (UnimplementedTellerAPIServer) ListTransfers(context.Context, *adamantglobalv1.ListTransfersRequest) (*adamantglobalv1.ListTransfersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListTransfers not implemented")
 }
@@ -633,6 +685,12 @@ func (UnimplementedTellerAPIServer) FlushBalance(context.Context, *adamantglobal
 }
 func (UnimplementedTellerAPIServer) ListAuditLogs(context.Context, *adamantglobalv1.ListAuditLogsRequest) (*adamantglobalv1.ListAuditLogsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListAuditLogs not implemented")
+}
+func (UnimplementedTellerAPIServer) ListStakingHistoriesByFilter(context.Context, *adamantglobalv1.ListStakingHistoriesByFilterRequest) (*adamantglobalv1.ListStakingHistoriesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListStakingHistoriesByFilter not implemented")
+}
+func (UnimplementedTellerAPIServer) ListStakingValidatorsByFilter(context.Context, *adamantglobalv1.ListStakingValidatorsByFilterRequest) (*adamantglobalv1.ListStakingValidatorsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListStakingValidatorsByFilter not implemented")
 }
 
 // UnsafeTellerAPIServer may be embedded to opt out of forward compatibility for this service.
@@ -714,6 +772,24 @@ func _TellerAPI_ListWalletsByFilter_Handler(srv interface{}, ctx context.Context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TellerAPIServer).ListWalletsByFilter(ctx, req.(*adamantglobalv1.ListWalletsByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_ListStakingWalletsByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ListStakingWalletsByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListStakingWalletsByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListStakingWalletsByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListStakingWalletsByFilter(ctx, req.(*adamantglobalv1.ListStakingWalletsByFilterRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1204,6 +1280,24 @@ func _TellerAPI_ListTransactionsByFilter_Handler(srv interface{}, ctx context.Co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TellerAPI_ExitEthereumStakingValidators_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ExitEthereumStakingValidatorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ExitEthereumStakingValidators(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ExitEthereumStakingValidators",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ExitEthereumStakingValidators(ctx, req.(*adamantglobalv1.ExitEthereumStakingValidatorsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TellerAPI_ListTransfers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(adamantglobalv1.ListTransfersRequest)
 	if err := dec(in); err != nil {
@@ -1384,6 +1478,42 @@ func _TellerAPI_ListAuditLogs_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TellerAPI_ListStakingHistoriesByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ListStakingHistoriesByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListStakingHistoriesByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListStakingHistoriesByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListStakingHistoriesByFilter(ctx, req.(*adamantglobalv1.ListStakingHistoriesByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_ListStakingValidatorsByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ListStakingValidatorsByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListStakingValidatorsByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListStakingValidatorsByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListStakingValidatorsByFilter(ctx, req.(*adamantglobalv1.ListStakingValidatorsByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TellerAPI_ServiceDesc is the grpc.ServiceDesc for TellerAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1406,6 +1536,10 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListWalletsByFilter",
 			Handler:    _TellerAPI_ListWalletsByFilter_Handler,
+		},
+		{
+			MethodName: "ListStakingWalletsByFilter",
+			Handler:    _TellerAPI_ListStakingWalletsByFilter_Handler,
 		},
 		{
 			MethodName: "ListBaseWallets",
@@ -1516,6 +1650,10 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TellerAPI_ListTransactionsByFilter_Handler,
 		},
 		{
+			MethodName: "ExitEthereumStakingValidators",
+			Handler:    _TellerAPI_ExitEthereumStakingValidators_Handler,
+		},
+		{
 			MethodName: "ListTransfers",
 			Handler:    _TellerAPI_ListTransfers_Handler,
 		},
@@ -1554,6 +1692,14 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListAuditLogs",
 			Handler:    _TellerAPI_ListAuditLogs_Handler,
+		},
+		{
+			MethodName: "ListStakingHistoriesByFilter",
+			Handler:    _TellerAPI_ListStakingHistoriesByFilter_Handler,
+		},
+		{
+			MethodName: "ListStakingValidatorsByFilter",
+			Handler:    _TellerAPI_ListStakingValidatorsByFilter_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

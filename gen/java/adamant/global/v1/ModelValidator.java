@@ -10,6 +10,7 @@ public class ModelValidator {
 		
 		if (clazz.equals(adamant.global.v1.Model.Wallet.class)) return new WalletValidator();
 		if (clazz.equals(adamant.global.v1.Model.WalletWithoutBalance.class)) return new WalletWithoutBalanceValidator();
+		if (clazz.equals(adamant.global.v1.Model.StakingWallet.class)) return new StakingWalletValidator();
 		if (clazz.equals(adamant.global.v1.Model.WalletProposal.class)) return new WalletProposalValidator();
 		if (clazz.equals(adamant.global.v1.Model.WalletMember.class)) return new WalletMemberValidator();
 		if (clazz.equals(adamant.global.v1.Model.Key.class)) return new KeyValidator();
@@ -49,6 +50,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.AlgorandSpecific.class)) return new AlgorandSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.HederaSpecific.class)) return new HederaSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.JapanOpenChainSpecific.class)) return new JapanOpenChainSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.SolanaSpecific.class)) return new SolanaSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class)) return new CreateTransactionSubstrateSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.class)) return new CreateTransactionWalletConnectSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionNemSpecific.class)) return new CreateTransactionNemSpecificValidator();
@@ -107,6 +109,9 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.CallerAddress.class)) return new CallerAddressValidator();
 		if (clazz.equals(adamant.global.v1.Model.FeeDepositAddress.class)) return new FeeDepositAddressValidator();
 		if (clazz.equals(adamant.global.v1.Model.CosmosDelegation.class)) return new CosmosDelegationValidator();
+		if (clazz.equals(adamant.global.v1.Model.StakingHistory.class)) return new StakingHistoryValidator();
+		if (clazz.equals(adamant.global.v1.Model.StakingHistoryEthereumSpecific.class)) return new StakingHistoryEthereumSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.StakingValidator.class)) return new StakingValidatorValidator();
 		return null;
 	}
 
@@ -115,6 +120,8 @@ public class ModelValidator {
 	 * Validates {@code Wallet} protobuf objects.
 	 */
 	public static class WalletValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.Wallet> {
+		
+	
 		
 	
 		
@@ -222,6 +229,8 @@ public class ModelValidator {
 	// no validation rules for ShouldCheckRemittance
 
 	// no validation rules for InheritWalletId
+
+	// no validation rules for IsStakingAvailable
 
 	
 			// Validate create_time
@@ -331,6 +340,90 @@ public class ModelValidator {
 	// no validation rules for ShouldCheckRemittance
 
 	// no validation rules for InheritWalletId
+
+	
+			// Validate create_time
+			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+			// Validate update_time
+			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+	}
+}
+/**
+	 * Validates {@code StakingWallet} protobuf objects.
+	 */
+	public static class StakingWalletValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.StakingWallet> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.StakingWallet proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for OwnerId
+
+	// no validation rules for WalletId
+
+	// no validation rules for Name
+
+	// no validation rules for Coin
+
+	// no validation rules for WalletType
+
+	// no validation rules for AddressType
+
+	// no validation rules for State
+
+	// no validation rules for Balance
+
+	// no validation rules for StringBalance
+
+	// no validation rules for SpendableBalance
+
+	// no validation rules for StringSpendableBalance
+
+	// no validation rules for StakingBalance
+
+	// no validation rules for StringStakingBalance
+
+	// no validation rules for ClaimableRewardBalance
+
+	// no validation rules for StringClaimableRewardBalance
+
+	// no validation rules for Address
 
 	
 			// Validate create_time
@@ -760,6 +853,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -871,6 +966,9 @@ public class ModelValidator {
 	
 			// Validate japan_open_chain_specific
 			if (proto.hasJapanOpenChainSpecific()) index.validatorFor(proto.getJapanOpenChainSpecific()).assertValid(proto.getJapanOpenChainSpecific());
+	
+			// Validate solana_specific
+			if (proto.hasSolanaSpecific()) index.validatorFor(proto.getSolanaSpecific()).assertValid(proto.getSolanaSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -1286,6 +1384,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.SubstrateSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1299,6 +1399,8 @@ public class ModelValidator {
 			// Validate substrate_multisig_transactions
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+	// no validation rules for CallType
+
 	
 	}
 }
@@ -1372,6 +1474,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.IOSTSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1380,6 +1484,8 @@ public class ModelValidator {
 	// no validation rules for Timestamp
 
 	// no validation rules for Expiration
+
+	// no validation rules for Type
 
 	
 	}
@@ -1671,6 +1777,20 @@ public class ModelValidator {
 	}
 }
 /**
+	 * Validates {@code SolanaSpecific} protobuf objects.
+	 */
+	public static class SolanaSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SolanaSpecific> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.SolanaSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Expiration
+
+	
+	}
+}
+/**
 	 * Validates {@code CreateTransactionSubstrateSpecific} protobuf objects.
 	 */
 	public static class CreateTransactionSubstrateSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionSubstrateSpecific> {
@@ -1745,6 +1865,10 @@ public class ModelValidator {
 		
 	
 	
+		
+
+
+	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionIOSTSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Memo
@@ -1752,6 +1876,15 @@ public class ModelValidator {
 	// no validation rules for Timestamp
 
 	
+		
+			switch (proto.getTypeCase()) {
+				case TYPE:
+					// no validation rules for Type
+
+					break;
+				
+			}
+
 	}
 }
 /**
@@ -1786,10 +1919,14 @@ public class ModelValidator {
 	public static class CreateTransactionEthereumSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionEthereumSpecific> {
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionEthereumSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Data
+
+	// no validation rules for StakingRecipientWalletId
 
 	
 	}
@@ -3490,6 +3627,174 @@ public class ModelValidator {
 
 	// no validation rules for RewardAmount
 
+	
+	}
+}
+/**
+	 * Validates {@code StakingHistory} protobuf objects.
+	 */
+	public static class StakingHistoryValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.StakingHistory> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.StakingHistory proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for StakingHistoryId
+
+	// no validation rules for OwnerId
+
+	// no validation rules for WalletId
+
+	// no validation rules for Coin
+
+	// no validation rules for ValidatorId
+
+	// no validation rules for TxId
+
+	// no validation rules for TxIndex
+
+	// no validation rules for BlockHash
+
+	// no validation rules for Value
+
+	// no validation rules for StringValue
+
+	// no validation rules for EventType
+
+	
+			// Validate ethereum_specific
+			if (proto.hasEthereumSpecific()) index.validatorFor(proto.getEthereumSpecific()).assertValid(proto.getEthereumSpecific());
+	
+			// Validate create_time
+			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+			// Validate update_time
+			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+	}
+}
+/**
+	 * Validates {@code StakingHistoryEthereumSpecific} protobuf objects.
+	 */
+	public static class StakingHistoryEthereumSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.StakingHistoryEthereumSpecific> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.StakingHistoryEthereumSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for EventId
+
+	// no validation rules for Address
+
+	// no validation rules for WithdrawalIndex
+
+	// no validation rules for ValidatorIndex
+
+	// no validation rules for BlockNumber
+
+	
+			// Validate block_time
+			if (proto.hasBlockTime()) index.validatorFor(proto.getBlockTime()).assertValid(proto.getBlockTime());
+	// no validation rules for HistoryType
+
+	
+	}
+}
+/**
+	 * Validates {@code StakingValidator} protobuf objects.
+	 */
+	public static class StakingValidatorValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.StakingValidator> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.StakingValidator proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for StakingValidatorId
+
+	// no validation rules for OwnerId
+
+	// no validation rules for WalletId
+
+	// no validation rules for Coin
+
+	// no validation rules for ValidatorId
+
+	// no validation rules for RecipientWalletId
+
+	// no validation rules for Status
+
+	// no validation rules for Value
+
+	// no validation rules for StringValue
+
+	// no validation rules for ExpirationTime
+
+	
+			// Validate create_time
+			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+			// Validate update_time
+			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
 	
 	}
 }

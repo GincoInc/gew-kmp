@@ -40,6 +40,7 @@ message Wallet {
   uint32 address_number = 22; // number of address (only watch_only is true)
   bool should_check_remittance = 24; // should check remittance
   string inherit_wallet_id = 25; // The wallet id of the inherited ethereum (only for ERC20 token)
+  bool is_staking_available = 26; // The flag indicating the wallet is available for staking
   google.protobuf.Timestamp create_time = 15; // the time at which the wallet was created
   google.protobuf.Timestamp update_time = 16; // the time at which the wallet was updated
 }
@@ -67,6 +68,28 @@ message WalletWithoutBalance {
   string inherit_wallet_id = 22;
   google.protobuf.Timestamp create_time = 17;
   google.protobuf.Timestamp update_time = 18;
+}
+
+// The staking wallet model
+message StakingWallet {
+  string owner_id = 1; // organization id
+  string wallet_id = 2; // id
+  string name = 3; // name
+  gincoinc.global.v1.Coin coin = 4; // The type of asset
+  WalletType wallet_type = 5; // type
+  gincoinc.global.v1.AddressType address_type = 6; // type of address
+  WalletState state = 7; // state
+  double balance = 8; // number-typed balance
+  string string_balance = 9; // string-typed balance
+  double spendable_balance = 10; // number-typed spendable balance
+  string string_spendable_balance = 11; // string-typed spendable balance
+  double staking_balance = 12; // number-typed staking balance
+  string string_staking_balance = 13; // string-typed staking balance
+  double claimable_reward_balance = 14; // number-typed claimable reward balance
+  string string_claimable_reward_balance = 15; // string-typed claimable reward balance
+  string address = 16; // address
+  google.protobuf.Timestamp create_time = 17; // the time at which the wallet was created
+  google.protobuf.Timestamp update_time = 18; // the time at which the wallet was updated
 }
 
 // The model of proposal to update wallet information
@@ -204,6 +227,7 @@ message Transaction {
   AlgorandSpecific algorand_specific = 41; // The Algorand specific fields
   HederaSpecific hedera_specific = 42; // The Hedera specific fields
   JapanOpenChainSpecific japan_open_chain_specific = 43; // The Japan Open Chain specific fields
+  SolanaSpecific solana_specific = 44; // The Solana specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -325,6 +349,7 @@ message SubstrateSpecific {
   uint64 nonce = 1;
   bool is_next_nonce = 2;
   repeated SubstrateMultisigTransaction substrate_multisig_transactions = 4;
+  SubstrateCallType call_type = 6;
 }
 
 // The model of Monacoin specific fields of transaction
@@ -347,6 +372,7 @@ message IOSTSpecific {
   string memo = 1;
   uint64 timestamp = 2;
   uint64 expiration = 3;
+  adamant.global.v1.IOSTActionType type = 4;
 }
 
 // The model of Polygon specific fields of transaction
@@ -436,6 +462,11 @@ message JapanOpenChainSpecific {
   bool is_next_nonce = 3;
 }
 
+// The model of Solana specific fields of transaction
+message SolanaSpecific {
+  uint64 expiration = 1;
+}
+
 // The model of Substrate specific fields of CreateTransaction
 message CreateTransactionSubstrateSpecific {
   string transaction_id = 1;
@@ -461,6 +492,8 @@ message CreateTransactionNemSpecific {
 message CreateTransactionIOSTSpecific {
   string memo = 1;
   uint64 timestamp = 2;
+  // optional
+  optional adamant.global.v1.IOSTActionType type = 3;
 }
 
 // The model of Symbol specific fields of CreateTransaction
@@ -474,6 +507,7 @@ message CreateTransactionSymbolSpecific {
 // The model of Ethereum specific fields of CreateTransaction
 message CreateTransactionEthereumSpecific {
   string data = 1;
+  string staking_recipient_wallet_id = 2;
 }
 
 // The model of Cosmos specific fields of CreateTransaction
@@ -929,4 +963,51 @@ message CosmosDelegation {
   string validator_address = 1;
   double delegate_amount = 2;
   double reward_amount = 3;
+}
+
+// The model of StakingHistory
+message StakingHistory {
+  string staking_history_id = 1; // id
+  string owner_id = 2; // owner id
+  string wallet_id = 3; // wallet id
+  gincoinc.global.v1.Coin coin = 4; // coin
+  string validator_id = 5; // validator id
+  string tx_id = 6; // txID
+  uint32 tx_index = 7; // tx index
+  string block_hash = 8; // block hash
+  double value = 9; // The number-typed amount of staking
+  string string_value = 10; // The string-typed amount of staking
+  gincoinc.global.v1.StakingEventType event_type = 11; // event type
+
+  StakingHistoryEthereumSpecific ethereum_specific = 14; // The Ethereum specific fields
+
+  google.protobuf.Timestamp create_time = 12; // the time at which the staking history was created
+  google.protobuf.Timestamp update_time = 13; // the time at which the staking history was updated
+}
+
+// The model of Ethereum specific fields of StakingHistory
+message StakingHistoryEthereumSpecific {
+  string event_id = 1; // event id
+  string address = 2; // receiver address
+  uint64 withdrawal_index = 3; // withdrawal index
+  uint64 validator_index = 4; // validator index
+  uint64 block_number = 5; // block number
+  google.protobuf.Timestamp block_time = 6; // block time
+  gincoinc.global.v1.EthereumStakingHistoryType history_type = 7; // ethereum staking history type
+}
+
+// The model of StakingValidator
+message StakingValidator {
+  string staking_validator_id = 1; // id
+  string owner_id = 2; // owner id
+  string wallet_id = 3; // wallet id
+  gincoinc.global.v1.Coin coin = 4; // coin
+  string validator_id = 5; // validator id
+  string recipient_wallet_id = 6; // recipient wallet id
+  gincoinc.global.v1.StakingValidatorStatus status = 7; // status
+  double value = 8; // The number-typed amount of staking
+  string string_value = 9; // The string-typed amount of staking
+  int64 expiration_time = 10; // expiration time
+  google.protobuf.Timestamp create_time = 11; // the time at which the staking validator was created
+  google.protobuf.Timestamp update_time = 12; // the time at which the staking validator was updated
 }

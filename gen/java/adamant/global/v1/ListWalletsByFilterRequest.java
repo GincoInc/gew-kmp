@@ -46,6 +46,7 @@ private static final long serialVersionUID = 0L;
             adamant.global.v1.ListWalletsByFilterRequest.class, adamant.global.v1.ListWalletsByFilterRequest.Builder.class);
   }
 
+  private int bitField0_;
   public static final int FILTER_TYPE_FIELD_NUMBER = 1;
   private int filterType_ = 0;
   /**
@@ -218,6 +219,33 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean getWatchOnly() {
     return watchOnly_;
+  }
+
+  public static final int ONLY_IS_STAKING_AVAILABLE_FIELD_NUMBER = 11;
+  private boolean onlyIsStakingAvailable_ = false;
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>optional bool only_is_staking_available = 11 [json_name = "onlyIsStakingAvailable"];</code>
+   * @return Whether the onlyIsStakingAvailable field is set.
+   */
+  @java.lang.Override
+  public boolean hasOnlyIsStakingAvailable() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>optional bool only_is_staking_available = 11 [json_name = "onlyIsStakingAvailable"];</code>
+   * @return The onlyIsStakingAvailable.
+   */
+  @java.lang.Override
+  public boolean getOnlyIsStakingAvailable() {
+    return onlyIsStakingAvailable_;
   }
 
   public static final int COIN_FIELD_NUMBER = 5;
@@ -477,6 +505,9 @@ private static final long serialVersionUID = 0L;
     if (watchOnly_ != false) {
       output.writeBool(10, watchOnly_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeBool(11, onlyIsStakingAvailable_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -538,6 +569,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(10, watchOnly_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(11, onlyIsStakingAvailable_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -562,6 +597,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAddress())) return false;
     if (getWatchOnly()
         != other.getWatchOnly()) return false;
+    if (hasOnlyIsStakingAvailable() != other.hasOnlyIsStakingAvailable()) return false;
+    if (hasOnlyIsStakingAvailable()) {
+      if (getOnlyIsStakingAvailable()
+          != other.getOnlyIsStakingAvailable()) return false;
+    }
     if (coin_ != other.coin_) return false;
     if (!walletType_.equals(other.walletType_)) return false;
     if (!walletState_.equals(other.walletState_)) return false;
@@ -591,6 +631,11 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + WATCH_ONLY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getWatchOnly());
+    if (hasOnlyIsStakingAvailable()) {
+      hash = (37 * hash) + ONLY_IS_STAKING_AVAILABLE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getOnlyIsStakingAvailable());
+    }
     hash = (37 * hash) + COIN_FIELD_NUMBER;
     hash = (53 * hash) + coin_;
     if (getWalletTypeCount() > 0) {
@@ -741,11 +786,12 @@ private static final long serialVersionUID = 0L;
       walletName_ = "";
       address_ = "";
       watchOnly_ = false;
+      onlyIsStakingAvailable_ = false;
       coin_ = 0;
       walletType_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000040);
-      walletState_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000080);
+      walletState_ = java.util.Collections.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000100);
       pageSize_ = 0;
       pageToken_ = "";
       return this;
@@ -781,14 +827,14 @@ private static final long serialVersionUID = 0L;
     }
 
     private void buildPartialRepeatedFields(adamant.global.v1.ListWalletsByFilterRequest result) {
-      if (((bitField0_ & 0x00000040) != 0)) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         walletType_ = java.util.Collections.unmodifiableList(walletType_);
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000080);
       }
       result.walletType_ = walletType_;
-      if (((bitField0_ & 0x00000080) != 0)) {
+      if (((bitField0_ & 0x00000100) != 0)) {
         walletState_ = java.util.Collections.unmodifiableList(walletState_);
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
       }
       result.walletState_ = walletState_;
     }
@@ -810,15 +856,21 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000010) != 0)) {
         result.watchOnly_ = watchOnly_;
       }
+      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.onlyIsStakingAvailable_ = onlyIsStakingAvailable_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
         result.coin_ = coin_;
       }
-      if (((from_bitField0_ & 0x00000100) != 0)) {
+      if (((from_bitField0_ & 0x00000200) != 0)) {
         result.pageSize_ = pageSize_;
       }
-      if (((from_bitField0_ & 0x00000200) != 0)) {
+      if (((from_bitField0_ & 0x00000400) != 0)) {
         result.pageToken_ = pageToken_;
       }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -886,13 +938,16 @@ private static final long serialVersionUID = 0L;
       if (other.getWatchOnly() != false) {
         setWatchOnly(other.getWatchOnly());
       }
+      if (other.hasOnlyIsStakingAvailable()) {
+        setOnlyIsStakingAvailable(other.getOnlyIsStakingAvailable());
+      }
       if (other.coin_ != 0) {
         setCoinValue(other.getCoinValue());
       }
       if (!other.walletType_.isEmpty()) {
         if (walletType_.isEmpty()) {
           walletType_ = other.walletType_;
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensureWalletTypeIsMutable();
           walletType_.addAll(other.walletType_);
@@ -902,7 +957,7 @@ private static final long serialVersionUID = 0L;
       if (!other.walletState_.isEmpty()) {
         if (walletState_.isEmpty()) {
           walletState_ = other.walletState_;
-          bitField0_ = (bitField0_ & ~0x00000080);
+          bitField0_ = (bitField0_ & ~0x00000100);
         } else {
           ensureWalletStateIsMutable();
           walletState_.addAll(other.walletState_);
@@ -914,7 +969,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -965,7 +1020,7 @@ private static final long serialVersionUID = 0L;
             } // case 34
             case 40: {
               coin_ = input.readEnum();
-              bitField0_ |= 0x00000020;
+              bitField0_ |= 0x00000040;
               break;
             } // case 40
             case 48: {
@@ -1004,12 +1059,12 @@ private static final long serialVersionUID = 0L;
             } // case 58
             case 64: {
               pageSize_ = input.readUInt32();
-              bitField0_ |= 0x00000100;
+              bitField0_ |= 0x00000200;
               break;
             } // case 64
             case 74: {
               pageToken_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000200;
+              bitField0_ |= 0x00000400;
               break;
             } // case 74
             case 80: {
@@ -1017,6 +1072,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000010;
               break;
             } // case 80
+            case 88: {
+              onlyIsStakingAvailable_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 88
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1407,6 +1467,62 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private boolean onlyIsStakingAvailable_ ;
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>optional bool only_is_staking_available = 11 [json_name = "onlyIsStakingAvailable"];</code>
+     * @return Whether the onlyIsStakingAvailable field is set.
+     */
+    @java.lang.Override
+    public boolean hasOnlyIsStakingAvailable() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>optional bool only_is_staking_available = 11 [json_name = "onlyIsStakingAvailable"];</code>
+     * @return The onlyIsStakingAvailable.
+     */
+    @java.lang.Override
+    public boolean getOnlyIsStakingAvailable() {
+      return onlyIsStakingAvailable_;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>optional bool only_is_staking_available = 11 [json_name = "onlyIsStakingAvailable"];</code>
+     * @param value The onlyIsStakingAvailable to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOnlyIsStakingAvailable(boolean value) {
+
+      onlyIsStakingAvailable_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>optional bool only_is_staking_available = 11 [json_name = "onlyIsStakingAvailable"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOnlyIsStakingAvailable() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      onlyIsStakingAvailable_ = false;
+      onChanged();
+      return this;
+    }
+
     private int coin_ = 0;
     /**
      * <pre>
@@ -1430,7 +1546,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCoinValue(int value) {
       coin_ = value;
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1460,7 +1576,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000040;
       coin_ = value.getNumber();
       onChanged();
       return this;
@@ -1474,7 +1590,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCoin() {
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000040);
       coin_ = 0;
       onChanged();
       return this;
@@ -1483,9 +1599,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> walletType_ =
       java.util.Collections.emptyList();
     private void ensureWalletTypeIsMutable() {
-      if (!((bitField0_ & 0x00000040) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         walletType_ = new java.util.ArrayList<java.lang.Integer>(walletType_);
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
       }
     }
     /**
@@ -1561,7 +1677,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearWalletType() {
       walletType_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -1623,9 +1739,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> walletState_ =
       java.util.Collections.emptyList();
     private void ensureWalletStateIsMutable() {
-      if (!((bitField0_ & 0x00000080) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         walletState_ = new java.util.ArrayList<java.lang.Integer>(walletState_);
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
       }
     }
     /**
@@ -1701,7 +1817,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearWalletState() {
       walletState_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -1785,7 +1901,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
 
       pageSize_ = value;
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -1798,7 +1914,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      bitField0_ = (bitField0_ & ~0x00000100);
+      bitField0_ = (bitField0_ & ~0x00000200);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -1859,7 +1975,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -1873,7 +1989,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPageToken() {
       pageToken_ = getDefaultInstance().getPageToken();
-      bitField0_ = (bitField0_ & ~0x00000200);
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -1891,7 +2007,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       pageToken_ = value;
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }

@@ -139,6 +139,37 @@ public final class TellerAPIGrpc {
     return getListWalletsByFilterMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListStakingWalletsByFilterRequest,
+      adamant.global.v1.ListStakingWalletsResponse> getListStakingWalletsByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListStakingWalletsByFilter",
+      requestType = adamant.global.v1.ListStakingWalletsByFilterRequest.class,
+      responseType = adamant.global.v1.ListStakingWalletsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListStakingWalletsByFilterRequest,
+      adamant.global.v1.ListStakingWalletsResponse> getListStakingWalletsByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListStakingWalletsByFilterRequest, adamant.global.v1.ListStakingWalletsResponse> getListStakingWalletsByFilterMethod;
+    if ((getListStakingWalletsByFilterMethod = TellerAPIGrpc.getListStakingWalletsByFilterMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getListStakingWalletsByFilterMethod = TellerAPIGrpc.getListStakingWalletsByFilterMethod) == null) {
+          TellerAPIGrpc.getListStakingWalletsByFilterMethod = getListStakingWalletsByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListStakingWalletsByFilterRequest, adamant.global.v1.ListStakingWalletsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListStakingWalletsByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListStakingWalletsByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListStakingWalletsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ListStakingWalletsByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListStakingWalletsByFilterMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListBaseWalletsRequest,
       adamant.global.v1.ListBaseWalletsResponse> getListBaseWalletsMethod;
 
@@ -976,6 +1007,37 @@ public final class TellerAPIGrpc {
     return getListTransactionsByFilterMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ExitEthereumStakingValidatorsRequest,
+      adamant.global.v1.ExitEthereumStakingValidatorsResponse> getExitEthereumStakingValidatorsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ExitEthereumStakingValidators",
+      requestType = adamant.global.v1.ExitEthereumStakingValidatorsRequest.class,
+      responseType = adamant.global.v1.ExitEthereumStakingValidatorsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ExitEthereumStakingValidatorsRequest,
+      adamant.global.v1.ExitEthereumStakingValidatorsResponse> getExitEthereumStakingValidatorsMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ExitEthereumStakingValidatorsRequest, adamant.global.v1.ExitEthereumStakingValidatorsResponse> getExitEthereumStakingValidatorsMethod;
+    if ((getExitEthereumStakingValidatorsMethod = TellerAPIGrpc.getExitEthereumStakingValidatorsMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getExitEthereumStakingValidatorsMethod = TellerAPIGrpc.getExitEthereumStakingValidatorsMethod) == null) {
+          TellerAPIGrpc.getExitEthereumStakingValidatorsMethod = getExitEthereumStakingValidatorsMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ExitEthereumStakingValidatorsRequest, adamant.global.v1.ExitEthereumStakingValidatorsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ExitEthereumStakingValidators"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ExitEthereumStakingValidatorsRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ExitEthereumStakingValidatorsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ExitEthereumStakingValidators"))
+              .build();
+        }
+      }
+    }
+    return getExitEthereumStakingValidatorsMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListTransfersRequest,
       adamant.global.v1.ListTransfersResponse> getListTransfersMethod;
 
@@ -1286,6 +1348,68 @@ public final class TellerAPIGrpc {
     return getListAuditLogsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListStakingHistoriesByFilterRequest,
+      adamant.global.v1.ListStakingHistoriesResponse> getListStakingHistoriesByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListStakingHistoriesByFilter",
+      requestType = adamant.global.v1.ListStakingHistoriesByFilterRequest.class,
+      responseType = adamant.global.v1.ListStakingHistoriesResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListStakingHistoriesByFilterRequest,
+      adamant.global.v1.ListStakingHistoriesResponse> getListStakingHistoriesByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListStakingHistoriesByFilterRequest, adamant.global.v1.ListStakingHistoriesResponse> getListStakingHistoriesByFilterMethod;
+    if ((getListStakingHistoriesByFilterMethod = TellerAPIGrpc.getListStakingHistoriesByFilterMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getListStakingHistoriesByFilterMethod = TellerAPIGrpc.getListStakingHistoriesByFilterMethod) == null) {
+          TellerAPIGrpc.getListStakingHistoriesByFilterMethod = getListStakingHistoriesByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListStakingHistoriesByFilterRequest, adamant.global.v1.ListStakingHistoriesResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListStakingHistoriesByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListStakingHistoriesByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListStakingHistoriesResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ListStakingHistoriesByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListStakingHistoriesByFilterMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListStakingValidatorsByFilterRequest,
+      adamant.global.v1.ListStakingValidatorsResponse> getListStakingValidatorsByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListStakingValidatorsByFilter",
+      requestType = adamant.global.v1.ListStakingValidatorsByFilterRequest.class,
+      responseType = adamant.global.v1.ListStakingValidatorsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListStakingValidatorsByFilterRequest,
+      adamant.global.v1.ListStakingValidatorsResponse> getListStakingValidatorsByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListStakingValidatorsByFilterRequest, adamant.global.v1.ListStakingValidatorsResponse> getListStakingValidatorsByFilterMethod;
+    if ((getListStakingValidatorsByFilterMethod = TellerAPIGrpc.getListStakingValidatorsByFilterMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getListStakingValidatorsByFilterMethod = TellerAPIGrpc.getListStakingValidatorsByFilterMethod) == null) {
+          TellerAPIGrpc.getListStakingValidatorsByFilterMethod = getListStakingValidatorsByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListStakingValidatorsByFilterRequest, adamant.global.v1.ListStakingValidatorsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListStakingValidatorsByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListStakingValidatorsByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListStakingValidatorsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ListStakingValidatorsByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListStakingValidatorsByFilterMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -1363,6 +1487,13 @@ public final class TellerAPIGrpc {
     default void listWalletsByFilter(adamant.global.v1.ListWalletsByFilterRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListWalletsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListWalletsByFilterMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void listStakingWalletsByFilter(adamant.global.v1.ListStakingWalletsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingWalletsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListStakingWalletsByFilterMethod(), responseObserver);
     }
 
     /**
@@ -1562,6 +1693,16 @@ public final class TellerAPIGrpc {
 
     /**
      * <pre>
+     * Exit ethereum validators
+     * </pre>
+     */
+    default void exitEthereumStakingValidators(adamant.global.v1.ExitEthereumStakingValidatorsRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ExitEthereumStakingValidatorsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getExitEthereumStakingValidatorsMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
      * List transfers for a given wallet. Ordered by update time desc
      * </pre>
      */
@@ -1644,6 +1785,20 @@ public final class TellerAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.ListAuditLogsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListAuditLogsMethod(), responseObserver);
     }
+
+    /**
+     */
+    default void listStakingHistoriesByFilter(adamant.global.v1.ListStakingHistoriesByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingHistoriesResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListStakingHistoriesByFilterMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void listStakingValidatorsByFilter(adamant.global.v1.ListStakingValidatorsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingValidatorsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListStakingValidatorsByFilterMethod(), responseObserver);
+    }
   }
 
   /**
@@ -1706,6 +1861,14 @@ public final class TellerAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.ListWalletsResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListWalletsByFilterMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listStakingWalletsByFilter(adamant.global.v1.ListStakingWalletsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingWalletsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListStakingWalletsByFilterMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -1932,6 +2095,17 @@ public final class TellerAPIGrpc {
 
     /**
      * <pre>
+     * Exit ethereum validators
+     * </pre>
+     */
+    public void exitEthereumStakingValidators(adamant.global.v1.ExitEthereumStakingValidatorsRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ExitEthereumStakingValidatorsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getExitEthereumStakingValidatorsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
      * List transfers for a given wallet. Ordered by update time desc
      * </pre>
      */
@@ -2024,6 +2198,22 @@ public final class TellerAPIGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListAuditLogsMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void listStakingHistoriesByFilter(adamant.global.v1.ListStakingHistoriesByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingHistoriesResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListStakingHistoriesByFilterMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listStakingValidatorsByFilter(adamant.global.v1.ListStakingValidatorsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingValidatorsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListStakingValidatorsByFilterMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -2071,6 +2261,13 @@ public final class TellerAPIGrpc {
     public adamant.global.v1.ListWalletsResponse listWalletsByFilter(adamant.global.v1.ListWalletsByFilterRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListWalletsByFilterMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.ListStakingWalletsResponse listStakingWalletsByFilter(adamant.global.v1.ListStakingWalletsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListStakingWalletsByFilterMethod(), getCallOptions(), request);
     }
 
     /**
@@ -2270,6 +2467,16 @@ public final class TellerAPIGrpc {
 
     /**
      * <pre>
+     * Exit ethereum validators
+     * </pre>
+     */
+    public adamant.global.v1.ExitEthereumStakingValidatorsResponse exitEthereumStakingValidators(adamant.global.v1.ExitEthereumStakingValidatorsRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getExitEthereumStakingValidatorsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
      * List transfers for a given wallet. Ordered by update time desc
      * </pre>
      */
@@ -2352,6 +2559,20 @@ public final class TellerAPIGrpc {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListAuditLogsMethod(), getCallOptions(), request);
     }
+
+    /**
+     */
+    public adamant.global.v1.ListStakingHistoriesResponse listStakingHistoriesByFilter(adamant.global.v1.ListStakingHistoriesByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListStakingHistoriesByFilterMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.ListStakingValidatorsResponse listStakingValidatorsByFilter(adamant.global.v1.ListStakingValidatorsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListStakingValidatorsByFilterMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -2403,6 +2624,14 @@ public final class TellerAPIGrpc {
         adamant.global.v1.ListWalletsByFilterRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getListWalletsByFilterMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListStakingWalletsResponse> listStakingWalletsByFilter(
+        adamant.global.v1.ListStakingWalletsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListStakingWalletsByFilterMethod(), getCallOptions()), request);
     }
 
     /**
@@ -2629,6 +2858,17 @@ public final class TellerAPIGrpc {
 
     /**
      * <pre>
+     * Exit ethereum validators
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ExitEthereumStakingValidatorsResponse> exitEthereumStakingValidators(
+        adamant.global.v1.ExitEthereumStakingValidatorsRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getExitEthereumStakingValidatorsMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
      * List transfers for a given wallet. Ordered by update time desc
      * </pre>
      */
@@ -2721,49 +2961,69 @@ public final class TellerAPIGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getListAuditLogsMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListStakingHistoriesResponse> listStakingHistoriesByFilter(
+        adamant.global.v1.ListStakingHistoriesByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListStakingHistoriesByFilterMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListStakingValidatorsResponse> listStakingValidatorsByFilter(
+        adamant.global.v1.ListStakingValidatorsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListStakingValidatorsByFilterMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_WALLET = 0;
   private static final int METHODID_GET_WALLET = 1;
   private static final int METHODID_LIST_WALLETS = 2;
   private static final int METHODID_LIST_WALLETS_BY_FILTER = 3;
-  private static final int METHODID_LIST_BASE_WALLETS = 4;
-  private static final int METHODID_GET_SPENDABLE_BALANCE = 5;
-  private static final int METHODID_INITIALIZE_XRPWALLET = 6;
-  private static final int METHODID_INITIALIZE_WALLET = 7;
-  private static final int METHODID_UPDATE_DESTINATION_WALLET_ID = 8;
-  private static final int METHODID_GET_COSMOS_BALANCE = 9;
-  private static final int METHODID_LIST_COSMOS_DELEGATE_HISTORIES = 10;
-  private static final int METHODID_CREATE_ADDRESS = 11;
-  private static final int METHODID_CREATE_IOSTACCOUNT = 12;
-  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 13;
-  private static final int METHODID_GET_ADDRESS = 14;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 15;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 16;
-  private static final int METHODID_GET_ADDRESS_BY_INDEX = 17;
-  private static final int METHODID_LIST_ADDRESSES = 18;
-  private static final int METHODID_IMPORT_ADDRESS = 19;
-  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 20;
-  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 21;
-  private static final int METHODID_CREATE_TRANSACTION = 22;
-  private static final int METHODID_SIGN_TRANSACTION = 23;
-  private static final int METHODID_SEND_TRANSACTION = 24;
-  private static final int METHODID_CANCEL_TRANSACTION = 25;
-  private static final int METHODID_REPLACE_TRANSACTION = 26;
-  private static final int METHODID_GET_TRANSACTION = 27;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 28;
-  private static final int METHODID_LIST_TRANSACTIONS = 29;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 30;
-  private static final int METHODID_LIST_TRANSFERS = 31;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 32;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 33;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 34;
-  private static final int METHODID_SET_RATES = 35;
-  private static final int METHODID_CALCULATE_FEE = 36;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 37;
-  private static final int METHODID_VALIDATE_ADDRESS = 38;
-  private static final int METHODID_FLUSH_BALANCE = 39;
-  private static final int METHODID_LIST_AUDIT_LOGS = 40;
+  private static final int METHODID_LIST_STAKING_WALLETS_BY_FILTER = 4;
+  private static final int METHODID_LIST_BASE_WALLETS = 5;
+  private static final int METHODID_GET_SPENDABLE_BALANCE = 6;
+  private static final int METHODID_INITIALIZE_XRPWALLET = 7;
+  private static final int METHODID_INITIALIZE_WALLET = 8;
+  private static final int METHODID_UPDATE_DESTINATION_WALLET_ID = 9;
+  private static final int METHODID_GET_COSMOS_BALANCE = 10;
+  private static final int METHODID_LIST_COSMOS_DELEGATE_HISTORIES = 11;
+  private static final int METHODID_CREATE_ADDRESS = 12;
+  private static final int METHODID_CREATE_IOSTACCOUNT = 13;
+  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 14;
+  private static final int METHODID_GET_ADDRESS = 15;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 16;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 17;
+  private static final int METHODID_GET_ADDRESS_BY_INDEX = 18;
+  private static final int METHODID_LIST_ADDRESSES = 19;
+  private static final int METHODID_IMPORT_ADDRESS = 20;
+  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 21;
+  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 22;
+  private static final int METHODID_CREATE_TRANSACTION = 23;
+  private static final int METHODID_SIGN_TRANSACTION = 24;
+  private static final int METHODID_SEND_TRANSACTION = 25;
+  private static final int METHODID_CANCEL_TRANSACTION = 26;
+  private static final int METHODID_REPLACE_TRANSACTION = 27;
+  private static final int METHODID_GET_TRANSACTION = 28;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 29;
+  private static final int METHODID_LIST_TRANSACTIONS = 30;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 31;
+  private static final int METHODID_EXIT_ETHEREUM_STAKING_VALIDATORS = 32;
+  private static final int METHODID_LIST_TRANSFERS = 33;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 34;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 35;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 36;
+  private static final int METHODID_SET_RATES = 37;
+  private static final int METHODID_CALCULATE_FEE = 38;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 39;
+  private static final int METHODID_VALIDATE_ADDRESS = 40;
+  private static final int METHODID_FLUSH_BALANCE = 41;
+  private static final int METHODID_LIST_AUDIT_LOGS = 42;
+  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 43;
+  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 44;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -2797,6 +3057,10 @@ public final class TellerAPIGrpc {
         case METHODID_LIST_WALLETS_BY_FILTER:
           serviceImpl.listWalletsByFilter((adamant.global.v1.ListWalletsByFilterRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListWalletsResponse>) responseObserver);
+          break;
+        case METHODID_LIST_STAKING_WALLETS_BY_FILTER:
+          serviceImpl.listStakingWalletsByFilter((adamant.global.v1.ListStakingWalletsByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingWalletsResponse>) responseObserver);
           break;
         case METHODID_LIST_BASE_WALLETS:
           serviceImpl.listBaseWallets((adamant.global.v1.ListBaseWalletsRequest) request,
@@ -2906,6 +3170,10 @@ public final class TellerAPIGrpc {
           serviceImpl.listTransactionsByFilter((adamant.global.v1.ListTransactionsByFilterRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListTransactionsResponse>) responseObserver);
           break;
+        case METHODID_EXIT_ETHEREUM_STAKING_VALIDATORS:
+          serviceImpl.exitEthereumStakingValidators((adamant.global.v1.ExitEthereumStakingValidatorsRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ExitEthereumStakingValidatorsResponse>) responseObserver);
+          break;
         case METHODID_LIST_TRANSFERS:
           serviceImpl.listTransfers((adamant.global.v1.ListTransfersRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListTransfersResponse>) responseObserver);
@@ -2945,6 +3213,14 @@ public final class TellerAPIGrpc {
         case METHODID_LIST_AUDIT_LOGS:
           serviceImpl.listAuditLogs((adamant.global.v1.ListAuditLogsRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListAuditLogsResponse>) responseObserver);
+          break;
+        case METHODID_LIST_STAKING_HISTORIES_BY_FILTER:
+          serviceImpl.listStakingHistoriesByFilter((adamant.global.v1.ListStakingHistoriesByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingHistoriesResponse>) responseObserver);
+          break;
+        case METHODID_LIST_STAKING_VALIDATORS_BY_FILTER:
+          serviceImpl.listStakingValidatorsByFilter((adamant.global.v1.ListStakingValidatorsByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingValidatorsResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -2992,6 +3268,13 @@ public final class TellerAPIGrpc {
               adamant.global.v1.ListWalletsByFilterRequest,
               adamant.global.v1.ListWalletsResponse>(
                 service, METHODID_LIST_WALLETS_BY_FILTER)))
+        .addMethod(
+          getListStakingWalletsByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListStakingWalletsByFilterRequest,
+              adamant.global.v1.ListStakingWalletsResponse>(
+                service, METHODID_LIST_STAKING_WALLETS_BY_FILTER)))
         .addMethod(
           getListBaseWalletsMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -3182,6 +3465,13 @@ public final class TellerAPIGrpc {
               adamant.global.v1.ListTransactionsResponse>(
                 service, METHODID_LIST_TRANSACTIONS_BY_FILTER)))
         .addMethod(
+          getExitEthereumStakingValidatorsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ExitEthereumStakingValidatorsRequest,
+              adamant.global.v1.ExitEthereumStakingValidatorsResponse>(
+                service, METHODID_EXIT_ETHEREUM_STAKING_VALIDATORS)))
+        .addMethod(
           getListTransfersMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
@@ -3251,6 +3541,20 @@ public final class TellerAPIGrpc {
               adamant.global.v1.ListAuditLogsRequest,
               adamant.global.v1.ListAuditLogsResponse>(
                 service, METHODID_LIST_AUDIT_LOGS)))
+        .addMethod(
+          getListStakingHistoriesByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListStakingHistoriesByFilterRequest,
+              adamant.global.v1.ListStakingHistoriesResponse>(
+                service, METHODID_LIST_STAKING_HISTORIES_BY_FILTER)))
+        .addMethod(
+          getListStakingValidatorsByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListStakingValidatorsByFilterRequest,
+              adamant.global.v1.ListStakingValidatorsResponse>(
+                service, METHODID_LIST_STAKING_VALIDATORS_BY_FILTER)))
         .build();
   }
 
@@ -3303,6 +3607,7 @@ public final class TellerAPIGrpc {
               .addMethod(getGetWalletMethod())
               .addMethod(getListWalletsMethod())
               .addMethod(getListWalletsByFilterMethod())
+              .addMethod(getListStakingWalletsByFilterMethod())
               .addMethod(getListBaseWalletsMethod())
               .addMethod(getGetSpendableBalanceMethod())
               .addMethod(getInitializeXRPWalletMethod())
@@ -3330,6 +3635,7 @@ public final class TellerAPIGrpc {
               .addMethod(getGetTransactionByTxIDMethod())
               .addMethod(getListTransactionsMethod())
               .addMethod(getListTransactionsByFilterMethod())
+              .addMethod(getExitEthereumStakingValidatorsMethod())
               .addMethod(getListTransfersMethod())
               .addMethod(getListTransfersByFilterMethod())
               .addMethod(getGetRateSnapshotMethod())
@@ -3340,6 +3646,8 @@ public final class TellerAPIGrpc {
               .addMethod(getValidateAddressMethod())
               .addMethod(getFlushBalanceMethod())
               .addMethod(getListAuditLogsMethod())
+              .addMethod(getListStakingHistoriesByFilterMethod())
+              .addMethod(getListStakingValidatorsByFilterMethod())
               .build();
         }
       }

@@ -44,6 +44,12 @@ class ListWalletsByFilterRequest extends \Google\Protobuf\Internal\Message
     /**
      * optional
      *
+     * Generated from protobuf field <code>optional bool only_is_staking_available = 11 [json_name = "onlyIsStakingAvailable"];</code>
+     */
+    protected $only_is_staking_available = null;
+    /**
+     * optional
+     *
      * Generated from protobuf field <code>.gincoinc.global.v1.Coin coin = 5 [json_name = "coin", (.validate.rules) = {</code>
      */
     protected $coin = 0;
@@ -82,6 +88,8 @@ class ListWalletsByFilterRequest extends \Google\Protobuf\Internal\Message
      *     @type string $address
      *           optional
      *     @type bool $watch_only
+     *           optional
+     *     @type bool $only_is_staking_available
      *           optional
      *     @type int $coin
      *           optional
@@ -220,6 +228,42 @@ class ListWalletsByFilterRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->watch_only = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>optional bool only_is_staking_available = 11 [json_name = "onlyIsStakingAvailable"];</code>
+     * @return bool
+     */
+    public function getOnlyIsStakingAvailable()
+    {
+        return isset($this->only_is_staking_available) ? $this->only_is_staking_available : false;
+    }
+
+    public function hasOnlyIsStakingAvailable()
+    {
+        return isset($this->only_is_staking_available);
+    }
+
+    public function clearOnlyIsStakingAvailable()
+    {
+        unset($this->only_is_staking_available);
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>optional bool only_is_staking_available = 11 [json_name = "onlyIsStakingAvailable"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setOnlyIsStakingAvailable($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->only_is_staking_available = $var;
 
         return $this;
     }
