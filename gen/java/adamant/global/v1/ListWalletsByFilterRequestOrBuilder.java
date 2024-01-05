@@ -93,6 +93,25 @@ public interface ListWalletsByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
+   * <code>optional bool only_is_staking_available = 11 [json_name = "onlyIsStakingAvailable"];</code>
+   * @return Whether the onlyIsStakingAvailable field is set.
+   */
+  boolean hasOnlyIsStakingAvailable();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>optional bool only_is_staking_available = 11 [json_name = "onlyIsStakingAvailable"];</code>
+   * @return The onlyIsStakingAvailable.
+   */
+  boolean getOnlyIsStakingAvailable();
+
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
    * <code>.gincoinc.global.v1.Coin coin = 5 [json_name = "coin", (.validate.rules) = { ... }</code>
    * @return The enum numeric value on the wire for coin.
    */

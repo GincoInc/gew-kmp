@@ -56,6 +56,10 @@ var (
 
 	_ = gincoincglobalv1.Coin(0)
 
+	_ = gincoincglobalv1.AddressType(0)
+
+	_ = gincoincglobalv1.Coin(0)
+
 	_ = gincoincglobalv1.XRPTransactionType(0)
 
 	_ = gincoincglobalv1.NemTransactionType(0)
@@ -123,6 +127,16 @@ var (
 	_ = gincoincglobalv1.Coin(0)
 
 	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.StakingEventType(0)
+
+	_ = gincoincglobalv1.EthereumStakingHistoryType(0)
+
+	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.StakingValidatorStatus(0)
 )
 
 // Validate checks the field values on Wallet with the rules defined in the
@@ -229,6 +243,8 @@ func (m *Wallet) Validate(all bool) error {
 	// no validation rules for ShouldCheckRemittance
 
 	// no validation rules for InheritWalletId
+
+	// no validation rules for IsStakingAvailable
 
 	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate(bool) error }); ok {
 		if err := v.Validate(all); err != nil {
@@ -539,6 +555,156 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = WalletWithoutBalanceValidationError{}
+
+// Validate checks the field values on StakingWallet with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned. When asked to return all errors, validation continues after
+// first violation, and the result is a list of violation errors wrapped in
+// StakingWalletMultiError, or nil if none found. Otherwise, only the first
+// error is returned, if any.
+func (m *StakingWallet) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for OwnerId
+
+	// no validation rules for WalletId
+
+	// no validation rules for Name
+
+	// no validation rules for Coin
+
+	// no validation rules for WalletType
+
+	// no validation rules for AddressType
+
+	// no validation rules for State
+
+	// no validation rules for Balance
+
+	// no validation rules for StringBalance
+
+	// no validation rules for SpendableBalance
+
+	// no validation rules for StringSpendableBalance
+
+	// no validation rules for StakingBalance
+
+	// no validation rules for StringStakingBalance
+
+	// no validation rules for ClaimableRewardBalance
+
+	// no validation rules for StringClaimableRewardBalance
+
+	// no validation rules for Address
+
+	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = StakingWalletValidationError{
+				field:  "CreateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if v, ok := interface{}(m.GetUpdateTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = StakingWalletValidationError{
+				field:  "UpdateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if len(errors) > 0 {
+		return StakingWalletMultiError(errors)
+	}
+	return nil
+}
+
+// StakingWalletMultiError is an error wrapping multiple validation errors
+// returned by StakingWallet.Validate(true) if the designated constraints
+// aren't met.
+type StakingWalletMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m StakingWalletMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m StakingWalletMultiError) AllErrors() []error { return m }
+
+// StakingWalletValidationError is the validation error returned by
+// StakingWallet.Validate if the designated constraints aren't met.
+type StakingWalletValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e StakingWalletValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e StakingWalletValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e StakingWalletValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e StakingWalletValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e StakingWalletValidationError) ErrorName() string { return "StakingWalletValidationError" }
+
+// Error satisfies the builtin error interface
+func (e StakingWalletValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sStakingWallet.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = StakingWalletValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = StakingWalletValidationError{}
 
 // Validate checks the field values on WalletProposal with the rules defined in
 // the proto definition for this message. If any rules are violated, an error
@@ -1835,6 +2001,20 @@ func (m *Transaction) Validate(all bool) error {
 		if err := v.Validate(all); err != nil {
 			err = TransactionValidationError{
 				field:  "JapanOpenChainSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if v, ok := interface{}(m.GetSolanaSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransactionValidationError{
+				field:  "SolanaSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -3649,6 +3829,8 @@ func (m *SubstrateSpecific) Validate(all bool) error {
 
 	}
 
+	// no validation rules for CallType
+
 	if len(errors) > 0 {
 		return SubstrateSpecificMultiError(errors)
 	}
@@ -3990,6 +4172,8 @@ func (m *IOSTSpecific) Validate(all bool) error {
 	// no validation rules for Timestamp
 
 	// no validation rules for Expiration
+
+	// no validation rules for Type
 
 	if len(errors) > 0 {
 		return IOSTSpecificMultiError(errors)
@@ -5166,6 +5350,98 @@ var _ interface {
 	ErrorName() string
 } = JapanOpenChainSpecificValidationError{}
 
+// Validate checks the field values on SolanaSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned. When asked to return all errors, validation continues after
+// first violation, and the result is a list of violation errors wrapped in
+// SolanaSpecificMultiError, or nil if none found. Otherwise, only the first
+// error is returned, if any.
+func (m *SolanaSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Expiration
+
+	if len(errors) > 0 {
+		return SolanaSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// SolanaSpecificMultiError is an error wrapping multiple validation errors
+// returned by SolanaSpecific.Validate(true) if the designated constraints
+// aren't met.
+type SolanaSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SolanaSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SolanaSpecificMultiError) AllErrors() []error { return m }
+
+// SolanaSpecificValidationError is the validation error returned by
+// SolanaSpecific.Validate if the designated constraints aren't met.
+type SolanaSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SolanaSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SolanaSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SolanaSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SolanaSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SolanaSpecificValidationError) ErrorName() string { return "SolanaSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e SolanaSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSolanaSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SolanaSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SolanaSpecificValidationError{}
+
 // Validate checks the field values on CreateTransactionSubstrateSpecific with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, an error is returned. When asked to return all errors,
@@ -5483,6 +5759,13 @@ func (m *CreateTransactionIOSTSpecific) Validate(all bool) error {
 
 	// no validation rules for Timestamp
 
+	switch m.XType.(type) {
+
+	case *CreateTransactionIOSTSpecific_Type:
+		// no validation rules for Type
+
+	}
+
 	if len(errors) > 0 {
 		return CreateTransactionIOSTSpecificMultiError(errors)
 	}
@@ -5679,6 +5962,8 @@ func (m *CreateTransactionEthereumSpecific) Validate(all bool) error {
 	var errors []error
 
 	// no validation rules for Data
+
+	// no validation rules for StakingRecipientWalletId
 
 	if len(errors) > 0 {
 		return CreateTransactionEthereumSpecificMultiError(errors)
@@ -11898,3 +12183,414 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CosmosDelegationValidationError{}
+
+// Validate checks the field values on StakingHistory with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned. When asked to return all errors, validation continues after
+// first violation, and the result is a list of violation errors wrapped in
+// StakingHistoryMultiError, or nil if none found. Otherwise, only the first
+// error is returned, if any.
+func (m *StakingHistory) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for StakingHistoryId
+
+	// no validation rules for OwnerId
+
+	// no validation rules for WalletId
+
+	// no validation rules for Coin
+
+	// no validation rules for ValidatorId
+
+	// no validation rules for TxId
+
+	// no validation rules for TxIndex
+
+	// no validation rules for BlockHash
+
+	// no validation rules for Value
+
+	// no validation rules for StringValue
+
+	// no validation rules for EventType
+
+	if v, ok := interface{}(m.GetEthereumSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = StakingHistoryValidationError{
+				field:  "EthereumSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = StakingHistoryValidationError{
+				field:  "CreateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if v, ok := interface{}(m.GetUpdateTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = StakingHistoryValidationError{
+				field:  "UpdateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if len(errors) > 0 {
+		return StakingHistoryMultiError(errors)
+	}
+	return nil
+}
+
+// StakingHistoryMultiError is an error wrapping multiple validation errors
+// returned by StakingHistory.Validate(true) if the designated constraints
+// aren't met.
+type StakingHistoryMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m StakingHistoryMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m StakingHistoryMultiError) AllErrors() []error { return m }
+
+// StakingHistoryValidationError is the validation error returned by
+// StakingHistory.Validate if the designated constraints aren't met.
+type StakingHistoryValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e StakingHistoryValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e StakingHistoryValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e StakingHistoryValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e StakingHistoryValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e StakingHistoryValidationError) ErrorName() string { return "StakingHistoryValidationError" }
+
+// Error satisfies the builtin error interface
+func (e StakingHistoryValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sStakingHistory.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = StakingHistoryValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = StakingHistoryValidationError{}
+
+// Validate checks the field values on StakingHistoryEthereumSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in StakingHistoryEthereumSpecificMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *StakingHistoryEthereumSpecific) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for EventId
+
+	// no validation rules for Address
+
+	// no validation rules for WithdrawalIndex
+
+	// no validation rules for ValidatorIndex
+
+	// no validation rules for BlockNumber
+
+	if v, ok := interface{}(m.GetBlockTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = StakingHistoryEthereumSpecificValidationError{
+				field:  "BlockTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	// no validation rules for HistoryType
+
+	if len(errors) > 0 {
+		return StakingHistoryEthereumSpecificMultiError(errors)
+	}
+	return nil
+}
+
+// StakingHistoryEthereumSpecificMultiError is an error wrapping multiple
+// validation errors returned by StakingHistoryEthereumSpecific.Validate(true)
+// if the designated constraints aren't met.
+type StakingHistoryEthereumSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m StakingHistoryEthereumSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m StakingHistoryEthereumSpecificMultiError) AllErrors() []error { return m }
+
+// StakingHistoryEthereumSpecificValidationError is the validation error
+// returned by StakingHistoryEthereumSpecific.Validate if the designated
+// constraints aren't met.
+type StakingHistoryEthereumSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e StakingHistoryEthereumSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e StakingHistoryEthereumSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e StakingHistoryEthereumSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e StakingHistoryEthereumSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e StakingHistoryEthereumSpecificValidationError) ErrorName() string {
+	return "StakingHistoryEthereumSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e StakingHistoryEthereumSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sStakingHistoryEthereumSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = StakingHistoryEthereumSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = StakingHistoryEthereumSpecificValidationError{}
+
+// Validate checks the field values on StakingValidator with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned. When asked to return all errors, validation continues
+// after first violation, and the result is a list of violation errors wrapped
+// in StakingValidatorMultiError, or nil if none found. Otherwise, only the
+// first error is returned, if any.
+func (m *StakingValidator) Validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for StakingValidatorId
+
+	// no validation rules for OwnerId
+
+	// no validation rules for WalletId
+
+	// no validation rules for Coin
+
+	// no validation rules for ValidatorId
+
+	// no validation rules for RecipientWalletId
+
+	// no validation rules for Status
+
+	// no validation rules for Value
+
+	// no validation rules for StringValue
+
+	// no validation rules for ExpirationTime
+
+	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = StakingValidatorValidationError{
+				field:  "CreateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if v, ok := interface{}(m.GetUpdateTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = StakingValidatorValidationError{
+				field:  "UpdateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+	}
+
+	if len(errors) > 0 {
+		return StakingValidatorMultiError(errors)
+	}
+	return nil
+}
+
+// StakingValidatorMultiError is an error wrapping multiple validation errors
+// returned by StakingValidator.Validate(true) if the designated constraints
+// aren't met.
+type StakingValidatorMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m StakingValidatorMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m StakingValidatorMultiError) AllErrors() []error { return m }
+
+// StakingValidatorValidationError is the validation error returned by
+// StakingValidator.Validate if the designated constraints aren't met.
+type StakingValidatorValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e StakingValidatorValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e StakingValidatorValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e StakingValidatorValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e StakingValidatorValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e StakingValidatorValidationError) ErrorName() string { return "StakingValidatorValidationError" }
+
+// Error satisfies the builtin error interface
+func (e StakingValidatorValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sStakingValidator.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = StakingValidatorValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = StakingValidatorValidationError{}

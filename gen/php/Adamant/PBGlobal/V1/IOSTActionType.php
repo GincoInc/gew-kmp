@@ -27,12 +27,42 @@ class IOSTActionType
      * Generated from protobuf enum <code>IOST_ACTION_TYPE_TRANSFER = 3;</code>
      */
     const IOST_ACTION_TYPE_TRANSFER = 3;
+    /**
+     * Generated from protobuf enum <code>IOST_ACTION_TYPE_BUY_RAM = 4;</code>
+     */
+    const IOST_ACTION_TYPE_BUY_RAM = 4;
+    /**
+     * Generated from protobuf enum <code>IOST_ACTION_TYPE_SELL_RAM = 5;</code>
+     */
+    const IOST_ACTION_TYPE_SELL_RAM = 5;
+    /**
+     * Generated from protobuf enum <code>IOST_ACTION_TYPE_VOTE = 6;</code>
+     */
+    const IOST_ACTION_TYPE_VOTE = 6;
+    /**
+     * Generated from protobuf enum <code>IOST_ACTION_TYPE_UNVOTE = 7;</code>
+     */
+    const IOST_ACTION_TYPE_UNVOTE = 7;
+    /**
+     * Generated from protobuf enum <code>IOST_ACTION_TYPE_WITHDRAW_BONUS = 8;</code>
+     */
+    const IOST_ACTION_TYPE_WITHDRAW_BONUS = 8;
+    /**
+     * Generated from protobuf enum <code>IOST_ACTION_TYPE_REVOKE_PERMISSION = 9;</code>
+     */
+    const IOST_ACTION_TYPE_REVOKE_PERMISSION = 9;
 
     private static $valueToName = [
         self::IOST_ACTION_TYPE_INVALID => 'IOST_ACTION_TYPE_INVALID',
         self::IOST_ACTION_TYPE_SIGN_UP => 'IOST_ACTION_TYPE_SIGN_UP',
         self::IOST_ACTION_TYPE_ASSIGN_PERMISSION => 'IOST_ACTION_TYPE_ASSIGN_PERMISSION',
         self::IOST_ACTION_TYPE_TRANSFER => 'IOST_ACTION_TYPE_TRANSFER',
+        self::IOST_ACTION_TYPE_BUY_RAM => 'IOST_ACTION_TYPE_BUY_RAM',
+        self::IOST_ACTION_TYPE_SELL_RAM => 'IOST_ACTION_TYPE_SELL_RAM',
+        self::IOST_ACTION_TYPE_VOTE => 'IOST_ACTION_TYPE_VOTE',
+        self::IOST_ACTION_TYPE_UNVOTE => 'IOST_ACTION_TYPE_UNVOTE',
+        self::IOST_ACTION_TYPE_WITHDRAW_BONUS => 'IOST_ACTION_TYPE_WITHDRAW_BONUS',
+        self::IOST_ACTION_TYPE_REVOKE_PERMISSION => 'IOST_ACTION_TYPE_REVOKE_PERMISSION',
     ];
 
     public static function name($value)

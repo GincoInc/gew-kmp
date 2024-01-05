@@ -244,6 +244,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $japan_open_chain_specific = null;
     /**
+     * The Solana specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.SolanaSpecific solana_specific = 44 [json_name = "solanaSpecific"];</code>
+     */
+    protected $solana_specific = null;
+    /**
      * the time at which the transaction was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
@@ -338,6 +344,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The Hedera specific fields
      *     @type \Adamant\PBGlobal\V1\JapanOpenChainSpecific $japan_open_chain_specific
      *           The Japan Open Chain specific fields
+     *     @type \Adamant\PBGlobal\V1\SolanaSpecific $solana_specific
+     *           The Solana specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -1573,6 +1581,42 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\JapanOpenChainSpecific::class);
         $this->japan_open_chain_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Solana specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.SolanaSpecific solana_specific = 44 [json_name = "solanaSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\SolanaSpecific|null
+     */
+    public function getSolanaSpecific()
+    {
+        return $this->solana_specific;
+    }
+
+    public function hasSolanaSpecific()
+    {
+        return isset($this->solana_specific);
+    }
+
+    public function clearSolanaSpecific()
+    {
+        unset($this->solana_specific);
+    }
+
+    /**
+     * The Solana specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.SolanaSpecific solana_specific = 44 [json_name = "solanaSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\SolanaSpecific $var
+     * @return $this
+     */
+    public function setSolanaSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\SolanaSpecific::class);
+        $this->solana_specific = $var;
 
         return $this;
     }
