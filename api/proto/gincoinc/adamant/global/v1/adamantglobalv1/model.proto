@@ -87,7 +87,12 @@ message StakingWallet {
   string string_staking_balance = 13; // string-typed staking balance
   double claimable_reward_balance = 14; // number-typed claimable reward balance
   string string_claimable_reward_balance = 15; // string-typed claimable reward balance
+  double withdrawable_unstaked_balance = 20; // number-typed withdrawable unstaked balance
+  string string_withdrawable_unstaked_balance = 21; // string-typed withdrawable unstaked balance
+  double frozen_unstaked_balance = 22; // number-typed frozen unstaked balance
+  string string_frozen_unstaked_balance = 23; // string-typed frozen unstaked balance
   string address = 16; // address
+  uint32 active_validators_count = 19; // number of active validators
   google.protobuf.Timestamp create_time = 17; // the time at which the wallet was created
   google.protobuf.Timestamp update_time = 18; // the time at which the wallet was updated
 }
@@ -507,7 +512,7 @@ message CreateTransactionSymbolSpecific {
 // The model of Ethereum specific fields of CreateTransaction
 message CreateTransactionEthereumSpecific {
   string data = 1;
-  string staking_recipient_wallet_id = 2;
+  optional string staking_recipient_wallet_id = 2;
 }
 
 // The model of Cosmos specific fields of CreateTransaction
@@ -978,6 +983,7 @@ message StakingHistory {
   double value = 9; // The number-typed amount of staking
   string string_value = 10; // The string-typed amount of staking
   gincoinc.global.v1.StakingEventType event_type = 11; // event type
+  string event_id = 15; // event id
 
   StakingHistoryEthereumSpecific ethereum_specific = 14; // The Ethereum specific fields
 

@@ -31,12 +31,18 @@ message TransferUpdated {
   double fee = 19;
   string string_fee = 20;
   TransferUpdateCosmosSpecific cosmos_specific = 22;
+  TransferUpdateSubstrateSpecific substrate_specific = 23;
 }
 
 message TransferUpdateCosmosSpecific {
   gincoinc.global.v1.CosmosMsgType type = 1;
   double delegate_amount = 2;
   double reward_amount = 3;
+}
+
+message TransferUpdateSubstrateSpecific {
+  string extrinsic_id = 1;
+  string extrinsic_hash = 2;
 }
 
 // TODO deprecate
@@ -72,4 +78,18 @@ message EthereumStakingReward {
   gincoinc.global.v1.EthereumStakingRewardLayerType ethereum_staking_reward_layer_type = 9;
   string string_value = 10;
   string block_hash = 11;
+}
+
+message StakingRewardRecieved {
+  string event_id = 11;
+  string validator_id = 1;
+  double value = 2;
+  string string_value = 3;
+  string tx_id = 4;
+  uint32 tx_index = 5;
+  string owner_id = 6;
+  string wallet_id = 7;
+  string address = 8;
+  gincoinc.global.v1.Coin coin = 9;
+  google.protobuf.Timestamp time = 10;
 }
