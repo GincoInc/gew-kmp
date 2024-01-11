@@ -1874,13 +1874,7 @@ message DownloadResourceRequest {
 // ETH
 //
 message ExitEthereumStakingValidatorsRequest {
-  repeated string validator_ids = 1 [(validate.rules).repeated = {
-    items: {
-      string: {
-        pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-      }
-    }
-  }];
+  repeated string validator_ids = 1;
   string wallet_id = 2 [(validate.rules).string = {
     pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
