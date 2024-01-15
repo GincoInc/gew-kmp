@@ -80,7 +80,7 @@ message EthereumStakingReward {
   string block_hash = 11;
 }
 
-message StakingRewardRecieved {
+message StakingRewardReceived {
   string event_id = 11;
   string validator_id = 1;
   double value = 2;

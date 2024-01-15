@@ -20,9 +20,9 @@ class CreateTransactionEthereumSpecific extends \Google\Protobuf\Internal\Messag
      */
     protected $data = '';
     /**
-     * Generated from protobuf field <code>string staking_recipient_wallet_id = 2 [json_name = "stakingRecipientWalletId"];</code>
+     * Generated from protobuf field <code>optional string staking_recipient_wallet_id = 2 [json_name = "stakingRecipientWalletId"];</code>
      */
-    protected $staking_recipient_wallet_id = '';
+    protected $staking_recipient_wallet_id = null;
 
     /**
      * Constructor.
@@ -62,16 +62,26 @@ class CreateTransactionEthereumSpecific extends \Google\Protobuf\Internal\Messag
     }
 
     /**
-     * Generated from protobuf field <code>string staking_recipient_wallet_id = 2 [json_name = "stakingRecipientWalletId"];</code>
+     * Generated from protobuf field <code>optional string staking_recipient_wallet_id = 2 [json_name = "stakingRecipientWalletId"];</code>
      * @return string
      */
     public function getStakingRecipientWalletId()
     {
-        return $this->staking_recipient_wallet_id;
+        return isset($this->staking_recipient_wallet_id) ? $this->staking_recipient_wallet_id : '';
+    }
+
+    public function hasStakingRecipientWalletId()
+    {
+        return isset($this->staking_recipient_wallet_id);
+    }
+
+    public function clearStakingRecipientWalletId()
+    {
+        unset($this->staking_recipient_wallet_id);
     }
 
     /**
-     * Generated from protobuf field <code>string staking_recipient_wallet_id = 2 [json_name = "stakingRecipientWalletId"];</code>
+     * Generated from protobuf field <code>optional string staking_recipient_wallet_id = 2 [json_name = "stakingRecipientWalletId"];</code>
      * @param string $var
      * @return $this
      */

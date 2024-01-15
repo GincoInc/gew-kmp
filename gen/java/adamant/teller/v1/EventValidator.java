@@ -10,8 +10,10 @@ public class EventValidator {
 		
 		if (clazz.equals(adamant.teller.v1.Event.TransferUpdated.class)) return new TransferUpdatedValidator();
 		if (clazz.equals(adamant.teller.v1.Event.TransferUpdateCosmosSpecific.class)) return new TransferUpdateCosmosSpecificValidator();
+		if (clazz.equals(adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.class)) return new TransferUpdateSubstrateSpecificValidator();
 		if (clazz.equals(adamant.teller.v1.Event.TransferUpdateEvent.class)) return new TransferUpdateEventValidator();
 		if (clazz.equals(adamant.teller.v1.Event.EthereumStakingReward.class)) return new EthereumStakingRewardValidator();
+		if (clazz.equals(adamant.teller.v1.Event.StakingRewardReceived.class)) return new StakingRewardReceivedValidator();
 		return null;
 	}
 
@@ -20,6 +22,8 @@ public class EventValidator {
 	 * Validates {@code TransferUpdated} protobuf objects.
 	 */
 	public static class TransferUpdatedValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.teller.v1.Event.TransferUpdated> {
+		
+	
 		
 	
 		
@@ -114,6 +118,9 @@ public class EventValidator {
 			// Validate cosmos_specific
 			if (proto.hasCosmosSpecific()) index.validatorFor(proto.getCosmosSpecific()).assertValid(proto.getCosmosSpecific());
 	
+			// Validate substrate_specific
+			if (proto.hasSubstrateSpecific()) index.validatorFor(proto.getSubstrateSpecific()).assertValid(proto.getSubstrateSpecific());
+	
 	}
 }
 /**
@@ -134,6 +141,24 @@ public class EventValidator {
 	// no validation rules for DelegateAmount
 
 	// no validation rules for RewardAmount
+
+	
+	}
+}
+/**
+	 * Validates {@code TransferUpdateSubstrateSpecific} protobuf objects.
+	 */
+	public static class TransferUpdateSubstrateSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.teller.v1.Event.TransferUpdateSubstrateSpecific> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.teller.v1.Event.TransferUpdateSubstrateSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for ExtrinsicId
+
+	// no validation rules for ExtrinsicHash
 
 	
 	}
@@ -262,6 +287,61 @@ public class EventValidator {
 
 	// no validation rules for BlockHash
 
+	
+	}
+}
+/**
+	 * Validates {@code StakingRewardReceived} protobuf objects.
+	 */
+	public static class StakingRewardReceivedValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.teller.v1.Event.StakingRewardReceived> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.teller.v1.Event.StakingRewardReceived proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for EventId
+
+	// no validation rules for ValidatorId
+
+	// no validation rules for Value
+
+	// no validation rules for StringValue
+
+	// no validation rules for TxId
+
+	// no validation rules for TxIndex
+
+	// no validation rules for OwnerId
+
+	// no validation rules for WalletId
+
+	// no validation rules for Address
+
+	// no validation rules for Coin
+
+	
+			// Validate time
+			if (proto.hasTime()) index.validatorFor(proto.getTime()).assertValid(proto.getTime());
 	
 	}
 }

@@ -106,11 +106,41 @@ class StakingWallet extends \Google\Protobuf\Internal\Message
      */
     protected $string_claimable_reward_balance = '';
     /**
+     * number-typed withdrawable unstaked balance
+     *
+     * Generated from protobuf field <code>double withdrawable_unstaked_balance = 20 [json_name = "withdrawableUnstakedBalance"];</code>
+     */
+    protected $withdrawable_unstaked_balance = 0.0;
+    /**
+     * string-typed withdrawable unstaked balance
+     *
+     * Generated from protobuf field <code>string string_withdrawable_unstaked_balance = 21 [json_name = "stringWithdrawableUnstakedBalance"];</code>
+     */
+    protected $string_withdrawable_unstaked_balance = '';
+    /**
+     * number-typed frozen unstaked balance
+     *
+     * Generated from protobuf field <code>double frozen_unstaked_balance = 22 [json_name = "frozenUnstakedBalance"];</code>
+     */
+    protected $frozen_unstaked_balance = 0.0;
+    /**
+     * string-typed frozen unstaked balance
+     *
+     * Generated from protobuf field <code>string string_frozen_unstaked_balance = 23 [json_name = "stringFrozenUnstakedBalance"];</code>
+     */
+    protected $string_frozen_unstaked_balance = '';
+    /**
      * address
      *
      * Generated from protobuf field <code>string address = 16 [json_name = "address"];</code>
      */
     protected $address = '';
+    /**
+     * number of active validators
+     *
+     * Generated from protobuf field <code>uint32 active_validators_count = 19 [json_name = "activeValidatorsCount"];</code>
+     */
+    protected $active_validators_count = 0;
     /**
      * the time at which the wallet was created
      *
@@ -160,8 +190,18 @@ class StakingWallet extends \Google\Protobuf\Internal\Message
      *           number-typed claimable reward balance
      *     @type string $string_claimable_reward_balance
      *           string-typed claimable reward balance
+     *     @type float $withdrawable_unstaked_balance
+     *           number-typed withdrawable unstaked balance
+     *     @type string $string_withdrawable_unstaked_balance
+     *           string-typed withdrawable unstaked balance
+     *     @type float $frozen_unstaked_balance
+     *           number-typed frozen unstaked balance
+     *     @type string $string_frozen_unstaked_balance
+     *           string-typed frozen unstaked balance
      *     @type string $address
      *           address
+     *     @type int $active_validators_count
+     *           number of active validators
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the wallet was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -564,6 +604,110 @@ class StakingWallet extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * number-typed withdrawable unstaked balance
+     *
+     * Generated from protobuf field <code>double withdrawable_unstaked_balance = 20 [json_name = "withdrawableUnstakedBalance"];</code>
+     * @return float
+     */
+    public function getWithdrawableUnstakedBalance()
+    {
+        return $this->withdrawable_unstaked_balance;
+    }
+
+    /**
+     * number-typed withdrawable unstaked balance
+     *
+     * Generated from protobuf field <code>double withdrawable_unstaked_balance = 20 [json_name = "withdrawableUnstakedBalance"];</code>
+     * @param float $var
+     * @return $this
+     */
+    public function setWithdrawableUnstakedBalance($var)
+    {
+        GPBUtil::checkDouble($var);
+        $this->withdrawable_unstaked_balance = $var;
+
+        return $this;
+    }
+
+    /**
+     * string-typed withdrawable unstaked balance
+     *
+     * Generated from protobuf field <code>string string_withdrawable_unstaked_balance = 21 [json_name = "stringWithdrawableUnstakedBalance"];</code>
+     * @return string
+     */
+    public function getStringWithdrawableUnstakedBalance()
+    {
+        return $this->string_withdrawable_unstaked_balance;
+    }
+
+    /**
+     * string-typed withdrawable unstaked balance
+     *
+     * Generated from protobuf field <code>string string_withdrawable_unstaked_balance = 21 [json_name = "stringWithdrawableUnstakedBalance"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setStringWithdrawableUnstakedBalance($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->string_withdrawable_unstaked_balance = $var;
+
+        return $this;
+    }
+
+    /**
+     * number-typed frozen unstaked balance
+     *
+     * Generated from protobuf field <code>double frozen_unstaked_balance = 22 [json_name = "frozenUnstakedBalance"];</code>
+     * @return float
+     */
+    public function getFrozenUnstakedBalance()
+    {
+        return $this->frozen_unstaked_balance;
+    }
+
+    /**
+     * number-typed frozen unstaked balance
+     *
+     * Generated from protobuf field <code>double frozen_unstaked_balance = 22 [json_name = "frozenUnstakedBalance"];</code>
+     * @param float $var
+     * @return $this
+     */
+    public function setFrozenUnstakedBalance($var)
+    {
+        GPBUtil::checkDouble($var);
+        $this->frozen_unstaked_balance = $var;
+
+        return $this;
+    }
+
+    /**
+     * string-typed frozen unstaked balance
+     *
+     * Generated from protobuf field <code>string string_frozen_unstaked_balance = 23 [json_name = "stringFrozenUnstakedBalance"];</code>
+     * @return string
+     */
+    public function getStringFrozenUnstakedBalance()
+    {
+        return $this->string_frozen_unstaked_balance;
+    }
+
+    /**
+     * string-typed frozen unstaked balance
+     *
+     * Generated from protobuf field <code>string string_frozen_unstaked_balance = 23 [json_name = "stringFrozenUnstakedBalance"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setStringFrozenUnstakedBalance($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->string_frozen_unstaked_balance = $var;
+
+        return $this;
+    }
+
+    /**
      * address
      *
      * Generated from protobuf field <code>string address = 16 [json_name = "address"];</code>
@@ -585,6 +729,32 @@ class StakingWallet extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->address = $var;
+
+        return $this;
+    }
+
+    /**
+     * number of active validators
+     *
+     * Generated from protobuf field <code>uint32 active_validators_count = 19 [json_name = "activeValidatorsCount"];</code>
+     * @return int
+     */
+    public function getActiveValidatorsCount()
+    {
+        return $this->active_validators_count;
+    }
+
+    /**
+     * number of active validators
+     *
+     * Generated from protobuf field <code>uint32 active_validators_count = 19 [json_name = "activeValidatorsCount"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setActiveValidatorsCount($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->active_validators_count = $var;
 
         return $this;
     }

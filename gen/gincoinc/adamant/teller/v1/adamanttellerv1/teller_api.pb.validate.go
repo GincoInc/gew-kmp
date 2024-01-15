@@ -11,7 +11,6 @@ import (
 	"net/mail"
 	"net/url"
 	"regexp"
-	"sort"
 	"strings"
 	"time"
 	"unicode/utf8"
@@ -36,7 +35,8 @@ var (
 	_ = (*url.URL)(nil)
 	_ = (*mail.Address)(nil)
 	_ = anypb.Any{}
-	_ = sort.Sort
+
+	_ = gincoincglobalv1.Coin(0)
 
 	_ = adamantglobalv1.WalletType(0)
 
@@ -45,20 +45,11 @@ var (
 
 // Validate checks the field values on CreateWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *CreateWalletRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on CreateWalletRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// CreateWalletRequestMultiError, or nil if none found.
-func (m *CreateWalletRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *CreateWalletRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateWalletRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CreateWalletRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -167,12 +158,11 @@ func (m *CreateWalletRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return CreateWalletRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // CreateWalletRequestMultiError is an error wrapping multiple validation
-// errors returned by CreateWalletRequest.ValidateAll() if the designated
+// errors returned by CreateWalletRequest.Validate(true) if the designated
 // constraints aren't met.
 type CreateWalletRequestMultiError []error
 
@@ -263,20 +253,11 @@ var _CreateWalletRequest_InheritWalletId_Pattern = regexp.MustCompile("^$|^[0-9a
 
 // Validate checks the field values on InitializeXRPWalletRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *InitializeXRPWalletRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on InitializeXRPWalletRequest with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// InitializeXRPWalletRequestMultiError, or nil if none found.
-func (m *InitializeXRPWalletRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *InitializeXRPWalletRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in InitializeXRPWalletRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *InitializeXRPWalletRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -297,12 +278,11 @@ func (m *InitializeXRPWalletRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return InitializeXRPWalletRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // InitializeXRPWalletRequestMultiError is an error wrapping multiple
-// validation errors returned by InitializeXRPWalletRequest.ValidateAll() if
+// validation errors returned by InitializeXRPWalletRequest.Validate(true) if
 // the designated constraints aren't met.
 type InitializeXRPWalletRequestMultiError []error
 
@@ -378,20 +358,11 @@ var _InitializeXRPWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]
 
 // Validate checks the field values on InitializeWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *InitializeWalletRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on InitializeWalletRequest with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// InitializeWalletRequestMultiError, or nil if none found.
-func (m *InitializeWalletRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *InitializeWalletRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in InitializeWalletRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *InitializeWalletRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -412,12 +383,11 @@ func (m *InitializeWalletRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return InitializeWalletRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // InitializeWalletRequestMultiError is an error wrapping multiple validation
-// errors returned by InitializeWalletRequest.ValidateAll() if the designated
+// errors returned by InitializeWalletRequest.Validate(true) if the designated
 // constraints aren't met.
 type InitializeWalletRequestMultiError []error
 
@@ -493,20 +463,11 @@ var _InitializeWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}
 
 // Validate checks the field values on SignTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *SignTransactionRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on SignTransactionRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// SignTransactionRequestMultiError, or nil if none found.
-func (m *SignTransactionRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *SignTransactionRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SignTransactionRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *SignTransactionRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -538,12 +499,11 @@ func (m *SignTransactionRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return SignTransactionRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // SignTransactionRequestMultiError is an error wrapping multiple validation
-// errors returned by SignTransactionRequest.ValidateAll() if the designated
+// errors returned by SignTransactionRequest.Validate(true) if the designated
 // constraints aren't met.
 type SignTransactionRequestMultiError []error
 
@@ -621,20 +581,11 @@ var _SignTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f
 
 // Validate checks the field values on SendTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *SendTransactionRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on SendTransactionRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// SendTransactionRequestMultiError, or nil if none found.
-func (m *SendTransactionRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *SendTransactionRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SendTransactionRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *SendTransactionRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -666,12 +617,11 @@ func (m *SendTransactionRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return SendTransactionRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // SendTransactionRequestMultiError is an error wrapping multiple validation
-// errors returned by SendTransactionRequest.ValidateAll() if the designated
+// errors returned by SendTransactionRequest.Validate(true) if the designated
 // constraints aren't met.
 type SendTransactionRequestMultiError []error
 

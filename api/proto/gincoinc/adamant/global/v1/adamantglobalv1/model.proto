@@ -315,6 +315,7 @@ message EthereumSpecific {
   adamant.global.v1.EthereumContractMethodIDType method_id_type = 4;
   uint64 expiration = 5;
   string data = 6; // data
+  bool is_staking_transaction = 7;
 }
 
 // The model of XRP specific fields of transaction
@@ -625,6 +626,7 @@ message Transfer {
   google.protobuf.Timestamp create_time = 13; // the time at which the transfer was created
   google.protobuf.Timestamp update_time = 14; // the time at which the transfer was updated
   TransferCosmosSpecific cosmos_specific = 23; // cosmos_specific
+  gincoinc.global.v1.StakingEventType staking_event_type = 24; // staking_event_type
 }
 
 message TransferCosmosSpecific {

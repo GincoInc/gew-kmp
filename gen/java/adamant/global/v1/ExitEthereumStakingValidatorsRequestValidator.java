@@ -15,7 +15,6 @@ public class ExitEthereumStakingValidatorsRequestValidator implements io.envoypr
 		return null;
 	}
 		
-		com.google.re2j.Pattern VALIDATOR_IDS__PATTERN = com.google.re2j.Pattern.compile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
 	
 		
 		com.google.re2j.Pattern WALLET_ID__PATTERN = com.google.re2j.Pattern.compile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
@@ -25,8 +24,8 @@ public class ExitEthereumStakingValidatorsRequestValidator implements io.envoypr
 	public void assertValid(adamant.global.v1.ExitEthereumStakingValidatorsRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getValidatorIdsList(), item -> {
-				
-			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.ExitEthereumStakingValidatorsRequest.validator_ids", item, VALIDATOR_IDS__PATTERN);
+				// no validation rules for ValidatorIds
+
 			});
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.ExitEthereumStakingValidatorsRequest.wallet_id", proto.getWalletId(), WALLET_ID__PATTERN);

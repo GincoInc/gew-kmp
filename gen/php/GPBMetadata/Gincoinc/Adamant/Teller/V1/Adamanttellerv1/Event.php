@@ -19,8 +19,8 @@ class Event
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-œ
-6gincoinc/adamant/teller/v1/adamanttellerv1/event.protoadamant.teller.v1google/protobuf/timestamp.protovalidate/validate.proto"∑
+ê
+6gincoinc/adamant/teller/v1/adamanttellerv1/event.protoadamant.teller.v1google/protobuf/timestamp.protovalidate/validate.proto"ö
 TransferUpdated
 	wallet_id (	RwalletId
 transfer_id (	R
@@ -46,11 +46,15 @@ transferId,
 fee (Rfee
 
 string_fee (	R	stringFeeX
-cosmos_specific (2/.adamant.teller.v1.TransferUpdateCosmosSpecificRcosmosSpecific"£
+cosmos_specific (2/.adamant.teller.v1.TransferUpdateCosmosSpecificRcosmosSpecifica
+substrate_specific (22.adamant.teller.v1.TransferUpdateSubstrateSpecificRsubstrateSpecific"£
 TransferUpdateCosmosSpecific5
 type (2!.gincoinc.global.v1.CosmosMsgTypeRtype\'
 delegate_amount (RdelegateAmount#
-reward_amount (RrewardAmount"Õ
+reward_amount (RrewardAmount"k
+TransferUpdateSubstrateSpecific!
+extrinsic_id (	RextrinsicId%
+extrinsic_hash (	RextrinsicHash"Õ
 TransferUpdateEvent
 event_id (	ReventId
 	wallet_id (	RwalletId,
@@ -82,7 +86,20 @@ block_time (2.google.protobuf.TimestampR	blockTime\'
 string_value
  (	RstringValue
 
-block_hash (	R	blockHashBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/teller/v1/adamanttellerv1bproto3'
+block_hash (	R	blockHash"Ó
+StakingRewardReceived
+event_id (	ReventId!
+validator_id (	RvalidatorId
+value (Rvalue!
+string_value (	RstringValue
+tx_id (	RtxId
+tx_index (RtxIndex
+owner_id (	RownerId
+	wallet_id (	RwalletId
+address (	Raddress,
+coin	 (2.gincoinc.global.v1.CoinRcoin.
+time
+ (2.google.protobuf.TimestampRtimeBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/teller/v1/adamanttellerv1bproto3'
         , true);
 
         static::$is_initialized = true;
