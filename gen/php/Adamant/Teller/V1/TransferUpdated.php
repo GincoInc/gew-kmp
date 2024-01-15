@@ -102,6 +102,10 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.teller.v1.TransferUpdateCosmosSpecific cosmos_specific = 22 [json_name = "cosmosSpecific"];</code>
      */
     protected $cosmos_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+     */
+    protected $substrate_specific = null;
 
     /**
      * Constructor.
@@ -131,6 +135,7 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
      *     @type float $fee
      *     @type string $string_fee
      *     @type \Adamant\Teller\V1\TransferUpdateCosmosSpecific $cosmos_specific
+     *     @type \Adamant\Teller\V1\TransferUpdateSubstrateSpecific $substrate_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -642,6 +647,38 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\Teller\V1\TransferUpdateCosmosSpecific::class);
         $this->cosmos_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+     * @return \Adamant\Teller\V1\TransferUpdateSubstrateSpecific|null
+     */
+    public function getSubstrateSpecific()
+    {
+        return $this->substrate_specific;
+    }
+
+    public function hasSubstrateSpecific()
+    {
+        return isset($this->substrate_specific);
+    }
+
+    public function clearSubstrateSpecific()
+    {
+        unset($this->substrate_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+     * @param \Adamant\Teller\V1\TransferUpdateSubstrateSpecific $var
+     * @return $this
+     */
+    public function setSubstrateSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\Teller\V1\TransferUpdateSubstrateSpecific::class);
+        $this->substrate_specific = $var;
 
         return $this;
     }

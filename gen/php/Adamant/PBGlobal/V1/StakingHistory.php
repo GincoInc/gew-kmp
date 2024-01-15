@@ -82,6 +82,12 @@ class StakingHistory extends \Google\Protobuf\Internal\Message
      */
     protected $event_type = 0;
     /**
+     * event id
+     *
+     * Generated from protobuf field <code>string event_id = 15 [json_name = "eventId"];</code>
+     */
+    protected $event_id = '';
+    /**
      * The Ethereum specific fields
      *
      * Generated from protobuf field <code>.adamant.global.v1.StakingHistoryEthereumSpecific ethereum_specific = 14 [json_name = "ethereumSpecific"];</code>
@@ -128,6 +134,8 @@ class StakingHistory extends \Google\Protobuf\Internal\Message
      *           The string-typed amount of staking
      *     @type int $event_type
      *           event type
+     *     @type string $event_id
+     *           event id
      *     @type \Adamant\PBGlobal\V1\StakingHistoryEthereumSpecific $ethereum_specific
      *           The Ethereum specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
@@ -423,6 +431,32 @@ class StakingHistory extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\StakingEventType::class);
         $this->event_type = $var;
+
+        return $this;
+    }
+
+    /**
+     * event id
+     *
+     * Generated from protobuf field <code>string event_id = 15 [json_name = "eventId"];</code>
+     * @return string
+     */
+    public function getEventId()
+    {
+        return $this->event_id;
+    }
+
+    /**
+     * event id
+     *
+     * Generated from protobuf field <code>string event_id = 15 [json_name = "eventId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setEventId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->event_id = $var;
 
         return $this;
     }

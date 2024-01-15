@@ -51,7 +51,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.LazyStringArrayList validatorIds_ =
       com.google.protobuf.LazyStringArrayList.emptyList();
   /**
-   * <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = { ... }</code>
+   * <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
    * @return A list containing the validatorIds.
    */
   public com.google.protobuf.ProtocolStringList
@@ -59,14 +59,14 @@ private static final long serialVersionUID = 0L;
     return validatorIds_;
   }
   /**
-   * <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = { ... }</code>
+   * <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
    * @return The count of validatorIds.
    */
   public int getValidatorIdsCount() {
     return validatorIds_.size();
   }
   /**
-   * <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = { ... }</code>
+   * <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
    * @param index The index of the element to return.
    * @return The validatorIds at the given index.
    */
@@ -74,7 +74,7 @@ private static final long serialVersionUID = 0L;
     return validatorIds_.get(index);
   }
   /**
-   * <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = { ... }</code>
+   * <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
    * @param index The index of the value to return.
    * @return The bytes of the validatorIds at the given index.
    */
@@ -501,7 +501,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000001;
     }
     /**
-     * <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = { ... }</code>
+     * <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
      * @return A list containing the validatorIds.
      */
     public com.google.protobuf.ProtocolStringList
@@ -510,14 +510,14 @@ private static final long serialVersionUID = 0L;
       return validatorIds_;
     }
     /**
-     * <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = { ... }</code>
+     * <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
      * @return The count of validatorIds.
      */
     public int getValidatorIdsCount() {
       return validatorIds_.size();
     }
     /**
-     * <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = { ... }</code>
+     * <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
      * @param index The index of the element to return.
      * @return The validatorIds at the given index.
      */
@@ -525,7 +525,7 @@ private static final long serialVersionUID = 0L;
       return validatorIds_.get(index);
     }
     /**
-     * <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = { ... }</code>
+     * <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
      * @param index The index of the value to return.
      * @return The bytes of the validatorIds at the given index.
      */
@@ -534,7 +534,7 @@ private static final long serialVersionUID = 0L;
       return validatorIds_.getByteString(index);
     }
     /**
-     * <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = { ... }</code>
+     * <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
      * @param index The index to set the value at.
      * @param value The validatorIds to set.
      * @return This builder for chaining.
@@ -549,7 +549,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = { ... }</code>
+     * <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
      * @param value The validatorIds to add.
      * @return This builder for chaining.
      */
@@ -563,7 +563,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = { ... }</code>
+     * <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
      * @param values The validatorIds to add.
      * @return This builder for chaining.
      */
@@ -577,7 +577,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = { ... }</code>
+     * <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
      * @return This builder for chaining.
      */
     public Builder clearValidatorIds() {
@@ -588,7 +588,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = { ... }</code>
+     * <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
      * @param value The bytes of the validatorIds to add.
      * @return This builder for chaining.
      */

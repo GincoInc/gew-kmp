@@ -17,7 +17,7 @@ use Google\Protobuf\Internal\GPBUtil;
 class ExitEthereumStakingValidatorsRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
      */
     private $validator_ids;
     /**
@@ -41,7 +41,7 @@ class ExitEthereumStakingValidatorsRequest extends \Google\Protobuf\Internal\Mes
     }
 
     /**
-     * Generated from protobuf field <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getValidatorIds()
@@ -50,7 +50,7 @@ class ExitEthereumStakingValidatorsRequest extends \Google\Protobuf\Internal\Mes
     }
 
     /**
-     * Generated from protobuf field <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
      * @param array<string>|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */

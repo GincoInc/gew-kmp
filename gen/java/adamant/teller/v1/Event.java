@@ -251,6 +251,21 @@ public final class Event {
      * <code>.adamant.teller.v1.TransferUpdateCosmosSpecific cosmos_specific = 22 [json_name = "cosmosSpecific"];</code>
      */
     adamant.teller.v1.Event.TransferUpdateCosmosSpecificOrBuilder getCosmosSpecificOrBuilder();
+
+    /**
+     * <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+     * @return Whether the substrateSpecific field is set.
+     */
+    boolean hasSubstrateSpecific();
+    /**
+     * <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+     * @return The substrateSpecific.
+     */
+    adamant.teller.v1.Event.TransferUpdateSubstrateSpecific getSubstrateSpecific();
+    /**
+     * <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+     */
+    adamant.teller.v1.Event.TransferUpdateSubstrateSpecificOrBuilder getSubstrateSpecificOrBuilder();
   }
   /**
    * Protobuf type {@code adamant.teller.v1.TransferUpdated}
@@ -885,6 +900,32 @@ public final class Event {
       return cosmosSpecific_ == null ? adamant.teller.v1.Event.TransferUpdateCosmosSpecific.getDefaultInstance() : cosmosSpecific_;
     }
 
+    public static final int SUBSTRATE_SPECIFIC_FIELD_NUMBER = 23;
+    private adamant.teller.v1.Event.TransferUpdateSubstrateSpecific substrateSpecific_;
+    /**
+     * <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+     * @return Whether the substrateSpecific field is set.
+     */
+    @java.lang.Override
+    public boolean hasSubstrateSpecific() {
+      return substrateSpecific_ != null;
+    }
+    /**
+     * <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+     * @return The substrateSpecific.
+     */
+    @java.lang.Override
+    public adamant.teller.v1.Event.TransferUpdateSubstrateSpecific getSubstrateSpecific() {
+      return substrateSpecific_ == null ? adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.getDefaultInstance() : substrateSpecific_;
+    }
+    /**
+     * <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+     */
+    @java.lang.Override
+    public adamant.teller.v1.Event.TransferUpdateSubstrateSpecificOrBuilder getSubstrateSpecificOrBuilder() {
+      return substrateSpecific_ == null ? adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.getDefaultInstance() : substrateSpecific_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -964,6 +1005,9 @@ public final class Event {
       }
       if (cosmosSpecific_ != null) {
         output.writeMessage(22, getCosmosSpecific());
+      }
+      if (substrateSpecific_ != null) {
+        output.writeMessage(23, getSubstrateSpecific());
       }
       getUnknownFields().writeTo(output);
     }
@@ -1052,6 +1096,10 @@ public final class Event {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(22, getCosmosSpecific());
       }
+      if (substrateSpecific_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(23, getSubstrateSpecific());
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1116,6 +1164,11 @@ public final class Event {
         if (!getCosmosSpecific()
             .equals(other.getCosmosSpecific())) return false;
       }
+      if (hasSubstrateSpecific() != other.hasSubstrateSpecific()) return false;
+      if (hasSubstrateSpecific()) {
+        if (!getSubstrateSpecific()
+            .equals(other.getSubstrateSpecific())) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -1178,6 +1231,10 @@ public final class Event {
       if (hasCosmosSpecific()) {
         hash = (37 * hash) + COSMOS_SPECIFIC_FIELD_NUMBER;
         hash = (53 * hash) + getCosmosSpecific().hashCode();
+      }
+      if (hasSubstrateSpecific()) {
+        hash = (37 * hash) + SUBSTRATE_SPECIFIC_FIELD_NUMBER;
+        hash = (53 * hash) + getSubstrateSpecific().hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -1340,6 +1397,11 @@ public final class Event {
           cosmosSpecificBuilder_.dispose();
           cosmosSpecificBuilder_ = null;
         }
+        substrateSpecific_ = null;
+        if (substrateSpecificBuilder_ != null) {
+          substrateSpecificBuilder_.dispose();
+          substrateSpecificBuilder_ = null;
+        }
         return this;
       }
 
@@ -1442,6 +1504,11 @@ public final class Event {
           result.cosmosSpecific_ = cosmosSpecificBuilder_ == null
               ? cosmosSpecific_
               : cosmosSpecificBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00400000) != 0)) {
+          result.substrateSpecific_ = substrateSpecificBuilder_ == null
+              ? substrateSpecific_
+              : substrateSpecificBuilder_.build();
         }
       }
 
@@ -1574,6 +1641,9 @@ public final class Event {
         }
         if (other.hasCosmosSpecific()) {
           mergeCosmosSpecific(other.getCosmosSpecific());
+        }
+        if (other.hasSubstrateSpecific()) {
+          mergeSubstrateSpecific(other.getSubstrateSpecific());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -1715,6 +1785,13 @@ public final class Event {
                 bitField0_ |= 0x00200000;
                 break;
               } // case 178
+              case 186: {
+                input.readMessage(
+                    getSubstrateSpecificFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00400000;
+                break;
+              } // case 186
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -3103,6 +3180,125 @@ public final class Event {
         }
         return cosmosSpecificBuilder_;
       }
+
+      private adamant.teller.v1.Event.TransferUpdateSubstrateSpecific substrateSpecific_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          adamant.teller.v1.Event.TransferUpdateSubstrateSpecific, adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.Builder, adamant.teller.v1.Event.TransferUpdateSubstrateSpecificOrBuilder> substrateSpecificBuilder_;
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+       * @return Whether the substrateSpecific field is set.
+       */
+      public boolean hasSubstrateSpecific() {
+        return ((bitField0_ & 0x00400000) != 0);
+      }
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+       * @return The substrateSpecific.
+       */
+      public adamant.teller.v1.Event.TransferUpdateSubstrateSpecific getSubstrateSpecific() {
+        if (substrateSpecificBuilder_ == null) {
+          return substrateSpecific_ == null ? adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.getDefaultInstance() : substrateSpecific_;
+        } else {
+          return substrateSpecificBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+       */
+      public Builder setSubstrateSpecific(adamant.teller.v1.Event.TransferUpdateSubstrateSpecific value) {
+        if (substrateSpecificBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          substrateSpecific_ = value;
+        } else {
+          substrateSpecificBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00400000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+       */
+      public Builder setSubstrateSpecific(
+          adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.Builder builderForValue) {
+        if (substrateSpecificBuilder_ == null) {
+          substrateSpecific_ = builderForValue.build();
+        } else {
+          substrateSpecificBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00400000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+       */
+      public Builder mergeSubstrateSpecific(adamant.teller.v1.Event.TransferUpdateSubstrateSpecific value) {
+        if (substrateSpecificBuilder_ == null) {
+          if (((bitField0_ & 0x00400000) != 0) &&
+            substrateSpecific_ != null &&
+            substrateSpecific_ != adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.getDefaultInstance()) {
+            getSubstrateSpecificBuilder().mergeFrom(value);
+          } else {
+            substrateSpecific_ = value;
+          }
+        } else {
+          substrateSpecificBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00400000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+       */
+      public Builder clearSubstrateSpecific() {
+        bitField0_ = (bitField0_ & ~0x00400000);
+        substrateSpecific_ = null;
+        if (substrateSpecificBuilder_ != null) {
+          substrateSpecificBuilder_.dispose();
+          substrateSpecificBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+       */
+      public adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.Builder getSubstrateSpecificBuilder() {
+        bitField0_ |= 0x00400000;
+        onChanged();
+        return getSubstrateSpecificFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+       */
+      public adamant.teller.v1.Event.TransferUpdateSubstrateSpecificOrBuilder getSubstrateSpecificOrBuilder() {
+        if (substrateSpecificBuilder_ != null) {
+          return substrateSpecificBuilder_.getMessageOrBuilder();
+        } else {
+          return substrateSpecific_ == null ?
+              adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.getDefaultInstance() : substrateSpecific_;
+        }
+      }
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          adamant.teller.v1.Event.TransferUpdateSubstrateSpecific, adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.Builder, adamant.teller.v1.Event.TransferUpdateSubstrateSpecificOrBuilder> 
+          getSubstrateSpecificFieldBuilder() {
+        if (substrateSpecificBuilder_ == null) {
+          substrateSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              adamant.teller.v1.Event.TransferUpdateSubstrateSpecific, adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.Builder, adamant.teller.v1.Event.TransferUpdateSubstrateSpecificOrBuilder>(
+                  getSubstrateSpecific(),
+                  getParentForChildren(),
+                  isClean());
+          substrateSpecific_ = null;
+        }
+        return substrateSpecificBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3819,6 +4015,706 @@ public final class Event {
 
     @java.lang.Override
     public adamant.teller.v1.Event.TransferUpdateCosmosSpecific getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TransferUpdateSubstrateSpecificOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:adamant.teller.v1.TransferUpdateSubstrateSpecific)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string extrinsic_id = 1 [json_name = "extrinsicId"];</code>
+     * @return The extrinsicId.
+     */
+    java.lang.String getExtrinsicId();
+    /**
+     * <code>string extrinsic_id = 1 [json_name = "extrinsicId"];</code>
+     * @return The bytes for extrinsicId.
+     */
+    com.google.protobuf.ByteString
+        getExtrinsicIdBytes();
+
+    /**
+     * <code>string extrinsic_hash = 2 [json_name = "extrinsicHash"];</code>
+     * @return The extrinsicHash.
+     */
+    java.lang.String getExtrinsicHash();
+    /**
+     * <code>string extrinsic_hash = 2 [json_name = "extrinsicHash"];</code>
+     * @return The bytes for extrinsicHash.
+     */
+    com.google.protobuf.ByteString
+        getExtrinsicHashBytes();
+  }
+  /**
+   * Protobuf type {@code adamant.teller.v1.TransferUpdateSubstrateSpecific}
+   */
+  public static final class TransferUpdateSubstrateSpecific extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:adamant.teller.v1.TransferUpdateSubstrateSpecific)
+      TransferUpdateSubstrateSpecificOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TransferUpdateSubstrateSpecific.newBuilder() to construct.
+    private TransferUpdateSubstrateSpecific(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TransferUpdateSubstrateSpecific() {
+      extrinsicId_ = "";
+      extrinsicHash_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new TransferUpdateSubstrateSpecific();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return adamant.teller.v1.Event.internal_static_adamant_teller_v1_TransferUpdateSubstrateSpecific_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return adamant.teller.v1.Event.internal_static_adamant_teller_v1_TransferUpdateSubstrateSpecific_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.class, adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.Builder.class);
+    }
+
+    public static final int EXTRINSIC_ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object extrinsicId_ = "";
+    /**
+     * <code>string extrinsic_id = 1 [json_name = "extrinsicId"];</code>
+     * @return The extrinsicId.
+     */
+    @java.lang.Override
+    public java.lang.String getExtrinsicId() {
+      java.lang.Object ref = extrinsicId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        extrinsicId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string extrinsic_id = 1 [json_name = "extrinsicId"];</code>
+     * @return The bytes for extrinsicId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getExtrinsicIdBytes() {
+      java.lang.Object ref = extrinsicId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        extrinsicId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int EXTRINSIC_HASH_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object extrinsicHash_ = "";
+    /**
+     * <code>string extrinsic_hash = 2 [json_name = "extrinsicHash"];</code>
+     * @return The extrinsicHash.
+     */
+    @java.lang.Override
+    public java.lang.String getExtrinsicHash() {
+      java.lang.Object ref = extrinsicHash_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        extrinsicHash_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string extrinsic_hash = 2 [json_name = "extrinsicHash"];</code>
+     * @return The bytes for extrinsicHash.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getExtrinsicHashBytes() {
+      java.lang.Object ref = extrinsicHash_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        extrinsicHash_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(extrinsicId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, extrinsicId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(extrinsicHash_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, extrinsicHash_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(extrinsicId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, extrinsicId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(extrinsicHash_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, extrinsicHash_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof adamant.teller.v1.Event.TransferUpdateSubstrateSpecific)) {
+        return super.equals(obj);
+      }
+      adamant.teller.v1.Event.TransferUpdateSubstrateSpecific other = (adamant.teller.v1.Event.TransferUpdateSubstrateSpecific) obj;
+
+      if (!getExtrinsicId()
+          .equals(other.getExtrinsicId())) return false;
+      if (!getExtrinsicHash()
+          .equals(other.getExtrinsicHash())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + EXTRINSIC_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getExtrinsicId().hashCode();
+      hash = (37 * hash) + EXTRINSIC_HASH_FIELD_NUMBER;
+      hash = (53 * hash) + getExtrinsicHash().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static adamant.teller.v1.Event.TransferUpdateSubstrateSpecific parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateSubstrateSpecific parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateSubstrateSpecific parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateSubstrateSpecific parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateSubstrateSpecific parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateSubstrateSpecific parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateSubstrateSpecific parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateSubstrateSpecific parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static adamant.teller.v1.Event.TransferUpdateSubstrateSpecific parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static adamant.teller.v1.Event.TransferUpdateSubstrateSpecific parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateSubstrateSpecific parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateSubstrateSpecific parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(adamant.teller.v1.Event.TransferUpdateSubstrateSpecific prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code adamant.teller.v1.TransferUpdateSubstrateSpecific}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:adamant.teller.v1.TransferUpdateSubstrateSpecific)
+        adamant.teller.v1.Event.TransferUpdateSubstrateSpecificOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return adamant.teller.v1.Event.internal_static_adamant_teller_v1_TransferUpdateSubstrateSpecific_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return adamant.teller.v1.Event.internal_static_adamant_teller_v1_TransferUpdateSubstrateSpecific_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.class, adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.Builder.class);
+      }
+
+      // Construct using adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        extrinsicId_ = "";
+        extrinsicHash_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return adamant.teller.v1.Event.internal_static_adamant_teller_v1_TransferUpdateSubstrateSpecific_descriptor;
+      }
+
+      @java.lang.Override
+      public adamant.teller.v1.Event.TransferUpdateSubstrateSpecific getDefaultInstanceForType() {
+        return adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public adamant.teller.v1.Event.TransferUpdateSubstrateSpecific build() {
+        adamant.teller.v1.Event.TransferUpdateSubstrateSpecific result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public adamant.teller.v1.Event.TransferUpdateSubstrateSpecific buildPartial() {
+        adamant.teller.v1.Event.TransferUpdateSubstrateSpecific result = new adamant.teller.v1.Event.TransferUpdateSubstrateSpecific(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(adamant.teller.v1.Event.TransferUpdateSubstrateSpecific result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.extrinsicId_ = extrinsicId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.extrinsicHash_ = extrinsicHash_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof adamant.teller.v1.Event.TransferUpdateSubstrateSpecific) {
+          return mergeFrom((adamant.teller.v1.Event.TransferUpdateSubstrateSpecific)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(adamant.teller.v1.Event.TransferUpdateSubstrateSpecific other) {
+        if (other == adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.getDefaultInstance()) return this;
+        if (!other.getExtrinsicId().isEmpty()) {
+          extrinsicId_ = other.extrinsicId_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (!other.getExtrinsicHash().isEmpty()) {
+          extrinsicHash_ = other.extrinsicHash_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                extrinsicId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                extrinsicHash_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object extrinsicId_ = "";
+      /**
+       * <code>string extrinsic_id = 1 [json_name = "extrinsicId"];</code>
+       * @return The extrinsicId.
+       */
+      public java.lang.String getExtrinsicId() {
+        java.lang.Object ref = extrinsicId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          extrinsicId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string extrinsic_id = 1 [json_name = "extrinsicId"];</code>
+       * @return The bytes for extrinsicId.
+       */
+      public com.google.protobuf.ByteString
+          getExtrinsicIdBytes() {
+        java.lang.Object ref = extrinsicId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          extrinsicId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string extrinsic_id = 1 [json_name = "extrinsicId"];</code>
+       * @param value The extrinsicId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setExtrinsicId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        extrinsicId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string extrinsic_id = 1 [json_name = "extrinsicId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearExtrinsicId() {
+        extrinsicId_ = getDefaultInstance().getExtrinsicId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string extrinsic_id = 1 [json_name = "extrinsicId"];</code>
+       * @param value The bytes for extrinsicId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setExtrinsicIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        extrinsicId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object extrinsicHash_ = "";
+      /**
+       * <code>string extrinsic_hash = 2 [json_name = "extrinsicHash"];</code>
+       * @return The extrinsicHash.
+       */
+      public java.lang.String getExtrinsicHash() {
+        java.lang.Object ref = extrinsicHash_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          extrinsicHash_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string extrinsic_hash = 2 [json_name = "extrinsicHash"];</code>
+       * @return The bytes for extrinsicHash.
+       */
+      public com.google.protobuf.ByteString
+          getExtrinsicHashBytes() {
+        java.lang.Object ref = extrinsicHash_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          extrinsicHash_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string extrinsic_hash = 2 [json_name = "extrinsicHash"];</code>
+       * @param value The extrinsicHash to set.
+       * @return This builder for chaining.
+       */
+      public Builder setExtrinsicHash(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        extrinsicHash_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string extrinsic_hash = 2 [json_name = "extrinsicHash"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearExtrinsicHash() {
+        extrinsicHash_ = getDefaultInstance().getExtrinsicHash();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string extrinsic_hash = 2 [json_name = "extrinsicHash"];</code>
+       * @param value The bytes for extrinsicHash to set.
+       * @return This builder for chaining.
+       */
+      public Builder setExtrinsicHashBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        extrinsicHash_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:adamant.teller.v1.TransferUpdateSubstrateSpecific)
+    }
+
+    // @@protoc_insertion_point(class_scope:adamant.teller.v1.TransferUpdateSubstrateSpecific)
+    private static final adamant.teller.v1.Event.TransferUpdateSubstrateSpecific DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new adamant.teller.v1.Event.TransferUpdateSubstrateSpecific();
+    }
+
+    public static adamant.teller.v1.Event.TransferUpdateSubstrateSpecific getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TransferUpdateSubstrateSpecific>
+        PARSER = new com.google.protobuf.AbstractParser<TransferUpdateSubstrateSpecific>() {
+      @java.lang.Override
+      public TransferUpdateSubstrateSpecific parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<TransferUpdateSubstrateSpecific> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TransferUpdateSubstrateSpecific> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public adamant.teller.v1.Event.TransferUpdateSubstrateSpecific getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -7695,6 +8591,1893 @@ public final class Event {
 
   }
 
+  public interface StakingRewardReceivedOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:adamant.teller.v1.StakingRewardReceived)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string event_id = 11 [json_name = "eventId"];</code>
+     * @return The eventId.
+     */
+    java.lang.String getEventId();
+    /**
+     * <code>string event_id = 11 [json_name = "eventId"];</code>
+     * @return The bytes for eventId.
+     */
+    com.google.protobuf.ByteString
+        getEventIdBytes();
+
+    /**
+     * <code>string validator_id = 1 [json_name = "validatorId"];</code>
+     * @return The validatorId.
+     */
+    java.lang.String getValidatorId();
+    /**
+     * <code>string validator_id = 1 [json_name = "validatorId"];</code>
+     * @return The bytes for validatorId.
+     */
+    com.google.protobuf.ByteString
+        getValidatorIdBytes();
+
+    /**
+     * <code>double value = 2 [json_name = "value"];</code>
+     * @return The value.
+     */
+    double getValue();
+
+    /**
+     * <code>string string_value = 3 [json_name = "stringValue"];</code>
+     * @return The stringValue.
+     */
+    java.lang.String getStringValue();
+    /**
+     * <code>string string_value = 3 [json_name = "stringValue"];</code>
+     * @return The bytes for stringValue.
+     */
+    com.google.protobuf.ByteString
+        getStringValueBytes();
+
+    /**
+     * <code>string tx_id = 4 [json_name = "txId"];</code>
+     * @return The txId.
+     */
+    java.lang.String getTxId();
+    /**
+     * <code>string tx_id = 4 [json_name = "txId"];</code>
+     * @return The bytes for txId.
+     */
+    com.google.protobuf.ByteString
+        getTxIdBytes();
+
+    /**
+     * <code>uint32 tx_index = 5 [json_name = "txIndex"];</code>
+     * @return The txIndex.
+     */
+    int getTxIndex();
+
+    /**
+     * <code>string owner_id = 6 [json_name = "ownerId"];</code>
+     * @return The ownerId.
+     */
+    java.lang.String getOwnerId();
+    /**
+     * <code>string owner_id = 6 [json_name = "ownerId"];</code>
+     * @return The bytes for ownerId.
+     */
+    com.google.protobuf.ByteString
+        getOwnerIdBytes();
+
+    /**
+     * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+     * @return The walletId.
+     */
+    java.lang.String getWalletId();
+    /**
+     * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+     * @return The bytes for walletId.
+     */
+    com.google.protobuf.ByteString
+        getWalletIdBytes();
+
+    /**
+     * <code>string address = 8 [json_name = "address"];</code>
+     * @return The address.
+     */
+    java.lang.String getAddress();
+    /**
+     * <code>string address = 8 [json_name = "address"];</code>
+     * @return The bytes for address.
+     */
+    com.google.protobuf.ByteString
+        getAddressBytes();
+
+    /**
+     * <code>.gincoinc.global.v1.Coin coin = 9 [json_name = "coin"];</code>
+     * @return The enum numeric value on the wire for coin.
+     */
+    int getCoinValue();
+    /**
+     * <code>.gincoinc.global.v1.Coin coin = 9 [json_name = "coin"];</code>
+     * @return The coin.
+     */
+    gincoinc.global.v1.Enum.Coin getCoin();
+
+    /**
+     * <code>.google.protobuf.Timestamp time = 10 [json_name = "time"];</code>
+     * @return Whether the time field is set.
+     */
+    boolean hasTime();
+    /**
+     * <code>.google.protobuf.Timestamp time = 10 [json_name = "time"];</code>
+     * @return The time.
+     */
+    com.google.protobuf.Timestamp getTime();
+    /**
+     * <code>.google.protobuf.Timestamp time = 10 [json_name = "time"];</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getTimeOrBuilder();
+  }
+  /**
+   * Protobuf type {@code adamant.teller.v1.StakingRewardReceived}
+   */
+  public static final class StakingRewardReceived extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:adamant.teller.v1.StakingRewardReceived)
+      StakingRewardReceivedOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use StakingRewardReceived.newBuilder() to construct.
+    private StakingRewardReceived(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private StakingRewardReceived() {
+      eventId_ = "";
+      validatorId_ = "";
+      stringValue_ = "";
+      txId_ = "";
+      ownerId_ = "";
+      walletId_ = "";
+      address_ = "";
+      coin_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new StakingRewardReceived();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return adamant.teller.v1.Event.internal_static_adamant_teller_v1_StakingRewardReceived_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return adamant.teller.v1.Event.internal_static_adamant_teller_v1_StakingRewardReceived_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              adamant.teller.v1.Event.StakingRewardReceived.class, adamant.teller.v1.Event.StakingRewardReceived.Builder.class);
+    }
+
+    public static final int EVENT_ID_FIELD_NUMBER = 11;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object eventId_ = "";
+    /**
+     * <code>string event_id = 11 [json_name = "eventId"];</code>
+     * @return The eventId.
+     */
+    @java.lang.Override
+    public java.lang.String getEventId() {
+      java.lang.Object ref = eventId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        eventId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string event_id = 11 [json_name = "eventId"];</code>
+     * @return The bytes for eventId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getEventIdBytes() {
+      java.lang.Object ref = eventId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        eventId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VALIDATOR_ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object validatorId_ = "";
+    /**
+     * <code>string validator_id = 1 [json_name = "validatorId"];</code>
+     * @return The validatorId.
+     */
+    @java.lang.Override
+    public java.lang.String getValidatorId() {
+      java.lang.Object ref = validatorId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        validatorId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string validator_id = 1 [json_name = "validatorId"];</code>
+     * @return The bytes for validatorId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getValidatorIdBytes() {
+      java.lang.Object ref = validatorId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        validatorId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int VALUE_FIELD_NUMBER = 2;
+    private double value_ = 0D;
+    /**
+     * <code>double value = 2 [json_name = "value"];</code>
+     * @return The value.
+     */
+    @java.lang.Override
+    public double getValue() {
+      return value_;
+    }
+
+    public static final int STRING_VALUE_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object stringValue_ = "";
+    /**
+     * <code>string string_value = 3 [json_name = "stringValue"];</code>
+     * @return The stringValue.
+     */
+    @java.lang.Override
+    public java.lang.String getStringValue() {
+      java.lang.Object ref = stringValue_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        stringValue_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string string_value = 3 [json_name = "stringValue"];</code>
+     * @return The bytes for stringValue.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getStringValueBytes() {
+      java.lang.Object ref = stringValue_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        stringValue_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TX_ID_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object txId_ = "";
+    /**
+     * <code>string tx_id = 4 [json_name = "txId"];</code>
+     * @return The txId.
+     */
+    @java.lang.Override
+    public java.lang.String getTxId() {
+      java.lang.Object ref = txId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        txId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string tx_id = 4 [json_name = "txId"];</code>
+     * @return The bytes for txId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTxIdBytes() {
+      java.lang.Object ref = txId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        txId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TX_INDEX_FIELD_NUMBER = 5;
+    private int txIndex_ = 0;
+    /**
+     * <code>uint32 tx_index = 5 [json_name = "txIndex"];</code>
+     * @return The txIndex.
+     */
+    @java.lang.Override
+    public int getTxIndex() {
+      return txIndex_;
+    }
+
+    public static final int OWNER_ID_FIELD_NUMBER = 6;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object ownerId_ = "";
+    /**
+     * <code>string owner_id = 6 [json_name = "ownerId"];</code>
+     * @return The ownerId.
+     */
+    @java.lang.Override
+    public java.lang.String getOwnerId() {
+      java.lang.Object ref = ownerId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        ownerId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string owner_id = 6 [json_name = "ownerId"];</code>
+     * @return The bytes for ownerId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getOwnerIdBytes() {
+      java.lang.Object ref = ownerId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        ownerId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int WALLET_ID_FIELD_NUMBER = 7;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object walletId_ = "";
+    /**
+     * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+     * @return The walletId.
+     */
+    @java.lang.Override
+    public java.lang.String getWalletId() {
+      java.lang.Object ref = walletId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        walletId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+     * @return The bytes for walletId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getWalletIdBytes() {
+      java.lang.Object ref = walletId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        walletId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ADDRESS_FIELD_NUMBER = 8;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object address_ = "";
+    /**
+     * <code>string address = 8 [json_name = "address"];</code>
+     * @return The address.
+     */
+    @java.lang.Override
+    public java.lang.String getAddress() {
+      java.lang.Object ref = address_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        address_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string address = 8 [json_name = "address"];</code>
+     * @return The bytes for address.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAddressBytes() {
+      java.lang.Object ref = address_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        address_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int COIN_FIELD_NUMBER = 9;
+    private int coin_ = 0;
+    /**
+     * <code>.gincoinc.global.v1.Coin coin = 9 [json_name = "coin"];</code>
+     * @return The enum numeric value on the wire for coin.
+     */
+    @java.lang.Override public int getCoinValue() {
+      return coin_;
+    }
+    /**
+     * <code>.gincoinc.global.v1.Coin coin = 9 [json_name = "coin"];</code>
+     * @return The coin.
+     */
+    @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
+      gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.forNumber(coin_);
+      return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
+    }
+
+    public static final int TIME_FIELD_NUMBER = 10;
+    private com.google.protobuf.Timestamp time_;
+    /**
+     * <code>.google.protobuf.Timestamp time = 10 [json_name = "time"];</code>
+     * @return Whether the time field is set.
+     */
+    @java.lang.Override
+    public boolean hasTime() {
+      return time_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp time = 10 [json_name = "time"];</code>
+     * @return The time.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getTime() {
+      return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp time = 10 [json_name = "time"];</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
+      return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(validatorId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, validatorId_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(value_) != 0) {
+        output.writeDouble(2, value_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringValue_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, stringValue_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(txId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, txId_);
+      }
+      if (txIndex_ != 0) {
+        output.writeUInt32(5, txIndex_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(ownerId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, ownerId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, walletId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, address_);
+      }
+      if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
+        output.writeEnum(9, coin_);
+      }
+      if (time_ != null) {
+        output.writeMessage(10, getTime());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(eventId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, eventId_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(validatorId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, validatorId_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(value_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(2, value_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringValue_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, stringValue_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(txId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, txId_);
+      }
+      if (txIndex_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(5, txIndex_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(ownerId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, ownerId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, walletId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, address_);
+      }
+      if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(9, coin_);
+      }
+      if (time_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, getTime());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(eventId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, eventId_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof adamant.teller.v1.Event.StakingRewardReceived)) {
+        return super.equals(obj);
+      }
+      adamant.teller.v1.Event.StakingRewardReceived other = (adamant.teller.v1.Event.StakingRewardReceived) obj;
+
+      if (!getEventId()
+          .equals(other.getEventId())) return false;
+      if (!getValidatorId()
+          .equals(other.getValidatorId())) return false;
+      if (java.lang.Double.doubleToLongBits(getValue())
+          != java.lang.Double.doubleToLongBits(
+              other.getValue())) return false;
+      if (!getStringValue()
+          .equals(other.getStringValue())) return false;
+      if (!getTxId()
+          .equals(other.getTxId())) return false;
+      if (getTxIndex()
+          != other.getTxIndex()) return false;
+      if (!getOwnerId()
+          .equals(other.getOwnerId())) return false;
+      if (!getWalletId()
+          .equals(other.getWalletId())) return false;
+      if (!getAddress()
+          .equals(other.getAddress())) return false;
+      if (coin_ != other.coin_) return false;
+      if (hasTime() != other.hasTime()) return false;
+      if (hasTime()) {
+        if (!getTime()
+            .equals(other.getTime())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + EVENT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getEventId().hashCode();
+      hash = (37 * hash) + VALIDATOR_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getValidatorId().hashCode();
+      hash = (37 * hash) + VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getValue()));
+      hash = (37 * hash) + STRING_VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + getStringValue().hashCode();
+      hash = (37 * hash) + TX_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getTxId().hashCode();
+      hash = (37 * hash) + TX_INDEX_FIELD_NUMBER;
+      hash = (53 * hash) + getTxIndex();
+      hash = (37 * hash) + OWNER_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getOwnerId().hashCode();
+      hash = (37 * hash) + WALLET_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getWalletId().hashCode();
+      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAddress().hashCode();
+      hash = (37 * hash) + COIN_FIELD_NUMBER;
+      hash = (53 * hash) + coin_;
+      if (hasTime()) {
+        hash = (37 * hash) + TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getTime().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static adamant.teller.v1.Event.StakingRewardReceived parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.teller.v1.Event.StakingRewardReceived parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.teller.v1.Event.StakingRewardReceived parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.teller.v1.Event.StakingRewardReceived parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.teller.v1.Event.StakingRewardReceived parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.teller.v1.Event.StakingRewardReceived parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.teller.v1.Event.StakingRewardReceived parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.teller.v1.Event.StakingRewardReceived parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static adamant.teller.v1.Event.StakingRewardReceived parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static adamant.teller.v1.Event.StakingRewardReceived parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.teller.v1.Event.StakingRewardReceived parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.teller.v1.Event.StakingRewardReceived parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(adamant.teller.v1.Event.StakingRewardReceived prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code adamant.teller.v1.StakingRewardReceived}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:adamant.teller.v1.StakingRewardReceived)
+        adamant.teller.v1.Event.StakingRewardReceivedOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return adamant.teller.v1.Event.internal_static_adamant_teller_v1_StakingRewardReceived_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return adamant.teller.v1.Event.internal_static_adamant_teller_v1_StakingRewardReceived_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                adamant.teller.v1.Event.StakingRewardReceived.class, adamant.teller.v1.Event.StakingRewardReceived.Builder.class);
+      }
+
+      // Construct using adamant.teller.v1.Event.StakingRewardReceived.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        eventId_ = "";
+        validatorId_ = "";
+        value_ = 0D;
+        stringValue_ = "";
+        txId_ = "";
+        txIndex_ = 0;
+        ownerId_ = "";
+        walletId_ = "";
+        address_ = "";
+        coin_ = 0;
+        time_ = null;
+        if (timeBuilder_ != null) {
+          timeBuilder_.dispose();
+          timeBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return adamant.teller.v1.Event.internal_static_adamant_teller_v1_StakingRewardReceived_descriptor;
+      }
+
+      @java.lang.Override
+      public adamant.teller.v1.Event.StakingRewardReceived getDefaultInstanceForType() {
+        return adamant.teller.v1.Event.StakingRewardReceived.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public adamant.teller.v1.Event.StakingRewardReceived build() {
+        adamant.teller.v1.Event.StakingRewardReceived result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public adamant.teller.v1.Event.StakingRewardReceived buildPartial() {
+        adamant.teller.v1.Event.StakingRewardReceived result = new adamant.teller.v1.Event.StakingRewardReceived(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(adamant.teller.v1.Event.StakingRewardReceived result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.eventId_ = eventId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.validatorId_ = validatorId_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.value_ = value_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.stringValue_ = stringValue_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.txId_ = txId_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.txIndex_ = txIndex_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.ownerId_ = ownerId_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.walletId_ = walletId_;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.address_ = address_;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.coin_ = coin_;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.time_ = timeBuilder_ == null
+              ? time_
+              : timeBuilder_.build();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof adamant.teller.v1.Event.StakingRewardReceived) {
+          return mergeFrom((adamant.teller.v1.Event.StakingRewardReceived)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(adamant.teller.v1.Event.StakingRewardReceived other) {
+        if (other == adamant.teller.v1.Event.StakingRewardReceived.getDefaultInstance()) return this;
+        if (!other.getEventId().isEmpty()) {
+          eventId_ = other.eventId_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (!other.getValidatorId().isEmpty()) {
+          validatorId_ = other.validatorId_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        if (other.getValue() != 0D) {
+          setValue(other.getValue());
+        }
+        if (!other.getStringValue().isEmpty()) {
+          stringValue_ = other.stringValue_;
+          bitField0_ |= 0x00000008;
+          onChanged();
+        }
+        if (!other.getTxId().isEmpty()) {
+          txId_ = other.txId_;
+          bitField0_ |= 0x00000010;
+          onChanged();
+        }
+        if (other.getTxIndex() != 0) {
+          setTxIndex(other.getTxIndex());
+        }
+        if (!other.getOwnerId().isEmpty()) {
+          ownerId_ = other.ownerId_;
+          bitField0_ |= 0x00000040;
+          onChanged();
+        }
+        if (!other.getWalletId().isEmpty()) {
+          walletId_ = other.walletId_;
+          bitField0_ |= 0x00000080;
+          onChanged();
+        }
+        if (!other.getAddress().isEmpty()) {
+          address_ = other.address_;
+          bitField0_ |= 0x00000100;
+          onChanged();
+        }
+        if (other.coin_ != 0) {
+          setCoinValue(other.getCoinValue());
+        }
+        if (other.hasTime()) {
+          mergeTime(other.getTime());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                validatorId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 10
+              case 17: {
+                value_ = input.readDouble();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 17
+              case 26: {
+                stringValue_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 26
+              case 34: {
+                txId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 34
+              case 40: {
+                txIndex_ = input.readUInt32();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 40
+              case 50: {
+                ownerId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 50
+              case 58: {
+                walletId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 58
+              case 66: {
+                address_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 66
+              case 72: {
+                coin_ = input.readEnum();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 72
+              case 82: {
+                input.readMessage(
+                    getTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 82
+              case 90: {
+                eventId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 90
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object eventId_ = "";
+      /**
+       * <code>string event_id = 11 [json_name = "eventId"];</code>
+       * @return The eventId.
+       */
+      public java.lang.String getEventId() {
+        java.lang.Object ref = eventId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          eventId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string event_id = 11 [json_name = "eventId"];</code>
+       * @return The bytes for eventId.
+       */
+      public com.google.protobuf.ByteString
+          getEventIdBytes() {
+        java.lang.Object ref = eventId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          eventId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string event_id = 11 [json_name = "eventId"];</code>
+       * @param value The eventId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEventId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        eventId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string event_id = 11 [json_name = "eventId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEventId() {
+        eventId_ = getDefaultInstance().getEventId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string event_id = 11 [json_name = "eventId"];</code>
+       * @param value The bytes for eventId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEventIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        eventId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object validatorId_ = "";
+      /**
+       * <code>string validator_id = 1 [json_name = "validatorId"];</code>
+       * @return The validatorId.
+       */
+      public java.lang.String getValidatorId() {
+        java.lang.Object ref = validatorId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          validatorId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string validator_id = 1 [json_name = "validatorId"];</code>
+       * @return The bytes for validatorId.
+       */
+      public com.google.protobuf.ByteString
+          getValidatorIdBytes() {
+        java.lang.Object ref = validatorId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          validatorId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string validator_id = 1 [json_name = "validatorId"];</code>
+       * @param value The validatorId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValidatorId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        validatorId_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string validator_id = 1 [json_name = "validatorId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValidatorId() {
+        validatorId_ = getDefaultInstance().getValidatorId();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string validator_id = 1 [json_name = "validatorId"];</code>
+       * @param value The bytes for validatorId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValidatorIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        validatorId_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private double value_ ;
+      /**
+       * <code>double value = 2 [json_name = "value"];</code>
+       * @return The value.
+       */
+      @java.lang.Override
+      public double getValue() {
+        return value_;
+      }
+      /**
+       * <code>double value = 2 [json_name = "value"];</code>
+       * @param value The value to set.
+       * @return This builder for chaining.
+       */
+      public Builder setValue(double value) {
+
+        value_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double value = 2 [json_name = "value"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearValue() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        value_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object stringValue_ = "";
+      /**
+       * <code>string string_value = 3 [json_name = "stringValue"];</code>
+       * @return The stringValue.
+       */
+      public java.lang.String getStringValue() {
+        java.lang.Object ref = stringValue_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          stringValue_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string string_value = 3 [json_name = "stringValue"];</code>
+       * @return The bytes for stringValue.
+       */
+      public com.google.protobuf.ByteString
+          getStringValueBytes() {
+        java.lang.Object ref = stringValue_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          stringValue_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string string_value = 3 [json_name = "stringValue"];</code>
+       * @param value The stringValue to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStringValue(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        stringValue_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string string_value = 3 [json_name = "stringValue"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStringValue() {
+        stringValue_ = getDefaultInstance().getStringValue();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string string_value = 3 [json_name = "stringValue"];</code>
+       * @param value The bytes for stringValue to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStringValueBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        stringValue_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object txId_ = "";
+      /**
+       * <code>string tx_id = 4 [json_name = "txId"];</code>
+       * @return The txId.
+       */
+      public java.lang.String getTxId() {
+        java.lang.Object ref = txId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          txId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string tx_id = 4 [json_name = "txId"];</code>
+       * @return The bytes for txId.
+       */
+      public com.google.protobuf.ByteString
+          getTxIdBytes() {
+        java.lang.Object ref = txId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          txId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string tx_id = 4 [json_name = "txId"];</code>
+       * @param value The txId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTxId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        txId_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string tx_id = 4 [json_name = "txId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTxId() {
+        txId_ = getDefaultInstance().getTxId();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string tx_id = 4 [json_name = "txId"];</code>
+       * @param value The bytes for txId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTxIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        txId_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+
+      private int txIndex_ ;
+      /**
+       * <code>uint32 tx_index = 5 [json_name = "txIndex"];</code>
+       * @return The txIndex.
+       */
+      @java.lang.Override
+      public int getTxIndex() {
+        return txIndex_;
+      }
+      /**
+       * <code>uint32 tx_index = 5 [json_name = "txIndex"];</code>
+       * @param value The txIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTxIndex(int value) {
+
+        txIndex_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 tx_index = 5 [json_name = "txIndex"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTxIndex() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        txIndex_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object ownerId_ = "";
+      /**
+       * <code>string owner_id = 6 [json_name = "ownerId"];</code>
+       * @return The ownerId.
+       */
+      public java.lang.String getOwnerId() {
+        java.lang.Object ref = ownerId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          ownerId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string owner_id = 6 [json_name = "ownerId"];</code>
+       * @return The bytes for ownerId.
+       */
+      public com.google.protobuf.ByteString
+          getOwnerIdBytes() {
+        java.lang.Object ref = ownerId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          ownerId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string owner_id = 6 [json_name = "ownerId"];</code>
+       * @param value The ownerId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOwnerId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ownerId_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string owner_id = 6 [json_name = "ownerId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOwnerId() {
+        ownerId_ = getDefaultInstance().getOwnerId();
+        bitField0_ = (bitField0_ & ~0x00000040);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string owner_id = 6 [json_name = "ownerId"];</code>
+       * @param value The bytes for ownerId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOwnerIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        ownerId_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object walletId_ = "";
+      /**
+       * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+       * @return The walletId.
+       */
+      public java.lang.String getWalletId() {
+        java.lang.Object ref = walletId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          walletId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+       * @return The bytes for walletId.
+       */
+      public com.google.protobuf.ByteString
+          getWalletIdBytes() {
+        java.lang.Object ref = walletId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          walletId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+       * @param value The walletId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWalletId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        walletId_ = value;
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearWalletId() {
+        walletId_ = getDefaultInstance().getWalletId();
+        bitField0_ = (bitField0_ & ~0x00000080);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string wallet_id = 7 [json_name = "walletId"];</code>
+       * @param value The bytes for walletId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setWalletIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        walletId_ = value;
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object address_ = "";
+      /**
+       * <code>string address = 8 [json_name = "address"];</code>
+       * @return The address.
+       */
+      public java.lang.String getAddress() {
+        java.lang.Object ref = address_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          address_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string address = 8 [json_name = "address"];</code>
+       * @return The bytes for address.
+       */
+      public com.google.protobuf.ByteString
+          getAddressBytes() {
+        java.lang.Object ref = address_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          address_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string address = 8 [json_name = "address"];</code>
+       * @param value The address to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddress(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        address_ = value;
+        bitField0_ |= 0x00000100;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string address = 8 [json_name = "address"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAddress() {
+        address_ = getDefaultInstance().getAddress();
+        bitField0_ = (bitField0_ & ~0x00000100);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string address = 8 [json_name = "address"];</code>
+       * @param value The bytes for address to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddressBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        address_ = value;
+        bitField0_ |= 0x00000100;
+        onChanged();
+        return this;
+      }
+
+      private int coin_ = 0;
+      /**
+       * <code>.gincoinc.global.v1.Coin coin = 9 [json_name = "coin"];</code>
+       * @return The enum numeric value on the wire for coin.
+       */
+      @java.lang.Override public int getCoinValue() {
+        return coin_;
+      }
+      /**
+       * <code>.gincoinc.global.v1.Coin coin = 9 [json_name = "coin"];</code>
+       * @param value The enum numeric value on the wire for coin to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCoinValue(int value) {
+        coin_ = value;
+        bitField0_ |= 0x00000200;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.gincoinc.global.v1.Coin coin = 9 [json_name = "coin"];</code>
+       * @return The coin.
+       */
+      @java.lang.Override
+      public gincoinc.global.v1.Enum.Coin getCoin() {
+        gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.forNumber(coin_);
+        return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.gincoinc.global.v1.Coin coin = 9 [json_name = "coin"];</code>
+       * @param value The coin to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCoin(gincoinc.global.v1.Enum.Coin value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000200;
+        coin_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.gincoinc.global.v1.Coin coin = 9 [json_name = "coin"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCoin() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        coin_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Timestamp time_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timeBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp time = 10 [json_name = "time"];</code>
+       * @return Whether the time field is set.
+       */
+      public boolean hasTime() {
+        return ((bitField0_ & 0x00000400) != 0);
+      }
+      /**
+       * <code>.google.protobuf.Timestamp time = 10 [json_name = "time"];</code>
+       * @return The time.
+       */
+      public com.google.protobuf.Timestamp getTime() {
+        if (timeBuilder_ == null) {
+          return time_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : time_;
+        } else {
+          return timeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp time = 10 [json_name = "time"];</code>
+       */
+      public Builder setTime(com.google.protobuf.Timestamp value) {
+        if (timeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          time_ = value;
+        } else {
+          timeBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000400;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp time = 10 [json_name = "time"];</code>
+       */
+      public Builder setTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (timeBuilder_ == null) {
+          time_ = builderForValue.build();
+        } else {
+          timeBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000400;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp time = 10 [json_name = "time"];</code>
+       */
+      public Builder mergeTime(com.google.protobuf.Timestamp value) {
+        if (timeBuilder_ == null) {
+          if (((bitField0_ & 0x00000400) != 0) &&
+            time_ != null &&
+            time_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getTimeBuilder().mergeFrom(value);
+          } else {
+            time_ = value;
+          }
+        } else {
+          timeBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000400;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp time = 10 [json_name = "time"];</code>
+       */
+      public Builder clearTime() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        time_ = null;
+        if (timeBuilder_ != null) {
+          timeBuilder_.dispose();
+          timeBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp time = 10 [json_name = "time"];</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getTimeBuilder() {
+        bitField0_ |= 0x00000400;
+        onChanged();
+        return getTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp time = 10 [json_name = "time"];</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getTimeOrBuilder() {
+        if (timeBuilder_ != null) {
+          return timeBuilder_.getMessageOrBuilder();
+        } else {
+          return time_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : time_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp time = 10 [json_name = "time"];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getTimeFieldBuilder() {
+        if (timeBuilder_ == null) {
+          timeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getTime(),
+                  getParentForChildren(),
+                  isClean());
+          time_ = null;
+        }
+        return timeBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:adamant.teller.v1.StakingRewardReceived)
+    }
+
+    // @@protoc_insertion_point(class_scope:adamant.teller.v1.StakingRewardReceived)
+    private static final adamant.teller.v1.Event.StakingRewardReceived DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new adamant.teller.v1.Event.StakingRewardReceived();
+    }
+
+    public static adamant.teller.v1.Event.StakingRewardReceived getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<StakingRewardReceived>
+        PARSER = new com.google.protobuf.AbstractParser<StakingRewardReceived>() {
+      @java.lang.Override
+      public StakingRewardReceived parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<StakingRewardReceived> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<StakingRewardReceived> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public adamant.teller.v1.Event.StakingRewardReceived getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_teller_v1_TransferUpdated_descriptor;
   private static final 
@@ -7706,6 +10489,11 @@ public final class Event {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_teller_v1_TransferUpdateCosmosSpecific_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_TransferUpdateSubstrateSpecific_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_TransferUpdateSubstrateSpecific_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_teller_v1_TransferUpdateEvent_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -7715,6 +10503,11 @@ public final class Event {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_teller_v1_EthereumStakingReward_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_StakingRewardReceived_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_StakingRewardReceived_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -7728,7 +10521,7 @@ public final class Event {
       "erv1/event.proto\022\021adamant.teller.v1\032.gin" +
       "coinc/global/v1/gincoincglobalv1/enum.pr" +
       "oto\032\037google/protobuf/timestamp.proto\032\027va" +
-      "lidate/validate.proto\"\267\006\n\017TransferUpdate" +
+      "lidate/validate.proto\"\232\007\n\017TransferUpdate" +
       "d\022\033\n\twallet_id\030\001 \001(\tR\010walletId\022\037\n\013transf" +
       "er_id\030\002 \001(\tR\ntransferId\022,\n\004coin\030\003 \001(\0162\030." +
       "gincoinc.global.v1.CoinR\004coin\022\023\n\005tx_id\030\004" +
@@ -7749,42 +10542,57 @@ public final class Event {
       "\001R\003fee\022\035\n\nstring_fee\030\024 \001(\tR\tstringFee\022X\n" +
       "\017cosmos_specific\030\026 \001(\0132/.adamant.teller." +
       "v1.TransferUpdateCosmosSpecificR\016cosmosS" +
-      "pecific\"\243\001\n\034TransferUpdateCosmosSpecific" +
-      "\0225\n\004type\030\001 \001(\0162!.gincoinc.global.v1.Cosm" +
-      "osMsgTypeR\004type\022\'\n\017delegate_amount\030\002 \001(\001" +
-      "R\016delegateAmount\022#\n\rreward_amount\030\003 \001(\001R" +
-      "\014rewardAmount\"\315\004\n\023TransferUpdateEvent\022\031\n" +
-      "\010event_id\030\001 \001(\tR\007eventId\022\033\n\twallet_id\030\016 " +
-      "\001(\tR\010walletId\022,\n\004coin\030\002 \001(\0162\030.gincoinc.g" +
-      "lobal.v1.CoinR\004coin\022\023\n\005tx_id\030\003 \001(\tR\004txId" +
-      "\022\031\n\010tx_index\030\004 \001(\rR\007txIndex\022\024\n\005value\030\005 \001" +
-      "(\001R\005value\022!\n\014string_value\030\006 \001(\tR\013stringV" +
-      "alue\022\031\n\010jpy_rate\030\r \001(\001R\007jpyRate\022\030\n\007addre" +
-      "ss\030\007 \001(\tR\007address\022\'\n\017destination_tag\030\010 \001" +
-      "(\rR\016destinationTag\022\027\n\007memo_id\030\017 \001(\004R\006mem" +
-      "oId\022:\n\005state\030\t \001(\0162$.gincoinc.global.v1." +
-      "TransactionStateR\005state\022=\n\006result\030\n \001(\0162" +
-      "%.gincoinc.global.v1.TransactionResultR\006" +
-      "result\022E\n\rtransfer_type\030\013 \001(\0162 .gincoinc" +
-      ".global.v1.TransferTypeR\014transferType\022.\n" +
-      "\004time\030\014 \001(\0132\032.google.protobuf.TimestampR" +
-      "\004time\"\301\004\n\025EthereumStakingReward\022\031\n\010event" +
-      "_id\030\001 \001(\tR\007eventId\022)\n\020withdrawal_index\030\002" +
-      " \001(\004R\017withdrawalIndex\022!\n\014block_number\030\003 " +
-      "\001(\004R\013blockNumber\0229\n\nblock_time\030\004 \001(\0132\032.g" +
-      "oogle.protobuf.TimestampR\tblockTime\022\'\n\017v" +
-      "alidator_index\030\005 \001(\004R\016validatorIndex\022\030\n\007" +
-      "address\030\006 \001(\tR\007address\022\024\n\005value\030\007 \001(\001R\005v" +
-      "alue\022i\n\twallet_id\030\010 \001(\tBL\372BIrG2E^[0-9a-f" +
-      "]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9" +
-      "a-f]{3}-[0-9a-f]{12}$R\010walletId\022~\n\"ether" +
-      "eum_staking_reward_layer_type\030\t \001(\01622.gi" +
-      "ncoinc.global.v1.EthereumStakingRewardLa" +
-      "yerTypeR\036ethereumStakingRewardLayerType\022" +
-      "!\n\014string_value\030\n \001(\tR\013stringValue\022\035\n\nbl" +
-      "ock_hash\030\013 \001(\tR\tblockHashBLZJgithub.com/" +
-      "GincoInc/gew-kmp/gen/gincoinc/adamant/te" +
-      "ller/v1/adamanttellerv1b\006proto3"
+      "pecific\022a\n\022substrate_specific\030\027 \001(\01322.ad" +
+      "amant.teller.v1.TransferUpdateSubstrateS" +
+      "pecificR\021substrateSpecific\"\243\001\n\034TransferU" +
+      "pdateCosmosSpecific\0225\n\004type\030\001 \001(\0162!.ginc" +
+      "oinc.global.v1.CosmosMsgTypeR\004type\022\'\n\017de" +
+      "legate_amount\030\002 \001(\001R\016delegateAmount\022#\n\rr" +
+      "eward_amount\030\003 \001(\001R\014rewardAmount\"k\n\037Tran" +
+      "sferUpdateSubstrateSpecific\022!\n\014extrinsic" +
+      "_id\030\001 \001(\tR\013extrinsicId\022%\n\016extrinsic_hash" +
+      "\030\002 \001(\tR\rextrinsicHash\"\315\004\n\023TransferUpdate" +
+      "Event\022\031\n\010event_id\030\001 \001(\tR\007eventId\022\033\n\twall" +
+      "et_id\030\016 \001(\tR\010walletId\022,\n\004coin\030\002 \001(\0162\030.gi" +
+      "ncoinc.global.v1.CoinR\004coin\022\023\n\005tx_id\030\003 \001" +
+      "(\tR\004txId\022\031\n\010tx_index\030\004 \001(\rR\007txIndex\022\024\n\005v" +
+      "alue\030\005 \001(\001R\005value\022!\n\014string_value\030\006 \001(\tR" +
+      "\013stringValue\022\031\n\010jpy_rate\030\r \001(\001R\007jpyRate\022" +
+      "\030\n\007address\030\007 \001(\tR\007address\022\'\n\017destination" +
+      "_tag\030\010 \001(\rR\016destinationTag\022\027\n\007memo_id\030\017 " +
+      "\001(\004R\006memoId\022:\n\005state\030\t \001(\0162$.gincoinc.gl" +
+      "obal.v1.TransactionStateR\005state\022=\n\006resul" +
+      "t\030\n \001(\0162%.gincoinc.global.v1.Transaction" +
+      "ResultR\006result\022E\n\rtransfer_type\030\013 \001(\0162 ." +
+      "gincoinc.global.v1.TransferTypeR\014transfe" +
+      "rType\022.\n\004time\030\014 \001(\0132\032.google.protobuf.Ti" +
+      "mestampR\004time\"\301\004\n\025EthereumStakingReward\022" +
+      "\031\n\010event_id\030\001 \001(\tR\007eventId\022)\n\020withdrawal" +
+      "_index\030\002 \001(\004R\017withdrawalIndex\022!\n\014block_n" +
+      "umber\030\003 \001(\004R\013blockNumber\0229\n\nblock_time\030\004" +
+      " \001(\0132\032.google.protobuf.TimestampR\tblockT" +
+      "ime\022\'\n\017validator_index\030\005 \001(\004R\016validatorI" +
+      "ndex\022\030\n\007address\030\006 \001(\tR\007address\022\024\n\005value\030" +
+      "\007 \001(\001R\005value\022i\n\twallet_id\030\010 \001(\tBL\372BIrG2E" +
+      "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[8" +
+      "9ab][0-9a-f]{3}-[0-9a-f]{12}$R\010walletId\022" +
+      "~\n\"ethereum_staking_reward_layer_type\030\t " +
+      "\001(\01622.gincoinc.global.v1.EthereumStaking" +
+      "RewardLayerTypeR\036ethereumStakingRewardLa" +
+      "yerType\022!\n\014string_value\030\n \001(\tR\013stringVal" +
+      "ue\022\035\n\nblock_hash\030\013 \001(\tR\tblockHash\"\356\002\n\025St" +
+      "akingRewardReceived\022\031\n\010event_id\030\013 \001(\tR\007e" +
+      "ventId\022!\n\014validator_id\030\001 \001(\tR\013validatorI" +
+      "d\022\024\n\005value\030\002 \001(\001R\005value\022!\n\014string_value\030" +
+      "\003 \001(\tR\013stringValue\022\023\n\005tx_id\030\004 \001(\tR\004txId\022" +
+      "\031\n\010tx_index\030\005 \001(\rR\007txIndex\022\031\n\010owner_id\030\006" +
+      " \001(\tR\007ownerId\022\033\n\twallet_id\030\007 \001(\tR\010wallet" +
+      "Id\022\030\n\007address\030\010 \001(\tR\007address\022,\n\004coin\030\t \001" +
+      "(\0162\030.gincoinc.global.v1.CoinR\004coin\022.\n\004ti" +
+      "me\030\n \001(\0132\032.google.protobuf.TimestampR\004ti" +
+      "meBLZJgithub.com/GincoInc/gew-kmp/gen/gi" +
+      "ncoinc/adamant/teller/v1/adamanttellerv1" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7798,25 +10606,37 @@ public final class Event {
     internal_static_adamant_teller_v1_TransferUpdated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_teller_v1_TransferUpdated_descriptor,
-        new java.lang.String[] { "WalletId", "TransferId", "Coin", "TxId", "TxIndex", "Value", "StringValue", "JpyRate", "Address", "DestinationTag", "MemoId", "Message", "State", "Result", "TransferType", "From", "To", "Time", "EventId", "Fee", "StringFee", "CosmosSpecific", });
+        new java.lang.String[] { "WalletId", "TransferId", "Coin", "TxId", "TxIndex", "Value", "StringValue", "JpyRate", "Address", "DestinationTag", "MemoId", "Message", "State", "Result", "TransferType", "From", "To", "Time", "EventId", "Fee", "StringFee", "CosmosSpecific", "SubstrateSpecific", });
     internal_static_adamant_teller_v1_TransferUpdateCosmosSpecific_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_adamant_teller_v1_TransferUpdateCosmosSpecific_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_teller_v1_TransferUpdateCosmosSpecific_descriptor,
         new java.lang.String[] { "Type", "DelegateAmount", "RewardAmount", });
-    internal_static_adamant_teller_v1_TransferUpdateEvent_descriptor =
+    internal_static_adamant_teller_v1_TransferUpdateSubstrateSpecific_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_adamant_teller_v1_TransferUpdateSubstrateSpecific_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_TransferUpdateSubstrateSpecific_descriptor,
+        new java.lang.String[] { "ExtrinsicId", "ExtrinsicHash", });
+    internal_static_adamant_teller_v1_TransferUpdateEvent_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_adamant_teller_v1_TransferUpdateEvent_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_teller_v1_TransferUpdateEvent_descriptor,
         new java.lang.String[] { "EventId", "WalletId", "Coin", "TxId", "TxIndex", "Value", "StringValue", "JpyRate", "Address", "DestinationTag", "MemoId", "State", "Result", "TransferType", "Time", });
     internal_static_adamant_teller_v1_EthereumStakingReward_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_adamant_teller_v1_EthereumStakingReward_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_teller_v1_EthereumStakingReward_descriptor,
         new java.lang.String[] { "EventId", "WithdrawalIndex", "BlockNumber", "BlockTime", "ValidatorIndex", "Address", "Value", "WalletId", "EthereumStakingRewardLayerType", "StringValue", "BlockHash", });
+    internal_static_adamant_teller_v1_StakingRewardReceived_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_adamant_teller_v1_StakingRewardReceived_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_StakingRewardReceived_descriptor,
+        new java.lang.String[] { "EventId", "ValidatorId", "Value", "StringValue", "TxId", "TxIndex", "OwnerId", "WalletId", "Address", "Coin", "Time", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(io.envoyproxy.pgv.validate.Validate.rules);

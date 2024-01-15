@@ -8,24 +8,24 @@ public interface ExitEthereumStakingValidatorsRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = { ... }</code>
+   * <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
    * @return A list containing the validatorIds.
    */
   java.util.List<java.lang.String>
       getValidatorIdsList();
   /**
-   * <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = { ... }</code>
+   * <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
    * @return The count of validatorIds.
    */
   int getValidatorIdsCount();
   /**
-   * <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = { ... }</code>
+   * <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
    * @param index The index of the element to return.
    * @return The validatorIds at the given index.
    */
   java.lang.String getValidatorIds(int index);
   /**
-   * <code>repeated string validator_ids = 1 [json_name = "validatorIds", (.validate.rules) = { ... }</code>
+   * <code>repeated string validator_ids = 1 [json_name = "validatorIds"];</code>
    * @param index The index of the value to return.
    * @return The bytes of the validatorIds at the given index.
    */
