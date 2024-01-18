@@ -226,6 +226,14 @@ class Network
      */
     const NETWORK_SOLANA_TESTNET = 52;
     /**
+     * Generated from protobuf enum <code>NETWORK_BNB_SMART_CHAIN_MAINNET = 53;</code>
+     */
+    const NETWORK_BNB_SMART_CHAIN_MAINNET = 53;
+    /**
+     * Generated from protobuf enum <code>NETWORK_BNB_SMART_CHAIN_TESTNET = 54;</code>
+     */
+    const NETWORK_BNB_SMART_CHAIN_TESTNET = 54;
+    /**
      * Generated from protobuf enum <code>NETWORK_SHIDEN_MAINNET = 10002;</code>
      */
     const NETWORK_SHIDEN_MAINNET = 10002;
@@ -284,6 +292,8 @@ class Network
         self::NETWORK_JAPAN_OPEN_CHAIN_TESTNET => 'NETWORK_JAPAN_OPEN_CHAIN_TESTNET',
         self::NETWORK_SOLANA_MAINNET => 'NETWORK_SOLANA_MAINNET',
         self::NETWORK_SOLANA_TESTNET => 'NETWORK_SOLANA_TESTNET',
+        self::NETWORK_BNB_SMART_CHAIN_MAINNET => 'NETWORK_BNB_SMART_CHAIN_MAINNET',
+        self::NETWORK_BNB_SMART_CHAIN_TESTNET => 'NETWORK_BNB_SMART_CHAIN_TESTNET',
         self::NETWORK_SHIDEN_MAINNET => 'NETWORK_SHIDEN_MAINNET',
     ];
 
