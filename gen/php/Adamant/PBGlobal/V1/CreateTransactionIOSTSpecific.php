@@ -23,6 +23,12 @@ class CreateTransactionIOSTSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint64 timestamp = 2 [json_name = "timestamp"];</code>
      */
     protected $timestamp = 0;
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>optional .adamant.global.v1.IOSTActionType type = 3 [json_name = "type"];</code>
+     */
+    protected $type = null;
 
     /**
      * Constructor.
@@ -32,6 +38,8 @@ class CreateTransactionIOSTSpecific extends \Google\Protobuf\Internal\Message
      *
      *     @type string $memo
      *     @type int|string $timestamp
+     *     @type int $type
+     *           optional
      * }
      */
     public function __construct($data = NULL) {
@@ -79,6 +87,42 @@ class CreateTransactionIOSTSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint64($var);
         $this->timestamp = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>optional .adamant.global.v1.IOSTActionType type = 3 [json_name = "type"];</code>
+     * @return int
+     */
+    public function getType()
+    {
+        return isset($this->type) ? $this->type : 0;
+    }
+
+    public function hasType()
+    {
+        return isset($this->type);
+    }
+
+    public function clearType()
+    {
+        unset($this->type);
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>optional .adamant.global.v1.IOSTActionType type = 3 [json_name = "type"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setType($var)
+    {
+        GPBUtil::checkEnum($var, \Adamant\PBGlobal\V1\IOSTActionType::class);
+        $this->type = $var;
 
         return $this;
     }

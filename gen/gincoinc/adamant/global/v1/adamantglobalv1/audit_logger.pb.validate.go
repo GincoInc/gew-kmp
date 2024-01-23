@@ -11,6 +11,7 @@ import (
 	"net/mail"
 	"net/url"
 	"regexp"
+	"sort"
 	"strings"
 	"time"
 	"unicode/utf8"
@@ -33,17 +34,27 @@ var (
 	_ = (*url.URL)(nil)
 	_ = (*mail.Address)(nil)
 	_ = anypb.Any{}
+	_ = sort.Sort
 
 	_ = gincoincglobalv1.Coin(0)
 )
 
 // Validate checks the field values on AuditLog with the rules defined in the
-// proto definition for this message. If any rules are violated, an error is
-// returned. When asked to return all errors, validation continues after first
-// violation, and the result is a list of violation errors wrapped in
-// AuditLogMultiError, or nil if none found. Otherwise, only the first error
-// is returned, if any.
-func (m *AuditLog) Validate(all bool) error {
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *AuditLog) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AuditLog with the rules defined in
+// the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in AuditLogMultiError, or nil
+// if none found.
+func (m *AuditLog) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AuditLog) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -118,42 +129,73 @@ func (m *AuditLog) Validate(all bool) error {
 
 	// no validation rules for WhitelistName
 
-	if v, ok := interface{}(m.GetEventTime()).(interface{ Validate(bool) error }); ok {
-		if err := v.Validate(all); err != nil {
-			err = AuditLogValidationError{
+	if all {
+		switch v := interface{}(m.GetEventTime()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, AuditLogValidationError{
+					field:  "EventTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, AuditLogValidationError{
+					field:  "EventTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetEventTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return AuditLogValidationError{
 				field:  "EventTime",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
-			if !all {
-				return err
-			}
-			errors = append(errors, err)
 		}
 	}
 
-	if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate(bool) error }); ok {
-		if err := v.Validate(all); err != nil {
-			err = AuditLogValidationError{
+	if all {
+		switch v := interface{}(m.GetCreateTime()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, AuditLogValidationError{
+					field:  "CreateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, AuditLogValidationError{
+					field:  "CreateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return AuditLogValidationError{
 				field:  "CreateTime",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
-			if !all {
-				return err
-			}
-			errors = append(errors, err)
 		}
 	}
 
 	if len(errors) > 0 {
 		return AuditLogMultiError(errors)
 	}
+
 	return nil
 }
 
 // AuditLogMultiError is an error wrapping multiple validation errors returned
-// by AuditLog.Validate(true) if the designated constraints aren't met.
+// by AuditLog.ValidateAll() if the designated constraints aren't met.
 type AuditLogMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.

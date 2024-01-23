@@ -154,6 +154,12 @@ class Wallet extends \Google\Protobuf\Internal\Message
      */
     protected $inherit_wallet_id = '';
     /**
+     * The flag indicating the wallet is available for staking
+     *
+     * Generated from protobuf field <code>bool is_staking_available = 26 [json_name = "isStakingAvailable"];</code>
+     */
+    protected $is_staking_available = false;
+    /**
      * the time at which the wallet was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 15 [json_name = "createTime"];</code>
@@ -218,6 +224,8 @@ class Wallet extends \Google\Protobuf\Internal\Message
      *           should check remittance
      *     @type string $inherit_wallet_id
      *           The wallet id of the inherited ethereum (only for ERC20 token)
+     *     @type bool $is_staking_available
+     *           The flag indicating the wallet is available for staking
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the wallet was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -833,6 +841,32 @@ class Wallet extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->inherit_wallet_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * The flag indicating the wallet is available for staking
+     *
+     * Generated from protobuf field <code>bool is_staking_available = 26 [json_name = "isStakingAvailable"];</code>
+     * @return bool
+     */
+    public function getIsStakingAvailable()
+    {
+        return $this->is_staking_available;
+    }
+
+    /**
+     * The flag indicating the wallet is available for staking
+     *
+     * Generated from protobuf field <code>bool is_staking_available = 26 [json_name = "isStakingAvailable"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setIsStakingAvailable($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->is_staking_available = $var;
 
         return $this;
     }

@@ -33,6 +33,7 @@ type GlobalAPIClient interface {
 	ListWallets(ctx context.Context, in *ListWalletsRequest, opts ...grpc.CallOption) (*ListWalletsResponse, error)
 	ListWalletsByFilter(ctx context.Context, in *ListWalletsByFilterRequest, opts ...grpc.CallOption) (*ListWalletsResponse, error)
 	ListBaseWallets(ctx context.Context, in *ListBaseWalletsRequest, opts ...grpc.CallOption) (*ListBaseWalletsResponse, error)
+	ListStakingWalletsByFilter(ctx context.Context, in *ListStakingWalletsByFilterRequest, opts ...grpc.CallOption) (*ListStakingWalletsResponse, error)
 	UpdateWalletName(ctx context.Context, in *UpdateWalletNameRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	UpdateWalletValidation(ctx context.Context, in *UpdateWalletValidationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	UpdateWalletPolicy(ctx context.Context, in *UpdateWalletPolicyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -48,6 +49,8 @@ type GlobalAPIClient interface {
 	ListCosmosDelegateHistories(ctx context.Context, in *ListCosmosDelegateHistoriesRequest, opts ...grpc.CallOption) (*ListCosmosDelegateHistoriesResponse, error)
 	EnableUTXO(ctx context.Context, in *EnableUTXORequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DisableUTXO(ctx context.Context, in *DisableUTXORequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	UpdateWalletIsStakingAvailable(ctx context.Context, in *UpdateWalletIsStakingAvailableRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	RefreshStakingWalletClaimableReward(ctx context.Context, in *RefreshStakingWalletClaimableRewardRequest, opts ...grpc.CallOption) (*RefreshStakingWalletClaimableRewardResponse, error)
 	// Review
 	ApproveWallet(ctx context.Context, in *ApproveWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	ApproveTransaction(ctx context.Context, in *ApproveTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -148,6 +151,10 @@ type GlobalAPIClient interface {
 	// ForwardingThresholds
 	ListForwardingThresholds(ctx context.Context, in *ListForwardingThresholdsRequest, opts ...grpc.CallOption) (*ListForwardingThresholdsResponse, error)
 	UpsertForwardingThreshold(ctx context.Context, in *UpsertForwardingThresholdRequest, opts ...grpc.CallOption) (*UpsertForwardingThresholdResponse, error)
+	// StakingHistories
+	ListStakingHistoriesByFilter(ctx context.Context, in *ListStakingHistoriesByFilterRequest, opts ...grpc.CallOption) (*ListStakingHistoriesResponse, error)
+	// StakingValidators
+	ListStakingValidatorsByFilter(ctx context.Context, in *ListStakingValidatorsByFilterRequest, opts ...grpc.CallOption) (*ListStakingValidatorsResponse, error)
 }
 
 type globalAPIClient struct {
@@ -224,6 +231,15 @@ func (c *globalAPIClient) ListWalletsByFilter(ctx context.Context, in *ListWalle
 func (c *globalAPIClient) ListBaseWallets(ctx context.Context, in *ListBaseWalletsRequest, opts ...grpc.CallOption) (*ListBaseWalletsResponse, error) {
 	out := new(ListBaseWalletsResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListBaseWallets", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) ListStakingWalletsByFilter(ctx context.Context, in *ListStakingWalletsByFilterRequest, opts ...grpc.CallOption) (*ListStakingWalletsResponse, error) {
+	out := new(ListStakingWalletsResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListStakingWalletsByFilter", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -359,6 +375,24 @@ func (c *globalAPIClient) EnableUTXO(ctx context.Context, in *EnableUTXORequest,
 func (c *globalAPIClient) DisableUTXO(ctx context.Context, in *DisableUTXORequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/DisableUTXO", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) UpdateWalletIsStakingAvailable(ctx context.Context, in *UpdateWalletIsStakingAvailableRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/UpdateWalletIsStakingAvailable", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) RefreshStakingWalletClaimableReward(ctx context.Context, in *RefreshStakingWalletClaimableRewardRequest, opts ...grpc.CallOption) (*RefreshStakingWalletClaimableRewardResponse, error) {
+	out := new(RefreshStakingWalletClaimableRewardResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/RefreshStakingWalletClaimableReward", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1094,6 +1128,24 @@ func (c *globalAPIClient) UpsertForwardingThreshold(ctx context.Context, in *Ups
 	return out, nil
 }
 
+func (c *globalAPIClient) ListStakingHistoriesByFilter(ctx context.Context, in *ListStakingHistoriesByFilterRequest, opts ...grpc.CallOption) (*ListStakingHistoriesResponse, error) {
+	out := new(ListStakingHistoriesResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListStakingHistoriesByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) ListStakingValidatorsByFilter(ctx context.Context, in *ListStakingValidatorsByFilterRequest, opts ...grpc.CallOption) (*ListStakingValidatorsResponse, error) {
+	out := new(ListStakingValidatorsResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListStakingValidatorsByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // GlobalAPIServer is the server API for GlobalAPI service.
 // All implementations should embed UnimplementedGlobalAPIServer
 // for forward compatibility
@@ -1108,6 +1160,7 @@ type GlobalAPIServer interface {
 	ListWallets(context.Context, *ListWalletsRequest) (*ListWalletsResponse, error)
 	ListWalletsByFilter(context.Context, *ListWalletsByFilterRequest) (*ListWalletsResponse, error)
 	ListBaseWallets(context.Context, *ListBaseWalletsRequest) (*ListBaseWalletsResponse, error)
+	ListStakingWalletsByFilter(context.Context, *ListStakingWalletsByFilterRequest) (*ListStakingWalletsResponse, error)
 	UpdateWalletName(context.Context, *UpdateWalletNameRequest) (*emptypb.Empty, error)
 	UpdateWalletValidation(context.Context, *UpdateWalletValidationRequest) (*emptypb.Empty, error)
 	UpdateWalletPolicy(context.Context, *UpdateWalletPolicyRequest) (*emptypb.Empty, error)
@@ -1123,6 +1176,8 @@ type GlobalAPIServer interface {
 	ListCosmosDelegateHistories(context.Context, *ListCosmosDelegateHistoriesRequest) (*ListCosmosDelegateHistoriesResponse, error)
 	EnableUTXO(context.Context, *EnableUTXORequest) (*emptypb.Empty, error)
 	DisableUTXO(context.Context, *DisableUTXORequest) (*emptypb.Empty, error)
+	UpdateWalletIsStakingAvailable(context.Context, *UpdateWalletIsStakingAvailableRequest) (*emptypb.Empty, error)
+	RefreshStakingWalletClaimableReward(context.Context, *RefreshStakingWalletClaimableRewardRequest) (*RefreshStakingWalletClaimableRewardResponse, error)
 	// Review
 	ApproveWallet(context.Context, *ApproveWalletRequest) (*emptypb.Empty, error)
 	ApproveTransaction(context.Context, *ApproveTransactionRequest) (*emptypb.Empty, error)
@@ -1223,6 +1278,10 @@ type GlobalAPIServer interface {
 	// ForwardingThresholds
 	ListForwardingThresholds(context.Context, *ListForwardingThresholdsRequest) (*ListForwardingThresholdsResponse, error)
 	UpsertForwardingThreshold(context.Context, *UpsertForwardingThresholdRequest) (*UpsertForwardingThresholdResponse, error)
+	// StakingHistories
+	ListStakingHistoriesByFilter(context.Context, *ListStakingHistoriesByFilterRequest) (*ListStakingHistoriesResponse, error)
+	// StakingValidators
+	ListStakingValidatorsByFilter(context.Context, *ListStakingValidatorsByFilterRequest) (*ListStakingValidatorsResponse, error)
 }
 
 // UnimplementedGlobalAPIServer should be embedded to have forward compatible implementations.
@@ -1252,6 +1311,9 @@ func (UnimplementedGlobalAPIServer) ListWalletsByFilter(context.Context, *ListWa
 }
 func (UnimplementedGlobalAPIServer) ListBaseWallets(context.Context, *ListBaseWalletsRequest) (*ListBaseWalletsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListBaseWallets not implemented")
+}
+func (UnimplementedGlobalAPIServer) ListStakingWalletsByFilter(context.Context, *ListStakingWalletsByFilterRequest) (*ListStakingWalletsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListStakingWalletsByFilter not implemented")
 }
 func (UnimplementedGlobalAPIServer) UpdateWalletName(context.Context, *UpdateWalletNameRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateWalletName not implemented")
@@ -1297,6 +1359,12 @@ func (UnimplementedGlobalAPIServer) EnableUTXO(context.Context, *EnableUTXOReque
 }
 func (UnimplementedGlobalAPIServer) DisableUTXO(context.Context, *DisableUTXORequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DisableUTXO not implemented")
+}
+func (UnimplementedGlobalAPIServer) UpdateWalletIsStakingAvailable(context.Context, *UpdateWalletIsStakingAvailableRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateWalletIsStakingAvailable not implemented")
+}
+func (UnimplementedGlobalAPIServer) RefreshStakingWalletClaimableReward(context.Context, *RefreshStakingWalletClaimableRewardRequest) (*RefreshStakingWalletClaimableRewardResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RefreshStakingWalletClaimableReward not implemented")
 }
 func (UnimplementedGlobalAPIServer) ApproveWallet(context.Context, *ApproveWalletRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ApproveWallet not implemented")
@@ -1541,6 +1609,12 @@ func (UnimplementedGlobalAPIServer) ListForwardingThresholds(context.Context, *L
 func (UnimplementedGlobalAPIServer) UpsertForwardingThreshold(context.Context, *UpsertForwardingThresholdRequest) (*UpsertForwardingThresholdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpsertForwardingThreshold not implemented")
 }
+func (UnimplementedGlobalAPIServer) ListStakingHistoriesByFilter(context.Context, *ListStakingHistoriesByFilterRequest) (*ListStakingHistoriesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListStakingHistoriesByFilter not implemented")
+}
+func (UnimplementedGlobalAPIServer) ListStakingValidatorsByFilter(context.Context, *ListStakingValidatorsByFilterRequest) (*ListStakingValidatorsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListStakingValidatorsByFilter not implemented")
+}
 
 // UnsafeGlobalAPIServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to GlobalAPIServer will
@@ -1693,6 +1767,24 @@ func _GlobalAPI_ListBaseWallets_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GlobalAPIServer).ListBaseWallets(ctx, req.(*ListBaseWalletsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_ListStakingWalletsByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListStakingWalletsByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ListStakingWalletsByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ListStakingWalletsByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ListStakingWalletsByFilter(ctx, req.(*ListStakingWalletsByFilterRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1963,6 +2055,42 @@ func _GlobalAPI_DisableUTXO_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GlobalAPIServer).DisableUTXO(ctx, req.(*DisableUTXORequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_UpdateWalletIsStakingAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateWalletIsStakingAvailableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).UpdateWalletIsStakingAvailable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/UpdateWalletIsStakingAvailable",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).UpdateWalletIsStakingAvailable(ctx, req.(*UpdateWalletIsStakingAvailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_RefreshStakingWalletClaimableReward_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RefreshStakingWalletClaimableRewardRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).RefreshStakingWalletClaimableReward(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/RefreshStakingWalletClaimableReward",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).RefreshStakingWalletClaimableReward(ctx, req.(*RefreshStakingWalletClaimableRewardRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3425,6 +3553,42 @@ func _GlobalAPI_UpsertForwardingThreshold_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GlobalAPI_ListStakingHistoriesByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListStakingHistoriesByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ListStakingHistoriesByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ListStakingHistoriesByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ListStakingHistoriesByFilter(ctx, req.(*ListStakingHistoriesByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_ListStakingValidatorsByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListStakingValidatorsByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ListStakingValidatorsByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ListStakingValidatorsByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ListStakingValidatorsByFilter(ctx, req.(*ListStakingValidatorsByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // GlobalAPI_ServiceDesc is the grpc.ServiceDesc for GlobalAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -3463,6 +3627,10 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListBaseWallets",
 			Handler:    _GlobalAPI_ListBaseWallets_Handler,
+		},
+		{
+			MethodName: "ListStakingWalletsByFilter",
+			Handler:    _GlobalAPI_ListStakingWalletsByFilter_Handler,
 		},
 		{
 			MethodName: "UpdateWalletName",
@@ -3523,6 +3691,14 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DisableUTXO",
 			Handler:    _GlobalAPI_DisableUTXO_Handler,
+		},
+		{
+			MethodName: "UpdateWalletIsStakingAvailable",
+			Handler:    _GlobalAPI_UpdateWalletIsStakingAvailable_Handler,
+		},
+		{
+			MethodName: "RefreshStakingWalletClaimableReward",
+			Handler:    _GlobalAPI_RefreshStakingWalletClaimableReward_Handler,
 		},
 		{
 			MethodName: "ApproveWallet",
@@ -3847,6 +4023,14 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpsertForwardingThreshold",
 			Handler:    _GlobalAPI_UpsertForwardingThreshold_Handler,
+		},
+		{
+			MethodName: "ListStakingHistoriesByFilter",
+			Handler:    _GlobalAPI_ListStakingHistoriesByFilter_Handler,
+		},
+		{
+			MethodName: "ListStakingValidatorsByFilter",
+			Handler:    _GlobalAPI_ListStakingValidatorsByFilter_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

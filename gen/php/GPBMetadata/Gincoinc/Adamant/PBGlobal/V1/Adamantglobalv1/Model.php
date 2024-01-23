@@ -20,8 +20,8 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-µ”
-6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"•
+ Ì
+6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"◊
 Wallet
 owner_id (	RownerId
 	wallet_id (	RwalletId
@@ -49,7 +49,8 @@ walletTypeB
 watch_only (R	watchOnly%
 address_number (RaddressNumber6
 should_check_remittance (RshouldCheckRemittance*
-inherit_wallet_id (	RinheritWalletId;
+inherit_wallet_id (	RinheritWalletId0
+is_staking_available (RisStakingAvailable;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
@@ -79,6 +80,34 @@ walletTypeB
 watch_only (R	watchOnly6
 should_check_remittance (RshouldCheckRemittance*
 inherit_wallet_id (	RinheritWalletId;
+create_time (2.google.protobuf.TimestampR
+createTime;
+update_time (2.google.protobuf.TimestampR
+updateTime"©	
+StakingWallet
+owner_id (	RownerId
+	wallet_id (	RwalletId
+name (	Rname,
+coin (2.gincoinc.global.v1.CoinRcoin>
+wallet_type (2.adamant.global.v1.WalletTypeR
+walletTypeB
+address_type (2.gincoinc.global.v1.AddressTypeRaddressType4
+state (2.adamant.global.v1.WalletStateRstate
+balance (Rbalance%
+string_balance	 (	RstringBalance+
+spendable_balance
+ (RspendableBalance8
+string_spendable_balance (	RstringSpendableBalance\'
+staking_balance (RstakingBalance4
+string_staking_balance (	RstringStakingBalance8
+claimable_reward_balance (RclaimableRewardBalanceE
+string_claimable_reward_balance (	RstringClaimableRewardBalanceB
+withdrawable_unstaked_balance (RwithdrawableUnstakedBalanceO
+$string_withdrawable_unstaked_balance (	R!stringWithdrawableUnstakedBalance6
+frozen_unstaked_balance (RfrozenUnstakedBalanceC
+string_frozen_unstaked_balance (	RstringFrozenUnstakedBalance
+address (	Raddress6
+active_validators_count (RactiveValidatorsCount;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
@@ -165,7 +194,7 @@ address_id (	R	addressId,
 string_balance (	RstringBalance
 fee_balance (R
 feeBalance,
-string_fee_balance (	RstringFeeBalance"Í
+string_fee_balance (	RstringFeeBalance"∂
 Transaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId,
@@ -207,7 +236,8 @@ signedKeys>
 ethereum_classic_specific( (2*.adamant.global.v1.EthereumClassicSpecificRethereumClassicSpecificP
 algorand_specific) (2#.adamant.global.v1.AlgorandSpecificRalgorandSpecificJ
 hedera_specific* (2!.adamant.global.v1.HederaSpecificRhederaSpecificd
-japan_open_chain_specific+ (2).adamant.global.v1.JapanOpenChainSpecificRjapanOpenChainSpecific;
+japan_open_chain_specific+ (2).adamant.global.v1.JapanOpenChainSpecificRjapanOpenChainSpecificJ
+solana_specific, (2!.adamant.global.v1.SolanaSpecificRsolanaSpecific;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
@@ -257,7 +287,7 @@ tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"ä
 BitcoincashSpecific7
 	tx_inputs (2.adamant.global.v1.TxInputRtxInputs:
 
-tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"Ù
+tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"™
 EthereumSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
@@ -266,7 +296,8 @@ tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"Ù
 
 expiration (R
 expiration
-data (	Rdata"◊
+data (	Rdata4
+is_staking_transaction (RisStakingTransaction"◊
 XrpSpecific\'
 sequence_number (RsequenceNumber\'
 destination_tag (RdestinationTag?
@@ -287,11 +318,12 @@ tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"é
 CardanoSpecific7
 	tx_inputs (2.adamant.global.v1.TxInputRtxInputs:
 
-tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"∆
+tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"â
 SubstrateSpecific
 nonce (Rnonce"
 is_next_nonce (RisNextNoncew
-substrate_multisig_transactions (2/.adamant.global.v1.SubstrateMultisigTransactionRsubstrateMultisigTransactions"á
+substrate_multisig_transactions (2/.adamant.global.v1.SubstrateMultisigTransactionRsubstrateMultisigTransactionsA
+	call_type (2$.adamant.global.v1.SubstrateCallTypeRcallType"á
 MonacoinSpecific7
 	tx_inputs (2.adamant.global.v1.TxInputRtxInputs:
 
@@ -303,13 +335,14 @@ tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"ç
 
 expiration (R
 expiration
-	timestamp (R	timestamp"`
+	timestamp (R	timestamp"ó
 IOSTSpecific
 memo (	Rmemo
 	timestamp (R	timestamp
 
 expiration (R
-expiration"h
+expiration5
+type (2!.adamant.global.v1.IOSTActionTypeRtype"h
 PolygonSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
@@ -371,7 +404,11 @@ expiration"o
 JapanOpenChainSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
-is_next_nonce (RisNextNonce"‚
+is_next_nonce (RisNextNonce"0
+SolanaSpecific
+
+expiration (R
+expiration"‚
 "CreateTransactionSubstrateSpecific%
 transaction_id (	RtransactionIdA
 	call_type (2$.adamant.global.v1.SubstrateCallTypeRcallTypeR
@@ -383,17 +420,21 @@ expiration"o
 transaction_id (	RtransactionId?
 tx_type (2&.gincoinc.global.v1.NemTransactionTypeRtxType
 message (	Rmessage
-	timestamp (R	timestamp"Q
+	timestamp (R	timestamp"ñ
 CreateTransactionIOSTSpecific
 memo (	Rmemo
-	timestamp (R	timestamp"ƒ
+	timestamp (R	timestamp:
+type (2!.adamant.global.v1.IOSTActionTypeH RtypeàB
+_type"ƒ
 CreateTransactionSymbolSpecific%
 transaction_id (	RtransactionIdB
 tx_type (2).gincoinc.global.v1.SymbolTransactionTypeRtxType
 message (	Rmessage
-	timestamp (R	timestamp"7
+	timestamp (R	timestamp"õ
 !CreateTransactionEthereumSpecific
-data (	Rdata"l
+data (	RdataB
+staking_recipient_wallet_id (	H RstakingRecipientWalletIdàB
+_staking_recipient_wallet_id"l
 CreateTransactionCosmosSpecific5
 type (2!.gincoinc.global.v1.CosmosMsgTypeRtype
 memo (	Rmemo"A
@@ -471,7 +512,7 @@ sign_index (R	signIndex!
 tx_input_index (RtxInputIndex!
 sign_message (	RsignMessage
 	hd_change (RhdChange
-hd_index (RhdIndex"˘
+hd_index (RhdIndex"Õ
 Transfer
 	wallet_id (	RwalletId
 transfer_id (	R
@@ -499,7 +540,8 @@ string_fee (	R	stringFee
 createTime;
 update_time (2.google.protobuf.TimestampR
 updateTimeR
-cosmos_specific (2).adamant.global.v1.TransferCosmosSpecificRcosmosSpecific"ù
+cosmos_specific (2).adamant.global.v1.TransferCosmosSpecificRcosmosSpecificR
+staking_event_type (2$.gincoinc.global.v1.StakingEventTypeRstakingEventType"ù
 TransferCosmosSpecific5
 type (2!.gincoinc.global.v1.CosmosMsgTypeRtype\'
 delegate_amount (RdelegateAmount#
@@ -791,7 +833,53 @@ account_id (	R	accountId!
 CosmosDelegation+
 validator_address (	RvalidatorAddress\'
 delegate_amount (RdelegateAmount#
-reward_amount (RrewardAmountBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
+reward_amount (RrewardAmount"â
+StakingHistory,
+staking_history_id (	RstakingHistoryId
+owner_id (	RownerId
+	wallet_id (	RwalletId,
+coin (2.gincoinc.global.v1.CoinRcoin!
+validator_id (	RvalidatorId
+tx_id (	RtxId
+tx_index (RtxIndex
+
+block_hash (	R	blockHash
+value	 (Rvalue!
+string_value
+ (	RstringValueC
+
+event_type (2$.gincoinc.global.v1.StakingEventTypeR	eventType
+event_id (	ReventId^
+ethereum_specific (21.adamant.global.v1.StakingHistoryEthereumSpecificRethereumSpecific;
+create_time (2.google.protobuf.TimestampR
+createTime;
+update_time (2.google.protobuf.TimestampR
+updateTime"⁄
+StakingHistoryEthereumSpecific
+event_id (	ReventId
+address (	Raddress)
+withdrawal_index (RwithdrawalIndex\'
+validator_index (RvalidatorIndex!
+block_number (RblockNumber9
+
+block_time (2.google.protobuf.TimestampR	blockTimeQ
+history_type (2..gincoinc.global.v1.EthereumStakingHistoryTypeRhistoryType"ù
+StakingValidator0
+staking_validator_id (	RstakingValidatorId
+owner_id (	RownerId
+	wallet_id (	RwalletId,
+coin (2.gincoinc.global.v1.CoinRcoin!
+validator_id (	RvalidatorId.
+recipient_wallet_id (	RrecipientWalletIdB
+status (2*.gincoinc.global.v1.StakingValidatorStatusRstatus
+value (Rvalue!
+string_value	 (	RstringValue\'
+expiration_time
+ (RexpirationTime;
+create_time (2.google.protobuf.TimestampR
+createTime;
+update_time (2.google.protobuf.TimestampR
+updateTimeBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
         , true);
 
         static::$is_initialized = true;

@@ -263,6 +263,37 @@ public final class GlobalAPIGrpc {
     return getListBaseWalletsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListStakingWalletsByFilterRequest,
+      adamant.global.v1.ListStakingWalletsResponse> getListStakingWalletsByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListStakingWalletsByFilter",
+      requestType = adamant.global.v1.ListStakingWalletsByFilterRequest.class,
+      responseType = adamant.global.v1.ListStakingWalletsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListStakingWalletsByFilterRequest,
+      adamant.global.v1.ListStakingWalletsResponse> getListStakingWalletsByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListStakingWalletsByFilterRequest, adamant.global.v1.ListStakingWalletsResponse> getListStakingWalletsByFilterMethod;
+    if ((getListStakingWalletsByFilterMethod = GlobalAPIGrpc.getListStakingWalletsByFilterMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getListStakingWalletsByFilterMethod = GlobalAPIGrpc.getListStakingWalletsByFilterMethod) == null) {
+          GlobalAPIGrpc.getListStakingWalletsByFilterMethod = getListStakingWalletsByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListStakingWalletsByFilterRequest, adamant.global.v1.ListStakingWalletsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListStakingWalletsByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListStakingWalletsByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListStakingWalletsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ListStakingWalletsByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListStakingWalletsByFilterMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.UpdateWalletNameRequest,
       com.google.protobuf.Empty> getUpdateWalletNameMethod;
 
@@ -726,6 +757,68 @@ public final class GlobalAPIGrpc {
       }
     }
     return getDisableUTXOMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.UpdateWalletIsStakingAvailableRequest,
+      com.google.protobuf.Empty> getUpdateWalletIsStakingAvailableMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UpdateWalletIsStakingAvailable",
+      requestType = adamant.global.v1.UpdateWalletIsStakingAvailableRequest.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.UpdateWalletIsStakingAvailableRequest,
+      com.google.protobuf.Empty> getUpdateWalletIsStakingAvailableMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.UpdateWalletIsStakingAvailableRequest, com.google.protobuf.Empty> getUpdateWalletIsStakingAvailableMethod;
+    if ((getUpdateWalletIsStakingAvailableMethod = GlobalAPIGrpc.getUpdateWalletIsStakingAvailableMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getUpdateWalletIsStakingAvailableMethod = GlobalAPIGrpc.getUpdateWalletIsStakingAvailableMethod) == null) {
+          GlobalAPIGrpc.getUpdateWalletIsStakingAvailableMethod = getUpdateWalletIsStakingAvailableMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.UpdateWalletIsStakingAvailableRequest, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateWalletIsStakingAvailable"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.UpdateWalletIsStakingAvailableRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("UpdateWalletIsStakingAvailable"))
+              .build();
+        }
+      }
+    }
+    return getUpdateWalletIsStakingAvailableMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.RefreshStakingWalletClaimableRewardRequest,
+      adamant.global.v1.RefreshStakingWalletClaimableRewardResponse> getRefreshStakingWalletClaimableRewardMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "RefreshStakingWalletClaimableReward",
+      requestType = adamant.global.v1.RefreshStakingWalletClaimableRewardRequest.class,
+      responseType = adamant.global.v1.RefreshStakingWalletClaimableRewardResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.RefreshStakingWalletClaimableRewardRequest,
+      adamant.global.v1.RefreshStakingWalletClaimableRewardResponse> getRefreshStakingWalletClaimableRewardMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.RefreshStakingWalletClaimableRewardRequest, adamant.global.v1.RefreshStakingWalletClaimableRewardResponse> getRefreshStakingWalletClaimableRewardMethod;
+    if ((getRefreshStakingWalletClaimableRewardMethod = GlobalAPIGrpc.getRefreshStakingWalletClaimableRewardMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getRefreshStakingWalletClaimableRewardMethod = GlobalAPIGrpc.getRefreshStakingWalletClaimableRewardMethod) == null) {
+          GlobalAPIGrpc.getRefreshStakingWalletClaimableRewardMethod = getRefreshStakingWalletClaimableRewardMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.RefreshStakingWalletClaimableRewardRequest, adamant.global.v1.RefreshStakingWalletClaimableRewardResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RefreshStakingWalletClaimableReward"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.RefreshStakingWalletClaimableRewardRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.RefreshStakingWalletClaimableRewardResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("RefreshStakingWalletClaimableReward"))
+              .build();
+        }
+      }
+    }
+    return getRefreshStakingWalletClaimableRewardMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ApproveWalletRequest,
@@ -3239,6 +3332,68 @@ public final class GlobalAPIGrpc {
     return getUpsertForwardingThresholdMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListStakingHistoriesByFilterRequest,
+      adamant.global.v1.ListStakingHistoriesResponse> getListStakingHistoriesByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListStakingHistoriesByFilter",
+      requestType = adamant.global.v1.ListStakingHistoriesByFilterRequest.class,
+      responseType = adamant.global.v1.ListStakingHistoriesResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListStakingHistoriesByFilterRequest,
+      adamant.global.v1.ListStakingHistoriesResponse> getListStakingHistoriesByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListStakingHistoriesByFilterRequest, adamant.global.v1.ListStakingHistoriesResponse> getListStakingHistoriesByFilterMethod;
+    if ((getListStakingHistoriesByFilterMethod = GlobalAPIGrpc.getListStakingHistoriesByFilterMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getListStakingHistoriesByFilterMethod = GlobalAPIGrpc.getListStakingHistoriesByFilterMethod) == null) {
+          GlobalAPIGrpc.getListStakingHistoriesByFilterMethod = getListStakingHistoriesByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListStakingHistoriesByFilterRequest, adamant.global.v1.ListStakingHistoriesResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListStakingHistoriesByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListStakingHistoriesByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListStakingHistoriesResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ListStakingHistoriesByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListStakingHistoriesByFilterMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListStakingValidatorsByFilterRequest,
+      adamant.global.v1.ListStakingValidatorsResponse> getListStakingValidatorsByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListStakingValidatorsByFilter",
+      requestType = adamant.global.v1.ListStakingValidatorsByFilterRequest.class,
+      responseType = adamant.global.v1.ListStakingValidatorsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListStakingValidatorsByFilterRequest,
+      adamant.global.v1.ListStakingValidatorsResponse> getListStakingValidatorsByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListStakingValidatorsByFilterRequest, adamant.global.v1.ListStakingValidatorsResponse> getListStakingValidatorsByFilterMethod;
+    if ((getListStakingValidatorsByFilterMethod = GlobalAPIGrpc.getListStakingValidatorsByFilterMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getListStakingValidatorsByFilterMethod = GlobalAPIGrpc.getListStakingValidatorsByFilterMethod) == null) {
+          GlobalAPIGrpc.getListStakingValidatorsByFilterMethod = getListStakingValidatorsByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListStakingValidatorsByFilterRequest, adamant.global.v1.ListStakingValidatorsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListStakingValidatorsByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListStakingValidatorsByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListStakingValidatorsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ListStakingValidatorsByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListStakingValidatorsByFilterMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -3351,6 +3506,13 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    default void listStakingWalletsByFilter(adamant.global.v1.ListStakingWalletsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingWalletsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListStakingWalletsByFilterMethod(), responseObserver);
+    }
+
+    /**
+     */
     default void updateWalletName(adamant.global.v1.UpdateWalletNameRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateWalletNameMethod(), responseObserver);
@@ -3452,6 +3614,20 @@ public final class GlobalAPIGrpc {
     default void disableUTXO(adamant.global.v1.DisableUTXORequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDisableUTXOMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void updateWalletIsStakingAvailable(adamant.global.v1.UpdateWalletIsStakingAvailableRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateWalletIsStakingAvailableMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void refreshStakingWalletClaimableReward(adamant.global.v1.RefreshStakingWalletClaimableRewardRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.RefreshStakingWalletClaimableRewardResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRefreshStakingWalletClaimableRewardMethod(), responseObserver);
     }
 
     /**
@@ -4071,6 +4247,26 @@ public final class GlobalAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.UpsertForwardingThresholdResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpsertForwardingThresholdMethod(), responseObserver);
     }
+
+    /**
+     * <pre>
+     * StakingHistories
+     * </pre>
+     */
+    default void listStakingHistoriesByFilter(adamant.global.v1.ListStakingHistoriesByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingHistoriesResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListStakingHistoriesByFilterMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * StakingValidators
+     * </pre>
+     */
+    default void listStakingValidatorsByFilter(adamant.global.v1.ListStakingValidatorsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingValidatorsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListStakingValidatorsByFilterMethod(), responseObserver);
+    }
   }
 
   /**
@@ -4168,6 +4364,14 @@ public final class GlobalAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.ListBaseWalletsResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListBaseWalletsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listStakingWalletsByFilter(adamant.global.v1.ListStakingWalletsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingWalletsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListStakingWalletsByFilterMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -4288,6 +4492,22 @@ public final class GlobalAPIGrpc {
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDisableUTXOMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateWalletIsStakingAvailable(adamant.global.v1.UpdateWalletIsStakingAvailableRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getUpdateWalletIsStakingAvailableMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void refreshStakingWalletClaimableReward(adamant.global.v1.RefreshStakingWalletClaimableRewardRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.RefreshStakingWalletClaimableRewardResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getRefreshStakingWalletClaimableRewardMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -4988,6 +5208,28 @@ public final class GlobalAPIGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpsertForwardingThresholdMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * StakingHistories
+     * </pre>
+     */
+    public void listStakingHistoriesByFilter(adamant.global.v1.ListStakingHistoriesByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingHistoriesResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListStakingHistoriesByFilterMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * StakingValidators
+     * </pre>
+     */
+    public void listStakingValidatorsByFilter(adamant.global.v1.ListStakingValidatorsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingValidatorsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListStakingValidatorsByFilterMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -5066,6 +5308,13 @@ public final class GlobalAPIGrpc {
     public adamant.global.v1.ListBaseWalletsResponse listBaseWallets(adamant.global.v1.ListBaseWalletsRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListBaseWalletsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.ListStakingWalletsResponse listStakingWalletsByFilter(adamant.global.v1.ListStakingWalletsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListStakingWalletsByFilterMethod(), getCallOptions(), request);
     }
 
     /**
@@ -5171,6 +5420,20 @@ public final class GlobalAPIGrpc {
     public com.google.protobuf.Empty disableUTXO(adamant.global.v1.DisableUTXORequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDisableUTXOMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.google.protobuf.Empty updateWalletIsStakingAvailable(adamant.global.v1.UpdateWalletIsStakingAvailableRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getUpdateWalletIsStakingAvailableMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.RefreshStakingWalletClaimableRewardResponse refreshStakingWalletClaimableReward(adamant.global.v1.RefreshStakingWalletClaimableRewardRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getRefreshStakingWalletClaimableRewardMethod(), getCallOptions(), request);
     }
 
     /**
@@ -5790,6 +6053,26 @@ public final class GlobalAPIGrpc {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpsertForwardingThresholdMethod(), getCallOptions(), request);
     }
+
+    /**
+     * <pre>
+     * StakingHistories
+     * </pre>
+     */
+    public adamant.global.v1.ListStakingHistoriesResponse listStakingHistoriesByFilter(adamant.global.v1.ListStakingHistoriesByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListStakingHistoriesByFilterMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * StakingValidators
+     * </pre>
+     */
+    public adamant.global.v1.ListStakingValidatorsResponse listStakingValidatorsByFilter(adamant.global.v1.ListStakingValidatorsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListStakingValidatorsByFilterMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -5876,6 +6159,14 @@ public final class GlobalAPIGrpc {
         adamant.global.v1.ListBaseWalletsRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getListBaseWalletsMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListStakingWalletsResponse> listStakingWalletsByFilter(
+        adamant.global.v1.ListStakingWalletsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListStakingWalletsByFilterMethod(), getCallOptions()), request);
     }
 
     /**
@@ -5996,6 +6287,22 @@ public final class GlobalAPIGrpc {
         adamant.global.v1.DisableUTXORequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDisableUTXOMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> updateWalletIsStakingAvailable(
+        adamant.global.v1.UpdateWalletIsStakingAvailableRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getUpdateWalletIsStakingAvailableMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.RefreshStakingWalletClaimableRewardResponse> refreshStakingWalletClaimableReward(
+        adamant.global.v1.RefreshStakingWalletClaimableRewardRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getRefreshStakingWalletClaimableRewardMethod(), getCallOptions()), request);
     }
 
     /**
@@ -6696,6 +7003,28 @@ public final class GlobalAPIGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpsertForwardingThresholdMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * StakingHistories
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListStakingHistoriesResponse> listStakingHistoriesByFilter(
+        adamant.global.v1.ListStakingHistoriesByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListStakingHistoriesByFilterMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * StakingValidators
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListStakingValidatorsResponse> listStakingValidatorsByFilter(
+        adamant.global.v1.ListStakingValidatorsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListStakingValidatorsByFilterMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_WALLET = 0;
@@ -6706,102 +7035,107 @@ public final class GlobalAPIGrpc {
   private static final int METHODID_LIST_WALLETS = 5;
   private static final int METHODID_LIST_WALLETS_BY_FILTER = 6;
   private static final int METHODID_LIST_BASE_WALLETS = 7;
-  private static final int METHODID_UPDATE_WALLET_NAME = 8;
-  private static final int METHODID_UPDATE_WALLET_VALIDATION = 9;
-  private static final int METHODID_UPDATE_WALLET_POLICY = 10;
-  private static final int METHODID_REVIEW_WALLET_PROPOSAL = 11;
-  private static final int METHODID_FLUSH_BALANCE = 12;
-  private static final int METHODID_CREATE_WALLET_GROUP = 13;
-  private static final int METHODID_UPDATE_WALLET_GROUP_NAME = 14;
-  private static final int METHODID_UPDATE_WALLET_GROUP = 15;
-  private static final int METHODID_GET_WALLET_GROUP = 16;
-  private static final int METHODID_LIST_WALLET_GROUPS = 17;
-  private static final int METHODID_UPDATE_DESTINATION_WALLET_ID = 18;
-  private static final int METHODID_GET_COSMOS_BALANCE = 19;
-  private static final int METHODID_LIST_COSMOS_DELEGATE_HISTORIES = 20;
-  private static final int METHODID_ENABLE_UTXO = 21;
-  private static final int METHODID_DISABLE_UTXO = 22;
-  private static final int METHODID_APPROVE_WALLET = 23;
-  private static final int METHODID_APPROVE_TRANSACTION = 24;
-  private static final int METHODID_CREATE_ADDRESS = 25;
-  private static final int METHODID_GET_ADDRESS = 26;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 27;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 28;
-  private static final int METHODID_GET_ADDRESS_BY_INDEX = 29;
-  private static final int METHODID_LIST_ADDRESSES = 30;
-  private static final int METHODID_LIST_ADDRESSES_WITH_BALANCE = 31;
-  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 32;
-  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 33;
-  private static final int METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES = 34;
-  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 35;
-  private static final int METHODID_LIST_IOSTCHILD_ACCOUNTS = 36;
-  private static final int METHODID_IMPORT_ADDRESS = 37;
-  private static final int METHODID_LIST_CALLERS = 38;
-  private static final int METHODID_LIST_FEE_DEPOSITS = 39;
-  private static final int METHODID_REGISTER_KEY = 40;
-  private static final int METHODID_CREATE_TRANSACTION = 41;
-  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 42;
-  private static final int METHODID_SIGN_TRANSACTION = 43;
-  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 44;
-  private static final int METHODID_SEND_TRANSACTION = 45;
-  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 46;
-  private static final int METHODID_CANCEL_TRANSACTION = 47;
-  private static final int METHODID_REPLACE_TRANSACTION = 48;
-  private static final int METHODID_GET_TRANSACTION = 49;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 50;
-  private static final int METHODID_LIST_TRANSACTIONS = 51;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 52;
-  private static final int METHODID_GET_SIGN_INFO = 53;
-  private static final int METHODID_LIST_SIGN_INFO = 54;
-  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 55;
-  private static final int METHODID_LIST_TRANSFERS = 56;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 57;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 58;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 59;
-  private static final int METHODID_SET_RATES = 60;
-  private static final int METHODID_SET_DEFAULT_RATES = 61;
-  private static final int METHODID_CREATE_LABELED_ADDRESS = 62;
-  private static final int METHODID_GET_LABELED_ADDRESS = 63;
-  private static final int METHODID_LIST_LABELED_ADDRESSES = 64;
-  private static final int METHODID_LIST_LABELED_ADDRESSES_BY_FILTER = 65;
-  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 66;
-  private static final int METHODID_UPDATE_LABELED_ADDRESS = 67;
-  private static final int METHODID_DELETE_ADDRESS = 68;
-  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 69;
-  private static final int METHODID_CREATE_WHITELIST = 70;
-  private static final int METHODID_GET_WHITELIST = 71;
-  private static final int METHODID_LIST_WHITELISTS = 72;
-  private static final int METHODID_LIST_WHITELISTS_BY_FILTER = 73;
-  private static final int METHODID_IS_DELETABLE_WHITELIST = 74;
-  private static final int METHODID_UPDATE_WHITELIST = 75;
-  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 76;
-  private static final int METHODID_DELETE_WHITELIST = 77;
-  private static final int METHODID_CREATE_TRANSFER_LIMIT = 78;
-  private static final int METHODID_GET_TRANSFER_LIMIT = 79;
-  private static final int METHODID_LIST_TRANSFER_LIMITS = 80;
-  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 81;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 82;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 83;
-  private static final int METHODID_DELETE_TRANSFER_LIMIT = 84;
-  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 85;
-  private static final int METHODID_CREATE_POLICY = 86;
-  private static final int METHODID_GET_POLICY = 87;
-  private static final int METHODID_LIST_POLICIES = 88;
-  private static final int METHODID_LIST_POLICIES_BY_FILTER = 89;
-  private static final int METHODID_IS_DELETABLE_POLICY = 90;
-  private static final int METHODID_UPDATE_POLICY = 91;
-  private static final int METHODID_DELETE_POLICY = 92;
-  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 93;
-  private static final int METHODID_GET_SPENDABLE_BALANCE = 94;
-  private static final int METHODID_GET_TOTAL_BALANCE = 95;
-  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 96;
-  private static final int METHODID_CALCULATE_FEE = 97;
-  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 98;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 99;
-  private static final int METHODID_VALIDATE_ADDRESS = 100;
-  private static final int METHODID_LIST_AUDIT_LOGS = 101;
-  private static final int METHODID_LIST_FORWARDING_THRESHOLDS = 102;
-  private static final int METHODID_UPSERT_FORWARDING_THRESHOLD = 103;
+  private static final int METHODID_LIST_STAKING_WALLETS_BY_FILTER = 8;
+  private static final int METHODID_UPDATE_WALLET_NAME = 9;
+  private static final int METHODID_UPDATE_WALLET_VALIDATION = 10;
+  private static final int METHODID_UPDATE_WALLET_POLICY = 11;
+  private static final int METHODID_REVIEW_WALLET_PROPOSAL = 12;
+  private static final int METHODID_FLUSH_BALANCE = 13;
+  private static final int METHODID_CREATE_WALLET_GROUP = 14;
+  private static final int METHODID_UPDATE_WALLET_GROUP_NAME = 15;
+  private static final int METHODID_UPDATE_WALLET_GROUP = 16;
+  private static final int METHODID_GET_WALLET_GROUP = 17;
+  private static final int METHODID_LIST_WALLET_GROUPS = 18;
+  private static final int METHODID_UPDATE_DESTINATION_WALLET_ID = 19;
+  private static final int METHODID_GET_COSMOS_BALANCE = 20;
+  private static final int METHODID_LIST_COSMOS_DELEGATE_HISTORIES = 21;
+  private static final int METHODID_ENABLE_UTXO = 22;
+  private static final int METHODID_DISABLE_UTXO = 23;
+  private static final int METHODID_UPDATE_WALLET_IS_STAKING_AVAILABLE = 24;
+  private static final int METHODID_REFRESH_STAKING_WALLET_CLAIMABLE_REWARD = 25;
+  private static final int METHODID_APPROVE_WALLET = 26;
+  private static final int METHODID_APPROVE_TRANSACTION = 27;
+  private static final int METHODID_CREATE_ADDRESS = 28;
+  private static final int METHODID_GET_ADDRESS = 29;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 30;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 31;
+  private static final int METHODID_GET_ADDRESS_BY_INDEX = 32;
+  private static final int METHODID_LIST_ADDRESSES = 33;
+  private static final int METHODID_LIST_ADDRESSES_WITH_BALANCE = 34;
+  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 35;
+  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 36;
+  private static final int METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES = 37;
+  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 38;
+  private static final int METHODID_LIST_IOSTCHILD_ACCOUNTS = 39;
+  private static final int METHODID_IMPORT_ADDRESS = 40;
+  private static final int METHODID_LIST_CALLERS = 41;
+  private static final int METHODID_LIST_FEE_DEPOSITS = 42;
+  private static final int METHODID_REGISTER_KEY = 43;
+  private static final int METHODID_CREATE_TRANSACTION = 44;
+  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 45;
+  private static final int METHODID_SIGN_TRANSACTION = 46;
+  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 47;
+  private static final int METHODID_SEND_TRANSACTION = 48;
+  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 49;
+  private static final int METHODID_CANCEL_TRANSACTION = 50;
+  private static final int METHODID_REPLACE_TRANSACTION = 51;
+  private static final int METHODID_GET_TRANSACTION = 52;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 53;
+  private static final int METHODID_LIST_TRANSACTIONS = 54;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 55;
+  private static final int METHODID_GET_SIGN_INFO = 56;
+  private static final int METHODID_LIST_SIGN_INFO = 57;
+  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 58;
+  private static final int METHODID_LIST_TRANSFERS = 59;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 60;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 61;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 62;
+  private static final int METHODID_SET_RATES = 63;
+  private static final int METHODID_SET_DEFAULT_RATES = 64;
+  private static final int METHODID_CREATE_LABELED_ADDRESS = 65;
+  private static final int METHODID_GET_LABELED_ADDRESS = 66;
+  private static final int METHODID_LIST_LABELED_ADDRESSES = 67;
+  private static final int METHODID_LIST_LABELED_ADDRESSES_BY_FILTER = 68;
+  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 69;
+  private static final int METHODID_UPDATE_LABELED_ADDRESS = 70;
+  private static final int METHODID_DELETE_ADDRESS = 71;
+  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 72;
+  private static final int METHODID_CREATE_WHITELIST = 73;
+  private static final int METHODID_GET_WHITELIST = 74;
+  private static final int METHODID_LIST_WHITELISTS = 75;
+  private static final int METHODID_LIST_WHITELISTS_BY_FILTER = 76;
+  private static final int METHODID_IS_DELETABLE_WHITELIST = 77;
+  private static final int METHODID_UPDATE_WHITELIST = 78;
+  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 79;
+  private static final int METHODID_DELETE_WHITELIST = 80;
+  private static final int METHODID_CREATE_TRANSFER_LIMIT = 81;
+  private static final int METHODID_GET_TRANSFER_LIMIT = 82;
+  private static final int METHODID_LIST_TRANSFER_LIMITS = 83;
+  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 84;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 85;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 86;
+  private static final int METHODID_DELETE_TRANSFER_LIMIT = 87;
+  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 88;
+  private static final int METHODID_CREATE_POLICY = 89;
+  private static final int METHODID_GET_POLICY = 90;
+  private static final int METHODID_LIST_POLICIES = 91;
+  private static final int METHODID_LIST_POLICIES_BY_FILTER = 92;
+  private static final int METHODID_IS_DELETABLE_POLICY = 93;
+  private static final int METHODID_UPDATE_POLICY = 94;
+  private static final int METHODID_DELETE_POLICY = 95;
+  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 96;
+  private static final int METHODID_GET_SPENDABLE_BALANCE = 97;
+  private static final int METHODID_GET_TOTAL_BALANCE = 98;
+  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 99;
+  private static final int METHODID_CALCULATE_FEE = 100;
+  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 101;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 102;
+  private static final int METHODID_VALIDATE_ADDRESS = 103;
+  private static final int METHODID_LIST_AUDIT_LOGS = 104;
+  private static final int METHODID_LIST_FORWARDING_THRESHOLDS = 105;
+  private static final int METHODID_UPSERT_FORWARDING_THRESHOLD = 106;
+  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 107;
+  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 108;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -6851,6 +7185,10 @@ public final class GlobalAPIGrpc {
         case METHODID_LIST_BASE_WALLETS:
           serviceImpl.listBaseWallets((adamant.global.v1.ListBaseWalletsRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListBaseWalletsResponse>) responseObserver);
+          break;
+        case METHODID_LIST_STAKING_WALLETS_BY_FILTER:
+          serviceImpl.listStakingWalletsByFilter((adamant.global.v1.ListStakingWalletsByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingWalletsResponse>) responseObserver);
           break;
         case METHODID_UPDATE_WALLET_NAME:
           serviceImpl.updateWalletName((adamant.global.v1.UpdateWalletNameRequest) request,
@@ -6911,6 +7249,14 @@ public final class GlobalAPIGrpc {
         case METHODID_DISABLE_UTXO:
           serviceImpl.disableUTXO((adamant.global.v1.DisableUTXORequest) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_UPDATE_WALLET_IS_STAKING_AVAILABLE:
+          serviceImpl.updateWalletIsStakingAvailable((adamant.global.v1.UpdateWalletIsStakingAvailableRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_REFRESH_STAKING_WALLET_CLAIMABLE_REWARD:
+          serviceImpl.refreshStakingWalletClaimableReward((adamant.global.v1.RefreshStakingWalletClaimableRewardRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.RefreshStakingWalletClaimableRewardResponse>) responseObserver);
           break;
         case METHODID_APPROVE_WALLET:
           serviceImpl.approveWallet((adamant.global.v1.ApproveWalletRequest) request,
@@ -7236,6 +7582,14 @@ public final class GlobalAPIGrpc {
           serviceImpl.upsertForwardingThreshold((adamant.global.v1.UpsertForwardingThresholdRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.UpsertForwardingThresholdResponse>) responseObserver);
           break;
+        case METHODID_LIST_STAKING_HISTORIES_BY_FILTER:
+          serviceImpl.listStakingHistoriesByFilter((adamant.global.v1.ListStakingHistoriesByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingHistoriesResponse>) responseObserver);
+          break;
+        case METHODID_LIST_STAKING_VALIDATORS_BY_FILTER:
+          serviceImpl.listStakingValidatorsByFilter((adamant.global.v1.ListStakingValidatorsByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingValidatorsResponse>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -7310,6 +7664,13 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.ListBaseWalletsRequest,
               adamant.global.v1.ListBaseWalletsResponse>(
                 service, METHODID_LIST_BASE_WALLETS)))
+        .addMethod(
+          getListStakingWalletsByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListStakingWalletsByFilterRequest,
+              adamant.global.v1.ListStakingWalletsResponse>(
+                service, METHODID_LIST_STAKING_WALLETS_BY_FILTER)))
         .addMethod(
           getUpdateWalletNameMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -7415,6 +7776,20 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.DisableUTXORequest,
               com.google.protobuf.Empty>(
                 service, METHODID_DISABLE_UTXO)))
+        .addMethod(
+          getUpdateWalletIsStakingAvailableMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpdateWalletIsStakingAvailableRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_UPDATE_WALLET_IS_STAKING_AVAILABLE)))
+        .addMethod(
+          getRefreshStakingWalletClaimableRewardMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.RefreshStakingWalletClaimableRewardRequest,
+              adamant.global.v1.RefreshStakingWalletClaimableRewardResponse>(
+                service, METHODID_REFRESH_STAKING_WALLET_CLAIMABLE_REWARD)))
         .addMethod(
           getApproveWalletMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -7982,6 +8357,20 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.UpsertForwardingThresholdRequest,
               adamant.global.v1.UpsertForwardingThresholdResponse>(
                 service, METHODID_UPSERT_FORWARDING_THRESHOLD)))
+        .addMethod(
+          getListStakingHistoriesByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListStakingHistoriesByFilterRequest,
+              adamant.global.v1.ListStakingHistoriesResponse>(
+                service, METHODID_LIST_STAKING_HISTORIES_BY_FILTER)))
+        .addMethod(
+          getListStakingValidatorsByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListStakingValidatorsByFilterRequest,
+              adamant.global.v1.ListStakingValidatorsResponse>(
+                service, METHODID_LIST_STAKING_VALIDATORS_BY_FILTER)))
         .build();
   }
 
@@ -8038,6 +8427,7 @@ public final class GlobalAPIGrpc {
               .addMethod(getListWalletsMethod())
               .addMethod(getListWalletsByFilterMethod())
               .addMethod(getListBaseWalletsMethod())
+              .addMethod(getListStakingWalletsByFilterMethod())
               .addMethod(getUpdateWalletNameMethod())
               .addMethod(getUpdateWalletValidationMethod())
               .addMethod(getUpdateWalletPolicyMethod())
@@ -8053,6 +8443,8 @@ public final class GlobalAPIGrpc {
               .addMethod(getListCosmosDelegateHistoriesMethod())
               .addMethod(getEnableUTXOMethod())
               .addMethod(getDisableUTXOMethod())
+              .addMethod(getUpdateWalletIsStakingAvailableMethod())
+              .addMethod(getRefreshStakingWalletClaimableRewardMethod())
               .addMethod(getApproveWalletMethod())
               .addMethod(getApproveTransactionMethod())
               .addMethod(getCreateAddressMethod())
@@ -8134,6 +8526,8 @@ public final class GlobalAPIGrpc {
               .addMethod(getListAuditLogsMethod())
               .addMethod(getListForwardingThresholdsMethod())
               .addMethod(getUpsertForwardingThresholdMethod())
+              .addMethod(getListStakingHistoriesByFilterMethod())
+              .addMethod(getListStakingValidatorsByFilterMethod())
               .build();
         }
       }

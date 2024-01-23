@@ -47,6 +47,30 @@ class SubstrateCallType
      * Generated from protobuf enum <code>SUBSTRATE_CALL_TYPE_TRANSFER_ALLOW_DEATH = 8;</code>
      */
     const SUBSTRATE_CALL_TYPE_TRANSFER_ALLOW_DEATH = 8;
+    /**
+     * Generated from protobuf enum <code>SUBSTRATE_CALL_TYPE_JOIN = 9;</code>
+     */
+    const SUBSTRATE_CALL_TYPE_JOIN = 9;
+    /**
+     * Generated from protobuf enum <code>SUBSTRATE_CALL_TYPE_BOND_EXTRA_FREE_BALANCE = 10;</code>
+     */
+    const SUBSTRATE_CALL_TYPE_BOND_EXTRA_FREE_BALANCE = 10;
+    /**
+     * Generated from protobuf enum <code>SUBSTRATE_CALL_TYPE_BOND_EXTRA_REWARDS = 11;</code>
+     */
+    const SUBSTRATE_CALL_TYPE_BOND_EXTRA_REWARDS = 11;
+    /**
+     * Generated from protobuf enum <code>SUBSTRATE_CALL_TYPE_UNBOND = 12;</code>
+     */
+    const SUBSTRATE_CALL_TYPE_UNBOND = 12;
+    /**
+     * Generated from protobuf enum <code>SUBSTRATE_CALL_TYPE_WITHDRAW_UNBONDED = 13;</code>
+     */
+    const SUBSTRATE_CALL_TYPE_WITHDRAW_UNBONDED = 13;
+    /**
+     * Generated from protobuf enum <code>SUBSTRATE_CALL_TYPE_CLAIM_PAYOUT = 14;</code>
+     */
+    const SUBSTRATE_CALL_TYPE_CLAIM_PAYOUT = 14;
 
     private static $valueToName = [
         self::SUBSTRATE_CALL_TYPE_INVALID => 'SUBSTRATE_CALL_TYPE_INVALID',
@@ -58,6 +82,12 @@ class SubstrateCallType
         self::SUBSTRATE_CALL_TYPE_AS_MULTI_THRESHOLD1 => 'SUBSTRATE_CALL_TYPE_AS_MULTI_THRESHOLD1',
         self::SUBSTRATE_CALL_TYPE_CANCEL_AS_MULTI => 'SUBSTRATE_CALL_TYPE_CANCEL_AS_MULTI',
         self::SUBSTRATE_CALL_TYPE_TRANSFER_ALLOW_DEATH => 'SUBSTRATE_CALL_TYPE_TRANSFER_ALLOW_DEATH',
+        self::SUBSTRATE_CALL_TYPE_JOIN => 'SUBSTRATE_CALL_TYPE_JOIN',
+        self::SUBSTRATE_CALL_TYPE_BOND_EXTRA_FREE_BALANCE => 'SUBSTRATE_CALL_TYPE_BOND_EXTRA_FREE_BALANCE',
+        self::SUBSTRATE_CALL_TYPE_BOND_EXTRA_REWARDS => 'SUBSTRATE_CALL_TYPE_BOND_EXTRA_REWARDS',
+        self::SUBSTRATE_CALL_TYPE_UNBOND => 'SUBSTRATE_CALL_TYPE_UNBOND',
+        self::SUBSTRATE_CALL_TYPE_WITHDRAW_UNBONDED => 'SUBSTRATE_CALL_TYPE_WITHDRAW_UNBONDED',
+        self::SUBSTRATE_CALL_TYPE_CLAIM_PAYOUT => 'SUBSTRATE_CALL_TYPE_CLAIM_PAYOUT',
     ];
 
     public static function name($value)

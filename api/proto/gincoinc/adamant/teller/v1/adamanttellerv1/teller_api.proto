@@ -23,6 +23,7 @@ service TellerAPI {
   rpc GetWallet(adamant.global.v1.GetWalletRequest) returns (adamant.global.v1.Wallet) {}
   rpc ListWallets(adamant.global.v1.ListWalletsRequest) returns (adamant.global.v1.ListWalletsResponse) {}
   rpc ListWalletsByFilter(adamant.global.v1.ListWalletsByFilterRequest) returns (adamant.global.v1.ListWalletsResponse) {}
+  rpc ListStakingWalletsByFilter(adamant.global.v1.ListStakingWalletsByFilterRequest) returns (adamant.global.v1.ListStakingWalletsResponse) {}
   rpc ListBaseWallets(adamant.global.v1.ListBaseWalletsRequest) returns (adamant.global.v1.ListBaseWalletsResponse) {}
   rpc GetSpendableBalance(adamant.global.v1.GetSpendableBalanceRequest) returns (adamant.global.v1.GetSpendableBalanceResponse) {}
   rpc InitializeXRPWallet(InitializeXRPWalletRequest) returns (google.protobuf.Empty) {}
@@ -56,6 +57,9 @@ service TellerAPI {
   rpc ListTransactions(adamant.global.v1.ListTransactionsRequest) returns (adamant.global.v1.ListTransactionsResponse) {}
   rpc ListTransactionsByFilter(adamant.global.v1.ListTransactionsByFilterRequest) returns (adamant.global.v1.ListTransactionsResponse) {}
 
+  // Exit ethereum validators
+  rpc ExitEthereumStakingValidators(adamant.global.v1.ExitEthereumStakingValidatorsRequest) returns (adamant.global.v1.ExitEthereumStakingValidatorsResponse) {}
+
   // List transfers for a given wallet. Ordered by update time desc
   rpc ListTransfers(adamant.global.v1.ListTransfersRequest) returns (adamant.global.v1.ListTransfersResponse) {}
   rpc ListTransfersByFilter(adamant.global.v1.ListTransfersByFilterRequest) returns (adamant.global.v1.ListTransfersResponse) {}
@@ -74,6 +78,10 @@ service TellerAPI {
   rpc FlushBalance(adamant.global.v1.FlushBalanceRequest) returns (adamant.global.v1.FlushBalanceResponse) {}
 
   rpc ListAuditLogs(adamant.global.v1.ListAuditLogsRequest) returns (adamant.global.v1.ListAuditLogsResponse) {}
+
+  rpc ListStakingHistoriesByFilter(adamant.global.v1.ListStakingHistoriesByFilterRequest) returns (adamant.global.v1.ListStakingHistoriesResponse) {}
+
+  rpc ListStakingValidatorsByFilter(adamant.global.v1.ListStakingValidatorsByFilterRequest) returns (adamant.global.v1.ListStakingValidatorsResponse) {}
 }
 
 message CreateWalletRequest {

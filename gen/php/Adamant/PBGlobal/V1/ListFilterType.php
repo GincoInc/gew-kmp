@@ -83,6 +83,28 @@ class ListFilterType
      * Generated from protobuf enum <code>LIST_FILTER_TYPE_TRANSFER_LIMIT_NAME = 17;</code>
      */
     const LIST_FILTER_TYPE_TRANSFER_LIMIT_NAME = 17;
+    /**
+     * 例: validatorのpublic key
+     *
+     * Generated from protobuf enum <code>LIST_FILTER_TYPE_VALIDATOR_ID = 18;</code>
+     */
+    const LIST_FILTER_TYPE_VALIDATOR_ID = 18;
+    /**
+     * Generated from protobuf enum <code>LIST_FILTER_TYPE_BLOCK_HASH = 19;</code>
+     */
+    const LIST_FILTER_TYPE_BLOCK_HASH = 19;
+    /**
+     * db上のstaking_validator_id
+     *
+     * Generated from protobuf enum <code>LIST_FILTER_TYPE_STAKING_VALIDATOR_ID = 20;</code>
+     */
+    const LIST_FILTER_TYPE_STAKING_VALIDATOR_ID = 20;
+    /**
+     * db上のstaking_historyr_id
+     *
+     * Generated from protobuf enum <code>LIST_FILTER_TYPE_STAKING_HISTORY_ID = 21;</code>
+     */
+    const LIST_FILTER_TYPE_STAKING_HISTORY_ID = 21;
 
     private static $valueToName = [
         self::LIST_FILTER_TYPE_INVALID => 'LIST_FILTER_TYPE_INVALID',
@@ -103,6 +125,10 @@ class ListFilterType
         self::LIST_FILTER_TYPE_WHITELIST_NAME => 'LIST_FILTER_TYPE_WHITELIST_NAME',
         self::LIST_FILTER_TYPE_TRANSFER_LIMIT_ID => 'LIST_FILTER_TYPE_TRANSFER_LIMIT_ID',
         self::LIST_FILTER_TYPE_TRANSFER_LIMIT_NAME => 'LIST_FILTER_TYPE_TRANSFER_LIMIT_NAME',
+        self::LIST_FILTER_TYPE_VALIDATOR_ID => 'LIST_FILTER_TYPE_VALIDATOR_ID',
+        self::LIST_FILTER_TYPE_BLOCK_HASH => 'LIST_FILTER_TYPE_BLOCK_HASH',
+        self::LIST_FILTER_TYPE_STAKING_VALIDATOR_ID => 'LIST_FILTER_TYPE_STAKING_VALIDATOR_ID',
+        self::LIST_FILTER_TYPE_STAKING_HISTORY_ID => 'LIST_FILTER_TYPE_STAKING_HISTORY_ID',
     ];
 
     public static function name($value)
