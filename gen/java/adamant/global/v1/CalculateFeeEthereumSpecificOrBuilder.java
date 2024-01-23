@@ -18,4 +18,23 @@ public interface CalculateFeeEthereumSpecificOrBuilder extends
    */
   com.google.protobuf.ByteString
       getDataBytes();
+
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>optional bool is_staking_transaction = 2 [json_name = "isStakingTransaction"];</code>
+   * @return Whether the isStakingTransaction field is set.
+   */
+  boolean hasIsStakingTransaction();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>optional bool is_staking_transaction = 2 [json_name = "isStakingTransaction"];</code>
+   * @return The isStakingTransaction.
+   */
+  boolean getIsStakingTransaction();
 }

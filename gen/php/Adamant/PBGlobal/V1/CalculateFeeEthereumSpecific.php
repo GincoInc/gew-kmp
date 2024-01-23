@@ -19,6 +19,12 @@ class CalculateFeeEthereumSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string data = 1 [json_name = "data"];</code>
      */
     protected $data = '';
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>optional bool is_staking_transaction = 2 [json_name = "isStakingTransaction"];</code>
+     */
+    protected $is_staking_transaction = null;
 
     /**
      * Constructor.
@@ -27,6 +33,8 @@ class CalculateFeeEthereumSpecific extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $data
+     *     @type bool $is_staking_transaction
+     *           optional
      * }
      */
     public function __construct($data = NULL) {
@@ -52,6 +60,42 @@ class CalculateFeeEthereumSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->data = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>optional bool is_staking_transaction = 2 [json_name = "isStakingTransaction"];</code>
+     * @return bool
+     */
+    public function getIsStakingTransaction()
+    {
+        return isset($this->is_staking_transaction) ? $this->is_staking_transaction : false;
+    }
+
+    public function hasIsStakingTransaction()
+    {
+        return isset($this->is_staking_transaction);
+    }
+
+    public function clearIsStakingTransaction()
+    {
+        unset($this->is_staking_transaction);
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>optional bool is_staking_transaction = 2 [json_name = "isStakingTransaction"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setIsStakingTransaction($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->is_staking_transaction = $var;
 
         return $this;
     }

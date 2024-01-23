@@ -27,6 +27,10 @@ class IOSTSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint64 expiration = 3 [json_name = "expiration"];</code>
      */
     protected $expiration = 0;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.IOSTActionType type = 4 [json_name = "type"];</code>
+     */
+    protected $type = 0;
 
     /**
      * Constructor.
@@ -37,6 +41,7 @@ class IOSTSpecific extends \Google\Protobuf\Internal\Message
      *     @type string $memo
      *     @type int|string $timestamp
      *     @type int|string $expiration
+     *     @type int $type
      * }
      */
     public function __construct($data = NULL) {
@@ -106,6 +111,28 @@ class IOSTSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint64($var);
         $this->expiration = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.IOSTActionType type = 4 [json_name = "type"];</code>
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.IOSTActionType type = 4 [json_name = "type"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setType($var)
+    {
+        GPBUtil::checkEnum($var, \Adamant\PBGlobal\V1\IOSTActionType::class);
+        $this->type = $var;
 
         return $this;
     }

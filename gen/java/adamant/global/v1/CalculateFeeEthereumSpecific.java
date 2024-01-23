@@ -43,6 +43,7 @@ private static final long serialVersionUID = 0L;
             adamant.global.v1.CalculateFeeEthereumSpecific.class, adamant.global.v1.CalculateFeeEthereumSpecific.Builder.class);
   }
 
+  private int bitField0_;
   public static final int DATA_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
   private volatile java.lang.Object data_ = "";
@@ -82,6 +83,33 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int IS_STAKING_TRANSACTION_FIELD_NUMBER = 2;
+  private boolean isStakingTransaction_ = false;
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>optional bool is_staking_transaction = 2 [json_name = "isStakingTransaction"];</code>
+   * @return Whether the isStakingTransaction field is set.
+   */
+  @java.lang.Override
+  public boolean hasIsStakingTransaction() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>optional bool is_staking_transaction = 2 [json_name = "isStakingTransaction"];</code>
+   * @return The isStakingTransaction.
+   */
+  @java.lang.Override
+  public boolean getIsStakingTransaction() {
+    return isStakingTransaction_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -99,6 +127,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(data_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, data_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeBool(2, isStakingTransaction_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -110,6 +141,10 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(data_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, data_);
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(2, isStakingTransaction_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -128,6 +163,11 @@ private static final long serialVersionUID = 0L;
 
     if (!getData()
         .equals(other.getData())) return false;
+    if (hasIsStakingTransaction() != other.hasIsStakingTransaction()) return false;
+    if (hasIsStakingTransaction()) {
+      if (getIsStakingTransaction()
+          != other.getIsStakingTransaction()) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -141,6 +181,11 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + DATA_FIELD_NUMBER;
     hash = (53 * hash) + getData().hashCode();
+    if (hasIsStakingTransaction()) {
+      hash = (37 * hash) + IS_STAKING_TRANSACTION_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsStakingTransaction());
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -277,6 +322,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       bitField0_ = 0;
       data_ = "";
+      isStakingTransaction_ = false;
       return this;
     }
 
@@ -313,6 +359,12 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.data_ = data_;
       }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.isStakingTransaction_ = isStakingTransaction_;
+        to_bitField0_ |= 0x00000001;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -364,6 +416,9 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000001;
         onChanged();
       }
+      if (other.hasIsStakingTransaction()) {
+        setIsStakingTransaction(other.getIsStakingTransaction());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -395,6 +450,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000001;
               break;
             } // case 10
+            case 16: {
+              isStakingTransaction_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -480,6 +540,62 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       data_ = value;
       bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+
+    private boolean isStakingTransaction_ ;
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>optional bool is_staking_transaction = 2 [json_name = "isStakingTransaction"];</code>
+     * @return Whether the isStakingTransaction field is set.
+     */
+    @java.lang.Override
+    public boolean hasIsStakingTransaction() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>optional bool is_staking_transaction = 2 [json_name = "isStakingTransaction"];</code>
+     * @return The isStakingTransaction.
+     */
+    @java.lang.Override
+    public boolean getIsStakingTransaction() {
+      return isStakingTransaction_;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>optional bool is_staking_transaction = 2 [json_name = "isStakingTransaction"];</code>
+     * @param value The isStakingTransaction to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsStakingTransaction(boolean value) {
+
+      isStakingTransaction_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>optional bool is_staking_transaction = 2 [json_name = "isStakingTransaction"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsStakingTransaction() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      isStakingTransaction_ = false;
       onChanged();
       return this;
     }

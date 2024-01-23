@@ -41,6 +41,10 @@ class EthereumSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string data = 6 [json_name = "data"];</code>
      */
     protected $data = '';
+    /**
+     * Generated from protobuf field <code>bool is_staking_transaction = 7 [json_name = "isStakingTransaction"];</code>
+     */
+    protected $is_staking_transaction = false;
 
     /**
      * Constructor.
@@ -55,6 +59,7 @@ class EthereumSpecific extends \Google\Protobuf\Internal\Message
      *     @type int|string $expiration
      *     @type string $data
      *           data
+     *     @type bool $is_staking_transaction
      * }
      */
     public function __construct($data = NULL) {
@@ -194,6 +199,28 @@ class EthereumSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->data = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool is_staking_transaction = 7 [json_name = "isStakingTransaction"];</code>
+     * @return bool
+     */
+    public function getIsStakingTransaction()
+    {
+        return $this->is_staking_transaction;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool is_staking_transaction = 7 [json_name = "isStakingTransaction"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setIsStakingTransaction($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->is_staking_transaction = $var;
 
         return $this;
     }

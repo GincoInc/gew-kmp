@@ -27,6 +27,10 @@ class SubstrateSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .adamant.global.v1.SubstrateMultisigTransaction substrate_multisig_transactions = 4 [json_name = "substrateMultisigTransactions"];</code>
      */
     private $substrate_multisig_transactions;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.SubstrateCallType call_type = 6 [json_name = "callType"];</code>
+     */
+    protected $call_type = 0;
 
     /**
      * Constructor.
@@ -37,6 +41,7 @@ class SubstrateSpecific extends \Google\Protobuf\Internal\Message
      *     @type int|string $nonce
      *     @type bool $is_next_nonce
      *     @type array<\Adamant\PBGlobal\V1\SubstrateMultisigTransaction>|\Google\Protobuf\Internal\RepeatedField $substrate_multisig_transactions
+     *     @type int $call_type
      * }
      */
     public function __construct($data = NULL) {
@@ -106,6 +111,28 @@ class SubstrateSpecific extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Adamant\PBGlobal\V1\SubstrateMultisigTransaction::class);
         $this->substrate_multisig_transactions = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.SubstrateCallType call_type = 6 [json_name = "callType"];</code>
+     * @return int
+     */
+    public function getCallType()
+    {
+        return $this->call_type;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.SubstrateCallType call_type = 6 [json_name = "callType"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setCallType($var)
+    {
+        GPBUtil::checkEnum($var, \Adamant\PBGlobal\V1\SubstrateCallType::class);
+        $this->call_type = $var;
 
         return $this;
     }

@@ -262,6 +262,14 @@ class Coin
      */
     const COIN_JOC = 61;
     /**
+     * Generated from protobuf enum <code>COIN_SOL = 62;</code>
+     */
+    const COIN_SOL = 62;
+    /**
+     * Generated from protobuf enum <code>COIN_BSC = 63;</code>
+     */
+    const COIN_BSC = 63;
+    /**
      * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
      */
     const COIN_SDN = 10002;
@@ -329,6 +337,8 @@ class Coin
         self::COIN_ERC20_FCR => 'COIN_ERC20_FCR',
         self::COIN_HBAR => 'COIN_HBAR',
         self::COIN_JOC => 'COIN_JOC',
+        self::COIN_SOL => 'COIN_SOL',
+        self::COIN_BSC => 'COIN_BSC',
         self::COIN_SDN => 'COIN_SDN',
     ];
 

@@ -147,6 +147,12 @@ class Transfer extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.TransferCosmosSpecific cosmos_specific = 23 [json_name = "cosmosSpecific"];</code>
      */
     protected $cosmos_specific = null;
+    /**
+     * staking_event_type
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.StakingEventType staking_event_type = 24 [json_name = "stakingEventType"];</code>
+     */
+    protected $staking_event_type = 0;
 
     /**
      * Constructor.
@@ -198,6 +204,8 @@ class Transfer extends \Google\Protobuf\Internal\Message
      *           the time at which the transfer was updated
      *     @type \Adamant\PBGlobal\V1\TransferCosmosSpecific $cosmos_specific
      *           cosmos_specific
+     *     @type int $staking_event_type
+     *           staking_event_type
      * }
      */
     public function __construct($data = NULL) {
@@ -803,6 +811,32 @@ class Transfer extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\TransferCosmosSpecific::class);
         $this->cosmos_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * staking_event_type
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.StakingEventType staking_event_type = 24 [json_name = "stakingEventType"];</code>
+     * @return int
+     */
+    public function getStakingEventType()
+    {
+        return $this->staking_event_type;
+    }
+
+    /**
+     * staking_event_type
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.StakingEventType staking_event_type = 24 [json_name = "stakingEventType"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setStakingEventType($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\StakingEventType::class);
+        $this->staking_event_type = $var;
 
         return $this;
     }

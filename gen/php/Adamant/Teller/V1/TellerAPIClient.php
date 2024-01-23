@@ -78,6 +78,20 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\ListStakingWalletsByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListStakingWalletsByFilter(\Adamant\Global\V1\ListStakingWalletsByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListStakingWalletsByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListStakingWalletsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\ListBaseWalletsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -458,6 +472,21 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * Exit ethereum validators
+     * @param \Adamant\Global\V1\ExitEthereumStakingValidatorsRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ExitEthereumStakingValidators(\Adamant\Global\V1\ExitEthereumStakingValidatorsRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ExitEthereumStakingValidators',
+        $argument,
+        ['\Adamant\Global\V1\ExitEthereumStakingValidatorsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * List transfers for a given wallet. Ordered by update time desc
      * @param \Adamant\Global\V1\ListTransfersRequest $argument input argument
      * @param array $metadata metadata
@@ -599,6 +628,34 @@ class TellerAPIClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListAuditLogs',
         $argument,
         ['\Adamant\Global\V1\ListAuditLogsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\ListStakingHistoriesByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListStakingHistoriesByFilter(\Adamant\Global\V1\ListStakingHistoriesByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListStakingHistoriesByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListStakingHistoriesResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\ListStakingValidatorsByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListStakingValidatorsByFilter(\Adamant\Global\V1\ListStakingValidatorsByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListStakingValidatorsByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListStakingValidatorsResponse', 'decode'],
         $metadata, $options);
     }
 

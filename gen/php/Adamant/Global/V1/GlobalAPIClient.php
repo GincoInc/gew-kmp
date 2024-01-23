@@ -135,6 +135,20 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\ListStakingWalletsByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListStakingWalletsByFilter(\Adamant\Global\V1\ListStakingWalletsByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ListStakingWalletsByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListStakingWalletsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\UpdateWalletNameRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -341,6 +355,34 @@ class GlobalAPIClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/DisableUTXO',
         $argument,
         ['\Google\Protobuf\GPBEmpty', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\UpdateWalletIsStakingAvailableRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function UpdateWalletIsStakingAvailable(\Adamant\Global\V1\UpdateWalletIsStakingAvailableRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/UpdateWalletIsStakingAvailable',
+        $argument,
+        ['\Google\Protobuf\GPBEmpty', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\RefreshStakingWalletClaimableRewardRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function RefreshStakingWalletClaimableReward(\Adamant\Global\V1\RefreshStakingWalletClaimableRewardRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/RefreshStakingWalletClaimableReward',
+        $argument,
+        ['\Adamant\Global\V1\RefreshStakingWalletClaimableRewardResponse', 'decode'],
         $metadata, $options);
     }
 
@@ -1494,6 +1536,36 @@ class GlobalAPIClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/UpsertForwardingThreshold',
         $argument,
         ['\Adamant\Global\V1\UpsertForwardingThresholdResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * StakingHistories
+     * @param \Adamant\Global\V1\ListStakingHistoriesByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListStakingHistoriesByFilter(\Adamant\Global\V1\ListStakingHistoriesByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ListStakingHistoriesByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListStakingHistoriesResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * StakingValidators
+     * @param \Adamant\Global\V1\ListStakingValidatorsByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListStakingValidatorsByFilter(\Adamant\Global\V1\ListStakingValidatorsByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ListStakingValidatorsByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListStakingValidatorsResponse', 'decode'],
         $metadata, $options);
     }
 
