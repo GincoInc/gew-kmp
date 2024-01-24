@@ -561,6 +561,35 @@ func (m *TransferUpdateEvent) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetSubstrateSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, TransferUpdateEventValidationError{
+					field:  "SubstrateSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, TransferUpdateEventValidationError{
+					field:  "SubstrateSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetSubstrateSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransferUpdateEventValidationError{
+				field:  "SubstrateSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return TransferUpdateEventMultiError(errors)
 	}
@@ -721,6 +750,10 @@ func (m *EthereumStakingReward) validate(all bool) error {
 
 	// no validation rules for BlockHash
 
+	if m.TxId != nil {
+		// no validation rules for TxId
+	}
+
 	if len(errors) > 0 {
 		return EthereumStakingRewardMultiError(errors)
 	}
@@ -836,8 +869,6 @@ func (m *StakingRewardReceived) validate(all bool) error {
 	// no validation rules for TxId
 
 	// no validation rules for TxIndex
-
-	// no validation rules for OwnerId
 
 	// no validation rules for WalletId
 

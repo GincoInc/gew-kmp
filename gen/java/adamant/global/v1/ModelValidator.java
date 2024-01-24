@@ -51,6 +51,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.HederaSpecific.class)) return new HederaSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.JapanOpenChainSpecific.class)) return new JapanOpenChainSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SolanaSpecific.class)) return new SolanaSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.BNBSmartChainSpecific.class)) return new BNBSmartChainSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class)) return new CreateTransactionSubstrateSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.class)) return new CreateTransactionWalletConnectSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionNemSpecific.class)) return new CreateTransactionNemSpecificValidator();
@@ -875,6 +876,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -989,6 +992,9 @@ public class ModelValidator {
 	
 			// Validate solana_specific
 			if (proto.hasSolanaSpecific()) index.validatorFor(proto.getSolanaSpecific()).assertValid(proto.getSolanaSpecific());
+	
+			// Validate bnb_smart_chain_specific
+			if (proto.hasBnbSmartChainSpecific()) index.validatorFor(proto.getBnbSmartChainSpecific()).assertValid(proto.getBnbSmartChainSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -1810,6 +1816,28 @@ public class ModelValidator {
 
 	public void assertValid(adamant.global.v1.Model.SolanaSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Expiration
+
+	
+	}
+}
+/**
+	 * Validates {@code BNBSmartChainSpecific} protobuf objects.
+	 */
+	public static class BNBSmartChainSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.BNBSmartChainSpecific> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.BNBSmartChainSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
 
 	
 	}
