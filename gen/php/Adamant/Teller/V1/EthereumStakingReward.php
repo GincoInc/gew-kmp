@@ -57,6 +57,10 @@ class EthereumStakingReward extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string block_hash = 11 [json_name = "blockHash"];</code>
      */
     protected $block_hash = '';
+    /**
+     * Generated from protobuf field <code>optional string tx_id = 12 [json_name = "txId"];</code>
+     */
+    protected $tx_id = null;
 
     /**
      * Constructor.
@@ -75,6 +79,7 @@ class EthereumStakingReward extends \Google\Protobuf\Internal\Message
      *     @type int $ethereum_staking_reward_layer_type
      *     @type string $string_value
      *     @type string $block_hash
+     *     @type string $tx_id
      * }
      */
     public function __construct($data = NULL) {
@@ -330,6 +335,38 @@ class EthereumStakingReward extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->block_hash = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string tx_id = 12 [json_name = "txId"];</code>
+     * @return string
+     */
+    public function getTxId()
+    {
+        return isset($this->tx_id) ? $this->tx_id : '';
+    }
+
+    public function hasTxId()
+    {
+        return isset($this->tx_id);
+    }
+
+    public function clearTxId()
+    {
+        unset($this->tx_id);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string tx_id = 12 [json_name = "txId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTxId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->tx_id = $var;
 
         return $this;
     }

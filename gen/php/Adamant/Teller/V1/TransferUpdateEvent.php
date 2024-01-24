@@ -75,6 +75,10 @@ class TransferUpdateEvent extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Timestamp time = 12 [json_name = "time"];</code>
      */
     protected $time = null;
+    /**
+     * Generated from protobuf field <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 16 [json_name = "substrateSpecific"];</code>
+     */
+    protected $substrate_specific = null;
 
     /**
      * Constructor.
@@ -97,6 +101,7 @@ class TransferUpdateEvent extends \Google\Protobuf\Internal\Message
      *     @type int $result
      *     @type int $transfer_type
      *     @type \Google\Protobuf\Timestamp $time
+     *     @type \Adamant\Teller\V1\TransferUpdateSubstrateSpecific $substrate_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -440,6 +445,38 @@ class TransferUpdateEvent extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->time = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 16 [json_name = "substrateSpecific"];</code>
+     * @return \Adamant\Teller\V1\TransferUpdateSubstrateSpecific|null
+     */
+    public function getSubstrateSpecific()
+    {
+        return $this->substrate_specific;
+    }
+
+    public function hasSubstrateSpecific()
+    {
+        return isset($this->substrate_specific);
+    }
+
+    public function clearSubstrateSpecific()
+    {
+        unset($this->substrate_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 16 [json_name = "substrateSpecific"];</code>
+     * @param \Adamant\Teller\V1\TransferUpdateSubstrateSpecific $var
+     * @return $this
+     */
+    public function setSubstrateSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\Teller\V1\TransferUpdateSubstrateSpecific::class);
+        $this->substrate_specific = $var;
 
         return $this;
     }
