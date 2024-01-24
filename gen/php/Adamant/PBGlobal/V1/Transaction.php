@@ -250,6 +250,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $solana_specific = null;
     /**
+     * The BNB Smart Chain specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BNBSmartChainSpecific bnb_smart_chain_specific = 45 [json_name = "bnbSmartChainSpecific"];</code>
+     */
+    protected $bnb_smart_chain_specific = null;
+    /**
      * the time at which the transaction was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
@@ -346,6 +352,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The Japan Open Chain specific fields
      *     @type \Adamant\PBGlobal\V1\SolanaSpecific $solana_specific
      *           The Solana specific fields
+     *     @type \Adamant\PBGlobal\V1\BNBSmartChainSpecific $bnb_smart_chain_specific
+     *           The BNB Smart Chain specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -1617,6 +1625,42 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\SolanaSpecific::class);
         $this->solana_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The BNB Smart Chain specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BNBSmartChainSpecific bnb_smart_chain_specific = 45 [json_name = "bnbSmartChainSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\BNBSmartChainSpecific|null
+     */
+    public function getBnbSmartChainSpecific()
+    {
+        return $this->bnb_smart_chain_specific;
+    }
+
+    public function hasBnbSmartChainSpecific()
+    {
+        return isset($this->bnb_smart_chain_specific);
+    }
+
+    public function clearBnbSmartChainSpecific()
+    {
+        unset($this->bnb_smart_chain_specific);
+    }
+
+    /**
+     * The BNB Smart Chain specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BNBSmartChainSpecific bnb_smart_chain_specific = 45 [json_name = "bnbSmartChainSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\BNBSmartChainSpecific $var
+     * @return $this
+     */
+    public function setBnbSmartChainSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\BNBSmartChainSpecific::class);
+        $this->bnb_smart_chain_specific = $var;
 
         return $this;
     }

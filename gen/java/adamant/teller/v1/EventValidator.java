@@ -197,6 +197,8 @@ public class EventValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.teller.v1.Event.TransferUpdateEvent proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -231,6 +233,9 @@ public class EventValidator {
 	
 			// Validate time
 			if (proto.hasTime()) index.validatorFor(proto.getTime()).assertValid(proto.getTime());
+	
+			// Validate substrate_specific
+			if (proto.hasSubstrateSpecific()) index.validatorFor(proto.getSubstrateSpecific()).assertValid(proto.getSubstrateSpecific());
 	
 	}
 }
@@ -314,8 +319,6 @@ public class EventValidator {
 	
 		
 	
-		
-	
 	
 
 	public void assertValid(adamant.teller.v1.Event.StakingRewardReceived proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -330,8 +333,6 @@ public class EventValidator {
 	// no validation rules for TxId
 
 	// no validation rules for TxIndex
-
-	// no validation rules for OwnerId
 
 	// no validation rules for WalletId
 

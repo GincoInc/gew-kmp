@@ -14,33 +14,29 @@ use Google\Protobuf\Internal\GPBUtil;
 class StakingRewardReceived extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string event_id = 11 [json_name = "eventId"];</code>
+     * Generated from protobuf field <code>string event_id = 1 [json_name = "eventId"];</code>
      */
     protected $event_id = '';
     /**
-     * Generated from protobuf field <code>string validator_id = 1 [json_name = "validatorId"];</code>
+     * Generated from protobuf field <code>string validator_id = 2 [json_name = "validatorId"];</code>
      */
     protected $validator_id = '';
     /**
-     * Generated from protobuf field <code>double value = 2 [json_name = "value"];</code>
+     * Generated from protobuf field <code>double value = 3 [json_name = "value"];</code>
      */
     protected $value = 0.0;
     /**
-     * Generated from protobuf field <code>string string_value = 3 [json_name = "stringValue"];</code>
+     * Generated from protobuf field <code>string string_value = 4 [json_name = "stringValue"];</code>
      */
     protected $string_value = '';
     /**
-     * Generated from protobuf field <code>string tx_id = 4 [json_name = "txId"];</code>
+     * Generated from protobuf field <code>string tx_id = 5 [json_name = "txId"];</code>
      */
     protected $tx_id = '';
     /**
-     * Generated from protobuf field <code>uint32 tx_index = 5 [json_name = "txIndex"];</code>
+     * Generated from protobuf field <code>uint32 tx_index = 6 [json_name = "txIndex"];</code>
      */
     protected $tx_index = 0;
-    /**
-     * Generated from protobuf field <code>string owner_id = 6 [json_name = "ownerId"];</code>
-     */
-    protected $owner_id = '';
     /**
      * Generated from protobuf field <code>string wallet_id = 7 [json_name = "walletId"];</code>
      */
@@ -70,7 +66,6 @@ class StakingRewardReceived extends \Google\Protobuf\Internal\Message
      *     @type string $string_value
      *     @type string $tx_id
      *     @type int $tx_index
-     *     @type string $owner_id
      *     @type string $wallet_id
      *     @type string $address
      *     @type int $coin
@@ -83,7 +78,7 @@ class StakingRewardReceived extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string event_id = 11 [json_name = "eventId"];</code>
+     * Generated from protobuf field <code>string event_id = 1 [json_name = "eventId"];</code>
      * @return string
      */
     public function getEventId()
@@ -92,7 +87,7 @@ class StakingRewardReceived extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string event_id = 11 [json_name = "eventId"];</code>
+     * Generated from protobuf field <code>string event_id = 1 [json_name = "eventId"];</code>
      * @param string $var
      * @return $this
      */
@@ -105,7 +100,7 @@ class StakingRewardReceived extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string validator_id = 1 [json_name = "validatorId"];</code>
+     * Generated from protobuf field <code>string validator_id = 2 [json_name = "validatorId"];</code>
      * @return string
      */
     public function getValidatorId()
@@ -114,7 +109,7 @@ class StakingRewardReceived extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string validator_id = 1 [json_name = "validatorId"];</code>
+     * Generated from protobuf field <code>string validator_id = 2 [json_name = "validatorId"];</code>
      * @param string $var
      * @return $this
      */
@@ -127,7 +122,7 @@ class StakingRewardReceived extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>double value = 2 [json_name = "value"];</code>
+     * Generated from protobuf field <code>double value = 3 [json_name = "value"];</code>
      * @return float
      */
     public function getValue()
@@ -136,7 +131,7 @@ class StakingRewardReceived extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>double value = 2 [json_name = "value"];</code>
+     * Generated from protobuf field <code>double value = 3 [json_name = "value"];</code>
      * @param float $var
      * @return $this
      */
@@ -149,7 +144,7 @@ class StakingRewardReceived extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string string_value = 3 [json_name = "stringValue"];</code>
+     * Generated from protobuf field <code>string string_value = 4 [json_name = "stringValue"];</code>
      * @return string
      */
     public function getStringValue()
@@ -158,7 +153,7 @@ class StakingRewardReceived extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string string_value = 3 [json_name = "stringValue"];</code>
+     * Generated from protobuf field <code>string string_value = 4 [json_name = "stringValue"];</code>
      * @param string $var
      * @return $this
      */
@@ -171,7 +166,7 @@ class StakingRewardReceived extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string tx_id = 4 [json_name = "txId"];</code>
+     * Generated from protobuf field <code>string tx_id = 5 [json_name = "txId"];</code>
      * @return string
      */
     public function getTxId()
@@ -180,7 +175,7 @@ class StakingRewardReceived extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string tx_id = 4 [json_name = "txId"];</code>
+     * Generated from protobuf field <code>string tx_id = 5 [json_name = "txId"];</code>
      * @param string $var
      * @return $this
      */
@@ -193,7 +188,7 @@ class StakingRewardReceived extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 tx_index = 5 [json_name = "txIndex"];</code>
+     * Generated from protobuf field <code>uint32 tx_index = 6 [json_name = "txIndex"];</code>
      * @return int
      */
     public function getTxIndex()
@@ -202,7 +197,7 @@ class StakingRewardReceived extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 tx_index = 5 [json_name = "txIndex"];</code>
+     * Generated from protobuf field <code>uint32 tx_index = 6 [json_name = "txIndex"];</code>
      * @param int $var
      * @return $this
      */
@@ -210,28 +205,6 @@ class StakingRewardReceived extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->tx_index = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>string owner_id = 6 [json_name = "ownerId"];</code>
-     * @return string
-     */
-    public function getOwnerId()
-    {
-        return $this->owner_id;
-    }
-
-    /**
-     * Generated from protobuf field <code>string owner_id = 6 [json_name = "ownerId"];</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setOwnerId($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->owner_id = $var;
 
         return $this;
     }
