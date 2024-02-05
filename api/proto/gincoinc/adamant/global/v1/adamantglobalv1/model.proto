@@ -234,6 +234,7 @@ message Transaction {
   JapanOpenChainSpecific japan_open_chain_specific = 43; // The Japan Open Chain specific fields
   SolanaSpecific solana_specific = 44; // The Solana specific fields
   BNBSmartChainSpecific bnb_smart_chain_specific = 45; // The BNB Smart Chain specific fields
+  FlareSpecific flare_specific = 46; // The Flare specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -481,6 +482,13 @@ message BNBSmartChainSpecific {
   bool is_next_nonce = 3;
 }
 
+// The model of Flare specific fields of transaction
+message FlareSpecific {
+  uint64 gas_limit = 1;
+  uint64 nonce = 2;
+  bool is_next_nonce = 3;
+}
+
 // The model of Substrate specific fields of CreateTransaction
 message CreateTransactionSubstrateSpecific {
   string transaction_id = 1;
@@ -539,6 +547,11 @@ message CreateTransactionAlgorandSpecific {
 message CreateTransactionHederaSpecific {
   string memo = 1;
   uint64 timestamp = 2;
+}
+
+// The model of Solana specific fields of CreateTransaction
+message CreateTransactionSolanaSpecific {
+  gincoinc.global.v1.SolanaRecentBlockhashType recent_blockhash_type = 1;
 }
 
 // The model of substrate multisig transaction
