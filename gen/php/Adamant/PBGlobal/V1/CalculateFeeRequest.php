@@ -61,6 +61,10 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeHederaSpecific hedera_specific = 12 [json_name = "hederaSpecific"];</code>
      */
     protected $hedera_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+     */
+    protected $rbf_specific = null;
 
     /**
      * Constructor.
@@ -80,6 +84,7 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CalculateFeeEthereumSpecific $ethereum_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeCosmosSpecific $cosmos_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeHederaSpecific $hedera_specific
+     *     @type \Adamant\PBGlobal\V1\CalculateFeeRbfSpecific $rbf_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -407,6 +412,38 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeHederaSpecific::class);
         $this->hedera_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CalculateFeeRbfSpecific|null
+     */
+    public function getRbfSpecific()
+    {
+        return $this->rbf_specific;
+    }
+
+    public function hasRbfSpecific()
+    {
+        return isset($this->rbf_specific);
+    }
+
+    public function clearRbfSpecific()
+    {
+        unset($this->rbf_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CalculateFeeRbfSpecific $var
+     * @return $this
+     */
+    public function setRbfSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeRbfSpecific::class);
+        $this->rbf_specific = $var;
 
         return $this;
     }
