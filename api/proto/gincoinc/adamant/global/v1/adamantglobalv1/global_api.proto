@@ -753,6 +753,7 @@ message CreateTransactionRequest {
   adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14;
   adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15;
   adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16;
+  adamant.global.v1.CreateTransactionSolanaSpecific solana_specific = 17;
 }
 
 message CreateTransactionResponse {
@@ -1264,6 +1265,7 @@ message CalculateFeeRequest {
   CalculateFeeEthereumSpecific ethereum_specific = 10;
   CalculateFeeCosmosSpecific cosmos_specific = 11;
   CalculateFeeHederaSpecific hedera_specific = 12;
+  CalculateFeeRbfSpecific rbf_specific = 13;
 }
 
 // The model of Substrate specific fields of CreateTransaction
@@ -1298,6 +1300,13 @@ message CalculateFeeCosmosSpecific {
 // The model of Hedera specific fields of CalculateFee
 message CalculateFeeHederaSpecific {
   string memo = 1;
+}
+
+// The model of RBF specific fields of CalculateFee
+message CalculateFeeRbfSpecific {
+  string transaction_id = 1 [(validate.rules).string = {
+    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message CalculateFeeResponse {

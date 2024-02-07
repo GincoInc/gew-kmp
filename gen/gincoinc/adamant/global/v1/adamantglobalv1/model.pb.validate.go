@@ -2725,6 +2725,35 @@ func (m *Transaction) validate(all bool) error {
 	}
 
 	if all {
+		switch v := interface{}(m.GetFlareSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "FlareSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "FlareSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetFlareSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "FlareSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
 		switch v := interface{}(m.GetCreateTime()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
@@ -6843,6 +6872,112 @@ var _ interface {
 	ErrorName() string
 } = BNBSmartChainSpecificValidationError{}
 
+// Validate checks the field values on FlareSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *FlareSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on FlareSpecific with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in FlareSpecificMultiError, or
+// nil if none found.
+func (m *FlareSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *FlareSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	if len(errors) > 0 {
+		return FlareSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// FlareSpecificMultiError is an error wrapping multiple validation errors
+// returned by FlareSpecific.ValidateAll() if the designated constraints
+// aren't met.
+type FlareSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m FlareSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m FlareSpecificMultiError) AllErrors() []error { return m }
+
+// FlareSpecificValidationError is the validation error returned by
+// FlareSpecific.Validate if the designated constraints aren't met.
+type FlareSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e FlareSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e FlareSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e FlareSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e FlareSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e FlareSpecificValidationError) ErrorName() string { return "FlareSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e FlareSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sFlareSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = FlareSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = FlareSpecificValidationError{}
+
 // Validate checks the field values on CreateTransactionSubstrateSpecific with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, the first error encountered is returned, or nil if there are
@@ -7828,6 +7963,111 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CreateTransactionHederaSpecificValidationError{}
+
+// Validate checks the field values on CreateTransactionSolanaSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CreateTransactionSolanaSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreateTransactionSolanaSpecific with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// CreateTransactionSolanaSpecificMultiError, or nil if none found.
+func (m *CreateTransactionSolanaSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateTransactionSolanaSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RecentBlockhashType
+
+	if len(errors) > 0 {
+		return CreateTransactionSolanaSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreateTransactionSolanaSpecificMultiError is an error wrapping multiple
+// validation errors returned by CreateTransactionSolanaSpecific.ValidateAll()
+// if the designated constraints aren't met.
+type CreateTransactionSolanaSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionSolanaSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionSolanaSpecificMultiError) AllErrors() []error { return m }
+
+// CreateTransactionSolanaSpecificValidationError is the validation error
+// returned by CreateTransactionSolanaSpecific.Validate if the designated
+// constraints aren't met.
+type CreateTransactionSolanaSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionSolanaSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionSolanaSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionSolanaSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionSolanaSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionSolanaSpecificValidationError) ErrorName() string {
+	return "CreateTransactionSolanaSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionSolanaSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionSolanaSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionSolanaSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionSolanaSpecificValidationError{}
 
 // Validate checks the field values on SubstrateMultisigTransaction with the
 // rules defined in the proto definition for this message. If any rules are

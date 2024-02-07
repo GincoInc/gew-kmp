@@ -8995,6 +8995,35 @@ func (m *CreateTransactionRequest) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetSolanaSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "SolanaSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "SolanaSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetSolanaSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateTransactionRequestValidationError{
+				field:  "SolanaSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return CreateTransactionRequestMultiError(errors)
 	}
@@ -16655,6 +16684,35 @@ func (m *CalculateFeeRequest) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetRbfSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CalculateFeeRequestValidationError{
+					field:  "RbfSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CalculateFeeRequestValidationError{
+					field:  "RbfSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetRbfSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CalculateFeeRequestValidationError{
+				field:  "RbfSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return CalculateFeeRequestMultiError(errors)
 	}
@@ -17370,6 +17428,121 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CalculateFeeHederaSpecificValidationError{}
+
+// Validate checks the field values on CalculateFeeRbfSpecific with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CalculateFeeRbfSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CalculateFeeRbfSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CalculateFeeRbfSpecificMultiError, or nil if none found.
+func (m *CalculateFeeRbfSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CalculateFeeRbfSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_CalculateFeeRbfSpecific_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
+		err := CalculateFeeRbfSpecificValidationError{
+			field:  "TransactionId",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return CalculateFeeRbfSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CalculateFeeRbfSpecificMultiError is an error wrapping multiple validation
+// errors returned by CalculateFeeRbfSpecific.ValidateAll() if the designated
+// constraints aren't met.
+type CalculateFeeRbfSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CalculateFeeRbfSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CalculateFeeRbfSpecificMultiError) AllErrors() []error { return m }
+
+// CalculateFeeRbfSpecificValidationError is the validation error returned by
+// CalculateFeeRbfSpecific.Validate if the designated constraints aren't met.
+type CalculateFeeRbfSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CalculateFeeRbfSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CalculateFeeRbfSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CalculateFeeRbfSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CalculateFeeRbfSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CalculateFeeRbfSpecificValidationError) ErrorName() string {
+	return "CalculateFeeRbfSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CalculateFeeRbfSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCalculateFeeRbfSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CalculateFeeRbfSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CalculateFeeRbfSpecificValidationError{}
+
+var _CalculateFeeRbfSpecific_TransactionId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on CalculateFeeResponse with the rules
 // defined in the proto definition for this message. If any rules are

@@ -77,6 +77,10 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
      */
     protected $hedera_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionSolanaSpecific solana_specific = 17 [json_name = "solanaSpecific"];</code>
+     */
+    protected $solana_specific = null;
 
     /**
      * Constructor.
@@ -100,6 +104,7 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CreateTransactionCosmosSpecific $cosmos_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionAlgorandSpecific $algorand_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionHederaSpecific $hedera_specific
+     *     @type \Adamant\PBGlobal\V1\CreateTransactionSolanaSpecific $solana_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -545,6 +550,38 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionHederaSpecific::class);
         $this->hedera_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionSolanaSpecific solana_specific = 17 [json_name = "solanaSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CreateTransactionSolanaSpecific|null
+     */
+    public function getSolanaSpecific()
+    {
+        return $this->solana_specific;
+    }
+
+    public function hasSolanaSpecific()
+    {
+        return isset($this->solana_specific);
+    }
+
+    public function clearSolanaSpecific()
+    {
+        unset($this->solana_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionSolanaSpecific solana_specific = 17 [json_name = "solanaSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CreateTransactionSolanaSpecific $var
+     * @return $this
+     */
+    public function setSolanaSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionSolanaSpecific::class);
+        $this->solana_specific = $var;
 
         return $this;
     }
