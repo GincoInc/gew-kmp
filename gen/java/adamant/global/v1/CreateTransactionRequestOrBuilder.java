@@ -219,19 +219,4 @@ public interface CreateTransactionRequestOrBuilder extends
    * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
    */
   adamant.global.v1.Model.CreateTransactionHederaSpecificOrBuilder getHederaSpecificOrBuilder();
-
-  /**
-   * <code>.adamant.global.v1.CreateTransactionSolanaSpecific solana_specific = 17 [json_name = "solanaSpecific"];</code>
-   * @return Whether the solanaSpecific field is set.
-   */
-  boolean hasSolanaSpecific();
-  /**
-   * <code>.adamant.global.v1.CreateTransactionSolanaSpecific solana_specific = 17 [json_name = "solanaSpecific"];</code>
-   * @return The solanaSpecific.
-   */
-  adamant.global.v1.Model.CreateTransactionSolanaSpecific getSolanaSpecific();
-  /**
-   * <code>.adamant.global.v1.CreateTransactionSolanaSpecific solana_specific = 17 [json_name = "solanaSpecific"];</code>
-   */
-  adamant.global.v1.Model.CreateTransactionSolanaSpecificOrBuilder getSolanaSpecificOrBuilder();
 }
