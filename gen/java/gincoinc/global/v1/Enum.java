@@ -3506,132 +3506,6 @@ public final class Enum {
     // @@protoc_insertion_point(enum_scope:gincoinc.global.v1.EthereumStakingHistoryType)
   }
 
-  /**
-   * Protobuf enum {@code gincoinc.global.v1.SolanaRecentBlockhashType}
-   */
-  public enum SolanaRecentBlockhashType
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>SOLANA_RECENT_BLOCKHASH_TYPE_INVALID = 0;</code>
-     */
-    SOLANA_RECENT_BLOCKHASH_TYPE_INVALID(0),
-    /**
-     * <code>SOLANA_RECENT_BLOCKHASH_TYPE_FINALIZED = 1;</code>
-     */
-    SOLANA_RECENT_BLOCKHASH_TYPE_FINALIZED(1),
-    /**
-     * <code>SOLANA_RECENT_BLOCKHASH_TYPE_CONFIRMED = 2;</code>
-     */
-    SOLANA_RECENT_BLOCKHASH_TYPE_CONFIRMED(2),
-    /**
-     * <code>SOLANA_RECENT_BLOCKHASH_TYPE_PROCESSED = 3;</code>
-     */
-    SOLANA_RECENT_BLOCKHASH_TYPE_PROCESSED(3),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <code>SOLANA_RECENT_BLOCKHASH_TYPE_INVALID = 0;</code>
-     */
-    public static final int SOLANA_RECENT_BLOCKHASH_TYPE_INVALID_VALUE = 0;
-    /**
-     * <code>SOLANA_RECENT_BLOCKHASH_TYPE_FINALIZED = 1;</code>
-     */
-    public static final int SOLANA_RECENT_BLOCKHASH_TYPE_FINALIZED_VALUE = 1;
-    /**
-     * <code>SOLANA_RECENT_BLOCKHASH_TYPE_CONFIRMED = 2;</code>
-     */
-    public static final int SOLANA_RECENT_BLOCKHASH_TYPE_CONFIRMED_VALUE = 2;
-    /**
-     * <code>SOLANA_RECENT_BLOCKHASH_TYPE_PROCESSED = 3;</code>
-     */
-    public static final int SOLANA_RECENT_BLOCKHASH_TYPE_PROCESSED_VALUE = 3;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static SolanaRecentBlockhashType valueOf(int value) {
-      return forNumber(value);
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static SolanaRecentBlockhashType forNumber(int value) {
-      switch (value) {
-        case 0: return SOLANA_RECENT_BLOCKHASH_TYPE_INVALID;
-        case 1: return SOLANA_RECENT_BLOCKHASH_TYPE_FINALIZED;
-        case 2: return SOLANA_RECENT_BLOCKHASH_TYPE_CONFIRMED;
-        case 3: return SOLANA_RECENT_BLOCKHASH_TYPE_PROCESSED;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<SolanaRecentBlockhashType>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        SolanaRecentBlockhashType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<SolanaRecentBlockhashType>() {
-            public SolanaRecentBlockhashType findValueByNumber(int number) {
-              return SolanaRecentBlockhashType.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(15);
-    }
-
-    private static final SolanaRecentBlockhashType[] VALUES = values();
-
-    public static SolanaRecentBlockhashType valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private SolanaRecentBlockhashType(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:gincoinc.global.v1.SolanaRecentBlockhashType)
-  }
-
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3810,14 +3684,9 @@ public final class Enum {
       "STORY_TYPE_REWARD_EXECUTION\020\002\022,\n(ETHEREU" +
       "M_STAKING_HISTORY_TYPE_REWARD_MEV\020\003\022\'\n#E" +
       "THEREUM_STAKING_HISTORY_TYPE_START\020\004\022&\n\"" +
-      "ETHEREUM_STAKING_HISTORY_TYPE_EXIT\020\005*\311\001\n" +
-      "\031SolanaRecentBlockhashType\022(\n$SOLANA_REC" +
-      "ENT_BLOCKHASH_TYPE_INVALID\020\000\022*\n&SOLANA_R" +
-      "ECENT_BLOCKHASH_TYPE_FINALIZED\020\001\022*\n&SOLA" +
-      "NA_RECENT_BLOCKHASH_TYPE_CONFIRMED\020\002\022*\n&" +
-      "SOLANA_RECENT_BLOCKHASH_TYPE_PROCESSED\020\003" +
-      "BEZCgithub.com/GincoInc/gew-kmp/gen/ginc" +
-      "oinc/global/v1/gincoincglobalv1b\006proto3"
+      "ETHEREUM_STAKING_HISTORY_TYPE_EXIT\020\005BEZC" +
+      "github.com/GincoInc/gew-kmp/gen/gincoinc" +
+      "/global/v1/gincoincglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

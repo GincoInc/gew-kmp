@@ -8024,20 +8024,6 @@ func (m *CreateTransactionRequest) Validate(all bool) error {
 		}
 	}
 
-	if v, ok := interface{}(m.GetSolanaSpecific()).(interface{ Validate(bool) error }); ok {
-		if err := v.Validate(all); err != nil {
-			err = CreateTransactionRequestValidationError{
-				field:  "SolanaSpecific",
-				reason: "embedded message failed validation",
-				cause:  err,
-			}
-			if !all {
-				return err
-			}
-			errors = append(errors, err)
-		}
-	}
-
 	if len(errors) > 0 {
 		return CreateTransactionRequestMultiError(errors)
 	}
