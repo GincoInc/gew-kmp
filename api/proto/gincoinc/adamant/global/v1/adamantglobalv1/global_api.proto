@@ -753,7 +753,6 @@ message CreateTransactionRequest {
   adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14;
   adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15;
   adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16;
-  adamant.global.v1.CreateTransactionSolanaSpecific solana_specific = 17;
 }
 
 message CreateTransactionResponse {

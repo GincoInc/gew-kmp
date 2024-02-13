@@ -549,11 +549,6 @@ message CreateTransactionHederaSpecific {
   uint64 timestamp = 2;
 }
 
-// The model of Solana specific fields of CreateTransaction
-message CreateTransactionSolanaSpecific {
-  gincoinc.global.v1.SolanaRecentBlockhashType recent_blockhash_type = 1;
-}
-
 // The model of substrate multisig transaction
 message SubstrateMultisigTransaction {
   string wallet_id = 1; // The id of wallet
