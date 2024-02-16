@@ -1410,6 +1410,409 @@ public final class TellerAPIGrpc {
     return getListStakingValidatorsByFilterMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinInitializeRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinInitializeMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinInitialize",
+      requestType = adamant.teller.v1.ProgmatCoinInitializeRequest.class,
+      responseType = adamant.global.v1.CreateTransactionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinInitializeRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinInitializeMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinInitializeRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinInitializeMethod;
+    if ((getProgmatCoinInitializeMethod = TellerAPIGrpc.getProgmatCoinInitializeMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getProgmatCoinInitializeMethod = TellerAPIGrpc.getProgmatCoinInitializeMethod) == null) {
+          TellerAPIGrpc.getProgmatCoinInitializeMethod = getProgmatCoinInitializeMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinInitializeRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinInitialize"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ProgmatCoinInitializeRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinInitialize"))
+              .build();
+        }
+      }
+    }
+    return getProgmatCoinInitializeMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinConfigureMinterRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinConfigureMinterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinConfigureMinter",
+      requestType = adamant.teller.v1.ProgmatCoinConfigureMinterRequest.class,
+      responseType = adamant.global.v1.CreateTransactionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinConfigureMinterRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinConfigureMinterMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinConfigureMinterRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinConfigureMinterMethod;
+    if ((getProgmatCoinConfigureMinterMethod = TellerAPIGrpc.getProgmatCoinConfigureMinterMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getProgmatCoinConfigureMinterMethod = TellerAPIGrpc.getProgmatCoinConfigureMinterMethod) == null) {
+          TellerAPIGrpc.getProgmatCoinConfigureMinterMethod = getProgmatCoinConfigureMinterMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinConfigureMinterRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinConfigureMinter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ProgmatCoinConfigureMinterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinConfigureMinter"))
+              .build();
+        }
+      }
+    }
+    return getProgmatCoinConfigureMinterMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinMintAndTransferRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinMintAndTransferMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinMintAndTransfer",
+      requestType = adamant.teller.v1.ProgmatCoinMintAndTransferRequest.class,
+      responseType = adamant.global.v1.CreateTransactionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinMintAndTransferRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinMintAndTransferMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinMintAndTransferRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinMintAndTransferMethod;
+    if ((getProgmatCoinMintAndTransferMethod = TellerAPIGrpc.getProgmatCoinMintAndTransferMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getProgmatCoinMintAndTransferMethod = TellerAPIGrpc.getProgmatCoinMintAndTransferMethod) == null) {
+          TellerAPIGrpc.getProgmatCoinMintAndTransferMethod = getProgmatCoinMintAndTransferMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinMintAndTransferRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinMintAndTransfer"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ProgmatCoinMintAndTransferRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinMintAndTransfer"))
+              .build();
+        }
+      }
+    }
+    return getProgmatCoinMintAndTransferMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinMintRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinMintMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinMint",
+      requestType = adamant.teller.v1.ProgmatCoinMintRequest.class,
+      responseType = adamant.global.v1.CreateTransactionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinMintRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinMintMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinMintRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinMintMethod;
+    if ((getProgmatCoinMintMethod = TellerAPIGrpc.getProgmatCoinMintMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getProgmatCoinMintMethod = TellerAPIGrpc.getProgmatCoinMintMethod) == null) {
+          TellerAPIGrpc.getProgmatCoinMintMethod = getProgmatCoinMintMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinMintRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinMint"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ProgmatCoinMintRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinMint"))
+              .build();
+        }
+      }
+    }
+    return getProgmatCoinMintMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinTransferRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinTransferMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinTransfer",
+      requestType = adamant.teller.v1.ProgmatCoinTransferRequest.class,
+      responseType = adamant.global.v1.CreateTransactionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinTransferRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinTransferMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinTransferRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinTransferMethod;
+    if ((getProgmatCoinTransferMethod = TellerAPIGrpc.getProgmatCoinTransferMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getProgmatCoinTransferMethod = TellerAPIGrpc.getProgmatCoinTransferMethod) == null) {
+          TellerAPIGrpc.getProgmatCoinTransferMethod = getProgmatCoinTransferMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinTransferRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinTransfer"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ProgmatCoinTransferRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinTransfer"))
+              .build();
+        }
+      }
+    }
+    return getProgmatCoinTransferMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinBurnRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinBurnMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinBurn",
+      requestType = adamant.teller.v1.ProgmatCoinBurnRequest.class,
+      responseType = adamant.global.v1.CreateTransactionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinBurnRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinBurnMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinBurnRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinBurnMethod;
+    if ((getProgmatCoinBurnMethod = TellerAPIGrpc.getProgmatCoinBurnMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getProgmatCoinBurnMethod = TellerAPIGrpc.getProgmatCoinBurnMethod) == null) {
+          TellerAPIGrpc.getProgmatCoinBurnMethod = getProgmatCoinBurnMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinBurnRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinBurn"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ProgmatCoinBurnRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinBurn"))
+              .build();
+        }
+      }
+    }
+    return getProgmatCoinBurnMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinAddToWhitelistRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinAddToWhitelistMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinAddToWhitelist",
+      requestType = adamant.teller.v1.ProgmatCoinAddToWhitelistRequest.class,
+      responseType = adamant.global.v1.CreateTransactionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinAddToWhitelistRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinAddToWhitelistMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinAddToWhitelistRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinAddToWhitelistMethod;
+    if ((getProgmatCoinAddToWhitelistMethod = TellerAPIGrpc.getProgmatCoinAddToWhitelistMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getProgmatCoinAddToWhitelistMethod = TellerAPIGrpc.getProgmatCoinAddToWhitelistMethod) == null) {
+          TellerAPIGrpc.getProgmatCoinAddToWhitelistMethod = getProgmatCoinAddToWhitelistMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinAddToWhitelistRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinAddToWhitelist"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ProgmatCoinAddToWhitelistRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinAddToWhitelist"))
+              .build();
+        }
+      }
+    }
+    return getProgmatCoinAddToWhitelistMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinRemoveFromWhitelistMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinRemoveFromWhitelist",
+      requestType = adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest.class,
+      responseType = adamant.global.v1.CreateTransactionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinRemoveFromWhitelistMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinRemoveFromWhitelistMethod;
+    if ((getProgmatCoinRemoveFromWhitelistMethod = TellerAPIGrpc.getProgmatCoinRemoveFromWhitelistMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getProgmatCoinRemoveFromWhitelistMethod = TellerAPIGrpc.getProgmatCoinRemoveFromWhitelistMethod) == null) {
+          TellerAPIGrpc.getProgmatCoinRemoveFromWhitelistMethod = getProgmatCoinRemoveFromWhitelistMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinRemoveFromWhitelist"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinRemoveFromWhitelist"))
+              .build();
+        }
+      }
+    }
+    return getProgmatCoinRemoveFromWhitelistMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinAddToBlacklistRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinAddToBlacklistMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinAddToBlacklist",
+      requestType = adamant.teller.v1.ProgmatCoinAddToBlacklistRequest.class,
+      responseType = adamant.global.v1.CreateTransactionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinAddToBlacklistRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinAddToBlacklistMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinAddToBlacklistRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinAddToBlacklistMethod;
+    if ((getProgmatCoinAddToBlacklistMethod = TellerAPIGrpc.getProgmatCoinAddToBlacklistMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getProgmatCoinAddToBlacklistMethod = TellerAPIGrpc.getProgmatCoinAddToBlacklistMethod) == null) {
+          TellerAPIGrpc.getProgmatCoinAddToBlacklistMethod = getProgmatCoinAddToBlacklistMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinAddToBlacklistRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinAddToBlacklist"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ProgmatCoinAddToBlacklistRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinAddToBlacklist"))
+              .build();
+        }
+      }
+    }
+    return getProgmatCoinAddToBlacklistMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinRemoveFromBlacklistMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinRemoveFromBlacklist",
+      requestType = adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest.class,
+      responseType = adamant.global.v1.CreateTransactionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinRemoveFromBlacklistMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinRemoveFromBlacklistMethod;
+    if ((getProgmatCoinRemoveFromBlacklistMethod = TellerAPIGrpc.getProgmatCoinRemoveFromBlacklistMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getProgmatCoinRemoveFromBlacklistMethod = TellerAPIGrpc.getProgmatCoinRemoveFromBlacklistMethod) == null) {
+          TellerAPIGrpc.getProgmatCoinRemoveFromBlacklistMethod = getProgmatCoinRemoveFromBlacklistMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinRemoveFromBlacklist"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinRemoveFromBlacklist"))
+              .build();
+        }
+      }
+    }
+    return getProgmatCoinRemoveFromBlacklistMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinConfiscateRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinConfiscateMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinConfiscate",
+      requestType = adamant.teller.v1.ProgmatCoinConfiscateRequest.class,
+      responseType = adamant.global.v1.CreateTransactionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinConfiscateRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinConfiscateMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinConfiscateRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinConfiscateMethod;
+    if ((getProgmatCoinConfiscateMethod = TellerAPIGrpc.getProgmatCoinConfiscateMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getProgmatCoinConfiscateMethod = TellerAPIGrpc.getProgmatCoinConfiscateMethod) == null) {
+          TellerAPIGrpc.getProgmatCoinConfiscateMethod = getProgmatCoinConfiscateMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinConfiscateRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinConfiscate"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ProgmatCoinConfiscateRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinConfiscate"))
+              .build();
+        }
+      }
+    }
+    return getProgmatCoinConfiscateMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinPauseRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinPauseMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinPause",
+      requestType = adamant.teller.v1.ProgmatCoinPauseRequest.class,
+      responseType = adamant.global.v1.CreateTransactionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinPauseRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinPauseMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinPauseRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinPauseMethod;
+    if ((getProgmatCoinPauseMethod = TellerAPIGrpc.getProgmatCoinPauseMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getProgmatCoinPauseMethod = TellerAPIGrpc.getProgmatCoinPauseMethod) == null) {
+          TellerAPIGrpc.getProgmatCoinPauseMethod = getProgmatCoinPauseMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinPauseRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinPause"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ProgmatCoinPauseRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinPause"))
+              .build();
+        }
+      }
+    }
+    return getProgmatCoinPauseMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinUnpauseRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinUnpauseMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinUnpause",
+      requestType = adamant.teller.v1.ProgmatCoinUnpauseRequest.class,
+      responseType = adamant.global.v1.CreateTransactionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinUnpauseRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinUnpauseMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinUnpauseRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinUnpauseMethod;
+    if ((getProgmatCoinUnpauseMethod = TellerAPIGrpc.getProgmatCoinUnpauseMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getProgmatCoinUnpauseMethod = TellerAPIGrpc.getProgmatCoinUnpauseMethod) == null) {
+          TellerAPIGrpc.getProgmatCoinUnpauseMethod = getProgmatCoinUnpauseMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinUnpauseRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinUnpause"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ProgmatCoinUnpauseRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinUnpause"))
+              .build();
+        }
+      }
+    }
+    return getProgmatCoinUnpauseMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -1798,6 +2201,100 @@ public final class TellerAPIGrpc {
     default void listStakingValidatorsByFilter(adamant.global.v1.ListStakingValidatorsByFilterRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingValidatorsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListStakingValidatorsByFilterMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * ProgmatCoin
+     * </pre>
+     */
+    default void progmatCoinInitialize(adamant.teller.v1.ProgmatCoinInitializeRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinInitializeMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void progmatCoinConfigureMinter(adamant.teller.v1.ProgmatCoinConfigureMinterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinConfigureMinterMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void progmatCoinMintAndTransfer(adamant.teller.v1.ProgmatCoinMintAndTransferRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinMintAndTransferMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void progmatCoinMint(adamant.teller.v1.ProgmatCoinMintRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinMintMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void progmatCoinTransfer(adamant.teller.v1.ProgmatCoinTransferRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinTransferMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void progmatCoinBurn(adamant.teller.v1.ProgmatCoinBurnRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinBurnMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void progmatCoinAddToWhitelist(adamant.teller.v1.ProgmatCoinAddToWhitelistRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinAddToWhitelistMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void progmatCoinRemoveFromWhitelist(adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinRemoveFromWhitelistMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void progmatCoinAddToBlacklist(adamant.teller.v1.ProgmatCoinAddToBlacklistRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinAddToBlacklistMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void progmatCoinRemoveFromBlacklist(adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinRemoveFromBlacklistMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void progmatCoinConfiscate(adamant.teller.v1.ProgmatCoinConfiscateRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinConfiscateMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void progmatCoinPause(adamant.teller.v1.ProgmatCoinPauseRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinPauseMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void progmatCoinUnpause(adamant.teller.v1.ProgmatCoinUnpauseRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinUnpauseMethod(), responseObserver);
     }
   }
 
@@ -2214,6 +2711,113 @@ public final class TellerAPIGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListStakingValidatorsByFilterMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * ProgmatCoin
+     * </pre>
+     */
+    public void progmatCoinInitialize(adamant.teller.v1.ProgmatCoinInitializeRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getProgmatCoinInitializeMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void progmatCoinConfigureMinter(adamant.teller.v1.ProgmatCoinConfigureMinterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getProgmatCoinConfigureMinterMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void progmatCoinMintAndTransfer(adamant.teller.v1.ProgmatCoinMintAndTransferRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getProgmatCoinMintAndTransferMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void progmatCoinMint(adamant.teller.v1.ProgmatCoinMintRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getProgmatCoinMintMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void progmatCoinTransfer(adamant.teller.v1.ProgmatCoinTransferRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getProgmatCoinTransferMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void progmatCoinBurn(adamant.teller.v1.ProgmatCoinBurnRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getProgmatCoinBurnMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void progmatCoinAddToWhitelist(adamant.teller.v1.ProgmatCoinAddToWhitelistRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getProgmatCoinAddToWhitelistMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void progmatCoinRemoveFromWhitelist(adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getProgmatCoinRemoveFromWhitelistMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void progmatCoinAddToBlacklist(adamant.teller.v1.ProgmatCoinAddToBlacklistRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getProgmatCoinAddToBlacklistMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void progmatCoinRemoveFromBlacklist(adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getProgmatCoinRemoveFromBlacklistMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void progmatCoinConfiscate(adamant.teller.v1.ProgmatCoinConfiscateRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getProgmatCoinConfiscateMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void progmatCoinPause(adamant.teller.v1.ProgmatCoinPauseRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getProgmatCoinPauseMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void progmatCoinUnpause(adamant.teller.v1.ProgmatCoinUnpauseRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getProgmatCoinUnpauseMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -2572,6 +3176,100 @@ public final class TellerAPIGrpc {
     public adamant.global.v1.ListStakingValidatorsResponse listStakingValidatorsByFilter(adamant.global.v1.ListStakingValidatorsByFilterRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListStakingValidatorsByFilterMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * ProgmatCoin
+     * </pre>
+     */
+    public adamant.global.v1.CreateTransactionResponse progmatCoinInitialize(adamant.teller.v1.ProgmatCoinInitializeRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getProgmatCoinInitializeMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.CreateTransactionResponse progmatCoinConfigureMinter(adamant.teller.v1.ProgmatCoinConfigureMinterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getProgmatCoinConfigureMinterMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.CreateTransactionResponse progmatCoinMintAndTransfer(adamant.teller.v1.ProgmatCoinMintAndTransferRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getProgmatCoinMintAndTransferMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.CreateTransactionResponse progmatCoinMint(adamant.teller.v1.ProgmatCoinMintRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getProgmatCoinMintMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.CreateTransactionResponse progmatCoinTransfer(adamant.teller.v1.ProgmatCoinTransferRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getProgmatCoinTransferMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.CreateTransactionResponse progmatCoinBurn(adamant.teller.v1.ProgmatCoinBurnRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getProgmatCoinBurnMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.CreateTransactionResponse progmatCoinAddToWhitelist(adamant.teller.v1.ProgmatCoinAddToWhitelistRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getProgmatCoinAddToWhitelistMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.CreateTransactionResponse progmatCoinRemoveFromWhitelist(adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getProgmatCoinRemoveFromWhitelistMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.CreateTransactionResponse progmatCoinAddToBlacklist(adamant.teller.v1.ProgmatCoinAddToBlacklistRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getProgmatCoinAddToBlacklistMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.CreateTransactionResponse progmatCoinRemoveFromBlacklist(adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getProgmatCoinRemoveFromBlacklistMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.CreateTransactionResponse progmatCoinConfiscate(adamant.teller.v1.ProgmatCoinConfiscateRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getProgmatCoinConfiscateMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.CreateTransactionResponse progmatCoinPause(adamant.teller.v1.ProgmatCoinPauseRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getProgmatCoinPauseMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.CreateTransactionResponse progmatCoinUnpause(adamant.teller.v1.ProgmatCoinUnpauseRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getProgmatCoinUnpauseMethod(), getCallOptions(), request);
     }
   }
 
@@ -2977,6 +3675,113 @@ public final class TellerAPIGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getListStakingValidatorsByFilterMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * ProgmatCoin
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinInitialize(
+        adamant.teller.v1.ProgmatCoinInitializeRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getProgmatCoinInitializeMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinConfigureMinter(
+        adamant.teller.v1.ProgmatCoinConfigureMinterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getProgmatCoinConfigureMinterMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinMintAndTransfer(
+        adamant.teller.v1.ProgmatCoinMintAndTransferRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getProgmatCoinMintAndTransferMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinMint(
+        adamant.teller.v1.ProgmatCoinMintRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getProgmatCoinMintMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinTransfer(
+        adamant.teller.v1.ProgmatCoinTransferRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getProgmatCoinTransferMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinBurn(
+        adamant.teller.v1.ProgmatCoinBurnRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getProgmatCoinBurnMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinAddToWhitelist(
+        adamant.teller.v1.ProgmatCoinAddToWhitelistRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getProgmatCoinAddToWhitelistMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinRemoveFromWhitelist(
+        adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getProgmatCoinRemoveFromWhitelistMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinAddToBlacklist(
+        adamant.teller.v1.ProgmatCoinAddToBlacklistRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getProgmatCoinAddToBlacklistMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinRemoveFromBlacklist(
+        adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getProgmatCoinRemoveFromBlacklistMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinConfiscate(
+        adamant.teller.v1.ProgmatCoinConfiscateRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getProgmatCoinConfiscateMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinPause(
+        adamant.teller.v1.ProgmatCoinPauseRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getProgmatCoinPauseMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinUnpause(
+        adamant.teller.v1.ProgmatCoinUnpauseRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getProgmatCoinUnpauseMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_WALLET = 0;
@@ -3024,6 +3829,19 @@ public final class TellerAPIGrpc {
   private static final int METHODID_LIST_AUDIT_LOGS = 42;
   private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 43;
   private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 44;
+  private static final int METHODID_PROGMAT_COIN_INITIALIZE = 45;
+  private static final int METHODID_PROGMAT_COIN_CONFIGURE_MINTER = 46;
+  private static final int METHODID_PROGMAT_COIN_MINT_AND_TRANSFER = 47;
+  private static final int METHODID_PROGMAT_COIN_MINT = 48;
+  private static final int METHODID_PROGMAT_COIN_TRANSFER = 49;
+  private static final int METHODID_PROGMAT_COIN_BURN = 50;
+  private static final int METHODID_PROGMAT_COIN_ADD_TO_WHITELIST = 51;
+  private static final int METHODID_PROGMAT_COIN_REMOVE_FROM_WHITELIST = 52;
+  private static final int METHODID_PROGMAT_COIN_ADD_TO_BLACKLIST = 53;
+  private static final int METHODID_PROGMAT_COIN_REMOVE_FROM_BLACKLIST = 54;
+  private static final int METHODID_PROGMAT_COIN_CONFISCATE = 55;
+  private static final int METHODID_PROGMAT_COIN_PAUSE = 56;
+  private static final int METHODID_PROGMAT_COIN_UNPAUSE = 57;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -3221,6 +4039,58 @@ public final class TellerAPIGrpc {
         case METHODID_LIST_STAKING_VALIDATORS_BY_FILTER:
           serviceImpl.listStakingValidatorsByFilter((adamant.global.v1.ListStakingValidatorsByFilterRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingValidatorsResponse>) responseObserver);
+          break;
+        case METHODID_PROGMAT_COIN_INITIALIZE:
+          serviceImpl.progmatCoinInitialize((adamant.teller.v1.ProgmatCoinInitializeRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
+          break;
+        case METHODID_PROGMAT_COIN_CONFIGURE_MINTER:
+          serviceImpl.progmatCoinConfigureMinter((adamant.teller.v1.ProgmatCoinConfigureMinterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
+          break;
+        case METHODID_PROGMAT_COIN_MINT_AND_TRANSFER:
+          serviceImpl.progmatCoinMintAndTransfer((adamant.teller.v1.ProgmatCoinMintAndTransferRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
+          break;
+        case METHODID_PROGMAT_COIN_MINT:
+          serviceImpl.progmatCoinMint((adamant.teller.v1.ProgmatCoinMintRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
+          break;
+        case METHODID_PROGMAT_COIN_TRANSFER:
+          serviceImpl.progmatCoinTransfer((adamant.teller.v1.ProgmatCoinTransferRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
+          break;
+        case METHODID_PROGMAT_COIN_BURN:
+          serviceImpl.progmatCoinBurn((adamant.teller.v1.ProgmatCoinBurnRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
+          break;
+        case METHODID_PROGMAT_COIN_ADD_TO_WHITELIST:
+          serviceImpl.progmatCoinAddToWhitelist((adamant.teller.v1.ProgmatCoinAddToWhitelistRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
+          break;
+        case METHODID_PROGMAT_COIN_REMOVE_FROM_WHITELIST:
+          serviceImpl.progmatCoinRemoveFromWhitelist((adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
+          break;
+        case METHODID_PROGMAT_COIN_ADD_TO_BLACKLIST:
+          serviceImpl.progmatCoinAddToBlacklist((adamant.teller.v1.ProgmatCoinAddToBlacklistRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
+          break;
+        case METHODID_PROGMAT_COIN_REMOVE_FROM_BLACKLIST:
+          serviceImpl.progmatCoinRemoveFromBlacklist((adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
+          break;
+        case METHODID_PROGMAT_COIN_CONFISCATE:
+          serviceImpl.progmatCoinConfiscate((adamant.teller.v1.ProgmatCoinConfiscateRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
+          break;
+        case METHODID_PROGMAT_COIN_PAUSE:
+          serviceImpl.progmatCoinPause((adamant.teller.v1.ProgmatCoinPauseRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
+          break;
+        case METHODID_PROGMAT_COIN_UNPAUSE:
+          serviceImpl.progmatCoinUnpause((adamant.teller.v1.ProgmatCoinUnpauseRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -3555,6 +4425,97 @@ public final class TellerAPIGrpc {
               adamant.global.v1.ListStakingValidatorsByFilterRequest,
               adamant.global.v1.ListStakingValidatorsResponse>(
                 service, METHODID_LIST_STAKING_VALIDATORS_BY_FILTER)))
+        .addMethod(
+          getProgmatCoinInitializeMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.ProgmatCoinInitializeRequest,
+              adamant.global.v1.CreateTransactionResponse>(
+                service, METHODID_PROGMAT_COIN_INITIALIZE)))
+        .addMethod(
+          getProgmatCoinConfigureMinterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.ProgmatCoinConfigureMinterRequest,
+              adamant.global.v1.CreateTransactionResponse>(
+                service, METHODID_PROGMAT_COIN_CONFIGURE_MINTER)))
+        .addMethod(
+          getProgmatCoinMintAndTransferMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.ProgmatCoinMintAndTransferRequest,
+              adamant.global.v1.CreateTransactionResponse>(
+                service, METHODID_PROGMAT_COIN_MINT_AND_TRANSFER)))
+        .addMethod(
+          getProgmatCoinMintMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.ProgmatCoinMintRequest,
+              adamant.global.v1.CreateTransactionResponse>(
+                service, METHODID_PROGMAT_COIN_MINT)))
+        .addMethod(
+          getProgmatCoinTransferMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.ProgmatCoinTransferRequest,
+              adamant.global.v1.CreateTransactionResponse>(
+                service, METHODID_PROGMAT_COIN_TRANSFER)))
+        .addMethod(
+          getProgmatCoinBurnMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.ProgmatCoinBurnRequest,
+              adamant.global.v1.CreateTransactionResponse>(
+                service, METHODID_PROGMAT_COIN_BURN)))
+        .addMethod(
+          getProgmatCoinAddToWhitelistMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.ProgmatCoinAddToWhitelistRequest,
+              adamant.global.v1.CreateTransactionResponse>(
+                service, METHODID_PROGMAT_COIN_ADD_TO_WHITELIST)))
+        .addMethod(
+          getProgmatCoinRemoveFromWhitelistMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest,
+              adamant.global.v1.CreateTransactionResponse>(
+                service, METHODID_PROGMAT_COIN_REMOVE_FROM_WHITELIST)))
+        .addMethod(
+          getProgmatCoinAddToBlacklistMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.ProgmatCoinAddToBlacklistRequest,
+              adamant.global.v1.CreateTransactionResponse>(
+                service, METHODID_PROGMAT_COIN_ADD_TO_BLACKLIST)))
+        .addMethod(
+          getProgmatCoinRemoveFromBlacklistMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest,
+              adamant.global.v1.CreateTransactionResponse>(
+                service, METHODID_PROGMAT_COIN_REMOVE_FROM_BLACKLIST)))
+        .addMethod(
+          getProgmatCoinConfiscateMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.ProgmatCoinConfiscateRequest,
+              adamant.global.v1.CreateTransactionResponse>(
+                service, METHODID_PROGMAT_COIN_CONFISCATE)))
+        .addMethod(
+          getProgmatCoinPauseMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.ProgmatCoinPauseRequest,
+              adamant.global.v1.CreateTransactionResponse>(
+                service, METHODID_PROGMAT_COIN_PAUSE)))
+        .addMethod(
+          getProgmatCoinUnpauseMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.ProgmatCoinUnpauseRequest,
+              adamant.global.v1.CreateTransactionResponse>(
+                service, METHODID_PROGMAT_COIN_UNPAUSE)))
         .build();
   }
 
@@ -3648,6 +4609,19 @@ public final class TellerAPIGrpc {
               .addMethod(getListAuditLogsMethod())
               .addMethod(getListStakingHistoriesByFilterMethod())
               .addMethod(getListStakingValidatorsByFilterMethod())
+              .addMethod(getProgmatCoinInitializeMethod())
+              .addMethod(getProgmatCoinConfigureMinterMethod())
+              .addMethod(getProgmatCoinMintAndTransferMethod())
+              .addMethod(getProgmatCoinMintMethod())
+              .addMethod(getProgmatCoinTransferMethod())
+              .addMethod(getProgmatCoinBurnMethod())
+              .addMethod(getProgmatCoinAddToWhitelistMethod())
+              .addMethod(getProgmatCoinRemoveFromWhitelistMethod())
+              .addMethod(getProgmatCoinAddToBlacklistMethod())
+              .addMethod(getProgmatCoinRemoveFromBlacklistMethod())
+              .addMethod(getProgmatCoinConfiscateMethod())
+              .addMethod(getProgmatCoinPauseMethod())
+              .addMethod(getProgmatCoinUnpauseMethod())
               .build();
         }
       }

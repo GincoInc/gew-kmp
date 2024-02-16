@@ -52,6 +52,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.JapanOpenChainSpecific.class)) return new JapanOpenChainSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SolanaSpecific.class)) return new SolanaSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.BNBSmartChainSpecific.class)) return new BNBSmartChainSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.FlareSpecific.class)) return new FlareSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class)) return new CreateTransactionSubstrateSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.class)) return new CreateTransactionWalletConnectSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionNemSpecific.class)) return new CreateTransactionNemSpecificValidator();
@@ -878,6 +879,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -995,6 +998,9 @@ public class ModelValidator {
 	
 			// Validate bnb_smart_chain_specific
 			if (proto.hasBnbSmartChainSpecific()) index.validatorFor(proto.getBnbSmartChainSpecific()).assertValid(proto.getBnbSmartChainSpecific());
+	
+			// Validate flare_specific
+			if (proto.hasFlareSpecific()) index.validatorFor(proto.getFlareSpecific()).assertValid(proto.getFlareSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -1843,6 +1849,28 @@ public class ModelValidator {
 	}
 }
 /**
+	 * Validates {@code FlareSpecific} protobuf objects.
+	 */
+	public static class FlareSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.FlareSpecific> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.FlareSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	
+	}
+}
+/**
 	 * Validates {@code CreateTransactionSubstrateSpecific} protobuf objects.
 	 */
 	public static class CreateTransactionSubstrateSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionSubstrateSpecific> {
@@ -1917,6 +1945,10 @@ public class ModelValidator {
 		
 	
 	
+		
+
+
+	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionIOSTSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Memo
@@ -1924,6 +1956,15 @@ public class ModelValidator {
 	// no validation rules for Timestamp
 
 	
+		
+			switch (proto.getTypeCase()) {
+				case TYPE:
+					// no validation rules for Type
+
+					break;
+				
+			}
+
 	}
 }
 /**
@@ -1959,11 +2000,37 @@ public class ModelValidator {
 		
 	
 	
+		
+
+
+	
+		
+
+
+	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionEthereumSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Data
 
 	
+		
+			switch (proto.getStakingRecipientWalletIdCase()) {
+				case STAKING_RECIPIENT_WALLET_ID:
+					// no validation rules for StakingRecipientWalletId
+
+					break;
+				
+			}
+
+		
+			switch (proto.getCallMethodCase()) {
+				case CALL_METHOD:
+					// no validation rules for CallMethod
+
+					break;
+				
+			}
+
 	}
 }
 /**

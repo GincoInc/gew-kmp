@@ -82,6 +82,21 @@ service TellerAPI {
   rpc ListStakingHistoriesByFilter(adamant.global.v1.ListStakingHistoriesByFilterRequest) returns (adamant.global.v1.ListStakingHistoriesResponse) {}
 
   rpc ListStakingValidatorsByFilter(adamant.global.v1.ListStakingValidatorsByFilterRequest) returns (adamant.global.v1.ListStakingValidatorsResponse) {}
+
+  // ProgmatCoin
+  rpc ProgmatCoinInitialize(ProgmatCoinInitializeRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
+  rpc ProgmatCoinConfigureMinter(ProgmatCoinConfigureMinterRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
+  rpc ProgmatCoinMintAndTransfer(ProgmatCoinMintAndTransferRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
+  rpc ProgmatCoinMint(ProgmatCoinMintRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
+  rpc ProgmatCoinTransfer(ProgmatCoinTransferRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
+  rpc ProgmatCoinBurn(ProgmatCoinBurnRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
+  rpc ProgmatCoinAddToWhitelist(ProgmatCoinAddToWhitelistRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
+  rpc ProgmatCoinRemoveFromWhitelist(ProgmatCoinRemoveFromWhitelistRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
+  rpc ProgmatCoinAddToBlacklist(ProgmatCoinAddToBlacklistRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
+  rpc ProgmatCoinRemoveFromBlacklist(ProgmatCoinRemoveFromBlacklistRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
+  rpc ProgmatCoinConfiscate(ProgmatCoinConfiscateRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
+  rpc ProgmatCoinPause(ProgmatCoinPauseRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
+  rpc ProgmatCoinUnpause(ProgmatCoinUnpauseRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
 }
 
 message CreateWalletRequest {
@@ -146,4 +161,134 @@ message SendTransactionRequest {
   string transaction_id = 2 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
+}
+
+// ProgmatCoin
+message ProgmatCoinInitializeRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint64 fee_rate = 2;
+  string contract_address = 3;
+  string token_name = 4;
+  string token_symbol = 5;
+  string token_currency = 6;
+  uint32 token_decimals = 7;
+  string new_master_minter = 8;
+  string new_pauser = 9;
+  string new_white_and_black_lister = 10;
+  string new_confiscator = 11;
+  string new_owner = 12;
+}
+
+message ProgmatCoinConfigureMinterRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint64 fee_rate = 2;
+  string contract_address = 3;
+  string address = 4;
+  string minter_allowed_amount = 5;
+}
+
+message ProgmatCoinMintAndTransferRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint64 fee_rate = 2;
+  string contract_address = 3;
+  string mint_address = 4;
+  string transfer_address = 5;
+  string amount = 6;
+}
+
+message ProgmatCoinMintRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint64 fee_rate = 2;
+  string contract_address = 3;
+  string address = 4;
+  string amount = 5;
+}
+
+message ProgmatCoinTransferRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint64 fee_rate = 2;
+  string address = 3;
+  string string_value = 4;
+}
+
+message ProgmatCoinBurnRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint64 fee_rate = 2;
+  string contract_address = 3;
+  string amount = 4;
+}
+
+message ProgmatCoinAddToWhitelistRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint64 fee_rate = 2;
+  string contract_address = 3;
+  string address = 4;
+}
+
+message ProgmatCoinRemoveFromWhitelistRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint64 fee_rate = 2;
+  string contract_address = 3;
+  string address = 4;
+}
+
+message ProgmatCoinAddToBlacklistRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint64 fee_rate = 2;
+  string contract_address = 3;
+  string address = 4;
+}
+
+message ProgmatCoinRemoveFromBlacklistRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint64 fee_rate = 2;
+  string contract_address = 3;
+  string address = 4;
+}
+
+message ProgmatCoinConfiscateRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint64 fee_rate = 2;
+  string contract_address = 3;
+  string black_listed_account = 4;
+  string to_account = 5;
+  string amount = 6;
+}
+
+message ProgmatCoinPauseRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint64 fee_rate = 2;
+  string contract_address = 3;
+}
+
+message ProgmatCoinUnpauseRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint64 fee_rate = 2;
+  string contract_address = 3;
 }
