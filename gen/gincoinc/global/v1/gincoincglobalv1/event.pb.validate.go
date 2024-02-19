@@ -11,7 +11,6 @@ import (
 	"net/mail"
 	"net/url"
 	"regexp"
-	"sort"
 	"strings"
 	"time"
 	"unicode/utf8"
@@ -32,24 +31,15 @@ var (
 	_ = (*url.URL)(nil)
 	_ = (*mail.Address)(nil)
 	_ = anypb.Any{}
-	_ = sort.Sort
 )
 
 // Validate checks the field values on Event with the rules defined in the
-// proto definition for this message. If any rules are violated, the first
-// error encountered is returned, or nil if there are no violations.
-func (m *Event) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on Event with the rules defined in the
-// proto definition for this message. If any rules are violated, the result is
-// a list of violation errors wrapped in EventMultiError, or nil if none found.
-func (m *Event) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *Event) validate(all bool) error {
+// proto definition for this message. If any rules are violated, an error is
+// returned. When asked to return all errors, validation continues after first
+// violation, and the result is a list of violation errors wrapped in
+// EventMultiError, or nil if none found. Otherwise, only the first error is
+// returned, if any.
+func (m *Event) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -71,12 +61,11 @@ func (m *Event) validate(all bool) error {
 	if len(errors) > 0 {
 		return EventMultiError(errors)
 	}
-
 	return nil
 }
 
 // EventMultiError is an error wrapping multiple validation errors returned by
-// Event.ValidateAll() if the designated constraints aren't met.
+// Event.Validate(true) if the designated constraints aren't met.
 type EventMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.

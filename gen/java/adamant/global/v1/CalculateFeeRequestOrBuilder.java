@@ -168,4 +168,19 @@ public interface CalculateFeeRequestOrBuilder extends
    * <code>.adamant.global.v1.CalculateFeeHederaSpecific hedera_specific = 12 [json_name = "hederaSpecific"];</code>
    */
   adamant.global.v1.CalculateFeeHederaSpecificOrBuilder getHederaSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+   * @return Whether the rbfSpecific field is set.
+   */
+  boolean hasRbfSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+   * @return The rbfSpecific.
+   */
+  adamant.global.v1.CalculateFeeRbfSpecific getRbfSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+   */
+  adamant.global.v1.CalculateFeeRbfSpecificOrBuilder getRbfSpecificOrBuilder();
 }

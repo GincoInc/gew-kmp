@@ -256,6 +256,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $bnb_smart_chain_specific = null;
     /**
+     * The Flare specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.FlareSpecific flare_specific = 46 [json_name = "flareSpecific"];</code>
+     */
+    protected $flare_specific = null;
+    /**
      * the time at which the transaction was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
@@ -354,6 +360,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The Solana specific fields
      *     @type \Adamant\PBGlobal\V1\BNBSmartChainSpecific $bnb_smart_chain_specific
      *           The BNB Smart Chain specific fields
+     *     @type \Adamant\PBGlobal\V1\FlareSpecific $flare_specific
+     *           The Flare specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -1661,6 +1669,42 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\BNBSmartChainSpecific::class);
         $this->bnb_smart_chain_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Flare specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.FlareSpecific flare_specific = 46 [json_name = "flareSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\FlareSpecific|null
+     */
+    public function getFlareSpecific()
+    {
+        return $this->flare_specific;
+    }
+
+    public function hasFlareSpecific()
+    {
+        return isset($this->flare_specific);
+    }
+
+    public function clearFlareSpecific()
+    {
+        unset($this->flare_specific);
+    }
+
+    /**
+     * The Flare specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.FlareSpecific flare_specific = 46 [json_name = "flareSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\FlareSpecific $var
+     * @return $this
+     */
+    public function setFlareSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\FlareSpecific::class);
+        $this->flare_specific = $var;
 
         return $this;
     }
