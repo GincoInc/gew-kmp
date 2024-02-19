@@ -378,6 +378,32 @@ private static final long serialVersionUID = 0L;
     return hederaSpecific_ == null ? adamant.global.v1.CalculateFeeHederaSpecific.getDefaultInstance() : hederaSpecific_;
   }
 
+  public static final int RBF_SPECIFIC_FIELD_NUMBER = 13;
+  private adamant.global.v1.CalculateFeeRbfSpecific rbfSpecific_;
+  /**
+   * <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+   * @return Whether the rbfSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasRbfSpecific() {
+    return rbfSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+   * @return The rbfSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.CalculateFeeRbfSpecific getRbfSpecific() {
+    return rbfSpecific_ == null ? adamant.global.v1.CalculateFeeRbfSpecific.getDefaultInstance() : rbfSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.CalculateFeeRbfSpecificOrBuilder getRbfSpecificOrBuilder() {
+    return rbfSpecific_ == null ? adamant.global.v1.CalculateFeeRbfSpecific.getDefaultInstance() : rbfSpecific_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -427,6 +453,9 @@ private static final long serialVersionUID = 0L;
     }
     if (hederaSpecific_ != null) {
       output.writeMessage(12, getHederaSpecific());
+    }
+    if (rbfSpecific_ != null) {
+      output.writeMessage(13, getRbfSpecific());
     }
     getUnknownFields().writeTo(output);
   }
@@ -481,6 +510,10 @@ private static final long serialVersionUID = 0L;
     if (hederaSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, getHederaSpecific());
+    }
+    if (rbfSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(13, getRbfSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -539,6 +572,11 @@ private static final long serialVersionUID = 0L;
       if (!getHederaSpecific()
           .equals(other.getHederaSpecific())) return false;
     }
+    if (hasRbfSpecific() != other.hasRbfSpecific()) return false;
+    if (hasRbfSpecific()) {
+      if (!getRbfSpecific()
+          .equals(other.getRbfSpecific())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -588,6 +626,10 @@ private static final long serialVersionUID = 0L;
     if (hasHederaSpecific()) {
       hash = (37 * hash) + HEDERA_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getHederaSpecific().hashCode();
+    }
+    if (hasRbfSpecific()) {
+      hash = (37 * hash) + RBF_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getRbfSpecific().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -762,6 +804,11 @@ private static final long serialVersionUID = 0L;
         hederaSpecificBuilder_.dispose();
         hederaSpecificBuilder_ = null;
       }
+      rbfSpecific_ = null;
+      if (rbfSpecificBuilder_ != null) {
+        rbfSpecificBuilder_.dispose();
+        rbfSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -852,6 +899,11 @@ private static final long serialVersionUID = 0L;
         result.hederaSpecific_ = hederaSpecificBuilder_ == null
             ? hederaSpecific_
             : hederaSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.rbfSpecific_ = rbfSpecificBuilder_ == null
+            ? rbfSpecific_
+            : rbfSpecificBuilder_.build();
       }
     }
 
@@ -964,6 +1016,9 @@ private static final long serialVersionUID = 0L;
       if (other.hasHederaSpecific()) {
         mergeHederaSpecific(other.getHederaSpecific());
       }
+      if (other.hasRbfSpecific()) {
+        mergeRbfSpecific(other.getRbfSpecific());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -1070,6 +1125,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000800;
               break;
             } // case 98
+            case 106: {
+              input.readMessage(
+                  getRbfSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 106
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2319,6 +2381,125 @@ private static final long serialVersionUID = 0L;
         hederaSpecific_ = null;
       }
       return hederaSpecificBuilder_;
+    }
+
+    private adamant.global.v1.CalculateFeeRbfSpecific rbfSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.CalculateFeeRbfSpecific, adamant.global.v1.CalculateFeeRbfSpecific.Builder, adamant.global.v1.CalculateFeeRbfSpecificOrBuilder> rbfSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+     * @return Whether the rbfSpecific field is set.
+     */
+    public boolean hasRbfSpecific() {
+      return ((bitField0_ & 0x00001000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+     * @return The rbfSpecific.
+     */
+    public adamant.global.v1.CalculateFeeRbfSpecific getRbfSpecific() {
+      if (rbfSpecificBuilder_ == null) {
+        return rbfSpecific_ == null ? adamant.global.v1.CalculateFeeRbfSpecific.getDefaultInstance() : rbfSpecific_;
+      } else {
+        return rbfSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+     */
+    public Builder setRbfSpecific(adamant.global.v1.CalculateFeeRbfSpecific value) {
+      if (rbfSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        rbfSpecific_ = value;
+      } else {
+        rbfSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+     */
+    public Builder setRbfSpecific(
+        adamant.global.v1.CalculateFeeRbfSpecific.Builder builderForValue) {
+      if (rbfSpecificBuilder_ == null) {
+        rbfSpecific_ = builderForValue.build();
+      } else {
+        rbfSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+     */
+    public Builder mergeRbfSpecific(adamant.global.v1.CalculateFeeRbfSpecific value) {
+      if (rbfSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00001000) != 0) &&
+          rbfSpecific_ != null &&
+          rbfSpecific_ != adamant.global.v1.CalculateFeeRbfSpecific.getDefaultInstance()) {
+          getRbfSpecificBuilder().mergeFrom(value);
+        } else {
+          rbfSpecific_ = value;
+        }
+      } else {
+        rbfSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+     */
+    public Builder clearRbfSpecific() {
+      bitField0_ = (bitField0_ & ~0x00001000);
+      rbfSpecific_ = null;
+      if (rbfSpecificBuilder_ != null) {
+        rbfSpecificBuilder_.dispose();
+        rbfSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+     */
+    public adamant.global.v1.CalculateFeeRbfSpecific.Builder getRbfSpecificBuilder() {
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return getRbfSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+     */
+    public adamant.global.v1.CalculateFeeRbfSpecificOrBuilder getRbfSpecificOrBuilder() {
+      if (rbfSpecificBuilder_ != null) {
+        return rbfSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return rbfSpecific_ == null ?
+            adamant.global.v1.CalculateFeeRbfSpecific.getDefaultInstance() : rbfSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.CalculateFeeRbfSpecific, adamant.global.v1.CalculateFeeRbfSpecific.Builder, adamant.global.v1.CalculateFeeRbfSpecificOrBuilder> 
+        getRbfSpecificFieldBuilder() {
+      if (rbfSpecificBuilder_ == null) {
+        rbfSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.CalculateFeeRbfSpecific, adamant.global.v1.CalculateFeeRbfSpecific.Builder, adamant.global.v1.CalculateFeeRbfSpecificOrBuilder>(
+                getRbfSpecific(),
+                getParentForChildren(),
+                isClean());
+        rbfSpecific_ = null;
+      }
+      return rbfSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

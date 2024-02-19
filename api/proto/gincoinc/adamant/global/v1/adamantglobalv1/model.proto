@@ -234,6 +234,7 @@ message Transaction {
   JapanOpenChainSpecific japan_open_chain_specific = 43; // The Japan Open Chain specific fields
   SolanaSpecific solana_specific = 44; // The Solana specific fields
   BNBSmartChainSpecific bnb_smart_chain_specific = 45; // The BNB Smart Chain specific fields
+  FlareSpecific flare_specific = 46; // The Flare specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -476,6 +477,13 @@ message SolanaSpecific {
 
 // The model of BNB Smart Chain specific fields of transaction
 message BNBSmartChainSpecific {
+  uint64 gas_limit = 1;
+  uint64 nonce = 2;
+  bool is_next_nonce = 3;
+}
+
+// The model of Flare specific fields of transaction
+message FlareSpecific {
   uint64 gas_limit = 1;
   uint64 nonce = 2;
   bool is_next_nonce = 3;
