@@ -659,4 +659,201 @@ class TellerAPIClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * @param \Adamant\Teller\V1\SignMessageRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function SignMessage(\Adamant\Teller\V1\SignMessageRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/SignMessage',
+        $argument,
+        ['\Adamant\Teller\V1\SignMessageResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * ProgmatCoin
+     * @param \Adamant\Teller\V1\ProgmatCoinInitializeRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ProgmatCoinInitialize(\Adamant\Teller\V1\ProgmatCoinInitializeRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinInitialize',
+        $argument,
+        ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Teller\V1\ProgmatCoinConfigureMinterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ProgmatCoinConfigureMinter(\Adamant\Teller\V1\ProgmatCoinConfigureMinterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinConfigureMinter',
+        $argument,
+        ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Teller\V1\ProgmatCoinMintAndTransferRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ProgmatCoinMintAndTransfer(\Adamant\Teller\V1\ProgmatCoinMintAndTransferRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinMintAndTransfer',
+        $argument,
+        ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Teller\V1\ProgmatCoinMintRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ProgmatCoinMint(\Adamant\Teller\V1\ProgmatCoinMintRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinMint',
+        $argument,
+        ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Teller\V1\ProgmatCoinTransferRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ProgmatCoinTransfer(\Adamant\Teller\V1\ProgmatCoinTransferRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinTransfer',
+        $argument,
+        ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Teller\V1\ProgmatCoinBurnRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ProgmatCoinBurn(\Adamant\Teller\V1\ProgmatCoinBurnRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinBurn',
+        $argument,
+        ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Teller\V1\ProgmatCoinAddToWhitelistRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ProgmatCoinAddToWhitelist(\Adamant\Teller\V1\ProgmatCoinAddToWhitelistRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinAddToWhitelist',
+        $argument,
+        ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Teller\V1\ProgmatCoinRemoveFromWhitelistRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ProgmatCoinRemoveFromWhitelist(\Adamant\Teller\V1\ProgmatCoinRemoveFromWhitelistRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinRemoveFromWhitelist',
+        $argument,
+        ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Teller\V1\ProgmatCoinAddToBlacklistRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ProgmatCoinAddToBlacklist(\Adamant\Teller\V1\ProgmatCoinAddToBlacklistRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinAddToBlacklist',
+        $argument,
+        ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Teller\V1\ProgmatCoinRemoveFromBlacklistRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ProgmatCoinRemoveFromBlacklist(\Adamant\Teller\V1\ProgmatCoinRemoveFromBlacklistRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinRemoveFromBlacklist',
+        $argument,
+        ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Teller\V1\ProgmatCoinConfiscateRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ProgmatCoinConfiscate(\Adamant\Teller\V1\ProgmatCoinConfiscateRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinConfiscate',
+        $argument,
+        ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Teller\V1\ProgmatCoinPauseRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ProgmatCoinPause(\Adamant\Teller\V1\ProgmatCoinPauseRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinPause',
+        $argument,
+        ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Teller\V1\ProgmatCoinUnpauseRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ProgmatCoinUnpause(\Adamant\Teller\V1\ProgmatCoinUnpauseRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinUnpause',
+        $argument,
+        ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }

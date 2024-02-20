@@ -23,6 +23,10 @@ class CreateTransactionEthereumSpecific extends \Google\Protobuf\Internal\Messag
      * Generated from protobuf field <code>optional string staking_recipient_wallet_id = 2 [json_name = "stakingRecipientWalletId"];</code>
      */
     protected $staking_recipient_wallet_id = null;
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.EthereumCallMethod call_method = 3 [json_name = "callMethod"];</code>
+     */
+    protected $call_method = null;
 
     /**
      * Constructor.
@@ -32,6 +36,7 @@ class CreateTransactionEthereumSpecific extends \Google\Protobuf\Internal\Messag
      *
      *     @type string $data
      *     @type string $staking_recipient_wallet_id
+     *     @type int $call_method
      * }
      */
     public function __construct($data = NULL) {
@@ -89,6 +94,38 @@ class CreateTransactionEthereumSpecific extends \Google\Protobuf\Internal\Messag
     {
         GPBUtil::checkString($var, True);
         $this->staking_recipient_wallet_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.EthereumCallMethod call_method = 3 [json_name = "callMethod"];</code>
+     * @return int
+     */
+    public function getCallMethod()
+    {
+        return isset($this->call_method) ? $this->call_method : 0;
+    }
+
+    public function hasCallMethod()
+    {
+        return isset($this->call_method);
+    }
+
+    public function clearCallMethod()
+    {
+        unset($this->call_method);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.EthereumCallMethod call_method = 3 [json_name = "callMethod"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setCallMethod($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\EthereumCallMethod::class);
+        $this->call_method = $var;
 
         return $this;
     }
