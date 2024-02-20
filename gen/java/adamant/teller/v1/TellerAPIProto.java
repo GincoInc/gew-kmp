@@ -35,10 +35,85 @@ public final class TellerAPIProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_teller_v1_SignTransactionRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_SignMessageRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_SignMessageRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_SignMessageResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_SignMessageResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_teller_v1_SendTransactionRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_teller_v1_SendTransactionRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_ProgmatCoinInitializeRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_ProgmatCoinInitializeRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_ProgmatCoinConfigureMinterRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_ProgmatCoinConfigureMinterRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_ProgmatCoinMintAndTransferRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_ProgmatCoinMintAndTransferRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_ProgmatCoinMintRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_ProgmatCoinMintRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_ProgmatCoinTransferRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_ProgmatCoinTransferRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_ProgmatCoinBurnRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_ProgmatCoinBurnRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_ProgmatCoinAddToWhitelistRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_ProgmatCoinAddToWhitelistRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_ProgmatCoinRemoveFromWhitelistRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_ProgmatCoinRemoveFromWhitelistRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_ProgmatCoinAddToBlacklistRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_ProgmatCoinAddToBlacklistRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_ProgmatCoinRemoveFromBlacklistRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_ProgmatCoinRemoveFromBlacklistRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_ProgmatCoinConfiscateRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_ProgmatCoinConfiscateRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_ProgmatCoinPauseRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_ProgmatCoinPauseRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_ProgmatCoinUnpauseRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_ProgmatCoinUnpauseRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -83,138 +158,278 @@ public final class TellerAPIProto {
       "-[0-9a-f]{12}$R\010walletId\022s\n\016transaction_" +
       "id\030\002 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4" +
       "}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f" +
-      "]{12}$R\rtransactionId\"\370\001\n\026SendTransactio" +
-      "nRequest\022i\n\twallet_id\030\001 \001(\tBL\372BIrG2E^[0-" +
-      "9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab]" +
-      "[0-9a-f]{3}-[0-9a-f]{12}$R\010walletId\022s\n\016t" +
-      "ransaction_id\030\002 \001(\tBL\372BIrG2E^[0-9a-f]{8}" +
+      "]{12}$R\rtransactionId\"\206\002\n\022SignMessageReq" +
+      "uest\022i\n\twallet_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f" +
+      "]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9" +
+      "a-f]{3}-[0-9a-f]{12}$R\010walletId\022k\n\naddre" +
+      "ss_id\030\002 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f" +
+      "]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9" +
+      "a-f]{12}$R\taddressId\022\030\n\007message\030\003 \001(\tR\007m" +
+      "essage\"3\n\023SignMessageResponse\022\034\n\tsignatu" +
+      "re\030\001 \001(\tR\tsignature\"\370\001\n\026SendTransactionR" +
+      "equest\022i\n\twallet_id\030\001 \001(\tBL\372BIrG2E^[0-9a" +
+      "-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0" +
+      "-9a-f]{3}-[0-9a-f]{12}$R\010walletId\022s\n\016tra" +
+      "nsaction_id\030\002 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[" +
+      "0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3" +
+      "}-[0-9a-f]{12}$R\rtransactionId\"\254\004\n\034Progm" +
+      "atCoinInitializeRequest\022i\n\twallet_id\030\001 \001" +
+      "(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-" +
+      "9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$" +
+      "R\010walletId\022\031\n\010fee_rate\030\002 \001(\004R\007feeRate\022)\n" +
+      "\020contract_address\030\003 \001(\tR\017contractAddress" +
+      "\022\035\n\ntoken_name\030\004 \001(\tR\ttokenName\022!\n\014token" +
+      "_symbol\030\005 \001(\tR\013tokenSymbol\022%\n\016token_curr" +
+      "ency\030\006 \001(\tR\rtokenCurrency\022%\n\016token_decim" +
+      "als\030\007 \001(\rR\rtokenDecimals\022*\n\021new_master_m" +
+      "inter\030\010 \001(\tR\017newMasterMinter\022\035\n\nnew_paus" +
+      "er\030\t \001(\tR\tnewPauser\022:\n\032new_white_and_bla" +
+      "ck_lister\030\n \001(\tR\026newWhiteAndBlackLister\022" +
+      "\'\n\017new_confiscator\030\013 \001(\tR\016newConfiscator" +
+      "\022\033\n\tnew_owner\030\014 \001(\tR\010newOwner\"\242\002\n!Progma" +
+      "tCoinConfigureMinterRequest\022i\n\twallet_id" +
+      "\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-" +
+      "4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{" +
+      "12}$R\010walletId\022\031\n\010fee_rate\030\002 \001(\004R\007feeRat" +
+      "e\022)\n\020contract_address\030\003 \001(\tR\017contractAdd" +
+      "ress\022\030\n\007address\030\004 \001(\tR\007address\0222\n\025minter" +
+      "_allowed_amount\030\005 \001(\tR\023minterAllowedAmou" +
+      "nt\"\272\002\n!ProgmatCoinMintAndTransferRequest" +
+      "\022i\n\twallet_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}" +
       "-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]" +
-      "{3}-[0-9a-f]{12}$R\rtransactionId2\224&\n\tTel" +
-      "lerAPI\022a\n\014CreateWallet\022&.adamant.teller." +
-      "v1.CreateWalletRequest\032\'.adamant.global." +
-      "v1.CreateWalletResponse\"\000\022M\n\tGetWallet\022#" +
-      ".adamant.global.v1.GetWalletRequest\032\031.ad" +
-      "amant.global.v1.Wallet\"\000\022^\n\013ListWallets\022" +
-      "%.adamant.global.v1.ListWalletsRequest\032&" +
-      ".adamant.global.v1.ListWalletsResponse\"\000" +
-      "\022n\n\023ListWalletsByFilter\022-.adamant.global" +
-      ".v1.ListWalletsByFilterRequest\032&.adamant" +
-      ".global.v1.ListWalletsResponse\"\000\022\203\001\n\032Lis" +
-      "tStakingWalletsByFilter\0224.adamant.global" +
-      ".v1.ListStakingWalletsByFilterRequest\032-." +
-      "adamant.global.v1.ListStakingWalletsResp" +
-      "onse\"\000\022j\n\017ListBaseWallets\022).adamant.glob" +
-      "al.v1.ListBaseWalletsRequest\032*.adamant.g" +
-      "lobal.v1.ListBaseWalletsResponse\"\000\022v\n\023Ge" +
-      "tSpendableBalance\022-.adamant.global.v1.Ge" +
-      "tSpendableBalanceRequest\032..adamant.globa" +
-      "l.v1.GetSpendableBalanceResponse\"\000\022^\n\023In" +
-      "itializeXRPWallet\022-.adamant.teller.v1.In" +
-      "itializeXRPWalletRequest\032\026.google.protob" +
-      "uf.Empty\"\000\022X\n\020InitializeWallet\022*.adamant" +
-      ".teller.v1.InitializeWalletRequest\032\026.goo" +
-      "gle.protobuf.Empty\"\000\022j\n\031UpdateDestinatio" +
-      "nWalletID\0223.adamant.global.v1.UpdateDest" +
-      "inationWalletIDRequest\032\026.google.protobuf" +
-      ".Empty\"\000\022m\n\020GetCosmosBalance\022*.adamant.g" +
-      "lobal.v1.GetCosmosBalanceRequest\032+.adama" +
-      "nt.global.v1.GetCosmosBalanceResponse\"\000\022" +
-      "\216\001\n\033ListCosmosDelegateHistories\0225.adaman" +
-      "t.global.v1.ListCosmosDelegateHistoriesR" +
-      "equest\0326.adamant.global.v1.ListCosmosDel" +
-      "egateHistoriesResponse\"\000\022d\n\rCreateAddres" +
-      "s\022\'.adamant.global.v1.CreateAddressReque" +
-      "st\032(.adamant.global.v1.CreateAddressResp" +
-      "onse\"\000\022p\n\021CreateIOSTAccount\022+.adamant.gl" +
-      "obal.v1.CreateIOSTAccountRequest\032,.adama" +
-      "nt.global.v1.CreateIOSTAccountResponse\"\000" +
-      "\022\205\001\n\030ListSymbolChildAddresses\0222.adamant." +
-      "global.v1.ListSymbolChildAddressesReques" +
-      "t\0323.adamant.global.v1.ListSymbolChildAdd" +
-      "ressesResponse\"\000\022P\n\nGetAddress\022$.adamant" +
-      ".global.v1.GetAddressRequest\032\032.adamant.g" +
-      "lobal.v1.Address\"\000\022b\n\023GetAddressByAddres" +
-      "s\022-.adamant.global.v1.GetAddressByAddres" +
-      "sRequest\032\032.adamant.global.v1.Address\"\000\022j" +
-      "\n\027GetAddressByAddressCoin\0221.adamant.glob" +
-      "al.v1.GetAddressByAddressCoinRequest\032\032.a" +
-      "damant.global.v1.Address\"\000\022^\n\021GetAddress" +
-      "ByIndex\022+.adamant.global.v1.GetAddressBy" +
-      "IndexRequest\032\032.adamant.global.v1.Address" +
-      "\"\000\022d\n\rListAddresses\022\'.adamant.global.v1." +
-      "ListAddressesRequest\032(.adamant.global.v1" +
-      ".ListAddressesResponse\"\000\022R\n\rImportAddres" +
-      "s\022\'.adamant.global.v1.ImportAddressReque" +
-      "st\032\026.google.protobuf.Empty\"\000\022q\n\025GetEther" +
-      "eumFeeAddress\022/.adamant.global.v1.GetEth" +
-      "ereumFeeAddressRequest\032%.adamant.global." +
-      "v1.EthereumFeeAddress\"\000\022`\n\024UpdateAddress" +
-      "Balance\022..adamant.global.v1.UpdateAddres" +
-      "sBalanceRequest\032\026.google.protobuf.Empty\"" +
-      "\000\022p\n\021CreateTransaction\022+.adamant.global." +
-      "v1.CreateTransactionRequest\032,.adamant.gl" +
-      "obal.v1.CreateTransactionResponse\"\000\022V\n\017S" +
-      "ignTransaction\022).adamant.teller.v1.SignT" +
-      "ransactionRequest\032\026.google.protobuf.Empt" +
-      "y\"\000\022j\n\017SendTransaction\022).adamant.teller." +
-      "v1.SendTransactionRequest\032*.adamant.glob" +
-      "al.v1.SendTransactionResponse\"\000\022Z\n\021Cance" +
-      "lTransaction\022+.adamant.global.v1.CancelT" +
-      "ransactionRequest\032\026.google.protobuf.Empt" +
-      "y\"\000\022s\n\022ReplaceTransaction\022,.adamant.glob" +
-      "al.v1.ReplaceTransactionRequest\032-.adaman" +
-      "t.global.v1.ReplaceTransactionResponse\"\000" +
-      "\022\\\n\016GetTransaction\022(.adamant.global.v1.G" +
-      "etTransactionRequest\032\036.adamant.global.v1" +
-      ".Transaction\"\000\022h\n\024GetTransactionByTxID\022." +
-      ".adamant.global.v1.GetTransactionByTxIDR" +
-      "equest\032\036.adamant.global.v1.Transaction\"\000" +
-      "\022m\n\020ListTransactions\022*.adamant.global.v1" +
-      ".ListTransactionsRequest\032+.adamant.globa" +
-      "l.v1.ListTransactionsResponse\"\000\022}\n\030ListT" +
-      "ransactionsByFilter\0222.adamant.global.v1." +
-      "ListTransactionsByFilterRequest\032+.adaman" +
-      "t.global.v1.ListTransactionsResponse\"\000\022\224" +
-      "\001\n\035ExitEthereumStakingValidators\0227.adama" +
-      "nt.global.v1.ExitEthereumStakingValidato" +
-      "rsRequest\0328.adamant.global.v1.ExitEthere" +
-      "umStakingValidatorsResponse\"\000\022d\n\rListTra" +
-      "nsfers\022\'.adamant.global.v1.ListTransfers" +
-      "Request\032(.adamant.global.v1.ListTransfer" +
-      "sResponse\"\000\022t\n\025ListTransfersByFilter\022/.a" +
-      "damant.global.v1.ListTransfersByFilterRe" +
-      "quest\032(.adamant.global.v1.ListTransfersR" +
-      "esponse\"\000\022_\n\017GetRateSnapshot\022).adamant.g" +
-      "lobal.v1.GetRateSnapshotRequest\032\037.adaman" +
-      "t.global.v1.RateSnapshot\"\000\022k\n\025GetLatestR" +
-      "ateSnapshot\022/.adamant.global.v1.GetLates" +
-      "tRateSnapshotRequest\032\037.adamant.global.v1" +
-      ".RateSnapshot\"\000\022U\n\010SetRates\022\".adamant.gl" +
-      "obal.v1.SetRatesRequest\032#.adamant.global" +
-      ".v1.SetRatesResponse\"\000\022a\n\014CalculateFee\022&" +
-      ".adamant.global.v1.CalculateFeeRequest\032\'" +
-      ".adamant.global.v1.CalculateFeeResponse\"" +
-      "\000\022|\n\025GetRecommendedFeeRate\022/.adamant.glo" +
-      "bal.v1.GetRecommendedFeeRateRequest\0320.ad" +
-      "amant.global.v1.GetRecommendedFeeRateRes" +
-      "ponse\"\000\022j\n\017ValidateAddress\022).adamant.glo" +
-      "bal.v1.ValidateAddressRequest\032*.adamant." +
-      "global.v1.ValidateAddressResponse\"\000\022a\n\014F" +
-      "lushBalance\022&.adamant.global.v1.FlushBal" +
-      "anceRequest\032\'.adamant.global.v1.FlushBal" +
-      "anceResponse\"\000\022d\n\rListAuditLogs\022\'.adaman" +
-      "t.global.v1.ListAuditLogsRequest\032(.adama" +
-      "nt.global.v1.ListAuditLogsResponse\"\000\022\211\001\n" +
-      "\034ListStakingHistoriesByFilter\0226.adamant." +
-      "global.v1.ListStakingHistoriesByFilterRe" +
-      "quest\032/.adamant.global.v1.ListStakingHis" +
-      "toriesResponse\"\000\022\214\001\n\035ListStakingValidato" +
-      "rsByFilter\0227.adamant.global.v1.ListStaki" +
-      "ngValidatorsByFilterRequest\0320.adamant.gl" +
-      "obal.v1.ListStakingValidatorsResponse\"\000B" +
-      "^B\016TellerAPIProtoP\001ZJgithub.com/GincoInc" +
-      "/gew-kmp/gen/gincoinc/adamant/teller/v1/" +
-      "adamanttellerv1b\006proto3"
+      "{3}-[0-9a-f]{12}$R\010walletId\022\031\n\010fee_rate\030" +
+      "\002 \001(\004R\007feeRate\022)\n\020contract_address\030\003 \001(\t" +
+      "R\017contractAddress\022!\n\014mint_address\030\004 \001(\tR" +
+      "\013mintAddress\022)\n\020transfer_address\030\005 \001(\tR\017" +
+      "transferAddress\022\026\n\006amount\030\006 \001(\tR\006amount\"" +
+      "\373\001\n\026ProgmatCoinMintRequest\022i\n\twallet_id\030" +
+      "\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4" +
+      "[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{1" +
+      "2}$R\010walletId\022\031\n\010fee_rate\030\002 \001(\004R\007feeRate" +
+      "\022)\n\020contract_address\030\003 \001(\tR\017contractAddr" +
+      "ess\022\030\n\007address\030\004 \001(\tR\007address\022\026\n\006amount\030" +
+      "\005 \001(\tR\006amount\"\337\001\n\032ProgmatCoinTransferReq" +
+      "uest\022i\n\twallet_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f" +
+      "]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9" +
+      "a-f]{3}-[0-9a-f]{12}$R\010walletId\022\031\n\010fee_r" +
+      "ate\030\002 \001(\004R\007feeRate\022\030\n\007address\030\003 \001(\tR\007add" +
+      "ress\022!\n\014string_value\030\004 \001(\tR\013stringValue\"" +
+      "\341\001\n\026ProgmatCoinBurnRequest\022i\n\twallet_id\030" +
+      "\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4" +
+      "[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{1" +
+      "2}$R\010walletId\022\031\n\010fee_rate\030\002 \001(\004R\007feeRate" +
+      "\022)\n\020contract_address\030\003 \001(\tR\017contractAddr" +
+      "ess\022\026\n\006amount\030\004 \001(\tR\006amount\"\355\001\n ProgmatC" +
+      "oinAddToWhitelistRequest\022i\n\twallet_id\030\001 " +
+      "\001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0" +
+      "-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}" +
+      "$R\010walletId\022\031\n\010fee_rate\030\002 \001(\004R\007feeRate\022)" +
+      "\n\020contract_address\030\003 \001(\tR\017contractAddres" +
+      "s\022\030\n\007address\030\004 \001(\tR\007address\"\362\001\n%ProgmatC" +
+      "oinRemoveFromWhitelistRequest\022i\n\twallet_" +
+      "id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4" +
+      "}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f" +
+      "]{12}$R\010walletId\022\031\n\010fee_rate\030\002 \001(\004R\007feeR" +
+      "ate\022)\n\020contract_address\030\003 \001(\tR\017contractA" +
+      "ddress\022\030\n\007address\030\004 \001(\tR\007address\"\355\001\n Pro" +
+      "gmatCoinAddToBlacklistRequest\022i\n\twallet_" +
+      "id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4" +
+      "}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f" +
+      "]{12}$R\010walletId\022\031\n\010fee_rate\030\002 \001(\004R\007feeR" +
+      "ate\022)\n\020contract_address\030\003 \001(\tR\017contractA" +
+      "ddress\022\030\n\007address\030\004 \001(\tR\007address\"\362\001\n%Pro" +
+      "gmatCoinRemoveFromBlacklistRequest\022i\n\twa" +
+      "llet_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a" +
+      "-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0" +
+      "-9a-f]{12}$R\010walletId\022\031\n\010fee_rate\030\002 \001(\004R" +
+      "\007feeRate\022)\n\020contract_address\030\003 \001(\tR\017cont" +
+      "ractAddress\022\030\n\007address\030\004 \001(\tR\007address\"\270\002" +
+      "\n\034ProgmatCoinConfiscateRequest\022i\n\twallet" +
+      "_id\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{" +
+      "4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-" +
+      "f]{12}$R\010walletId\022\031\n\010fee_rate\030\002 \001(\004R\007fee" +
+      "Rate\022)\n\020contract_address\030\003 \001(\tR\017contract" +
+      "Address\0220\n\024black_listed_account\030\004 \001(\tR\022b" +
+      "lackListedAccount\022\035\n\nto_account\030\005 \001(\tR\tt" +
+      "oAccount\022\026\n\006amount\030\006 \001(\tR\006amount\"\312\001\n\027Pro" +
+      "gmatCoinPauseRequest\022i\n\twallet_id\030\001 \001(\tB" +
+      "L\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-" +
+      "f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\010w" +
+      "alletId\022\031\n\010fee_rate\030\002 \001(\004R\007feeRate\022)\n\020co" +
+      "ntract_address\030\003 \001(\tR\017contractAddress\"\314\001" +
+      "\n\031ProgmatCoinUnpauseRequest\022i\n\twallet_id" +
+      "\030\001 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{4}-" +
+      "4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{" +
+      "12}$R\010walletId\022\031\n\010fee_rate\030\002 \001(\004R\007feeRat" +
+      "e\022)\n\020contract_address\030\003 \001(\tR\017contractAdd" +
+      "ress2\3103\n\tTellerAPI\022a\n\014CreateWallet\022&.ada" +
+      "mant.teller.v1.CreateWalletRequest\032\'.ada" +
+      "mant.global.v1.CreateWalletResponse\"\000\022M\n" +
+      "\tGetWallet\022#.adamant.global.v1.GetWallet" +
+      "Request\032\031.adamant.global.v1.Wallet\"\000\022^\n\013" +
+      "ListWallets\022%.adamant.global.v1.ListWall" +
+      "etsRequest\032&.adamant.global.v1.ListWalle" +
+      "tsResponse\"\000\022n\n\023ListWalletsByFilter\022-.ad" +
+      "amant.global.v1.ListWalletsByFilterReque" +
+      "st\032&.adamant.global.v1.ListWalletsRespon" +
+      "se\"\000\022\203\001\n\032ListStakingWalletsByFilter\0224.ad" +
+      "amant.global.v1.ListStakingWalletsByFilt" +
+      "erRequest\032-.adamant.global.v1.ListStakin" +
+      "gWalletsResponse\"\000\022j\n\017ListBaseWallets\022)." +
+      "adamant.global.v1.ListBaseWalletsRequest" +
+      "\032*.adamant.global.v1.ListBaseWalletsResp" +
+      "onse\"\000\022v\n\023GetSpendableBalance\022-.adamant." +
+      "global.v1.GetSpendableBalanceRequest\032..a" +
+      "damant.global.v1.GetSpendableBalanceResp" +
+      "onse\"\000\022^\n\023InitializeXRPWallet\022-.adamant." +
+      "teller.v1.InitializeXRPWalletRequest\032\026.g" +
+      "oogle.protobuf.Empty\"\000\022X\n\020InitializeWall" +
+      "et\022*.adamant.teller.v1.InitializeWalletR" +
+      "equest\032\026.google.protobuf.Empty\"\000\022j\n\031Upda" +
+      "teDestinationWalletID\0223.adamant.global.v" +
+      "1.UpdateDestinationWalletIDRequest\032\026.goo" +
+      "gle.protobuf.Empty\"\000\022m\n\020GetCosmosBalance" +
+      "\022*.adamant.global.v1.GetCosmosBalanceReq" +
+      "uest\032+.adamant.global.v1.GetCosmosBalanc" +
+      "eResponse\"\000\022\216\001\n\033ListCosmosDelegateHistor" +
+      "ies\0225.adamant.global.v1.ListCosmosDelega" +
+      "teHistoriesRequest\0326.adamant.global.v1.L" +
+      "istCosmosDelegateHistoriesResponse\"\000\022d\n\r" +
+      "CreateAddress\022\'.adamant.global.v1.Create" +
+      "AddressRequest\032(.adamant.global.v1.Creat" +
+      "eAddressResponse\"\000\022p\n\021CreateIOSTAccount\022" +
+      "+.adamant.global.v1.CreateIOSTAccountReq" +
+      "uest\032,.adamant.global.v1.CreateIOSTAccou" +
+      "ntResponse\"\000\022\205\001\n\030ListSymbolChildAddresse" +
+      "s\0222.adamant.global.v1.ListSymbolChildAdd" +
+      "ressesRequest\0323.adamant.global.v1.ListSy" +
+      "mbolChildAddressesResponse\"\000\022P\n\nGetAddre" +
+      "ss\022$.adamant.global.v1.GetAddressRequest" +
+      "\032\032.adamant.global.v1.Address\"\000\022b\n\023GetAdd" +
+      "ressByAddress\022-.adamant.global.v1.GetAdd" +
+      "ressByAddressRequest\032\032.adamant.global.v1" +
+      ".Address\"\000\022j\n\027GetAddressByAddressCoin\0221." +
+      "adamant.global.v1.GetAddressByAddressCoi" +
+      "nRequest\032\032.adamant.global.v1.Address\"\000\022^" +
+      "\n\021GetAddressByIndex\022+.adamant.global.v1." +
+      "GetAddressByIndexRequest\032\032.adamant.globa" +
+      "l.v1.Address\"\000\022d\n\rListAddresses\022\'.adaman" +
+      "t.global.v1.ListAddressesRequest\032(.adama" +
+      "nt.global.v1.ListAddressesResponse\"\000\022R\n\r" +
+      "ImportAddress\022\'.adamant.global.v1.Import" +
+      "AddressRequest\032\026.google.protobuf.Empty\"\000" +
+      "\022q\n\025GetEthereumFeeAddress\022/.adamant.glob" +
+      "al.v1.GetEthereumFeeAddressRequest\032%.ada" +
+      "mant.global.v1.EthereumFeeAddress\"\000\022`\n\024U" +
+      "pdateAddressBalance\022..adamant.global.v1." +
+      "UpdateAddressBalanceRequest\032\026.google.pro" +
+      "tobuf.Empty\"\000\022p\n\021CreateTransaction\022+.ada" +
+      "mant.global.v1.CreateTransactionRequest\032" +
+      ",.adamant.global.v1.CreateTransactionRes" +
+      "ponse\"\000\022V\n\017SignTransaction\022).adamant.tel" +
+      "ler.v1.SignTransactionRequest\032\026.google.p" +
+      "rotobuf.Empty\"\000\022j\n\017SendTransaction\022).ada" +
+      "mant.teller.v1.SendTransactionRequest\032*." +
+      "adamant.global.v1.SendTransactionRespons" +
+      "e\"\000\022Z\n\021CancelTransaction\022+.adamant.globa" +
+      "l.v1.CancelTransactionRequest\032\026.google.p" +
+      "rotobuf.Empty\"\000\022s\n\022ReplaceTransaction\022,." +
+      "adamant.global.v1.ReplaceTransactionRequ" +
+      "est\032-.adamant.global.v1.ReplaceTransacti" +
+      "onResponse\"\000\022\\\n\016GetTransaction\022(.adamant" +
+      ".global.v1.GetTransactionRequest\032\036.adama" +
+      "nt.global.v1.Transaction\"\000\022h\n\024GetTransac" +
+      "tionByTxID\022..adamant.global.v1.GetTransa" +
+      "ctionByTxIDRequest\032\036.adamant.global.v1.T" +
+      "ransaction\"\000\022m\n\020ListTransactions\022*.adama" +
+      "nt.global.v1.ListTransactionsRequest\032+.a" +
+      "damant.global.v1.ListTransactionsRespons" +
+      "e\"\000\022}\n\030ListTransactionsByFilter\0222.adaman" +
+      "t.global.v1.ListTransactionsByFilterRequ" +
+      "est\032+.adamant.global.v1.ListTransactions" +
+      "Response\"\000\022\224\001\n\035ExitEthereumStakingValida" +
+      "tors\0227.adamant.global.v1.ExitEthereumSta" +
+      "kingValidatorsRequest\0328.adamant.global.v" +
+      "1.ExitEthereumStakingValidatorsResponse\"" +
+      "\000\022d\n\rListTransfers\022\'.adamant.global.v1.L" +
+      "istTransfersRequest\032(.adamant.global.v1." +
+      "ListTransfersResponse\"\000\022t\n\025ListTransfers" +
+      "ByFilter\022/.adamant.global.v1.ListTransfe" +
+      "rsByFilterRequest\032(.adamant.global.v1.Li" +
+      "stTransfersResponse\"\000\022_\n\017GetRateSnapshot" +
+      "\022).adamant.global.v1.GetRateSnapshotRequ" +
+      "est\032\037.adamant.global.v1.RateSnapshot\"\000\022k" +
+      "\n\025GetLatestRateSnapshot\022/.adamant.global" +
+      ".v1.GetLatestRateSnapshotRequest\032\037.adama" +
+      "nt.global.v1.RateSnapshot\"\000\022U\n\010SetRates\022" +
+      "\".adamant.global.v1.SetRatesRequest\032#.ad" +
+      "amant.global.v1.SetRatesResponse\"\000\022a\n\014Ca" +
+      "lculateFee\022&.adamant.global.v1.Calculate" +
+      "FeeRequest\032\'.adamant.global.v1.Calculate" +
+      "FeeResponse\"\000\022|\n\025GetRecommendedFeeRate\022/" +
+      ".adamant.global.v1.GetRecommendedFeeRate" +
+      "Request\0320.adamant.global.v1.GetRecommend" +
+      "edFeeRateResponse\"\000\022j\n\017ValidateAddress\022)" +
+      ".adamant.global.v1.ValidateAddressReques" +
+      "t\032*.adamant.global.v1.ValidateAddressRes" +
+      "ponse\"\000\022a\n\014FlushBalance\022&.adamant.global" +
+      ".v1.FlushBalanceRequest\032\'.adamant.global" +
+      ".v1.FlushBalanceResponse\"\000\022d\n\rListAuditL" +
+      "ogs\022\'.adamant.global.v1.ListAuditLogsReq" +
+      "uest\032(.adamant.global.v1.ListAuditLogsRe" +
+      "sponse\"\000\022\211\001\n\034ListStakingHistoriesByFilte" +
+      "r\0226.adamant.global.v1.ListStakingHistori" +
+      "esByFilterRequest\032/.adamant.global.v1.Li" +
+      "stStakingHistoriesResponse\"\000\022\214\001\n\035ListSta" +
+      "kingValidatorsByFilter\0227.adamant.global." +
+      "v1.ListStakingValidatorsByFilterRequest\032" +
+      "0.adamant.global.v1.ListStakingValidator" +
+      "sResponse\"\000\022^\n\013SignMessage\022%.adamant.tel" +
+      "ler.v1.SignMessageRequest\032&.adamant.tell" +
+      "er.v1.SignMessageResponse\"\000\022x\n\025ProgmatCo" +
+      "inInitialize\022/.adamant.teller.v1.Progmat" +
+      "CoinInitializeRequest\032,.adamant.global.v" +
+      "1.CreateTransactionResponse\"\000\022\202\001\n\032Progma" +
+      "tCoinConfigureMinter\0224.adamant.teller.v1" +
+      ".ProgmatCoinConfigureMinterRequest\032,.ada" +
+      "mant.global.v1.CreateTransactionResponse" +
+      "\"\000\022\202\001\n\032ProgmatCoinMintAndTransfer\0224.adam" +
+      "ant.teller.v1.ProgmatCoinMintAndTransfer" +
+      "Request\032,.adamant.global.v1.CreateTransa" +
+      "ctionResponse\"\000\022l\n\017ProgmatCoinMint\022).ada" +
+      "mant.teller.v1.ProgmatCoinMintRequest\032,." +
+      "adamant.global.v1.CreateTransactionRespo" +
+      "nse\"\000\022t\n\023ProgmatCoinTransfer\022-.adamant.t" +
+      "eller.v1.ProgmatCoinTransferRequest\032,.ad" +
+      "amant.global.v1.CreateTransactionRespons" +
+      "e\"\000\022l\n\017ProgmatCoinBurn\022).adamant.teller." +
+      "v1.ProgmatCoinBurnRequest\032,.adamant.glob" +
+      "al.v1.CreateTransactionResponse\"\000\022\200\001\n\031Pr" +
+      "ogmatCoinAddToWhitelist\0223.adamant.teller" +
+      ".v1.ProgmatCoinAddToWhitelistRequest\032,.a" +
+      "damant.global.v1.CreateTransactionRespon" +
+      "se\"\000\022\212\001\n\036ProgmatCoinRemoveFromWhitelist\022" +
+      "8.adamant.teller.v1.ProgmatCoinRemoveFro" +
+      "mWhitelistRequest\032,.adamant.global.v1.Cr" +
+      "eateTransactionResponse\"\000\022\200\001\n\031ProgmatCoi" +
+      "nAddToBlacklist\0223.adamant.teller.v1.Prog" +
+      "matCoinAddToBlacklistRequest\032,.adamant.g" +
+      "lobal.v1.CreateTransactionResponse\"\000\022\212\001\n" +
+      "\036ProgmatCoinRemoveFromBlacklist\0228.adaman" +
+      "t.teller.v1.ProgmatCoinRemoveFromBlackli" +
+      "stRequest\032,.adamant.global.v1.CreateTran" +
+      "sactionResponse\"\000\022x\n\025ProgmatCoinConfisca" +
+      "te\022/.adamant.teller.v1.ProgmatCoinConfis" +
+      "cateRequest\032,.adamant.global.v1.CreateTr" +
+      "ansactionResponse\"\000\022n\n\020ProgmatCoinPause\022" +
+      "*.adamant.teller.v1.ProgmatCoinPauseRequ" +
+      "est\032,.adamant.global.v1.CreateTransactio" +
+      "nResponse\"\000\022r\n\022ProgmatCoinUnpause\022,.adam" +
+      "ant.teller.v1.ProgmatCoinUnpauseRequest\032" +
+      ",.adamant.global.v1.CreateTransactionRes" +
+      "ponse\"\000B^B\016TellerAPIProtoP\001ZJgithub.com/" +
+      "GincoInc/gew-kmp/gen/gincoinc/adamant/te" +
+      "ller/v1/adamanttellerv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -250,12 +465,102 @@ public final class TellerAPIProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_teller_v1_SignTransactionRequest_descriptor,
         new java.lang.String[] { "WalletId", "TransactionId", });
-    internal_static_adamant_teller_v1_SendTransactionRequest_descriptor =
+    internal_static_adamant_teller_v1_SignMessageRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_adamant_teller_v1_SignMessageRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_SignMessageRequest_descriptor,
+        new java.lang.String[] { "WalletId", "AddressId", "Message", });
+    internal_static_adamant_teller_v1_SignMessageResponse_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_adamant_teller_v1_SignMessageResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_SignMessageResponse_descriptor,
+        new java.lang.String[] { "Signature", });
+    internal_static_adamant_teller_v1_SendTransactionRequest_descriptor =
+      getDescriptor().getMessageTypes().get(6);
     internal_static_adamant_teller_v1_SendTransactionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_teller_v1_SendTransactionRequest_descriptor,
         new java.lang.String[] { "WalletId", "TransactionId", });
+    internal_static_adamant_teller_v1_ProgmatCoinInitializeRequest_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_adamant_teller_v1_ProgmatCoinInitializeRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_ProgmatCoinInitializeRequest_descriptor,
+        new java.lang.String[] { "WalletId", "FeeRate", "ContractAddress", "TokenName", "TokenSymbol", "TokenCurrency", "TokenDecimals", "NewMasterMinter", "NewPauser", "NewWhiteAndBlackLister", "NewConfiscator", "NewOwner", });
+    internal_static_adamant_teller_v1_ProgmatCoinConfigureMinterRequest_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_adamant_teller_v1_ProgmatCoinConfigureMinterRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_ProgmatCoinConfigureMinterRequest_descriptor,
+        new java.lang.String[] { "WalletId", "FeeRate", "ContractAddress", "Address", "MinterAllowedAmount", });
+    internal_static_adamant_teller_v1_ProgmatCoinMintAndTransferRequest_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_adamant_teller_v1_ProgmatCoinMintAndTransferRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_ProgmatCoinMintAndTransferRequest_descriptor,
+        new java.lang.String[] { "WalletId", "FeeRate", "ContractAddress", "MintAddress", "TransferAddress", "Amount", });
+    internal_static_adamant_teller_v1_ProgmatCoinMintRequest_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_adamant_teller_v1_ProgmatCoinMintRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_ProgmatCoinMintRequest_descriptor,
+        new java.lang.String[] { "WalletId", "FeeRate", "ContractAddress", "Address", "Amount", });
+    internal_static_adamant_teller_v1_ProgmatCoinTransferRequest_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_adamant_teller_v1_ProgmatCoinTransferRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_ProgmatCoinTransferRequest_descriptor,
+        new java.lang.String[] { "WalletId", "FeeRate", "Address", "StringValue", });
+    internal_static_adamant_teller_v1_ProgmatCoinBurnRequest_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_adamant_teller_v1_ProgmatCoinBurnRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_ProgmatCoinBurnRequest_descriptor,
+        new java.lang.String[] { "WalletId", "FeeRate", "ContractAddress", "Amount", });
+    internal_static_adamant_teller_v1_ProgmatCoinAddToWhitelistRequest_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_adamant_teller_v1_ProgmatCoinAddToWhitelistRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_ProgmatCoinAddToWhitelistRequest_descriptor,
+        new java.lang.String[] { "WalletId", "FeeRate", "ContractAddress", "Address", });
+    internal_static_adamant_teller_v1_ProgmatCoinRemoveFromWhitelistRequest_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_adamant_teller_v1_ProgmatCoinRemoveFromWhitelistRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_ProgmatCoinRemoveFromWhitelistRequest_descriptor,
+        new java.lang.String[] { "WalletId", "FeeRate", "ContractAddress", "Address", });
+    internal_static_adamant_teller_v1_ProgmatCoinAddToBlacklistRequest_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_adamant_teller_v1_ProgmatCoinAddToBlacklistRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_ProgmatCoinAddToBlacklistRequest_descriptor,
+        new java.lang.String[] { "WalletId", "FeeRate", "ContractAddress", "Address", });
+    internal_static_adamant_teller_v1_ProgmatCoinRemoveFromBlacklistRequest_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_adamant_teller_v1_ProgmatCoinRemoveFromBlacklistRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_ProgmatCoinRemoveFromBlacklistRequest_descriptor,
+        new java.lang.String[] { "WalletId", "FeeRate", "ContractAddress", "Address", });
+    internal_static_adamant_teller_v1_ProgmatCoinConfiscateRequest_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_adamant_teller_v1_ProgmatCoinConfiscateRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_ProgmatCoinConfiscateRequest_descriptor,
+        new java.lang.String[] { "WalletId", "FeeRate", "ContractAddress", "BlackListedAccount", "ToAccount", "Amount", });
+    internal_static_adamant_teller_v1_ProgmatCoinPauseRequest_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_adamant_teller_v1_ProgmatCoinPauseRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_ProgmatCoinPauseRequest_descriptor,
+        new java.lang.String[] { "WalletId", "FeeRate", "ContractAddress", });
+    internal_static_adamant_teller_v1_ProgmatCoinUnpauseRequest_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_adamant_teller_v1_ProgmatCoinUnpauseRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_ProgmatCoinUnpauseRequest_descriptor,
+        new java.lang.String[] { "WalletId", "FeeRate", "ContractAddress", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(io.envoyproxy.pgv.validate.Validate.rules);

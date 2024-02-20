@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-Îð
+¬ñ
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"×
 Wallet
 owner_id (	RownerId
@@ -440,11 +440,14 @@ expiration"n
 transaction_id (	RtransactionIdB
 tx_type (2).gincoinc.global.v1.SymbolTransactionTypeRtxType
 message (	Rmessage
-	timestamp (R	timestamp"›
+	timestamp (R	timestamp"ù
 !CreateTransactionEthereumSpecific
 data (	RdataB
-staking_recipient_wallet_id (	H RstakingRecipientWalletIdˆB
-_staking_recipient_wallet_id"l
+staking_recipient_wallet_id (	H RstakingRecipientWalletIdˆL
+call_method (2&.gincoinc.global.v1.EthereumCallMethodHR
+callMethodˆB
+_staking_recipient_wallet_idB
+_call_method"l
 CreateTransactionCosmosSpecific5
 type (2!.gincoinc.global.v1.CosmosMsgTypeRtype
 memo (	Rmemo"A

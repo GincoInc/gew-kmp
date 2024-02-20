@@ -11,6 +11,7 @@ import (
 	"net/mail"
 	"net/url"
 	"regexp"
+	"sort"
 	"strings"
 	"time"
 	"unicode/utf8"
@@ -35,8 +36,7 @@ var (
 	_ = (*url.URL)(nil)
 	_ = (*mail.Address)(nil)
 	_ = anypb.Any{}
-
-	_ = gincoincglobalv1.Coin(0)
+	_ = sort.Sort
 
 	_ = adamantglobalv1.WalletType(0)
 
@@ -45,11 +45,20 @@ var (
 
 // Validate checks the field values on CreateWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned. When asked to return all errors, validation
-// continues after first violation, and the result is a list of violation
-// errors wrapped in CreateWalletRequestMultiError, or nil if none found.
-// Otherwise, only the first error is returned, if any.
-func (m *CreateWalletRequest) Validate(all bool) error {
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CreateWalletRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreateWalletRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CreateWalletRequestMultiError, or nil if none found.
+func (m *CreateWalletRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateWalletRequest) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -158,11 +167,12 @@ func (m *CreateWalletRequest) Validate(all bool) error {
 	if len(errors) > 0 {
 		return CreateWalletRequestMultiError(errors)
 	}
+
 	return nil
 }
 
 // CreateWalletRequestMultiError is an error wrapping multiple validation
-// errors returned by CreateWalletRequest.Validate(true) if the designated
+// errors returned by CreateWalletRequest.ValidateAll() if the designated
 // constraints aren't met.
 type CreateWalletRequestMultiError []error
 
@@ -253,11 +263,20 @@ var _CreateWalletRequest_InheritWalletId_Pattern = regexp.MustCompile("^$|^[0-9a
 
 // Validate checks the field values on InitializeXRPWalletRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, an error is returned. When asked to return all errors, validation
-// continues after first violation, and the result is a list of violation
-// errors wrapped in InitializeXRPWalletRequestMultiError, or nil if none
-// found. Otherwise, only the first error is returned, if any.
-func (m *InitializeXRPWalletRequest) Validate(all bool) error {
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *InitializeXRPWalletRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on InitializeXRPWalletRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// InitializeXRPWalletRequestMultiError, or nil if none found.
+func (m *InitializeXRPWalletRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *InitializeXRPWalletRequest) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -278,11 +297,12 @@ func (m *InitializeXRPWalletRequest) Validate(all bool) error {
 	if len(errors) > 0 {
 		return InitializeXRPWalletRequestMultiError(errors)
 	}
+
 	return nil
 }
 
 // InitializeXRPWalletRequestMultiError is an error wrapping multiple
-// validation errors returned by InitializeXRPWalletRequest.Validate(true) if
+// validation errors returned by InitializeXRPWalletRequest.ValidateAll() if
 // the designated constraints aren't met.
 type InitializeXRPWalletRequestMultiError []error
 
@@ -358,11 +378,20 @@ var _InitializeXRPWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]
 
 // Validate checks the field values on InitializeWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned. When asked to return all errors, validation
-// continues after first violation, and the result is a list of violation
-// errors wrapped in InitializeWalletRequestMultiError, or nil if none found.
-// Otherwise, only the first error is returned, if any.
-func (m *InitializeWalletRequest) Validate(all bool) error {
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *InitializeWalletRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on InitializeWalletRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// InitializeWalletRequestMultiError, or nil if none found.
+func (m *InitializeWalletRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *InitializeWalletRequest) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -383,11 +412,12 @@ func (m *InitializeWalletRequest) Validate(all bool) error {
 	if len(errors) > 0 {
 		return InitializeWalletRequestMultiError(errors)
 	}
+
 	return nil
 }
 
 // InitializeWalletRequestMultiError is an error wrapping multiple validation
-// errors returned by InitializeWalletRequest.Validate(true) if the designated
+// errors returned by InitializeWalletRequest.ValidateAll() if the designated
 // constraints aren't met.
 type InitializeWalletRequestMultiError []error
 
@@ -463,11 +493,20 @@ var _InitializeWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}
 
 // Validate checks the field values on SignTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned. When asked to return all errors, validation
-// continues after first violation, and the result is a list of violation
-// errors wrapped in SignTransactionRequestMultiError, or nil if none found.
-// Otherwise, only the first error is returned, if any.
-func (m *SignTransactionRequest) Validate(all bool) error {
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *SignTransactionRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SignTransactionRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// SignTransactionRequestMultiError, or nil if none found.
+func (m *SignTransactionRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SignTransactionRequest) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -499,11 +538,12 @@ func (m *SignTransactionRequest) Validate(all bool) error {
 	if len(errors) > 0 {
 		return SignTransactionRequestMultiError(errors)
 	}
+
 	return nil
 }
 
 // SignTransactionRequestMultiError is an error wrapping multiple validation
-// errors returned by SignTransactionRequest.Validate(true) if the designated
+// errors returned by SignTransactionRequest.ValidateAll() if the designated
 // constraints aren't met.
 type SignTransactionRequestMultiError []error
 
@@ -579,13 +619,256 @@ var _SignTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-
 
 var _SignTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+// Validate checks the field values on SignMessageRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *SignMessageRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SignMessageRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// SignMessageRequestMultiError, or nil if none found.
+func (m *SignMessageRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SignMessageRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_SignMessageRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := SignMessageRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_SignMessageRequest_AddressId_Pattern.MatchString(m.GetAddressId()) {
+		err := SignMessageRequestValidationError{
+			field:  "AddressId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for Message
+
+	if len(errors) > 0 {
+		return SignMessageRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// SignMessageRequestMultiError is an error wrapping multiple validation errors
+// returned by SignMessageRequest.ValidateAll() if the designated constraints
+// aren't met.
+type SignMessageRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SignMessageRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SignMessageRequestMultiError) AllErrors() []error { return m }
+
+// SignMessageRequestValidationError is the validation error returned by
+// SignMessageRequest.Validate if the designated constraints aren't met.
+type SignMessageRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SignMessageRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SignMessageRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SignMessageRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SignMessageRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SignMessageRequestValidationError) ErrorName() string {
+	return "SignMessageRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SignMessageRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSignMessageRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SignMessageRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SignMessageRequestValidationError{}
+
+var _SignMessageRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _SignMessageRequest_AddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on SignMessageResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *SignMessageResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SignMessageResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// SignMessageResponseMultiError, or nil if none found.
+func (m *SignMessageResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SignMessageResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Signature
+
+	if len(errors) > 0 {
+		return SignMessageResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// SignMessageResponseMultiError is an error wrapping multiple validation
+// errors returned by SignMessageResponse.ValidateAll() if the designated
+// constraints aren't met.
+type SignMessageResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SignMessageResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SignMessageResponseMultiError) AllErrors() []error { return m }
+
+// SignMessageResponseValidationError is the validation error returned by
+// SignMessageResponse.Validate if the designated constraints aren't met.
+type SignMessageResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SignMessageResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SignMessageResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SignMessageResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SignMessageResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SignMessageResponseValidationError) ErrorName() string {
+	return "SignMessageResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SignMessageResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSignMessageResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SignMessageResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SignMessageResponseValidationError{}
+
 // Validate checks the field values on SendTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, an error is returned. When asked to return all errors, validation
-// continues after first violation, and the result is a list of violation
-// errors wrapped in SendTransactionRequestMultiError, or nil if none found.
-// Otherwise, only the first error is returned, if any.
-func (m *SendTransactionRequest) Validate(all bool) error {
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *SendTransactionRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SendTransactionRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// SendTransactionRequestMultiError, or nil if none found.
+func (m *SendTransactionRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SendTransactionRequest) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -617,11 +900,12 @@ func (m *SendTransactionRequest) Validate(all bool) error {
 	if len(errors) > 0 {
 		return SendTransactionRequestMultiError(errors)
 	}
+
 	return nil
 }
 
 // SendTransactionRequestMultiError is an error wrapping multiple validation
-// errors returned by SendTransactionRequest.Validate(true) if the designated
+// errors returned by SendTransactionRequest.ValidateAll() if the designated
 // constraints aren't met.
 type SendTransactionRequestMultiError []error
 
@@ -696,3 +980,1620 @@ var _ interface {
 var _SendTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _SendTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ProgmatCoinInitializeRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ProgmatCoinInitializeRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ProgmatCoinInitializeRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ProgmatCoinInitializeRequestMultiError, or nil if none found.
+func (m *ProgmatCoinInitializeRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ProgmatCoinInitializeRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ProgmatCoinInitializeRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinInitializeRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	// no validation rules for ContractAddress
+
+	// no validation rules for TokenName
+
+	// no validation rules for TokenSymbol
+
+	// no validation rules for TokenCurrency
+
+	// no validation rules for TokenDecimals
+
+	// no validation rules for NewMasterMinter
+
+	// no validation rules for NewPauser
+
+	// no validation rules for NewWhiteAndBlackLister
+
+	// no validation rules for NewConfiscator
+
+	// no validation rules for NewOwner
+
+	if len(errors) > 0 {
+		return ProgmatCoinInitializeRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ProgmatCoinInitializeRequestMultiError is an error wrapping multiple
+// validation errors returned by ProgmatCoinInitializeRequest.ValidateAll() if
+// the designated constraints aren't met.
+type ProgmatCoinInitializeRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ProgmatCoinInitializeRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ProgmatCoinInitializeRequestMultiError) AllErrors() []error { return m }
+
+// ProgmatCoinInitializeRequestValidationError is the validation error returned
+// by ProgmatCoinInitializeRequest.Validate if the designated constraints
+// aren't met.
+type ProgmatCoinInitializeRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProgmatCoinInitializeRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProgmatCoinInitializeRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProgmatCoinInitializeRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProgmatCoinInitializeRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProgmatCoinInitializeRequestValidationError) ErrorName() string {
+	return "ProgmatCoinInitializeRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProgmatCoinInitializeRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProgmatCoinInitializeRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProgmatCoinInitializeRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProgmatCoinInitializeRequestValidationError{}
+
+var _ProgmatCoinInitializeRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ProgmatCoinConfigureMinterRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ProgmatCoinConfigureMinterRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ProgmatCoinConfigureMinterRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ProgmatCoinConfigureMinterRequestMultiError, or nil if none found.
+func (m *ProgmatCoinConfigureMinterRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ProgmatCoinConfigureMinterRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ProgmatCoinConfigureMinterRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinConfigureMinterRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	// no validation rules for ContractAddress
+
+	// no validation rules for Address
+
+	// no validation rules for MinterAllowedAmount
+
+	if len(errors) > 0 {
+		return ProgmatCoinConfigureMinterRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ProgmatCoinConfigureMinterRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ProgmatCoinConfigureMinterRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ProgmatCoinConfigureMinterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ProgmatCoinConfigureMinterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ProgmatCoinConfigureMinterRequestMultiError) AllErrors() []error { return m }
+
+// ProgmatCoinConfigureMinterRequestValidationError is the validation error
+// returned by ProgmatCoinConfigureMinterRequest.Validate if the designated
+// constraints aren't met.
+type ProgmatCoinConfigureMinterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProgmatCoinConfigureMinterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProgmatCoinConfigureMinterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProgmatCoinConfigureMinterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProgmatCoinConfigureMinterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProgmatCoinConfigureMinterRequestValidationError) ErrorName() string {
+	return "ProgmatCoinConfigureMinterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProgmatCoinConfigureMinterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProgmatCoinConfigureMinterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProgmatCoinConfigureMinterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProgmatCoinConfigureMinterRequestValidationError{}
+
+var _ProgmatCoinConfigureMinterRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ProgmatCoinMintAndTransferRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ProgmatCoinMintAndTransferRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ProgmatCoinMintAndTransferRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ProgmatCoinMintAndTransferRequestMultiError, or nil if none found.
+func (m *ProgmatCoinMintAndTransferRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ProgmatCoinMintAndTransferRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ProgmatCoinMintAndTransferRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinMintAndTransferRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	// no validation rules for ContractAddress
+
+	// no validation rules for MintAddress
+
+	// no validation rules for TransferAddress
+
+	// no validation rules for Amount
+
+	if len(errors) > 0 {
+		return ProgmatCoinMintAndTransferRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ProgmatCoinMintAndTransferRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ProgmatCoinMintAndTransferRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ProgmatCoinMintAndTransferRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ProgmatCoinMintAndTransferRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ProgmatCoinMintAndTransferRequestMultiError) AllErrors() []error { return m }
+
+// ProgmatCoinMintAndTransferRequestValidationError is the validation error
+// returned by ProgmatCoinMintAndTransferRequest.Validate if the designated
+// constraints aren't met.
+type ProgmatCoinMintAndTransferRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProgmatCoinMintAndTransferRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProgmatCoinMintAndTransferRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProgmatCoinMintAndTransferRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProgmatCoinMintAndTransferRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProgmatCoinMintAndTransferRequestValidationError) ErrorName() string {
+	return "ProgmatCoinMintAndTransferRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProgmatCoinMintAndTransferRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProgmatCoinMintAndTransferRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProgmatCoinMintAndTransferRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProgmatCoinMintAndTransferRequestValidationError{}
+
+var _ProgmatCoinMintAndTransferRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ProgmatCoinMintRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ProgmatCoinMintRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ProgmatCoinMintRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ProgmatCoinMintRequestMultiError, or nil if none found.
+func (m *ProgmatCoinMintRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ProgmatCoinMintRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ProgmatCoinMintRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinMintRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	// no validation rules for ContractAddress
+
+	// no validation rules for Address
+
+	// no validation rules for Amount
+
+	if len(errors) > 0 {
+		return ProgmatCoinMintRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ProgmatCoinMintRequestMultiError is an error wrapping multiple validation
+// errors returned by ProgmatCoinMintRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ProgmatCoinMintRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ProgmatCoinMintRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ProgmatCoinMintRequestMultiError) AllErrors() []error { return m }
+
+// ProgmatCoinMintRequestValidationError is the validation error returned by
+// ProgmatCoinMintRequest.Validate if the designated constraints aren't met.
+type ProgmatCoinMintRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProgmatCoinMintRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProgmatCoinMintRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProgmatCoinMintRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProgmatCoinMintRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProgmatCoinMintRequestValidationError) ErrorName() string {
+	return "ProgmatCoinMintRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProgmatCoinMintRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProgmatCoinMintRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProgmatCoinMintRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProgmatCoinMintRequestValidationError{}
+
+var _ProgmatCoinMintRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ProgmatCoinTransferRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ProgmatCoinTransferRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ProgmatCoinTransferRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ProgmatCoinTransferRequestMultiError, or nil if none found.
+func (m *ProgmatCoinTransferRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ProgmatCoinTransferRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ProgmatCoinTransferRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinTransferRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	// no validation rules for Address
+
+	// no validation rules for StringValue
+
+	if len(errors) > 0 {
+		return ProgmatCoinTransferRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ProgmatCoinTransferRequestMultiError is an error wrapping multiple
+// validation errors returned by ProgmatCoinTransferRequest.ValidateAll() if
+// the designated constraints aren't met.
+type ProgmatCoinTransferRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ProgmatCoinTransferRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ProgmatCoinTransferRequestMultiError) AllErrors() []error { return m }
+
+// ProgmatCoinTransferRequestValidationError is the validation error returned
+// by ProgmatCoinTransferRequest.Validate if the designated constraints aren't met.
+type ProgmatCoinTransferRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProgmatCoinTransferRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProgmatCoinTransferRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProgmatCoinTransferRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProgmatCoinTransferRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProgmatCoinTransferRequestValidationError) ErrorName() string {
+	return "ProgmatCoinTransferRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProgmatCoinTransferRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProgmatCoinTransferRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProgmatCoinTransferRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProgmatCoinTransferRequestValidationError{}
+
+var _ProgmatCoinTransferRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ProgmatCoinBurnRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ProgmatCoinBurnRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ProgmatCoinBurnRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ProgmatCoinBurnRequestMultiError, or nil if none found.
+func (m *ProgmatCoinBurnRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ProgmatCoinBurnRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ProgmatCoinBurnRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinBurnRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	// no validation rules for ContractAddress
+
+	// no validation rules for Amount
+
+	if len(errors) > 0 {
+		return ProgmatCoinBurnRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ProgmatCoinBurnRequestMultiError is an error wrapping multiple validation
+// errors returned by ProgmatCoinBurnRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ProgmatCoinBurnRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ProgmatCoinBurnRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ProgmatCoinBurnRequestMultiError) AllErrors() []error { return m }
+
+// ProgmatCoinBurnRequestValidationError is the validation error returned by
+// ProgmatCoinBurnRequest.Validate if the designated constraints aren't met.
+type ProgmatCoinBurnRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProgmatCoinBurnRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProgmatCoinBurnRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProgmatCoinBurnRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProgmatCoinBurnRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProgmatCoinBurnRequestValidationError) ErrorName() string {
+	return "ProgmatCoinBurnRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProgmatCoinBurnRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProgmatCoinBurnRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProgmatCoinBurnRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProgmatCoinBurnRequestValidationError{}
+
+var _ProgmatCoinBurnRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ProgmatCoinAddToWhitelistRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ProgmatCoinAddToWhitelistRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ProgmatCoinAddToWhitelistRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// ProgmatCoinAddToWhitelistRequestMultiError, or nil if none found.
+func (m *ProgmatCoinAddToWhitelistRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ProgmatCoinAddToWhitelistRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ProgmatCoinAddToWhitelistRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinAddToWhitelistRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	// no validation rules for ContractAddress
+
+	// no validation rules for Address
+
+	if len(errors) > 0 {
+		return ProgmatCoinAddToWhitelistRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ProgmatCoinAddToWhitelistRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ProgmatCoinAddToWhitelistRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ProgmatCoinAddToWhitelistRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ProgmatCoinAddToWhitelistRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ProgmatCoinAddToWhitelistRequestMultiError) AllErrors() []error { return m }
+
+// ProgmatCoinAddToWhitelistRequestValidationError is the validation error
+// returned by ProgmatCoinAddToWhitelistRequest.Validate if the designated
+// constraints aren't met.
+type ProgmatCoinAddToWhitelistRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProgmatCoinAddToWhitelistRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProgmatCoinAddToWhitelistRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProgmatCoinAddToWhitelistRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProgmatCoinAddToWhitelistRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProgmatCoinAddToWhitelistRequestValidationError) ErrorName() string {
+	return "ProgmatCoinAddToWhitelistRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProgmatCoinAddToWhitelistRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProgmatCoinAddToWhitelistRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProgmatCoinAddToWhitelistRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProgmatCoinAddToWhitelistRequestValidationError{}
+
+var _ProgmatCoinAddToWhitelistRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ProgmatCoinRemoveFromWhitelistRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *ProgmatCoinRemoveFromWhitelistRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ProgmatCoinRemoveFromWhitelistRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ProgmatCoinRemoveFromWhitelistRequestMultiError, or nil if none found.
+func (m *ProgmatCoinRemoveFromWhitelistRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ProgmatCoinRemoveFromWhitelistRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ProgmatCoinRemoveFromWhitelistRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinRemoveFromWhitelistRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	// no validation rules for ContractAddress
+
+	// no validation rules for Address
+
+	if len(errors) > 0 {
+		return ProgmatCoinRemoveFromWhitelistRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ProgmatCoinRemoveFromWhitelistRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ProgmatCoinRemoveFromWhitelistRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ProgmatCoinRemoveFromWhitelistRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ProgmatCoinRemoveFromWhitelistRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ProgmatCoinRemoveFromWhitelistRequestMultiError) AllErrors() []error { return m }
+
+// ProgmatCoinRemoveFromWhitelistRequestValidationError is the validation error
+// returned by ProgmatCoinRemoveFromWhitelistRequest.Validate if the
+// designated constraints aren't met.
+type ProgmatCoinRemoveFromWhitelistRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProgmatCoinRemoveFromWhitelistRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProgmatCoinRemoveFromWhitelistRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProgmatCoinRemoveFromWhitelistRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProgmatCoinRemoveFromWhitelistRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProgmatCoinRemoveFromWhitelistRequestValidationError) ErrorName() string {
+	return "ProgmatCoinRemoveFromWhitelistRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProgmatCoinRemoveFromWhitelistRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProgmatCoinRemoveFromWhitelistRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProgmatCoinRemoveFromWhitelistRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProgmatCoinRemoveFromWhitelistRequestValidationError{}
+
+var _ProgmatCoinRemoveFromWhitelistRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ProgmatCoinAddToBlacklistRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ProgmatCoinAddToBlacklistRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ProgmatCoinAddToBlacklistRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// ProgmatCoinAddToBlacklistRequestMultiError, or nil if none found.
+func (m *ProgmatCoinAddToBlacklistRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ProgmatCoinAddToBlacklistRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ProgmatCoinAddToBlacklistRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinAddToBlacklistRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	// no validation rules for ContractAddress
+
+	// no validation rules for Address
+
+	if len(errors) > 0 {
+		return ProgmatCoinAddToBlacklistRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ProgmatCoinAddToBlacklistRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ProgmatCoinAddToBlacklistRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ProgmatCoinAddToBlacklistRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ProgmatCoinAddToBlacklistRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ProgmatCoinAddToBlacklistRequestMultiError) AllErrors() []error { return m }
+
+// ProgmatCoinAddToBlacklistRequestValidationError is the validation error
+// returned by ProgmatCoinAddToBlacklistRequest.Validate if the designated
+// constraints aren't met.
+type ProgmatCoinAddToBlacklistRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProgmatCoinAddToBlacklistRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProgmatCoinAddToBlacklistRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProgmatCoinAddToBlacklistRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProgmatCoinAddToBlacklistRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProgmatCoinAddToBlacklistRequestValidationError) ErrorName() string {
+	return "ProgmatCoinAddToBlacklistRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProgmatCoinAddToBlacklistRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProgmatCoinAddToBlacklistRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProgmatCoinAddToBlacklistRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProgmatCoinAddToBlacklistRequestValidationError{}
+
+var _ProgmatCoinAddToBlacklistRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ProgmatCoinRemoveFromBlacklistRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *ProgmatCoinRemoveFromBlacklistRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ProgmatCoinRemoveFromBlacklistRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ProgmatCoinRemoveFromBlacklistRequestMultiError, or nil if none found.
+func (m *ProgmatCoinRemoveFromBlacklistRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ProgmatCoinRemoveFromBlacklistRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ProgmatCoinRemoveFromBlacklistRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinRemoveFromBlacklistRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	// no validation rules for ContractAddress
+
+	// no validation rules for Address
+
+	if len(errors) > 0 {
+		return ProgmatCoinRemoveFromBlacklistRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ProgmatCoinRemoveFromBlacklistRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ProgmatCoinRemoveFromBlacklistRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ProgmatCoinRemoveFromBlacklistRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ProgmatCoinRemoveFromBlacklistRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ProgmatCoinRemoveFromBlacklistRequestMultiError) AllErrors() []error { return m }
+
+// ProgmatCoinRemoveFromBlacklistRequestValidationError is the validation error
+// returned by ProgmatCoinRemoveFromBlacklistRequest.Validate if the
+// designated constraints aren't met.
+type ProgmatCoinRemoveFromBlacklistRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProgmatCoinRemoveFromBlacklistRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProgmatCoinRemoveFromBlacklistRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProgmatCoinRemoveFromBlacklistRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProgmatCoinRemoveFromBlacklistRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProgmatCoinRemoveFromBlacklistRequestValidationError) ErrorName() string {
+	return "ProgmatCoinRemoveFromBlacklistRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProgmatCoinRemoveFromBlacklistRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProgmatCoinRemoveFromBlacklistRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProgmatCoinRemoveFromBlacklistRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProgmatCoinRemoveFromBlacklistRequestValidationError{}
+
+var _ProgmatCoinRemoveFromBlacklistRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ProgmatCoinConfiscateRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ProgmatCoinConfiscateRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ProgmatCoinConfiscateRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ProgmatCoinConfiscateRequestMultiError, or nil if none found.
+func (m *ProgmatCoinConfiscateRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ProgmatCoinConfiscateRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ProgmatCoinConfiscateRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinConfiscateRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	// no validation rules for ContractAddress
+
+	// no validation rules for BlackListedAccount
+
+	// no validation rules for ToAccount
+
+	// no validation rules for Amount
+
+	if len(errors) > 0 {
+		return ProgmatCoinConfiscateRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ProgmatCoinConfiscateRequestMultiError is an error wrapping multiple
+// validation errors returned by ProgmatCoinConfiscateRequest.ValidateAll() if
+// the designated constraints aren't met.
+type ProgmatCoinConfiscateRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ProgmatCoinConfiscateRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ProgmatCoinConfiscateRequestMultiError) AllErrors() []error { return m }
+
+// ProgmatCoinConfiscateRequestValidationError is the validation error returned
+// by ProgmatCoinConfiscateRequest.Validate if the designated constraints
+// aren't met.
+type ProgmatCoinConfiscateRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProgmatCoinConfiscateRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProgmatCoinConfiscateRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProgmatCoinConfiscateRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProgmatCoinConfiscateRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProgmatCoinConfiscateRequestValidationError) ErrorName() string {
+	return "ProgmatCoinConfiscateRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProgmatCoinConfiscateRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProgmatCoinConfiscateRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProgmatCoinConfiscateRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProgmatCoinConfiscateRequestValidationError{}
+
+var _ProgmatCoinConfiscateRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ProgmatCoinPauseRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ProgmatCoinPauseRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ProgmatCoinPauseRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ProgmatCoinPauseRequestMultiError, or nil if none found.
+func (m *ProgmatCoinPauseRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ProgmatCoinPauseRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ProgmatCoinPauseRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinPauseRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	// no validation rules for ContractAddress
+
+	if len(errors) > 0 {
+		return ProgmatCoinPauseRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ProgmatCoinPauseRequestMultiError is an error wrapping multiple validation
+// errors returned by ProgmatCoinPauseRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ProgmatCoinPauseRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ProgmatCoinPauseRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ProgmatCoinPauseRequestMultiError) AllErrors() []error { return m }
+
+// ProgmatCoinPauseRequestValidationError is the validation error returned by
+// ProgmatCoinPauseRequest.Validate if the designated constraints aren't met.
+type ProgmatCoinPauseRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProgmatCoinPauseRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProgmatCoinPauseRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProgmatCoinPauseRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProgmatCoinPauseRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProgmatCoinPauseRequestValidationError) ErrorName() string {
+	return "ProgmatCoinPauseRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProgmatCoinPauseRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProgmatCoinPauseRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProgmatCoinPauseRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProgmatCoinPauseRequestValidationError{}
+
+var _ProgmatCoinPauseRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ProgmatCoinUnpauseRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ProgmatCoinUnpauseRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ProgmatCoinUnpauseRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ProgmatCoinUnpauseRequestMultiError, or nil if none found.
+func (m *ProgmatCoinUnpauseRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ProgmatCoinUnpauseRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ProgmatCoinUnpauseRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinUnpauseRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	// no validation rules for ContractAddress
+
+	if len(errors) > 0 {
+		return ProgmatCoinUnpauseRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ProgmatCoinUnpauseRequestMultiError is an error wrapping multiple validation
+// errors returned by ProgmatCoinUnpauseRequest.ValidateAll() if the
+// designated constraints aren't met.
+type ProgmatCoinUnpauseRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ProgmatCoinUnpauseRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ProgmatCoinUnpauseRequestMultiError) AllErrors() []error { return m }
+
+// ProgmatCoinUnpauseRequestValidationError is the validation error returned by
+// ProgmatCoinUnpauseRequest.Validate if the designated constraints aren't met.
+type ProgmatCoinUnpauseRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProgmatCoinUnpauseRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProgmatCoinUnpauseRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProgmatCoinUnpauseRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProgmatCoinUnpauseRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProgmatCoinUnpauseRequestValidationError) ErrorName() string {
+	return "ProgmatCoinUnpauseRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProgmatCoinUnpauseRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProgmatCoinUnpauseRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProgmatCoinUnpauseRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProgmatCoinUnpauseRequestValidationError{}
+
+var _ProgmatCoinUnpauseRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")

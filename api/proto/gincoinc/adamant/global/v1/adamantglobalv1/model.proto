@@ -530,6 +530,7 @@ message CreateTransactionSymbolSpecific {
 message CreateTransactionEthereumSpecific {
   string data = 1;
   optional string staking_recipient_wallet_id = 2;
+  optional gincoinc.global.v1.EthereumCallMethod call_method = 3;
 }
 
 // The model of Cosmos specific fields of CreateTransaction
