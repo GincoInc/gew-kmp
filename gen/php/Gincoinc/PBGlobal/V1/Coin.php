@@ -266,9 +266,9 @@ class Coin
      */
     const COIN_SOL = 62;
     /**
-     * Generated from protobuf enum <code>COIN_BSC = 63;</code>
+     * Generated from protobuf enum <code>COIN_BNB = 63;</code>
      */
-    const COIN_BSC = 63;
+    const COIN_BNB = 63;
     /**
      * Generated from protobuf enum <code>COIN_FLR = 64;</code>
      */
@@ -281,6 +281,24 @@ class Coin
      * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
      */
     const COIN_SDN = 10002;
+    /**
+     * for stable coin development in dev
+     *
+     * Generated from protobuf enum <code>COIN_ERC20_SCDEV = 10003;</code>
+     */
+    const COIN_ERC20_SCDEV = 10003;
+    /**
+     * for stable coin development in qa
+     *
+     * Generated from protobuf enum <code>COIN_ERC20_SCQA = 10004;</code>
+     */
+    const COIN_ERC20_SCQA = 10004;
+    /**
+     * for stable coin development in prod
+     *
+     * Generated from protobuf enum <code>COIN_ERC20_SCPROD = 10005;</code>
+     */
+    const COIN_ERC20_SCPROD = 10005;
 
     private static $valueToName = [
         self::COIN_INVALID => 'COIN_INVALID',
@@ -346,10 +364,13 @@ class Coin
         self::COIN_HBAR => 'COIN_HBAR',
         self::COIN_JOC => 'COIN_JOC',
         self::COIN_SOL => 'COIN_SOL',
-        self::COIN_BSC => 'COIN_BSC',
+        self::COIN_BNB => 'COIN_BNB',
         self::COIN_FLR => 'COIN_FLR',
         self::COIN_POLYGON_ERC20_OSHI => 'COIN_POLYGON_ERC20_OSHI',
         self::COIN_SDN => 'COIN_SDN',
+        self::COIN_ERC20_SCDEV => 'COIN_ERC20_SCDEV',
+        self::COIN_ERC20_SCQA => 'COIN_ERC20_SCQA',
+        self::COIN_ERC20_SCPROD => 'COIN_ERC20_SCPROD',
     ];
 
     public static function name($value)
