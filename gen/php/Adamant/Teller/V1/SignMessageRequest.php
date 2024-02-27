@@ -18,9 +18,13 @@ class SignMessageRequest extends \Google\Protobuf\Internal\Message
      */
     protected $wallet_id = '';
     /**
-     * Generated from protobuf field <code>string address_id = 2 [json_name = "addressId", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>optional string address_id = 2 [json_name = "addressId", (.validate.rules) = {</code>
      */
-    protected $address_id = '';
+    protected $address_id = null;
+    /**
+     * Generated from protobuf field <code>optional string address = 4 [json_name = "address"];</code>
+     */
+    protected $address = null;
     /**
      * Generated from protobuf field <code>string message = 3 [json_name = "message"];</code>
      */
@@ -34,6 +38,7 @@ class SignMessageRequest extends \Google\Protobuf\Internal\Message
      *
      *     @type string $wallet_id
      *     @type string $address_id
+     *     @type string $address
      *     @type string $message
      * }
      */
@@ -65,16 +70,26 @@ class SignMessageRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string address_id = 2 [json_name = "addressId", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>optional string address_id = 2 [json_name = "addressId", (.validate.rules) = {</code>
      * @return string
      */
     public function getAddressId()
     {
-        return $this->address_id;
+        return isset($this->address_id) ? $this->address_id : '';
+    }
+
+    public function hasAddressId()
+    {
+        return isset($this->address_id);
+    }
+
+    public function clearAddressId()
+    {
+        unset($this->address_id);
     }
 
     /**
-     * Generated from protobuf field <code>string address_id = 2 [json_name = "addressId", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>optional string address_id = 2 [json_name = "addressId", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
@@ -82,6 +97,38 @@ class SignMessageRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->address_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string address = 4 [json_name = "address"];</code>
+     * @return string
+     */
+    public function getAddress()
+    {
+        return isset($this->address) ? $this->address : '';
+    }
+
+    public function hasAddress()
+    {
+        return isset($this->address);
+    }
+
+    public function clearAddress()
+    {
+        unset($this->address);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string address = 4 [json_name = "address"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->address = $var;
 
         return $this;
     }

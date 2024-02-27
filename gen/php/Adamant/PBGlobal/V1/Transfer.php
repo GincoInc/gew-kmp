@@ -153,6 +153,10 @@ class Transfer extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.gincoinc.global.v1.StakingEventType staking_event_type = 24 [json_name = "stakingEventType"];</code>
      */
     protected $staking_event_type = 0;
+    /**
+     * Generated from protobuf field <code>string method = 25 [json_name = "method"];</code>
+     */
+    protected $method = '';
 
     /**
      * Constructor.
@@ -206,6 +210,7 @@ class Transfer extends \Google\Protobuf\Internal\Message
      *           cosmos_specific
      *     @type int $staking_event_type
      *           staking_event_type
+     *     @type string $method
      * }
      */
     public function __construct($data = NULL) {
@@ -837,6 +842,28 @@ class Transfer extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\StakingEventType::class);
         $this->staking_event_type = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string method = 25 [json_name = "method"];</code>
+     * @return string
+     */
+    public function getMethod()
+    {
+        return $this->method;
+    }
+
+    /**
+     * Generated from protobuf field <code>string method = 25 [json_name = "method"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setMethod($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->method = $var;
 
         return $this;
     }

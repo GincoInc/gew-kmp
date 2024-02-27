@@ -18,17 +18,12 @@ public class SignMessageRequestValidator implements io.envoyproxy.pgv.ValidatorI
 		com.google.re2j.Pattern WALLET_ID__PATTERN = com.google.re2j.Pattern.compile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
 	
 		
-		com.google.re2j.Pattern ADDRESS_ID__PATTERN = com.google.re2j.Pattern.compile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
-	
-		
 	
 	
 
 	public void assertValid(adamant.teller.v1.SignMessageRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.SignMessageRequest.wallet_id", proto.getWalletId(), WALLET_ID__PATTERN);
-	
-			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.SignMessageRequest.address_id", proto.getAddressId(), ADDRESS_ID__PATTERN);
 	// no validation rules for Message
 
 	
