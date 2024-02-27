@@ -266,6 +266,18 @@ public final class Event {
      * <code>.adamant.teller.v1.TransferUpdateSubstrateSpecific substrate_specific = 23 [json_name = "substrateSpecific"];</code>
      */
     adamant.teller.v1.Event.TransferUpdateSubstrateSpecificOrBuilder getSubstrateSpecificOrBuilder();
+
+    /**
+     * <code>string method = 24 [json_name = "method"];</code>
+     * @return The method.
+     */
+    java.lang.String getMethod();
+    /**
+     * <code>string method = 24 [json_name = "method"];</code>
+     * @return The bytes for method.
+     */
+    com.google.protobuf.ByteString
+        getMethodBytes();
   }
   /**
    * Protobuf type {@code adamant.teller.v1.TransferUpdated}
@@ -294,6 +306,7 @@ public final class Event {
       to_ = "";
       eventId_ = "";
       stringFee_ = "";
+      method_ = "";
     }
 
     @java.lang.Override
@@ -926,6 +939,45 @@ public final class Event {
       return substrateSpecific_ == null ? adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.getDefaultInstance() : substrateSpecific_;
     }
 
+    public static final int METHOD_FIELD_NUMBER = 24;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object method_ = "";
+    /**
+     * <code>string method = 24 [json_name = "method"];</code>
+     * @return The method.
+     */
+    @java.lang.Override
+    public java.lang.String getMethod() {
+      java.lang.Object ref = method_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        method_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string method = 24 [json_name = "method"];</code>
+     * @return The bytes for method.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getMethodBytes() {
+      java.lang.Object ref = method_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        method_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1008,6 +1060,9 @@ public final class Event {
       }
       if (substrateSpecific_ != null) {
         output.writeMessage(23, getSubstrateSpecific());
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(method_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 24, method_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1100,6 +1155,9 @@ public final class Event {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(23, getSubstrateSpecific());
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(method_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(24, method_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1169,6 +1227,8 @@ public final class Event {
         if (!getSubstrateSpecific()
             .equals(other.getSubstrateSpecific())) return false;
       }
+      if (!getMethod()
+          .equals(other.getMethod())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -1236,6 +1296,8 @@ public final class Event {
         hash = (37 * hash) + SUBSTRATE_SPECIFIC_FIELD_NUMBER;
         hash = (53 * hash) + getSubstrateSpecific().hashCode();
       }
+      hash = (37 * hash) + METHOD_FIELD_NUMBER;
+      hash = (53 * hash) + getMethod().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1402,6 +1464,7 @@ public final class Event {
           substrateSpecificBuilder_.dispose();
           substrateSpecificBuilder_ = null;
         }
+        method_ = "";
         return this;
       }
 
@@ -1509,6 +1572,9 @@ public final class Event {
           result.substrateSpecific_ = substrateSpecificBuilder_ == null
               ? substrateSpecific_
               : substrateSpecificBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00800000) != 0)) {
+          result.method_ = method_;
         }
       }
 
@@ -1644,6 +1710,11 @@ public final class Event {
         }
         if (other.hasSubstrateSpecific()) {
           mergeSubstrateSpecific(other.getSubstrateSpecific());
+        }
+        if (!other.getMethod().isEmpty()) {
+          method_ = other.method_;
+          bitField0_ |= 0x00800000;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -1792,6 +1863,11 @@ public final class Event {
                 bitField0_ |= 0x00400000;
                 break;
               } // case 186
+              case 194: {
+                method_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00800000;
+                break;
+              } // case 194
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -3298,6 +3374,78 @@ public final class Event {
           substrateSpecific_ = null;
         }
         return substrateSpecificBuilder_;
+      }
+
+      private java.lang.Object method_ = "";
+      /**
+       * <code>string method = 24 [json_name = "method"];</code>
+       * @return The method.
+       */
+      public java.lang.String getMethod() {
+        java.lang.Object ref = method_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          method_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string method = 24 [json_name = "method"];</code>
+       * @return The bytes for method.
+       */
+      public com.google.protobuf.ByteString
+          getMethodBytes() {
+        java.lang.Object ref = method_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          method_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string method = 24 [json_name = "method"];</code>
+       * @param value The method to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMethod(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        method_ = value;
+        bitField0_ |= 0x00800000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string method = 24 [json_name = "method"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearMethod() {
+        method_ = getDefaultInstance().getMethod();
+        bitField0_ = (bitField0_ & ~0x00800000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string method = 24 [json_name = "method"];</code>
+       * @param value The bytes for method to set.
+       * @return This builder for chaining.
+       */
+      public Builder setMethodBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        method_ = value;
+        bitField0_ |= 0x00800000;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -10746,7 +10894,7 @@ public final class Event {
       "erv1/event.proto\022\021adamant.teller.v1\032.gin" +
       "coinc/global/v1/gincoincglobalv1/enum.pr" +
       "oto\032\037google/protobuf/timestamp.proto\032\027va" +
-      "lidate/validate.proto\"\232\007\n\017TransferUpdate" +
+      "lidate/validate.proto\"\262\007\n\017TransferUpdate" +
       "d\022\033\n\twallet_id\030\001 \001(\tR\010walletId\022\037\n\013transf" +
       "er_id\030\002 \001(\tR\ntransferId\022,\n\004coin\030\003 \001(\0162\030." +
       "gincoinc.global.v1.CoinR\004coin\022\023\n\005tx_id\030\004" +
@@ -10769,57 +10917,58 @@ public final class Event {
       "v1.TransferUpdateCosmosSpecificR\016cosmosS" +
       "pecific\022a\n\022substrate_specific\030\027 \001(\01322.ad" +
       "amant.teller.v1.TransferUpdateSubstrateS" +
-      "pecificR\021substrateSpecific\"\243\001\n\034TransferU" +
-      "pdateCosmosSpecific\0225\n\004type\030\001 \001(\0162!.ginc" +
-      "oinc.global.v1.CosmosMsgTypeR\004type\022\'\n\017de" +
-      "legate_amount\030\002 \001(\001R\016delegateAmount\022#\n\rr" +
-      "eward_amount\030\003 \001(\001R\014rewardAmount\"k\n\037Tran" +
-      "sferUpdateSubstrateSpecific\022!\n\014extrinsic" +
-      "_id\030\001 \001(\tR\013extrinsicId\022%\n\016extrinsic_hash" +
-      "\030\002 \001(\tR\rextrinsicHash\"\260\005\n\023TransferUpdate" +
-      "Event\022\031\n\010event_id\030\001 \001(\tR\007eventId\022\033\n\twall" +
-      "et_id\030\016 \001(\tR\010walletId\022,\n\004coin\030\002 \001(\0162\030.gi" +
-      "ncoinc.global.v1.CoinR\004coin\022\023\n\005tx_id\030\003 \001" +
-      "(\tR\004txId\022\031\n\010tx_index\030\004 \001(\rR\007txIndex\022\024\n\005v" +
-      "alue\030\005 \001(\001R\005value\022!\n\014string_value\030\006 \001(\tR" +
-      "\013stringValue\022\031\n\010jpy_rate\030\r \001(\001R\007jpyRate\022" +
-      "\030\n\007address\030\007 \001(\tR\007address\022\'\n\017destination" +
-      "_tag\030\010 \001(\rR\016destinationTag\022\027\n\007memo_id\030\017 " +
-      "\001(\004R\006memoId\022:\n\005state\030\t \001(\0162$.gincoinc.gl" +
-      "obal.v1.TransactionStateR\005state\022=\n\006resul" +
-      "t\030\n \001(\0162%.gincoinc.global.v1.Transaction" +
-      "ResultR\006result\022E\n\rtransfer_type\030\013 \001(\0162 ." +
-      "gincoinc.global.v1.TransferTypeR\014transfe" +
-      "rType\022.\n\004time\030\014 \001(\0132\032.google.protobuf.Ti" +
-      "mestampR\004time\022a\n\022substrate_specific\030\020 \001(" +
-      "\01322.adamant.teller.v1.TransferUpdateSubs" +
-      "trateSpecificR\021substrateSpecific\"\345\004\n\025Eth" +
-      "ereumStakingReward\022\031\n\010event_id\030\001 \001(\tR\007ev" +
-      "entId\022)\n\020withdrawal_index\030\002 \001(\004R\017withdra" +
-      "walIndex\022!\n\014block_number\030\003 \001(\004R\013blockNum" +
-      "ber\0229\n\nblock_time\030\004 \001(\0132\032.google.protobu" +
-      "f.TimestampR\tblockTime\022\'\n\017validator_inde" +
-      "x\030\005 \001(\004R\016validatorIndex\022\030\n\007address\030\006 \001(\t" +
-      "R\007address\022\024\n\005value\030\007 \001(\001R\005value\022i\n\twalle" +
-      "t_id\030\010 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]" +
-      "{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a" +
-      "-f]{12}$R\010walletId\022~\n\"ethereum_staking_r" +
-      "eward_layer_type\030\t \001(\01622.gincoinc.global" +
-      ".v1.EthereumStakingRewardLayerTypeR\036ethe" +
-      "reumStakingRewardLayerType\022!\n\014string_val" +
-      "ue\030\n \001(\tR\013stringValue\022\035\n\nblock_hash\030\013 \001(" +
-      "\tR\tblockHash\022\030\n\005tx_id\030\014 \001(\tH\000R\004txId\210\001\001B\010" +
-      "\n\006_tx_id\"\323\002\n\025StakingRewardReceived\022\031\n\010ev" +
-      "ent_id\030\001 \001(\tR\007eventId\022!\n\014validator_id\030\002 " +
-      "\001(\tR\013validatorId\022\024\n\005value\030\003 \001(\001R\005value\022!" +
-      "\n\014string_value\030\004 \001(\tR\013stringValue\022\023\n\005tx_" +
-      "id\030\005 \001(\tR\004txId\022\031\n\010tx_index\030\006 \001(\rR\007txInde" +
-      "x\022\033\n\twallet_id\030\007 \001(\tR\010walletId\022\030\n\007addres" +
-      "s\030\010 \001(\tR\007address\022,\n\004coin\030\t \001(\0162\030.gincoin" +
-      "c.global.v1.CoinR\004coin\022.\n\004time\030\n \001(\0132\032.g" +
-      "oogle.protobuf.TimestampR\004timeBLZJgithub" +
-      ".com/GincoInc/gew-kmp/gen/gincoinc/adama" +
-      "nt/teller/v1/adamanttellerv1b\006proto3"
+      "pecificR\021substrateSpecific\022\026\n\006method\030\030 \001" +
+      "(\tR\006method\"\243\001\n\034TransferUpdateCosmosSpeci" +
+      "fic\0225\n\004type\030\001 \001(\0162!.gincoinc.global.v1.C" +
+      "osmosMsgTypeR\004type\022\'\n\017delegate_amount\030\002 " +
+      "\001(\001R\016delegateAmount\022#\n\rreward_amount\030\003 \001" +
+      "(\001R\014rewardAmount\"k\n\037TransferUpdateSubstr" +
+      "ateSpecific\022!\n\014extrinsic_id\030\001 \001(\tR\013extri" +
+      "nsicId\022%\n\016extrinsic_hash\030\002 \001(\tR\rextrinsi" +
+      "cHash\"\260\005\n\023TransferUpdateEvent\022\031\n\010event_i" +
+      "d\030\001 \001(\tR\007eventId\022\033\n\twallet_id\030\016 \001(\tR\010wal" +
+      "letId\022,\n\004coin\030\002 \001(\0162\030.gincoinc.global.v1" +
+      ".CoinR\004coin\022\023\n\005tx_id\030\003 \001(\tR\004txId\022\031\n\010tx_i" +
+      "ndex\030\004 \001(\rR\007txIndex\022\024\n\005value\030\005 \001(\001R\005valu" +
+      "e\022!\n\014string_value\030\006 \001(\tR\013stringValue\022\031\n\010" +
+      "jpy_rate\030\r \001(\001R\007jpyRate\022\030\n\007address\030\007 \001(\t" +
+      "R\007address\022\'\n\017destination_tag\030\010 \001(\rR\016dest" +
+      "inationTag\022\027\n\007memo_id\030\017 \001(\004R\006memoId\022:\n\005s" +
+      "tate\030\t \001(\0162$.gincoinc.global.v1.Transact" +
+      "ionStateR\005state\022=\n\006result\030\n \001(\0162%.gincoi" +
+      "nc.global.v1.TransactionResultR\006result\022E" +
+      "\n\rtransfer_type\030\013 \001(\0162 .gincoinc.global." +
+      "v1.TransferTypeR\014transferType\022.\n\004time\030\014 " +
+      "\001(\0132\032.google.protobuf.TimestampR\004time\022a\n" +
+      "\022substrate_specific\030\020 \001(\01322.adamant.tell" +
+      "er.v1.TransferUpdateSubstrateSpecificR\021s" +
+      "ubstrateSpecific\"\345\004\n\025EthereumStakingRewa" +
+      "rd\022\031\n\010event_id\030\001 \001(\tR\007eventId\022)\n\020withdra" +
+      "wal_index\030\002 \001(\004R\017withdrawalIndex\022!\n\014bloc" +
+      "k_number\030\003 \001(\004R\013blockNumber\0229\n\nblock_tim" +
+      "e\030\004 \001(\0132\032.google.protobuf.TimestampR\tblo" +
+      "ckTime\022\'\n\017validator_index\030\005 \001(\004R\016validat" +
+      "orIndex\022\030\n\007address\030\006 \001(\tR\007address\022\024\n\005val" +
+      "ue\030\007 \001(\001R\005value\022i\n\twallet_id\030\010 \001(\tBL\372BIr" +
+      "G2E^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}" +
+      "-[89ab][0-9a-f]{3}-[0-9a-f]{12}$R\010wallet" +
+      "Id\022~\n\"ethereum_staking_reward_layer_type" +
+      "\030\t \001(\01622.gincoinc.global.v1.EthereumStak" +
+      "ingRewardLayerTypeR\036ethereumStakingRewar" +
+      "dLayerType\022!\n\014string_value\030\n \001(\tR\013string" +
+      "Value\022\035\n\nblock_hash\030\013 \001(\tR\tblockHash\022\030\n\005" +
+      "tx_id\030\014 \001(\tH\000R\004txId\210\001\001B\010\n\006_tx_id\"\323\002\n\025Sta" +
+      "kingRewardReceived\022\031\n\010event_id\030\001 \001(\tR\007ev" +
+      "entId\022!\n\014validator_id\030\002 \001(\tR\013validatorId" +
+      "\022\024\n\005value\030\003 \001(\001R\005value\022!\n\014string_value\030\004" +
+      " \001(\tR\013stringValue\022\023\n\005tx_id\030\005 \001(\tR\004txId\022\031" +
+      "\n\010tx_index\030\006 \001(\rR\007txIndex\022\033\n\twallet_id\030\007" +
+      " \001(\tR\010walletId\022\030\n\007address\030\010 \001(\tR\007address" +
+      "\022,\n\004coin\030\t \001(\0162\030.gincoinc.global.v1.Coin" +
+      "R\004coin\022.\n\004time\030\n \001(\0132\032.google.protobuf.T" +
+      "imestampR\004timeBLZJgithub.com/GincoInc/ge" +
+      "w-kmp/gen/gincoinc/adamant/teller/v1/ada" +
+      "manttellerv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -10833,7 +10982,7 @@ public final class Event {
     internal_static_adamant_teller_v1_TransferUpdated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_teller_v1_TransferUpdated_descriptor,
-        new java.lang.String[] { "WalletId", "TransferId", "Coin", "TxId", "TxIndex", "Value", "StringValue", "JpyRate", "Address", "DestinationTag", "MemoId", "Message", "State", "Result", "TransferType", "From", "To", "Time", "EventId", "Fee", "StringFee", "CosmosSpecific", "SubstrateSpecific", });
+        new java.lang.String[] { "WalletId", "TransferId", "Coin", "TxId", "TxIndex", "Value", "StringValue", "JpyRate", "Address", "DestinationTag", "MemoId", "Message", "State", "Result", "TransferType", "From", "To", "Time", "EventId", "Fee", "StringFee", "CosmosSpecific", "SubstrateSpecific", "Method", });
     internal_static_adamant_teller_v1_TransferUpdateCosmosSpecific_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_adamant_teller_v1_TransferUpdateCosmosSpecific_fieldAccessorTable = new
