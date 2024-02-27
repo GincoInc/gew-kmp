@@ -652,18 +652,26 @@ func (m *SignMessageRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if !_SignMessageRequest_AddressId_Pattern.MatchString(m.GetAddressId()) {
-		err := SignMessageRequestValidationError{
-			field:  "AddressId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+	// no validation rules for Message
+
+	if m.AddressId != nil {
+
+		if !_SignMessageRequest_AddressId_Pattern.MatchString(m.GetAddressId()) {
+			err := SignMessageRequestValidationError{
+				field:  "AddressId",
+				reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
+
 	}
 
-	// no validation rules for Message
+	if m.Address != nil {
+		// no validation rules for Address
+	}
 
 	if len(errors) > 0 {
 		return SignMessageRequestMultiError(errors)
@@ -747,7 +755,7 @@ var _ interface {
 
 var _SignMessageRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
-var _SignMessageRequest_AddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _SignMessageRequest_AddressId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on SignMessageResponse with the rules
 // defined in the proto definition for this message. If any rules are

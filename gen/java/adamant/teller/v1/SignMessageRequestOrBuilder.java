@@ -20,16 +20,38 @@ public interface SignMessageRequestOrBuilder extends
       getWalletIdBytes();
 
   /**
-   * <code>string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
+   * <code>optional string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
+   * @return Whether the addressId field is set.
+   */
+  boolean hasAddressId();
+  /**
+   * <code>optional string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
    * @return The addressId.
    */
   java.lang.String getAddressId();
   /**
-   * <code>string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
+   * <code>optional string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
    * @return The bytes for addressId.
    */
   com.google.protobuf.ByteString
       getAddressIdBytes();
+
+  /**
+   * <code>optional string address = 4 [json_name = "address"];</code>
+   * @return Whether the address field is set.
+   */
+  boolean hasAddress();
+  /**
+   * <code>optional string address = 4 [json_name = "address"];</code>
+   * @return The address.
+   */
+  java.lang.String getAddress();
+  /**
+   * <code>optional string address = 4 [json_name = "address"];</code>
+   * @return The bytes for address.
+   */
+  com.google.protobuf.ByteString
+      getAddressBytes();
 
   /**
    * <code>string message = 3 [json_name = "message"];</code>

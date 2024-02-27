@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private SignMessageRequest() {
     walletId_ = "";
     addressId_ = "";
+    address_ = "";
     message_ = "";
   }
 
@@ -41,6 +42,7 @@ private static final long serialVersionUID = 0L;
             adamant.teller.v1.SignMessageRequest.class, adamant.teller.v1.SignMessageRequest.Builder.class);
   }
 
+  private int bitField0_;
   public static final int WALLET_ID_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
   private volatile java.lang.Object walletId_ = "";
@@ -84,7 +86,15 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object addressId_ = "";
   /**
-   * <code>string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
+   * <code>optional string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
+   * @return Whether the addressId field is set.
+   */
+  @java.lang.Override
+  public boolean hasAddressId() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>optional string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
    * @return The addressId.
    */
   @java.lang.Override
@@ -101,7 +111,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
+   * <code>optional string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
    * @return The bytes for addressId.
    */
   @java.lang.Override
@@ -113,6 +123,53 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
       addressId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ADDRESS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object address_ = "";
+  /**
+   * <code>optional string address = 4 [json_name = "address"];</code>
+   * @return Whether the address field is set.
+   */
+  @java.lang.Override
+  public boolean hasAddress() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional string address = 4 [json_name = "address"];</code>
+   * @return The address.
+   */
+  @java.lang.Override
+  public java.lang.String getAddress() {
+    java.lang.Object ref = address_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      address_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string address = 4 [json_name = "address"];</code>
+   * @return The bytes for address.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAddressBytes() {
+    java.lang.Object ref = address_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      address_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -175,11 +232,14 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(addressId_)) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, addressId_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, message_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, address_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -193,11 +253,14 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletId_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(addressId_)) {
+    if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, addressId_);
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, message_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, address_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -216,8 +279,16 @@ private static final long serialVersionUID = 0L;
 
     if (!getWalletId()
         .equals(other.getWalletId())) return false;
-    if (!getAddressId()
-        .equals(other.getAddressId())) return false;
+    if (hasAddressId() != other.hasAddressId()) return false;
+    if (hasAddressId()) {
+      if (!getAddressId()
+          .equals(other.getAddressId())) return false;
+    }
+    if (hasAddress() != other.hasAddress()) return false;
+    if (hasAddress()) {
+      if (!getAddress()
+          .equals(other.getAddress())) return false;
+    }
     if (!getMessage()
         .equals(other.getMessage())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -233,8 +304,14 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + WALLET_ID_FIELD_NUMBER;
     hash = (53 * hash) + getWalletId().hashCode();
-    hash = (37 * hash) + ADDRESS_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getAddressId().hashCode();
+    if (hasAddressId()) {
+      hash = (37 * hash) + ADDRESS_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getAddressId().hashCode();
+    }
+    if (hasAddress()) {
+      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAddress().hashCode();
+    }
     hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getMessage().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
@@ -370,6 +447,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       walletId_ = "";
       addressId_ = "";
+      address_ = "";
       message_ = "";
       return this;
     }
@@ -407,12 +485,19 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.walletId_ = walletId_;
       }
+      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.addressId_ = addressId_;
+        to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.address_ = address_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.message_ = message_;
       }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -464,14 +549,19 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000001;
         onChanged();
       }
-      if (!other.getAddressId().isEmpty()) {
+      if (other.hasAddressId()) {
         addressId_ = other.addressId_;
         bitField0_ |= 0x00000002;
         onChanged();
       }
+      if (other.hasAddress()) {
+        address_ = other.address_;
+        bitField0_ |= 0x00000004;
+        onChanged();
+      }
       if (!other.getMessage().isEmpty()) {
         message_ = other.message_;
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -512,9 +602,14 @@ private static final long serialVersionUID = 0L;
             } // case 18
             case 26: {
               message_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000008;
               break;
             } // case 26
+            case 34: {
+              address_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -606,7 +701,14 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object addressId_ = "";
     /**
-     * <code>string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
+     * <code>optional string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
+     * @return Whether the addressId field is set.
+     */
+    public boolean hasAddressId() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
      * @return The addressId.
      */
     public java.lang.String getAddressId() {
@@ -622,7 +724,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
+     * <code>optional string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
      * @return The bytes for addressId.
      */
     public com.google.protobuf.ByteString
@@ -639,7 +741,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
+     * <code>optional string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
      * @param value The addressId to set.
      * @return This builder for chaining.
      */
@@ -652,7 +754,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
+     * <code>optional string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearAddressId() {
@@ -662,7 +764,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
+     * <code>optional string address_id = 2 [json_name = "addressId", (.validate.rules) = { ... }</code>
      * @param value The bytes for addressId to set.
      * @return This builder for chaining.
      */
@@ -672,6 +774,85 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       addressId_ = value;
       bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object address_ = "";
+    /**
+     * <code>optional string address = 4 [json_name = "address"];</code>
+     * @return Whether the address field is set.
+     */
+    public boolean hasAddress() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional string address = 4 [json_name = "address"];</code>
+     * @return The address.
+     */
+    public java.lang.String getAddress() {
+      java.lang.Object ref = address_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        address_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>optional string address = 4 [json_name = "address"];</code>
+     * @return The bytes for address.
+     */
+    public com.google.protobuf.ByteString
+        getAddressBytes() {
+      java.lang.Object ref = address_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        address_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string address = 4 [json_name = "address"];</code>
+     * @param value The address to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAddress(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      address_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string address = 4 [json_name = "address"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAddress() {
+      address_ = getDefaultInstance().getAddress();
+      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string address = 4 [json_name = "address"];</code>
+     * @param value The bytes for address to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAddressBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      address_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -719,7 +900,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       message_ = value;
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -729,7 +910,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearMessage() {
       message_ = getDefaultInstance().getMessage();
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -743,7 +924,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       message_ = value;
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }

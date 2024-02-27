@@ -8914,6 +8914,8 @@ func (m *Transfer) validate(all bool) error {
 
 	// no validation rules for StakingEventType
 
+	// no validation rules for Method
+
 	if len(errors) > 0 {
 		return TransferMultiError(errors)
 	}
