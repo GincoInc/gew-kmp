@@ -2350,6 +2350,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transfer proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2401,6 +2403,8 @@ public class ModelValidator {
 			// Validate cosmos_specific
 			if (proto.hasCosmosSpecific()) index.validatorFor(proto.getCosmosSpecific()).assertValid(proto.getCosmosSpecific());
 	// no validation rules for StakingEventType
+
+	// no validation rules for Method
 
 	
 	}

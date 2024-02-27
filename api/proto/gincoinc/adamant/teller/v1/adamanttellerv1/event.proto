@@ -32,6 +32,7 @@ message TransferUpdated {
   string string_fee = 20;
   TransferUpdateCosmosSpecific cosmos_specific = 22;
   TransferUpdateSubstrateSpecific substrate_specific = 23;
+  string method = 24;
 }
 
 message TransferUpdateCosmosSpecific {
