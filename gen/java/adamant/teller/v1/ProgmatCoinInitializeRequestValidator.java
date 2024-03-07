@@ -28,6 +28,7 @@ public class ProgmatCoinInitializeRequestValidator implements io.envoyproxy.pgv.
 		
 	
 		
+		private final Integer TOKEN_DECIMALS__LT = 100;
 	
 		
 	
@@ -48,14 +49,17 @@ public class ProgmatCoinInitializeRequestValidator implements io.envoyproxy.pgv.
 
 	// no validation rules for ContractAddress
 
-	// no validation rules for TokenName
-
-	// no validation rules for TokenSymbol
-
-	// no validation rules for TokenCurrency
-
-	// no validation rules for TokenDecimals
-
+	
+			io.envoyproxy.pgv.StringValidation.minLength(".adamant.teller.v1.ProgmatCoinInitializeRequest.token_name", proto.getTokenName(), 1);
+			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.teller.v1.ProgmatCoinInitializeRequest.token_name", proto.getTokenName(), 40);
+	
+			io.envoyproxy.pgv.StringValidation.minLength(".adamant.teller.v1.ProgmatCoinInitializeRequest.token_symbol", proto.getTokenSymbol(), 1);
+			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.teller.v1.ProgmatCoinInitializeRequest.token_symbol", proto.getTokenSymbol(), 10);
+	
+			io.envoyproxy.pgv.StringValidation.minLength(".adamant.teller.v1.ProgmatCoinInitializeRequest.token_currency", proto.getTokenCurrency(), 1);
+			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.teller.v1.ProgmatCoinInitializeRequest.token_currency", proto.getTokenCurrency(), 3);
+	
+			io.envoyproxy.pgv.ComparativeValidation.lessThan(".adamant.teller.v1.ProgmatCoinInitializeRequest.token_decimals", proto.getTokenDecimals(), TOKEN_DECIMALS__LT, java.util.Comparator.naturalOrder());
 	// no validation rules for NewMasterMinter
 
 	// no validation rules for NewPauser

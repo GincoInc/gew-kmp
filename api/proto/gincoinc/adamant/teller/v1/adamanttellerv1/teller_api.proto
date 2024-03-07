@@ -90,7 +90,6 @@ service TellerAPI {
   rpc ProgmatCoinConfigureMinter(ProgmatCoinConfigureMinterRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
   rpc ProgmatCoinMintAndTransfer(ProgmatCoinMintAndTransferRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
   rpc ProgmatCoinMint(ProgmatCoinMintRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
-  rpc ProgmatCoinTransfer(ProgmatCoinTransferRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
   rpc ProgmatCoinBurn(ProgmatCoinBurnRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
   rpc ProgmatCoinAddToWhitelist(ProgmatCoinAddToWhitelistRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
   rpc ProgmatCoinRemoveFromWhitelist(ProgmatCoinRemoveFromWhitelistRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
@@ -187,10 +186,19 @@ message ProgmatCoinInitializeRequest {
   }];
   uint64 fee_rate = 2;
   string contract_address = 3;
-  string token_name = 4;
-  string token_symbol = 5;
-  string token_currency = 6;
-  uint32 token_decimals = 7;
+  string token_name = 4 [(validate.rules).string = {
+    min_len: 1,
+    max_len: 40
+  }];
+  string token_symbol = 5 [(validate.rules).string = {
+    min_len: 1,
+    max_len: 10
+  }];
+  string token_currency = 6 [(validate.rules).string = {
+    min_len: 1,
+    max_len: 3
+  }];
+  uint32 token_decimals = 7 [(validate.rules).uint32.lt = 100];
   string new_master_minter = 8;
   string new_pauser = 9;
   string new_white_and_black_lister = 10;
@@ -227,15 +235,6 @@ message ProgmatCoinMintRequest {
   string contract_address = 3;
   string address = 4;
   string amount = 5;
-}
-
-message ProgmatCoinTransferRequest {
-  string wallet_id = 1 [(validate.rules).string = {
-    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-  }];
-  uint64 fee_rate = 2;
-  string address = 3;
-  string string_value = 4;
 }
 
 message ProgmatCoinBurnRequest {
