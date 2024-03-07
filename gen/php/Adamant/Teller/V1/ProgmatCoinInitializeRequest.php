@@ -28,19 +28,19 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
      */
     protected $contract_address = '';
     /**
-     * Generated from protobuf field <code>string token_name = 4 [json_name = "tokenName"];</code>
+     * Generated from protobuf field <code>string token_name = 4 [json_name = "tokenName", (.validate.rules) = {</code>
      */
     protected $token_name = '';
     /**
-     * Generated from protobuf field <code>string token_symbol = 5 [json_name = "tokenSymbol"];</code>
+     * Generated from protobuf field <code>string token_symbol = 5 [json_name = "tokenSymbol", (.validate.rules) = {</code>
      */
     protected $token_symbol = '';
     /**
-     * Generated from protobuf field <code>string token_currency = 6 [json_name = "tokenCurrency"];</code>
+     * Generated from protobuf field <code>string token_currency = 6 [json_name = "tokenCurrency", (.validate.rules) = {</code>
      */
     protected $token_currency = '';
     /**
-     * Generated from protobuf field <code>uint32 token_decimals = 7 [json_name = "tokenDecimals"];</code>
+     * Generated from protobuf field <code>uint32 token_decimals = 7 [json_name = "tokenDecimals", (.validate.rules) = {</code>
      */
     protected $token_decimals = 0;
     /**
@@ -156,7 +156,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string token_name = 4 [json_name = "tokenName"];</code>
+     * Generated from protobuf field <code>string token_name = 4 [json_name = "tokenName", (.validate.rules) = {</code>
      * @return string
      */
     public function getTokenName()
@@ -165,7 +165,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string token_name = 4 [json_name = "tokenName"];</code>
+     * Generated from protobuf field <code>string token_name = 4 [json_name = "tokenName", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
@@ -178,7 +178,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string token_symbol = 5 [json_name = "tokenSymbol"];</code>
+     * Generated from protobuf field <code>string token_symbol = 5 [json_name = "tokenSymbol", (.validate.rules) = {</code>
      * @return string
      */
     public function getTokenSymbol()
@@ -187,7 +187,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string token_symbol = 5 [json_name = "tokenSymbol"];</code>
+     * Generated from protobuf field <code>string token_symbol = 5 [json_name = "tokenSymbol", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
@@ -200,7 +200,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string token_currency = 6 [json_name = "tokenCurrency"];</code>
+     * Generated from protobuf field <code>string token_currency = 6 [json_name = "tokenCurrency", (.validate.rules) = {</code>
      * @return string
      */
     public function getTokenCurrency()
@@ -209,7 +209,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string token_currency = 6 [json_name = "tokenCurrency"];</code>
+     * Generated from protobuf field <code>string token_currency = 6 [json_name = "tokenCurrency", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
@@ -222,7 +222,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 token_decimals = 7 [json_name = "tokenDecimals"];</code>
+     * Generated from protobuf field <code>uint32 token_decimals = 7 [json_name = "tokenDecimals", (.validate.rules) = {</code>
      * @return int
      */
     public function getTokenDecimals()
@@ -231,7 +231,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 token_decimals = 7 [json_name = "tokenDecimals"];</code>
+     * Generated from protobuf field <code>uint32 token_decimals = 7 [json_name = "tokenDecimals", (.validate.rules) = {</code>
      * @param int $var
      * @return $this
      */

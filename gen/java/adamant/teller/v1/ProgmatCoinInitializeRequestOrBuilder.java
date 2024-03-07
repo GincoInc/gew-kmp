@@ -38,43 +38,43 @@ public interface ProgmatCoinInitializeRequestOrBuilder extends
       getContractAddressBytes();
 
   /**
-   * <code>string token_name = 4 [json_name = "tokenName"];</code>
+   * <code>string token_name = 4 [json_name = "tokenName", (.validate.rules) = { ... }</code>
    * @return The tokenName.
    */
   java.lang.String getTokenName();
   /**
-   * <code>string token_name = 4 [json_name = "tokenName"];</code>
+   * <code>string token_name = 4 [json_name = "tokenName", (.validate.rules) = { ... }</code>
    * @return The bytes for tokenName.
    */
   com.google.protobuf.ByteString
       getTokenNameBytes();
 
   /**
-   * <code>string token_symbol = 5 [json_name = "tokenSymbol"];</code>
+   * <code>string token_symbol = 5 [json_name = "tokenSymbol", (.validate.rules) = { ... }</code>
    * @return The tokenSymbol.
    */
   java.lang.String getTokenSymbol();
   /**
-   * <code>string token_symbol = 5 [json_name = "tokenSymbol"];</code>
+   * <code>string token_symbol = 5 [json_name = "tokenSymbol", (.validate.rules) = { ... }</code>
    * @return The bytes for tokenSymbol.
    */
   com.google.protobuf.ByteString
       getTokenSymbolBytes();
 
   /**
-   * <code>string token_currency = 6 [json_name = "tokenCurrency"];</code>
+   * <code>string token_currency = 6 [json_name = "tokenCurrency", (.validate.rules) = { ... }</code>
    * @return The tokenCurrency.
    */
   java.lang.String getTokenCurrency();
   /**
-   * <code>string token_currency = 6 [json_name = "tokenCurrency"];</code>
+   * <code>string token_currency = 6 [json_name = "tokenCurrency", (.validate.rules) = { ... }</code>
    * @return The bytes for tokenCurrency.
    */
   com.google.protobuf.ByteString
       getTokenCurrencyBytes();
 
   /**
-   * <code>uint32 token_decimals = 7 [json_name = "tokenDecimals"];</code>
+   * <code>uint32 token_decimals = 7 [json_name = "tokenDecimals", (.validate.rules) = { ... }</code>
    * @return The tokenDecimals.
    */
   int getTokenDecimals();

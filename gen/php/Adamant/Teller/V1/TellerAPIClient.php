@@ -731,20 +731,6 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
-     * @param \Adamant\Teller\V1\ProgmatCoinTransferRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     * @return \Grpc\UnaryCall
-     */
-    public function ProgmatCoinTransfer(\Adamant\Teller\V1\ProgmatCoinTransferRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinTransfer',
-        $argument,
-        ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
      * @param \Adamant\Teller\V1\ProgmatCoinBurnRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options

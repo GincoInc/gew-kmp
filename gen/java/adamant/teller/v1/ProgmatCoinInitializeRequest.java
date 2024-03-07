@@ -145,7 +145,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object tokenName_ = "";
   /**
-   * <code>string token_name = 4 [json_name = "tokenName"];</code>
+   * <code>string token_name = 4 [json_name = "tokenName", (.validate.rules) = { ... }</code>
    * @return The tokenName.
    */
   @java.lang.Override
@@ -162,7 +162,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string token_name = 4 [json_name = "tokenName"];</code>
+   * <code>string token_name = 4 [json_name = "tokenName", (.validate.rules) = { ... }</code>
    * @return The bytes for tokenName.
    */
   @java.lang.Override
@@ -184,7 +184,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object tokenSymbol_ = "";
   /**
-   * <code>string token_symbol = 5 [json_name = "tokenSymbol"];</code>
+   * <code>string token_symbol = 5 [json_name = "tokenSymbol", (.validate.rules) = { ... }</code>
    * @return The tokenSymbol.
    */
   @java.lang.Override
@@ -201,7 +201,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string token_symbol = 5 [json_name = "tokenSymbol"];</code>
+   * <code>string token_symbol = 5 [json_name = "tokenSymbol", (.validate.rules) = { ... }</code>
    * @return The bytes for tokenSymbol.
    */
   @java.lang.Override
@@ -223,7 +223,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object tokenCurrency_ = "";
   /**
-   * <code>string token_currency = 6 [json_name = "tokenCurrency"];</code>
+   * <code>string token_currency = 6 [json_name = "tokenCurrency", (.validate.rules) = { ... }</code>
    * @return The tokenCurrency.
    */
   @java.lang.Override
@@ -240,7 +240,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string token_currency = 6 [json_name = "tokenCurrency"];</code>
+   * <code>string token_currency = 6 [json_name = "tokenCurrency", (.validate.rules) = { ... }</code>
    * @return The bytes for tokenCurrency.
    */
   @java.lang.Override
@@ -261,7 +261,7 @@ private static final long serialVersionUID = 0L;
   public static final int TOKEN_DECIMALS_FIELD_NUMBER = 7;
   private int tokenDecimals_ = 0;
   /**
-   * <code>uint32 token_decimals = 7 [json_name = "tokenDecimals"];</code>
+   * <code>uint32 token_decimals = 7 [json_name = "tokenDecimals", (.validate.rules) = { ... }</code>
    * @return The tokenDecimals.
    */
   @java.lang.Override
@@ -1235,7 +1235,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object tokenName_ = "";
     /**
-     * <code>string token_name = 4 [json_name = "tokenName"];</code>
+     * <code>string token_name = 4 [json_name = "tokenName", (.validate.rules) = { ... }</code>
      * @return The tokenName.
      */
     public java.lang.String getTokenName() {
@@ -1251,7 +1251,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string token_name = 4 [json_name = "tokenName"];</code>
+     * <code>string token_name = 4 [json_name = "tokenName", (.validate.rules) = { ... }</code>
      * @return The bytes for tokenName.
      */
     public com.google.protobuf.ByteString
@@ -1268,7 +1268,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string token_name = 4 [json_name = "tokenName"];</code>
+     * <code>string token_name = 4 [json_name = "tokenName", (.validate.rules) = { ... }</code>
      * @param value The tokenName to set.
      * @return This builder for chaining.
      */
@@ -1281,7 +1281,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string token_name = 4 [json_name = "tokenName"];</code>
+     * <code>string token_name = 4 [json_name = "tokenName", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearTokenName() {
@@ -1291,7 +1291,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string token_name = 4 [json_name = "tokenName"];</code>
+     * <code>string token_name = 4 [json_name = "tokenName", (.validate.rules) = { ... }</code>
      * @param value The bytes for tokenName to set.
      * @return This builder for chaining.
      */
@@ -1307,7 +1307,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object tokenSymbol_ = "";
     /**
-     * <code>string token_symbol = 5 [json_name = "tokenSymbol"];</code>
+     * <code>string token_symbol = 5 [json_name = "tokenSymbol", (.validate.rules) = { ... }</code>
      * @return The tokenSymbol.
      */
     public java.lang.String getTokenSymbol() {
@@ -1323,7 +1323,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string token_symbol = 5 [json_name = "tokenSymbol"];</code>
+     * <code>string token_symbol = 5 [json_name = "tokenSymbol", (.validate.rules) = { ... }</code>
      * @return The bytes for tokenSymbol.
      */
     public com.google.protobuf.ByteString
@@ -1340,7 +1340,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string token_symbol = 5 [json_name = "tokenSymbol"];</code>
+     * <code>string token_symbol = 5 [json_name = "tokenSymbol", (.validate.rules) = { ... }</code>
      * @param value The tokenSymbol to set.
      * @return This builder for chaining.
      */
@@ -1353,7 +1353,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string token_symbol = 5 [json_name = "tokenSymbol"];</code>
+     * <code>string token_symbol = 5 [json_name = "tokenSymbol", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearTokenSymbol() {
@@ -1363,7 +1363,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string token_symbol = 5 [json_name = "tokenSymbol"];</code>
+     * <code>string token_symbol = 5 [json_name = "tokenSymbol", (.validate.rules) = { ... }</code>
      * @param value The bytes for tokenSymbol to set.
      * @return This builder for chaining.
      */
@@ -1379,7 +1379,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object tokenCurrency_ = "";
     /**
-     * <code>string token_currency = 6 [json_name = "tokenCurrency"];</code>
+     * <code>string token_currency = 6 [json_name = "tokenCurrency", (.validate.rules) = { ... }</code>
      * @return The tokenCurrency.
      */
     public java.lang.String getTokenCurrency() {
@@ -1395,7 +1395,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string token_currency = 6 [json_name = "tokenCurrency"];</code>
+     * <code>string token_currency = 6 [json_name = "tokenCurrency", (.validate.rules) = { ... }</code>
      * @return The bytes for tokenCurrency.
      */
     public com.google.protobuf.ByteString
@@ -1412,7 +1412,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string token_currency = 6 [json_name = "tokenCurrency"];</code>
+     * <code>string token_currency = 6 [json_name = "tokenCurrency", (.validate.rules) = { ... }</code>
      * @param value The tokenCurrency to set.
      * @return This builder for chaining.
      */
@@ -1425,7 +1425,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string token_currency = 6 [json_name = "tokenCurrency"];</code>
+     * <code>string token_currency = 6 [json_name = "tokenCurrency", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearTokenCurrency() {
@@ -1435,7 +1435,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string token_currency = 6 [json_name = "tokenCurrency"];</code>
+     * <code>string token_currency = 6 [json_name = "tokenCurrency", (.validate.rules) = { ... }</code>
      * @param value The bytes for tokenCurrency to set.
      * @return This builder for chaining.
      */
@@ -1451,7 +1451,7 @@ private static final long serialVersionUID = 0L;
 
     private int tokenDecimals_ ;
     /**
-     * <code>uint32 token_decimals = 7 [json_name = "tokenDecimals"];</code>
+     * <code>uint32 token_decimals = 7 [json_name = "tokenDecimals", (.validate.rules) = { ... }</code>
      * @return The tokenDecimals.
      */
     @java.lang.Override
@@ -1459,7 +1459,7 @@ private static final long serialVersionUID = 0L;
       return tokenDecimals_;
     }
     /**
-     * <code>uint32 token_decimals = 7 [json_name = "tokenDecimals"];</code>
+     * <code>uint32 token_decimals = 7 [json_name = "tokenDecimals", (.validate.rules) = { ... }</code>
      * @param value The tokenDecimals to set.
      * @return This builder for chaining.
      */
@@ -1471,7 +1471,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>uint32 token_decimals = 7 [json_name = "tokenDecimals"];</code>
+     * <code>uint32 token_decimals = 7 [json_name = "tokenDecimals", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearTokenDecimals() {
