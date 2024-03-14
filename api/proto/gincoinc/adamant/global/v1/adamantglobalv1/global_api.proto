@@ -205,6 +205,12 @@ message CreateWalletRequest {
       0
     ]
   }];
+  optional gincoinc.global.v1.Network network = 13 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
   WalletType wallet_type = 3 [(validate.rules).enum = {
     defined_only: true,
     not_in: [
