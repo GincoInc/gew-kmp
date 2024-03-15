@@ -113,9 +113,6 @@ message CreateWalletRequest {
   }];
   optional gincoinc.global.v1.Network network = 7 [(validate.rules).enum = {
     defined_only: true,
-    not_in: [
-      0
-    ]
   }];
   adamant.global.v1.WalletType wallet_type = 3 [(validate.rules).enum = {
     defined_only: true,
