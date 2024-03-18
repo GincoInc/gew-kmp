@@ -26,12 +26,12 @@ public interface ProgmatCoinUnpauseRequestOrBuilder extends
   long getFeeRate();
 
   /**
-   * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+   * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
    * @return The contractAddress.
    */
   java.lang.String getContractAddress();
   /**
-   * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+   * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
    * @return The bytes for contractAddress.
    */
   com.google.protobuf.ByteString

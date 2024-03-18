@@ -30,9 +30,17 @@ class Network
      */
     const NETWORK_ETHEREUM_MAINNET = 3;
     /**
+     * Sepolia
+     *
      * Generated from protobuf enum <code>NETWORK_ETHEREUM_TESTNET = 4;</code>
      */
     const NETWORK_ETHEREUM_TESTNET = 4;
+    /**
+     * Holesky
+     *
+     * Generated from protobuf enum <code>NETWORK_ETHEREUM_TESTNET_2 = 59;</code>
+     */
+    const NETWORK_ETHEREUM_TESTNET_2 = 59;
     /**
      * Generated from protobuf enum <code>NETWORK_LITECOIN_MAINNET = 5;</code>
      */
@@ -260,6 +268,7 @@ class Network
         self::NETWORK_BITCOIN_TESTNET => 'NETWORK_BITCOIN_TESTNET',
         self::NETWORK_ETHEREUM_MAINNET => 'NETWORK_ETHEREUM_MAINNET',
         self::NETWORK_ETHEREUM_TESTNET => 'NETWORK_ETHEREUM_TESTNET',
+        self::NETWORK_ETHEREUM_TESTNET_2 => 'NETWORK_ETHEREUM_TESTNET_2',
         self::NETWORK_LITECOIN_MAINNET => 'NETWORK_LITECOIN_MAINNET',
         self::NETWORK_LITECOIN_TESTNET => 'NETWORK_LITECOIN_TESTNET',
         self::NETWORK_BITCOINCASH_MAINNET => 'NETWORK_BITCOINCASH_MAINNET',

@@ -97,7 +97,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object contractAddress_ = "";
   /**
-   * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+   * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
    * @return The contractAddress.
    */
   @java.lang.Override
@@ -114,7 +114,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+   * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
    * @return The bytes for contractAddress.
    */
   @java.lang.Override
@@ -136,7 +136,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object blackListedAccount_ = "";
   /**
-   * <code>string black_listed_account = 4 [json_name = "blackListedAccount"];</code>
+   * <code>string black_listed_account = 4 [json_name = "blackListedAccount", (.validate.rules) = { ... }</code>
    * @return The blackListedAccount.
    */
   @java.lang.Override
@@ -153,7 +153,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string black_listed_account = 4 [json_name = "blackListedAccount"];</code>
+   * <code>string black_listed_account = 4 [json_name = "blackListedAccount", (.validate.rules) = { ... }</code>
    * @return The bytes for blackListedAccount.
    */
   @java.lang.Override
@@ -175,7 +175,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object toAccount_ = "";
   /**
-   * <code>string to_account = 5 [json_name = "toAccount"];</code>
+   * <code>string to_account = 5 [json_name = "toAccount", (.validate.rules) = { ... }</code>
    * @return The toAccount.
    */
   @java.lang.Override
@@ -192,7 +192,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string to_account = 5 [json_name = "toAccount"];</code>
+   * <code>string to_account = 5 [json_name = "toAccount", (.validate.rules) = { ... }</code>
    * @return The bytes for toAccount.
    */
   @java.lang.Override
@@ -801,7 +801,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object contractAddress_ = "";
     /**
-     * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
      * @return The contractAddress.
      */
     public java.lang.String getContractAddress() {
@@ -817,7 +817,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
      * @return The bytes for contractAddress.
      */
     public com.google.protobuf.ByteString
@@ -834,7 +834,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
      * @param value The contractAddress to set.
      * @return This builder for chaining.
      */
@@ -847,7 +847,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearContractAddress() {
@@ -857,7 +857,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
      * @param value The bytes for contractAddress to set.
      * @return This builder for chaining.
      */
@@ -873,7 +873,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object blackListedAccount_ = "";
     /**
-     * <code>string black_listed_account = 4 [json_name = "blackListedAccount"];</code>
+     * <code>string black_listed_account = 4 [json_name = "blackListedAccount", (.validate.rules) = { ... }</code>
      * @return The blackListedAccount.
      */
     public java.lang.String getBlackListedAccount() {
@@ -889,7 +889,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string black_listed_account = 4 [json_name = "blackListedAccount"];</code>
+     * <code>string black_listed_account = 4 [json_name = "blackListedAccount", (.validate.rules) = { ... }</code>
      * @return The bytes for blackListedAccount.
      */
     public com.google.protobuf.ByteString
@@ -906,7 +906,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string black_listed_account = 4 [json_name = "blackListedAccount"];</code>
+     * <code>string black_listed_account = 4 [json_name = "blackListedAccount", (.validate.rules) = { ... }</code>
      * @param value The blackListedAccount to set.
      * @return This builder for chaining.
      */
@@ -919,7 +919,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string black_listed_account = 4 [json_name = "blackListedAccount"];</code>
+     * <code>string black_listed_account = 4 [json_name = "blackListedAccount", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearBlackListedAccount() {
@@ -929,7 +929,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string black_listed_account = 4 [json_name = "blackListedAccount"];</code>
+     * <code>string black_listed_account = 4 [json_name = "blackListedAccount", (.validate.rules) = { ... }</code>
      * @param value The bytes for blackListedAccount to set.
      * @return This builder for chaining.
      */
@@ -945,7 +945,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object toAccount_ = "";
     /**
-     * <code>string to_account = 5 [json_name = "toAccount"];</code>
+     * <code>string to_account = 5 [json_name = "toAccount", (.validate.rules) = { ... }</code>
      * @return The toAccount.
      */
     public java.lang.String getToAccount() {
@@ -961,7 +961,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string to_account = 5 [json_name = "toAccount"];</code>
+     * <code>string to_account = 5 [json_name = "toAccount", (.validate.rules) = { ... }</code>
      * @return The bytes for toAccount.
      */
     public com.google.protobuf.ByteString
@@ -978,7 +978,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string to_account = 5 [json_name = "toAccount"];</code>
+     * <code>string to_account = 5 [json_name = "toAccount", (.validate.rules) = { ... }</code>
      * @param value The toAccount to set.
      * @return This builder for chaining.
      */
@@ -991,7 +991,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string to_account = 5 [json_name = "toAccount"];</code>
+     * <code>string to_account = 5 [json_name = "toAccount", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearToAccount() {
@@ -1001,7 +1001,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string to_account = 5 [json_name = "toAccount"];</code>
+     * <code>string to_account = 5 [json_name = "toAccount", (.validate.rules) = { ... }</code>
      * @param value The bytes for toAccount to set.
      * @return This builder for chaining.
      */

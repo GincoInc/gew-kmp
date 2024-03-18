@@ -97,7 +97,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object contractAddress_ = "";
   /**
-   * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+   * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
    * @return The contractAddress.
    */
   @java.lang.Override
@@ -114,7 +114,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+   * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
    * @return The bytes for contractAddress.
    */
   @java.lang.Override
@@ -136,7 +136,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object mintAddress_ = "";
   /**
-   * <code>string mint_address = 4 [json_name = "mintAddress"];</code>
+   * <code>string mint_address = 4 [json_name = "mintAddress", (.validate.rules) = { ... }</code>
    * @return The mintAddress.
    */
   @java.lang.Override
@@ -153,7 +153,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string mint_address = 4 [json_name = "mintAddress"];</code>
+   * <code>string mint_address = 4 [json_name = "mintAddress", (.validate.rules) = { ... }</code>
    * @return The bytes for mintAddress.
    */
   @java.lang.Override
@@ -175,7 +175,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object transferAddress_ = "";
   /**
-   * <code>string transfer_address = 5 [json_name = "transferAddress"];</code>
+   * <code>string transfer_address = 5 [json_name = "transferAddress", (.validate.rules) = { ... }</code>
    * @return The transferAddress.
    */
   @java.lang.Override
@@ -192,7 +192,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string transfer_address = 5 [json_name = "transferAddress"];</code>
+   * <code>string transfer_address = 5 [json_name = "transferAddress", (.validate.rules) = { ... }</code>
    * @return The bytes for transferAddress.
    */
   @java.lang.Override
@@ -801,7 +801,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object contractAddress_ = "";
     /**
-     * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
      * @return The contractAddress.
      */
     public java.lang.String getContractAddress() {
@@ -817,7 +817,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
      * @return The bytes for contractAddress.
      */
     public com.google.protobuf.ByteString
@@ -834,7 +834,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
      * @param value The contractAddress to set.
      * @return This builder for chaining.
      */
@@ -847,7 +847,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearContractAddress() {
@@ -857,7 +857,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
      * @param value The bytes for contractAddress to set.
      * @return This builder for chaining.
      */
@@ -873,7 +873,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object mintAddress_ = "";
     /**
-     * <code>string mint_address = 4 [json_name = "mintAddress"];</code>
+     * <code>string mint_address = 4 [json_name = "mintAddress", (.validate.rules) = { ... }</code>
      * @return The mintAddress.
      */
     public java.lang.String getMintAddress() {
@@ -889,7 +889,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string mint_address = 4 [json_name = "mintAddress"];</code>
+     * <code>string mint_address = 4 [json_name = "mintAddress", (.validate.rules) = { ... }</code>
      * @return The bytes for mintAddress.
      */
     public com.google.protobuf.ByteString
@@ -906,7 +906,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string mint_address = 4 [json_name = "mintAddress"];</code>
+     * <code>string mint_address = 4 [json_name = "mintAddress", (.validate.rules) = { ... }</code>
      * @param value The mintAddress to set.
      * @return This builder for chaining.
      */
@@ -919,7 +919,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string mint_address = 4 [json_name = "mintAddress"];</code>
+     * <code>string mint_address = 4 [json_name = "mintAddress", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearMintAddress() {
@@ -929,7 +929,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string mint_address = 4 [json_name = "mintAddress"];</code>
+     * <code>string mint_address = 4 [json_name = "mintAddress", (.validate.rules) = { ... }</code>
      * @param value The bytes for mintAddress to set.
      * @return This builder for chaining.
      */
@@ -945,7 +945,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object transferAddress_ = "";
     /**
-     * <code>string transfer_address = 5 [json_name = "transferAddress"];</code>
+     * <code>string transfer_address = 5 [json_name = "transferAddress", (.validate.rules) = { ... }</code>
      * @return The transferAddress.
      */
     public java.lang.String getTransferAddress() {
@@ -961,7 +961,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string transfer_address = 5 [json_name = "transferAddress"];</code>
+     * <code>string transfer_address = 5 [json_name = "transferAddress", (.validate.rules) = { ... }</code>
      * @return The bytes for transferAddress.
      */
     public com.google.protobuf.ByteString
@@ -978,7 +978,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string transfer_address = 5 [json_name = "transferAddress"];</code>
+     * <code>string transfer_address = 5 [json_name = "transferAddress", (.validate.rules) = { ... }</code>
      * @param value The transferAddress to set.
      * @return This builder for chaining.
      */
@@ -991,7 +991,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string transfer_address = 5 [json_name = "transferAddress"];</code>
+     * <code>string transfer_address = 5 [json_name = "transferAddress", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearTransferAddress() {
@@ -1001,7 +1001,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string transfer_address = 5 [json_name = "transferAddress"];</code>
+     * <code>string transfer_address = 5 [json_name = "transferAddress", (.validate.rules) = { ... }</code>
      * @param value The bytes for transferAddress to set.
      * @return This builder for chaining.
      */
