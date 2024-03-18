@@ -472,6 +472,21 @@ func (m *CreateWalletRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := CreateWalletRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
 	if len(errors) > 0 {
 		return CreateWalletRequestMultiError(errors)
 	}

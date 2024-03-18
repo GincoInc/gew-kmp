@@ -106,7 +106,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object contractAddress_ = "";
   /**
-   * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+   * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
    * @return The contractAddress.
    */
   @java.lang.Override
@@ -123,7 +123,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+   * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
    * @return The bytes for contractAddress.
    */
   @java.lang.Override
@@ -273,7 +273,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object newMasterMinter_ = "";
   /**
-   * <code>string new_master_minter = 8 [json_name = "newMasterMinter"];</code>
+   * <code>string new_master_minter = 8 [json_name = "newMasterMinter", (.validate.rules) = { ... }</code>
    * @return The newMasterMinter.
    */
   @java.lang.Override
@@ -290,7 +290,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string new_master_minter = 8 [json_name = "newMasterMinter"];</code>
+   * <code>string new_master_minter = 8 [json_name = "newMasterMinter", (.validate.rules) = { ... }</code>
    * @return The bytes for newMasterMinter.
    */
   @java.lang.Override
@@ -312,7 +312,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object newPauser_ = "";
   /**
-   * <code>string new_pauser = 9 [json_name = "newPauser"];</code>
+   * <code>string new_pauser = 9 [json_name = "newPauser", (.validate.rules) = { ... }</code>
    * @return The newPauser.
    */
   @java.lang.Override
@@ -329,7 +329,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string new_pauser = 9 [json_name = "newPauser"];</code>
+   * <code>string new_pauser = 9 [json_name = "newPauser", (.validate.rules) = { ... }</code>
    * @return The bytes for newPauser.
    */
   @java.lang.Override
@@ -351,7 +351,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object newWhiteAndBlackLister_ = "";
   /**
-   * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister"];</code>
+   * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister", (.validate.rules) = { ... }</code>
    * @return The newWhiteAndBlackLister.
    */
   @java.lang.Override
@@ -368,7 +368,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister"];</code>
+   * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister", (.validate.rules) = { ... }</code>
    * @return The bytes for newWhiteAndBlackLister.
    */
   @java.lang.Override
@@ -390,7 +390,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object newConfiscator_ = "";
   /**
-   * <code>string new_confiscator = 11 [json_name = "newConfiscator"];</code>
+   * <code>string new_confiscator = 11 [json_name = "newConfiscator", (.validate.rules) = { ... }</code>
    * @return The newConfiscator.
    */
   @java.lang.Override
@@ -407,7 +407,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string new_confiscator = 11 [json_name = "newConfiscator"];</code>
+   * <code>string new_confiscator = 11 [json_name = "newConfiscator", (.validate.rules) = { ... }</code>
    * @return The bytes for newConfiscator.
    */
   @java.lang.Override
@@ -429,7 +429,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object newOwner_ = "";
   /**
-   * <code>string new_owner = 12 [json_name = "newOwner"];</code>
+   * <code>string new_owner = 12 [json_name = "newOwner", (.validate.rules) = { ... }</code>
    * @return The newOwner.
    */
   @java.lang.Override
@@ -446,7 +446,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string new_owner = 12 [json_name = "newOwner"];</code>
+   * <code>string new_owner = 12 [json_name = "newOwner", (.validate.rules) = { ... }</code>
    * @return The bytes for newOwner.
    */
   @java.lang.Override
@@ -1163,7 +1163,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object contractAddress_ = "";
     /**
-     * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
      * @return The contractAddress.
      */
     public java.lang.String getContractAddress() {
@@ -1179,7 +1179,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
      * @return The bytes for contractAddress.
      */
     public com.google.protobuf.ByteString
@@ -1196,7 +1196,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
      * @param value The contractAddress to set.
      * @return This builder for chaining.
      */
@@ -1209,7 +1209,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearContractAddress() {
@@ -1219,7 +1219,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
      * @param value The bytes for contractAddress to set.
      * @return This builder for chaining.
      */
@@ -1483,7 +1483,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object newMasterMinter_ = "";
     /**
-     * <code>string new_master_minter = 8 [json_name = "newMasterMinter"];</code>
+     * <code>string new_master_minter = 8 [json_name = "newMasterMinter", (.validate.rules) = { ... }</code>
      * @return The newMasterMinter.
      */
     public java.lang.String getNewMasterMinter() {
@@ -1499,7 +1499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string new_master_minter = 8 [json_name = "newMasterMinter"];</code>
+     * <code>string new_master_minter = 8 [json_name = "newMasterMinter", (.validate.rules) = { ... }</code>
      * @return The bytes for newMasterMinter.
      */
     public com.google.protobuf.ByteString
@@ -1516,7 +1516,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string new_master_minter = 8 [json_name = "newMasterMinter"];</code>
+     * <code>string new_master_minter = 8 [json_name = "newMasterMinter", (.validate.rules) = { ... }</code>
      * @param value The newMasterMinter to set.
      * @return This builder for chaining.
      */
@@ -1529,7 +1529,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string new_master_minter = 8 [json_name = "newMasterMinter"];</code>
+     * <code>string new_master_minter = 8 [json_name = "newMasterMinter", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearNewMasterMinter() {
@@ -1539,7 +1539,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string new_master_minter = 8 [json_name = "newMasterMinter"];</code>
+     * <code>string new_master_minter = 8 [json_name = "newMasterMinter", (.validate.rules) = { ... }</code>
      * @param value The bytes for newMasterMinter to set.
      * @return This builder for chaining.
      */
@@ -1555,7 +1555,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object newPauser_ = "";
     /**
-     * <code>string new_pauser = 9 [json_name = "newPauser"];</code>
+     * <code>string new_pauser = 9 [json_name = "newPauser", (.validate.rules) = { ... }</code>
      * @return The newPauser.
      */
     public java.lang.String getNewPauser() {
@@ -1571,7 +1571,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string new_pauser = 9 [json_name = "newPauser"];</code>
+     * <code>string new_pauser = 9 [json_name = "newPauser", (.validate.rules) = { ... }</code>
      * @return The bytes for newPauser.
      */
     public com.google.protobuf.ByteString
@@ -1588,7 +1588,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string new_pauser = 9 [json_name = "newPauser"];</code>
+     * <code>string new_pauser = 9 [json_name = "newPauser", (.validate.rules) = { ... }</code>
      * @param value The newPauser to set.
      * @return This builder for chaining.
      */
@@ -1601,7 +1601,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string new_pauser = 9 [json_name = "newPauser"];</code>
+     * <code>string new_pauser = 9 [json_name = "newPauser", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearNewPauser() {
@@ -1611,7 +1611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string new_pauser = 9 [json_name = "newPauser"];</code>
+     * <code>string new_pauser = 9 [json_name = "newPauser", (.validate.rules) = { ... }</code>
      * @param value The bytes for newPauser to set.
      * @return This builder for chaining.
      */
@@ -1627,7 +1627,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object newWhiteAndBlackLister_ = "";
     /**
-     * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister"];</code>
+     * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister", (.validate.rules) = { ... }</code>
      * @return The newWhiteAndBlackLister.
      */
     public java.lang.String getNewWhiteAndBlackLister() {
@@ -1643,7 +1643,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister"];</code>
+     * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister", (.validate.rules) = { ... }</code>
      * @return The bytes for newWhiteAndBlackLister.
      */
     public com.google.protobuf.ByteString
@@ -1660,7 +1660,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister"];</code>
+     * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister", (.validate.rules) = { ... }</code>
      * @param value The newWhiteAndBlackLister to set.
      * @return This builder for chaining.
      */
@@ -1673,7 +1673,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister"];</code>
+     * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearNewWhiteAndBlackLister() {
@@ -1683,7 +1683,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister"];</code>
+     * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister", (.validate.rules) = { ... }</code>
      * @param value The bytes for newWhiteAndBlackLister to set.
      * @return This builder for chaining.
      */
@@ -1699,7 +1699,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object newConfiscator_ = "";
     /**
-     * <code>string new_confiscator = 11 [json_name = "newConfiscator"];</code>
+     * <code>string new_confiscator = 11 [json_name = "newConfiscator", (.validate.rules) = { ... }</code>
      * @return The newConfiscator.
      */
     public java.lang.String getNewConfiscator() {
@@ -1715,7 +1715,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string new_confiscator = 11 [json_name = "newConfiscator"];</code>
+     * <code>string new_confiscator = 11 [json_name = "newConfiscator", (.validate.rules) = { ... }</code>
      * @return The bytes for newConfiscator.
      */
     public com.google.protobuf.ByteString
@@ -1732,7 +1732,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string new_confiscator = 11 [json_name = "newConfiscator"];</code>
+     * <code>string new_confiscator = 11 [json_name = "newConfiscator", (.validate.rules) = { ... }</code>
      * @param value The newConfiscator to set.
      * @return This builder for chaining.
      */
@@ -1745,7 +1745,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string new_confiscator = 11 [json_name = "newConfiscator"];</code>
+     * <code>string new_confiscator = 11 [json_name = "newConfiscator", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearNewConfiscator() {
@@ -1755,7 +1755,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string new_confiscator = 11 [json_name = "newConfiscator"];</code>
+     * <code>string new_confiscator = 11 [json_name = "newConfiscator", (.validate.rules) = { ... }</code>
      * @param value The bytes for newConfiscator to set.
      * @return This builder for chaining.
      */
@@ -1771,7 +1771,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object newOwner_ = "";
     /**
-     * <code>string new_owner = 12 [json_name = "newOwner"];</code>
+     * <code>string new_owner = 12 [json_name = "newOwner", (.validate.rules) = { ... }</code>
      * @return The newOwner.
      */
     public java.lang.String getNewOwner() {
@@ -1787,7 +1787,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string new_owner = 12 [json_name = "newOwner"];</code>
+     * <code>string new_owner = 12 [json_name = "newOwner", (.validate.rules) = { ... }</code>
      * @return The bytes for newOwner.
      */
     public com.google.protobuf.ByteString
@@ -1804,7 +1804,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string new_owner = 12 [json_name = "newOwner"];</code>
+     * <code>string new_owner = 12 [json_name = "newOwner", (.validate.rules) = { ... }</code>
      * @param value The newOwner to set.
      * @return This builder for chaining.
      */
@@ -1817,7 +1817,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string new_owner = 12 [json_name = "newOwner"];</code>
+     * <code>string new_owner = 12 [json_name = "newOwner", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearNewOwner() {
@@ -1827,7 +1827,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string new_owner = 12 [json_name = "newOwner"];</code>
+     * <code>string new_owner = 12 [json_name = "newOwner", (.validate.rules) = { ... }</code>
      * @param value The bytes for newOwner to set.
      * @return This builder for chaining.
      */

@@ -20,10 +20,13 @@ public class ProgmatCoinConfiscateRequestValidator implements io.envoyproxy.pgv.
 		
 	
 		
+		com.google.re2j.Pattern CONTRACT_ADDRESS__PATTERN = com.google.re2j.Pattern.compile("^(0x)?[0-9a-fA-F]{40}$");
 	
 		
+		com.google.re2j.Pattern BLACK_LISTED_ACCOUNT__PATTERN = com.google.re2j.Pattern.compile("^(0x)?[0-9a-fA-F]{40}$");
 	
 		
+		com.google.re2j.Pattern TO_ACCOUNT__PATTERN = com.google.re2j.Pattern.compile("^(0x)?[0-9a-fA-F]{40}$");
 	
 		
 	
@@ -34,12 +37,12 @@ public class ProgmatCoinConfiscateRequestValidator implements io.envoyproxy.pgv.
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.ProgmatCoinConfiscateRequest.wallet_id", proto.getWalletId(), WALLET_ID__PATTERN);
 	// no validation rules for FeeRate
 
-	// no validation rules for ContractAddress
-
-	// no validation rules for BlackListedAccount
-
-	// no validation rules for ToAccount
-
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.ProgmatCoinConfiscateRequest.contract_address", proto.getContractAddress(), CONTRACT_ADDRESS__PATTERN);
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.ProgmatCoinConfiscateRequest.black_listed_account", proto.getBlackListedAccount(), BLACK_LISTED_ACCOUNT__PATTERN);
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.ProgmatCoinConfiscateRequest.to_account", proto.getToAccount(), TO_ACCOUNT__PATTERN);
 	// no validation rules for Amount
 
 	

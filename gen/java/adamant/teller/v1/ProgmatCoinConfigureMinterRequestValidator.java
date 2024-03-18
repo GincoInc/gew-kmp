@@ -20,8 +20,10 @@ public class ProgmatCoinConfigureMinterRequestValidator implements io.envoyproxy
 		
 	
 		
+		com.google.re2j.Pattern CONTRACT_ADDRESS__PATTERN = com.google.re2j.Pattern.compile("^(0x)?[0-9a-fA-F]{40}$");
 	
 		
+		com.google.re2j.Pattern ADDRESS__PATTERN = com.google.re2j.Pattern.compile("^(0x)?[0-9a-fA-F]{40}$");
 	
 		
 	
@@ -32,10 +34,10 @@ public class ProgmatCoinConfigureMinterRequestValidator implements io.envoyproxy
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.ProgmatCoinConfigureMinterRequest.wallet_id", proto.getWalletId(), WALLET_ID__PATTERN);
 	// no validation rules for FeeRate
 
-	// no validation rules for ContractAddress
-
-	// no validation rules for Address
-
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.ProgmatCoinConfigureMinterRequest.contract_address", proto.getContractAddress(), CONTRACT_ADDRESS__PATTERN);
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.ProgmatCoinConfigureMinterRequest.address", proto.getAddress(), ADDRESS__PATTERN);
 	// no validation rules for MinterAllowedAmount
 
 	

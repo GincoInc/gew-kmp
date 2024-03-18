@@ -26,36 +26,36 @@ public interface ProgmatCoinMintAndTransferRequestOrBuilder extends
   long getFeeRate();
 
   /**
-   * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+   * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
    * @return The contractAddress.
    */
   java.lang.String getContractAddress();
   /**
-   * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+   * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
    * @return The bytes for contractAddress.
    */
   com.google.protobuf.ByteString
       getContractAddressBytes();
 
   /**
-   * <code>string mint_address = 4 [json_name = "mintAddress"];</code>
+   * <code>string mint_address = 4 [json_name = "mintAddress", (.validate.rules) = { ... }</code>
    * @return The mintAddress.
    */
   java.lang.String getMintAddress();
   /**
-   * <code>string mint_address = 4 [json_name = "mintAddress"];</code>
+   * <code>string mint_address = 4 [json_name = "mintAddress", (.validate.rules) = { ... }</code>
    * @return The bytes for mintAddress.
    */
   com.google.protobuf.ByteString
       getMintAddressBytes();
 
   /**
-   * <code>string transfer_address = 5 [json_name = "transferAddress"];</code>
+   * <code>string transfer_address = 5 [json_name = "transferAddress", (.validate.rules) = { ... }</code>
    * @return The transferAddress.
    */
   java.lang.String getTransferAddress();
   /**
-   * <code>string transfer_address = 5 [json_name = "transferAddress"];</code>
+   * <code>string transfer_address = 5 [json_name = "transferAddress", (.validate.rules) = { ... }</code>
    * @return The bytes for transferAddress.
    */
   com.google.protobuf.ByteString
