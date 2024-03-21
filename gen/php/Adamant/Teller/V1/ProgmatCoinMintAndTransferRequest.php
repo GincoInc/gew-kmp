@@ -22,15 +22,15 @@ class ProgmatCoinMintAndTransferRequest extends \Google\Protobuf\Internal\Messag
      */
     protected $fee_rate = 0;
     /**
-     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = {</code>
      */
     protected $contract_address = '';
     /**
-     * Generated from protobuf field <code>string mint_address = 4 [json_name = "mintAddress"];</code>
+     * Generated from protobuf field <code>string mint_address = 4 [json_name = "mintAddress", (.validate.rules) = {</code>
      */
     protected $mint_address = '';
     /**
-     * Generated from protobuf field <code>string transfer_address = 5 [json_name = "transferAddress"];</code>
+     * Generated from protobuf field <code>string transfer_address = 5 [json_name = "transferAddress", (.validate.rules) = {</code>
      */
     protected $transfer_address = '';
     /**
@@ -102,7 +102,7 @@ class ProgmatCoinMintAndTransferRequest extends \Google\Protobuf\Internal\Messag
     }
 
     /**
-     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = {</code>
      * @return string
      */
     public function getContractAddress()
@@ -111,7 +111,7 @@ class ProgmatCoinMintAndTransferRequest extends \Google\Protobuf\Internal\Messag
     }
 
     /**
-     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
@@ -124,7 +124,7 @@ class ProgmatCoinMintAndTransferRequest extends \Google\Protobuf\Internal\Messag
     }
 
     /**
-     * Generated from protobuf field <code>string mint_address = 4 [json_name = "mintAddress"];</code>
+     * Generated from protobuf field <code>string mint_address = 4 [json_name = "mintAddress", (.validate.rules) = {</code>
      * @return string
      */
     public function getMintAddress()
@@ -133,7 +133,7 @@ class ProgmatCoinMintAndTransferRequest extends \Google\Protobuf\Internal\Messag
     }
 
     /**
-     * Generated from protobuf field <code>string mint_address = 4 [json_name = "mintAddress"];</code>
+     * Generated from protobuf field <code>string mint_address = 4 [json_name = "mintAddress", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
@@ -146,7 +146,7 @@ class ProgmatCoinMintAndTransferRequest extends \Google\Protobuf\Internal\Messag
     }
 
     /**
-     * Generated from protobuf field <code>string transfer_address = 5 [json_name = "transferAddress"];</code>
+     * Generated from protobuf field <code>string transfer_address = 5 [json_name = "transferAddress", (.validate.rules) = {</code>
      * @return string
      */
     public function getTransferAddress()
@@ -155,7 +155,7 @@ class ProgmatCoinMintAndTransferRequest extends \Google\Protobuf\Internal\Messag
     }
 
     /**
-     * Generated from protobuf field <code>string transfer_address = 5 [json_name = "transferAddress"];</code>
+     * Generated from protobuf field <code>string transfer_address = 5 [json_name = "transferAddress", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */

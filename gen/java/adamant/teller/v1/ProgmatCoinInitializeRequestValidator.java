@@ -20,6 +20,7 @@ public class ProgmatCoinInitializeRequestValidator implements io.envoyproxy.pgv.
 		
 	
 		
+		com.google.re2j.Pattern CONTRACT_ADDRESS__PATTERN = com.google.re2j.Pattern.compile("^(0x)?[0-9a-fA-F]{40}$");
 	
 		
 	
@@ -28,16 +29,22 @@ public class ProgmatCoinInitializeRequestValidator implements io.envoyproxy.pgv.
 		
 	
 		
+		private final Integer TOKEN_DECIMALS__LT = 100;
 	
 		
+		com.google.re2j.Pattern NEW_MASTER_MINTER__PATTERN = com.google.re2j.Pattern.compile("^(0x)?[0-9a-fA-F]{40}$");
 	
 		
+		com.google.re2j.Pattern NEW_PAUSER__PATTERN = com.google.re2j.Pattern.compile("^(0x)?[0-9a-fA-F]{40}$");
 	
 		
+		com.google.re2j.Pattern NEW_WHITE_AND_BLACK_LISTER__PATTERN = com.google.re2j.Pattern.compile("^(0x)?[0-9a-fA-F]{40}$");
 	
 		
+		com.google.re2j.Pattern NEW_CONFISCATOR__PATTERN = com.google.re2j.Pattern.compile("^(0x)?[0-9a-fA-F]{40}$");
 	
 		
+		com.google.re2j.Pattern NEW_OWNER__PATTERN = com.google.re2j.Pattern.compile("^(0x)?[0-9a-fA-F]{40}$");
 	
 	
 
@@ -46,26 +53,29 @@ public class ProgmatCoinInitializeRequestValidator implements io.envoyproxy.pgv.
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.ProgmatCoinInitializeRequest.wallet_id", proto.getWalletId(), WALLET_ID__PATTERN);
 	// no validation rules for FeeRate
 
-	// no validation rules for ContractAddress
-
-	// no validation rules for TokenName
-
-	// no validation rules for TokenSymbol
-
-	// no validation rules for TokenCurrency
-
-	// no validation rules for TokenDecimals
-
-	// no validation rules for NewMasterMinter
-
-	// no validation rules for NewPauser
-
-	// no validation rules for NewWhiteAndBlackLister
-
-	// no validation rules for NewConfiscator
-
-	// no validation rules for NewOwner
-
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.ProgmatCoinInitializeRequest.contract_address", proto.getContractAddress(), CONTRACT_ADDRESS__PATTERN);
+	
+			io.envoyproxy.pgv.StringValidation.minLength(".adamant.teller.v1.ProgmatCoinInitializeRequest.token_name", proto.getTokenName(), 1);
+			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.teller.v1.ProgmatCoinInitializeRequest.token_name", proto.getTokenName(), 40);
+	
+			io.envoyproxy.pgv.StringValidation.minLength(".adamant.teller.v1.ProgmatCoinInitializeRequest.token_symbol", proto.getTokenSymbol(), 1);
+			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.teller.v1.ProgmatCoinInitializeRequest.token_symbol", proto.getTokenSymbol(), 10);
+	
+			io.envoyproxy.pgv.StringValidation.minLength(".adamant.teller.v1.ProgmatCoinInitializeRequest.token_currency", proto.getTokenCurrency(), 1);
+			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.teller.v1.ProgmatCoinInitializeRequest.token_currency", proto.getTokenCurrency(), 3);
+	
+			io.envoyproxy.pgv.ComparativeValidation.lessThan(".adamant.teller.v1.ProgmatCoinInitializeRequest.token_decimals", proto.getTokenDecimals(), TOKEN_DECIMALS__LT, java.util.Comparator.naturalOrder());
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.ProgmatCoinInitializeRequest.new_master_minter", proto.getNewMasterMinter(), NEW_MASTER_MINTER__PATTERN);
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.ProgmatCoinInitializeRequest.new_pauser", proto.getNewPauser(), NEW_PAUSER__PATTERN);
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.ProgmatCoinInitializeRequest.new_white_and_black_lister", proto.getNewWhiteAndBlackLister(), NEW_WHITE_AND_BLACK_LISTER__PATTERN);
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.ProgmatCoinInitializeRequest.new_confiscator", proto.getNewConfiscator(), NEW_CONFISCATOR__PATTERN);
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.ProgmatCoinInitializeRequest.new_owner", proto.getNewOwner(), NEW_OWNER__PATTERN);
 	
 	}
 

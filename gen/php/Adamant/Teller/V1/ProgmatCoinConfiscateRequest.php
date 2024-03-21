@@ -22,15 +22,15 @@ class ProgmatCoinConfiscateRequest extends \Google\Protobuf\Internal\Message
      */
     protected $fee_rate = 0;
     /**
-     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = {</code>
      */
     protected $contract_address = '';
     /**
-     * Generated from protobuf field <code>string black_listed_account = 4 [json_name = "blackListedAccount"];</code>
+     * Generated from protobuf field <code>string black_listed_account = 4 [json_name = "blackListedAccount", (.validate.rules) = {</code>
      */
     protected $black_listed_account = '';
     /**
-     * Generated from protobuf field <code>string to_account = 5 [json_name = "toAccount"];</code>
+     * Generated from protobuf field <code>string to_account = 5 [json_name = "toAccount", (.validate.rules) = {</code>
      */
     protected $to_account = '';
     /**
@@ -102,7 +102,7 @@ class ProgmatCoinConfiscateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = {</code>
      * @return string
      */
     public function getContractAddress()
@@ -111,7 +111,7 @@ class ProgmatCoinConfiscateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
@@ -124,7 +124,7 @@ class ProgmatCoinConfiscateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string black_listed_account = 4 [json_name = "blackListedAccount"];</code>
+     * Generated from protobuf field <code>string black_listed_account = 4 [json_name = "blackListedAccount", (.validate.rules) = {</code>
      * @return string
      */
     public function getBlackListedAccount()
@@ -133,7 +133,7 @@ class ProgmatCoinConfiscateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string black_listed_account = 4 [json_name = "blackListedAccount"];</code>
+     * Generated from protobuf field <code>string black_listed_account = 4 [json_name = "blackListedAccount", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
@@ -146,7 +146,7 @@ class ProgmatCoinConfiscateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string to_account = 5 [json_name = "toAccount"];</code>
+     * Generated from protobuf field <code>string to_account = 5 [json_name = "toAccount", (.validate.rules) = {</code>
      * @return string
      */
     public function getToAccount()
@@ -155,7 +155,7 @@ class ProgmatCoinConfiscateRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string to_account = 5 [json_name = "toAccount"];</code>
+     * Generated from protobuf field <code>string to_account = 5 [json_name = "toAccount", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */

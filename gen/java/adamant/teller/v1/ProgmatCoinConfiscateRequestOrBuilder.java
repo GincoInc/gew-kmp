@@ -26,36 +26,36 @@ public interface ProgmatCoinConfiscateRequestOrBuilder extends
   long getFeeRate();
 
   /**
-   * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+   * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
    * @return The contractAddress.
    */
   java.lang.String getContractAddress();
   /**
-   * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+   * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
    * @return The bytes for contractAddress.
    */
   com.google.protobuf.ByteString
       getContractAddressBytes();
 
   /**
-   * <code>string black_listed_account = 4 [json_name = "blackListedAccount"];</code>
+   * <code>string black_listed_account = 4 [json_name = "blackListedAccount", (.validate.rules) = { ... }</code>
    * @return The blackListedAccount.
    */
   java.lang.String getBlackListedAccount();
   /**
-   * <code>string black_listed_account = 4 [json_name = "blackListedAccount"];</code>
+   * <code>string black_listed_account = 4 [json_name = "blackListedAccount", (.validate.rules) = { ... }</code>
    * @return The bytes for blackListedAccount.
    */
   com.google.protobuf.ByteString
       getBlackListedAccountBytes();
 
   /**
-   * <code>string to_account = 5 [json_name = "toAccount"];</code>
+   * <code>string to_account = 5 [json_name = "toAccount", (.validate.rules) = { ... }</code>
    * @return The toAccount.
    */
   java.lang.String getToAccount();
   /**
-   * <code>string to_account = 5 [json_name = "toAccount"];</code>
+   * <code>string to_account = 5 [json_name = "toAccount", (.validate.rules) = { ... }</code>
    * @return The bytes for toAccount.
    */
   com.google.protobuf.ByteString

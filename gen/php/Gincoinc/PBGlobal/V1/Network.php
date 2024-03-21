@@ -30,9 +30,17 @@ class Network
      */
     const NETWORK_ETHEREUM_MAINNET = 3;
     /**
+     * Sepolia
+     *
      * Generated from protobuf enum <code>NETWORK_ETHEREUM_TESTNET = 4;</code>
      */
     const NETWORK_ETHEREUM_TESTNET = 4;
+    /**
+     * Holesky
+     *
+     * Generated from protobuf enum <code>NETWORK_ETHEREUM_TESTNET_2 = 59;</code>
+     */
+    const NETWORK_ETHEREUM_TESTNET_2 = 59;
     /**
      * Generated from protobuf enum <code>NETWORK_LITECOIN_MAINNET = 5;</code>
      */
@@ -242,6 +250,14 @@ class Network
      */
     const NETWORK_FLARE_TESTNET = 56;
     /**
+     * Generated from protobuf enum <code>NETWORK_ARBITRUM_MAINNET = 57;</code>
+     */
+    const NETWORK_ARBITRUM_MAINNET = 57;
+    /**
+     * Generated from protobuf enum <code>NETWORK_ARBITRUM_TESTNET = 58;</code>
+     */
+    const NETWORK_ARBITRUM_TESTNET = 58;
+    /**
      * Generated from protobuf enum <code>NETWORK_SHIDEN_MAINNET = 10002;</code>
      */
     const NETWORK_SHIDEN_MAINNET = 10002;
@@ -252,6 +268,7 @@ class Network
         self::NETWORK_BITCOIN_TESTNET => 'NETWORK_BITCOIN_TESTNET',
         self::NETWORK_ETHEREUM_MAINNET => 'NETWORK_ETHEREUM_MAINNET',
         self::NETWORK_ETHEREUM_TESTNET => 'NETWORK_ETHEREUM_TESTNET',
+        self::NETWORK_ETHEREUM_TESTNET_2 => 'NETWORK_ETHEREUM_TESTNET_2',
         self::NETWORK_LITECOIN_MAINNET => 'NETWORK_LITECOIN_MAINNET',
         self::NETWORK_LITECOIN_TESTNET => 'NETWORK_LITECOIN_TESTNET',
         self::NETWORK_BITCOINCASH_MAINNET => 'NETWORK_BITCOINCASH_MAINNET',
@@ -304,6 +321,8 @@ class Network
         self::NETWORK_BNB_SMART_CHAIN_TESTNET => 'NETWORK_BNB_SMART_CHAIN_TESTNET',
         self::NETWORK_FLARE_MAINNET => 'NETWORK_FLARE_MAINNET',
         self::NETWORK_FLARE_TESTNET => 'NETWORK_FLARE_TESTNET',
+        self::NETWORK_ARBITRUM_MAINNET => 'NETWORK_ARBITRUM_MAINNET',
+        self::NETWORK_ARBITRUM_TESTNET => 'NETWORK_ARBITRUM_TESTNET',
         self::NETWORK_SHIDEN_MAINNET => 'NETWORK_SHIDEN_MAINNET',
     ];
 

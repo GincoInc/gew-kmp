@@ -278,6 +278,10 @@ class Coin
      */
     const COIN_POLYGON_ERC20_OSHI = 65;
     /**
+     * Generated from protobuf enum <code>COIN_ARBITRUM_ERC20_ARB = 66;</code>
+     */
+    const COIN_ARBITRUM_ERC20_ARB = 66;
+    /**
      * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
      */
     const COIN_SDN = 10002;
@@ -367,6 +371,7 @@ class Coin
         self::COIN_BNB => 'COIN_BNB',
         self::COIN_FLR => 'COIN_FLR',
         self::COIN_POLYGON_ERC20_OSHI => 'COIN_POLYGON_ERC20_OSHI',
+        self::COIN_ARBITRUM_ERC20_ARB => 'COIN_ARBITRUM_ERC20_ARB',
         self::COIN_SDN => 'COIN_SDN',
         self::COIN_ERC20_SCDEV => 'COIN_ERC20_SCDEV',
         self::COIN_ERC20_SCQA => 'COIN_ERC20_SCQA',

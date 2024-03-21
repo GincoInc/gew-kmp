@@ -164,6 +164,21 @@ func (m *CreateWalletRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := CreateWalletRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
 	if len(errors) > 0 {
 		return CreateWalletRequestMultiError(errors)
 	}
@@ -1024,25 +1039,115 @@ func (m *ProgmatCoinInitializeRequest) validate(all bool) error {
 
 	// no validation rules for FeeRate
 
-	// no validation rules for ContractAddress
+	if !_ProgmatCoinInitializeRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
+		err := ProgmatCoinInitializeRequestValidationError{
+			field:  "ContractAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for TokenName
+	if l := utf8.RuneCountInString(m.GetTokenName()); l < 1 || l > 40 {
+		err := ProgmatCoinInitializeRequestValidationError{
+			field:  "TokenName",
+			reason: "value length must be between 1 and 40 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for TokenSymbol
+	if l := utf8.RuneCountInString(m.GetTokenSymbol()); l < 1 || l > 10 {
+		err := ProgmatCoinInitializeRequestValidationError{
+			field:  "TokenSymbol",
+			reason: "value length must be between 1 and 10 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for TokenCurrency
+	if l := utf8.RuneCountInString(m.GetTokenCurrency()); l < 1 || l > 3 {
+		err := ProgmatCoinInitializeRequestValidationError{
+			field:  "TokenCurrency",
+			reason: "value length must be between 1 and 3 runes, inclusive",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for TokenDecimals
+	if m.GetTokenDecimals() >= 100 {
+		err := ProgmatCoinInitializeRequestValidationError{
+			field:  "TokenDecimals",
+			reason: "value must be less than 100",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for NewMasterMinter
+	if !_ProgmatCoinInitializeRequest_NewMasterMinter_Pattern.MatchString(m.GetNewMasterMinter()) {
+		err := ProgmatCoinInitializeRequestValidationError{
+			field:  "NewMasterMinter",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for NewPauser
+	if !_ProgmatCoinInitializeRequest_NewPauser_Pattern.MatchString(m.GetNewPauser()) {
+		err := ProgmatCoinInitializeRequestValidationError{
+			field:  "NewPauser",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for NewWhiteAndBlackLister
+	if !_ProgmatCoinInitializeRequest_NewWhiteAndBlackLister_Pattern.MatchString(m.GetNewWhiteAndBlackLister()) {
+		err := ProgmatCoinInitializeRequestValidationError{
+			field:  "NewWhiteAndBlackLister",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for NewConfiscator
+	if !_ProgmatCoinInitializeRequest_NewConfiscator_Pattern.MatchString(m.GetNewConfiscator()) {
+		err := ProgmatCoinInitializeRequestValidationError{
+			field:  "NewConfiscator",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for NewOwner
+	if !_ProgmatCoinInitializeRequest_NewOwner_Pattern.MatchString(m.GetNewOwner()) {
+		err := ProgmatCoinInitializeRequestValidationError{
+			field:  "NewOwner",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return ProgmatCoinInitializeRequestMultiError(errors)
@@ -1127,6 +1232,18 @@ var _ interface {
 
 var _ProgmatCoinInitializeRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+var _ProgmatCoinInitializeRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinInitializeRequest_NewMasterMinter_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinInitializeRequest_NewPauser_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinInitializeRequest_NewWhiteAndBlackLister_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinInitializeRequest_NewConfiscator_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinInitializeRequest_NewOwner_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
 // Validate checks the field values on ProgmatCoinConfigureMinterRequest with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, the first error encountered is returned, or nil if there are
@@ -1163,9 +1280,27 @@ func (m *ProgmatCoinConfigureMinterRequest) validate(all bool) error {
 
 	// no validation rules for FeeRate
 
-	// no validation rules for ContractAddress
+	if !_ProgmatCoinConfigureMinterRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
+		err := ProgmatCoinConfigureMinterRequestValidationError{
+			field:  "ContractAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Address
+	if !_ProgmatCoinConfigureMinterRequest_Address_Pattern.MatchString(m.GetAddress()) {
+		err := ProgmatCoinConfigureMinterRequestValidationError{
+			field:  "Address",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for MinterAllowedAmount
 
@@ -1253,6 +1388,10 @@ var _ interface {
 
 var _ProgmatCoinConfigureMinterRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+var _ProgmatCoinConfigureMinterRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinConfigureMinterRequest_Address_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
 // Validate checks the field values on ProgmatCoinMintAndTransferRequest with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, the first error encountered is returned, or nil if there are
@@ -1289,11 +1428,38 @@ func (m *ProgmatCoinMintAndTransferRequest) validate(all bool) error {
 
 	// no validation rules for FeeRate
 
-	// no validation rules for ContractAddress
+	if !_ProgmatCoinMintAndTransferRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
+		err := ProgmatCoinMintAndTransferRequestValidationError{
+			field:  "ContractAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for MintAddress
+	if !_ProgmatCoinMintAndTransferRequest_MintAddress_Pattern.MatchString(m.GetMintAddress()) {
+		err := ProgmatCoinMintAndTransferRequestValidationError{
+			field:  "MintAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for TransferAddress
+	if !_ProgmatCoinMintAndTransferRequest_TransferAddress_Pattern.MatchString(m.GetTransferAddress()) {
+		err := ProgmatCoinMintAndTransferRequestValidationError{
+			field:  "TransferAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for Amount
 
@@ -1381,6 +1547,12 @@ var _ interface {
 
 var _ProgmatCoinMintAndTransferRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+var _ProgmatCoinMintAndTransferRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinMintAndTransferRequest_MintAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinMintAndTransferRequest_TransferAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
 // Validate checks the field values on ProgmatCoinMintRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -1416,9 +1588,27 @@ func (m *ProgmatCoinMintRequest) validate(all bool) error {
 
 	// no validation rules for FeeRate
 
-	// no validation rules for ContractAddress
+	if !_ProgmatCoinMintRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
+		err := ProgmatCoinMintRequestValidationError{
+			field:  "ContractAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Address
+	if !_ProgmatCoinMintRequest_Address_Pattern.MatchString(m.GetAddress()) {
+		err := ProgmatCoinMintRequestValidationError{
+			field:  "Address",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for Amount
 
@@ -1504,126 +1694,9 @@ var _ interface {
 
 var _ProgmatCoinMintRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
-// Validate checks the field values on ProgmatCoinTransferRequest with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *ProgmatCoinTransferRequest) Validate() error {
-	return m.validate(false)
-}
+var _ProgmatCoinMintRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
 
-// ValidateAll checks the field values on ProgmatCoinTransferRequest with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// ProgmatCoinTransferRequestMultiError, or nil if none found.
-func (m *ProgmatCoinTransferRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ProgmatCoinTransferRequest) validate(all bool) error {
-	if m == nil {
-		return nil
-	}
-
-	var errors []error
-
-	if !_ProgmatCoinTransferRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		err := ProgmatCoinTransferRequestValidationError{
-			field:  "WalletId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
-		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
-	}
-
-	// no validation rules for FeeRate
-
-	// no validation rules for Address
-
-	// no validation rules for StringValue
-
-	if len(errors) > 0 {
-		return ProgmatCoinTransferRequestMultiError(errors)
-	}
-
-	return nil
-}
-
-// ProgmatCoinTransferRequestMultiError is an error wrapping multiple
-// validation errors returned by ProgmatCoinTransferRequest.ValidateAll() if
-// the designated constraints aren't met.
-type ProgmatCoinTransferRequestMultiError []error
-
-// Error returns a concatenation of all the error messages it wraps.
-func (m ProgmatCoinTransferRequestMultiError) Error() string {
-	var msgs []string
-	for _, err := range m {
-		msgs = append(msgs, err.Error())
-	}
-	return strings.Join(msgs, "; ")
-}
-
-// AllErrors returns a list of validation violation errors.
-func (m ProgmatCoinTransferRequestMultiError) AllErrors() []error { return m }
-
-// ProgmatCoinTransferRequestValidationError is the validation error returned
-// by ProgmatCoinTransferRequest.Validate if the designated constraints aren't met.
-type ProgmatCoinTransferRequestValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e ProgmatCoinTransferRequestValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e ProgmatCoinTransferRequestValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e ProgmatCoinTransferRequestValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e ProgmatCoinTransferRequestValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e ProgmatCoinTransferRequestValidationError) ErrorName() string {
-	return "ProgmatCoinTransferRequestValidationError"
-}
-
-// Error satisfies the builtin error interface
-func (e ProgmatCoinTransferRequestValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sProgmatCoinTransferRequest.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = ProgmatCoinTransferRequestValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = ProgmatCoinTransferRequestValidationError{}
-
-var _ProgmatCoinTransferRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _ProgmatCoinMintRequest_Address_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
 
 // Validate checks the field values on ProgmatCoinBurnRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -1660,7 +1733,16 @@ func (m *ProgmatCoinBurnRequest) validate(all bool) error {
 
 	// no validation rules for FeeRate
 
-	// no validation rules for ContractAddress
+	if !_ProgmatCoinBurnRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
+		err := ProgmatCoinBurnRequestValidationError{
+			field:  "ContractAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for Amount
 
@@ -1746,6 +1828,8 @@ var _ interface {
 
 var _ProgmatCoinBurnRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+var _ProgmatCoinBurnRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
 // Validate checks the field values on ProgmatCoinAddToWhitelistRequest with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, the first error encountered is returned, or nil if there are
@@ -1782,9 +1866,27 @@ func (m *ProgmatCoinAddToWhitelistRequest) validate(all bool) error {
 
 	// no validation rules for FeeRate
 
-	// no validation rules for ContractAddress
+	if !_ProgmatCoinAddToWhitelistRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
+		err := ProgmatCoinAddToWhitelistRequestValidationError{
+			field:  "ContractAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Address
+	if !_ProgmatCoinAddToWhitelistRequest_Address_Pattern.MatchString(m.GetAddress()) {
+		err := ProgmatCoinAddToWhitelistRequestValidationError{
+			field:  "Address",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return ProgmatCoinAddToWhitelistRequestMultiError(errors)
@@ -1870,6 +1972,10 @@ var _ interface {
 
 var _ProgmatCoinAddToWhitelistRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+var _ProgmatCoinAddToWhitelistRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinAddToWhitelistRequest_Address_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
 // Validate checks the field values on ProgmatCoinRemoveFromWhitelistRequest
 // with the rules defined in the proto definition for this message. If any
 // rules are violated, the first error encountered is returned, or nil if
@@ -1906,9 +2012,27 @@ func (m *ProgmatCoinRemoveFromWhitelistRequest) validate(all bool) error {
 
 	// no validation rules for FeeRate
 
-	// no validation rules for ContractAddress
+	if !_ProgmatCoinRemoveFromWhitelistRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
+		err := ProgmatCoinRemoveFromWhitelistRequestValidationError{
+			field:  "ContractAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Address
+	if !_ProgmatCoinRemoveFromWhitelistRequest_Address_Pattern.MatchString(m.GetAddress()) {
+		err := ProgmatCoinRemoveFromWhitelistRequestValidationError{
+			field:  "Address",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return ProgmatCoinRemoveFromWhitelistRequestMultiError(errors)
@@ -1994,6 +2118,10 @@ var _ interface {
 
 var _ProgmatCoinRemoveFromWhitelistRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+var _ProgmatCoinRemoveFromWhitelistRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinRemoveFromWhitelistRequest_Address_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
 // Validate checks the field values on ProgmatCoinAddToBlacklistRequest with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, the first error encountered is returned, or nil if there are
@@ -2030,9 +2158,27 @@ func (m *ProgmatCoinAddToBlacklistRequest) validate(all bool) error {
 
 	// no validation rules for FeeRate
 
-	// no validation rules for ContractAddress
+	if !_ProgmatCoinAddToBlacklistRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
+		err := ProgmatCoinAddToBlacklistRequestValidationError{
+			field:  "ContractAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Address
+	if !_ProgmatCoinAddToBlacklistRequest_Address_Pattern.MatchString(m.GetAddress()) {
+		err := ProgmatCoinAddToBlacklistRequestValidationError{
+			field:  "Address",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return ProgmatCoinAddToBlacklistRequestMultiError(errors)
@@ -2118,6 +2264,10 @@ var _ interface {
 
 var _ProgmatCoinAddToBlacklistRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+var _ProgmatCoinAddToBlacklistRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinAddToBlacklistRequest_Address_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
 // Validate checks the field values on ProgmatCoinRemoveFromBlacklistRequest
 // with the rules defined in the proto definition for this message. If any
 // rules are violated, the first error encountered is returned, or nil if
@@ -2154,9 +2304,27 @@ func (m *ProgmatCoinRemoveFromBlacklistRequest) validate(all bool) error {
 
 	// no validation rules for FeeRate
 
-	// no validation rules for ContractAddress
+	if !_ProgmatCoinRemoveFromBlacklistRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
+		err := ProgmatCoinRemoveFromBlacklistRequestValidationError{
+			field:  "ContractAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for Address
+	if !_ProgmatCoinRemoveFromBlacklistRequest_Address_Pattern.MatchString(m.GetAddress()) {
+		err := ProgmatCoinRemoveFromBlacklistRequestValidationError{
+			field:  "Address",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return ProgmatCoinRemoveFromBlacklistRequestMultiError(errors)
@@ -2242,6 +2410,10 @@ var _ interface {
 
 var _ProgmatCoinRemoveFromBlacklistRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+var _ProgmatCoinRemoveFromBlacklistRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinRemoveFromBlacklistRequest_Address_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
 // Validate checks the field values on ProgmatCoinConfiscateRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -2277,11 +2449,38 @@ func (m *ProgmatCoinConfiscateRequest) validate(all bool) error {
 
 	// no validation rules for FeeRate
 
-	// no validation rules for ContractAddress
+	if !_ProgmatCoinConfiscateRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
+		err := ProgmatCoinConfiscateRequestValidationError{
+			field:  "ContractAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for BlackListedAccount
+	if !_ProgmatCoinConfiscateRequest_BlackListedAccount_Pattern.MatchString(m.GetBlackListedAccount()) {
+		err := ProgmatCoinConfiscateRequestValidationError{
+			field:  "BlackListedAccount",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
-	// no validation rules for ToAccount
+	if !_ProgmatCoinConfiscateRequest_ToAccount_Pattern.MatchString(m.GetToAccount()) {
+		err := ProgmatCoinConfiscateRequestValidationError{
+			field:  "ToAccount",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for Amount
 
@@ -2368,6 +2567,12 @@ var _ interface {
 
 var _ProgmatCoinConfiscateRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+var _ProgmatCoinConfiscateRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinConfiscateRequest_BlackListedAccount_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinConfiscateRequest_ToAccount_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
 // Validate checks the field values on ProgmatCoinPauseRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -2403,7 +2608,16 @@ func (m *ProgmatCoinPauseRequest) validate(all bool) error {
 
 	// no validation rules for FeeRate
 
-	// no validation rules for ContractAddress
+	if !_ProgmatCoinPauseRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
+		err := ProgmatCoinPauseRequestValidationError{
+			field:  "ContractAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return ProgmatCoinPauseRequestMultiError(errors)
@@ -2487,6 +2701,8 @@ var _ interface {
 
 var _ProgmatCoinPauseRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+var _ProgmatCoinPauseRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
 // Validate checks the field values on ProgmatCoinUnpauseRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -2522,7 +2738,16 @@ func (m *ProgmatCoinUnpauseRequest) validate(all bool) error {
 
 	// no validation rules for FeeRate
 
-	// no validation rules for ContractAddress
+	if !_ProgmatCoinUnpauseRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
+		err := ProgmatCoinUnpauseRequestValidationError{
+			field:  "ContractAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return ProgmatCoinUnpauseRequestMultiError(errors)
@@ -2605,3 +2830,5 @@ var _ interface {
 } = ProgmatCoinUnpauseRequestValidationError{}
 
 var _ProgmatCoinUnpauseRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ProgmatCoinUnpauseRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")

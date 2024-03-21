@@ -22,7 +22,7 @@ class ProgmatCoinBurnRequest extends \Google\Protobuf\Internal\Message
      */
     protected $fee_rate = 0;
     /**
-     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = {</code>
      */
     protected $contract_address = '';
     /**
@@ -92,7 +92,7 @@ class ProgmatCoinBurnRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = {</code>
      * @return string
      */
     public function getContractAddress()
@@ -101,7 +101,7 @@ class ProgmatCoinBurnRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */

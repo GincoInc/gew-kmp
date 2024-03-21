@@ -26,114 +26,114 @@ public interface ProgmatCoinInitializeRequestOrBuilder extends
   long getFeeRate();
 
   /**
-   * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+   * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
    * @return The contractAddress.
    */
   java.lang.String getContractAddress();
   /**
-   * <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+   * <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = { ... }</code>
    * @return The bytes for contractAddress.
    */
   com.google.protobuf.ByteString
       getContractAddressBytes();
 
   /**
-   * <code>string token_name = 4 [json_name = "tokenName"];</code>
+   * <code>string token_name = 4 [json_name = "tokenName", (.validate.rules) = { ... }</code>
    * @return The tokenName.
    */
   java.lang.String getTokenName();
   /**
-   * <code>string token_name = 4 [json_name = "tokenName"];</code>
+   * <code>string token_name = 4 [json_name = "tokenName", (.validate.rules) = { ... }</code>
    * @return The bytes for tokenName.
    */
   com.google.protobuf.ByteString
       getTokenNameBytes();
 
   /**
-   * <code>string token_symbol = 5 [json_name = "tokenSymbol"];</code>
+   * <code>string token_symbol = 5 [json_name = "tokenSymbol", (.validate.rules) = { ... }</code>
    * @return The tokenSymbol.
    */
   java.lang.String getTokenSymbol();
   /**
-   * <code>string token_symbol = 5 [json_name = "tokenSymbol"];</code>
+   * <code>string token_symbol = 5 [json_name = "tokenSymbol", (.validate.rules) = { ... }</code>
    * @return The bytes for tokenSymbol.
    */
   com.google.protobuf.ByteString
       getTokenSymbolBytes();
 
   /**
-   * <code>string token_currency = 6 [json_name = "tokenCurrency"];</code>
+   * <code>string token_currency = 6 [json_name = "tokenCurrency", (.validate.rules) = { ... }</code>
    * @return The tokenCurrency.
    */
   java.lang.String getTokenCurrency();
   /**
-   * <code>string token_currency = 6 [json_name = "tokenCurrency"];</code>
+   * <code>string token_currency = 6 [json_name = "tokenCurrency", (.validate.rules) = { ... }</code>
    * @return The bytes for tokenCurrency.
    */
   com.google.protobuf.ByteString
       getTokenCurrencyBytes();
 
   /**
-   * <code>uint32 token_decimals = 7 [json_name = "tokenDecimals"];</code>
+   * <code>uint32 token_decimals = 7 [json_name = "tokenDecimals", (.validate.rules) = { ... }</code>
    * @return The tokenDecimals.
    */
   int getTokenDecimals();
 
   /**
-   * <code>string new_master_minter = 8 [json_name = "newMasterMinter"];</code>
+   * <code>string new_master_minter = 8 [json_name = "newMasterMinter", (.validate.rules) = { ... }</code>
    * @return The newMasterMinter.
    */
   java.lang.String getNewMasterMinter();
   /**
-   * <code>string new_master_minter = 8 [json_name = "newMasterMinter"];</code>
+   * <code>string new_master_minter = 8 [json_name = "newMasterMinter", (.validate.rules) = { ... }</code>
    * @return The bytes for newMasterMinter.
    */
   com.google.protobuf.ByteString
       getNewMasterMinterBytes();
 
   /**
-   * <code>string new_pauser = 9 [json_name = "newPauser"];</code>
+   * <code>string new_pauser = 9 [json_name = "newPauser", (.validate.rules) = { ... }</code>
    * @return The newPauser.
    */
   java.lang.String getNewPauser();
   /**
-   * <code>string new_pauser = 9 [json_name = "newPauser"];</code>
+   * <code>string new_pauser = 9 [json_name = "newPauser", (.validate.rules) = { ... }</code>
    * @return The bytes for newPauser.
    */
   com.google.protobuf.ByteString
       getNewPauserBytes();
 
   /**
-   * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister"];</code>
+   * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister", (.validate.rules) = { ... }</code>
    * @return The newWhiteAndBlackLister.
    */
   java.lang.String getNewWhiteAndBlackLister();
   /**
-   * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister"];</code>
+   * <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister", (.validate.rules) = { ... }</code>
    * @return The bytes for newWhiteAndBlackLister.
    */
   com.google.protobuf.ByteString
       getNewWhiteAndBlackListerBytes();
 
   /**
-   * <code>string new_confiscator = 11 [json_name = "newConfiscator"];</code>
+   * <code>string new_confiscator = 11 [json_name = "newConfiscator", (.validate.rules) = { ... }</code>
    * @return The newConfiscator.
    */
   java.lang.String getNewConfiscator();
   /**
-   * <code>string new_confiscator = 11 [json_name = "newConfiscator"];</code>
+   * <code>string new_confiscator = 11 [json_name = "newConfiscator", (.validate.rules) = { ... }</code>
    * @return The bytes for newConfiscator.
    */
   com.google.protobuf.ByteString
       getNewConfiscatorBytes();
 
   /**
-   * <code>string new_owner = 12 [json_name = "newOwner"];</code>
+   * <code>string new_owner = 12 [json_name = "newOwner", (.validate.rules) = { ... }</code>
    * @return The newOwner.
    */
   java.lang.String getNewOwner();
   /**
-   * <code>string new_owner = 12 [json_name = "newOwner"];</code>
+   * <code>string new_owner = 12 [json_name = "newOwner", (.validate.rules) = { ... }</code>
    * @return The bytes for newOwner.
    */
   com.google.protobuf.ByteString
