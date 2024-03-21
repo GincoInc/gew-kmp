@@ -24,43 +24,43 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
      */
     protected $fee_rate = 0;
     /**
-     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = {</code>
      */
     protected $contract_address = '';
     /**
-     * Generated from protobuf field <code>string token_name = 4 [json_name = "tokenName"];</code>
+     * Generated from protobuf field <code>string token_name = 4 [json_name = "tokenName", (.validate.rules) = {</code>
      */
     protected $token_name = '';
     /**
-     * Generated from protobuf field <code>string token_symbol = 5 [json_name = "tokenSymbol"];</code>
+     * Generated from protobuf field <code>string token_symbol = 5 [json_name = "tokenSymbol", (.validate.rules) = {</code>
      */
     protected $token_symbol = '';
     /**
-     * Generated from protobuf field <code>string token_currency = 6 [json_name = "tokenCurrency"];</code>
+     * Generated from protobuf field <code>string token_currency = 6 [json_name = "tokenCurrency", (.validate.rules) = {</code>
      */
     protected $token_currency = '';
     /**
-     * Generated from protobuf field <code>uint32 token_decimals = 7 [json_name = "tokenDecimals"];</code>
+     * Generated from protobuf field <code>uint32 token_decimals = 7 [json_name = "tokenDecimals", (.validate.rules) = {</code>
      */
     protected $token_decimals = 0;
     /**
-     * Generated from protobuf field <code>string new_master_minter = 8 [json_name = "newMasterMinter"];</code>
+     * Generated from protobuf field <code>string new_master_minter = 8 [json_name = "newMasterMinter", (.validate.rules) = {</code>
      */
     protected $new_master_minter = '';
     /**
-     * Generated from protobuf field <code>string new_pauser = 9 [json_name = "newPauser"];</code>
+     * Generated from protobuf field <code>string new_pauser = 9 [json_name = "newPauser", (.validate.rules) = {</code>
      */
     protected $new_pauser = '';
     /**
-     * Generated from protobuf field <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister"];</code>
+     * Generated from protobuf field <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister", (.validate.rules) = {</code>
      */
     protected $new_white_and_black_lister = '';
     /**
-     * Generated from protobuf field <code>string new_confiscator = 11 [json_name = "newConfiscator"];</code>
+     * Generated from protobuf field <code>string new_confiscator = 11 [json_name = "newConfiscator", (.validate.rules) = {</code>
      */
     protected $new_confiscator = '';
     /**
-     * Generated from protobuf field <code>string new_owner = 12 [json_name = "newOwner"];</code>
+     * Generated from protobuf field <code>string new_owner = 12 [json_name = "newOwner", (.validate.rules) = {</code>
      */
     protected $new_owner = '';
 
@@ -134,7 +134,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = {</code>
      * @return string
      */
     public function getContractAddress()
@@ -143,7 +143,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
@@ -156,7 +156,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string token_name = 4 [json_name = "tokenName"];</code>
+     * Generated from protobuf field <code>string token_name = 4 [json_name = "tokenName", (.validate.rules) = {</code>
      * @return string
      */
     public function getTokenName()
@@ -165,7 +165,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string token_name = 4 [json_name = "tokenName"];</code>
+     * Generated from protobuf field <code>string token_name = 4 [json_name = "tokenName", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
@@ -178,7 +178,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string token_symbol = 5 [json_name = "tokenSymbol"];</code>
+     * Generated from protobuf field <code>string token_symbol = 5 [json_name = "tokenSymbol", (.validate.rules) = {</code>
      * @return string
      */
     public function getTokenSymbol()
@@ -187,7 +187,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string token_symbol = 5 [json_name = "tokenSymbol"];</code>
+     * Generated from protobuf field <code>string token_symbol = 5 [json_name = "tokenSymbol", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
@@ -200,7 +200,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string token_currency = 6 [json_name = "tokenCurrency"];</code>
+     * Generated from protobuf field <code>string token_currency = 6 [json_name = "tokenCurrency", (.validate.rules) = {</code>
      * @return string
      */
     public function getTokenCurrency()
@@ -209,7 +209,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string token_currency = 6 [json_name = "tokenCurrency"];</code>
+     * Generated from protobuf field <code>string token_currency = 6 [json_name = "tokenCurrency", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
@@ -222,7 +222,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 token_decimals = 7 [json_name = "tokenDecimals"];</code>
+     * Generated from protobuf field <code>uint32 token_decimals = 7 [json_name = "tokenDecimals", (.validate.rules) = {</code>
      * @return int
      */
     public function getTokenDecimals()
@@ -231,7 +231,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 token_decimals = 7 [json_name = "tokenDecimals"];</code>
+     * Generated from protobuf field <code>uint32 token_decimals = 7 [json_name = "tokenDecimals", (.validate.rules) = {</code>
      * @param int $var
      * @return $this
      */
@@ -244,7 +244,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string new_master_minter = 8 [json_name = "newMasterMinter"];</code>
+     * Generated from protobuf field <code>string new_master_minter = 8 [json_name = "newMasterMinter", (.validate.rules) = {</code>
      * @return string
      */
     public function getNewMasterMinter()
@@ -253,7 +253,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string new_master_minter = 8 [json_name = "newMasterMinter"];</code>
+     * Generated from protobuf field <code>string new_master_minter = 8 [json_name = "newMasterMinter", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
@@ -266,7 +266,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string new_pauser = 9 [json_name = "newPauser"];</code>
+     * Generated from protobuf field <code>string new_pauser = 9 [json_name = "newPauser", (.validate.rules) = {</code>
      * @return string
      */
     public function getNewPauser()
@@ -275,7 +275,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string new_pauser = 9 [json_name = "newPauser"];</code>
+     * Generated from protobuf field <code>string new_pauser = 9 [json_name = "newPauser", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
@@ -288,7 +288,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister"];</code>
+     * Generated from protobuf field <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister", (.validate.rules) = {</code>
      * @return string
      */
     public function getNewWhiteAndBlackLister()
@@ -297,7 +297,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister"];</code>
+     * Generated from protobuf field <code>string new_white_and_black_lister = 10 [json_name = "newWhiteAndBlackLister", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
@@ -310,7 +310,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string new_confiscator = 11 [json_name = "newConfiscator"];</code>
+     * Generated from protobuf field <code>string new_confiscator = 11 [json_name = "newConfiscator", (.validate.rules) = {</code>
      * @return string
      */
     public function getNewConfiscator()
@@ -319,7 +319,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string new_confiscator = 11 [json_name = "newConfiscator"];</code>
+     * Generated from protobuf field <code>string new_confiscator = 11 [json_name = "newConfiscator", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
@@ -332,7 +332,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string new_owner = 12 [json_name = "newOwner"];</code>
+     * Generated from protobuf field <code>string new_owner = 12 [json_name = "newOwner", (.validate.rules) = {</code>
      * @return string
      */
     public function getNewOwner()
@@ -341,7 +341,7 @@ class ProgmatCoinInitializeRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string new_owner = 12 [json_name = "newOwner"];</code>
+     * Generated from protobuf field <code>string new_owner = 12 [json_name = "newOwner", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */

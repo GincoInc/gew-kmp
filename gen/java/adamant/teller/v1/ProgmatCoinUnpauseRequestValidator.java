@@ -20,6 +20,7 @@ public class ProgmatCoinUnpauseRequestValidator implements io.envoyproxy.pgv.Val
 		
 	
 		
+		com.google.re2j.Pattern CONTRACT_ADDRESS__PATTERN = com.google.re2j.Pattern.compile("^(0x)?[0-9a-fA-F]{40}$");
 	
 	
 
@@ -28,8 +29,8 @@ public class ProgmatCoinUnpauseRequestValidator implements io.envoyproxy.pgv.Val
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.ProgmatCoinUnpauseRequest.wallet_id", proto.getWalletId(), WALLET_ID__PATTERN);
 	// no validation rules for FeeRate
 
-	// no validation rules for ContractAddress
-
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.teller.v1.ProgmatCoinUnpauseRequest.contract_address", proto.getContractAddress(), CONTRACT_ADDRESS__PATTERN);
 	
 	}
 

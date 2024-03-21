@@ -22,11 +22,11 @@ class ProgmatCoinMintRequest extends \Google\Protobuf\Internal\Message
      */
     protected $fee_rate = 0;
     /**
-     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = {</code>
      */
     protected $contract_address = '';
     /**
-     * Generated from protobuf field <code>string address = 4 [json_name = "address"];</code>
+     * Generated from protobuf field <code>string address = 4 [json_name = "address", (.validate.rules) = {</code>
      */
     protected $address = '';
     /**
@@ -97,7 +97,7 @@ class ProgmatCoinMintRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = {</code>
      * @return string
      */
     public function getContractAddress()
@@ -106,7 +106,7 @@ class ProgmatCoinMintRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress"];</code>
+     * Generated from protobuf field <code>string contract_address = 3 [json_name = "contractAddress", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
@@ -119,7 +119,7 @@ class ProgmatCoinMintRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string address = 4 [json_name = "address"];</code>
+     * Generated from protobuf field <code>string address = 4 [json_name = "address", (.validate.rules) = {</code>
      * @return string
      */
     public function getAddress()
@@ -128,7 +128,7 @@ class ProgmatCoinMintRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string address = 4 [json_name = "address"];</code>
+     * Generated from protobuf field <code>string address = 4 [json_name = "address", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
