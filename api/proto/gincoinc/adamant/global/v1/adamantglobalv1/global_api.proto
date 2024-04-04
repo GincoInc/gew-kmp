@@ -205,8 +205,9 @@ message CreateWalletRequest {
       0
     ]
   }];
+  // optional
   optional gincoinc.global.v1.Network network = 13 [(validate.rules).enum = {
-    defined_only: true,
+    defined_only: true
   }];
   WalletType wallet_type = 3 [(validate.rules).enum = {
     defined_only: true,
@@ -322,6 +323,10 @@ message ListWalletsByFilterRequest {
     defined_only: true
   }];
 
+  // optional
+  optional gincoinc.global.v1.Network network = 12 [(validate.rules).enum = {
+    defined_only: true
+  }];
   repeated WalletType wallet_type = 6;
   repeated WalletState wallet_state = 7;
 
@@ -466,6 +471,9 @@ message UpdateWalletFlushSettingRequest {
       0
     ]
   }];
+  optional gincoinc.global.v1.Network network = 3 [(validate.rules).enum = {
+    defined_only: true
+  }];
   string destination_wallet_id = 2 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
@@ -511,6 +519,9 @@ message CreateWalletGroupRequest {
     not_in: [
       0
     ]
+  }];
+  optional gincoinc.global.v1.Network network = 5 [(validate.rules).enum = {
+    defined_only: true
   }];
   repeated string wallet_ids = 3 [(validate.rules).repeated.min_items = 1];
   bool watch_only = 4;
@@ -756,6 +767,7 @@ message CreateTransactionRequest {
   adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14;
   adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15;
   adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16;
+  adamant.global.v1.CreateTransactionSolanaSpecific solana_specific = 17;
 }
 
 message CreateTransactionResponse {
@@ -927,6 +939,11 @@ message ListTransactionsByFilterRequest {
     defined_only: true
   }];
 
+  // optional
+  optional gincoinc.global.v1.Network network = 13 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
   repeated WalletType wallet_type = 8;
   repeated TransactionState transaction_state = 9;
 
@@ -1055,6 +1072,11 @@ message ListTransfersByFilterRequest {
 
   // optional
   google.protobuf.Timestamp end_time = 15;
+
+  // optional
+  optional gincoinc.global.v1.Network network = 16 [(validate.rules).enum = {
+    defined_only: true
+  }];
 }
 
 message ListTransfersResponse {
@@ -1113,6 +1135,11 @@ message ListUncheckedTransfersByFilterRequest {
 
   // optional
   google.protobuf.Timestamp end_time = 14;
+
+  // optional
+  optional gincoinc.global.v1.Network network = 15 [(validate.rules).enum = {
+    defined_only: true
+  }];
 }
 
 message UpdateUncheckedTransferHasCheckedFlagRequest {
@@ -1329,6 +1356,9 @@ message GetRecommendedFeeRateRequest {
       0
     ]
   }];
+  optional gincoinc.global.v1.Network network = 2 [(validate.rules).enum = {
+    defined_only: true
+  }];
 }
 
 message GetRecommendedFeeRateResponse {
@@ -1490,6 +1520,10 @@ message CreateWhitelistRequest {
       0
     ]
   }];
+  // optional
+  optional gincoinc.global.v1.Network network = 4 [(validate.rules).enum = {
+    defined_only: true
+  }];
   repeated string address_ids = 3 [(validate.rules).repeated.unique = true];
 }
 
@@ -1528,6 +1562,11 @@ message ListWhitelistsByFilterRequest {
   // optional
   gincoinc.global.v1.Coin coin = 4 [(validate.rules).enum = {
     defined_only: true,
+  }];
+
+  // optional
+  optional gincoinc.global.v1.Network network = 7 [(validate.rules).enum = {
+    defined_only: true
   }];
 
   // optional
@@ -1589,6 +1628,10 @@ message CreateTransferLimitRequest {
       0
     ]
   }];
+  // optional
+  optional gincoinc.global.v1.Network network = 4 [(validate.rules).enum = {
+    defined_only: true
+  }];
   repeated RequestTransferLimitEntry transfer_limits = 3 [(validate.rules).repeated.min_items = 1];
 }
 
@@ -1626,6 +1669,11 @@ message ListTransferLimitsByFilterRequest {
 
   // optional
   gincoinc.global.v1.Coin coin = 4 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  // optional
+  optional gincoinc.global.v1.Network network = 7 [(validate.rules).enum = {
     defined_only: true
   }];
 
@@ -1688,6 +1736,10 @@ message CreatePolicyRequest {
       0
     ]
   }];
+  // optional
+  optional gincoinc.global.v1.Network network = 7 [(validate.rules).enum = {
+    defined_only: true
+  }];
   PolicyType type = 4 [(validate.rules).enum = {
     defined_only: true,
     not_in: [
@@ -1730,6 +1782,11 @@ message ListPoliciesByFilterRequest {
 
   // optional
   gincoinc.global.v1.Coin coin = 4 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  // optional
+  optional gincoinc.global.v1.Network network = 8 [(validate.rules).enum = {
     defined_only: true
   }];
 
