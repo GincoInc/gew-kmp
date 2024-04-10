@@ -81,9 +81,11 @@ service GlobalAPI {
   rpc SignTransaction(SignTransactionRequest) returns (google.protobuf.Empty) {}
   rpc SignXRPInitTransactions(SignXRPInitTransactionsRequest) returns (google.protobuf.Empty) {}
   rpc SendTransaction(SendTransactionRequest) returns (SendTransactionResponse) {}
+  rpc ResendTransaction(ResendTransactionRequest) returns (ResendTransactionResponse) {}
   rpc SendXRPInitTransactions(SendXRPInitTransactionsRequest) returns (SendXRPInitTransactionsResponse) {}
   rpc CancelTransaction(CancelTransactionRequest) returns (google.protobuf.Empty) {}
   rpc ReplaceTransaction(ReplaceTransactionRequest) returns (ReplaceTransactionResponse) {}
+  rpc IsTransactionReplaceable(IsTransactionReplaceableRequest) returns (IsTransactionReplaceableResponse) {}
   rpc GetTransaction(GetTransactionRequest) returns (Transaction) {}
   rpc GetTransactionByTxID(GetTransactionByTxIDRequest) returns (Transaction) {}
   rpc ListTransactions(ListTransactionsRequest) returns (ListTransactionsResponse) {}
@@ -205,8 +207,9 @@ message CreateWalletRequest {
       0
     ]
   }];
+  // optional
   optional gincoinc.global.v1.Network network = 13 [(validate.rules).enum = {
-    defined_only: true,
+    defined_only: true
   }];
   WalletType wallet_type = 3 [(validate.rules).enum = {
     defined_only: true,
@@ -322,6 +325,10 @@ message ListWalletsByFilterRequest {
     defined_only: true
   }];
 
+  // optional
+  optional gincoinc.global.v1.Network network = 12 [(validate.rules).enum = {
+    defined_only: true
+  }];
   repeated WalletType wallet_type = 6;
   repeated WalletState wallet_state = 7;
 
@@ -466,6 +473,9 @@ message UpdateWalletFlushSettingRequest {
       0
     ]
   }];
+  optional gincoinc.global.v1.Network network = 3 [(validate.rules).enum = {
+    defined_only: true
+  }];
   string destination_wallet_id = 2 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
@@ -511,6 +521,9 @@ message CreateWalletGroupRequest {
     not_in: [
       0
     ]
+  }];
+  optional gincoinc.global.v1.Network network = 5 [(validate.rules).enum = {
+    defined_only: true
   }];
   repeated string wallet_ids = 3 [(validate.rules).repeated.min_items = 1];
   bool watch_only = 4;
@@ -756,6 +769,8 @@ message CreateTransactionRequest {
   adamant.global.v1.CreateTransactionCosmosSpecific cosmos_specific = 14;
   adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15;
   adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16;
+  adamant.global.v1.CreateTransactionSolanaSpecific solana_specific = 17;
+  adamant.global.v1.UtxoSpecific utxo_specific = 18;
 }
 
 message CreateTransactionResponse {
@@ -823,6 +838,20 @@ message SendTransactionResponse {
   string tx_id = 1;
 }
 
+message ResendTransactionRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string transaction_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  adamant.global.v1.ExecutorType executor_type = 3;
+}
+
+message ResendTransactionResponse {
+  string tx_id = 1;
+}
+
 message SendXRPInitTransactionsRequest {
   string wallet_id = 1 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
@@ -864,6 +893,19 @@ message ReplaceTransactionRequest {
 
 message ReplaceTransactionResponse {
   string transaction_id = 1;
+}
+
+message IsTransactionReplaceableRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string transaction_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+}
+
+message IsTransactionReplaceableResponse {
+  bool is_transaction_replacable = 1;
 }
 
 message GetTransactionRequest {
@@ -924,6 +966,11 @@ message ListTransactionsByFilterRequest {
 
   // optional
   gincoinc.global.v1.Coin coin = 7 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  // optional
+  optional gincoinc.global.v1.Network network = 13 [(validate.rules).enum = {
     defined_only: true
   }];
 
@@ -1055,6 +1102,11 @@ message ListTransfersByFilterRequest {
 
   // optional
   google.protobuf.Timestamp end_time = 15;
+
+  // optional
+  optional gincoinc.global.v1.Network network = 16 [(validate.rules).enum = {
+    defined_only: true
+  }];
 }
 
 message ListTransfersResponse {
@@ -1113,6 +1165,11 @@ message ListUncheckedTransfersByFilterRequest {
 
   // optional
   google.protobuf.Timestamp end_time = 14;
+
+  // optional
+  optional gincoinc.global.v1.Network network = 15 [(validate.rules).enum = {
+    defined_only: true
+  }];
 }
 
 message UpdateUncheckedTransferHasCheckedFlagRequest {
@@ -1268,6 +1325,8 @@ message CalculateFeeRequest {
   CalculateFeeCosmosSpecific cosmos_specific = 11;
   CalculateFeeHederaSpecific hedera_specific = 12;
   CalculateFeeRbfSpecific rbf_specific = 13;
+  UtxoSpecific utxo_specific = 14;
+  CalculateFeeSolanaSpecific solana_specific = 15;
 }
 
 // The model of Substrate specific fields of CreateTransaction
@@ -1304,11 +1363,21 @@ message CalculateFeeHederaSpecific {
   string memo = 1;
 }
 
+// The model of Solana specific fields of CalculateFee
+message CalculateFeeSolanaSpecific {
+  gincoinc.global.v1.SolanaEventType event_type = 1;
+}
+
 // The model of RBF specific fields of CalculateFee
 message CalculateFeeRbfSpecific {
   string transaction_id = 1 [(validate.rules).string = {
     pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
+}
+
+// The model of Utxo specific fields of CalculateFee
+message UtxoSpecific {
+  repeated SelectedUTXO selected_utxos = 1;
 }
 
 message CalculateFeeResponse {
@@ -1328,6 +1397,9 @@ message GetRecommendedFeeRateRequest {
     not_in: [
       0
     ]
+  }];
+  optional gincoinc.global.v1.Network network = 2 [(validate.rules).enum = {
+    defined_only: true
   }];
 }
 
@@ -1490,6 +1562,10 @@ message CreateWhitelistRequest {
       0
     ]
   }];
+  // optional
+  optional gincoinc.global.v1.Network network = 4 [(validate.rules).enum = {
+    defined_only: true
+  }];
   repeated string address_ids = 3 [(validate.rules).repeated.unique = true];
 }
 
@@ -1528,6 +1604,11 @@ message ListWhitelistsByFilterRequest {
   // optional
   gincoinc.global.v1.Coin coin = 4 [(validate.rules).enum = {
     defined_only: true,
+  }];
+
+  // optional
+  optional gincoinc.global.v1.Network network = 7 [(validate.rules).enum = {
+    defined_only: true
   }];
 
   // optional
@@ -1589,6 +1670,10 @@ message CreateTransferLimitRequest {
       0
     ]
   }];
+  // optional
+  optional gincoinc.global.v1.Network network = 4 [(validate.rules).enum = {
+    defined_only: true
+  }];
   repeated RequestTransferLimitEntry transfer_limits = 3 [(validate.rules).repeated.min_items = 1];
 }
 
@@ -1626,6 +1711,11 @@ message ListTransferLimitsByFilterRequest {
 
   // optional
   gincoinc.global.v1.Coin coin = 4 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  // optional
+  optional gincoinc.global.v1.Network network = 7 [(validate.rules).enum = {
     defined_only: true
   }];
 
@@ -1688,6 +1778,10 @@ message CreatePolicyRequest {
       0
     ]
   }];
+  // optional
+  optional gincoinc.global.v1.Network network = 7 [(validate.rules).enum = {
+    defined_only: true
+  }];
   PolicyType type = 4 [(validate.rules).enum = {
     defined_only: true,
     not_in: [
@@ -1730,6 +1824,11 @@ message ListPoliciesByFilterRequest {
 
   // optional
   gincoinc.global.v1.Coin coin = 4 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  // optional
+  optional gincoinc.global.v1.Network network = 8 [(validate.rules).enum = {
     defined_only: true
   }];
 

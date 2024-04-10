@@ -19,6 +19,7 @@ message Wallet {
   string wallet_id = 1; // id
   string name = 2; // name
   gincoinc.global.v1.Coin coin = 3; // The type of asset
+  gincoinc.global.v1.Network network = 27; // The type of network
   uint32 hd_account = 17; // The number indicating what order the wallet is created
   WalletType wallet_type = 4; // type
   gincoinc.global.v1.AddressType address_type = 5; // type of address
@@ -50,6 +51,7 @@ message WalletWithoutBalance {
   string wallet_id = 1;
   string name = 2;
   gincoinc.global.v1.Coin coin = 3;
+  gincoinc.global.v1.Network network = 23;
   uint32 hd_account = 4;
   WalletType wallet_type = 5;
   gincoinc.global.v1.AddressType address_type = 6;
@@ -139,6 +141,7 @@ message Address {
   string wallet_id = 1; // The id of wallet
   string address_id = 2; // id
   gincoinc.global.v1.Coin coin = 3; // The type of coin
+  gincoinc.global.v1.Network network = 14; // The network of coin
   string address = 4; // address
   uint32 index = 5; // The index of address
   uint32 hd_change = 13; // The HD change of address
@@ -155,6 +158,7 @@ message AddressWithoutBalance {
   string wallet_id = 1; // The id of wallet
   string address_id = 2; // id
   gincoinc.global.v1.Coin coin = 3; // The type of coin
+  gincoinc.global.v1.Network network = 11; // The network of coin
   string address = 4; // address
   uint32 index = 5; // The index of address
   uint32 hd_change = 10; // The HD change of address
@@ -196,6 +200,7 @@ message Transaction {
   string wallet_id = 1; // The id of wallet
   string transaction_id = 2; // id
   gincoinc.global.v1.Coin coin = 3; // The type of coin
+  gincoinc.global.v1.Network network = 47; // The network of coin
   string tx_id = 4; // txID
   string address = 5; // address
   double value = 6; // The number-typed amount of transaction
@@ -235,6 +240,7 @@ message Transaction {
   SolanaSpecific solana_specific = 44; // The Solana specific fields
   BNBSmartChainSpecific bnb_smart_chain_specific = 45; // The BNB Smart Chain specific fields
   FlareSpecific flare_specific = 46; // The Flare specific fields
+  ArbitrumOneSpecific arbitrum_one_specific = 48; // The Arbitrum specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -489,6 +495,13 @@ message FlareSpecific {
   bool is_next_nonce = 3;
 }
 
+message ArbitrumOneSpecific {
+  uint64 gas_limit = 1;
+  uint64 nonce = 2;
+  bool is_next_nonce = 3;
+  string data = 4; // data
+}
+
 // The model of Substrate specific fields of CreateTransaction
 message CreateTransactionSubstrateSpecific {
   string transaction_id = 1;
@@ -548,6 +561,17 @@ message CreateTransactionAlgorandSpecific {
 message CreateTransactionHederaSpecific {
   string memo = 1;
   uint64 timestamp = 2;
+}
+
+// The model of Solana specific fields of CreateTransaction
+message CreateTransactionSolanaSpecific {
+  gincoinc.global.v1.SolanaEventType event_type = 1;
+}
+
+// The model of SelectedUTXO fields of CreateTransaction
+message SelectedUTXO {
+  string tx_id = 1;
+  uint32 vout = 2;
 }
 
 // The model of substrate multisig transaction
@@ -624,6 +648,7 @@ message Transfer {
   string wallet_id = 1; // The id of wallet
   string transfer_id = 2; // id
   gincoinc.global.v1.Coin coin = 3; // coin
+  gincoinc.global.v1.Network network = 26; // network
   string tx_id = 4; // txID
   gincoinc.global.v1.TransferType transfer_type = 5; // type
   double value = 6; // The number-typed amount of transfer
@@ -733,6 +758,7 @@ message Whitelist {
   string whitelist_id = 1; // id
   string name = 2; // name
   gincoinc.global.v1.Coin coin = 3; // coin
+  gincoinc.global.v1.Network network = 8; // network
   repeated LabeledAddress addresses = 4; // The list of labeled addresses registered in the whitelist
   google.protobuf.Timestamp create_time = 6; // the time at which the whitelist was created
   google.protobuf.Timestamp update_time = 7; // the time at which the whitelist was updated
@@ -743,6 +769,7 @@ message TransferLimit {
   string transfer_limit_id = 1; // id
   string name = 2; // name
   gincoinc.global.v1.Coin coin = 3; // coin
+  gincoinc.global.v1.Network network = 12; // network
   int64 hourly_limit = 4; // The hourly limit of amount which the wallet can transfer (in JPY)
   int64 daily_limit = 5; // The daily limit of amount which the wallet can transfer (in JPY)
   int64 one_time_limit = 6; // The daily limit of amount which the wallet can transfer (in JPY)
@@ -771,6 +798,7 @@ message Policy {
   string name = 3; // name
   bool is_base_policy = 4; // The flag indicates the policy is default
   gincoinc.global.v1.Coin coin = 5; // coin
+  gincoinc.global.v1.Network network = 12; // network
   Whitelist whitelist = 6; // whitelist
   TransferLimit transfer_limit = 7; // transfer limit
   PolicyProposal proposal = 11; // // The proposal about updating the policy
@@ -791,6 +819,7 @@ message PolicyProposal {
 // The model of total balance by asset
 message TotalBalanceByCoin {
   gincoinc.global.v1.Coin coin = 1;
+  gincoinc.global.v1.Network network = 4;
   string cold_string_balance = 2;
   string hot_string_balance = 3;
 }
@@ -840,6 +869,7 @@ message TransferVolumeSnapshot {
 
 message TransferVolume {
   gincoinc.global.v1.Coin coin = 1; // coin
+  gincoinc.global.v1.Network network = 9; // network
   string hot_string_volume = 2; // hot volume
   string cold_string_volume = 3; // col volume
   string hot_string_jpy_volume = 4; // hot volume
@@ -878,6 +908,7 @@ message Confirmation {
 message WalletFlushSetting {
   string owner_id = 1;
   gincoinc.global.v1.Coin coin = 2;
+  gincoinc.global.v1.Network network = 6;
   string destination_wallet_id = 3;
   google.protobuf.Timestamp create_time = 4;
   google.protobuf.Timestamp update_time = 5;
@@ -893,6 +924,7 @@ message WalletGroup {
   string wallet_group_id = 1;
   string name = 2;
   gincoinc.global.v1.Coin coin = 3;
+  gincoinc.global.v1.Network network = 8;
   repeated Wallet wallets = 4;
   bool watch_only = 7;
   google.protobuf.Timestamp create_time = 5;
@@ -975,6 +1007,7 @@ message CallerAddress {
   double balance = 2; // The number-typed balance corresponding to the address
   string string_balance = 3; // The string-typed balance corresponding to the address
   gincoinc.global.v1.Coin coin = 4; // The type of asset
+  gincoinc.global.v1.Network network = 5; // The network of asset
 }
 
 message FeeDepositAddress {
@@ -982,6 +1015,7 @@ message FeeDepositAddress {
   double balance = 2; // The number-typed balance corresponding to the address
   string string_balance = 3; // The string-typed balance corresponding to the address
   gincoinc.global.v1.Coin coin = 4; // The type of asset
+  gincoinc.global.v1.Network network = 5; // The network of asset
 }
 
 message CosmosDelegation {
