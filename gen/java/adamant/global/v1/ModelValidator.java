@@ -1999,10 +1999,6 @@ public class ModelValidator {
 		
 	
 	
-		
-
-
-	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionIOSTSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Memo
@@ -2010,15 +2006,6 @@ public class ModelValidator {
 	// no validation rules for Timestamp
 
 	
-		
-			switch (proto.getTypeCase()) {
-				case TYPE:
-					// no validation rules for Type
-
-					break;
-				
-			}
-
 	}
 }
 /**
@@ -2054,37 +2041,11 @@ public class ModelValidator {
 		
 	
 	
-		
-
-
-	
-		
-
-
-	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionEthereumSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Data
 
 	
-		
-			switch (proto.getStakingRecipientWalletIdCase()) {
-				case STAKING_RECIPIENT_WALLET_ID:
-					// no validation rules for StakingRecipientWalletId
-
-					break;
-				
-			}
-
-		
-			switch (proto.getCallMethodCase()) {
-				case CALL_METHOD:
-					// no validation rules for CallMethod
-
-					break;
-				
-			}
-
 	}
 }
 /**
