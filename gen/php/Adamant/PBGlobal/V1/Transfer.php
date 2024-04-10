@@ -34,6 +34,12 @@ class Transfer extends \Google\Protobuf\Internal\Message
      */
     protected $coin = 0;
     /**
+     * network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 26 [json_name = "network"];</code>
+     */
+    protected $network = 0;
+    /**
      * txID
      *
      * Generated from protobuf field <code>string tx_id = 4 [json_name = "txId"];</code>
@@ -170,6 +176,8 @@ class Transfer extends \Google\Protobuf\Internal\Message
      *           id
      *     @type int $coin
      *           coin
+     *     @type int $network
+     *           network
      *     @type string $tx_id
      *           txID
      *     @type int $transfer_type
@@ -292,6 +300,32 @@ class Transfer extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
         $this->coin = $var;
+
+        return $this;
+    }
+
+    /**
+     * network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 26 [json_name = "network"];</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return $this->network;
+    }
+
+    /**
+     * network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 26 [json_name = "network"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

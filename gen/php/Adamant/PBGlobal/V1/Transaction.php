@@ -34,6 +34,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $coin = 0;
     /**
+     * The network of coin
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 47 [json_name = "network"];</code>
+     */
+    protected $network = 0;
+    /**
      * txID
      *
      * Generated from protobuf field <code>string tx_id = 4 [json_name = "txId"];</code>
@@ -262,6 +268,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $flare_specific = null;
     /**
+     * The Arbitrum specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.ArbitrumOneSpecific arbitrum_one_specific = 48 [json_name = "arbitrumOneSpecific"];</code>
+     */
+    protected $arbitrum_one_specific = null;
+    /**
      * the time at which the transaction was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
@@ -286,6 +298,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           id
      *     @type int $coin
      *           The type of coin
+     *     @type int $network
+     *           The network of coin
      *     @type string $tx_id
      *           txID
      *     @type string $address
@@ -362,6 +376,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The BNB Smart Chain specific fields
      *     @type \Adamant\PBGlobal\V1\FlareSpecific $flare_specific
      *           The Flare specific fields
+     *     @type \Adamant\PBGlobal\V1\ArbitrumOneSpecific $arbitrum_one_specific
+     *           The Arbitrum specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -447,6 +463,32 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
         $this->coin = $var;
+
+        return $this;
+    }
+
+    /**
+     * The network of coin
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 47 [json_name = "network"];</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return $this->network;
+    }
+
+    /**
+     * The network of coin
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 47 [json_name = "network"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }
@@ -1705,6 +1747,42 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\FlareSpecific::class);
         $this->flare_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Arbitrum specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.ArbitrumOneSpecific arbitrum_one_specific = 48 [json_name = "arbitrumOneSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\ArbitrumOneSpecific|null
+     */
+    public function getArbitrumOneSpecific()
+    {
+        return $this->arbitrum_one_specific;
+    }
+
+    public function hasArbitrumOneSpecific()
+    {
+        return isset($this->arbitrum_one_specific);
+    }
+
+    public function clearArbitrumOneSpecific()
+    {
+        unset($this->arbitrum_one_specific);
+    }
+
+    /**
+     * The Arbitrum specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.ArbitrumOneSpecific arbitrum_one_specific = 48 [json_name = "arbitrumOneSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\ArbitrumOneSpecific $var
+     * @return $this
+     */
+    public function setArbitrumOneSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\ArbitrumOneSpecific::class);
+        $this->arbitrum_one_specific = $var;
 
         return $this;
     }

@@ -20,6 +20,12 @@ class TransferVolume extends \Google\Protobuf\Internal\Message
      */
     protected $coin = 0;
     /**
+     * network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 9 [json_name = "network"];</code>
+     */
+    protected $network = 0;
+    /**
      * hot volume
      *
      * Generated from protobuf field <code>string hot_string_volume = 2 [json_name = "hotStringVolume"];</code>
@@ -70,6 +76,8 @@ class TransferVolume extends \Google\Protobuf\Internal\Message
      *
      *     @type int $coin
      *           coin
+     *     @type int $network
+     *           network
      *     @type string $hot_string_volume
      *           hot volume
      *     @type string $cold_string_volume
@@ -113,6 +121,32 @@ class TransferVolume extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
         $this->coin = $var;
+
+        return $this;
+    }
+
+    /**
+     * network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 9 [json_name = "network"];</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return $this->network;
+    }
+
+    /**
+     * network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 9 [json_name = "network"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

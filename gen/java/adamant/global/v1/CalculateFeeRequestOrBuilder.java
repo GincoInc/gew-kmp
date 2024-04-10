@@ -183,4 +183,34 @@ public interface CalculateFeeRequestOrBuilder extends
    * <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
    */
   adamant.global.v1.CalculateFeeRbfSpecificOrBuilder getRbfSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+   * @return Whether the utxoSpecific field is set.
+   */
+  boolean hasUtxoSpecific();
+  /**
+   * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+   * @return The utxoSpecific.
+   */
+  adamant.global.v1.UtxoSpecific getUtxoSpecific();
+  /**
+   * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+   */
+  adamant.global.v1.UtxoSpecificOrBuilder getUtxoSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+   * @return Whether the solanaSpecific field is set.
+   */
+  boolean hasSolanaSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+   * @return The solanaSpecific.
+   */
+  adamant.global.v1.CalculateFeeSolanaSpecific getSolanaSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+   */
+  adamant.global.v1.CalculateFeeSolanaSpecificOrBuilder getSolanaSpecificOrBuilder();
 }

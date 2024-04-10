@@ -282,6 +282,10 @@ class Coin
      */
     const COIN_ARBITRUM_ERC20_ARB = 66;
     /**
+     * Generated from protobuf enum <code>COIN_KLAYTN_KIP7_BORA = 67;</code>
+     */
+    const COIN_KLAYTN_KIP7_BORA = 67;
+    /**
      * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
      */
     const COIN_SDN = 10002;
@@ -372,6 +376,7 @@ class Coin
         self::COIN_FLR => 'COIN_FLR',
         self::COIN_POLYGON_ERC20_OSHI => 'COIN_POLYGON_ERC20_OSHI',
         self::COIN_ARBITRUM_ERC20_ARB => 'COIN_ARBITRUM_ERC20_ARB',
+        self::COIN_KLAYTN_KIP7_BORA => 'COIN_KLAYTN_KIP7_BORA',
         self::COIN_SDN => 'COIN_SDN',
         self::COIN_ERC20_SCDEV => 'COIN_ERC20_SCDEV',
         self::COIN_ERC20_SCQA => 'COIN_ERC20_SCQA',

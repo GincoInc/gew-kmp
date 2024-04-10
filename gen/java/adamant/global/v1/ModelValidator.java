@@ -53,6 +53,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.SolanaSpecific.class)) return new SolanaSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.BNBSmartChainSpecific.class)) return new BNBSmartChainSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.FlareSpecific.class)) return new FlareSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.ArbitrumOneSpecific.class)) return new ArbitrumOneSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class)) return new CreateTransactionSubstrateSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.class)) return new CreateTransactionWalletConnectSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionNemSpecific.class)) return new CreateTransactionNemSpecificValidator();
@@ -62,6 +63,8 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionCosmosSpecific.class)) return new CreateTransactionCosmosSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionAlgorandSpecific.class)) return new CreateTransactionAlgorandSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionHederaSpecific.class)) return new CreateTransactionHederaSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSolanaSpecific.class)) return new CreateTransactionSolanaSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.SelectedUTXO.class)) return new SelectedUTXOValidator();
 		if (clazz.equals(adamant.global.v1.Model.SubstrateMultisigTransaction.class)) return new SubstrateMultisigTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.NemMultisigTransaction.class)) return new NemMultisigTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.SymbolMultisigTransaction.class)) return new SymbolMultisigTransactionValidator();
@@ -174,6 +177,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Wallet proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -184,6 +189,8 @@ public class ModelValidator {
 	// no validation rules for Name
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	// no validation rules for HdAccount
 
@@ -291,6 +298,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.WalletWithoutBalance proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -301,6 +310,8 @@ public class ModelValidator {
 	// no validation rules for Name
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	// no validation rules for HdAccount
 
@@ -609,6 +620,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Address proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -617,6 +630,8 @@ public class ModelValidator {
 	// no validation rules for AddressId
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	// no validation rules for Address
 
@@ -665,6 +680,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.AddressWithoutBalance proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -673,6 +690,8 @@ public class ModelValidator {
 	// no validation rules for AddressId
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	// no validation rules for Address
 
@@ -881,6 +900,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -889,6 +912,8 @@ public class ModelValidator {
 	// no validation rules for TransactionId
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	// no validation rules for TxId
 
@@ -1001,6 +1026,9 @@ public class ModelValidator {
 	
 			// Validate flare_specific
 			if (proto.hasFlareSpecific()) index.validatorFor(proto.getFlareSpecific()).assertValid(proto.getFlareSpecific());
+	
+			// Validate arbitrum_one_specific
+			if (proto.hasArbitrumOneSpecific()) index.validatorFor(proto.getArbitrumOneSpecific()).assertValid(proto.getArbitrumOneSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -1871,6 +1899,32 @@ public class ModelValidator {
 	}
 }
 /**
+	 * Validates {@code ArbitrumOneSpecific} protobuf objects.
+	 */
+	public static class ArbitrumOneSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.ArbitrumOneSpecific> {
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.ArbitrumOneSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	// no validation rules for Data
+
+	
+	}
+}
+/**
 	 * Validates {@code CreateTransactionSubstrateSpecific} protobuf objects.
 	 */
 	public static class CreateTransactionSubstrateSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionSubstrateSpecific> {
@@ -1945,6 +1999,10 @@ public class ModelValidator {
 		
 	
 	
+		
+
+
+	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionIOSTSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Memo
@@ -1952,6 +2010,15 @@ public class ModelValidator {
 	// no validation rules for Timestamp
 
 	
+		
+			switch (proto.getTypeCase()) {
+				case TYPE:
+					// no validation rules for Type
+
+					break;
+				
+			}
+
 	}
 }
 /**
@@ -1987,11 +2054,37 @@ public class ModelValidator {
 		
 	
 	
+		
+
+
+	
+		
+
+
+	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionEthereumSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Data
 
 	
+		
+			switch (proto.getStakingRecipientWalletIdCase()) {
+				case STAKING_RECIPIENT_WALLET_ID:
+					// no validation rules for StakingRecipientWalletId
+
+					break;
+				
+			}
+
+		
+			switch (proto.getCallMethodCase()) {
+				case CALL_METHOD:
+					// no validation rules for CallMethod
+
+					break;
+				
+			}
+
 	}
 }
 /**
@@ -2040,6 +2133,38 @@ public class ModelValidator {
 	// no validation rules for Memo
 
 	// no validation rules for Timestamp
+
+	
+	}
+}
+/**
+	 * Validates {@code CreateTransactionSolanaSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionSolanaSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionSolanaSpecific> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionSolanaSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for EventType
+
+	
+	}
+}
+/**
+	 * Validates {@code SelectedUTXO} protobuf objects.
+	 */
+	public static class SelectedUTXOValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SelectedUTXO> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.SelectedUTXO proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for TxId
+
+	// no validation rules for Vout
 
 	
 	}
@@ -2352,6 +2477,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transfer proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2360,6 +2487,8 @@ public class ModelValidator {
 	// no validation rules for TransferId
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	// no validation rules for TxId
 
@@ -2722,6 +2851,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Whitelist proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2730,6 +2861,8 @@ public class ModelValidator {
 	// no validation rules for Name
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getAddressesList(), item -> {
@@ -2770,6 +2903,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.TransferLimit proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2778,6 +2913,8 @@ public class ModelValidator {
 	// no validation rules for Name
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	// no validation rules for HourlyLimit
 
@@ -2865,6 +3002,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Policy proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2877,6 +3016,8 @@ public class ModelValidator {
 	// no validation rules for IsBasePolicy
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	
 			// Validate whitelist
@@ -2941,10 +3082,14 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.TotalBalanceByCoin proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	// no validation rules for ColdStringBalance
 
@@ -3181,10 +3326,14 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.TransferVolume proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	// no validation rules for HotStringVolume
 
@@ -3333,12 +3482,16 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.WalletFlushSetting proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for OwnerId
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	// no validation rules for DestinationWalletId
 
@@ -3392,6 +3545,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.WalletGroup proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -3400,6 +3555,8 @@ public class ModelValidator {
 	// no validation rules for Name
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getWalletsList(), item -> {
@@ -3639,6 +3796,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.CallerAddress proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -3650,6 +3809,8 @@ public class ModelValidator {
 
 	// no validation rules for Coin
 
+	// no validation rules for Network
+
 	
 	}
 }
@@ -3657,6 +3818,8 @@ public class ModelValidator {
 	 * Validates {@code FeeDepositAddress} protobuf objects.
 	 */
 	public static class FeeDepositAddressValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.FeeDepositAddress> {
+		
+	
 		
 	
 		
@@ -3675,6 +3838,8 @@ public class ModelValidator {
 	// no validation rules for StringBalance
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	
 	}

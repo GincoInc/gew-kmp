@@ -219,4 +219,34 @@ public interface CreateTransactionRequestOrBuilder extends
    * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16 [json_name = "hederaSpecific"];</code>
    */
   adamant.global.v1.Model.CreateTransactionHederaSpecificOrBuilder getHederaSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSolanaSpecific solana_specific = 17 [json_name = "solanaSpecific"];</code>
+   * @return Whether the solanaSpecific field is set.
+   */
+  boolean hasSolanaSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSolanaSpecific solana_specific = 17 [json_name = "solanaSpecific"];</code>
+   * @return The solanaSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionSolanaSpecific getSolanaSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSolanaSpecific solana_specific = 17 [json_name = "solanaSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionSolanaSpecificOrBuilder getSolanaSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
+   * @return Whether the utxoSpecific field is set.
+   */
+  boolean hasUtxoSpecific();
+  /**
+   * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
+   * @return The utxoSpecific.
+   */
+  adamant.global.v1.UtxoSpecific getUtxoSpecific();
+  /**
+   * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
+   */
+  adamant.global.v1.UtxoSpecificOrBuilder getUtxoSpecificOrBuilder();
 }

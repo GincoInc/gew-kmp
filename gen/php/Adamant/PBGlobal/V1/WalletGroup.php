@@ -26,6 +26,10 @@ class WalletGroup extends \Google\Protobuf\Internal\Message
      */
     protected $coin = 0;
     /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 8 [json_name = "network"];</code>
+     */
+    protected $network = 0;
+    /**
      * Generated from protobuf field <code>repeated .adamant.global.v1.Wallet wallets = 4 [json_name = "wallets"];</code>
      */
     private $wallets;
@@ -51,6 +55,7 @@ class WalletGroup extends \Google\Protobuf\Internal\Message
      *     @type string $wallet_group_id
      *     @type string $name
      *     @type int $coin
+     *     @type int $network
      *     @type array<\Adamant\PBGlobal\V1\Wallet>|\Google\Protobuf\Internal\RepeatedField $wallets
      *     @type bool $watch_only
      *     @type \Google\Protobuf\Timestamp $create_time
@@ -124,6 +129,28 @@ class WalletGroup extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
         $this->coin = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 8 [json_name = "network"];</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return $this->network;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 8 [json_name = "network"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

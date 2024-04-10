@@ -11,7 +11,6 @@ import (
 	"net/mail"
 	"net/url"
 	"regexp"
-	"sort"
 	"strings"
 	"time"
 	"unicode/utf8"
@@ -34,27 +33,39 @@ var (
 	_ = (*url.URL)(nil)
 	_ = (*mail.Address)(nil)
 	_ = anypb.Any{}
-	_ = sort.Sort
+
+	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.TransactionState(0)
+
+	_ = gincoincglobalv1.TransactionResult(0)
+
+	_ = gincoincglobalv1.TransferType(0)
+
+	_ = gincoincglobalv1.Network(0)
+
+	_ = gincoincglobalv1.CosmosMsgType(0)
+
+	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.TransactionState(0)
+
+	_ = gincoincglobalv1.TransactionResult(0)
+
+	_ = gincoincglobalv1.TransferType(0)
+
+	_ = gincoincglobalv1.EthereumStakingRewardLayerType(0)
 
 	_ = gincoincglobalv1.Coin(0)
 )
 
 // Validate checks the field values on TransferUpdated with the rules defined
-// in the proto definition for this message. If any rules are violated, the
-// first error encountered is returned, or nil if there are no violations.
-func (m *TransferUpdated) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on TransferUpdated with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// TransferUpdatedMultiError, or nil if none found.
-func (m *TransferUpdated) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *TransferUpdated) validate(all bool) error {
+// in the proto definition for this message. If any rules are violated, an
+// error is returned. When asked to return all errors, validation continues
+// after first violation, and the result is a list of violation errors wrapped
+// in TransferUpdatedMultiError, or nil if none found. Otherwise, only the
+// first error is returned, if any.
+func (m *TransferUpdated) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -95,32 +106,17 @@ func (m *TransferUpdated) validate(all bool) error {
 
 	// no validation rules for To
 
-	if all {
-		switch v := interface{}(m.GetTime()).(type) {
-		case interface{ ValidateAll() error }:
-			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, TransferUpdatedValidationError{
-					field:  "Time",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		case interface{ Validate() error }:
-			if err := v.Validate(); err != nil {
-				errors = append(errors, TransferUpdatedValidationError{
-					field:  "Time",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		}
-	} else if v, ok := interface{}(m.GetTime()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return TransferUpdatedValidationError{
+	if v, ok := interface{}(m.GetTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransferUpdatedValidationError{
 				field:  "Time",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
@@ -130,75 +126,46 @@ func (m *TransferUpdated) validate(all bool) error {
 
 	// no validation rules for StringFee
 
-	if all {
-		switch v := interface{}(m.GetCosmosSpecific()).(type) {
-		case interface{ ValidateAll() error }:
-			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, TransferUpdatedValidationError{
-					field:  "CosmosSpecific",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		case interface{ Validate() error }:
-			if err := v.Validate(); err != nil {
-				errors = append(errors, TransferUpdatedValidationError{
-					field:  "CosmosSpecific",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		}
-	} else if v, ok := interface{}(m.GetCosmosSpecific()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return TransferUpdatedValidationError{
+	if v, ok := interface{}(m.GetCosmosSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransferUpdatedValidationError{
 				field:  "CosmosSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
-	if all {
-		switch v := interface{}(m.GetSubstrateSpecific()).(type) {
-		case interface{ ValidateAll() error }:
-			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, TransferUpdatedValidationError{
-					field:  "SubstrateSpecific",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		case interface{ Validate() error }:
-			if err := v.Validate(); err != nil {
-				errors = append(errors, TransferUpdatedValidationError{
-					field:  "SubstrateSpecific",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		}
-	} else if v, ok := interface{}(m.GetSubstrateSpecific()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return TransferUpdatedValidationError{
+	if v, ok := interface{}(m.GetSubstrateSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransferUpdatedValidationError{
 				field:  "SubstrateSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
 	// no validation rules for Method
 
+	// no validation rules for Network
+
 	if len(errors) > 0 {
 		return TransferUpdatedMultiError(errors)
 	}
-
 	return nil
 }
 
 // TransferUpdatedMultiError is an error wrapping multiple validation errors
-// returned by TransferUpdated.ValidateAll() if the designated constraints
+// returned by TransferUpdated.Validate(true) if the designated constraints
 // aren't met.
 type TransferUpdatedMultiError []error
 
@@ -270,20 +237,11 @@ var _ interface {
 
 // Validate checks the field values on TransferUpdateCosmosSpecific with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *TransferUpdateCosmosSpecific) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on TransferUpdateCosmosSpecific with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// TransferUpdateCosmosSpecificMultiError, or nil if none found.
-func (m *TransferUpdateCosmosSpecific) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *TransferUpdateCosmosSpecific) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in TransferUpdateCosmosSpecificMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *TransferUpdateCosmosSpecific) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -299,13 +257,12 @@ func (m *TransferUpdateCosmosSpecific) validate(all bool) error {
 	if len(errors) > 0 {
 		return TransferUpdateCosmosSpecificMultiError(errors)
 	}
-
 	return nil
 }
 
 // TransferUpdateCosmosSpecificMultiError is an error wrapping multiple
-// validation errors returned by TransferUpdateCosmosSpecific.ValidateAll() if
-// the designated constraints aren't met.
+// validation errors returned by TransferUpdateCosmosSpecific.Validate(true)
+// if the designated constraints aren't met.
 type TransferUpdateCosmosSpecificMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
@@ -379,20 +336,11 @@ var _ interface {
 
 // Validate checks the field values on TransferUpdateSubstrateSpecific with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *TransferUpdateSubstrateSpecific) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on TransferUpdateSubstrateSpecific with
-// the rules defined in the proto definition for this message. If any rules
-// are violated, the result is a list of violation errors wrapped in
-// TransferUpdateSubstrateSpecificMultiError, or nil if none found.
-func (m *TransferUpdateSubstrateSpecific) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *TransferUpdateSubstrateSpecific) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in TransferUpdateSubstrateSpecificMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *TransferUpdateSubstrateSpecific) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -406,13 +354,13 @@ func (m *TransferUpdateSubstrateSpecific) validate(all bool) error {
 	if len(errors) > 0 {
 		return TransferUpdateSubstrateSpecificMultiError(errors)
 	}
-
 	return nil
 }
 
 // TransferUpdateSubstrateSpecificMultiError is an error wrapping multiple
-// validation errors returned by TransferUpdateSubstrateSpecific.ValidateAll()
-// if the designated constraints aren't met.
+// validation errors returned by
+// TransferUpdateSubstrateSpecific.Validate(true) if the designated
+// constraints aren't met.
 type TransferUpdateSubstrateSpecificMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
@@ -486,20 +434,11 @@ var _ interface {
 
 // Validate checks the field values on TransferUpdateEvent with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *TransferUpdateEvent) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on TransferUpdateEvent with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// TransferUpdateEventMultiError, or nil if none found.
-func (m *TransferUpdateEvent) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *TransferUpdateEvent) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in TransferUpdateEventMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *TransferUpdateEvent) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -534,73 +473,42 @@ func (m *TransferUpdateEvent) validate(all bool) error {
 
 	// no validation rules for TransferType
 
-	if all {
-		switch v := interface{}(m.GetTime()).(type) {
-		case interface{ ValidateAll() error }:
-			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, TransferUpdateEventValidationError{
-					field:  "Time",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		case interface{ Validate() error }:
-			if err := v.Validate(); err != nil {
-				errors = append(errors, TransferUpdateEventValidationError{
-					field:  "Time",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		}
-	} else if v, ok := interface{}(m.GetTime()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return TransferUpdateEventValidationError{
+	if v, ok := interface{}(m.GetTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransferUpdateEventValidationError{
 				field:  "Time",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
-	if all {
-		switch v := interface{}(m.GetSubstrateSpecific()).(type) {
-		case interface{ ValidateAll() error }:
-			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, TransferUpdateEventValidationError{
-					field:  "SubstrateSpecific",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		case interface{ Validate() error }:
-			if err := v.Validate(); err != nil {
-				errors = append(errors, TransferUpdateEventValidationError{
-					field:  "SubstrateSpecific",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		}
-	} else if v, ok := interface{}(m.GetSubstrateSpecific()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return TransferUpdateEventValidationError{
+	if v, ok := interface{}(m.GetSubstrateSpecific()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = TransferUpdateEventValidationError{
 				field:  "SubstrateSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
 	if len(errors) > 0 {
 		return TransferUpdateEventMultiError(errors)
 	}
-
 	return nil
 }
 
 // TransferUpdateEventMultiError is an error wrapping multiple validation
-// errors returned by TransferUpdateEvent.ValidateAll() if the designated
+// errors returned by TransferUpdateEvent.Validate(true) if the designated
 // constraints aren't met.
 type TransferUpdateEventMultiError []error
 
@@ -674,20 +582,11 @@ var _ interface {
 
 // Validate checks the field values on EthereumStakingReward with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *EthereumStakingReward) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on EthereumStakingReward with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// EthereumStakingRewardMultiError, or nil if none found.
-func (m *EthereumStakingReward) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *EthereumStakingReward) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in EthereumStakingRewardMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *EthereumStakingReward) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -700,32 +599,17 @@ func (m *EthereumStakingReward) validate(all bool) error {
 
 	// no validation rules for BlockNumber
 
-	if all {
-		switch v := interface{}(m.GetBlockTime()).(type) {
-		case interface{ ValidateAll() error }:
-			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, EthereumStakingRewardValidationError{
-					field:  "BlockTime",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		case interface{ Validate() error }:
-			if err := v.Validate(); err != nil {
-				errors = append(errors, EthereumStakingRewardValidationError{
-					field:  "BlockTime",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		}
-	} else if v, ok := interface{}(m.GetBlockTime()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return EthereumStakingRewardValidationError{
+	if v, ok := interface{}(m.GetBlockTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = EthereumStakingRewardValidationError{
 				field:  "BlockTime",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
@@ -752,19 +636,21 @@ func (m *EthereumStakingReward) validate(all bool) error {
 
 	// no validation rules for BlockHash
 
-	if m.TxId != nil {
+	switch m.XTxId.(type) {
+
+	case *EthereumStakingReward_TxId:
 		// no validation rules for TxId
+
 	}
 
 	if len(errors) > 0 {
 		return EthereumStakingRewardMultiError(errors)
 	}
-
 	return nil
 }
 
 // EthereumStakingRewardMultiError is an error wrapping multiple validation
-// errors returned by EthereumStakingReward.ValidateAll() if the designated
+// errors returned by EthereumStakingReward.Validate(true) if the designated
 // constraints aren't met.
 type EthereumStakingRewardMultiError []error
 
@@ -840,20 +726,11 @@ var _EthereumStakingReward_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[
 
 // Validate checks the field values on StakingRewardReceived with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *StakingRewardReceived) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on StakingRewardReceived with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// StakingRewardReceivedMultiError, or nil if none found.
-func (m *StakingRewardReceived) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *StakingRewardReceived) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in StakingRewardReceivedMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *StakingRewardReceived) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -878,44 +755,28 @@ func (m *StakingRewardReceived) validate(all bool) error {
 
 	// no validation rules for Coin
 
-	if all {
-		switch v := interface{}(m.GetTime()).(type) {
-		case interface{ ValidateAll() error }:
-			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, StakingRewardReceivedValidationError{
-					field:  "Time",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		case interface{ Validate() error }:
-			if err := v.Validate(); err != nil {
-				errors = append(errors, StakingRewardReceivedValidationError{
-					field:  "Time",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		}
-	} else if v, ok := interface{}(m.GetTime()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return StakingRewardReceivedValidationError{
+	if v, ok := interface{}(m.GetTime()).(interface{ Validate(bool) error }); ok {
+		if err := v.Validate(all); err != nil {
+			err = StakingRewardReceivedValidationError{
 				field:  "Time",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
 		}
 	}
 
 	if len(errors) > 0 {
 		return StakingRewardReceivedMultiError(errors)
 	}
-
 	return nil
 }
 
 // StakingRewardReceivedMultiError is an error wrapping multiple validation
-// errors returned by StakingRewardReceived.ValidateAll() if the designated
+// errors returned by StakingRewardReceived.Validate(true) if the designated
 // constraints aren't met.
 type StakingRewardReceivedMultiError []error
 

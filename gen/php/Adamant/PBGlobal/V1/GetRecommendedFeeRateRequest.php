@@ -17,6 +17,10 @@ class GetRecommendedFeeRateRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.gincoinc.global.v1.Coin coin = 1 [json_name = "coin", (.validate.rules) = {</code>
      */
     protected $coin = 0;
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 2 [json_name = "network", (.validate.rules) = {</code>
+     */
+    protected $network = null;
 
     /**
      * Constructor.
@@ -25,6 +29,7 @@ class GetRecommendedFeeRateRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int $coin
+     *     @type int $network
      * }
      */
     public function __construct($data = NULL) {
@@ -50,6 +55,38 @@ class GetRecommendedFeeRateRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
         $this->coin = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 2 [json_name = "network", (.validate.rules) = {</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return isset($this->network) ? $this->network : 0;
+    }
+
+    public function hasNetwork()
+    {
+        return isset($this->network);
+    }
+
+    public function clearNetwork()
+    {
+        unset($this->network);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 2 [json_name = "network", (.validate.rules) = {</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

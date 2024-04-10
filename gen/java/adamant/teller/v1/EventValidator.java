@@ -70,6 +70,8 @@ public class EventValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.teller.v1.Event.TransferUpdated proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -123,6 +125,8 @@ public class EventValidator {
 			// Validate substrate_specific
 			if (proto.hasSubstrateSpecific()) index.validatorFor(proto.getSubstrateSpecific()).assertValid(proto.getSubstrateSpecific());
 	// no validation rules for Method
+
+	// no validation rules for Network
 
 	
 	}
@@ -271,6 +275,10 @@ public class EventValidator {
 		
 	
 	
+		
+
+
+	
 
 	public void assertValid(adamant.teller.v1.Event.EthereumStakingReward proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for EventId
@@ -297,6 +305,15 @@ public class EventValidator {
 	// no validation rules for BlockHash
 
 	
+		
+			switch (proto.getTxIdCase()) {
+				case TX_ID:
+					// no validation rules for TxId
+
+					break;
+				
+			}
+
 	}
 }
 /**

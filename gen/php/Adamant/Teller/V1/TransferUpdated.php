@@ -110,6 +110,10 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string method = 24 [json_name = "method"];</code>
      */
     protected $method = '';
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 25 [json_name = "network"];</code>
+     */
+    protected $network = 0;
 
     /**
      * Constructor.
@@ -141,6 +145,7 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\Teller\V1\TransferUpdateCosmosSpecific $cosmos_specific
      *     @type \Adamant\Teller\V1\TransferUpdateSubstrateSpecific $substrate_specific
      *     @type string $method
+     *     @type int $network
      * }
      */
     public function __construct($data = NULL) {
@@ -706,6 +711,28 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->method = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 25 [json_name = "network"];</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return $this->network;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 25 [json_name = "network"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

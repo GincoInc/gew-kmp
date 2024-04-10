@@ -388,6 +388,20 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Teller\V1\ResendTransactionRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ResendTransaction(\Adamant\Teller\V1\ResendTransactionRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ResendTransaction',
+        $argument,
+        ['\Adamant\Global\V1\ResendTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\CancelTransactionRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -412,6 +426,20 @@ class TellerAPIClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ReplaceTransaction',
         $argument,
         ['\Adamant\Global\V1\ReplaceTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\IsTransactionReplaceableRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function IsTransactionReplaceable(\Adamant\Global\V1\IsTransactionReplaceableRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/IsTransactionReplaceable',
+        $argument,
+        ['\Adamant\Global\V1\IsTransactionReplaceableResponse', 'decode'],
         $metadata, $options);
     }
 
