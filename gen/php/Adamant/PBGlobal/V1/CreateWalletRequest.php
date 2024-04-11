@@ -22,6 +22,8 @@ class CreateWalletRequest extends \Google\Protobuf\Internal\Message
      */
     protected $coin = 0;
     /**
+     * optional
+     *
      * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 13 [json_name = "network", (.validate.rules) = {</code>
      */
     protected $network = null;
@@ -83,6 +85,7 @@ class CreateWalletRequest extends \Google\Protobuf\Internal\Message
      *     @type string $wallet_name
      *     @type int $coin
      *     @type int $network
+     *           optional
      *     @type int $wallet_type
      *     @type int $address_type
      *     @type int $m
@@ -149,6 +152,8 @@ class CreateWalletRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * optional
+     *
      * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 13 [json_name = "network", (.validate.rules) = {</code>
      * @return int
      */
@@ -168,6 +173,8 @@ class CreateWalletRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * optional
+     *
      * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 13 [json_name = "network", (.validate.rules) = {</code>
      * @param int $var
      * @return $this

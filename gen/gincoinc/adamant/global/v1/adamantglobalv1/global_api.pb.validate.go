@@ -1615,6 +1615,21 @@ func (m *ListWalletsByFilterRequest) validate(all bool) error {
 		// no validation rules for OnlyIsStakingAvailable
 	}
 
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := ListWalletsByFilterRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
 	if len(errors) > 0 {
 		return ListWalletsByFilterRequestMultiError(errors)
 	}
@@ -3977,6 +3992,21 @@ func (m *UpdateWalletFlushSettingRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := UpdateWalletFlushSettingRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
 	if len(errors) > 0 {
 		return UpdateWalletFlushSettingRequestMultiError(errors)
 	}
@@ -4769,6 +4799,21 @@ func (m *CreateWalletGroupRequest) validate(all bool) error {
 	}
 
 	// no validation rules for WatchOnly
+
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := CreateWalletGroupRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
 
 	if len(errors) > 0 {
 		return CreateWalletGroupRequestMultiError(errors)
@@ -9010,6 +9055,64 @@ func (m *CreateTransactionRequest) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetSolanaSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "SolanaSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "SolanaSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetSolanaSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateTransactionRequestValidationError{
+				field:  "SolanaSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetUtxoSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "UtxoSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "UtxoSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetUtxoSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateTransactionRequestValidationError{
+				field:  "UtxoSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return CreateTransactionRequestMultiError(errors)
 	}
@@ -10221,6 +10324,240 @@ var _ interface {
 	ErrorName() string
 } = SendTransactionResponseValidationError{}
 
+// Validate checks the field values on ResendTransactionRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ResendTransactionRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ResendTransactionRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ResendTransactionRequestMultiError, or nil if none found.
+func (m *ResendTransactionRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ResendTransactionRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ResendTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ResendTransactionRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ResendTransactionRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
+		err := ResendTransactionRequestValidationError{
+			field:  "TransactionId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for ExecutorType
+
+	if len(errors) > 0 {
+		return ResendTransactionRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ResendTransactionRequestMultiError is an error wrapping multiple validation
+// errors returned by ResendTransactionRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ResendTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ResendTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ResendTransactionRequestMultiError) AllErrors() []error { return m }
+
+// ResendTransactionRequestValidationError is the validation error returned by
+// ResendTransactionRequest.Validate if the designated constraints aren't met.
+type ResendTransactionRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ResendTransactionRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ResendTransactionRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ResendTransactionRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ResendTransactionRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ResendTransactionRequestValidationError) ErrorName() string {
+	return "ResendTransactionRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ResendTransactionRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sResendTransactionRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ResendTransactionRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ResendTransactionRequestValidationError{}
+
+var _ResendTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ResendTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ResendTransactionResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ResendTransactionResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ResendTransactionResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ResendTransactionResponseMultiError, or nil if none found.
+func (m *ResendTransactionResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ResendTransactionResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TxId
+
+	if len(errors) > 0 {
+		return ResendTransactionResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ResendTransactionResponseMultiError is an error wrapping multiple validation
+// errors returned by ResendTransactionResponse.ValidateAll() if the
+// designated constraints aren't met.
+type ResendTransactionResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ResendTransactionResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ResendTransactionResponseMultiError) AllErrors() []error { return m }
+
+// ResendTransactionResponseValidationError is the validation error returned by
+// ResendTransactionResponse.Validate if the designated constraints aren't met.
+type ResendTransactionResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ResendTransactionResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ResendTransactionResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ResendTransactionResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ResendTransactionResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ResendTransactionResponseValidationError) ErrorName() string {
+	return "ResendTransactionResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ResendTransactionResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sResendTransactionResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ResendTransactionResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ResendTransactionResponseValidationError{}
+
 // Validate checks the field values on SendXRPInitTransactionsRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -11022,6 +11359,242 @@ var _ interface {
 	ErrorName() string
 } = ReplaceTransactionResponseValidationError{}
 
+// Validate checks the field values on IsTransactionReplaceableRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *IsTransactionReplaceableRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on IsTransactionReplaceableRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// IsTransactionReplaceableRequestMultiError, or nil if none found.
+func (m *IsTransactionReplaceableRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IsTransactionReplaceableRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_IsTransactionReplaceableRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := IsTransactionReplaceableRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_IsTransactionReplaceableRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
+		err := IsTransactionReplaceableRequestValidationError{
+			field:  "TransactionId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return IsTransactionReplaceableRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// IsTransactionReplaceableRequestMultiError is an error wrapping multiple
+// validation errors returned by IsTransactionReplaceableRequest.ValidateAll()
+// if the designated constraints aren't met.
+type IsTransactionReplaceableRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IsTransactionReplaceableRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IsTransactionReplaceableRequestMultiError) AllErrors() []error { return m }
+
+// IsTransactionReplaceableRequestValidationError is the validation error
+// returned by IsTransactionReplaceableRequest.Validate if the designated
+// constraints aren't met.
+type IsTransactionReplaceableRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IsTransactionReplaceableRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IsTransactionReplaceableRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IsTransactionReplaceableRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IsTransactionReplaceableRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IsTransactionReplaceableRequestValidationError) ErrorName() string {
+	return "IsTransactionReplaceableRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IsTransactionReplaceableRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIsTransactionReplaceableRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IsTransactionReplaceableRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IsTransactionReplaceableRequestValidationError{}
+
+var _IsTransactionReplaceableRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _IsTransactionReplaceableRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on IsTransactionReplaceableResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *IsTransactionReplaceableResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on IsTransactionReplaceableResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// IsTransactionReplaceableResponseMultiError, or nil if none found.
+func (m *IsTransactionReplaceableResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IsTransactionReplaceableResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for IsTransactionReplacable
+
+	if len(errors) > 0 {
+		return IsTransactionReplaceableResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// IsTransactionReplaceableResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// IsTransactionReplaceableResponse.ValidateAll() if the designated
+// constraints aren't met.
+type IsTransactionReplaceableResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IsTransactionReplaceableResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IsTransactionReplaceableResponseMultiError) AllErrors() []error { return m }
+
+// IsTransactionReplaceableResponseValidationError is the validation error
+// returned by IsTransactionReplaceableResponse.Validate if the designated
+// constraints aren't met.
+type IsTransactionReplaceableResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IsTransactionReplaceableResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IsTransactionReplaceableResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IsTransactionReplaceableResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IsTransactionReplaceableResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IsTransactionReplaceableResponseValidationError) ErrorName() string {
+	return "IsTransactionReplaceableResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IsTransactionReplaceableResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIsTransactionReplaceableResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IsTransactionReplaceableResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IsTransactionReplaceableResponseValidationError{}
+
 // Validate checks the field values on GetTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -11512,6 +12085,21 @@ func (m *ListTransactionsByFilterRequest) validate(all bool) error {
 			return err
 		}
 		errors = append(errors, err)
+	}
+
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := ListTransactionsByFilterRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
 	}
 
 	if len(errors) > 0 {
@@ -12815,6 +13403,21 @@ func (m *ListTransfersByFilterRequest) validate(all bool) error {
 		}
 	}
 
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := ListTransfersByFilterRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
 	if len(errors) > 0 {
 		return ListTransfersByFilterRequestMultiError(errors)
 	}
@@ -13206,6 +13809,21 @@ func (m *ListUncheckedTransfersByFilterRequest) validate(all bool) error {
 				cause:  err,
 			}
 		}
+	}
+
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := ListUncheckedTransfersByFilterRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
 	}
 
 	if len(errors) > 0 {
@@ -16699,6 +17317,64 @@ func (m *CalculateFeeRequest) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetUtxoSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CalculateFeeRequestValidationError{
+					field:  "UtxoSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CalculateFeeRequestValidationError{
+					field:  "UtxoSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetUtxoSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CalculateFeeRequestValidationError{
+				field:  "UtxoSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetSolanaSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CalculateFeeRequestValidationError{
+					field:  "SolanaSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CalculateFeeRequestValidationError{
+					field:  "SolanaSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetSolanaSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CalculateFeeRequestValidationError{
+				field:  "SolanaSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return CalculateFeeRequestMultiError(errors)
 	}
@@ -17415,6 +18091,110 @@ var _ interface {
 	ErrorName() string
 } = CalculateFeeHederaSpecificValidationError{}
 
+// Validate checks the field values on CalculateFeeSolanaSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CalculateFeeSolanaSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CalculateFeeSolanaSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CalculateFeeSolanaSpecificMultiError, or nil if none found.
+func (m *CalculateFeeSolanaSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CalculateFeeSolanaSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for EventType
+
+	if len(errors) > 0 {
+		return CalculateFeeSolanaSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CalculateFeeSolanaSpecificMultiError is an error wrapping multiple
+// validation errors returned by CalculateFeeSolanaSpecific.ValidateAll() if
+// the designated constraints aren't met.
+type CalculateFeeSolanaSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CalculateFeeSolanaSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CalculateFeeSolanaSpecificMultiError) AllErrors() []error { return m }
+
+// CalculateFeeSolanaSpecificValidationError is the validation error returned
+// by CalculateFeeSolanaSpecific.Validate if the designated constraints aren't met.
+type CalculateFeeSolanaSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CalculateFeeSolanaSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CalculateFeeSolanaSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CalculateFeeSolanaSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CalculateFeeSolanaSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CalculateFeeSolanaSpecificValidationError) ErrorName() string {
+	return "CalculateFeeSolanaSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CalculateFeeSolanaSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCalculateFeeSolanaSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CalculateFeeSolanaSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CalculateFeeSolanaSpecificValidationError{}
+
 // Validate checks the field values on CalculateFeeRbfSpecific with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -17529,6 +18309,139 @@ var _ interface {
 } = CalculateFeeRbfSpecificValidationError{}
 
 var _CalculateFeeRbfSpecific_TransactionId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on UtxoSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *UtxoSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UtxoSpecific with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in UtxoSpecificMultiError, or
+// nil if none found.
+func (m *UtxoSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UtxoSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetSelectedUtxos() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, UtxoSpecificValidationError{
+						field:  fmt.Sprintf("SelectedUtxos[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, UtxoSpecificValidationError{
+						field:  fmt.Sprintf("SelectedUtxos[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return UtxoSpecificValidationError{
+					field:  fmt.Sprintf("SelectedUtxos[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return UtxoSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// UtxoSpecificMultiError is an error wrapping multiple validation errors
+// returned by UtxoSpecific.ValidateAll() if the designated constraints aren't met.
+type UtxoSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UtxoSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UtxoSpecificMultiError) AllErrors() []error { return m }
+
+// UtxoSpecificValidationError is the validation error returned by
+// UtxoSpecific.Validate if the designated constraints aren't met.
+type UtxoSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UtxoSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UtxoSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UtxoSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UtxoSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UtxoSpecificValidationError) ErrorName() string { return "UtxoSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e UtxoSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUtxoSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UtxoSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UtxoSpecificValidationError{}
 
 // Validate checks the field values on CalculateFeeResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -17922,6 +18835,21 @@ func (m *GetRecommendedFeeRateRequest) validate(all bool) error {
 			return err
 		}
 		errors = append(errors, err)
+	}
+
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := GetRecommendedFeeRateRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
 	}
 
 	if len(errors) > 0 {
@@ -20258,6 +21186,21 @@ func (m *CreateWhitelistRequest) validate(all bool) error {
 		// no validation rules for AddressIds[idx]
 	}
 
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := CreateWhitelistRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
 	if len(errors) > 0 {
 		return CreateWhitelistRequestMultiError(errors)
 	}
@@ -20885,6 +21828,21 @@ func (m *ListWhitelistsByFilterRequest) validate(all bool) error {
 			return err
 		}
 		errors = append(errors, err)
+	}
+
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := ListWhitelistsByFilterRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
 	}
 
 	if len(errors) > 0 {
@@ -21636,6 +22594,21 @@ func (m *CreateTransferLimitRequest) validate(all bool) error {
 
 	}
 
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := CreateTransferLimitRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
 	if len(errors) > 0 {
 		return CreateTransferLimitRequestMultiError(errors)
 	}
@@ -22265,6 +23238,21 @@ func (m *ListTransferLimitsByFilterRequest) validate(all bool) error {
 			return err
 		}
 		errors = append(errors, err)
+	}
+
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := ListTransferLimitsByFilterRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
 	}
 
 	if len(errors) > 0 {
@@ -23115,6 +24103,21 @@ func (m *CreatePolicyRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := CreatePolicyRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
 	if len(errors) > 0 {
 		return CreatePolicyRequestMultiError(errors)
 	}
@@ -23521,6 +24524,21 @@ func (m *ListPoliciesByFilterRequest) validate(all bool) error {
 			return err
 		}
 		errors = append(errors, err)
+	}
+
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := ListPoliciesByFilterRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
 	}
 
 	if len(errors) > 0 {

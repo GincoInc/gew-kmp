@@ -22,6 +22,10 @@ class CreateWalletGroupRequest extends \Google\Protobuf\Internal\Message
      */
     protected $coin = 0;
     /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 5 [json_name = "network", (.validate.rules) = {</code>
+     */
+    protected $network = null;
+    /**
      * Generated from protobuf field <code>repeated string wallet_ids = 3 [json_name = "walletIds", (.validate.rules) = {</code>
      */
     private $wallet_ids;
@@ -38,6 +42,7 @@ class CreateWalletGroupRequest extends \Google\Protobuf\Internal\Message
      *
      *     @type string $name
      *     @type int $coin
+     *     @type int $network
      *     @type array<string>|\Google\Protobuf\Internal\RepeatedField $wallet_ids
      *     @type bool $watch_only
      * }
@@ -87,6 +92,38 @@ class CreateWalletGroupRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
         $this->coin = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 5 [json_name = "network", (.validate.rules) = {</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return isset($this->network) ? $this->network : 0;
+    }
+
+    public function hasNetwork()
+    {
+        return isset($this->network);
+    }
+
+    public function clearNetwork()
+    {
+        unset($this->network);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 5 [json_name = "network", (.validate.rules) = {</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

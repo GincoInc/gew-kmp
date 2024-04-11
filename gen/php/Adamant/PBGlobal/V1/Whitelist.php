@@ -34,6 +34,12 @@ class Whitelist extends \Google\Protobuf\Internal\Message
      */
     protected $coin = 0;
     /**
+     * network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 8 [json_name = "network"];</code>
+     */
+    protected $network = 0;
+    /**
      * The list of labeled addresses registered in the whitelist
      *
      * Generated from protobuf field <code>repeated .adamant.global.v1.LabeledAddress addresses = 4 [json_name = "addresses"];</code>
@@ -64,6 +70,8 @@ class Whitelist extends \Google\Protobuf\Internal\Message
      *           name
      *     @type int $coin
      *           coin
+     *     @type int $network
+     *           network
      *     @type array<\Adamant\PBGlobal\V1\LabeledAddress>|\Google\Protobuf\Internal\RepeatedField $addresses
      *           The list of labeled addresses registered in the whitelist
      *     @type \Google\Protobuf\Timestamp $create_time
@@ -151,6 +159,32 @@ class Whitelist extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
         $this->coin = $var;
+
+        return $this;
+    }
+
+    /**
+     * network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 8 [json_name = "network"];</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return $this->network;
+    }
+
+    /**
+     * network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 8 [json_name = "network"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

@@ -190,6 +190,8 @@ func (m *TransferUpdated) validate(all bool) error {
 
 	// no validation rules for Method
 
+	// no validation rules for Network
+
 	if len(errors) > 0 {
 		return TransferUpdatedMultiError(errors)
 	}

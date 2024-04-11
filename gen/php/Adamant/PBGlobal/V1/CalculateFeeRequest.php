@@ -65,6 +65,14 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeRbfSpecific rbf_specific = 13 [json_name = "rbfSpecific"];</code>
      */
     protected $rbf_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+     */
+    protected $utxo_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+     */
+    protected $solana_specific = null;
 
     /**
      * Constructor.
@@ -85,6 +93,8 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CalculateFeeCosmosSpecific $cosmos_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeHederaSpecific $hedera_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeRbfSpecific $rbf_specific
+     *     @type \Adamant\PBGlobal\V1\UtxoSpecific $utxo_specific
+     *     @type \Adamant\PBGlobal\V1\CalculateFeeSolanaSpecific $solana_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -444,6 +454,70 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeRbfSpecific::class);
         $this->rbf_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\UtxoSpecific|null
+     */
+    public function getUtxoSpecific()
+    {
+        return $this->utxo_specific;
+    }
+
+    public function hasUtxoSpecific()
+    {
+        return isset($this->utxo_specific);
+    }
+
+    public function clearUtxoSpecific()
+    {
+        unset($this->utxo_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\UtxoSpecific $var
+     * @return $this
+     */
+    public function setUtxoSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\UtxoSpecific::class);
+        $this->utxo_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CalculateFeeSolanaSpecific|null
+     */
+    public function getSolanaSpecific()
+    {
+        return $this->solana_specific;
+    }
+
+    public function hasSolanaSpecific()
+    {
+        return isset($this->solana_specific);
+    }
+
+    public function clearSolanaSpecific()
+    {
+        unset($this->solana_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CalculateFeeSolanaSpecific $var
+     * @return $this
+     */
+    public function setSolanaSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeSolanaSpecific::class);
+        $this->solana_specific = $var;
 
         return $this;
     }

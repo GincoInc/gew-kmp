@@ -81,9 +81,11 @@ type GlobalAPIClient interface {
 	SignTransaction(ctx context.Context, in *SignTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	SignXRPInitTransactions(ctx context.Context, in *SignXRPInitTransactionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	SendTransaction(ctx context.Context, in *SendTransactionRequest, opts ...grpc.CallOption) (*SendTransactionResponse, error)
+	ResendTransaction(ctx context.Context, in *ResendTransactionRequest, opts ...grpc.CallOption) (*ResendTransactionResponse, error)
 	SendXRPInitTransactions(ctx context.Context, in *SendXRPInitTransactionsRequest, opts ...grpc.CallOption) (*SendXRPInitTransactionsResponse, error)
 	CancelTransaction(ctx context.Context, in *CancelTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	ReplaceTransaction(ctx context.Context, in *ReplaceTransactionRequest, opts ...grpc.CallOption) (*ReplaceTransactionResponse, error)
+	IsTransactionReplaceable(ctx context.Context, in *IsTransactionReplaceableRequest, opts ...grpc.CallOption) (*IsTransactionReplaceableResponse, error)
 	GetTransaction(ctx context.Context, in *GetTransactionRequest, opts ...grpc.CallOption) (*Transaction, error)
 	GetTransactionByTxID(ctx context.Context, in *GetTransactionByTxIDRequest, opts ...grpc.CallOption) (*Transaction, error)
 	ListTransactions(ctx context.Context, in *ListTransactionsRequest, opts ...grpc.CallOption) (*ListTransactionsResponse, error)
@@ -606,6 +608,15 @@ func (c *globalAPIClient) SendTransaction(ctx context.Context, in *SendTransacti
 	return out, nil
 }
 
+func (c *globalAPIClient) ResendTransaction(ctx context.Context, in *ResendTransactionRequest, opts ...grpc.CallOption) (*ResendTransactionResponse, error) {
+	out := new(ResendTransactionResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ResendTransaction", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *globalAPIClient) SendXRPInitTransactions(ctx context.Context, in *SendXRPInitTransactionsRequest, opts ...grpc.CallOption) (*SendXRPInitTransactionsResponse, error) {
 	out := new(SendXRPInitTransactionsResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/SendXRPInitTransactions", in, out, opts...)
@@ -627,6 +638,15 @@ func (c *globalAPIClient) CancelTransaction(ctx context.Context, in *CancelTrans
 func (c *globalAPIClient) ReplaceTransaction(ctx context.Context, in *ReplaceTransactionRequest, opts ...grpc.CallOption) (*ReplaceTransactionResponse, error) {
 	out := new(ReplaceTransactionResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ReplaceTransaction", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) IsTransactionReplaceable(ctx context.Context, in *IsTransactionReplaceableRequest, opts ...grpc.CallOption) (*IsTransactionReplaceableResponse, error) {
+	out := new(IsTransactionReplaceableResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/IsTransactionReplaceable", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1208,9 +1228,11 @@ type GlobalAPIServer interface {
 	SignTransaction(context.Context, *SignTransactionRequest) (*emptypb.Empty, error)
 	SignXRPInitTransactions(context.Context, *SignXRPInitTransactionsRequest) (*emptypb.Empty, error)
 	SendTransaction(context.Context, *SendTransactionRequest) (*SendTransactionResponse, error)
+	ResendTransaction(context.Context, *ResendTransactionRequest) (*ResendTransactionResponse, error)
 	SendXRPInitTransactions(context.Context, *SendXRPInitTransactionsRequest) (*SendXRPInitTransactionsResponse, error)
 	CancelTransaction(context.Context, *CancelTransactionRequest) (*emptypb.Empty, error)
 	ReplaceTransaction(context.Context, *ReplaceTransactionRequest) (*ReplaceTransactionResponse, error)
+	IsTransactionReplaceable(context.Context, *IsTransactionReplaceableRequest) (*IsTransactionReplaceableResponse, error)
 	GetTransaction(context.Context, *GetTransactionRequest) (*Transaction, error)
 	GetTransactionByTxID(context.Context, *GetTransactionByTxIDRequest) (*Transaction, error)
 	ListTransactions(context.Context, *ListTransactionsRequest) (*ListTransactionsResponse, error)
@@ -1435,6 +1457,9 @@ func (UnimplementedGlobalAPIServer) SignXRPInitTransactions(context.Context, *Si
 func (UnimplementedGlobalAPIServer) SendTransaction(context.Context, *SendTransactionRequest) (*SendTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendTransaction not implemented")
 }
+func (UnimplementedGlobalAPIServer) ResendTransaction(context.Context, *ResendTransactionRequest) (*ResendTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ResendTransaction not implemented")
+}
 func (UnimplementedGlobalAPIServer) SendXRPInitTransactions(context.Context, *SendXRPInitTransactionsRequest) (*SendXRPInitTransactionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendXRPInitTransactions not implemented")
 }
@@ -1443,6 +1468,9 @@ func (UnimplementedGlobalAPIServer) CancelTransaction(context.Context, *CancelTr
 }
 func (UnimplementedGlobalAPIServer) ReplaceTransaction(context.Context, *ReplaceTransactionRequest) (*ReplaceTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReplaceTransaction not implemented")
+}
+func (UnimplementedGlobalAPIServer) IsTransactionReplaceable(context.Context, *IsTransactionReplaceableRequest) (*IsTransactionReplaceableResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method IsTransactionReplaceable not implemented")
 }
 func (UnimplementedGlobalAPIServer) GetTransaction(context.Context, *GetTransactionRequest) (*Transaction, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTransaction not implemented")
@@ -2509,6 +2537,24 @@ func _GlobalAPI_SendTransaction_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GlobalAPI_ResendTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResendTransactionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ResendTransaction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ResendTransaction",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ResendTransaction(ctx, req.(*ResendTransactionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GlobalAPI_SendXRPInitTransactions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SendXRPInitTransactionsRequest)
 	if err := dec(in); err != nil {
@@ -2559,6 +2605,24 @@ func _GlobalAPI_ReplaceTransaction_Handler(srv interface{}, ctx context.Context,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GlobalAPIServer).ReplaceTransaction(ctx, req.(*ReplaceTransactionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_IsTransactionReplaceable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IsTransactionReplaceableRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).IsTransactionReplaceable(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/IsTransactionReplaceable",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).IsTransactionReplaceable(ctx, req.(*IsTransactionReplaceableRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3793,6 +3857,10 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _GlobalAPI_SendTransaction_Handler,
 		},
 		{
+			MethodName: "ResendTransaction",
+			Handler:    _GlobalAPI_ResendTransaction_Handler,
+		},
+		{
 			MethodName: "SendXRPInitTransactions",
 			Handler:    _GlobalAPI_SendXRPInitTransactions_Handler,
 		},
@@ -3803,6 +3871,10 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ReplaceTransaction",
 			Handler:    _GlobalAPI_ReplaceTransaction_Handler,
+		},
+		{
+			MethodName: "IsTransactionReplaceable",
+			Handler:    _GlobalAPI_IsTransactionReplaceable_Handler,
 		},
 		{
 			MethodName: "GetTransaction",

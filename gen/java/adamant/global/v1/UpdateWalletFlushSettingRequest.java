@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private UpdateWalletFlushSettingRequest() {
     coin_ = 0;
+    network_ = 0;
     destinationWalletId_ = "";
   }
 
@@ -40,6 +41,7 @@ private static final long serialVersionUID = 0L;
             adamant.global.v1.UpdateWalletFlushSettingRequest.class, adamant.global.v1.UpdateWalletFlushSettingRequest.Builder.class);
   }
 
+  private int bitField0_;
   public static final int COIN_FIELD_NUMBER = 1;
   private int coin_ = 0;
   /**
@@ -56,6 +58,31 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
     gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.forNumber(coin_);
     return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
+  }
+
+  public static final int NETWORK_FIELD_NUMBER = 3;
+  private int network_ = 0;
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 3 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return Whether the network field is set.
+   */
+  @java.lang.Override public boolean hasNetwork() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 3 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for network.
+   */
+  @java.lang.Override public int getNetworkValue() {
+    return network_;
+  }
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 3 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return The network.
+   */
+  @java.lang.Override public gincoinc.global.v1.Enum.Network getNetwork() {
+    gincoinc.global.v1.Enum.Network result = gincoinc.global.v1.Enum.Network.forNumber(network_);
+    return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
   }
 
   public static final int DESTINATION_WALLET_ID_FIELD_NUMBER = 2;
@@ -117,6 +144,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destinationWalletId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, destinationWalletId_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeEnum(3, network_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -132,6 +162,10 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destinationWalletId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, destinationWalletId_);
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(3, network_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -149,6 +183,10 @@ private static final long serialVersionUID = 0L;
     adamant.global.v1.UpdateWalletFlushSettingRequest other = (adamant.global.v1.UpdateWalletFlushSettingRequest) obj;
 
     if (coin_ != other.coin_) return false;
+    if (hasNetwork() != other.hasNetwork()) return false;
+    if (hasNetwork()) {
+      if (network_ != other.network_) return false;
+    }
     if (!getDestinationWalletId()
         .equals(other.getDestinationWalletId())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -164,6 +202,10 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + COIN_FIELD_NUMBER;
     hash = (53 * hash) + coin_;
+    if (hasNetwork()) {
+      hash = (37 * hash) + NETWORK_FIELD_NUMBER;
+      hash = (53 * hash) + network_;
+    }
     hash = (37 * hash) + DESTINATION_WALLET_ID_FIELD_NUMBER;
     hash = (53 * hash) + getDestinationWalletId().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
@@ -298,6 +340,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       bitField0_ = 0;
       coin_ = 0;
+      network_ = 0;
       destinationWalletId_ = "";
       return this;
     }
@@ -335,9 +378,15 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.coin_ = coin_;
       }
+      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.network_ = network_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
         result.destinationWalletId_ = destinationWalletId_;
       }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -387,9 +436,12 @@ private static final long serialVersionUID = 0L;
       if (other.coin_ != 0) {
         setCoinValue(other.getCoinValue());
       }
+      if (other.hasNetwork()) {
+        setNetwork(other.getNetwork());
+      }
       if (!other.getDestinationWalletId().isEmpty()) {
         destinationWalletId_ = other.destinationWalletId_;
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -425,9 +477,14 @@ private static final long serialVersionUID = 0L;
             } // case 8
             case 18: {
               destinationWalletId_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000004;
               break;
             } // case 18
+            case 24: {
+              network_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 24
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -498,6 +555,66 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int network_ = 0;
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 3 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return Whether the network field is set.
+     */
+    @java.lang.Override public boolean hasNetwork() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 3 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for network.
+     */
+    @java.lang.Override public int getNetworkValue() {
+      return network_;
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 3 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for network to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNetworkValue(int value) {
+      network_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 3 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return The network.
+     */
+    @java.lang.Override
+    public gincoinc.global.v1.Enum.Network getNetwork() {
+      gincoinc.global.v1.Enum.Network result = gincoinc.global.v1.Enum.Network.forNumber(network_);
+      return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 3 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @param value The network to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNetwork(gincoinc.global.v1.Enum.Network value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000002;
+      network_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 3 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNetwork() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      network_ = 0;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object destinationWalletId_ = "";
     /**
      * <code>string destination_wallet_id = 2 [json_name = "destinationWalletId", (.validate.rules) = { ... }</code>
@@ -541,7 +658,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       destinationWalletId_ = value;
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -551,7 +668,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearDestinationWalletId() {
       destinationWalletId_ = getDefaultInstance().getDestinationWalletId();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -565,7 +682,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       destinationWalletId_ = value;
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
