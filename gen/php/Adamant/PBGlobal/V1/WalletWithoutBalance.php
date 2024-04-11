@@ -30,6 +30,10 @@ class WalletWithoutBalance extends \Google\Protobuf\Internal\Message
      */
     protected $coin = 0;
     /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 23 [json_name = "network"];</code>
+     */
+    protected $network = 0;
+    /**
      * Generated from protobuf field <code>uint32 hd_account = 4 [json_name = "hdAccount"];</code>
      */
     protected $hd_account = 0;
@@ -112,6 +116,7 @@ class WalletWithoutBalance extends \Google\Protobuf\Internal\Message
      *     @type string $wallet_id
      *     @type string $name
      *     @type int $coin
+     *     @type int $network
      *     @type int $hd_account
      *     @type int $wallet_type
      *     @type int $address_type
@@ -221,6 +226,28 @@ class WalletWithoutBalance extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
         $this->coin = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 23 [json_name = "network"];</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return $this->network;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 23 [json_name = "network"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

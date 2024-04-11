@@ -41,6 +41,10 @@ public class CalculateFeeRequestValidator implements io.envoyproxy.pgv.Validator
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.CalculateFeeRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -81,6 +85,12 @@ public class CalculateFeeRequestValidator implements io.envoyproxy.pgv.Validator
 	
 			// Validate rbf_specific
 			if (proto.hasRbfSpecific()) index.validatorFor(proto.getRbfSpecific()).assertValid(proto.getRbfSpecific());
+	
+			// Validate utxo_specific
+			if (proto.hasUtxoSpecific()) index.validatorFor(proto.getUtxoSpecific()).assertValid(proto.getUtxoSpecific());
+	
+			// Validate solana_specific
+			if (proto.hasSolanaSpecific()) index.validatorFor(proto.getSolanaSpecific()).assertValid(proto.getSolanaSpecific());
 	
 	}
 

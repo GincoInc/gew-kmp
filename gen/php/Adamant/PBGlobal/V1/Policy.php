@@ -46,6 +46,12 @@ class Policy extends \Google\Protobuf\Internal\Message
      */
     protected $coin = 0;
     /**
+     * network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 12 [json_name = "network"];</code>
+     */
+    protected $network = 0;
+    /**
      * whitelist
      *
      * Generated from protobuf field <code>.adamant.global.v1.Whitelist whitelist = 6 [json_name = "whitelist"];</code>
@@ -92,6 +98,8 @@ class Policy extends \Google\Protobuf\Internal\Message
      *           The flag indicates the policy is default
      *     @type int $coin
      *           coin
+     *     @type int $network
+     *           network
      *     @type \Adamant\PBGlobal\V1\Whitelist $whitelist
      *           whitelist
      *     @type \Adamant\PBGlobal\V1\TransferLimit $transfer_limit
@@ -235,6 +243,32 @@ class Policy extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
         $this->coin = $var;
+
+        return $this;
+    }
+
+    /**
+     * network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 12 [json_name = "network"];</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return $this->network;
+    }
+
+    /**
+     * network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 12 [json_name = "network"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

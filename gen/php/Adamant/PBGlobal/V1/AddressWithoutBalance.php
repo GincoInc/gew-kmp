@@ -34,6 +34,12 @@ class AddressWithoutBalance extends \Google\Protobuf\Internal\Message
      */
     protected $coin = 0;
     /**
+     * The network of coin
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 11 [json_name = "network"];</code>
+     */
+    protected $network = 0;
+    /**
      * address
      *
      * Generated from protobuf field <code>string address = 4 [json_name = "address"];</code>
@@ -88,6 +94,8 @@ class AddressWithoutBalance extends \Google\Protobuf\Internal\Message
      *           id
      *     @type int $coin
      *           The type of coin
+     *     @type int $network
+     *           The network of coin
      *     @type string $address
      *           address
      *     @type int $index
@@ -183,6 +191,32 @@ class AddressWithoutBalance extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
         $this->coin = $var;
+
+        return $this;
+    }
+
+    /**
+     * The network of coin
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 11 [json_name = "network"];</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return $this->network;
+    }
+
+    /**
+     * The network of coin
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 11 [json_name = "network"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

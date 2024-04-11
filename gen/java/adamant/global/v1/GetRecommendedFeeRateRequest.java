@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private GetRecommendedFeeRateRequest() {
     coin_ = 0;
+    network_ = 0;
   }
 
   @java.lang.Override
@@ -39,6 +40,7 @@ private static final long serialVersionUID = 0L;
             adamant.global.v1.GetRecommendedFeeRateRequest.class, adamant.global.v1.GetRecommendedFeeRateRequest.Builder.class);
   }
 
+  private int bitField0_;
   public static final int COIN_FIELD_NUMBER = 1;
   private int coin_ = 0;
   /**
@@ -55,6 +57,31 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
     gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.forNumber(coin_);
     return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
+  }
+
+  public static final int NETWORK_FIELD_NUMBER = 2;
+  private int network_ = 0;
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 2 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return Whether the network field is set.
+   */
+  @java.lang.Override public boolean hasNetwork() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 2 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for network.
+   */
+  @java.lang.Override public int getNetworkValue() {
+    return network_;
+  }
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 2 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return The network.
+   */
+  @java.lang.Override public gincoinc.global.v1.Enum.Network getNetwork() {
+    gincoinc.global.v1.Enum.Network result = gincoinc.global.v1.Enum.Network.forNumber(network_);
+    return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -74,6 +101,9 @@ private static final long serialVersionUID = 0L;
     if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
       output.writeEnum(1, coin_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeEnum(2, network_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -86,6 +116,10 @@ private static final long serialVersionUID = 0L;
     if (coin_ != gincoinc.global.v1.Enum.Coin.COIN_INVALID.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, coin_);
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(2, network_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -103,6 +137,10 @@ private static final long serialVersionUID = 0L;
     adamant.global.v1.GetRecommendedFeeRateRequest other = (adamant.global.v1.GetRecommendedFeeRateRequest) obj;
 
     if (coin_ != other.coin_) return false;
+    if (hasNetwork() != other.hasNetwork()) return false;
+    if (hasNetwork()) {
+      if (network_ != other.network_) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -116,6 +154,10 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + COIN_FIELD_NUMBER;
     hash = (53 * hash) + coin_;
+    if (hasNetwork()) {
+      hash = (37 * hash) + NETWORK_FIELD_NUMBER;
+      hash = (53 * hash) + network_;
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -248,6 +290,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       bitField0_ = 0;
       coin_ = 0;
+      network_ = 0;
       return this;
     }
 
@@ -284,6 +327,12 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.coin_ = coin_;
       }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.network_ = network_;
+        to_bitField0_ |= 0x00000001;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -333,6 +382,9 @@ private static final long serialVersionUID = 0L;
       if (other.coin_ != 0) {
         setCoinValue(other.getCoinValue());
       }
+      if (other.hasNetwork()) {
+        setNetwork(other.getNetwork());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -364,6 +416,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000001;
               break;
             } // case 8
+            case 16: {
+              network_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -430,6 +487,66 @@ private static final long serialVersionUID = 0L;
     public Builder clearCoin() {
       bitField0_ = (bitField0_ & ~0x00000001);
       coin_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int network_ = 0;
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 2 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return Whether the network field is set.
+     */
+    @java.lang.Override public boolean hasNetwork() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 2 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for network.
+     */
+    @java.lang.Override public int getNetworkValue() {
+      return network_;
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 2 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for network to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNetworkValue(int value) {
+      network_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 2 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return The network.
+     */
+    @java.lang.Override
+    public gincoinc.global.v1.Enum.Network getNetwork() {
+      gincoinc.global.v1.Enum.Network result = gincoinc.global.v1.Enum.Network.forNumber(network_);
+      return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 2 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @param value The network to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNetwork(gincoinc.global.v1.Enum.Network value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000002;
+      network_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 2 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNetwork() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      network_ = 0;
       onChanged();
       return this;
     }

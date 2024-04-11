@@ -20,13 +20,14 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-ƒÒ
-6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"◊
+¸˙
+6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"é	
 Wallet
 owner_id (	RownerId
 	wallet_id (	RwalletId
 name (	Rname,
-coin (2.gincoinc.global.v1.CoinRcoin
+coin (2.gincoinc.global.v1.CoinRcoin5
+network (2.gincoinc.global.v1.NetworkRnetwork
 
 hd_account (R	hdAccount>
 wallet_type (2.adamant.global.v1.WalletTypeR
@@ -54,12 +55,13 @@ watch_only (R	watchOnly%
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
-updateTime"À
+updateTime"Ç
 WalletWithoutBalance
 owner_id (	RownerId
 	wallet_id (	RwalletId
 name (	Rname,
-coin (2.gincoinc.global.v1.CoinRcoin
+coin (2.gincoinc.global.v1.CoinRcoin5
+network (2.gincoinc.global.v1.NetworkRnetwork
 
 hd_account (R	hdAccount>
 wallet_type (2.adamant.global.v1.WalletTypeR
@@ -140,12 +142,13 @@ account_id (	R	accountIdA
 account_type (2.adamant.global.v1.AccountTypeRaccountType
 key_id (	RkeyId
 	key_index (RkeyIndex
-hd_index (RhdIndex"ˆ
+hd_index (RhdIndex"≠
 Address
 	wallet_id (	RwalletId
 
 address_id (	R	addressId,
-coin (2.gincoinc.global.v1.CoinRcoin
+coin (2.gincoinc.global.v1.CoinRcoin5
+network (2.gincoinc.global.v1.NetworkRnetwork
 address (	Raddress
 index (Rindex
 	hd_change (RhdChange
@@ -156,12 +159,13 @@ address_id (	R	addressId,
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
-updateTime"√
+updateTime"˙
 AddressWithoutBalance
 	wallet_id (	RwalletId
 
 address_id (	R	addressId,
-coin (2.gincoinc.global.v1.CoinRcoin
+coin (2.gincoinc.global.v1.CoinRcoin5
+network (2.gincoinc.global.v1.NetworkRnetwork
 address (	Raddress
 index (Rindex
 	hd_change
@@ -194,11 +198,12 @@ address_id (	R	addressId,
 string_balance (	RstringBalance
 fee_balance (R
 feeBalance,
-string_fee_balance (	RstringFeeBalance"‚
+string_fee_balance (	RstringFeeBalance"ı
 Transaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId,
-coin (2.gincoinc.global.v1.CoinRcoin
+coin (2.gincoinc.global.v1.CoinRcoin5
+network/ (2.gincoinc.global.v1.NetworkRnetwork
 tx_id (	RtxId
 address (	Raddress
 value (Rvalue!
@@ -239,7 +244,8 @@ signedKeys>
 japan_open_chain_specific+ (2).adamant.global.v1.JapanOpenChainSpecificRjapanOpenChainSpecificJ
 solana_specific, (2!.adamant.global.v1.SolanaSpecificRsolanaSpecifica
 bnb_smart_chain_specific- (2(.adamant.global.v1.BNBSmartChainSpecificRbnbSmartChainSpecificG
-flare_specific. (2 .adamant.global.v1.FlareSpecificRflareSpecific;
+flare_specific. (2 .adamant.global.v1.FlareSpecificRflareSpecificZ
+arbitrum_one_specific0 (2&.adamant.global.v1.ArbitrumOneSpecificRarbitrumOneSpecific;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
@@ -418,7 +424,12 @@ expiration"n
 FlareSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
-is_next_nonce (RisNextNonce"‚
+is_next_nonce (RisNextNonce"Ä
+ArbitrumOneSpecific
+	gas_limit (RgasLimit
+nonce (Rnonce"
+is_next_nonce (RisNextNonce
+data (	Rdata"‚
 "CreateTransactionSubstrateSpecific%
 transaction_id (	RtransactionIdA
 	call_type (2$.adamant.global.v1.SubstrateCallTypeRcallTypeR
@@ -455,7 +466,13 @@ callMethodàB
 	timestamp (R	timestamp"S
 CreateTransactionHederaSpecific
 memo (	Rmemo
-	timestamp (R	timestamp"Ô
+	timestamp (R	timestamp"e
+CreateTransactionSolanaSpecificB
+
+event_type (2#.gincoinc.global.v1.SolanaEventTypeR	eventType"7
+SelectedUTXO
+tx_id (	RtxId
+vout (Rvout"Ô
 SubstrateMultisigTransaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionIdI
@@ -525,12 +542,13 @@ sign_index (R	signIndex!
 tx_input_index (RtxInputIndex!
 sign_message (	RsignMessage
 	hd_change (RhdChange
-hd_index (RhdIndex"Â
+hd_index (RhdIndex"ú
 Transfer
 	wallet_id (	RwalletId
 transfer_id (	R
 transferId,
-coin (2.gincoinc.global.v1.CoinRcoin
+coin (2.gincoinc.global.v1.CoinRcoin5
+network (2.gincoinc.global.v1.NetworkRnetwork
 tx_id (	RtxIdE
 transfer_type (2 .gincoinc.global.v1.TransferTypeRtransferType
 value (Rvalue!
@@ -628,20 +646,22 @@ updateTime"°
 approver_account_id (	RapproverAccountId#
 approver_name (	RapproverName)
 proposed_address (	RproposedAddress.
-address_is_reviewed (RaddressIsReviewed"´
+address_is_reviewed (RaddressIsReviewed"‚
 	Whitelist!
 whitelist_id (	RwhitelistId
 name (	Rname,
-coin (2.gincoinc.global.v1.CoinRcoin?
+coin (2.gincoinc.global.v1.CoinRcoin5
+network (2.gincoinc.global.v1.NetworkRnetwork?
 	addresses (2!.adamant.global.v1.LabeledAddressR	addresses;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
-updateTime"»
+updateTime"ˇ
 TransferLimit*
 transfer_limit_id (	RtransferLimitId
 name (	Rname,
-coin (2.gincoinc.global.v1.CoinRcoin!
+coin (2.gincoinc.global.v1.CoinRcoin5
+network (2.gincoinc.global.v1.NetworkRnetwork!
 hourly_limit (RhourlyLimit
 daily_limit (R
 dailyLimit$
@@ -663,14 +683,15 @@ updateTime"É
 proposed_daily_limit (RproposedDailyLimit5
 proposed_one_time_limit (RproposedOneTimeLimit
 is_reviewed (R
-isReviewed"ã
+isReviewed"¬
 Policy
 	policy_id (	RpolicyId>
 policy_type (2.adamant.global.v1.PolicyTypeR
 policyType
 name (	Rname$
 is_base_policy (RisBasePolicy,
-coin (2.gincoinc.global.v1.CoinRcoin:
+coin (2.gincoinc.global.v1.CoinRcoin5
+network (2.gincoinc.global.v1.NetworkRnetwork:
 	whitelist (2.adamant.global.v1.WhitelistR	whitelistG
 transfer_limit (2 .adamant.global.v1.TransferLimitRtransferLimit=
 proposal (2!.adamant.global.v1.PolicyProposalRproposal;
@@ -686,9 +707,10 @@ updateTime"¨
 approver_name (	RapproverNameK
 proposed_whitelist (2.adamant.global.v1.WhitelistRproposedWhitelist
 is_reviewed (R
-isReviewed"†
+isReviewed"◊
 TotalBalanceByCoin,
-coin (2.gincoinc.global.v1.CoinRcoin.
+coin (2.gincoinc.global.v1.CoinRcoin5
+network (2.gincoinc.global.v1.NetworkRnetwork.
 cold_string_balance (	RcoldStringBalance,
 hot_string_balance (	RhotStringBalance"‹
 TotalBalancec
@@ -733,9 +755,10 @@ targetTimez
 transfer_volume_by_coin (2C.adamant.global.v1.TransferVolumeSnapshot.TransferVolumeByCoinEntryRtransferVolumeByCoinj
 TransferVolumeByCoinEntry
 key (Rkey7
-value (2!.adamant.global.v1.TransferVolumeRvalue:8"á
+value (2!.adamant.global.v1.TransferVolumeRvalue:8"æ
 TransferVolume,
-coin (2.gincoinc.global.v1.CoinRcoin*
+coin (2.gincoinc.global.v1.CoinRcoin5
+network	 (2.gincoinc.global.v1.NetworkRnetwork*
 hot_string_volume (	RhotStringVolume,
 cold_string_volume (	RcoldStringVolume1
 hot_string_jpy_volume (	RhotStringJpyVolume3
@@ -766,10 +789,11 @@ targetTime¨
 transfer_type (2 .gincoinc.global.v1.TransferTypeRtransferType"`
 Confirmation,
 coin (2.gincoinc.global.v1.CoinRcoin"
-confirmation (Rconfirmation"ã
+confirmation (Rconfirmation"¬
 WalletFlushSetting
 owner_id (	RownerId,
-coin (2.gincoinc.global.v1.CoinRcoin2
+coin (2.gincoinc.global.v1.CoinRcoin5
+network (2.gincoinc.global.v1.NetworkRnetwork2
 destination_wallet_id (	RdestinationWalletId;
 create_time (2.google.protobuf.TimestampR
 createTime;
@@ -779,11 +803,12 @@ updateTime"å
 string_value (	RstringValue
 is_spent (RisSpent;
 create_time (2.google.protobuf.TimestampR
-createTime"≈
+createTime"¸
 WalletGroup&
 wallet_group_id (	RwalletGroupId
 name (	Rname,
-coin (2.gincoinc.global.v1.CoinRcoin3
+coin (2.gincoinc.global.v1.CoinRcoin5
+network (2.gincoinc.global.v1.NetworkRnetwork3
 wallets (2.adamant.global.v1.WalletRwallets
 
 watch_only (R	watchOnly;
@@ -833,17 +858,19 @@ account_id (	R	accountId!
 IOSTCallerAccount!
 account_name (	RaccountName
 balance (Rbalance%
-string_balance (	RstringBalance"ò
+string_balance (	RstringBalance"œ
 CallerAddress
 address (	Raddress
 balance (Rbalance%
 string_balance (	RstringBalance,
-coin (2.gincoinc.global.v1.CoinRcoin"ú
+coin (2.gincoinc.global.v1.CoinRcoin5
+network (2.gincoinc.global.v1.NetworkRnetwork"”
 FeeDepositAddress
 address (	Raddress
 balance (Rbalance%
 string_balance (	RstringBalance,
-coin (2.gincoinc.global.v1.CoinRcoin"ç
+coin (2.gincoinc.global.v1.CoinRcoin5
+network (2.gincoinc.global.v1.NetworkRnetwork"ç
 CosmosDelegation+
 validator_address (	RvalidatorAddress\'
 delegate_amount (RdelegateAmount#

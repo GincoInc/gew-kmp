@@ -821,6 +821,37 @@ public final class TellerAPIGrpc {
     return getSendTransactionMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ResendTransactionRequest,
+      adamant.global.v1.ResendTransactionResponse> getResendTransactionMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ResendTransaction",
+      requestType = adamant.teller.v1.ResendTransactionRequest.class,
+      responseType = adamant.global.v1.ResendTransactionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ResendTransactionRequest,
+      adamant.global.v1.ResendTransactionResponse> getResendTransactionMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ResendTransactionRequest, adamant.global.v1.ResendTransactionResponse> getResendTransactionMethod;
+    if ((getResendTransactionMethod = TellerAPIGrpc.getResendTransactionMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getResendTransactionMethod = TellerAPIGrpc.getResendTransactionMethod) == null) {
+          TellerAPIGrpc.getResendTransactionMethod = getResendTransactionMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ResendTransactionRequest, adamant.global.v1.ResendTransactionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ResendTransaction"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ResendTransactionRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ResendTransactionResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ResendTransaction"))
+              .build();
+        }
+      }
+    }
+    return getResendTransactionMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.CancelTransactionRequest,
       com.google.protobuf.Empty> getCancelTransactionMethod;
 
@@ -881,6 +912,37 @@ public final class TellerAPIGrpc {
       }
     }
     return getReplaceTransactionMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.IsTransactionReplaceableRequest,
+      adamant.global.v1.IsTransactionReplaceableResponse> getIsTransactionReplaceableMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "IsTransactionReplaceable",
+      requestType = adamant.global.v1.IsTransactionReplaceableRequest.class,
+      responseType = adamant.global.v1.IsTransactionReplaceableResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.IsTransactionReplaceableRequest,
+      adamant.global.v1.IsTransactionReplaceableResponse> getIsTransactionReplaceableMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.IsTransactionReplaceableRequest, adamant.global.v1.IsTransactionReplaceableResponse> getIsTransactionReplaceableMethod;
+    if ((getIsTransactionReplaceableMethod = TellerAPIGrpc.getIsTransactionReplaceableMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getIsTransactionReplaceableMethod = TellerAPIGrpc.getIsTransactionReplaceableMethod) == null) {
+          TellerAPIGrpc.getIsTransactionReplaceableMethod = getIsTransactionReplaceableMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.IsTransactionReplaceableRequest, adamant.global.v1.IsTransactionReplaceableResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "IsTransactionReplaceable"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.IsTransactionReplaceableRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.IsTransactionReplaceableResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("IsTransactionReplaceable"))
+              .build();
+        }
+      }
+    }
+    return getIsTransactionReplaceableMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.GetTransactionRequest,
@@ -2054,6 +2116,13 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    default void resendTransaction(adamant.teller.v1.ResendTransactionRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ResendTransactionResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getResendTransactionMethod(), responseObserver);
+    }
+
+    /**
+     */
     default void cancelTransaction(adamant.global.v1.CancelTransactionRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCancelTransactionMethod(), responseObserver);
@@ -2064,6 +2133,13 @@ public final class TellerAPIGrpc {
     default void replaceTransaction(adamant.global.v1.ReplaceTransactionRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ReplaceTransactionResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getReplaceTransactionMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void isTransactionReplaceable(adamant.global.v1.IsTransactionReplaceableRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.IsTransactionReplaceableResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getIsTransactionReplaceableMethod(), responseObserver);
     }
 
     /**
@@ -2544,6 +2620,14 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    public void resendTransaction(adamant.teller.v1.ResendTransactionRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ResendTransactionResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getResendTransactionMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void cancelTransaction(adamant.global.v1.CancelTransactionRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -2556,6 +2640,14 @@ public final class TellerAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.ReplaceTransactionResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getReplaceTransactionMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void isTransactionReplaceable(adamant.global.v1.IsTransactionReplaceableRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.IsTransactionReplaceableResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getIsTransactionReplaceableMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -3029,6 +3121,13 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    public adamant.global.v1.ResendTransactionResponse resendTransaction(adamant.teller.v1.ResendTransactionRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getResendTransactionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public com.google.protobuf.Empty cancelTransaction(adamant.global.v1.CancelTransactionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCancelTransactionMethod(), getCallOptions(), request);
@@ -3039,6 +3138,13 @@ public final class TellerAPIGrpc {
     public adamant.global.v1.ReplaceTransactionResponse replaceTransaction(adamant.global.v1.ReplaceTransactionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getReplaceTransactionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.IsTransactionReplaceableResponse isTransactionReplaceable(adamant.global.v1.IsTransactionReplaceableRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getIsTransactionReplaceableMethod(), getCallOptions(), request);
     }
 
     /**
@@ -3508,6 +3614,14 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ResendTransactionResponse> resendTransaction(
+        adamant.teller.v1.ResendTransactionRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getResendTransactionMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> cancelTransaction(
         adamant.global.v1.CancelTransactionRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -3520,6 +3634,14 @@ public final class TellerAPIGrpc {
         adamant.global.v1.ReplaceTransactionRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getReplaceTransactionMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.IsTransactionReplaceableResponse> isTransactionReplaceable(
+        adamant.global.v1.IsTransactionReplaceableRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getIsTransactionReplaceableMethod(), getCallOptions()), request);
     }
 
     /**
@@ -3810,38 +3932,40 @@ public final class TellerAPIGrpc {
   private static final int METHODID_CREATE_TRANSACTION = 23;
   private static final int METHODID_SIGN_TRANSACTION = 24;
   private static final int METHODID_SEND_TRANSACTION = 25;
-  private static final int METHODID_CANCEL_TRANSACTION = 26;
-  private static final int METHODID_REPLACE_TRANSACTION = 27;
-  private static final int METHODID_GET_TRANSACTION = 28;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 29;
-  private static final int METHODID_LIST_TRANSACTIONS = 30;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 31;
-  private static final int METHODID_EXIT_ETHEREUM_STAKING_VALIDATORS = 32;
-  private static final int METHODID_LIST_TRANSFERS = 33;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 34;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 35;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 36;
-  private static final int METHODID_SET_RATES = 37;
-  private static final int METHODID_CALCULATE_FEE = 38;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 39;
-  private static final int METHODID_VALIDATE_ADDRESS = 40;
-  private static final int METHODID_FLUSH_BALANCE = 41;
-  private static final int METHODID_LIST_AUDIT_LOGS = 42;
-  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 43;
-  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 44;
-  private static final int METHODID_SIGN_MESSAGE = 45;
-  private static final int METHODID_PROGMAT_COIN_INITIALIZE = 46;
-  private static final int METHODID_PROGMAT_COIN_CONFIGURE_MINTER = 47;
-  private static final int METHODID_PROGMAT_COIN_MINT_AND_TRANSFER = 48;
-  private static final int METHODID_PROGMAT_COIN_MINT = 49;
-  private static final int METHODID_PROGMAT_COIN_BURN = 50;
-  private static final int METHODID_PROGMAT_COIN_ADD_TO_WHITELIST = 51;
-  private static final int METHODID_PROGMAT_COIN_REMOVE_FROM_WHITELIST = 52;
-  private static final int METHODID_PROGMAT_COIN_ADD_TO_BLACKLIST = 53;
-  private static final int METHODID_PROGMAT_COIN_REMOVE_FROM_BLACKLIST = 54;
-  private static final int METHODID_PROGMAT_COIN_CONFISCATE = 55;
-  private static final int METHODID_PROGMAT_COIN_PAUSE = 56;
-  private static final int METHODID_PROGMAT_COIN_UNPAUSE = 57;
+  private static final int METHODID_RESEND_TRANSACTION = 26;
+  private static final int METHODID_CANCEL_TRANSACTION = 27;
+  private static final int METHODID_REPLACE_TRANSACTION = 28;
+  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 29;
+  private static final int METHODID_GET_TRANSACTION = 30;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 31;
+  private static final int METHODID_LIST_TRANSACTIONS = 32;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 33;
+  private static final int METHODID_EXIT_ETHEREUM_STAKING_VALIDATORS = 34;
+  private static final int METHODID_LIST_TRANSFERS = 35;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 36;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 37;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 38;
+  private static final int METHODID_SET_RATES = 39;
+  private static final int METHODID_CALCULATE_FEE = 40;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 41;
+  private static final int METHODID_VALIDATE_ADDRESS = 42;
+  private static final int METHODID_FLUSH_BALANCE = 43;
+  private static final int METHODID_LIST_AUDIT_LOGS = 44;
+  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 45;
+  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 46;
+  private static final int METHODID_SIGN_MESSAGE = 47;
+  private static final int METHODID_PROGMAT_COIN_INITIALIZE = 48;
+  private static final int METHODID_PROGMAT_COIN_CONFIGURE_MINTER = 49;
+  private static final int METHODID_PROGMAT_COIN_MINT_AND_TRANSFER = 50;
+  private static final int METHODID_PROGMAT_COIN_MINT = 51;
+  private static final int METHODID_PROGMAT_COIN_BURN = 52;
+  private static final int METHODID_PROGMAT_COIN_ADD_TO_WHITELIST = 53;
+  private static final int METHODID_PROGMAT_COIN_REMOVE_FROM_WHITELIST = 54;
+  private static final int METHODID_PROGMAT_COIN_ADD_TO_BLACKLIST = 55;
+  private static final int METHODID_PROGMAT_COIN_REMOVE_FROM_BLACKLIST = 56;
+  private static final int METHODID_PROGMAT_COIN_CONFISCATE = 57;
+  private static final int METHODID_PROGMAT_COIN_PAUSE = 58;
+  private static final int METHODID_PROGMAT_COIN_UNPAUSE = 59;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -3964,6 +4088,10 @@ public final class TellerAPIGrpc {
           serviceImpl.sendTransaction((adamant.teller.v1.SendTransactionRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.SendTransactionResponse>) responseObserver);
           break;
+        case METHODID_RESEND_TRANSACTION:
+          serviceImpl.resendTransaction((adamant.teller.v1.ResendTransactionRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ResendTransactionResponse>) responseObserver);
+          break;
         case METHODID_CANCEL_TRANSACTION:
           serviceImpl.cancelTransaction((adamant.global.v1.CancelTransactionRequest) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
@@ -3971,6 +4099,10 @@ public final class TellerAPIGrpc {
         case METHODID_REPLACE_TRANSACTION:
           serviceImpl.replaceTransaction((adamant.global.v1.ReplaceTransactionRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ReplaceTransactionResponse>) responseObserver);
+          break;
+        case METHODID_IS_TRANSACTION_REPLACEABLE:
+          serviceImpl.isTransactionReplaceable((adamant.global.v1.IsTransactionReplaceableRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.IsTransactionReplaceableResponse>) responseObserver);
           break;
         case METHODID_GET_TRANSACTION:
           serviceImpl.getTransaction((adamant.global.v1.GetTransactionRequest) request,
@@ -4293,6 +4425,13 @@ public final class TellerAPIGrpc {
               adamant.global.v1.SendTransactionResponse>(
                 service, METHODID_SEND_TRANSACTION)))
         .addMethod(
+          getResendTransactionMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.ResendTransactionRequest,
+              adamant.global.v1.ResendTransactionResponse>(
+                service, METHODID_RESEND_TRANSACTION)))
+        .addMethod(
           getCancelTransactionMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
@@ -4306,6 +4445,13 @@ public final class TellerAPIGrpc {
               adamant.global.v1.ReplaceTransactionRequest,
               adamant.global.v1.ReplaceTransactionResponse>(
                 service, METHODID_REPLACE_TRANSACTION)))
+        .addMethod(
+          getIsTransactionReplaceableMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.IsTransactionReplaceableRequest,
+              adamant.global.v1.IsTransactionReplaceableResponse>(
+                service, METHODID_IS_TRANSACTION_REPLACEABLE)))
         .addMethod(
           getGetTransactionMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -4590,8 +4736,10 @@ public final class TellerAPIGrpc {
               .addMethod(getCreateTransactionMethod())
               .addMethod(getSignTransactionMethod())
               .addMethod(getSendTransactionMethod())
+              .addMethod(getResendTransactionMethod())
               .addMethod(getCancelTransactionMethod())
               .addMethod(getReplaceTransactionMethod())
+              .addMethod(getIsTransactionReplaceableMethod())
               .addMethod(getGetTransactionMethod())
               .addMethod(getGetTransactionByTxIDMethod())
               .addMethod(getListTransactionsMethod())
