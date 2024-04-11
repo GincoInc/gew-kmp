@@ -29,7 +29,7 @@ generate: $(BIN)/buf $(BIN)/protoc-gen-go $(BIN)/protoc-gen-go-grpc $(BIN)/proto
 	$(BIN)/buf generate --path ./api/proto/gincoinc
 
 .PHONY: protodep-up
-protodep-up: SSH_KEY ?= id_ed25519
+protodep-up: SSH_KEY ?= github_id_rsa
 protodep-up: $(BIN)/protodep
 	@$(BIN)/protodep up -f --identity-file=$(SSH_KEY)
 	find ./api/proto/gincoinc -type f | xargs sed -i '' -e 's/GincoInc\/protobuf\/gen\/go/GincoInc\/gew-kmp\/gen/g'
