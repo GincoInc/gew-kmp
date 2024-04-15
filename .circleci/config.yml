@@ -1,0 +1,210 @@
+# Golang CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-go/ for more details
+#
+# for go modules support, see: https://circleci.com/blog/go-v1.11-modules-and-circleci/
+version: 2
+reference:
+  work_dir: &work_dir /home/circleci/go/src/tmp
+
+  golang_container_config: &golang_container_config
+    environment:
+      GOSUMDB: "off"
+      GOPROXY: "https://proxy.golang.org,direct"
+    docker:
+      - image: cimg/go:1.19
+        environment:
+          GO111MODULE: "on"
+          GOCACHE: /home/circleci/go/.cache
+          GOPATH: /home/circleci/go
+          GOLANGCI_LINT_CACHE: /home/circleci/go/.cache/lint
+          SPANNER_EMULATOR_HOST: localhost:9999
+    working_directory: *work_dir
+
+  cloud-sdk_container_config: &cloud-sdk_container_config
+    environment:
+      GOSUMDB: "off"
+      GOPROXY: "https://proxy.golang.org,direct"
+    docker:
+      - image: google/cloud-sdk:latest
+    working_directory: *work_dir
+
+  checkout_handy_spanner: &checkout_handy_spanner
+    run:
+      name: Install and Setup Handy Spanner
+      command: |
+        mkdir ~/src; cd $_
+        git clone https://github.com/gcpug/handy-spanner.git -b v0.6.6 --depth 1
+        cd handy-spanner
+        make build
+        ./handy-spanner -schema ~/go/src/tmp/pkg/infra/database/schema.sql -project ginco-cluster -instance gew-qa -database gatekeeper-test
+      background: true
+
+  submodule_update: &submodule_update
+    run:
+      name: Update Submodule
+      command: make submodule-update
+
+  lint_go_and_report_with_reviewdog: &lint_go_and_report_with_reviewdog
+    run:
+      name: Lint Go Sources and Report with Reviewdog
+      no_output_timeout: 30m
+      command: |
+        if [ -n "${CIRCLE_PULL_REQUEST}" ]; then
+          GOLANGCI_LINT_CACHE=$GOLANGCI_LINT_CACHE REVIEWDOG_GITHUB_API_TOKEN=$GITHUB_TOKEN make lint-ci-reviewdog
+        else
+          GOLANGCI_LINT_CACHE=$GOLANGCI_LINT_CACHE make lint-ci
+        fi
+
+  test_go: &test_go
+    run:
+      name: Testing Go Sources
+      command: |
+        make test
+
+  gcloud_auth_for_build: &gcloud_auth_for_build
+    run:
+      name: gcloud Authentication
+      command: |
+        echo $GCLOUD_SERVICE_KEY | base64 --decode --ignore-garbage > ${HOME}/gcloud-service-key.json
+        gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
+        gcloud config set project ginco-registry
+
+  build_docker_image: &build_docker_image
+    run:
+      name: Build Docker Image
+      command: |
+        TAG=$CIRCLE_TAG
+        if [ -z "$TAG" ]; then
+          TAG=$(echo $CIRCLE_SHA1 | cut -c -7)
+        fi
+        gcloud builds submit --config=cloudbuild.yaml --substitutions=_REPONAME=${CIRCLE_PROJECT_REPONAME},_TAG=${TAG} .
+
+  update_k8s_charts: &update_k8s_charts
+    run:
+      name: Update k8s Charts
+      command: |
+        git submodule update -i
+        git clone https://github.com/GincoInc/adamant-charts.git && cd ./adamant-charts/adamant
+        git config user.name "CircleCI"
+        git config user.email "circleci@ginco.io"
+
+        ../../.circleci/ci-util/update_k8s_charts.sh
+
+  coveralls: &coveralls
+    run:
+      name: Coveralls
+      command: |
+        go install github.com/mattn/goveralls@latest
+        $GOPATH/bin/goveralls -v -coverprofile=coverage.out -service=circle-ci -repotoken=$COVERALLS_REPO_TOKEN
+
+jobs:
+  lint:
+    <<: *golang_container_config
+    steps:
+      - checkout
+      - *submodule_update
+      - restore_cache:
+          name: Restoring Reviewdog Binary Cache
+          keys:
+            - go-lint-cache-v{{ .Environment.CACHE_VERSION }}-{{ checksum ".circleci/ci-util/install_reviewdog.sh" }}
+            - go-lint-cache-v{{ .Environment.CACHE_VERSION }}
+      - restore_cache:
+          name: Restoring Lint Binary Cache
+          keys:
+            - go-lint-cache-v{{ .Environment.CACHE_VERSION }}-{{ checksum ".circleci/ci-util/install_golangci_lint.sh" }}
+            - go-lint-cache-v{{ .Environment.CACHE_VERSION }}
+      - restore_cache:
+          name: Restoring Go Lint Cache
+          keys:
+            - go-lint-cache-v{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ .Revision }}
+            - go-lint-cache-v{{ .Environment.CACHE_VERSION }}-{{ .Branch }}
+            - go-lint-cache-v{{ .Environment.CACHE_VERSION }}
+      - *lint_go_and_report_with_reviewdog
+      - save_cache:
+          name: Saving Reviewdog Binary Cache
+          key: reviewdog-cache-v{{ .Environment.CACHE_VERSION }}-{{ checksum ".circleci/ci-util/install_reviewdog.sh" }}
+          paths:
+            - bin/reviewdog
+      - save_cache:
+          name: Saving Lint Binary Cache
+          key: go-lint-cache-v{{ .Environment.CACHE_VERSION }}-{{ checksum ".circleci/ci-util/install_golangci_lint.sh" }}
+          paths:
+            - bin/golangci-lint
+      - save_cache:
+          name: Saving Go Lint Cache
+          key: go-lint-cache-v{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - $GOLANGCI_LINT_CACHE
+
+  test:
+    <<: *golang_container_config
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restoring Go Modules Cache
+          keys:
+            - go-module-cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "go.mod" }}
+            - go-module-cache-{{ .Environment.CACHE_VERSION }}-
+      - restore_cache:
+          name: Restoring Go Build Cache
+          keys:
+            - go-build-cache-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ .Revision }}
+            - go-build-cache-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
+            - go-build-cache-{{ .Environment.CACHE_VERSION }}-
+      - run: go mod download -x
+      - save_cache:
+          name: Saving Go Modules Cache
+          key: go-module-cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "go.mod" }}
+          paths:
+            - /home/circleci/go/pkg/mod/cache
+      - run: go mod vendor
+      - save_cache:
+          name: Saving Go Vendor Cache
+          key: go-vendor-cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "go.mod" }}
+          paths:
+            - /home/circleci/go/src/tmp/vendor
+      - *checkout_handy_spanner
+      - *test_go
+      - save_cache:
+          name: Saving Go Build Cache
+          key: go-build-cache-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - /home/circleci/go/.cache
+      - *coveralls
+
+  deploy:
+    <<: *cloud-sdk_container_config
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restoring Go Vendor Cache
+          keys:
+            - go-vendor-cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "go.mod" }}
+            - go-vendor-cache-{{ .Environment.CACHE_VERSION }}-
+      - *gcloud_auth_for_build
+      - *build_docker_image
+      - *update_k8s_charts
+
+workflows:
+  version: 2
+  lint_test_-->_deploy:
+    jobs:
+      - lint:
+          filters:
+            tags:
+              only: /^v.*/
+      - test:
+          filters:
+            tags:
+              only: /^v.*/
+      - deploy:
+          requires:
+            - lint
+            - test
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              only:
+                - master
