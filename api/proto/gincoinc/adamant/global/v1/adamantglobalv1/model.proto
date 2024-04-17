@@ -632,6 +632,7 @@ message SignInfo {
   string sign_message = 7;
   uint32 hd_change = 8;
   uint32 hd_index = 9;
+  gincoinc.global.v1.Network network = 12;
   repeated SignTxInput sign_tx_inputs = 10;
 }
 
@@ -741,6 +742,7 @@ message LabeledAddress {
   LabeledAddressProposal proposal = 5; // The proposal about updating the labeled address
   google.protobuf.Timestamp create_time = 7; // the time at which the labeled address was created
   google.protobuf.Timestamp update_time = 8; // the time at which the labeled address was updated
+  gincoinc.global.v1.Network network = 9;
 }
 
 // The model of proposal to update labeled address information

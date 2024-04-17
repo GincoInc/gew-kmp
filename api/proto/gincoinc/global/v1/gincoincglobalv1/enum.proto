@@ -82,6 +82,9 @@ enum Coin {
   COIN_POLYGON_ERC20_OSHI = 65;
   COIN_ARBITRUM_ERC20_ARB = 66;
   COIN_KLAYTN_KIP7_BORA = 67;
+  COIN_ERC20_MASK = 68;
+  COIN_ERC20_SUP = 69;
+  COIN_ERC20_DM2P = 70;
   COIN_SDN = 10002;
   COIN_ERC20_SCDEV = 10003; // for stable coin development in dev
   COIN_ERC20_SCQA = 10004; // for stable coin development in qa
