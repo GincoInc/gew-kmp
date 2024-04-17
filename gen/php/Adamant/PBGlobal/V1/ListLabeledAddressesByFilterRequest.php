@@ -55,6 +55,10 @@ class ListLabeledAddressesByFilterRequest extends \Google\Protobuf\Internal\Mess
      * Generated from protobuf field <code>string page_token = 7 [json_name = "pageToken", (.validate.rules) = {</code>
      */
     protected $page_token = '';
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = {</code>
+     */
+    protected $network = null;
 
     /**
      * Constructor.
@@ -76,6 +80,7 @@ class ListLabeledAddressesByFilterRequest extends \Google\Protobuf\Internal\Mess
      *           optional
      *     @type string $page_token
      *           optional
+     *     @type int $network
      * }
      */
     public function __construct($data = NULL) {
@@ -261,6 +266,38 @@ class ListLabeledAddressesByFilterRequest extends \Google\Protobuf\Internal\Mess
     {
         GPBUtil::checkString($var, True);
         $this->page_token = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = {</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return isset($this->network) ? $this->network : 0;
+    }
+
+    public function hasNetwork()
+    {
+        return isset($this->network);
+    }
+
+    public function clearNetwork()
+    {
+        unset($this->network);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = {</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

@@ -58,6 +58,10 @@ class LabeledAddress extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Timestamp update_time = 8 [json_name = "updateTime"];</code>
      */
     protected $update_time = null;
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 9 [json_name = "network"];</code>
+     */
+    protected $network = 0;
 
     /**
      * Constructor.
@@ -79,6 +83,7 @@ class LabeledAddress extends \Google\Protobuf\Internal\Message
      *           the time at which the labeled address was created
      *     @type \Google\Protobuf\Timestamp $update_time
      *           the time at which the labeled address was updated
+     *     @type int $network
      * }
      */
     public function __construct($data = NULL) {
@@ -294,6 +299,28 @@ class LabeledAddress extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->update_time = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 9 [json_name = "network"];</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return $this->network;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 9 [json_name = "network"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }
