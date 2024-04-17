@@ -275,6 +275,10 @@ public class EventValidator {
 		
 	
 	
+		
+
+
+	
 
 	public void assertValid(adamant.teller.v1.Event.EthereumStakingReward proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for EventId
@@ -301,6 +305,15 @@ public class EventValidator {
 	// no validation rules for BlockHash
 
 	
+		
+			switch (proto.getTxIdCase()) {
+				case TX_ID:
+					// no validation rules for TxId
+
+					break;
+				
+			}
+
 	}
 }
 /**

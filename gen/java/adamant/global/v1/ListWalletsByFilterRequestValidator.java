@@ -40,6 +40,14 @@ public class ListWalletsByFilterRequestValidator implements io.envoyproxy.pgv.Va
 		com.google.re2j.Pattern PAGE_TOKEN__PATTERN = com.google.re2j.Pattern.compile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$");
 	
 	
+		
+
+
+	
+		
+
+
+	
 
 	public void assertValid(adamant.global.v1.ListWalletsByFilterRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
@@ -70,6 +78,24 @@ public class ListWalletsByFilterRequestValidator implements io.envoyproxy.pgv.Va
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.ListWalletsByFilterRequest.page_token", proto.getPageToken(), PAGE_TOKEN__PATTERN);
 	
+		
+			switch (proto.getOnlyIsStakingAvailableCase()) {
+				case ONLY_IS_STAKING_AVAILABLE:
+					// no validation rules for OnlyIsStakingAvailable
+
+					break;
+				
+			}
+
+		
+			switch (proto.getNetworkCase()) {
+				case NETWORK:
+					
+			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.ListWalletsByFilterRequest.network", proto.getNetwork());
+					break;
+				
+			}
+
 	}
 
 }

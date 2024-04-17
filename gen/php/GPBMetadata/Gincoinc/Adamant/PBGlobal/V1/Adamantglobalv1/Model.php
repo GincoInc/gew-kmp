@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-üú
+êû
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"Ž	
 Wallet
 owner_id (	RownerId
@@ -522,7 +522,7 @@ account_id
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time	 (2.google.protobuf.TimestampR
-updateTime"‡
+updateTime"¾
 SignInfo
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId
@@ -535,7 +535,8 @@ hd_account (R	hdAccount,
 sign_index (R	signIndex!
 sign_message (	RsignMessage
 	hd_change (RhdChange
-hd_index	 (RhdIndexD
+hd_index	 (RhdIndex5
+network (2.gincoinc.global.v1.NetworkRnetworkD
 sign_tx_inputs
  (2.adamant.global.v1.SignTxInputRsignTxInputs"Ž
 SignTxInput$
@@ -629,7 +630,7 @@ RatesEntry
 Deactivatability
 
 account_id (	R	accountId$
-deactivatable (Rdeactivatable"Û
+deactivatable (Rdeactivatable"’
 LabeledAddress,
 labeled_address_id (	RlabeledAddressId
 name (	Rname,
@@ -639,7 +640,8 @@ account_id (	R	accountId$
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
-updateTime"¡
+updateTime5
+network	 (2.gincoinc.global.v1.NetworkRnetwork"¡
 LabeledAddressProposal0
 requester_account_id (	RrequesterAccountId%
 requester_name (	RrequesterName.
