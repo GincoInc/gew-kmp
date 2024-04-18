@@ -1,0 +1,78 @@
+version: 2
+executors:
+  docker-publisher:
+    docker:
+      - image: cimg/node:lts
+
+reference:
+  work_dir: &work_dir /home/circleci/go/src/tmp
+  golang_container_config: &golang_container_config
+    docker:
+      - image: cimg/go:1.19
+        environment:
+          GOPATH: /home/circleci/go
+          GOCACHE: /home/circleci/go/.cache
+          GO111MODULE: "on"
+          GOPROXY: "https://proxy.golang.org,direct"
+          GOSUMDB: "off"
+    environment:
+      IMAGE_POSTBOX: ginco/postbox
+      IMAGE_POSTBOX_GATEWAY: ginco/postbox-gateway
+    working_directory: *work_dir
+jobs:
+  setup:
+    <<: *golang_container_config
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restoring Go Modules Cache
+          keys:
+            - go-module-cache-{{ .Environment.CACHE_VERSION }}-{{ checksum "go.mod" }}
+            - go-module-cache-{{ .Environment.CACHE_VERSION }}
+      - restore_cache:
+          name: Restoring Go Build Cache
+          keys:
+            - go-build-cache-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ .Revision }}
+            - go-build-cache-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}
+            - go-build-cache-{{ .Environment.CACHE_VERSION }}
+      - run: go mod download -x
+      - save_cache:
+          name: Saving Go Modules Cache
+          key: go-module-cache-v{{ .Environment.CACHE_VERSION }}-{{ checksum "go.mod" }}
+          paths:
+            - /home/circleci/go/pkg/mod/cache
+      - run: go mod vendor
+      - save_cache:
+          name: Saving Go Vendor Cache
+          key: go-vendor-cache-v{{ .Environment.CACHE_VERSION }}-{{ checksum "go.mod" }}
+          paths:
+            - /home/circleci/go/src/tmp/vendor
+      - save_cache:
+          name: Saving Go Build Cache
+          key: go-build-cache-v{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - /home/circleci/go/.cache
+  protobuf-code-gen-validation:
+    <<: *golang_container_config
+    steps:
+      - checkout
+      - run:
+          name: protodep up
+          command: |
+            cp /home/circleci/.ssh/id_rsa /home/circleci/.ssh/github_id_rsa
+            make protodep-up
+      - run: 
+          name: generate proto code
+          command: make generate
+      - run: 
+          name: check diff
+          command: git diff --exit-code
+      - run:
+          name: breaking
+          command: make breaking
+
+workflows:
+  version: 2
+  code-validation: 
+    jobs:
+      - protobuf-code-gen-validation

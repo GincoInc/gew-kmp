@@ -2,6 +2,16 @@ export GO111MODULE=on
 BIN := $(abspath ./bin)
 GO_ENV ?= GOBIN=$(BIN)
 
+BUF_VERSION := 1.3.1
+UNAME_S := $(shell uname -s)
+UNAME_M := $(shell uname -m)
+
+ifeq ($(UNAME_S), Darwin)
+	SED_COMMAND ?= sed -i '' -e
+else
+	SED_COMMAND ?= sed -i -e
+endif
+
 $(BIN)/buf:
 	test -f $(BIN)/buf || $(GO_ENV) go install github.com/bufbuild/buf/cmd/buf@v1.8
 $(BIN)/protodep:
@@ -32,8 +42,11 @@ generate: $(BIN)/buf $(BIN)/protoc-gen-go $(BIN)/protoc-gen-go-grpc $(BIN)/proto
 protodep-up: SSH_KEY ?= github_id_rsa
 protodep-up: $(BIN)/protodep
 	@$(BIN)/protodep up -f --identity-file=$(SSH_KEY)
-	find ./api/proto/gincoinc -type f | xargs sed -i '' -e 's/GincoInc\/protobuf\/gen\/go/GincoInc\/gew-kmp\/gen/g'
+	find ./api/proto/gincoinc -type f | xargs $(SED_COMMAND) 's/GincoInc\/protobuf\/gen\/go/GincoInc\/gew-kmp\/gen/g'
 
 .PHONY: evans
 evans: $(BIN)/evans
 	@cd ./api/proto && $(BIN)/evans --path=./../../vendor --path=. --port 50051 --package adamant.teller.v1 --service TellerAPI ./gincoinc/adamant/teller/v1/adamanttellerv1/teller_api.proto
+
+breaking:
+	$(BIN)/buf breaking --against "https://github.com/GincoInc/gew-kmp.git#branch=master"
