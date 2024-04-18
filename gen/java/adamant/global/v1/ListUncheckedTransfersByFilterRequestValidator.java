@@ -48,6 +48,10 @@ public class ListUncheckedTransfersByFilterRequestValidator implements io.envoyp
 		
 	
 	
+		
+
+
+	
 
 	public void assertValid(adamant.global.v1.ListUncheckedTransfersByFilterRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for HasChecked
@@ -85,6 +89,15 @@ public class ListUncheckedTransfersByFilterRequestValidator implements io.envoyp
 			// Validate end_time
 			if (proto.hasEndTime()) index.validatorFor(proto.getEndTime()).assertValid(proto.getEndTime());
 	
+		
+			switch (proto.getNetworkCase()) {
+				case NETWORK:
+					
+			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.ListUncheckedTransfersByFilterRequest.network", proto.getNetwork());
+					break;
+				
+			}
+
 	}
 
 }

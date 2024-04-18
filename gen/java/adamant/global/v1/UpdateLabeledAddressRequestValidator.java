@@ -27,6 +27,10 @@ public class UpdateLabeledAddressRequestValidator implements io.envoyproxy.pgv.V
 		
 	
 	
+		
+
+
+	
 
 	public void assertValid(adamant.global.v1.UpdateLabeledAddressRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
@@ -40,6 +44,15 @@ public class UpdateLabeledAddressRequestValidator implements io.envoyproxy.pgv.V
 	// no validation rules for Address
 
 	
+		
+			switch (proto.getNetworkCase()) {
+				case NETWORK:
+					
+			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.UpdateLabeledAddressRequest.network", proto.getNetwork());
+					break;
+				
+			}
+
 	}
 
 }

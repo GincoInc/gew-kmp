@@ -24,6 +24,10 @@ public class CreateWhitelistRequestValidator implements io.envoyproxy.pgv.Valida
 		
 	
 	
+		
+
+
+	
 
 	public void assertValid(adamant.global.v1.CreateWhitelistRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
@@ -39,6 +43,15 @@ public class CreateWhitelistRequestValidator implements io.envoyproxy.pgv.Valida
 
 			});
 	
+		
+			switch (proto.getNetworkCase()) {
+				case NETWORK:
+					
+			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.CreateWhitelistRequest.network", proto.getNetwork());
+					break;
+				
+			}
+
 	}
 
 }
