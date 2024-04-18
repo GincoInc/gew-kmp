@@ -1462,6 +1462,9 @@ message CreateLabeledAddressRequest {
     ]
   }];
   string address = 3;
+  optional gincoinc.global.v1.Network network = 4 [(validate.rules).enum = {
+    defined_only: true
+  }];
 }
 
 message CreateLabeledAddressResponse {
@@ -1483,6 +1486,9 @@ message UpdateLabeledAddressRequest {
     ]
   }];
   string address = 4;
+  optional gincoinc.global.v1.Network network = 5 [(validate.rules).enum = {
+    defined_only: true
+  }];
 }
 
 message GetLabeledAddressRequest {
@@ -1526,6 +1532,9 @@ message ListLabeledAddressesByFilterRequest {
   // optional
   string page_token = 7 [(validate.rules).string = {
     pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
+  optional gincoinc.global.v1.Network network = 8 [(validate.rules).enum = {
+    defined_only: true
   }];
 }
 
