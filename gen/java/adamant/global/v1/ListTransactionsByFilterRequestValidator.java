@@ -44,10 +44,6 @@ public class ListTransactionsByFilterRequestValidator implements io.envoyproxy.p
 		com.google.re2j.Pattern PAGE_TOKEN__PATTERN = com.google.re2j.Pattern.compile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$");
 	
 	
-		
-
-
-	
 
 	public void assertValid(adamant.global.v1.ListTransactionsByFilterRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
@@ -82,15 +78,6 @@ public class ListTransactionsByFilterRequestValidator implements io.envoyproxy.p
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.ListTransactionsByFilterRequest.page_token", proto.getPageToken(), PAGE_TOKEN__PATTERN);
 	
-		
-			switch (proto.getNetworkCase()) {
-				case NETWORK:
-					
-			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.ListTransactionsByFilterRequest.network", proto.getNetwork());
-					break;
-				
-			}
-
 	}
 
 }

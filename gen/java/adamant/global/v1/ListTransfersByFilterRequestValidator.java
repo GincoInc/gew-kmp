@@ -50,10 +50,6 @@ public class ListTransfersByFilterRequestValidator implements io.envoyproxy.pgv.
 		
 	
 	
-		
-
-
-	
 
 	public void assertValid(adamant.global.v1.ListTransfersByFilterRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
@@ -93,15 +89,6 @@ public class ListTransfersByFilterRequestValidator implements io.envoyproxy.pgv.
 			// Validate end_time
 			if (proto.hasEndTime()) index.validatorFor(proto.getEndTime()).assertValid(proto.getEndTime());
 	
-		
-			switch (proto.getNetworkCase()) {
-				case NETWORK:
-					
-			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.ListTransfersByFilterRequest.network", proto.getNetwork());
-					break;
-				
-			}
-
 	}
 
 }

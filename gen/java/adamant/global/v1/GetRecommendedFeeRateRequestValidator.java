@@ -20,25 +20,12 @@ public class GetRecommendedFeeRateRequestValidator implements io.envoyproxy.pgv.
 		};
 	
 	
-		
-
-
-	
 
 	public void assertValid(adamant.global.v1.GetRecommendedFeeRateRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
 			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.GetRecommendedFeeRateRequest.coin", proto.getCoin());
 			io.envoyproxy.pgv.CollectiveValidation.notIn(".adamant.global.v1.GetRecommendedFeeRateRequest.coin", proto.getCoin(), COIN__NOT_IN);
 	
-		
-			switch (proto.getNetworkCase()) {
-				case NETWORK:
-					
-			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.GetRecommendedFeeRateRequest.network", proto.getNetwork());
-					break;
-				
-			}
-
 	}
 
 }
