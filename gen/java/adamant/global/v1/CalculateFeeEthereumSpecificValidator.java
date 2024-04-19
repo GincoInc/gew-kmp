@@ -17,24 +17,11 @@ public class CalculateFeeEthereumSpecificValidator implements io.envoyproxy.pgv.
 		
 	
 	
-		
-
-
-	
 
 	public void assertValid(adamant.global.v1.CalculateFeeEthereumSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Data
 
 	
-		
-			switch (proto.getIsStakingTransactionCase()) {
-				case IS_STAKING_TRANSACTION:
-					// no validation rules for IsStakingTransaction
-
-					break;
-				
-			}
-
 	}
 
 }

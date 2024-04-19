@@ -55,10 +55,6 @@ public class CreateWalletRequestValidator implements io.envoyproxy.pgv.Validator
 		com.google.re2j.Pattern INHERIT_WALLET_ID__PATTERN = com.google.re2j.Pattern.compile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
 	
 	
-		
-
-
-	
 
 	public void assertValid(adamant.global.v1.CreateWalletRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
@@ -95,15 +91,6 @@ public class CreateWalletRequestValidator implements io.envoyproxy.pgv.Validator
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.CreateWalletRequest.inherit_wallet_id", proto.getInheritWalletId(), INHERIT_WALLET_ID__PATTERN);
 	
-		
-			switch (proto.getNetworkCase()) {
-				case NETWORK:
-					
-			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.CreateWalletRequest.network", proto.getNetwork());
-					break;
-				
-			}
-
 	}
 
 }
