@@ -99,6 +99,12 @@ class ListTransfersByFilterRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Timestamp end_time = 15 [json_name = "endTime"];</code>
      */
     protected $end_time = null;
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 16 [json_name = "network", (.validate.rules) = {</code>
+     */
+    protected $network = null;
 
     /**
      * Constructor.
@@ -133,6 +139,8 @@ class ListTransfersByFilterRequest extends \Google\Protobuf\Internal\Message
      *     @type \Google\Protobuf\Timestamp $start_time
      *           optional
      *     @type \Google\Protobuf\Timestamp $end_time
+     *           optional
+     *     @type int $network
      *           optional
      * }
      */
@@ -539,6 +547,42 @@ class ListTransfersByFilterRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->end_time = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 16 [json_name = "network", (.validate.rules) = {</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return isset($this->network) ? $this->network : 0;
+    }
+
+    public function hasNetwork()
+    {
+        return isset($this->network);
+    }
+
+    public function clearNetwork()
+    {
+        unset($this->network);
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 16 [json_name = "network", (.validate.rules) = {</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

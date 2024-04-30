@@ -716,6 +716,20 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\ResendTransactionRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ResendTransaction(\Adamant\Global\V1\ResendTransactionRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ResendTransaction',
+        $argument,
+        ['\Adamant\Global\V1\ResendTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\SendXRPInitTransactionsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -754,6 +768,20 @@ class GlobalAPIClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ReplaceTransaction',
         $argument,
         ['\Adamant\Global\V1\ReplaceTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\IsTransactionReplaceableRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function IsTransactionReplaceable(\Adamant\Global\V1\IsTransactionReplaceableRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/IsTransactionReplaceable',
+        $argument,
+        ['\Adamant\Global\V1\IsTransactionReplaceableResponse', 'decode'],
         $metadata, $options);
     }
 

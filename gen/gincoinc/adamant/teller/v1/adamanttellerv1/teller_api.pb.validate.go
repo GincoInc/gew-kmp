@@ -1004,6 +1004,134 @@ var _SendTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-
 
 var _SendTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+// Validate checks the field values on ResendTransactionRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ResendTransactionRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ResendTransactionRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ResendTransactionRequestMultiError, or nil if none found.
+func (m *ResendTransactionRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ResendTransactionRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ResendTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ResendTransactionRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ResendTransactionRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
+		err := ResendTransactionRequestValidationError{
+			field:  "TransactionId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return ResendTransactionRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ResendTransactionRequestMultiError is an error wrapping multiple validation
+// errors returned by ResendTransactionRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ResendTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ResendTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ResendTransactionRequestMultiError) AllErrors() []error { return m }
+
+// ResendTransactionRequestValidationError is the validation error returned by
+// ResendTransactionRequest.Validate if the designated constraints aren't met.
+type ResendTransactionRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ResendTransactionRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ResendTransactionRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ResendTransactionRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ResendTransactionRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ResendTransactionRequestValidationError) ErrorName() string {
+	return "ResendTransactionRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ResendTransactionRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sResendTransactionRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ResendTransactionRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ResendTransactionRequestValidationError{}
+
+var _ResendTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ResendTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on ProgmatCoinInitializeRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.

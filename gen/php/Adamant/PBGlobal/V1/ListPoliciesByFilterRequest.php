@@ -40,6 +40,12 @@ class ListPoliciesByFilterRequest extends \Google\Protobuf\Internal\Message
     /**
      * optional
      *
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = {</code>
+     */
+    protected $network = null;
+    /**
+     * optional
+     *
      * Generated from protobuf field <code>.adamant.global.v1.PolicyType policy_type = 5 [json_name = "policyType", (.validate.rules) = {</code>
      */
     protected $policy_type = 0;
@@ -69,6 +75,8 @@ class ListPoliciesByFilterRequest extends \Google\Protobuf\Internal\Message
      *     @type string $policy_name
      *           optional
      *     @type int $coin
+     *           optional
+     *     @type int $network
      *           optional
      *     @type int $policy_type
      *           optional
@@ -183,6 +191,42 @@ class ListPoliciesByFilterRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
         $this->coin = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = {</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return isset($this->network) ? $this->network : 0;
+    }
+
+    public function hasNetwork()
+    {
+        return isset($this->network);
+    }
+
+    public function clearNetwork()
+    {
+        unset($this->network);
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = {</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

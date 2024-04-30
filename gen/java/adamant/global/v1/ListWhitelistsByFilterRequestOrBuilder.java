@@ -90,6 +90,34 @@ public interface ListWhitelistsByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
+   * <code>optional .gincoinc.global.v1.Network network = 7 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return Whether the network field is set.
+   */
+  boolean hasNetwork();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>optional .gincoinc.global.v1.Network network = 7 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for network.
+   */
+  int getNetworkValue();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>optional .gincoinc.global.v1.Network network = 7 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return The network.
+   */
+  gincoinc.global.v1.Enum.Network getNetwork();
+
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
    * <code>uint32 page_size = 5 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */

@@ -34,6 +34,12 @@ class TransferLimit extends \Google\Protobuf\Internal\Message
      */
     protected $coin = 0;
     /**
+     * network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 12 [json_name = "network"];</code>
+     */
+    protected $network = 0;
+    /**
      * The hourly limit of amount which the wallet can transfer (in JPY)
      *
      * Generated from protobuf field <code>int64 hourly_limit = 4 [json_name = "hourlyLimit"];</code>
@@ -88,6 +94,8 @@ class TransferLimit extends \Google\Protobuf\Internal\Message
      *           name
      *     @type int $coin
      *           coin
+     *     @type int $network
+     *           network
      *     @type int|string $hourly_limit
      *           The hourly limit of amount which the wallet can transfer (in JPY)
      *     @type int|string $daily_limit
@@ -183,6 +191,32 @@ class TransferLimit extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
         $this->coin = $var;
+
+        return $this;
+    }
+
+    /**
+     * network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 12 [json_name = "network"];</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return $this->network;
+    }
+
+    /**
+     * network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 12 [json_name = "network"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

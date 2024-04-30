@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private CreateWalletGroupRequest() {
     name_ = "";
     coin_ = 0;
+    network_ = 0;
     walletIds_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
   }
@@ -42,6 +43,7 @@ private static final long serialVersionUID = 0L;
             adamant.global.v1.CreateWalletGroupRequest.class, adamant.global.v1.CreateWalletGroupRequest.Builder.class);
   }
 
+  private int bitField0_;
   public static final int NAME_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
   private volatile java.lang.Object name_ = "";
@@ -97,6 +99,31 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
     gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.forNumber(coin_);
     return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
+  }
+
+  public static final int NETWORK_FIELD_NUMBER = 5;
+  private int network_ = 0;
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 5 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return Whether the network field is set.
+   */
+  @java.lang.Override public boolean hasNetwork() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 5 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for network.
+   */
+  @java.lang.Override public int getNetworkValue() {
+    return network_;
+  }
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 5 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return The network.
+   */
+  @java.lang.Override public gincoinc.global.v1.Enum.Network getNetwork() {
+    gincoinc.global.v1.Enum.Network result = gincoinc.global.v1.Enum.Network.forNumber(network_);
+    return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
   }
 
   public static final int WALLET_IDS_FIELD_NUMBER = 3;
@@ -173,6 +200,9 @@ private static final long serialVersionUID = 0L;
     if (watchOnly_ != false) {
       output.writeBool(4, watchOnly_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeEnum(5, network_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -201,6 +231,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, watchOnly_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(5, network_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -219,6 +253,10 @@ private static final long serialVersionUID = 0L;
     if (!getName()
         .equals(other.getName())) return false;
     if (coin_ != other.coin_) return false;
+    if (hasNetwork() != other.hasNetwork()) return false;
+    if (hasNetwork()) {
+      if (network_ != other.network_) return false;
+    }
     if (!getWalletIdsList()
         .equals(other.getWalletIdsList())) return false;
     if (getWatchOnly()
@@ -238,6 +276,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + COIN_FIELD_NUMBER;
     hash = (53 * hash) + coin_;
+    if (hasNetwork()) {
+      hash = (37 * hash) + NETWORK_FIELD_NUMBER;
+      hash = (53 * hash) + network_;
+    }
     if (getWalletIdsCount() > 0) {
       hash = (37 * hash) + WALLET_IDS_FIELD_NUMBER;
       hash = (53 * hash) + getWalletIdsList().hashCode();
@@ -378,6 +420,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       name_ = "";
       coin_ = 0;
+      network_ = 0;
       walletIds_ =
           com.google.protobuf.LazyStringArrayList.emptyList();
       watchOnly_ = false;
@@ -420,13 +463,19 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.coin_ = coin_;
       }
+      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.network_ = network_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
         walletIds_.makeImmutable();
         result.walletIds_ = walletIds_;
       }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
+      if (((from_bitField0_ & 0x00000010) != 0)) {
         result.watchOnly_ = watchOnly_;
       }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -481,10 +530,13 @@ private static final long serialVersionUID = 0L;
       if (other.coin_ != 0) {
         setCoinValue(other.getCoinValue());
       }
+      if (other.hasNetwork()) {
+        setNetwork(other.getNetwork());
+      }
       if (!other.walletIds_.isEmpty()) {
         if (walletIds_.isEmpty()) {
           walletIds_ = other.walletIds_;
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
         } else {
           ensureWalletIdsIsMutable();
           walletIds_.addAll(other.walletIds_);
@@ -538,9 +590,14 @@ private static final long serialVersionUID = 0L;
             } // case 26
             case 32: {
               watchOnly_ = input.readBool();
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000010;
               break;
             } // case 32
+            case 40: {
+              network_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 40
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -683,13 +740,73 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int network_ = 0;
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 5 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return Whether the network field is set.
+     */
+    @java.lang.Override public boolean hasNetwork() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 5 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for network.
+     */
+    @java.lang.Override public int getNetworkValue() {
+      return network_;
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 5 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for network to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNetworkValue(int value) {
+      network_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 5 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return The network.
+     */
+    @java.lang.Override
+    public gincoinc.global.v1.Enum.Network getNetwork() {
+      gincoinc.global.v1.Enum.Network result = gincoinc.global.v1.Enum.Network.forNumber(network_);
+      return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 5 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @param value The network to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNetwork(gincoinc.global.v1.Enum.Network value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000004;
+      network_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 5 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNetwork() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      network_ = 0;
+      onChanged();
+      return this;
+    }
+
     private com.google.protobuf.LazyStringArrayList walletIds_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
     private void ensureWalletIdsIsMutable() {
       if (!walletIds_.isModifiable()) {
         walletIds_ = new com.google.protobuf.LazyStringArrayList(walletIds_);
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
     }
     /**
      * <code>repeated string wallet_ids = 3 [json_name = "walletIds", (.validate.rules) = { ... }</code>
@@ -735,7 +852,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       ensureWalletIdsIsMutable();
       walletIds_.set(index, value);
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -749,7 +866,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       ensureWalletIdsIsMutable();
       walletIds_.add(value);
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -763,7 +880,7 @@ private static final long serialVersionUID = 0L;
       ensureWalletIdsIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
           values, walletIds_);
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -774,7 +891,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearWalletIds() {
       walletIds_ =
         com.google.protobuf.LazyStringArrayList.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000004);;
+      bitField0_ = (bitField0_ & ~0x00000008);;
       onChanged();
       return this;
     }
@@ -789,7 +906,7 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       ensureWalletIdsIsMutable();
       walletIds_.add(value);
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -811,7 +928,7 @@ private static final long serialVersionUID = 0L;
     public Builder setWatchOnly(boolean value) {
 
       watchOnly_ = value;
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -820,7 +937,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWatchOnly() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000010);
       watchOnly_ = false;
       onChanged();
       return this;

@@ -18,6 +18,10 @@ class UpdateWalletFlushSettingRequest extends \Google\Protobuf\Internal\Message
      */
     protected $coin = 0;
     /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 3 [json_name = "network", (.validate.rules) = {</code>
+     */
+    protected $network = null;
+    /**
      * Generated from protobuf field <code>string destination_wallet_id = 2 [json_name = "destinationWalletId", (.validate.rules) = {</code>
      */
     protected $destination_wallet_id = '';
@@ -29,6 +33,7 @@ class UpdateWalletFlushSettingRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int $coin
+     *     @type int $network
      *     @type string $destination_wallet_id
      * }
      */
@@ -55,6 +60,38 @@ class UpdateWalletFlushSettingRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
         $this->coin = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 3 [json_name = "network", (.validate.rules) = {</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return isset($this->network) ? $this->network : 0;
+    }
+
+    public function hasNetwork()
+    {
+        return isset($this->network);
+    }
+
+    public function clearNetwork()
+    {
+        unset($this->network);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 3 [json_name = "network", (.validate.rules) = {</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private CreateTransferLimitRequest() {
     name_ = "";
     coin_ = 0;
+    network_ = 0;
     transferLimits_ = java.util.Collections.emptyList();
   }
 
@@ -41,6 +42,7 @@ private static final long serialVersionUID = 0L;
             adamant.global.v1.CreateTransferLimitRequest.class, adamant.global.v1.CreateTransferLimitRequest.Builder.class);
   }
 
+  private int bitField0_;
   public static final int NAME_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
   private volatile java.lang.Object name_ = "";
@@ -96,6 +98,43 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override public gincoinc.global.v1.Enum.Coin getCoin() {
     gincoinc.global.v1.Enum.Coin result = gincoinc.global.v1.Enum.Coin.forNumber(coin_);
     return result == null ? gincoinc.global.v1.Enum.Coin.UNRECOGNIZED : result;
+  }
+
+  public static final int NETWORK_FIELD_NUMBER = 4;
+  private int network_ = 0;
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>optional .gincoinc.global.v1.Network network = 4 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return Whether the network field is set.
+   */
+  @java.lang.Override public boolean hasNetwork() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>optional .gincoinc.global.v1.Network network = 4 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for network.
+   */
+  @java.lang.Override public int getNetworkValue() {
+    return network_;
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>optional .gincoinc.global.v1.Network network = 4 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return The network.
+   */
+  @java.lang.Override public gincoinc.global.v1.Enum.Network getNetwork() {
+    gincoinc.global.v1.Enum.Network result = gincoinc.global.v1.Enum.Network.forNumber(network_);
+    return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
   }
 
   public static final int TRANSFER_LIMITS_FIELD_NUMBER = 3;
@@ -162,6 +201,9 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < transferLimits_.size(); i++) {
       output.writeMessage(3, transferLimits_.get(i));
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeEnum(4, network_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -182,6 +224,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, transferLimits_.get(i));
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(4, network_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -200,6 +246,10 @@ private static final long serialVersionUID = 0L;
     if (!getName()
         .equals(other.getName())) return false;
     if (coin_ != other.coin_) return false;
+    if (hasNetwork() != other.hasNetwork()) return false;
+    if (hasNetwork()) {
+      if (network_ != other.network_) return false;
+    }
     if (!getTransferLimitsList()
         .equals(other.getTransferLimitsList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -217,6 +267,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + COIN_FIELD_NUMBER;
     hash = (53 * hash) + coin_;
+    if (hasNetwork()) {
+      hash = (37 * hash) + NETWORK_FIELD_NUMBER;
+      hash = (53 * hash) + network_;
+    }
     if (getTransferLimitsCount() > 0) {
       hash = (37 * hash) + TRANSFER_LIMITS_FIELD_NUMBER;
       hash = (53 * hash) + getTransferLimitsList().hashCode();
@@ -354,13 +408,14 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       name_ = "";
       coin_ = 0;
+      network_ = 0;
       if (transferLimitsBuilder_ == null) {
         transferLimits_ = java.util.Collections.emptyList();
       } else {
         transferLimits_ = null;
         transferLimitsBuilder_.clear();
       }
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -395,9 +450,9 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartialRepeatedFields(adamant.global.v1.CreateTransferLimitRequest result) {
       if (transferLimitsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           transferLimits_ = java.util.Collections.unmodifiableList(transferLimits_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.transferLimits_ = transferLimits_;
       } else {
@@ -413,6 +468,12 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.coin_ = coin_;
       }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.network_ = network_;
+        to_bitField0_ |= 0x00000001;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -467,11 +528,14 @@ private static final long serialVersionUID = 0L;
       if (other.coin_ != 0) {
         setCoinValue(other.getCoinValue());
       }
+      if (other.hasNetwork()) {
+        setNetwork(other.getNetwork());
+      }
       if (transferLimitsBuilder_ == null) {
         if (!other.transferLimits_.isEmpty()) {
           if (transferLimits_.isEmpty()) {
             transferLimits_ = other.transferLimits_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureTransferLimitsIsMutable();
             transferLimits_.addAll(other.transferLimits_);
@@ -484,7 +548,7 @@ private static final long serialVersionUID = 0L;
             transferLimitsBuilder_.dispose();
             transferLimitsBuilder_ = null;
             transferLimits_ = other.transferLimits_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
             transferLimitsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTransferLimitsFieldBuilder() : null;
@@ -542,6 +606,11 @@ private static final long serialVersionUID = 0L;
               }
               break;
             } // case 26
+            case 32: {
+              network_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 32
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -684,12 +753,96 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int network_ = 0;
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>optional .gincoinc.global.v1.Network network = 4 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return Whether the network field is set.
+     */
+    @java.lang.Override public boolean hasNetwork() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>optional .gincoinc.global.v1.Network network = 4 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for network.
+     */
+    @java.lang.Override public int getNetworkValue() {
+      return network_;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>optional .gincoinc.global.v1.Network network = 4 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for network to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNetworkValue(int value) {
+      network_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>optional .gincoinc.global.v1.Network network = 4 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return The network.
+     */
+    @java.lang.Override
+    public gincoinc.global.v1.Enum.Network getNetwork() {
+      gincoinc.global.v1.Enum.Network result = gincoinc.global.v1.Enum.Network.forNumber(network_);
+      return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>optional .gincoinc.global.v1.Network network = 4 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @param value The network to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNetwork(gincoinc.global.v1.Enum.Network value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000004;
+      network_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>optional .gincoinc.global.v1.Network network = 4 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNetwork() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      network_ = 0;
+      onChanged();
+      return this;
+    }
+
     private java.util.List<adamant.global.v1.Model.RequestTransferLimitEntry> transferLimits_ =
       java.util.Collections.emptyList();
     private void ensureTransferLimitsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         transferLimits_ = new java.util.ArrayList<adamant.global.v1.Model.RequestTransferLimitEntry>(transferLimits_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -839,7 +992,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTransferLimits() {
       if (transferLimitsBuilder_ == null) {
         transferLimits_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         transferLimitsBuilder_.clear();
@@ -916,7 +1069,7 @@ private static final long serialVersionUID = 0L;
         transferLimitsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             adamant.global.v1.Model.RequestTransferLimitEntry, adamant.global.v1.Model.RequestTransferLimitEntry.Builder, adamant.global.v1.Model.RequestTransferLimitEntryOrBuilder>(
                 transferLimits_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         transferLimits_ = null;

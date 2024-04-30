@@ -33,6 +33,7 @@ message TransferUpdated {
   TransferUpdateCosmosSpecific cosmos_specific = 22;
   TransferUpdateSubstrateSpecific substrate_specific = 23;
   string method = 24;
+  gincoinc.global.v1.Network network = 25;
 }
 
 message TransferUpdateCosmosSpecific {

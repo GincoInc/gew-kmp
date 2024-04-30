@@ -40,6 +40,12 @@ class Wallet extends \Google\Protobuf\Internal\Message
      */
     protected $coin = 0;
     /**
+     * The type of network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 27 [json_name = "network"];</code>
+     */
+    protected $network = 0;
+    /**
      * The number indicating what order the wallet is created
      *
      * Generated from protobuf field <code>uint32 hd_account = 17 [json_name = "hdAccount"];</code>
@@ -186,6 +192,8 @@ class Wallet extends \Google\Protobuf\Internal\Message
      *           name
      *     @type int $coin
      *           The type of asset
+     *     @type int $network
+     *           The type of network
      *     @type int $hd_account
      *           The number indicating what order the wallet is created
      *     @type int $wallet_type
@@ -337,6 +345,32 @@ class Wallet extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
         $this->coin = $var;
+
+        return $this;
+    }
+
+    /**
+     * The type of network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 27 [json_name = "network"];</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return $this->network;
+    }
+
+    /**
+     * The type of network
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 27 [json_name = "network"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

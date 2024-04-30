@@ -404,6 +404,58 @@ private static final long serialVersionUID = 0L;
     return rbfSpecific_ == null ? adamant.global.v1.CalculateFeeRbfSpecific.getDefaultInstance() : rbfSpecific_;
   }
 
+  public static final int UTXO_SPECIFIC_FIELD_NUMBER = 14;
+  private adamant.global.v1.UtxoSpecific utxoSpecific_;
+  /**
+   * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+   * @return Whether the utxoSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasUtxoSpecific() {
+    return utxoSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+   * @return The utxoSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.UtxoSpecific getUtxoSpecific() {
+    return utxoSpecific_ == null ? adamant.global.v1.UtxoSpecific.getDefaultInstance() : utxoSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.UtxoSpecificOrBuilder getUtxoSpecificOrBuilder() {
+    return utxoSpecific_ == null ? adamant.global.v1.UtxoSpecific.getDefaultInstance() : utxoSpecific_;
+  }
+
+  public static final int SOLANA_SPECIFIC_FIELD_NUMBER = 15;
+  private adamant.global.v1.CalculateFeeSolanaSpecific solanaSpecific_;
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+   * @return Whether the solanaSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasSolanaSpecific() {
+    return solanaSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+   * @return The solanaSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.CalculateFeeSolanaSpecific getSolanaSpecific() {
+    return solanaSpecific_ == null ? adamant.global.v1.CalculateFeeSolanaSpecific.getDefaultInstance() : solanaSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.CalculateFeeSolanaSpecificOrBuilder getSolanaSpecificOrBuilder() {
+    return solanaSpecific_ == null ? adamant.global.v1.CalculateFeeSolanaSpecific.getDefaultInstance() : solanaSpecific_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -456,6 +508,12 @@ private static final long serialVersionUID = 0L;
     }
     if (rbfSpecific_ != null) {
       output.writeMessage(13, getRbfSpecific());
+    }
+    if (utxoSpecific_ != null) {
+      output.writeMessage(14, getUtxoSpecific());
+    }
+    if (solanaSpecific_ != null) {
+      output.writeMessage(15, getSolanaSpecific());
     }
     getUnknownFields().writeTo(output);
   }
@@ -514,6 +572,14 @@ private static final long serialVersionUID = 0L;
     if (rbfSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(13, getRbfSpecific());
+    }
+    if (utxoSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(14, getUtxoSpecific());
+    }
+    if (solanaSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(15, getSolanaSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -577,6 +643,16 @@ private static final long serialVersionUID = 0L;
       if (!getRbfSpecific()
           .equals(other.getRbfSpecific())) return false;
     }
+    if (hasUtxoSpecific() != other.hasUtxoSpecific()) return false;
+    if (hasUtxoSpecific()) {
+      if (!getUtxoSpecific()
+          .equals(other.getUtxoSpecific())) return false;
+    }
+    if (hasSolanaSpecific() != other.hasSolanaSpecific()) return false;
+    if (hasSolanaSpecific()) {
+      if (!getSolanaSpecific()
+          .equals(other.getSolanaSpecific())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -630,6 +706,14 @@ private static final long serialVersionUID = 0L;
     if (hasRbfSpecific()) {
       hash = (37 * hash) + RBF_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getRbfSpecific().hashCode();
+    }
+    if (hasUtxoSpecific()) {
+      hash = (37 * hash) + UTXO_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getUtxoSpecific().hashCode();
+    }
+    if (hasSolanaSpecific()) {
+      hash = (37 * hash) + SOLANA_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getSolanaSpecific().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -809,6 +893,16 @@ private static final long serialVersionUID = 0L;
         rbfSpecificBuilder_.dispose();
         rbfSpecificBuilder_ = null;
       }
+      utxoSpecific_ = null;
+      if (utxoSpecificBuilder_ != null) {
+        utxoSpecificBuilder_.dispose();
+        utxoSpecificBuilder_ = null;
+      }
+      solanaSpecific_ = null;
+      if (solanaSpecificBuilder_ != null) {
+        solanaSpecificBuilder_.dispose();
+        solanaSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -904,6 +998,16 @@ private static final long serialVersionUID = 0L;
         result.rbfSpecific_ = rbfSpecificBuilder_ == null
             ? rbfSpecific_
             : rbfSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.utxoSpecific_ = utxoSpecificBuilder_ == null
+            ? utxoSpecific_
+            : utxoSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.solanaSpecific_ = solanaSpecificBuilder_ == null
+            ? solanaSpecific_
+            : solanaSpecificBuilder_.build();
       }
     }
 
@@ -1019,6 +1123,12 @@ private static final long serialVersionUID = 0L;
       if (other.hasRbfSpecific()) {
         mergeRbfSpecific(other.getRbfSpecific());
       }
+      if (other.hasUtxoSpecific()) {
+        mergeUtxoSpecific(other.getUtxoSpecific());
+      }
+      if (other.hasSolanaSpecific()) {
+        mergeSolanaSpecific(other.getSolanaSpecific());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -1132,6 +1242,20 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00001000;
               break;
             } // case 106
+            case 114: {
+              input.readMessage(
+                  getUtxoSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getSolanaSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 122
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -2500,6 +2624,244 @@ private static final long serialVersionUID = 0L;
         rbfSpecific_ = null;
       }
       return rbfSpecificBuilder_;
+    }
+
+    private adamant.global.v1.UtxoSpecific utxoSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.UtxoSpecific, adamant.global.v1.UtxoSpecific.Builder, adamant.global.v1.UtxoSpecificOrBuilder> utxoSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+     * @return Whether the utxoSpecific field is set.
+     */
+    public boolean hasUtxoSpecific() {
+      return ((bitField0_ & 0x00002000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+     * @return The utxoSpecific.
+     */
+    public adamant.global.v1.UtxoSpecific getUtxoSpecific() {
+      if (utxoSpecificBuilder_ == null) {
+        return utxoSpecific_ == null ? adamant.global.v1.UtxoSpecific.getDefaultInstance() : utxoSpecific_;
+      } else {
+        return utxoSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+     */
+    public Builder setUtxoSpecific(adamant.global.v1.UtxoSpecific value) {
+      if (utxoSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        utxoSpecific_ = value;
+      } else {
+        utxoSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+     */
+    public Builder setUtxoSpecific(
+        adamant.global.v1.UtxoSpecific.Builder builderForValue) {
+      if (utxoSpecificBuilder_ == null) {
+        utxoSpecific_ = builderForValue.build();
+      } else {
+        utxoSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+     */
+    public Builder mergeUtxoSpecific(adamant.global.v1.UtxoSpecific value) {
+      if (utxoSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00002000) != 0) &&
+          utxoSpecific_ != null &&
+          utxoSpecific_ != adamant.global.v1.UtxoSpecific.getDefaultInstance()) {
+          getUtxoSpecificBuilder().mergeFrom(value);
+        } else {
+          utxoSpecific_ = value;
+        }
+      } else {
+        utxoSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+     */
+    public Builder clearUtxoSpecific() {
+      bitField0_ = (bitField0_ & ~0x00002000);
+      utxoSpecific_ = null;
+      if (utxoSpecificBuilder_ != null) {
+        utxoSpecificBuilder_.dispose();
+        utxoSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+     */
+    public adamant.global.v1.UtxoSpecific.Builder getUtxoSpecificBuilder() {
+      bitField0_ |= 0x00002000;
+      onChanged();
+      return getUtxoSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+     */
+    public adamant.global.v1.UtxoSpecificOrBuilder getUtxoSpecificOrBuilder() {
+      if (utxoSpecificBuilder_ != null) {
+        return utxoSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return utxoSpecific_ == null ?
+            adamant.global.v1.UtxoSpecific.getDefaultInstance() : utxoSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 14 [json_name = "utxoSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.UtxoSpecific, adamant.global.v1.UtxoSpecific.Builder, adamant.global.v1.UtxoSpecificOrBuilder> 
+        getUtxoSpecificFieldBuilder() {
+      if (utxoSpecificBuilder_ == null) {
+        utxoSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.UtxoSpecific, adamant.global.v1.UtxoSpecific.Builder, adamant.global.v1.UtxoSpecificOrBuilder>(
+                getUtxoSpecific(),
+                getParentForChildren(),
+                isClean());
+        utxoSpecific_ = null;
+      }
+      return utxoSpecificBuilder_;
+    }
+
+    private adamant.global.v1.CalculateFeeSolanaSpecific solanaSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.CalculateFeeSolanaSpecific, adamant.global.v1.CalculateFeeSolanaSpecific.Builder, adamant.global.v1.CalculateFeeSolanaSpecificOrBuilder> solanaSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+     * @return Whether the solanaSpecific field is set.
+     */
+    public boolean hasSolanaSpecific() {
+      return ((bitField0_ & 0x00004000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+     * @return The solanaSpecific.
+     */
+    public adamant.global.v1.CalculateFeeSolanaSpecific getSolanaSpecific() {
+      if (solanaSpecificBuilder_ == null) {
+        return solanaSpecific_ == null ? adamant.global.v1.CalculateFeeSolanaSpecific.getDefaultInstance() : solanaSpecific_;
+      } else {
+        return solanaSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+     */
+    public Builder setSolanaSpecific(adamant.global.v1.CalculateFeeSolanaSpecific value) {
+      if (solanaSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        solanaSpecific_ = value;
+      } else {
+        solanaSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+     */
+    public Builder setSolanaSpecific(
+        adamant.global.v1.CalculateFeeSolanaSpecific.Builder builderForValue) {
+      if (solanaSpecificBuilder_ == null) {
+        solanaSpecific_ = builderForValue.build();
+      } else {
+        solanaSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+     */
+    public Builder mergeSolanaSpecific(adamant.global.v1.CalculateFeeSolanaSpecific value) {
+      if (solanaSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00004000) != 0) &&
+          solanaSpecific_ != null &&
+          solanaSpecific_ != adamant.global.v1.CalculateFeeSolanaSpecific.getDefaultInstance()) {
+          getSolanaSpecificBuilder().mergeFrom(value);
+        } else {
+          solanaSpecific_ = value;
+        }
+      } else {
+        solanaSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+     */
+    public Builder clearSolanaSpecific() {
+      bitField0_ = (bitField0_ & ~0x00004000);
+      solanaSpecific_ = null;
+      if (solanaSpecificBuilder_ != null) {
+        solanaSpecificBuilder_.dispose();
+        solanaSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+     */
+    public adamant.global.v1.CalculateFeeSolanaSpecific.Builder getSolanaSpecificBuilder() {
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return getSolanaSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+     */
+    public adamant.global.v1.CalculateFeeSolanaSpecificOrBuilder getSolanaSpecificOrBuilder() {
+      if (solanaSpecificBuilder_ != null) {
+        return solanaSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return solanaSpecific_ == null ?
+            adamant.global.v1.CalculateFeeSolanaSpecific.getDefaultInstance() : solanaSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.CalculateFeeSolanaSpecific, adamant.global.v1.CalculateFeeSolanaSpecific.Builder, adamant.global.v1.CalculateFeeSolanaSpecificOrBuilder> 
+        getSolanaSpecificFieldBuilder() {
+      if (solanaSpecificBuilder_ == null) {
+        solanaSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.CalculateFeeSolanaSpecific, adamant.global.v1.CalculateFeeSolanaSpecific.Builder, adamant.global.v1.CalculateFeeSolanaSpecificOrBuilder>(
+                getSolanaSpecific(),
+                getParentForChildren(),
+                isClean());
+        solanaSpecific_ = null;
+      }
+      return solanaSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

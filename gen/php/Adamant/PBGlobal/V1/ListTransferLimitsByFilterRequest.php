@@ -40,6 +40,12 @@ class ListTransferLimitsByFilterRequest extends \Google\Protobuf\Internal\Messag
     /**
      * optional
      *
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 7 [json_name = "network", (.validate.rules) = {</code>
+     */
+    protected $network = null;
+    /**
+     * optional
+     *
      * Generated from protobuf field <code>uint32 page_size = 5 [json_name = "pageSize", (.validate.rules) = {</code>
      */
     protected $page_size = 0;
@@ -63,6 +69,8 @@ class ListTransferLimitsByFilterRequest extends \Google\Protobuf\Internal\Messag
      *     @type string $transfer_limit_name
      *           optional
      *     @type int $coin
+     *           optional
+     *     @type int $network
      *           optional
      *     @type int $page_size
      *           optional
@@ -175,6 +183,42 @@ class ListTransferLimitsByFilterRequest extends \Google\Protobuf\Internal\Messag
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
         $this->coin = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 7 [json_name = "network", (.validate.rules) = {</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return isset($this->network) ? $this->network : 0;
+    }
+
+    public function hasNetwork()
+    {
+        return isset($this->network);
+    }
+
+    public function clearNetwork()
+    {
+        unset($this->network);
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 7 [json_name = "network", (.validate.rules) = {</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }
