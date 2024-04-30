@@ -31,16 +31,28 @@ public interface CreateWalletRequestOrBuilder extends
   gincoinc.global.v1.Enum.Coin getCoin();
 
   /**
+   * <pre>
+   * optional
+   * </pre>
+   *
    * <code>optional .gincoinc.global.v1.Network network = 13 [json_name = "network", (.validate.rules) = { ... }</code>
    * @return Whether the network field is set.
    */
   boolean hasNetwork();
   /**
+   * <pre>
+   * optional
+   * </pre>
+   *
    * <code>optional .gincoinc.global.v1.Network network = 13 [json_name = "network", (.validate.rules) = { ... }</code>
    * @return The enum numeric value on the wire for network.
    */
   int getNetworkValue();
   /**
+   * <pre>
+   * optional
+   * </pre>
+   *
    * <code>optional .gincoinc.global.v1.Network network = 13 [json_name = "network", (.validate.rules) = { ... }</code>
    * @return The network.
    */

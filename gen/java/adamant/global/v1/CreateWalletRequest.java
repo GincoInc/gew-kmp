@@ -109,6 +109,10 @@ private static final long serialVersionUID = 0L;
   public static final int NETWORK_FIELD_NUMBER = 13;
   private int network_ = 0;
   /**
+   * <pre>
+   * optional
+   * </pre>
+   *
    * <code>optional .gincoinc.global.v1.Network network = 13 [json_name = "network", (.validate.rules) = { ... }</code>
    * @return Whether the network field is set.
    */
@@ -116,6 +120,10 @@ private static final long serialVersionUID = 0L;
     return ((bitField0_ & 0x00000001) != 0);
   }
   /**
+   * <pre>
+   * optional
+   * </pre>
+   *
    * <code>optional .gincoinc.global.v1.Network network = 13 [json_name = "network", (.validate.rules) = { ... }</code>
    * @return The enum numeric value on the wire for network.
    */
@@ -123,6 +131,10 @@ private static final long serialVersionUID = 0L;
     return network_;
   }
   /**
+   * <pre>
+   * optional
+   * </pre>
+   *
    * <code>optional .gincoinc.global.v1.Network network = 13 [json_name = "network", (.validate.rules) = { ... }</code>
    * @return The network.
    */
@@ -1146,6 +1158,10 @@ private static final long serialVersionUID = 0L;
 
     private int network_ = 0;
     /**
+     * <pre>
+     * optional
+     * </pre>
+     *
      * <code>optional .gincoinc.global.v1.Network network = 13 [json_name = "network", (.validate.rules) = { ... }</code>
      * @return Whether the network field is set.
      */
@@ -1153,6 +1169,10 @@ private static final long serialVersionUID = 0L;
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
+     * <pre>
+     * optional
+     * </pre>
+     *
      * <code>optional .gincoinc.global.v1.Network network = 13 [json_name = "network", (.validate.rules) = { ... }</code>
      * @return The enum numeric value on the wire for network.
      */
@@ -1160,6 +1180,10 @@ private static final long serialVersionUID = 0L;
       return network_;
     }
     /**
+     * <pre>
+     * optional
+     * </pre>
+     *
      * <code>optional .gincoinc.global.v1.Network network = 13 [json_name = "network", (.validate.rules) = { ... }</code>
      * @param value The enum numeric value on the wire for network to set.
      * @return This builder for chaining.
@@ -1171,6 +1195,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * optional
+     * </pre>
+     *
      * <code>optional .gincoinc.global.v1.Network network = 13 [json_name = "network", (.validate.rules) = { ... }</code>
      * @return The network.
      */
@@ -1180,6 +1208,10 @@ private static final long serialVersionUID = 0L;
       return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
     }
     /**
+     * <pre>
+     * optional
+     * </pre>
+     *
      * <code>optional .gincoinc.global.v1.Network network = 13 [json_name = "network", (.validate.rules) = { ... }</code>
      * @param value The network to set.
      * @return This builder for chaining.
@@ -1194,6 +1226,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * optional
+     * </pre>
+     *
      * <code>optional .gincoinc.global.v1.Network network = 13 [json_name = "network", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */

@@ -22,6 +22,10 @@ class WalletFlushSetting extends \Google\Protobuf\Internal\Message
      */
     protected $coin = 0;
     /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 6 [json_name = "network"];</code>
+     */
+    protected $network = 0;
+    /**
      * Generated from protobuf field <code>string destination_wallet_id = 3 [json_name = "destinationWalletId"];</code>
      */
     protected $destination_wallet_id = '';
@@ -42,6 +46,7 @@ class WalletFlushSetting extends \Google\Protobuf\Internal\Message
      *
      *     @type string $owner_id
      *     @type int $coin
+     *     @type int $network
      *     @type string $destination_wallet_id
      *     @type \Google\Protobuf\Timestamp $create_time
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -92,6 +97,28 @@ class WalletFlushSetting extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
         $this->coin = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 6 [json_name = "network"];</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return $this->network;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 6 [json_name = "network"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

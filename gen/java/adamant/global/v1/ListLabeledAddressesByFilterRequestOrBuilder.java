@@ -134,4 +134,20 @@ public interface ListLabeledAddressesByFilterRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getPageTokenBytes();
+
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return Whether the network field is set.
+   */
+  boolean hasNetwork();
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for network.
+   */
+  int getNetworkValue();
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return The network.
+   */
+  gincoinc.global.v1.Enum.Network getNetwork();
 }

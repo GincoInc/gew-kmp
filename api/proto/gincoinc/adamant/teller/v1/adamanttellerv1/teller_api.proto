@@ -50,8 +50,10 @@ service TellerAPI {
   rpc CreateTransaction(adamant.global.v1.CreateTransactionRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
   rpc SignTransaction(SignTransactionRequest) returns (google.protobuf.Empty) {}
   rpc SendTransaction(SendTransactionRequest) returns (adamant.global.v1.SendTransactionResponse) {}
+  rpc ResendTransaction(ResendTransactionRequest) returns (adamant.global.v1.ResendTransactionResponse) {}
   rpc CancelTransaction(adamant.global.v1.CancelTransactionRequest) returns (google.protobuf.Empty) {}
   rpc ReplaceTransaction(adamant.global.v1.ReplaceTransactionRequest) returns (adamant.global.v1.ReplaceTransactionResponse) {}
+  rpc IsTransactionReplaceable(adamant.global.v1.IsTransactionReplaceableRequest) returns (adamant.global.v1.IsTransactionReplaceableResponse) {}
   rpc GetTransaction(adamant.global.v1.GetTransactionRequest) returns (adamant.global.v1.Transaction) {}
   rpc GetTransactionByTxID(adamant.global.v1.GetTransactionByTxIDRequest) returns (adamant.global.v1.Transaction) {}
   rpc ListTransactions(adamant.global.v1.ListTransactionsRequest) returns (adamant.global.v1.ListTransactionsResponse) {}
@@ -112,7 +114,7 @@ message CreateWalletRequest {
     ]
   }];
   optional gincoinc.global.v1.Network network = 7 [(validate.rules).enum = {
-    defined_only: true,
+    defined_only: true
   }];
   adamant.global.v1.WalletType wallet_type = 3 [(validate.rules).enum = {
     defined_only: true,
@@ -174,6 +176,15 @@ message SignMessageResponse {
 }
 
 message SendTransactionRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string transaction_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+}
+
+message ResendTransactionRequest {
   string wallet_id = 1 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];

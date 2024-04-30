@@ -68,6 +68,8 @@ func (m *Wallet) validate(all bool) error {
 
 	// no validation rules for Coin
 
+	// no validation rules for Network
+
 	// no validation rules for HdAccount
 
 	// no validation rules for WalletType
@@ -363,6 +365,8 @@ func (m *WalletWithoutBalance) validate(all bool) error {
 	// no validation rules for Name
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	// no validation rules for HdAccount
 
@@ -1193,6 +1197,8 @@ func (m *Address) validate(all bool) error {
 
 	// no validation rules for Coin
 
+	// no validation rules for Network
+
 	// no validation rules for Address
 
 	// no validation rules for Index
@@ -1369,6 +1375,8 @@ func (m *AddressWithoutBalance) validate(all bool) error {
 	// no validation rules for AddressId
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	// no validation rules for Address
 
@@ -1883,6 +1891,8 @@ func (m *Transaction) validate(all bool) error {
 	// no validation rules for TransactionId
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	// no validation rules for TxId
 
@@ -2747,6 +2757,35 @@ func (m *Transaction) validate(all bool) error {
 		if err := v.Validate(); err != nil {
 			return TransactionValidationError{
 				field:  "FlareSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetArbitrumOneSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "ArbitrumOneSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "ArbitrumOneSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetArbitrumOneSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "ArbitrumOneSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -6978,6 +7017,116 @@ var _ interface {
 	ErrorName() string
 } = FlareSpecificValidationError{}
 
+// Validate checks the field values on ArbitrumOneSpecific with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ArbitrumOneSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ArbitrumOneSpecific with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ArbitrumOneSpecificMultiError, or nil if none found.
+func (m *ArbitrumOneSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ArbitrumOneSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	// no validation rules for Data
+
+	if len(errors) > 0 {
+		return ArbitrumOneSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// ArbitrumOneSpecificMultiError is an error wrapping multiple validation
+// errors returned by ArbitrumOneSpecific.ValidateAll() if the designated
+// constraints aren't met.
+type ArbitrumOneSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ArbitrumOneSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ArbitrumOneSpecificMultiError) AllErrors() []error { return m }
+
+// ArbitrumOneSpecificValidationError is the validation error returned by
+// ArbitrumOneSpecific.Validate if the designated constraints aren't met.
+type ArbitrumOneSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ArbitrumOneSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ArbitrumOneSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ArbitrumOneSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ArbitrumOneSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ArbitrumOneSpecificValidationError) ErrorName() string {
+	return "ArbitrumOneSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ArbitrumOneSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sArbitrumOneSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ArbitrumOneSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ArbitrumOneSpecificValidationError{}
+
 // Validate checks the field values on CreateTransactionSubstrateSpecific with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, the first error encountered is returned, or nil if there are
@@ -7968,6 +8117,214 @@ var _ interface {
 	ErrorName() string
 } = CreateTransactionHederaSpecificValidationError{}
 
+// Validate checks the field values on CreateTransactionSolanaSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CreateTransactionSolanaSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreateTransactionSolanaSpecific with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// CreateTransactionSolanaSpecificMultiError, or nil if none found.
+func (m *CreateTransactionSolanaSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateTransactionSolanaSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for EventType
+
+	if len(errors) > 0 {
+		return CreateTransactionSolanaSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreateTransactionSolanaSpecificMultiError is an error wrapping multiple
+// validation errors returned by CreateTransactionSolanaSpecific.ValidateAll()
+// if the designated constraints aren't met.
+type CreateTransactionSolanaSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionSolanaSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionSolanaSpecificMultiError) AllErrors() []error { return m }
+
+// CreateTransactionSolanaSpecificValidationError is the validation error
+// returned by CreateTransactionSolanaSpecific.Validate if the designated
+// constraints aren't met.
+type CreateTransactionSolanaSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionSolanaSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionSolanaSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionSolanaSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionSolanaSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionSolanaSpecificValidationError) ErrorName() string {
+	return "CreateTransactionSolanaSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionSolanaSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionSolanaSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionSolanaSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionSolanaSpecificValidationError{}
+
+// Validate checks the field values on SelectedUTXO with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *SelectedUTXO) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SelectedUTXO with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in SelectedUTXOMultiError, or
+// nil if none found.
+func (m *SelectedUTXO) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SelectedUTXO) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TxId
+
+	// no validation rules for Vout
+
+	if len(errors) > 0 {
+		return SelectedUTXOMultiError(errors)
+	}
+
+	return nil
+}
+
+// SelectedUTXOMultiError is an error wrapping multiple validation errors
+// returned by SelectedUTXO.ValidateAll() if the designated constraints aren't met.
+type SelectedUTXOMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SelectedUTXOMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SelectedUTXOMultiError) AllErrors() []error { return m }
+
+// SelectedUTXOValidationError is the validation error returned by
+// SelectedUTXO.Validate if the designated constraints aren't met.
+type SelectedUTXOValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SelectedUTXOValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SelectedUTXOValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SelectedUTXOValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SelectedUTXOValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SelectedUTXOValidationError) ErrorName() string { return "SelectedUTXOValidationError" }
+
+// Error satisfies the builtin error interface
+func (e SelectedUTXOValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSelectedUTXO.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SelectedUTXOValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SelectedUTXOValidationError{}
+
 // Validate checks the field values on SubstrateMultisigTransaction with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -8547,6 +8904,8 @@ func (m *SignInfo) validate(all bool) error {
 
 	// no validation rules for HdIndex
 
+	// no validation rules for Network
+
 	for idx, item := range m.GetSignTxInputs() {
 		_, _ = idx, item
 
@@ -8792,6 +9151,8 @@ func (m *Transfer) validate(all bool) error {
 	// no validation rules for TransferId
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	// no validation rules for TxId
 
@@ -9939,6 +10300,8 @@ func (m *LabeledAddress) validate(all bool) error {
 		}
 	}
 
+	// no validation rules for Network
+
 	if len(errors) > 0 {
 		return LabeledAddressMultiError(errors)
 	}
@@ -10159,6 +10522,8 @@ func (m *Whitelist) validate(all bool) error {
 
 	// no validation rules for Coin
 
+	// no validation rules for Network
+
 	for idx, item := range m.GetAddresses() {
 		_, _ = idx, item
 
@@ -10355,6 +10720,8 @@ func (m *TransferLimit) validate(all bool) error {
 	// no validation rules for Name
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	// no validation rules for HourlyLimit
 
@@ -10677,6 +11044,8 @@ func (m *Policy) validate(all bool) error {
 	// no validation rules for IsBasePolicy
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	if all {
 		switch v := interface{}(m.GetWhitelist()).(type) {
@@ -11062,6 +11431,8 @@ func (m *TotalBalanceByCoin) validate(all bool) error {
 	var errors []error
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	// no validation rules for ColdStringBalance
 
@@ -12473,6 +12844,8 @@ func (m *TransferVolume) validate(all bool) error {
 
 	// no validation rules for Coin
 
+	// no validation rules for Network
+
 	// no validation rules for HotStringVolume
 
 	// no validation rules for ColdStringVolume
@@ -13281,6 +13654,8 @@ func (m *WalletFlushSetting) validate(all bool) error {
 
 	// no validation rules for Coin
 
+	// no validation rules for Network
+
 	// no validation rules for DestinationWalletId
 
 	if all {
@@ -13581,6 +13956,8 @@ func (m *WalletGroup) validate(all bool) error {
 	// no validation rules for Name
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	for idx, item := range m.GetWallets() {
 		_, _ = idx, item
@@ -14880,6 +15257,8 @@ func (m *CallerAddress) validate(all bool) error {
 
 	// no validation rules for Coin
 
+	// no validation rules for Network
+
 	if len(errors) > 0 {
 		return CallerAddressMultiError(errors)
 	}
@@ -14987,6 +15366,8 @@ func (m *FeeDepositAddress) validate(all bool) error {
 	// no validation rules for StringBalance
 
 	// no validation rules for Coin
+
+	// no validation rules for Network
 
 	if len(errors) > 0 {
 		return FeeDepositAddressMultiError(errors)

@@ -250,13 +250,13 @@ class Network
      */
     const NETWORK_FLARE_TESTNET = 56;
     /**
-     * Generated from protobuf enum <code>NETWORK_ARBITRUM_MAINNET = 57;</code>
+     * Generated from protobuf enum <code>NETWORK_ARBITRUM_ONE_MAINNET = 57;</code>
      */
-    const NETWORK_ARBITRUM_MAINNET = 57;
+    const NETWORK_ARBITRUM_ONE_MAINNET = 57;
     /**
-     * Generated from protobuf enum <code>NETWORK_ARBITRUM_TESTNET = 58;</code>
+     * Generated from protobuf enum <code>NETWORK_ARBITRUM_ONE_TESTNET = 58;</code>
      */
-    const NETWORK_ARBITRUM_TESTNET = 58;
+    const NETWORK_ARBITRUM_ONE_TESTNET = 58;
     /**
      * Generated from protobuf enum <code>NETWORK_SHIDEN_MAINNET = 10002;</code>
      */
@@ -321,8 +321,8 @@ class Network
         self::NETWORK_BNB_SMART_CHAIN_TESTNET => 'NETWORK_BNB_SMART_CHAIN_TESTNET',
         self::NETWORK_FLARE_MAINNET => 'NETWORK_FLARE_MAINNET',
         self::NETWORK_FLARE_TESTNET => 'NETWORK_FLARE_TESTNET',
-        self::NETWORK_ARBITRUM_MAINNET => 'NETWORK_ARBITRUM_MAINNET',
-        self::NETWORK_ARBITRUM_TESTNET => 'NETWORK_ARBITRUM_TESTNET',
+        self::NETWORK_ARBITRUM_ONE_MAINNET => 'NETWORK_ARBITRUM_ONE_MAINNET',
+        self::NETWORK_ARBITRUM_ONE_TESTNET => 'NETWORK_ARBITRUM_ONE_TESTNET',
         self::NETWORK_SHIDEN_MAINNET => 'NETWORK_SHIDEN_MAINNET',
     ];
 
