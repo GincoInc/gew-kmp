@@ -30,3 +30,7 @@ plugins:
    out: gen/php
  - plugin: buf.build/grpc/php:v1.56.0
    out: gen/php
+ - plugin: buf.build/protocolbuffers/python:v25.3
+   out: gen/python
+ - plugin: buf.build/grpc/python:v1.62.0
+   out: gen/python
