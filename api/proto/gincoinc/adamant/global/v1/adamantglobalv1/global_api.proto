@@ -770,6 +770,7 @@ message CreateTransactionRequest {
   adamant.global.v1.CreateTransactionAlgorandSpecific algorand_specific = 15;
   adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16;
   adamant.global.v1.CreateTransactionSolanaSpecific solana_specific = 17;
+  adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19;
   adamant.global.v1.UtxoSpecific utxo_specific = 18;
 }
 
@@ -1465,6 +1466,7 @@ message CreateLabeledAddressRequest {
   optional gincoinc.global.v1.Network network = 4 [(validate.rules).enum = {
     defined_only: true
   }];
+  optional string message = 5;
 }
 
 message CreateLabeledAddressResponse {

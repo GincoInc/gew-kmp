@@ -241,6 +241,7 @@ message Transaction {
   BNBSmartChainSpecific bnb_smart_chain_specific = 45; // The BNB Smart Chain specific fields
   FlareSpecific flare_specific = 46; // The Flare specific fields
   ArbitrumOneSpecific arbitrum_one_specific = 48; // The Arbitrum specific fields
+  AptosSpecific aptos_specific = 49; // The Flare specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -479,6 +480,15 @@ message JapanOpenChainSpecific {
 // The model of Solana specific fields of transaction
 message SolanaSpecific {
   uint64 expiration = 1;
+  gincoinc.global.v1.SolanaEventType event_type = 2;
+}
+
+// The model of Aptos specific fields of transaction
+message AptosSpecific {
+  uint64 gas_limit = 1;
+  uint64 nonce = 2;
+  bool is_next_nonce = 3;
+  uint64 expiration = 4;
 }
 
 // The model of BNB Smart Chain specific fields of transaction
@@ -566,6 +576,11 @@ message CreateTransactionHederaSpecific {
 // The model of Solana specific fields of CreateTransaction
 message CreateTransactionSolanaSpecific {
   gincoinc.global.v1.SolanaEventType event_type = 1;
+}
+
+// The model of Aptos specific fields of CreateTransaction
+message CreateTransactionAptosSpecific {
+  optional uint64 expiration = 1;
 }
 
 // The model of SelectedUTXO fields of CreateTransaction
@@ -743,6 +758,7 @@ message LabeledAddress {
   google.protobuf.Timestamp create_time = 7; // the time at which the labeled address was created
   google.protobuf.Timestamp update_time = 8; // the time at which the labeled address was updated
   gincoinc.global.v1.Network network = 9;
+  string message = 10; // message
 }
 
 // The model of proposal to update labeled address information
@@ -753,6 +769,7 @@ message LabeledAddressProposal {
   string approver_name = 4;
   string proposed_address = 5;
   bool address_is_reviewed = 6;
+  string proposed_message = 7;
 }
 
 // The model of whitelist
