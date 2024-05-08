@@ -274,6 +274,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $arbitrum_one_specific = null;
     /**
+     * The Flare specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AptosSpecific aptos_specific = 49 [json_name = "aptosSpecific"];</code>
+     */
+    protected $aptos_specific = null;
+    /**
      * the time at which the transaction was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
@@ -378,6 +384,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The Flare specific fields
      *     @type \Adamant\PBGlobal\V1\ArbitrumOneSpecific $arbitrum_one_specific
      *           The Arbitrum specific fields
+     *     @type \Adamant\PBGlobal\V1\AptosSpecific $aptos_specific
+     *           The Flare specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -1783,6 +1791,42 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\ArbitrumOneSpecific::class);
         $this->arbitrum_one_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Flare specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AptosSpecific aptos_specific = 49 [json_name = "aptosSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\AptosSpecific|null
+     */
+    public function getAptosSpecific()
+    {
+        return $this->aptos_specific;
+    }
+
+    public function hasAptosSpecific()
+    {
+        return isset($this->aptos_specific);
+    }
+
+    public function clearAptosSpecific()
+    {
+        unset($this->aptos_specific);
+    }
+
+    /**
+     * The Flare specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AptosSpecific aptos_specific = 49 [json_name = "aptosSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\AptosSpecific $var
+     * @return $this
+     */
+    public function setAptosSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\AptosSpecific::class);
+        $this->aptos_specific = $var;
 
         return $this;
     }

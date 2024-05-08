@@ -298,6 +298,10 @@ class Coin
      */
     const COIN_ERC20_DM2P = 70;
     /**
+     * Generated from protobuf enum <code>COIN_APT = 71;</code>
+     */
+    const COIN_APT = 71;
+    /**
      * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
      */
     const COIN_SDN = 10002;
@@ -392,6 +396,7 @@ class Coin
         self::COIN_ERC20_MASK => 'COIN_ERC20_MASK',
         self::COIN_ERC20_SUP => 'COIN_ERC20_SUP',
         self::COIN_ERC20_DM2P => 'COIN_ERC20_DM2P',
+        self::COIN_APT => 'COIN_APT',
         self::COIN_SDN => 'COIN_SDN',
         self::COIN_ERC20_SCDEV => 'COIN_ERC20_SCDEV',
         self::COIN_ERC20_SCQA => 'COIN_ERC20_SCQA',

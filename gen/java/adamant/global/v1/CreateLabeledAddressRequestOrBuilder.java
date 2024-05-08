@@ -57,4 +57,21 @@ public interface CreateLabeledAddressRequestOrBuilder extends
    * @return The network.
    */
   gincoinc.global.v1.Enum.Network getNetwork();
+
+  /**
+   * <code>optional string message = 5 [json_name = "message"];</code>
+   * @return Whether the message field is set.
+   */
+  boolean hasMessage();
+  /**
+   * <code>optional string message = 5 [json_name = "message"];</code>
+   * @return The message.
+   */
+  java.lang.String getMessage();
+  /**
+   * <code>optional string message = 5 [json_name = "message"];</code>
+   * @return The bytes for message.
+   */
+  com.google.protobuf.ByteString
+      getMessageBytes();
 }

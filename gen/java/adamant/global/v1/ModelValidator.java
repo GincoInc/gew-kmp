@@ -51,6 +51,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.HederaSpecific.class)) return new HederaSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.JapanOpenChainSpecific.class)) return new JapanOpenChainSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SolanaSpecific.class)) return new SolanaSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.AptosSpecific.class)) return new AptosSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.BNBSmartChainSpecific.class)) return new BNBSmartChainSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.FlareSpecific.class)) return new FlareSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.ArbitrumOneSpecific.class)) return new ArbitrumOneSpecificValidator();
@@ -64,6 +65,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionAlgorandSpecific.class)) return new CreateTransactionAlgorandSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionHederaSpecific.class)) return new CreateTransactionHederaSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSolanaSpecific.class)) return new CreateTransactionSolanaSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionAptosSpecific.class)) return new CreateTransactionAptosSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SelectedUTXO.class)) return new SelectedUTXOValidator();
 		if (clazz.equals(adamant.global.v1.Model.SubstrateMultisigTransaction.class)) return new SubstrateMultisigTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.NemMultisigTransaction.class)) return new NemMultisigTransactionValidator();
@@ -904,6 +906,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1029,6 +1033,9 @@ public class ModelValidator {
 	
 			// Validate arbitrum_one_specific
 			if (proto.hasArbitrumOneSpecific()) index.validatorFor(proto.getArbitrumOneSpecific()).assertValid(proto.getArbitrumOneSpecific());
+	
+			// Validate aptos_specific
+			if (proto.hasAptosSpecific()) index.validatorFor(proto.getAptosSpecific()).assertValid(proto.getAptosSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -1846,9 +1853,39 @@ public class ModelValidator {
 	public static class SolanaSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SolanaSpecific> {
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.SolanaSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Expiration
+
+	// no validation rules for EventType
+
+	
+	}
+}
+/**
+	 * Validates {@code AptosSpecific} protobuf objects.
+	 */
+	public static class AptosSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.AptosSpecific> {
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.AptosSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
 	// no validation rules for Expiration
 
 	
@@ -2109,6 +2146,16 @@ public class ModelValidator {
 	public void assertValid(adamant.global.v1.Model.CreateTransactionSolanaSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for EventType
 
+	
+	}
+}
+/**
+	 * Validates {@code CreateTransactionAptosSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionAptosSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionAptosSpecific> {
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionAptosSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
 	}
 }
@@ -2745,6 +2792,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.LabeledAddress proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2767,6 +2816,8 @@ public class ModelValidator {
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
 	// no validation rules for Network
 
+	// no validation rules for Message
+
 	
 	}
 }
@@ -2774,6 +2825,8 @@ public class ModelValidator {
 	 * Validates {@code LabeledAddressProposal} protobuf objects.
 	 */
 	public static class LabeledAddressProposalValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.LabeledAddressProposal> {
+		
+	
 		
 	
 		
@@ -2800,6 +2853,8 @@ public class ModelValidator {
 	// no validation rules for ProposedAddress
 
 	// no validation rules for AddressIsReviewed
+
+	// no validation rules for ProposedMessage
 
 	
 	}

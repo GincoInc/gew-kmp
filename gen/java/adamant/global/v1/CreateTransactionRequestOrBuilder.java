@@ -236,6 +236,21 @@ public interface CreateTransactionRequestOrBuilder extends
   adamant.global.v1.Model.CreateTransactionSolanaSpecificOrBuilder getSolanaSpecificOrBuilder();
 
   /**
+   * <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+   * @return Whether the aptosSpecific field is set.
+   */
+  boolean hasAptosSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+   * @return The aptosSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionAptosSpecific getAptosSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionAptosSpecificOrBuilder getAptosSpecificOrBuilder();
+
+  /**
    * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
    * @return Whether the utxoSpecific field is set.
    */
