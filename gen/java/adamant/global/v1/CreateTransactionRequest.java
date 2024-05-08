@@ -493,6 +493,32 @@ private static final long serialVersionUID = 0L;
     return solanaSpecific_ == null ? adamant.global.v1.Model.CreateTransactionSolanaSpecific.getDefaultInstance() : solanaSpecific_;
   }
 
+  public static final int APTOS_SPECIFIC_FIELD_NUMBER = 19;
+  private adamant.global.v1.Model.CreateTransactionAptosSpecific aptosSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+   * @return Whether the aptosSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasAptosSpecific() {
+    return aptosSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+   * @return The aptosSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionAptosSpecific getAptosSpecific() {
+    return aptosSpecific_ == null ? adamant.global.v1.Model.CreateTransactionAptosSpecific.getDefaultInstance() : aptosSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionAptosSpecificOrBuilder getAptosSpecificOrBuilder() {
+    return aptosSpecific_ == null ? adamant.global.v1.Model.CreateTransactionAptosSpecific.getDefaultInstance() : aptosSpecific_;
+  }
+
   public static final int UTXO_SPECIFIC_FIELD_NUMBER = 18;
   private adamant.global.v1.UtxoSpecific utxoSpecific_;
   /**
@@ -587,6 +613,9 @@ private static final long serialVersionUID = 0L;
     if (utxoSpecific_ != null) {
       output.writeMessage(18, getUtxoSpecific());
     }
+    if (aptosSpecific_ != null) {
+      output.writeMessage(19, getAptosSpecific());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -664,6 +693,10 @@ private static final long serialVersionUID = 0L;
     if (utxoSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(18, getUtxoSpecific());
+    }
+    if (aptosSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(19, getAptosSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -744,6 +777,11 @@ private static final long serialVersionUID = 0L;
       if (!getSolanaSpecific()
           .equals(other.getSolanaSpecific())) return false;
     }
+    if (hasAptosSpecific() != other.hasAptosSpecific()) return false;
+    if (hasAptosSpecific()) {
+      if (!getAptosSpecific()
+          .equals(other.getAptosSpecific())) return false;
+    }
     if (hasUtxoSpecific() != other.hasUtxoSpecific()) return false;
     if (hasUtxoSpecific()) {
       if (!getUtxoSpecific()
@@ -817,6 +855,10 @@ private static final long serialVersionUID = 0L;
     if (hasSolanaSpecific()) {
       hash = (37 * hash) + SOLANA_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getSolanaSpecific().hashCode();
+    }
+    if (hasAptosSpecific()) {
+      hash = (37 * hash) + APTOS_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getAptosSpecific().hashCode();
     }
     if (hasUtxoSpecific()) {
       hash = (37 * hash) + UTXO_SPECIFIC_FIELD_NUMBER;
@@ -1016,6 +1058,11 @@ private static final long serialVersionUID = 0L;
         solanaSpecificBuilder_.dispose();
         solanaSpecificBuilder_ = null;
       }
+      aptosSpecific_ = null;
+      if (aptosSpecificBuilder_ != null) {
+        aptosSpecificBuilder_.dispose();
+        aptosSpecificBuilder_ = null;
+      }
       utxoSpecific_ = null;
       if (utxoSpecificBuilder_ != null) {
         utxoSpecificBuilder_.dispose();
@@ -1136,6 +1183,11 @@ private static final long serialVersionUID = 0L;
             : solanaSpecificBuilder_.build();
       }
       if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.aptosSpecific_ = aptosSpecificBuilder_ == null
+            ? aptosSpecific_
+            : aptosSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
         result.utxoSpecific_ = utxoSpecificBuilder_ == null
             ? utxoSpecific_
             : utxoSpecificBuilder_.build();
@@ -1265,6 +1317,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasSolanaSpecific()) {
         mergeSolanaSpecific(other.getSolanaSpecific());
+      }
+      if (other.hasAptosSpecific()) {
+        mergeAptosSpecific(other.getAptosSpecific());
       }
       if (other.hasUtxoSpecific()) {
         mergeUtxoSpecific(other.getUtxoSpecific());
@@ -1412,9 +1467,16 @@ private static final long serialVersionUID = 0L;
               input.readMessage(
                   getUtxoSpecificFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00020000;
+              bitField0_ |= 0x00040000;
               break;
             } // case 146
+            case 154: {
+              input.readMessage(
+                  getAptosSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 154
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -3174,6 +3236,125 @@ private static final long serialVersionUID = 0L;
       return solanaSpecificBuilder_;
     }
 
+    private adamant.global.v1.Model.CreateTransactionAptosSpecific aptosSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionAptosSpecific, adamant.global.v1.Model.CreateTransactionAptosSpecific.Builder, adamant.global.v1.Model.CreateTransactionAptosSpecificOrBuilder> aptosSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+     * @return Whether the aptosSpecific field is set.
+     */
+    public boolean hasAptosSpecific() {
+      return ((bitField0_ & 0x00020000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+     * @return The aptosSpecific.
+     */
+    public adamant.global.v1.Model.CreateTransactionAptosSpecific getAptosSpecific() {
+      if (aptosSpecificBuilder_ == null) {
+        return aptosSpecific_ == null ? adamant.global.v1.Model.CreateTransactionAptosSpecific.getDefaultInstance() : aptosSpecific_;
+      } else {
+        return aptosSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+     */
+    public Builder setAptosSpecific(adamant.global.v1.Model.CreateTransactionAptosSpecific value) {
+      if (aptosSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        aptosSpecific_ = value;
+      } else {
+        aptosSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+     */
+    public Builder setAptosSpecific(
+        adamant.global.v1.Model.CreateTransactionAptosSpecific.Builder builderForValue) {
+      if (aptosSpecificBuilder_ == null) {
+        aptosSpecific_ = builderForValue.build();
+      } else {
+        aptosSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+     */
+    public Builder mergeAptosSpecific(adamant.global.v1.Model.CreateTransactionAptosSpecific value) {
+      if (aptosSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00020000) != 0) &&
+          aptosSpecific_ != null &&
+          aptosSpecific_ != adamant.global.v1.Model.CreateTransactionAptosSpecific.getDefaultInstance()) {
+          getAptosSpecificBuilder().mergeFrom(value);
+        } else {
+          aptosSpecific_ = value;
+        }
+      } else {
+        aptosSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+     */
+    public Builder clearAptosSpecific() {
+      bitField0_ = (bitField0_ & ~0x00020000);
+      aptosSpecific_ = null;
+      if (aptosSpecificBuilder_ != null) {
+        aptosSpecificBuilder_.dispose();
+        aptosSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionAptosSpecific.Builder getAptosSpecificBuilder() {
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return getAptosSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionAptosSpecificOrBuilder getAptosSpecificOrBuilder() {
+      if (aptosSpecificBuilder_ != null) {
+        return aptosSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return aptosSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionAptosSpecific.getDefaultInstance() : aptosSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionAptosSpecific, adamant.global.v1.Model.CreateTransactionAptosSpecific.Builder, adamant.global.v1.Model.CreateTransactionAptosSpecificOrBuilder> 
+        getAptosSpecificFieldBuilder() {
+      if (aptosSpecificBuilder_ == null) {
+        aptosSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionAptosSpecific, adamant.global.v1.Model.CreateTransactionAptosSpecific.Builder, adamant.global.v1.Model.CreateTransactionAptosSpecificOrBuilder>(
+                getAptosSpecific(),
+                getParentForChildren(),
+                isClean());
+        aptosSpecific_ = null;
+      }
+      return aptosSpecificBuilder_;
+    }
+
     private adamant.global.v1.UtxoSpecific utxoSpecific_;
     private com.google.protobuf.SingleFieldBuilderV3<
         adamant.global.v1.UtxoSpecific, adamant.global.v1.UtxoSpecific.Builder, adamant.global.v1.UtxoSpecificOrBuilder> utxoSpecificBuilder_;
@@ -3182,7 +3363,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the utxoSpecific field is set.
      */
     public boolean hasUtxoSpecific() {
-      return ((bitField0_ & 0x00020000) != 0);
+      return ((bitField0_ & 0x00040000) != 0);
     }
     /**
      * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
@@ -3207,7 +3388,7 @@ private static final long serialVersionUID = 0L;
       } else {
         utxoSpecificBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00020000;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
@@ -3221,7 +3402,7 @@ private static final long serialVersionUID = 0L;
       } else {
         utxoSpecificBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00020000;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
@@ -3230,7 +3411,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUtxoSpecific(adamant.global.v1.UtxoSpecific value) {
       if (utxoSpecificBuilder_ == null) {
-        if (((bitField0_ & 0x00020000) != 0) &&
+        if (((bitField0_ & 0x00040000) != 0) &&
           utxoSpecific_ != null &&
           utxoSpecific_ != adamant.global.v1.UtxoSpecific.getDefaultInstance()) {
           getUtxoSpecificBuilder().mergeFrom(value);
@@ -3240,7 +3421,7 @@ private static final long serialVersionUID = 0L;
       } else {
         utxoSpecificBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00020000;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
@@ -3248,7 +3429,7 @@ private static final long serialVersionUID = 0L;
      * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
      */
     public Builder clearUtxoSpecific() {
-      bitField0_ = (bitField0_ & ~0x00020000);
+      bitField0_ = (bitField0_ & ~0x00040000);
       utxoSpecific_ = null;
       if (utxoSpecificBuilder_ != null) {
         utxoSpecificBuilder_.dispose();
@@ -3261,7 +3442,7 @@ private static final long serialVersionUID = 0L;
      * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
      */
     public adamant.global.v1.UtxoSpecific.Builder getUtxoSpecificBuilder() {
-      bitField0_ |= 0x00020000;
+      bitField0_ |= 0x00040000;
       onChanged();
       return getUtxoSpecificFieldBuilder().getBuilder();
     }

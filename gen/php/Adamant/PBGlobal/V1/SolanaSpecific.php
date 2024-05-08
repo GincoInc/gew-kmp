@@ -19,6 +19,10 @@ class SolanaSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint64 expiration = 1 [json_name = "expiration"];</code>
      */
     protected $expiration = 0;
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.SolanaEventType event_type = 2 [json_name = "eventType"];</code>
+     */
+    protected $event_type = 0;
 
     /**
      * Constructor.
@@ -27,6 +31,7 @@ class SolanaSpecific extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int|string $expiration
+     *     @type int $event_type
      * }
      */
     public function __construct($data = NULL) {
@@ -52,6 +57,28 @@ class SolanaSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint64($var);
         $this->expiration = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.SolanaEventType event_type = 2 [json_name = "eventType"];</code>
+     * @return int
+     */
+    public function getEventType()
+    {
+        return $this->event_type;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.SolanaEventType event_type = 2 [json_name = "eventType"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setEventType($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\SolanaEventType::class);
+        $this->event_type = $var;
 
         return $this;
     }

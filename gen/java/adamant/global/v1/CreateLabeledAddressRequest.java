@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     coin_ = 0;
     address_ = "";
     network_ = 0;
+    message_ = "";
   }
 
   @java.lang.Override
@@ -164,6 +165,53 @@ private static final long serialVersionUID = 0L;
     return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
   }
 
+  public static final int MESSAGE_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object message_ = "";
+  /**
+   * <code>optional string message = 5 [json_name = "message"];</code>
+   * @return Whether the message field is set.
+   */
+  @java.lang.Override
+  public boolean hasMessage() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional string message = 5 [json_name = "message"];</code>
+   * @return The message.
+   */
+  @java.lang.Override
+  public java.lang.String getMessage() {
+    java.lang.Object ref = message_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      message_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string message = 5 [json_name = "message"];</code>
+   * @return The bytes for message.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getMessageBytes() {
+    java.lang.Object ref = message_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      message_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -190,6 +238,9 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeEnum(4, network_);
     }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, message_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -212,6 +263,9 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, network_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, message_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -237,6 +291,11 @@ private static final long serialVersionUID = 0L;
     if (hasNetwork()) {
       if (network_ != other.network_) return false;
     }
+    if (hasMessage() != other.hasMessage()) return false;
+    if (hasMessage()) {
+      if (!getMessage()
+          .equals(other.getMessage())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -257,6 +316,10 @@ private static final long serialVersionUID = 0L;
     if (hasNetwork()) {
       hash = (37 * hash) + NETWORK_FIELD_NUMBER;
       hash = (53 * hash) + network_;
+    }
+    if (hasMessage()) {
+      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessage().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -393,6 +456,7 @@ private static final long serialVersionUID = 0L;
       coin_ = 0;
       address_ = "";
       network_ = 0;
+      message_ = "";
       return this;
     }
 
@@ -439,6 +503,10 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000008) != 0)) {
         result.network_ = network_;
         to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.message_ = message_;
+        to_bitField0_ |= 0x00000002;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -503,6 +571,11 @@ private static final long serialVersionUID = 0L;
       if (other.hasNetwork()) {
         setNetwork(other.getNetwork());
       }
+      if (other.hasMessage()) {
+        message_ = other.message_;
+        bitField0_ |= 0x00000010;
+        onChanged();
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -549,6 +622,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000008;
               break;
             } // case 32
+            case 42: {
+              message_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -819,6 +897,85 @@ private static final long serialVersionUID = 0L;
     public Builder clearNetwork() {
       bitField0_ = (bitField0_ & ~0x00000008);
       network_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object message_ = "";
+    /**
+     * <code>optional string message = 5 [json_name = "message"];</code>
+     * @return Whether the message field is set.
+     */
+    public boolean hasMessage() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional string message = 5 [json_name = "message"];</code>
+     * @return The message.
+     */
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        message_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>optional string message = 5 [json_name = "message"];</code>
+     * @return The bytes for message.
+     */
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string message = 5 [json_name = "message"];</code>
+     * @param value The message to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMessage(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      message_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string message = 5 [json_name = "message"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMessage() {
+      message_ = getDefaultInstance().getMessage();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string message = 5 [json_name = "message"];</code>
+     * @param value The bytes for message to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMessageBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      message_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
