@@ -85,6 +85,7 @@ enum Coin {
   COIN_ERC20_MASK = 68;
   COIN_ERC20_SUP = 69;
   COIN_ERC20_DM2P = 70;
+  COIN_APT = 71;
   COIN_SDN = 10002;
   COIN_ERC20_SCDEV = 10003; // for stable coin development in dev
   COIN_ERC20_SCQA = 10004; // for stable coin development in qa
@@ -153,6 +154,8 @@ enum Network {
   NETWORK_FLARE_TESTNET = 56;
   NETWORK_ARBITRUM_ONE_MAINNET = 57;
   NETWORK_ARBITRUM_ONE_TESTNET = 58;
+  NETWORK_APTOS_MAINNET = 60;
+  NETWORK_APTOS_TESTNET = 61;
   NETWORK_SHIDEN_MAINNET = 10002;
 }
 
@@ -318,11 +321,12 @@ enum SolanaEventType {
   SOLANA_EVENT_TYPE_DEACTIVATE = 2;
   SOLANA_EVENT_TYPE_WITHDRAW = 3;
   SOLANA_EVENT_TYPE_STAKE_INIT = 4; // ステークアカウント作成
+  SOLANA_EVENT_TYPE_REWARD = 5;
 
   // ステータス遷移を監視する場合(ステータス変化するまで1Epoch要)
   // Withdrawだけは即時反映されるので不要
-  SOLANA_EVENT_TYPE_DELEGATE_COMPLETE = 5; // Delegateステータス遷移時
-  SOLANA_EVENT_TYPE_DEACTIVATE_COMPLETE = 6; // Deactivateステータス遷移時
+  SOLANA_EVENT_TYPE_DELEGATE_COMPLETE = 6; // Delegateステータス遷移時
+  SOLANA_EVENT_TYPE_DEACTIVATE_COMPLETE = 7; // Deactivateステータス遷移時
 }
 
 enum EthereumCallMethod {
