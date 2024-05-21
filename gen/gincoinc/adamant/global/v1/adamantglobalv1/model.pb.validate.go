@@ -2793,6 +2793,35 @@ func (m *Transaction) validate(all bool) error {
 	}
 
 	if all {
+		switch v := interface{}(m.GetAptosSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "AptosSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "AptosSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetAptosSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "AptosSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
 		switch v := interface{}(m.GetCreateTime()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
@@ -6725,6 +6754,8 @@ func (m *SolanaSpecific) validate(all bool) error {
 
 	// no validation rules for Expiration
 
+	// no validation rules for EventType
+
 	if len(errors) > 0 {
 		return SolanaSpecificMultiError(errors)
 	}
@@ -6802,6 +6833,114 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = SolanaSpecificValidationError{}
+
+// Validate checks the field values on AptosSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *AptosSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AptosSpecific with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in AptosSpecificMultiError, or
+// nil if none found.
+func (m *AptosSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AptosSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	// no validation rules for Expiration
+
+	if len(errors) > 0 {
+		return AptosSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// AptosSpecificMultiError is an error wrapping multiple validation errors
+// returned by AptosSpecific.ValidateAll() if the designated constraints
+// aren't met.
+type AptosSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AptosSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AptosSpecificMultiError) AllErrors() []error { return m }
+
+// AptosSpecificValidationError is the validation error returned by
+// AptosSpecific.Validate if the designated constraints aren't met.
+type AptosSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AptosSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AptosSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AptosSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AptosSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AptosSpecificValidationError) ErrorName() string { return "AptosSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e AptosSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAptosSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AptosSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AptosSpecificValidationError{}
 
 // Validate checks the field values on BNBSmartChainSpecific with the rules
 // defined in the proto definition for this message. If any rules are
@@ -8221,6 +8360,113 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CreateTransactionSolanaSpecificValidationError{}
+
+// Validate checks the field values on CreateTransactionAptosSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CreateTransactionAptosSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreateTransactionAptosSpecific with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// CreateTransactionAptosSpecificMultiError, or nil if none found.
+func (m *CreateTransactionAptosSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateTransactionAptosSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if m.Expiration != nil {
+		// no validation rules for Expiration
+	}
+
+	if len(errors) > 0 {
+		return CreateTransactionAptosSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreateTransactionAptosSpecificMultiError is an error wrapping multiple
+// validation errors returned by CreateTransactionAptosSpecific.ValidateAll()
+// if the designated constraints aren't met.
+type CreateTransactionAptosSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionAptosSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionAptosSpecificMultiError) AllErrors() []error { return m }
+
+// CreateTransactionAptosSpecificValidationError is the validation error
+// returned by CreateTransactionAptosSpecific.Validate if the designated
+// constraints aren't met.
+type CreateTransactionAptosSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionAptosSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionAptosSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionAptosSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionAptosSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionAptosSpecificValidationError) ErrorName() string {
+	return "CreateTransactionAptosSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionAptosSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionAptosSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionAptosSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionAptosSpecificValidationError{}
 
 // Validate checks the field values on SelectedUTXO with the rules defined in
 // the proto definition for this message. If any rules are violated, the first
@@ -10302,6 +10548,8 @@ func (m *LabeledAddress) validate(all bool) error {
 
 	// no validation rules for Network
 
+	// no validation rules for Message
+
 	if len(errors) > 0 {
 		return LabeledAddressMultiError(errors)
 	}
@@ -10413,6 +10661,8 @@ func (m *LabeledAddressProposal) validate(all bool) error {
 	// no validation rules for ProposedAddress
 
 	// no validation rules for AddressIsReviewed
+
+	// no validation rules for ProposedMessage
 
 	if len(errors) > 0 {
 		return LabeledAddressProposalMultiError(errors)

@@ -29,6 +29,10 @@ class CreateLabeledAddressRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 4 [json_name = "network", (.validate.rules) = {</code>
      */
     protected $network = null;
+    /**
+     * Generated from protobuf field <code>optional string message = 5 [json_name = "message"];</code>
+     */
+    protected $message = null;
 
     /**
      * Constructor.
@@ -40,6 +44,7 @@ class CreateLabeledAddressRequest extends \Google\Protobuf\Internal\Message
      *     @type int $coin
      *     @type string $address
      *     @type int $network
+     *     @type string $message
      * }
      */
     public function __construct($data = NULL) {
@@ -141,6 +146,38 @@ class CreateLabeledAddressRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
         $this->network = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string message = 5 [json_name = "message"];</code>
+     * @return string
+     */
+    public function getMessage()
+    {
+        return isset($this->message) ? $this->message : '';
+    }
+
+    public function hasMessage()
+    {
+        return isset($this->message);
+    }
+
+    public function clearMessage()
+    {
+        unset($this->message);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string message = 5 [json_name = "message"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setMessage($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->message = $var;
 
         return $this;
     }

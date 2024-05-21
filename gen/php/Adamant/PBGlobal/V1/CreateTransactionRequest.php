@@ -82,6 +82,10 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      */
     protected $solana_specific = null;
     /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+     */
+    protected $aptos_specific = null;
+    /**
      * Generated from protobuf field <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
      */
     protected $utxo_specific = null;
@@ -109,6 +113,7 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CreateTransactionAlgorandSpecific $algorand_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionHederaSpecific $hedera_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionSolanaSpecific $solana_specific
+     *     @type \Adamant\PBGlobal\V1\CreateTransactionAptosSpecific $aptos_specific
      *     @type \Adamant\PBGlobal\V1\UtxoSpecific $utxo_specific
      * }
      */
@@ -587,6 +592,38 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionSolanaSpecific::class);
         $this->solana_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CreateTransactionAptosSpecific|null
+     */
+    public function getAptosSpecific()
+    {
+        return $this->aptos_specific;
+    }
+
+    public function hasAptosSpecific()
+    {
+        return isset($this->aptos_specific);
+    }
+
+    public function clearAptosSpecific()
+    {
+        unset($this->aptos_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19 [json_name = "aptosSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CreateTransactionAptosSpecific $var
+     * @return $this
+     */
+    public function setAptosSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionAptosSpecific::class);
+        $this->aptos_specific = $var;
 
         return $this;
     }
