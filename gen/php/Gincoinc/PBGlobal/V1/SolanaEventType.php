@@ -34,18 +34,22 @@ class SolanaEventType
      */
     const SOLANA_EVENT_TYPE_STAKE_INIT = 4;
     /**
+     * Generated from protobuf enum <code>SOLANA_EVENT_TYPE_REWARD = 5;</code>
+     */
+    const SOLANA_EVENT_TYPE_REWARD = 5;
+    /**
      * ステータス遷移を監視する場合(ステータス変化するまで1Epoch要)
      * Withdrawだけは即時反映されるので不要
      *
-     * Generated from protobuf enum <code>SOLANA_EVENT_TYPE_DELEGATE_COMPLETE = 5;</code>
+     * Generated from protobuf enum <code>SOLANA_EVENT_TYPE_DELEGATE_COMPLETE = 6;</code>
      */
-    const SOLANA_EVENT_TYPE_DELEGATE_COMPLETE = 5;
+    const SOLANA_EVENT_TYPE_DELEGATE_COMPLETE = 6;
     /**
      * Deactivateステータス遷移時
      *
-     * Generated from protobuf enum <code>SOLANA_EVENT_TYPE_DEACTIVATE_COMPLETE = 6;</code>
+     * Generated from protobuf enum <code>SOLANA_EVENT_TYPE_DEACTIVATE_COMPLETE = 7;</code>
      */
-    const SOLANA_EVENT_TYPE_DEACTIVATE_COMPLETE = 6;
+    const SOLANA_EVENT_TYPE_DEACTIVATE_COMPLETE = 7;
 
     private static $valueToName = [
         self::SOLANA_EVENT_TYPE_INVALID => 'SOLANA_EVENT_TYPE_INVALID',
@@ -53,6 +57,7 @@ class SolanaEventType
         self::SOLANA_EVENT_TYPE_DEACTIVATE => 'SOLANA_EVENT_TYPE_DEACTIVATE',
         self::SOLANA_EVENT_TYPE_WITHDRAW => 'SOLANA_EVENT_TYPE_WITHDRAW',
         self::SOLANA_EVENT_TYPE_STAKE_INIT => 'SOLANA_EVENT_TYPE_STAKE_INIT',
+        self::SOLANA_EVENT_TYPE_REWARD => 'SOLANA_EVENT_TYPE_REWARD',
         self::SOLANA_EVENT_TYPE_DELEGATE_COMPLETE => 'SOLANA_EVENT_TYPE_DELEGATE_COMPLETE',
         self::SOLANA_EVENT_TYPE_DEACTIVATE_COMPLETE => 'SOLANA_EVENT_TYPE_DEACTIVATE_COMPLETE',
     ];

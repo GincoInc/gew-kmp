@@ -258,6 +258,14 @@ class Network
      */
     const NETWORK_ARBITRUM_ONE_TESTNET = 58;
     /**
+     * Generated from protobuf enum <code>NETWORK_APTOS_MAINNET = 60;</code>
+     */
+    const NETWORK_APTOS_MAINNET = 60;
+    /**
+     * Generated from protobuf enum <code>NETWORK_APTOS_TESTNET = 61;</code>
+     */
+    const NETWORK_APTOS_TESTNET = 61;
+    /**
      * Generated from protobuf enum <code>NETWORK_SHIDEN_MAINNET = 10002;</code>
      */
     const NETWORK_SHIDEN_MAINNET = 10002;
@@ -323,6 +331,8 @@ class Network
         self::NETWORK_FLARE_TESTNET => 'NETWORK_FLARE_TESTNET',
         self::NETWORK_ARBITRUM_ONE_MAINNET => 'NETWORK_ARBITRUM_ONE_MAINNET',
         self::NETWORK_ARBITRUM_ONE_TESTNET => 'NETWORK_ARBITRUM_ONE_TESTNET',
+        self::NETWORK_APTOS_MAINNET => 'NETWORK_APTOS_MAINNET',
+        self::NETWORK_APTOS_TESTNET => 'NETWORK_APTOS_TESTNET',
         self::NETWORK_SHIDEN_MAINNET => 'NETWORK_SHIDEN_MAINNET',
     ];
 

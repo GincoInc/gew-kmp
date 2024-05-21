@@ -39,6 +39,10 @@ class LabeledAddressProposal extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool address_is_reviewed = 6 [json_name = "addressIsReviewed"];</code>
      */
     protected $address_is_reviewed = false;
+    /**
+     * Generated from protobuf field <code>string proposed_message = 7 [json_name = "proposedMessage"];</code>
+     */
+    protected $proposed_message = '';
 
     /**
      * Constructor.
@@ -52,6 +56,7 @@ class LabeledAddressProposal extends \Google\Protobuf\Internal\Message
      *     @type string $approver_name
      *     @type string $proposed_address
      *     @type bool $address_is_reviewed
+     *     @type string $proposed_message
      * }
      */
     public function __construct($data = NULL) {
@@ -187,6 +192,28 @@ class LabeledAddressProposal extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->address_is_reviewed = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string proposed_message = 7 [json_name = "proposedMessage"];</code>
+     * @return string
+     */
+    public function getProposedMessage()
+    {
+        return $this->proposed_message;
+    }
+
+    /**
+     * Generated from protobuf field <code>string proposed_message = 7 [json_name = "proposedMessage"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setProposedMessage($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->proposed_message = $var;
 
         return $this;
     }

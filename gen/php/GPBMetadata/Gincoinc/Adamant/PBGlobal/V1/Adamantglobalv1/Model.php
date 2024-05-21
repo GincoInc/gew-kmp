@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-êû
+›ÿ
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"Ž	
 Wallet
 owner_id (	RownerId
@@ -198,7 +198,7 @@ address_id (	R	addressId,
 string_balance (	RstringBalance
 fee_balance (R
 feeBalance,
-string_fee_balance (	RstringFeeBalance"õ
+string_fee_balance (	RstringFeeBalance"¾
 Transaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId,
@@ -245,7 +245,8 @@ signedKeys>
 solana_specific, (2!.adamant.global.v1.SolanaSpecificRsolanaSpecifica
 bnb_smart_chain_specific- (2(.adamant.global.v1.BNBSmartChainSpecificRbnbSmartChainSpecificG
 flare_specific. (2 .adamant.global.v1.FlareSpecificRflareSpecificZ
-arbitrum_one_specific0 (2&.adamant.global.v1.ArbitrumOneSpecificRarbitrumOneSpecific;
+arbitrum_one_specific0 (2&.adamant.global.v1.ArbitrumOneSpecificRarbitrumOneSpecificG
+aptos_specific1 (2 .adamant.global.v1.AptosSpecificRaptosSpecific;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
@@ -412,10 +413,19 @@ expiration"o
 JapanOpenChainSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
-is_next_nonce (RisNextNonce"0
+is_next_nonce (RisNextNonce"t
 SolanaSpecific
 
 expiration (R
+expirationB
+
+event_type (2#.gincoinc.global.v1.SolanaEventTypeR	eventType"†
+AptosSpecific
+	gas_limit (RgasLimit
+nonce (Rnonce"
+is_next_nonce (RisNextNonce
+
+expiration (R
 expiration"n
 BNBSmartChainSpecific
 	gas_limit (RgasLimit
@@ -469,7 +479,12 @@ callMethodˆB
 	timestamp (R	timestamp"e
 CreateTransactionSolanaSpecificB
 
-event_type (2#.gincoinc.global.v1.SolanaEventTypeR	eventType"7
+event_type (2#.gincoinc.global.v1.SolanaEventTypeR	eventType"T
+CreateTransactionAptosSpecific#
+
+expiration (H R
+expirationˆB
+_expiration"7
 SelectedUTXO
 tx_id (	RtxId
 vout (Rvout"ï
@@ -630,7 +645,7 @@ RatesEntry
 Deactivatability
 
 account_id (	R	accountId$
-deactivatable (Rdeactivatable"’
+deactivatable (Rdeactivatable"¬
 LabeledAddress,
 labeled_address_id (	RlabeledAddressId
 name (	Rname,
@@ -641,14 +656,17 @@ account_id (	R	accountId$
 createTime;
 update_time (2.google.protobuf.TimestampR
 updateTime5
-network	 (2.gincoinc.global.v1.NetworkRnetwork"¡
+network	 (2.gincoinc.global.v1.NetworkRnetwork
+message
+ (	Rmessage"Ì
 LabeledAddressProposal0
 requester_account_id (	RrequesterAccountId%
 requester_name (	RrequesterName.
 approver_account_id (	RapproverAccountId#
 approver_name (	RapproverName)
 proposed_address (	RproposedAddress.
-address_is_reviewed (RaddressIsReviewed"â
+address_is_reviewed (RaddressIsReviewed)
+proposed_message (	RproposedMessage"â
 	Whitelist!
 whitelist_id (	RwhitelistId
 name (	Rname,
