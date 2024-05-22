@@ -25,6 +25,10 @@ class UpdateWalletFlushSettingRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string destination_wallet_id = 2 [json_name = "destinationWalletId", (.validate.rules) = {</code>
      */
     protected $destination_wallet_id = '';
+    /**
+     * Generated from protobuf field <code>double flush_threshold = 4 [json_name = "flushThreshold"];</code>
+     */
+    protected $flush_threshold = 0.0;
 
     /**
      * Constructor.
@@ -35,6 +39,7 @@ class UpdateWalletFlushSettingRequest extends \Google\Protobuf\Internal\Message
      *     @type int $coin
      *     @type int $network
      *     @type string $destination_wallet_id
+     *     @type float $flush_threshold
      * }
      */
     public function __construct($data = NULL) {
@@ -114,6 +119,28 @@ class UpdateWalletFlushSettingRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->destination_wallet_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>double flush_threshold = 4 [json_name = "flushThreshold"];</code>
+     * @return float
+     */
+    public function getFlushThreshold()
+    {
+        return $this->flush_threshold;
+    }
+
+    /**
+     * Generated from protobuf field <code>double flush_threshold = 4 [json_name = "flushThreshold"];</code>
+     * @param float $var
+     * @return $this
+     */
+    public function setFlushThreshold($var)
+    {
+        GPBUtil::checkDouble($var);
+        $this->flush_threshold = $var;
 
         return $this;
     }

@@ -28,6 +28,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.CardanoCustomToken.class)) return new CardanoCustomTokenValidator();
 		if (clazz.equals(adamant.global.v1.Model.BitcoinSpecific.class)) return new BitcoinSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.LitecoinSpecific.class)) return new LitecoinSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.DogecoinSpecific.class)) return new DogecoinSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.BitcoincashSpecific.class)) return new BitcoincashSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.EthereumSpecific.class)) return new EthereumSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.XrpSpecific.class)) return new XrpSpecificValidator();
@@ -908,6 +909,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1036,6 +1039,9 @@ public class ModelValidator {
 	
 			// Validate aptos_specific
 			if (proto.hasAptosSpecific()) index.validatorFor(proto.getAptosSpecific()).assertValid(proto.getAptosSpecific());
+	
+			// Validate dogecoin_specific
+			if (proto.hasDogecoinSpecific()) index.validatorFor(proto.getDogecoinSpecific()).assertValid(proto.getDogecoinSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -1252,6 +1258,32 @@ public class ModelValidator {
 	
 
 	public void assertValid(adamant.global.v1.Model.LitecoinSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxInputsList(), item -> {
+				
+			// Validate tx_inputs
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxOutputsList(), item -> {
+				
+			// Validate tx_outputs
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+	
+	}
+}
+/**
+	 * Validates {@code DogecoinSpecific} protobuf objects.
+	 */
+	public static class DogecoinSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.DogecoinSpecific> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.DogecoinSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxInputsList(), item -> {
 				
@@ -2792,8 +2824,6 @@ public class ModelValidator {
 	
 		
 	
-		
-	
 	
 
 	public void assertValid(adamant.global.v1.Model.LabeledAddress proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2816,8 +2846,6 @@ public class ModelValidator {
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
 	// no validation rules for Network
 
-	// no validation rules for Message
-
 	
 	}
 }
@@ -2825,8 +2853,6 @@ public class ModelValidator {
 	 * Validates {@code LabeledAddressProposal} protobuf objects.
 	 */
 	public static class LabeledAddressProposalValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.LabeledAddressProposal> {
-		
-	
 		
 	
 		
@@ -2853,8 +2879,6 @@ public class ModelValidator {
 	// no validation rules for ProposedAddress
 
 	// no validation rules for AddressIsReviewed
-
-	// no validation rules for ProposedMessage
 
 	
 	}
@@ -3508,6 +3532,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.WalletFlushSetting proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -3525,6 +3551,8 @@ public class ModelValidator {
 	
 			// Validate update_time
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	// no validation rules for FlushThreshold
+
 	
 	}
 }

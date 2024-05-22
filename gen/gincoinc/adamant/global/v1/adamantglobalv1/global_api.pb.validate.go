@@ -3984,13 +3984,15 @@ func (m *UpdateWalletFlushSettingRequest) validate(all bool) error {
 	if !_UpdateWalletFlushSettingRequest_DestinationWalletId_Pattern.MatchString(m.GetDestinationWalletId()) {
 		err := UpdateWalletFlushSettingRequestValidationError{
 			field:  "DestinationWalletId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
 		if !all {
 			return err
 		}
 		errors = append(errors, err)
 	}
+
+	// no validation rules for FlushThreshold
 
 	if m.Network != nil {
 
@@ -4092,7 +4094,7 @@ var _UpdateWalletFlushSettingRequest_Coin_NotInLookup = map[gincoincglobalv1.Coi
 	0: {},
 }
 
-var _UpdateWalletFlushSettingRequest_DestinationWalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _UpdateWalletFlushSettingRequest_DestinationWalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on ListCompensationFeeHistoriesRequest with
 // the rules defined in the proto definition for this message. If any rules
@@ -19898,10 +19900,6 @@ func (m *CreateLabeledAddressRequest) validate(all bool) error {
 			errors = append(errors, err)
 		}
 
-	}
-
-	if m.Message != nil {
-		// no validation rules for Message
 	}
 
 	if len(errors) > 0 {

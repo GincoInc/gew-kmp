@@ -242,6 +242,7 @@ message Transaction {
   FlareSpecific flare_specific = 46; // The Flare specific fields
   ArbitrumOneSpecific arbitrum_one_specific = 48; // The Arbitrum specific fields
   AptosSpecific aptos_specific = 49; // The Flare specific fields
+  DogecoinSpecific dogecoin_specific = 50; // THe Doge specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -306,6 +307,12 @@ message BitcoinSpecific {
 
 // The model of Litecoin specific fields of transaction
 message LitecoinSpecific {
+  repeated TxInput tx_inputs = 1;
+  repeated TxOutput tx_outputs = 2;
+}
+
+// The model of Dogecoin specific fields of transaction
+message DogecoinSpecific {
   repeated TxInput tx_inputs = 1;
   repeated TxOutput tx_outputs = 2;
 }
@@ -758,7 +765,7 @@ message LabeledAddress {
   google.protobuf.Timestamp create_time = 7; // the time at which the labeled address was created
   google.protobuf.Timestamp update_time = 8; // the time at which the labeled address was updated
   gincoinc.global.v1.Network network = 9;
-  string message = 10; // message
+  // string message = 10; // message
 }
 
 // The model of proposal to update labeled address information
@@ -769,7 +776,7 @@ message LabeledAddressProposal {
   string approver_name = 4;
   string proposed_address = 5;
   bool address_is_reviewed = 6;
-  string proposed_message = 7;
+  // string proposed_message = 7;
 }
 
 // The model of whitelist
@@ -931,6 +938,7 @@ message WalletFlushSetting {
   string destination_wallet_id = 3;
   google.protobuf.Timestamp create_time = 4;
   google.protobuf.Timestamp update_time = 5;
+  double flush_threshold = 7;
 }
 
 message CompensationFee {

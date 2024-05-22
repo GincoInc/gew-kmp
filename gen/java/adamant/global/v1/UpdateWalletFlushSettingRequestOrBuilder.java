@@ -45,4 +45,10 @@ public interface UpdateWalletFlushSettingRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getDestinationWalletIdBytes();
+
+  /**
+   * <code>double flush_threshold = 4 [json_name = "flushThreshold"];</code>
+   * @return The flushThreshold.
+   */
+  double getFlushThreshold();
 }

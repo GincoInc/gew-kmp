@@ -124,6 +124,17 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int FLUSH_THRESHOLD_FIELD_NUMBER = 4;
+  private double flushThreshold_ = 0D;
+  /**
+   * <code>double flush_threshold = 4 [json_name = "flushThreshold"];</code>
+   * @return The flushThreshold.
+   */
+  @java.lang.Override
+  public double getFlushThreshold() {
+    return flushThreshold_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -147,6 +158,9 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeEnum(3, network_);
     }
+    if (java.lang.Double.doubleToRawLongBits(flushThreshold_) != 0) {
+      output.writeDouble(4, flushThreshold_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -166,6 +180,10 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, network_);
+    }
+    if (java.lang.Double.doubleToRawLongBits(flushThreshold_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(4, flushThreshold_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -189,6 +207,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!getDestinationWalletId()
         .equals(other.getDestinationWalletId())) return false;
+    if (java.lang.Double.doubleToLongBits(getFlushThreshold())
+        != java.lang.Double.doubleToLongBits(
+            other.getFlushThreshold())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -208,6 +229,9 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + DESTINATION_WALLET_ID_FIELD_NUMBER;
     hash = (53 * hash) + getDestinationWalletId().hashCode();
+    hash = (37 * hash) + FLUSH_THRESHOLD_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        java.lang.Double.doubleToLongBits(getFlushThreshold()));
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -342,6 +366,7 @@ private static final long serialVersionUID = 0L;
       coin_ = 0;
       network_ = 0;
       destinationWalletId_ = "";
+      flushThreshold_ = 0D;
       return this;
     }
 
@@ -385,6 +410,9 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.destinationWalletId_ = destinationWalletId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.flushThreshold_ = flushThreshold_;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -444,6 +472,9 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000004;
         onChanged();
       }
+      if (other.getFlushThreshold() != 0D) {
+        setFlushThreshold(other.getFlushThreshold());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -485,6 +516,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 24
+            case 33: {
+              flushThreshold_ = input.readDouble();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 33
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -683,6 +719,38 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       destinationWalletId_ = value;
       bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+
+    private double flushThreshold_ ;
+    /**
+     * <code>double flush_threshold = 4 [json_name = "flushThreshold"];</code>
+     * @return The flushThreshold.
+     */
+    @java.lang.Override
+    public double getFlushThreshold() {
+      return flushThreshold_;
+    }
+    /**
+     * <code>double flush_threshold = 4 [json_name = "flushThreshold"];</code>
+     * @param value The flushThreshold to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFlushThreshold(double value) {
+
+      flushThreshold_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double flush_threshold = 4 [json_name = "flushThreshold"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFlushThreshold() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      flushThreshold_ = 0D;
       onChanged();
       return this;
     }

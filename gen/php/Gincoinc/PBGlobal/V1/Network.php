@@ -266,6 +266,14 @@ class Network
      */
     const NETWORK_APTOS_TESTNET = 61;
     /**
+     * Generated from protobuf enum <code>NETWORK_DOGECOIN_MAINNET = 62;</code>
+     */
+    const NETWORK_DOGECOIN_MAINNET = 62;
+    /**
+     * Generated from protobuf enum <code>NETWORK_DOGECOIN_TESTNET = 63;</code>
+     */
+    const NETWORK_DOGECOIN_TESTNET = 63;
+    /**
      * Generated from protobuf enum <code>NETWORK_SHIDEN_MAINNET = 10002;</code>
      */
     const NETWORK_SHIDEN_MAINNET = 10002;
@@ -333,6 +341,8 @@ class Network
         self::NETWORK_ARBITRUM_ONE_TESTNET => 'NETWORK_ARBITRUM_ONE_TESTNET',
         self::NETWORK_APTOS_MAINNET => 'NETWORK_APTOS_MAINNET',
         self::NETWORK_APTOS_TESTNET => 'NETWORK_APTOS_TESTNET',
+        self::NETWORK_DOGECOIN_MAINNET => 'NETWORK_DOGECOIN_MAINNET',
+        self::NETWORK_DOGECOIN_TESTNET => 'NETWORK_DOGECOIN_TESTNET',
         self::NETWORK_SHIDEN_MAINNET => 'NETWORK_SHIDEN_MAINNET',
     ];
 

@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-›ÿ
+Û€
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"Ž	
 Wallet
 owner_id (	RownerId
@@ -198,7 +198,7 @@ address_id (	R	addressId,
 string_balance (	RstringBalance
 fee_balance (R
 feeBalance,
-string_fee_balance (	RstringFeeBalance"¾
+string_fee_balance (	RstringFeeBalance"
 Transaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId,
@@ -246,7 +246,8 @@ signedKeys>
 bnb_smart_chain_specific- (2(.adamant.global.v1.BNBSmartChainSpecificRbnbSmartChainSpecificG
 flare_specific. (2 .adamant.global.v1.FlareSpecificRflareSpecificZ
 arbitrum_one_specific0 (2&.adamant.global.v1.ArbitrumOneSpecificRarbitrumOneSpecificG
-aptos_specific1 (2 .adamant.global.v1.AptosSpecificRaptosSpecific;
+aptos_specific1 (2 .adamant.global.v1.AptosSpecificRaptosSpecificP
+dogecoin_specific2 (2#.adamant.global.v1.DogecoinSpecificRdogecoinSpecific;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
@@ -290,6 +291,10 @@ asset_name (	R	assetName
 
 tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"‡
 LitecoinSpecific7
+	tx_inputs (2.adamant.global.v1.TxInputRtxInputs:
+
+tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"‡
+DogecoinSpecific7
 	tx_inputs (2.adamant.global.v1.TxInputRtxInputs:
 
 tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"Š
@@ -645,7 +650,7 @@ RatesEntry
 Deactivatability
 
 account_id (	R	accountId$
-deactivatable (Rdeactivatable"¬
+deactivatable (Rdeactivatable"’
 LabeledAddress,
 labeled_address_id (	RlabeledAddressId
 name (	Rname,
@@ -656,17 +661,14 @@ account_id (	R	accountId$
 createTime;
 update_time (2.google.protobuf.TimestampR
 updateTime5
-network	 (2.gincoinc.global.v1.NetworkRnetwork
-message
- (	Rmessage"Ì
+network	 (2.gincoinc.global.v1.NetworkRnetwork"¡
 LabeledAddressProposal0
 requester_account_id (	RrequesterAccountId%
 requester_name (	RrequesterName.
 approver_account_id (	RapproverAccountId#
 approver_name (	RapproverName)
 proposed_address (	RproposedAddress.
-address_is_reviewed (RaddressIsReviewed)
-proposed_message (	RproposedMessage"â
+address_is_reviewed (RaddressIsReviewed"â
 	Whitelist!
 whitelist_id (	RwhitelistId
 name (	Rname,
@@ -809,7 +811,7 @@ targetTime¬
 transfer_type (2 .gincoinc.global.v1.TransferTypeRtransferType"`
 Confirmation,
 coin (2.gincoinc.global.v1.CoinRcoin"
-confirmation (Rconfirmation"Â
+confirmation (Rconfirmation"ë
 WalletFlushSetting
 owner_id (	RownerId,
 coin (2.gincoinc.global.v1.CoinRcoin5
@@ -818,7 +820,8 @@ targetTime¬
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
-updateTime"Œ
+updateTime\'
+flush_threshold (RflushThreshold"Œ
 CompensationFee!
 string_value (	RstringValue
 is_spent (RisSpent;

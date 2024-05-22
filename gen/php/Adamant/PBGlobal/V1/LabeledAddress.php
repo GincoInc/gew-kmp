@@ -59,15 +59,11 @@ class LabeledAddress extends \Google\Protobuf\Internal\Message
      */
     protected $update_time = null;
     /**
+     * string message = 10; // message
+     *
      * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 9 [json_name = "network"];</code>
      */
     protected $network = 0;
-    /**
-     * message
-     *
-     * Generated from protobuf field <code>string message = 10 [json_name = "message"];</code>
-     */
-    protected $message = '';
 
     /**
      * Constructor.
@@ -90,8 +86,7 @@ class LabeledAddress extends \Google\Protobuf\Internal\Message
      *     @type \Google\Protobuf\Timestamp $update_time
      *           the time at which the labeled address was updated
      *     @type int $network
-     *     @type string $message
-     *           message
+     *           string message = 10; // message
      * }
      */
     public function __construct($data = NULL) {
@@ -312,6 +307,8 @@ class LabeledAddress extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * string message = 10; // message
+     *
      * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 9 [json_name = "network"];</code>
      * @return int
      */
@@ -321,6 +318,8 @@ class LabeledAddress extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * string message = 10; // message
+     *
      * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 9 [json_name = "network"];</code>
      * @param int $var
      * @return $this
@@ -329,32 +328,6 @@ class LabeledAddress extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
         $this->network = $var;
-
-        return $this;
-    }
-
-    /**
-     * message
-     *
-     * Generated from protobuf field <code>string message = 10 [json_name = "message"];</code>
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->message;
-    }
-
-    /**
-     * message
-     *
-     * Generated from protobuf field <code>string message = 10 [json_name = "message"];</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setMessage($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->message = $var;
 
         return $this;
     }
