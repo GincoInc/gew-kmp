@@ -115,8 +115,6 @@ func (m *AuditLog) validate(all bool) error {
 
 	// no validation rules for AddressName
 
-	// no validation rules for Message
-
 	// no validation rules for TransferLimitId
 
 	// no validation rules for TransferLimitName

@@ -128,10 +128,8 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      */
     protected $address_name = '';
     /**
-     * Generated from protobuf field <code>string message = 41 [json_name = "message"];</code>
-     */
-    protected $message = '';
-    /**
+     * string message = 41;
+     *
      * Generated from protobuf field <code>string transfer_limit_id = 24 [json_name = "transferLimitId"];</code>
      */
     protected $transfer_limit_id = '';
@@ -214,8 +212,8 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      *     @type string $labeled_address_id
      *     @type string $address
      *     @type string $address_name
-     *     @type string $message
      *     @type string $transfer_limit_id
+     *           string message = 41;
      *     @type string $transfer_limit_name
      *     @type int|string $transfer_one_time_limit
      *     @type int|string $transfer_hourly_limit
@@ -851,28 +849,8 @@ class AuditLog extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string message = 41 [json_name = "message"];</code>
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->message;
-    }
-
-    /**
-     * Generated from protobuf field <code>string message = 41 [json_name = "message"];</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setMessage($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->message = $var;
-
-        return $this;
-    }
-
-    /**
+     * string message = 41;
+     *
      * Generated from protobuf field <code>string transfer_limit_id = 24 [json_name = "transferLimitId"];</code>
      * @return string
      */
@@ -882,6 +860,8 @@ class AuditLog extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * string message = 41;
+     *
      * Generated from protobuf field <code>string transfer_limit_id = 24 [json_name = "transferLimitId"];</code>
      * @param string $var
      * @return $this

@@ -37,6 +37,10 @@ class WalletFlushSetting extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Timestamp update_time = 5 [json_name = "updateTime"];</code>
      */
     protected $update_time = null;
+    /**
+     * Generated from protobuf field <code>double flush_threshold = 7 [json_name = "flushThreshold"];</code>
+     */
+    protected $flush_threshold = 0.0;
 
     /**
      * Constructor.
@@ -50,6 +54,7 @@ class WalletFlushSetting extends \Google\Protobuf\Internal\Message
      *     @type string $destination_wallet_id
      *     @type \Google\Protobuf\Timestamp $create_time
      *     @type \Google\Protobuf\Timestamp $update_time
+     *     @type float $flush_threshold
      * }
      */
     public function __construct($data = NULL) {
@@ -205,6 +210,28 @@ class WalletFlushSetting extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->update_time = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>double flush_threshold = 7 [json_name = "flushThreshold"];</code>
+     * @return float
+     */
+    public function getFlushThreshold()
+    {
+        return $this->flush_threshold;
+    }
+
+    /**
+     * Generated from protobuf field <code>double flush_threshold = 7 [json_name = "flushThreshold"];</code>
+     * @param float $var
+     * @return $this
+     */
+    public function setFlushThreshold($var)
+    {
+        GPBUtil::checkDouble($var);
+        $this->flush_threshold = $var;
 
         return $this;
     }

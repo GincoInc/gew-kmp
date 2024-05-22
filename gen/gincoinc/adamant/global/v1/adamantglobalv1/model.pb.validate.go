@@ -2822,6 +2822,35 @@ func (m *Transaction) validate(all bool) error {
 	}
 
 	if all {
+		switch v := interface{}(m.GetDogecoinSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "DogecoinSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "DogecoinSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetDogecoinSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "DogecoinSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
 		switch v := interface{}(m.GetCreateTime()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
@@ -4014,6 +4043,174 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = LitecoinSpecificValidationError{}
+
+// Validate checks the field values on DogecoinSpecific with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *DogecoinSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on DogecoinSpecific with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// DogecoinSpecificMultiError, or nil if none found.
+func (m *DogecoinSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *DogecoinSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetTxInputs() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, DogecoinSpecificValidationError{
+						field:  fmt.Sprintf("TxInputs[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, DogecoinSpecificValidationError{
+						field:  fmt.Sprintf("TxInputs[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return DogecoinSpecificValidationError{
+					field:  fmt.Sprintf("TxInputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	for idx, item := range m.GetTxOutputs() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, DogecoinSpecificValidationError{
+						field:  fmt.Sprintf("TxOutputs[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, DogecoinSpecificValidationError{
+						field:  fmt.Sprintf("TxOutputs[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return DogecoinSpecificValidationError{
+					field:  fmt.Sprintf("TxOutputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return DogecoinSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// DogecoinSpecificMultiError is an error wrapping multiple validation errors
+// returned by DogecoinSpecific.ValidateAll() if the designated constraints
+// aren't met.
+type DogecoinSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DogecoinSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DogecoinSpecificMultiError) AllErrors() []error { return m }
+
+// DogecoinSpecificValidationError is the validation error returned by
+// DogecoinSpecific.Validate if the designated constraints aren't met.
+type DogecoinSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DogecoinSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DogecoinSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DogecoinSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DogecoinSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DogecoinSpecificValidationError) ErrorName() string { return "DogecoinSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e DogecoinSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDogecoinSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DogecoinSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DogecoinSpecificValidationError{}
 
 // Validate checks the field values on BitcoincashSpecific with the rules
 // defined in the proto definition for this message. If any rules are
@@ -10548,8 +10745,6 @@ func (m *LabeledAddress) validate(all bool) error {
 
 	// no validation rules for Network
 
-	// no validation rules for Message
-
 	if len(errors) > 0 {
 		return LabeledAddressMultiError(errors)
 	}
@@ -10661,8 +10856,6 @@ func (m *LabeledAddressProposal) validate(all bool) error {
 	// no validation rules for ProposedAddress
 
 	// no validation rules for AddressIsReviewed
-
-	// no validation rules for ProposedMessage
 
 	if len(errors) > 0 {
 		return LabeledAddressProposalMultiError(errors)
@@ -13965,6 +14158,8 @@ func (m *WalletFlushSetting) validate(all bool) error {
 			}
 		}
 	}
+
+	// no validation rules for FlushThreshold
 
 	if len(errors) > 0 {
 		return WalletFlushSettingMultiError(errors)
