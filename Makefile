@@ -37,6 +37,8 @@ tidy:
 generate: $(BIN)/buf $(BIN)/protoc-gen-go $(BIN)/protoc-gen-go-grpc $(BIN)/protoc-gen-validate
 	@rm -r ./gen || :
 	$(BIN)/buf generate --path ./api/proto/gincoinc
+	$(BIN)/buf generate --path ./api/proto/validate --template buf.gen-py.yaml
+	sh ./scripts/fix_import_py.sh
 
 .PHONY: protodep-up
 protodep-up: SSH_KEY ?= github_id_rsa

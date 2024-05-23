@@ -13,8 +13,8 @@ _sym_db = _symbol_database.Default()
 
 
 import importlib
-gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_enum__pb2 = importlib.import_module('gincoinc.adamant.global.v1.adamantglobalv1.enum_pb2')
-gincoinc_dot_global_dot_v1_dot_gincoincglobalv1_dot_enum__pb2 = importlib.import_module('gincoinc.global.v1.gincoincglobalv1.enum_pb2')
+gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_enum__pb2 = importlib.import_module('gincoinc.adamant.global_.v1.adamantglobalv1.enum_pb2')
+gincoinc_dot_global_dot_v1_dot_gincoincglobalv1_dot_enum__pb2 = importlib.import_module('gincoinc.global_.v1.gincoincglobalv1.enum_pb2')
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n=gincoinc/adamant/
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gincoinc.adamant.global.v1.adamantglobalv1.audit_logger_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'gincoinc.adamant.global_.v1.adamantglobalv1.audit_logger_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
   _globals['DESCRIPTOR']._serialized_options = b'ZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1'
