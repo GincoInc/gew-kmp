@@ -16,7 +16,7 @@ import importlib
 gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_audit__logger__pb2 = importlib.import_module('gincoinc.adamant.global_.v1.adamantglobalv1.audit_logger_pb2')
 gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_enum__pb2 = importlib.import_module('gincoinc.adamant.global_.v1.adamantglobalv1.enum_pb2')
 gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_model__pb2 = importlib.import_module('gincoinc.adamant.global_.v1.adamantglobalv1.model_pb2')
-gincoinc_dot_global_dot_v1_dot_gincoincglobalv1_dot_enum__pb2 = importlib.import_module('gincoinc.global.v1.gincoincglobalv1.enum_pb2')
+gincoinc_dot_global_dot_v1_dot_gincoincglobalv1_dot_enum__pb2 = importlib.import_module('gincoinc.global_.v1.gincoincglobalv1.enum_pb2')
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from validate import validate_pb2 as validate_dot_validate__pb2
