@@ -2,8 +2,8 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from gincoinc.adamant.global.v1.adamantglobalv1 import global_api_pb2 as gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2
-from gincoinc.adamant.global.v1.adamantglobalv1 import model_pb2 as gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_model__pb2
+from gincoinc.adamant.global_.v1.adamantglobalv1 import global_api_pb2 as gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2
+from gincoinc.adamant.global_.v1.adamantglobalv1 import model_pb2 as gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_model__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
