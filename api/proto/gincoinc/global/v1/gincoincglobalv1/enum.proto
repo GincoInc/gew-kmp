@@ -86,6 +86,7 @@ enum Coin {
   COIN_ERC20_SUP = 69;
   COIN_ERC20_DM2P = 70;
   COIN_APT = 71;
+  COIN_DOGE = 72;
   COIN_SDN = 10002;
   COIN_ERC20_SCDEV = 10003; // for stable coin development in dev
   COIN_ERC20_SCQA = 10004; // for stable coin development in qa
@@ -156,6 +157,8 @@ enum Network {
   NETWORK_ARBITRUM_ONE_TESTNET = 58;
   NETWORK_APTOS_MAINNET = 60;
   NETWORK_APTOS_TESTNET = 61;
+  NETWORK_DOGECOIN_MAINNET = 62;
+  NETWORK_DOGECOIN_TESTNET = 63;
   NETWORK_SHIDEN_MAINNET = 10002;
 }
 

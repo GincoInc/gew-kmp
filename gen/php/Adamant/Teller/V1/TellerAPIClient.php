@@ -346,6 +346,34 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Teller\V1\ListColdFeeDepositAddressesRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListColdFeeDepositAddresses(\Adamant\Teller\V1\ListColdFeeDepositAddressesRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListColdFeeDepositAddresses',
+        $argument,
+        ['\Adamant\Teller\V1\ListColdFeeDepositAddressesResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Teller\V1\ListHotFeeDepositAddressesRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListHotFeeDepositAddresses(\Adamant\Teller\V1\ListHotFeeDepositAddressesRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListHotFeeDepositAddresses',
+        $argument,
+        ['\Adamant\Teller\V1\ListHotFeeDepositAddressesResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\CreateTransactionRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options

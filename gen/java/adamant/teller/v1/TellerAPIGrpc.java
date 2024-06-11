@@ -728,6 +728,68 @@ public final class TellerAPIGrpc {
     return getUpdateAddressBalanceMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ListColdFeeDepositAddressesRequest,
+      adamant.teller.v1.ListColdFeeDepositAddressesResponse> getListColdFeeDepositAddressesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListColdFeeDepositAddresses",
+      requestType = adamant.teller.v1.ListColdFeeDepositAddressesRequest.class,
+      responseType = adamant.teller.v1.ListColdFeeDepositAddressesResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ListColdFeeDepositAddressesRequest,
+      adamant.teller.v1.ListColdFeeDepositAddressesResponse> getListColdFeeDepositAddressesMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ListColdFeeDepositAddressesRequest, adamant.teller.v1.ListColdFeeDepositAddressesResponse> getListColdFeeDepositAddressesMethod;
+    if ((getListColdFeeDepositAddressesMethod = TellerAPIGrpc.getListColdFeeDepositAddressesMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getListColdFeeDepositAddressesMethod = TellerAPIGrpc.getListColdFeeDepositAddressesMethod) == null) {
+          TellerAPIGrpc.getListColdFeeDepositAddressesMethod = getListColdFeeDepositAddressesMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ListColdFeeDepositAddressesRequest, adamant.teller.v1.ListColdFeeDepositAddressesResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListColdFeeDepositAddresses"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ListColdFeeDepositAddressesRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ListColdFeeDepositAddressesResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ListColdFeeDepositAddresses"))
+              .build();
+        }
+      }
+    }
+    return getListColdFeeDepositAddressesMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ListHotFeeDepositAddressesRequest,
+      adamant.teller.v1.ListHotFeeDepositAddressesResponse> getListHotFeeDepositAddressesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListHotFeeDepositAddresses",
+      requestType = adamant.teller.v1.ListHotFeeDepositAddressesRequest.class,
+      responseType = adamant.teller.v1.ListHotFeeDepositAddressesResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ListHotFeeDepositAddressesRequest,
+      adamant.teller.v1.ListHotFeeDepositAddressesResponse> getListHotFeeDepositAddressesMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ListHotFeeDepositAddressesRequest, adamant.teller.v1.ListHotFeeDepositAddressesResponse> getListHotFeeDepositAddressesMethod;
+    if ((getListHotFeeDepositAddressesMethod = TellerAPIGrpc.getListHotFeeDepositAddressesMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getListHotFeeDepositAddressesMethod = TellerAPIGrpc.getListHotFeeDepositAddressesMethod) == null) {
+          TellerAPIGrpc.getListHotFeeDepositAddressesMethod = getListHotFeeDepositAddressesMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ListHotFeeDepositAddressesRequest, adamant.teller.v1.ListHotFeeDepositAddressesResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListHotFeeDepositAddresses"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ListHotFeeDepositAddressesRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.ListHotFeeDepositAddressesResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ListHotFeeDepositAddresses"))
+              .build();
+        }
+      }
+    }
+    return getListHotFeeDepositAddressesMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.CreateTransactionRequest,
       adamant.global.v1.CreateTransactionResponse> getCreateTransactionMethod;
 
@@ -2095,6 +2157,20 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    default void listColdFeeDepositAddresses(adamant.teller.v1.ListColdFeeDepositAddressesRequest request,
+        io.grpc.stub.StreamObserver<adamant.teller.v1.ListColdFeeDepositAddressesResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListColdFeeDepositAddressesMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void listHotFeeDepositAddresses(adamant.teller.v1.ListHotFeeDepositAddressesRequest request,
+        io.grpc.stub.StreamObserver<adamant.teller.v1.ListHotFeeDepositAddressesResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListHotFeeDepositAddressesMethod(), responseObserver);
+    }
+
+    /**
+     */
     default void createTransaction(adamant.global.v1.CreateTransactionRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateTransactionMethod(), responseObserver);
@@ -2592,6 +2668,22 @@ public final class TellerAPIGrpc {
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateAddressBalanceMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listColdFeeDepositAddresses(adamant.teller.v1.ListColdFeeDepositAddressesRequest request,
+        io.grpc.stub.StreamObserver<adamant.teller.v1.ListColdFeeDepositAddressesResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListColdFeeDepositAddressesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listHotFeeDepositAddresses(adamant.teller.v1.ListHotFeeDepositAddressesRequest request,
+        io.grpc.stub.StreamObserver<adamant.teller.v1.ListHotFeeDepositAddressesResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListHotFeeDepositAddressesMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -3100,6 +3192,20 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    public adamant.teller.v1.ListColdFeeDepositAddressesResponse listColdFeeDepositAddresses(adamant.teller.v1.ListColdFeeDepositAddressesRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListColdFeeDepositAddressesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.teller.v1.ListHotFeeDepositAddressesResponse listHotFeeDepositAddresses(adamant.teller.v1.ListHotFeeDepositAddressesRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListHotFeeDepositAddressesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public adamant.global.v1.CreateTransactionResponse createTransaction(adamant.global.v1.CreateTransactionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateTransactionMethod(), getCallOptions(), request);
@@ -3590,6 +3696,22 @@ public final class TellerAPIGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.teller.v1.ListColdFeeDepositAddressesResponse> listColdFeeDepositAddresses(
+        adamant.teller.v1.ListColdFeeDepositAddressesRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListColdFeeDepositAddressesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.teller.v1.ListHotFeeDepositAddressesResponse> listHotFeeDepositAddresses(
+        adamant.teller.v1.ListHotFeeDepositAddressesRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListHotFeeDepositAddressesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> createTransaction(
         adamant.global.v1.CreateTransactionRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -3929,43 +4051,45 @@ public final class TellerAPIGrpc {
   private static final int METHODID_IMPORT_ADDRESS = 20;
   private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 21;
   private static final int METHODID_UPDATE_ADDRESS_BALANCE = 22;
-  private static final int METHODID_CREATE_TRANSACTION = 23;
-  private static final int METHODID_SIGN_TRANSACTION = 24;
-  private static final int METHODID_SEND_TRANSACTION = 25;
-  private static final int METHODID_RESEND_TRANSACTION = 26;
-  private static final int METHODID_CANCEL_TRANSACTION = 27;
-  private static final int METHODID_REPLACE_TRANSACTION = 28;
-  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 29;
-  private static final int METHODID_GET_TRANSACTION = 30;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 31;
-  private static final int METHODID_LIST_TRANSACTIONS = 32;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 33;
-  private static final int METHODID_EXIT_ETHEREUM_STAKING_VALIDATORS = 34;
-  private static final int METHODID_LIST_TRANSFERS = 35;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 36;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 37;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 38;
-  private static final int METHODID_SET_RATES = 39;
-  private static final int METHODID_CALCULATE_FEE = 40;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 41;
-  private static final int METHODID_VALIDATE_ADDRESS = 42;
-  private static final int METHODID_FLUSH_BALANCE = 43;
-  private static final int METHODID_LIST_AUDIT_LOGS = 44;
-  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 45;
-  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 46;
-  private static final int METHODID_SIGN_MESSAGE = 47;
-  private static final int METHODID_PROGMAT_COIN_INITIALIZE = 48;
-  private static final int METHODID_PROGMAT_COIN_CONFIGURE_MINTER = 49;
-  private static final int METHODID_PROGMAT_COIN_MINT_AND_TRANSFER = 50;
-  private static final int METHODID_PROGMAT_COIN_MINT = 51;
-  private static final int METHODID_PROGMAT_COIN_BURN = 52;
-  private static final int METHODID_PROGMAT_COIN_ADD_TO_WHITELIST = 53;
-  private static final int METHODID_PROGMAT_COIN_REMOVE_FROM_WHITELIST = 54;
-  private static final int METHODID_PROGMAT_COIN_ADD_TO_BLACKLIST = 55;
-  private static final int METHODID_PROGMAT_COIN_REMOVE_FROM_BLACKLIST = 56;
-  private static final int METHODID_PROGMAT_COIN_CONFISCATE = 57;
-  private static final int METHODID_PROGMAT_COIN_PAUSE = 58;
-  private static final int METHODID_PROGMAT_COIN_UNPAUSE = 59;
+  private static final int METHODID_LIST_COLD_FEE_DEPOSIT_ADDRESSES = 23;
+  private static final int METHODID_LIST_HOT_FEE_DEPOSIT_ADDRESSES = 24;
+  private static final int METHODID_CREATE_TRANSACTION = 25;
+  private static final int METHODID_SIGN_TRANSACTION = 26;
+  private static final int METHODID_SEND_TRANSACTION = 27;
+  private static final int METHODID_RESEND_TRANSACTION = 28;
+  private static final int METHODID_CANCEL_TRANSACTION = 29;
+  private static final int METHODID_REPLACE_TRANSACTION = 30;
+  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 31;
+  private static final int METHODID_GET_TRANSACTION = 32;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 33;
+  private static final int METHODID_LIST_TRANSACTIONS = 34;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 35;
+  private static final int METHODID_EXIT_ETHEREUM_STAKING_VALIDATORS = 36;
+  private static final int METHODID_LIST_TRANSFERS = 37;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 38;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 39;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 40;
+  private static final int METHODID_SET_RATES = 41;
+  private static final int METHODID_CALCULATE_FEE = 42;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 43;
+  private static final int METHODID_VALIDATE_ADDRESS = 44;
+  private static final int METHODID_FLUSH_BALANCE = 45;
+  private static final int METHODID_LIST_AUDIT_LOGS = 46;
+  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 47;
+  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 48;
+  private static final int METHODID_SIGN_MESSAGE = 49;
+  private static final int METHODID_PROGMAT_COIN_INITIALIZE = 50;
+  private static final int METHODID_PROGMAT_COIN_CONFIGURE_MINTER = 51;
+  private static final int METHODID_PROGMAT_COIN_MINT_AND_TRANSFER = 52;
+  private static final int METHODID_PROGMAT_COIN_MINT = 53;
+  private static final int METHODID_PROGMAT_COIN_BURN = 54;
+  private static final int METHODID_PROGMAT_COIN_ADD_TO_WHITELIST = 55;
+  private static final int METHODID_PROGMAT_COIN_REMOVE_FROM_WHITELIST = 56;
+  private static final int METHODID_PROGMAT_COIN_ADD_TO_BLACKLIST = 57;
+  private static final int METHODID_PROGMAT_COIN_REMOVE_FROM_BLACKLIST = 58;
+  private static final int METHODID_PROGMAT_COIN_CONFISCATE = 59;
+  private static final int METHODID_PROGMAT_COIN_PAUSE = 60;
+  private static final int METHODID_PROGMAT_COIN_UNPAUSE = 61;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -4075,6 +4199,14 @@ public final class TellerAPIGrpc {
         case METHODID_UPDATE_ADDRESS_BALANCE:
           serviceImpl.updateAddressBalance((adamant.global.v1.UpdateAddressBalanceRequest) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_LIST_COLD_FEE_DEPOSIT_ADDRESSES:
+          serviceImpl.listColdFeeDepositAddresses((adamant.teller.v1.ListColdFeeDepositAddressesRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.teller.v1.ListColdFeeDepositAddressesResponse>) responseObserver);
+          break;
+        case METHODID_LIST_HOT_FEE_DEPOSIT_ADDRESSES:
+          serviceImpl.listHotFeeDepositAddresses((adamant.teller.v1.ListHotFeeDepositAddressesRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.teller.v1.ListHotFeeDepositAddressesResponse>) responseObserver);
           break;
         case METHODID_CREATE_TRANSACTION:
           serviceImpl.createTransaction((adamant.global.v1.CreateTransactionRequest) request,
@@ -4403,6 +4535,20 @@ public final class TellerAPIGrpc {
               adamant.global.v1.UpdateAddressBalanceRequest,
               com.google.protobuf.Empty>(
                 service, METHODID_UPDATE_ADDRESS_BALANCE)))
+        .addMethod(
+          getListColdFeeDepositAddressesMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.ListColdFeeDepositAddressesRequest,
+              adamant.teller.v1.ListColdFeeDepositAddressesResponse>(
+                service, METHODID_LIST_COLD_FEE_DEPOSIT_ADDRESSES)))
+        .addMethod(
+          getListHotFeeDepositAddressesMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.ListHotFeeDepositAddressesRequest,
+              adamant.teller.v1.ListHotFeeDepositAddressesResponse>(
+                service, METHODID_LIST_HOT_FEE_DEPOSIT_ADDRESSES)))
         .addMethod(
           getCreateTransactionMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -4733,6 +4879,8 @@ public final class TellerAPIGrpc {
               .addMethod(getImportAddressMethod())
               .addMethod(getGetEthereumFeeAddressMethod())
               .addMethod(getUpdateAddressBalanceMethod())
+              .addMethod(getListColdFeeDepositAddressesMethod())
+              .addMethod(getListHotFeeDepositAddressesMethod())
               .addMethod(getCreateTransactionMethod())
               .addMethod(getSignTransactionMethod())
               .addMethod(getSendTransactionMethod())
