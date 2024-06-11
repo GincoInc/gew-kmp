@@ -20,7 +20,9 @@ public class UpdateWalletFlushSettingRequestValidator implements io.envoyproxy.p
 		};
 	
 		
-		com.google.re2j.Pattern DESTINATION_WALLET_ID__PATTERN = com.google.re2j.Pattern.compile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
+		com.google.re2j.Pattern DESTINATION_WALLET_ID__PATTERN = com.google.re2j.Pattern.compile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
+	
+		
 	
 	
 
@@ -30,6 +32,8 @@ public class UpdateWalletFlushSettingRequestValidator implements io.envoyproxy.p
 			io.envoyproxy.pgv.CollectiveValidation.notIn(".adamant.global.v1.UpdateWalletFlushSettingRequest.coin", proto.getCoin(), COIN__NOT_IN);
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.UpdateWalletFlushSettingRequest.destination_wallet_id", proto.getDestinationWalletId(), DESTINATION_WALLET_ID__PATTERN);
+	// no validation rules for FlushThreshold
+
 	
 	}
 

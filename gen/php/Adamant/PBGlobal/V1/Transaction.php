@@ -280,6 +280,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $aptos_specific = null;
     /**
+     * THe Doge specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.DogecoinSpecific dogecoin_specific = 50 [json_name = "dogecoinSpecific"];</code>
+     */
+    protected $dogecoin_specific = null;
+    /**
      * the time at which the transaction was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
@@ -386,6 +392,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The Arbitrum specific fields
      *     @type \Adamant\PBGlobal\V1\AptosSpecific $aptos_specific
      *           The Flare specific fields
+     *     @type \Adamant\PBGlobal\V1\DogecoinSpecific $dogecoin_specific
+     *           THe Doge specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -1827,6 +1835,42 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\AptosSpecific::class);
         $this->aptos_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * THe Doge specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.DogecoinSpecific dogecoin_specific = 50 [json_name = "dogecoinSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\DogecoinSpecific|null
+     */
+    public function getDogecoinSpecific()
+    {
+        return $this->dogecoin_specific;
+    }
+
+    public function hasDogecoinSpecific()
+    {
+        return isset($this->dogecoin_specific);
+    }
+
+    public function clearDogecoinSpecific()
+    {
+        unset($this->dogecoin_specific);
+    }
+
+    /**
+     * THe Doge specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.DogecoinSpecific dogecoin_specific = 50 [json_name = "dogecoinSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\DogecoinSpecific $var
+     * @return $this
+     */
+    public function setDogecoinSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\DogecoinSpecific::class);
+        $this->dogecoin_specific = $var;
 
         return $this;
     }
