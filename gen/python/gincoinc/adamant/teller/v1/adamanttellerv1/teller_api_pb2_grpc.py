@@ -136,6 +136,16 @@ class TellerAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.UpdateAddressBalanceRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
+        self.ListColdFeeDepositAddresses = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ListColdFeeDepositAddresses',
+                request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListColdFeeDepositAddressesRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListColdFeeDepositAddressesResponse.FromString,
+                )
+        self.ListHotFeeDepositAddresses = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ListHotFeeDepositAddresses',
+                request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListHotFeeDepositAddressesRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListHotFeeDepositAddressesResponse.FromString,
+                )
         self.CreateTransaction = channel.unary_unary(
                 '/adamant.teller.v1.TellerAPI/CreateTransaction',
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionRequest.SerializeToString,
@@ -466,6 +476,18 @@ class TellerAPIServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def UpdateAddressBalance(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListColdFeeDepositAddresses(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListHotFeeDepositAddresses(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -817,6 +839,16 @@ def add_TellerAPIServicer_to_server(servicer, server):
                     servicer.UpdateAddressBalance,
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.UpdateAddressBalanceRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'ListColdFeeDepositAddresses': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListColdFeeDepositAddresses,
+                    request_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListColdFeeDepositAddressesRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListColdFeeDepositAddressesResponse.SerializeToString,
+            ),
+            'ListHotFeeDepositAddresses': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListHotFeeDepositAddresses,
+                    request_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListHotFeeDepositAddressesRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListHotFeeDepositAddressesResponse.SerializeToString,
             ),
             'CreateTransaction': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateTransaction,
@@ -1405,6 +1437,40 @@ class TellerAPI(object):
         return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/UpdateAddressBalance',
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.UpdateAddressBalanceRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListColdFeeDepositAddresses(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListColdFeeDepositAddresses',
+            gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListColdFeeDepositAddressesRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListColdFeeDepositAddressesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListHotFeeDepositAddresses(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListHotFeeDepositAddresses',
+            gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListHotFeeDepositAddressesRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListHotFeeDepositAddressesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

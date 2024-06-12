@@ -95,6 +95,10 @@ class MailType
      * Generated from protobuf enum <code>MAIL_TYPE_WALLET_NO_WHITELIST_CANCELED = 19;</code>
      */
     const MAIL_TYPE_WALLET_NO_WHITELIST_CANCELED = 19;
+    /**
+     * Generated from protobuf enum <code>MAIL_TYPE_MAIL_SETTINGS_UPDATED = 21;</code>
+     */
+    const MAIL_TYPE_MAIL_SETTINGS_UPDATED = 21;
 
     private static $valueToName = [
         self::MAIL_TYPE_INVALID => 'MAIL_TYPE_INVALID',
@@ -118,6 +122,7 @@ class MailType
         self::MAIL_TYPE_WALLET_NO_WHITELIST_REQUESTED => 'MAIL_TYPE_WALLET_NO_WHITELIST_REQUESTED',
         self::MAIL_TYPE_WALLET_NO_WHITELIST_APPROVED => 'MAIL_TYPE_WALLET_NO_WHITELIST_APPROVED',
         self::MAIL_TYPE_WALLET_NO_WHITELIST_CANCELED => 'MAIL_TYPE_WALLET_NO_WHITELIST_CANCELED',
+        self::MAIL_TYPE_MAIL_SETTINGS_UPDATED => 'MAIL_TYPE_MAIL_SETTINGS_UPDATED',
     ];
 
     public static function name($value)

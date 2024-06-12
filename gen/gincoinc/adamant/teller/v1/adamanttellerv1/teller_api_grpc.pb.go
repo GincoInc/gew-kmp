@@ -50,6 +50,8 @@ type TellerAPIClient interface {
 	// Get an address which hold ETH for ethereum wallet/address creation etc
 	GetEthereumFeeAddress(ctx context.Context, in *adamantglobalv1.GetEthereumFeeAddressRequest, opts ...grpc.CallOption) (*adamantglobalv1.EthereumFeeAddress, error)
 	UpdateAddressBalance(ctx context.Context, in *adamantglobalv1.UpdateAddressBalanceRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	ListColdFeeDepositAddresses(ctx context.Context, in *ListColdFeeDepositAddressesRequest, opts ...grpc.CallOption) (*ListColdFeeDepositAddressesResponse, error)
+	ListHotFeeDepositAddresses(ctx context.Context, in *ListHotFeeDepositAddressesRequest, opts ...grpc.CallOption) (*ListHotFeeDepositAddressesResponse, error)
 	CreateTransaction(ctx context.Context, in *adamantglobalv1.CreateTransactionRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
 	SignTransaction(ctx context.Context, in *SignTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	SendTransaction(ctx context.Context, in *SendTransactionRequest, opts ...grpc.CallOption) (*adamantglobalv1.SendTransactionResponse, error)
@@ -305,6 +307,24 @@ func (c *tellerAPIClient) GetEthereumFeeAddress(ctx context.Context, in *adamant
 func (c *tellerAPIClient) UpdateAddressBalance(ctx context.Context, in *adamantglobalv1.UpdateAddressBalanceRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/UpdateAddressBalance", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) ListColdFeeDepositAddresses(ctx context.Context, in *ListColdFeeDepositAddressesRequest, opts ...grpc.CallOption) (*ListColdFeeDepositAddressesResponse, error) {
+	out := new(ListColdFeeDepositAddressesResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListColdFeeDepositAddresses", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) ListHotFeeDepositAddresses(ctx context.Context, in *ListHotFeeDepositAddressesRequest, opts ...grpc.CallOption) (*ListHotFeeDepositAddressesResponse, error) {
+	out := new(ListHotFeeDepositAddressesResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListHotFeeDepositAddresses", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -674,6 +694,8 @@ type TellerAPIServer interface {
 	// Get an address which hold ETH for ethereum wallet/address creation etc
 	GetEthereumFeeAddress(context.Context, *adamantglobalv1.GetEthereumFeeAddressRequest) (*adamantglobalv1.EthereumFeeAddress, error)
 	UpdateAddressBalance(context.Context, *adamantglobalv1.UpdateAddressBalanceRequest) (*emptypb.Empty, error)
+	ListColdFeeDepositAddresses(context.Context, *ListColdFeeDepositAddressesRequest) (*ListColdFeeDepositAddressesResponse, error)
+	ListHotFeeDepositAddresses(context.Context, *ListHotFeeDepositAddressesRequest) (*ListHotFeeDepositAddressesResponse, error)
 	CreateTransaction(context.Context, *adamantglobalv1.CreateTransactionRequest) (*adamantglobalv1.CreateTransactionResponse, error)
 	SignTransaction(context.Context, *SignTransactionRequest) (*emptypb.Empty, error)
 	SendTransaction(context.Context, *SendTransactionRequest) (*adamantglobalv1.SendTransactionResponse, error)
@@ -792,6 +814,12 @@ func (UnimplementedTellerAPIServer) GetEthereumFeeAddress(context.Context, *adam
 }
 func (UnimplementedTellerAPIServer) UpdateAddressBalance(context.Context, *adamantglobalv1.UpdateAddressBalanceRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateAddressBalance not implemented")
+}
+func (UnimplementedTellerAPIServer) ListColdFeeDepositAddresses(context.Context, *ListColdFeeDepositAddressesRequest) (*ListColdFeeDepositAddressesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListColdFeeDepositAddresses not implemented")
+}
+func (UnimplementedTellerAPIServer) ListHotFeeDepositAddresses(context.Context, *ListHotFeeDepositAddressesRequest) (*ListHotFeeDepositAddressesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListHotFeeDepositAddresses not implemented")
 }
 func (UnimplementedTellerAPIServer) CreateTransaction(context.Context, *adamantglobalv1.CreateTransactionRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTransaction not implemented")
@@ -1326,6 +1354,42 @@ func _TellerAPI_UpdateAddressBalance_Handler(srv interface{}, ctx context.Contex
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TellerAPIServer).UpdateAddressBalance(ctx, req.(*adamantglobalv1.UpdateAddressBalanceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_ListColdFeeDepositAddresses_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListColdFeeDepositAddressesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListColdFeeDepositAddresses(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListColdFeeDepositAddresses",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListColdFeeDepositAddresses(ctx, req.(*ListColdFeeDepositAddressesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_ListHotFeeDepositAddresses_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListHotFeeDepositAddressesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListHotFeeDepositAddresses(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListHotFeeDepositAddresses",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListHotFeeDepositAddresses(ctx, req.(*ListHotFeeDepositAddressesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2094,6 +2158,14 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateAddressBalance",
 			Handler:    _TellerAPI_UpdateAddressBalance_Handler,
+		},
+		{
+			MethodName: "ListColdFeeDepositAddresses",
+			Handler:    _TellerAPI_ListColdFeeDepositAddresses_Handler,
+		},
+		{
+			MethodName: "ListHotFeeDepositAddresses",
+			Handler:    _TellerAPI_ListHotFeeDepositAddresses_Handler,
 		},
 		{
 			MethodName: "CreateTransaction",

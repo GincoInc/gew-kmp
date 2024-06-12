@@ -3984,13 +3984,15 @@ func (m *UpdateWalletFlushSettingRequest) validate(all bool) error {
 	if !_UpdateWalletFlushSettingRequest_DestinationWalletId_Pattern.MatchString(m.GetDestinationWalletId()) {
 		err := UpdateWalletFlushSettingRequestValidationError{
 			field:  "DestinationWalletId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
 		if !all {
 			return err
 		}
 		errors = append(errors, err)
 	}
+
+	// no validation rules for FlushThreshold
 
 	if m.Network != nil {
 
@@ -4092,7 +4094,7 @@ var _UpdateWalletFlushSettingRequest_Coin_NotInLookup = map[gincoincglobalv1.Coi
 	0: {},
 }
 
-var _UpdateWalletFlushSettingRequest_DestinationWalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _UpdateWalletFlushSettingRequest_DestinationWalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on ListCompensationFeeHistoriesRequest with
 // the rules defined in the proto definition for this message. If any rules
@@ -19900,10 +19902,6 @@ func (m *CreateLabeledAddressRequest) validate(all bool) error {
 
 	}
 
-	if m.Message != nil {
-		// no validation rules for Message
-	}
-
 	if len(errors) > 0 {
 		return CreateLabeledAddressRequestMultiError(errors)
 	}
@@ -30507,3 +30505,207 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListStakingValidatorsResponseValidationError{}
+
+// Validate checks the field values on UpdateMailSettingsRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *UpdateMailSettingsRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UpdateMailSettingsRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// UpdateMailSettingsRequestMultiError, or nil if none found.
+func (m *UpdateMailSettingsRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UpdateMailSettingsRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return UpdateMailSettingsRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// UpdateMailSettingsRequestMultiError is an error wrapping multiple validation
+// errors returned by UpdateMailSettingsRequest.ValidateAll() if the
+// designated constraints aren't met.
+type UpdateMailSettingsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateMailSettingsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateMailSettingsRequestMultiError) AllErrors() []error { return m }
+
+// UpdateMailSettingsRequestValidationError is the validation error returned by
+// UpdateMailSettingsRequest.Validate if the designated constraints aren't met.
+type UpdateMailSettingsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateMailSettingsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateMailSettingsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateMailSettingsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateMailSettingsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateMailSettingsRequestValidationError) ErrorName() string {
+	return "UpdateMailSettingsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateMailSettingsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateMailSettingsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateMailSettingsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateMailSettingsRequestValidationError{}
+
+// Validate checks the field values on GetMailSettingsRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GetMailSettingsRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetMailSettingsRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GetMailSettingsRequestMultiError, or nil if none found.
+func (m *GetMailSettingsRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetMailSettingsRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return GetMailSettingsRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetMailSettingsRequestMultiError is an error wrapping multiple validation
+// errors returned by GetMailSettingsRequest.ValidateAll() if the designated
+// constraints aren't met.
+type GetMailSettingsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetMailSettingsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetMailSettingsRequestMultiError) AllErrors() []error { return m }
+
+// GetMailSettingsRequestValidationError is the validation error returned by
+// GetMailSettingsRequest.Validate if the designated constraints aren't met.
+type GetMailSettingsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetMailSettingsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetMailSettingsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetMailSettingsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetMailSettingsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetMailSettingsRequestValidationError) ErrorName() string {
+	return "GetMailSettingsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetMailSettingsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetMailSettingsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetMailSettingsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetMailSettingsRequestValidationError{}

@@ -477,8 +477,9 @@ message UpdateWalletFlushSettingRequest {
     defined_only: true
   }];
   string destination_wallet_id = 2 [(validate.rules).string = {
-    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
+  double flush_threshold = 4;
 }
 
 message ListCompensationFeeHistoriesRequest {
@@ -1466,7 +1467,7 @@ message CreateLabeledAddressRequest {
   optional gincoinc.global.v1.Network network = 4 [(validate.rules).enum = {
     defined_only: true
   }];
-  optional string message = 5;
+  // optional string message = 5;
 }
 
 message CreateLabeledAddressResponse {
@@ -2214,3 +2215,14 @@ message ListStakingValidatorsResponse {
   repeated StakingValidator staking_validators = 1;
   string next_page_token = 2;
 }
+
+// -----------------------------------------------------------------------------
+// MailSettings
+// -----------------------------------------------------------------------------
+
+message UpdateMailSettingsRequest {
+  repeated global.v1.MailType enable_mail_types = 1;
+  repeated global.v1.MailType disable_mail_types = 2;
+}
+
+message GetMailSettingsRequest {}

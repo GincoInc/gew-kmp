@@ -34,6 +34,10 @@ class AuditLogType
      */
     const AUDIT_LOG_TYPE_LOGOUT = 3;
     /**
+     * Generated from protobuf enum <code>AUDIT_LOG_TYPE_MAIL_SETTINGS_CHANGE = 80;</code>
+     */
+    const AUDIT_LOG_TYPE_MAIL_SETTINGS_CHANGE = 80;
+    /**
      * Generated from protobuf enum <code>AUDIT_LOG_TYPE_WALLET_CREATE = 4;</code>
      */
     const AUDIT_LOG_TYPE_WALLET_CREATE = 4;
@@ -328,6 +332,7 @@ class AuditLogType
         self::AUDIT_LOG_TYPE_LOGIN_FAIL => 'AUDIT_LOG_TYPE_LOGIN_FAIL',
         self::AUDIT_LOG_TYPE_2FA_FAIL => 'AUDIT_LOG_TYPE_2FA_FAIL',
         self::AUDIT_LOG_TYPE_LOGOUT => 'AUDIT_LOG_TYPE_LOGOUT',
+        self::AUDIT_LOG_TYPE_MAIL_SETTINGS_CHANGE => 'AUDIT_LOG_TYPE_MAIL_SETTINGS_CHANGE',
         self::AUDIT_LOG_TYPE_WALLET_CREATE => 'AUDIT_LOG_TYPE_WALLET_CREATE',
         self::AUDIT_LOG_TYPE_WALLET_APPROVE => 'AUDIT_LOG_TYPE_WALLET_APPROVE',
         self::AUDIT_LOG_TYPE_WALLET_CANCEL => 'AUDIT_LOG_TYPE_WALLET_CANCEL',

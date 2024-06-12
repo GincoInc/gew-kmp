@@ -2960,3 +2960,491 @@ var _ interface {
 var _ProgmatCoinUnpauseRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _ProgmatCoinUnpauseRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+// Validate checks the field values on ListColdFeeDepositAddressesRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ListColdFeeDepositAddressesRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListColdFeeDepositAddressesRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ListColdFeeDepositAddressesRequestMultiError, or nil if none found.
+func (m *ListColdFeeDepositAddressesRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListColdFeeDepositAddressesRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return ListColdFeeDepositAddressesRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListColdFeeDepositAddressesRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListColdFeeDepositAddressesRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ListColdFeeDepositAddressesRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListColdFeeDepositAddressesRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListColdFeeDepositAddressesRequestMultiError) AllErrors() []error { return m }
+
+// ListColdFeeDepositAddressesRequestValidationError is the validation error
+// returned by ListColdFeeDepositAddressesRequest.Validate if the designated
+// constraints aren't met.
+type ListColdFeeDepositAddressesRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListColdFeeDepositAddressesRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListColdFeeDepositAddressesRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListColdFeeDepositAddressesRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListColdFeeDepositAddressesRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListColdFeeDepositAddressesRequestValidationError) ErrorName() string {
+	return "ListColdFeeDepositAddressesRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListColdFeeDepositAddressesRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListColdFeeDepositAddressesRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListColdFeeDepositAddressesRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListColdFeeDepositAddressesRequestValidationError{}
+
+// Validate checks the field values on ListColdFeeDepositAddressesResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ListColdFeeDepositAddressesResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListColdFeeDepositAddressesResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ListColdFeeDepositAddressesResponseMultiError, or nil if none found.
+func (m *ListColdFeeDepositAddressesResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListColdFeeDepositAddressesResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetCallerAddresses() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListColdFeeDepositAddressesResponseValidationError{
+						field:  fmt.Sprintf("CallerAddresses[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListColdFeeDepositAddressesResponseValidationError{
+						field:  fmt.Sprintf("CallerAddresses[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListColdFeeDepositAddressesResponseValidationError{
+					field:  fmt.Sprintf("CallerAddresses[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ListColdFeeDepositAddressesResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListColdFeeDepositAddressesResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListColdFeeDepositAddressesResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ListColdFeeDepositAddressesResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListColdFeeDepositAddressesResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListColdFeeDepositAddressesResponseMultiError) AllErrors() []error { return m }
+
+// ListColdFeeDepositAddressesResponseValidationError is the validation error
+// returned by ListColdFeeDepositAddressesResponse.Validate if the designated
+// constraints aren't met.
+type ListColdFeeDepositAddressesResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListColdFeeDepositAddressesResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListColdFeeDepositAddressesResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListColdFeeDepositAddressesResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListColdFeeDepositAddressesResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListColdFeeDepositAddressesResponseValidationError) ErrorName() string {
+	return "ListColdFeeDepositAddressesResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListColdFeeDepositAddressesResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListColdFeeDepositAddressesResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListColdFeeDepositAddressesResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListColdFeeDepositAddressesResponseValidationError{}
+
+// Validate checks the field values on ListHotFeeDepositAddressesRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ListHotFeeDepositAddressesRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListHotFeeDepositAddressesRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ListHotFeeDepositAddressesRequestMultiError, or nil if none found.
+func (m *ListHotFeeDepositAddressesRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListHotFeeDepositAddressesRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return ListHotFeeDepositAddressesRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListHotFeeDepositAddressesRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListHotFeeDepositAddressesRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ListHotFeeDepositAddressesRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListHotFeeDepositAddressesRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListHotFeeDepositAddressesRequestMultiError) AllErrors() []error { return m }
+
+// ListHotFeeDepositAddressesRequestValidationError is the validation error
+// returned by ListHotFeeDepositAddressesRequest.Validate if the designated
+// constraints aren't met.
+type ListHotFeeDepositAddressesRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListHotFeeDepositAddressesRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListHotFeeDepositAddressesRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListHotFeeDepositAddressesRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListHotFeeDepositAddressesRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListHotFeeDepositAddressesRequestValidationError) ErrorName() string {
+	return "ListHotFeeDepositAddressesRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListHotFeeDepositAddressesRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListHotFeeDepositAddressesRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListHotFeeDepositAddressesRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListHotFeeDepositAddressesRequestValidationError{}
+
+// Validate checks the field values on ListHotFeeDepositAddressesResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ListHotFeeDepositAddressesResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListHotFeeDepositAddressesResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ListHotFeeDepositAddressesResponseMultiError, or nil if none found.
+func (m *ListHotFeeDepositAddressesResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListHotFeeDepositAddressesResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetFeeDepositAddresses() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListHotFeeDepositAddressesResponseValidationError{
+						field:  fmt.Sprintf("FeeDepositAddresses[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListHotFeeDepositAddressesResponseValidationError{
+						field:  fmt.Sprintf("FeeDepositAddresses[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListHotFeeDepositAddressesResponseValidationError{
+					field:  fmt.Sprintf("FeeDepositAddresses[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ListHotFeeDepositAddressesResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListHotFeeDepositAddressesResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListHotFeeDepositAddressesResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ListHotFeeDepositAddressesResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListHotFeeDepositAddressesResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListHotFeeDepositAddressesResponseMultiError) AllErrors() []error { return m }
+
+// ListHotFeeDepositAddressesResponseValidationError is the validation error
+// returned by ListHotFeeDepositAddressesResponse.Validate if the designated
+// constraints aren't met.
+type ListHotFeeDepositAddressesResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListHotFeeDepositAddressesResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListHotFeeDepositAddressesResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListHotFeeDepositAddressesResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListHotFeeDepositAddressesResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListHotFeeDepositAddressesResponseValidationError) ErrorName() string {
+	return "ListHotFeeDepositAddressesResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListHotFeeDepositAddressesResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListHotFeeDepositAddressesResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListHotFeeDepositAddressesResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListHotFeeDepositAddressesResponseValidationError{}
