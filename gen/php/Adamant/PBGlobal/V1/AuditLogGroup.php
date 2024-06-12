@@ -45,6 +45,10 @@ class AuditLogGroup
      * Generated from protobuf enum <code>AUDIT_LOG_GROUP_WALLET_GROUP = 7;</code>
      */
     const AUDIT_LOG_GROUP_WALLET_GROUP = 7;
+    /**
+     * Generated from protobuf enum <code>AUDIT_LOG_GROUP_MAIL = 8;</code>
+     */
+    const AUDIT_LOG_GROUP_MAIL = 8;
 
     private static $valueToName = [
         self::AUDIT_LOG_GROUP_INVALID => 'AUDIT_LOG_GROUP_INVALID',
@@ -55,6 +59,7 @@ class AuditLogGroup
         self::AUDIT_LOG_GROUP_TRANSACTION => 'AUDIT_LOG_GROUP_TRANSACTION',
         self::AUDIT_LOG_GROUP_POLICY => 'AUDIT_LOG_GROUP_POLICY',
         self::AUDIT_LOG_GROUP_WALLET_GROUP => 'AUDIT_LOG_GROUP_WALLET_GROUP',
+        self::AUDIT_LOG_GROUP_MAIL => 'AUDIT_LOG_GROUP_MAIL',
     ];
 
     public static function name($value)
