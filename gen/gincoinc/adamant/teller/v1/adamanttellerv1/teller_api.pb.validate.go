@@ -11,7 +11,6 @@ import (
 	"net/mail"
 	"net/url"
 	"regexp"
-	"sort"
 	"strings"
 	"time"
 	"unicode/utf8"
@@ -36,7 +35,10 @@ var (
 	_ = (*url.URL)(nil)
 	_ = (*mail.Address)(nil)
 	_ = anypb.Any{}
-	_ = sort.Sort
+
+	_ = gincoincglobalv1.Coin(0)
+
+	_ = gincoincglobalv1.Network(0)
 
 	_ = adamantglobalv1.WalletType(0)
 
@@ -45,20 +47,11 @@ var (
 
 // Validate checks the field values on CreateWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *CreateWalletRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on CreateWalletRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// CreateWalletRequestMultiError, or nil if none found.
-func (m *CreateWalletRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *CreateWalletRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in CreateWalletRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *CreateWalletRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -164,7 +157,9 @@ func (m *CreateWalletRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if m.Network != nil {
+	switch m.XNetwork.(type) {
+
+	case *CreateWalletRequest_Network:
 
 		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
 			err := CreateWalletRequestValidationError{
@@ -182,12 +177,11 @@ func (m *CreateWalletRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return CreateWalletRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // CreateWalletRequestMultiError is an error wrapping multiple validation
-// errors returned by CreateWalletRequest.ValidateAll() if the designated
+// errors returned by CreateWalletRequest.Validate(true) if the designated
 // constraints aren't met.
 type CreateWalletRequestMultiError []error
 
@@ -278,20 +272,11 @@ var _CreateWalletRequest_InheritWalletId_Pattern = regexp.MustCompile("^$|^[0-9a
 
 // Validate checks the field values on InitializeXRPWalletRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *InitializeXRPWalletRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on InitializeXRPWalletRequest with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// InitializeXRPWalletRequestMultiError, or nil if none found.
-func (m *InitializeXRPWalletRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *InitializeXRPWalletRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in InitializeXRPWalletRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *InitializeXRPWalletRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -312,12 +297,11 @@ func (m *InitializeXRPWalletRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return InitializeXRPWalletRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // InitializeXRPWalletRequestMultiError is an error wrapping multiple
-// validation errors returned by InitializeXRPWalletRequest.ValidateAll() if
+// validation errors returned by InitializeXRPWalletRequest.Validate(true) if
 // the designated constraints aren't met.
 type InitializeXRPWalletRequestMultiError []error
 
@@ -393,20 +377,11 @@ var _InitializeXRPWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]
 
 // Validate checks the field values on InitializeWalletRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *InitializeWalletRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on InitializeWalletRequest with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// InitializeWalletRequestMultiError, or nil if none found.
-func (m *InitializeWalletRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *InitializeWalletRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in InitializeWalletRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *InitializeWalletRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -427,12 +402,11 @@ func (m *InitializeWalletRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return InitializeWalletRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // InitializeWalletRequestMultiError is an error wrapping multiple validation
-// errors returned by InitializeWalletRequest.ValidateAll() if the designated
+// errors returned by InitializeWalletRequest.Validate(true) if the designated
 // constraints aren't met.
 type InitializeWalletRequestMultiError []error
 
@@ -508,20 +482,11 @@ var _InitializeWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}
 
 // Validate checks the field values on SignTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *SignTransactionRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on SignTransactionRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// SignTransactionRequestMultiError, or nil if none found.
-func (m *SignTransactionRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *SignTransactionRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SignTransactionRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *SignTransactionRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -553,12 +518,11 @@ func (m *SignTransactionRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return SignTransactionRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // SignTransactionRequestMultiError is an error wrapping multiple validation
-// errors returned by SignTransactionRequest.ValidateAll() if the designated
+// errors returned by SignTransactionRequest.Validate(true) if the designated
 // constraints aren't met.
 type SignTransactionRequestMultiError []error
 
@@ -636,20 +600,11 @@ var _SignTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f
 
 // Validate checks the field values on SignMessageRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *SignMessageRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on SignMessageRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// SignMessageRequestMultiError, or nil if none found.
-func (m *SignMessageRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *SignMessageRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SignMessageRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *SignMessageRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -669,7 +624,9 @@ func (m *SignMessageRequest) validate(all bool) error {
 
 	// no validation rules for Message
 
-	if m.AddressId != nil {
+	switch m.XAddressId.(type) {
+
+	case *SignMessageRequest_AddressId:
 
 		if !_SignMessageRequest_AddressId_Pattern.MatchString(m.GetAddressId()) {
 			err := SignMessageRequestValidationError{
@@ -684,19 +641,21 @@ func (m *SignMessageRequest) validate(all bool) error {
 
 	}
 
-	if m.Address != nil {
+	switch m.XAddress.(type) {
+
+	case *SignMessageRequest_Address:
 		// no validation rules for Address
+
 	}
 
 	if len(errors) > 0 {
 		return SignMessageRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // SignMessageRequestMultiError is an error wrapping multiple validation errors
-// returned by SignMessageRequest.ValidateAll() if the designated constraints
+// returned by SignMessageRequest.Validate(true) if the designated constraints
 // aren't met.
 type SignMessageRequestMultiError []error
 
@@ -774,20 +733,11 @@ var _SignMessageRequest_AddressId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-
 
 // Validate checks the field values on SignMessageResponse with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *SignMessageResponse) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on SignMessageResponse with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// SignMessageResponseMultiError, or nil if none found.
-func (m *SignMessageResponse) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *SignMessageResponse) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SignMessageResponseMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *SignMessageResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -799,12 +749,11 @@ func (m *SignMessageResponse) validate(all bool) error {
 	if len(errors) > 0 {
 		return SignMessageResponseMultiError(errors)
 	}
-
 	return nil
 }
 
 // SignMessageResponseMultiError is an error wrapping multiple validation
-// errors returned by SignMessageResponse.ValidateAll() if the designated
+// errors returned by SignMessageResponse.Validate(true) if the designated
 // constraints aren't met.
 type SignMessageResponseMultiError []error
 
@@ -878,20 +827,11 @@ var _ interface {
 
 // Validate checks the field values on SendTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *SendTransactionRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on SendTransactionRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// SendTransactionRequestMultiError, or nil if none found.
-func (m *SendTransactionRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *SendTransactionRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in SendTransactionRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *SendTransactionRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -923,12 +863,11 @@ func (m *SendTransactionRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return SendTransactionRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // SendTransactionRequestMultiError is an error wrapping multiple validation
-// errors returned by SendTransactionRequest.ValidateAll() if the designated
+// errors returned by SendTransactionRequest.Validate(true) if the designated
 // constraints aren't met.
 type SendTransactionRequestMultiError []error
 
@@ -1006,20 +945,11 @@ var _SendTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f
 
 // Validate checks the field values on ResendTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *ResendTransactionRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ResendTransactionRequest with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// ResendTransactionRequestMultiError, or nil if none found.
-func (m *ResendTransactionRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ResendTransactionRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ResendTransactionRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ResendTransactionRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -1051,13 +981,12 @@ func (m *ResendTransactionRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return ResendTransactionRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // ResendTransactionRequestMultiError is an error wrapping multiple validation
-// errors returned by ResendTransactionRequest.ValidateAll() if the designated
-// constraints aren't met.
+// errors returned by ResendTransactionRequest.Validate(true) if the
+// designated constraints aren't met.
 type ResendTransactionRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
@@ -1134,20 +1063,11 @@ var _ResendTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a
 
 // Validate checks the field values on ProgmatCoinInitializeRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *ProgmatCoinInitializeRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ProgmatCoinInitializeRequest with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// ProgmatCoinInitializeRequestMultiError, or nil if none found.
-func (m *ProgmatCoinInitializeRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ProgmatCoinInitializeRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ProgmatCoinInitializeRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ProgmatCoinInitializeRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -1280,13 +1200,12 @@ func (m *ProgmatCoinInitializeRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return ProgmatCoinInitializeRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // ProgmatCoinInitializeRequestMultiError is an error wrapping multiple
-// validation errors returned by ProgmatCoinInitializeRequest.ValidateAll() if
-// the designated constraints aren't met.
+// validation errors returned by ProgmatCoinInitializeRequest.Validate(true)
+// if the designated constraints aren't met.
 type ProgmatCoinInitializeRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
@@ -1374,21 +1293,11 @@ var _ProgmatCoinInitializeRequest_NewOwner_Pattern = regexp.MustCompile("^(0x)?[
 
 // Validate checks the field values on ProgmatCoinConfigureMinterRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, the first error encountered is returned, or nil if there are
-// no violations.
-func (m *ProgmatCoinConfigureMinterRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ProgmatCoinConfigureMinterRequest
-// with the rules defined in the proto definition for this message. If any
-// rules are violated, the result is a list of violation errors wrapped in
-// ProgmatCoinConfigureMinterRequestMultiError, or nil if none found.
-func (m *ProgmatCoinConfigureMinterRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ProgmatCoinConfigureMinterRequest) validate(all bool) error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ProgmatCoinConfigureMinterRequestMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ProgmatCoinConfigureMinterRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -1435,13 +1344,12 @@ func (m *ProgmatCoinConfigureMinterRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return ProgmatCoinConfigureMinterRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // ProgmatCoinConfigureMinterRequestMultiError is an error wrapping multiple
 // validation errors returned by
-// ProgmatCoinConfigureMinterRequest.ValidateAll() if the designated
+// ProgmatCoinConfigureMinterRequest.Validate(true) if the designated
 // constraints aren't met.
 type ProgmatCoinConfigureMinterRequestMultiError []error
 
@@ -1522,21 +1430,11 @@ var _ProgmatCoinConfigureMinterRequest_Address_Pattern = regexp.MustCompile("^(0
 
 // Validate checks the field values on ProgmatCoinMintAndTransferRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, the first error encountered is returned, or nil if there are
-// no violations.
-func (m *ProgmatCoinMintAndTransferRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ProgmatCoinMintAndTransferRequest
-// with the rules defined in the proto definition for this message. If any
-// rules are violated, the result is a list of violation errors wrapped in
-// ProgmatCoinMintAndTransferRequestMultiError, or nil if none found.
-func (m *ProgmatCoinMintAndTransferRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ProgmatCoinMintAndTransferRequest) validate(all bool) error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ProgmatCoinMintAndTransferRequestMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ProgmatCoinMintAndTransferRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -1594,13 +1492,12 @@ func (m *ProgmatCoinMintAndTransferRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return ProgmatCoinMintAndTransferRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // ProgmatCoinMintAndTransferRequestMultiError is an error wrapping multiple
 // validation errors returned by
-// ProgmatCoinMintAndTransferRequest.ValidateAll() if the designated
+// ProgmatCoinMintAndTransferRequest.Validate(true) if the designated
 // constraints aren't met.
 type ProgmatCoinMintAndTransferRequestMultiError []error
 
@@ -1683,20 +1580,11 @@ var _ProgmatCoinMintAndTransferRequest_TransferAddress_Pattern = regexp.MustComp
 
 // Validate checks the field values on ProgmatCoinMintRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *ProgmatCoinMintRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ProgmatCoinMintRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// ProgmatCoinMintRequestMultiError, or nil if none found.
-func (m *ProgmatCoinMintRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ProgmatCoinMintRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ProgmatCoinMintRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ProgmatCoinMintRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -1743,12 +1631,11 @@ func (m *ProgmatCoinMintRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return ProgmatCoinMintRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // ProgmatCoinMintRequestMultiError is an error wrapping multiple validation
-// errors returned by ProgmatCoinMintRequest.ValidateAll() if the designated
+// errors returned by ProgmatCoinMintRequest.Validate(true) if the designated
 // constraints aren't met.
 type ProgmatCoinMintRequestMultiError []error
 
@@ -1828,20 +1715,11 @@ var _ProgmatCoinMintRequest_Address_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA
 
 // Validate checks the field values on ProgmatCoinBurnRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *ProgmatCoinBurnRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ProgmatCoinBurnRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// ProgmatCoinBurnRequestMultiError, or nil if none found.
-func (m *ProgmatCoinBurnRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ProgmatCoinBurnRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ProgmatCoinBurnRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ProgmatCoinBurnRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -1877,12 +1755,11 @@ func (m *ProgmatCoinBurnRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return ProgmatCoinBurnRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // ProgmatCoinBurnRequestMultiError is an error wrapping multiple validation
-// errors returned by ProgmatCoinBurnRequest.ValidateAll() if the designated
+// errors returned by ProgmatCoinBurnRequest.Validate(true) if the designated
 // constraints aren't met.
 type ProgmatCoinBurnRequestMultiError []error
 
@@ -1960,21 +1837,11 @@ var _ProgmatCoinBurnRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?
 
 // Validate checks the field values on ProgmatCoinAddToWhitelistRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, the first error encountered is returned, or nil if there are
-// no violations.
-func (m *ProgmatCoinAddToWhitelistRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ProgmatCoinAddToWhitelistRequest with
-// the rules defined in the proto definition for this message. If any rules
-// are violated, the result is a list of violation errors wrapped in
-// ProgmatCoinAddToWhitelistRequestMultiError, or nil if none found.
-func (m *ProgmatCoinAddToWhitelistRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ProgmatCoinAddToWhitelistRequest) validate(all bool) error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ProgmatCoinAddToWhitelistRequestMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ProgmatCoinAddToWhitelistRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -2019,13 +1886,12 @@ func (m *ProgmatCoinAddToWhitelistRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return ProgmatCoinAddToWhitelistRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // ProgmatCoinAddToWhitelistRequestMultiError is an error wrapping multiple
 // validation errors returned by
-// ProgmatCoinAddToWhitelistRequest.ValidateAll() if the designated
+// ProgmatCoinAddToWhitelistRequest.Validate(true) if the designated
 // constraints aren't met.
 type ProgmatCoinAddToWhitelistRequestMultiError []error
 
@@ -2106,21 +1972,12 @@ var _ProgmatCoinAddToWhitelistRequest_Address_Pattern = regexp.MustCompile("^(0x
 
 // Validate checks the field values on ProgmatCoinRemoveFromWhitelistRequest
 // with the rules defined in the proto definition for this message. If any
-// rules are violated, the first error encountered is returned, or nil if
-// there are no violations.
-func (m *ProgmatCoinRemoveFromWhitelistRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ProgmatCoinRemoveFromWhitelistRequest
-// with the rules defined in the proto definition for this message. If any
-// rules are violated, the result is a list of violation errors wrapped in
+// rules are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in
 // ProgmatCoinRemoveFromWhitelistRequestMultiError, or nil if none found.
-func (m *ProgmatCoinRemoveFromWhitelistRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ProgmatCoinRemoveFromWhitelistRequest) validate(all bool) error {
+// Otherwise, only the first error is returned, if any.
+func (m *ProgmatCoinRemoveFromWhitelistRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -2165,13 +2022,12 @@ func (m *ProgmatCoinRemoveFromWhitelistRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return ProgmatCoinRemoveFromWhitelistRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // ProgmatCoinRemoveFromWhitelistRequestMultiError is an error wrapping
 // multiple validation errors returned by
-// ProgmatCoinRemoveFromWhitelistRequest.ValidateAll() if the designated
+// ProgmatCoinRemoveFromWhitelistRequest.Validate(true) if the designated
 // constraints aren't met.
 type ProgmatCoinRemoveFromWhitelistRequestMultiError []error
 
@@ -2252,21 +2108,11 @@ var _ProgmatCoinRemoveFromWhitelistRequest_Address_Pattern = regexp.MustCompile(
 
 // Validate checks the field values on ProgmatCoinAddToBlacklistRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, the first error encountered is returned, or nil if there are
-// no violations.
-func (m *ProgmatCoinAddToBlacklistRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ProgmatCoinAddToBlacklistRequest with
-// the rules defined in the proto definition for this message. If any rules
-// are violated, the result is a list of violation errors wrapped in
-// ProgmatCoinAddToBlacklistRequestMultiError, or nil if none found.
-func (m *ProgmatCoinAddToBlacklistRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ProgmatCoinAddToBlacklistRequest) validate(all bool) error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ProgmatCoinAddToBlacklistRequestMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ProgmatCoinAddToBlacklistRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -2311,13 +2157,12 @@ func (m *ProgmatCoinAddToBlacklistRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return ProgmatCoinAddToBlacklistRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // ProgmatCoinAddToBlacklistRequestMultiError is an error wrapping multiple
 // validation errors returned by
-// ProgmatCoinAddToBlacklistRequest.ValidateAll() if the designated
+// ProgmatCoinAddToBlacklistRequest.Validate(true) if the designated
 // constraints aren't met.
 type ProgmatCoinAddToBlacklistRequestMultiError []error
 
@@ -2398,21 +2243,12 @@ var _ProgmatCoinAddToBlacklistRequest_Address_Pattern = regexp.MustCompile("^(0x
 
 // Validate checks the field values on ProgmatCoinRemoveFromBlacklistRequest
 // with the rules defined in the proto definition for this message. If any
-// rules are violated, the first error encountered is returned, or nil if
-// there are no violations.
-func (m *ProgmatCoinRemoveFromBlacklistRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ProgmatCoinRemoveFromBlacklistRequest
-// with the rules defined in the proto definition for this message. If any
-// rules are violated, the result is a list of violation errors wrapped in
+// rules are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in
 // ProgmatCoinRemoveFromBlacklistRequestMultiError, or nil if none found.
-func (m *ProgmatCoinRemoveFromBlacklistRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ProgmatCoinRemoveFromBlacklistRequest) validate(all bool) error {
+// Otherwise, only the first error is returned, if any.
+func (m *ProgmatCoinRemoveFromBlacklistRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -2457,13 +2293,12 @@ func (m *ProgmatCoinRemoveFromBlacklistRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return ProgmatCoinRemoveFromBlacklistRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // ProgmatCoinRemoveFromBlacklistRequestMultiError is an error wrapping
 // multiple validation errors returned by
-// ProgmatCoinRemoveFromBlacklistRequest.ValidateAll() if the designated
+// ProgmatCoinRemoveFromBlacklistRequest.Validate(true) if the designated
 // constraints aren't met.
 type ProgmatCoinRemoveFromBlacklistRequestMultiError []error
 
@@ -2544,20 +2379,11 @@ var _ProgmatCoinRemoveFromBlacklistRequest_Address_Pattern = regexp.MustCompile(
 
 // Validate checks the field values on ProgmatCoinConfiscateRequest with the
 // rules defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *ProgmatCoinConfiscateRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ProgmatCoinConfiscateRequest with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// ProgmatCoinConfiscateRequestMultiError, or nil if none found.
-func (m *ProgmatCoinConfiscateRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ProgmatCoinConfiscateRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ProgmatCoinConfiscateRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ProgmatCoinConfiscateRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -2615,13 +2441,12 @@ func (m *ProgmatCoinConfiscateRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return ProgmatCoinConfiscateRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // ProgmatCoinConfiscateRequestMultiError is an error wrapping multiple
-// validation errors returned by ProgmatCoinConfiscateRequest.ValidateAll() if
-// the designated constraints aren't met.
+// validation errors returned by ProgmatCoinConfiscateRequest.Validate(true)
+// if the designated constraints aren't met.
 type ProgmatCoinConfiscateRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
@@ -2703,20 +2528,11 @@ var _ProgmatCoinConfiscateRequest_ToAccount_Pattern = regexp.MustCompile("^(0x)?
 
 // Validate checks the field values on ProgmatCoinPauseRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *ProgmatCoinPauseRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ProgmatCoinPauseRequest with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// ProgmatCoinPauseRequestMultiError, or nil if none found.
-func (m *ProgmatCoinPauseRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ProgmatCoinPauseRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ProgmatCoinPauseRequestMultiError, or nil if none found.
+// Otherwise, only the first error is returned, if any.
+func (m *ProgmatCoinPauseRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -2750,12 +2566,11 @@ func (m *ProgmatCoinPauseRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return ProgmatCoinPauseRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // ProgmatCoinPauseRequestMultiError is an error wrapping multiple validation
-// errors returned by ProgmatCoinPauseRequest.ValidateAll() if the designated
+// errors returned by ProgmatCoinPauseRequest.Validate(true) if the designated
 // constraints aren't met.
 type ProgmatCoinPauseRequestMultiError []error
 
@@ -2833,20 +2648,11 @@ var _ProgmatCoinPauseRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)
 
 // Validate checks the field values on ProgmatCoinUnpauseRequest with the rules
 // defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *ProgmatCoinUnpauseRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ProgmatCoinUnpauseRequest with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// ProgmatCoinUnpauseRequestMultiError, or nil if none found.
-func (m *ProgmatCoinUnpauseRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ProgmatCoinUnpauseRequest) validate(all bool) error {
+// violated, an error is returned. When asked to return all errors, validation
+// continues after first violation, and the result is a list of violation
+// errors wrapped in ProgmatCoinUnpauseRequestMultiError, or nil if none
+// found. Otherwise, only the first error is returned, if any.
+func (m *ProgmatCoinUnpauseRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -2880,12 +2686,11 @@ func (m *ProgmatCoinUnpauseRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return ProgmatCoinUnpauseRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // ProgmatCoinUnpauseRequestMultiError is an error wrapping multiple validation
-// errors returned by ProgmatCoinUnpauseRequest.ValidateAll() if the
+// errors returned by ProgmatCoinUnpauseRequest.Validate(true) if the
 // designated constraints aren't met.
 type ProgmatCoinUnpauseRequestMultiError []error
 
@@ -2963,21 +2768,11 @@ var _ProgmatCoinUnpauseRequest_ContractAddress_Pattern = regexp.MustCompile("^(0
 
 // Validate checks the field values on ListColdFeeDepositAddressesRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, the first error encountered is returned, or nil if there are
-// no violations.
-func (m *ListColdFeeDepositAddressesRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ListColdFeeDepositAddressesRequest
-// with the rules defined in the proto definition for this message. If any
-// rules are violated, the result is a list of violation errors wrapped in
-// ListColdFeeDepositAddressesRequestMultiError, or nil if none found.
-func (m *ListColdFeeDepositAddressesRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ListColdFeeDepositAddressesRequest) validate(all bool) error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListColdFeeDepositAddressesRequestMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListColdFeeDepositAddressesRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -2987,13 +2782,12 @@ func (m *ListColdFeeDepositAddressesRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return ListColdFeeDepositAddressesRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // ListColdFeeDepositAddressesRequestMultiError is an error wrapping multiple
 // validation errors returned by
-// ListColdFeeDepositAddressesRequest.ValidateAll() if the designated
+// ListColdFeeDepositAddressesRequest.Validate(true) if the designated
 // constraints aren't met.
 type ListColdFeeDepositAddressesRequestMultiError []error
 
@@ -3068,21 +2862,11 @@ var _ interface {
 
 // Validate checks the field values on ListColdFeeDepositAddressesResponse with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, the first error encountered is returned, or nil if there are
-// no violations.
-func (m *ListColdFeeDepositAddressesResponse) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ListColdFeeDepositAddressesResponse
-// with the rules defined in the proto definition for this message. If any
-// rules are violated, the result is a list of violation errors wrapped in
-// ListColdFeeDepositAddressesResponseMultiError, or nil if none found.
-func (m *ListColdFeeDepositAddressesResponse) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ListColdFeeDepositAddressesResponse) validate(all bool) error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListColdFeeDepositAddressesResponseMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListColdFeeDepositAddressesResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -3092,32 +2876,17 @@ func (m *ListColdFeeDepositAddressesResponse) validate(all bool) error {
 	for idx, item := range m.GetCallerAddresses() {
 		_, _ = idx, item
 
-		if all {
-			switch v := interface{}(item).(type) {
-			case interface{ ValidateAll() error }:
-				if err := v.ValidateAll(); err != nil {
-					errors = append(errors, ListColdFeeDepositAddressesResponseValidationError{
-						field:  fmt.Sprintf("CallerAddresses[%v]", idx),
-						reason: "embedded message failed validation",
-						cause:  err,
-					})
-				}
-			case interface{ Validate() error }:
-				if err := v.Validate(); err != nil {
-					errors = append(errors, ListColdFeeDepositAddressesResponseValidationError{
-						field:  fmt.Sprintf("CallerAddresses[%v]", idx),
-						reason: "embedded message failed validation",
-						cause:  err,
-					})
-				}
-			}
-		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListColdFeeDepositAddressesResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListColdFeeDepositAddressesResponseValidationError{
 					field:  fmt.Sprintf("CallerAddresses[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
@@ -3126,13 +2895,12 @@ func (m *ListColdFeeDepositAddressesResponse) validate(all bool) error {
 	if len(errors) > 0 {
 		return ListColdFeeDepositAddressesResponseMultiError(errors)
 	}
-
 	return nil
 }
 
 // ListColdFeeDepositAddressesResponseMultiError is an error wrapping multiple
 // validation errors returned by
-// ListColdFeeDepositAddressesResponse.ValidateAll() if the designated
+// ListColdFeeDepositAddressesResponse.Validate(true) if the designated
 // constraints aren't met.
 type ListColdFeeDepositAddressesResponseMultiError []error
 
@@ -3207,21 +2975,11 @@ var _ interface {
 
 // Validate checks the field values on ListHotFeeDepositAddressesRequest with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, the first error encountered is returned, or nil if there are
-// no violations.
-func (m *ListHotFeeDepositAddressesRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ListHotFeeDepositAddressesRequest
-// with the rules defined in the proto definition for this message. If any
-// rules are violated, the result is a list of violation errors wrapped in
-// ListHotFeeDepositAddressesRequestMultiError, or nil if none found.
-func (m *ListHotFeeDepositAddressesRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ListHotFeeDepositAddressesRequest) validate(all bool) error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListHotFeeDepositAddressesRequestMultiError, or
+// nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListHotFeeDepositAddressesRequest) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -3231,13 +2989,12 @@ func (m *ListHotFeeDepositAddressesRequest) validate(all bool) error {
 	if len(errors) > 0 {
 		return ListHotFeeDepositAddressesRequestMultiError(errors)
 	}
-
 	return nil
 }
 
 // ListHotFeeDepositAddressesRequestMultiError is an error wrapping multiple
 // validation errors returned by
-// ListHotFeeDepositAddressesRequest.ValidateAll() if the designated
+// ListHotFeeDepositAddressesRequest.Validate(true) if the designated
 // constraints aren't met.
 type ListHotFeeDepositAddressesRequestMultiError []error
 
@@ -3312,21 +3069,11 @@ var _ interface {
 
 // Validate checks the field values on ListHotFeeDepositAddressesResponse with
 // the rules defined in the proto definition for this message. If any rules
-// are violated, the first error encountered is returned, or nil if there are
-// no violations.
-func (m *ListHotFeeDepositAddressesResponse) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ListHotFeeDepositAddressesResponse
-// with the rules defined in the proto definition for this message. If any
-// rules are violated, the result is a list of violation errors wrapped in
-// ListHotFeeDepositAddressesResponseMultiError, or nil if none found.
-func (m *ListHotFeeDepositAddressesResponse) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ListHotFeeDepositAddressesResponse) validate(all bool) error {
+// are violated, an error is returned. When asked to return all errors,
+// validation continues after first violation, and the result is a list of
+// violation errors wrapped in ListHotFeeDepositAddressesResponseMultiError,
+// or nil if none found. Otherwise, only the first error is returned, if any.
+func (m *ListHotFeeDepositAddressesResponse) Validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -3336,32 +3083,17 @@ func (m *ListHotFeeDepositAddressesResponse) validate(all bool) error {
 	for idx, item := range m.GetFeeDepositAddresses() {
 		_, _ = idx, item
 
-		if all {
-			switch v := interface{}(item).(type) {
-			case interface{ ValidateAll() error }:
-				if err := v.ValidateAll(); err != nil {
-					errors = append(errors, ListHotFeeDepositAddressesResponseValidationError{
-						field:  fmt.Sprintf("FeeDepositAddresses[%v]", idx),
-						reason: "embedded message failed validation",
-						cause:  err,
-					})
-				}
-			case interface{ Validate() error }:
-				if err := v.Validate(); err != nil {
-					errors = append(errors, ListHotFeeDepositAddressesResponseValidationError{
-						field:  fmt.Sprintf("FeeDepositAddresses[%v]", idx),
-						reason: "embedded message failed validation",
-						cause:  err,
-					})
-				}
-			}
-		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
-			if err := v.Validate(); err != nil {
-				return ListHotFeeDepositAddressesResponseValidationError{
+		if v, ok := interface{}(item).(interface{ Validate(bool) error }); ok {
+			if err := v.Validate(all); err != nil {
+				err = ListHotFeeDepositAddressesResponseValidationError{
 					field:  fmt.Sprintf("FeeDepositAddresses[%v]", idx),
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
+				if !all {
+					return err
+				}
+				errors = append(errors, err)
 			}
 		}
 
@@ -3370,13 +3102,12 @@ func (m *ListHotFeeDepositAddressesResponse) validate(all bool) error {
 	if len(errors) > 0 {
 		return ListHotFeeDepositAddressesResponseMultiError(errors)
 	}
-
 	return nil
 }
 
 // ListHotFeeDepositAddressesResponseMultiError is an error wrapping multiple
 // validation errors returned by
-// ListHotFeeDepositAddressesResponse.ValidateAll() if the designated
+// ListHotFeeDepositAddressesResponse.Validate(true) if the designated
 // constraints aren't met.
 type ListHotFeeDepositAddressesResponseMultiError []error
 

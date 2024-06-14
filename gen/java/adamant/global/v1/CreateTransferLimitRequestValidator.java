@@ -24,6 +24,10 @@ public class CreateTransferLimitRequestValidator implements io.envoyproxy.pgv.Va
 		
 	
 	
+		
+
+
+	
 
 	public void assertValid(adamant.global.v1.CreateTransferLimitRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
@@ -40,6 +44,15 @@ public class CreateTransferLimitRequestValidator implements io.envoyproxy.pgv.Va
 			if (true) index.validatorFor(item).assertValid(item);
 			});
 	
+		
+			switch (proto.getNetworkCase()) {
+				case NETWORK:
+					
+			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.CreateTransferLimitRequest.network", proto.getNetwork());
+					break;
+				
+			}
+
 	}
 
 }

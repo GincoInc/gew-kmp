@@ -26,6 +26,10 @@ public class CreateWalletGroupRequestValidator implements io.envoyproxy.pgv.Vali
 		
 	
 	
+		
+
+
+	
 
 	public void assertValid(adamant.global.v1.CreateWalletGroupRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
@@ -43,6 +47,15 @@ public class CreateWalletGroupRequestValidator implements io.envoyproxy.pgv.Vali
 	// no validation rules for WatchOnly
 
 	
+		
+			switch (proto.getNetworkCase()) {
+				case NETWORK:
+					
+			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.CreateWalletGroupRequest.network", proto.getNetwork());
+					break;
+				
+			}
+
 	}
 
 }

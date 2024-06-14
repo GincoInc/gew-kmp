@@ -25,6 +25,10 @@ public class UpdateWalletFlushSettingRequestValidator implements io.envoyproxy.p
 		
 	
 	
+		
+
+
+	
 
 	public void assertValid(adamant.global.v1.UpdateWalletFlushSettingRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
@@ -35,6 +39,15 @@ public class UpdateWalletFlushSettingRequestValidator implements io.envoyproxy.p
 	// no validation rules for FlushThreshold
 
 	
+		
+			switch (proto.getNetworkCase()) {
+				case NETWORK:
+					
+			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.UpdateWalletFlushSettingRequest.network", proto.getNetwork());
+					break;
+				
+			}
+
 	}
 
 }

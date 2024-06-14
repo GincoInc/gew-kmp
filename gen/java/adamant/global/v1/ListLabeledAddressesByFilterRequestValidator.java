@@ -32,6 +32,10 @@ public class ListLabeledAddressesByFilterRequestValidator implements io.envoypro
 		com.google.re2j.Pattern PAGE_TOKEN__PATTERN = com.google.re2j.Pattern.compile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$");
 	
 	
+		
+
+
+	
 
 	public void assertValid(adamant.global.v1.ListLabeledAddressesByFilterRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
@@ -49,6 +53,15 @@ public class ListLabeledAddressesByFilterRequestValidator implements io.envoypro
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.ListLabeledAddressesByFilterRequest.page_token", proto.getPageToken(), PAGE_TOKEN__PATTERN);
 	
+		
+			switch (proto.getNetworkCase()) {
+				case NETWORK:
+					
+			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.ListLabeledAddressesByFilterRequest.network", proto.getNetwork());
+					break;
+				
+			}
+
 	}
 
 }

@@ -30,6 +30,10 @@ public class ListTransferLimitsByFilterRequestValidator implements io.envoyproxy
 		com.google.re2j.Pattern PAGE_TOKEN__PATTERN = com.google.re2j.Pattern.compile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$");
 	
 	
+		
+
+
+	
 
 	public void assertValid(adamant.global.v1.ListTransferLimitsByFilterRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
@@ -45,6 +49,15 @@ public class ListTransferLimitsByFilterRequestValidator implements io.envoyproxy
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.ListTransferLimitsByFilterRequest.page_token", proto.getPageToken(), PAGE_TOKEN__PATTERN);
 	
+		
+			switch (proto.getNetworkCase()) {
+				case NETWORK:
+					
+			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.ListTransferLimitsByFilterRequest.network", proto.getNetwork());
+					break;
+				
+			}
+
 	}
 
 }
