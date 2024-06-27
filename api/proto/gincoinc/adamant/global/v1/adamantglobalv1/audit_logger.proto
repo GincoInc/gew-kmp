@@ -55,4 +55,6 @@ message AuditLog {
   repeated string whitelist_addresses = 31;
   google.protobuf.Timestamp event_time = 32;
   google.protobuf.Timestamp create_time = 33;
+  repeated adamant.global.v1.MailType enabled_mails = 41;
+  repeated adamant.global.v1.MailType disabled_mails = 42;
 }

@@ -2851,6 +2851,35 @@ func (m *Transaction) validate(all bool) error {
 	}
 
 	if all {
+		switch v := interface{}(m.GetAvalanchePlatformChainSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "AvalanchePlatformChainSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "AvalanchePlatformChainSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetAvalanchePlatformChainSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "AvalanchePlatformChainSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
 		switch v := interface{}(m.GetCreateTime()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
@@ -3385,6 +3414,35 @@ func (m *UTXO) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetAvalanchePlatformChainSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, UTXOValidationError{
+					field:  "AvalanchePlatformChainSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, UTXOValidationError{
+					field:  "AvalanchePlatformChainSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetAvalanchePlatformChainSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UTXOValidationError{
+				field:  "AvalanchePlatformChainSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return UTXOMultiError(errors)
 	}
@@ -3599,6 +3657,113 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CardanoUTXOSpecificValidationError{}
+
+// Validate checks the field values on AvalanchePlatformChainUTXOSpecific with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *AvalanchePlatformChainUTXOSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AvalanchePlatformChainUTXOSpecific
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// AvalanchePlatformChainUTXOSpecificMultiError, or nil if none found.
+func (m *AvalanchePlatformChainUTXOSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AvalanchePlatformChainUTXOSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Threshold
+
+	if len(errors) > 0 {
+		return AvalanchePlatformChainUTXOSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// AvalanchePlatformChainUTXOSpecificMultiError is an error wrapping multiple
+// validation errors returned by
+// AvalanchePlatformChainUTXOSpecific.ValidateAll() if the designated
+// constraints aren't met.
+type AvalanchePlatformChainUTXOSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AvalanchePlatformChainUTXOSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AvalanchePlatformChainUTXOSpecificMultiError) AllErrors() []error { return m }
+
+// AvalanchePlatformChainUTXOSpecificValidationError is the validation error
+// returned by AvalanchePlatformChainUTXOSpecific.Validate if the designated
+// constraints aren't met.
+type AvalanchePlatformChainUTXOSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AvalanchePlatformChainUTXOSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AvalanchePlatformChainUTXOSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AvalanchePlatformChainUTXOSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AvalanchePlatformChainUTXOSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AvalanchePlatformChainUTXOSpecificValidationError) ErrorName() string {
+	return "AvalanchePlatformChainUTXOSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AvalanchePlatformChainUTXOSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAvalanchePlatformChainUTXOSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AvalanchePlatformChainUTXOSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AvalanchePlatformChainUTXOSpecificValidationError{}
 
 // Validate checks the field values on CardanoCustomToken with the rules
 // defined in the proto definition for this message. If any rules are
@@ -6086,6 +6251,35 @@ func (m *AvalancheSpecific) validate(all bool) error {
 
 	// no validation rules for IsNextNonce
 
+	if all {
+		switch v := interface{}(m.GetAtomicTx()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, AvalancheSpecificValidationError{
+					field:  "AtomicTx",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, AvalancheSpecificValidationError{
+					field:  "AtomicTx",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetAtomicTx()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return AvalancheSpecificValidationError{
+				field:  "AtomicTx",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return AvalancheSpecificMultiError(errors)
 	}
@@ -7463,6 +7657,574 @@ var _ interface {
 	ErrorName() string
 } = ArbitrumOneSpecificValidationError{}
 
+// Validate checks the field values on AtomicTx with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *AtomicTx) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AtomicTx with the rules defined in
+// the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in AtomicTxMultiError, or nil
+// if none found.
+func (m *AtomicTx) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AtomicTx) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TxType
+
+	for idx, item := range m.GetTxInputs() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, AtomicTxValidationError{
+						field:  fmt.Sprintf("TxInputs[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, AtomicTxValidationError{
+						field:  fmt.Sprintf("TxInputs[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return AtomicTxValidationError{
+					field:  fmt.Sprintf("TxInputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	for idx, item := range m.GetTxOutputs() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, AtomicTxValidationError{
+						field:  fmt.Sprintf("TxOutputs[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, AtomicTxValidationError{
+						field:  fmt.Sprintf("TxOutputs[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return AtomicTxValidationError{
+					field:  fmt.Sprintf("TxOutputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return AtomicTxMultiError(errors)
+	}
+
+	return nil
+}
+
+// AtomicTxMultiError is an error wrapping multiple validation errors returned
+// by AtomicTx.ValidateAll() if the designated constraints aren't met.
+type AtomicTxMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AtomicTxMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AtomicTxMultiError) AllErrors() []error { return m }
+
+// AtomicTxValidationError is the validation error returned by
+// AtomicTx.Validate if the designated constraints aren't met.
+type AtomicTxValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AtomicTxValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AtomicTxValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AtomicTxValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AtomicTxValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AtomicTxValidationError) ErrorName() string { return "AtomicTxValidationError" }
+
+// Error satisfies the builtin error interface
+func (e AtomicTxValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAtomicTx.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AtomicTxValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AtomicTxValidationError{}
+
+// Validate checks the field values on AvalanchePlatformChainSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *AvalanchePlatformChainSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AvalanchePlatformChainSpecific with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// AvalanchePlatformChainSpecificMultiError, or nil if none found.
+func (m *AvalanchePlatformChainSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AvalanchePlatformChainSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TxType
+
+	for idx, item := range m.GetTxInputs() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, AvalanchePlatformChainSpecificValidationError{
+						field:  fmt.Sprintf("TxInputs[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, AvalanchePlatformChainSpecificValidationError{
+						field:  fmt.Sprintf("TxInputs[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return AvalanchePlatformChainSpecificValidationError{
+					field:  fmt.Sprintf("TxInputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	for idx, item := range m.GetTxOutputs() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, AvalanchePlatformChainSpecificValidationError{
+						field:  fmt.Sprintf("TxOutputs[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, AvalanchePlatformChainSpecificValidationError{
+						field:  fmt.Sprintf("TxOutputs[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return AvalanchePlatformChainSpecificValidationError{
+					field:  fmt.Sprintf("TxOutputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return AvalanchePlatformChainSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// AvalanchePlatformChainSpecificMultiError is an error wrapping multiple
+// validation errors returned by AvalanchePlatformChainSpecific.ValidateAll()
+// if the designated constraints aren't met.
+type AvalanchePlatformChainSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AvalanchePlatformChainSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AvalanchePlatformChainSpecificMultiError) AllErrors() []error { return m }
+
+// AvalanchePlatformChainSpecificValidationError is the validation error
+// returned by AvalanchePlatformChainSpecific.Validate if the designated
+// constraints aren't met.
+type AvalanchePlatformChainSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AvalanchePlatformChainSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AvalanchePlatformChainSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AvalanchePlatformChainSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AvalanchePlatformChainSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AvalanchePlatformChainSpecificValidationError) ErrorName() string {
+	return "AvalanchePlatformChainSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AvalanchePlatformChainSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAvalanchePlatformChainSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AvalanchePlatformChainSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AvalanchePlatformChainSpecificValidationError{}
+
+// Validate checks the field values on AvalancheTxInput with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *AvalancheTxInput) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AvalancheTxInput with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// AvalancheTxInputMultiError, or nil if none found.
+func (m *AvalancheTxInput) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AvalancheTxInput) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TxId
+
+	// no validation rules for InputIndex
+
+	// no validation rules for InputIndexType
+
+	// no validation rules for Value
+
+	// no validation rules for StringValue
+
+	if len(errors) > 0 {
+		return AvalancheTxInputMultiError(errors)
+	}
+
+	return nil
+}
+
+// AvalancheTxInputMultiError is an error wrapping multiple validation errors
+// returned by AvalancheTxInput.ValidateAll() if the designated constraints
+// aren't met.
+type AvalancheTxInputMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AvalancheTxInputMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AvalancheTxInputMultiError) AllErrors() []error { return m }
+
+// AvalancheTxInputValidationError is the validation error returned by
+// AvalancheTxInput.Validate if the designated constraints aren't met.
+type AvalancheTxInputValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AvalancheTxInputValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AvalancheTxInputValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AvalancheTxInputValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AvalancheTxInputValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AvalancheTxInputValidationError) ErrorName() string { return "AvalancheTxInputValidationError" }
+
+// Error satisfies the builtin error interface
+func (e AvalancheTxInputValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAvalancheTxInput.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AvalancheTxInputValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AvalancheTxInputValidationError{}
+
+// Validate checks the field values on AvalancheTxOutput with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *AvalancheTxOutput) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AvalancheTxOutput with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// AvalancheTxOutputMultiError, or nil if none found.
+func (m *AvalancheTxOutput) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AvalancheTxOutput) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for OutputIndex
+
+	// no validation rules for OutputType
+
+	// no validation rules for Value
+
+	// no validation rules for StringValue
+
+	// no validation rules for Locktime
+
+	// no validation rules for Threshold
+
+	// no validation rules for IsChange
+
+	if len(errors) > 0 {
+		return AvalancheTxOutputMultiError(errors)
+	}
+
+	return nil
+}
+
+// AvalancheTxOutputMultiError is an error wrapping multiple validation errors
+// returned by AvalancheTxOutput.ValidateAll() if the designated constraints
+// aren't met.
+type AvalancheTxOutputMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AvalancheTxOutputMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AvalancheTxOutputMultiError) AllErrors() []error { return m }
+
+// AvalancheTxOutputValidationError is the validation error returned by
+// AvalancheTxOutput.Validate if the designated constraints aren't met.
+type AvalancheTxOutputValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AvalancheTxOutputValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AvalancheTxOutputValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AvalancheTxOutputValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AvalancheTxOutputValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AvalancheTxOutputValidationError) ErrorName() string {
+	return "AvalancheTxOutputValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AvalancheTxOutputValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAvalancheTxOutput.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AvalancheTxOutputValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AvalancheTxOutputValidationError{}
+
 // Validate checks the field values on CreateTransactionSubstrateSpecific with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, the first error encountered is returned, or nil if there are
@@ -8048,6 +8810,10 @@ func (m *CreateTransactionEthereumSpecific) validate(all bool) error {
 
 	if m.CallMethod != nil {
 		// no validation rules for CallMethod
+	}
+
+	if m.UtilsAddress != nil {
+		// no validation rules for UtilsAddress
 	}
 
 	if len(errors) > 0 {
@@ -8664,6 +9430,256 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CreateTransactionAptosSpecificValidationError{}
+
+// Validate checks the field values on CreateTransactionAvalancheSpecific with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *CreateTransactionAvalancheSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreateTransactionAvalancheSpecific
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// CreateTransactionAvalancheSpecificMultiError, or nil if none found.
+func (m *CreateTransactionAvalancheSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateTransactionAvalancheSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if m.TxType != nil {
+		// no validation rules for TxType
+	}
+
+	if m.ImportTxSpecific != nil {
+
+		if all {
+			switch v := interface{}(m.GetImportTxSpecific()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, CreateTransactionAvalancheSpecificValidationError{
+						field:  "ImportTxSpecific",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, CreateTransactionAvalancheSpecificValidationError{
+						field:  "ImportTxSpecific",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetImportTxSpecific()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return CreateTransactionAvalancheSpecificValidationError{
+					field:  "ImportTxSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return CreateTransactionAvalancheSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreateTransactionAvalancheSpecificMultiError is an error wrapping multiple
+// validation errors returned by
+// CreateTransactionAvalancheSpecific.ValidateAll() if the designated
+// constraints aren't met.
+type CreateTransactionAvalancheSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionAvalancheSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionAvalancheSpecificMultiError) AllErrors() []error { return m }
+
+// CreateTransactionAvalancheSpecificValidationError is the validation error
+// returned by CreateTransactionAvalancheSpecific.Validate if the designated
+// constraints aren't met.
+type CreateTransactionAvalancheSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionAvalancheSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionAvalancheSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionAvalancheSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionAvalancheSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionAvalancheSpecificValidationError) ErrorName() string {
+	return "CreateTransactionAvalancheSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionAvalancheSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionAvalancheSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionAvalancheSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionAvalancheSpecificValidationError{}
+
+// Validate checks the field values on ImportTxSpecific with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *ImportTxSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ImportTxSpecific with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ImportTxSpecificMultiError, or nil if none found.
+func (m *ImportTxSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ImportTxSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TxId
+
+	// no validation rules for OutputIndex
+
+	// no validation rules for ExportedAmount
+
+	// no validation rules for StringExportedAmount
+
+	if len(errors) > 0 {
+		return ImportTxSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// ImportTxSpecificMultiError is an error wrapping multiple validation errors
+// returned by ImportTxSpecific.ValidateAll() if the designated constraints
+// aren't met.
+type ImportTxSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ImportTxSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ImportTxSpecificMultiError) AllErrors() []error { return m }
+
+// ImportTxSpecificValidationError is the validation error returned by
+// ImportTxSpecific.Validate if the designated constraints aren't met.
+type ImportTxSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ImportTxSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ImportTxSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ImportTxSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ImportTxSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ImportTxSpecificValidationError) ErrorName() string { return "ImportTxSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e ImportTxSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sImportTxSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ImportTxSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ImportTxSpecificValidationError{}
 
 // Validate checks the field values on SelectedUTXO with the rules defined in
 // the proto definition for this message. If any rules are violated, the first

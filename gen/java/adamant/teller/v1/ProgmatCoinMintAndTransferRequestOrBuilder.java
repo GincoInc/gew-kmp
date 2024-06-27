@@ -72,4 +72,21 @@ public interface ProgmatCoinMintAndTransferRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getAmountBytes();
+
+  /**
+   * <code>optional string through_address = 7 [json_name = "throughAddress", (.validate.rules) = { ... }</code>
+   * @return Whether the throughAddress field is set.
+   */
+  boolean hasThroughAddress();
+  /**
+   * <code>optional string through_address = 7 [json_name = "throughAddress", (.validate.rules) = { ... }</code>
+   * @return The throughAddress.
+   */
+  java.lang.String getThroughAddress();
+  /**
+   * <code>optional string through_address = 7 [json_name = "throughAddress", (.validate.rules) = { ... }</code>
+   * @return The bytes for throughAddress.
+   */
+  com.google.protobuf.ByteString
+      getThroughAddressBytes();
 }

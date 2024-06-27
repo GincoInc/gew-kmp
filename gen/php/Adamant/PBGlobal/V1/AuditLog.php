@@ -177,6 +177,14 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 33 [json_name = "createTime"];</code>
      */
     protected $create_time = null;
+    /**
+     * Generated from protobuf field <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+     */
+    private $enabled_mails;
+    /**
+     * Generated from protobuf field <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+     */
+    private $disabled_mails;
 
     /**
      * Constructor.
@@ -225,6 +233,8 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      *     @type array<string>|\Google\Protobuf\Internal\RepeatedField $whitelist_addresses
      *     @type \Google\Protobuf\Timestamp $event_time
      *     @type \Google\Protobuf\Timestamp $create_time
+     *     @type array<int>|\Google\Protobuf\Internal\RepeatedField $enabled_mails
+     *     @type array<int>|\Google\Protobuf\Internal\RepeatedField $disabled_mails
      * }
      */
     public function __construct($data = NULL) {
@@ -1132,6 +1142,50 @@ class AuditLog extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->create_time = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
+     */
+    public function getEnabledMails()
+    {
+        return $this->enabled_mails;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+     * @param array<int>|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
+     */
+    public function setEnabledMails($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::ENUM, \Adamant\PBGlobal\V1\MailType::class);
+        $this->enabled_mails = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
+     */
+    public function getDisabledMails()
+    {
+        return $this->disabled_mails;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+     * @param array<int>|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
+     */
+    public function setDisabledMails($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::ENUM, \Adamant\PBGlobal\V1\MailType::class);
+        $this->disabled_mails = $arr;
 
         return $this;
     }

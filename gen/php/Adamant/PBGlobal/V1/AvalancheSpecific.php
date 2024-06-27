@@ -27,6 +27,10 @@ class AvalancheSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool is_next_nonce = 3 [json_name = "isNextNonce"];</code>
      */
     protected $is_next_nonce = false;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.AtomicTx atomic_tx = 4 [json_name = "atomicTx"];</code>
+     */
+    protected $atomic_tx = null;
 
     /**
      * Constructor.
@@ -37,6 +41,7 @@ class AvalancheSpecific extends \Google\Protobuf\Internal\Message
      *     @type int|string $gas_limit
      *     @type int|string $nonce
      *     @type bool $is_next_nonce
+     *     @type \Adamant\PBGlobal\V1\AtomicTx $atomic_tx
      * }
      */
     public function __construct($data = NULL) {
@@ -106,6 +111,38 @@ class AvalancheSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->is_next_nonce = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.AtomicTx atomic_tx = 4 [json_name = "atomicTx"];</code>
+     * @return \Adamant\PBGlobal\V1\AtomicTx|null
+     */
+    public function getAtomicTx()
+    {
+        return $this->atomic_tx;
+    }
+
+    public function hasAtomicTx()
+    {
+        return isset($this->atomic_tx);
+    }
+
+    public function clearAtomicTx()
+    {
+        unset($this->atomic_tx);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.AtomicTx atomic_tx = 4 [json_name = "atomicTx"];</code>
+     * @param \Adamant\PBGlobal\V1\AtomicTx $var
+     * @return $this
+     */
+    public function setAtomicTx($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\AtomicTx::class);
+        $this->atomic_tx = $var;
 
         return $this;
     }

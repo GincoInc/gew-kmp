@@ -25,6 +25,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.TxOutput.class)) return new TxOutputValidator();
 		if (clazz.equals(adamant.global.v1.Model.UTXO.class)) return new UTXOValidator();
 		if (clazz.equals(adamant.global.v1.Model.CardanoUTXOSpecific.class)) return new CardanoUTXOSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.AvalanchePlatformChainUTXOSpecific.class)) return new AvalanchePlatformChainUTXOSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CardanoCustomToken.class)) return new CardanoCustomTokenValidator();
 		if (clazz.equals(adamant.global.v1.Model.BitcoinSpecific.class)) return new BitcoinSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.LitecoinSpecific.class)) return new LitecoinSpecificValidator();
@@ -56,6 +57,10 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.BNBSmartChainSpecific.class)) return new BNBSmartChainSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.FlareSpecific.class)) return new FlareSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.ArbitrumOneSpecific.class)) return new ArbitrumOneSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.AtomicTx.class)) return new AtomicTxValidator();
+		if (clazz.equals(adamant.global.v1.Model.AvalanchePlatformChainSpecific.class)) return new AvalanchePlatformChainSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.AvalancheTxInput.class)) return new AvalancheTxInputValidator();
+		if (clazz.equals(adamant.global.v1.Model.AvalancheTxOutput.class)) return new AvalancheTxOutputValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class)) return new CreateTransactionSubstrateSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.class)) return new CreateTransactionWalletConnectSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionNemSpecific.class)) return new CreateTransactionNemSpecificValidator();
@@ -67,6 +72,8 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionHederaSpecific.class)) return new CreateTransactionHederaSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSolanaSpecific.class)) return new CreateTransactionSolanaSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionAptosSpecific.class)) return new CreateTransactionAptosSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionAvalancheSpecific.class)) return new CreateTransactionAvalancheSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.ImportTxSpecific.class)) return new ImportTxSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SelectedUTXO.class)) return new SelectedUTXOValidator();
 		if (clazz.equals(adamant.global.v1.Model.SubstrateMultisigTransaction.class)) return new SubstrateMultisigTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.NemMultisigTransaction.class)) return new NemMultisigTransactionValidator();
@@ -911,6 +918,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1043,6 +1052,9 @@ public class ModelValidator {
 			// Validate dogecoin_specific
 			if (proto.hasDogecoinSpecific()) index.validatorFor(proto.getDogecoinSpecific()).assertValid(proto.getDogecoinSpecific());
 	
+			// Validate avalanche_platform_chain_specific
+			if (proto.hasAvalanchePlatformChainSpecific()) index.validatorFor(proto.getAvalanchePlatformChainSpecific()).assertValid(proto.getAvalanchePlatformChainSpecific());
+	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
 	
@@ -1160,6 +1172,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.UTXO proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1179,6 +1193,9 @@ public class ModelValidator {
 			// Validate cardano_specific
 			if (proto.hasCardanoSpecific()) index.validatorFor(proto.getCardanoSpecific()).assertValid(proto.getCardanoSpecific());
 	
+			// Validate avalanche_platform_chain_specific
+			if (proto.hasAvalanchePlatformChainSpecific()) index.validatorFor(proto.getAvalanchePlatformChainSpecific()).assertValid(proto.getAvalanchePlatformChainSpecific());
+	
 	}
 }
 /**
@@ -1195,6 +1212,27 @@ public class ModelValidator {
 				
 			// Validate tokens
 			if (true) index.validatorFor(item).assertValid(item);
+			});
+	
+	}
+}
+/**
+	 * Validates {@code AvalanchePlatformChainUTXOSpecific} protobuf objects.
+	 */
+	public static class AvalanchePlatformChainUTXOSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.AvalanchePlatformChainUTXOSpecific> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.AvalanchePlatformChainUTXOSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Threshold
+
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getAddressesList(), item -> {
+				// no validation rules for Addresses
+
 			});
 	
 	}
@@ -1681,6 +1719,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.AvalancheSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1690,6 +1730,9 @@ public class ModelValidator {
 
 	// no validation rules for IsNextNonce
 
+	
+			// Validate atomic_tx
+			if (proto.hasAtomicTx()) index.validatorFor(proto.getAtomicTx()).assertValid(proto.getAtomicTx());
 	
 	}
 }
@@ -1994,6 +2037,148 @@ public class ModelValidator {
 	}
 }
 /**
+	 * Validates {@code AtomicTx} protobuf objects.
+	 */
+	public static class AtomicTxValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.AtomicTx> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.AtomicTx proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for TxType
+
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxInputsList(), item -> {
+				
+			// Validate tx_inputs
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxOutputsList(), item -> {
+				
+			// Validate tx_outputs
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+	
+	}
+}
+/**
+	 * Validates {@code AvalanchePlatformChainSpecific} protobuf objects.
+	 */
+	public static class AvalanchePlatformChainSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.AvalanchePlatformChainSpecific> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.AvalanchePlatformChainSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for TxType
+
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxInputsList(), item -> {
+				
+			// Validate tx_inputs
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxOutputsList(), item -> {
+				
+			// Validate tx_outputs
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+	
+	}
+}
+/**
+	 * Validates {@code AvalancheTxInput} protobuf objects.
+	 */
+	public static class AvalancheTxInputValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.AvalancheTxInput> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.AvalancheTxInput proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for TxId
+
+	// no validation rules for InputIndex
+
+	// no validation rules for InputIndexType
+
+	// no validation rules for Value
+
+	// no validation rules for StringValue
+
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getAddressIndicesList(), item -> {
+				// no validation rules for AddressIndices
+
+			});
+	
+	}
+}
+/**
+	 * Validates {@code AvalancheTxOutput} protobuf objects.
+	 */
+	public static class AvalancheTxOutputValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.AvalancheTxOutput> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.AvalancheTxOutput proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for OutputIndex
+
+	// no validation rules for OutputType
+
+	// no validation rules for Value
+
+	// no validation rules for StringValue
+
+	// no validation rules for Locktime
+
+	// no validation rules for Threshold
+
+	// no validation rules for IsChange
+
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getAddressesList(), item -> {
+				// no validation rules for Addresses
+
+			});
+	
+	}
+}
+/**
 	 * Validates {@code CreateTransactionSubstrateSpecific} protobuf objects.
 	 */
 	public static class CreateTransactionSubstrateSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionSubstrateSpecific> {
@@ -2188,6 +2373,42 @@ public class ModelValidator {
 	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionAptosSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	
+	}
+}
+/**
+	 * Validates {@code CreateTransactionAvalancheSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionAvalancheSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionAvalancheSpecific> {
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionAvalancheSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	
+	}
+}
+/**
+	 * Validates {@code ImportTxSpecific} protobuf objects.
+	 */
+	public static class ImportTxSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.ImportTxSpecific> {
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.ImportTxSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for TxId
+
+	// no validation rules for OutputIndex
+
+	// no validation rules for ExportedAmount
+
+	// no validation rules for StringExportedAmount
+
 	
 	}
 }

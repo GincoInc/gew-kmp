@@ -27,6 +27,10 @@ class CreateTransactionEthereumSpecific extends \Google\Protobuf\Internal\Messag
      * Generated from protobuf field <code>optional .gincoinc.global.v1.EthereumCallMethod call_method = 3 [json_name = "callMethod"];</code>
      */
     protected $call_method = null;
+    /**
+     * Generated from protobuf field <code>optional string utils_address = 4 [json_name = "utilsAddress"];</code>
+     */
+    protected $utils_address = null;
 
     /**
      * Constructor.
@@ -37,6 +41,7 @@ class CreateTransactionEthereumSpecific extends \Google\Protobuf\Internal\Messag
      *     @type string $data
      *     @type string $staking_recipient_wallet_id
      *     @type int $call_method
+     *     @type string $utils_address
      * }
      */
     public function __construct($data = NULL) {
@@ -126,6 +131,38 @@ class CreateTransactionEthereumSpecific extends \Google\Protobuf\Internal\Messag
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\EthereumCallMethod::class);
         $this->call_method = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string utils_address = 4 [json_name = "utilsAddress"];</code>
+     * @return string
+     */
+    public function getUtilsAddress()
+    {
+        return isset($this->utils_address) ? $this->utils_address : '';
+    }
+
+    public function hasUtilsAddress()
+    {
+        return isset($this->utils_address);
+    }
+
+    public function clearUtilsAddress()
+    {
+        unset($this->utils_address);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string utils_address = 4 [json_name = "utilsAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setUtilsAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->utils_address = $var;
 
         return $this;
     }

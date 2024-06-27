@@ -86,6 +86,10 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      */
     protected $aptos_specific = null;
     /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionAvalancheSpecific avalanche_specific = 20 [json_name = "avalancheSpecific"];</code>
+     */
+    protected $avalanche_specific = null;
+    /**
      * Generated from protobuf field <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
      */
     protected $utxo_specific = null;
@@ -114,6 +118,7 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CreateTransactionHederaSpecific $hedera_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionSolanaSpecific $solana_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionAptosSpecific $aptos_specific
+     *     @type \Adamant\PBGlobal\V1\CreateTransactionAvalancheSpecific $avalanche_specific
      *     @type \Adamant\PBGlobal\V1\UtxoSpecific $utxo_specific
      * }
      */
@@ -624,6 +629,38 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionAptosSpecific::class);
         $this->aptos_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionAvalancheSpecific avalanche_specific = 20 [json_name = "avalancheSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CreateTransactionAvalancheSpecific|null
+     */
+    public function getAvalancheSpecific()
+    {
+        return $this->avalanche_specific;
+    }
+
+    public function hasAvalancheSpecific()
+    {
+        return isset($this->avalanche_specific);
+    }
+
+    public function clearAvalancheSpecific()
+    {
+        unset($this->avalanche_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionAvalancheSpecific avalanche_specific = 20 [json_name = "avalancheSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CreateTransactionAvalancheSpecific $var
+     * @return $this
+     */
+    public function setAvalancheSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionAvalancheSpecific::class);
+        $this->avalanche_specific = $var;
 
         return $this;
     }

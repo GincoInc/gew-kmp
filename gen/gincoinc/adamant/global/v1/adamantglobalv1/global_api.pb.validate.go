@@ -9116,6 +9116,35 @@ func (m *CreateTransactionRequest) validate(all bool) error {
 	}
 
 	if all {
+		switch v := interface{}(m.GetAvalancheSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "AvalancheSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "AvalancheSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetAvalancheSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateTransactionRequestValidationError{
+				field:  "AvalancheSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
 		switch v := interface{}(m.GetUtxoSpecific()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
@@ -19124,6 +19153,21 @@ func (m *ValidateAddressRequest) validate(all bool) error {
 	}
 
 	// no validation rules for Address
+
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := ValidateAddressRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
 
 	if len(errors) > 0 {
 		return ValidateAddressRequestMultiError(errors)
@@ -30709,3 +30753,331 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = GetMailSettingsRequestValidationError{}
+
+// Validate checks the field values on GetCardanoTokenWalletRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GetCardanoTokenWalletRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetCardanoTokenWalletRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GetCardanoTokenWalletRequestMultiError, or nil if none found.
+func (m *GetCardanoTokenWalletRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetCardanoTokenWalletRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return GetCardanoTokenWalletRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetCardanoTokenWalletRequestMultiError is an error wrapping multiple
+// validation errors returned by GetCardanoTokenWalletRequest.ValidateAll() if
+// the designated constraints aren't met.
+type GetCardanoTokenWalletRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetCardanoTokenWalletRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetCardanoTokenWalletRequestMultiError) AllErrors() []error { return m }
+
+// GetCardanoTokenWalletRequestValidationError is the validation error returned
+// by GetCardanoTokenWalletRequest.Validate if the designated constraints
+// aren't met.
+type GetCardanoTokenWalletRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetCardanoTokenWalletRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetCardanoTokenWalletRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetCardanoTokenWalletRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetCardanoTokenWalletRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetCardanoTokenWalletRequestValidationError) ErrorName() string {
+	return "GetCardanoTokenWalletRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetCardanoTokenWalletRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetCardanoTokenWalletRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetCardanoTokenWalletRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetCardanoTokenWalletRequestValidationError{}
+
+// Validate checks the field values on GetCardanoTokenWalletResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GetCardanoTokenWalletResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetCardanoTokenWalletResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// GetCardanoTokenWalletResponseMultiError, or nil if none found.
+func (m *GetCardanoTokenWalletResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetCardanoTokenWalletResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for WalletId
+
+	// no validation rules for WalletName
+
+	// no validation rules for Address
+
+	if len(errors) > 0 {
+		return GetCardanoTokenWalletResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetCardanoTokenWalletResponseMultiError is an error wrapping multiple
+// validation errors returned by GetCardanoTokenWalletResponse.ValidateAll()
+// if the designated constraints aren't met.
+type GetCardanoTokenWalletResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetCardanoTokenWalletResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetCardanoTokenWalletResponseMultiError) AllErrors() []error { return m }
+
+// GetCardanoTokenWalletResponseValidationError is the validation error
+// returned by GetCardanoTokenWalletResponse.Validate if the designated
+// constraints aren't met.
+type GetCardanoTokenWalletResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetCardanoTokenWalletResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetCardanoTokenWalletResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetCardanoTokenWalletResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetCardanoTokenWalletResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetCardanoTokenWalletResponseValidationError) ErrorName() string {
+	return "GetCardanoTokenWalletResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetCardanoTokenWalletResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetCardanoTokenWalletResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetCardanoTokenWalletResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetCardanoTokenWalletResponseValidationError{}
+
+// Validate checks the field values on UpdateCardanoTokenWalletRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *UpdateCardanoTokenWalletRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UpdateCardanoTokenWalletRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// UpdateCardanoTokenWalletRequestMultiError, or nil if none found.
+func (m *UpdateCardanoTokenWalletRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UpdateCardanoTokenWalletRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_UpdateCardanoTokenWalletRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := UpdateCardanoTokenWalletRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return UpdateCardanoTokenWalletRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// UpdateCardanoTokenWalletRequestMultiError is an error wrapping multiple
+// validation errors returned by UpdateCardanoTokenWalletRequest.ValidateAll()
+// if the designated constraints aren't met.
+type UpdateCardanoTokenWalletRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateCardanoTokenWalletRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateCardanoTokenWalletRequestMultiError) AllErrors() []error { return m }
+
+// UpdateCardanoTokenWalletRequestValidationError is the validation error
+// returned by UpdateCardanoTokenWalletRequest.Validate if the designated
+// constraints aren't met.
+type UpdateCardanoTokenWalletRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateCardanoTokenWalletRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateCardanoTokenWalletRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateCardanoTokenWalletRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateCardanoTokenWalletRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateCardanoTokenWalletRequestValidationError) ErrorName() string {
+	return "UpdateCardanoTokenWalletRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateCardanoTokenWalletRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateCardanoTokenWalletRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateCardanoTokenWalletRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateCardanoTokenWalletRequestValidationError{}
+
+var _UpdateCardanoTokenWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")

@@ -1591,6 +1591,21 @@ func (m *ProgmatCoinMintAndTransferRequest) validate(all bool) error {
 
 	// no validation rules for Amount
 
+	if m.ThroughAddress != nil {
+
+		if !_ProgmatCoinMintAndTransferRequest_ThroughAddress_Pattern.MatchString(m.GetThroughAddress()) {
+			err := ProgmatCoinMintAndTransferRequestValidationError{
+				field:  "ThroughAddress",
+				reason: "value does not match regex pattern \"^$|^(0x)?[0-9a-fA-F]{40}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
 	if len(errors) > 0 {
 		return ProgmatCoinMintAndTransferRequestMultiError(errors)
 	}
@@ -1680,6 +1695,8 @@ var _ProgmatCoinMintAndTransferRequest_ContractAddress_Pattern = regexp.MustComp
 var _ProgmatCoinMintAndTransferRequest_MintAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
 
 var _ProgmatCoinMintAndTransferRequest_TransferAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinMintAndTransferRequest_ThroughAddress_Pattern = regexp.MustCompile("^$|^(0x)?[0-9a-fA-F]{40}$")
 
 // Validate checks the field values on ProgmatCoinMintRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -1958,177 +1975,31 @@ var _ProgmatCoinBurnRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-
 
 var _ProgmatCoinBurnRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
 
-// Validate checks the field values on ProgmatCoinAddToWhitelistRequest with
-// the rules defined in the proto definition for this message. If any rules
-// are violated, the first error encountered is returned, or nil if there are
-// no violations.
-func (m *ProgmatCoinAddToWhitelistRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on ProgmatCoinAddToWhitelistRequest with
-// the rules defined in the proto definition for this message. If any rules
-// are violated, the result is a list of violation errors wrapped in
-// ProgmatCoinAddToWhitelistRequestMultiError, or nil if none found.
-func (m *ProgmatCoinAddToWhitelistRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *ProgmatCoinAddToWhitelistRequest) validate(all bool) error {
-	if m == nil {
-		return nil
-	}
-
-	var errors []error
-
-	if !_ProgmatCoinAddToWhitelistRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		err := ProgmatCoinAddToWhitelistRequestValidationError{
-			field:  "WalletId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
-		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
-	}
-
-	// no validation rules for FeeRate
-
-	if !_ProgmatCoinAddToWhitelistRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
-		err := ProgmatCoinAddToWhitelistRequestValidationError{
-			field:  "ContractAddress",
-			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
-		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
-	}
-
-	if !_ProgmatCoinAddToWhitelistRequest_Address_Pattern.MatchString(m.GetAddress()) {
-		err := ProgmatCoinAddToWhitelistRequestValidationError{
-			field:  "Address",
-			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
-		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
-	}
-
-	if len(errors) > 0 {
-		return ProgmatCoinAddToWhitelistRequestMultiError(errors)
-	}
-
-	return nil
-}
-
-// ProgmatCoinAddToWhitelistRequestMultiError is an error wrapping multiple
-// validation errors returned by
-// ProgmatCoinAddToWhitelistRequest.ValidateAll() if the designated
-// constraints aren't met.
-type ProgmatCoinAddToWhitelistRequestMultiError []error
-
-// Error returns a concatenation of all the error messages it wraps.
-func (m ProgmatCoinAddToWhitelistRequestMultiError) Error() string {
-	var msgs []string
-	for _, err := range m {
-		msgs = append(msgs, err.Error())
-	}
-	return strings.Join(msgs, "; ")
-}
-
-// AllErrors returns a list of validation violation errors.
-func (m ProgmatCoinAddToWhitelistRequestMultiError) AllErrors() []error { return m }
-
-// ProgmatCoinAddToWhitelistRequestValidationError is the validation error
-// returned by ProgmatCoinAddToWhitelistRequest.Validate if the designated
-// constraints aren't met.
-type ProgmatCoinAddToWhitelistRequestValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e ProgmatCoinAddToWhitelistRequestValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e ProgmatCoinAddToWhitelistRequestValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e ProgmatCoinAddToWhitelistRequestValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e ProgmatCoinAddToWhitelistRequestValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e ProgmatCoinAddToWhitelistRequestValidationError) ErrorName() string {
-	return "ProgmatCoinAddToWhitelistRequestValidationError"
-}
-
-// Error satisfies the builtin error interface
-func (e ProgmatCoinAddToWhitelistRequestValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sProgmatCoinAddToWhitelistRequest.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = ProgmatCoinAddToWhitelistRequestValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = ProgmatCoinAddToWhitelistRequestValidationError{}
-
-var _ProgmatCoinAddToWhitelistRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
-
-var _ProgmatCoinAddToWhitelistRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
-
-var _ProgmatCoinAddToWhitelistRequest_Address_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
-
-// Validate checks the field values on ProgmatCoinRemoveFromWhitelistRequest
+// Validate checks the field values on ProgmatCoinBulkAddToWhitelistRequest
 // with the rules defined in the proto definition for this message. If any
 // rules are violated, the first error encountered is returned, or nil if
 // there are no violations.
-func (m *ProgmatCoinRemoveFromWhitelistRequest) Validate() error {
+func (m *ProgmatCoinBulkAddToWhitelistRequest) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on ProgmatCoinRemoveFromWhitelistRequest
+// ValidateAll checks the field values on ProgmatCoinBulkAddToWhitelistRequest
 // with the rules defined in the proto definition for this message. If any
 // rules are violated, the result is a list of violation errors wrapped in
-// ProgmatCoinRemoveFromWhitelistRequestMultiError, or nil if none found.
-func (m *ProgmatCoinRemoveFromWhitelistRequest) ValidateAll() error {
+// ProgmatCoinBulkAddToWhitelistRequestMultiError, or nil if none found.
+func (m *ProgmatCoinBulkAddToWhitelistRequest) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *ProgmatCoinRemoveFromWhitelistRequest) validate(all bool) error {
+func (m *ProgmatCoinBulkAddToWhitelistRequest) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
 	var errors []error
 
-	if !_ProgmatCoinRemoveFromWhitelistRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		err := ProgmatCoinRemoveFromWhitelistRequestValidationError{
+	if !_ProgmatCoinBulkAddToWhitelistRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinBulkAddToWhitelistRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
@@ -2140,8 +2011,8 @@ func (m *ProgmatCoinRemoveFromWhitelistRequest) validate(all bool) error {
 
 	// no validation rules for FeeRate
 
-	if !_ProgmatCoinRemoveFromWhitelistRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
-		err := ProgmatCoinRemoveFromWhitelistRequestValidationError{
+	if !_ProgmatCoinBulkAddToWhitelistRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
+		err := ProgmatCoinBulkAddToWhitelistRequestValidationError{
 			field:  "ContractAddress",
 			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
 		}
@@ -2151,9 +2022,9 @@ func (m *ProgmatCoinRemoveFromWhitelistRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if !_ProgmatCoinRemoveFromWhitelistRequest_Address_Pattern.MatchString(m.GetAddress()) {
-		err := ProgmatCoinRemoveFromWhitelistRequestValidationError{
-			field:  "Address",
+	if !_ProgmatCoinBulkAddToWhitelistRequest_UtilsAddress_Pattern.MatchString(m.GetUtilsAddress()) {
+		err := ProgmatCoinBulkAddToWhitelistRequestValidationError{
+			field:  "UtilsAddress",
 			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
 		}
 		if !all {
@@ -2162,21 +2033,48 @@ func (m *ProgmatCoinRemoveFromWhitelistRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if len(m.GetAddresses()) > 100 {
+		err := ProgmatCoinBulkAddToWhitelistRequestValidationError{
+			field:  "Addresses",
+			reason: "value must contain no more than 100 item(s)",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	for idx, item := range m.GetAddresses() {
+		_, _ = idx, item
+
+		if !_ProgmatCoinBulkAddToWhitelistRequest_Addresses_Pattern.MatchString(item) {
+			err := ProgmatCoinBulkAddToWhitelistRequestValidationError{
+				field:  fmt.Sprintf("Addresses[%v]", idx),
+				reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
 	if len(errors) > 0 {
-		return ProgmatCoinRemoveFromWhitelistRequestMultiError(errors)
+		return ProgmatCoinBulkAddToWhitelistRequestMultiError(errors)
 	}
 
 	return nil
 }
 
-// ProgmatCoinRemoveFromWhitelistRequestMultiError is an error wrapping
-// multiple validation errors returned by
-// ProgmatCoinRemoveFromWhitelistRequest.ValidateAll() if the designated
+// ProgmatCoinBulkAddToWhitelistRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ProgmatCoinBulkAddToWhitelistRequest.ValidateAll() if the designated
 // constraints aren't met.
-type ProgmatCoinRemoveFromWhitelistRequestMultiError []error
+type ProgmatCoinBulkAddToWhitelistRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m ProgmatCoinRemoveFromWhitelistRequestMultiError) Error() string {
+func (m ProgmatCoinBulkAddToWhitelistRequestMultiError) Error() string {
 	var msgs []string
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -2185,12 +2083,12 @@ func (m ProgmatCoinRemoveFromWhitelistRequestMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m ProgmatCoinRemoveFromWhitelistRequestMultiError) AllErrors() []error { return m }
+func (m ProgmatCoinBulkAddToWhitelistRequestMultiError) AllErrors() []error { return m }
 
-// ProgmatCoinRemoveFromWhitelistRequestValidationError is the validation error
-// returned by ProgmatCoinRemoveFromWhitelistRequest.Validate if the
-// designated constraints aren't met.
-type ProgmatCoinRemoveFromWhitelistRequestValidationError struct {
+// ProgmatCoinBulkAddToWhitelistRequestValidationError is the validation error
+// returned by ProgmatCoinBulkAddToWhitelistRequest.Validate if the designated
+// constraints aren't met.
+type ProgmatCoinBulkAddToWhitelistRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -2198,24 +2096,24 @@ type ProgmatCoinRemoveFromWhitelistRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e ProgmatCoinRemoveFromWhitelistRequestValidationError) Field() string { return e.field }
+func (e ProgmatCoinBulkAddToWhitelistRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ProgmatCoinRemoveFromWhitelistRequestValidationError) Reason() string { return e.reason }
+func (e ProgmatCoinBulkAddToWhitelistRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ProgmatCoinRemoveFromWhitelistRequestValidationError) Cause() error { return e.cause }
+func (e ProgmatCoinBulkAddToWhitelistRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ProgmatCoinRemoveFromWhitelistRequestValidationError) Key() bool { return e.key }
+func (e ProgmatCoinBulkAddToWhitelistRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ProgmatCoinRemoveFromWhitelistRequestValidationError) ErrorName() string {
-	return "ProgmatCoinRemoveFromWhitelistRequestValidationError"
+func (e ProgmatCoinBulkAddToWhitelistRequestValidationError) ErrorName() string {
+	return "ProgmatCoinBulkAddToWhitelistRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e ProgmatCoinRemoveFromWhitelistRequestValidationError) Error() string {
+func (e ProgmatCoinBulkAddToWhitelistRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -2227,14 +2125,14 @@ func (e ProgmatCoinRemoveFromWhitelistRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sProgmatCoinRemoveFromWhitelistRequest.%s: %s%s",
+		"invalid %sProgmatCoinBulkAddToWhitelistRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ProgmatCoinRemoveFromWhitelistRequestValidationError{}
+var _ error = ProgmatCoinBulkAddToWhitelistRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -2242,39 +2140,42 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ProgmatCoinRemoveFromWhitelistRequestValidationError{}
+} = ProgmatCoinBulkAddToWhitelistRequestValidationError{}
 
-var _ProgmatCoinRemoveFromWhitelistRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _ProgmatCoinBulkAddToWhitelistRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
-var _ProgmatCoinRemoveFromWhitelistRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+var _ProgmatCoinBulkAddToWhitelistRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
 
-var _ProgmatCoinRemoveFromWhitelistRequest_Address_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+var _ProgmatCoinBulkAddToWhitelistRequest_UtilsAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
 
-// Validate checks the field values on ProgmatCoinAddToBlacklistRequest with
-// the rules defined in the proto definition for this message. If any rules
-// are violated, the first error encountered is returned, or nil if there are
-// no violations.
-func (m *ProgmatCoinAddToBlacklistRequest) Validate() error {
+var _ProgmatCoinBulkAddToWhitelistRequest_Addresses_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+// Validate checks the field values on
+// ProgmatCoinBulkRemoveFromWhitelistRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ProgmatCoinBulkRemoveFromWhitelistRequest) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on ProgmatCoinAddToBlacklistRequest with
-// the rules defined in the proto definition for this message. If any rules
-// are violated, the result is a list of violation errors wrapped in
-// ProgmatCoinAddToBlacklistRequestMultiError, or nil if none found.
-func (m *ProgmatCoinAddToBlacklistRequest) ValidateAll() error {
+// ValidateAll checks the field values on
+// ProgmatCoinBulkRemoveFromWhitelistRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// ProgmatCoinBulkRemoveFromWhitelistRequestMultiError, or nil if none found.
+func (m *ProgmatCoinBulkRemoveFromWhitelistRequest) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *ProgmatCoinAddToBlacklistRequest) validate(all bool) error {
+func (m *ProgmatCoinBulkRemoveFromWhitelistRequest) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
 	var errors []error
 
-	if !_ProgmatCoinAddToBlacklistRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		err := ProgmatCoinAddToBlacklistRequestValidationError{
+	if !_ProgmatCoinBulkRemoveFromWhitelistRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinBulkRemoveFromWhitelistRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
@@ -2286,8 +2187,8 @@ func (m *ProgmatCoinAddToBlacklistRequest) validate(all bool) error {
 
 	// no validation rules for FeeRate
 
-	if !_ProgmatCoinAddToBlacklistRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
-		err := ProgmatCoinAddToBlacklistRequestValidationError{
+	if !_ProgmatCoinBulkRemoveFromWhitelistRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
+		err := ProgmatCoinBulkRemoveFromWhitelistRequestValidationError{
 			field:  "ContractAddress",
 			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
 		}
@@ -2297,9 +2198,9 @@ func (m *ProgmatCoinAddToBlacklistRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if !_ProgmatCoinAddToBlacklistRequest_Address_Pattern.MatchString(m.GetAddress()) {
-		err := ProgmatCoinAddToBlacklistRequestValidationError{
-			field:  "Address",
+	if !_ProgmatCoinBulkRemoveFromWhitelistRequest_UtilsAddress_Pattern.MatchString(m.GetUtilsAddress()) {
+		err := ProgmatCoinBulkRemoveFromWhitelistRequestValidationError{
+			field:  "UtilsAddress",
 			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
 		}
 		if !all {
@@ -2308,21 +2209,48 @@ func (m *ProgmatCoinAddToBlacklistRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if len(m.GetAddresses()) > 100 {
+		err := ProgmatCoinBulkRemoveFromWhitelistRequestValidationError{
+			field:  "Addresses",
+			reason: "value must contain no more than 100 item(s)",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	for idx, item := range m.GetAddresses() {
+		_, _ = idx, item
+
+		if !_ProgmatCoinBulkRemoveFromWhitelistRequest_Addresses_Pattern.MatchString(item) {
+			err := ProgmatCoinBulkRemoveFromWhitelistRequestValidationError{
+				field:  fmt.Sprintf("Addresses[%v]", idx),
+				reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
 	if len(errors) > 0 {
-		return ProgmatCoinAddToBlacklistRequestMultiError(errors)
+		return ProgmatCoinBulkRemoveFromWhitelistRequestMultiError(errors)
 	}
 
 	return nil
 }
 
-// ProgmatCoinAddToBlacklistRequestMultiError is an error wrapping multiple
-// validation errors returned by
-// ProgmatCoinAddToBlacklistRequest.ValidateAll() if the designated
+// ProgmatCoinBulkRemoveFromWhitelistRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ProgmatCoinBulkRemoveFromWhitelistRequest.ValidateAll() if the designated
 // constraints aren't met.
-type ProgmatCoinAddToBlacklistRequestMultiError []error
+type ProgmatCoinBulkRemoveFromWhitelistRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m ProgmatCoinAddToBlacklistRequestMultiError) Error() string {
+func (m ProgmatCoinBulkRemoveFromWhitelistRequestMultiError) Error() string {
 	var msgs []string
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -2331,12 +2259,12 @@ func (m ProgmatCoinAddToBlacklistRequestMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m ProgmatCoinAddToBlacklistRequestMultiError) AllErrors() []error { return m }
+func (m ProgmatCoinBulkRemoveFromWhitelistRequestMultiError) AllErrors() []error { return m }
 
-// ProgmatCoinAddToBlacklistRequestValidationError is the validation error
-// returned by ProgmatCoinAddToBlacklistRequest.Validate if the designated
-// constraints aren't met.
-type ProgmatCoinAddToBlacklistRequestValidationError struct {
+// ProgmatCoinBulkRemoveFromWhitelistRequestValidationError is the validation
+// error returned by ProgmatCoinBulkRemoveFromWhitelistRequest.Validate if the
+// designated constraints aren't met.
+type ProgmatCoinBulkRemoveFromWhitelistRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -2344,24 +2272,24 @@ type ProgmatCoinAddToBlacklistRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e ProgmatCoinAddToBlacklistRequestValidationError) Field() string { return e.field }
+func (e ProgmatCoinBulkRemoveFromWhitelistRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ProgmatCoinAddToBlacklistRequestValidationError) Reason() string { return e.reason }
+func (e ProgmatCoinBulkRemoveFromWhitelistRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ProgmatCoinAddToBlacklistRequestValidationError) Cause() error { return e.cause }
+func (e ProgmatCoinBulkRemoveFromWhitelistRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ProgmatCoinAddToBlacklistRequestValidationError) Key() bool { return e.key }
+func (e ProgmatCoinBulkRemoveFromWhitelistRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ProgmatCoinAddToBlacklistRequestValidationError) ErrorName() string {
-	return "ProgmatCoinAddToBlacklistRequestValidationError"
+func (e ProgmatCoinBulkRemoveFromWhitelistRequestValidationError) ErrorName() string {
+	return "ProgmatCoinBulkRemoveFromWhitelistRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e ProgmatCoinAddToBlacklistRequestValidationError) Error() string {
+func (e ProgmatCoinBulkRemoveFromWhitelistRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -2373,14 +2301,14 @@ func (e ProgmatCoinAddToBlacklistRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sProgmatCoinAddToBlacklistRequest.%s: %s%s",
+		"invalid %sProgmatCoinBulkRemoveFromWhitelistRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ProgmatCoinAddToBlacklistRequestValidationError{}
+var _ error = ProgmatCoinBulkRemoveFromWhitelistRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -2388,39 +2316,41 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ProgmatCoinAddToBlacklistRequestValidationError{}
+} = ProgmatCoinBulkRemoveFromWhitelistRequestValidationError{}
 
-var _ProgmatCoinAddToBlacklistRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _ProgmatCoinBulkRemoveFromWhitelistRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
-var _ProgmatCoinAddToBlacklistRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+var _ProgmatCoinBulkRemoveFromWhitelistRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
 
-var _ProgmatCoinAddToBlacklistRequest_Address_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+var _ProgmatCoinBulkRemoveFromWhitelistRequest_UtilsAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
 
-// Validate checks the field values on ProgmatCoinRemoveFromBlacklistRequest
+var _ProgmatCoinBulkRemoveFromWhitelistRequest_Addresses_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+// Validate checks the field values on ProgmatCoinBulkAddToBlacklistRequest
 // with the rules defined in the proto definition for this message. If any
 // rules are violated, the first error encountered is returned, or nil if
 // there are no violations.
-func (m *ProgmatCoinRemoveFromBlacklistRequest) Validate() error {
+func (m *ProgmatCoinBulkAddToBlacklistRequest) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on ProgmatCoinRemoveFromBlacklistRequest
+// ValidateAll checks the field values on ProgmatCoinBulkAddToBlacklistRequest
 // with the rules defined in the proto definition for this message. If any
 // rules are violated, the result is a list of violation errors wrapped in
-// ProgmatCoinRemoveFromBlacklistRequestMultiError, or nil if none found.
-func (m *ProgmatCoinRemoveFromBlacklistRequest) ValidateAll() error {
+// ProgmatCoinBulkAddToBlacklistRequestMultiError, or nil if none found.
+func (m *ProgmatCoinBulkAddToBlacklistRequest) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *ProgmatCoinRemoveFromBlacklistRequest) validate(all bool) error {
+func (m *ProgmatCoinBulkAddToBlacklistRequest) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
 	var errors []error
 
-	if !_ProgmatCoinRemoveFromBlacklistRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		err := ProgmatCoinRemoveFromBlacklistRequestValidationError{
+	if !_ProgmatCoinBulkAddToBlacklistRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinBulkAddToBlacklistRequestValidationError{
 			field:  "WalletId",
 			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 		}
@@ -2432,8 +2362,8 @@ func (m *ProgmatCoinRemoveFromBlacklistRequest) validate(all bool) error {
 
 	// no validation rules for FeeRate
 
-	if !_ProgmatCoinRemoveFromBlacklistRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
-		err := ProgmatCoinRemoveFromBlacklistRequestValidationError{
+	if !_ProgmatCoinBulkAddToBlacklistRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
+		err := ProgmatCoinBulkAddToBlacklistRequestValidationError{
 			field:  "ContractAddress",
 			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
 		}
@@ -2443,9 +2373,9 @@ func (m *ProgmatCoinRemoveFromBlacklistRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if !_ProgmatCoinRemoveFromBlacklistRequest_Address_Pattern.MatchString(m.GetAddress()) {
-		err := ProgmatCoinRemoveFromBlacklistRequestValidationError{
-			field:  "Address",
+	if !_ProgmatCoinBulkAddToBlacklistRequest_UtilsAddress_Pattern.MatchString(m.GetUtilsAddress()) {
+		err := ProgmatCoinBulkAddToBlacklistRequestValidationError{
+			field:  "UtilsAddress",
 			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
 		}
 		if !all {
@@ -2454,21 +2384,48 @@ func (m *ProgmatCoinRemoveFromBlacklistRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if len(m.GetAddresses()) > 100 {
+		err := ProgmatCoinBulkAddToBlacklistRequestValidationError{
+			field:  "Addresses",
+			reason: "value must contain no more than 100 item(s)",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	for idx, item := range m.GetAddresses() {
+		_, _ = idx, item
+
+		if !_ProgmatCoinBulkAddToBlacklistRequest_Addresses_Pattern.MatchString(item) {
+			err := ProgmatCoinBulkAddToBlacklistRequestValidationError{
+				field:  fmt.Sprintf("Addresses[%v]", idx),
+				reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
 	if len(errors) > 0 {
-		return ProgmatCoinRemoveFromBlacklistRequestMultiError(errors)
+		return ProgmatCoinBulkAddToBlacklistRequestMultiError(errors)
 	}
 
 	return nil
 }
 
-// ProgmatCoinRemoveFromBlacklistRequestMultiError is an error wrapping
-// multiple validation errors returned by
-// ProgmatCoinRemoveFromBlacklistRequest.ValidateAll() if the designated
+// ProgmatCoinBulkAddToBlacklistRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ProgmatCoinBulkAddToBlacklistRequest.ValidateAll() if the designated
 // constraints aren't met.
-type ProgmatCoinRemoveFromBlacklistRequestMultiError []error
+type ProgmatCoinBulkAddToBlacklistRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m ProgmatCoinRemoveFromBlacklistRequestMultiError) Error() string {
+func (m ProgmatCoinBulkAddToBlacklistRequestMultiError) Error() string {
 	var msgs []string
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -2477,12 +2434,12 @@ func (m ProgmatCoinRemoveFromBlacklistRequestMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m ProgmatCoinRemoveFromBlacklistRequestMultiError) AllErrors() []error { return m }
+func (m ProgmatCoinBulkAddToBlacklistRequestMultiError) AllErrors() []error { return m }
 
-// ProgmatCoinRemoveFromBlacklistRequestValidationError is the validation error
-// returned by ProgmatCoinRemoveFromBlacklistRequest.Validate if the
-// designated constraints aren't met.
-type ProgmatCoinRemoveFromBlacklistRequestValidationError struct {
+// ProgmatCoinBulkAddToBlacklistRequestValidationError is the validation error
+// returned by ProgmatCoinBulkAddToBlacklistRequest.Validate if the designated
+// constraints aren't met.
+type ProgmatCoinBulkAddToBlacklistRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -2490,24 +2447,24 @@ type ProgmatCoinRemoveFromBlacklistRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e ProgmatCoinRemoveFromBlacklistRequestValidationError) Field() string { return e.field }
+func (e ProgmatCoinBulkAddToBlacklistRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e ProgmatCoinRemoveFromBlacklistRequestValidationError) Reason() string { return e.reason }
+func (e ProgmatCoinBulkAddToBlacklistRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e ProgmatCoinRemoveFromBlacklistRequestValidationError) Cause() error { return e.cause }
+func (e ProgmatCoinBulkAddToBlacklistRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e ProgmatCoinRemoveFromBlacklistRequestValidationError) Key() bool { return e.key }
+func (e ProgmatCoinBulkAddToBlacklistRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e ProgmatCoinRemoveFromBlacklistRequestValidationError) ErrorName() string {
-	return "ProgmatCoinRemoveFromBlacklistRequestValidationError"
+func (e ProgmatCoinBulkAddToBlacklistRequestValidationError) ErrorName() string {
+	return "ProgmatCoinBulkAddToBlacklistRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e ProgmatCoinRemoveFromBlacklistRequestValidationError) Error() string {
+func (e ProgmatCoinBulkAddToBlacklistRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -2519,14 +2476,14 @@ func (e ProgmatCoinRemoveFromBlacklistRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sProgmatCoinRemoveFromBlacklistRequest.%s: %s%s",
+		"invalid %sProgmatCoinBulkAddToBlacklistRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = ProgmatCoinRemoveFromBlacklistRequestValidationError{}
+var _ error = ProgmatCoinBulkAddToBlacklistRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -2534,13 +2491,191 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = ProgmatCoinRemoveFromBlacklistRequestValidationError{}
+} = ProgmatCoinBulkAddToBlacklistRequestValidationError{}
 
-var _ProgmatCoinRemoveFromBlacklistRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _ProgmatCoinBulkAddToBlacklistRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
-var _ProgmatCoinRemoveFromBlacklistRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+var _ProgmatCoinBulkAddToBlacklistRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
 
-var _ProgmatCoinRemoveFromBlacklistRequest_Address_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+var _ProgmatCoinBulkAddToBlacklistRequest_UtilsAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinBulkAddToBlacklistRequest_Addresses_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+// Validate checks the field values on
+// ProgmatCoinBulkRemoveFromBlacklistRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ProgmatCoinBulkRemoveFromBlacklistRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ProgmatCoinBulkRemoveFromBlacklistRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// ProgmatCoinBulkRemoveFromBlacklistRequestMultiError, or nil if none found.
+func (m *ProgmatCoinBulkRemoveFromBlacklistRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ProgmatCoinBulkRemoveFromBlacklistRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ProgmatCoinBulkRemoveFromBlacklistRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinBulkRemoveFromBlacklistRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	if !_ProgmatCoinBulkRemoveFromBlacklistRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
+		err := ProgmatCoinBulkRemoveFromBlacklistRequestValidationError{
+			field:  "ContractAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ProgmatCoinBulkRemoveFromBlacklistRequest_UtilsAddress_Pattern.MatchString(m.GetUtilsAddress()) {
+		err := ProgmatCoinBulkRemoveFromBlacklistRequestValidationError{
+			field:  "UtilsAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(m.GetAddresses()) > 100 {
+		err := ProgmatCoinBulkRemoveFromBlacklistRequestValidationError{
+			field:  "Addresses",
+			reason: "value must contain no more than 100 item(s)",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	for idx, item := range m.GetAddresses() {
+		_, _ = idx, item
+
+		if !_ProgmatCoinBulkRemoveFromBlacklistRequest_Addresses_Pattern.MatchString(item) {
+			err := ProgmatCoinBulkRemoveFromBlacklistRequestValidationError{
+				field:  fmt.Sprintf("Addresses[%v]", idx),
+				reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ProgmatCoinBulkRemoveFromBlacklistRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ProgmatCoinBulkRemoveFromBlacklistRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ProgmatCoinBulkRemoveFromBlacklistRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ProgmatCoinBulkRemoveFromBlacklistRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ProgmatCoinBulkRemoveFromBlacklistRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ProgmatCoinBulkRemoveFromBlacklistRequestMultiError) AllErrors() []error { return m }
+
+// ProgmatCoinBulkRemoveFromBlacklistRequestValidationError is the validation
+// error returned by ProgmatCoinBulkRemoveFromBlacklistRequest.Validate if the
+// designated constraints aren't met.
+type ProgmatCoinBulkRemoveFromBlacklistRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProgmatCoinBulkRemoveFromBlacklistRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProgmatCoinBulkRemoveFromBlacklistRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProgmatCoinBulkRemoveFromBlacklistRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProgmatCoinBulkRemoveFromBlacklistRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProgmatCoinBulkRemoveFromBlacklistRequestValidationError) ErrorName() string {
+	return "ProgmatCoinBulkRemoveFromBlacklistRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProgmatCoinBulkRemoveFromBlacklistRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProgmatCoinBulkRemoveFromBlacklistRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProgmatCoinBulkRemoveFromBlacklistRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProgmatCoinBulkRemoveFromBlacklistRequestValidationError{}
+
+var _ProgmatCoinBulkRemoveFromBlacklistRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ProgmatCoinBulkRemoveFromBlacklistRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinBulkRemoveFromBlacklistRequest_UtilsAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinBulkRemoveFromBlacklistRequest_Addresses_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
 
 // Validate checks the field values on ProgmatCoinConfiscateRequest with the
 // rules defined in the proto definition for this message. If any rules are

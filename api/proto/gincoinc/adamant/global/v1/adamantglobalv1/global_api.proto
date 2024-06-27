@@ -772,6 +772,7 @@ message CreateTransactionRequest {
   adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16;
   adamant.global.v1.CreateTransactionSolanaSpecific solana_specific = 17;
   adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19;
+  adamant.global.v1.CreateTransactionAvalancheSpecific avalanche_specific = 20;
   adamant.global.v1.UtxoSpecific utxo_specific = 18;
 }
 
@@ -1420,6 +1421,9 @@ message ValidateAddressRequest {
     ]
   }]; // The type of coin
   string address = 2;
+  optional gincoinc.global.v1.Network network = 3 [(validate.rules).enum = {
+    defined_only: true
+  }];
 }
 
 message ValidateAddressResponse {
@@ -2226,3 +2230,16 @@ message UpdateMailSettingsRequest {
 }
 
 message GetMailSettingsRequest {}
+
+message GetCardanoTokenWalletRequest {}
+message GetCardanoTokenWalletResponse {
+  string wallet_id = 1;
+  string wallet_name = 2;
+  string address = 3;
+}
+
+message UpdateCardanoTokenWalletRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+}

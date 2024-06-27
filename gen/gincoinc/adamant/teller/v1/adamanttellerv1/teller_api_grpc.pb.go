@@ -37,6 +37,8 @@ type TellerAPIClient interface {
 	UpdateDestinationWalletID(ctx context.Context, in *adamantglobalv1.UpdateDestinationWalletIDRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	GetCosmosBalance(ctx context.Context, in *adamantglobalv1.GetCosmosBalanceRequest, opts ...grpc.CallOption) (*adamantglobalv1.GetCosmosBalanceResponse, error)
 	ListCosmosDelegateHistories(ctx context.Context, in *adamantglobalv1.ListCosmosDelegateHistoriesRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListCosmosDelegateHistoriesResponse, error)
+	GetCardanoTokenWallet(ctx context.Context, in *adamantglobalv1.GetCardanoTokenWalletRequest, opts ...grpc.CallOption) (*adamantglobalv1.GetCardanoTokenWalletResponse, error)
+	UpdateCardanoTokenWallet(ctx context.Context, in *adamantglobalv1.UpdateCardanoTokenWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Create a new address for an existing wallet
 	CreateAddress(ctx context.Context, in *adamantglobalv1.CreateAddressRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateAddressResponse, error)
 	CreateIOSTAccount(ctx context.Context, in *adamantglobalv1.CreateIOSTAccountRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateIOSTAccountResponse, error)
@@ -89,10 +91,10 @@ type TellerAPIClient interface {
 	ProgmatCoinMintAndTransfer(ctx context.Context, in *ProgmatCoinMintAndTransferRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinMint(ctx context.Context, in *ProgmatCoinMintRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinBurn(ctx context.Context, in *ProgmatCoinBurnRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
-	ProgmatCoinAddToWhitelist(ctx context.Context, in *ProgmatCoinAddToWhitelistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
-	ProgmatCoinRemoveFromWhitelist(ctx context.Context, in *ProgmatCoinRemoveFromWhitelistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
-	ProgmatCoinAddToBlacklist(ctx context.Context, in *ProgmatCoinAddToBlacklistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
-	ProgmatCoinRemoveFromBlacklist(ctx context.Context, in *ProgmatCoinRemoveFromBlacklistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinBulkAddToWhitelist(ctx context.Context, in *ProgmatCoinBulkAddToWhitelistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinBulkRemoveFromWhitelist(ctx context.Context, in *ProgmatCoinBulkRemoveFromWhitelistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinBulkAddToBlacklist(ctx context.Context, in *ProgmatCoinBulkAddToBlacklistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinBulkRemoveFromBlacklist(ctx context.Context, in *ProgmatCoinBulkRemoveFromBlacklistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinConfiscate(ctx context.Context, in *ProgmatCoinConfiscateRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinPause(ctx context.Context, in *ProgmatCoinPauseRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinUnpause(ctx context.Context, in *ProgmatCoinUnpauseRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
@@ -208,6 +210,24 @@ func (c *tellerAPIClient) GetCosmosBalance(ctx context.Context, in *adamantgloba
 func (c *tellerAPIClient) ListCosmosDelegateHistories(ctx context.Context, in *adamantglobalv1.ListCosmosDelegateHistoriesRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListCosmosDelegateHistoriesResponse, error) {
 	out := new(adamantglobalv1.ListCosmosDelegateHistoriesResponse)
 	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListCosmosDelegateHistories", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) GetCardanoTokenWallet(ctx context.Context, in *adamantglobalv1.GetCardanoTokenWalletRequest, opts ...grpc.CallOption) (*adamantglobalv1.GetCardanoTokenWalletResponse, error) {
+	out := new(adamantglobalv1.GetCardanoTokenWalletResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/GetCardanoTokenWallet", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) UpdateCardanoTokenWallet(ctx context.Context, in *adamantglobalv1.UpdateCardanoTokenWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/UpdateCardanoTokenWallet", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -601,36 +621,36 @@ func (c *tellerAPIClient) ProgmatCoinBurn(ctx context.Context, in *ProgmatCoinBu
 	return out, nil
 }
 
-func (c *tellerAPIClient) ProgmatCoinAddToWhitelist(ctx context.Context, in *ProgmatCoinAddToWhitelistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
+func (c *tellerAPIClient) ProgmatCoinBulkAddToWhitelist(ctx context.Context, in *ProgmatCoinBulkAddToWhitelistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
 	out := new(adamantglobalv1.CreateTransactionResponse)
-	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinAddToWhitelist", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinBulkAddToWhitelist", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *tellerAPIClient) ProgmatCoinRemoveFromWhitelist(ctx context.Context, in *ProgmatCoinRemoveFromWhitelistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
+func (c *tellerAPIClient) ProgmatCoinBulkRemoveFromWhitelist(ctx context.Context, in *ProgmatCoinBulkRemoveFromWhitelistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
 	out := new(adamantglobalv1.CreateTransactionResponse)
-	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinRemoveFromWhitelist", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinBulkRemoveFromWhitelist", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *tellerAPIClient) ProgmatCoinAddToBlacklist(ctx context.Context, in *ProgmatCoinAddToBlacklistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
+func (c *tellerAPIClient) ProgmatCoinBulkAddToBlacklist(ctx context.Context, in *ProgmatCoinBulkAddToBlacklistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
 	out := new(adamantglobalv1.CreateTransactionResponse)
-	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinAddToBlacklist", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinBulkAddToBlacklist", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *tellerAPIClient) ProgmatCoinRemoveFromBlacklist(ctx context.Context, in *ProgmatCoinRemoveFromBlacklistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
+func (c *tellerAPIClient) ProgmatCoinBulkRemoveFromBlacklist(ctx context.Context, in *ProgmatCoinBulkRemoveFromBlacklistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
 	out := new(adamantglobalv1.CreateTransactionResponse)
-	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinRemoveFromBlacklist", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinBulkRemoveFromBlacklist", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -681,6 +701,8 @@ type TellerAPIServer interface {
 	UpdateDestinationWalletID(context.Context, *adamantglobalv1.UpdateDestinationWalletIDRequest) (*emptypb.Empty, error)
 	GetCosmosBalance(context.Context, *adamantglobalv1.GetCosmosBalanceRequest) (*adamantglobalv1.GetCosmosBalanceResponse, error)
 	ListCosmosDelegateHistories(context.Context, *adamantglobalv1.ListCosmosDelegateHistoriesRequest) (*adamantglobalv1.ListCosmosDelegateHistoriesResponse, error)
+	GetCardanoTokenWallet(context.Context, *adamantglobalv1.GetCardanoTokenWalletRequest) (*adamantglobalv1.GetCardanoTokenWalletResponse, error)
+	UpdateCardanoTokenWallet(context.Context, *adamantglobalv1.UpdateCardanoTokenWalletRequest) (*emptypb.Empty, error)
 	// Create a new address for an existing wallet
 	CreateAddress(context.Context, *adamantglobalv1.CreateAddressRequest) (*adamantglobalv1.CreateAddressResponse, error)
 	CreateIOSTAccount(context.Context, *adamantglobalv1.CreateIOSTAccountRequest) (*adamantglobalv1.CreateIOSTAccountResponse, error)
@@ -733,10 +755,10 @@ type TellerAPIServer interface {
 	ProgmatCoinMintAndTransfer(context.Context, *ProgmatCoinMintAndTransferRequest) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinMint(context.Context, *ProgmatCoinMintRequest) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinBurn(context.Context, *ProgmatCoinBurnRequest) (*adamantglobalv1.CreateTransactionResponse, error)
-	ProgmatCoinAddToWhitelist(context.Context, *ProgmatCoinAddToWhitelistRequest) (*adamantglobalv1.CreateTransactionResponse, error)
-	ProgmatCoinRemoveFromWhitelist(context.Context, *ProgmatCoinRemoveFromWhitelistRequest) (*adamantglobalv1.CreateTransactionResponse, error)
-	ProgmatCoinAddToBlacklist(context.Context, *ProgmatCoinAddToBlacklistRequest) (*adamantglobalv1.CreateTransactionResponse, error)
-	ProgmatCoinRemoveFromBlacklist(context.Context, *ProgmatCoinRemoveFromBlacklistRequest) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinBulkAddToWhitelist(context.Context, *ProgmatCoinBulkAddToWhitelistRequest) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinBulkRemoveFromWhitelist(context.Context, *ProgmatCoinBulkRemoveFromWhitelistRequest) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinBulkAddToBlacklist(context.Context, *ProgmatCoinBulkAddToBlacklistRequest) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinBulkRemoveFromBlacklist(context.Context, *ProgmatCoinBulkRemoveFromBlacklistRequest) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinConfiscate(context.Context, *ProgmatCoinConfiscateRequest) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinPause(context.Context, *ProgmatCoinPauseRequest) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinUnpause(context.Context, *ProgmatCoinUnpauseRequest) (*adamantglobalv1.CreateTransactionResponse, error)
@@ -781,6 +803,12 @@ func (UnimplementedTellerAPIServer) GetCosmosBalance(context.Context, *adamantgl
 }
 func (UnimplementedTellerAPIServer) ListCosmosDelegateHistories(context.Context, *adamantglobalv1.ListCosmosDelegateHistoriesRequest) (*adamantglobalv1.ListCosmosDelegateHistoriesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListCosmosDelegateHistories not implemented")
+}
+func (UnimplementedTellerAPIServer) GetCardanoTokenWallet(context.Context, *adamantglobalv1.GetCardanoTokenWalletRequest) (*adamantglobalv1.GetCardanoTokenWalletResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCardanoTokenWallet not implemented")
+}
+func (UnimplementedTellerAPIServer) UpdateCardanoTokenWallet(context.Context, *adamantglobalv1.UpdateCardanoTokenWalletRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCardanoTokenWallet not implemented")
 }
 func (UnimplementedTellerAPIServer) CreateAddress(context.Context, *adamantglobalv1.CreateAddressRequest) (*adamantglobalv1.CreateAddressResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateAddress not implemented")
@@ -911,17 +939,17 @@ func (UnimplementedTellerAPIServer) ProgmatCoinMint(context.Context, *ProgmatCoi
 func (UnimplementedTellerAPIServer) ProgmatCoinBurn(context.Context, *ProgmatCoinBurnRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinBurn not implemented")
 }
-func (UnimplementedTellerAPIServer) ProgmatCoinAddToWhitelist(context.Context, *ProgmatCoinAddToWhitelistRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinAddToWhitelist not implemented")
+func (UnimplementedTellerAPIServer) ProgmatCoinBulkAddToWhitelist(context.Context, *ProgmatCoinBulkAddToWhitelistRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinBulkAddToWhitelist not implemented")
 }
-func (UnimplementedTellerAPIServer) ProgmatCoinRemoveFromWhitelist(context.Context, *ProgmatCoinRemoveFromWhitelistRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinRemoveFromWhitelist not implemented")
+func (UnimplementedTellerAPIServer) ProgmatCoinBulkRemoveFromWhitelist(context.Context, *ProgmatCoinBulkRemoveFromWhitelistRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinBulkRemoveFromWhitelist not implemented")
 }
-func (UnimplementedTellerAPIServer) ProgmatCoinAddToBlacklist(context.Context, *ProgmatCoinAddToBlacklistRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinAddToBlacklist not implemented")
+func (UnimplementedTellerAPIServer) ProgmatCoinBulkAddToBlacklist(context.Context, *ProgmatCoinBulkAddToBlacklistRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinBulkAddToBlacklist not implemented")
 }
-func (UnimplementedTellerAPIServer) ProgmatCoinRemoveFromBlacklist(context.Context, *ProgmatCoinRemoveFromBlacklistRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinRemoveFromBlacklist not implemented")
+func (UnimplementedTellerAPIServer) ProgmatCoinBulkRemoveFromBlacklist(context.Context, *ProgmatCoinBulkRemoveFromBlacklistRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinBulkRemoveFromBlacklist not implemented")
 }
 func (UnimplementedTellerAPIServer) ProgmatCoinConfiscate(context.Context, *ProgmatCoinConfiscateRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinConfiscate not implemented")
@@ -1156,6 +1184,42 @@ func _TellerAPI_ListCosmosDelegateHistories_Handler(srv interface{}, ctx context
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TellerAPIServer).ListCosmosDelegateHistories(ctx, req.(*adamantglobalv1.ListCosmosDelegateHistoriesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_GetCardanoTokenWallet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.GetCardanoTokenWalletRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).GetCardanoTokenWallet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/GetCardanoTokenWallet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).GetCardanoTokenWallet(ctx, req.(*adamantglobalv1.GetCardanoTokenWalletRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_UpdateCardanoTokenWallet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.UpdateCardanoTokenWalletRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).UpdateCardanoTokenWallet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/UpdateCardanoTokenWallet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).UpdateCardanoTokenWallet(ctx, req.(*adamantglobalv1.UpdateCardanoTokenWalletRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1934,74 +1998,74 @@ func _TellerAPI_ProgmatCoinBurn_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TellerAPI_ProgmatCoinAddToWhitelist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProgmatCoinAddToWhitelistRequest)
+func _TellerAPI_ProgmatCoinBulkAddToWhitelist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProgmatCoinBulkAddToWhitelistRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TellerAPIServer).ProgmatCoinAddToWhitelist(ctx, in)
+		return srv.(TellerAPIServer).ProgmatCoinBulkAddToWhitelist(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinAddToWhitelist",
+		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinBulkAddToWhitelist",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TellerAPIServer).ProgmatCoinAddToWhitelist(ctx, req.(*ProgmatCoinAddToWhitelistRequest))
+		return srv.(TellerAPIServer).ProgmatCoinBulkAddToWhitelist(ctx, req.(*ProgmatCoinBulkAddToWhitelistRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TellerAPI_ProgmatCoinRemoveFromWhitelist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProgmatCoinRemoveFromWhitelistRequest)
+func _TellerAPI_ProgmatCoinBulkRemoveFromWhitelist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProgmatCoinBulkRemoveFromWhitelistRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TellerAPIServer).ProgmatCoinRemoveFromWhitelist(ctx, in)
+		return srv.(TellerAPIServer).ProgmatCoinBulkRemoveFromWhitelist(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinRemoveFromWhitelist",
+		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinBulkRemoveFromWhitelist",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TellerAPIServer).ProgmatCoinRemoveFromWhitelist(ctx, req.(*ProgmatCoinRemoveFromWhitelistRequest))
+		return srv.(TellerAPIServer).ProgmatCoinBulkRemoveFromWhitelist(ctx, req.(*ProgmatCoinBulkRemoveFromWhitelistRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TellerAPI_ProgmatCoinAddToBlacklist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProgmatCoinAddToBlacklistRequest)
+func _TellerAPI_ProgmatCoinBulkAddToBlacklist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProgmatCoinBulkAddToBlacklistRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TellerAPIServer).ProgmatCoinAddToBlacklist(ctx, in)
+		return srv.(TellerAPIServer).ProgmatCoinBulkAddToBlacklist(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinAddToBlacklist",
+		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinBulkAddToBlacklist",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TellerAPIServer).ProgmatCoinAddToBlacklist(ctx, req.(*ProgmatCoinAddToBlacklistRequest))
+		return srv.(TellerAPIServer).ProgmatCoinBulkAddToBlacklist(ctx, req.(*ProgmatCoinBulkAddToBlacklistRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TellerAPI_ProgmatCoinRemoveFromBlacklist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProgmatCoinRemoveFromBlacklistRequest)
+func _TellerAPI_ProgmatCoinBulkRemoveFromBlacklist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProgmatCoinBulkRemoveFromBlacklistRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TellerAPIServer).ProgmatCoinRemoveFromBlacklist(ctx, in)
+		return srv.(TellerAPIServer).ProgmatCoinBulkRemoveFromBlacklist(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinRemoveFromBlacklist",
+		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinBulkRemoveFromBlacklist",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TellerAPIServer).ProgmatCoinRemoveFromBlacklist(ctx, req.(*ProgmatCoinRemoveFromBlacklistRequest))
+		return srv.(TellerAPIServer).ProgmatCoinBulkRemoveFromBlacklist(ctx, req.(*ProgmatCoinBulkRemoveFromBlacklistRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2114,6 +2178,14 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListCosmosDelegateHistories",
 			Handler:    _TellerAPI_ListCosmosDelegateHistories_Handler,
+		},
+		{
+			MethodName: "GetCardanoTokenWallet",
+			Handler:    _TellerAPI_GetCardanoTokenWallet_Handler,
+		},
+		{
+			MethodName: "UpdateCardanoTokenWallet",
+			Handler:    _TellerAPI_UpdateCardanoTokenWallet_Handler,
 		},
 		{
 			MethodName: "CreateAddress",
@@ -2288,20 +2360,20 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TellerAPI_ProgmatCoinBurn_Handler,
 		},
 		{
-			MethodName: "ProgmatCoinAddToWhitelist",
-			Handler:    _TellerAPI_ProgmatCoinAddToWhitelist_Handler,
+			MethodName: "ProgmatCoinBulkAddToWhitelist",
+			Handler:    _TellerAPI_ProgmatCoinBulkAddToWhitelist_Handler,
 		},
 		{
-			MethodName: "ProgmatCoinRemoveFromWhitelist",
-			Handler:    _TellerAPI_ProgmatCoinRemoveFromWhitelist_Handler,
+			MethodName: "ProgmatCoinBulkRemoveFromWhitelist",
+			Handler:    _TellerAPI_ProgmatCoinBulkRemoveFromWhitelist_Handler,
 		},
 		{
-			MethodName: "ProgmatCoinAddToBlacklist",
-			Handler:    _TellerAPI_ProgmatCoinAddToBlacklist_Handler,
+			MethodName: "ProgmatCoinBulkAddToBlacklist",
+			Handler:    _TellerAPI_ProgmatCoinBulkAddToBlacklist_Handler,
 		},
 		{
-			MethodName: "ProgmatCoinRemoveFromBlacklist",
-			Handler:    _TellerAPI_ProgmatCoinRemoveFromBlacklist_Handler,
+			MethodName: "ProgmatCoinBulkRemoveFromBlacklist",
+			Handler:    _TellerAPI_ProgmatCoinBulkRemoveFromBlacklist_Handler,
 		},
 		{
 			MethodName: "ProgmatCoinConfiscate",

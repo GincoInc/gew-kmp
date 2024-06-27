@@ -37,6 +37,10 @@ class ProgmatCoinMintAndTransferRequest extends \Google\Protobuf\Internal\Messag
      * Generated from protobuf field <code>string amount = 6 [json_name = "amount"];</code>
      */
     protected $amount = '';
+    /**
+     * Generated from protobuf field <code>optional string through_address = 7 [json_name = "throughAddress", (.validate.rules) = {</code>
+     */
+    protected $through_address = null;
 
     /**
      * Constructor.
@@ -50,6 +54,7 @@ class ProgmatCoinMintAndTransferRequest extends \Google\Protobuf\Internal\Messag
      *     @type string $mint_address
      *     @type string $transfer_address
      *     @type string $amount
+     *     @type string $through_address
      * }
      */
     public function __construct($data = NULL) {
@@ -185,6 +190,38 @@ class ProgmatCoinMintAndTransferRequest extends \Google\Protobuf\Internal\Messag
     {
         GPBUtil::checkString($var, True);
         $this->amount = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string through_address = 7 [json_name = "throughAddress", (.validate.rules) = {</code>
+     * @return string
+     */
+    public function getThroughAddress()
+    {
+        return isset($this->through_address) ? $this->through_address : '';
+    }
+
+    public function hasThroughAddress()
+    {
+        return isset($this->through_address);
+    }
+
+    public function clearThroughAddress()
+    {
+        unset($this->through_address);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string through_address = 7 [json_name = "throughAddress", (.validate.rules) = {</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setThroughAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->through_address = $var;
 
         return $this;
     }
