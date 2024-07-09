@@ -31,8 +31,6 @@ service TellerAPI {
   rpc UpdateDestinationWalletID(adamant.global.v1.UpdateDestinationWalletIDRequest) returns (google.protobuf.Empty) {}
   rpc GetCosmosBalance(adamant.global.v1.GetCosmosBalanceRequest) returns (adamant.global.v1.GetCosmosBalanceResponse) {}
   rpc ListCosmosDelegateHistories(adamant.global.v1.ListCosmosDelegateHistoriesRequest) returns (adamant.global.v1.ListCosmosDelegateHistoriesResponse) {}
-  rpc GetCardanoTokenWallet(adamant.global.v1.GetCardanoTokenWalletRequest) returns (adamant.global.v1.GetCardanoTokenWalletResponse) {}
-  rpc UpdateCardanoTokenWallet(adamant.global.v1.UpdateCardanoTokenWalletRequest) returns (google.protobuf.Empty) {}
 
   // Create a new address for an existing wallet
   rpc CreateAddress(adamant.global.v1.CreateAddressRequest) returns (adamant.global.v1.CreateAddressResponse) {}
