@@ -63,6 +63,7 @@ type TellerAPIClient interface {
 	GetTransactionByTxID(ctx context.Context, in *adamantglobalv1.GetTransactionByTxIDRequest, opts ...grpc.CallOption) (*adamantglobalv1.Transaction, error)
 	ListTransactions(ctx context.Context, in *adamantglobalv1.ListTransactionsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListTransactionsResponse, error)
 	ListTransactionsByFilter(ctx context.Context, in *adamantglobalv1.ListTransactionsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListTransactionsResponse, error)
+	ListUnconfirmedTransactionsByFilter(ctx context.Context, in *adamantglobalv1.ListUnconfirmedTransactionsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListUnconfirmedTransactionsResponse, error)
 	// Exit ethereum validators
 	ExitEthereumStakingValidators(ctx context.Context, in *adamantglobalv1.ExitEthereumStakingValidatorsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ExitEthereumStakingValidatorsResponse, error)
 	// List transfers for a given wallet. Ordered by update time desc
@@ -89,10 +90,10 @@ type TellerAPIClient interface {
 	ProgmatCoinMintAndTransfer(ctx context.Context, in *ProgmatCoinMintAndTransferRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinMint(ctx context.Context, in *ProgmatCoinMintRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinBurn(ctx context.Context, in *ProgmatCoinBurnRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
-	ProgmatCoinAddToWhitelist(ctx context.Context, in *ProgmatCoinAddToWhitelistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
-	ProgmatCoinRemoveFromWhitelist(ctx context.Context, in *ProgmatCoinRemoveFromWhitelistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
-	ProgmatCoinAddToBlacklist(ctx context.Context, in *ProgmatCoinAddToBlacklistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
-	ProgmatCoinRemoveFromBlacklist(ctx context.Context, in *ProgmatCoinRemoveFromBlacklistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinBulkAddToWhitelist(ctx context.Context, in *ProgmatCoinBulkAddToWhitelistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinBulkRemoveFromWhitelist(ctx context.Context, in *ProgmatCoinBulkRemoveFromWhitelistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinBulkAddToBlacklist(ctx context.Context, in *ProgmatCoinBulkAddToBlacklistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinBulkRemoveFromBlacklist(ctx context.Context, in *ProgmatCoinBulkRemoveFromBlacklistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinConfiscate(ctx context.Context, in *ProgmatCoinConfiscateRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinPause(ctx context.Context, in *ProgmatCoinPauseRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinUnpause(ctx context.Context, in *ProgmatCoinUnpauseRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
@@ -430,6 +431,15 @@ func (c *tellerAPIClient) ListTransactionsByFilter(ctx context.Context, in *adam
 	return out, nil
 }
 
+func (c *tellerAPIClient) ListUnconfirmedTransactionsByFilter(ctx context.Context, in *adamantglobalv1.ListUnconfirmedTransactionsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListUnconfirmedTransactionsResponse, error) {
+	out := new(adamantglobalv1.ListUnconfirmedTransactionsResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListUnconfirmedTransactionsByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *tellerAPIClient) ExitEthereumStakingValidators(ctx context.Context, in *adamantglobalv1.ExitEthereumStakingValidatorsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ExitEthereumStakingValidatorsResponse, error) {
 	out := new(adamantglobalv1.ExitEthereumStakingValidatorsResponse)
 	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ExitEthereumStakingValidators", in, out, opts...)
@@ -601,36 +611,36 @@ func (c *tellerAPIClient) ProgmatCoinBurn(ctx context.Context, in *ProgmatCoinBu
 	return out, nil
 }
 
-func (c *tellerAPIClient) ProgmatCoinAddToWhitelist(ctx context.Context, in *ProgmatCoinAddToWhitelistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
+func (c *tellerAPIClient) ProgmatCoinBulkAddToWhitelist(ctx context.Context, in *ProgmatCoinBulkAddToWhitelistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
 	out := new(adamantglobalv1.CreateTransactionResponse)
-	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinAddToWhitelist", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinBulkAddToWhitelist", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *tellerAPIClient) ProgmatCoinRemoveFromWhitelist(ctx context.Context, in *ProgmatCoinRemoveFromWhitelistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
+func (c *tellerAPIClient) ProgmatCoinBulkRemoveFromWhitelist(ctx context.Context, in *ProgmatCoinBulkRemoveFromWhitelistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
 	out := new(adamantglobalv1.CreateTransactionResponse)
-	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinRemoveFromWhitelist", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinBulkRemoveFromWhitelist", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *tellerAPIClient) ProgmatCoinAddToBlacklist(ctx context.Context, in *ProgmatCoinAddToBlacklistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
+func (c *tellerAPIClient) ProgmatCoinBulkAddToBlacklist(ctx context.Context, in *ProgmatCoinBulkAddToBlacklistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
 	out := new(adamantglobalv1.CreateTransactionResponse)
-	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinAddToBlacklist", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinBulkAddToBlacklist", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *tellerAPIClient) ProgmatCoinRemoveFromBlacklist(ctx context.Context, in *ProgmatCoinRemoveFromBlacklistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
+func (c *tellerAPIClient) ProgmatCoinBulkRemoveFromBlacklist(ctx context.Context, in *ProgmatCoinBulkRemoveFromBlacklistRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
 	out := new(adamantglobalv1.CreateTransactionResponse)
-	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinRemoveFromBlacklist", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinBulkRemoveFromBlacklist", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -707,6 +717,7 @@ type TellerAPIServer interface {
 	GetTransactionByTxID(context.Context, *adamantglobalv1.GetTransactionByTxIDRequest) (*adamantglobalv1.Transaction, error)
 	ListTransactions(context.Context, *adamantglobalv1.ListTransactionsRequest) (*adamantglobalv1.ListTransactionsResponse, error)
 	ListTransactionsByFilter(context.Context, *adamantglobalv1.ListTransactionsByFilterRequest) (*adamantglobalv1.ListTransactionsResponse, error)
+	ListUnconfirmedTransactionsByFilter(context.Context, *adamantglobalv1.ListUnconfirmedTransactionsByFilterRequest) (*adamantglobalv1.ListUnconfirmedTransactionsResponse, error)
 	// Exit ethereum validators
 	ExitEthereumStakingValidators(context.Context, *adamantglobalv1.ExitEthereumStakingValidatorsRequest) (*adamantglobalv1.ExitEthereumStakingValidatorsResponse, error)
 	// List transfers for a given wallet. Ordered by update time desc
@@ -733,10 +744,10 @@ type TellerAPIServer interface {
 	ProgmatCoinMintAndTransfer(context.Context, *ProgmatCoinMintAndTransferRequest) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinMint(context.Context, *ProgmatCoinMintRequest) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinBurn(context.Context, *ProgmatCoinBurnRequest) (*adamantglobalv1.CreateTransactionResponse, error)
-	ProgmatCoinAddToWhitelist(context.Context, *ProgmatCoinAddToWhitelistRequest) (*adamantglobalv1.CreateTransactionResponse, error)
-	ProgmatCoinRemoveFromWhitelist(context.Context, *ProgmatCoinRemoveFromWhitelistRequest) (*adamantglobalv1.CreateTransactionResponse, error)
-	ProgmatCoinAddToBlacklist(context.Context, *ProgmatCoinAddToBlacklistRequest) (*adamantglobalv1.CreateTransactionResponse, error)
-	ProgmatCoinRemoveFromBlacklist(context.Context, *ProgmatCoinRemoveFromBlacklistRequest) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinBulkAddToWhitelist(context.Context, *ProgmatCoinBulkAddToWhitelistRequest) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinBulkRemoveFromWhitelist(context.Context, *ProgmatCoinBulkRemoveFromWhitelistRequest) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinBulkAddToBlacklist(context.Context, *ProgmatCoinBulkAddToBlacklistRequest) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinBulkRemoveFromBlacklist(context.Context, *ProgmatCoinBulkRemoveFromBlacklistRequest) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinConfiscate(context.Context, *ProgmatCoinConfiscateRequest) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinPause(context.Context, *ProgmatCoinPauseRequest) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinUnpause(context.Context, *ProgmatCoinUnpauseRequest) (*adamantglobalv1.CreateTransactionResponse, error)
@@ -854,6 +865,9 @@ func (UnimplementedTellerAPIServer) ListTransactions(context.Context, *adamantgl
 func (UnimplementedTellerAPIServer) ListTransactionsByFilter(context.Context, *adamantglobalv1.ListTransactionsByFilterRequest) (*adamantglobalv1.ListTransactionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListTransactionsByFilter not implemented")
 }
+func (UnimplementedTellerAPIServer) ListUnconfirmedTransactionsByFilter(context.Context, *adamantglobalv1.ListUnconfirmedTransactionsByFilterRequest) (*adamantglobalv1.ListUnconfirmedTransactionsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListUnconfirmedTransactionsByFilter not implemented")
+}
 func (UnimplementedTellerAPIServer) ExitEthereumStakingValidators(context.Context, *adamantglobalv1.ExitEthereumStakingValidatorsRequest) (*adamantglobalv1.ExitEthereumStakingValidatorsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ExitEthereumStakingValidators not implemented")
 }
@@ -911,17 +925,17 @@ func (UnimplementedTellerAPIServer) ProgmatCoinMint(context.Context, *ProgmatCoi
 func (UnimplementedTellerAPIServer) ProgmatCoinBurn(context.Context, *ProgmatCoinBurnRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinBurn not implemented")
 }
-func (UnimplementedTellerAPIServer) ProgmatCoinAddToWhitelist(context.Context, *ProgmatCoinAddToWhitelistRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinAddToWhitelist not implemented")
+func (UnimplementedTellerAPIServer) ProgmatCoinBulkAddToWhitelist(context.Context, *ProgmatCoinBulkAddToWhitelistRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinBulkAddToWhitelist not implemented")
 }
-func (UnimplementedTellerAPIServer) ProgmatCoinRemoveFromWhitelist(context.Context, *ProgmatCoinRemoveFromWhitelistRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinRemoveFromWhitelist not implemented")
+func (UnimplementedTellerAPIServer) ProgmatCoinBulkRemoveFromWhitelist(context.Context, *ProgmatCoinBulkRemoveFromWhitelistRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinBulkRemoveFromWhitelist not implemented")
 }
-func (UnimplementedTellerAPIServer) ProgmatCoinAddToBlacklist(context.Context, *ProgmatCoinAddToBlacklistRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinAddToBlacklist not implemented")
+func (UnimplementedTellerAPIServer) ProgmatCoinBulkAddToBlacklist(context.Context, *ProgmatCoinBulkAddToBlacklistRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinBulkAddToBlacklist not implemented")
 }
-func (UnimplementedTellerAPIServer) ProgmatCoinRemoveFromBlacklist(context.Context, *ProgmatCoinRemoveFromBlacklistRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinRemoveFromBlacklist not implemented")
+func (UnimplementedTellerAPIServer) ProgmatCoinBulkRemoveFromBlacklist(context.Context, *ProgmatCoinBulkRemoveFromBlacklistRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinBulkRemoveFromBlacklist not implemented")
 }
 func (UnimplementedTellerAPIServer) ProgmatCoinConfiscate(context.Context, *ProgmatCoinConfiscateRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinConfiscate not implemented")
@@ -1592,6 +1606,24 @@ func _TellerAPI_ListTransactionsByFilter_Handler(srv interface{}, ctx context.Co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TellerAPI_ListUnconfirmedTransactionsByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ListUnconfirmedTransactionsByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListUnconfirmedTransactionsByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListUnconfirmedTransactionsByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListUnconfirmedTransactionsByFilter(ctx, req.(*adamantglobalv1.ListUnconfirmedTransactionsByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TellerAPI_ExitEthereumStakingValidators_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(adamantglobalv1.ExitEthereumStakingValidatorsRequest)
 	if err := dec(in); err != nil {
@@ -1934,74 +1966,74 @@ func _TellerAPI_ProgmatCoinBurn_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TellerAPI_ProgmatCoinAddToWhitelist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProgmatCoinAddToWhitelistRequest)
+func _TellerAPI_ProgmatCoinBulkAddToWhitelist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProgmatCoinBulkAddToWhitelistRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TellerAPIServer).ProgmatCoinAddToWhitelist(ctx, in)
+		return srv.(TellerAPIServer).ProgmatCoinBulkAddToWhitelist(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinAddToWhitelist",
+		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinBulkAddToWhitelist",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TellerAPIServer).ProgmatCoinAddToWhitelist(ctx, req.(*ProgmatCoinAddToWhitelistRequest))
+		return srv.(TellerAPIServer).ProgmatCoinBulkAddToWhitelist(ctx, req.(*ProgmatCoinBulkAddToWhitelistRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TellerAPI_ProgmatCoinRemoveFromWhitelist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProgmatCoinRemoveFromWhitelistRequest)
+func _TellerAPI_ProgmatCoinBulkRemoveFromWhitelist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProgmatCoinBulkRemoveFromWhitelistRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TellerAPIServer).ProgmatCoinRemoveFromWhitelist(ctx, in)
+		return srv.(TellerAPIServer).ProgmatCoinBulkRemoveFromWhitelist(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinRemoveFromWhitelist",
+		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinBulkRemoveFromWhitelist",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TellerAPIServer).ProgmatCoinRemoveFromWhitelist(ctx, req.(*ProgmatCoinRemoveFromWhitelistRequest))
+		return srv.(TellerAPIServer).ProgmatCoinBulkRemoveFromWhitelist(ctx, req.(*ProgmatCoinBulkRemoveFromWhitelistRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TellerAPI_ProgmatCoinAddToBlacklist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProgmatCoinAddToBlacklistRequest)
+func _TellerAPI_ProgmatCoinBulkAddToBlacklist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProgmatCoinBulkAddToBlacklistRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TellerAPIServer).ProgmatCoinAddToBlacklist(ctx, in)
+		return srv.(TellerAPIServer).ProgmatCoinBulkAddToBlacklist(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinAddToBlacklist",
+		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinBulkAddToBlacklist",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TellerAPIServer).ProgmatCoinAddToBlacklist(ctx, req.(*ProgmatCoinAddToBlacklistRequest))
+		return srv.(TellerAPIServer).ProgmatCoinBulkAddToBlacklist(ctx, req.(*ProgmatCoinBulkAddToBlacklistRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TellerAPI_ProgmatCoinRemoveFromBlacklist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ProgmatCoinRemoveFromBlacklistRequest)
+func _TellerAPI_ProgmatCoinBulkRemoveFromBlacklist_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProgmatCoinBulkRemoveFromBlacklistRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TellerAPIServer).ProgmatCoinRemoveFromBlacklist(ctx, in)
+		return srv.(TellerAPIServer).ProgmatCoinBulkRemoveFromBlacklist(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinRemoveFromBlacklist",
+		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinBulkRemoveFromBlacklist",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TellerAPIServer).ProgmatCoinRemoveFromBlacklist(ctx, req.(*ProgmatCoinRemoveFromBlacklistRequest))
+		return srv.(TellerAPIServer).ProgmatCoinBulkRemoveFromBlacklist(ctx, req.(*ProgmatCoinBulkRemoveFromBlacklistRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2212,6 +2244,10 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TellerAPI_ListTransactionsByFilter_Handler,
 		},
 		{
+			MethodName: "ListUnconfirmedTransactionsByFilter",
+			Handler:    _TellerAPI_ListUnconfirmedTransactionsByFilter_Handler,
+		},
+		{
 			MethodName: "ExitEthereumStakingValidators",
 			Handler:    _TellerAPI_ExitEthereumStakingValidators_Handler,
 		},
@@ -2288,20 +2324,20 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TellerAPI_ProgmatCoinBurn_Handler,
 		},
 		{
-			MethodName: "ProgmatCoinAddToWhitelist",
-			Handler:    _TellerAPI_ProgmatCoinAddToWhitelist_Handler,
+			MethodName: "ProgmatCoinBulkAddToWhitelist",
+			Handler:    _TellerAPI_ProgmatCoinBulkAddToWhitelist_Handler,
 		},
 		{
-			MethodName: "ProgmatCoinRemoveFromWhitelist",
-			Handler:    _TellerAPI_ProgmatCoinRemoveFromWhitelist_Handler,
+			MethodName: "ProgmatCoinBulkRemoveFromWhitelist",
+			Handler:    _TellerAPI_ProgmatCoinBulkRemoveFromWhitelist_Handler,
 		},
 		{
-			MethodName: "ProgmatCoinAddToBlacklist",
-			Handler:    _TellerAPI_ProgmatCoinAddToBlacklist_Handler,
+			MethodName: "ProgmatCoinBulkAddToBlacklist",
+			Handler:    _TellerAPI_ProgmatCoinBulkAddToBlacklist_Handler,
 		},
 		{
-			MethodName: "ProgmatCoinRemoveFromBlacklist",
-			Handler:    _TellerAPI_ProgmatCoinRemoveFromBlacklist_Handler,
+			MethodName: "ProgmatCoinBulkRemoveFromBlacklist",
+			Handler:    _TellerAPI_ProgmatCoinBulkRemoveFromBlacklist_Handler,
 		},
 		{
 			MethodName: "ProgmatCoinConfiscate",

@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-Û€
+Í”
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"Ž	
 Wallet
 owner_id (	RownerId
@@ -198,7 +198,7 @@ address_id (	R	addressId,
 string_balance (	RstringBalance
 fee_balance (R
 feeBalance,
-string_fee_balance (	RstringFeeBalance"
+string_fee_balance (	RstringFeeBalance"Ž
 Transaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId,
@@ -247,11 +247,26 @@ signedKeys>
 flare_specific. (2 .adamant.global.v1.FlareSpecificRflareSpecificZ
 arbitrum_one_specific0 (2&.adamant.global.v1.ArbitrumOneSpecificRarbitrumOneSpecificG
 aptos_specific1 (2 .adamant.global.v1.AptosSpecificRaptosSpecificP
-dogecoin_specific2 (2#.adamant.global.v1.DogecoinSpecificRdogecoinSpecific;
+dogecoin_specific2 (2#.adamant.global.v1.DogecoinSpecificRdogecoinSpecific|
+!avalanche_platform_chain_specific3 (21.adamant.global.v1.AvalanchePlatformChainSpecificRavalanchePlatformChainSpecific;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
-updateTime"†
+updateTime"Í
+UnconfirmedTransaction
+	wallet_id (	RwalletId%
+transaction_id (	RtransactionId
+tx_id (	RtxId
+value (Rvalue!
+string_value (	RstringValue
+address (	Raddress
+fee	 (Rfee
+
+string_fee
+ (	R	stringFee
+fee_rate (RfeeRate;
+create_time (2.google.protobuf.TimestampR
+createTime"†
 TransactionMember
 
 account_id (	R	accountIdA
@@ -270,7 +285,7 @@ account_id (	R	accountIdA
 address (	Raddress
 value (Rvalue!
 string_value (	RstringValue
-	is_change (RisChange"Í
+	is_change (RisChange"Ð
 UTXO
 tx_id (	RtxId
 vout (Rvout
@@ -278,9 +293,13 @@ account_id (	R	accountIdA
 string_value (	RstringValue
 address (	Raddressv
 transaction_id (	BOúBLrJ2H^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$RtransactionIdQ
-cardano_specific (2&.adamant.global.v1.CardanoUTXOSpecificRcardanoSpecific"T
+cardano_specific (2&.adamant.global.v1.CardanoUTXOSpecificRcardanoSpecific€
+!avalanche_platform_chain_specific (25.adamant.global.v1.AvalanchePlatformChainUTXOSpecificRavalanchePlatformChainSpecific"T
 CardanoUTXOSpecific=
-tokens (2%.adamant.global.v1.CardanoCustomTokenRtokens"f
+tokens (2%.adamant.global.v1.CardanoCustomTokenRtokens"`
+"AvalanchePlatformChainUTXOSpecific
+	threshold (R	threshold
+	addresses (	R	addresses"f
 CardanoCustomToken
 	policy_id (	RpolicyId
 
@@ -372,11 +391,12 @@ expiration5
 
 expiration (R
 expiration
-	timestamp (R	timestamp"j
+	timestamp (R	timestamp"¤
 AvalancheSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
-is_next_nonce (RisNextNonce"f
+is_next_nonce (RisNextNonce8
+	atomic_tx (2.adamant.global.v1.AtomicTxRatomicTx"f
 OasysSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
@@ -444,7 +464,38 @@ expiration"n
 	gas_limit (RgasLimit
 nonce (Rnonce"
 is_next_nonce (RisNextNonce
-data (	Rdata"â
+data (	Rdata"Ï
+AtomicTx<
+tx_type (2#.gincoinc.global.v1.AvalancheTxTypeRtxType@
+	tx_inputs (2#.adamant.global.v1.AvalancheTxInputRtxInputsC
+
+tx_outputs (2$.adamant.global.v1.AvalancheTxOutputR	txOutputs"Ÿ
+AvalanchePlatformChainSpecific<
+tx_type (2#.gincoinc.global.v1.AvalancheTxTypeRtxType@
+	tx_inputs (2#.adamant.global.v1.AvalancheTxInputRtxInputsC
+
+tx_outputs (2$.adamant.global.v1.AvalancheTxOutputR	txOutputs
+
+start_time (R	startTime
+end_time (RendTime"Ô
+AvalancheTxInput
+tx_id (	RtxId
+input_index (R
+inputIndex(
+input_index_type (RinputIndexType
+value (Rvalue!
+string_value (	RstringValue\'
+address_indices (RaddressIndices"…
+AvalancheTxOutput!
+output_index (RoutputIndex
+output_type (R
+outputType
+value (Rvalue!
+string_value (	RstringValue
+locktime (Rlocktime
+	threshold (R	threshold
+	is_change (RisChange
+	addresses (	R	addresses"â
 "CreateTransactionSubstrateSpecific%
 transaction_id (	RtransactionIdA
 	call_type (2$.adamant.global.v1.SubstrateCallTypeRcallTypeR
@@ -466,14 +517,16 @@ expiration"n
 transaction_id (	RtransactionIdB
 tx_type (2).gincoinc.global.v1.SymbolTransactionTypeRtxType
 message (	Rmessage
-	timestamp (R	timestamp"ù
+	timestamp (R	timestamp"µ
 !CreateTransactionEthereumSpecific
 data (	RdataB
 staking_recipient_wallet_id (	H RstakingRecipientWalletIdˆL
 call_method (2&.gincoinc.global.v1.EthereumCallMethodHR
-callMethodˆB
+callMethodˆ(
+utils_address (	HRutilsAddressˆB
 _staking_recipient_wallet_idB
-_call_method"l
+_call_methodB
+_utils_address"l
 CreateTransactionCosmosSpecific5
 type (2!.gincoinc.global.v1.CosmosMsgTypeRtype
 memo (	Rmemo"A
@@ -489,7 +542,21 @@ event_type (2#.gincoinc.global.v1.SolanaEventTypeR	eventType"T
 
 expiration (H R
 expirationˆB
-_expiration"7
+_expiration"Ë
+"CreateTransactionAvalancheSpecificA
+tx_type (2#.gincoinc.global.v1.AvalancheTxTypeH RtxTypeˆV
+import_tx_specific (2#.adamant.global.v1.ImportTxSpecificHRimportTxSpecificˆR
+staking_specific (2".adamant.global.v1.StakingSpecificHRstakingSpecificˆB
+
+_tx_typeB
+_import_tx_specificB
+_staking_specific"\'
+ImportTxSpecific
+tx_id (	RtxId"K
+StakingSpecific
+
+start_time (R	startTime
+end_time (RendTime"7
 SelectedUTXO
 tx_id (	RtxId
 vout (Rvout"ï
@@ -897,7 +964,7 @@ account_id (	R	accountId!
 CosmosDelegation+
 validator_address (	RvalidatorAddress\'
 delegate_amount (RdelegateAmount#
-reward_amount (RrewardAmount"‰
+reward_amount (RrewardAmount"ì
 StakingHistory,
 staking_history_id (	RstakingHistoryId
 owner_id (	RownerId
@@ -914,7 +981,8 @@ block_hash (	R	blockHash
 
 event_type (2$.gincoinc.global.v1.StakingEventTypeR	eventType
 event_id (	ReventId^
-ethereum_specific (21.adamant.global.v1.StakingHistoryEthereumSpecificRethereumSpecific;
+ethereum_specific (21.adamant.global.v1.StakingHistoryEthereumSpecificRethereumSpecifica
+avalanche_specific (22.adamant.global.v1.StakingHistoryAvalancheSpecificRavalancheSpecific;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
@@ -927,7 +995,13 @@ updateTime"Ú
 block_number (RblockNumber9
 
 block_time (2.google.protobuf.TimestampR	blockTimeQ
-history_type (2..gincoinc.global.v1.EthereumStakingHistoryTypeRhistoryType"
+history_type (2..gincoinc.global.v1.EthereumStakingHistoryTypeRhistoryType"Ë
+StakingHistoryAvalancheSpecific
+
+start_time (R	startTime
+end_time (RendTime6
+rewards_owner_threshold (RrewardsOwnerThreshold6
+rewards_owner_addresses (	RrewardsOwnerAddresses"
 StakingValidator0
 staking_validator_id (	RstakingValidatorId
 owner_id (	RownerId
