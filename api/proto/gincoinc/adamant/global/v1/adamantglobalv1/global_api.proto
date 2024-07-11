@@ -91,6 +91,9 @@ service GlobalAPI {
   rpc ListTransactions(ListTransactionsRequest) returns (ListTransactionsResponse) {}
   rpc ListTransactionsByFilter(ListTransactionsByFilterRequest) returns (ListTransactionsResponse) {}
 
+  // UnconfirmedTransaction
+  rpc ListUnconfirmedTransactionsByFilter(ListUnconfirmedTransactionsByFilterRequest) returns (ListUnconfirmedTransactionsResponse) {}
+
   // SignInfo
   rpc GetSignInfo(GetSignInfoRequest) returns (SignInfo) {}
   rpc ListSignInfo(ListSignInfoRequest) returns (ListSignInfoResponse) {}
@@ -992,6 +995,78 @@ message ListTransactionsByFilterRequest {
 message ListTransactionsResponse {
   repeated Transaction transactions = 1;
   string next_page_token = 2;
+}
+
+// -----------------------------------------------------------------------------
+// UnconfirmedTransaction
+// -----------------------------------------------------------------------------
+
+message ListUnconfirmedTransactionsByFilterRequest {
+  ListFilterType filter_type = 1 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0,
+      6,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ]
+  }];
+  // optional
+  string transaction_id = 2;
+
+  // optional
+  string wallet_id = 3;
+
+  // optional
+  string wallet_name = 4 [(validate.rules).string = {
+    max_len: 40
+  }];
+
+  // optional
+  string address = 5;
+
+  // optional
+  string txid = 6;
+
+  // optional
+  gincoinc.global.v1.Coin coin = 7 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  // optional
+  optional gincoinc.global.v1.Network network = 8 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  repeated WalletType wallet_type = 9;
+
+  // optional
+  uint32 page_size = 10 [(validate.rules).uint32.lte = 1000];
+
+  // optional
+  string page_token = 11 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
+
+  // optional
+  google.protobuf.Timestamp start_time = 12;
+
+  // optional
+  google.protobuf.Timestamp end_time = 13;
+}
+
+message ListUnconfirmedTransactionsResponse {
+  repeated UnconfirmedTransaction unconfirmed_transactions = 1; // Array of unconfirmed transaction objects
+  string next_page_token = 2; // The token for requesting the next page
 }
 
 // -----------------------------------------------------------------------------
@@ -2230,16 +2305,3 @@ message UpdateMailSettingsRequest {
 }
 
 message GetMailSettingsRequest {}
-
-message GetCardanoTokenWalletRequest {}
-message GetCardanoTokenWalletResponse {
-  string wallet_id = 1;
-  string wallet_name = 2;
-  string address = 3;
-}
-
-message UpdateCardanoTokenWalletRequest {
-  string wallet_id = 1 [(validate.rules).string = {
-    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-  }];
-}

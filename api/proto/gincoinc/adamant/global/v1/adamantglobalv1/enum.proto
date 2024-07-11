@@ -385,7 +385,7 @@ enum ListFilterType {
   LIST_FILTER_TYPE_VALIDATOR_ID = 18; // 例: validatorのpublic key
   LIST_FILTER_TYPE_BLOCK_HASH = 19;
   LIST_FILTER_TYPE_STAKING_VALIDATOR_ID = 20; // db上のstaking_validator_id
-  LIST_FILTER_TYPE_STAKING_HISTORY_ID = 21; // db上のstaking_historyr_id
+  LIST_FILTER_TYPE_STAKING_HISTORY_ID = 21; // db上のstaking_history_id
 }
 
 // -----------------------------------------------------------------------------
