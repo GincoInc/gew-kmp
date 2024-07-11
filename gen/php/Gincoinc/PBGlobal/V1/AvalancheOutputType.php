@@ -27,12 +27,22 @@ class AvalancheOutputType
      * Generated from protobuf enum <code>AVALANCHE_OUTPUT_TYPE_EVM_OUTPUT = 3;</code>
      */
     const AVALANCHE_OUTPUT_TYPE_EVM_OUTPUT = 3;
+    /**
+     * Generated from protobuf enum <code>AVALANCHE_OUTPUT_TYPE_STAKE_OUTPUT = 4;</code>
+     */
+    const AVALANCHE_OUTPUT_TYPE_STAKE_OUTPUT = 4;
+    /**
+     * Generated from protobuf enum <code>AVALANCHE_OUTPUT_TYPE_OWNERS_OUTPUT = 5;</code>
+     */
+    const AVALANCHE_OUTPUT_TYPE_OWNERS_OUTPUT = 5;
 
     private static $valueToName = [
         self::AVALANCHE_OUTPUT_TYPE_INVALID => 'AVALANCHE_OUTPUT_TYPE_INVALID',
         self::AVALANCHE_OUTPUT_TYPE_TRANSFERABLE_OUTPUT => 'AVALANCHE_OUTPUT_TYPE_TRANSFERABLE_OUTPUT',
         self::AVALANCHE_OUTPUT_TYPE_EXPORTED_OUTPUT => 'AVALANCHE_OUTPUT_TYPE_EXPORTED_OUTPUT',
         self::AVALANCHE_OUTPUT_TYPE_EVM_OUTPUT => 'AVALANCHE_OUTPUT_TYPE_EVM_OUTPUT',
+        self::AVALANCHE_OUTPUT_TYPE_STAKE_OUTPUT => 'AVALANCHE_OUTPUT_TYPE_STAKE_OUTPUT',
+        self::AVALANCHE_OUTPUT_TYPE_OWNERS_OUTPUT => 'AVALANCHE_OUTPUT_TYPE_OWNERS_OUTPUT',
     ];
 
     public static function name($value)

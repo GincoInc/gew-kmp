@@ -1437,7 +1437,7 @@ const (
 	ListFilterType_LIST_FILTER_TYPE_VALIDATOR_ID          ListFilterType = 18 // 例: validatorのpublic key
 	ListFilterType_LIST_FILTER_TYPE_BLOCK_HASH            ListFilterType = 19
 	ListFilterType_LIST_FILTER_TYPE_STAKING_VALIDATOR_ID  ListFilterType = 20 // db上のstaking_validator_id
-	ListFilterType_LIST_FILTER_TYPE_STAKING_HISTORY_ID    ListFilterType = 21 // db上のstaking_historyr_id
+	ListFilterType_LIST_FILTER_TYPE_STAKING_HISTORY_ID    ListFilterType = 21 // db上のstaking_history_id
 )
 
 // Enum value maps for ListFilterType.

@@ -81,15 +81,10 @@ class TellerAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListCosmosDelegateHistoriesRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListCosmosDelegateHistoriesResponse.FromString,
                 )
-        self.GetCardanoTokenWallet = channel.unary_unary(
-                '/adamant.teller.v1.TellerAPI/GetCardanoTokenWallet',
-                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetCardanoTokenWalletRequest.SerializeToString,
-                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetCardanoTokenWalletResponse.FromString,
-                )
-        self.UpdateCardanoTokenWallet = channel.unary_unary(
-                '/adamant.teller.v1.TellerAPI/UpdateCardanoTokenWallet',
-                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.UpdateCardanoTokenWalletRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+        self.ListUTXOs = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ListUTXOs',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUTXOsRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUTXOsResponse.FromString,
                 )
         self.CreateAddress = channel.unary_unary(
                 '/adamant.teller.v1.TellerAPI/CreateAddress',
@@ -210,6 +205,11 @@ class TellerAPIStub(object):
                 '/adamant.teller.v1.TellerAPI/ListTransactionsByFilter',
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListTransactionsByFilterRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListTransactionsResponse.FromString,
+                )
+        self.ListUnconfirmedTransactionsByFilter = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ListUnconfirmedTransactionsByFilter',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsByFilterRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsResponse.FromString,
                 )
         self.ExitEthereumStakingValidators = channel.unary_unary(
                 '/adamant.teller.v1.TellerAPI/ExitEthereumStakingValidators',
@@ -423,13 +423,7 @@ class TellerAPIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetCardanoTokenWallet(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UpdateCardanoTokenWallet(self, request, context):
+    def ListUTXOs(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -576,6 +570,12 @@ class TellerAPIServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListTransactionsByFilter(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListUnconfirmedTransactionsByFilter(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -807,15 +807,10 @@ def add_TellerAPIServicer_to_server(servicer, server):
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListCosmosDelegateHistoriesRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListCosmosDelegateHistoriesResponse.SerializeToString,
             ),
-            'GetCardanoTokenWallet': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetCardanoTokenWallet,
-                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetCardanoTokenWalletRequest.FromString,
-                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetCardanoTokenWalletResponse.SerializeToString,
-            ),
-            'UpdateCardanoTokenWallet': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateCardanoTokenWallet,
-                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.UpdateCardanoTokenWalletRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            'ListUTXOs': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListUTXOs,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUTXOsRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUTXOsResponse.SerializeToString,
             ),
             'CreateAddress': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateAddress,
@@ -936,6 +931,11 @@ def add_TellerAPIServicer_to_server(servicer, server):
                     servicer.ListTransactionsByFilter,
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListTransactionsByFilterRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListTransactionsResponse.SerializeToString,
+            ),
+            'ListUnconfirmedTransactionsByFilter': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListUnconfirmedTransactionsByFilter,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsByFilterRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsResponse.SerializeToString,
             ),
             'ExitEthereumStakingValidators': grpc.unary_unary_rpc_method_handler(
                     servicer.ExitEthereumStakingValidators,
@@ -1286,7 +1286,7 @@ class TellerAPI(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetCardanoTokenWallet(request,
+    def ListUTXOs(request,
             target,
             options=(),
             channel_credentials=None,
@@ -1296,26 +1296,9 @@ class TellerAPI(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/GetCardanoTokenWallet',
-            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetCardanoTokenWalletRequest.SerializeToString,
-            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetCardanoTokenWalletResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdateCardanoTokenWallet(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/UpdateCardanoTokenWallet',
-            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.UpdateCardanoTokenWalletRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListUTXOs',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUTXOsRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUTXOsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1724,6 +1707,23 @@ class TellerAPI(object):
         return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListTransactionsByFilter',
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListTransactionsByFilterRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListTransactionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListUnconfirmedTransactionsByFilter(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListUnconfirmedTransactionsByFilter',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsByFilterRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

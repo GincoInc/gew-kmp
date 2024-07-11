@@ -37,8 +37,7 @@ type TellerAPIClient interface {
 	UpdateDestinationWalletID(ctx context.Context, in *adamantglobalv1.UpdateDestinationWalletIDRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	GetCosmosBalance(ctx context.Context, in *adamantglobalv1.GetCosmosBalanceRequest, opts ...grpc.CallOption) (*adamantglobalv1.GetCosmosBalanceResponse, error)
 	ListCosmosDelegateHistories(ctx context.Context, in *adamantglobalv1.ListCosmosDelegateHistoriesRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListCosmosDelegateHistoriesResponse, error)
-	GetCardanoTokenWallet(ctx context.Context, in *adamantglobalv1.GetCardanoTokenWalletRequest, opts ...grpc.CallOption) (*adamantglobalv1.GetCardanoTokenWalletResponse, error)
-	UpdateCardanoTokenWallet(ctx context.Context, in *adamantglobalv1.UpdateCardanoTokenWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	ListUTXOs(ctx context.Context, in *adamantglobalv1.ListUTXOsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListUTXOsResponse, error)
 	// Create a new address for an existing wallet
 	CreateAddress(ctx context.Context, in *adamantglobalv1.CreateAddressRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateAddressResponse, error)
 	CreateIOSTAccount(ctx context.Context, in *adamantglobalv1.CreateIOSTAccountRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateIOSTAccountResponse, error)
@@ -65,6 +64,7 @@ type TellerAPIClient interface {
 	GetTransactionByTxID(ctx context.Context, in *adamantglobalv1.GetTransactionByTxIDRequest, opts ...grpc.CallOption) (*adamantglobalv1.Transaction, error)
 	ListTransactions(ctx context.Context, in *adamantglobalv1.ListTransactionsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListTransactionsResponse, error)
 	ListTransactionsByFilter(ctx context.Context, in *adamantglobalv1.ListTransactionsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListTransactionsResponse, error)
+	ListUnconfirmedTransactionsByFilter(ctx context.Context, in *adamantglobalv1.ListUnconfirmedTransactionsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListUnconfirmedTransactionsResponse, error)
 	// Exit ethereum validators
 	ExitEthereumStakingValidators(ctx context.Context, in *adamantglobalv1.ExitEthereumStakingValidatorsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ExitEthereumStakingValidatorsResponse, error)
 	// List transfers for a given wallet. Ordered by update time desc
@@ -216,18 +216,9 @@ func (c *tellerAPIClient) ListCosmosDelegateHistories(ctx context.Context, in *a
 	return out, nil
 }
 
-func (c *tellerAPIClient) GetCardanoTokenWallet(ctx context.Context, in *adamantglobalv1.GetCardanoTokenWalletRequest, opts ...grpc.CallOption) (*adamantglobalv1.GetCardanoTokenWalletResponse, error) {
-	out := new(adamantglobalv1.GetCardanoTokenWalletResponse)
-	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/GetCardanoTokenWallet", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *tellerAPIClient) UpdateCardanoTokenWallet(ctx context.Context, in *adamantglobalv1.UpdateCardanoTokenWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/UpdateCardanoTokenWallet", in, out, opts...)
+func (c *tellerAPIClient) ListUTXOs(ctx context.Context, in *adamantglobalv1.ListUTXOsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListUTXOsResponse, error) {
+	out := new(adamantglobalv1.ListUTXOsResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListUTXOs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -444,6 +435,15 @@ func (c *tellerAPIClient) ListTransactions(ctx context.Context, in *adamantgloba
 func (c *tellerAPIClient) ListTransactionsByFilter(ctx context.Context, in *adamantglobalv1.ListTransactionsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListTransactionsResponse, error) {
 	out := new(adamantglobalv1.ListTransactionsResponse)
 	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListTransactionsByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) ListUnconfirmedTransactionsByFilter(ctx context.Context, in *adamantglobalv1.ListUnconfirmedTransactionsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListUnconfirmedTransactionsResponse, error) {
+	out := new(adamantglobalv1.ListUnconfirmedTransactionsResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListUnconfirmedTransactionsByFilter", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -701,8 +701,7 @@ type TellerAPIServer interface {
 	UpdateDestinationWalletID(context.Context, *adamantglobalv1.UpdateDestinationWalletIDRequest) (*emptypb.Empty, error)
 	GetCosmosBalance(context.Context, *adamantglobalv1.GetCosmosBalanceRequest) (*adamantglobalv1.GetCosmosBalanceResponse, error)
 	ListCosmosDelegateHistories(context.Context, *adamantglobalv1.ListCosmosDelegateHistoriesRequest) (*adamantglobalv1.ListCosmosDelegateHistoriesResponse, error)
-	GetCardanoTokenWallet(context.Context, *adamantglobalv1.GetCardanoTokenWalletRequest) (*adamantglobalv1.GetCardanoTokenWalletResponse, error)
-	UpdateCardanoTokenWallet(context.Context, *adamantglobalv1.UpdateCardanoTokenWalletRequest) (*emptypb.Empty, error)
+	ListUTXOs(context.Context, *adamantglobalv1.ListUTXOsRequest) (*adamantglobalv1.ListUTXOsResponse, error)
 	// Create a new address for an existing wallet
 	CreateAddress(context.Context, *adamantglobalv1.CreateAddressRequest) (*adamantglobalv1.CreateAddressResponse, error)
 	CreateIOSTAccount(context.Context, *adamantglobalv1.CreateIOSTAccountRequest) (*adamantglobalv1.CreateIOSTAccountResponse, error)
@@ -729,6 +728,7 @@ type TellerAPIServer interface {
 	GetTransactionByTxID(context.Context, *adamantglobalv1.GetTransactionByTxIDRequest) (*adamantglobalv1.Transaction, error)
 	ListTransactions(context.Context, *adamantglobalv1.ListTransactionsRequest) (*adamantglobalv1.ListTransactionsResponse, error)
 	ListTransactionsByFilter(context.Context, *adamantglobalv1.ListTransactionsByFilterRequest) (*adamantglobalv1.ListTransactionsResponse, error)
+	ListUnconfirmedTransactionsByFilter(context.Context, *adamantglobalv1.ListUnconfirmedTransactionsByFilterRequest) (*adamantglobalv1.ListUnconfirmedTransactionsResponse, error)
 	// Exit ethereum validators
 	ExitEthereumStakingValidators(context.Context, *adamantglobalv1.ExitEthereumStakingValidatorsRequest) (*adamantglobalv1.ExitEthereumStakingValidatorsResponse, error)
 	// List transfers for a given wallet. Ordered by update time desc
@@ -804,11 +804,8 @@ func (UnimplementedTellerAPIServer) GetCosmosBalance(context.Context, *adamantgl
 func (UnimplementedTellerAPIServer) ListCosmosDelegateHistories(context.Context, *adamantglobalv1.ListCosmosDelegateHistoriesRequest) (*adamantglobalv1.ListCosmosDelegateHistoriesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListCosmosDelegateHistories not implemented")
 }
-func (UnimplementedTellerAPIServer) GetCardanoTokenWallet(context.Context, *adamantglobalv1.GetCardanoTokenWalletRequest) (*adamantglobalv1.GetCardanoTokenWalletResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetCardanoTokenWallet not implemented")
-}
-func (UnimplementedTellerAPIServer) UpdateCardanoTokenWallet(context.Context, *adamantglobalv1.UpdateCardanoTokenWalletRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateCardanoTokenWallet not implemented")
+func (UnimplementedTellerAPIServer) ListUTXOs(context.Context, *adamantglobalv1.ListUTXOsRequest) (*adamantglobalv1.ListUTXOsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListUTXOs not implemented")
 }
 func (UnimplementedTellerAPIServer) CreateAddress(context.Context, *adamantglobalv1.CreateAddressRequest) (*adamantglobalv1.CreateAddressResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateAddress not implemented")
@@ -881,6 +878,9 @@ func (UnimplementedTellerAPIServer) ListTransactions(context.Context, *adamantgl
 }
 func (UnimplementedTellerAPIServer) ListTransactionsByFilter(context.Context, *adamantglobalv1.ListTransactionsByFilterRequest) (*adamantglobalv1.ListTransactionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListTransactionsByFilter not implemented")
+}
+func (UnimplementedTellerAPIServer) ListUnconfirmedTransactionsByFilter(context.Context, *adamantglobalv1.ListUnconfirmedTransactionsByFilterRequest) (*adamantglobalv1.ListUnconfirmedTransactionsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListUnconfirmedTransactionsByFilter not implemented")
 }
 func (UnimplementedTellerAPIServer) ExitEthereumStakingValidators(context.Context, *adamantglobalv1.ExitEthereumStakingValidatorsRequest) (*adamantglobalv1.ExitEthereumStakingValidatorsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ExitEthereumStakingValidators not implemented")
@@ -1188,38 +1188,20 @@ func _TellerAPI_ListCosmosDelegateHistories_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TellerAPI_GetCardanoTokenWallet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(adamantglobalv1.GetCardanoTokenWalletRequest)
+func _TellerAPI_ListUTXOs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ListUTXOsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TellerAPIServer).GetCardanoTokenWallet(ctx, in)
+		return srv.(TellerAPIServer).ListUTXOs(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/adamant.teller.v1.TellerAPI/GetCardanoTokenWallet",
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListUTXOs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TellerAPIServer).GetCardanoTokenWallet(ctx, req.(*adamantglobalv1.GetCardanoTokenWalletRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _TellerAPI_UpdateCardanoTokenWallet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(adamantglobalv1.UpdateCardanoTokenWalletRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TellerAPIServer).UpdateCardanoTokenWallet(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/adamant.teller.v1.TellerAPI/UpdateCardanoTokenWallet",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TellerAPIServer).UpdateCardanoTokenWallet(ctx, req.(*adamantglobalv1.UpdateCardanoTokenWalletRequest))
+		return srv.(TellerAPIServer).ListUTXOs(ctx, req.(*adamantglobalv1.ListUTXOsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1652,6 +1634,24 @@ func _TellerAPI_ListTransactionsByFilter_Handler(srv interface{}, ctx context.Co
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TellerAPIServer).ListTransactionsByFilter(ctx, req.(*adamantglobalv1.ListTransactionsByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_ListUnconfirmedTransactionsByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ListUnconfirmedTransactionsByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListUnconfirmedTransactionsByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListUnconfirmedTransactionsByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListUnconfirmedTransactionsByFilter(ctx, req.(*adamantglobalv1.ListUnconfirmedTransactionsByFilterRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2180,12 +2180,8 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TellerAPI_ListCosmosDelegateHistories_Handler,
 		},
 		{
-			MethodName: "GetCardanoTokenWallet",
-			Handler:    _TellerAPI_GetCardanoTokenWallet_Handler,
-		},
-		{
-			MethodName: "UpdateCardanoTokenWallet",
-			Handler:    _TellerAPI_UpdateCardanoTokenWallet_Handler,
+			MethodName: "ListUTXOs",
+			Handler:    _TellerAPI_ListUTXOs_Handler,
 		},
 		{
 			MethodName: "CreateAddress",
@@ -2282,6 +2278,10 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListTransactionsByFilter",
 			Handler:    _TellerAPI_ListTransactionsByFilter_Handler,
+		},
+		{
+			MethodName: "ListUnconfirmedTransactionsByFilter",
+			Handler:    _TellerAPI_ListUnconfirmedTransactionsByFilter_Handler,
 		},
 		{
 			MethodName: "ExitEthereumStakingValidators",

@@ -25,6 +25,14 @@ class AvalanchePlatformChainSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .adamant.global.v1.AvalancheTxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     private $tx_outputs;
+    /**
+     * Generated from protobuf field <code>uint64 start_time = 4 [json_name = "startTime"];</code>
+     */
+    protected $start_time = 0;
+    /**
+     * Generated from protobuf field <code>uint64 end_time = 5 [json_name = "endTime"];</code>
+     */
+    protected $end_time = 0;
 
     /**
      * Constructor.
@@ -35,6 +43,8 @@ class AvalanchePlatformChainSpecific extends \Google\Protobuf\Internal\Message
      *     @type int $tx_type
      *     @type array<\Adamant\PBGlobal\V1\AvalancheTxInput>|\Google\Protobuf\Internal\RepeatedField $tx_inputs
      *     @type array<\Adamant\PBGlobal\V1\AvalancheTxOutput>|\Google\Protobuf\Internal\RepeatedField $tx_outputs
+     *     @type int|string $start_time
+     *     @type int|string $end_time
      * }
      */
     public function __construct($data = NULL) {
@@ -104,6 +114,50 @@ class AvalanchePlatformChainSpecific extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Adamant\PBGlobal\V1\AvalancheTxOutput::class);
         $this->tx_outputs = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 start_time = 4 [json_name = "startTime"];</code>
+     * @return int|string
+     */
+    public function getStartTime()
+    {
+        return $this->start_time;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 start_time = 4 [json_name = "startTime"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setStartTime($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->start_time = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 end_time = 5 [json_name = "endTime"];</code>
+     * @return int|string
+     */
+    public function getEndTime()
+    {
+        return $this->end_time;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 end_time = 5 [json_name = "endTime"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setEndTime($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->end_time = $var;
 
         return $this;
     }

@@ -842,6 +842,21 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * UnconfirmedTransaction
+     * @param \Adamant\Global\V1\ListUnconfirmedTransactionsByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListUnconfirmedTransactionsByFilter(\Adamant\Global\V1\ListUnconfirmedTransactionsByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ListUnconfirmedTransactionsByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListUnconfirmedTransactionsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * SignInfo
      * @param \Adamant\Global\V1\GetSignInfoRequest $argument input argument
      * @param array $metadata metadata
