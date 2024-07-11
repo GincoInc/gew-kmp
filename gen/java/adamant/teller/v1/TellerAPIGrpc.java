@@ -387,66 +387,35 @@ public final class TellerAPIGrpc {
     return getListCosmosDelegateHistoriesMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.GetCardanoTokenWalletRequest,
-      adamant.global.v1.GetCardanoTokenWalletResponse> getGetCardanoTokenWalletMethod;
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListUTXOsRequest,
+      adamant.global.v1.ListUTXOsResponse> getListUTXOsMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "GetCardanoTokenWallet",
-      requestType = adamant.global.v1.GetCardanoTokenWalletRequest.class,
-      responseType = adamant.global.v1.GetCardanoTokenWalletResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "ListUTXOs",
+      requestType = adamant.global.v1.ListUTXOsRequest.class,
+      responseType = adamant.global.v1.ListUTXOsResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<adamant.global.v1.GetCardanoTokenWalletRequest,
-      adamant.global.v1.GetCardanoTokenWalletResponse> getGetCardanoTokenWalletMethod() {
-    io.grpc.MethodDescriptor<adamant.global.v1.GetCardanoTokenWalletRequest, adamant.global.v1.GetCardanoTokenWalletResponse> getGetCardanoTokenWalletMethod;
-    if ((getGetCardanoTokenWalletMethod = TellerAPIGrpc.getGetCardanoTokenWalletMethod) == null) {
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListUTXOsRequest,
+      adamant.global.v1.ListUTXOsResponse> getListUTXOsMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListUTXOsRequest, adamant.global.v1.ListUTXOsResponse> getListUTXOsMethod;
+    if ((getListUTXOsMethod = TellerAPIGrpc.getListUTXOsMethod) == null) {
       synchronized (TellerAPIGrpc.class) {
-        if ((getGetCardanoTokenWalletMethod = TellerAPIGrpc.getGetCardanoTokenWalletMethod) == null) {
-          TellerAPIGrpc.getGetCardanoTokenWalletMethod = getGetCardanoTokenWalletMethod =
-              io.grpc.MethodDescriptor.<adamant.global.v1.GetCardanoTokenWalletRequest, adamant.global.v1.GetCardanoTokenWalletResponse>newBuilder()
+        if ((getListUTXOsMethod = TellerAPIGrpc.getListUTXOsMethod) == null) {
+          TellerAPIGrpc.getListUTXOsMethod = getListUTXOsMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListUTXOsRequest, adamant.global.v1.ListUTXOsResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetCardanoTokenWallet"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListUTXOs"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.GetCardanoTokenWalletRequest.getDefaultInstance()))
+                  adamant.global.v1.ListUTXOsRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.GetCardanoTokenWalletResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("GetCardanoTokenWallet"))
+                  adamant.global.v1.ListUTXOsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ListUTXOs"))
               .build();
         }
       }
     }
-    return getGetCardanoTokenWalletMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.UpdateCardanoTokenWalletRequest,
-      com.google.protobuf.Empty> getUpdateCardanoTokenWalletMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "UpdateCardanoTokenWallet",
-      requestType = adamant.global.v1.UpdateCardanoTokenWalletRequest.class,
-      responseType = com.google.protobuf.Empty.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<adamant.global.v1.UpdateCardanoTokenWalletRequest,
-      com.google.protobuf.Empty> getUpdateCardanoTokenWalletMethod() {
-    io.grpc.MethodDescriptor<adamant.global.v1.UpdateCardanoTokenWalletRequest, com.google.protobuf.Empty> getUpdateCardanoTokenWalletMethod;
-    if ((getUpdateCardanoTokenWalletMethod = TellerAPIGrpc.getUpdateCardanoTokenWalletMethod) == null) {
-      synchronized (TellerAPIGrpc.class) {
-        if ((getUpdateCardanoTokenWalletMethod = TellerAPIGrpc.getUpdateCardanoTokenWalletMethod) == null) {
-          TellerAPIGrpc.getUpdateCardanoTokenWalletMethod = getUpdateCardanoTokenWalletMethod =
-              io.grpc.MethodDescriptor.<adamant.global.v1.UpdateCardanoTokenWalletRequest, com.google.protobuf.Empty>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateCardanoTokenWallet"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.UpdateCardanoTokenWalletRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
-              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("UpdateCardanoTokenWallet"))
-              .build();
-        }
-      }
-    }
-    return getUpdateCardanoTokenWalletMethod;
+    return getListUTXOsMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.CreateAddressRequest,
@@ -1191,6 +1160,37 @@ public final class TellerAPIGrpc {
       }
     }
     return getListTransactionsByFilterMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest,
+      adamant.global.v1.ListUnconfirmedTransactionsResponse> getListUnconfirmedTransactionsByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListUnconfirmedTransactionsByFilter",
+      requestType = adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest.class,
+      responseType = adamant.global.v1.ListUnconfirmedTransactionsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest,
+      adamant.global.v1.ListUnconfirmedTransactionsResponse> getListUnconfirmedTransactionsByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest, adamant.global.v1.ListUnconfirmedTransactionsResponse> getListUnconfirmedTransactionsByFilterMethod;
+    if ((getListUnconfirmedTransactionsByFilterMethod = TellerAPIGrpc.getListUnconfirmedTransactionsByFilterMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getListUnconfirmedTransactionsByFilterMethod = TellerAPIGrpc.getListUnconfirmedTransactionsByFilterMethod) == null) {
+          TellerAPIGrpc.getListUnconfirmedTransactionsByFilterMethod = getListUnconfirmedTransactionsByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest, adamant.global.v1.ListUnconfirmedTransactionsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListUnconfirmedTransactionsByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListUnconfirmedTransactionsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ListUnconfirmedTransactionsByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListUnconfirmedTransactionsByFilterMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ExitEthereumStakingValidatorsRequest,
@@ -2136,16 +2136,9 @@ public final class TellerAPIGrpc {
 
     /**
      */
-    default void getCardanoTokenWallet(adamant.global.v1.GetCardanoTokenWalletRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.GetCardanoTokenWalletResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetCardanoTokenWalletMethod(), responseObserver);
-    }
-
-    /**
-     */
-    default void updateCardanoTokenWallet(adamant.global.v1.UpdateCardanoTokenWalletRequest request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateCardanoTokenWalletMethod(), responseObserver);
+    default void listUTXOs(adamant.global.v1.ListUTXOsRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListUTXOsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListUTXOsMethod(), responseObserver);
     }
 
     /**
@@ -2320,6 +2313,13 @@ public final class TellerAPIGrpc {
     default void listTransactionsByFilter(adamant.global.v1.ListTransactionsByFilterRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListTransactionsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListTransactionsByFilterMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void listUnconfirmedTransactionsByFilter(adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListUnconfirmedTransactionsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListUnconfirmedTransactionsByFilterMethod(), responseObserver);
     }
 
     /**
@@ -2654,18 +2654,10 @@ public final class TellerAPIGrpc {
 
     /**
      */
-    public void getCardanoTokenWallet(adamant.global.v1.GetCardanoTokenWalletRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.GetCardanoTokenWalletResponse> responseObserver) {
+    public void listUTXOs(adamant.global.v1.ListUTXOsRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListUTXOsResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getGetCardanoTokenWalletMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void updateCardanoTokenWallet(adamant.global.v1.UpdateCardanoTokenWalletRequest request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getUpdateCardanoTokenWalletMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getListUTXOsMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -2864,6 +2856,14 @@ public final class TellerAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.ListTransactionsResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListTransactionsByFilterMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listUnconfirmedTransactionsByFilter(adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListUnconfirmedTransactionsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListUnconfirmedTransactionsByFilterMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -3201,16 +3201,9 @@ public final class TellerAPIGrpc {
 
     /**
      */
-    public adamant.global.v1.GetCardanoTokenWalletResponse getCardanoTokenWallet(adamant.global.v1.GetCardanoTokenWalletRequest request) {
+    public adamant.global.v1.ListUTXOsResponse listUTXOs(adamant.global.v1.ListUTXOsRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getGetCardanoTokenWalletMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public com.google.protobuf.Empty updateCardanoTokenWallet(adamant.global.v1.UpdateCardanoTokenWalletRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getUpdateCardanoTokenWalletMethod(), getCallOptions(), request);
+          getChannel(), getListUTXOsMethod(), getCallOptions(), request);
     }
 
     /**
@@ -3385,6 +3378,13 @@ public final class TellerAPIGrpc {
     public adamant.global.v1.ListTransactionsResponse listTransactionsByFilter(adamant.global.v1.ListTransactionsByFilterRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListTransactionsByFilterMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.ListUnconfirmedTransactionsResponse listUnconfirmedTransactionsByFilter(adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListUnconfirmedTransactionsByFilterMethod(), getCallOptions(), request);
     }
 
     /**
@@ -3708,18 +3708,10 @@ public final class TellerAPIGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.GetCardanoTokenWalletResponse> getCardanoTokenWallet(
-        adamant.global.v1.GetCardanoTokenWalletRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListUTXOsResponse> listUTXOs(
+        adamant.global.v1.ListUTXOsRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getGetCardanoTokenWalletMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> updateCardanoTokenWallet(
-        adamant.global.v1.UpdateCardanoTokenWalletRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getUpdateCardanoTokenWalletMethod(), getCallOptions()), request);
+          getChannel().newCall(getListUTXOsMethod(), getCallOptions()), request);
     }
 
     /**
@@ -3918,6 +3910,14 @@ public final class TellerAPIGrpc {
         adamant.global.v1.ListTransactionsByFilterRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getListTransactionsByFilterMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListUnconfirmedTransactionsResponse> listUnconfirmedTransactionsByFilter(
+        adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListUnconfirmedTransactionsByFilterMethod(), getCallOptions()), request);
     }
 
     /**
@@ -4162,32 +4162,32 @@ public final class TellerAPIGrpc {
   private static final int METHODID_UPDATE_DESTINATION_WALLET_ID = 9;
   private static final int METHODID_GET_COSMOS_BALANCE = 10;
   private static final int METHODID_LIST_COSMOS_DELEGATE_HISTORIES = 11;
-  private static final int METHODID_GET_CARDANO_TOKEN_WALLET = 12;
-  private static final int METHODID_UPDATE_CARDANO_TOKEN_WALLET = 13;
-  private static final int METHODID_CREATE_ADDRESS = 14;
-  private static final int METHODID_CREATE_IOSTACCOUNT = 15;
-  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 16;
-  private static final int METHODID_GET_ADDRESS = 17;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 18;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 19;
-  private static final int METHODID_GET_ADDRESS_BY_INDEX = 20;
-  private static final int METHODID_LIST_ADDRESSES = 21;
-  private static final int METHODID_IMPORT_ADDRESS = 22;
-  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 23;
-  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 24;
-  private static final int METHODID_LIST_COLD_FEE_DEPOSIT_ADDRESSES = 25;
-  private static final int METHODID_LIST_HOT_FEE_DEPOSIT_ADDRESSES = 26;
-  private static final int METHODID_CREATE_TRANSACTION = 27;
-  private static final int METHODID_SIGN_TRANSACTION = 28;
-  private static final int METHODID_SEND_TRANSACTION = 29;
-  private static final int METHODID_RESEND_TRANSACTION = 30;
-  private static final int METHODID_CANCEL_TRANSACTION = 31;
-  private static final int METHODID_REPLACE_TRANSACTION = 32;
-  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 33;
-  private static final int METHODID_GET_TRANSACTION = 34;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 35;
-  private static final int METHODID_LIST_TRANSACTIONS = 36;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 37;
+  private static final int METHODID_LIST_UTXOS = 12;
+  private static final int METHODID_CREATE_ADDRESS = 13;
+  private static final int METHODID_CREATE_IOSTACCOUNT = 14;
+  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 15;
+  private static final int METHODID_GET_ADDRESS = 16;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 17;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 18;
+  private static final int METHODID_GET_ADDRESS_BY_INDEX = 19;
+  private static final int METHODID_LIST_ADDRESSES = 20;
+  private static final int METHODID_IMPORT_ADDRESS = 21;
+  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 22;
+  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 23;
+  private static final int METHODID_LIST_COLD_FEE_DEPOSIT_ADDRESSES = 24;
+  private static final int METHODID_LIST_HOT_FEE_DEPOSIT_ADDRESSES = 25;
+  private static final int METHODID_CREATE_TRANSACTION = 26;
+  private static final int METHODID_SIGN_TRANSACTION = 27;
+  private static final int METHODID_SEND_TRANSACTION = 28;
+  private static final int METHODID_RESEND_TRANSACTION = 29;
+  private static final int METHODID_CANCEL_TRANSACTION = 30;
+  private static final int METHODID_REPLACE_TRANSACTION = 31;
+  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 32;
+  private static final int METHODID_GET_TRANSACTION = 33;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 34;
+  private static final int METHODID_LIST_TRANSACTIONS = 35;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 36;
+  private static final int METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER = 37;
   private static final int METHODID_EXIT_ETHEREUM_STAKING_VALIDATORS = 38;
   private static final int METHODID_LIST_TRANSFERS = 39;
   private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 40;
@@ -4280,13 +4280,9 @@ public final class TellerAPIGrpc {
           serviceImpl.listCosmosDelegateHistories((adamant.global.v1.ListCosmosDelegateHistoriesRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListCosmosDelegateHistoriesResponse>) responseObserver);
           break;
-        case METHODID_GET_CARDANO_TOKEN_WALLET:
-          serviceImpl.getCardanoTokenWallet((adamant.global.v1.GetCardanoTokenWalletRequest) request,
-              (io.grpc.stub.StreamObserver<adamant.global.v1.GetCardanoTokenWalletResponse>) responseObserver);
-          break;
-        case METHODID_UPDATE_CARDANO_TOKEN_WALLET:
-          serviceImpl.updateCardanoTokenWallet((adamant.global.v1.UpdateCardanoTokenWalletRequest) request,
-              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+        case METHODID_LIST_UTXOS:
+          serviceImpl.listUTXOs((adamant.global.v1.ListUTXOsRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListUTXOsResponse>) responseObserver);
           break;
         case METHODID_CREATE_ADDRESS:
           serviceImpl.createAddress((adamant.global.v1.CreateAddressRequest) request,
@@ -4383,6 +4379,10 @@ public final class TellerAPIGrpc {
         case METHODID_LIST_TRANSACTIONS_BY_FILTER:
           serviceImpl.listTransactionsByFilter((adamant.global.v1.ListTransactionsByFilterRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListTransactionsResponse>) responseObserver);
+          break;
+        case METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER:
+          serviceImpl.listUnconfirmedTransactionsByFilter((adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListUnconfirmedTransactionsResponse>) responseObserver);
           break;
         case METHODID_EXIT_ETHEREUM_STAKING_VALIDATORS:
           serviceImpl.exitEthereumStakingValidators((adamant.global.v1.ExitEthereumStakingValidatorsRequest) request,
@@ -4591,19 +4591,12 @@ public final class TellerAPIGrpc {
               adamant.global.v1.ListCosmosDelegateHistoriesResponse>(
                 service, METHODID_LIST_COSMOS_DELEGATE_HISTORIES)))
         .addMethod(
-          getGetCardanoTokenWalletMethod(),
+          getListUTXOsMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              adamant.global.v1.GetCardanoTokenWalletRequest,
-              adamant.global.v1.GetCardanoTokenWalletResponse>(
-                service, METHODID_GET_CARDANO_TOKEN_WALLET)))
-        .addMethod(
-          getUpdateCardanoTokenWalletMethod(),
-          io.grpc.stub.ServerCalls.asyncUnaryCall(
-            new MethodHandlers<
-              adamant.global.v1.UpdateCardanoTokenWalletRequest,
-              com.google.protobuf.Empty>(
-                service, METHODID_UPDATE_CARDANO_TOKEN_WALLET)))
+              adamant.global.v1.ListUTXOsRequest,
+              adamant.global.v1.ListUTXOsResponse>(
+                service, METHODID_LIST_UTXOS)))
         .addMethod(
           getCreateAddressMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -4772,6 +4765,13 @@ public final class TellerAPIGrpc {
               adamant.global.v1.ListTransactionsByFilterRequest,
               adamant.global.v1.ListTransactionsResponse>(
                 service, METHODID_LIST_TRANSACTIONS_BY_FILTER)))
+        .addMethod(
+          getListUnconfirmedTransactionsByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest,
+              adamant.global.v1.ListUnconfirmedTransactionsResponse>(
+                service, METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER)))
         .addMethod(
           getExitEthereumStakingValidatorsMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -5014,8 +5014,7 @@ public final class TellerAPIGrpc {
               .addMethod(getUpdateDestinationWalletIDMethod())
               .addMethod(getGetCosmosBalanceMethod())
               .addMethod(getListCosmosDelegateHistoriesMethod())
-              .addMethod(getGetCardanoTokenWalletMethod())
-              .addMethod(getUpdateCardanoTokenWalletMethod())
+              .addMethod(getListUTXOsMethod())
               .addMethod(getCreateAddressMethod())
               .addMethod(getCreateIOSTAccountMethod())
               .addMethod(getListSymbolChildAddressesMethod())
@@ -5040,6 +5039,7 @@ public final class TellerAPIGrpc {
               .addMethod(getGetTransactionByTxIDMethod())
               .addMethod(getListTransactionsMethod())
               .addMethod(getListTransactionsByFilterMethod())
+              .addMethod(getListUnconfirmedTransactionsByFilterMethod())
               .addMethod(getExitEthereumStakingValidatorsMethod())
               .addMethod(getListTransfersMethod())
               .addMethod(getListTransfersByFilterMethod())

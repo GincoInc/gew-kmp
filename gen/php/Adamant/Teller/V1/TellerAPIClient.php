@@ -190,30 +190,16 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
-     * @param \Adamant\Global\V1\GetCardanoTokenWalletRequest $argument input argument
+     * @param \Adamant\Global\V1\ListUTXOsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function GetCardanoTokenWallet(\Adamant\Global\V1\GetCardanoTokenWalletRequest $argument,
+    public function ListUTXOs(\Adamant\Global\V1\ListUTXOsRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/GetCardanoTokenWallet',
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListUTXOs',
         $argument,
-        ['\Adamant\Global\V1\GetCardanoTokenWalletResponse', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
-     * @param \Adamant\Global\V1\UpdateCardanoTokenWalletRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     * @return \Grpc\UnaryCall
-     */
-    public function UpdateCardanoTokenWallet(\Adamant\Global\V1\UpdateCardanoTokenWalletRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/UpdateCardanoTokenWallet',
-        $argument,
-        ['\Google\Protobuf\GPBEmpty', 'decode'],
+        ['\Adamant\Global\V1\ListUTXOsResponse', 'decode'],
         $metadata, $options);
     }
 
@@ -552,6 +538,20 @@ class TellerAPIClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListTransactionsByFilter',
         $argument,
         ['\Adamant\Global\V1\ListTransactionsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\ListUnconfirmedTransactionsByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListUnconfirmedTransactionsByFilter(\Adamant\Global\V1\ListUnconfirmedTransactionsByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListUnconfirmedTransactionsByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListUnconfirmedTransactionsResponse', 'decode'],
         $metadata, $options);
     }
 

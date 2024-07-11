@@ -4538,6 +4538,14 @@ public final class Enum {
      * <code>AVALANCHE_OUTPUT_TYPE_EVM_OUTPUT = 3;</code>
      */
     AVALANCHE_OUTPUT_TYPE_EVM_OUTPUT(3),
+    /**
+     * <code>AVALANCHE_OUTPUT_TYPE_STAKE_OUTPUT = 4;</code>
+     */
+    AVALANCHE_OUTPUT_TYPE_STAKE_OUTPUT(4),
+    /**
+     * <code>AVALANCHE_OUTPUT_TYPE_OWNERS_OUTPUT = 5;</code>
+     */
+    AVALANCHE_OUTPUT_TYPE_OWNERS_OUTPUT(5),
     UNRECOGNIZED(-1),
     ;
 
@@ -4557,6 +4565,14 @@ public final class Enum {
      * <code>AVALANCHE_OUTPUT_TYPE_EVM_OUTPUT = 3;</code>
      */
     public static final int AVALANCHE_OUTPUT_TYPE_EVM_OUTPUT_VALUE = 3;
+    /**
+     * <code>AVALANCHE_OUTPUT_TYPE_STAKE_OUTPUT = 4;</code>
+     */
+    public static final int AVALANCHE_OUTPUT_TYPE_STAKE_OUTPUT_VALUE = 4;
+    /**
+     * <code>AVALANCHE_OUTPUT_TYPE_OWNERS_OUTPUT = 5;</code>
+     */
+    public static final int AVALANCHE_OUTPUT_TYPE_OWNERS_OUTPUT_VALUE = 5;
 
 
     public final int getNumber() {
@@ -4587,6 +4603,8 @@ public final class Enum {
         case 1: return AVALANCHE_OUTPUT_TYPE_TRANSFERABLE_OUTPUT;
         case 2: return AVALANCHE_OUTPUT_TYPE_EXPORTED_OUTPUT;
         case 3: return AVALANCHE_OUTPUT_TYPE_EVM_OUTPUT;
+        case 4: return AVALANCHE_OUTPUT_TYPE_STAKE_OUTPUT;
+        case 5: return AVALANCHE_OUTPUT_TYPE_OWNERS_OUTPUT;
         default: return null;
       }
     }
@@ -4877,13 +4895,16 @@ public final class Enum {
       "PE_INVALID\020\000\022+\n\'AVALANCHE_INPUT_TYPE_TRA" +
       "NSFERABLE_INPUT\020\001\022\'\n#AVALANCHE_INPUT_TYP" +
       "E_IMPORTED_INPUT\020\002\022\"\n\036AVALANCHE_INPUT_TY" +
-      "PE_EVM_INPUT\020\003*\270\001\n\023AvalancheOutputType\022!" +
+      "PE_EVM_INPUT\020\003*\211\002\n\023AvalancheOutputType\022!" +
       "\n\035AVALANCHE_OUTPUT_TYPE_INVALID\020\000\022-\n)AVA" +
       "LANCHE_OUTPUT_TYPE_TRANSFERABLE_OUTPUT\020\001" +
       "\022)\n%AVALANCHE_OUTPUT_TYPE_EXPORTED_OUTPU" +
       "T\020\002\022$\n AVALANCHE_OUTPUT_TYPE_EVM_OUTPUT\020" +
-      "\003BEZCgithub.com/GincoInc/gew-kmp/gen/gin" +
-      "coinc/global/v1/gincoincglobalv1b\006proto3"
+      "\003\022&\n\"AVALANCHE_OUTPUT_TYPE_STAKE_OUTPUT\020" +
+      "\004\022\'\n#AVALANCHE_OUTPUT_TYPE_OWNERS_OUTPUT" +
+      "\020\005BEZCgithub.com/GincoInc/gew-kmp/gen/gi" +
+      "ncoinc/global/v1/gincoincglobalv1b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

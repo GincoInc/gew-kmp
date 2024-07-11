@@ -23,6 +23,10 @@ class CreateTransactionAvalancheSpecific extends \Google\Protobuf\Internal\Messa
      * Generated from protobuf field <code>optional .adamant.global.v1.ImportTxSpecific import_tx_specific = 2 [json_name = "importTxSpecific"];</code>
      */
     protected $import_tx_specific = null;
+    /**
+     * Generated from protobuf field <code>optional .adamant.global.v1.StakingSpecific staking_specific = 3 [json_name = "stakingSpecific"];</code>
+     */
+    protected $staking_specific = null;
 
     /**
      * Constructor.
@@ -32,6 +36,7 @@ class CreateTransactionAvalancheSpecific extends \Google\Protobuf\Internal\Messa
      *
      *     @type int $tx_type
      *     @type \Adamant\PBGlobal\V1\ImportTxSpecific $import_tx_specific
+     *     @type \Adamant\PBGlobal\V1\StakingSpecific $staking_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -99,6 +104,38 @@ class CreateTransactionAvalancheSpecific extends \Google\Protobuf\Internal\Messa
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\ImportTxSpecific::class);
         $this->import_tx_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .adamant.global.v1.StakingSpecific staking_specific = 3 [json_name = "stakingSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\StakingSpecific|null
+     */
+    public function getStakingSpecific()
+    {
+        return $this->staking_specific;
+    }
+
+    public function hasStakingSpecific()
+    {
+        return isset($this->staking_specific);
+    }
+
+    public function clearStakingSpecific()
+    {
+        unset($this->staking_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .adamant.global.v1.StakingSpecific staking_specific = 3 [json_name = "stakingSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\StakingSpecific $var
+     * @return $this
+     */
+    public function setStakingSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\StakingSpecific::class);
+        $this->staking_specific = $var;
 
         return $this;
     }

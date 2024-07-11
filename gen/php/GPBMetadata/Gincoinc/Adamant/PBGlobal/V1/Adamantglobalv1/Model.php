@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-ßŽ
+Í”
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"Ž	
 Wallet
 owner_id (	RownerId
@@ -252,7 +252,21 @@ signedKeys>
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
-updateTime"†
+updateTime"Í
+UnconfirmedTransaction
+	wallet_id (	RwalletId%
+transaction_id (	RtransactionId
+tx_id (	RtxId
+value (Rvalue!
+string_value (	RstringValue
+address (	Raddress
+fee	 (Rfee
+
+string_fee
+ (	R	stringFee
+fee_rate (RfeeRate;
+create_time (2.google.protobuf.TimestampR
+createTime"†
 TransactionMember
 
 account_id (	R	accountIdA
@@ -455,12 +469,15 @@ expiration"n
 tx_type (2#.gincoinc.global.v1.AvalancheTxTypeRtxType@
 	tx_inputs (2#.adamant.global.v1.AvalancheTxInputRtxInputsC
 
-tx_outputs (2$.adamant.global.v1.AvalancheTxOutputR	txOutputs"å
+tx_outputs (2$.adamant.global.v1.AvalancheTxOutputR	txOutputs"Ÿ
 AvalanchePlatformChainSpecific<
 tx_type (2#.gincoinc.global.v1.AvalancheTxTypeRtxType@
 	tx_inputs (2#.adamant.global.v1.AvalancheTxInputRtxInputsC
 
-tx_outputs (2$.adamant.global.v1.AvalancheTxOutputR	txOutputs"Ô
+tx_outputs (2$.adamant.global.v1.AvalancheTxOutputR	txOutputs
+
+start_time (R	startTime
+end_time (RendTime"Ô
 AvalancheTxInput
 tx_id (	RtxId
 input_index (R
@@ -525,18 +542,21 @@ event_type (2#.gincoinc.global.v1.SolanaEventTypeR	eventType"T
 
 expiration (H R
 expirationˆB
-_expiration"â
+_expiration"Ë
 "CreateTransactionAvalancheSpecificA
 tx_type (2#.gincoinc.global.v1.AvalancheTxTypeH RtxTypeˆV
-import_tx_specific (2#.adamant.global.v1.ImportTxSpecificHRimportTxSpecificˆB
+import_tx_specific (2#.adamant.global.v1.ImportTxSpecificHRimportTxSpecificˆR
+staking_specific (2".adamant.global.v1.StakingSpecificHRstakingSpecificˆB
 
 _tx_typeB
-_import_tx_specific"©
+_import_tx_specificB
+_staking_specific"\'
 ImportTxSpecific
-tx_id (	RtxId!
-output_index (RoutputIndex\'
-exported_amount (RexportedAmount4
-string_exported_amount (	RstringExportedAmount"7
+tx_id (	RtxId"K
+StakingSpecific
+
+start_time (R	startTime
+end_time (RendTime"7
 SelectedUTXO
 tx_id (	RtxId
 vout (Rvout"ï
@@ -944,7 +964,7 @@ account_id (	R	accountId!
 CosmosDelegation+
 validator_address (	RvalidatorAddress\'
 delegate_amount (RdelegateAmount#
-reward_amount (RrewardAmount"‰
+reward_amount (RrewardAmount"ì
 StakingHistory,
 staking_history_id (	RstakingHistoryId
 owner_id (	RownerId
@@ -961,7 +981,8 @@ block_hash (	R	blockHash
 
 event_type (2$.gincoinc.global.v1.StakingEventTypeR	eventType
 event_id (	ReventId^
-ethereum_specific (21.adamant.global.v1.StakingHistoryEthereumSpecificRethereumSpecific;
+ethereum_specific (21.adamant.global.v1.StakingHistoryEthereumSpecificRethereumSpecifica
+avalanche_specific (22.adamant.global.v1.StakingHistoryAvalancheSpecificRavalancheSpecific;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
@@ -974,7 +995,13 @@ updateTime"Ú
 block_number (RblockNumber9
 
 block_time (2.google.protobuf.TimestampR	blockTimeQ
-history_type (2..gincoinc.global.v1.EthereumStakingHistoryTypeRhistoryType"
+history_type (2..gincoinc.global.v1.EthereumStakingHistoryTypeRhistoryType"Ë
+StakingHistoryAvalancheSpecific
+
+start_time (R	startTime
+end_time (RendTime6
+rewards_owner_threshold (RrewardsOwnerThreshold6
+rewards_owner_addresses (	RrewardsOwnerAddresses"
 StakingValidator0
 staking_validator_id (	RstakingValidatorId
 owner_id (	RownerId

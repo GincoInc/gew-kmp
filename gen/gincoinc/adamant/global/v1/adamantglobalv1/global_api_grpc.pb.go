@@ -90,6 +90,8 @@ type GlobalAPIClient interface {
 	GetTransactionByTxID(ctx context.Context, in *GetTransactionByTxIDRequest, opts ...grpc.CallOption) (*Transaction, error)
 	ListTransactions(ctx context.Context, in *ListTransactionsRequest, opts ...grpc.CallOption) (*ListTransactionsResponse, error)
 	ListTransactionsByFilter(ctx context.Context, in *ListTransactionsByFilterRequest, opts ...grpc.CallOption) (*ListTransactionsResponse, error)
+	// UnconfirmedTransaction
+	ListUnconfirmedTransactionsByFilter(ctx context.Context, in *ListUnconfirmedTransactionsByFilterRequest, opts ...grpc.CallOption) (*ListUnconfirmedTransactionsResponse, error)
 	// SignInfo
 	GetSignInfo(ctx context.Context, in *GetSignInfoRequest, opts ...grpc.CallOption) (*SignInfo, error)
 	ListSignInfo(ctx context.Context, in *ListSignInfoRequest, opts ...grpc.CallOption) (*ListSignInfoResponse, error)
@@ -689,6 +691,15 @@ func (c *globalAPIClient) ListTransactionsByFilter(ctx context.Context, in *List
 	return out, nil
 }
 
+func (c *globalAPIClient) ListUnconfirmedTransactionsByFilter(ctx context.Context, in *ListUnconfirmedTransactionsByFilterRequest, opts ...grpc.CallOption) (*ListUnconfirmedTransactionsResponse, error) {
+	out := new(ListUnconfirmedTransactionsResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListUnconfirmedTransactionsByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *globalAPIClient) GetSignInfo(ctx context.Context, in *GetSignInfoRequest, opts ...grpc.CallOption) (*SignInfo, error) {
 	out := new(SignInfo)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/GetSignInfo", in, out, opts...)
@@ -1237,6 +1248,8 @@ type GlobalAPIServer interface {
 	GetTransactionByTxID(context.Context, *GetTransactionByTxIDRequest) (*Transaction, error)
 	ListTransactions(context.Context, *ListTransactionsRequest) (*ListTransactionsResponse, error)
 	ListTransactionsByFilter(context.Context, *ListTransactionsByFilterRequest) (*ListTransactionsResponse, error)
+	// UnconfirmedTransaction
+	ListUnconfirmedTransactionsByFilter(context.Context, *ListUnconfirmedTransactionsByFilterRequest) (*ListUnconfirmedTransactionsResponse, error)
 	// SignInfo
 	GetSignInfo(context.Context, *GetSignInfoRequest) (*SignInfo, error)
 	ListSignInfo(context.Context, *ListSignInfoRequest) (*ListSignInfoResponse, error)
@@ -1483,6 +1496,9 @@ func (UnimplementedGlobalAPIServer) ListTransactions(context.Context, *ListTrans
 }
 func (UnimplementedGlobalAPIServer) ListTransactionsByFilter(context.Context, *ListTransactionsByFilterRequest) (*ListTransactionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListTransactionsByFilter not implemented")
+}
+func (UnimplementedGlobalAPIServer) ListUnconfirmedTransactionsByFilter(context.Context, *ListUnconfirmedTransactionsByFilterRequest) (*ListUnconfirmedTransactionsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListUnconfirmedTransactionsByFilter not implemented")
 }
 func (UnimplementedGlobalAPIServer) GetSignInfo(context.Context, *GetSignInfoRequest) (*SignInfo, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSignInfo not implemented")
@@ -2699,6 +2715,24 @@ func _GlobalAPI_ListTransactionsByFilter_Handler(srv interface{}, ctx context.Co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GlobalAPI_ListUnconfirmedTransactionsByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListUnconfirmedTransactionsByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ListUnconfirmedTransactionsByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ListUnconfirmedTransactionsByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ListUnconfirmedTransactionsByFilter(ctx, req.(*ListUnconfirmedTransactionsByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GlobalAPI_GetSignInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetSignInfoRequest)
 	if err := dec(in); err != nil {
@@ -3891,6 +3925,10 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListTransactionsByFilter",
 			Handler:    _GlobalAPI_ListTransactionsByFilter_Handler,
+		},
+		{
+			MethodName: "ListUnconfirmedTransactionsByFilter",
+			Handler:    _GlobalAPI_ListUnconfirmedTransactionsByFilter_Handler,
 		},
 		{
 			MethodName: "GetSignInfo",

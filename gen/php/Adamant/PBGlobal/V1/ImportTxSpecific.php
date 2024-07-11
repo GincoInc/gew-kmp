@@ -17,18 +17,6 @@ class ImportTxSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string tx_id = 1 [json_name = "txId"];</code>
      */
     protected $tx_id = '';
-    /**
-     * Generated from protobuf field <code>uint32 output_index = 2 [json_name = "outputIndex"];</code>
-     */
-    protected $output_index = 0;
-    /**
-     * Generated from protobuf field <code>double exported_amount = 3 [json_name = "exportedAmount"];</code>
-     */
-    protected $exported_amount = 0.0;
-    /**
-     * Generated from protobuf field <code>string string_exported_amount = 4 [json_name = "stringExportedAmount"];</code>
-     */
-    protected $string_exported_amount = '';
 
     /**
      * Constructor.
@@ -37,9 +25,6 @@ class ImportTxSpecific extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $tx_id
-     *     @type int $output_index
-     *     @type float $exported_amount
-     *     @type string $string_exported_amount
      * }
      */
     public function __construct($data = NULL) {
@@ -65,72 +50,6 @@ class ImportTxSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->tx_id = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 output_index = 2 [json_name = "outputIndex"];</code>
-     * @return int
-     */
-    public function getOutputIndex()
-    {
-        return $this->output_index;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 output_index = 2 [json_name = "outputIndex"];</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setOutputIndex($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->output_index = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>double exported_amount = 3 [json_name = "exportedAmount"];</code>
-     * @return float
-     */
-    public function getExportedAmount()
-    {
-        return $this->exported_amount;
-    }
-
-    /**
-     * Generated from protobuf field <code>double exported_amount = 3 [json_name = "exportedAmount"];</code>
-     * @param float $var
-     * @return $this
-     */
-    public function setExportedAmount($var)
-    {
-        GPBUtil::checkDouble($var);
-        $this->exported_amount = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>string string_exported_amount = 4 [json_name = "stringExportedAmount"];</code>
-     * @return string
-     */
-    public function getStringExportedAmount()
-    {
-        return $this->string_exported_amount;
-    }
-
-    /**
-     * Generated from protobuf field <code>string string_exported_amount = 4 [json_name = "stringExportedAmount"];</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setStringExportedAmount($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->string_exported_amount = $var;
 
         return $this;
     }
