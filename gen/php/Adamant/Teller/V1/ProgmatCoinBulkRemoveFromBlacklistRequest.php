@@ -9,9 +9,9 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>adamant.teller.v1.ProgmatCoinAddToBlacklistRequest</code>
+ * Generated from protobuf message <code>adamant.teller.v1.ProgmatCoinBulkRemoveFromBlacklistRequest</code>
  */
-class ProgmatCoinAddToBlacklistRequest extends \Google\Protobuf\Internal\Message
+class ProgmatCoinBulkRemoveFromBlacklistRequest extends \Google\Protobuf\Internal\Message
 {
     /**
      * Generated from protobuf field <code>string wallet_id = 1 [json_name = "walletId", (.validate.rules) = {</code>
@@ -26,9 +26,13 @@ class ProgmatCoinAddToBlacklistRequest extends \Google\Protobuf\Internal\Message
      */
     protected $contract_address = '';
     /**
-     * Generated from protobuf field <code>string address = 4 [json_name = "address", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string utils_address = 4 [json_name = "utilsAddress", (.validate.rules) = {</code>
      */
-    protected $address = '';
+    protected $utils_address = '';
+    /**
+     * Generated from protobuf field <code>repeated string addresses = 5 [json_name = "addresses", (.validate.rules) = {</code>
+     */
+    private $addresses;
 
     /**
      * Constructor.
@@ -39,7 +43,8 @@ class ProgmatCoinAddToBlacklistRequest extends \Google\Protobuf\Internal\Message
      *     @type string $wallet_id
      *     @type int|string $fee_rate
      *     @type string $contract_address
-     *     @type string $address
+     *     @type string $utils_address
+     *     @type array<string>|\Google\Protobuf\Internal\RepeatedField $addresses
      * }
      */
     public function __construct($data = NULL) {
@@ -114,23 +119,45 @@ class ProgmatCoinAddToBlacklistRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string address = 4 [json_name = "address", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string utils_address = 4 [json_name = "utilsAddress", (.validate.rules) = {</code>
      * @return string
      */
-    public function getAddress()
+    public function getUtilsAddress()
     {
-        return $this->address;
+        return $this->utils_address;
     }
 
     /**
-     * Generated from protobuf field <code>string address = 4 [json_name = "address", (.validate.rules) = {</code>
+     * Generated from protobuf field <code>string utils_address = 4 [json_name = "utilsAddress", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
-    public function setAddress($var)
+    public function setUtilsAddress($var)
     {
         GPBUtil::checkString($var, True);
-        $this->address = $var;
+        $this->utils_address = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string addresses = 5 [json_name = "addresses", (.validate.rules) = {</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
+     */
+    public function getAddresses()
+    {
+        return $this->addresses;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string addresses = 5 [json_name = "addresses", (.validate.rules) = {</code>
+     * @param array<string>|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
+     */
+    public function setAddresses($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->addresses = $arr;
 
         return $this;
     }

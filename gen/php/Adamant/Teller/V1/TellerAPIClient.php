@@ -190,6 +190,34 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\GetCardanoTokenWalletRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function GetCardanoTokenWallet(\Adamant\Global\V1\GetCardanoTokenWalletRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/GetCardanoTokenWallet',
+        $argument,
+        ['\Adamant\Global\V1\GetCardanoTokenWalletResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\UpdateCardanoTokenWalletRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function UpdateCardanoTokenWallet(\Adamant\Global\V1\UpdateCardanoTokenWalletRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/UpdateCardanoTokenWallet',
+        $argument,
+        ['\Google\Protobuf\GPBEmpty', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * Create a new address for an existing wallet
      * @param \Adamant\Global\V1\CreateAddressRequest $argument input argument
      * @param array $metadata metadata
@@ -801,56 +829,56 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
-     * @param \Adamant\Teller\V1\ProgmatCoinAddToWhitelistRequest $argument input argument
+     * @param \Adamant\Teller\V1\ProgmatCoinBulkAddToWhitelistRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function ProgmatCoinAddToWhitelist(\Adamant\Teller\V1\ProgmatCoinAddToWhitelistRequest $argument,
+    public function ProgmatCoinBulkAddToWhitelist(\Adamant\Teller\V1\ProgmatCoinBulkAddToWhitelistRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinAddToWhitelist',
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinBulkAddToWhitelist',
         $argument,
         ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
         $metadata, $options);
     }
 
     /**
-     * @param \Adamant\Teller\V1\ProgmatCoinRemoveFromWhitelistRequest $argument input argument
+     * @param \Adamant\Teller\V1\ProgmatCoinBulkRemoveFromWhitelistRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function ProgmatCoinRemoveFromWhitelist(\Adamant\Teller\V1\ProgmatCoinRemoveFromWhitelistRequest $argument,
+    public function ProgmatCoinBulkRemoveFromWhitelist(\Adamant\Teller\V1\ProgmatCoinBulkRemoveFromWhitelistRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinRemoveFromWhitelist',
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinBulkRemoveFromWhitelist',
         $argument,
         ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
         $metadata, $options);
     }
 
     /**
-     * @param \Adamant\Teller\V1\ProgmatCoinAddToBlacklistRequest $argument input argument
+     * @param \Adamant\Teller\V1\ProgmatCoinBulkAddToBlacklistRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function ProgmatCoinAddToBlacklist(\Adamant\Teller\V1\ProgmatCoinAddToBlacklistRequest $argument,
+    public function ProgmatCoinBulkAddToBlacklist(\Adamant\Teller\V1\ProgmatCoinBulkAddToBlacklistRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinAddToBlacklist',
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinBulkAddToBlacklist',
         $argument,
         ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
         $metadata, $options);
     }
 
     /**
-     * @param \Adamant\Teller\V1\ProgmatCoinRemoveFromBlacklistRequest $argument input argument
+     * @param \Adamant\Teller\V1\ProgmatCoinBulkRemoveFromBlacklistRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function ProgmatCoinRemoveFromBlacklist(\Adamant\Teller\V1\ProgmatCoinRemoveFromBlacklistRequest $argument,
+    public function ProgmatCoinBulkRemoveFromBlacklist(\Adamant\Teller\V1\ProgmatCoinBulkRemoveFromBlacklistRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinRemoveFromBlacklist',
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinBulkRemoveFromBlacklist',
         $argument,
         ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
         $metadata, $options);

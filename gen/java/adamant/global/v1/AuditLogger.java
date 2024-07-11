@@ -541,6 +541,64 @@ public final class AuditLogger {
      * <code>.google.protobuf.Timestamp create_time = 33 [json_name = "createTime"];</code>
      */
     com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder();
+
+    /**
+     * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+     * @return A list containing the enabledMails.
+     */
+    java.util.List<adamant.global.v1.Enum.MailType> getEnabledMailsList();
+    /**
+     * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+     * @return The count of enabledMails.
+     */
+    int getEnabledMailsCount();
+    /**
+     * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+     * @param index The index of the element to return.
+     * @return The enabledMails at the given index.
+     */
+    adamant.global.v1.Enum.MailType getEnabledMails(int index);
+    /**
+     * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+     * @return A list containing the enum numeric values on the wire for enabledMails.
+     */
+    java.util.List<java.lang.Integer>
+    getEnabledMailsValueList();
+    /**
+     * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of enabledMails at the given index.
+     */
+    int getEnabledMailsValue(int index);
+
+    /**
+     * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+     * @return A list containing the disabledMails.
+     */
+    java.util.List<adamant.global.v1.Enum.MailType> getDisabledMailsList();
+    /**
+     * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+     * @return The count of disabledMails.
+     */
+    int getDisabledMailsCount();
+    /**
+     * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+     * @param index The index of the element to return.
+     * @return The disabledMails at the given index.
+     */
+    adamant.global.v1.Enum.MailType getDisabledMails(int index);
+    /**
+     * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+     * @return A list containing the enum numeric values on the wire for disabledMails.
+     */
+    java.util.List<java.lang.Integer>
+    getDisabledMailsValueList();
+    /**
+     * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of disabledMails at the given index.
+     */
+    int getDisabledMailsValue(int index);
   }
   /**
    * <pre>
@@ -598,6 +656,8 @@ public final class AuditLogger {
           com.google.protobuf.LazyStringArrayList.emptyList();
       whitelistAddresses_ =
           com.google.protobuf.LazyStringArrayList.emptyList();
+      enabledMails_ = java.util.Collections.emptyList();
+      disabledMails_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -1986,6 +2046,122 @@ public final class AuditLogger {
       return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
     }
 
+    public static final int ENABLED_MAILS_FIELD_NUMBER = 41;
+    @SuppressWarnings("serial")
+    private java.util.List<java.lang.Integer> enabledMails_;
+    private static final com.google.protobuf.Internal.ListAdapter.Converter<
+        java.lang.Integer, adamant.global.v1.Enum.MailType> enabledMails_converter_ =
+            new com.google.protobuf.Internal.ListAdapter.Converter<
+                java.lang.Integer, adamant.global.v1.Enum.MailType>() {
+              public adamant.global.v1.Enum.MailType convert(java.lang.Integer from) {
+                adamant.global.v1.Enum.MailType result = adamant.global.v1.Enum.MailType.forNumber(from);
+                return result == null ? adamant.global.v1.Enum.MailType.UNRECOGNIZED : result;
+              }
+            };
+    /**
+     * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+     * @return A list containing the enabledMails.
+     */
+    @java.lang.Override
+    public java.util.List<adamant.global.v1.Enum.MailType> getEnabledMailsList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          java.lang.Integer, adamant.global.v1.Enum.MailType>(enabledMails_, enabledMails_converter_);
+    }
+    /**
+     * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+     * @return The count of enabledMails.
+     */
+    @java.lang.Override
+    public int getEnabledMailsCount() {
+      return enabledMails_.size();
+    }
+    /**
+     * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+     * @param index The index of the element to return.
+     * @return The enabledMails at the given index.
+     */
+    @java.lang.Override
+    public adamant.global.v1.Enum.MailType getEnabledMails(int index) {
+      return enabledMails_converter_.convert(enabledMails_.get(index));
+    }
+    /**
+     * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+     * @return A list containing the enum numeric values on the wire for enabledMails.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Integer>
+    getEnabledMailsValueList() {
+      return enabledMails_;
+    }
+    /**
+     * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of enabledMails at the given index.
+     */
+    @java.lang.Override
+    public int getEnabledMailsValue(int index) {
+      return enabledMails_.get(index);
+    }
+    private int enabledMailsMemoizedSerializedSize;
+
+    public static final int DISABLED_MAILS_FIELD_NUMBER = 42;
+    @SuppressWarnings("serial")
+    private java.util.List<java.lang.Integer> disabledMails_;
+    private static final com.google.protobuf.Internal.ListAdapter.Converter<
+        java.lang.Integer, adamant.global.v1.Enum.MailType> disabledMails_converter_ =
+            new com.google.protobuf.Internal.ListAdapter.Converter<
+                java.lang.Integer, adamant.global.v1.Enum.MailType>() {
+              public adamant.global.v1.Enum.MailType convert(java.lang.Integer from) {
+                adamant.global.v1.Enum.MailType result = adamant.global.v1.Enum.MailType.forNumber(from);
+                return result == null ? adamant.global.v1.Enum.MailType.UNRECOGNIZED : result;
+              }
+            };
+    /**
+     * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+     * @return A list containing the disabledMails.
+     */
+    @java.lang.Override
+    public java.util.List<adamant.global.v1.Enum.MailType> getDisabledMailsList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          java.lang.Integer, adamant.global.v1.Enum.MailType>(disabledMails_, disabledMails_converter_);
+    }
+    /**
+     * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+     * @return The count of disabledMails.
+     */
+    @java.lang.Override
+    public int getDisabledMailsCount() {
+      return disabledMails_.size();
+    }
+    /**
+     * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+     * @param index The index of the element to return.
+     * @return The disabledMails at the given index.
+     */
+    @java.lang.Override
+    public adamant.global.v1.Enum.MailType getDisabledMails(int index) {
+      return disabledMails_converter_.convert(disabledMails_.get(index));
+    }
+    /**
+     * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+     * @return A list containing the enum numeric values on the wire for disabledMails.
+     */
+    @java.lang.Override
+    public java.util.List<java.lang.Integer>
+    getDisabledMailsValueList() {
+      return disabledMails_;
+    }
+    /**
+     * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of disabledMails at the given index.
+     */
+    @java.lang.Override
+    public int getDisabledMailsValue(int index) {
+      return disabledMails_.get(index);
+    }
+    private int disabledMailsMemoizedSerializedSize;
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2000,6 +2176,7 @@ public final class AuditLogger {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      getSerializedSize();
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(auditLogId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, auditLogId_);
       }
@@ -2119,6 +2296,20 @@ public final class AuditLogger {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destinationWalletName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 40, destinationWalletName_);
+      }
+      if (getEnabledMailsList().size() > 0) {
+        output.writeUInt32NoTag(330);
+        output.writeUInt32NoTag(enabledMailsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < enabledMails_.size(); i++) {
+        output.writeEnumNoTag(enabledMails_.get(i));
+      }
+      if (getDisabledMailsList().size() > 0) {
+        output.writeUInt32NoTag(338);
+        output.writeUInt32NoTag(disabledMailsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < disabledMails_.size(); i++) {
+        output.writeEnumNoTag(disabledMails_.get(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -2278,6 +2469,30 @@ public final class AuditLogger {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(destinationWalletName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(40, destinationWalletName_);
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < enabledMails_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeEnumSizeNoTag(enabledMails_.get(i));
+        }
+        size += dataSize;
+        if (!getEnabledMailsList().isEmpty()) {  size += 2;
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32SizeNoTag(dataSize);
+        }enabledMailsMemoizedSerializedSize = dataSize;
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < disabledMails_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeEnumSizeNoTag(disabledMails_.get(i));
+        }
+        size += dataSize;
+        if (!getDisabledMailsList().isEmpty()) {  size += 2;
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32SizeNoTag(dataSize);
+        }disabledMailsMemoizedSerializedSize = dataSize;
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2375,6 +2590,8 @@ public final class AuditLogger {
         if (!getCreateTime()
             .equals(other.getCreateTime())) return false;
       }
+      if (!enabledMails_.equals(other.enabledMails_)) return false;
+      if (!disabledMails_.equals(other.disabledMails_)) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -2480,6 +2697,14 @@ public final class AuditLogger {
       if (hasCreateTime()) {
         hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
         hash = (53 * hash) + getCreateTime().hashCode();
+      }
+      if (getEnabledMailsCount() > 0) {
+        hash = (37 * hash) + ENABLED_MAILS_FIELD_NUMBER;
+        hash = (53 * hash) + enabledMails_.hashCode();
+      }
+      if (getDisabledMailsCount() > 0) {
+        hash = (37 * hash) + DISABLED_MAILS_FIELD_NUMBER;
+        hash = (53 * hash) + disabledMails_.hashCode();
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -2669,6 +2894,10 @@ public final class AuditLogger {
           createTimeBuilder_.dispose();
           createTimeBuilder_ = null;
         }
+        enabledMails_ = java.util.Collections.emptyList();
+        bitField1_ = (bitField1_ & ~0x00000100);
+        disabledMails_ = java.util.Collections.emptyList();
+        bitField1_ = (bitField1_ & ~0x00000200);
         return this;
       }
 
@@ -2695,10 +2924,24 @@ public final class AuditLogger {
       @java.lang.Override
       public adamant.global.v1.AuditLogger.AuditLog buildPartial() {
         adamant.global.v1.AuditLogger.AuditLog result = new adamant.global.v1.AuditLogger.AuditLog(this);
+        buildPartialRepeatedFields(result);
         if (bitField0_ != 0) { buildPartial0(result); }
         if (bitField1_ != 0) { buildPartial1(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(adamant.global.v1.AuditLogger.AuditLog result) {
+        if (((bitField1_ & 0x00000100) != 0)) {
+          enabledMails_ = java.util.Collections.unmodifiableList(enabledMails_);
+          bitField1_ = (bitField1_ & ~0x00000100);
+        }
+        result.enabledMails_ = enabledMails_;
+        if (((bitField1_ & 0x00000200) != 0)) {
+          disabledMails_ = java.util.Collections.unmodifiableList(disabledMails_);
+          bitField1_ = (bitField1_ & ~0x00000200);
+        }
+        result.disabledMails_ = disabledMails_;
       }
 
       private void buildPartial0(adamant.global.v1.AuditLogger.AuditLog result) {
@@ -3083,6 +3326,26 @@ public final class AuditLogger {
         if (other.hasCreateTime()) {
           mergeCreateTime(other.getCreateTime());
         }
+        if (!other.enabledMails_.isEmpty()) {
+          if (enabledMails_.isEmpty()) {
+            enabledMails_ = other.enabledMails_;
+            bitField1_ = (bitField1_ & ~0x00000100);
+          } else {
+            ensureEnabledMailsIsMutable();
+            enabledMails_.addAll(other.enabledMails_);
+          }
+          onChanged();
+        }
+        if (!other.disabledMails_.isEmpty()) {
+          if (disabledMails_.isEmpty()) {
+            disabledMails_ = other.disabledMails_;
+            bitField1_ = (bitField1_ & ~0x00000200);
+          } else {
+            ensureDisabledMailsIsMutable();
+            disabledMails_.addAll(other.disabledMails_);
+          }
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -3317,6 +3580,40 @@ public final class AuditLogger {
                 bitField0_ |= 0x00008000;
                 break;
               } // case 322
+              case 328: {
+                int tmpRaw = input.readEnum();
+                ensureEnabledMailsIsMutable();
+                enabledMails_.add(tmpRaw);
+                break;
+              } // case 328
+              case 330: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  ensureEnabledMailsIsMutable();
+                  enabledMails_.add(tmpRaw);
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 330
+              case 336: {
+                int tmpRaw = input.readEnum();
+                ensureDisabledMailsIsMutable();
+                disabledMails_.add(tmpRaw);
+                break;
+              } // case 336
+              case 338: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  ensureDisabledMailsIsMutable();
+                  disabledMails_.add(tmpRaw);
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 338
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -6288,6 +6585,286 @@ public final class AuditLogger {
         }
         return createTimeBuilder_;
       }
+
+      private java.util.List<java.lang.Integer> enabledMails_ =
+        java.util.Collections.emptyList();
+      private void ensureEnabledMailsIsMutable() {
+        if (!((bitField1_ & 0x00000100) != 0)) {
+          enabledMails_ = new java.util.ArrayList<java.lang.Integer>(enabledMails_);
+          bitField1_ |= 0x00000100;
+        }
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+       * @return A list containing the enabledMails.
+       */
+      public java.util.List<adamant.global.v1.Enum.MailType> getEnabledMailsList() {
+        return new com.google.protobuf.Internal.ListAdapter<
+            java.lang.Integer, adamant.global.v1.Enum.MailType>(enabledMails_, enabledMails_converter_);
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+       * @return The count of enabledMails.
+       */
+      public int getEnabledMailsCount() {
+        return enabledMails_.size();
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+       * @param index The index of the element to return.
+       * @return The enabledMails at the given index.
+       */
+      public adamant.global.v1.Enum.MailType getEnabledMails(int index) {
+        return enabledMails_converter_.convert(enabledMails_.get(index));
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+       * @param index The index to set the value at.
+       * @param value The enabledMails to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEnabledMails(
+          int index, adamant.global.v1.Enum.MailType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureEnabledMailsIsMutable();
+        enabledMails_.set(index, value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+       * @param value The enabledMails to add.
+       * @return This builder for chaining.
+       */
+      public Builder addEnabledMails(adamant.global.v1.Enum.MailType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureEnabledMailsIsMutable();
+        enabledMails_.add(value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+       * @param values The enabledMails to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllEnabledMails(
+          java.lang.Iterable<? extends adamant.global.v1.Enum.MailType> values) {
+        ensureEnabledMailsIsMutable();
+        for (adamant.global.v1.Enum.MailType value : values) {
+          enabledMails_.add(value.getNumber());
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEnabledMails() {
+        enabledMails_ = java.util.Collections.emptyList();
+        bitField1_ = (bitField1_ & ~0x00000100);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+       * @return A list containing the enum numeric values on the wire for enabledMails.
+       */
+      public java.util.List<java.lang.Integer>
+      getEnabledMailsValueList() {
+        return java.util.Collections.unmodifiableList(enabledMails_);
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+       * @param index The index of the value to return.
+       * @return The enum numeric value on the wire of enabledMails at the given index.
+       */
+      public int getEnabledMailsValue(int index) {
+        return enabledMails_.get(index);
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+       * @param index The index to set the value at.
+       * @param value The enum numeric value on the wire for enabledMails to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEnabledMailsValue(
+          int index, int value) {
+        ensureEnabledMailsIsMutable();
+        enabledMails_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+       * @param value The enum numeric value on the wire for enabledMails to add.
+       * @return This builder for chaining.
+       */
+      public Builder addEnabledMailsValue(int value) {
+        ensureEnabledMailsIsMutable();
+        enabledMails_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType enabled_mails = 41 [json_name = "enabledMails"];</code>
+       * @param values The enum numeric values on the wire for enabledMails to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllEnabledMailsValue(
+          java.lang.Iterable<java.lang.Integer> values) {
+        ensureEnabledMailsIsMutable();
+        for (int value : values) {
+          enabledMails_.add(value);
+        }
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<java.lang.Integer> disabledMails_ =
+        java.util.Collections.emptyList();
+      private void ensureDisabledMailsIsMutable() {
+        if (!((bitField1_ & 0x00000200) != 0)) {
+          disabledMails_ = new java.util.ArrayList<java.lang.Integer>(disabledMails_);
+          bitField1_ |= 0x00000200;
+        }
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+       * @return A list containing the disabledMails.
+       */
+      public java.util.List<adamant.global.v1.Enum.MailType> getDisabledMailsList() {
+        return new com.google.protobuf.Internal.ListAdapter<
+            java.lang.Integer, adamant.global.v1.Enum.MailType>(disabledMails_, disabledMails_converter_);
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+       * @return The count of disabledMails.
+       */
+      public int getDisabledMailsCount() {
+        return disabledMails_.size();
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+       * @param index The index of the element to return.
+       * @return The disabledMails at the given index.
+       */
+      public adamant.global.v1.Enum.MailType getDisabledMails(int index) {
+        return disabledMails_converter_.convert(disabledMails_.get(index));
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+       * @param index The index to set the value at.
+       * @param value The disabledMails to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDisabledMails(
+          int index, adamant.global.v1.Enum.MailType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureDisabledMailsIsMutable();
+        disabledMails_.set(index, value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+       * @param value The disabledMails to add.
+       * @return This builder for chaining.
+       */
+      public Builder addDisabledMails(adamant.global.v1.Enum.MailType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureDisabledMailsIsMutable();
+        disabledMails_.add(value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+       * @param values The disabledMails to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllDisabledMails(
+          java.lang.Iterable<? extends adamant.global.v1.Enum.MailType> values) {
+        ensureDisabledMailsIsMutable();
+        for (adamant.global.v1.Enum.MailType value : values) {
+          disabledMails_.add(value.getNumber());
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDisabledMails() {
+        disabledMails_ = java.util.Collections.emptyList();
+        bitField1_ = (bitField1_ & ~0x00000200);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+       * @return A list containing the enum numeric values on the wire for disabledMails.
+       */
+      public java.util.List<java.lang.Integer>
+      getDisabledMailsValueList() {
+        return java.util.Collections.unmodifiableList(disabledMails_);
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+       * @param index The index of the value to return.
+       * @return The enum numeric value on the wire of disabledMails at the given index.
+       */
+      public int getDisabledMailsValue(int index) {
+        return disabledMails_.get(index);
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+       * @param index The index to set the value at.
+       * @param value The enum numeric value on the wire for disabledMails to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDisabledMailsValue(
+          int index, int value) {
+        ensureDisabledMailsIsMutable();
+        disabledMails_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+       * @param value The enum numeric value on the wire for disabledMails to add.
+       * @return This builder for chaining.
+       */
+      public Builder addDisabledMailsValue(int value) {
+        ensureDisabledMailsIsMutable();
+        disabledMails_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
+       * @param values The enum numeric values on the wire for disabledMails to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllDisabledMailsValue(
+          java.lang.Iterable<java.lang.Integer> values) {
+        ensureDisabledMailsIsMutable();
+        for (int value : values) {
+          disabledMails_.add(value);
+        }
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6371,7 +6948,7 @@ public final class AuditLogger {
       "v1\0325gincoinc/adamant/global/v1/adamantgl" +
       "obalv1/enum.proto\032.gincoinc/global/v1/gi" +
       "ncoincglobalv1/enum.proto\032\037google/protob" +
-      "uf/timestamp.proto\"\332\r\n\010AuditLog\022 \n\014audit" +
+      "uf/timestamp.proto\"\340\016\n\010AuditLog\022 \n\014audit" +
       "_log_id\030\001 \001(\tR\nauditLogId\022H\n\017audit_log_g" +
       "roup\030\002 \001(\0162 .adamant.global.v1.AuditLogG" +
       "roupR\rauditLogGroup\022E\n\016audit_log_type\030\003 " +
@@ -6415,9 +6992,12 @@ public final class AuditLogger {
       "telistAddresses\0229\n\nevent_time\030  \001(\0132\032.go" +
       "ogle.protobuf.TimestampR\teventTime\022;\n\013cr" +
       "eate_time\030! \001(\0132\032.google.protobuf.Timest" +
-      "ampR\ncreateTimeBLZJgithub.com/GincoInc/g" +
-      "ew-kmp/gen/gincoinc/adamant/global/v1/ad" +
-      "amantglobalv1b\006proto3"
+      "ampR\ncreateTime\022@\n\renabled_mails\030) \003(\0162\033" +
+      ".adamant.global.v1.MailTypeR\014enabledMail" +
+      "s\022B\n\016disabled_mails\030* \003(\0162\033.adamant.glob" +
+      "al.v1.MailTypeR\rdisabledMailsBLZJgithub." +
+      "com/GincoInc/gew-kmp/gen/gincoinc/adaman" +
+      "t/global/v1/adamantglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -6431,7 +7011,7 @@ public final class AuditLogger {
     internal_static_adamant_global_v1_AuditLog_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_AuditLog_descriptor,
-        new java.lang.String[] { "AuditLogId", "AuditLogGroup", "AuditLogType", "AccountId", "AccountName", "TargetAccountId", "TargetAccountName", "Email", "RoleType", "ServiceAccountId", "ServiceAccountName", "ServiceAccountKeyId", "WalletId", "WalletName", "DestinationWalletId", "DestinationWalletName", "WalletGroupId", "WalletGroupName", "WalletNames", "TransactionId", "CoinType", "StringValue", "TxId", "PolicyId", "PolicyName", "LabeledAddressId", "Address", "AddressName", "TransferLimitId", "TransferLimitName", "TransferOneTimeLimit", "TransferHourlyLimit", "TransferDailyLimit", "WhitelistId", "WhitelistName", "OldValidators", "NewValidators", "WhitelistAddresses", "EventTime", "CreateTime", });
+        new java.lang.String[] { "AuditLogId", "AuditLogGroup", "AuditLogType", "AccountId", "AccountName", "TargetAccountId", "TargetAccountName", "Email", "RoleType", "ServiceAccountId", "ServiceAccountName", "ServiceAccountKeyId", "WalletId", "WalletName", "DestinationWalletId", "DestinationWalletName", "WalletGroupId", "WalletGroupName", "WalletNames", "TransactionId", "CoinType", "StringValue", "TxId", "PolicyId", "PolicyName", "LabeledAddressId", "Address", "AddressName", "TransferLimitId", "TransferLimitName", "TransferOneTimeLimit", "TransferHourlyLimit", "TransferDailyLimit", "WhitelistId", "WhitelistName", "OldValidators", "NewValidators", "WhitelistAddresses", "EventTime", "CreateTime", "EnabledMails", "DisabledMails", });
     adamant.global.v1.Enum.getDescriptor();
     gincoinc.global.v1.Enum.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
