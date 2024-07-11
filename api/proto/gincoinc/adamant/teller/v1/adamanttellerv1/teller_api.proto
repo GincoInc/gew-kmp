@@ -31,6 +31,7 @@ service TellerAPI {
   rpc UpdateDestinationWalletID(adamant.global.v1.UpdateDestinationWalletIDRequest) returns (google.protobuf.Empty) {}
   rpc GetCosmosBalance(adamant.global.v1.GetCosmosBalanceRequest) returns (adamant.global.v1.GetCosmosBalanceResponse) {}
   rpc ListCosmosDelegateHistories(adamant.global.v1.ListCosmosDelegateHistoriesRequest) returns (adamant.global.v1.ListCosmosDelegateHistoriesResponse) {}
+  rpc ListUTXOs(adamant.global.v1.ListUTXOsRequest) returns (adamant.global.v1.ListUTXOsResponse) {}
 
   // Create a new address for an existing wallet
   rpc CreateAddress(adamant.global.v1.CreateAddressRequest) returns (adamant.global.v1.CreateAddressResponse) {}
@@ -61,6 +62,7 @@ service TellerAPI {
   rpc GetTransactionByTxID(adamant.global.v1.GetTransactionByTxIDRequest) returns (adamant.global.v1.Transaction) {}
   rpc ListTransactions(adamant.global.v1.ListTransactionsRequest) returns (adamant.global.v1.ListTransactionsResponse) {}
   rpc ListTransactionsByFilter(adamant.global.v1.ListTransactionsByFilterRequest) returns (adamant.global.v1.ListTransactionsResponse) {}
+  rpc ListUnconfirmedTransactionsByFilter(adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest) returns (adamant.global.v1.ListUnconfirmedTransactionsResponse) {}
 
   // Exit ethereum validators
   rpc ExitEthereumStakingValidators(adamant.global.v1.ExitEthereumStakingValidatorsRequest) returns (adamant.global.v1.ExitEthereumStakingValidatorsResponse) {}
