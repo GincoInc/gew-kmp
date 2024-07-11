@@ -21,6 +21,7 @@ private static final long serialVersionUID = 0L;
     mintAddress_ = "";
     transferAddress_ = "";
     amount_ = "";
+    throughAddress_ = "";
   }
 
   @java.lang.Override
@@ -43,6 +44,7 @@ private static final long serialVersionUID = 0L;
             adamant.teller.v1.ProgmatCoinMintAndTransferRequest.class, adamant.teller.v1.ProgmatCoinMintAndTransferRequest.Builder.class);
   }
 
+  private int bitField0_;
   public static final int WALLET_ID_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
   private volatile java.lang.Object walletId_ = "";
@@ -249,6 +251,53 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int THROUGH_ADDRESS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object throughAddress_ = "";
+  /**
+   * <code>optional string through_address = 7 [json_name = "throughAddress", (.validate.rules) = { ... }</code>
+   * @return Whether the throughAddress field is set.
+   */
+  @java.lang.Override
+  public boolean hasThroughAddress() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>optional string through_address = 7 [json_name = "throughAddress", (.validate.rules) = { ... }</code>
+   * @return The throughAddress.
+   */
+  @java.lang.Override
+  public java.lang.String getThroughAddress() {
+    java.lang.Object ref = throughAddress_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      throughAddress_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string through_address = 7 [json_name = "throughAddress", (.validate.rules) = { ... }</code>
+   * @return The bytes for throughAddress.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getThroughAddressBytes() {
+    java.lang.Object ref = throughAddress_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      throughAddress_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -281,6 +330,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(amount_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, amount_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, throughAddress_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -309,6 +361,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(amount_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, amount_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, throughAddress_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -336,6 +391,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTransferAddress())) return false;
     if (!getAmount()
         .equals(other.getAmount())) return false;
+    if (hasThroughAddress() != other.hasThroughAddress()) return false;
+    if (hasThroughAddress()) {
+      if (!getThroughAddress()
+          .equals(other.getThroughAddress())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -360,6 +420,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getTransferAddress().hashCode();
     hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
     hash = (53 * hash) + getAmount().hashCode();
+    if (hasThroughAddress()) {
+      hash = (37 * hash) + THROUGH_ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getThroughAddress().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -497,6 +561,7 @@ private static final long serialVersionUID = 0L;
       mintAddress_ = "";
       transferAddress_ = "";
       amount_ = "";
+      throughAddress_ = "";
       return this;
     }
 
@@ -548,6 +613,12 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000020) != 0)) {
         result.amount_ = amount_;
       }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.throughAddress_ = throughAddress_;
+        to_bitField0_ |= 0x00000001;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -622,6 +693,11 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000020;
         onChanged();
       }
+      if (other.hasThroughAddress()) {
+        throughAddress_ = other.throughAddress_;
+        bitField0_ |= 0x00000040;
+        onChanged();
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -678,6 +754,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000020;
               break;
             } // case 50
+            case 58: {
+              throughAddress_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1083,6 +1164,85 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       amount_ = value;
       bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object throughAddress_ = "";
+    /**
+     * <code>optional string through_address = 7 [json_name = "throughAddress", (.validate.rules) = { ... }</code>
+     * @return Whether the throughAddress field is set.
+     */
+    public boolean hasThroughAddress() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <code>optional string through_address = 7 [json_name = "throughAddress", (.validate.rules) = { ... }</code>
+     * @return The throughAddress.
+     */
+    public java.lang.String getThroughAddress() {
+      java.lang.Object ref = throughAddress_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        throughAddress_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>optional string through_address = 7 [json_name = "throughAddress", (.validate.rules) = { ... }</code>
+     * @return The bytes for throughAddress.
+     */
+    public com.google.protobuf.ByteString
+        getThroughAddressBytes() {
+      java.lang.Object ref = throughAddress_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        throughAddress_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string through_address = 7 [json_name = "throughAddress", (.validate.rules) = { ... }</code>
+     * @param value The throughAddress to set.
+     * @return This builder for chaining.
+     */
+    public Builder setThroughAddress(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      throughAddress_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string through_address = 7 [json_name = "throughAddress", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearThroughAddress() {
+      throughAddress_ = getDefaultInstance().getThroughAddress();
+      bitField0_ = (bitField0_ & ~0x00000040);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string through_address = 7 [json_name = "throughAddress", (.validate.rules) = { ... }</code>
+     * @param value The bytes for throughAddress to set.
+     * @return This builder for chaining.
+     */
+    public Builder setThroughAddressBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      throughAddress_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
