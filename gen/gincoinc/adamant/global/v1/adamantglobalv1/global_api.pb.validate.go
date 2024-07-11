@@ -12387,6 +12387,418 @@ var _ interface {
 	ErrorName() string
 } = ListTransactionsResponseValidationError{}
 
+// Validate checks the field values on
+// ListUnconfirmedTransactionsByFilterRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ListUnconfirmedTransactionsByFilterRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ListUnconfirmedTransactionsByFilterRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// ListUnconfirmedTransactionsByFilterRequestMultiError, or nil if none found.
+func (m *ListUnconfirmedTransactionsByFilterRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListUnconfirmedTransactionsByFilterRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := _ListUnconfirmedTransactionsByFilterRequest_FilterType_NotInLookup[m.GetFilterType()]; ok {
+		err := ListUnconfirmedTransactionsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must not be in list [0 6 11 12 13 14 15 16 17 18 19 20 21]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		err := ListUnconfirmedTransactionsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for TransactionId
+
+	// no validation rules for WalletId
+
+	if utf8.RuneCountInString(m.GetWalletName()) > 40 {
+		err := ListUnconfirmedTransactionsByFilterRequestValidationError{
+			field:  "WalletName",
+			reason: "value length must be at most 40 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for Address
+
+	// no validation rules for Txid
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		err := ListUnconfirmedTransactionsByFilterRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetPageSize() > 1000 {
+		err := ListUnconfirmedTransactionsByFilterRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 1000",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ListUnconfirmedTransactionsByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		err := ListUnconfirmedTransactionsByFilterRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if all {
+		switch v := interface{}(m.GetStartTime()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ListUnconfirmedTransactionsByFilterRequestValidationError{
+					field:  "StartTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ListUnconfirmedTransactionsByFilterRequestValidationError{
+					field:  "StartTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetStartTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ListUnconfirmedTransactionsByFilterRequestValidationError{
+				field:  "StartTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetEndTime()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ListUnconfirmedTransactionsByFilterRequestValidationError{
+					field:  "EndTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ListUnconfirmedTransactionsByFilterRequestValidationError{
+					field:  "EndTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetEndTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ListUnconfirmedTransactionsByFilterRequestValidationError{
+				field:  "EndTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := ListUnconfirmedTransactionsByFilterRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ListUnconfirmedTransactionsByFilterRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListUnconfirmedTransactionsByFilterRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ListUnconfirmedTransactionsByFilterRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ListUnconfirmedTransactionsByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListUnconfirmedTransactionsByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListUnconfirmedTransactionsByFilterRequestMultiError) AllErrors() []error { return m }
+
+// ListUnconfirmedTransactionsByFilterRequestValidationError is the validation
+// error returned by ListUnconfirmedTransactionsByFilterRequest.Validate if
+// the designated constraints aren't met.
+type ListUnconfirmedTransactionsByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListUnconfirmedTransactionsByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListUnconfirmedTransactionsByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListUnconfirmedTransactionsByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListUnconfirmedTransactionsByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListUnconfirmedTransactionsByFilterRequestValidationError) ErrorName() string {
+	return "ListUnconfirmedTransactionsByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListUnconfirmedTransactionsByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListUnconfirmedTransactionsByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListUnconfirmedTransactionsByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListUnconfirmedTransactionsByFilterRequestValidationError{}
+
+var _ListUnconfirmedTransactionsByFilterRequest_FilterType_NotInLookup = map[ListFilterType]struct{}{
+	0:  {},
+	6:  {},
+	11: {},
+	12: {},
+	13: {},
+	14: {},
+	15: {},
+	16: {},
+	17: {},
+	18: {},
+	19: {},
+	20: {},
+	21: {},
+}
+
+var _ListUnconfirmedTransactionsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListUnconfirmedTransactionsResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ListUnconfirmedTransactionsResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListUnconfirmedTransactionsResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ListUnconfirmedTransactionsResponseMultiError, or nil if none found.
+func (m *ListUnconfirmedTransactionsResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListUnconfirmedTransactionsResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetUnconfirmedTransactions() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListUnconfirmedTransactionsResponseValidationError{
+						field:  fmt.Sprintf("UnconfirmedTransactions[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListUnconfirmedTransactionsResponseValidationError{
+						field:  fmt.Sprintf("UnconfirmedTransactions[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListUnconfirmedTransactionsResponseValidationError{
+					field:  fmt.Sprintf("UnconfirmedTransactions[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	if len(errors) > 0 {
+		return ListUnconfirmedTransactionsResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListUnconfirmedTransactionsResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListUnconfirmedTransactionsResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ListUnconfirmedTransactionsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListUnconfirmedTransactionsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListUnconfirmedTransactionsResponseMultiError) AllErrors() []error { return m }
+
+// ListUnconfirmedTransactionsResponseValidationError is the validation error
+// returned by ListUnconfirmedTransactionsResponse.Validate if the designated
+// constraints aren't met.
+type ListUnconfirmedTransactionsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListUnconfirmedTransactionsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListUnconfirmedTransactionsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListUnconfirmedTransactionsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListUnconfirmedTransactionsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListUnconfirmedTransactionsResponseValidationError) ErrorName() string {
+	return "ListUnconfirmedTransactionsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListUnconfirmedTransactionsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListUnconfirmedTransactionsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListUnconfirmedTransactionsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListUnconfirmedTransactionsResponseValidationError{}
+
 // Validate checks the field values on GetSignInfoRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -30753,331 +31165,3 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = GetMailSettingsRequestValidationError{}
-
-// Validate checks the field values on GetCardanoTokenWalletRequest with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *GetCardanoTokenWalletRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on GetCardanoTokenWalletRequest with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// GetCardanoTokenWalletRequestMultiError, or nil if none found.
-func (m *GetCardanoTokenWalletRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *GetCardanoTokenWalletRequest) validate(all bool) error {
-	if m == nil {
-		return nil
-	}
-
-	var errors []error
-
-	if len(errors) > 0 {
-		return GetCardanoTokenWalletRequestMultiError(errors)
-	}
-
-	return nil
-}
-
-// GetCardanoTokenWalletRequestMultiError is an error wrapping multiple
-// validation errors returned by GetCardanoTokenWalletRequest.ValidateAll() if
-// the designated constraints aren't met.
-type GetCardanoTokenWalletRequestMultiError []error
-
-// Error returns a concatenation of all the error messages it wraps.
-func (m GetCardanoTokenWalletRequestMultiError) Error() string {
-	var msgs []string
-	for _, err := range m {
-		msgs = append(msgs, err.Error())
-	}
-	return strings.Join(msgs, "; ")
-}
-
-// AllErrors returns a list of validation violation errors.
-func (m GetCardanoTokenWalletRequestMultiError) AllErrors() []error { return m }
-
-// GetCardanoTokenWalletRequestValidationError is the validation error returned
-// by GetCardanoTokenWalletRequest.Validate if the designated constraints
-// aren't met.
-type GetCardanoTokenWalletRequestValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e GetCardanoTokenWalletRequestValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e GetCardanoTokenWalletRequestValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e GetCardanoTokenWalletRequestValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e GetCardanoTokenWalletRequestValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e GetCardanoTokenWalletRequestValidationError) ErrorName() string {
-	return "GetCardanoTokenWalletRequestValidationError"
-}
-
-// Error satisfies the builtin error interface
-func (e GetCardanoTokenWalletRequestValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sGetCardanoTokenWalletRequest.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = GetCardanoTokenWalletRequestValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = GetCardanoTokenWalletRequestValidationError{}
-
-// Validate checks the field values on GetCardanoTokenWalletResponse with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *GetCardanoTokenWalletResponse) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on GetCardanoTokenWalletResponse with
-// the rules defined in the proto definition for this message. If any rules
-// are violated, the result is a list of violation errors wrapped in
-// GetCardanoTokenWalletResponseMultiError, or nil if none found.
-func (m *GetCardanoTokenWalletResponse) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *GetCardanoTokenWalletResponse) validate(all bool) error {
-	if m == nil {
-		return nil
-	}
-
-	var errors []error
-
-	// no validation rules for WalletId
-
-	// no validation rules for WalletName
-
-	// no validation rules for Address
-
-	if len(errors) > 0 {
-		return GetCardanoTokenWalletResponseMultiError(errors)
-	}
-
-	return nil
-}
-
-// GetCardanoTokenWalletResponseMultiError is an error wrapping multiple
-// validation errors returned by GetCardanoTokenWalletResponse.ValidateAll()
-// if the designated constraints aren't met.
-type GetCardanoTokenWalletResponseMultiError []error
-
-// Error returns a concatenation of all the error messages it wraps.
-func (m GetCardanoTokenWalletResponseMultiError) Error() string {
-	var msgs []string
-	for _, err := range m {
-		msgs = append(msgs, err.Error())
-	}
-	return strings.Join(msgs, "; ")
-}
-
-// AllErrors returns a list of validation violation errors.
-func (m GetCardanoTokenWalletResponseMultiError) AllErrors() []error { return m }
-
-// GetCardanoTokenWalletResponseValidationError is the validation error
-// returned by GetCardanoTokenWalletResponse.Validate if the designated
-// constraints aren't met.
-type GetCardanoTokenWalletResponseValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e GetCardanoTokenWalletResponseValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e GetCardanoTokenWalletResponseValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e GetCardanoTokenWalletResponseValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e GetCardanoTokenWalletResponseValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e GetCardanoTokenWalletResponseValidationError) ErrorName() string {
-	return "GetCardanoTokenWalletResponseValidationError"
-}
-
-// Error satisfies the builtin error interface
-func (e GetCardanoTokenWalletResponseValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sGetCardanoTokenWalletResponse.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = GetCardanoTokenWalletResponseValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = GetCardanoTokenWalletResponseValidationError{}
-
-// Validate checks the field values on UpdateCardanoTokenWalletRequest with the
-// rules defined in the proto definition for this message. If any rules are
-// violated, the first error encountered is returned, or nil if there are no violations.
-func (m *UpdateCardanoTokenWalletRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on UpdateCardanoTokenWalletRequest with
-// the rules defined in the proto definition for this message. If any rules
-// are violated, the result is a list of violation errors wrapped in
-// UpdateCardanoTokenWalletRequestMultiError, or nil if none found.
-func (m *UpdateCardanoTokenWalletRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *UpdateCardanoTokenWalletRequest) validate(all bool) error {
-	if m == nil {
-		return nil
-	}
-
-	var errors []error
-
-	if !_UpdateCardanoTokenWalletRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
-		err := UpdateCardanoTokenWalletRequestValidationError{
-			field:  "WalletId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
-		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
-	}
-
-	if len(errors) > 0 {
-		return UpdateCardanoTokenWalletRequestMultiError(errors)
-	}
-
-	return nil
-}
-
-// UpdateCardanoTokenWalletRequestMultiError is an error wrapping multiple
-// validation errors returned by UpdateCardanoTokenWalletRequest.ValidateAll()
-// if the designated constraints aren't met.
-type UpdateCardanoTokenWalletRequestMultiError []error
-
-// Error returns a concatenation of all the error messages it wraps.
-func (m UpdateCardanoTokenWalletRequestMultiError) Error() string {
-	var msgs []string
-	for _, err := range m {
-		msgs = append(msgs, err.Error())
-	}
-	return strings.Join(msgs, "; ")
-}
-
-// AllErrors returns a list of validation violation errors.
-func (m UpdateCardanoTokenWalletRequestMultiError) AllErrors() []error { return m }
-
-// UpdateCardanoTokenWalletRequestValidationError is the validation error
-// returned by UpdateCardanoTokenWalletRequest.Validate if the designated
-// constraints aren't met.
-type UpdateCardanoTokenWalletRequestValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e UpdateCardanoTokenWalletRequestValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e UpdateCardanoTokenWalletRequestValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e UpdateCardanoTokenWalletRequestValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e UpdateCardanoTokenWalletRequestValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e UpdateCardanoTokenWalletRequestValidationError) ErrorName() string {
-	return "UpdateCardanoTokenWalletRequestValidationError"
-}
-
-// Error satisfies the builtin error interface
-func (e UpdateCardanoTokenWalletRequestValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sUpdateCardanoTokenWalletRequest.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = UpdateCardanoTokenWalletRequestValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = UpdateCardanoTokenWalletRequestValidationError{}
-
-var _UpdateCardanoTokenWalletRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")

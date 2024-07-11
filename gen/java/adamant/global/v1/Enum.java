@@ -4166,7 +4166,7 @@ public final class Enum {
     LIST_FILTER_TYPE_STAKING_VALIDATOR_ID(20),
     /**
      * <pre>
-     * db上のstaking_historyr_id
+     * db上のstaking_history_id
      * </pre>
      *
      * <code>LIST_FILTER_TYPE_STAKING_HISTORY_ID = 21;</code>
@@ -4269,7 +4269,7 @@ public final class Enum {
     public static final int LIST_FILTER_TYPE_STAKING_VALIDATOR_ID_VALUE = 20;
     /**
      * <pre>
-     * db上のstaking_historyr_id
+     * db上のstaking_history_id
      * </pre>
      *
      * <code>LIST_FILTER_TYPE_STAKING_HISTORY_ID = 21;</code>

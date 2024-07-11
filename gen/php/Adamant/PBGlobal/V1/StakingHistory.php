@@ -94,6 +94,12 @@ class StakingHistory extends \Google\Protobuf\Internal\Message
      */
     protected $ethereum_specific = null;
     /**
+     * The Avalanche specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.StakingHistoryAvalancheSpecific avalanche_specific = 16 [json_name = "avalancheSpecific"];</code>
+     */
+    protected $avalanche_specific = null;
+    /**
      * the time at which the staking history was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 12 [json_name = "createTime"];</code>
@@ -138,6 +144,8 @@ class StakingHistory extends \Google\Protobuf\Internal\Message
      *           event id
      *     @type \Adamant\PBGlobal\V1\StakingHistoryEthereumSpecific $ethereum_specific
      *           The Ethereum specific fields
+     *     @type \Adamant\PBGlobal\V1\StakingHistoryAvalancheSpecific $avalanche_specific
+     *           The Avalanche specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the staking history was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -493,6 +501,42 @@ class StakingHistory extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\StakingHistoryEthereumSpecific::class);
         $this->ethereum_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Avalanche specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.StakingHistoryAvalancheSpecific avalanche_specific = 16 [json_name = "avalancheSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\StakingHistoryAvalancheSpecific|null
+     */
+    public function getAvalancheSpecific()
+    {
+        return $this->avalanche_specific;
+    }
+
+    public function hasAvalancheSpecific()
+    {
+        return isset($this->avalanche_specific);
+    }
+
+    public function clearAvalancheSpecific()
+    {
+        unset($this->avalanche_specific);
+    }
+
+    /**
+     * The Avalanche specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.StakingHistoryAvalancheSpecific avalanche_specific = 16 [json_name = "avalancheSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\StakingHistoryAvalancheSpecific $var
+     * @return $this
+     */
+    public function setAvalancheSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\StakingHistoryAvalancheSpecific::class);
+        $this->avalanche_specific = $var;
 
         return $this;
     }

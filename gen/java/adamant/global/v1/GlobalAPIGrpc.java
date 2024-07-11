@@ -1813,6 +1813,37 @@ public final class GlobalAPIGrpc {
     return getListTransactionsByFilterMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest,
+      adamant.global.v1.ListUnconfirmedTransactionsResponse> getListUnconfirmedTransactionsByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListUnconfirmedTransactionsByFilter",
+      requestType = adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest.class,
+      responseType = adamant.global.v1.ListUnconfirmedTransactionsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest,
+      adamant.global.v1.ListUnconfirmedTransactionsResponse> getListUnconfirmedTransactionsByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest, adamant.global.v1.ListUnconfirmedTransactionsResponse> getListUnconfirmedTransactionsByFilterMethod;
+    if ((getListUnconfirmedTransactionsByFilterMethod = GlobalAPIGrpc.getListUnconfirmedTransactionsByFilterMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getListUnconfirmedTransactionsByFilterMethod = GlobalAPIGrpc.getListUnconfirmedTransactionsByFilterMethod) == null) {
+          GlobalAPIGrpc.getListUnconfirmedTransactionsByFilterMethod = getListUnconfirmedTransactionsByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest, adamant.global.v1.ListUnconfirmedTransactionsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListUnconfirmedTransactionsByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListUnconfirmedTransactionsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ListUnconfirmedTransactionsByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListUnconfirmedTransactionsByFilterMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.GetSignInfoRequest,
       adamant.global.v1.Model.SignInfo> getGetSignInfoMethod;
 
@@ -3937,6 +3968,16 @@ public final class GlobalAPIGrpc {
 
     /**
      * <pre>
+     * UnconfirmedTransaction
+     * </pre>
+     */
+    default void listUnconfirmedTransactionsByFilter(adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListUnconfirmedTransactionsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListUnconfirmedTransactionsByFilterMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
      * SignInfo
      * </pre>
      */
@@ -4863,6 +4904,17 @@ public final class GlobalAPIGrpc {
 
     /**
      * <pre>
+     * UnconfirmedTransaction
+     * </pre>
+     */
+    public void listUnconfirmedTransactionsByFilter(adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListUnconfirmedTransactionsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListUnconfirmedTransactionsByFilterMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
      * SignInfo
      * </pre>
      */
@@ -5769,6 +5821,16 @@ public final class GlobalAPIGrpc {
     public adamant.global.v1.ListTransactionsResponse listTransactionsByFilter(adamant.global.v1.ListTransactionsByFilterRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListTransactionsByFilterMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * UnconfirmedTransaction
+     * </pre>
+     */
+    public adamant.global.v1.ListUnconfirmedTransactionsResponse listUnconfirmedTransactionsByFilter(adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListUnconfirmedTransactionsByFilterMethod(), getCallOptions(), request);
     }
 
     /**
@@ -6688,6 +6750,17 @@ public final class GlobalAPIGrpc {
 
     /**
      * <pre>
+     * UnconfirmedTransaction
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListUnconfirmedTransactionsResponse> listUnconfirmedTransactionsByFilter(
+        adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListUnconfirmedTransactionsByFilterMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
      * SignInfo
      * </pre>
      */
@@ -7207,59 +7280,60 @@ public final class GlobalAPIGrpc {
   private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 55;
   private static final int METHODID_LIST_TRANSACTIONS = 56;
   private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 57;
-  private static final int METHODID_GET_SIGN_INFO = 58;
-  private static final int METHODID_LIST_SIGN_INFO = 59;
-  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 60;
-  private static final int METHODID_LIST_TRANSFERS = 61;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 62;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 63;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 64;
-  private static final int METHODID_SET_RATES = 65;
-  private static final int METHODID_SET_DEFAULT_RATES = 66;
-  private static final int METHODID_CREATE_LABELED_ADDRESS = 67;
-  private static final int METHODID_GET_LABELED_ADDRESS = 68;
-  private static final int METHODID_LIST_LABELED_ADDRESSES = 69;
-  private static final int METHODID_LIST_LABELED_ADDRESSES_BY_FILTER = 70;
-  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 71;
-  private static final int METHODID_UPDATE_LABELED_ADDRESS = 72;
-  private static final int METHODID_DELETE_ADDRESS = 73;
-  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 74;
-  private static final int METHODID_CREATE_WHITELIST = 75;
-  private static final int METHODID_GET_WHITELIST = 76;
-  private static final int METHODID_LIST_WHITELISTS = 77;
-  private static final int METHODID_LIST_WHITELISTS_BY_FILTER = 78;
-  private static final int METHODID_IS_DELETABLE_WHITELIST = 79;
-  private static final int METHODID_UPDATE_WHITELIST = 80;
-  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 81;
-  private static final int METHODID_DELETE_WHITELIST = 82;
-  private static final int METHODID_CREATE_TRANSFER_LIMIT = 83;
-  private static final int METHODID_GET_TRANSFER_LIMIT = 84;
-  private static final int METHODID_LIST_TRANSFER_LIMITS = 85;
-  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 86;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 87;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 88;
-  private static final int METHODID_DELETE_TRANSFER_LIMIT = 89;
-  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 90;
-  private static final int METHODID_CREATE_POLICY = 91;
-  private static final int METHODID_GET_POLICY = 92;
-  private static final int METHODID_LIST_POLICIES = 93;
-  private static final int METHODID_LIST_POLICIES_BY_FILTER = 94;
-  private static final int METHODID_IS_DELETABLE_POLICY = 95;
-  private static final int METHODID_UPDATE_POLICY = 96;
-  private static final int METHODID_DELETE_POLICY = 97;
-  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 98;
-  private static final int METHODID_GET_SPENDABLE_BALANCE = 99;
-  private static final int METHODID_GET_TOTAL_BALANCE = 100;
-  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 101;
-  private static final int METHODID_CALCULATE_FEE = 102;
-  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 103;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 104;
-  private static final int METHODID_VALIDATE_ADDRESS = 105;
-  private static final int METHODID_LIST_AUDIT_LOGS = 106;
-  private static final int METHODID_LIST_FORWARDING_THRESHOLDS = 107;
-  private static final int METHODID_UPSERT_FORWARDING_THRESHOLD = 108;
-  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 109;
-  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 110;
+  private static final int METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER = 58;
+  private static final int METHODID_GET_SIGN_INFO = 59;
+  private static final int METHODID_LIST_SIGN_INFO = 60;
+  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 61;
+  private static final int METHODID_LIST_TRANSFERS = 62;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 63;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 64;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 65;
+  private static final int METHODID_SET_RATES = 66;
+  private static final int METHODID_SET_DEFAULT_RATES = 67;
+  private static final int METHODID_CREATE_LABELED_ADDRESS = 68;
+  private static final int METHODID_GET_LABELED_ADDRESS = 69;
+  private static final int METHODID_LIST_LABELED_ADDRESSES = 70;
+  private static final int METHODID_LIST_LABELED_ADDRESSES_BY_FILTER = 71;
+  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 72;
+  private static final int METHODID_UPDATE_LABELED_ADDRESS = 73;
+  private static final int METHODID_DELETE_ADDRESS = 74;
+  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 75;
+  private static final int METHODID_CREATE_WHITELIST = 76;
+  private static final int METHODID_GET_WHITELIST = 77;
+  private static final int METHODID_LIST_WHITELISTS = 78;
+  private static final int METHODID_LIST_WHITELISTS_BY_FILTER = 79;
+  private static final int METHODID_IS_DELETABLE_WHITELIST = 80;
+  private static final int METHODID_UPDATE_WHITELIST = 81;
+  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 82;
+  private static final int METHODID_DELETE_WHITELIST = 83;
+  private static final int METHODID_CREATE_TRANSFER_LIMIT = 84;
+  private static final int METHODID_GET_TRANSFER_LIMIT = 85;
+  private static final int METHODID_LIST_TRANSFER_LIMITS = 86;
+  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 87;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 88;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 89;
+  private static final int METHODID_DELETE_TRANSFER_LIMIT = 90;
+  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 91;
+  private static final int METHODID_CREATE_POLICY = 92;
+  private static final int METHODID_GET_POLICY = 93;
+  private static final int METHODID_LIST_POLICIES = 94;
+  private static final int METHODID_LIST_POLICIES_BY_FILTER = 95;
+  private static final int METHODID_IS_DELETABLE_POLICY = 96;
+  private static final int METHODID_UPDATE_POLICY = 97;
+  private static final int METHODID_DELETE_POLICY = 98;
+  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 99;
+  private static final int METHODID_GET_SPENDABLE_BALANCE = 100;
+  private static final int METHODID_GET_TOTAL_BALANCE = 101;
+  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 102;
+  private static final int METHODID_CALCULATE_FEE = 103;
+  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 104;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 105;
+  private static final int METHODID_VALIDATE_ADDRESS = 106;
+  private static final int METHODID_LIST_AUDIT_LOGS = 107;
+  private static final int METHODID_LIST_FORWARDING_THRESHOLDS = 108;
+  private static final int METHODID_UPSERT_FORWARDING_THRESHOLD = 109;
+  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 110;
+  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 111;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -7509,6 +7583,10 @@ public final class GlobalAPIGrpc {
         case METHODID_LIST_TRANSACTIONS_BY_FILTER:
           serviceImpl.listTransactionsByFilter((adamant.global.v1.ListTransactionsByFilterRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListTransactionsResponse>) responseObserver);
+          break;
+        case METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER:
+          serviceImpl.listUnconfirmedTransactionsByFilter((adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListUnconfirmedTransactionsResponse>) responseObserver);
           break;
         case METHODID_GET_SIGN_INFO:
           serviceImpl.getSignInfo((adamant.global.v1.GetSignInfoRequest) request,
@@ -8147,6 +8225,13 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.ListTransactionsResponse>(
                 service, METHODID_LIST_TRANSACTIONS_BY_FILTER)))
         .addMethod(
+          getListUnconfirmedTransactionsByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest,
+              adamant.global.v1.ListUnconfirmedTransactionsResponse>(
+                service, METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER)))
+        .addMethod(
           getGetSignInfoMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
@@ -8623,6 +8708,7 @@ public final class GlobalAPIGrpc {
               .addMethod(getGetTransactionByTxIDMethod())
               .addMethod(getListTransactionsMethod())
               .addMethod(getListTransactionsByFilterMethod())
+              .addMethod(getListUnconfirmedTransactionsByFilterMethod())
               .addMethod(getGetSignInfoMethod())
               .addMethod(getListSignInfoMethod())
               .addMethod(getListXRPInitSignInfoMethod())
