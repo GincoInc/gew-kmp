@@ -73,6 +73,10 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
      */
     protected $solana_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeAvalancheSpecific avalanche_specific = 16 [json_name = "avalancheSpecific"];</code>
+     */
+    protected $avalanche_specific = null;
 
     /**
      * Constructor.
@@ -95,6 +99,7 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CalculateFeeRbfSpecific $rbf_specific
      *     @type \Adamant\PBGlobal\V1\UtxoSpecific $utxo_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeSolanaSpecific $solana_specific
+     *     @type \Adamant\PBGlobal\V1\CalculateFeeAvalancheSpecific $avalanche_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -518,6 +523,38 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeSolanaSpecific::class);
         $this->solana_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeAvalancheSpecific avalanche_specific = 16 [json_name = "avalancheSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CalculateFeeAvalancheSpecific|null
+     */
+    public function getAvalancheSpecific()
+    {
+        return $this->avalanche_specific;
+    }
+
+    public function hasAvalancheSpecific()
+    {
+        return isset($this->avalanche_specific);
+    }
+
+    public function clearAvalancheSpecific()
+    {
+        unset($this->avalanche_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeAvalancheSpecific avalanche_specific = 16 [json_name = "avalancheSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CalculateFeeAvalancheSpecific $var
+     * @return $this
+     */
+    public function setAvalancheSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeAvalancheSpecific::class);
+        $this->avalanche_specific = $var;
 
         return $this;
     }

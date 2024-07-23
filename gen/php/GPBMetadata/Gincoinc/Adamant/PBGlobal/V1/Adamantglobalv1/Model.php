@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-Í”
+³˜
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"Ž	
 Wallet
 owner_id (	RownerId
@@ -252,7 +252,7 @@ signedKeys>
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
-updateTime"Í
+updateTime"³
 UnconfirmedTransaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId
@@ -266,7 +266,13 @@ string_fee
  (	R	stringFee
 fee_rate (RfeeRate;
 create_time (2.google.protobuf.TimestampR
-createTime"†
+createTimeM
+bitcoin_specific (2".adamant.global.v1.BitcoinSpecificRbitcoinSpecificP
+litecoin_specific (2#.adamant.global.v1.LitecoinSpecificRlitecoinSpecificY
+bitcoincash_specific (2&.adamant.global.v1.BitcoincashSpecificRbitcoincashSpecificG
+c0ban_specific (2 .adamant.global.v1.C0banSpecificRc0banSpecificM
+cardano_specific (2".adamant.global.v1.CardanoSpecificRcardanoSpecificP
+monacoin_specific (2#.adamant.global.v1.MonacoinSpecificRmonacoinSpecific"†
 TransactionMember
 
 account_id (	R	accountIdA
