@@ -213,4 +213,19 @@ public interface CalculateFeeRequestOrBuilder extends
    * <code>.adamant.global.v1.CalculateFeeSolanaSpecific solana_specific = 15 [json_name = "solanaSpecific"];</code>
    */
   adamant.global.v1.CalculateFeeSolanaSpecificOrBuilder getSolanaSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CalculateFeeAvalancheSpecific avalanche_specific = 16 [json_name = "avalancheSpecific"];</code>
+   * @return Whether the avalancheSpecific field is set.
+   */
+  boolean hasAvalancheSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeAvalancheSpecific avalanche_specific = 16 [json_name = "avalancheSpecific"];</code>
+   * @return The avalancheSpecific.
+   */
+  adamant.global.v1.CalculateFeeAvalancheSpecific getAvalancheSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeAvalancheSpecific avalanche_specific = 16 [json_name = "avalancheSpecific"];</code>
+   */
+  adamant.global.v1.CalculateFeeAvalancheSpecificOrBuilder getAvalancheSpecificOrBuilder();
 }

@@ -3083,6 +3083,180 @@ func (m *UnconfirmedTransaction) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetBitcoinSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, UnconfirmedTransactionValidationError{
+					field:  "BitcoinSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, UnconfirmedTransactionValidationError{
+					field:  "BitcoinSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetBitcoinSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UnconfirmedTransactionValidationError{
+				field:  "BitcoinSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetLitecoinSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, UnconfirmedTransactionValidationError{
+					field:  "LitecoinSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, UnconfirmedTransactionValidationError{
+					field:  "LitecoinSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetLitecoinSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UnconfirmedTransactionValidationError{
+				field:  "LitecoinSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetBitcoincashSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, UnconfirmedTransactionValidationError{
+					field:  "BitcoincashSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, UnconfirmedTransactionValidationError{
+					field:  "BitcoincashSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetBitcoincashSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UnconfirmedTransactionValidationError{
+				field:  "BitcoincashSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetC0BanSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, UnconfirmedTransactionValidationError{
+					field:  "C0BanSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, UnconfirmedTransactionValidationError{
+					field:  "C0BanSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetC0BanSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UnconfirmedTransactionValidationError{
+				field:  "C0BanSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetCardanoSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, UnconfirmedTransactionValidationError{
+					field:  "CardanoSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, UnconfirmedTransactionValidationError{
+					field:  "CardanoSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetCardanoSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UnconfirmedTransactionValidationError{
+				field:  "CardanoSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetMonacoinSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, UnconfirmedTransactionValidationError{
+					field:  "MonacoinSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, UnconfirmedTransactionValidationError{
+					field:  "MonacoinSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetMonacoinSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UnconfirmedTransactionValidationError{
+				field:  "MonacoinSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return UnconfirmedTransactionMultiError(errors)
 	}

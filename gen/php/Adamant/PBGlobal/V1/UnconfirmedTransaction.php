@@ -75,6 +75,42 @@ class UnconfirmedTransaction extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 12 [json_name = "createTime"];</code>
      */
     protected $create_time = null;
+    /**
+     * The Bitcoin specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BitcoinSpecific bitcoin_specific = 13 [json_name = "bitcoinSpecific"];</code>
+     */
+    protected $bitcoin_specific = null;
+    /**
+     * The Litecoin specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.LitecoinSpecific litecoin_specific = 14 [json_name = "litecoinSpecific"];</code>
+     */
+    protected $litecoin_specific = null;
+    /**
+     * The Bitcoin Cash specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BitcoincashSpecific bitcoincash_specific = 15 [json_name = "bitcoincashSpecific"];</code>
+     */
+    protected $bitcoincash_specific = null;
+    /**
+     * The C0ban specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.C0banSpecific c0ban_specific = 16 [json_name = "c0banSpecific"];</code>
+     */
+    protected $c0ban_specific = null;
+    /**
+     * The Cardano specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CardanoSpecific cardano_specific = 17 [json_name = "cardanoSpecific"];</code>
+     */
+    protected $cardano_specific = null;
+    /**
+     * The Monacoin specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.MonacoinSpecific monacoin_specific = 18 [json_name = "monacoinSpecific"];</code>
+     */
+    protected $monacoin_specific = null;
 
     /**
      * Constructor.
@@ -102,6 +138,18 @@ class UnconfirmedTransaction extends \Google\Protobuf\Internal\Message
      *           The fee rate of transaction (only BTC and its forks unit: sat/Byte)
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transfer was created
+     *     @type \Adamant\PBGlobal\V1\BitcoinSpecific $bitcoin_specific
+     *           The Bitcoin specific fields
+     *     @type \Adamant\PBGlobal\V1\LitecoinSpecific $litecoin_specific
+     *           The Litecoin specific fields
+     *     @type \Adamant\PBGlobal\V1\BitcoincashSpecific $bitcoincash_specific
+     *           The Bitcoin Cash specific fields
+     *     @type \Adamant\PBGlobal\V1\C0banSpecific $c0ban_specific
+     *           The C0ban specific fields
+     *     @type \Adamant\PBGlobal\V1\CardanoSpecific $cardano_specific
+     *           The Cardano specific fields
+     *     @type \Adamant\PBGlobal\V1\MonacoinSpecific $monacoin_specific
+     *           The Monacoin specific fields
      * }
      */
     public function __construct($data = NULL) {
@@ -375,6 +423,222 @@ class UnconfirmedTransaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->create_time = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Bitcoin specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BitcoinSpecific bitcoin_specific = 13 [json_name = "bitcoinSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\BitcoinSpecific|null
+     */
+    public function getBitcoinSpecific()
+    {
+        return $this->bitcoin_specific;
+    }
+
+    public function hasBitcoinSpecific()
+    {
+        return isset($this->bitcoin_specific);
+    }
+
+    public function clearBitcoinSpecific()
+    {
+        unset($this->bitcoin_specific);
+    }
+
+    /**
+     * The Bitcoin specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BitcoinSpecific bitcoin_specific = 13 [json_name = "bitcoinSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\BitcoinSpecific $var
+     * @return $this
+     */
+    public function setBitcoinSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\BitcoinSpecific::class);
+        $this->bitcoin_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Litecoin specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.LitecoinSpecific litecoin_specific = 14 [json_name = "litecoinSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\LitecoinSpecific|null
+     */
+    public function getLitecoinSpecific()
+    {
+        return $this->litecoin_specific;
+    }
+
+    public function hasLitecoinSpecific()
+    {
+        return isset($this->litecoin_specific);
+    }
+
+    public function clearLitecoinSpecific()
+    {
+        unset($this->litecoin_specific);
+    }
+
+    /**
+     * The Litecoin specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.LitecoinSpecific litecoin_specific = 14 [json_name = "litecoinSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\LitecoinSpecific $var
+     * @return $this
+     */
+    public function setLitecoinSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\LitecoinSpecific::class);
+        $this->litecoin_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Bitcoin Cash specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BitcoincashSpecific bitcoincash_specific = 15 [json_name = "bitcoincashSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\BitcoincashSpecific|null
+     */
+    public function getBitcoincashSpecific()
+    {
+        return $this->bitcoincash_specific;
+    }
+
+    public function hasBitcoincashSpecific()
+    {
+        return isset($this->bitcoincash_specific);
+    }
+
+    public function clearBitcoincashSpecific()
+    {
+        unset($this->bitcoincash_specific);
+    }
+
+    /**
+     * The Bitcoin Cash specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BitcoincashSpecific bitcoincash_specific = 15 [json_name = "bitcoincashSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\BitcoincashSpecific $var
+     * @return $this
+     */
+    public function setBitcoincashSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\BitcoincashSpecific::class);
+        $this->bitcoincash_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The C0ban specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.C0banSpecific c0ban_specific = 16 [json_name = "c0banSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\C0banSpecific|null
+     */
+    public function getC0BanSpecific()
+    {
+        return $this->c0ban_specific;
+    }
+
+    public function hasC0BanSpecific()
+    {
+        return isset($this->c0ban_specific);
+    }
+
+    public function clearC0BanSpecific()
+    {
+        unset($this->c0ban_specific);
+    }
+
+    /**
+     * The C0ban specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.C0banSpecific c0ban_specific = 16 [json_name = "c0banSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\C0banSpecific $var
+     * @return $this
+     */
+    public function setC0BanSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\C0banSpecific::class);
+        $this->c0ban_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Cardano specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CardanoSpecific cardano_specific = 17 [json_name = "cardanoSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CardanoSpecific|null
+     */
+    public function getCardanoSpecific()
+    {
+        return $this->cardano_specific;
+    }
+
+    public function hasCardanoSpecific()
+    {
+        return isset($this->cardano_specific);
+    }
+
+    public function clearCardanoSpecific()
+    {
+        unset($this->cardano_specific);
+    }
+
+    /**
+     * The Cardano specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CardanoSpecific cardano_specific = 17 [json_name = "cardanoSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CardanoSpecific $var
+     * @return $this
+     */
+    public function setCardanoSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CardanoSpecific::class);
+        $this->cardano_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Monacoin specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.MonacoinSpecific monacoin_specific = 18 [json_name = "monacoinSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\MonacoinSpecific|null
+     */
+    public function getMonacoinSpecific()
+    {
+        return $this->monacoin_specific;
+    }
+
+    public function hasMonacoinSpecific()
+    {
+        return isset($this->monacoin_specific);
+    }
+
+    public function clearMonacoinSpecific()
+    {
+        unset($this->monacoin_specific);
+    }
+
+    /**
+     * The Monacoin specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.MonacoinSpecific monacoin_specific = 18 [json_name = "monacoinSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\MonacoinSpecific $var
+     * @return $this
+     */
+    public function setMonacoinSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\MonacoinSpecific::class);
+        $this->monacoin_specific = $var;
 
         return $this;
     }

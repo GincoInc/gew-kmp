@@ -1090,6 +1090,18 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.UnconfirmedTransaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1114,6 +1126,24 @@ public class ModelValidator {
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+			// Validate bitcoin_specific
+			if (proto.hasBitcoinSpecific()) index.validatorFor(proto.getBitcoinSpecific()).assertValid(proto.getBitcoinSpecific());
+	
+			// Validate litecoin_specific
+			if (proto.hasLitecoinSpecific()) index.validatorFor(proto.getLitecoinSpecific()).assertValid(proto.getLitecoinSpecific());
+	
+			// Validate bitcoincash_specific
+			if (proto.hasBitcoincashSpecific()) index.validatorFor(proto.getBitcoincashSpecific()).assertValid(proto.getBitcoincashSpecific());
+	
+			// Validate c0ban_specific
+			if (proto.hasC0BanSpecific()) index.validatorFor(proto.getC0BanSpecific()).assertValid(proto.getC0BanSpecific());
+	
+			// Validate cardano_specific
+			if (proto.hasCardanoSpecific()) index.validatorFor(proto.getCardanoSpecific()).assertValid(proto.getCardanoSpecific());
+	
+			// Validate monacoin_specific
+			if (proto.hasMonacoinSpecific()) index.validatorFor(proto.getMonacoinSpecific()).assertValid(proto.getMonacoinSpecific());
 	
 	}
 }
