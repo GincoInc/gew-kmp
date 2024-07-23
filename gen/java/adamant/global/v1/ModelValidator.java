@@ -1102,6 +1102,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.UnconfirmedTransaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1144,6 +1146,9 @@ public class ModelValidator {
 	
 			// Validate monacoin_specific
 			if (proto.hasMonacoinSpecific()) index.validatorFor(proto.getMonacoinSpecific()).assertValid(proto.getMonacoinSpecific());
+	
+			// Validate avalanche_platform_chain_specific
+			if (proto.hasAvalanchePlatformChainSpecific()) index.validatorFor(proto.getAvalanchePlatformChainSpecific()).assertValid(proto.getAvalanchePlatformChainSpecific());
 	
 	}
 }

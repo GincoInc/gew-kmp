@@ -267,6 +267,7 @@ message UnconfirmedTransaction {
   C0banSpecific c0ban_specific = 16; // The C0ban specific fields
   CardanoSpecific cardano_specific = 17; // The Cardano specific fields
   MonacoinSpecific monacoin_specific = 18; // The Monacoin specific fields
+  AvalanchePlatformChainSpecific avalanche_platform_chain_specific = 19; // The Avalanche Platform Chain specific fields
 }
 
 // The model of transaction member
