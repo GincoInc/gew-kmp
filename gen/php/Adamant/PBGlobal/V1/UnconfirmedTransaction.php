@@ -111,6 +111,12 @@ class UnconfirmedTransaction extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.MonacoinSpecific monacoin_specific = 18 [json_name = "monacoinSpecific"];</code>
      */
     protected $monacoin_specific = null;
+    /**
+     * The Avalanche Platform Chain specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AvalanchePlatformChainSpecific avalanche_platform_chain_specific = 19 [json_name = "avalanchePlatformChainSpecific"];</code>
+     */
+    protected $avalanche_platform_chain_specific = null;
 
     /**
      * Constructor.
@@ -150,6 +156,8 @@ class UnconfirmedTransaction extends \Google\Protobuf\Internal\Message
      *           The Cardano specific fields
      *     @type \Adamant\PBGlobal\V1\MonacoinSpecific $monacoin_specific
      *           The Monacoin specific fields
+     *     @type \Adamant\PBGlobal\V1\AvalanchePlatformChainSpecific $avalanche_platform_chain_specific
+     *           The Avalanche Platform Chain specific fields
      * }
      */
     public function __construct($data = NULL) {
@@ -639,6 +647,42 @@ class UnconfirmedTransaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\MonacoinSpecific::class);
         $this->monacoin_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Avalanche Platform Chain specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AvalanchePlatformChainSpecific avalanche_platform_chain_specific = 19 [json_name = "avalanchePlatformChainSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\AvalanchePlatformChainSpecific|null
+     */
+    public function getAvalanchePlatformChainSpecific()
+    {
+        return $this->avalanche_platform_chain_specific;
+    }
+
+    public function hasAvalanchePlatformChainSpecific()
+    {
+        return isset($this->avalanche_platform_chain_specific);
+    }
+
+    public function clearAvalanchePlatformChainSpecific()
+    {
+        unset($this->avalanche_platform_chain_specific);
+    }
+
+    /**
+     * The Avalanche Platform Chain specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AvalanchePlatformChainSpecific avalanche_platform_chain_specific = 19 [json_name = "avalanchePlatformChainSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\AvalanchePlatformChainSpecific $var
+     * @return $this
+     */
+    public function setAvalanchePlatformChainSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\AvalanchePlatformChainSpecific::class);
+        $this->avalanche_platform_chain_specific = $var;
 
         return $this;
     }
