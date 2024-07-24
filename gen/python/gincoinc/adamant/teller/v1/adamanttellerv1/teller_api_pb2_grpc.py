@@ -81,6 +81,11 @@ class TellerAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListCosmosDelegateHistoriesRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListCosmosDelegateHistoriesResponse.FromString,
                 )
+        self.ListUTXOs = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ListUTXOs',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUTXOsRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUTXOsResponse.FromString,
+                )
         self.CreateAddress = channel.unary_unary(
                 '/adamant.teller.v1.TellerAPI/CreateAddress',
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateAddressRequest.SerializeToString,
@@ -201,6 +206,11 @@ class TellerAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListTransactionsByFilterRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListTransactionsResponse.FromString,
                 )
+        self.ListUnconfirmedTransactionsByFilter = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ListUnconfirmedTransactionsByFilter',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsByFilterRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsResponse.FromString,
+                )
         self.ExitEthereumStakingValidators = channel.unary_unary(
                 '/adamant.teller.v1.TellerAPI/ExitEthereumStakingValidators',
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ExitEthereumStakingValidatorsRequest.SerializeToString,
@@ -296,24 +306,24 @@ class TellerAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinBurnRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
                 )
-        self.ProgmatCoinAddToWhitelist = channel.unary_unary(
-                '/adamant.teller.v1.TellerAPI/ProgmatCoinAddToWhitelist',
-                request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinAddToWhitelistRequest.SerializeToString,
+        self.ProgmatCoinBulkAddToWhitelist = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ProgmatCoinBulkAddToWhitelist',
+                request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinBulkAddToWhitelistRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
                 )
-        self.ProgmatCoinRemoveFromWhitelist = channel.unary_unary(
-                '/adamant.teller.v1.TellerAPI/ProgmatCoinRemoveFromWhitelist',
-                request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinRemoveFromWhitelistRequest.SerializeToString,
+        self.ProgmatCoinBulkRemoveFromWhitelist = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ProgmatCoinBulkRemoveFromWhitelist',
+                request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinBulkRemoveFromWhitelistRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
                 )
-        self.ProgmatCoinAddToBlacklist = channel.unary_unary(
-                '/adamant.teller.v1.TellerAPI/ProgmatCoinAddToBlacklist',
-                request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinAddToBlacklistRequest.SerializeToString,
+        self.ProgmatCoinBulkAddToBlacklist = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ProgmatCoinBulkAddToBlacklist',
+                request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinBulkAddToBlacklistRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
                 )
-        self.ProgmatCoinRemoveFromBlacklist = channel.unary_unary(
-                '/adamant.teller.v1.TellerAPI/ProgmatCoinRemoveFromBlacklist',
-                request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinRemoveFromBlacklistRequest.SerializeToString,
+        self.ProgmatCoinBulkRemoveFromBlacklist = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ProgmatCoinBulkRemoveFromBlacklist',
+                request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinBulkRemoveFromBlacklistRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
                 )
         self.ProgmatCoinConfiscate = channel.unary_unary(
@@ -408,6 +418,12 @@ class TellerAPIServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListCosmosDelegateHistories(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListUTXOs(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -559,6 +575,12 @@ class TellerAPIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListUnconfirmedTransactionsByFilter(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ExitEthereumStakingValidators(self, request, context):
         """Exit ethereum validators
         """
@@ -680,25 +702,25 @@ class TellerAPIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ProgmatCoinAddToWhitelist(self, request, context):
+    def ProgmatCoinBulkAddToWhitelist(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ProgmatCoinRemoveFromWhitelist(self, request, context):
+    def ProgmatCoinBulkRemoveFromWhitelist(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ProgmatCoinAddToBlacklist(self, request, context):
+    def ProgmatCoinBulkAddToBlacklist(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ProgmatCoinRemoveFromBlacklist(self, request, context):
+    def ProgmatCoinBulkRemoveFromBlacklist(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -784,6 +806,11 @@ def add_TellerAPIServicer_to_server(servicer, server):
                     servicer.ListCosmosDelegateHistories,
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListCosmosDelegateHistoriesRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListCosmosDelegateHistoriesResponse.SerializeToString,
+            ),
+            'ListUTXOs': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListUTXOs,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUTXOsRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUTXOsResponse.SerializeToString,
             ),
             'CreateAddress': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateAddress,
@@ -905,6 +932,11 @@ def add_TellerAPIServicer_to_server(servicer, server):
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListTransactionsByFilterRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListTransactionsResponse.SerializeToString,
             ),
+            'ListUnconfirmedTransactionsByFilter': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListUnconfirmedTransactionsByFilter,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsByFilterRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsResponse.SerializeToString,
+            ),
             'ExitEthereumStakingValidators': grpc.unary_unary_rpc_method_handler(
                     servicer.ExitEthereumStakingValidators,
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ExitEthereumStakingValidatorsRequest.FromString,
@@ -1000,24 +1032,24 @@ def add_TellerAPIServicer_to_server(servicer, server):
                     request_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinBurnRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.SerializeToString,
             ),
-            'ProgmatCoinAddToWhitelist': grpc.unary_unary_rpc_method_handler(
-                    servicer.ProgmatCoinAddToWhitelist,
-                    request_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinAddToWhitelistRequest.FromString,
+            'ProgmatCoinBulkAddToWhitelist': grpc.unary_unary_rpc_method_handler(
+                    servicer.ProgmatCoinBulkAddToWhitelist,
+                    request_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinBulkAddToWhitelistRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.SerializeToString,
             ),
-            'ProgmatCoinRemoveFromWhitelist': grpc.unary_unary_rpc_method_handler(
-                    servicer.ProgmatCoinRemoveFromWhitelist,
-                    request_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinRemoveFromWhitelistRequest.FromString,
+            'ProgmatCoinBulkRemoveFromWhitelist': grpc.unary_unary_rpc_method_handler(
+                    servicer.ProgmatCoinBulkRemoveFromWhitelist,
+                    request_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinBulkRemoveFromWhitelistRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.SerializeToString,
             ),
-            'ProgmatCoinAddToBlacklist': grpc.unary_unary_rpc_method_handler(
-                    servicer.ProgmatCoinAddToBlacklist,
-                    request_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinAddToBlacklistRequest.FromString,
+            'ProgmatCoinBulkAddToBlacklist': grpc.unary_unary_rpc_method_handler(
+                    servicer.ProgmatCoinBulkAddToBlacklist,
+                    request_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinBulkAddToBlacklistRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.SerializeToString,
             ),
-            'ProgmatCoinRemoveFromBlacklist': grpc.unary_unary_rpc_method_handler(
-                    servicer.ProgmatCoinRemoveFromBlacklist,
-                    request_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinRemoveFromBlacklistRequest.FromString,
+            'ProgmatCoinBulkRemoveFromBlacklist': grpc.unary_unary_rpc_method_handler(
+                    servicer.ProgmatCoinBulkRemoveFromBlacklist,
+                    request_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinBulkRemoveFromBlacklistRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.SerializeToString,
             ),
             'ProgmatCoinConfiscate': grpc.unary_unary_rpc_method_handler(
@@ -1250,6 +1282,23 @@ class TellerAPI(object):
         return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListCosmosDelegateHistories',
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListCosmosDelegateHistoriesRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListCosmosDelegateHistoriesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListUTXOs(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListUTXOs',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUTXOsRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUTXOsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1662,6 +1711,23 @@ class TellerAPI(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ListUnconfirmedTransactionsByFilter(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListUnconfirmedTransactionsByFilter',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsByFilterRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ExitEthereumStakingValidators(request,
             target,
             options=(),
@@ -1985,7 +2051,7 @@ class TellerAPI(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ProgmatCoinAddToWhitelist(request,
+    def ProgmatCoinBulkAddToWhitelist(request,
             target,
             options=(),
             channel_credentials=None,
@@ -1995,14 +2061,14 @@ class TellerAPI(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ProgmatCoinAddToWhitelist',
-            gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinAddToWhitelistRequest.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ProgmatCoinBulkAddToWhitelist',
+            gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinBulkAddToWhitelistRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ProgmatCoinRemoveFromWhitelist(request,
+    def ProgmatCoinBulkRemoveFromWhitelist(request,
             target,
             options=(),
             channel_credentials=None,
@@ -2012,14 +2078,14 @@ class TellerAPI(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ProgmatCoinRemoveFromWhitelist',
-            gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinRemoveFromWhitelistRequest.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ProgmatCoinBulkRemoveFromWhitelist',
+            gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinBulkRemoveFromWhitelistRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ProgmatCoinAddToBlacklist(request,
+    def ProgmatCoinBulkAddToBlacklist(request,
             target,
             options=(),
             channel_credentials=None,
@@ -2029,14 +2095,14 @@ class TellerAPI(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ProgmatCoinAddToBlacklist',
-            gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinAddToBlacklistRequest.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ProgmatCoinBulkAddToBlacklist',
+            gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinBulkAddToBlacklistRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ProgmatCoinRemoveFromBlacklist(request,
+    def ProgmatCoinBulkRemoveFromBlacklist(request,
             target,
             options=(),
             channel_credentials=None,
@@ -2046,8 +2112,8 @@ class TellerAPI(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ProgmatCoinRemoveFromBlacklist',
-            gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinRemoveFromBlacklistRequest.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ProgmatCoinBulkRemoveFromBlacklist',
+            gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinBulkRemoveFromBlacklistRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

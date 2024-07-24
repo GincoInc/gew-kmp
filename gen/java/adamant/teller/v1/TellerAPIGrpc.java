@@ -387,6 +387,37 @@ public final class TellerAPIGrpc {
     return getListCosmosDelegateHistoriesMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListUTXOsRequest,
+      adamant.global.v1.ListUTXOsResponse> getListUTXOsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListUTXOs",
+      requestType = adamant.global.v1.ListUTXOsRequest.class,
+      responseType = adamant.global.v1.ListUTXOsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListUTXOsRequest,
+      adamant.global.v1.ListUTXOsResponse> getListUTXOsMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListUTXOsRequest, adamant.global.v1.ListUTXOsResponse> getListUTXOsMethod;
+    if ((getListUTXOsMethod = TellerAPIGrpc.getListUTXOsMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getListUTXOsMethod = TellerAPIGrpc.getListUTXOsMethod) == null) {
+          TellerAPIGrpc.getListUTXOsMethod = getListUTXOsMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListUTXOsRequest, adamant.global.v1.ListUTXOsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListUTXOs"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListUTXOsRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListUTXOsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ListUTXOs"))
+              .build();
+        }
+      }
+    }
+    return getListUTXOsMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.CreateAddressRequest,
       adamant.global.v1.CreateAddressResponse> getCreateAddressMethod;
 
@@ -1131,6 +1162,37 @@ public final class TellerAPIGrpc {
     return getListTransactionsByFilterMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest,
+      adamant.global.v1.ListUnconfirmedTransactionsResponse> getListUnconfirmedTransactionsByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListUnconfirmedTransactionsByFilter",
+      requestType = adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest.class,
+      responseType = adamant.global.v1.ListUnconfirmedTransactionsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest,
+      adamant.global.v1.ListUnconfirmedTransactionsResponse> getListUnconfirmedTransactionsByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest, adamant.global.v1.ListUnconfirmedTransactionsResponse> getListUnconfirmedTransactionsByFilterMethod;
+    if ((getListUnconfirmedTransactionsByFilterMethod = TellerAPIGrpc.getListUnconfirmedTransactionsByFilterMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getListUnconfirmedTransactionsByFilterMethod = TellerAPIGrpc.getListUnconfirmedTransactionsByFilterMethod) == null) {
+          TellerAPIGrpc.getListUnconfirmedTransactionsByFilterMethod = getListUnconfirmedTransactionsByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest, adamant.global.v1.ListUnconfirmedTransactionsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListUnconfirmedTransactionsByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListUnconfirmedTransactionsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ListUnconfirmedTransactionsByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListUnconfirmedTransactionsByFilterMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ExitEthereumStakingValidatorsRequest,
       adamant.global.v1.ExitEthereumStakingValidatorsResponse> getExitEthereumStakingValidatorsMethod;
 
@@ -1720,128 +1782,128 @@ public final class TellerAPIGrpc {
     return getProgmatCoinBurnMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinAddToWhitelistRequest,
-      adamant.global.v1.CreateTransactionResponse> getProgmatCoinAddToWhitelistMethod;
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinBulkAddToWhitelistRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinBulkAddToWhitelistMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinAddToWhitelist",
-      requestType = adamant.teller.v1.ProgmatCoinAddToWhitelistRequest.class,
+      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinBulkAddToWhitelist",
+      requestType = adamant.teller.v1.ProgmatCoinBulkAddToWhitelistRequest.class,
       responseType = adamant.global.v1.CreateTransactionResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinAddToWhitelistRequest,
-      adamant.global.v1.CreateTransactionResponse> getProgmatCoinAddToWhitelistMethod() {
-    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinAddToWhitelistRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinAddToWhitelistMethod;
-    if ((getProgmatCoinAddToWhitelistMethod = TellerAPIGrpc.getProgmatCoinAddToWhitelistMethod) == null) {
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinBulkAddToWhitelistRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinBulkAddToWhitelistMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinBulkAddToWhitelistRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinBulkAddToWhitelistMethod;
+    if ((getProgmatCoinBulkAddToWhitelistMethod = TellerAPIGrpc.getProgmatCoinBulkAddToWhitelistMethod) == null) {
       synchronized (TellerAPIGrpc.class) {
-        if ((getProgmatCoinAddToWhitelistMethod = TellerAPIGrpc.getProgmatCoinAddToWhitelistMethod) == null) {
-          TellerAPIGrpc.getProgmatCoinAddToWhitelistMethod = getProgmatCoinAddToWhitelistMethod =
-              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinAddToWhitelistRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
+        if ((getProgmatCoinBulkAddToWhitelistMethod = TellerAPIGrpc.getProgmatCoinBulkAddToWhitelistMethod) == null) {
+          TellerAPIGrpc.getProgmatCoinBulkAddToWhitelistMethod = getProgmatCoinBulkAddToWhitelistMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinBulkAddToWhitelistRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinAddToWhitelist"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinBulkAddToWhitelist"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.teller.v1.ProgmatCoinAddToWhitelistRequest.getDefaultInstance()))
+                  adamant.teller.v1.ProgmatCoinBulkAddToWhitelistRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinAddToWhitelist"))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinBulkAddToWhitelist"))
               .build();
         }
       }
     }
-    return getProgmatCoinAddToWhitelistMethod;
+    return getProgmatCoinBulkAddToWhitelistMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest,
-      adamant.global.v1.CreateTransactionResponse> getProgmatCoinRemoveFromWhitelistMethod;
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinBulkRemoveFromWhitelistMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinRemoveFromWhitelist",
-      requestType = adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest.class,
+      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinBulkRemoveFromWhitelist",
+      requestType = adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest.class,
       responseType = adamant.global.v1.CreateTransactionResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest,
-      adamant.global.v1.CreateTransactionResponse> getProgmatCoinRemoveFromWhitelistMethod() {
-    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinRemoveFromWhitelistMethod;
-    if ((getProgmatCoinRemoveFromWhitelistMethod = TellerAPIGrpc.getProgmatCoinRemoveFromWhitelistMethod) == null) {
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinBulkRemoveFromWhitelistMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinBulkRemoveFromWhitelistMethod;
+    if ((getProgmatCoinBulkRemoveFromWhitelistMethod = TellerAPIGrpc.getProgmatCoinBulkRemoveFromWhitelistMethod) == null) {
       synchronized (TellerAPIGrpc.class) {
-        if ((getProgmatCoinRemoveFromWhitelistMethod = TellerAPIGrpc.getProgmatCoinRemoveFromWhitelistMethod) == null) {
-          TellerAPIGrpc.getProgmatCoinRemoveFromWhitelistMethod = getProgmatCoinRemoveFromWhitelistMethod =
-              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
+        if ((getProgmatCoinBulkRemoveFromWhitelistMethod = TellerAPIGrpc.getProgmatCoinBulkRemoveFromWhitelistMethod) == null) {
+          TellerAPIGrpc.getProgmatCoinBulkRemoveFromWhitelistMethod = getProgmatCoinBulkRemoveFromWhitelistMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinRemoveFromWhitelist"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinBulkRemoveFromWhitelist"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest.getDefaultInstance()))
+                  adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinRemoveFromWhitelist"))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinBulkRemoveFromWhitelist"))
               .build();
         }
       }
     }
-    return getProgmatCoinRemoveFromWhitelistMethod;
+    return getProgmatCoinBulkRemoveFromWhitelistMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinAddToBlacklistRequest,
-      adamant.global.v1.CreateTransactionResponse> getProgmatCoinAddToBlacklistMethod;
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinBulkAddToBlacklistRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinBulkAddToBlacklistMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinAddToBlacklist",
-      requestType = adamant.teller.v1.ProgmatCoinAddToBlacklistRequest.class,
+      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinBulkAddToBlacklist",
+      requestType = adamant.teller.v1.ProgmatCoinBulkAddToBlacklistRequest.class,
       responseType = adamant.global.v1.CreateTransactionResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinAddToBlacklistRequest,
-      adamant.global.v1.CreateTransactionResponse> getProgmatCoinAddToBlacklistMethod() {
-    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinAddToBlacklistRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinAddToBlacklistMethod;
-    if ((getProgmatCoinAddToBlacklistMethod = TellerAPIGrpc.getProgmatCoinAddToBlacklistMethod) == null) {
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinBulkAddToBlacklistRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinBulkAddToBlacklistMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinBulkAddToBlacklistRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinBulkAddToBlacklistMethod;
+    if ((getProgmatCoinBulkAddToBlacklistMethod = TellerAPIGrpc.getProgmatCoinBulkAddToBlacklistMethod) == null) {
       synchronized (TellerAPIGrpc.class) {
-        if ((getProgmatCoinAddToBlacklistMethod = TellerAPIGrpc.getProgmatCoinAddToBlacklistMethod) == null) {
-          TellerAPIGrpc.getProgmatCoinAddToBlacklistMethod = getProgmatCoinAddToBlacklistMethod =
-              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinAddToBlacklistRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
+        if ((getProgmatCoinBulkAddToBlacklistMethod = TellerAPIGrpc.getProgmatCoinBulkAddToBlacklistMethod) == null) {
+          TellerAPIGrpc.getProgmatCoinBulkAddToBlacklistMethod = getProgmatCoinBulkAddToBlacklistMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinBulkAddToBlacklistRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinAddToBlacklist"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinBulkAddToBlacklist"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.teller.v1.ProgmatCoinAddToBlacklistRequest.getDefaultInstance()))
+                  adamant.teller.v1.ProgmatCoinBulkAddToBlacklistRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinAddToBlacklist"))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinBulkAddToBlacklist"))
               .build();
         }
       }
     }
-    return getProgmatCoinAddToBlacklistMethod;
+    return getProgmatCoinBulkAddToBlacklistMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest,
-      adamant.global.v1.CreateTransactionResponse> getProgmatCoinRemoveFromBlacklistMethod;
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinBulkRemoveFromBlacklistRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinBulkRemoveFromBlacklistMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinRemoveFromBlacklist",
-      requestType = adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest.class,
+      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinBulkRemoveFromBlacklist",
+      requestType = adamant.teller.v1.ProgmatCoinBulkRemoveFromBlacklistRequest.class,
       responseType = adamant.global.v1.CreateTransactionResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest,
-      adamant.global.v1.CreateTransactionResponse> getProgmatCoinRemoveFromBlacklistMethod() {
-    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinRemoveFromBlacklistMethod;
-    if ((getProgmatCoinRemoveFromBlacklistMethod = TellerAPIGrpc.getProgmatCoinRemoveFromBlacklistMethod) == null) {
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinBulkRemoveFromBlacklistRequest,
+      adamant.global.v1.CreateTransactionResponse> getProgmatCoinBulkRemoveFromBlacklistMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinBulkRemoveFromBlacklistRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinBulkRemoveFromBlacklistMethod;
+    if ((getProgmatCoinBulkRemoveFromBlacklistMethod = TellerAPIGrpc.getProgmatCoinBulkRemoveFromBlacklistMethod) == null) {
       synchronized (TellerAPIGrpc.class) {
-        if ((getProgmatCoinRemoveFromBlacklistMethod = TellerAPIGrpc.getProgmatCoinRemoveFromBlacklistMethod) == null) {
-          TellerAPIGrpc.getProgmatCoinRemoveFromBlacklistMethod = getProgmatCoinRemoveFromBlacklistMethod =
-              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
+        if ((getProgmatCoinBulkRemoveFromBlacklistMethod = TellerAPIGrpc.getProgmatCoinBulkRemoveFromBlacklistMethod) == null) {
+          TellerAPIGrpc.getProgmatCoinBulkRemoveFromBlacklistMethod = getProgmatCoinBulkRemoveFromBlacklistMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinBulkRemoveFromBlacklistRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinRemoveFromBlacklist"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinBulkRemoveFromBlacklist"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest.getDefaultInstance()))
+                  adamant.teller.v1.ProgmatCoinBulkRemoveFromBlacklistRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinRemoveFromBlacklist"))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinBulkRemoveFromBlacklist"))
               .build();
         }
       }
     }
-    return getProgmatCoinRemoveFromBlacklistMethod;
+    return getProgmatCoinBulkRemoveFromBlacklistMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinConfiscateRequest,
@@ -2073,6 +2135,13 @@ public final class TellerAPIGrpc {
     }
 
     /**
+     */
+    default void listUTXOs(adamant.global.v1.ListUTXOsRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListUTXOsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListUTXOsMethod(), responseObserver);
+    }
+
+    /**
      * <pre>
      * Create a new address for an existing wallet
      * </pre>
@@ -2247,6 +2316,13 @@ public final class TellerAPIGrpc {
     }
 
     /**
+     */
+    default void listUnconfirmedTransactionsByFilter(adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListUnconfirmedTransactionsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListUnconfirmedTransactionsByFilterMethod(), responseObserver);
+    }
+
+    /**
      * <pre>
      * Exit ethereum validators
      * </pre>
@@ -2402,30 +2478,30 @@ public final class TellerAPIGrpc {
 
     /**
      */
-    default void progmatCoinAddToWhitelist(adamant.teller.v1.ProgmatCoinAddToWhitelistRequest request,
+    default void progmatCoinBulkAddToWhitelist(adamant.teller.v1.ProgmatCoinBulkAddToWhitelistRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinAddToWhitelistMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinBulkAddToWhitelistMethod(), responseObserver);
     }
 
     /**
      */
-    default void progmatCoinRemoveFromWhitelist(adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest request,
+    default void progmatCoinBulkRemoveFromWhitelist(adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinRemoveFromWhitelistMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinBulkRemoveFromWhitelistMethod(), responseObserver);
     }
 
     /**
      */
-    default void progmatCoinAddToBlacklist(adamant.teller.v1.ProgmatCoinAddToBlacklistRequest request,
+    default void progmatCoinBulkAddToBlacklist(adamant.teller.v1.ProgmatCoinBulkAddToBlacklistRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinAddToBlacklistMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinBulkAddToBlacklistMethod(), responseObserver);
     }
 
     /**
      */
-    default void progmatCoinRemoveFromBlacklist(adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest request,
+    default void progmatCoinBulkRemoveFromBlacklist(adamant.teller.v1.ProgmatCoinBulkRemoveFromBlacklistRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinRemoveFromBlacklistMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinBulkRemoveFromBlacklistMethod(), responseObserver);
     }
 
     /**
@@ -2574,6 +2650,14 @@ public final class TellerAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.ListCosmosDelegateHistoriesResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListCosmosDelegateHistoriesMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listUTXOs(adamant.global.v1.ListUTXOsRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListUTXOsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListUTXOsMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -2775,6 +2859,14 @@ public final class TellerAPIGrpc {
     }
 
     /**
+     */
+    public void listUnconfirmedTransactionsByFilter(adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListUnconfirmedTransactionsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListUnconfirmedTransactionsByFilterMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
      * <pre>
      * Exit ethereum validators
      * </pre>
@@ -2949,34 +3041,34 @@ public final class TellerAPIGrpc {
 
     /**
      */
-    public void progmatCoinAddToWhitelist(adamant.teller.v1.ProgmatCoinAddToWhitelistRequest request,
+    public void progmatCoinBulkAddToWhitelist(adamant.teller.v1.ProgmatCoinBulkAddToWhitelistRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getProgmatCoinAddToWhitelistMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getProgmatCoinBulkAddToWhitelistMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void progmatCoinRemoveFromWhitelist(adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest request,
+    public void progmatCoinBulkRemoveFromWhitelist(adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getProgmatCoinRemoveFromWhitelistMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getProgmatCoinBulkRemoveFromWhitelistMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void progmatCoinAddToBlacklist(adamant.teller.v1.ProgmatCoinAddToBlacklistRequest request,
+    public void progmatCoinBulkAddToBlacklist(adamant.teller.v1.ProgmatCoinBulkAddToBlacklistRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getProgmatCoinAddToBlacklistMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getProgmatCoinBulkAddToBlacklistMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void progmatCoinRemoveFromBlacklist(adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest request,
+    public void progmatCoinBulkRemoveFromBlacklist(adamant.teller.v1.ProgmatCoinBulkRemoveFromBlacklistRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getProgmatCoinRemoveFromBlacklistMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getProgmatCoinBulkRemoveFromBlacklistMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -3105,6 +3197,13 @@ public final class TellerAPIGrpc {
     public adamant.global.v1.ListCosmosDelegateHistoriesResponse listCosmosDelegateHistories(adamant.global.v1.ListCosmosDelegateHistoriesRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListCosmosDelegateHistoriesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.ListUTXOsResponse listUTXOs(adamant.global.v1.ListUTXOsRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListUTXOsMethod(), getCallOptions(), request);
     }
 
     /**
@@ -3282,6 +3381,13 @@ public final class TellerAPIGrpc {
     }
 
     /**
+     */
+    public adamant.global.v1.ListUnconfirmedTransactionsResponse listUnconfirmedTransactionsByFilter(adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListUnconfirmedTransactionsByFilterMethod(), getCallOptions(), request);
+    }
+
+    /**
      * <pre>
      * Exit ethereum validators
      * </pre>
@@ -3437,30 +3543,30 @@ public final class TellerAPIGrpc {
 
     /**
      */
-    public adamant.global.v1.CreateTransactionResponse progmatCoinAddToWhitelist(adamant.teller.v1.ProgmatCoinAddToWhitelistRequest request) {
+    public adamant.global.v1.CreateTransactionResponse progmatCoinBulkAddToWhitelist(adamant.teller.v1.ProgmatCoinBulkAddToWhitelistRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getProgmatCoinAddToWhitelistMethod(), getCallOptions(), request);
+          getChannel(), getProgmatCoinBulkAddToWhitelistMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public adamant.global.v1.CreateTransactionResponse progmatCoinRemoveFromWhitelist(adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest request) {
+    public adamant.global.v1.CreateTransactionResponse progmatCoinBulkRemoveFromWhitelist(adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getProgmatCoinRemoveFromWhitelistMethod(), getCallOptions(), request);
+          getChannel(), getProgmatCoinBulkRemoveFromWhitelistMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public adamant.global.v1.CreateTransactionResponse progmatCoinAddToBlacklist(adamant.teller.v1.ProgmatCoinAddToBlacklistRequest request) {
+    public adamant.global.v1.CreateTransactionResponse progmatCoinBulkAddToBlacklist(adamant.teller.v1.ProgmatCoinBulkAddToBlacklistRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getProgmatCoinAddToBlacklistMethod(), getCallOptions(), request);
+          getChannel(), getProgmatCoinBulkAddToBlacklistMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public adamant.global.v1.CreateTransactionResponse progmatCoinRemoveFromBlacklist(adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest request) {
+    public adamant.global.v1.CreateTransactionResponse progmatCoinBulkRemoveFromBlacklist(adamant.teller.v1.ProgmatCoinBulkRemoveFromBlacklistRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getProgmatCoinRemoveFromBlacklistMethod(), getCallOptions(), request);
+          getChannel(), getProgmatCoinBulkRemoveFromBlacklistMethod(), getCallOptions(), request);
     }
 
     /**
@@ -3598,6 +3704,14 @@ public final class TellerAPIGrpc {
         adamant.global.v1.ListCosmosDelegateHistoriesRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getListCosmosDelegateHistoriesMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListUTXOsResponse> listUTXOs(
+        adamant.global.v1.ListUTXOsRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListUTXOsMethod(), getCallOptions()), request);
     }
 
     /**
@@ -3799,6 +3913,14 @@ public final class TellerAPIGrpc {
     }
 
     /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListUnconfirmedTransactionsResponse> listUnconfirmedTransactionsByFilter(
+        adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListUnconfirmedTransactionsByFilterMethod(), getCallOptions()), request);
+    }
+
+    /**
      * <pre>
      * Exit ethereum validators
      * </pre>
@@ -3973,34 +4095,34 @@ public final class TellerAPIGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinAddToWhitelist(
-        adamant.teller.v1.ProgmatCoinAddToWhitelistRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinBulkAddToWhitelist(
+        adamant.teller.v1.ProgmatCoinBulkAddToWhitelistRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getProgmatCoinAddToWhitelistMethod(), getCallOptions()), request);
+          getChannel().newCall(getProgmatCoinBulkAddToWhitelistMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinRemoveFromWhitelist(
-        adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinBulkRemoveFromWhitelist(
+        adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getProgmatCoinRemoveFromWhitelistMethod(), getCallOptions()), request);
+          getChannel().newCall(getProgmatCoinBulkRemoveFromWhitelistMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinAddToBlacklist(
-        adamant.teller.v1.ProgmatCoinAddToBlacklistRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinBulkAddToBlacklist(
+        adamant.teller.v1.ProgmatCoinBulkAddToBlacklistRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getProgmatCoinAddToBlacklistMethod(), getCallOptions()), request);
+          getChannel().newCall(getProgmatCoinBulkAddToBlacklistMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinRemoveFromBlacklist(
-        adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinBulkRemoveFromBlacklist(
+        adamant.teller.v1.ProgmatCoinBulkRemoveFromBlacklistRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getProgmatCoinRemoveFromBlacklistMethod(), getCallOptions()), request);
+          getChannel().newCall(getProgmatCoinBulkRemoveFromBlacklistMethod(), getCallOptions()), request);
     }
 
     /**
@@ -4040,56 +4162,58 @@ public final class TellerAPIGrpc {
   private static final int METHODID_UPDATE_DESTINATION_WALLET_ID = 9;
   private static final int METHODID_GET_COSMOS_BALANCE = 10;
   private static final int METHODID_LIST_COSMOS_DELEGATE_HISTORIES = 11;
-  private static final int METHODID_CREATE_ADDRESS = 12;
-  private static final int METHODID_CREATE_IOSTACCOUNT = 13;
-  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 14;
-  private static final int METHODID_GET_ADDRESS = 15;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 16;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 17;
-  private static final int METHODID_GET_ADDRESS_BY_INDEX = 18;
-  private static final int METHODID_LIST_ADDRESSES = 19;
-  private static final int METHODID_IMPORT_ADDRESS = 20;
-  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 21;
-  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 22;
-  private static final int METHODID_LIST_COLD_FEE_DEPOSIT_ADDRESSES = 23;
-  private static final int METHODID_LIST_HOT_FEE_DEPOSIT_ADDRESSES = 24;
-  private static final int METHODID_CREATE_TRANSACTION = 25;
-  private static final int METHODID_SIGN_TRANSACTION = 26;
-  private static final int METHODID_SEND_TRANSACTION = 27;
-  private static final int METHODID_RESEND_TRANSACTION = 28;
-  private static final int METHODID_CANCEL_TRANSACTION = 29;
-  private static final int METHODID_REPLACE_TRANSACTION = 30;
-  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 31;
-  private static final int METHODID_GET_TRANSACTION = 32;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 33;
-  private static final int METHODID_LIST_TRANSACTIONS = 34;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 35;
-  private static final int METHODID_EXIT_ETHEREUM_STAKING_VALIDATORS = 36;
-  private static final int METHODID_LIST_TRANSFERS = 37;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 38;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 39;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 40;
-  private static final int METHODID_SET_RATES = 41;
-  private static final int METHODID_CALCULATE_FEE = 42;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 43;
-  private static final int METHODID_VALIDATE_ADDRESS = 44;
-  private static final int METHODID_FLUSH_BALANCE = 45;
-  private static final int METHODID_LIST_AUDIT_LOGS = 46;
-  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 47;
-  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 48;
-  private static final int METHODID_SIGN_MESSAGE = 49;
-  private static final int METHODID_PROGMAT_COIN_INITIALIZE = 50;
-  private static final int METHODID_PROGMAT_COIN_CONFIGURE_MINTER = 51;
-  private static final int METHODID_PROGMAT_COIN_MINT_AND_TRANSFER = 52;
-  private static final int METHODID_PROGMAT_COIN_MINT = 53;
-  private static final int METHODID_PROGMAT_COIN_BURN = 54;
-  private static final int METHODID_PROGMAT_COIN_ADD_TO_WHITELIST = 55;
-  private static final int METHODID_PROGMAT_COIN_REMOVE_FROM_WHITELIST = 56;
-  private static final int METHODID_PROGMAT_COIN_ADD_TO_BLACKLIST = 57;
-  private static final int METHODID_PROGMAT_COIN_REMOVE_FROM_BLACKLIST = 58;
-  private static final int METHODID_PROGMAT_COIN_CONFISCATE = 59;
-  private static final int METHODID_PROGMAT_COIN_PAUSE = 60;
-  private static final int METHODID_PROGMAT_COIN_UNPAUSE = 61;
+  private static final int METHODID_LIST_UTXOS = 12;
+  private static final int METHODID_CREATE_ADDRESS = 13;
+  private static final int METHODID_CREATE_IOSTACCOUNT = 14;
+  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 15;
+  private static final int METHODID_GET_ADDRESS = 16;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 17;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 18;
+  private static final int METHODID_GET_ADDRESS_BY_INDEX = 19;
+  private static final int METHODID_LIST_ADDRESSES = 20;
+  private static final int METHODID_IMPORT_ADDRESS = 21;
+  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 22;
+  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 23;
+  private static final int METHODID_LIST_COLD_FEE_DEPOSIT_ADDRESSES = 24;
+  private static final int METHODID_LIST_HOT_FEE_DEPOSIT_ADDRESSES = 25;
+  private static final int METHODID_CREATE_TRANSACTION = 26;
+  private static final int METHODID_SIGN_TRANSACTION = 27;
+  private static final int METHODID_SEND_TRANSACTION = 28;
+  private static final int METHODID_RESEND_TRANSACTION = 29;
+  private static final int METHODID_CANCEL_TRANSACTION = 30;
+  private static final int METHODID_REPLACE_TRANSACTION = 31;
+  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 32;
+  private static final int METHODID_GET_TRANSACTION = 33;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 34;
+  private static final int METHODID_LIST_TRANSACTIONS = 35;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 36;
+  private static final int METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER = 37;
+  private static final int METHODID_EXIT_ETHEREUM_STAKING_VALIDATORS = 38;
+  private static final int METHODID_LIST_TRANSFERS = 39;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 40;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 41;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 42;
+  private static final int METHODID_SET_RATES = 43;
+  private static final int METHODID_CALCULATE_FEE = 44;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 45;
+  private static final int METHODID_VALIDATE_ADDRESS = 46;
+  private static final int METHODID_FLUSH_BALANCE = 47;
+  private static final int METHODID_LIST_AUDIT_LOGS = 48;
+  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 49;
+  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 50;
+  private static final int METHODID_SIGN_MESSAGE = 51;
+  private static final int METHODID_PROGMAT_COIN_INITIALIZE = 52;
+  private static final int METHODID_PROGMAT_COIN_CONFIGURE_MINTER = 53;
+  private static final int METHODID_PROGMAT_COIN_MINT_AND_TRANSFER = 54;
+  private static final int METHODID_PROGMAT_COIN_MINT = 55;
+  private static final int METHODID_PROGMAT_COIN_BURN = 56;
+  private static final int METHODID_PROGMAT_COIN_BULK_ADD_TO_WHITELIST = 57;
+  private static final int METHODID_PROGMAT_COIN_BULK_REMOVE_FROM_WHITELIST = 58;
+  private static final int METHODID_PROGMAT_COIN_BULK_ADD_TO_BLACKLIST = 59;
+  private static final int METHODID_PROGMAT_COIN_BULK_REMOVE_FROM_BLACKLIST = 60;
+  private static final int METHODID_PROGMAT_COIN_CONFISCATE = 61;
+  private static final int METHODID_PROGMAT_COIN_PAUSE = 62;
+  private static final int METHODID_PROGMAT_COIN_UNPAUSE = 63;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -4155,6 +4279,10 @@ public final class TellerAPIGrpc {
         case METHODID_LIST_COSMOS_DELEGATE_HISTORIES:
           serviceImpl.listCosmosDelegateHistories((adamant.global.v1.ListCosmosDelegateHistoriesRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListCosmosDelegateHistoriesResponse>) responseObserver);
+          break;
+        case METHODID_LIST_UTXOS:
+          serviceImpl.listUTXOs((adamant.global.v1.ListUTXOsRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListUTXOsResponse>) responseObserver);
           break;
         case METHODID_CREATE_ADDRESS:
           serviceImpl.createAddress((adamant.global.v1.CreateAddressRequest) request,
@@ -4252,6 +4380,10 @@ public final class TellerAPIGrpc {
           serviceImpl.listTransactionsByFilter((adamant.global.v1.ListTransactionsByFilterRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListTransactionsResponse>) responseObserver);
           break;
+        case METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER:
+          serviceImpl.listUnconfirmedTransactionsByFilter((adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListUnconfirmedTransactionsResponse>) responseObserver);
+          break;
         case METHODID_EXIT_ETHEREUM_STAKING_VALIDATORS:
           serviceImpl.exitEthereumStakingValidators((adamant.global.v1.ExitEthereumStakingValidatorsRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ExitEthereumStakingValidatorsResponse>) responseObserver);
@@ -4328,20 +4460,20 @@ public final class TellerAPIGrpc {
           serviceImpl.progmatCoinBurn((adamant.teller.v1.ProgmatCoinBurnRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
           break;
-        case METHODID_PROGMAT_COIN_ADD_TO_WHITELIST:
-          serviceImpl.progmatCoinAddToWhitelist((adamant.teller.v1.ProgmatCoinAddToWhitelistRequest) request,
+        case METHODID_PROGMAT_COIN_BULK_ADD_TO_WHITELIST:
+          serviceImpl.progmatCoinBulkAddToWhitelist((adamant.teller.v1.ProgmatCoinBulkAddToWhitelistRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
           break;
-        case METHODID_PROGMAT_COIN_REMOVE_FROM_WHITELIST:
-          serviceImpl.progmatCoinRemoveFromWhitelist((adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest) request,
+        case METHODID_PROGMAT_COIN_BULK_REMOVE_FROM_WHITELIST:
+          serviceImpl.progmatCoinBulkRemoveFromWhitelist((adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
           break;
-        case METHODID_PROGMAT_COIN_ADD_TO_BLACKLIST:
-          serviceImpl.progmatCoinAddToBlacklist((adamant.teller.v1.ProgmatCoinAddToBlacklistRequest) request,
+        case METHODID_PROGMAT_COIN_BULK_ADD_TO_BLACKLIST:
+          serviceImpl.progmatCoinBulkAddToBlacklist((adamant.teller.v1.ProgmatCoinBulkAddToBlacklistRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
           break;
-        case METHODID_PROGMAT_COIN_REMOVE_FROM_BLACKLIST:
-          serviceImpl.progmatCoinRemoveFromBlacklist((adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest) request,
+        case METHODID_PROGMAT_COIN_BULK_REMOVE_FROM_BLACKLIST:
+          serviceImpl.progmatCoinBulkRemoveFromBlacklist((adamant.teller.v1.ProgmatCoinBulkRemoveFromBlacklistRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
           break;
         case METHODID_PROGMAT_COIN_CONFISCATE:
@@ -4458,6 +4590,13 @@ public final class TellerAPIGrpc {
               adamant.global.v1.ListCosmosDelegateHistoriesRequest,
               adamant.global.v1.ListCosmosDelegateHistoriesResponse>(
                 service, METHODID_LIST_COSMOS_DELEGATE_HISTORIES)))
+        .addMethod(
+          getListUTXOsMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListUTXOsRequest,
+              adamant.global.v1.ListUTXOsResponse>(
+                service, METHODID_LIST_UTXOS)))
         .addMethod(
           getCreateAddressMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -4627,6 +4766,13 @@ public final class TellerAPIGrpc {
               adamant.global.v1.ListTransactionsResponse>(
                 service, METHODID_LIST_TRANSACTIONS_BY_FILTER)))
         .addMethod(
+          getListUnconfirmedTransactionsByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListUnconfirmedTransactionsByFilterRequest,
+              adamant.global.v1.ListUnconfirmedTransactionsResponse>(
+                service, METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER)))
+        .addMethod(
           getExitEthereumStakingValidatorsMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
@@ -4760,33 +4906,33 @@ public final class TellerAPIGrpc {
               adamant.global.v1.CreateTransactionResponse>(
                 service, METHODID_PROGMAT_COIN_BURN)))
         .addMethod(
-          getProgmatCoinAddToWhitelistMethod(),
+          getProgmatCoinBulkAddToWhitelistMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              adamant.teller.v1.ProgmatCoinAddToWhitelistRequest,
+              adamant.teller.v1.ProgmatCoinBulkAddToWhitelistRequest,
               adamant.global.v1.CreateTransactionResponse>(
-                service, METHODID_PROGMAT_COIN_ADD_TO_WHITELIST)))
+                service, METHODID_PROGMAT_COIN_BULK_ADD_TO_WHITELIST)))
         .addMethod(
-          getProgmatCoinRemoveFromWhitelistMethod(),
+          getProgmatCoinBulkRemoveFromWhitelistMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              adamant.teller.v1.ProgmatCoinRemoveFromWhitelistRequest,
+              adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest,
               adamant.global.v1.CreateTransactionResponse>(
-                service, METHODID_PROGMAT_COIN_REMOVE_FROM_WHITELIST)))
+                service, METHODID_PROGMAT_COIN_BULK_REMOVE_FROM_WHITELIST)))
         .addMethod(
-          getProgmatCoinAddToBlacklistMethod(),
+          getProgmatCoinBulkAddToBlacklistMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              adamant.teller.v1.ProgmatCoinAddToBlacklistRequest,
+              adamant.teller.v1.ProgmatCoinBulkAddToBlacklistRequest,
               adamant.global.v1.CreateTransactionResponse>(
-                service, METHODID_PROGMAT_COIN_ADD_TO_BLACKLIST)))
+                service, METHODID_PROGMAT_COIN_BULK_ADD_TO_BLACKLIST)))
         .addMethod(
-          getProgmatCoinRemoveFromBlacklistMethod(),
+          getProgmatCoinBulkRemoveFromBlacklistMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
-              adamant.teller.v1.ProgmatCoinRemoveFromBlacklistRequest,
+              adamant.teller.v1.ProgmatCoinBulkRemoveFromBlacklistRequest,
               adamant.global.v1.CreateTransactionResponse>(
-                service, METHODID_PROGMAT_COIN_REMOVE_FROM_BLACKLIST)))
+                service, METHODID_PROGMAT_COIN_BULK_REMOVE_FROM_BLACKLIST)))
         .addMethod(
           getProgmatCoinConfiscateMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -4868,6 +5014,7 @@ public final class TellerAPIGrpc {
               .addMethod(getUpdateDestinationWalletIDMethod())
               .addMethod(getGetCosmosBalanceMethod())
               .addMethod(getListCosmosDelegateHistoriesMethod())
+              .addMethod(getListUTXOsMethod())
               .addMethod(getCreateAddressMethod())
               .addMethod(getCreateIOSTAccountMethod())
               .addMethod(getListSymbolChildAddressesMethod())
@@ -4892,6 +5039,7 @@ public final class TellerAPIGrpc {
               .addMethod(getGetTransactionByTxIDMethod())
               .addMethod(getListTransactionsMethod())
               .addMethod(getListTransactionsByFilterMethod())
+              .addMethod(getListUnconfirmedTransactionsByFilterMethod())
               .addMethod(getExitEthereumStakingValidatorsMethod())
               .addMethod(getListTransfersMethod())
               .addMethod(getListTransfersByFilterMethod())
@@ -4911,10 +5059,10 @@ public final class TellerAPIGrpc {
               .addMethod(getProgmatCoinMintAndTransferMethod())
               .addMethod(getProgmatCoinMintMethod())
               .addMethod(getProgmatCoinBurnMethod())
-              .addMethod(getProgmatCoinAddToWhitelistMethod())
-              .addMethod(getProgmatCoinRemoveFromWhitelistMethod())
-              .addMethod(getProgmatCoinAddToBlacklistMethod())
-              .addMethod(getProgmatCoinRemoveFromBlacklistMethod())
+              .addMethod(getProgmatCoinBulkAddToWhitelistMethod())
+              .addMethod(getProgmatCoinBulkRemoveFromWhitelistMethod())
+              .addMethod(getProgmatCoinBulkAddToBlacklistMethod())
+              .addMethod(getProgmatCoinBulkRemoveFromBlacklistMethod())
               .addMethod(getProgmatCoinConfiscateMethod())
               .addMethod(getProgmatCoinPauseMethod())
               .addMethod(getProgmatCoinUnpauseMethod())

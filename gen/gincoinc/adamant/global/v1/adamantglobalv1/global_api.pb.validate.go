@@ -9116,6 +9116,35 @@ func (m *CreateTransactionRequest) validate(all bool) error {
 	}
 
 	if all {
+		switch v := interface{}(m.GetAvalancheSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "AvalancheSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "AvalancheSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetAvalancheSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateTransactionRequestValidationError{
+				field:  "AvalancheSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
 		switch v := interface{}(m.GetUtxoSpecific()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
@@ -12357,6 +12386,418 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListTransactionsResponseValidationError{}
+
+// Validate checks the field values on
+// ListUnconfirmedTransactionsByFilterRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ListUnconfirmedTransactionsByFilterRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ListUnconfirmedTransactionsByFilterRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// ListUnconfirmedTransactionsByFilterRequestMultiError, or nil if none found.
+func (m *ListUnconfirmedTransactionsByFilterRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListUnconfirmedTransactionsByFilterRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := _ListUnconfirmedTransactionsByFilterRequest_FilterType_NotInLookup[m.GetFilterType()]; ok {
+		err := ListUnconfirmedTransactionsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must not be in list [0 6 11 12 13 14 15 16 17 18 19 20 21]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		err := ListUnconfirmedTransactionsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for TransactionId
+
+	// no validation rules for WalletId
+
+	if utf8.RuneCountInString(m.GetWalletName()) > 40 {
+		err := ListUnconfirmedTransactionsByFilterRequestValidationError{
+			field:  "WalletName",
+			reason: "value length must be at most 40 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for Address
+
+	// no validation rules for Txid
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		err := ListUnconfirmedTransactionsByFilterRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetPageSize() > 1000 {
+		err := ListUnconfirmedTransactionsByFilterRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 1000",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ListUnconfirmedTransactionsByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		err := ListUnconfirmedTransactionsByFilterRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if all {
+		switch v := interface{}(m.GetStartTime()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ListUnconfirmedTransactionsByFilterRequestValidationError{
+					field:  "StartTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ListUnconfirmedTransactionsByFilterRequestValidationError{
+					field:  "StartTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetStartTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ListUnconfirmedTransactionsByFilterRequestValidationError{
+				field:  "StartTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetEndTime()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ListUnconfirmedTransactionsByFilterRequestValidationError{
+					field:  "EndTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ListUnconfirmedTransactionsByFilterRequestValidationError{
+					field:  "EndTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetEndTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ListUnconfirmedTransactionsByFilterRequestValidationError{
+				field:  "EndTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := ListUnconfirmedTransactionsByFilterRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ListUnconfirmedTransactionsByFilterRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListUnconfirmedTransactionsByFilterRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ListUnconfirmedTransactionsByFilterRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ListUnconfirmedTransactionsByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListUnconfirmedTransactionsByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListUnconfirmedTransactionsByFilterRequestMultiError) AllErrors() []error { return m }
+
+// ListUnconfirmedTransactionsByFilterRequestValidationError is the validation
+// error returned by ListUnconfirmedTransactionsByFilterRequest.Validate if
+// the designated constraints aren't met.
+type ListUnconfirmedTransactionsByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListUnconfirmedTransactionsByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListUnconfirmedTransactionsByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListUnconfirmedTransactionsByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListUnconfirmedTransactionsByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListUnconfirmedTransactionsByFilterRequestValidationError) ErrorName() string {
+	return "ListUnconfirmedTransactionsByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListUnconfirmedTransactionsByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListUnconfirmedTransactionsByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListUnconfirmedTransactionsByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListUnconfirmedTransactionsByFilterRequestValidationError{}
+
+var _ListUnconfirmedTransactionsByFilterRequest_FilterType_NotInLookup = map[ListFilterType]struct{}{
+	0:  {},
+	6:  {},
+	11: {},
+	12: {},
+	13: {},
+	14: {},
+	15: {},
+	16: {},
+	17: {},
+	18: {},
+	19: {},
+	20: {},
+	21: {},
+}
+
+var _ListUnconfirmedTransactionsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListUnconfirmedTransactionsResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ListUnconfirmedTransactionsResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListUnconfirmedTransactionsResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ListUnconfirmedTransactionsResponseMultiError, or nil if none found.
+func (m *ListUnconfirmedTransactionsResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListUnconfirmedTransactionsResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetUnconfirmedTransactions() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListUnconfirmedTransactionsResponseValidationError{
+						field:  fmt.Sprintf("UnconfirmedTransactions[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListUnconfirmedTransactionsResponseValidationError{
+						field:  fmt.Sprintf("UnconfirmedTransactions[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListUnconfirmedTransactionsResponseValidationError{
+					field:  fmt.Sprintf("UnconfirmedTransactions[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	if len(errors) > 0 {
+		return ListUnconfirmedTransactionsResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListUnconfirmedTransactionsResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListUnconfirmedTransactionsResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ListUnconfirmedTransactionsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListUnconfirmedTransactionsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListUnconfirmedTransactionsResponseMultiError) AllErrors() []error { return m }
+
+// ListUnconfirmedTransactionsResponseValidationError is the validation error
+// returned by ListUnconfirmedTransactionsResponse.Validate if the designated
+// constraints aren't met.
+type ListUnconfirmedTransactionsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListUnconfirmedTransactionsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListUnconfirmedTransactionsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListUnconfirmedTransactionsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListUnconfirmedTransactionsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListUnconfirmedTransactionsResponseValidationError) ErrorName() string {
+	return "ListUnconfirmedTransactionsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListUnconfirmedTransactionsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListUnconfirmedTransactionsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListUnconfirmedTransactionsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListUnconfirmedTransactionsResponseValidationError{}
 
 // Validate checks the field values on GetSignInfoRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -17406,6 +17847,35 @@ func (m *CalculateFeeRequest) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetAvalancheSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CalculateFeeRequestValidationError{
+					field:  "AvalancheSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CalculateFeeRequestValidationError{
+					field:  "AvalancheSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetAvalancheSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CalculateFeeRequestValidationError{
+				field:  "AvalancheSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return CalculateFeeRequestMultiError(errors)
 	}
@@ -18474,6 +18944,113 @@ var _ interface {
 	ErrorName() string
 } = UtxoSpecificValidationError{}
 
+// Validate checks the field values on CalculateFeeAvalancheSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CalculateFeeAvalancheSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CalculateFeeAvalancheSpecific with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// CalculateFeeAvalancheSpecificMultiError, or nil if none found.
+func (m *CalculateFeeAvalancheSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CalculateFeeAvalancheSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if m.TxType != nil {
+		// no validation rules for TxType
+	}
+
+	if len(errors) > 0 {
+		return CalculateFeeAvalancheSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CalculateFeeAvalancheSpecificMultiError is an error wrapping multiple
+// validation errors returned by CalculateFeeAvalancheSpecific.ValidateAll()
+// if the designated constraints aren't met.
+type CalculateFeeAvalancheSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CalculateFeeAvalancheSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CalculateFeeAvalancheSpecificMultiError) AllErrors() []error { return m }
+
+// CalculateFeeAvalancheSpecificValidationError is the validation error
+// returned by CalculateFeeAvalancheSpecific.Validate if the designated
+// constraints aren't met.
+type CalculateFeeAvalancheSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CalculateFeeAvalancheSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CalculateFeeAvalancheSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CalculateFeeAvalancheSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CalculateFeeAvalancheSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CalculateFeeAvalancheSpecificValidationError) ErrorName() string {
+	return "CalculateFeeAvalancheSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CalculateFeeAvalancheSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCalculateFeeAvalancheSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CalculateFeeAvalancheSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CalculateFeeAvalancheSpecificValidationError{}
+
 // Validate checks the field values on CalculateFeeResponse with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -19124,6 +19701,21 @@ func (m *ValidateAddressRequest) validate(all bool) error {
 	}
 
 	// no validation rules for Address
+
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := ValidateAddressRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
 
 	if len(errors) > 0 {
 		return ValidateAddressRequestMultiError(errors)

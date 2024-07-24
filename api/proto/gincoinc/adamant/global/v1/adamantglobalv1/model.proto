@@ -243,8 +243,31 @@ message Transaction {
   ArbitrumOneSpecific arbitrum_one_specific = 48; // The Arbitrum specific fields
   AptosSpecific aptos_specific = 49; // The Flare specific fields
   DogecoinSpecific dogecoin_specific = 50; // THe Doge specific fields
+  AvalanchePlatformChainSpecific avalanche_platform_chain_specific = 51; // The Avalanche Platform Chain specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
+}
+
+// The model of unconfirmed transaction
+message UnconfirmedTransaction {
+  string wallet_id = 1; // The id of wallet
+  string transaction_id = 2; // id
+  string tx_id = 5; // txID
+  double value = 6; // The number-typed amount of transfer
+  string string_value = 7; // The string-typed amount of transfer
+  string address = 8; // The address of wallet to which the transfer send/receive
+  double fee = 9; // The number-typed amount of transfer fee
+  string string_fee = 10; // The string-typed amount of transfer fee
+  uint64 fee_rate = 11; // The fee rate of transaction (only BTC and its forks unit: sat/Byte)
+  google.protobuf.Timestamp create_time = 12; // the time at which the transfer was created
+
+  BitcoinSpecific bitcoin_specific = 13; // The Bitcoin specific fields
+  LitecoinSpecific litecoin_specific = 14; // The Litecoin specific fields
+  BitcoincashSpecific bitcoincash_specific = 15; // The Bitcoin Cash specific fields
+  C0banSpecific c0ban_specific = 16; // The C0ban specific fields
+  CardanoSpecific cardano_specific = 17; // The Cardano specific fields
+  MonacoinSpecific monacoin_specific = 18; // The Monacoin specific fields
+  AvalanchePlatformChainSpecific avalanche_platform_chain_specific = 19; // The Avalanche Platform Chain specific fields
 }
 
 // The model of transaction member
@@ -285,11 +308,18 @@ message UTXO {
     pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
   CardanoUTXOSpecific cardano_specific = 7; // The Cardano specific fields
+  AvalanchePlatformChainUTXOSpecific avalanche_platform_chain_specific = 8; // The Avalanche Platform Chain specific fields
 }
 
 // The model of Cardano specific fields of UTXO
 message CardanoUTXOSpecific {
   repeated CardanoCustomToken tokens = 1;
+}
+
+// The model of Avalanche Platform Chain specific fields of UTXO
+message AvalanchePlatformChainUTXOSpecific {
+  uint32 threshold = 1;
+  repeated string addresses = 2;
 }
 
 // The model of Cardano custom token
@@ -425,6 +455,7 @@ message AvalancheSpecific {
   uint64 gas_limit = 1;
   uint64 nonce = 2;
   bool is_next_nonce = 3;
+  AtomicTx atomic_tx = 4;
 }
 
 // The model of Oasys specific fields of transaction
@@ -519,6 +550,40 @@ message ArbitrumOneSpecific {
   string data = 4; // data
 }
 
+message AtomicTx {
+  gincoinc.global.v1.AvalancheTxType tx_type = 1;
+  repeated AvalancheTxInput tx_inputs = 2;
+  repeated AvalancheTxOutput tx_outputs = 3;
+}
+
+message AvalanchePlatformChainSpecific {
+  gincoinc.global.v1.AvalancheTxType tx_type = 1;
+  repeated AvalancheTxInput tx_inputs = 2;
+  repeated AvalancheTxOutput tx_outputs = 3;
+  uint64 start_time = 4;
+  uint64 end_time = 5;
+}
+
+message AvalancheTxInput {
+  string tx_id = 1;
+  uint32 input_index = 2;
+  uint32 input_index_type = 3;
+  double value = 4;
+  string string_value = 5;
+  repeated uint32 address_indices = 6;
+}
+
+message AvalancheTxOutput {
+  uint32 output_index = 1;
+  uint32 output_type = 2;
+  double value = 3;
+  string string_value = 4;
+  uint64 locktime = 5;
+  uint32 threshold = 6;
+  bool is_change = 7;
+  repeated string addresses = 8;
+}
+
 // The model of Substrate specific fields of CreateTransaction
 message CreateTransactionSubstrateSpecific {
   string transaction_id = 1;
@@ -561,6 +626,7 @@ message CreateTransactionEthereumSpecific {
   string data = 1;
   optional string staking_recipient_wallet_id = 2;
   optional gincoinc.global.v1.EthereumCallMethod call_method = 3;
+  optional string utils_address = 4;
 }
 
 // The model of Cosmos specific fields of CreateTransaction
@@ -588,6 +654,22 @@ message CreateTransactionSolanaSpecific {
 // The model of Aptos specific fields of CreateTransaction
 message CreateTransactionAptosSpecific {
   optional uint64 expiration = 1;
+}
+
+// The model of Avalanche specific fields of CreateTransaction
+message CreateTransactionAvalancheSpecific {
+  optional gincoinc.global.v1.AvalancheTxType tx_type = 1;
+  optional ImportTxSpecific import_tx_specific = 2;
+  optional StakingSpecific staking_specific = 3;
+}
+
+message ImportTxSpecific {
+  string tx_id = 1;
+}
+
+message StakingSpecific {
+  uint64 start_time = 1;
+  uint64 end_time = 2;
 }
 
 // The model of SelectedUTXO fields of CreateTransaction
@@ -1067,7 +1149,7 @@ message StakingHistory {
   string event_id = 15; // event id
 
   StakingHistoryEthereumSpecific ethereum_specific = 14; // The Ethereum specific fields
-
+  StakingHistoryAvalancheSpecific avalanche_specific = 16; // The Avalanche specific fields
   google.protobuf.Timestamp create_time = 12; // the time at which the staking history was created
   google.protobuf.Timestamp update_time = 13; // the time at which the staking history was updated
 }
@@ -1081,6 +1163,14 @@ message StakingHistoryEthereumSpecific {
   uint64 block_number = 5; // block number
   google.protobuf.Timestamp block_time = 6; // block time
   gincoinc.global.v1.EthereumStakingHistoryType history_type = 7; // ethereum staking history type
+}
+
+// The model of Avalanche specific fields of StakingHistory
+message StakingHistoryAvalancheSpecific {
+  uint64 start_time = 1;
+  uint64 end_time = 2;
+  uint64 rewards_owner_threshold = 3;
+  repeated string rewards_owner_addresses = 4;
 }
 
 // The model of StakingValidator

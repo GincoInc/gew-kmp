@@ -45,6 +45,12 @@ class UTXO extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CardanoUTXOSpecific cardano_specific = 7 [json_name = "cardanoSpecific"];</code>
      */
     protected $cardano_specific = null;
+    /**
+     * The Avalanche Platform Chain specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AvalanchePlatformChainUTXOSpecific avalanche_platform_chain_specific = 8 [json_name = "avalanchePlatformChainSpecific"];</code>
+     */
+    protected $avalanche_platform_chain_specific = null;
 
     /**
      * Constructor.
@@ -60,6 +66,8 @@ class UTXO extends \Google\Protobuf\Internal\Message
      *     @type string $transaction_id
      *     @type \Adamant\PBGlobal\V1\CardanoUTXOSpecific $cardano_specific
      *           The Cardano specific fields
+     *     @type \Adamant\PBGlobal\V1\AvalanchePlatformChainUTXOSpecific $avalanche_platform_chain_specific
+     *           The Avalanche Platform Chain specific fields
      * }
      */
     public function __construct($data = NULL) {
@@ -231,6 +239,42 @@ class UTXO extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CardanoUTXOSpecific::class);
         $this->cardano_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Avalanche Platform Chain specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AvalanchePlatformChainUTXOSpecific avalanche_platform_chain_specific = 8 [json_name = "avalanchePlatformChainSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\AvalanchePlatformChainUTXOSpecific|null
+     */
+    public function getAvalanchePlatformChainSpecific()
+    {
+        return $this->avalanche_platform_chain_specific;
+    }
+
+    public function hasAvalanchePlatformChainSpecific()
+    {
+        return isset($this->avalanche_platform_chain_specific);
+    }
+
+    public function clearAvalanchePlatformChainSpecific()
+    {
+        unset($this->avalanche_platform_chain_specific);
+    }
+
+    /**
+     * The Avalanche Platform Chain specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AvalanchePlatformChainUTXOSpecific avalanche_platform_chain_specific = 8 [json_name = "avalanchePlatformChainSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\AvalanchePlatformChainUTXOSpecific $var
+     * @return $this
+     */
+    public function setAvalanchePlatformChainSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\AvalanchePlatformChainUTXOSpecific::class);
+        $this->avalanche_platform_chain_specific = $var;
 
         return $this;
     }
