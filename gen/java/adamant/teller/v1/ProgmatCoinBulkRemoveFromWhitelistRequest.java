@@ -4,41 +4,43 @@
 package adamant.teller.v1;
 
 /**
- * Protobuf type {@code adamant.teller.v1.ProgmatCoinAddToBlacklistRequest}
+ * Protobuf type {@code adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest}
  */
-public final class ProgmatCoinAddToBlacklistRequest extends
+public final class ProgmatCoinBulkRemoveFromWhitelistRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:adamant.teller.v1.ProgmatCoinAddToBlacklistRequest)
-    ProgmatCoinAddToBlacklistRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest)
+    ProgmatCoinBulkRemoveFromWhitelistRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use ProgmatCoinAddToBlacklistRequest.newBuilder() to construct.
-  private ProgmatCoinAddToBlacklistRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ProgmatCoinBulkRemoveFromWhitelistRequest.newBuilder() to construct.
+  private ProgmatCoinBulkRemoveFromWhitelistRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ProgmatCoinAddToBlacklistRequest() {
+  private ProgmatCoinBulkRemoveFromWhitelistRequest() {
     walletId_ = "";
     contractAddress_ = "";
-    address_ = "";
+    utilsAddress_ = "";
+    addresses_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new ProgmatCoinAddToBlacklistRequest();
+    return new ProgmatCoinBulkRemoveFromWhitelistRequest();
   }
 
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return adamant.teller.v1.TellerAPIProto.internal_static_adamant_teller_v1_ProgmatCoinAddToBlacklistRequest_descriptor;
+    return adamant.teller.v1.TellerAPIProto.internal_static_adamant_teller_v1_ProgmatCoinBulkRemoveFromWhitelistRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return adamant.teller.v1.TellerAPIProto.internal_static_adamant_teller_v1_ProgmatCoinAddToBlacklistRequest_fieldAccessorTable
+    return adamant.teller.v1.TellerAPIProto.internal_static_adamant_teller_v1_ProgmatCoinBulkRemoveFromWhitelistRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            adamant.teller.v1.ProgmatCoinAddToBlacklistRequest.class, adamant.teller.v1.ProgmatCoinAddToBlacklistRequest.Builder.class);
+            adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest.class, adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest.Builder.class);
   }
 
   public static final int WALLET_ID_FIELD_NUMBER = 1;
@@ -130,43 +132,80 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int ADDRESS_FIELD_NUMBER = 4;
+  public static final int UTILS_ADDRESS_FIELD_NUMBER = 4;
   @SuppressWarnings("serial")
-  private volatile java.lang.Object address_ = "";
+  private volatile java.lang.Object utilsAddress_ = "";
   /**
-   * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
-   * @return The address.
+   * <code>string utils_address = 4 [json_name = "utilsAddress", (.validate.rules) = { ... }</code>
+   * @return The utilsAddress.
    */
   @java.lang.Override
-  public java.lang.String getAddress() {
-    java.lang.Object ref = address_;
+  public java.lang.String getUtilsAddress() {
+    java.lang.Object ref = utilsAddress_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      address_ = s;
+      utilsAddress_ = s;
       return s;
     }
   }
   /**
-   * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
-   * @return The bytes for address.
+   * <code>string utils_address = 4 [json_name = "utilsAddress", (.validate.rules) = { ... }</code>
+   * @return The bytes for utilsAddress.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getAddressBytes() {
-    java.lang.Object ref = address_;
+      getUtilsAddressBytes() {
+    java.lang.Object ref = utilsAddress_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      address_ = b;
+      utilsAddress_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int ADDRESSES_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.LazyStringArrayList addresses_ =
+      com.google.protobuf.LazyStringArrayList.emptyList();
+  /**
+   * <code>repeated string addresses = 5 [json_name = "addresses", (.validate.rules) = { ... }</code>
+   * @return A list containing the addresses.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getAddressesList() {
+    return addresses_;
+  }
+  /**
+   * <code>repeated string addresses = 5 [json_name = "addresses", (.validate.rules) = { ... }</code>
+   * @return The count of addresses.
+   */
+  public int getAddressesCount() {
+    return addresses_.size();
+  }
+  /**
+   * <code>repeated string addresses = 5 [json_name = "addresses", (.validate.rules) = { ... }</code>
+   * @param index The index of the element to return.
+   * @return The addresses at the given index.
+   */
+  public java.lang.String getAddresses(int index) {
+    return addresses_.get(index);
+  }
+  /**
+   * <code>repeated string addresses = 5 [json_name = "addresses", (.validate.rules) = { ... }</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the addresses at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getAddressesBytes(int index) {
+    return addresses_.getByteString(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -192,8 +231,11 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contractAddress_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, contractAddress_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, address_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(utilsAddress_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, utilsAddress_);
+    }
+    for (int i = 0; i < addresses_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, addresses_.getRaw(i));
     }
     getUnknownFields().writeTo(output);
   }
@@ -214,8 +256,16 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contractAddress_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, contractAddress_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, address_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(utilsAddress_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, utilsAddress_);
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < addresses_.size(); i++) {
+        dataSize += computeStringSizeNoTag(addresses_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getAddressesList().size();
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -227,10 +277,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof adamant.teller.v1.ProgmatCoinAddToBlacklistRequest)) {
+    if (!(obj instanceof adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest)) {
       return super.equals(obj);
     }
-    adamant.teller.v1.ProgmatCoinAddToBlacklistRequest other = (adamant.teller.v1.ProgmatCoinAddToBlacklistRequest) obj;
+    adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest other = (adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest) obj;
 
     if (!getWalletId()
         .equals(other.getWalletId())) return false;
@@ -238,8 +288,10 @@ private static final long serialVersionUID = 0L;
         != other.getFeeRate()) return false;
     if (!getContractAddress()
         .equals(other.getContractAddress())) return false;
-    if (!getAddress()
-        .equals(other.getAddress())) return false;
+    if (!getUtilsAddress()
+        .equals(other.getUtilsAddress())) return false;
+    if (!getAddressesList()
+        .equals(other.getAddressesList())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -258,51 +310,55 @@ private static final long serialVersionUID = 0L;
         getFeeRate());
     hash = (37 * hash) + CONTRACT_ADDRESS_FIELD_NUMBER;
     hash = (53 * hash) + getContractAddress().hashCode();
-    hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
-    hash = (53 * hash) + getAddress().hashCode();
+    hash = (37 * hash) + UTILS_ADDRESS_FIELD_NUMBER;
+    hash = (53 * hash) + getUtilsAddress().hashCode();
+    if (getAddressesCount() > 0) {
+      hash = (37 * hash) + ADDRESSES_FIELD_NUMBER;
+      hash = (53 * hash) + getAddressesList().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static adamant.teller.v1.ProgmatCoinAddToBlacklistRequest parseFrom(
+  public static adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static adamant.teller.v1.ProgmatCoinAddToBlacklistRequest parseFrom(
+  public static adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static adamant.teller.v1.ProgmatCoinAddToBlacklistRequest parseFrom(
+  public static adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static adamant.teller.v1.ProgmatCoinAddToBlacklistRequest parseFrom(
+  public static adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static adamant.teller.v1.ProgmatCoinAddToBlacklistRequest parseFrom(byte[] data)
+  public static adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static adamant.teller.v1.ProgmatCoinAddToBlacklistRequest parseFrom(
+  public static adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static adamant.teller.v1.ProgmatCoinAddToBlacklistRequest parseFrom(java.io.InputStream input)
+  public static adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static adamant.teller.v1.ProgmatCoinAddToBlacklistRequest parseFrom(
+  public static adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -310,26 +366,26 @@ private static final long serialVersionUID = 0L;
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
 
-  public static adamant.teller.v1.ProgmatCoinAddToBlacklistRequest parseDelimitedFrom(java.io.InputStream input)
+  public static adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
 
-  public static adamant.teller.v1.ProgmatCoinAddToBlacklistRequest parseDelimitedFrom(
+  public static adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static adamant.teller.v1.ProgmatCoinAddToBlacklistRequest parseFrom(
+  public static adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static adamant.teller.v1.ProgmatCoinAddToBlacklistRequest parseFrom(
+  public static adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -342,7 +398,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(adamant.teller.v1.ProgmatCoinAddToBlacklistRequest prototype) {
+  public static Builder newBuilder(adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -358,26 +414,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code adamant.teller.v1.ProgmatCoinAddToBlacklistRequest}
+   * Protobuf type {@code adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:adamant.teller.v1.ProgmatCoinAddToBlacklistRequest)
-      adamant.teller.v1.ProgmatCoinAddToBlacklistRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest)
+      adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return adamant.teller.v1.TellerAPIProto.internal_static_adamant_teller_v1_ProgmatCoinAddToBlacklistRequest_descriptor;
+      return adamant.teller.v1.TellerAPIProto.internal_static_adamant_teller_v1_ProgmatCoinBulkRemoveFromWhitelistRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return adamant.teller.v1.TellerAPIProto.internal_static_adamant_teller_v1_ProgmatCoinAddToBlacklistRequest_fieldAccessorTable
+      return adamant.teller.v1.TellerAPIProto.internal_static_adamant_teller_v1_ProgmatCoinBulkRemoveFromWhitelistRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              adamant.teller.v1.ProgmatCoinAddToBlacklistRequest.class, adamant.teller.v1.ProgmatCoinAddToBlacklistRequest.Builder.class);
+              adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest.class, adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest.Builder.class);
     }
 
-    // Construct using adamant.teller.v1.ProgmatCoinAddToBlacklistRequest.newBuilder()
+    // Construct using adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest.newBuilder()
     private Builder() {
 
     }
@@ -394,24 +450,26 @@ private static final long serialVersionUID = 0L;
       walletId_ = "";
       feeRate_ = 0L;
       contractAddress_ = "";
-      address_ = "";
+      utilsAddress_ = "";
+      addresses_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return adamant.teller.v1.TellerAPIProto.internal_static_adamant_teller_v1_ProgmatCoinAddToBlacklistRequest_descriptor;
+      return adamant.teller.v1.TellerAPIProto.internal_static_adamant_teller_v1_ProgmatCoinBulkRemoveFromWhitelistRequest_descriptor;
     }
 
     @java.lang.Override
-    public adamant.teller.v1.ProgmatCoinAddToBlacklistRequest getDefaultInstanceForType() {
-      return adamant.teller.v1.ProgmatCoinAddToBlacklistRequest.getDefaultInstance();
+    public adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest getDefaultInstanceForType() {
+      return adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public adamant.teller.v1.ProgmatCoinAddToBlacklistRequest build() {
-      adamant.teller.v1.ProgmatCoinAddToBlacklistRequest result = buildPartial();
+    public adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest build() {
+      adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -419,14 +477,14 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public adamant.teller.v1.ProgmatCoinAddToBlacklistRequest buildPartial() {
-      adamant.teller.v1.ProgmatCoinAddToBlacklistRequest result = new adamant.teller.v1.ProgmatCoinAddToBlacklistRequest(this);
+    public adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest buildPartial() {
+      adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest result = new adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest(this);
       if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
     }
 
-    private void buildPartial0(adamant.teller.v1.ProgmatCoinAddToBlacklistRequest result) {
+    private void buildPartial0(adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.walletId_ = walletId_;
@@ -438,7 +496,11 @@ private static final long serialVersionUID = 0L;
         result.contractAddress_ = contractAddress_;
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.address_ = address_;
+        result.utilsAddress_ = utilsAddress_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        addresses_.makeImmutable();
+        result.addresses_ = addresses_;
       }
     }
 
@@ -476,16 +538,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof adamant.teller.v1.ProgmatCoinAddToBlacklistRequest) {
-        return mergeFrom((adamant.teller.v1.ProgmatCoinAddToBlacklistRequest)other);
+      if (other instanceof adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest) {
+        return mergeFrom((adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(adamant.teller.v1.ProgmatCoinAddToBlacklistRequest other) {
-      if (other == adamant.teller.v1.ProgmatCoinAddToBlacklistRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest other) {
+      if (other == adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest.getDefaultInstance()) return this;
       if (!other.getWalletId().isEmpty()) {
         walletId_ = other.walletId_;
         bitField0_ |= 0x00000001;
@@ -499,9 +561,19 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000004;
         onChanged();
       }
-      if (!other.getAddress().isEmpty()) {
-        address_ = other.address_;
+      if (!other.getUtilsAddress().isEmpty()) {
+        utilsAddress_ = other.utilsAddress_;
         bitField0_ |= 0x00000008;
+        onChanged();
+      }
+      if (!other.addresses_.isEmpty()) {
+        if (addresses_.isEmpty()) {
+          addresses_ = other.addresses_;
+          bitField0_ |= 0x00000010;
+        } else {
+          ensureAddressesIsMutable();
+          addresses_.addAll(other.addresses_);
+        }
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -546,10 +618,16 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 26
             case 34: {
-              address_ = input.readStringRequireUtf8();
+              utilsAddress_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000008;
               break;
             } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureAddressesIsMutable();
+              addresses_.add(s);
+              break;
+            } // case 42
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -743,74 +821,185 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object address_ = "";
+    private java.lang.Object utilsAddress_ = "";
     /**
-     * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
-     * @return The address.
+     * <code>string utils_address = 4 [json_name = "utilsAddress", (.validate.rules) = { ... }</code>
+     * @return The utilsAddress.
      */
-    public java.lang.String getAddress() {
-      java.lang.Object ref = address_;
+    public java.lang.String getUtilsAddress() {
+      java.lang.Object ref = utilsAddress_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        address_ = s;
+        utilsAddress_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
-     * @return The bytes for address.
+     * <code>string utils_address = 4 [json_name = "utilsAddress", (.validate.rules) = { ... }</code>
+     * @return The bytes for utilsAddress.
      */
     public com.google.protobuf.ByteString
-        getAddressBytes() {
-      java.lang.Object ref = address_;
+        getUtilsAddressBytes() {
+      java.lang.Object ref = utilsAddress_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        address_ = b;
+        utilsAddress_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
-     * @param value The address to set.
+     * <code>string utils_address = 4 [json_name = "utilsAddress", (.validate.rules) = { ... }</code>
+     * @param value The utilsAddress to set.
      * @return This builder for chaining.
      */
-    public Builder setAddress(
+    public Builder setUtilsAddress(
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
-      address_ = value;
+      utilsAddress_ = value;
       bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
-     * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
+     * <code>string utils_address = 4 [json_name = "utilsAddress", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
-    public Builder clearAddress() {
-      address_ = getDefaultInstance().getAddress();
+    public Builder clearUtilsAddress() {
+      utilsAddress_ = getDefaultInstance().getUtilsAddress();
       bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
-     * <code>string address = 4 [json_name = "address", (.validate.rules) = { ... }</code>
-     * @param value The bytes for address to set.
+     * <code>string utils_address = 4 [json_name = "utilsAddress", (.validate.rules) = { ... }</code>
+     * @param value The bytes for utilsAddress to set.
      * @return This builder for chaining.
      */
-    public Builder setAddressBytes(
+    public Builder setUtilsAddressBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
-      address_ = value;
+      utilsAddress_ = value;
       bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.LazyStringArrayList addresses_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+    private void ensureAddressesIsMutable() {
+      if (!addresses_.isModifiable()) {
+        addresses_ = new com.google.protobuf.LazyStringArrayList(addresses_);
+      }
+      bitField0_ |= 0x00000010;
+    }
+    /**
+     * <code>repeated string addresses = 5 [json_name = "addresses", (.validate.rules) = { ... }</code>
+     * @return A list containing the addresses.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getAddressesList() {
+      addresses_.makeImmutable();
+      return addresses_;
+    }
+    /**
+     * <code>repeated string addresses = 5 [json_name = "addresses", (.validate.rules) = { ... }</code>
+     * @return The count of addresses.
+     */
+    public int getAddressesCount() {
+      return addresses_.size();
+    }
+    /**
+     * <code>repeated string addresses = 5 [json_name = "addresses", (.validate.rules) = { ... }</code>
+     * @param index The index of the element to return.
+     * @return The addresses at the given index.
+     */
+    public java.lang.String getAddresses(int index) {
+      return addresses_.get(index);
+    }
+    /**
+     * <code>repeated string addresses = 5 [json_name = "addresses", (.validate.rules) = { ... }</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the addresses at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getAddressesBytes(int index) {
+      return addresses_.getByteString(index);
+    }
+    /**
+     * <code>repeated string addresses = 5 [json_name = "addresses", (.validate.rules) = { ... }</code>
+     * @param index The index to set the value at.
+     * @param value The addresses to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAddresses(
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureAddressesIsMutable();
+      addresses_.set(index, value);
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string addresses = 5 [json_name = "addresses", (.validate.rules) = { ... }</code>
+     * @param value The addresses to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAddresses(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureAddressesIsMutable();
+      addresses_.add(value);
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string addresses = 5 [json_name = "addresses", (.validate.rules) = { ... }</code>
+     * @param values The addresses to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllAddresses(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureAddressesIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, addresses_);
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string addresses = 5 [json_name = "addresses", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAddresses() {
+      addresses_ =
+        com.google.protobuf.LazyStringArrayList.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000010);;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string addresses = 5 [json_name = "addresses", (.validate.rules) = { ... }</code>
+     * @param value The bytes of the addresses to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAddressesBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensureAddressesIsMutable();
+      addresses_.add(value);
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -827,23 +1016,23 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:adamant.teller.v1.ProgmatCoinAddToBlacklistRequest)
+    // @@protoc_insertion_point(builder_scope:adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:adamant.teller.v1.ProgmatCoinAddToBlacklistRequest)
-  private static final adamant.teller.v1.ProgmatCoinAddToBlacklistRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest)
+  private static final adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new adamant.teller.v1.ProgmatCoinAddToBlacklistRequest();
+    DEFAULT_INSTANCE = new adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest();
   }
 
-  public static adamant.teller.v1.ProgmatCoinAddToBlacklistRequest getDefaultInstance() {
+  public static adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ProgmatCoinAddToBlacklistRequest>
-      PARSER = new com.google.protobuf.AbstractParser<ProgmatCoinAddToBlacklistRequest>() {
+  private static final com.google.protobuf.Parser<ProgmatCoinBulkRemoveFromWhitelistRequest>
+      PARSER = new com.google.protobuf.AbstractParser<ProgmatCoinBulkRemoveFromWhitelistRequest>() {
     @java.lang.Override
-    public ProgmatCoinAddToBlacklistRequest parsePartialFrom(
+    public ProgmatCoinBulkRemoveFromWhitelistRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -862,17 +1051,17 @@ private static final long serialVersionUID = 0L;
     }
   };
 
-  public static com.google.protobuf.Parser<ProgmatCoinAddToBlacklistRequest> parser() {
+  public static com.google.protobuf.Parser<ProgmatCoinBulkRemoveFromWhitelistRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ProgmatCoinAddToBlacklistRequest> getParserForType() {
+  public com.google.protobuf.Parser<ProgmatCoinBulkRemoveFromWhitelistRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public adamant.teller.v1.ProgmatCoinAddToBlacklistRequest getDefaultInstanceForType() {
+  public adamant.teller.v1.ProgmatCoinBulkRemoveFromWhitelistRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

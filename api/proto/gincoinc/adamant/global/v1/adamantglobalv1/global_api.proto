@@ -91,6 +91,9 @@ service GlobalAPI {
   rpc ListTransactions(ListTransactionsRequest) returns (ListTransactionsResponse) {}
   rpc ListTransactionsByFilter(ListTransactionsByFilterRequest) returns (ListTransactionsResponse) {}
 
+  // UnconfirmedTransaction
+  rpc ListUnconfirmedTransactionsByFilter(ListUnconfirmedTransactionsByFilterRequest) returns (ListUnconfirmedTransactionsResponse) {}
+
   // SignInfo
   rpc GetSignInfo(GetSignInfoRequest) returns (SignInfo) {}
   rpc ListSignInfo(ListSignInfoRequest) returns (ListSignInfoResponse) {}
@@ -772,6 +775,7 @@ message CreateTransactionRequest {
   adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 16;
   adamant.global.v1.CreateTransactionSolanaSpecific solana_specific = 17;
   adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19;
+  adamant.global.v1.CreateTransactionAvalancheSpecific avalanche_specific = 20;
   adamant.global.v1.UtxoSpecific utxo_specific = 18;
 }
 
@@ -991,6 +995,78 @@ message ListTransactionsByFilterRequest {
 message ListTransactionsResponse {
   repeated Transaction transactions = 1;
   string next_page_token = 2;
+}
+
+// -----------------------------------------------------------------------------
+// UnconfirmedTransaction
+// -----------------------------------------------------------------------------
+
+message ListUnconfirmedTransactionsByFilterRequest {
+  ListFilterType filter_type = 1 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0,
+      6,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ]
+  }];
+  // optional
+  string transaction_id = 2;
+
+  // optional
+  string wallet_id = 3;
+
+  // optional
+  string wallet_name = 4 [(validate.rules).string = {
+    max_len: 40
+  }];
+
+  // optional
+  string address = 5;
+
+  // optional
+  string txid = 6;
+
+  // optional
+  gincoinc.global.v1.Coin coin = 7 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  // optional
+  optional gincoinc.global.v1.Network network = 8 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  repeated WalletType wallet_type = 9;
+
+  // optional
+  uint32 page_size = 10 [(validate.rules).uint32.lte = 1000];
+
+  // optional
+  string page_token = 11 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
+
+  // optional
+  google.protobuf.Timestamp start_time = 12;
+
+  // optional
+  google.protobuf.Timestamp end_time = 13;
+}
+
+message ListUnconfirmedTransactionsResponse {
+  repeated UnconfirmedTransaction unconfirmed_transactions = 1; // Array of unconfirmed transaction objects
+  string next_page_token = 2; // The token for requesting the next page
 }
 
 // -----------------------------------------------------------------------------
@@ -1329,6 +1405,7 @@ message CalculateFeeRequest {
   CalculateFeeRbfSpecific rbf_specific = 13;
   UtxoSpecific utxo_specific = 14;
   CalculateFeeSolanaSpecific solana_specific = 15;
+  CalculateFeeAvalancheSpecific avalanche_specific = 16;
 }
 
 // The model of Substrate specific fields of CreateTransaction
@@ -1382,6 +1459,11 @@ message UtxoSpecific {
   repeated SelectedUTXO selected_utxos = 1;
 }
 
+// The model of Avalanche specific fields of CalculateFee
+message CalculateFeeAvalancheSpecific {
+  optional gincoinc.global.v1.AvalancheTxType tx_type = 1;
+}
+
 message CalculateFeeResponse {
   double fee = 1;
   string string_fee = 2;
@@ -1420,6 +1502,9 @@ message ValidateAddressRequest {
     ]
   }]; // The type of coin
   string address = 2;
+  optional gincoinc.global.v1.Network network = 3 [(validate.rules).enum = {
+    defined_only: true
+  }];
 }
 
 message ValidateAddressResponse {

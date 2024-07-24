@@ -100,7 +100,7 @@ class ListFilterType
      */
     const LIST_FILTER_TYPE_STAKING_VALIDATOR_ID = 20;
     /**
-     * db上のstaking_historyr_id
+     * db上のstaking_history_id
      *
      * Generated from protobuf enum <code>LIST_FILTER_TYPE_STAKING_HISTORY_ID = 21;</code>
      */

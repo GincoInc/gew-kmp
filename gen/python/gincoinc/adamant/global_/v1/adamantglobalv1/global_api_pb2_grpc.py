@@ -310,6 +310,11 @@ class GlobalAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListTransactionsByFilterRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListTransactionsResponse.FromString,
                 )
+        self.ListUnconfirmedTransactionsByFilter = channel.unary_unary(
+                '/adamant.global.v1.GlobalAPI/ListUnconfirmedTransactionsByFilter',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsByFilterRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsResponse.FromString,
+                )
         self.GetSignInfo = channel.unary_unary(
                 '/adamant.global.v1.GlobalAPI/GetSignInfo',
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetSignInfoRequest.SerializeToString,
@@ -941,6 +946,13 @@ class GlobalAPIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListUnconfirmedTransactionsByFilter(self, request, context):
+        """UnconfirmedTransaction
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetSignInfo(self, request, context):
         """SignInfo
         """
@@ -1565,6 +1577,11 @@ def add_GlobalAPIServicer_to_server(servicer, server):
                     servicer.ListTransactionsByFilter,
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListTransactionsByFilterRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListTransactionsResponse.SerializeToString,
+            ),
+            'ListUnconfirmedTransactionsByFilter': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListUnconfirmedTransactionsByFilter,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsByFilterRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsResponse.SerializeToString,
             ),
             'GetSignInfo': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSignInfo,
@@ -2828,6 +2845,23 @@ class GlobalAPI(object):
         return grpc.experimental.unary_unary(request, target, '/adamant.global.v1.GlobalAPI/ListTransactionsByFilter',
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListTransactionsByFilterRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListTransactionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListUnconfirmedTransactionsByFilter(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.global.v1.GlobalAPI/ListUnconfirmedTransactionsByFilter',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsByFilterRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListUnconfirmedTransactionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

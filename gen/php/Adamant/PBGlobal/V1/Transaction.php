@@ -286,6 +286,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $dogecoin_specific = null;
     /**
+     * The Avalanche Platform Chain specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AvalanchePlatformChainSpecific avalanche_platform_chain_specific = 51 [json_name = "avalanchePlatformChainSpecific"];</code>
+     */
+    protected $avalanche_platform_chain_specific = null;
+    /**
      * the time at which the transaction was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
@@ -394,6 +400,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The Flare specific fields
      *     @type \Adamant\PBGlobal\V1\DogecoinSpecific $dogecoin_specific
      *           THe Doge specific fields
+     *     @type \Adamant\PBGlobal\V1\AvalanchePlatformChainSpecific $avalanche_platform_chain_specific
+     *           The Avalanche Platform Chain specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -1871,6 +1879,42 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\DogecoinSpecific::class);
         $this->dogecoin_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Avalanche Platform Chain specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AvalanchePlatformChainSpecific avalanche_platform_chain_specific = 51 [json_name = "avalanchePlatformChainSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\AvalanchePlatformChainSpecific|null
+     */
+    public function getAvalanchePlatformChainSpecific()
+    {
+        return $this->avalanche_platform_chain_specific;
+    }
+
+    public function hasAvalanchePlatformChainSpecific()
+    {
+        return isset($this->avalanche_platform_chain_specific);
+    }
+
+    public function clearAvalanchePlatformChainSpecific()
+    {
+        unset($this->avalanche_platform_chain_specific);
+    }
+
+    /**
+     * The Avalanche Platform Chain specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.AvalanchePlatformChainSpecific avalanche_platform_chain_specific = 51 [json_name = "avalanchePlatformChainSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\AvalanchePlatformChainSpecific $var
+     * @return $this
+     */
+    public function setAvalanchePlatformChainSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\AvalanchePlatformChainSpecific::class);
+        $this->avalanche_platform_chain_specific = $var;
 
         return $this;
     }
