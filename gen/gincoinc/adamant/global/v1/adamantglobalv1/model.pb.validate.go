@@ -3511,6 +3511,14 @@ func (m *TxInput) validate(all bool) error {
 
 	// no validation rules for StringValue
 
+	// no validation rules for TxInputIndex
+
+	// no validation rules for Address
+
+	// no validation rules for WitnessScript
+
+	// no validation rules for NSequence
+
 	if len(errors) > 0 {
 		return TxInputMultiError(errors)
 	}
@@ -3617,6 +3625,8 @@ func (m *TxOutput) validate(all bool) error {
 	// no validation rules for StringValue
 
 	// no validation rules for IsChange
+
+	// no validation rules for TxOutputIndex
 
 	if len(errors) > 0 {
 		return TxOutputMultiError(errors)
@@ -12248,6 +12258,8 @@ func (m *LabeledAddress) validate(all bool) error {
 
 	// no validation rules for Network
 
+	// no validation rules for Message
+
 	if len(errors) > 0 {
 		return LabeledAddressMultiError(errors)
 	}
@@ -12359,6 +12371,8 @@ func (m *LabeledAddressProposal) validate(all bool) error {
 	// no validation rules for ProposedAddress
 
 	// no validation rules for AddressIsReviewed
+
+	// no validation rules for ProposedMessage
 
 	if len(errors) > 0 {
 		return LabeledAddressProposalMultiError(errors)
