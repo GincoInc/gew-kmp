@@ -91,6 +91,31 @@ enum Coin {
   COIN_ERC20_SCDEV = 10003; // for stable coin development in dev
   COIN_ERC20_SCQA = 10004; // for stable coin development in qa
   COIN_ERC20_SCPROD = 10005; // for stable coin development in prod
+  COIN_ERC20_COINSCDEV = 10006; // for stable coin development in dev
+  COIN_ERC20_COINSCQA = 10007; // for stable coin development in qa
+  COIN_ERC20_COINSCPROD = 10008; // for stable coin development in prod
+  COIN_ERC20_COIN1 = 10009;
+  COIN_ERC20_COIN2 = 10010;
+  COIN_ERC20_COIN3 = 10011;
+  COIN_ERC20_COIN4 = 10012;
+  COIN_ERC20_COIN5 = 10013;
+  COIN_ERC20_COIN6 = 10014;
+  COIN_ERC20_COIN7 = 10015;
+  COIN_ERC20_COIN8 = 10016;
+  COIN_ERC20_COIN9 = 10017;
+  COIN_ERC20_COIN10 = 10018;
+  COIN_ERC20_COIN11 = 10019;
+  COIN_ERC20_COIN12 = 10020;
+  COIN_ERC20_COIN13 = 10021;
+  COIN_ERC20_COIN14 = 10022;
+  COIN_ERC20_COIN15 = 10023;
+  COIN_ERC20_COIN = 10024;
+  COIN_ERC20_PREUAT1 = 10025;
+  COIN_ERC20_PREUAT2 = 10026;
+  COIN_ERC20_PREUAT3 = 10027;
+  COIN_ERC20_PREUAT4 = 10028;
+  COIN_ERC20_DEVCOIN1 = 10029;
+  COIN_ERC20_DEVCOIN2 = 10030;
 }
 
 // Network is a type of blockchain network.
