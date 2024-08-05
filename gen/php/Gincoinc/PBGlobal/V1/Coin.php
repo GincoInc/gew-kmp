@@ -327,6 +327,112 @@ class Coin
      * Generated from protobuf enum <code>COIN_ERC20_SCPROD = 10005;</code>
      */
     const COIN_ERC20_SCPROD = 10005;
+    /**
+     * for stable coin development in dev
+     *
+     * Generated from protobuf enum <code>COIN_ERC20_COINSCDEV = 10006;</code>
+     */
+    const COIN_ERC20_COINSCDEV = 10006;
+    /**
+     * for stable coin development in qa
+     *
+     * Generated from protobuf enum <code>COIN_ERC20_COINSCQA = 10007;</code>
+     */
+    const COIN_ERC20_COINSCQA = 10007;
+    /**
+     * for stable coin development in prod
+     *
+     * Generated from protobuf enum <code>COIN_ERC20_COINSCPROD = 10008;</code>
+     */
+    const COIN_ERC20_COINSCPROD = 10008;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN1 = 10009;</code>
+     */
+    const COIN_ERC20_COIN1 = 10009;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN2 = 10010;</code>
+     */
+    const COIN_ERC20_COIN2 = 10010;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN3 = 10011;</code>
+     */
+    const COIN_ERC20_COIN3 = 10011;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN4 = 10012;</code>
+     */
+    const COIN_ERC20_COIN4 = 10012;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN5 = 10013;</code>
+     */
+    const COIN_ERC20_COIN5 = 10013;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN6 = 10014;</code>
+     */
+    const COIN_ERC20_COIN6 = 10014;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN7 = 10015;</code>
+     */
+    const COIN_ERC20_COIN7 = 10015;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN8 = 10016;</code>
+     */
+    const COIN_ERC20_COIN8 = 10016;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN9 = 10017;</code>
+     */
+    const COIN_ERC20_COIN9 = 10017;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN10 = 10018;</code>
+     */
+    const COIN_ERC20_COIN10 = 10018;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN11 = 10019;</code>
+     */
+    const COIN_ERC20_COIN11 = 10019;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN12 = 10020;</code>
+     */
+    const COIN_ERC20_COIN12 = 10020;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN13 = 10021;</code>
+     */
+    const COIN_ERC20_COIN13 = 10021;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN14 = 10022;</code>
+     */
+    const COIN_ERC20_COIN14 = 10022;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN15 = 10023;</code>
+     */
+    const COIN_ERC20_COIN15 = 10023;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN = 10024;</code>
+     */
+    const COIN_ERC20_COIN = 10024;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_PREUAT1 = 10025;</code>
+     */
+    const COIN_ERC20_PREUAT1 = 10025;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_PREUAT2 = 10026;</code>
+     */
+    const COIN_ERC20_PREUAT2 = 10026;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_PREUAT3 = 10027;</code>
+     */
+    const COIN_ERC20_PREUAT3 = 10027;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_PREUAT4 = 10028;</code>
+     */
+    const COIN_ERC20_PREUAT4 = 10028;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_DEVCOIN1 = 10029;</code>
+     */
+    const COIN_ERC20_DEVCOIN1 = 10029;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_DEVCOIN2 = 10030;</code>
+     */
+    const COIN_ERC20_DEVCOIN2 = 10030;
 
     private static $valueToName = [
         self::COIN_INVALID => 'COIN_INVALID',
@@ -406,6 +512,31 @@ class Coin
         self::COIN_ERC20_SCDEV => 'COIN_ERC20_SCDEV',
         self::COIN_ERC20_SCQA => 'COIN_ERC20_SCQA',
         self::COIN_ERC20_SCPROD => 'COIN_ERC20_SCPROD',
+        self::COIN_ERC20_COINSCDEV => 'COIN_ERC20_COINSCDEV',
+        self::COIN_ERC20_COINSCQA => 'COIN_ERC20_COINSCQA',
+        self::COIN_ERC20_COINSCPROD => 'COIN_ERC20_COINSCPROD',
+        self::COIN_ERC20_COIN1 => 'COIN_ERC20_COIN1',
+        self::COIN_ERC20_COIN2 => 'COIN_ERC20_COIN2',
+        self::COIN_ERC20_COIN3 => 'COIN_ERC20_COIN3',
+        self::COIN_ERC20_COIN4 => 'COIN_ERC20_COIN4',
+        self::COIN_ERC20_COIN5 => 'COIN_ERC20_COIN5',
+        self::COIN_ERC20_COIN6 => 'COIN_ERC20_COIN6',
+        self::COIN_ERC20_COIN7 => 'COIN_ERC20_COIN7',
+        self::COIN_ERC20_COIN8 => 'COIN_ERC20_COIN8',
+        self::COIN_ERC20_COIN9 => 'COIN_ERC20_COIN9',
+        self::COIN_ERC20_COIN10 => 'COIN_ERC20_COIN10',
+        self::COIN_ERC20_COIN11 => 'COIN_ERC20_COIN11',
+        self::COIN_ERC20_COIN12 => 'COIN_ERC20_COIN12',
+        self::COIN_ERC20_COIN13 => 'COIN_ERC20_COIN13',
+        self::COIN_ERC20_COIN14 => 'COIN_ERC20_COIN14',
+        self::COIN_ERC20_COIN15 => 'COIN_ERC20_COIN15',
+        self::COIN_ERC20_COIN => 'COIN_ERC20_COIN',
+        self::COIN_ERC20_PREUAT1 => 'COIN_ERC20_PREUAT1',
+        self::COIN_ERC20_PREUAT2 => 'COIN_ERC20_PREUAT2',
+        self::COIN_ERC20_PREUAT3 => 'COIN_ERC20_PREUAT3',
+        self::COIN_ERC20_PREUAT4 => 'COIN_ERC20_PREUAT4',
+        self::COIN_ERC20_DEVCOIN1 => 'COIN_ERC20_DEVCOIN1',
+        self::COIN_ERC20_DEVCOIN2 => 'COIN_ERC20_DEVCOIN2',
     ];
 
     public static function name($value)
