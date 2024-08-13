@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-±™
+¦›
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"Ž	
 Wallet
 owner_id (	RownerId
@@ -282,17 +282,23 @@ account_id (	R	accountIdA
 email (	Remail/
 role (2.adamant.global.v1.RoleTypeRrole
 signed (Rsigned
-	validated (R	validated"r
+	validated (R	validated"ø
 TxInput
 tx_id (	RtxId
 tx_index (RtxIndex
 value (Rvalue!
-string_value (	RstringValue"z
+string_value (	RstringValue$
+tx_input_index (RtxInputIndex
+address (	Raddress%
+witness_script (	RwitnessScript
+
+n_sequence (R	nSequence"¢
 TxOutput
 address (	Raddress
 value (Rvalue!
 string_value (	RstringValue
-	is_change (RisChange"Ð
+	is_change (RisChange&
+tx_output_index (RtxOutputIndex"Ð
 UTXO
 tx_id (	RtxId
 vout (Rvout
@@ -724,7 +730,7 @@ RatesEntry
 Deactivatability
 
 account_id (	R	accountId$
-deactivatable (Rdeactivatable"’
+deactivatable (Rdeactivatable"¬
 LabeledAddress,
 labeled_address_id (	RlabeledAddressId
 name (	Rname,
@@ -735,14 +741,17 @@ account_id (	R	accountId$
 createTime;
 update_time (2.google.protobuf.TimestampR
 updateTime5
-network	 (2.gincoinc.global.v1.NetworkRnetwork"¡
+network	 (2.gincoinc.global.v1.NetworkRnetwork
+message
+ (	Rmessage"Ì
 LabeledAddressProposal0
 requester_account_id (	RrequesterAccountId%
 requester_name (	RrequesterName.
 approver_account_id (	RapproverAccountId#
 approver_name (	RapproverName)
 proposed_address (	RproposedAddress.
-address_is_reviewed (RaddressIsReviewed"â
+address_is_reviewed (RaddressIsReviewed)
+proposed_message (	RproposedMessage"â
 	Whitelist!
 whitelist_id (	RwhitelistId
 name (	Rname,

@@ -31,6 +31,22 @@ class TxInput extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string string_value = 4 [json_name = "stringValue"];</code>
      */
     protected $string_value = '';
+    /**
+     * Generated from protobuf field <code>uint32 tx_input_index = 5 [json_name = "txInputIndex"];</code>
+     */
+    protected $tx_input_index = 0;
+    /**
+     * Generated from protobuf field <code>string address = 6 [json_name = "address"];</code>
+     */
+    protected $address = '';
+    /**
+     * Generated from protobuf field <code>string witness_script = 7 [json_name = "witnessScript"];</code>
+     */
+    protected $witness_script = '';
+    /**
+     * Generated from protobuf field <code>uint32 n_sequence = 8 [json_name = "nSequence"];</code>
+     */
+    protected $n_sequence = 0;
 
     /**
      * Constructor.
@@ -42,6 +58,10 @@ class TxInput extends \Google\Protobuf\Internal\Message
      *     @type int $tx_index
      *     @type float $value
      *     @type string $string_value
+     *     @type int $tx_input_index
+     *     @type string $address
+     *     @type string $witness_script
+     *     @type int $n_sequence
      * }
      */
     public function __construct($data = NULL) {
@@ -133,6 +153,94 @@ class TxInput extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->string_value = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 tx_input_index = 5 [json_name = "txInputIndex"];</code>
+     * @return int
+     */
+    public function getTxInputIndex()
+    {
+        return $this->tx_input_index;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 tx_input_index = 5 [json_name = "txInputIndex"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setTxInputIndex($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->tx_input_index = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string address = 6 [json_name = "address"];</code>
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Generated from protobuf field <code>string address = 6 [json_name = "address"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->address = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string witness_script = 7 [json_name = "witnessScript"];</code>
+     * @return string
+     */
+    public function getWitnessScript()
+    {
+        return $this->witness_script;
+    }
+
+    /**
+     * Generated from protobuf field <code>string witness_script = 7 [json_name = "witnessScript"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setWitnessScript($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->witness_script = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 n_sequence = 8 [json_name = "nSequence"];</code>
+     * @return int
+     */
+    public function getNSequence()
+    {
+        return $this->n_sequence;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 n_sequence = 8 [json_name = "nSequence"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNSequence($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->n_sequence = $var;
 
         return $this;
     }

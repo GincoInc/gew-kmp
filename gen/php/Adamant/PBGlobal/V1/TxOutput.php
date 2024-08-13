@@ -31,6 +31,10 @@ class TxOutput extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool is_change = 4 [json_name = "isChange"];</code>
      */
     protected $is_change = false;
+    /**
+     * Generated from protobuf field <code>uint32 tx_output_index = 5 [json_name = "txOutputIndex"];</code>
+     */
+    protected $tx_output_index = 0;
 
     /**
      * Constructor.
@@ -42,6 +46,7 @@ class TxOutput extends \Google\Protobuf\Internal\Message
      *     @type float $value
      *     @type string $string_value
      *     @type bool $is_change
+     *     @type int $tx_output_index
      * }
      */
     public function __construct($data = NULL) {
@@ -133,6 +138,28 @@ class TxOutput extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->is_change = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 tx_output_index = 5 [json_name = "txOutputIndex"];</code>
+     * @return int
+     */
+    public function getTxOutputIndex()
+    {
+        return $this->tx_output_index;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 tx_output_index = 5 [json_name = "txOutputIndex"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setTxOutputIndex($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->tx_output_index = $var;
 
         return $this;
     }

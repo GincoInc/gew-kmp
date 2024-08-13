@@ -287,6 +287,10 @@ message TxInput {
   uint32 tx_index = 2;
   double value = 3;
   string string_value = 4;
+  uint32 tx_input_index = 5;
+  string address = 6;
+  string witness_script = 7;
+  uint32 n_sequence = 8;
 }
 
 // The model of transaction output
@@ -295,6 +299,7 @@ message TxOutput {
   double value = 2;
   string string_value = 3;
   bool is_change = 4;
+  uint32 tx_output_index = 5;
 }
 
 // The model of UTXO
@@ -847,7 +852,7 @@ message LabeledAddress {
   google.protobuf.Timestamp create_time = 7; // the time at which the labeled address was created
   google.protobuf.Timestamp update_time = 8; // the time at which the labeled address was updated
   gincoinc.global.v1.Network network = 9;
-  // string message = 10; // message
+  string message = 10; // message
 }
 
 // The model of proposal to update labeled address information
@@ -858,7 +863,7 @@ message LabeledAddressProposal {
   string approver_name = 4;
   string proposed_address = 5;
   bool address_is_reviewed = 6;
-  // string proposed_message = 7;
+  string proposed_message = 7;
 }
 
 // The model of whitelist
