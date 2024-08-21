@@ -87,6 +87,7 @@ enum Coin {
   COIN_ERC20_DM2P = 70;
   COIN_APT = 71;
   COIN_DOGE = 72;
+  COIN_POLYGON_ERC20_SNPT = 73;
   COIN_SDN = 10002;
   COIN_ERC20_SCDEV = 10003; // for stable coin development in dev
   COIN_ERC20_SCQA = 10004; // for stable coin development in qa

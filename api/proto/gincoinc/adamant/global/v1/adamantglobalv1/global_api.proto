@@ -1552,7 +1552,7 @@ message CreateLabeledAddressRequest {
   optional gincoinc.global.v1.Network network = 4 [(validate.rules).enum = {
     defined_only: true
   }];
-  // optional string message = 5;
+  optional string message = 5;
 }
 
 message CreateLabeledAddressResponse {
