@@ -19,8 +19,8 @@ class AuditLogger
         \GPBMetadata\Google\Protobuf\Timestamp::initOnce();
         $pool->internalAddGeneratedFile(
             '
-Ü
-=gincoinc/adamant/global/v1/adamantglobalv1/audit_logger.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.proto"à
+ö
+=gincoinc/adamant/global/v1/adamantglobalv1/audit_logger.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.proto"ú
 AuditLog 
 audit_log_id (	R
 auditLogIdH
@@ -54,7 +54,8 @@ walletName2
 policyName,
 labeled_address_id (	RlabeledAddressId
 address (	Raddress!
-address_name (	RaddressName*
+address_name (	RaddressName
+message+ (	Rmessage*
 transfer_limit_id (	RtransferLimitId.
 transfer_limit_name (	RtransferLimitName5
 transfer_one_time_limit (RtransferOneTimeLimit2

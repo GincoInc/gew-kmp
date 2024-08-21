@@ -20494,6 +20494,10 @@ func (m *CreateLabeledAddressRequest) validate(all bool) error {
 
 	}
 
+	if m.Message != nil {
+		// no validation rules for Message
+	}
+
 	if len(errors) > 0 {
 		return CreateLabeledAddressRequestMultiError(errors)
 	}

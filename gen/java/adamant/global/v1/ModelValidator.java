@@ -1202,6 +1202,14 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.TxInput proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1213,6 +1221,14 @@ public class ModelValidator {
 
 	// no validation rules for StringValue
 
+	// no validation rules for TxInputIndex
+
+	// no validation rules for Address
+
+	// no validation rules for WitnessScript
+
+	// no validation rules for NSequence
+
 	
 	}
 }
@@ -1220,6 +1236,8 @@ public class ModelValidator {
 	 * Validates {@code TxOutput} protobuf objects.
 	 */
 	public static class TxOutputValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.TxOutput> {
+		
+	
 		
 	
 		
@@ -1238,6 +1256,8 @@ public class ModelValidator {
 	// no validation rules for StringValue
 
 	// no validation rules for IsChange
+
+	// no validation rules for TxOutputIndex
 
 	
 	}
@@ -3148,6 +3168,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.LabeledAddress proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -3170,6 +3192,8 @@ public class ModelValidator {
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
 	// no validation rules for Network
 
+	// no validation rules for Message
+
 	
 	}
 }
@@ -3177,6 +3201,8 @@ public class ModelValidator {
 	 * Validates {@code LabeledAddressProposal} protobuf objects.
 	 */
 	public static class LabeledAddressProposalValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.LabeledAddressProposal> {
+		
+	
 		
 	
 		
@@ -3203,6 +3229,8 @@ public class ModelValidator {
 	// no validation rules for ProposedAddress
 
 	// no validation rules for AddressIsReviewed
+
+	// no validation rules for ProposedMessage
 
 	
 	}

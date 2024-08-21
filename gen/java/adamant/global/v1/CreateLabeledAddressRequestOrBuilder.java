@@ -43,30 +43,35 @@ public interface CreateLabeledAddressRequestOrBuilder extends
       getAddressBytes();
 
   /**
-   * <pre>
-   * optional string message = 5;
-   * </pre>
-   *
    * <code>optional .gincoinc.global.v1.Network network = 4 [json_name = "network", (.validate.rules) = { ... }</code>
    * @return Whether the network field is set.
    */
   boolean hasNetwork();
   /**
-   * <pre>
-   * optional string message = 5;
-   * </pre>
-   *
    * <code>optional .gincoinc.global.v1.Network network = 4 [json_name = "network", (.validate.rules) = { ... }</code>
    * @return The enum numeric value on the wire for network.
    */
   int getNetworkValue();
   /**
-   * <pre>
-   * optional string message = 5;
-   * </pre>
-   *
    * <code>optional .gincoinc.global.v1.Network network = 4 [json_name = "network", (.validate.rules) = { ... }</code>
    * @return The network.
    */
   gincoinc.global.v1.Enum.Network getNetwork();
+
+  /**
+   * <code>optional string message = 5 [json_name = "message"];</code>
+   * @return Whether the message field is set.
+   */
+  boolean hasMessage();
+  /**
+   * <code>optional string message = 5 [json_name = "message"];</code>
+   * @return The message.
+   */
+  java.lang.String getMessage();
+  /**
+   * <code>optional string message = 5 [json_name = "message"];</code>
+   * @return The bytes for message.
+   */
+  com.google.protobuf.ByteString
+      getMessageBytes();
 }
