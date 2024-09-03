@@ -31,6 +31,10 @@ class XrpSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool is_next_sequence_number = 4 [json_name = "isNextSequenceNumber"];</code>
      */
     protected $is_next_sequence_number = false;
+    /**
+     * Generated from protobuf field <code>string from_address = 5 [json_name = "fromAddress"];</code>
+     */
+    protected $from_address = '';
 
     /**
      * Constructor.
@@ -42,6 +46,7 @@ class XrpSpecific extends \Google\Protobuf\Internal\Message
      *     @type int $destination_tag
      *     @type int $tx_type
      *     @type bool $is_next_sequence_number
+     *     @type string $from_address
      * }
      */
     public function __construct($data = NULL) {
@@ -133,6 +138,28 @@ class XrpSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->is_next_sequence_number = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 5 [json_name = "fromAddress"];</code>
+     * @return string
+     */
+    public function getFromAddress()
+    {
+        return $this->from_address;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 5 [json_name = "fromAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setFromAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->from_address = $var;
 
         return $this;
     }
