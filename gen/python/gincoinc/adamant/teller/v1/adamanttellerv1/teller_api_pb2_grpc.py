@@ -156,6 +156,11 @@ class TellerAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
                 )
+        self.CreateContractCreationTransaction = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/CreateContractCreationTransaction',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateContractCreationTransactionRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateContractCreationTransactionResponse.FromString,
+                )
         self.SignTransaction = channel.unary_unary(
                 '/adamant.teller.v1.TellerAPI/SignTransaction',
                 request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.SignTransactionRequest.SerializeToString,
@@ -341,6 +346,16 @@ class TellerAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinUnpauseRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
                 )
+        self.ProgmatCoinGrantWhiteAndBlackLister = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ProgmatCoinGrantWhiteAndBlackLister',
+                request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinGrantWhiteAndBlackListerRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
+                )
+        self.ProgmatCoinUpgradeToAndCall = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ProgmatCoinUpgradeToAndCall',
+                request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinUpgradeToAndCallRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
+                )
 
 
 class TellerAPIServicer(object):
@@ -510,6 +525,12 @@ class TellerAPIServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CreateTransaction(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateContractCreationTransaction(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -744,6 +765,18 @@ class TellerAPIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ProgmatCoinGrantWhiteAndBlackLister(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ProgmatCoinUpgradeToAndCall(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TellerAPIServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -881,6 +914,11 @@ def add_TellerAPIServicer_to_server(servicer, server):
                     servicer.CreateTransaction,
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.SerializeToString,
+            ),
+            'CreateContractCreationTransaction': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateContractCreationTransaction,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateContractCreationTransactionRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateContractCreationTransactionResponse.SerializeToString,
             ),
             'SignTransaction': grpc.unary_unary_rpc_method_handler(
                     servicer.SignTransaction,
@@ -1065,6 +1103,16 @@ def add_TellerAPIServicer_to_server(servicer, server):
             'ProgmatCoinUnpause': grpc.unary_unary_rpc_method_handler(
                     servicer.ProgmatCoinUnpause,
                     request_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinUnpauseRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.SerializeToString,
+            ),
+            'ProgmatCoinGrantWhiteAndBlackLister': grpc.unary_unary_rpc_method_handler(
+                    servicer.ProgmatCoinGrantWhiteAndBlackLister,
+                    request_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinGrantWhiteAndBlackListerRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.SerializeToString,
+            ),
+            'ProgmatCoinUpgradeToAndCall': grpc.unary_unary_rpc_method_handler(
+                    servicer.ProgmatCoinUpgradeToAndCall,
+                    request_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinUpgradeToAndCallRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.SerializeToString,
             ),
     }
@@ -1537,6 +1585,23 @@ class TellerAPI(object):
         return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/CreateTransaction',
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateContractCreationTransaction(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/CreateContractCreationTransaction',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateContractCreationTransactionRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateContractCreationTransactionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -2165,6 +2230,40 @@ class TellerAPI(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ProgmatCoinUnpause',
             gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinUnpauseRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ProgmatCoinGrantWhiteAndBlackLister(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ProgmatCoinGrantWhiteAndBlackLister',
+            gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinGrantWhiteAndBlackListerRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ProgmatCoinUpgradeToAndCall(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ProgmatCoinUpgradeToAndCall',
+            gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinUpgradeToAndCallRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

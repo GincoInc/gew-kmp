@@ -45,6 +45,18 @@ class EthereumSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool is_staking_transaction = 7 [json_name = "isStakingTransaction"];</code>
      */
     protected $is_staking_transaction = false;
+    /**
+     * Generated from protobuf field <code>string from_address = 8 [json_name = "fromAddress"];</code>
+     */
+    protected $from_address = '';
+    /**
+     * Generated from protobuf field <code>string token_address = 9 [json_name = "tokenAddress"];</code>
+     */
+    protected $token_address = '';
+    /**
+     * Generated from protobuf field <code>uint64 chain_id = 10 [json_name = "chainId"];</code>
+     */
+    protected $chain_id = 0;
 
     /**
      * Constructor.
@@ -60,6 +72,9 @@ class EthereumSpecific extends \Google\Protobuf\Internal\Message
      *     @type string $data
      *           data
      *     @type bool $is_staking_transaction
+     *     @type string $from_address
+     *     @type string $token_address
+     *     @type int|string $chain_id
      * }
      */
     public function __construct($data = NULL) {
@@ -221,6 +236,72 @@ class EthereumSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->is_staking_transaction = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 8 [json_name = "fromAddress"];</code>
+     * @return string
+     */
+    public function getFromAddress()
+    {
+        return $this->from_address;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 8 [json_name = "fromAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setFromAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->from_address = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string token_address = 9 [json_name = "tokenAddress"];</code>
+     * @return string
+     */
+    public function getTokenAddress()
+    {
+        return $this->token_address;
+    }
+
+    /**
+     * Generated from protobuf field <code>string token_address = 9 [json_name = "tokenAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTokenAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->token_address = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 chain_id = 10 [json_name = "chainId"];</code>
+     * @return int|string
+     */
+    public function getChainId()
+    {
+        return $this->chain_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 chain_id = 10 [json_name = "chainId"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setChainId($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->chain_id = $var;
 
         return $this;
     }

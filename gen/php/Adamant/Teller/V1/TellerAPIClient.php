@@ -402,6 +402,20 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\CreateContractCreationTransactionRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function CreateContractCreationTransaction(\Adamant\Global\V1\CreateContractCreationTransactionRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/CreateContractCreationTransaction',
+        $argument,
+        ['\Adamant\Global\V1\CreateContractCreationTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Teller\V1\SignTransactionRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -921,6 +935,34 @@ class TellerAPIClient extends \Grpc\BaseStub {
     public function ProgmatCoinUnpause(\Adamant\Teller\V1\ProgmatCoinUnpauseRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinUnpause',
+        $argument,
+        ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Teller\V1\ProgmatCoinGrantWhiteAndBlackListerRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ProgmatCoinGrantWhiteAndBlackLister(\Adamant\Teller\V1\ProgmatCoinGrantWhiteAndBlackListerRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinGrantWhiteAndBlackLister',
+        $argument,
+        ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Teller\V1\ProgmatCoinUpgradeToAndCallRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ProgmatCoinUpgradeToAndCall(\Adamant\Teller\V1\ProgmatCoinUpgradeToAndCallRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinUpgradeToAndCall',
         $argument,
         ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
         $metadata, $options);
