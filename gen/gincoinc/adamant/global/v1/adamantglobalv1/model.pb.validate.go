@@ -4945,6 +4945,12 @@ func (m *EthereumSpecific) validate(all bool) error {
 
 	// no validation rules for IsStakingTransaction
 
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
+	// no validation rules for ChainId
+
 	if len(errors) > 0 {
 		return EthereumSpecificMultiError(errors)
 	}
@@ -5052,6 +5058,8 @@ func (m *XrpSpecific) validate(all bool) error {
 	// no validation rules for TxType
 
 	// no validation rules for IsNextSequenceNumber
+
+	// no validation rules for FromAddress
 
 	if len(errors) > 0 {
 		return XrpSpecificMultiError(errors)

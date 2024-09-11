@@ -240,6 +240,11 @@ class GlobalAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.RegisterKeyRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.RegisterKeyResponse.FromString,
                 )
+        self.GetSignerPubKey = channel.unary_unary(
+                '/adamant.global.v1.GlobalAPI/GetSignerPubKey',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetSignerPubKeyRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetSignerPubKeyResponse.FromString,
+                )
         self.CreateTransaction = channel.unary_unary(
                 '/adamant.global.v1.GlobalAPI/CreateTransaction',
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionRequest.SerializeToString,
@@ -249,6 +254,11 @@ class GlobalAPIStub(object):
                 '/adamant.global.v1.GlobalAPI/CreateXRPInitTransactions',
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateXRPInitTransactionsRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                )
+        self.CreateContractCreationTransaction = channel.unary_unary(
+                '/adamant.global.v1.GlobalAPI/CreateContractCreationTransaction',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateContractCreationTransactionRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateContractCreationTransactionResponse.FromString,
                 )
         self.SignTransaction = channel.unary_unary(
                 '/adamant.global.v1.GlobalAPI/SignTransaction',
@@ -861,6 +871,12 @@ class GlobalAPIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetSignerPubKey(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateTransaction(self, request, context):
         """Transaction
         """
@@ -869,6 +885,12 @@ class GlobalAPIServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CreateXRPInitTransactions(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateContractCreationTransaction(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1508,6 +1530,11 @@ def add_GlobalAPIServicer_to_server(servicer, server):
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.RegisterKeyRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.RegisterKeyResponse.SerializeToString,
             ),
+            'GetSignerPubKey': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetSignerPubKey,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetSignerPubKeyRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetSignerPubKeyResponse.SerializeToString,
+            ),
             'CreateTransaction': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateTransaction,
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionRequest.FromString,
@@ -1517,6 +1544,11 @@ def add_GlobalAPIServicer_to_server(servicer, server):
                     servicer.CreateXRPInitTransactions,
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateXRPInitTransactionsRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'CreateContractCreationTransaction': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateContractCreationTransaction,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateContractCreationTransactionRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateContractCreationTransactionResponse.SerializeToString,
             ),
             'SignTransaction': grpc.unary_unary_rpc_method_handler(
                     servicer.SignTransaction,
@@ -2611,6 +2643,23 @@ class GlobalAPI(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetSignerPubKey(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.global.v1.GlobalAPI/GetSignerPubKey',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetSignerPubKeyRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetSignerPubKeyResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateTransaction(request,
             target,
             options=(),
@@ -2641,6 +2690,23 @@ class GlobalAPI(object):
         return grpc.experimental.unary_unary(request, target, '/adamant.global.v1.GlobalAPI/CreateXRPInitTransactions',
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateXRPInitTransactionsRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateContractCreationTransaction(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.global.v1.GlobalAPI/CreateContractCreationTransaction',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateContractCreationTransactionRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateContractCreationTransactionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

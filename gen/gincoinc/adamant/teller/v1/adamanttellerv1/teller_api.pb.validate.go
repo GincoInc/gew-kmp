@@ -3096,6 +3096,299 @@ var _ProgmatCoinUnpauseRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{
 
 var _ProgmatCoinUnpauseRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
 
+// Validate checks the field values on
+// ProgmatCoinGrantWhiteAndBlackListerRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ProgmatCoinGrantWhiteAndBlackListerRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ProgmatCoinGrantWhiteAndBlackListerRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// ProgmatCoinGrantWhiteAndBlackListerRequestMultiError, or nil if none found.
+func (m *ProgmatCoinGrantWhiteAndBlackListerRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ProgmatCoinGrantWhiteAndBlackListerRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ProgmatCoinGrantWhiteAndBlackListerRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinGrantWhiteAndBlackListerRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	if !_ProgmatCoinGrantWhiteAndBlackListerRequest_ContractAddress_Pattern.MatchString(m.GetContractAddress()) {
+		err := ProgmatCoinGrantWhiteAndBlackListerRequestValidationError{
+			field:  "ContractAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ProgmatCoinGrantWhiteAndBlackListerRequest_UtilsAddress_Pattern.MatchString(m.GetUtilsAddress()) {
+		err := ProgmatCoinGrantWhiteAndBlackListerRequestValidationError{
+			field:  "UtilsAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return ProgmatCoinGrantWhiteAndBlackListerRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ProgmatCoinGrantWhiteAndBlackListerRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ProgmatCoinGrantWhiteAndBlackListerRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ProgmatCoinGrantWhiteAndBlackListerRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ProgmatCoinGrantWhiteAndBlackListerRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ProgmatCoinGrantWhiteAndBlackListerRequestMultiError) AllErrors() []error { return m }
+
+// ProgmatCoinGrantWhiteAndBlackListerRequestValidationError is the validation
+// error returned by ProgmatCoinGrantWhiteAndBlackListerRequest.Validate if
+// the designated constraints aren't met.
+type ProgmatCoinGrantWhiteAndBlackListerRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProgmatCoinGrantWhiteAndBlackListerRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProgmatCoinGrantWhiteAndBlackListerRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProgmatCoinGrantWhiteAndBlackListerRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProgmatCoinGrantWhiteAndBlackListerRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProgmatCoinGrantWhiteAndBlackListerRequestValidationError) ErrorName() string {
+	return "ProgmatCoinGrantWhiteAndBlackListerRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProgmatCoinGrantWhiteAndBlackListerRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProgmatCoinGrantWhiteAndBlackListerRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProgmatCoinGrantWhiteAndBlackListerRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProgmatCoinGrantWhiteAndBlackListerRequestValidationError{}
+
+var _ProgmatCoinGrantWhiteAndBlackListerRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ProgmatCoinGrantWhiteAndBlackListerRequest_ContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinGrantWhiteAndBlackListerRequest_UtilsAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+// Validate checks the field values on ProgmatCoinUpgradeToAndCallRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ProgmatCoinUpgradeToAndCallRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ProgmatCoinUpgradeToAndCallRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ProgmatCoinUpgradeToAndCallRequestMultiError, or nil if none found.
+func (m *ProgmatCoinUpgradeToAndCallRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ProgmatCoinUpgradeToAndCallRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ProgmatCoinUpgradeToAndCallRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := ProgmatCoinUpgradeToAndCallRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FeeRate
+
+	if !_ProgmatCoinUpgradeToAndCallRequest_ProxyContractAddress_Pattern.MatchString(m.GetProxyContractAddress()) {
+		err := ProgmatCoinUpgradeToAndCallRequestValidationError{
+			field:  "ProxyContractAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ProgmatCoinUpgradeToAndCallRequest_ImplContractAddress_Pattern.MatchString(m.GetImplContractAddress()) {
+		err := ProgmatCoinUpgradeToAndCallRequestValidationError{
+			field:  "ImplContractAddress",
+			reason: "value does not match regex pattern \"^(0x)?[0-9a-fA-F]{40}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return ProgmatCoinUpgradeToAndCallRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ProgmatCoinUpgradeToAndCallRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ProgmatCoinUpgradeToAndCallRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ProgmatCoinUpgradeToAndCallRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ProgmatCoinUpgradeToAndCallRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ProgmatCoinUpgradeToAndCallRequestMultiError) AllErrors() []error { return m }
+
+// ProgmatCoinUpgradeToAndCallRequestValidationError is the validation error
+// returned by ProgmatCoinUpgradeToAndCallRequest.Validate if the designated
+// constraints aren't met.
+type ProgmatCoinUpgradeToAndCallRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ProgmatCoinUpgradeToAndCallRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ProgmatCoinUpgradeToAndCallRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ProgmatCoinUpgradeToAndCallRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ProgmatCoinUpgradeToAndCallRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ProgmatCoinUpgradeToAndCallRequestValidationError) ErrorName() string {
+	return "ProgmatCoinUpgradeToAndCallRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ProgmatCoinUpgradeToAndCallRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sProgmatCoinUpgradeToAndCallRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ProgmatCoinUpgradeToAndCallRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ProgmatCoinUpgradeToAndCallRequestValidationError{}
+
+var _ProgmatCoinUpgradeToAndCallRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ProgmatCoinUpgradeToAndCallRequest_ProxyContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
+var _ProgmatCoinUpgradeToAndCallRequest_ImplContractAddress_Pattern = regexp.MustCompile("^(0x)?[0-9a-fA-F]{40}$")
+
 // Validate checks the field values on ListColdFeeDepositAddressesRequest with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, the first error encountered is returned, or nil if there are
