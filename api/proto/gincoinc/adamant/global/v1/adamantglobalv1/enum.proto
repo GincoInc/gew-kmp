@@ -134,6 +134,8 @@ enum RoleType {
   ROLE_TYPE_ORG_DEVELOPER = 5; // Developer which manage service-account
   ROLE_TYPE_HOT_WALLET_ADMIN = 6; // Service Account which manage hot wallet
   ROLE_TYPE_HOT_WALLET_VIEWER = 7; // Service Account which can only get
+  ROLE_TYPE_ORG_TRANSACTION_OPERATOR = 8; // Transaction Operator of Organization
+  ROLE_TYPE_ORG_PRE_TRANSACTION_REVIEWER = 9; // PreTransaction Reviewer of Organization
 }
 
 // ResourceType is a target type of role
@@ -508,6 +510,9 @@ enum EthereumContractMethodIDType {
   ETHEREUM_CONTRACT_METHOD_ID_TYPE_ERC20_CONFISCATE = 11;
   ETHEREUM_CONTRACT_METHOD_ID_TYPE_ERC20_PAUSE = 12;
   ETHEREUM_CONTRACT_METHOD_ID_TYPE_ERC20_UNPAUSE = 13;
+  ETHEREUM_CONTRACT_METHOD_ID_TYPE_ERC20_GRANT_WHITE_AND_BLACK_LISTER = 14;
+  ETHEREUM_CONTRACT_METHOD_ID_TYPE_ERC20_CONTRACT_CREATION = 15;
+  ETHEREUM_CONTRACT_METHOD_ID_TYPE_ERC20_UPGRADE_TO_AND_CALL = 16;
 }
 
 // -----------------------------------------------------------------------------

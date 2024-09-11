@@ -75,9 +75,11 @@ type GlobalAPIClient interface {
 	ListFeeDeposits(ctx context.Context, in *ListFeeDepositsRequest, opts ...grpc.CallOption) (*ListFeeDepositsResponse, error)
 	// RegisterKey
 	RegisterKey(ctx context.Context, in *RegisterKeyRequest, opts ...grpc.CallOption) (*RegisterKeyResponse, error)
+	GetSignerPubKey(ctx context.Context, in *GetSignerPubKeyRequest, opts ...grpc.CallOption) (*GetSignerPubKeyResponse, error)
 	// Transaction
 	CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error)
 	CreateXRPInitTransactions(ctx context.Context, in *CreateXRPInitTransactionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	CreateContractCreationTransaction(ctx context.Context, in *CreateContractCreationTransactionRequest, opts ...grpc.CallOption) (*CreateContractCreationTransactionResponse, error)
 	SignTransaction(ctx context.Context, in *SignTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	SignXRPInitTransactions(ctx context.Context, in *SignXRPInitTransactionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	SendTransaction(ctx context.Context, in *SendTransactionRequest, opts ...grpc.CallOption) (*SendTransactionResponse, error)
@@ -565,6 +567,15 @@ func (c *globalAPIClient) RegisterKey(ctx context.Context, in *RegisterKeyReques
 	return out, nil
 }
 
+func (c *globalAPIClient) GetSignerPubKey(ctx context.Context, in *GetSignerPubKeyRequest, opts ...grpc.CallOption) (*GetSignerPubKeyResponse, error) {
+	out := new(GetSignerPubKeyResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/GetSignerPubKey", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *globalAPIClient) CreateTransaction(ctx context.Context, in *CreateTransactionRequest, opts ...grpc.CallOption) (*CreateTransactionResponse, error) {
 	out := new(CreateTransactionResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/CreateTransaction", in, out, opts...)
@@ -577,6 +588,15 @@ func (c *globalAPIClient) CreateTransaction(ctx context.Context, in *CreateTrans
 func (c *globalAPIClient) CreateXRPInitTransactions(ctx context.Context, in *CreateXRPInitTransactionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/CreateXRPInitTransactions", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) CreateContractCreationTransaction(ctx context.Context, in *CreateContractCreationTransactionRequest, opts ...grpc.CallOption) (*CreateContractCreationTransactionResponse, error) {
+	out := new(CreateContractCreationTransactionResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/CreateContractCreationTransaction", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1233,9 +1253,11 @@ type GlobalAPIServer interface {
 	ListFeeDeposits(context.Context, *ListFeeDepositsRequest) (*ListFeeDepositsResponse, error)
 	// RegisterKey
 	RegisterKey(context.Context, *RegisterKeyRequest) (*RegisterKeyResponse, error)
+	GetSignerPubKey(context.Context, *GetSignerPubKeyRequest) (*GetSignerPubKeyResponse, error)
 	// Transaction
 	CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error)
 	CreateXRPInitTransactions(context.Context, *CreateXRPInitTransactionsRequest) (*emptypb.Empty, error)
+	CreateContractCreationTransaction(context.Context, *CreateContractCreationTransactionRequest) (*CreateContractCreationTransactionResponse, error)
 	SignTransaction(context.Context, *SignTransactionRequest) (*emptypb.Empty, error)
 	SignXRPInitTransactions(context.Context, *SignXRPInitTransactionsRequest) (*emptypb.Empty, error)
 	SendTransaction(context.Context, *SendTransactionRequest) (*SendTransactionResponse, error)
@@ -1455,11 +1477,17 @@ func (UnimplementedGlobalAPIServer) ListFeeDeposits(context.Context, *ListFeeDep
 func (UnimplementedGlobalAPIServer) RegisterKey(context.Context, *RegisterKeyRequest) (*RegisterKeyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterKey not implemented")
 }
+func (UnimplementedGlobalAPIServer) GetSignerPubKey(context.Context, *GetSignerPubKeyRequest) (*GetSignerPubKeyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetSignerPubKey not implemented")
+}
 func (UnimplementedGlobalAPIServer) CreateTransaction(context.Context, *CreateTransactionRequest) (*CreateTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTransaction not implemented")
 }
 func (UnimplementedGlobalAPIServer) CreateXRPInitTransactions(context.Context, *CreateXRPInitTransactionsRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateXRPInitTransactions not implemented")
+}
+func (UnimplementedGlobalAPIServer) CreateContractCreationTransaction(context.Context, *CreateContractCreationTransactionRequest) (*CreateContractCreationTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateContractCreationTransaction not implemented")
 }
 func (UnimplementedGlobalAPIServer) SignTransaction(context.Context, *SignTransactionRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SignTransaction not implemented")
@@ -2463,6 +2491,24 @@ func _GlobalAPI_RegisterKey_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GlobalAPI_GetSignerPubKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSignerPubKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).GetSignerPubKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/GetSignerPubKey",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).GetSignerPubKey(ctx, req.(*GetSignerPubKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _GlobalAPI_CreateTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateTransactionRequest)
 	if err := dec(in); err != nil {
@@ -2495,6 +2541,24 @@ func _GlobalAPI_CreateXRPInitTransactions_Handler(srv interface{}, ctx context.C
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GlobalAPIServer).CreateXRPInitTransactions(ctx, req.(*CreateXRPInitTransactionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_CreateContractCreationTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateContractCreationTransactionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).CreateContractCreationTransaction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/CreateContractCreationTransaction",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).CreateContractCreationTransaction(ctx, req.(*CreateContractCreationTransactionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3871,12 +3935,20 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _GlobalAPI_RegisterKey_Handler,
 		},
 		{
+			MethodName: "GetSignerPubKey",
+			Handler:    _GlobalAPI_GetSignerPubKey_Handler,
+		},
+		{
 			MethodName: "CreateTransaction",
 			Handler:    _GlobalAPI_CreateTransaction_Handler,
 		},
 		{
 			MethodName: "CreateXRPInitTransactions",
 			Handler:    _GlobalAPI_CreateXRPInitTransactions_Handler,
+		},
+		{
+			MethodName: "CreateContractCreationTransaction",
+			Handler:    _GlobalAPI_CreateContractCreationTransaction_Handler,
 		},
 		{
 			MethodName: "SignTransaction",

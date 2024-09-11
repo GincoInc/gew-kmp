@@ -54,6 +54,7 @@ type TellerAPIClient interface {
 	ListColdFeeDepositAddresses(ctx context.Context, in *ListColdFeeDepositAddressesRequest, opts ...grpc.CallOption) (*ListColdFeeDepositAddressesResponse, error)
 	ListHotFeeDepositAddresses(ctx context.Context, in *ListHotFeeDepositAddressesRequest, opts ...grpc.CallOption) (*ListHotFeeDepositAddressesResponse, error)
 	CreateTransaction(ctx context.Context, in *adamantglobalv1.CreateTransactionRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
+	CreateContractCreationTransaction(ctx context.Context, in *adamantglobalv1.CreateContractCreationTransactionRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateContractCreationTransactionResponse, error)
 	SignTransaction(ctx context.Context, in *SignTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	SendTransaction(ctx context.Context, in *SendTransactionRequest, opts ...grpc.CallOption) (*adamantglobalv1.SendTransactionResponse, error)
 	ResendTransaction(ctx context.Context, in *ResendTransactionRequest, opts ...grpc.CallOption) (*adamantglobalv1.ResendTransactionResponse, error)
@@ -98,6 +99,8 @@ type TellerAPIClient interface {
 	ProgmatCoinConfiscate(ctx context.Context, in *ProgmatCoinConfiscateRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinPause(ctx context.Context, in *ProgmatCoinPauseRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinUnpause(ctx context.Context, in *ProgmatCoinUnpauseRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinGrantWhiteAndBlackLister(ctx context.Context, in *ProgmatCoinGrantWhiteAndBlackListerRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinUpgradeToAndCall(ctx context.Context, in *ProgmatCoinUpgradeToAndCallRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
 }
 
 type tellerAPIClient struct {
@@ -345,6 +348,15 @@ func (c *tellerAPIClient) ListHotFeeDepositAddresses(ctx context.Context, in *Li
 func (c *tellerAPIClient) CreateTransaction(ctx context.Context, in *adamantglobalv1.CreateTransactionRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
 	out := new(adamantglobalv1.CreateTransactionResponse)
 	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/CreateTransaction", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) CreateContractCreationTransaction(ctx context.Context, in *adamantglobalv1.CreateContractCreationTransactionRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateContractCreationTransactionResponse, error) {
+	out := new(adamantglobalv1.CreateContractCreationTransactionResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/CreateContractCreationTransaction", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -684,6 +696,24 @@ func (c *tellerAPIClient) ProgmatCoinUnpause(ctx context.Context, in *ProgmatCoi
 	return out, nil
 }
 
+func (c *tellerAPIClient) ProgmatCoinGrantWhiteAndBlackLister(ctx context.Context, in *ProgmatCoinGrantWhiteAndBlackListerRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
+	out := new(adamantglobalv1.CreateTransactionResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinGrantWhiteAndBlackLister", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) ProgmatCoinUpgradeToAndCall(ctx context.Context, in *ProgmatCoinUpgradeToAndCallRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error) {
+	out := new(adamantglobalv1.CreateTransactionResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ProgmatCoinUpgradeToAndCall", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TellerAPIServer is the server API for TellerAPI service.
 // All implementations should embed UnimplementedTellerAPIServer
 // for forward compatibility
@@ -718,6 +748,7 @@ type TellerAPIServer interface {
 	ListColdFeeDepositAddresses(context.Context, *ListColdFeeDepositAddressesRequest) (*ListColdFeeDepositAddressesResponse, error)
 	ListHotFeeDepositAddresses(context.Context, *ListHotFeeDepositAddressesRequest) (*ListHotFeeDepositAddressesResponse, error)
 	CreateTransaction(context.Context, *adamantglobalv1.CreateTransactionRequest) (*adamantglobalv1.CreateTransactionResponse, error)
+	CreateContractCreationTransaction(context.Context, *adamantglobalv1.CreateContractCreationTransactionRequest) (*adamantglobalv1.CreateContractCreationTransactionResponse, error)
 	SignTransaction(context.Context, *SignTransactionRequest) (*emptypb.Empty, error)
 	SendTransaction(context.Context, *SendTransactionRequest) (*adamantglobalv1.SendTransactionResponse, error)
 	ResendTransaction(context.Context, *ResendTransactionRequest) (*adamantglobalv1.ResendTransactionResponse, error)
@@ -762,6 +793,8 @@ type TellerAPIServer interface {
 	ProgmatCoinConfiscate(context.Context, *ProgmatCoinConfiscateRequest) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinPause(context.Context, *ProgmatCoinPauseRequest) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinUnpause(context.Context, *ProgmatCoinUnpauseRequest) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinGrantWhiteAndBlackLister(context.Context, *ProgmatCoinGrantWhiteAndBlackListerRequest) (*adamantglobalv1.CreateTransactionResponse, error)
+	ProgmatCoinUpgradeToAndCall(context.Context, *ProgmatCoinUpgradeToAndCallRequest) (*adamantglobalv1.CreateTransactionResponse, error)
 }
 
 // UnimplementedTellerAPIServer should be embedded to have forward compatible implementations.
@@ -848,6 +881,9 @@ func (UnimplementedTellerAPIServer) ListHotFeeDepositAddresses(context.Context, 
 }
 func (UnimplementedTellerAPIServer) CreateTransaction(context.Context, *adamantglobalv1.CreateTransactionRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTransaction not implemented")
+}
+func (UnimplementedTellerAPIServer) CreateContractCreationTransaction(context.Context, *adamantglobalv1.CreateContractCreationTransactionRequest) (*adamantglobalv1.CreateContractCreationTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateContractCreationTransaction not implemented")
 }
 func (UnimplementedTellerAPIServer) SignTransaction(context.Context, *SignTransactionRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SignTransaction not implemented")
@@ -959,6 +995,12 @@ func (UnimplementedTellerAPIServer) ProgmatCoinPause(context.Context, *ProgmatCo
 }
 func (UnimplementedTellerAPIServer) ProgmatCoinUnpause(context.Context, *ProgmatCoinUnpauseRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinUnpause not implemented")
+}
+func (UnimplementedTellerAPIServer) ProgmatCoinGrantWhiteAndBlackLister(context.Context, *ProgmatCoinGrantWhiteAndBlackListerRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinGrantWhiteAndBlackLister not implemented")
+}
+func (UnimplementedTellerAPIServer) ProgmatCoinUpgradeToAndCall(context.Context, *ProgmatCoinUpgradeToAndCallRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinUpgradeToAndCall not implemented")
 }
 
 // UnsafeTellerAPIServer may be embedded to opt out of forward compatibility for this service.
@@ -1454,6 +1496,24 @@ func _TellerAPI_CreateTransaction_Handler(srv interface{}, ctx context.Context, 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TellerAPIServer).CreateTransaction(ctx, req.(*adamantglobalv1.CreateTransactionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_CreateContractCreationTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.CreateContractCreationTransactionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).CreateContractCreationTransaction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/CreateContractCreationTransaction",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).CreateContractCreationTransaction(ctx, req.(*adamantglobalv1.CreateContractCreationTransactionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2124,6 +2184,42 @@ func _TellerAPI_ProgmatCoinUnpause_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TellerAPI_ProgmatCoinGrantWhiteAndBlackLister_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProgmatCoinGrantWhiteAndBlackListerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ProgmatCoinGrantWhiteAndBlackLister(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinGrantWhiteAndBlackLister",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ProgmatCoinGrantWhiteAndBlackLister(ctx, req.(*ProgmatCoinGrantWhiteAndBlackListerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_ProgmatCoinUpgradeToAndCall_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProgmatCoinUpgradeToAndCallRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ProgmatCoinUpgradeToAndCall(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ProgmatCoinUpgradeToAndCall",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ProgmatCoinUpgradeToAndCall(ctx, req.(*ProgmatCoinUpgradeToAndCallRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TellerAPI_ServiceDesc is the grpc.ServiceDesc for TellerAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -2238,6 +2334,10 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateTransaction",
 			Handler:    _TellerAPI_CreateTransaction_Handler,
+		},
+		{
+			MethodName: "CreateContractCreationTransaction",
+			Handler:    _TellerAPI_CreateContractCreationTransaction_Handler,
 		},
 		{
 			MethodName: "SignTransaction",
@@ -2386,6 +2486,14 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ProgmatCoinUnpause",
 			Handler:    _TellerAPI_ProgmatCoinUnpause_Handler,
+		},
+		{
+			MethodName: "ProgmatCoinGrantWhiteAndBlackLister",
+			Handler:    _TellerAPI_ProgmatCoinGrantWhiteAndBlackLister_Handler,
+		},
+		{
+			MethodName: "ProgmatCoinUpgradeToAndCall",
+			Handler:    _TellerAPI_ProgmatCoinUpgradeToAndCall_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
