@@ -59,18 +59,6 @@ class RoleType
      * Generated from protobuf enum <code>ROLE_TYPE_HOT_WALLET_VIEWER = 7;</code>
      */
     const ROLE_TYPE_HOT_WALLET_VIEWER = 7;
-    /**
-     * Transaction Operator of Organization
-     *
-     * Generated from protobuf enum <code>ROLE_TYPE_ORG_TRANSACTION_OPERATOR = 8;</code>
-     */
-    const ROLE_TYPE_ORG_TRANSACTION_OPERATOR = 8;
-    /**
-     * PreTransaction Reviewer of Organization
-     *
-     * Generated from protobuf enum <code>ROLE_TYPE_ORG_PRE_TRANSACTION_REVIEWER = 9;</code>
-     */
-    const ROLE_TYPE_ORG_PRE_TRANSACTION_REVIEWER = 9;
 
     private static $valueToName = [
         self::ROLE_TYPE_INVALID => 'ROLE_TYPE_INVALID',
@@ -81,8 +69,6 @@ class RoleType
         self::ROLE_TYPE_ORG_DEVELOPER => 'ROLE_TYPE_ORG_DEVELOPER',
         self::ROLE_TYPE_HOT_WALLET_ADMIN => 'ROLE_TYPE_HOT_WALLET_ADMIN',
         self::ROLE_TYPE_HOT_WALLET_VIEWER => 'ROLE_TYPE_HOT_WALLET_VIEWER',
-        self::ROLE_TYPE_ORG_TRANSACTION_OPERATOR => 'ROLE_TYPE_ORG_TRANSACTION_OPERATOR',
-        self::ROLE_TYPE_ORG_PRE_TRANSACTION_REVIEWER => 'ROLE_TYPE_ORG_PRE_TRANSACTION_REVIEWER',
     ];
 
     public static function name($value)

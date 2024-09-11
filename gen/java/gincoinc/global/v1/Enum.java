@@ -4350,18 +4350,6 @@ public final class Enum {
      * <code>ETHEREUM_CALL_METHOD_PROGMAT_COIN_MINT_AND_TRANSFER_INTERMEDIARY = 13;</code>
      */
     ETHEREUM_CALL_METHOD_PROGMAT_COIN_MINT_AND_TRANSFER_INTERMEDIARY(13),
-    /**
-     * <code>ETHEREUM_CALL_METHOD_PROGMAT_COIN_GRANT_WHITE_AND_BLACK_LISTER = 14;</code>
-     */
-    ETHEREUM_CALL_METHOD_PROGMAT_COIN_GRANT_WHITE_AND_BLACK_LISTER(14),
-    /**
-     * <code>ETHEREUM_CALL_METHOD_PROGMAT_COIN_CONTRACT_CREATION = 15;</code>
-     */
-    ETHEREUM_CALL_METHOD_PROGMAT_COIN_CONTRACT_CREATION(15),
-    /**
-     * <code>ETHEREUM_CALL_METHOD_PROGMAT_COIN_UPGRADE_TO_AND_CALL = 16;</code>
-     */
-    ETHEREUM_CALL_METHOD_PROGMAT_COIN_UPGRADE_TO_AND_CALL(16),
     UNRECOGNIZED(-1),
     ;
 
@@ -4421,18 +4409,6 @@ public final class Enum {
      * <code>ETHEREUM_CALL_METHOD_PROGMAT_COIN_MINT_AND_TRANSFER_INTERMEDIARY = 13;</code>
      */
     public static final int ETHEREUM_CALL_METHOD_PROGMAT_COIN_MINT_AND_TRANSFER_INTERMEDIARY_VALUE = 13;
-    /**
-     * <code>ETHEREUM_CALL_METHOD_PROGMAT_COIN_GRANT_WHITE_AND_BLACK_LISTER = 14;</code>
-     */
-    public static final int ETHEREUM_CALL_METHOD_PROGMAT_COIN_GRANT_WHITE_AND_BLACK_LISTER_VALUE = 14;
-    /**
-     * <code>ETHEREUM_CALL_METHOD_PROGMAT_COIN_CONTRACT_CREATION = 15;</code>
-     */
-    public static final int ETHEREUM_CALL_METHOD_PROGMAT_COIN_CONTRACT_CREATION_VALUE = 15;
-    /**
-     * <code>ETHEREUM_CALL_METHOD_PROGMAT_COIN_UPGRADE_TO_AND_CALL = 16;</code>
-     */
-    public static final int ETHEREUM_CALL_METHOD_PROGMAT_COIN_UPGRADE_TO_AND_CALL_VALUE = 16;
 
 
     public final int getNumber() {
@@ -4473,9 +4449,6 @@ public final class Enum {
         case 11: return ETHEREUM_CALL_METHOD_PROGMAT_COIN_PAUSE;
         case 12: return ETHEREUM_CALL_METHOD_PROGMAT_COIN_UNPAUSE;
         case 13: return ETHEREUM_CALL_METHOD_PROGMAT_COIN_MINT_AND_TRANSFER_INTERMEDIARY;
-        case 14: return ETHEREUM_CALL_METHOD_PROGMAT_COIN_GRANT_WHITE_AND_BLACK_LISTER;
-        case 15: return ETHEREUM_CALL_METHOD_PROGMAT_COIN_CONTRACT_CREATION;
-        case 16: return ETHEREUM_CALL_METHOD_PROGMAT_COIN_UPGRADE_TO_AND_CALL;
         default: return null;
       }
     }
@@ -4946,123 +4919,6 @@ public final class Enum {
     // @@protoc_insertion_point(enum_scope:gincoinc.global.v1.AvalancheOutputType)
   }
 
-  /**
-   * Protobuf enum {@code gincoinc.global.v1.ContractCreationType}
-   */
-  public enum ContractCreationType
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>CONTRACT_CREATION_TYPE_INVALID = 0;</code>
-     */
-    CONTRACT_CREATION_TYPE_INVALID(0),
-    /**
-     * <code>CONTRACT_CREATION_TYPE_IMPL = 1;</code>
-     */
-    CONTRACT_CREATION_TYPE_IMPL(1),
-    /**
-     * <code>CONTRACT_CREATION_TYPE_UTILS = 2;</code>
-     */
-    CONTRACT_CREATION_TYPE_UTILS(2),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <code>CONTRACT_CREATION_TYPE_INVALID = 0;</code>
-     */
-    public static final int CONTRACT_CREATION_TYPE_INVALID_VALUE = 0;
-    /**
-     * <code>CONTRACT_CREATION_TYPE_IMPL = 1;</code>
-     */
-    public static final int CONTRACT_CREATION_TYPE_IMPL_VALUE = 1;
-    /**
-     * <code>CONTRACT_CREATION_TYPE_UTILS = 2;</code>
-     */
-    public static final int CONTRACT_CREATION_TYPE_UTILS_VALUE = 2;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static ContractCreationType valueOf(int value) {
-      return forNumber(value);
-    }
-
-    /**
-     * @param value The numeric wire value of the corresponding enum entry.
-     * @return The enum associated with the given numeric wire value.
-     */
-    public static ContractCreationType forNumber(int value) {
-      switch (value) {
-        case 0: return CONTRACT_CREATION_TYPE_INVALID;
-        case 1: return CONTRACT_CREATION_TYPE_IMPL;
-        case 2: return CONTRACT_CREATION_TYPE_UTILS;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<ContractCreationType>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        ContractCreationType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<ContractCreationType>() {
-            public ContractCreationType findValueByNumber(int number) {
-              return ContractCreationType.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalStateException(
-            "Can't get the descriptor of an unrecognized enum value.");
-      }
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(21);
-    }
-
-    private static final ContractCreationType[] VALUES = values();
-
-    public static ContractCreationType valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private ContractCreationType(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:gincoinc.global.v1.ContractCreationType)
-  }
-
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -5283,7 +5139,7 @@ public final class Enum {
       "NT_TYPE_STAKE_INIT\020\004\022\034\n\030SOLANA_EVENT_TYP" +
       "E_REWARD\020\005\022\'\n#SOLANA_EVENT_TYPE_DELEGATE" +
       "_COMPLETE\020\006\022)\n%SOLANA_EVENT_TYPE_DEACTIV" +
-      "ATE_COMPLETE\020\007*\302\007\n\022EthereumCallMethod\022 \n" +
+      "ATE_COMPLETE\020\007*\212\006\n\022EthereumCallMethod\022 \n" +
       "\034ETHEREUM_CALL_METHOD_INVALID\020\000\0220\n,ETHER" +
       "EUM_CALL_METHOD_PROGMAT_COIN_INITIALIZE\020" +
       "\001\0226\n2ETHEREUM_CALL_METHOD_PROGMAT_COIN_C" +
@@ -5302,34 +5158,26 @@ public final class Enum {
       "EREUM_CALL_METHOD_PROGMAT_COIN_PAUSE\020\013\022-" +
       "\n)ETHEREUM_CALL_METHOD_PROGMAT_COIN_UNPA" +
       "USE\020\014\022D\n@ETHEREUM_CALL_METHOD_PROGMAT_CO" +
-      "IN_MINT_AND_TRANSFER_INTERMEDIARY\020\r\022B\n>E" +
-      "THEREUM_CALL_METHOD_PROGMAT_COIN_GRANT_W" +
-      "HITE_AND_BLACK_LISTER\020\016\0227\n3ETHEREUM_CALL" +
-      "_METHOD_PROGMAT_COIN_CONTRACT_CREATION\020\017" +
-      "\0229\n5ETHEREUM_CALL_METHOD_PROGMAT_COIN_UP" +
-      "GRADE_TO_AND_CALL\020\020*\350\001\n\017AvalancheTxType\022" +
-      "\035\n\031AVALANCHE_TX_TYPE_INVALID\020\000\022\036\n\032AVALAN" +
-      "CHE_TX_TYPE_TRANSFER\020\001\022\034\n\030AVALANCHE_TX_T" +
-      "YPE_EXPORT\020\002\022\034\n\030AVALANCHE_TX_TYPE_IMPORT" +
-      "\020\003\0222\n.AVALANCHE_TX_TYPE_ADD_PERMISSIONLE" +
-      "SS_DELEGATOR\020\004\022&\n\"AVALANCHE_TX_TYPE_REWA" +
-      "RD_VALIDATOR\020\005*\260\001\n\022AvalancheInputType\022 \n" +
-      "\034AVALANCHE_INPUT_TYPE_INVALID\020\000\022+\n\'AVALA" +
-      "NCHE_INPUT_TYPE_TRANSFERABLE_INPUT\020\001\022\'\n#" +
-      "AVALANCHE_INPUT_TYPE_IMPORTED_INPUT\020\002\022\"\n" +
-      "\036AVALANCHE_INPUT_TYPE_EVM_INPUT\020\003*\211\002\n\023Av" +
-      "alancheOutputType\022!\n\035AVALANCHE_OUTPUT_TY" +
-      "PE_INVALID\020\000\022-\n)AVALANCHE_OUTPUT_TYPE_TR" +
-      "ANSFERABLE_OUTPUT\020\001\022)\n%AVALANCHE_OUTPUT_" +
-      "TYPE_EXPORTED_OUTPUT\020\002\022$\n AVALANCHE_OUTP" +
-      "UT_TYPE_EVM_OUTPUT\020\003\022&\n\"AVALANCHE_OUTPUT" +
-      "_TYPE_STAKE_OUTPUT\020\004\022\'\n#AVALANCHE_OUTPUT" +
-      "_TYPE_OWNERS_OUTPUT\020\005*}\n\024ContractCreatio" +
-      "nType\022\"\n\036CONTRACT_CREATION_TYPE_INVALID\020" +
-      "\000\022\037\n\033CONTRACT_CREATION_TYPE_IMPL\020\001\022 \n\034CO" +
-      "NTRACT_CREATION_TYPE_UTILS\020\002BEZCgithub.c" +
-      "om/GincoInc/gew-kmp/gen/gincoinc/global/" +
-      "v1/gincoincglobalv1b\006proto3"
+      "IN_MINT_AND_TRANSFER_INTERMEDIARY\020\r*\350\001\n\017" +
+      "AvalancheTxType\022\035\n\031AVALANCHE_TX_TYPE_INV" +
+      "ALID\020\000\022\036\n\032AVALANCHE_TX_TYPE_TRANSFER\020\001\022\034" +
+      "\n\030AVALANCHE_TX_TYPE_EXPORT\020\002\022\034\n\030AVALANCH" +
+      "E_TX_TYPE_IMPORT\020\003\0222\n.AVALANCHE_TX_TYPE_" +
+      "ADD_PERMISSIONLESS_DELEGATOR\020\004\022&\n\"AVALAN" +
+      "CHE_TX_TYPE_REWARD_VALIDATOR\020\005*\260\001\n\022Avala" +
+      "ncheInputType\022 \n\034AVALANCHE_INPUT_TYPE_IN" +
+      "VALID\020\000\022+\n\'AVALANCHE_INPUT_TYPE_TRANSFER" +
+      "ABLE_INPUT\020\001\022\'\n#AVALANCHE_INPUT_TYPE_IMP" +
+      "ORTED_INPUT\020\002\022\"\n\036AVALANCHE_INPUT_TYPE_EV" +
+      "M_INPUT\020\003*\211\002\n\023AvalancheOutputType\022!\n\035AVA" +
+      "LANCHE_OUTPUT_TYPE_INVALID\020\000\022-\n)AVALANCH" +
+      "E_OUTPUT_TYPE_TRANSFERABLE_OUTPUT\020\001\022)\n%A" +
+      "VALANCHE_OUTPUT_TYPE_EXPORTED_OUTPUT\020\002\022$" +
+      "\n AVALANCHE_OUTPUT_TYPE_EVM_OUTPUT\020\003\022&\n\"" +
+      "AVALANCHE_OUTPUT_TYPE_STAKE_OUTPUT\020\004\022\'\n#" +
+      "AVALANCHE_OUTPUT_TYPE_OWNERS_OUTPUT\020\005BEZ" +
+      "Cgithub.com/GincoInc/gew-kmp/gen/gincoin" +
+      "c/global/v1/gincoincglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

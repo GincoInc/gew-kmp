@@ -1379,37 +1379,6 @@ public final class GlobalAPIGrpc {
     return getRegisterKeyMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.GetSignerPubKeyRequest,
-      adamant.global.v1.GetSignerPubKeyResponse> getGetSignerPubKeyMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "GetSignerPubKey",
-      requestType = adamant.global.v1.GetSignerPubKeyRequest.class,
-      responseType = adamant.global.v1.GetSignerPubKeyResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<adamant.global.v1.GetSignerPubKeyRequest,
-      adamant.global.v1.GetSignerPubKeyResponse> getGetSignerPubKeyMethod() {
-    io.grpc.MethodDescriptor<adamant.global.v1.GetSignerPubKeyRequest, adamant.global.v1.GetSignerPubKeyResponse> getGetSignerPubKeyMethod;
-    if ((getGetSignerPubKeyMethod = GlobalAPIGrpc.getGetSignerPubKeyMethod) == null) {
-      synchronized (GlobalAPIGrpc.class) {
-        if ((getGetSignerPubKeyMethod = GlobalAPIGrpc.getGetSignerPubKeyMethod) == null) {
-          GlobalAPIGrpc.getGetSignerPubKeyMethod = getGetSignerPubKeyMethod =
-              io.grpc.MethodDescriptor.<adamant.global.v1.GetSignerPubKeyRequest, adamant.global.v1.GetSignerPubKeyResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetSignerPubKey"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.GetSignerPubKeyRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.GetSignerPubKeyResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("GetSignerPubKey"))
-              .build();
-        }
-      }
-    }
-    return getGetSignerPubKeyMethod;
-  }
-
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.CreateTransactionRequest,
       adamant.global.v1.CreateTransactionResponse> getCreateTransactionMethod;
 
@@ -1470,37 +1439,6 @@ public final class GlobalAPIGrpc {
       }
     }
     return getCreateXRPInitTransactionsMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.CreateContractCreationTransactionRequest,
-      adamant.global.v1.CreateContractCreationTransactionResponse> getCreateContractCreationTransactionMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "CreateContractCreationTransaction",
-      requestType = adamant.global.v1.CreateContractCreationTransactionRequest.class,
-      responseType = adamant.global.v1.CreateContractCreationTransactionResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<adamant.global.v1.CreateContractCreationTransactionRequest,
-      adamant.global.v1.CreateContractCreationTransactionResponse> getCreateContractCreationTransactionMethod() {
-    io.grpc.MethodDescriptor<adamant.global.v1.CreateContractCreationTransactionRequest, adamant.global.v1.CreateContractCreationTransactionResponse> getCreateContractCreationTransactionMethod;
-    if ((getCreateContractCreationTransactionMethod = GlobalAPIGrpc.getCreateContractCreationTransactionMethod) == null) {
-      synchronized (GlobalAPIGrpc.class) {
-        if ((getCreateContractCreationTransactionMethod = GlobalAPIGrpc.getCreateContractCreationTransactionMethod) == null) {
-          GlobalAPIGrpc.getCreateContractCreationTransactionMethod = getCreateContractCreationTransactionMethod =
-              io.grpc.MethodDescriptor.<adamant.global.v1.CreateContractCreationTransactionRequest, adamant.global.v1.CreateContractCreationTransactionResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateContractCreationTransaction"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.CreateContractCreationTransactionRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.CreateContractCreationTransactionResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("CreateContractCreationTransaction"))
-              .build();
-        }
-      }
-    }
-    return getCreateContractCreationTransactionMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.SignTransactionRequest,
@@ -3928,13 +3866,6 @@ public final class GlobalAPIGrpc {
     }
 
     /**
-     */
-    default void getSignerPubKey(adamant.global.v1.GetSignerPubKeyRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.GetSignerPubKeyResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetSignerPubKeyMethod(), responseObserver);
-    }
-
-    /**
      * <pre>
      * Transaction
      * </pre>
@@ -3949,13 +3880,6 @@ public final class GlobalAPIGrpc {
     default void createXRPInitTransactions(adamant.global.v1.CreateXRPInitTransactionsRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateXRPInitTransactionsMethod(), responseObserver);
-    }
-
-    /**
-     */
-    default void createContractCreationTransaction(adamant.global.v1.CreateContractCreationTransactionRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.CreateContractCreationTransactionResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateContractCreationTransactionMethod(), responseObserver);
     }
 
     /**
@@ -4864,14 +4788,6 @@ public final class GlobalAPIGrpc {
     }
 
     /**
-     */
-    public void getSignerPubKey(adamant.global.v1.GetSignerPubKeyRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.GetSignerPubKeyResponse> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getGetSignerPubKeyMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
      * <pre>
      * Transaction
      * </pre>
@@ -4888,14 +4804,6 @@ public final class GlobalAPIGrpc {
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateXRPInitTransactionsMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void createContractCreationTransaction(adamant.global.v1.CreateContractCreationTransactionRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.CreateContractCreationTransactionResponse> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getCreateContractCreationTransactionMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -5815,13 +5723,6 @@ public final class GlobalAPIGrpc {
     }
 
     /**
-     */
-    public adamant.global.v1.GetSignerPubKeyResponse getSignerPubKey(adamant.global.v1.GetSignerPubKeyRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getGetSignerPubKeyMethod(), getCallOptions(), request);
-    }
-
-    /**
      * <pre>
      * Transaction
      * </pre>
@@ -5836,13 +5737,6 @@ public final class GlobalAPIGrpc {
     public com.google.protobuf.Empty createXRPInitTransactions(adamant.global.v1.CreateXRPInitTransactionsRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateXRPInitTransactionsMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public adamant.global.v1.CreateContractCreationTransactionResponse createContractCreationTransaction(adamant.global.v1.CreateContractCreationTransactionRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getCreateContractCreationTransactionMethod(), getCallOptions(), request);
     }
 
     /**
@@ -6740,14 +6634,6 @@ public final class GlobalAPIGrpc {
     }
 
     /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.GetSignerPubKeyResponse> getSignerPubKey(
-        adamant.global.v1.GetSignerPubKeyRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getGetSignerPubKeyMethod(), getCallOptions()), request);
-    }
-
-    /**
      * <pre>
      * Transaction
      * </pre>
@@ -6764,14 +6650,6 @@ public final class GlobalAPIGrpc {
         adamant.global.v1.CreateXRPInitTransactionsRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateXRPInitTransactionsMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateContractCreationTransactionResponse> createContractCreationTransaction(
-        adamant.global.v1.CreateContractCreationTransactionRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getCreateContractCreationTransactionMethod(), getCallOptions()), request);
     }
 
     /**
@@ -7388,76 +7266,74 @@ public final class GlobalAPIGrpc {
   private static final int METHODID_LIST_CALLERS = 41;
   private static final int METHODID_LIST_FEE_DEPOSITS = 42;
   private static final int METHODID_REGISTER_KEY = 43;
-  private static final int METHODID_GET_SIGNER_PUB_KEY = 44;
-  private static final int METHODID_CREATE_TRANSACTION = 45;
-  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 46;
-  private static final int METHODID_CREATE_CONTRACT_CREATION_TRANSACTION = 47;
-  private static final int METHODID_SIGN_TRANSACTION = 48;
-  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 49;
-  private static final int METHODID_SEND_TRANSACTION = 50;
-  private static final int METHODID_RESEND_TRANSACTION = 51;
-  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 52;
-  private static final int METHODID_CANCEL_TRANSACTION = 53;
-  private static final int METHODID_REPLACE_TRANSACTION = 54;
-  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 55;
-  private static final int METHODID_GET_TRANSACTION = 56;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 57;
-  private static final int METHODID_LIST_TRANSACTIONS = 58;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 59;
-  private static final int METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER = 60;
-  private static final int METHODID_GET_SIGN_INFO = 61;
-  private static final int METHODID_LIST_SIGN_INFO = 62;
-  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 63;
-  private static final int METHODID_LIST_TRANSFERS = 64;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 65;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 66;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 67;
-  private static final int METHODID_SET_RATES = 68;
-  private static final int METHODID_SET_DEFAULT_RATES = 69;
-  private static final int METHODID_CREATE_LABELED_ADDRESS = 70;
-  private static final int METHODID_GET_LABELED_ADDRESS = 71;
-  private static final int METHODID_LIST_LABELED_ADDRESSES = 72;
-  private static final int METHODID_LIST_LABELED_ADDRESSES_BY_FILTER = 73;
-  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 74;
-  private static final int METHODID_UPDATE_LABELED_ADDRESS = 75;
-  private static final int METHODID_DELETE_ADDRESS = 76;
-  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 77;
-  private static final int METHODID_CREATE_WHITELIST = 78;
-  private static final int METHODID_GET_WHITELIST = 79;
-  private static final int METHODID_LIST_WHITELISTS = 80;
-  private static final int METHODID_LIST_WHITELISTS_BY_FILTER = 81;
-  private static final int METHODID_IS_DELETABLE_WHITELIST = 82;
-  private static final int METHODID_UPDATE_WHITELIST = 83;
-  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 84;
-  private static final int METHODID_DELETE_WHITELIST = 85;
-  private static final int METHODID_CREATE_TRANSFER_LIMIT = 86;
-  private static final int METHODID_GET_TRANSFER_LIMIT = 87;
-  private static final int METHODID_LIST_TRANSFER_LIMITS = 88;
-  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 89;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 90;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 91;
-  private static final int METHODID_DELETE_TRANSFER_LIMIT = 92;
-  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 93;
-  private static final int METHODID_CREATE_POLICY = 94;
-  private static final int METHODID_GET_POLICY = 95;
-  private static final int METHODID_LIST_POLICIES = 96;
-  private static final int METHODID_LIST_POLICIES_BY_FILTER = 97;
-  private static final int METHODID_IS_DELETABLE_POLICY = 98;
-  private static final int METHODID_UPDATE_POLICY = 99;
-  private static final int METHODID_DELETE_POLICY = 100;
-  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 101;
-  private static final int METHODID_GET_SPENDABLE_BALANCE = 102;
-  private static final int METHODID_GET_TOTAL_BALANCE = 103;
-  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 104;
-  private static final int METHODID_CALCULATE_FEE = 105;
-  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 106;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 107;
-  private static final int METHODID_VALIDATE_ADDRESS = 108;
-  private static final int METHODID_LIST_AUDIT_LOGS = 109;
-  private static final int METHODID_LIST_FORWARDING_THRESHOLDS = 110;
-  private static final int METHODID_UPSERT_FORWARDING_THRESHOLD = 111;
-  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 112;
-  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 113;
+  private static final int METHODID_CREATE_TRANSACTION = 44;
+  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 45;
+  private static final int METHODID_SIGN_TRANSACTION = 46;
+  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 47;
+  private static final int METHODID_SEND_TRANSACTION = 48;
+  private static final int METHODID_RESEND_TRANSACTION = 49;
+  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 50;
+  private static final int METHODID_CANCEL_TRANSACTION = 51;
+  private static final int METHODID_REPLACE_TRANSACTION = 52;
+  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 53;
+  private static final int METHODID_GET_TRANSACTION = 54;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 55;
+  private static final int METHODID_LIST_TRANSACTIONS = 56;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 57;
+  private static final int METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER = 58;
+  private static final int METHODID_GET_SIGN_INFO = 59;
+  private static final int METHODID_LIST_SIGN_INFO = 60;
+  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 61;
+  private static final int METHODID_LIST_TRANSFERS = 62;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 63;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 64;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 65;
+  private static final int METHODID_SET_RATES = 66;
+  private static final int METHODID_SET_DEFAULT_RATES = 67;
+  private static final int METHODID_CREATE_LABELED_ADDRESS = 68;
+  private static final int METHODID_GET_LABELED_ADDRESS = 69;
+  private static final int METHODID_LIST_LABELED_ADDRESSES = 70;
+  private static final int METHODID_LIST_LABELED_ADDRESSES_BY_FILTER = 71;
+  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 72;
+  private static final int METHODID_UPDATE_LABELED_ADDRESS = 73;
+  private static final int METHODID_DELETE_ADDRESS = 74;
+  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 75;
+  private static final int METHODID_CREATE_WHITELIST = 76;
+  private static final int METHODID_GET_WHITELIST = 77;
+  private static final int METHODID_LIST_WHITELISTS = 78;
+  private static final int METHODID_LIST_WHITELISTS_BY_FILTER = 79;
+  private static final int METHODID_IS_DELETABLE_WHITELIST = 80;
+  private static final int METHODID_UPDATE_WHITELIST = 81;
+  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 82;
+  private static final int METHODID_DELETE_WHITELIST = 83;
+  private static final int METHODID_CREATE_TRANSFER_LIMIT = 84;
+  private static final int METHODID_GET_TRANSFER_LIMIT = 85;
+  private static final int METHODID_LIST_TRANSFER_LIMITS = 86;
+  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 87;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 88;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 89;
+  private static final int METHODID_DELETE_TRANSFER_LIMIT = 90;
+  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 91;
+  private static final int METHODID_CREATE_POLICY = 92;
+  private static final int METHODID_GET_POLICY = 93;
+  private static final int METHODID_LIST_POLICIES = 94;
+  private static final int METHODID_LIST_POLICIES_BY_FILTER = 95;
+  private static final int METHODID_IS_DELETABLE_POLICY = 96;
+  private static final int METHODID_UPDATE_POLICY = 97;
+  private static final int METHODID_DELETE_POLICY = 98;
+  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 99;
+  private static final int METHODID_GET_SPENDABLE_BALANCE = 100;
+  private static final int METHODID_GET_TOTAL_BALANCE = 101;
+  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 102;
+  private static final int METHODID_CALCULATE_FEE = 103;
+  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 104;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 105;
+  private static final int METHODID_VALIDATE_ADDRESS = 106;
+  private static final int METHODID_LIST_AUDIT_LOGS = 107;
+  private static final int METHODID_LIST_FORWARDING_THRESHOLDS = 108;
+  private static final int METHODID_UPSERT_FORWARDING_THRESHOLD = 109;
+  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 110;
+  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 111;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -7652,10 +7528,6 @@ public final class GlobalAPIGrpc {
           serviceImpl.registerKey((adamant.global.v1.RegisterKeyRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.RegisterKeyResponse>) responseObserver);
           break;
-        case METHODID_GET_SIGNER_PUB_KEY:
-          serviceImpl.getSignerPubKey((adamant.global.v1.GetSignerPubKeyRequest) request,
-              (io.grpc.stub.StreamObserver<adamant.global.v1.GetSignerPubKeyResponse>) responseObserver);
-          break;
         case METHODID_CREATE_TRANSACTION:
           serviceImpl.createTransaction((adamant.global.v1.CreateTransactionRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
@@ -7663,10 +7535,6 @@ public final class GlobalAPIGrpc {
         case METHODID_CREATE_XRPINIT_TRANSACTIONS:
           serviceImpl.createXRPInitTransactions((adamant.global.v1.CreateXRPInitTransactionsRequest) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
-          break;
-        case METHODID_CREATE_CONTRACT_CREATION_TRANSACTION:
-          serviceImpl.createContractCreationTransaction((adamant.global.v1.CreateContractCreationTransactionRequest) request,
-              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateContractCreationTransactionResponse>) responseObserver);
           break;
         case METHODID_SIGN_TRANSACTION:
           serviceImpl.signTransaction((adamant.global.v1.SignTransactionRequest) request,
@@ -8259,13 +8127,6 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.RegisterKeyResponse>(
                 service, METHODID_REGISTER_KEY)))
         .addMethod(
-          getGetSignerPubKeyMethod(),
-          io.grpc.stub.ServerCalls.asyncUnaryCall(
-            new MethodHandlers<
-              adamant.global.v1.GetSignerPubKeyRequest,
-              adamant.global.v1.GetSignerPubKeyResponse>(
-                service, METHODID_GET_SIGNER_PUB_KEY)))
-        .addMethod(
           getCreateTransactionMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
@@ -8279,13 +8140,6 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.CreateXRPInitTransactionsRequest,
               com.google.protobuf.Empty>(
                 service, METHODID_CREATE_XRPINIT_TRANSACTIONS)))
-        .addMethod(
-          getCreateContractCreationTransactionMethod(),
-          io.grpc.stub.ServerCalls.asyncUnaryCall(
-            new MethodHandlers<
-              adamant.global.v1.CreateContractCreationTransactionRequest,
-              adamant.global.v1.CreateContractCreationTransactionResponse>(
-                service, METHODID_CREATE_CONTRACT_CREATION_TRANSACTION)))
         .addMethod(
           getSignTransactionMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -8840,10 +8694,8 @@ public final class GlobalAPIGrpc {
               .addMethod(getListCallersMethod())
               .addMethod(getListFeeDepositsMethod())
               .addMethod(getRegisterKeyMethod())
-              .addMethod(getGetSignerPubKeyMethod())
               .addMethod(getCreateTransactionMethod())
               .addMethod(getCreateXRPInitTransactionsMethod())
-              .addMethod(getCreateContractCreationTransactionMethod())
               .addMethod(getSignTransactionMethod())
               .addMethod(getSignXRPInitTransactionsMethod())
               .addMethod(getSendTransactionMethod())

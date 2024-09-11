@@ -852,37 +852,6 @@ public final class TellerAPIGrpc {
     return getCreateTransactionMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.CreateContractCreationTransactionRequest,
-      adamant.global.v1.CreateContractCreationTransactionResponse> getCreateContractCreationTransactionMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "CreateContractCreationTransaction",
-      requestType = adamant.global.v1.CreateContractCreationTransactionRequest.class,
-      responseType = adamant.global.v1.CreateContractCreationTransactionResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<adamant.global.v1.CreateContractCreationTransactionRequest,
-      adamant.global.v1.CreateContractCreationTransactionResponse> getCreateContractCreationTransactionMethod() {
-    io.grpc.MethodDescriptor<adamant.global.v1.CreateContractCreationTransactionRequest, adamant.global.v1.CreateContractCreationTransactionResponse> getCreateContractCreationTransactionMethod;
-    if ((getCreateContractCreationTransactionMethod = TellerAPIGrpc.getCreateContractCreationTransactionMethod) == null) {
-      synchronized (TellerAPIGrpc.class) {
-        if ((getCreateContractCreationTransactionMethod = TellerAPIGrpc.getCreateContractCreationTransactionMethod) == null) {
-          TellerAPIGrpc.getCreateContractCreationTransactionMethod = getCreateContractCreationTransactionMethod =
-              io.grpc.MethodDescriptor.<adamant.global.v1.CreateContractCreationTransactionRequest, adamant.global.v1.CreateContractCreationTransactionResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateContractCreationTransaction"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.CreateContractCreationTransactionRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.CreateContractCreationTransactionResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("CreateContractCreationTransaction"))
-              .build();
-        }
-      }
-    }
-    return getCreateContractCreationTransactionMethod;
-  }
-
   private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.SignTransactionRequest,
       com.google.protobuf.Empty> getSignTransactionMethod;
 
@@ -2030,68 +1999,6 @@ public final class TellerAPIGrpc {
     return getProgmatCoinUnpauseMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinGrantWhiteAndBlackListerRequest,
-      adamant.global.v1.CreateTransactionResponse> getProgmatCoinGrantWhiteAndBlackListerMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinGrantWhiteAndBlackLister",
-      requestType = adamant.teller.v1.ProgmatCoinGrantWhiteAndBlackListerRequest.class,
-      responseType = adamant.global.v1.CreateTransactionResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinGrantWhiteAndBlackListerRequest,
-      adamant.global.v1.CreateTransactionResponse> getProgmatCoinGrantWhiteAndBlackListerMethod() {
-    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinGrantWhiteAndBlackListerRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinGrantWhiteAndBlackListerMethod;
-    if ((getProgmatCoinGrantWhiteAndBlackListerMethod = TellerAPIGrpc.getProgmatCoinGrantWhiteAndBlackListerMethod) == null) {
-      synchronized (TellerAPIGrpc.class) {
-        if ((getProgmatCoinGrantWhiteAndBlackListerMethod = TellerAPIGrpc.getProgmatCoinGrantWhiteAndBlackListerMethod) == null) {
-          TellerAPIGrpc.getProgmatCoinGrantWhiteAndBlackListerMethod = getProgmatCoinGrantWhiteAndBlackListerMethod =
-              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinGrantWhiteAndBlackListerRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinGrantWhiteAndBlackLister"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.teller.v1.ProgmatCoinGrantWhiteAndBlackListerRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinGrantWhiteAndBlackLister"))
-              .build();
-        }
-      }
-    }
-    return getProgmatCoinGrantWhiteAndBlackListerMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinUpgradeToAndCallRequest,
-      adamant.global.v1.CreateTransactionResponse> getProgmatCoinUpgradeToAndCallMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "ProgmatCoinUpgradeToAndCall",
-      requestType = adamant.teller.v1.ProgmatCoinUpgradeToAndCallRequest.class,
-      responseType = adamant.global.v1.CreateTransactionResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinUpgradeToAndCallRequest,
-      adamant.global.v1.CreateTransactionResponse> getProgmatCoinUpgradeToAndCallMethod() {
-    io.grpc.MethodDescriptor<adamant.teller.v1.ProgmatCoinUpgradeToAndCallRequest, adamant.global.v1.CreateTransactionResponse> getProgmatCoinUpgradeToAndCallMethod;
-    if ((getProgmatCoinUpgradeToAndCallMethod = TellerAPIGrpc.getProgmatCoinUpgradeToAndCallMethod) == null) {
-      synchronized (TellerAPIGrpc.class) {
-        if ((getProgmatCoinUpgradeToAndCallMethod = TellerAPIGrpc.getProgmatCoinUpgradeToAndCallMethod) == null) {
-          TellerAPIGrpc.getProgmatCoinUpgradeToAndCallMethod = getProgmatCoinUpgradeToAndCallMethod =
-              io.grpc.MethodDescriptor.<adamant.teller.v1.ProgmatCoinUpgradeToAndCallRequest, adamant.global.v1.CreateTransactionResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ProgmatCoinUpgradeToAndCall"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.teller.v1.ProgmatCoinUpgradeToAndCallRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.CreateTransactionResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ProgmatCoinUpgradeToAndCall"))
-              .build();
-        }
-      }
-    }
-    return getProgmatCoinUpgradeToAndCallMethod;
-  }
-
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -2336,13 +2243,6 @@ public final class TellerAPIGrpc {
     default void createTransaction(adamant.global.v1.CreateTransactionRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateTransactionMethod(), responseObserver);
-    }
-
-    /**
-     */
-    default void createContractCreationTransaction(adamant.global.v1.CreateContractCreationTransactionRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.CreateContractCreationTransactionResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateContractCreationTransactionMethod(), responseObserver);
     }
 
     /**
@@ -2624,20 +2524,6 @@ public final class TellerAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinUnpauseMethod(), responseObserver);
     }
-
-    /**
-     */
-    default void progmatCoinGrantWhiteAndBlackLister(adamant.teller.v1.ProgmatCoinGrantWhiteAndBlackListerRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinGrantWhiteAndBlackListerMethod(), responseObserver);
-    }
-
-    /**
-     */
-    default void progmatCoinUpgradeToAndCall(adamant.teller.v1.ProgmatCoinUpgradeToAndCallRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinUpgradeToAndCallMethod(), responseObserver);
-    }
   }
 
   /**
@@ -2890,14 +2776,6 @@ public final class TellerAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateTransactionMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void createContractCreationTransaction(adamant.global.v1.CreateContractCreationTransactionRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.CreateContractCreationTransactionResponse> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getCreateContractCreationTransactionMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -3216,22 +3094,6 @@ public final class TellerAPIGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getProgmatCoinUnpauseMethod(), getCallOptions()), request, responseObserver);
     }
-
-    /**
-     */
-    public void progmatCoinGrantWhiteAndBlackLister(adamant.teller.v1.ProgmatCoinGrantWhiteAndBlackListerRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getProgmatCoinGrantWhiteAndBlackListerMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void progmatCoinUpgradeToAndCall(adamant.teller.v1.ProgmatCoinUpgradeToAndCallRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getProgmatCoinUpgradeToAndCallMethod(), getCallOptions()), request, responseObserver);
-    }
   }
 
   /**
@@ -3446,13 +3308,6 @@ public final class TellerAPIGrpc {
     public adamant.global.v1.CreateTransactionResponse createTransaction(adamant.global.v1.CreateTransactionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateTransactionMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public adamant.global.v1.CreateContractCreationTransactionResponse createContractCreationTransaction(adamant.global.v1.CreateContractCreationTransactionRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getCreateContractCreationTransactionMethod(), getCallOptions(), request);
     }
 
     /**
@@ -3734,20 +3589,6 @@ public final class TellerAPIGrpc {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getProgmatCoinUnpauseMethod(), getCallOptions(), request);
     }
-
-    /**
-     */
-    public adamant.global.v1.CreateTransactionResponse progmatCoinGrantWhiteAndBlackLister(adamant.teller.v1.ProgmatCoinGrantWhiteAndBlackListerRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getProgmatCoinGrantWhiteAndBlackListerMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public adamant.global.v1.CreateTransactionResponse progmatCoinUpgradeToAndCall(adamant.teller.v1.ProgmatCoinUpgradeToAndCallRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getProgmatCoinUpgradeToAndCallMethod(), getCallOptions(), request);
-    }
   }
 
   /**
@@ -3989,14 +3830,6 @@ public final class TellerAPIGrpc {
         adamant.global.v1.CreateTransactionRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateTransactionMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateContractCreationTransactionResponse> createContractCreationTransaction(
-        adamant.global.v1.CreateContractCreationTransactionRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getCreateContractCreationTransactionMethod(), getCallOptions()), request);
     }
 
     /**
@@ -4315,22 +4148,6 @@ public final class TellerAPIGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getProgmatCoinUnpauseMethod(), getCallOptions()), request);
     }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinGrantWhiteAndBlackLister(
-        adamant.teller.v1.ProgmatCoinGrantWhiteAndBlackListerRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getProgmatCoinGrantWhiteAndBlackListerMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateTransactionResponse> progmatCoinUpgradeToAndCall(
-        adamant.teller.v1.ProgmatCoinUpgradeToAndCallRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getProgmatCoinUpgradeToAndCallMethod(), getCallOptions()), request);
-    }
   }
 
   private static final int METHODID_CREATE_WALLET = 0;
@@ -4360,46 +4177,43 @@ public final class TellerAPIGrpc {
   private static final int METHODID_LIST_COLD_FEE_DEPOSIT_ADDRESSES = 24;
   private static final int METHODID_LIST_HOT_FEE_DEPOSIT_ADDRESSES = 25;
   private static final int METHODID_CREATE_TRANSACTION = 26;
-  private static final int METHODID_CREATE_CONTRACT_CREATION_TRANSACTION = 27;
-  private static final int METHODID_SIGN_TRANSACTION = 28;
-  private static final int METHODID_SEND_TRANSACTION = 29;
-  private static final int METHODID_RESEND_TRANSACTION = 30;
-  private static final int METHODID_CANCEL_TRANSACTION = 31;
-  private static final int METHODID_REPLACE_TRANSACTION = 32;
-  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 33;
-  private static final int METHODID_GET_TRANSACTION = 34;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 35;
-  private static final int METHODID_LIST_TRANSACTIONS = 36;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 37;
-  private static final int METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER = 38;
-  private static final int METHODID_EXIT_ETHEREUM_STAKING_VALIDATORS = 39;
-  private static final int METHODID_LIST_TRANSFERS = 40;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 41;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 42;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 43;
-  private static final int METHODID_SET_RATES = 44;
-  private static final int METHODID_CALCULATE_FEE = 45;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 46;
-  private static final int METHODID_VALIDATE_ADDRESS = 47;
-  private static final int METHODID_FLUSH_BALANCE = 48;
-  private static final int METHODID_LIST_AUDIT_LOGS = 49;
-  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 50;
-  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 51;
-  private static final int METHODID_SIGN_MESSAGE = 52;
-  private static final int METHODID_PROGMAT_COIN_INITIALIZE = 53;
-  private static final int METHODID_PROGMAT_COIN_CONFIGURE_MINTER = 54;
-  private static final int METHODID_PROGMAT_COIN_MINT_AND_TRANSFER = 55;
-  private static final int METHODID_PROGMAT_COIN_MINT = 56;
-  private static final int METHODID_PROGMAT_COIN_BURN = 57;
-  private static final int METHODID_PROGMAT_COIN_BULK_ADD_TO_WHITELIST = 58;
-  private static final int METHODID_PROGMAT_COIN_BULK_REMOVE_FROM_WHITELIST = 59;
-  private static final int METHODID_PROGMAT_COIN_BULK_ADD_TO_BLACKLIST = 60;
-  private static final int METHODID_PROGMAT_COIN_BULK_REMOVE_FROM_BLACKLIST = 61;
-  private static final int METHODID_PROGMAT_COIN_CONFISCATE = 62;
-  private static final int METHODID_PROGMAT_COIN_PAUSE = 63;
-  private static final int METHODID_PROGMAT_COIN_UNPAUSE = 64;
-  private static final int METHODID_PROGMAT_COIN_GRANT_WHITE_AND_BLACK_LISTER = 65;
-  private static final int METHODID_PROGMAT_COIN_UPGRADE_TO_AND_CALL = 66;
+  private static final int METHODID_SIGN_TRANSACTION = 27;
+  private static final int METHODID_SEND_TRANSACTION = 28;
+  private static final int METHODID_RESEND_TRANSACTION = 29;
+  private static final int METHODID_CANCEL_TRANSACTION = 30;
+  private static final int METHODID_REPLACE_TRANSACTION = 31;
+  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 32;
+  private static final int METHODID_GET_TRANSACTION = 33;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 34;
+  private static final int METHODID_LIST_TRANSACTIONS = 35;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 36;
+  private static final int METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER = 37;
+  private static final int METHODID_EXIT_ETHEREUM_STAKING_VALIDATORS = 38;
+  private static final int METHODID_LIST_TRANSFERS = 39;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 40;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 41;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 42;
+  private static final int METHODID_SET_RATES = 43;
+  private static final int METHODID_CALCULATE_FEE = 44;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 45;
+  private static final int METHODID_VALIDATE_ADDRESS = 46;
+  private static final int METHODID_FLUSH_BALANCE = 47;
+  private static final int METHODID_LIST_AUDIT_LOGS = 48;
+  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 49;
+  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 50;
+  private static final int METHODID_SIGN_MESSAGE = 51;
+  private static final int METHODID_PROGMAT_COIN_INITIALIZE = 52;
+  private static final int METHODID_PROGMAT_COIN_CONFIGURE_MINTER = 53;
+  private static final int METHODID_PROGMAT_COIN_MINT_AND_TRANSFER = 54;
+  private static final int METHODID_PROGMAT_COIN_MINT = 55;
+  private static final int METHODID_PROGMAT_COIN_BURN = 56;
+  private static final int METHODID_PROGMAT_COIN_BULK_ADD_TO_WHITELIST = 57;
+  private static final int METHODID_PROGMAT_COIN_BULK_REMOVE_FROM_WHITELIST = 58;
+  private static final int METHODID_PROGMAT_COIN_BULK_ADD_TO_BLACKLIST = 59;
+  private static final int METHODID_PROGMAT_COIN_BULK_REMOVE_FROM_BLACKLIST = 60;
+  private static final int METHODID_PROGMAT_COIN_CONFISCATE = 61;
+  private static final int METHODID_PROGMAT_COIN_PAUSE = 62;
+  private static final int METHODID_PROGMAT_COIN_UNPAUSE = 63;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -4525,10 +4339,6 @@ public final class TellerAPIGrpc {
         case METHODID_CREATE_TRANSACTION:
           serviceImpl.createTransaction((adamant.global.v1.CreateTransactionRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
-          break;
-        case METHODID_CREATE_CONTRACT_CREATION_TRANSACTION:
-          serviceImpl.createContractCreationTransaction((adamant.global.v1.CreateContractCreationTransactionRequest) request,
-              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateContractCreationTransactionResponse>) responseObserver);
           break;
         case METHODID_SIGN_TRANSACTION:
           serviceImpl.signTransaction((adamant.teller.v1.SignTransactionRequest) request,
@@ -4676,14 +4486,6 @@ public final class TellerAPIGrpc {
           break;
         case METHODID_PROGMAT_COIN_UNPAUSE:
           serviceImpl.progmatCoinUnpause((adamant.teller.v1.ProgmatCoinUnpauseRequest) request,
-              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
-          break;
-        case METHODID_PROGMAT_COIN_GRANT_WHITE_AND_BLACK_LISTER:
-          serviceImpl.progmatCoinGrantWhiteAndBlackLister((adamant.teller.v1.ProgmatCoinGrantWhiteAndBlackListerRequest) request,
-              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
-          break;
-        case METHODID_PROGMAT_COIN_UPGRADE_TO_AND_CALL:
-          serviceImpl.progmatCoinUpgradeToAndCall((adamant.teller.v1.ProgmatCoinUpgradeToAndCallRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
           break;
         default:
@@ -4893,13 +4695,6 @@ public final class TellerAPIGrpc {
               adamant.global.v1.CreateTransactionRequest,
               adamant.global.v1.CreateTransactionResponse>(
                 service, METHODID_CREATE_TRANSACTION)))
-        .addMethod(
-          getCreateContractCreationTransactionMethod(),
-          io.grpc.stub.ServerCalls.asyncUnaryCall(
-            new MethodHandlers<
-              adamant.global.v1.CreateContractCreationTransactionRequest,
-              adamant.global.v1.CreateContractCreationTransactionResponse>(
-                service, METHODID_CREATE_CONTRACT_CREATION_TRANSACTION)))
         .addMethod(
           getSignTransactionMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -5159,20 +4954,6 @@ public final class TellerAPIGrpc {
               adamant.teller.v1.ProgmatCoinUnpauseRequest,
               adamant.global.v1.CreateTransactionResponse>(
                 service, METHODID_PROGMAT_COIN_UNPAUSE)))
-        .addMethod(
-          getProgmatCoinGrantWhiteAndBlackListerMethod(),
-          io.grpc.stub.ServerCalls.asyncUnaryCall(
-            new MethodHandlers<
-              adamant.teller.v1.ProgmatCoinGrantWhiteAndBlackListerRequest,
-              adamant.global.v1.CreateTransactionResponse>(
-                service, METHODID_PROGMAT_COIN_GRANT_WHITE_AND_BLACK_LISTER)))
-        .addMethod(
-          getProgmatCoinUpgradeToAndCallMethod(),
-          io.grpc.stub.ServerCalls.asyncUnaryCall(
-            new MethodHandlers<
-              adamant.teller.v1.ProgmatCoinUpgradeToAndCallRequest,
-              adamant.global.v1.CreateTransactionResponse>(
-                service, METHODID_PROGMAT_COIN_UPGRADE_TO_AND_CALL)))
         .build();
   }
 
@@ -5248,7 +5029,6 @@ public final class TellerAPIGrpc {
               .addMethod(getListColdFeeDepositAddressesMethod())
               .addMethod(getListHotFeeDepositAddressesMethod())
               .addMethod(getCreateTransactionMethod())
-              .addMethod(getCreateContractCreationTransactionMethod())
               .addMethod(getSignTransactionMethod())
               .addMethod(getSendTransactionMethod())
               .addMethod(getResendTransactionMethod())
@@ -5286,8 +5066,6 @@ public final class TellerAPIGrpc {
               .addMethod(getProgmatCoinConfiscateMethod())
               .addMethod(getProgmatCoinPauseMethod())
               .addMethod(getProgmatCoinUnpauseMethod())
-              .addMethod(getProgmatCoinGrantWhiteAndBlackListerMethod())
-              .addMethod(getProgmatCoinUpgradeToAndCallMethod())
               .build();
         }
       }

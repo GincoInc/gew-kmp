@@ -1490,12 +1490,6 @@ public class ModelValidator {
 	
 		
 	
-		
-	
-		
-	
-		
-	
 	
 
 	public void assertValid(adamant.global.v1.Model.EthereumSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1513,12 +1507,6 @@ public class ModelValidator {
 
 	// no validation rules for IsStakingTransaction
 
-	// no validation rules for FromAddress
-
-	// no validation rules for TokenAddress
-
-	// no validation rules for ChainId
-
 	
 	}
 }
@@ -1526,8 +1514,6 @@ public class ModelValidator {
 	 * Validates {@code XrpSpecific} protobuf objects.
 	 */
 	public static class XrpSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.XrpSpecific> {
-		
-	
 		
 	
 		
@@ -1546,8 +1532,6 @@ public class ModelValidator {
 	// no validation rules for TxType
 
 	// no validation rules for IsNextSequenceNumber
-
-	// no validation rules for FromAddress
 
 	
 	}

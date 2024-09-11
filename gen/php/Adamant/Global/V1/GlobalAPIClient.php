@@ -645,20 +645,6 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
-     * @param \Adamant\Global\V1\GetSignerPubKeyRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     * @return \Grpc\UnaryCall
-     */
-    public function GetSignerPubKey(\Adamant\Global\V1\GetSignerPubKeyRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/GetSignerPubKey',
-        $argument,
-        ['\Adamant\Global\V1\GetSignerPubKeyResponse', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
      * Transaction
      * @param \Adamant\Global\V1\CreateTransactionRequest $argument input argument
      * @param array $metadata metadata
@@ -684,20 +670,6 @@ class GlobalAPIClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/CreateXRPInitTransactions',
         $argument,
         ['\Google\Protobuf\GPBEmpty', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
-     * @param \Adamant\Global\V1\CreateContractCreationTransactionRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     * @return \Grpc\UnaryCall
-     */
-    public function CreateContractCreationTransaction(\Adamant\Global\V1\CreateContractCreationTransactionRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/CreateContractCreationTransaction',
-        $argument,
-        ['\Adamant\Global\V1\CreateContractCreationTransactionResponse', 'decode'],
         $metadata, $options);
     }
 

@@ -367,9 +367,6 @@ message EthereumSpecific {
   uint64 expiration = 5;
   string data = 6; // data
   bool is_staking_transaction = 7;
-  string from_address = 8;
-  string token_address = 9;
-  uint64 chain_id = 10;
 }
 
 // The model of XRP specific fields of transaction
@@ -378,7 +375,6 @@ message XrpSpecific {
   uint32 destination_tag = 2;
   gincoinc.global.v1.XRPTransactionType tx_type = 3;
   bool is_next_sequence_number = 4;
-  string from_address = 5;
 }
 
 // The model of Tron specific fields of transaction
