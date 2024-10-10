@@ -57,4 +57,7 @@ message AuditLog {
   google.protobuf.Timestamp create_time = 33;
   repeated adamant.global.v1.MailType enabled_mails = 41;
   repeated adamant.global.v1.MailType disabled_mails = 42;
+  gincoinc.global.v1.Network network = 44;
+  double pre_transaction_threshold = 45;
+  string pre_transaction_threshold_id = 46;
 }

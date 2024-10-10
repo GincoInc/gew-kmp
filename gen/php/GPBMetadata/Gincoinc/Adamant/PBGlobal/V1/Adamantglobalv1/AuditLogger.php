@@ -19,8 +19,8 @@ class AuditLogger
         \GPBMetadata\Google\Protobuf\Timestamp::initOnce();
         $pool->internalAddGeneratedFile(
             '
-ö
-=gincoinc/adamant/global/v1/adamantglobalv1/audit_logger.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.proto"ú
+ª
+=gincoinc/adamant/global/v1/adamantglobalv1/audit_logger.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.proto"®
 AuditLog 
 audit_log_id (	R
 auditLogIdH
@@ -71,7 +71,10 @@ event_time  (2.google.protobuf.TimestampR	eventTime;
 create_time! (2.google.protobuf.TimestampR
 createTime@
 enabled_mails) (2.adamant.global.v1.MailTypeRenabledMailsB
-disabled_mails* (2.adamant.global.v1.MailTypeRdisabledMailsBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
+disabled_mails* (2.adamant.global.v1.MailTypeRdisabledMails5
+network, (2.gincoinc.global.v1.NetworkRnetwork:
+pre_transaction_threshold- (RpreTransactionThreshold?
+pre_transaction_threshold_id. (	RpreTransactionThresholdIdBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
         , true);
 
         static::$is_initialized = true;

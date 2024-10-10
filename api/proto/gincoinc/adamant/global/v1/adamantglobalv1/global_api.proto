@@ -2346,3 +2346,37 @@ message UpdateMailSettingsRequest {
 }
 
 message GetMailSettingsRequest {}
+
+// -----------------------------------------------------------------------------
+// PreTransactionThreshold
+// -----------------------------------------------------------------------------
+
+message ListPreTransactionThresholdsByFilterRequest {
+  ListFilterType filter_type = 1 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+
+  optional string pre_transaction_threshold_id = 2;
+
+  optional gincoinc.global.v1.Coin coin = 3 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  optional gincoinc.global.v1.Network network = 4 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  optional uint32 page_size = 5 [(validate.rules).uint32.lte = 100];
+
+  optional string page_token = 6 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
+}
+
+message ListPreTransactionThresholdsByFilterResponse {
+  repeated PreTransactionThreshold pre_transaction_thresholds = 1;
+  string next_page_token = 2;
+}

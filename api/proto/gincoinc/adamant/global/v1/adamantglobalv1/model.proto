@@ -1197,3 +1197,45 @@ message StakingValidator {
   google.protobuf.Timestamp create_time = 11; // the time at which the staking validator was created
   google.protobuf.Timestamp update_time = 12; // the time at which the staking validator was updated
 }
+
+// The model of PreTransactionThreshold
+message PreTransactionThreshold {
+  string pre_transaction_threshold_id = 1;
+  gincoinc.global.v1.Coin coin = 2;
+  gincoinc.global.v1.Network network = 3;
+  double value = 4;
+  PreTransactionThresholdProposal proposal = 5;
+  google.protobuf.Timestamp create_time = 6;
+  google.protobuf.Timestamp update_time = 7;
+}
+
+message PreTransactionThresholdProposal {
+  string pre_transaction_threshold_id = 1;
+  string proposal_id = 2;
+  string requester_account_id = 3;
+  string requester_name = 4;
+  string approver_account_id = 5;
+  string approver_name = 6;
+  double proposed_value = 7;
+  bool is_reviewed = 8;
+}
+
+message CreatePreTransactionThresholdRequest {
+  gincoinc.global.v1.Coin coin = 1;
+  gincoinc.global.v1.Network network = 2;
+  double value = 3;
+}
+
+message CreatePreTransactionThresholdResponse {
+  string pre_transaction_threshold_id = 1;
+}
+
+message UpdatePreTransactionThresholdRequest {
+  string pre_transaction_threshold_id = 1;
+  double value = 2;
+}
+
+message ReviewPreTransactionThresholdProposalRequest {
+  string pre_transaction_threshold_id = 1;
+  bool approve = 2;
+}

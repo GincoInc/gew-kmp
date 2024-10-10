@@ -968,4 +968,19 @@ class TellerAPIClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * PreTransactionThreshold
+     * @param \Adamant\Global\V1\ListPreTransactionThresholdsByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListPreTransactionThresholdsByFilter(\Adamant\Global\V1\ListPreTransactionThresholdsByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListPreTransactionThresholdsByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListPreTransactionThresholdsByFilterResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }

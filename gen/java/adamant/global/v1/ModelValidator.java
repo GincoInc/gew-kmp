@@ -130,6 +130,12 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.StakingHistoryEthereumSpecific.class)) return new StakingHistoryEthereumSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.StakingHistoryAvalancheSpecific.class)) return new StakingHistoryAvalancheSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.StakingValidator.class)) return new StakingValidatorValidator();
+		if (clazz.equals(adamant.global.v1.Model.PreTransactionThreshold.class)) return new PreTransactionThresholdValidator();
+		if (clazz.equals(adamant.global.v1.Model.PreTransactionThresholdProposal.class)) return new PreTransactionThresholdProposalValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreatePreTransactionThresholdRequest.class)) return new CreatePreTransactionThresholdRequestValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreatePreTransactionThresholdResponse.class)) return new CreatePreTransactionThresholdResponseValidator();
+		if (clazz.equals(adamant.global.v1.Model.UpdatePreTransactionThresholdRequest.class)) return new UpdatePreTransactionThresholdRequestValidator();
+		if (clazz.equals(adamant.global.v1.Model.ReviewPreTransactionThresholdProposalRequest.class)) return new ReviewPreTransactionThresholdProposalRequestValidator();
 		return null;
 	}
 
@@ -4489,6 +4495,161 @@ public class ModelValidator {
 	
 			// Validate update_time
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+	}
+}
+/**
+	 * Validates {@code PreTransactionThreshold} protobuf objects.
+	 */
+	public static class PreTransactionThresholdValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.PreTransactionThreshold> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.PreTransactionThreshold proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for PreTransactionThresholdId
+
+	// no validation rules for Coin
+
+	// no validation rules for Network
+
+	// no validation rules for Value
+
+	
+			// Validate proposal
+			if (proto.hasProposal()) index.validatorFor(proto.getProposal()).assertValid(proto.getProposal());
+	
+			// Validate create_time
+			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+			// Validate update_time
+			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+	}
+}
+/**
+	 * Validates {@code PreTransactionThresholdProposal} protobuf objects.
+	 */
+	public static class PreTransactionThresholdProposalValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.PreTransactionThresholdProposal> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.PreTransactionThresholdProposal proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for PreTransactionThresholdId
+
+	// no validation rules for ProposalId
+
+	// no validation rules for RequesterAccountId
+
+	// no validation rules for RequesterName
+
+	// no validation rules for ApproverAccountId
+
+	// no validation rules for ApproverName
+
+	// no validation rules for ProposedValue
+
+	// no validation rules for IsReviewed
+
+	
+	}
+}
+/**
+	 * Validates {@code CreatePreTransactionThresholdRequest} protobuf objects.
+	 */
+	public static class CreatePreTransactionThresholdRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreatePreTransactionThresholdRequest> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CreatePreTransactionThresholdRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Coin
+
+	// no validation rules for Network
+
+	// no validation rules for Value
+
+	
+	}
+}
+/**
+	 * Validates {@code CreatePreTransactionThresholdResponse} protobuf objects.
+	 */
+	public static class CreatePreTransactionThresholdResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreatePreTransactionThresholdResponse> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CreatePreTransactionThresholdResponse proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for PreTransactionThresholdId
+
+	
+	}
+}
+/**
+	 * Validates {@code UpdatePreTransactionThresholdRequest} protobuf objects.
+	 */
+	public static class UpdatePreTransactionThresholdRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.UpdatePreTransactionThresholdRequest> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.UpdatePreTransactionThresholdRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for PreTransactionThresholdId
+
+	// no validation rules for Value
+
+	
+	}
+}
+/**
+	 * Validates {@code ReviewPreTransactionThresholdProposalRequest} protobuf objects.
+	 */
+	public static class ReviewPreTransactionThresholdProposalRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.ReviewPreTransactionThresholdProposalRequest> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.ReviewPreTransactionThresholdProposalRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for PreTransactionThresholdId
+
+	// no validation rules for Approve
+
 	
 	}
 }

@@ -36,7 +36,7 @@ var (
 	_ = anypb.Any{}
 	_ = sort.Sort
 
-	_ = gincoincglobalv1.Coin(0)
+	_ = gincoincglobalv1.Network(0)
 )
 
 // Validate checks the field values on AuditLog with the rules defined in the
@@ -188,6 +188,12 @@ func (m *AuditLog) validate(all bool) error {
 			}
 		}
 	}
+
+	// no validation rules for Network
+
+	// no validation rules for PreTransactionThreshold
+
+	// no validation rules for PreTransactionThresholdId
 
 	if len(errors) > 0 {
 		return AuditLogMultiError(errors)

@@ -108,6 +108,9 @@ service TellerAPI {
   rpc ProgmatCoinUnpause(ProgmatCoinUnpauseRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
   rpc ProgmatCoinGrantWhiteAndBlackLister(ProgmatCoinGrantWhiteAndBlackListerRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
   rpc ProgmatCoinUpgradeToAndCall(ProgmatCoinUpgradeToAndCallRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
+
+  // PreTransactionThreshold
+  rpc ListPreTransactionThresholdsByFilter(adamant.global.v1.ListPreTransactionThresholdsByFilterRequest) returns (adamant.global.v1.ListPreTransactionThresholdsByFilterResponse) {}
 }
 
 message CreateWalletRequest {

@@ -36,7 +36,7 @@ var (
 	_ = anypb.Any{}
 	_ = sort.Sort
 
-	_ = gincoincglobalv1.StakingValidatorStatus(0)
+	_ = gincoincglobalv1.Network(0)
 )
 
 // Validate checks the field values on Wallet with the rules defined in the
@@ -18195,3 +18195,757 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = StakingValidatorValidationError{}
+
+// Validate checks the field values on PreTransactionThreshold with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *PreTransactionThreshold) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on PreTransactionThreshold with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// PreTransactionThresholdMultiError, or nil if none found.
+func (m *PreTransactionThreshold) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *PreTransactionThreshold) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for PreTransactionThresholdId
+
+	// no validation rules for Coin
+
+	// no validation rules for Network
+
+	// no validation rules for Value
+
+	if all {
+		switch v := interface{}(m.GetProposal()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, PreTransactionThresholdValidationError{
+					field:  "Proposal",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, PreTransactionThresholdValidationError{
+					field:  "Proposal",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetProposal()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return PreTransactionThresholdValidationError{
+				field:  "Proposal",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetCreateTime()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, PreTransactionThresholdValidationError{
+					field:  "CreateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, PreTransactionThresholdValidationError{
+					field:  "CreateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return PreTransactionThresholdValidationError{
+				field:  "CreateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetUpdateTime()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, PreTransactionThresholdValidationError{
+					field:  "UpdateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, PreTransactionThresholdValidationError{
+					field:  "UpdateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetUpdateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return PreTransactionThresholdValidationError{
+				field:  "UpdateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return PreTransactionThresholdMultiError(errors)
+	}
+
+	return nil
+}
+
+// PreTransactionThresholdMultiError is an error wrapping multiple validation
+// errors returned by PreTransactionThreshold.ValidateAll() if the designated
+// constraints aren't met.
+type PreTransactionThresholdMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m PreTransactionThresholdMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m PreTransactionThresholdMultiError) AllErrors() []error { return m }
+
+// PreTransactionThresholdValidationError is the validation error returned by
+// PreTransactionThreshold.Validate if the designated constraints aren't met.
+type PreTransactionThresholdValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e PreTransactionThresholdValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e PreTransactionThresholdValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e PreTransactionThresholdValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e PreTransactionThresholdValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e PreTransactionThresholdValidationError) ErrorName() string {
+	return "PreTransactionThresholdValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e PreTransactionThresholdValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sPreTransactionThreshold.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = PreTransactionThresholdValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = PreTransactionThresholdValidationError{}
+
+// Validate checks the field values on PreTransactionThresholdProposal with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *PreTransactionThresholdProposal) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on PreTransactionThresholdProposal with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// PreTransactionThresholdProposalMultiError, or nil if none found.
+func (m *PreTransactionThresholdProposal) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *PreTransactionThresholdProposal) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for PreTransactionThresholdId
+
+	// no validation rules for ProposalId
+
+	// no validation rules for RequesterAccountId
+
+	// no validation rules for RequesterName
+
+	// no validation rules for ApproverAccountId
+
+	// no validation rules for ApproverName
+
+	// no validation rules for ProposedValue
+
+	// no validation rules for IsReviewed
+
+	if len(errors) > 0 {
+		return PreTransactionThresholdProposalMultiError(errors)
+	}
+
+	return nil
+}
+
+// PreTransactionThresholdProposalMultiError is an error wrapping multiple
+// validation errors returned by PreTransactionThresholdProposal.ValidateAll()
+// if the designated constraints aren't met.
+type PreTransactionThresholdProposalMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m PreTransactionThresholdProposalMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m PreTransactionThresholdProposalMultiError) AllErrors() []error { return m }
+
+// PreTransactionThresholdProposalValidationError is the validation error
+// returned by PreTransactionThresholdProposal.Validate if the designated
+// constraints aren't met.
+type PreTransactionThresholdProposalValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e PreTransactionThresholdProposalValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e PreTransactionThresholdProposalValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e PreTransactionThresholdProposalValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e PreTransactionThresholdProposalValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e PreTransactionThresholdProposalValidationError) ErrorName() string {
+	return "PreTransactionThresholdProposalValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e PreTransactionThresholdProposalValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sPreTransactionThresholdProposal.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = PreTransactionThresholdProposalValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = PreTransactionThresholdProposalValidationError{}
+
+// Validate checks the field values on CreatePreTransactionThresholdRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *CreatePreTransactionThresholdRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreatePreTransactionThresholdRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// CreatePreTransactionThresholdRequestMultiError, or nil if none found.
+func (m *CreatePreTransactionThresholdRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreatePreTransactionThresholdRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Coin
+
+	// no validation rules for Network
+
+	// no validation rules for Value
+
+	if len(errors) > 0 {
+		return CreatePreTransactionThresholdRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreatePreTransactionThresholdRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// CreatePreTransactionThresholdRequest.ValidateAll() if the designated
+// constraints aren't met.
+type CreatePreTransactionThresholdRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreatePreTransactionThresholdRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreatePreTransactionThresholdRequestMultiError) AllErrors() []error { return m }
+
+// CreatePreTransactionThresholdRequestValidationError is the validation error
+// returned by CreatePreTransactionThresholdRequest.Validate if the designated
+// constraints aren't met.
+type CreatePreTransactionThresholdRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreatePreTransactionThresholdRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreatePreTransactionThresholdRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreatePreTransactionThresholdRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreatePreTransactionThresholdRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreatePreTransactionThresholdRequestValidationError) ErrorName() string {
+	return "CreatePreTransactionThresholdRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreatePreTransactionThresholdRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreatePreTransactionThresholdRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreatePreTransactionThresholdRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreatePreTransactionThresholdRequestValidationError{}
+
+// Validate checks the field values on CreatePreTransactionThresholdResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *CreatePreTransactionThresholdResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreatePreTransactionThresholdResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// CreatePreTransactionThresholdResponseMultiError, or nil if none found.
+func (m *CreatePreTransactionThresholdResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreatePreTransactionThresholdResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for PreTransactionThresholdId
+
+	if len(errors) > 0 {
+		return CreatePreTransactionThresholdResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreatePreTransactionThresholdResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// CreatePreTransactionThresholdResponse.ValidateAll() if the designated
+// constraints aren't met.
+type CreatePreTransactionThresholdResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreatePreTransactionThresholdResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreatePreTransactionThresholdResponseMultiError) AllErrors() []error { return m }
+
+// CreatePreTransactionThresholdResponseValidationError is the validation error
+// returned by CreatePreTransactionThresholdResponse.Validate if the
+// designated constraints aren't met.
+type CreatePreTransactionThresholdResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreatePreTransactionThresholdResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreatePreTransactionThresholdResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreatePreTransactionThresholdResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreatePreTransactionThresholdResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreatePreTransactionThresholdResponseValidationError) ErrorName() string {
+	return "CreatePreTransactionThresholdResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreatePreTransactionThresholdResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreatePreTransactionThresholdResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreatePreTransactionThresholdResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreatePreTransactionThresholdResponseValidationError{}
+
+// Validate checks the field values on UpdatePreTransactionThresholdRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *UpdatePreTransactionThresholdRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UpdatePreTransactionThresholdRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// UpdatePreTransactionThresholdRequestMultiError, or nil if none found.
+func (m *UpdatePreTransactionThresholdRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UpdatePreTransactionThresholdRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for PreTransactionThresholdId
+
+	// no validation rules for Value
+
+	if len(errors) > 0 {
+		return UpdatePreTransactionThresholdRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// UpdatePreTransactionThresholdRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// UpdatePreTransactionThresholdRequest.ValidateAll() if the designated
+// constraints aren't met.
+type UpdatePreTransactionThresholdRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdatePreTransactionThresholdRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdatePreTransactionThresholdRequestMultiError) AllErrors() []error { return m }
+
+// UpdatePreTransactionThresholdRequestValidationError is the validation error
+// returned by UpdatePreTransactionThresholdRequest.Validate if the designated
+// constraints aren't met.
+type UpdatePreTransactionThresholdRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdatePreTransactionThresholdRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdatePreTransactionThresholdRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdatePreTransactionThresholdRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdatePreTransactionThresholdRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdatePreTransactionThresholdRequestValidationError) ErrorName() string {
+	return "UpdatePreTransactionThresholdRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdatePreTransactionThresholdRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdatePreTransactionThresholdRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdatePreTransactionThresholdRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdatePreTransactionThresholdRequestValidationError{}
+
+// Validate checks the field values on
+// ReviewPreTransactionThresholdProposalRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ReviewPreTransactionThresholdProposalRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ReviewPreTransactionThresholdProposalRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// ReviewPreTransactionThresholdProposalRequestMultiError, or nil if none found.
+func (m *ReviewPreTransactionThresholdProposalRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ReviewPreTransactionThresholdProposalRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for PreTransactionThresholdId
+
+	// no validation rules for Approve
+
+	if len(errors) > 0 {
+		return ReviewPreTransactionThresholdProposalRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ReviewPreTransactionThresholdProposalRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ReviewPreTransactionThresholdProposalRequest.ValidateAll() if the
+// designated constraints aren't met.
+type ReviewPreTransactionThresholdProposalRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ReviewPreTransactionThresholdProposalRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ReviewPreTransactionThresholdProposalRequestMultiError) AllErrors() []error { return m }
+
+// ReviewPreTransactionThresholdProposalRequestValidationError is the
+// validation error returned by
+// ReviewPreTransactionThresholdProposalRequest.Validate if the designated
+// constraints aren't met.
+type ReviewPreTransactionThresholdProposalRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ReviewPreTransactionThresholdProposalRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ReviewPreTransactionThresholdProposalRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ReviewPreTransactionThresholdProposalRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ReviewPreTransactionThresholdProposalRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ReviewPreTransactionThresholdProposalRequestValidationError) ErrorName() string {
+	return "ReviewPreTransactionThresholdProposalRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ReviewPreTransactionThresholdProposalRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sReviewPreTransactionThresholdProposalRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ReviewPreTransactionThresholdProposalRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ReviewPreTransactionThresholdProposalRequestValidationError{}

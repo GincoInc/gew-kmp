@@ -353,7 +353,7 @@ public final class TellerAPIProto {
       "eeDepositAddressesRequest\"~\n\"ListHotFeeD" +
       "epositAddressesResponse\022X\n\025fee_deposit_a" +
       "ddresses\030\001 \003(\0132$.adamant.global.v1.FeeDe" +
-      "positAddressR\023feeDepositAddresses2\307<\n\tTe" +
+      "positAddressR\023feeDepositAddresses2\363=\n\tTe" +
       "llerAPI\022a\n\014CreateWallet\022&.adamant.teller" +
       ".v1.CreateWalletRequest\032\'.adamant.global" +
       ".v1.CreateWalletResponse\"\000\022M\n\tGetWallet\022" +
@@ -547,10 +547,14 @@ public final class TellerAPIProto {
       "onResponse\"\000\022\204\001\n\033ProgmatCoinUpgradeToAnd" +
       "Call\0225.adamant.teller.v1.ProgmatCoinUpgr" +
       "adeToAndCallRequest\032,.adamant.global.v1." +
-      "CreateTransactionResponse\"\000B^B\016TellerAPI" +
-      "ProtoP\001ZJgithub.com/GincoInc/gew-kmp/gen" +
-      "/gincoinc/adamant/teller/v1/adamanttelle" +
-      "rv1b\006proto3"
+      "CreateTransactionResponse\"\000\022\251\001\n$ListPreT" +
+      "ransactionThresholdsByFilter\022>.adamant.g" +
+      "lobal.v1.ListPreTransactionThresholdsByF" +
+      "ilterRequest\032?.adamant.global.v1.ListPre" +
+      "TransactionThresholdsByFilterResponse\"\000B" +
+      "^B\016TellerAPIProtoP\001ZJgithub.com/GincoInc",
+      "/gew-kmp/gen/gincoinc/adamant/teller/v1/" +
+      "adamanttellerv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

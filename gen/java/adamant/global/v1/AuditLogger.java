@@ -603,6 +603,35 @@ public final class AuditLogger {
      * @return The enum numeric value on the wire of disabledMails at the given index.
      */
     int getDisabledMailsValue(int index);
+
+    /**
+     * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+     * @return The enum numeric value on the wire for network.
+     */
+    int getNetworkValue();
+    /**
+     * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+     * @return The network.
+     */
+    gincoinc.global.v1.Enum.Network getNetwork();
+
+    /**
+     * <code>double pre_transaction_threshold = 45 [json_name = "preTransactionThreshold"];</code>
+     * @return The preTransactionThreshold.
+     */
+    double getPreTransactionThreshold();
+
+    /**
+     * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+     * @return The preTransactionThresholdId.
+     */
+    java.lang.String getPreTransactionThresholdId();
+    /**
+     * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+     * @return The bytes for preTransactionThresholdId.
+     */
+    com.google.protobuf.ByteString
+        getPreTransactionThresholdIdBytes();
   }
   /**
    * <pre>
@@ -663,6 +692,8 @@ public final class AuditLogger {
           com.google.protobuf.LazyStringArrayList.emptyList();
       enabledMails_ = java.util.Collections.emptyList();
       disabledMails_ = java.util.Collections.emptyList();
+      network_ = 0;
+      preTransactionThresholdId_ = "";
     }
 
     @java.lang.Override
@@ -2198,6 +2229,74 @@ public final class AuditLogger {
     }
     private int disabledMailsMemoizedSerializedSize;
 
+    public static final int NETWORK_FIELD_NUMBER = 44;
+    private int network_ = 0;
+    /**
+     * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+     * @return The enum numeric value on the wire for network.
+     */
+    @java.lang.Override public int getNetworkValue() {
+      return network_;
+    }
+    /**
+     * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+     * @return The network.
+     */
+    @java.lang.Override public gincoinc.global.v1.Enum.Network getNetwork() {
+      gincoinc.global.v1.Enum.Network result = gincoinc.global.v1.Enum.Network.forNumber(network_);
+      return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
+    }
+
+    public static final int PRE_TRANSACTION_THRESHOLD_FIELD_NUMBER = 45;
+    private double preTransactionThreshold_ = 0D;
+    /**
+     * <code>double pre_transaction_threshold = 45 [json_name = "preTransactionThreshold"];</code>
+     * @return The preTransactionThreshold.
+     */
+    @java.lang.Override
+    public double getPreTransactionThreshold() {
+      return preTransactionThreshold_;
+    }
+
+    public static final int PRE_TRANSACTION_THRESHOLD_ID_FIELD_NUMBER = 46;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object preTransactionThresholdId_ = "";
+    /**
+     * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+     * @return The preTransactionThresholdId.
+     */
+    @java.lang.Override
+    public java.lang.String getPreTransactionThresholdId() {
+      java.lang.Object ref = preTransactionThresholdId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        preTransactionThresholdId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+     * @return The bytes for preTransactionThresholdId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPreTransactionThresholdIdBytes() {
+      java.lang.Object ref = preTransactionThresholdId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        preTransactionThresholdId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2349,6 +2448,15 @@ public final class AuditLogger {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 43, message_);
+      }
+      if (network_ != gincoinc.global.v1.Enum.Network.NETWORK_INVALID.getNumber()) {
+        output.writeEnum(44, network_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(preTransactionThreshold_) != 0) {
+        output.writeDouble(45, preTransactionThreshold_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(preTransactionThresholdId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 46, preTransactionThresholdId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -2535,6 +2643,17 @@ public final class AuditLogger {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(43, message_);
       }
+      if (network_ != gincoinc.global.v1.Enum.Network.NETWORK_INVALID.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(44, network_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(preTransactionThreshold_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(45, preTransactionThreshold_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(preTransactionThresholdId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(46, preTransactionThresholdId_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2636,6 +2755,12 @@ public final class AuditLogger {
       }
       if (!enabledMails_.equals(other.enabledMails_)) return false;
       if (!disabledMails_.equals(other.disabledMails_)) return false;
+      if (network_ != other.network_) return false;
+      if (java.lang.Double.doubleToLongBits(getPreTransactionThreshold())
+          != java.lang.Double.doubleToLongBits(
+              other.getPreTransactionThreshold())) return false;
+      if (!getPreTransactionThresholdId()
+          .equals(other.getPreTransactionThresholdId())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -2752,6 +2877,13 @@ public final class AuditLogger {
         hash = (37 * hash) + DISABLED_MAILS_FIELD_NUMBER;
         hash = (53 * hash) + disabledMails_.hashCode();
       }
+      hash = (37 * hash) + NETWORK_FIELD_NUMBER;
+      hash = (53 * hash) + network_;
+      hash = (37 * hash) + PRE_TRANSACTION_THRESHOLD_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getPreTransactionThreshold()));
+      hash = (37 * hash) + PRE_TRANSACTION_THRESHOLD_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getPreTransactionThresholdId().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2945,6 +3077,9 @@ public final class AuditLogger {
         bitField1_ = (bitField1_ & ~0x00000200);
         disabledMails_ = java.util.Collections.emptyList();
         bitField1_ = (bitField1_ & ~0x00000400);
+        network_ = 0;
+        preTransactionThreshold_ = 0D;
+        preTransactionThresholdId_ = "";
         return this;
       }
 
@@ -3127,6 +3262,15 @@ public final class AuditLogger {
           result.createTime_ = createTimeBuilder_ == null
               ? createTime_
               : createTimeBuilder_.build();
+        }
+        if (((from_bitField1_ & 0x00000800) != 0)) {
+          result.network_ = network_;
+        }
+        if (((from_bitField1_ & 0x00001000) != 0)) {
+          result.preTransactionThreshold_ = preTransactionThreshold_;
+        }
+        if (((from_bitField1_ & 0x00002000) != 0)) {
+          result.preTransactionThresholdId_ = preTransactionThresholdId_;
         }
       }
 
@@ -3399,6 +3543,17 @@ public final class AuditLogger {
             ensureDisabledMailsIsMutable();
             disabledMails_.addAll(other.disabledMails_);
           }
+          onChanged();
+        }
+        if (other.network_ != 0) {
+          setNetworkValue(other.getNetworkValue());
+        }
+        if (other.getPreTransactionThreshold() != 0D) {
+          setPreTransactionThreshold(other.getPreTransactionThreshold());
+        }
+        if (!other.getPreTransactionThresholdId().isEmpty()) {
+          preTransactionThresholdId_ = other.preTransactionThresholdId_;
+          bitField1_ |= 0x00002000;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -3674,6 +3829,21 @@ public final class AuditLogger {
                 bitField0_ |= 0x10000000;
                 break;
               } // case 346
+              case 352: {
+                network_ = input.readEnum();
+                bitField1_ |= 0x00000800;
+                break;
+              } // case 352
+              case 361: {
+                preTransactionThreshold_ = input.readDouble();
+                bitField1_ |= 0x00001000;
+                break;
+              } // case 361
+              case 370: {
+                preTransactionThresholdId_ = input.readStringRequireUtf8();
+                bitField1_ |= 0x00002000;
+                break;
+              } // case 370
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -6977,6 +7147,163 @@ public final class AuditLogger {
         onChanged();
         return this;
       }
+
+      private int network_ = 0;
+      /**
+       * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+       * @return The enum numeric value on the wire for network.
+       */
+      @java.lang.Override public int getNetworkValue() {
+        return network_;
+      }
+      /**
+       * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+       * @param value The enum numeric value on the wire for network to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNetworkValue(int value) {
+        network_ = value;
+        bitField1_ |= 0x00000800;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+       * @return The network.
+       */
+      @java.lang.Override
+      public gincoinc.global.v1.Enum.Network getNetwork() {
+        gincoinc.global.v1.Enum.Network result = gincoinc.global.v1.Enum.Network.forNumber(network_);
+        return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+       * @param value The network to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNetwork(gincoinc.global.v1.Enum.Network value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField1_ |= 0x00000800;
+        network_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNetwork() {
+        bitField1_ = (bitField1_ & ~0x00000800);
+        network_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private double preTransactionThreshold_ ;
+      /**
+       * <code>double pre_transaction_threshold = 45 [json_name = "preTransactionThreshold"];</code>
+       * @return The preTransactionThreshold.
+       */
+      @java.lang.Override
+      public double getPreTransactionThreshold() {
+        return preTransactionThreshold_;
+      }
+      /**
+       * <code>double pre_transaction_threshold = 45 [json_name = "preTransactionThreshold"];</code>
+       * @param value The preTransactionThreshold to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPreTransactionThreshold(double value) {
+
+        preTransactionThreshold_ = value;
+        bitField1_ |= 0x00001000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double pre_transaction_threshold = 45 [json_name = "preTransactionThreshold"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPreTransactionThreshold() {
+        bitField1_ = (bitField1_ & ~0x00001000);
+        preTransactionThreshold_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object preTransactionThresholdId_ = "";
+      /**
+       * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+       * @return The preTransactionThresholdId.
+       */
+      public java.lang.String getPreTransactionThresholdId() {
+        java.lang.Object ref = preTransactionThresholdId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          preTransactionThresholdId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+       * @return The bytes for preTransactionThresholdId.
+       */
+      public com.google.protobuf.ByteString
+          getPreTransactionThresholdIdBytes() {
+        java.lang.Object ref = preTransactionThresholdId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          preTransactionThresholdId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+       * @param value The preTransactionThresholdId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPreTransactionThresholdId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        preTransactionThresholdId_ = value;
+        bitField1_ |= 0x00002000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPreTransactionThresholdId() {
+        preTransactionThresholdId_ = getDefaultInstance().getPreTransactionThresholdId();
+        bitField1_ = (bitField1_ & ~0x00002000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+       * @param value The bytes for preTransactionThresholdId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPreTransactionThresholdIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        preTransactionThresholdId_ = value;
+        bitField1_ |= 0x00002000;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7060,7 +7387,7 @@ public final class AuditLogger {
       "v1\0325gincoinc/adamant/global/v1/adamantgl" +
       "obalv1/enum.proto\032.gincoinc/global/v1/gi" +
       "ncoincglobalv1/enum.proto\032\037google/protob" +
-      "uf/timestamp.proto\"\372\016\n\010AuditLog\022 \n\014audit" +
+      "uf/timestamp.proto\"\256\020\n\010AuditLog\022 \n\014audit" +
       "_log_id\030\001 \001(\tR\nauditLogId\022H\n\017audit_log_g" +
       "roup\030\002 \001(\0162 .adamant.global.v1.AuditLogG" +
       "roupR\rauditLogGroup\022E\n\016audit_log_type\030\003 " +
@@ -7108,9 +7435,14 @@ public final class AuditLogger {
       "e\022@\n\renabled_mails\030) \003(\0162\033.adamant.globa" +
       "l.v1.MailTypeR\014enabledMails\022B\n\016disabled_" +
       "mails\030* \003(\0162\033.adamant.global.v1.MailType" +
-      "R\rdisabledMailsBLZJgithub.com/GincoInc/g" +
-      "ew-kmp/gen/gincoinc/adamant/global/v1/ad" +
-      "amantglobalv1b\006proto3"
+      "R\rdisabledMails\0225\n\007network\030, \001(\0162\033.ginco" +
+      "inc.global.v1.NetworkR\007network\022:\n\031pre_tr" +
+      "ansaction_threshold\030- \001(\001R\027preTransactio" +
+      "nThreshold\022?\n\034pre_transaction_threshold_" +
+      "id\030. \001(\tR\031preTransactionThresholdIdBLZJg" +
+      "ithub.com/GincoInc/gew-kmp/gen/gincoinc/" +
+      "adamant/global/v1/adamantglobalv1b\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7124,7 +7456,7 @@ public final class AuditLogger {
     internal_static_adamant_global_v1_AuditLog_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_AuditLog_descriptor,
-        new java.lang.String[] { "AuditLogId", "AuditLogGroup", "AuditLogType", "AccountId", "AccountName", "TargetAccountId", "TargetAccountName", "Email", "RoleType", "ServiceAccountId", "ServiceAccountName", "ServiceAccountKeyId", "WalletId", "WalletName", "DestinationWalletId", "DestinationWalletName", "WalletGroupId", "WalletGroupName", "WalletNames", "TransactionId", "CoinType", "StringValue", "TxId", "PolicyId", "PolicyName", "LabeledAddressId", "Address", "AddressName", "Message", "TransferLimitId", "TransferLimitName", "TransferOneTimeLimit", "TransferHourlyLimit", "TransferDailyLimit", "WhitelistId", "WhitelistName", "OldValidators", "NewValidators", "WhitelistAddresses", "EventTime", "CreateTime", "EnabledMails", "DisabledMails", });
+        new java.lang.String[] { "AuditLogId", "AuditLogGroup", "AuditLogType", "AccountId", "AccountName", "TargetAccountId", "TargetAccountName", "Email", "RoleType", "ServiceAccountId", "ServiceAccountName", "ServiceAccountKeyId", "WalletId", "WalletName", "DestinationWalletId", "DestinationWalletName", "WalletGroupId", "WalletGroupName", "WalletNames", "TransactionId", "CoinType", "StringValue", "TxId", "PolicyId", "PolicyName", "LabeledAddressId", "Address", "AddressName", "Message", "TransferLimitId", "TransferLimitName", "TransferOneTimeLimit", "TransferHourlyLimit", "TransferDailyLimit", "WhitelistId", "WhitelistName", "OldValidators", "NewValidators", "WhitelistAddresses", "EventTime", "CreateTime", "EnabledMails", "DisabledMails", "Network", "PreTransactionThreshold", "PreTransactionThresholdId", });
     adamant.global.v1.Enum.getDescriptor();
     gincoinc.global.v1.Enum.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();

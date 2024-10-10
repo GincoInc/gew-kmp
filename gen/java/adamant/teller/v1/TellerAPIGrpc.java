@@ -2092,6 +2092,37 @@ public final class TellerAPIGrpc {
     return getProgmatCoinUpgradeToAndCallMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListPreTransactionThresholdsByFilterRequest,
+      adamant.global.v1.ListPreTransactionThresholdsByFilterResponse> getListPreTransactionThresholdsByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListPreTransactionThresholdsByFilter",
+      requestType = adamant.global.v1.ListPreTransactionThresholdsByFilterRequest.class,
+      responseType = adamant.global.v1.ListPreTransactionThresholdsByFilterResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListPreTransactionThresholdsByFilterRequest,
+      adamant.global.v1.ListPreTransactionThresholdsByFilterResponse> getListPreTransactionThresholdsByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListPreTransactionThresholdsByFilterRequest, adamant.global.v1.ListPreTransactionThresholdsByFilterResponse> getListPreTransactionThresholdsByFilterMethod;
+    if ((getListPreTransactionThresholdsByFilterMethod = TellerAPIGrpc.getListPreTransactionThresholdsByFilterMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getListPreTransactionThresholdsByFilterMethod = TellerAPIGrpc.getListPreTransactionThresholdsByFilterMethod) == null) {
+          TellerAPIGrpc.getListPreTransactionThresholdsByFilterMethod = getListPreTransactionThresholdsByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListPreTransactionThresholdsByFilterRequest, adamant.global.v1.ListPreTransactionThresholdsByFilterResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListPreTransactionThresholdsByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListPreTransactionThresholdsByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListPreTransactionThresholdsByFilterResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ListPreTransactionThresholdsByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListPreTransactionThresholdsByFilterMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -2637,6 +2668,16 @@ public final class TellerAPIGrpc {
     default void progmatCoinUpgradeToAndCall(adamant.teller.v1.ProgmatCoinUpgradeToAndCallRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getProgmatCoinUpgradeToAndCallMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * PreTransactionThreshold
+     * </pre>
+     */
+    default void listPreTransactionThresholdsByFilter(adamant.global.v1.ListPreTransactionThresholdsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListPreTransactionThresholdsByFilterResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListPreTransactionThresholdsByFilterMethod(), responseObserver);
     }
   }
 
@@ -3232,6 +3273,17 @@ public final class TellerAPIGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getProgmatCoinUpgradeToAndCallMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * PreTransactionThreshold
+     * </pre>
+     */
+    public void listPreTransactionThresholdsByFilter(adamant.global.v1.ListPreTransactionThresholdsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListPreTransactionThresholdsByFilterResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListPreTransactionThresholdsByFilterMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -3747,6 +3799,16 @@ public final class TellerAPIGrpc {
     public adamant.global.v1.CreateTransactionResponse progmatCoinUpgradeToAndCall(adamant.teller.v1.ProgmatCoinUpgradeToAndCallRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getProgmatCoinUpgradeToAndCallMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * PreTransactionThreshold
+     * </pre>
+     */
+    public adamant.global.v1.ListPreTransactionThresholdsByFilterResponse listPreTransactionThresholdsByFilter(adamant.global.v1.ListPreTransactionThresholdsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListPreTransactionThresholdsByFilterMethod(), getCallOptions(), request);
     }
   }
 
@@ -4331,6 +4393,17 @@ public final class TellerAPIGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getProgmatCoinUpgradeToAndCallMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * PreTransactionThreshold
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListPreTransactionThresholdsByFilterResponse> listPreTransactionThresholdsByFilter(
+        adamant.global.v1.ListPreTransactionThresholdsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListPreTransactionThresholdsByFilterMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_WALLET = 0;
@@ -4400,6 +4473,7 @@ public final class TellerAPIGrpc {
   private static final int METHODID_PROGMAT_COIN_UNPAUSE = 64;
   private static final int METHODID_PROGMAT_COIN_GRANT_WHITE_AND_BLACK_LISTER = 65;
   private static final int METHODID_PROGMAT_COIN_UPGRADE_TO_AND_CALL = 66;
+  private static final int METHODID_LIST_PRE_TRANSACTION_THRESHOLDS_BY_FILTER = 67;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -4685,6 +4759,10 @@ public final class TellerAPIGrpc {
         case METHODID_PROGMAT_COIN_UPGRADE_TO_AND_CALL:
           serviceImpl.progmatCoinUpgradeToAndCall((adamant.teller.v1.ProgmatCoinUpgradeToAndCallRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.CreateTransactionResponse>) responseObserver);
+          break;
+        case METHODID_LIST_PRE_TRANSACTION_THRESHOLDS_BY_FILTER:
+          serviceImpl.listPreTransactionThresholdsByFilter((adamant.global.v1.ListPreTransactionThresholdsByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListPreTransactionThresholdsByFilterResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -5173,6 +5251,13 @@ public final class TellerAPIGrpc {
               adamant.teller.v1.ProgmatCoinUpgradeToAndCallRequest,
               adamant.global.v1.CreateTransactionResponse>(
                 service, METHODID_PROGMAT_COIN_UPGRADE_TO_AND_CALL)))
+        .addMethod(
+          getListPreTransactionThresholdsByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListPreTransactionThresholdsByFilterRequest,
+              adamant.global.v1.ListPreTransactionThresholdsByFilterResponse>(
+                service, METHODID_LIST_PRE_TRANSACTION_THRESHOLDS_BY_FILTER)))
         .build();
   }
 
@@ -5288,6 +5373,7 @@ public final class TellerAPIGrpc {
               .addMethod(getProgmatCoinUnpauseMethod())
               .addMethod(getProgmatCoinGrantWhiteAndBlackListerMethod())
               .addMethod(getProgmatCoinUpgradeToAndCallMethod())
+              .addMethod(getListPreTransactionThresholdsByFilterMethod())
               .build();
         }
       }

@@ -187,6 +187,18 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .adamant.global.v1.MailType disabled_mails = 42 [json_name = "disabledMails"];</code>
      */
     private $disabled_mails;
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+     */
+    protected $network = 0;
+    /**
+     * Generated from protobuf field <code>double pre_transaction_threshold = 45 [json_name = "preTransactionThreshold"];</code>
+     */
+    protected $pre_transaction_threshold = 0.0;
+    /**
+     * Generated from protobuf field <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+     */
+    protected $pre_transaction_threshold_id = '';
 
     /**
      * Constructor.
@@ -237,6 +249,9 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      *     @type \Google\Protobuf\Timestamp $create_time
      *     @type array<int>|\Google\Protobuf\Internal\RepeatedField $enabled_mails
      *     @type array<int>|\Google\Protobuf\Internal\RepeatedField $disabled_mails
+     *     @type int $network
+     *     @type float $pre_transaction_threshold
+     *     @type string $pre_transaction_threshold_id
      * }
      */
     public function __construct($data = NULL) {
@@ -1206,6 +1221,72 @@ class AuditLog extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::ENUM, \Adamant\PBGlobal\V1\MailType::class);
         $this->disabled_mails = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return $this->network;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>double pre_transaction_threshold = 45 [json_name = "preTransactionThreshold"];</code>
+     * @return float
+     */
+    public function getPreTransactionThreshold()
+    {
+        return $this->pre_transaction_threshold;
+    }
+
+    /**
+     * Generated from protobuf field <code>double pre_transaction_threshold = 45 [json_name = "preTransactionThreshold"];</code>
+     * @param float $var
+     * @return $this
+     */
+    public function setPreTransactionThreshold($var)
+    {
+        GPBUtil::checkDouble($var);
+        $this->pre_transaction_threshold = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+     * @return string
+     */
+    public function getPreTransactionThresholdId()
+    {
+        return $this->pre_transaction_threshold_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setPreTransactionThresholdId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->pre_transaction_threshold_id = $var;
 
         return $this;
     }
