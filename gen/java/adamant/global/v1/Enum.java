@@ -916,6 +916,190 @@ public final class Enum {
   }
 
   /**
+   * Protobuf enum {@code adamant.global.v1.PreTransactionState}
+   */
+  public enum PreTransactionState
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>PRE_TRANSACTION_STATE_INVALID = 0;</code>
+     */
+    PRE_TRANSACTION_STATE_INVALID(0),
+    /**
+     * <pre>
+     * Waiting for approve
+     * </pre>
+     *
+     * <code>PRE_TRANSACTION_STATE_APPROVING = 1;</code>
+     */
+    PRE_TRANSACTION_STATE_APPROVING(1),
+    /**
+     * <pre>
+     * Pre-transaction was approved or Transaction where it was used got canceled
+     * </pre>
+     *
+     * <code>PRE_TRANSACTION_STATE_AVAILABLE = 2;</code>
+     */
+    PRE_TRANSACTION_STATE_AVAILABLE(2),
+    /**
+     * <pre>
+     * Pre-transaction was rejected by reviewer
+     * </pre>
+     *
+     * <code>PRE_TRANSACTION_STATE_REJECTED = 3;</code>
+     */
+    PRE_TRANSACTION_STATE_REJECTED(3),
+    /**
+     * <pre>
+     * Pre-transaction was canceled
+     * </pre>
+     *
+     * <code>PRE_TRANSACTION_STATE_CANCELLED = 4;</code>
+     */
+    PRE_TRANSACTION_STATE_CANCELLED(4),
+    /**
+     * <pre>
+     * Pre-transaction was used for Transaction creation
+     * </pre>
+     *
+     * <code>PRE_TRANSACTION_STATE_USED = 5;</code>
+     */
+    PRE_TRANSACTION_STATE_USED(5),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>PRE_TRANSACTION_STATE_INVALID = 0;</code>
+     */
+    public static final int PRE_TRANSACTION_STATE_INVALID_VALUE = 0;
+    /**
+     * <pre>
+     * Waiting for approve
+     * </pre>
+     *
+     * <code>PRE_TRANSACTION_STATE_APPROVING = 1;</code>
+     */
+    public static final int PRE_TRANSACTION_STATE_APPROVING_VALUE = 1;
+    /**
+     * <pre>
+     * Pre-transaction was approved or Transaction where it was used got canceled
+     * </pre>
+     *
+     * <code>PRE_TRANSACTION_STATE_AVAILABLE = 2;</code>
+     */
+    public static final int PRE_TRANSACTION_STATE_AVAILABLE_VALUE = 2;
+    /**
+     * <pre>
+     * Pre-transaction was rejected by reviewer
+     * </pre>
+     *
+     * <code>PRE_TRANSACTION_STATE_REJECTED = 3;</code>
+     */
+    public static final int PRE_TRANSACTION_STATE_REJECTED_VALUE = 3;
+    /**
+     * <pre>
+     * Pre-transaction was canceled
+     * </pre>
+     *
+     * <code>PRE_TRANSACTION_STATE_CANCELLED = 4;</code>
+     */
+    public static final int PRE_TRANSACTION_STATE_CANCELLED_VALUE = 4;
+    /**
+     * <pre>
+     * Pre-transaction was used for Transaction creation
+     * </pre>
+     *
+     * <code>PRE_TRANSACTION_STATE_USED = 5;</code>
+     */
+    public static final int PRE_TRANSACTION_STATE_USED_VALUE = 5;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static PreTransactionState valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static PreTransactionState forNumber(int value) {
+      switch (value) {
+        case 0: return PRE_TRANSACTION_STATE_INVALID;
+        case 1: return PRE_TRANSACTION_STATE_APPROVING;
+        case 2: return PRE_TRANSACTION_STATE_AVAILABLE;
+        case 3: return PRE_TRANSACTION_STATE_REJECTED;
+        case 4: return PRE_TRANSACTION_STATE_CANCELLED;
+        case 5: return PRE_TRANSACTION_STATE_USED;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<PreTransactionState>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        PreTransactionState> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<PreTransactionState>() {
+            public PreTransactionState findValueByNumber(int number) {
+              return PreTransactionState.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(4);
+    }
+
+    private static final PreTransactionState[] VALUES = values();
+
+    public static PreTransactionState valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private PreTransactionState(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:adamant.global.v1.PreTransactionState)
+  }
+
+  /**
    * <pre>
    * TransactionState is a state of transaction.
    * </pre>
@@ -1162,7 +1346,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(4);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(5);
     }
 
     private static final TransactionState[] VALUES = values();
@@ -1299,7 +1483,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(5);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(6);
     }
 
     private static final AccountType[] VALUES = values();
@@ -1436,7 +1620,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(6);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(7);
     }
 
     private static final ExecutorType[] VALUES = values();
@@ -1566,7 +1750,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(7);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(8);
     }
 
     private static final UserState[] VALUES = values();
@@ -1822,7 +2006,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(8);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(9);
     }
 
     private static final RoleType[] VALUES = values();
@@ -1943,7 +2127,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(9);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(10);
     }
 
     private static final ResourceType[] VALUES = values();
@@ -2100,7 +2284,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(10);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(11);
     }
 
     private static final TokenType[] VALUES = values();
@@ -2221,7 +2405,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(11);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(12);
     }
 
     private static final PolicyType[] VALUES = values();
@@ -2351,7 +2535,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(12);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(13);
     }
 
     private static final TransferLimitType[] VALUES = values();
@@ -2706,7 +2890,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(13);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(14);
     }
 
     private static final NotificationType[] VALUES = values();
@@ -2762,6 +2946,10 @@ public final class Enum {
      */
     AUDIT_LOG_GROUP_WALLET(4),
     /**
+     * <code>AUDIT_LOG_GROUP_PRE_TRANSACTION = 11;</code>
+     */
+    AUDIT_LOG_GROUP_PRE_TRANSACTION(11),
+    /**
      * <code>AUDIT_LOG_GROUP_TRANSACTION = 5;</code>
      */
     AUDIT_LOG_GROUP_TRANSACTION(5),
@@ -2777,6 +2965,14 @@ public final class Enum {
      * <code>AUDIT_LOG_GROUP_MAIL = 8;</code>
      */
     AUDIT_LOG_GROUP_MAIL(8),
+    /**
+     * <code>AUDIT_LOG_GROUP_PRE_TRANSACTION_THRESHOLD = 9;</code>
+     */
+    AUDIT_LOG_GROUP_PRE_TRANSACTION_THRESHOLD(9),
+    /**
+     * <code>AUDIT_LOG_GROUP_BLACKLIST_ADDRESS = 10;</code>
+     */
+    AUDIT_LOG_GROUP_BLACKLIST_ADDRESS(10),
     UNRECOGNIZED(-1),
     ;
 
@@ -2801,6 +2997,10 @@ public final class Enum {
      */
     public static final int AUDIT_LOG_GROUP_WALLET_VALUE = 4;
     /**
+     * <code>AUDIT_LOG_GROUP_PRE_TRANSACTION = 11;</code>
+     */
+    public static final int AUDIT_LOG_GROUP_PRE_TRANSACTION_VALUE = 11;
+    /**
      * <code>AUDIT_LOG_GROUP_TRANSACTION = 5;</code>
      */
     public static final int AUDIT_LOG_GROUP_TRANSACTION_VALUE = 5;
@@ -2816,6 +3016,14 @@ public final class Enum {
      * <code>AUDIT_LOG_GROUP_MAIL = 8;</code>
      */
     public static final int AUDIT_LOG_GROUP_MAIL_VALUE = 8;
+    /**
+     * <code>AUDIT_LOG_GROUP_PRE_TRANSACTION_THRESHOLD = 9;</code>
+     */
+    public static final int AUDIT_LOG_GROUP_PRE_TRANSACTION_THRESHOLD_VALUE = 9;
+    /**
+     * <code>AUDIT_LOG_GROUP_BLACKLIST_ADDRESS = 10;</code>
+     */
+    public static final int AUDIT_LOG_GROUP_BLACKLIST_ADDRESS_VALUE = 10;
 
 
     public final int getNumber() {
@@ -2847,10 +3055,13 @@ public final class Enum {
         case 2: return AUDIT_LOG_GROUP_ACCOUNT;
         case 3: return AUDIT_LOG_GROUP_SERVICE_ACCOUNT;
         case 4: return AUDIT_LOG_GROUP_WALLET;
+        case 11: return AUDIT_LOG_GROUP_PRE_TRANSACTION;
         case 5: return AUDIT_LOG_GROUP_TRANSACTION;
         case 6: return AUDIT_LOG_GROUP_POLICY;
         case 7: return AUDIT_LOG_GROUP_WALLET_GROUP;
         case 8: return AUDIT_LOG_GROUP_MAIL;
+        case 9: return AUDIT_LOG_GROUP_PRE_TRANSACTION_THRESHOLD;
+        case 10: return AUDIT_LOG_GROUP_BLACKLIST_ADDRESS;
         default: return null;
       }
     }
@@ -2881,7 +3092,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(14);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(15);
     }
 
     private static final AuditLogGroup[] VALUES = values();
@@ -3228,6 +3439,74 @@ public final class Enum {
      * <code>AUDIT_LOG_TYPE_TRANSACTION_WITHDRAW_SUBMIT = 78;</code>
      */
     AUDIT_LOG_TYPE_TRANSACTION_WITHDRAW_SUBMIT(78),
+    /**
+     * <code>AUDIT_LOG_TYPE_PRE_TRANSACTION_APPROVE = 96;</code>
+     */
+    AUDIT_LOG_TYPE_PRE_TRANSACTION_APPROVE(96),
+    /**
+     * <code>AUDIT_LOG_TYPE_PRE_TRANSACTION_REJECT = 97;</code>
+     */
+    AUDIT_LOG_TYPE_PRE_TRANSACTION_REJECT(97),
+    /**
+     * <code>AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REQUESTED = 81;</code>
+     */
+    AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REQUESTED(81),
+    /**
+     * <code>AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_APPROVED = 82;</code>
+     */
+    AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_APPROVED(82),
+    /**
+     * <code>AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REJECTED = 83;</code>
+     */
+    AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REJECTED(83),
+    /**
+     * <code>AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REQUESTED = 84;</code>
+     */
+    AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REQUESTED(84),
+    /**
+     * <code>AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_APPROVED = 85;</code>
+     */
+    AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_APPROVED(85),
+    /**
+     * <code>AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REJECTED = 86;</code>
+     */
+    AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REJECTED(86),
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CREATION_REQUESTED = 87;</code>
+     */
+    AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CREATION_REQUESTED(87),
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CREATION_APPROVED = 88;</code>
+     */
+    AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CREATION_APPROVED(88),
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CREATION_REJECTED = 89;</code>
+     */
+    AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CREATION_REJECTED(89),
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_IMPORT_REQUESTED = 90;</code>
+     */
+    AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_IMPORT_REQUESTED(90),
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_IMPORT_APPROVED = 91;</code>
+     */
+    AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_IMPORT_APPROVED(91),
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_IMPORT_REJECTED = 92;</code>
+     */
+    AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_IMPORT_REJECTED(92),
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CHANGE_REQUESTED = 93;</code>
+     */
+    AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CHANGE_REQUESTED(93),
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CHANGE_APPROVED = 94;</code>
+     */
+    AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CHANGE_APPROVED(94),
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CHANGE_REJECTED = 95;</code>
+     */
+    AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CHANGE_REJECTED(95),
     UNRECOGNIZED(-1),
     ;
 
@@ -3543,6 +3822,74 @@ public final class Enum {
      * <code>AUDIT_LOG_TYPE_TRANSACTION_WITHDRAW_SUBMIT = 78;</code>
      */
     public static final int AUDIT_LOG_TYPE_TRANSACTION_WITHDRAW_SUBMIT_VALUE = 78;
+    /**
+     * <code>AUDIT_LOG_TYPE_PRE_TRANSACTION_APPROVE = 96;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_PRE_TRANSACTION_APPROVE_VALUE = 96;
+    /**
+     * <code>AUDIT_LOG_TYPE_PRE_TRANSACTION_REJECT = 97;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_PRE_TRANSACTION_REJECT_VALUE = 97;
+    /**
+     * <code>AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REQUESTED = 81;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REQUESTED_VALUE = 81;
+    /**
+     * <code>AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_APPROVED = 82;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_APPROVED_VALUE = 82;
+    /**
+     * <code>AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REJECTED = 83;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REJECTED_VALUE = 83;
+    /**
+     * <code>AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REQUESTED = 84;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REQUESTED_VALUE = 84;
+    /**
+     * <code>AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_APPROVED = 85;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_APPROVED_VALUE = 85;
+    /**
+     * <code>AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REJECTED = 86;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REJECTED_VALUE = 86;
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CREATION_REQUESTED = 87;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CREATION_REQUESTED_VALUE = 87;
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CREATION_APPROVED = 88;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CREATION_APPROVED_VALUE = 88;
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CREATION_REJECTED = 89;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CREATION_REJECTED_VALUE = 89;
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_IMPORT_REQUESTED = 90;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_IMPORT_REQUESTED_VALUE = 90;
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_IMPORT_APPROVED = 91;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_IMPORT_APPROVED_VALUE = 91;
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_IMPORT_REJECTED = 92;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_IMPORT_REJECTED_VALUE = 92;
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CHANGE_REQUESTED = 93;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CHANGE_REQUESTED_VALUE = 93;
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CHANGE_APPROVED = 94;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CHANGE_APPROVED_VALUE = 94;
+    /**
+     * <code>AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CHANGE_REJECTED = 95;</code>
+     */
+    public static final int AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CHANGE_REJECTED_VALUE = 95;
 
 
     public final int getNumber() {
@@ -3647,6 +3994,23 @@ public final class Enum {
         case 76: return AUDIT_LOG_TYPE_TRANSACTION_WITHDRAW_CANCEL;
         case 77: return AUDIT_LOG_TYPE_TRANSACTION_WITHDRAW_REGISTER_SIGNATURE;
         case 78: return AUDIT_LOG_TYPE_TRANSACTION_WITHDRAW_SUBMIT;
+        case 96: return AUDIT_LOG_TYPE_PRE_TRANSACTION_APPROVE;
+        case 97: return AUDIT_LOG_TYPE_PRE_TRANSACTION_REJECT;
+        case 81: return AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REQUESTED;
+        case 82: return AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_APPROVED;
+        case 83: return AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REJECTED;
+        case 84: return AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REQUESTED;
+        case 85: return AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_APPROVED;
+        case 86: return AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REJECTED;
+        case 87: return AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CREATION_REQUESTED;
+        case 88: return AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CREATION_APPROVED;
+        case 89: return AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CREATION_REJECTED;
+        case 90: return AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_IMPORT_REQUESTED;
+        case 91: return AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_IMPORT_APPROVED;
+        case 92: return AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_IMPORT_REJECTED;
+        case 93: return AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CHANGE_REQUESTED;
+        case 94: return AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CHANGE_APPROVED;
+        case 95: return AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CHANGE_REJECTED;
         default: return null;
       }
     }
@@ -3677,7 +4041,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(15);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(16);
     }
 
     private static final AuditLogType[] VALUES = values();
@@ -4075,7 +4439,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(16);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(17);
     }
 
     private static final PreconditionFailureType[] VALUES = values();
@@ -4206,6 +4570,22 @@ public final class Enum {
      * <code>LIST_FILTER_TYPE_STAKING_HISTORY_ID = 21;</code>
      */
     LIST_FILTER_TYPE_STAKING_HISTORY_ID(21),
+    /**
+     * <code>LIST_FILTER_TYPE_PRE_TRANSACTION_THRESHOLD_ID = 22;</code>
+     */
+    LIST_FILTER_TYPE_PRE_TRANSACTION_THRESHOLD_ID(22),
+    /**
+     * <code>LIST_FILTER_TYPE_BLACKLIST_ADDRESS_ID = 23;</code>
+     */
+    LIST_FILTER_TYPE_BLACKLIST_ADDRESS_ID(23),
+    /**
+     * <code>LIST_FILTER_TYPE_PRE_TRANSACTION_ID = 24;</code>
+     */
+    LIST_FILTER_TYPE_PRE_TRANSACTION_ID(24),
+    /**
+     * <code>LIST_FILTER_TYPE_EXTERNAL_ID = 25;</code>
+     */
+    LIST_FILTER_TYPE_EXTERNAL_ID(25),
     UNRECOGNIZED(-1),
     ;
 
@@ -4309,6 +4689,22 @@ public final class Enum {
      * <code>LIST_FILTER_TYPE_STAKING_HISTORY_ID = 21;</code>
      */
     public static final int LIST_FILTER_TYPE_STAKING_HISTORY_ID_VALUE = 21;
+    /**
+     * <code>LIST_FILTER_TYPE_PRE_TRANSACTION_THRESHOLD_ID = 22;</code>
+     */
+    public static final int LIST_FILTER_TYPE_PRE_TRANSACTION_THRESHOLD_ID_VALUE = 22;
+    /**
+     * <code>LIST_FILTER_TYPE_BLACKLIST_ADDRESS_ID = 23;</code>
+     */
+    public static final int LIST_FILTER_TYPE_BLACKLIST_ADDRESS_ID_VALUE = 23;
+    /**
+     * <code>LIST_FILTER_TYPE_PRE_TRANSACTION_ID = 24;</code>
+     */
+    public static final int LIST_FILTER_TYPE_PRE_TRANSACTION_ID_VALUE = 24;
+    /**
+     * <code>LIST_FILTER_TYPE_EXTERNAL_ID = 25;</code>
+     */
+    public static final int LIST_FILTER_TYPE_EXTERNAL_ID_VALUE = 25;
 
 
     public final int getNumber() {
@@ -4357,6 +4753,10 @@ public final class Enum {
         case 19: return LIST_FILTER_TYPE_BLOCK_HASH;
         case 20: return LIST_FILTER_TYPE_STAKING_VALIDATOR_ID;
         case 21: return LIST_FILTER_TYPE_STAKING_HISTORY_ID;
+        case 22: return LIST_FILTER_TYPE_PRE_TRANSACTION_THRESHOLD_ID;
+        case 23: return LIST_FILTER_TYPE_BLACKLIST_ADDRESS_ID;
+        case 24: return LIST_FILTER_TYPE_PRE_TRANSACTION_ID;
+        case 25: return LIST_FILTER_TYPE_EXTERNAL_ID;
         default: return null;
       }
     }
@@ -4387,7 +4787,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(17);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(18);
     }
 
     private static final ListFilterType[] VALUES = values();
@@ -4467,6 +4867,14 @@ public final class Enum {
      */
     MAIL_TYPE_TRANSFER_RECEIVED(11),
     /**
+     * <code>MAIL_TYPE_PRE_TRANSACTION_APPROVED = 29;</code>
+     */
+    MAIL_TYPE_PRE_TRANSACTION_APPROVED(29),
+    /**
+     * <code>MAIL_TYPE_PRE_TRANSACTION_REJECTED = 30;</code>
+     */
+    MAIL_TYPE_PRE_TRANSACTION_REJECTED(30),
+    /**
      * <code>MAIL_TYPE_TRANSACTION_CREATED = 12;</code>
      */
     MAIL_TYPE_TRANSACTION_CREATED(12),
@@ -4506,6 +4914,30 @@ public final class Enum {
      * <code>MAIL_TYPE_MAIL_SETTINGS_UPDATED = 21;</code>
      */
     MAIL_TYPE_MAIL_SETTINGS_UPDATED(21),
+    /**
+     * <code>MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REQUESTED = 22;</code>
+     */
+    MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REQUESTED(22),
+    /**
+     * <code>MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_APPROVED = 23;</code>
+     */
+    MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_APPROVED(23),
+    /**
+     * <code>MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REJECTED = 24;</code>
+     */
+    MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REJECTED(24),
+    /**
+     * <code>MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REQUESTED = 25;</code>
+     */
+    MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REQUESTED(25),
+    /**
+     * <code>MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_APPROVED = 26;</code>
+     */
+    MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_APPROVED(26),
+    /**
+     * <code>MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REJECTED = 27;</code>
+     */
+    MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REJECTED(27),
     UNRECOGNIZED(-1),
     ;
 
@@ -4558,6 +4990,14 @@ public final class Enum {
      */
     public static final int MAIL_TYPE_TRANSFER_RECEIVED_VALUE = 11;
     /**
+     * <code>MAIL_TYPE_PRE_TRANSACTION_APPROVED = 29;</code>
+     */
+    public static final int MAIL_TYPE_PRE_TRANSACTION_APPROVED_VALUE = 29;
+    /**
+     * <code>MAIL_TYPE_PRE_TRANSACTION_REJECTED = 30;</code>
+     */
+    public static final int MAIL_TYPE_PRE_TRANSACTION_REJECTED_VALUE = 30;
+    /**
      * <code>MAIL_TYPE_TRANSACTION_CREATED = 12;</code>
      */
     public static final int MAIL_TYPE_TRANSACTION_CREATED_VALUE = 12;
@@ -4597,6 +5037,30 @@ public final class Enum {
      * <code>MAIL_TYPE_MAIL_SETTINGS_UPDATED = 21;</code>
      */
     public static final int MAIL_TYPE_MAIL_SETTINGS_UPDATED_VALUE = 21;
+    /**
+     * <code>MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REQUESTED = 22;</code>
+     */
+    public static final int MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REQUESTED_VALUE = 22;
+    /**
+     * <code>MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_APPROVED = 23;</code>
+     */
+    public static final int MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_APPROVED_VALUE = 23;
+    /**
+     * <code>MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REJECTED = 24;</code>
+     */
+    public static final int MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REJECTED_VALUE = 24;
+    /**
+     * <code>MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REQUESTED = 25;</code>
+     */
+    public static final int MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REQUESTED_VALUE = 25;
+    /**
+     * <code>MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_APPROVED = 26;</code>
+     */
+    public static final int MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_APPROVED_VALUE = 26;
+    /**
+     * <code>MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REJECTED = 27;</code>
+     */
+    public static final int MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REJECTED_VALUE = 27;
 
 
     public final int getNumber() {
@@ -4635,6 +5099,8 @@ public final class Enum {
         case 9: return MAIL_TYPE_UNCHECKED_TRANSFER_EXISTS;
         case 10: return MAIL_TYPE_DOWNLOAD_RESOURCE;
         case 11: return MAIL_TYPE_TRANSFER_RECEIVED;
+        case 29: return MAIL_TYPE_PRE_TRANSACTION_APPROVED;
+        case 30: return MAIL_TYPE_PRE_TRANSACTION_REJECTED;
         case 12: return MAIL_TYPE_TRANSACTION_CREATED;
         case 13: return MAIL_TYPE_TRANSACTION_SUBMITTED;
         case 20: return MAIL_TYPE_TRANSACTION_RESENT;
@@ -4645,6 +5111,12 @@ public final class Enum {
         case 18: return MAIL_TYPE_WALLET_NO_WHITELIST_APPROVED;
         case 19: return MAIL_TYPE_WALLET_NO_WHITELIST_CANCELED;
         case 21: return MAIL_TYPE_MAIL_SETTINGS_UPDATED;
+        case 22: return MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REQUESTED;
+        case 23: return MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_APPROVED;
+        case 24: return MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CREATION_REJECTED;
+        case 25: return MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REQUESTED;
+        case 26: return MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_APPROVED;
+        case 27: return MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_CHANGE_REJECTED;
         default: return null;
       }
     }
@@ -4675,7 +5147,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(18);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(19);
     }
 
     private static final MailType[] VALUES = values();
@@ -4837,7 +5309,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(19);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(20);
     }
 
     private static final WatchOnlyAddressState[] VALUES = values();
@@ -5062,7 +5534,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(20);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(21);
     }
 
     private static final SubstrateCallType[] VALUES = values();
@@ -5224,7 +5696,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(21);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(22);
     }
 
     private static final DownloadResourceType[] VALUES = values();
@@ -5341,7 +5813,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(22);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(23);
     }
 
     private static final EventTriggeredMessageType[] VALUES = values();
@@ -5458,7 +5930,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(23);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(24);
     }
 
     private static final WalletConnectCallRequestType[] VALUES = values();
@@ -5701,7 +6173,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(24);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(25);
     }
 
     private static final EthereumContractMethodIDType[] VALUES = values();
@@ -5881,7 +6353,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(25);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(26);
     }
 
     private static final IOSTActionType[] VALUES = values();
@@ -5905,6 +6377,132 @@ public final class Enum {
     }
 
     // @@protoc_insertion_point(enum_scope:adamant.global.v1.IOSTActionType)
+  }
+
+  /**
+   * Protobuf enum {@code adamant.global.v1.BlacklistAddressStatus}
+   */
+  public enum BlacklistAddressStatus
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>BLACKLIST_ADDRESS_STATUS_INVALID = 0;</code>
+     */
+    BLACKLIST_ADDRESS_STATUS_INVALID(0),
+    /**
+     * <code>BLACKLIST_ADDRESS_STATUS_NOT_REVIEWED = 1;</code>
+     */
+    BLACKLIST_ADDRESS_STATUS_NOT_REVIEWED(1),
+    /**
+     * <code>BLACKLIST_ADDRESS_STATUS_APPROVED = 2;</code>
+     */
+    BLACKLIST_ADDRESS_STATUS_APPROVED(2),
+    /**
+     * <code>BLACKLIST_ADDRESS_STATUS_REJECTED = 3;</code>
+     */
+    BLACKLIST_ADDRESS_STATUS_REJECTED(3),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>BLACKLIST_ADDRESS_STATUS_INVALID = 0;</code>
+     */
+    public static final int BLACKLIST_ADDRESS_STATUS_INVALID_VALUE = 0;
+    /**
+     * <code>BLACKLIST_ADDRESS_STATUS_NOT_REVIEWED = 1;</code>
+     */
+    public static final int BLACKLIST_ADDRESS_STATUS_NOT_REVIEWED_VALUE = 1;
+    /**
+     * <code>BLACKLIST_ADDRESS_STATUS_APPROVED = 2;</code>
+     */
+    public static final int BLACKLIST_ADDRESS_STATUS_APPROVED_VALUE = 2;
+    /**
+     * <code>BLACKLIST_ADDRESS_STATUS_REJECTED = 3;</code>
+     */
+    public static final int BLACKLIST_ADDRESS_STATUS_REJECTED_VALUE = 3;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static BlacklistAddressStatus valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static BlacklistAddressStatus forNumber(int value) {
+      switch (value) {
+        case 0: return BLACKLIST_ADDRESS_STATUS_INVALID;
+        case 1: return BLACKLIST_ADDRESS_STATUS_NOT_REVIEWED;
+        case 2: return BLACKLIST_ADDRESS_STATUS_APPROVED;
+        case 3: return BLACKLIST_ADDRESS_STATUS_REJECTED;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<BlacklistAddressStatus>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        BlacklistAddressStatus> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<BlacklistAddressStatus>() {
+            public BlacklistAddressStatus findValueByNumber(int number) {
+              return BlacklistAddressStatus.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(27);
+    }
+
+    private static final BlacklistAddressStatus[] VALUES = values();
+
+    public static BlacklistAddressStatus valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private BlacklistAddressStatus(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:adamant.global.v1.BlacklistAddressStatus)
   }
 
 
@@ -5950,343 +6548,398 @@ public final class Enum {
       "IDATOR\020\002*\201\001\n\014AddressState\022\031\n\025ADDRESS_STA" +
       "TE_INVALID\020\000\022\034\n\030ADDRESS_STATE_SUBMITTING" +
       "\020\001\022\033\n\027ADDRESS_STATE_SUBMITTED\020\002\022\033\n\027ADDRE" +
-      "SS_STATE_COMPLETED\020\003*\366\002\n\020TransactionStat" +
-      "e\022\035\n\031TRANSACTION_STATE_INVALID\020\000\022\035\n\031TRAN" +
-      "SACTION_STATE_SIGNING\020\001\022\034\n\030TRANSACTION_S" +
-      "TATE_SIGNED\020\002\022\037\n\033TRANSACTION_STATE_REVIE" +
-      "WING\020\003\022\036\n\032TRANSACTION_STATE_REVIEWED\020\004\022 " +
-      "\n\034TRANSACTION_STATE_SUBMITTING\020\005\022\037\n\033TRAN" +
-      "SACTION_STATE_SUBMITTED\020\006\022 \n\034TRANSACTION" +
-      "_STATE_CANCELLING\020\010\022\037\n\033TRANSACTION_STATE" +
-      "_CANCELLED\020\007\022\037\n\033TRANSACTION_STATE_APPROV" +
-      "ING\020\t\022\036\n\032TRANSACTION_STATE_APPROVED\020\n*`\n" +
-      "\013AccountType\022\030\n\024ACCOUNT_TYPE_INVALID\020\000\022\025" +
-      "\n\021ACCOUNT_TYPE_USER\020\001\022 \n\034ACCOUNT_TYPE_SE" +
-      "RVICE_ACCOUNT\020\002*[\n\014ExecutorType\022\031\n\025EXECU" +
-      "TOR_TYPE_INVALID\020\000\022\026\n\022EXECUTOR_TYPE_USER" +
-      "\020\001\022\030\n\024EXECUTOR_TYPE_SYSTEM\020\002*u\n\tUserStat" +
-      "e\022\026\n\022USER_STATE_INVALID\020\000\022\032\n\026USER_STATE_" +
-      "UNCONFIRMED\020\001\022\030\n\024USER_STATE_CONFIRMED\020\002\022" +
-      "\032\n\026USER_STATE_DEACTIVATED\020\003*\277\002\n\010RoleType" +
-      "\022\025\n\021ROLE_TYPE_INVALID\020\000\022\031\n\025ROLE_TYPE_ORG" +
-      "_MANAGER\020\001\022\030\n\024ROLE_TYPE_ORG_SIGNER\020\002\022\033\n\027" +
-      "ROLE_TYPE_ORG_VALIDATOR\020\003\022\030\n\024ROLE_TYPE_O" +
-      "RG_VIEWER\020\004\022\033\n\027ROLE_TYPE_ORG_DEVELOPER\020\005" +
-      "\022\036\n\032ROLE_TYPE_HOT_WALLET_ADMIN\020\006\022\037\n\033ROLE" +
-      "_TYPE_HOT_WALLET_VIEWER\020\007\022&\n\"ROLE_TYPE_O" +
-      "RG_TRANSACTION_OPERATOR\020\010\022*\n&ROLE_TYPE_O" +
-      "RG_PRE_TRANSACTION_REVIEWER\020\t*c\n\014Resourc" +
-      "eType\022\031\n\025RESOURCE_TYPE_INVALID\020\000\022\030\n\024RESO" +
-      "URCE_TYPE_WALLET\020\001\022\036\n\032RESOURCE_TYPE_ORGA" +
-      "NIZATION\020\002*\340\001\n\tTokenType\022\026\n\022TOKEN_TYPE_I" +
-      "NVALID\020\000\022\032\n\026TOKEN_TYPE_LOGIN_TOKEN\020\001\022\031\n\025" +
-      "TOKEN_TYPE_MAIL_TOKEN\020\002\022#\n\037TOKEN_TYPE_PA" +
-      "SSWORD_RESET_TOKEN\020\003\022$\n TOKEN_TYPE_PASSW" +
-      "ORD_UPDATE_TOKEN\020\004\022\033\n\027TOKEN_TYPE_SIGNUP_" +
-      "TOKEN\020\005\022\034\n\030TOKEN_TYPE_REFRESH_TOKEN\020\006*l\n" +
-      "\nPolicyType\022\027\n\023POLICY_TYPE_INVALID\020\000\022!\n\035" +
-      "POLICY_TYPE_HOT_WALLET_POLICY\020\001\022\"\n\036POLIC" +
-      "Y_TYPE_COLD_WALLET_POLICY\020\002*\225\001\n\021Transfer" +
-      "LimitType\022\037\n\033TRANSFER_LIMIT_TYPE_INVALID" +
-      "\020\000\022\036\n\032TRANSFER_LIMIT_TYPE_HOURLY\020\001\022\035\n\031TR" +
-      "ANSFER_LIMIT_TYPE_DAILY\020\002\022 \n\034TRANSFER_LI" +
-      "MIT_TYPE_ONE_TIME\020\003*\365\n\n\020NotificationType" +
-      "\022\035\n\031NOTIFICATION_TYPE_INVALID\020\000\0223\n/NOTIF" +
-      "ICATION_TYPE_WALLET_SIGNER_APPROVE_REQUE" +
-      "ST\020\001\0226\n2NOTIFICATION_TYPE_WALLET_VALIDAT" +
-      "OR_APPROVE_REQUEST\020\002\022,\n(NOTIFICATION_TYP" +
-      "E_WALLET_ACTIVATE_FAILED\020\003\022&\n\"NOTIFICATI" +
-      "ON_TYPE_WALLET_CANCELLED\020\004\022&\n\"NOTIFICATI" +
-      "ON_TYPE_WALLET_COMPLETED\020\005\022#\n\037NOTIFICATI" +
-      "ON_TYPE_WALLET_FAILED\020\006\0224\n0NOTIFICATION_" +
-      "TYPE_WALLET_ADDRESS_APPROVE_REQUEST\020\027\0221\n" +
-      "-NOTIFICATION_TYPE_WALLET_XRP_ACTIVATE_R" +
-      "EQUEST\020\030\0224\n0NOTIFICATION_TYPE_WALLET_MUL" +
-      "TISIG_CONFIG_REQUEST\020\031\0228\n4NOTIFICATION_T" +
-      "YPE_WALLET_MANAGER_TRANSACTION_REQUEST\020\032" +
-      "\0225\n1NOTIFICATION_TYPE_WALLET_VALIDATOR_C" +
-      "HANGE_REQUEST\020\033\0228\n4NOTIFICATION_TYPE_TRA" +
-      "NSACTION_SIGNER_APPROVE_REQUEST\020\007\022;\n7NOT" +
-      "IFICATION_TYPE_TRANSACTION_VALIDATOR_APP" +
-      "ROVE_REQUEST\020\010\022\'\n#NOTIFICATION_TYPE_TRAN" +
-      "SACTION_READY\020\026\022+\n\'NOTIFICATION_TYPE_TRA" +
-      "NSACTION_SUBMITTED\020\t\022+\n\'NOTIFICATION_TYP" +
-      "E_TRANSACTION_CANCELLED\020\n\022(\n$NOTIFICATIO" +
-      "N_TYPE_TRANSACTION_RESENT\020\034\022-\n)NOTIFICAT" +
-      "ION_TYPE_TRANSFER_SEND_COMPLETED\020\013\022*\n&NO" +
-      "TIFICATION_TYPE_TRANSFER_SEND_FAILED\020\014\0220" +
-      "\n,NOTIFICATION_TYPE_TRANSFER_RECEIVE_COM" +
-      "PLETED\020\r\022-\n)NOTIFICATION_TYPE_TRANSFER_R" +
-      "ECEIVE_FAILED\020\016\022-\n)NOTIFICATION_TYPE_ADD" +
-      "RESS_APPROVE_REQUEST\020\017\022\'\n#NOTIFICATION_T" +
-      "YPE_ADDRESS_COMPLETED\020\020\022\'\n#NOTIFICATION_" +
-      "TYPE_ADDRESS_CANCELLED\020\021\0223\n/NOTIFICATION" +
-      "_TYPE_TRANSFERLIMIT_APPROVE_REQUEST\020\022\022-\n" +
-      ")NOTIFICATION_TYPE_TRANSFERLIMIT_COMPLET" +
-      "ED\020\023\022-\n)NOTIFICATION_TYPE_TRANSFERLIMIT_" +
-      "CANCELLED\020\024\022.\n*NOTIFICATION_TYPE_WHITELI" +
-      "ST_DETACH_REQUEST\020\025*\236\002\n\rAuditLogGroup\022\033\n" +
-      "\027AUDIT_LOG_GROUP_INVALID\020\000\022\031\n\025AUDIT_LOG_" +
-      "GROUP_LOGIN\020\001\022\033\n\027AUDIT_LOG_GROUP_ACCOUNT" +
-      "\020\002\022#\n\037AUDIT_LOG_GROUP_SERVICE_ACCOUNT\020\003\022" +
-      "\032\n\026AUDIT_LOG_GROUP_WALLET\020\004\022\037\n\033AUDIT_LOG" +
-      "_GROUP_TRANSACTION\020\005\022\032\n\026AUDIT_LOG_GROUP_" +
-      "POLICY\020\006\022 \n\034AUDIT_LOG_GROUP_WALLET_GROUP" +
-      "\020\007\022\030\n\024AUDIT_LOG_GROUP_MAIL\020\010*\337\032\n\014AuditLo" +
-      "gType\022\032\n\026AUDIT_LOG_TYPE_INVALID\020\000\022\030\n\024AUD" +
-      "IT_LOG_TYPE_LOGIN\020\001\022\035\n\031AUDIT_LOG_TYPE_LO" +
-      "GIN_FAIL\020\002\022\033\n\027AUDIT_LOG_TYPE_2FA_FAIL\0202\022" +
-      "\031\n\025AUDIT_LOG_TYPE_LOGOUT\020\003\022\'\n#AUDIT_LOG_" +
-      "TYPE_MAIL_SETTINGS_CHANGE\020P\022 \n\034AUDIT_LOG" +
-      "_TYPE_WALLET_CREATE\020\004\022!\n\035AUDIT_LOG_TYPE_" +
-      "WALLET_APPROVE\020\005\022 \n\034AUDIT_LOG_TYPE_WALLE" +
-      "T_CANCEL\020\006\022)\n%AUDIT_LOG_TYPE_WALLET_REGI" +
-      "STER_PUBKEY\020\007\022!\n\035AUDIT_LOG_TYPE_WALLET_A" +
-      "RCHIVE\020\010\022#\n\037AUDIT_LOG_TYPE_WALLET_UNARCH" +
-      "IVE\020\t\022%\n!AUDIT_LOG_TYPE_WALLET_NAME_CHAN" +
-      "GE\020\n\022\'\n#AUDIT_LOG_TYPE_WALLET_POLICY_CHA" +
-      "NGE\020\013\022.\n*AUDIT_LOG_TYPE_WALLET_NO_WHITEL" +
-      "IST_REQUEST\020\014\022.\n*AUDIT_LOG_TYPE_WALLET_N" +
-      "O_WHITELIST_APPROVE\020\r\022-\n)AUDIT_LOG_TYPE_" +
-      "WALLET_NO_WHITELIST_CANCEL\020\016\022(\n$AUDIT_LO" +
-      "G_TYPE_WALLET_ADDRESS_UPLOAD\0203\022*\n&AUDIT_" +
-      "LOG_TYPE_WALLET_ADDRESS_DOWNLOAD\0204\022(\n$AU" +
-      "DIT_LOG_TYPE_WALLET_ADDRESS_DELETE\0205\022*\n&" +
-      "AUDIT_LOG_TYPE_WALLET_VALIDATOR_CHANGE\020<" +
-      "\022+\n\'AUDIT_LOG_TYPE_WALLET_VALIDATOR_APPR" +
-      "OVE\020=\022*\n&AUDIT_LOG_TYPE_WALLET_VALIDATOR" +
-      "_CANCEL\020>\0223\n/AUDIT_LOG_TYPE_WALLET_DESTI" +
-      "NATION_WALLET_CHANGE\020?\022&\n\"AUDIT_LOG_TYPE" +
-      "_WALLET_GROUP_CREATE\0206\022+\n\'AUDIT_LOG_TYPE" +
-      "_WALLET_GROUP_NAME_CHANGE\0207\022&\n\"AUDIT_LOG" +
-      "_TYPE_WALLET_GROUP_CHANGE\0208\022%\n!AUDIT_LOG" +
-      "_TYPE_TRANSACTION_CREATE\020\017\022&\n\"AUDIT_LOG_" +
-      "TYPE_TRANSACTION_APPROVE\020\020\022%\n!AUDIT_LOG_" +
-      "TYPE_TRANSACTION_CANCEL\020\021\0221\n-AUDIT_LOG_T" +
-      "YPE_TRANSACTION_REGISTER_SIGNATURE\020\022\022%\n!" +
-      "AUDIT_LOG_TYPE_TRANSACTION_SUBMIT\020\023\022%\n!A" +
-      "UDIT_LOG_TYPE_TRANSACTION_RESEND\020O\022*\n&AU" +
-      "DIT_LOG_TYPE_ACCOUNT_PASSWORD_CHANGE\020\024\022\'" +
-      "\n#AUDIT_LOG_TYPE_ACCOUNT_EMAIL_CHANGE\020\025\022" +
-      "!\n\035AUDIT_LOG_TYPE_ACCOUNT_INVITE\020\026\022\"\n\036AU" +
-      "DIT_LOG_TYPE_ACCOUNT_ARCHIVE\020\027\022$\n AUDIT_" +
-      "LOG_TYPE_ACCOUNT_UNARCHIVE\020\030\022)\n%AUDIT_LO" +
-      "G_TYPE_SERVICE_ACCOUNT_CREATE\020\031\0224\n0AUDIT" +
-      "_LOG_TYPE_SERVICE_ACCOUNT_CHANGE_PERMISS" +
-      "ION\020\032\022+\n\'AUDIT_LOG_TYPE_SERVICE_ACCOUNT_" +
-      "ACTIVATE\020\033\022+\n\'AUDIT_LOG_TYPE_SERVICE_ACC" +
-      "OUNT_INACTIVE\020\034\022)\n%AUDIT_LOG_TYPE_SERVIC" +
-      "E_ACCOUNT_DELETE\020\035\022-\n)AUDIT_LOG_TYPE_SER" +
-      "VICE_ACCOUNT_KEY_CREATE\020\036\022-\n)AUDIT_LOG_T" +
-      "YPE_SERVICE_ACCOUNT_KEY_DELETE\020\037\022(\n$AUDI" +
-      "T_LOG_TYPE_POLICY_ADDRESS_CREATE\020 \022(\n$AU" +
-      "DIT_LOG_TYPE_POLICY_ADDRESS_DELETE\020!\022)\n%" +
-      "AUDIT_LOG_TYPE_POLICY_ADDRESS_APPROVE\020\"\022" +
-      "(\n$AUDIT_LOG_TYPE_POLICY_ADDRESS_CANCEL\020" +
-      "#\022/\n+AUDIT_LOG_TYPE_POLICY_SPENDING_LIMI" +
-      "T_CREATE\020$\022/\n+AUDIT_LOG_TYPE_POLICY_SPEN" +
-      "DING_LIMIT_CHANGE\020%\022/\n+AUDIT_LOG_TYPE_PO" +
-      "LICY_SPENDING_LIMIT_DELETE\020&\0220\n,AUDIT_LO" +
-      "G_TYPE_POLICY_SPENDING_LIMIT_APPROVE\020\'\022/" +
-      "\n+AUDIT_LOG_TYPE_POLICY_SPENDING_LIMIT_C" +
-      "ANCEL\020(\022*\n&AUDIT_LOG_TYPE_POLICY_WHITELI" +
-      "ST_CREATE\020)\022*\n&AUDIT_LOG_TYPE_POLICY_WHI" +
-      "TELIST_CHANGE\020*\022*\n&AUDIT_LOG_TYPE_POLICY" +
-      "_WHITELIST_DELETE\020+\022\'\n#AUDIT_LOG_TYPE_PO" +
-      "LICY_POLICY_CREATE\020,\022\'\n#AUDIT_LOG_TYPE_P" +
-      "OLICY_POLICY_CHANGE\020-\022\'\n#AUDIT_LOG_TYPE_" +
-      "POLICY_POLICY_DELETE\020.\022.\n*AUDIT_LOG_TYPE" +
-      "_POLICY_REQUEST_NO_WHITELIST\020/\022.\n*AUDIT_" +
-      "LOG_TYPE_POLICY_APPROVE_NO_WHITELIST\0200\022-" +
-      "\n)AUDIT_LOG_TYPE_POLICY_CANCEL_NO_WHITEL" +
-      "IST\0201\022.\n*AUDIT_LOG_TYPE_TRANSACTION_DELE" +
-      "GATE_CREATE\020@\022/\n+AUDIT_LOG_TYPE_TRANSACT" +
-      "ION_DELEGATE_APPROVE\020A\022.\n*AUDIT_LOG_TYPE" +
-      "_TRANSACTION_DELEGATE_CANCEL\020B\022:\n6AUDIT_" +
-      "LOG_TYPE_TRANSACTION_DELEGATE_REGISTER_S" +
-      "IGNATURE\020C\022.\n*AUDIT_LOG_TYPE_TRANSACTION" +
-      "_DELEGATE_SUBMIT\020D\0220\n,AUDIT_LOG_TYPE_TRA" +
-      "NSACTION_UNDELEGATE_CREATE\020E\0221\n-AUDIT_LO" +
-      "G_TYPE_TRANSACTION_UNDELEGATE_APPROVE\020F\022" +
-      "0\n,AUDIT_LOG_TYPE_TRANSACTION_UNDELEGATE" +
-      "_CANCEL\020G\022<\n8AUDIT_LOG_TYPE_TRANSACTION_" +
-      "UNDELEGATE_REGISTER_SIGNATURE\020H\0220\n,AUDIT" +
-      "_LOG_TYPE_TRANSACTION_UNDELEGATE_SUBMIT\020" +
-      "I\022.\n*AUDIT_LOG_TYPE_TRANSACTION_WITHDRAW" +
-      "_CREATE\020J\022/\n+AUDIT_LOG_TYPE_TRANSACTION_" +
-      "WITHDRAW_APPROVE\020K\022.\n*AUDIT_LOG_TYPE_TRA" +
-      "NSACTION_WITHDRAW_CANCEL\020L\022:\n6AUDIT_LOG_" +
-      "TYPE_TRANSACTION_WITHDRAW_REGISTER_SIGNA" +
-      "TURE\020M\022.\n*AUDIT_LOG_TYPE_TRANSACTION_WIT" +
-      "HDRAW_SUBMIT\020N*\252\016\n\027PreconditionFailureTy" +
-      "pe\022%\n!PRECONDITION_FAILURE_TYPE_INVALID\020" +
-      "\000\022*\n&PRECONDITION_FAILURE_TYPE_MFA_REQUI" +
-      "RED\020\001\0220\n,PRECONDITION_FAILURE_TYPE_MFA_N" +
-      "OT_REGISTERED\020\002\022-\n)PRECONDITION_FAILURE_" +
-      "TYPE_USER_NOT_ACTIVE\020\003\022.\n*PRECONDITION_F" +
-      "AILURE_TYPE_USER_IS_ARCHIVED\020\004\0223\n/PRECON" +
-      "DITION_FAILURE_TYPE_EMAIL_IS_ALREADY_USE" +
-      "D\020\005\0229\n5PRECONDITION_FAILURE_TYPE_INVITAT" +
-      "ION_TOKEN_IS_INVALID\020\033\0229\n5PRECONDITION_F" +
-      "AILURE_TYPE_INVITATION_TOKEN_IS_EXPIRED\020" +
-      "\034\022<\n8PRECONDITION_FAILURE_TYPE_INSUFFICI" +
-      "ENT_SPENDABLE_BALANCE\020\006\0223\n/PRECONDITION_" +
-      "FAILURE_TYPE_HOURLY_LIMIT_EXCEEDED\020\007\0222\n." +
-      "PRECONDITION_FAILURE_TYPE_DAILY_LIMIT_EX" +
-      "CEEDED\020\010\0224\n0PRECONDITION_FAILURE_TYPE_ON" +
-      "ETIME_LIMIT_EXCEEDED\020\t\0229\n5PRECONDITION_F" +
-      "AILURE_TYPE_WALLET_NAME_IS_ALREADY_USED\020" +
-      "\n\0220\n,PRECONDITION_FAILURE_TYPE_WALLET_IS" +
-      "_CANCELED\020\013\0220\n,PRECONDITION_FAILURE_TYPE" +
-      "_WALLET_IS_ARCHIVED\020\014\0225\n1PRECONDITION_FA" +
-      "ILURE_TYPE_TRANSACTION_IS_CANCELED\020\r\0225\n1" +
-      "PRECONDITION_FAILURE_TYPE_PROPOSAL_ALREA" +
-      "DY_EXISTS\020\016\022%\n!PRECONDITION_FAILURE_TYPE" +
-      "_NO_RATE\020\017\0225\n1PRECONDITION_FAILURE_TYPE_" +
-      "WHITELIST_OF_BASEPOLICY\020\020\022@\n<PRECONDITIO" +
-      "N_FAILURE_TYPE_CANNOT_ARCHIVE_WALLET_WIT" +
-      "H_BALANCE\020\021\022;\n7PRECONDITION_FAILURE_TYPE" +
-      "_TEMPORARY_INCREASE_IN_FEERATE\020\022\022>\n:PREC" +
-      "ONDITION_FAILURE_TYPE_INSUFFICIENT_FEE_A" +
-      "CCOUNT_BALANCE\020\024\022X\nTPRECONDITION_FAILURE" +
-      "_TYPE_CANNOT_FLUSH_BALANCE_DUE_TO_EXISTI" +
-      "NG_UNCONFIRMED_TRANSFERS\020\025\0226\n2PRECONDITI" +
-      "ON_FAILURE_TYPE_WALLET_STATE_IS_FLUSHING" +
-      "\020\026\022A\n=PRECONDITION_FAILURE_TYPE_WALLET_F" +
-      "LUSH_SETTING_DOES_NOT_EXIST\020\027\022:\n6PRECOND" +
-      "ITION_FAILURE_TYPE_TRANSACTION_ALREADY_C" +
-      "ANCELED\020\030\022;\n7PRECONDITION_FAILURE_TYPE_T" +
-      "RANSACTION_ALREADY_SUBMITTED\020\031\022X\nTPRECON" +
-      "DITION_FAILURE_TYPE_CANNOT_OPERATE_TRANS" +
-      "ACTION_DUE_TO_WALLET_STATE_IS_CREATING\020\032" +
-      "\022>\n:PRECONDITION_FAILURE_TYPE_TRANSACTIO" +
-      "N_INCLUDE_SELF_ADDRESS\020\035\022W\nSPRECONDITION" +
-      "_FAILURE_TYPE_WALLET_FLUSH_SETTING_DESTI" +
-      "NATION_WALLET_ID_DOES_NOT_EXIST\020\036\0228\n4PRE" +
-      "CONDITION_FAILURE_TYPE_PROHIBITED_BY_SUB" +
-      "SCRIPTION\020\023*\230\006\n\016ListFilterType\022\034\n\030LIST_F" +
-      "ILTER_TYPE_INVALID\020\000\022\036\n\032LIST_FILTER_TYPE" +
-      "_WALLET_ID\020\001\022 \n\034LIST_FILTER_TYPE_WALLET_" +
-      "NAME\020\002\022#\n\037LIST_FILTER_TYPE_WALLET_ADDRES" +
-      "S\020\003\022#\n\037LIST_FILTER_TYPE_TRANSACTION_ID\020\004" +
-      "\022 \n\034LIST_FILTER_TYPE_TRANSFER_ID\020\005\022!\n\035LI" +
-      "ST_FILTER_TYPE_ADDRESS_NAME\020\006\022\034\n\030LIST_FI" +
-      "LTER_TYPE_ADDRESS\020\007\022\031\n\025LIST_FILTER_TYPE_" +
-      "TXID\020\010\022\035\n\031LIST_FILTER_TYPE_OWNER_ID\020\t\022*\n" +
-      "&LIST_FILTER_TYPE_WALLET_ID_CREATE_TIME\020" +
-      "\n\022\036\n\032LIST_FILTER_TYPE_POLICY_ID\020\013\022 \n\034LIS" +
-      "T_FILTER_TYPE_POLICY_NAME\020\014\022\037\n\033LIST_FILT" +
-      "ER_TYPE_ADDRESS_ID\020\r\022!\n\035LIST_FILTER_TYPE" +
-      "_WHITELIST_ID\020\016\022#\n\037LIST_FILTER_TYPE_WHIT" +
-      "ELIST_NAME\020\017\022&\n\"LIST_FILTER_TYPE_TRANSFE" +
-      "R_LIMIT_ID\020\020\022(\n$LIST_FILTER_TYPE_TRANSFE" +
-      "R_LIMIT_NAME\020\021\022!\n\035LIST_FILTER_TYPE_VALID" +
-      "ATOR_ID\020\022\022\037\n\033LIST_FILTER_TYPE_BLOCK_HASH" +
-      "\020\023\022)\n%LIST_FILTER_TYPE_STAKING_VALIDATOR" +
-      "_ID\020\024\022\'\n#LIST_FILTER_TYPE_STAKING_HISTOR" +
-      "Y_ID\020\025*\251\006\n\010MailType\022\025\n\021MAIL_TYPE_INVALID" +
-      "\020\000\022\032\n\026MAIL_TYPE_USER_INVITED\020\001\022$\n MAIL_T" +
-      "YPE_PASSWORD_RESET_REQUEST\020\002\022\036\n\032MAIL_TYP" +
-      "E_PASSWORD_UPDATED\020\003\022\"\n\036MAIL_TYPE_EMAIL_" +
-      "UPDATE_REQUEST\020\004\022\033\n\027MAIL_TYPE_EMAIL_UPDA" +
-      "TED\020\005\022)\n%MAIL_TYPE_FRAUD_TRANSACTION_SUB" +
-      "MITTED\020\006\022&\n\"MAIL_TYPE_IMPORT_ADDRESS_COM" +
-      "PLETED\020\007\022(\n$MAIL_TYPE_VALIDATOR_CHANGE_R" +
-      "EQUESTED\020\010\022\'\n#MAIL_TYPE_UNCHECKED_TRANSF" +
-      "ER_EXISTS\020\t\022\037\n\033MAIL_TYPE_DOWNLOAD_RESOUR" +
-      "CE\020\n\022\037\n\033MAIL_TYPE_TRANSFER_RECEIVED\020\013\022!\n" +
-      "\035MAIL_TYPE_TRANSACTION_CREATED\020\014\022#\n\037MAIL" +
-      "_TYPE_TRANSACTION_SUBMITTED\020\r\022 \n\034MAIL_TY" +
-      "PE_TRANSACTION_RESENT\020\024\022 \n\034MAIL_TYPE_VAL" +
-      "IDATOR_APPROVED\020\016\022 \n\034MAIL_TYPE_VALIDATOR" +
-      "_CANCELED\020\017\022#\n\037MAIL_TYPE_WALLET_POLICY_C" +
-      "HANGED\020\020\022+\n\'MAIL_TYPE_WALLET_NO_WHITELIS" +
-      "T_REQUESTED\020\021\022*\n&MAIL_TYPE_WALLET_NO_WHI" +
-      "TELIST_APPROVED\020\022\022*\n&MAIL_TYPE_WALLET_NO" +
-      "_WHITELIST_CANCELED\020\023\022#\n\037MAIL_TYPE_MAIL_" +
-      "SETTINGS_UPDATED\020\025*\370\002\n\025WatchOnlyAddressS" +
-      "tate\022$\n WATCH_ONLY_ADDRESS_STATE_INVALID" +
-      "\020\000\022.\n*WATCH_ONLY_ADDRESS_STATE_ADDRESS_I" +
-      "MPORTING\020\001\022-\n)WATCH_ONLY_ADDRESS_STATE_A" +
-      "DDRESS_IMPORTED\020\002\022*\n&WATCH_ONLY_ADDRESS_" +
-      "STATE_IMPORT_FAILED\020\003\022-\n)WATCH_ONLY_ADDR" +
-      "ESS_STATE_ADDRESS_DELETING\020\004\022,\n(WATCH_ON" +
-      "LY_ADDRESS_STATE_ADDRESS_DELETED\020\005\022*\n&WA" +
-      "TCH_ONLY_ADDRESS_STATE_DELETE_FAILED\020\006\022%" +
-      "\n!WATCH_ONLY_ADDRESS_STATE_DOWNLOAD\020\007*\345\004" +
-      "\n\021SubstrateCallType\022\037\n\033SUBSTRATE_CALL_TY" +
-      "PE_INVALID\020\000\022 \n\034SUBSTRATE_CALL_TYPE_TRAN" +
-      "SFER\020\001\022$\n SUBSTRATE_CALL_TYPE_TRANSFER_A" +
-      "LL\020\002\022+\n\'SUBSTRATE_CALL_TYPE_TRANSFER_KEE" +
-      "P_ALIVE\020\003\022(\n$SUBSTRATE_CALL_TYPE_APPROVE" +
-      "_AS_MULTI\020\004\022 \n\034SUBSTRATE_CALL_TYPE_AS_MU" +
-      "LTI\020\005\022+\n\'SUBSTRATE_CALL_TYPE_AS_MULTI_TH" +
-      "RESHOLD1\020\006\022\'\n#SUBSTRATE_CALL_TYPE_CANCEL" +
-      "_AS_MULTI\020\007\022,\n(SUBSTRATE_CALL_TYPE_TRANS" +
-      "FER_ALLOW_DEATH\020\010\022\034\n\030SUBSTRATE_CALL_TYPE" +
-      "_JOIN\020\t\022/\n+SUBSTRATE_CALL_TYPE_BOND_EXTR" +
-      "A_FREE_BALANCE\020\n\022*\n&SUBSTRATE_CALL_TYPE_" +
-      "BOND_EXTRA_REWARDS\020\013\022\036\n\032SUBSTRATE_CALL_T" +
-      "YPE_UNBOND\020\014\022)\n%SUBSTRATE_CALL_TYPE_WITH" +
-      "DRAW_UNBONDED\020\r\022$\n SUBSTRATE_CALL_TYPE_C" +
-      "LAIM_PAYOUT\020\016*\321\003\n\024DownloadResourceType\022\"" +
-      "\n\036DOWNLOAD_RESOURCE_TYPE_INVALID\020\000\022:\n6DO" +
-      "WNLOAD_RESOURCE_TYPE_ALL_WALLET_BALANCE_" +
-      "SNAPSHOT_EOD\020\001\022@\n<DOWNLOAD_RESOURCE_TYPE" +
-      "_ALL_WALLET_GROUP_BALANCE_SNAPSHOT_EOD\020\002" +
-      "\022@\n<DOWNLOAD_RESOURCE_TYPE_ALL_WALLET_BA" +
-      "LANCE_SNAPSHOT_ON_DEMAND\020\003\022F\nBDOWNLOAD_R" +
-      "ESOURCE_TYPE_ALL_WALLET_GROUP_BALANCE_SN" +
-      "APSHOT_ON_DEMAND\020\004\022*\n&DOWNLOAD_RESOURCE_" +
-      "TYPE_WALLET_TRANSFER\020\005\022)\n%DOWNLOAD_RESOU" +
-      "RCE_TYPE_WALLET_ADDRESS\020\006\0226\n2DOWNLOAD_RE" +
-      "SOURCE_TYPE_WALLET_ADDRESS_WITH_BALANCE\020" +
-      "\007*\274\001\n\031EventTriggeredMessageType\022(\n$EVENT" +
-      "_TRIGGERED_MESSAGE_TYPE_INVALID\020\000\0229\n5EVE" +
-      "NT_TRIGGERED_MESSAGE_TYPE_UNCHECKED_TRAN" +
-      "SFER_ALERT\020\001\022:\n6EVENT_TRIGGERED_MESSAGE_" +
-      "TYPE_FRAUDULENT_TRANSFER_ALERT\020\002*\301\001\n\034Wal" +
-      "letConnectCallRequestType\022,\n(WALLET_CONN" +
-      "ECT_CALL_REQUEST_TYPE_INVALID\020\000\0229\n5WALLE" +
-      "T_CONNECT_CALL_REQUEST_TYPE_ETH_SEND_TRA" +
-      "NSACTION\020\001\0228\n4WALLET_CONNECT_CALL_REQUES" +
-      "T_TYPE_ETH_SIGN_TYPED_DATA\020\002*\373\007\n\034Ethereu" +
-      "mContractMethodIDType\022,\n(ETHEREUM_CONTRA" +
-      "CT_METHOD_ID_TYPE_INVALID\020\000\0222\n.ETHEREUM_" +
-      "CONTRACT_METHOD_ID_TYPE_ERC20_APPROVE\020\001\022" +
-      "6\n2ETHEREUM_CONTRACT_METHOD_ID_TYPE_UNIS" +
-      "WAP_MULTICALL\020\002\0225\n1ETHEREUM_CONTRACT_MET" +
-      "HOD_ID_TYPE_ERC20_INITIALIZE\020\003\022;\n7ETHERE" +
-      "UM_CONTRACT_METHOD_ID_TYPE_ERC20_CONFIGU" +
-      "RE_MINTER\020\004\022<\n8ETHEREUM_CONTRACT_METHOD_" +
-      "ID_TYPE_ERC20_MINT_AND_TRANSFER\020\005\022/\n+ETH" +
-      "EREUM_CONTRACT_METHOD_ID_TYPE_ERC20_MINT" +
-      "\020\006\022/\n+ETHEREUM_CONTRACT_METHOD_ID_TYPE_E" +
-      "RC20_BURN\020\007\022C\n?ETHEREUM_CONTRACT_METHOD_" +
-      "ID_TYPE_ERC20_BULK_UPDATE_TO_WHITELIST\020\010" +
-      "\022?\n;ETHEREUM_CONTRACT_METHOD_ID_TYPE_ERC" +
-      "20_BULK_UPDATE_TO_UNSET\020\t\022C\n?ETHEREUM_CO" +
-      "NTRACT_METHOD_ID_TYPE_ERC20_BULK_UPDATE_" +
-      "TO_BLACKLIST\020\n\0225\n1ETHEREUM_CONTRACT_METH" +
-      "OD_ID_TYPE_ERC20_CONFISCATE\020\013\0220\n,ETHEREU" +
-      "M_CONTRACT_METHOD_ID_TYPE_ERC20_PAUSE\020\014\022" +
-      "2\n.ETHEREUM_CONTRACT_METHOD_ID_TYPE_ERC2" +
-      "0_UNPAUSE\020\r\022G\nCETHEREUM_CONTRACT_METHOD_" +
-      "ID_TYPE_ERC20_GRANT_WHITE_AND_BLACK_LIST" +
-      "ER\020\016\022<\n8ETHEREUM_CONTRACT_METHOD_ID_TYPE" +
-      "_ERC20_CONTRACT_CREATION\020\017\022>\n:ETHEREUM_C" +
-      "ONTRACT_METHOD_ID_TYPE_ERC20_UPGRADE_TO_" +
-      "AND_CALL\020\020*\325\002\n\016IOSTActionType\022\034\n\030IOST_AC" +
-      "TION_TYPE_INVALID\020\000\022\034\n\030IOST_ACTION_TYPE_" +
-      "SIGN_UP\020\001\022&\n\"IOST_ACTION_TYPE_ASSIGN_PER" +
-      "MISSION\020\002\022\035\n\031IOST_ACTION_TYPE_TRANSFER\020\003" +
-      "\022\034\n\030IOST_ACTION_TYPE_BUY_RAM\020\004\022\035\n\031IOST_A" +
-      "CTION_TYPE_SELL_RAM\020\005\022\031\n\025IOST_ACTION_TYP" +
-      "E_VOTE\020\006\022\033\n\027IOST_ACTION_TYPE_UNVOTE\020\007\022#\n" +
-      "\037IOST_ACTION_TYPE_WITHDRAW_BONUS\020\010\022&\n\"IO" +
-      "ST_ACTION_TYPE_REVOKE_PERMISSION\020\tBLZJgi" +
-      "thub.com/GincoInc/gew-kmp/gen/gincoinc/a" +
-      "damant/global/v1/adamantglobalv1b\006proto3"
+      "SS_STATE_COMPLETED\020\003*\353\001\n\023PreTransactionS" +
+      "tate\022!\n\035PRE_TRANSACTION_STATE_INVALID\020\000\022" +
+      "#\n\037PRE_TRANSACTION_STATE_APPROVING\020\001\022#\n\037" +
+      "PRE_TRANSACTION_STATE_AVAILABLE\020\002\022\"\n\036PRE" +
+      "_TRANSACTION_STATE_REJECTED\020\003\022#\n\037PRE_TRA" +
+      "NSACTION_STATE_CANCELLED\020\004\022\036\n\032PRE_TRANSA" +
+      "CTION_STATE_USED\020\005*\366\002\n\020TransactionState\022" +
+      "\035\n\031TRANSACTION_STATE_INVALID\020\000\022\035\n\031TRANSA" +
+      "CTION_STATE_SIGNING\020\001\022\034\n\030TRANSACTION_STA" +
+      "TE_SIGNED\020\002\022\037\n\033TRANSACTION_STATE_REVIEWI" +
+      "NG\020\003\022\036\n\032TRANSACTION_STATE_REVIEWED\020\004\022 \n\034" +
+      "TRANSACTION_STATE_SUBMITTING\020\005\022\037\n\033TRANSA" +
+      "CTION_STATE_SUBMITTED\020\006\022 \n\034TRANSACTION_S" +
+      "TATE_CANCELLING\020\010\022\037\n\033TRANSACTION_STATE_C" +
+      "ANCELLED\020\007\022\037\n\033TRANSACTION_STATE_APPROVIN" +
+      "G\020\t\022\036\n\032TRANSACTION_STATE_APPROVED\020\n*`\n\013A" +
+      "ccountType\022\030\n\024ACCOUNT_TYPE_INVALID\020\000\022\025\n\021" +
+      "ACCOUNT_TYPE_USER\020\001\022 \n\034ACCOUNT_TYPE_SERV" +
+      "ICE_ACCOUNT\020\002*[\n\014ExecutorType\022\031\n\025EXECUTO" +
+      "R_TYPE_INVALID\020\000\022\026\n\022EXECUTOR_TYPE_USER\020\001" +
+      "\022\030\n\024EXECUTOR_TYPE_SYSTEM\020\002*u\n\tUserState\022" +
+      "\026\n\022USER_STATE_INVALID\020\000\022\032\n\026USER_STATE_UN" +
+      "CONFIRMED\020\001\022\030\n\024USER_STATE_CONFIRMED\020\002\022\032\n" +
+      "\026USER_STATE_DEACTIVATED\020\003*\277\002\n\010RoleType\022\025" +
+      "\n\021ROLE_TYPE_INVALID\020\000\022\031\n\025ROLE_TYPE_ORG_M" +
+      "ANAGER\020\001\022\030\n\024ROLE_TYPE_ORG_SIGNER\020\002\022\033\n\027RO" +
+      "LE_TYPE_ORG_VALIDATOR\020\003\022\030\n\024ROLE_TYPE_ORG" +
+      "_VIEWER\020\004\022\033\n\027ROLE_TYPE_ORG_DEVELOPER\020\005\022\036" +
+      "\n\032ROLE_TYPE_HOT_WALLET_ADMIN\020\006\022\037\n\033ROLE_T" +
+      "YPE_HOT_WALLET_VIEWER\020\007\022&\n\"ROLE_TYPE_ORG" +
+      "_TRANSACTION_OPERATOR\020\010\022*\n&ROLE_TYPE_ORG" +
+      "_PRE_TRANSACTION_REVIEWER\020\t*c\n\014ResourceT" +
+      "ype\022\031\n\025RESOURCE_TYPE_INVALID\020\000\022\030\n\024RESOUR" +
+      "CE_TYPE_WALLET\020\001\022\036\n\032RESOURCE_TYPE_ORGANI" +
+      "ZATION\020\002*\340\001\n\tTokenType\022\026\n\022TOKEN_TYPE_INV" +
+      "ALID\020\000\022\032\n\026TOKEN_TYPE_LOGIN_TOKEN\020\001\022\031\n\025TO" +
+      "KEN_TYPE_MAIL_TOKEN\020\002\022#\n\037TOKEN_TYPE_PASS" +
+      "WORD_RESET_TOKEN\020\003\022$\n TOKEN_TYPE_PASSWOR" +
+      "D_UPDATE_TOKEN\020\004\022\033\n\027TOKEN_TYPE_SIGNUP_TO" +
+      "KEN\020\005\022\034\n\030TOKEN_TYPE_REFRESH_TOKEN\020\006*l\n\nP" +
+      "olicyType\022\027\n\023POLICY_TYPE_INVALID\020\000\022!\n\035PO" +
+      "LICY_TYPE_HOT_WALLET_POLICY\020\001\022\"\n\036POLICY_" +
+      "TYPE_COLD_WALLET_POLICY\020\002*\225\001\n\021TransferLi" +
+      "mitType\022\037\n\033TRANSFER_LIMIT_TYPE_INVALID\020\000" +
+      "\022\036\n\032TRANSFER_LIMIT_TYPE_HOURLY\020\001\022\035\n\031TRAN" +
+      "SFER_LIMIT_TYPE_DAILY\020\002\022 \n\034TRANSFER_LIMI" +
+      "T_TYPE_ONE_TIME\020\003*\365\n\n\020NotificationType\022\035" +
+      "\n\031NOTIFICATION_TYPE_INVALID\020\000\0223\n/NOTIFIC" +
+      "ATION_TYPE_WALLET_SIGNER_APPROVE_REQUEST" +
+      "\020\001\0226\n2NOTIFICATION_TYPE_WALLET_VALIDATOR" +
+      "_APPROVE_REQUEST\020\002\022,\n(NOTIFICATION_TYPE_" +
+      "WALLET_ACTIVATE_FAILED\020\003\022&\n\"NOTIFICATION" +
+      "_TYPE_WALLET_CANCELLED\020\004\022&\n\"NOTIFICATION" +
+      "_TYPE_WALLET_COMPLETED\020\005\022#\n\037NOTIFICATION" +
+      "_TYPE_WALLET_FAILED\020\006\0224\n0NOTIFICATION_TY" +
+      "PE_WALLET_ADDRESS_APPROVE_REQUEST\020\027\0221\n-N" +
+      "OTIFICATION_TYPE_WALLET_XRP_ACTIVATE_REQ" +
+      "UEST\020\030\0224\n0NOTIFICATION_TYPE_WALLET_MULTI" +
+      "SIG_CONFIG_REQUEST\020\031\0228\n4NOTIFICATION_TYP" +
+      "E_WALLET_MANAGER_TRANSACTION_REQUEST\020\032\0225" +
+      "\n1NOTIFICATION_TYPE_WALLET_VALIDATOR_CHA" +
+      "NGE_REQUEST\020\033\0228\n4NOTIFICATION_TYPE_TRANS" +
+      "ACTION_SIGNER_APPROVE_REQUEST\020\007\022;\n7NOTIF" +
+      "ICATION_TYPE_TRANSACTION_VALIDATOR_APPRO" +
+      "VE_REQUEST\020\010\022\'\n#NOTIFICATION_TYPE_TRANSA" +
+      "CTION_READY\020\026\022+\n\'NOTIFICATION_TYPE_TRANS" +
+      "ACTION_SUBMITTED\020\t\022+\n\'NOTIFICATION_TYPE_" +
+      "TRANSACTION_CANCELLED\020\n\022(\n$NOTIFICATION_" +
+      "TYPE_TRANSACTION_RESENT\020\034\022-\n)NOTIFICATIO" +
+      "N_TYPE_TRANSFER_SEND_COMPLETED\020\013\022*\n&NOTI" +
+      "FICATION_TYPE_TRANSFER_SEND_FAILED\020\014\0220\n," +
+      "NOTIFICATION_TYPE_TRANSFER_RECEIVE_COMPL" +
+      "ETED\020\r\022-\n)NOTIFICATION_TYPE_TRANSFER_REC" +
+      "EIVE_FAILED\020\016\022-\n)NOTIFICATION_TYPE_ADDRE" +
+      "SS_APPROVE_REQUEST\020\017\022\'\n#NOTIFICATION_TYP" +
+      "E_ADDRESS_COMPLETED\020\020\022\'\n#NOTIFICATION_TY" +
+      "PE_ADDRESS_CANCELLED\020\021\0223\n/NOTIFICATION_T" +
+      "YPE_TRANSFERLIMIT_APPROVE_REQUEST\020\022\022-\n)N" +
+      "OTIFICATION_TYPE_TRANSFERLIMIT_COMPLETED" +
+      "\020\023\022-\n)NOTIFICATION_TYPE_TRANSFERLIMIT_CA" +
+      "NCELLED\020\024\022.\n*NOTIFICATION_TYPE_WHITELIST" +
+      "_DETACH_REQUEST\020\025*\231\003\n\rAuditLogGroup\022\033\n\027A" +
+      "UDIT_LOG_GROUP_INVALID\020\000\022\031\n\025AUDIT_LOG_GR" +
+      "OUP_LOGIN\020\001\022\033\n\027AUDIT_LOG_GROUP_ACCOUNT\020\002" +
+      "\022#\n\037AUDIT_LOG_GROUP_SERVICE_ACCOUNT\020\003\022\032\n" +
+      "\026AUDIT_LOG_GROUP_WALLET\020\004\022#\n\037AUDIT_LOG_G" +
+      "ROUP_PRE_TRANSACTION\020\013\022\037\n\033AUDIT_LOG_GROU" +
+      "P_TRANSACTION\020\005\022\032\n\026AUDIT_LOG_GROUP_POLIC" +
+      "Y\020\006\022 \n\034AUDIT_LOG_GROUP_WALLET_GROUP\020\007\022\030\n" +
+      "\024AUDIT_LOG_GROUP_MAIL\020\010\022-\n)AUDIT_LOG_GRO" +
+      "UP_PRE_TRANSACTION_THRESHOLD\020\t\022%\n!AUDIT_" +
+      "LOG_GROUP_BLACKLIST_ADDRESS\020\n*\327\"\n\014AuditL" +
+      "ogType\022\032\n\026AUDIT_LOG_TYPE_INVALID\020\000\022\030\n\024AU" +
+      "DIT_LOG_TYPE_LOGIN\020\001\022\035\n\031AUDIT_LOG_TYPE_L" +
+      "OGIN_FAIL\020\002\022\033\n\027AUDIT_LOG_TYPE_2FA_FAIL\0202" +
+      "\022\031\n\025AUDIT_LOG_TYPE_LOGOUT\020\003\022\'\n#AUDIT_LOG" +
+      "_TYPE_MAIL_SETTINGS_CHANGE\020P\022 \n\034AUDIT_LO" +
+      "G_TYPE_WALLET_CREATE\020\004\022!\n\035AUDIT_LOG_TYPE" +
+      "_WALLET_APPROVE\020\005\022 \n\034AUDIT_LOG_TYPE_WALL" +
+      "ET_CANCEL\020\006\022)\n%AUDIT_LOG_TYPE_WALLET_REG" +
+      "ISTER_PUBKEY\020\007\022!\n\035AUDIT_LOG_TYPE_WALLET_" +
+      "ARCHIVE\020\010\022#\n\037AUDIT_LOG_TYPE_WALLET_UNARC" +
+      "HIVE\020\t\022%\n!AUDIT_LOG_TYPE_WALLET_NAME_CHA" +
+      "NGE\020\n\022\'\n#AUDIT_LOG_TYPE_WALLET_POLICY_CH" +
+      "ANGE\020\013\022.\n*AUDIT_LOG_TYPE_WALLET_NO_WHITE" +
+      "LIST_REQUEST\020\014\022.\n*AUDIT_LOG_TYPE_WALLET_" +
+      "NO_WHITELIST_APPROVE\020\r\022-\n)AUDIT_LOG_TYPE" +
+      "_WALLET_NO_WHITELIST_CANCEL\020\016\022(\n$AUDIT_L" +
+      "OG_TYPE_WALLET_ADDRESS_UPLOAD\0203\022*\n&AUDIT" +
+      "_LOG_TYPE_WALLET_ADDRESS_DOWNLOAD\0204\022(\n$A" +
+      "UDIT_LOG_TYPE_WALLET_ADDRESS_DELETE\0205\022*\n" +
+      "&AUDIT_LOG_TYPE_WALLET_VALIDATOR_CHANGE\020" +
+      "<\022+\n\'AUDIT_LOG_TYPE_WALLET_VALIDATOR_APP" +
+      "ROVE\020=\022*\n&AUDIT_LOG_TYPE_WALLET_VALIDATO" +
+      "R_CANCEL\020>\0223\n/AUDIT_LOG_TYPE_WALLET_DEST" +
+      "INATION_WALLET_CHANGE\020?\022&\n\"AUDIT_LOG_TYP" +
+      "E_WALLET_GROUP_CREATE\0206\022+\n\'AUDIT_LOG_TYP" +
+      "E_WALLET_GROUP_NAME_CHANGE\0207\022&\n\"AUDIT_LO" +
+      "G_TYPE_WALLET_GROUP_CHANGE\0208\022%\n!AUDIT_LO" +
+      "G_TYPE_TRANSACTION_CREATE\020\017\022&\n\"AUDIT_LOG" +
+      "_TYPE_TRANSACTION_APPROVE\020\020\022%\n!AUDIT_LOG" +
+      "_TYPE_TRANSACTION_CANCEL\020\021\0221\n-AUDIT_LOG_" +
+      "TYPE_TRANSACTION_REGISTER_SIGNATURE\020\022\022%\n" +
+      "!AUDIT_LOG_TYPE_TRANSACTION_SUBMIT\020\023\022%\n!" +
+      "AUDIT_LOG_TYPE_TRANSACTION_RESEND\020O\022*\n&A" +
+      "UDIT_LOG_TYPE_ACCOUNT_PASSWORD_CHANGE\020\024\022" +
+      "\'\n#AUDIT_LOG_TYPE_ACCOUNT_EMAIL_CHANGE\020\025" +
+      "\022!\n\035AUDIT_LOG_TYPE_ACCOUNT_INVITE\020\026\022\"\n\036A" +
+      "UDIT_LOG_TYPE_ACCOUNT_ARCHIVE\020\027\022$\n AUDIT" +
+      "_LOG_TYPE_ACCOUNT_UNARCHIVE\020\030\022)\n%AUDIT_L" +
+      "OG_TYPE_SERVICE_ACCOUNT_CREATE\020\031\0224\n0AUDI" +
+      "T_LOG_TYPE_SERVICE_ACCOUNT_CHANGE_PERMIS" +
+      "SION\020\032\022+\n\'AUDIT_LOG_TYPE_SERVICE_ACCOUNT" +
+      "_ACTIVATE\020\033\022+\n\'AUDIT_LOG_TYPE_SERVICE_AC" +
+      "COUNT_INACTIVE\020\034\022)\n%AUDIT_LOG_TYPE_SERVI" +
+      "CE_ACCOUNT_DELETE\020\035\022-\n)AUDIT_LOG_TYPE_SE" +
+      "RVICE_ACCOUNT_KEY_CREATE\020\036\022-\n)AUDIT_LOG_" +
+      "TYPE_SERVICE_ACCOUNT_KEY_DELETE\020\037\022(\n$AUD" +
+      "IT_LOG_TYPE_POLICY_ADDRESS_CREATE\020 \022(\n$A" +
+      "UDIT_LOG_TYPE_POLICY_ADDRESS_DELETE\020!\022)\n" +
+      "%AUDIT_LOG_TYPE_POLICY_ADDRESS_APPROVE\020\"" +
+      "\022(\n$AUDIT_LOG_TYPE_POLICY_ADDRESS_CANCEL" +
+      "\020#\022/\n+AUDIT_LOG_TYPE_POLICY_SPENDING_LIM" +
+      "IT_CREATE\020$\022/\n+AUDIT_LOG_TYPE_POLICY_SPE" +
+      "NDING_LIMIT_CHANGE\020%\022/\n+AUDIT_LOG_TYPE_P" +
+      "OLICY_SPENDING_LIMIT_DELETE\020&\0220\n,AUDIT_L" +
+      "OG_TYPE_POLICY_SPENDING_LIMIT_APPROVE\020\'\022" +
+      "/\n+AUDIT_LOG_TYPE_POLICY_SPENDING_LIMIT_" +
+      "CANCEL\020(\022*\n&AUDIT_LOG_TYPE_POLICY_WHITEL" +
+      "IST_CREATE\020)\022*\n&AUDIT_LOG_TYPE_POLICY_WH" +
+      "ITELIST_CHANGE\020*\022*\n&AUDIT_LOG_TYPE_POLIC" +
+      "Y_WHITELIST_DELETE\020+\022\'\n#AUDIT_LOG_TYPE_P" +
+      "OLICY_POLICY_CREATE\020,\022\'\n#AUDIT_LOG_TYPE_" +
+      "POLICY_POLICY_CHANGE\020-\022\'\n#AUDIT_LOG_TYPE" +
+      "_POLICY_POLICY_DELETE\020.\022.\n*AUDIT_LOG_TYP" +
+      "E_POLICY_REQUEST_NO_WHITELIST\020/\022.\n*AUDIT" +
+      "_LOG_TYPE_POLICY_APPROVE_NO_WHITELIST\0200\022" +
+      "-\n)AUDIT_LOG_TYPE_POLICY_CANCEL_NO_WHITE" +
+      "LIST\0201\022.\n*AUDIT_LOG_TYPE_TRANSACTION_DEL" +
+      "EGATE_CREATE\020@\022/\n+AUDIT_LOG_TYPE_TRANSAC" +
+      "TION_DELEGATE_APPROVE\020A\022.\n*AUDIT_LOG_TYP" +
+      "E_TRANSACTION_DELEGATE_CANCEL\020B\022:\n6AUDIT" +
+      "_LOG_TYPE_TRANSACTION_DELEGATE_REGISTER_" +
+      "SIGNATURE\020C\022.\n*AUDIT_LOG_TYPE_TRANSACTIO" +
+      "N_DELEGATE_SUBMIT\020D\0220\n,AUDIT_LOG_TYPE_TR" +
+      "ANSACTION_UNDELEGATE_CREATE\020E\0221\n-AUDIT_L" +
+      "OG_TYPE_TRANSACTION_UNDELEGATE_APPROVE\020F" +
+      "\0220\n,AUDIT_LOG_TYPE_TRANSACTION_UNDELEGAT" +
+      "E_CANCEL\020G\022<\n8AUDIT_LOG_TYPE_TRANSACTION" +
+      "_UNDELEGATE_REGISTER_SIGNATURE\020H\0220\n,AUDI" +
+      "T_LOG_TYPE_TRANSACTION_UNDELEGATE_SUBMIT" +
+      "\020I\022.\n*AUDIT_LOG_TYPE_TRANSACTION_WITHDRA" +
+      "W_CREATE\020J\022/\n+AUDIT_LOG_TYPE_TRANSACTION" +
+      "_WITHDRAW_APPROVE\020K\022.\n*AUDIT_LOG_TYPE_TR" +
+      "ANSACTION_WITHDRAW_CANCEL\020L\022:\n6AUDIT_LOG" +
+      "_TYPE_TRANSACTION_WITHDRAW_REGISTER_SIGN" +
+      "ATURE\020M\022.\n*AUDIT_LOG_TYPE_TRANSACTION_WI" +
+      "THDRAW_SUBMIT\020N\022*\n&AUDIT_LOG_TYPE_PRE_TR" +
+      "ANSACTION_APPROVE\020`\022)\n%AUDIT_LOG_TYPE_PR" +
+      "E_TRANSACTION_REJECT\020a\022?\n;AUDIT_LOG_TYPE" +
+      "_PRE_TRANSACTION_THRESHOLD_CREATION_REQU" +
+      "ESTED\020Q\022>\n:AUDIT_LOG_TYPE_PRE_TRANSACTIO" +
+      "N_THRESHOLD_CREATION_APPROVED\020R\022>\n:AUDIT" +
+      "_LOG_TYPE_PRE_TRANSACTION_THRESHOLD_CREA" +
+      "TION_REJECTED\020S\022=\n9AUDIT_LOG_TYPE_PRE_TR" +
+      "ANSACTION_THRESHOLD_CHANGE_REQUESTED\020T\022<" +
+      "\n8AUDIT_LOG_TYPE_PRE_TRANSACTION_THRESHO" +
+      "LD_CHANGE_APPROVED\020U\022<\n8AUDIT_LOG_TYPE_P" +
+      "RE_TRANSACTION_THRESHOLD_CHANGE_REJECTED" +
+      "\020V\022=\n9AUDIT_LOG_TYPE_BLACKLIST_ADDRESS_S" +
+      "TATE_CREATION_REQUESTED\020W\022<\n8AUDIT_LOG_T" +
+      "YPE_BLACKLIST_ADDRESS_STATE_CREATION_APP" +
+      "ROVED\020X\022<\n8AUDIT_LOG_TYPE_BLACKLIST_ADDR" +
+      "ESS_STATE_CREATION_REJECTED\020Y\022;\n7AUDIT_L" +
+      "OG_TYPE_BLACKLIST_ADDRESS_STATE_IMPORT_R" +
+      "EQUESTED\020Z\022:\n6AUDIT_LOG_TYPE_BLACKLIST_A" +
+      "DDRESS_STATE_IMPORT_APPROVED\020[\022:\n6AUDIT_" +
+      "LOG_TYPE_BLACKLIST_ADDRESS_STATE_IMPORT_" +
+      "REJECTED\020\\\022;\n7AUDIT_LOG_TYPE_BLACKLIST_A" +
+      "DDRESS_STATE_CHANGE_REQUESTED\020]\022:\n6AUDIT" +
+      "_LOG_TYPE_BLACKLIST_ADDRESS_STATE_CHANGE" +
+      "_APPROVED\020^\022:\n6AUDIT_LOG_TYPE_BLACKLIST_" +
+      "ADDRESS_STATE_CHANGE_REJECTED\020_*\252\016\n\027Prec" +
+      "onditionFailureType\022%\n!PRECONDITION_FAIL" +
+      "URE_TYPE_INVALID\020\000\022*\n&PRECONDITION_FAILU" +
+      "RE_TYPE_MFA_REQUIRED\020\001\0220\n,PRECONDITION_F" +
+      "AILURE_TYPE_MFA_NOT_REGISTERED\020\002\022-\n)PREC" +
+      "ONDITION_FAILURE_TYPE_USER_NOT_ACTIVE\020\003\022" +
+      ".\n*PRECONDITION_FAILURE_TYPE_USER_IS_ARC" +
+      "HIVED\020\004\0223\n/PRECONDITION_FAILURE_TYPE_EMA" +
+      "IL_IS_ALREADY_USED\020\005\0229\n5PRECONDITION_FAI" +
+      "LURE_TYPE_INVITATION_TOKEN_IS_INVALID\020\033\022" +
+      "9\n5PRECONDITION_FAILURE_TYPE_INVITATION_" +
+      "TOKEN_IS_EXPIRED\020\034\022<\n8PRECONDITION_FAILU" +
+      "RE_TYPE_INSUFFICIENT_SPENDABLE_BALANCE\020\006" +
+      "\0223\n/PRECONDITION_FAILURE_TYPE_HOURLY_LIM" +
+      "IT_EXCEEDED\020\007\0222\n.PRECONDITION_FAILURE_TY" +
+      "PE_DAILY_LIMIT_EXCEEDED\020\010\0224\n0PRECONDITIO" +
+      "N_FAILURE_TYPE_ONETIME_LIMIT_EXCEEDED\020\t\022" +
+      "9\n5PRECONDITION_FAILURE_TYPE_WALLET_NAME" +
+      "_IS_ALREADY_USED\020\n\0220\n,PRECONDITION_FAILU" +
+      "RE_TYPE_WALLET_IS_CANCELED\020\013\0220\n,PRECONDI" +
+      "TION_FAILURE_TYPE_WALLET_IS_ARCHIVED\020\014\0225" +
+      "\n1PRECONDITION_FAILURE_TYPE_TRANSACTION_" +
+      "IS_CANCELED\020\r\0225\n1PRECONDITION_FAILURE_TY" +
+      "PE_PROPOSAL_ALREADY_EXISTS\020\016\022%\n!PRECONDI" +
+      "TION_FAILURE_TYPE_NO_RATE\020\017\0225\n1PRECONDIT" +
+      "ION_FAILURE_TYPE_WHITELIST_OF_BASEPOLICY" +
+      "\020\020\022@\n<PRECONDITION_FAILURE_TYPE_CANNOT_A" +
+      "RCHIVE_WALLET_WITH_BALANCE\020\021\022;\n7PRECONDI" +
+      "TION_FAILURE_TYPE_TEMPORARY_INCREASE_IN_" +
+      "FEERATE\020\022\022>\n:PRECONDITION_FAILURE_TYPE_I" +
+      "NSUFFICIENT_FEE_ACCOUNT_BALANCE\020\024\022X\nTPRE" +
+      "CONDITION_FAILURE_TYPE_CANNOT_FLUSH_BALA" +
+      "NCE_DUE_TO_EXISTING_UNCONFIRMED_TRANSFER" +
+      "S\020\025\0226\n2PRECONDITION_FAILURE_TYPE_WALLET_" +
+      "STATE_IS_FLUSHING\020\026\022A\n=PRECONDITION_FAIL" +
+      "URE_TYPE_WALLET_FLUSH_SETTING_DOES_NOT_E" +
+      "XIST\020\027\022:\n6PRECONDITION_FAILURE_TYPE_TRAN" +
+      "SACTION_ALREADY_CANCELED\020\030\022;\n7PRECONDITI" +
+      "ON_FAILURE_TYPE_TRANSACTION_ALREADY_SUBM" +
+      "ITTED\020\031\022X\nTPRECONDITION_FAILURE_TYPE_CAN" +
+      "NOT_OPERATE_TRANSACTION_DUE_TO_WALLET_ST" +
+      "ATE_IS_CREATING\020\032\022>\n:PRECONDITION_FAILUR" +
+      "E_TYPE_TRANSACTION_INCLUDE_SELF_ADDRESS\020" +
+      "\035\022W\nSPRECONDITION_FAILURE_TYPE_WALLET_FL" +
+      "USH_SETTING_DESTINATION_WALLET_ID_DOES_N" +
+      "OT_EXIST\020\036\0228\n4PRECONDITION_FAILURE_TYPE_" +
+      "PROHIBITED_BY_SUBSCRIPTION\020\023*\301\007\n\016ListFil" +
+      "terType\022\034\n\030LIST_FILTER_TYPE_INVALID\020\000\022\036\n" +
+      "\032LIST_FILTER_TYPE_WALLET_ID\020\001\022 \n\034LIST_FI" +
+      "LTER_TYPE_WALLET_NAME\020\002\022#\n\037LIST_FILTER_T" +
+      "YPE_WALLET_ADDRESS\020\003\022#\n\037LIST_FILTER_TYPE" +
+      "_TRANSACTION_ID\020\004\022 \n\034LIST_FILTER_TYPE_TR" +
+      "ANSFER_ID\020\005\022!\n\035LIST_FILTER_TYPE_ADDRESS_" +
+      "NAME\020\006\022\034\n\030LIST_FILTER_TYPE_ADDRESS\020\007\022\031\n\025" +
+      "LIST_FILTER_TYPE_TXID\020\010\022\035\n\031LIST_FILTER_T" +
+      "YPE_OWNER_ID\020\t\022*\n&LIST_FILTER_TYPE_WALLE" +
+      "T_ID_CREATE_TIME\020\n\022\036\n\032LIST_FILTER_TYPE_P" +
+      "OLICY_ID\020\013\022 \n\034LIST_FILTER_TYPE_POLICY_NA" +
+      "ME\020\014\022\037\n\033LIST_FILTER_TYPE_ADDRESS_ID\020\r\022!\n" +
+      "\035LIST_FILTER_TYPE_WHITELIST_ID\020\016\022#\n\037LIST" +
+      "_FILTER_TYPE_WHITELIST_NAME\020\017\022&\n\"LIST_FI" +
+      "LTER_TYPE_TRANSFER_LIMIT_ID\020\020\022(\n$LIST_FI" +
+      "LTER_TYPE_TRANSFER_LIMIT_NAME\020\021\022!\n\035LIST_" +
+      "FILTER_TYPE_VALIDATOR_ID\020\022\022\037\n\033LIST_FILTE" +
+      "R_TYPE_BLOCK_HASH\020\023\022)\n%LIST_FILTER_TYPE_" +
+      "STAKING_VALIDATOR_ID\020\024\022\'\n#LIST_FILTER_TY" +
+      "PE_STAKING_HISTORY_ID\020\025\0221\n-LIST_FILTER_T" +
+      "YPE_PRE_TRANSACTION_THRESHOLD_ID\020\026\022)\n%LI" +
+      "ST_FILTER_TYPE_BLACKLIST_ADDRESS_ID\020\027\022\'\n" +
+      "#LIST_FILTER_TYPE_PRE_TRANSACTION_ID\020\030\022 " +
+      "\n\034LIST_FILTER_TYPE_EXTERNAL_ID\020\031*\327\t\n\010Mai" +
+      "lType\022\025\n\021MAIL_TYPE_INVALID\020\000\022\032\n\026MAIL_TYP" +
+      "E_USER_INVITED\020\001\022$\n MAIL_TYPE_PASSWORD_R" +
+      "ESET_REQUEST\020\002\022\036\n\032MAIL_TYPE_PASSWORD_UPD" +
+      "ATED\020\003\022\"\n\036MAIL_TYPE_EMAIL_UPDATE_REQUEST" +
+      "\020\004\022\033\n\027MAIL_TYPE_EMAIL_UPDATED\020\005\022)\n%MAIL_" +
+      "TYPE_FRAUD_TRANSACTION_SUBMITTED\020\006\022&\n\"MA" +
+      "IL_TYPE_IMPORT_ADDRESS_COMPLETED\020\007\022(\n$MA" +
+      "IL_TYPE_VALIDATOR_CHANGE_REQUESTED\020\010\022\'\n#" +
+      "MAIL_TYPE_UNCHECKED_TRANSFER_EXISTS\020\t\022\037\n" +
+      "\033MAIL_TYPE_DOWNLOAD_RESOURCE\020\n\022\037\n\033MAIL_T" +
+      "YPE_TRANSFER_RECEIVED\020\013\022&\n\"MAIL_TYPE_PRE" +
+      "_TRANSACTION_APPROVED\020\035\022&\n\"MAIL_TYPE_PRE" +
+      "_TRANSACTION_REJECTED\020\036\022!\n\035MAIL_TYPE_TRA" +
+      "NSACTION_CREATED\020\014\022#\n\037MAIL_TYPE_TRANSACT" +
+      "ION_SUBMITTED\020\r\022 \n\034MAIL_TYPE_TRANSACTION" +
+      "_RESENT\020\024\022 \n\034MAIL_TYPE_VALIDATOR_APPROVE" +
+      "D\020\016\022 \n\034MAIL_TYPE_VALIDATOR_CANCELED\020\017\022#\n" +
+      "\037MAIL_TYPE_WALLET_POLICY_CHANGED\020\020\022+\n\'MA" +
+      "IL_TYPE_WALLET_NO_WHITELIST_REQUESTED\020\021\022" +
+      "*\n&MAIL_TYPE_WALLET_NO_WHITELIST_APPROVE" +
+      "D\020\022\022*\n&MAIL_TYPE_WALLET_NO_WHITELIST_CAN" +
+      "CELED\020\023\022#\n\037MAIL_TYPE_MAIL_SETTINGS_UPDAT" +
+      "ED\020\025\022:\n6MAIL_TYPE_PRE_TRANSACTION_THRESH" +
+      "OLD_CREATION_REQUESTED\020\026\0229\n5MAIL_TYPE_PR" +
+      "E_TRANSACTION_THRESHOLD_CREATION_APPROVE" +
+      "D\020\027\0229\n5MAIL_TYPE_PRE_TRANSACTION_THRESHO" +
+      "LD_CREATION_REJECTED\020\030\0228\n4MAIL_TYPE_PRE_" +
+      "TRANSACTION_THRESHOLD_CHANGE_REQUESTED\020\031" +
+      "\0227\n3MAIL_TYPE_PRE_TRANSACTION_THRESHOLD_" +
+      "CHANGE_APPROVED\020\032\0227\n3MAIL_TYPE_PRE_TRANS" +
+      "ACTION_THRESHOLD_CHANGE_REJECTED\020\033*\370\002\n\025W" +
+      "atchOnlyAddressState\022$\n WATCH_ONLY_ADDRE" +
+      "SS_STATE_INVALID\020\000\022.\n*WATCH_ONLY_ADDRESS" +
+      "_STATE_ADDRESS_IMPORTING\020\001\022-\n)WATCH_ONLY" +
+      "_ADDRESS_STATE_ADDRESS_IMPORTED\020\002\022*\n&WAT" +
+      "CH_ONLY_ADDRESS_STATE_IMPORT_FAILED\020\003\022-\n" +
+      ")WATCH_ONLY_ADDRESS_STATE_ADDRESS_DELETI" +
+      "NG\020\004\022,\n(WATCH_ONLY_ADDRESS_STATE_ADDRESS" +
+      "_DELETED\020\005\022*\n&WATCH_ONLY_ADDRESS_STATE_D" +
+      "ELETE_FAILED\020\006\022%\n!WATCH_ONLY_ADDRESS_STA" +
+      "TE_DOWNLOAD\020\007*\345\004\n\021SubstrateCallType\022\037\n\033S" +
+      "UBSTRATE_CALL_TYPE_INVALID\020\000\022 \n\034SUBSTRAT" +
+      "E_CALL_TYPE_TRANSFER\020\001\022$\n SUBSTRATE_CALL" +
+      "_TYPE_TRANSFER_ALL\020\002\022+\n\'SUBSTRATE_CALL_T" +
+      "YPE_TRANSFER_KEEP_ALIVE\020\003\022(\n$SUBSTRATE_C" +
+      "ALL_TYPE_APPROVE_AS_MULTI\020\004\022 \n\034SUBSTRATE" +
+      "_CALL_TYPE_AS_MULTI\020\005\022+\n\'SUBSTRATE_CALL_" +
+      "TYPE_AS_MULTI_THRESHOLD1\020\006\022\'\n#SUBSTRATE_" +
+      "CALL_TYPE_CANCEL_AS_MULTI\020\007\022,\n(SUBSTRATE" +
+      "_CALL_TYPE_TRANSFER_ALLOW_DEATH\020\010\022\034\n\030SUB" +
+      "STRATE_CALL_TYPE_JOIN\020\t\022/\n+SUBSTRATE_CAL" +
+      "L_TYPE_BOND_EXTRA_FREE_BALANCE\020\n\022*\n&SUBS" +
+      "TRATE_CALL_TYPE_BOND_EXTRA_REWARDS\020\013\022\036\n\032" +
+      "SUBSTRATE_CALL_TYPE_UNBOND\020\014\022)\n%SUBSTRAT" +
+      "E_CALL_TYPE_WITHDRAW_UNBONDED\020\r\022$\n SUBST" +
+      "RATE_CALL_TYPE_CLAIM_PAYOUT\020\016*\321\003\n\024Downlo" +
+      "adResourceType\022\"\n\036DOWNLOAD_RESOURCE_TYPE" +
+      "_INVALID\020\000\022:\n6DOWNLOAD_RESOURCE_TYPE_ALL" +
+      "_WALLET_BALANCE_SNAPSHOT_EOD\020\001\022@\n<DOWNLO" +
+      "AD_RESOURCE_TYPE_ALL_WALLET_GROUP_BALANC" +
+      "E_SNAPSHOT_EOD\020\002\022@\n<DOWNLOAD_RESOURCE_TY" +
+      "PE_ALL_WALLET_BALANCE_SNAPSHOT_ON_DEMAND" +
+      "\020\003\022F\nBDOWNLOAD_RESOURCE_TYPE_ALL_WALLET_" +
+      "GROUP_BALANCE_SNAPSHOT_ON_DEMAND\020\004\022*\n&DO" +
+      "WNLOAD_RESOURCE_TYPE_WALLET_TRANSFER\020\005\022)" +
+      "\n%DOWNLOAD_RESOURCE_TYPE_WALLET_ADDRESS\020" +
+      "\006\0226\n2DOWNLOAD_RESOURCE_TYPE_WALLET_ADDRE" +
+      "SS_WITH_BALANCE\020\007*\274\001\n\031EventTriggeredMess" +
+      "ageType\022(\n$EVENT_TRIGGERED_MESSAGE_TYPE_" +
+      "INVALID\020\000\0229\n5EVENT_TRIGGERED_MESSAGE_TYP" +
+      "E_UNCHECKED_TRANSFER_ALERT\020\001\022:\n6EVENT_TR" +
+      "IGGERED_MESSAGE_TYPE_FRAUDULENT_TRANSFER" +
+      "_ALERT\020\002*\301\001\n\034WalletConnectCallRequestTyp" +
+      "e\022,\n(WALLET_CONNECT_CALL_REQUEST_TYPE_IN" +
+      "VALID\020\000\0229\n5WALLET_CONNECT_CALL_REQUEST_T" +
+      "YPE_ETH_SEND_TRANSACTION\020\001\0228\n4WALLET_CON" +
+      "NECT_CALL_REQUEST_TYPE_ETH_SIGN_TYPED_DA" +
+      "TA\020\002*\373\007\n\034EthereumContractMethodIDType\022,\n" +
+      "(ETHEREUM_CONTRACT_METHOD_ID_TYPE_INVALI" +
+      "D\020\000\0222\n.ETHEREUM_CONTRACT_METHOD_ID_TYPE_" +
+      "ERC20_APPROVE\020\001\0226\n2ETHEREUM_CONTRACT_MET" +
+      "HOD_ID_TYPE_UNISWAP_MULTICALL\020\002\0225\n1ETHER" +
+      "EUM_CONTRACT_METHOD_ID_TYPE_ERC20_INITIA" +
+      "LIZE\020\003\022;\n7ETHEREUM_CONTRACT_METHOD_ID_TY" +
+      "PE_ERC20_CONFIGURE_MINTER\020\004\022<\n8ETHEREUM_" +
+      "CONTRACT_METHOD_ID_TYPE_ERC20_MINT_AND_T" +
+      "RANSFER\020\005\022/\n+ETHEREUM_CONTRACT_METHOD_ID" +
+      "_TYPE_ERC20_MINT\020\006\022/\n+ETHEREUM_CONTRACT_" +
+      "METHOD_ID_TYPE_ERC20_BURN\020\007\022C\n?ETHEREUM_" +
+      "CONTRACT_METHOD_ID_TYPE_ERC20_BULK_UPDAT" +
+      "E_TO_WHITELIST\020\010\022?\n;ETHEREUM_CONTRACT_ME" +
+      "THOD_ID_TYPE_ERC20_BULK_UPDATE_TO_UNSET\020" +
+      "\t\022C\n?ETHEREUM_CONTRACT_METHOD_ID_TYPE_ER",
+      "C20_BULK_UPDATE_TO_BLACKLIST\020\n\0225\n1ETHERE" +
+      "UM_CONTRACT_METHOD_ID_TYPE_ERC20_CONFISC" +
+      "ATE\020\013\0220\n,ETHEREUM_CONTRACT_METHOD_ID_TYP" +
+      "E_ERC20_PAUSE\020\014\0222\n.ETHEREUM_CONTRACT_MET" +
+      "HOD_ID_TYPE_ERC20_UNPAUSE\020\r\022G\nCETHEREUM_" +
+      "CONTRACT_METHOD_ID_TYPE_ERC20_GRANT_WHIT" +
+      "E_AND_BLACK_LISTER\020\016\022<\n8ETHEREUM_CONTRAC" +
+      "T_METHOD_ID_TYPE_ERC20_CONTRACT_CREATION" +
+      "\020\017\022>\n:ETHEREUM_CONTRACT_METHOD_ID_TYPE_E" +
+      "RC20_UPGRADE_TO_AND_CALL\020\020*\325\002\n\016IOSTActio" +
+      "nType\022\034\n\030IOST_ACTION_TYPE_INVALID\020\000\022\034\n\030I" +
+      "OST_ACTION_TYPE_SIGN_UP\020\001\022&\n\"IOST_ACTION" +
+      "_TYPE_ASSIGN_PERMISSION\020\002\022\035\n\031IOST_ACTION" +
+      "_TYPE_TRANSFER\020\003\022\034\n\030IOST_ACTION_TYPE_BUY" +
+      "_RAM\020\004\022\035\n\031IOST_ACTION_TYPE_SELL_RAM\020\005\022\031\n" +
+      "\025IOST_ACTION_TYPE_VOTE\020\006\022\033\n\027IOST_ACTION_" +
+      "TYPE_UNVOTE\020\007\022#\n\037IOST_ACTION_TYPE_WITHDR" +
+      "AW_BONUS\020\010\022&\n\"IOST_ACTION_TYPE_REVOKE_PE" +
+      "RMISSION\020\t*\267\001\n\026BlacklistAddressStatus\022$\n" +
+      " BLACKLIST_ADDRESS_STATUS_INVALID\020\000\022)\n%B" +
+      "LACKLIST_ADDRESS_STATUS_NOT_REVIEWED\020\001\022%" +
+      "\n!BLACKLIST_ADDRESS_STATUS_APPROVED\020\002\022%\n" +
+      "!BLACKLIST_ADDRESS_STATUS_REJECTED\020\003BLZJ" +
+      "github.com/GincoInc/gew-kmp/gen/gincoinc" +
+      "/adamant/global/v1/adamantglobalv1b\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

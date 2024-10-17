@@ -279,4 +279,21 @@ public interface CreateTransactionRequestOrBuilder extends
    * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
    */
   adamant.global.v1.UtxoSpecificOrBuilder getUtxoSpecificOrBuilder();
+
+  /**
+   * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
+   * @return Whether the preTransactionId field is set.
+   */
+  boolean hasPreTransactionId();
+  /**
+   * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
+   * @return The preTransactionId.
+   */
+  java.lang.String getPreTransactionId();
+  /**
+   * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
+   * @return The bytes for preTransactionId.
+   */
+  com.google.protobuf.ByteString
+      getPreTransactionIdBytes();
 }
