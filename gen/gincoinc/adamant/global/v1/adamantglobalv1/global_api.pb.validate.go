@@ -36,7 +36,7 @@ var (
 	_ = anypb.Any{}
 	_ = sort.Sort
 
-	_ = gincoincglobalv1.StakingValidatorStatus(0)
+	_ = gincoincglobalv1.Network(0)
 )
 
 // Validate checks the field values on ApproveWalletRequest with the rules
@@ -8951,6 +8951,811 @@ var _ interface {
 
 var _ImportAddressRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+// Validate checks the field values on CreatePreTransactionRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CreatePreTransactionRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreatePreTransactionRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CreatePreTransactionRequestMultiError, or nil if none found.
+func (m *CreatePreTransactionRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreatePreTransactionRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := _CreatePreTransactionRequest_Coin_NotInLookup[m.GetCoin()]; ok {
+		err := CreatePreTransactionRequestValidationError{
+			field:  "Coin",
+			reason: "value must not be in list [0]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		err := CreatePreTransactionRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+		err := CreatePreTransactionRequestValidationError{
+			field:  "Network",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_CreatePreTransactionRequest_ExternalId_Pattern.MatchString(m.GetExternalId()) {
+		err := CreatePreTransactionRequestValidationError{
+			field:  "ExternalId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	for idx, item := range m.GetDetails() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, CreatePreTransactionRequestValidationError{
+						field:  fmt.Sprintf("Details[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, CreatePreTransactionRequestValidationError{
+						field:  fmt.Sprintf("Details[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return CreatePreTransactionRequestValidationError{
+					field:  fmt.Sprintf("Details[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return CreatePreTransactionRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreatePreTransactionRequestMultiError is an error wrapping multiple
+// validation errors returned by CreatePreTransactionRequest.ValidateAll() if
+// the designated constraints aren't met.
+type CreatePreTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreatePreTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreatePreTransactionRequestMultiError) AllErrors() []error { return m }
+
+// CreatePreTransactionRequestValidationError is the validation error returned
+// by CreatePreTransactionRequest.Validate if the designated constraints
+// aren't met.
+type CreatePreTransactionRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreatePreTransactionRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreatePreTransactionRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreatePreTransactionRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreatePreTransactionRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreatePreTransactionRequestValidationError) ErrorName() string {
+	return "CreatePreTransactionRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreatePreTransactionRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreatePreTransactionRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreatePreTransactionRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreatePreTransactionRequestValidationError{}
+
+var _CreatePreTransactionRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
+	0: {},
+}
+
+var _CreatePreTransactionRequest_ExternalId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on CreatePreTransactionResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CreatePreTransactionResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreatePreTransactionResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CreatePreTransactionResponseMultiError, or nil if none found.
+func (m *CreatePreTransactionResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreatePreTransactionResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for PreTransactionId
+
+	if len(errors) > 0 {
+		return CreatePreTransactionResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreatePreTransactionResponseMultiError is an error wrapping multiple
+// validation errors returned by CreatePreTransactionResponse.ValidateAll() if
+// the designated constraints aren't met.
+type CreatePreTransactionResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreatePreTransactionResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreatePreTransactionResponseMultiError) AllErrors() []error { return m }
+
+// CreatePreTransactionResponseValidationError is the validation error returned
+// by CreatePreTransactionResponse.Validate if the designated constraints
+// aren't met.
+type CreatePreTransactionResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreatePreTransactionResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreatePreTransactionResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreatePreTransactionResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreatePreTransactionResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreatePreTransactionResponseValidationError) ErrorName() string {
+	return "CreatePreTransactionResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreatePreTransactionResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreatePreTransactionResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreatePreTransactionResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreatePreTransactionResponseValidationError{}
+
+// Validate checks the field values on CancelPreTransactionRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CancelPreTransactionRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CancelPreTransactionRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CancelPreTransactionRequestMultiError, or nil if none found.
+func (m *CancelPreTransactionRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CancelPreTransactionRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for PreTransactionId
+
+	if len(errors) > 0 {
+		return CancelPreTransactionRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// CancelPreTransactionRequestMultiError is an error wrapping multiple
+// validation errors returned by CancelPreTransactionRequest.ValidateAll() if
+// the designated constraints aren't met.
+type CancelPreTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CancelPreTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CancelPreTransactionRequestMultiError) AllErrors() []error { return m }
+
+// CancelPreTransactionRequestValidationError is the validation error returned
+// by CancelPreTransactionRequest.Validate if the designated constraints
+// aren't met.
+type CancelPreTransactionRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CancelPreTransactionRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CancelPreTransactionRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CancelPreTransactionRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CancelPreTransactionRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CancelPreTransactionRequestValidationError) ErrorName() string {
+	return "CancelPreTransactionRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CancelPreTransactionRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCancelPreTransactionRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CancelPreTransactionRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CancelPreTransactionRequestValidationError{}
+
+// Validate checks the field values on ListPreTransactionsByFilterRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ListPreTransactionsByFilterRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListPreTransactionsByFilterRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ListPreTransactionsByFilterRequestMultiError, or nil if none found.
+func (m *ListPreTransactionsByFilterRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListPreTransactionsByFilterRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := _ListPreTransactionsByFilterRequest_FilterType_NotInLookup[m.GetFilterType()]; ok {
+		err := ListPreTransactionsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must not be in list [0]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		err := ListPreTransactionsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.PreTransactionId != nil {
+		// no validation rules for PreTransactionId
+	}
+
+	if m.ExternalId != nil {
+		// no validation rules for ExternalId
+	}
+
+	if m.Coin != nil {
+
+		if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+			err := ListPreTransactionsByFilterRequestValidationError{
+				field:  "Coin",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := ListPreTransactionsByFilterRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if m.StartTime != nil {
+
+		if all {
+			switch v := interface{}(m.GetStartTime()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListPreTransactionsByFilterRequestValidationError{
+						field:  "StartTime",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListPreTransactionsByFilterRequestValidationError{
+						field:  "StartTime",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetStartTime()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListPreTransactionsByFilterRequestValidationError{
+					field:  "StartTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if m.EndTime != nil {
+
+		if all {
+			switch v := interface{}(m.GetEndTime()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListPreTransactionsByFilterRequestValidationError{
+						field:  "EndTime",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListPreTransactionsByFilterRequestValidationError{
+						field:  "EndTime",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetEndTime()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListPreTransactionsByFilterRequestValidationError{
+					field:  "EndTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if m.PageSize != nil {
+
+		if m.GetPageSize() > 100 {
+			err := ListPreTransactionsByFilterRequestValidationError{
+				field:  "PageSize",
+				reason: "value must be less than or equal to 100",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if m.PageToken != nil {
+
+		if !_ListPreTransactionsByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+			err := ListPreTransactionsByFilterRequestValidationError{
+				field:  "PageToken",
+				reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ListPreTransactionsByFilterRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListPreTransactionsByFilterRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListPreTransactionsByFilterRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ListPreTransactionsByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListPreTransactionsByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListPreTransactionsByFilterRequestMultiError) AllErrors() []error { return m }
+
+// ListPreTransactionsByFilterRequestValidationError is the validation error
+// returned by ListPreTransactionsByFilterRequest.Validate if the designated
+// constraints aren't met.
+type ListPreTransactionsByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListPreTransactionsByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListPreTransactionsByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListPreTransactionsByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListPreTransactionsByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListPreTransactionsByFilterRequestValidationError) ErrorName() string {
+	return "ListPreTransactionsByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListPreTransactionsByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListPreTransactionsByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListPreTransactionsByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListPreTransactionsByFilterRequestValidationError{}
+
+var _ListPreTransactionsByFilterRequest_FilterType_NotInLookup = map[ListFilterType]struct{}{
+	0: {},
+}
+
+var _ListPreTransactionsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListPreTransactionsByFilterResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ListPreTransactionsByFilterResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListPreTransactionsByFilterResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ListPreTransactionsByFilterResponseMultiError, or nil if none found.
+func (m *ListPreTransactionsByFilterResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListPreTransactionsByFilterResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetPreTransactions() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListPreTransactionsByFilterResponseValidationError{
+						field:  fmt.Sprintf("PreTransactions[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListPreTransactionsByFilterResponseValidationError{
+						field:  fmt.Sprintf("PreTransactions[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListPreTransactionsByFilterResponseValidationError{
+					field:  fmt.Sprintf("PreTransactions[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	if len(errors) > 0 {
+		return ListPreTransactionsByFilterResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListPreTransactionsByFilterResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListPreTransactionsByFilterResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ListPreTransactionsByFilterResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListPreTransactionsByFilterResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListPreTransactionsByFilterResponseMultiError) AllErrors() []error { return m }
+
+// ListPreTransactionsByFilterResponseValidationError is the validation error
+// returned by ListPreTransactionsByFilterResponse.Validate if the designated
+// constraints aren't met.
+type ListPreTransactionsByFilterResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListPreTransactionsByFilterResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListPreTransactionsByFilterResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListPreTransactionsByFilterResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListPreTransactionsByFilterResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListPreTransactionsByFilterResponseValidationError) ErrorName() string {
+	return "ListPreTransactionsByFilterResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListPreTransactionsByFilterResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListPreTransactionsByFilterResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListPreTransactionsByFilterResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListPreTransactionsByFilterResponseValidationError{}
+
 // Validate checks the field values on CreateTransactionRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -9405,6 +10210,21 @@ func (m *CreateTransactionRequest) validate(all bool) error {
 		}
 	}
 
+	if m.PreTransactionId != nil {
+
+		if !_CreateTransactionRequest_PreTransactionId_Pattern.MatchString(m.GetPreTransactionId()) {
+			err := CreateTransactionRequestValidationError{
+				field:  "PreTransactionId",
+				reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
 	if len(errors) > 0 {
 		return CreateTransactionRequestMultiError(errors)
 	}
@@ -9486,6 +10306,8 @@ var _ interface {
 } = CreateTransactionRequestValidationError{}
 
 var _CreateTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _CreateTransactionRequest_PreTransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on CreateTransactionResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -31811,3 +32633,1186 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = GetMailSettingsRequestValidationError{}
+
+// Validate checks the field values on
+// ListPreTransactionThresholdsByFilterRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ListPreTransactionThresholdsByFilterRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ListPreTransactionThresholdsByFilterRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// ListPreTransactionThresholdsByFilterRequestMultiError, or nil if none found.
+func (m *ListPreTransactionThresholdsByFilterRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListPreTransactionThresholdsByFilterRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := _ListPreTransactionThresholdsByFilterRequest_FilterType_NotInLookup[m.GetFilterType()]; ok {
+		err := ListPreTransactionThresholdsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must not be in list [0]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		err := ListPreTransactionThresholdsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.PreTransactionThresholdId != nil {
+		// no validation rules for PreTransactionThresholdId
+	}
+
+	if m.Coin != nil {
+
+		if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+			err := ListPreTransactionThresholdsByFilterRequestValidationError{
+				field:  "Coin",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := ListPreTransactionThresholdsByFilterRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if m.PageSize != nil {
+
+		if m.GetPageSize() > 100 {
+			err := ListPreTransactionThresholdsByFilterRequestValidationError{
+				field:  "PageSize",
+				reason: "value must be less than or equal to 100",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if m.PageToken != nil {
+
+		if !_ListPreTransactionThresholdsByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+			err := ListPreTransactionThresholdsByFilterRequestValidationError{
+				field:  "PageToken",
+				reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ListPreTransactionThresholdsByFilterRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListPreTransactionThresholdsByFilterRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ListPreTransactionThresholdsByFilterRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ListPreTransactionThresholdsByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListPreTransactionThresholdsByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListPreTransactionThresholdsByFilterRequestMultiError) AllErrors() []error { return m }
+
+// ListPreTransactionThresholdsByFilterRequestValidationError is the validation
+// error returned by ListPreTransactionThresholdsByFilterRequest.Validate if
+// the designated constraints aren't met.
+type ListPreTransactionThresholdsByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListPreTransactionThresholdsByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListPreTransactionThresholdsByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListPreTransactionThresholdsByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListPreTransactionThresholdsByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListPreTransactionThresholdsByFilterRequestValidationError) ErrorName() string {
+	return "ListPreTransactionThresholdsByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListPreTransactionThresholdsByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListPreTransactionThresholdsByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListPreTransactionThresholdsByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListPreTransactionThresholdsByFilterRequestValidationError{}
+
+var _ListPreTransactionThresholdsByFilterRequest_FilterType_NotInLookup = map[ListFilterType]struct{}{
+	0: {},
+}
+
+var _ListPreTransactionThresholdsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on
+// ListPreTransactionThresholdsByFilterResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ListPreTransactionThresholdsByFilterResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ListPreTransactionThresholdsByFilterResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// ListPreTransactionThresholdsByFilterResponseMultiError, or nil if none found.
+func (m *ListPreTransactionThresholdsByFilterResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListPreTransactionThresholdsByFilterResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetPreTransactionThresholds() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListPreTransactionThresholdsByFilterResponseValidationError{
+						field:  fmt.Sprintf("PreTransactionThresholds[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListPreTransactionThresholdsByFilterResponseValidationError{
+						field:  fmt.Sprintf("PreTransactionThresholds[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListPreTransactionThresholdsByFilterResponseValidationError{
+					field:  fmt.Sprintf("PreTransactionThresholds[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	if len(errors) > 0 {
+		return ListPreTransactionThresholdsByFilterResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListPreTransactionThresholdsByFilterResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// ListPreTransactionThresholdsByFilterResponse.ValidateAll() if the
+// designated constraints aren't met.
+type ListPreTransactionThresholdsByFilterResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListPreTransactionThresholdsByFilterResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListPreTransactionThresholdsByFilterResponseMultiError) AllErrors() []error { return m }
+
+// ListPreTransactionThresholdsByFilterResponseValidationError is the
+// validation error returned by
+// ListPreTransactionThresholdsByFilterResponse.Validate if the designated
+// constraints aren't met.
+type ListPreTransactionThresholdsByFilterResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListPreTransactionThresholdsByFilterResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListPreTransactionThresholdsByFilterResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListPreTransactionThresholdsByFilterResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListPreTransactionThresholdsByFilterResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListPreTransactionThresholdsByFilterResponseValidationError) ErrorName() string {
+	return "ListPreTransactionThresholdsByFilterResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListPreTransactionThresholdsByFilterResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListPreTransactionThresholdsByFilterResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListPreTransactionThresholdsByFilterResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListPreTransactionThresholdsByFilterResponseValidationError{}
+
+// Validate checks the field values on CreatePreTransactionThresholdRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *CreatePreTransactionThresholdRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreatePreTransactionThresholdRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// CreatePreTransactionThresholdRequestMultiError, or nil if none found.
+func (m *CreatePreTransactionThresholdRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreatePreTransactionThresholdRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Coin
+
+	// no validation rules for Network
+
+	// no validation rules for Value
+
+	if len(errors) > 0 {
+		return CreatePreTransactionThresholdRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreatePreTransactionThresholdRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// CreatePreTransactionThresholdRequest.ValidateAll() if the designated
+// constraints aren't met.
+type CreatePreTransactionThresholdRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreatePreTransactionThresholdRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreatePreTransactionThresholdRequestMultiError) AllErrors() []error { return m }
+
+// CreatePreTransactionThresholdRequestValidationError is the validation error
+// returned by CreatePreTransactionThresholdRequest.Validate if the designated
+// constraints aren't met.
+type CreatePreTransactionThresholdRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreatePreTransactionThresholdRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreatePreTransactionThresholdRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreatePreTransactionThresholdRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreatePreTransactionThresholdRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreatePreTransactionThresholdRequestValidationError) ErrorName() string {
+	return "CreatePreTransactionThresholdRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreatePreTransactionThresholdRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreatePreTransactionThresholdRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreatePreTransactionThresholdRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreatePreTransactionThresholdRequestValidationError{}
+
+// Validate checks the field values on CreatePreTransactionThresholdResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *CreatePreTransactionThresholdResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreatePreTransactionThresholdResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// CreatePreTransactionThresholdResponseMultiError, or nil if none found.
+func (m *CreatePreTransactionThresholdResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreatePreTransactionThresholdResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for PreTransactionThresholdId
+
+	if len(errors) > 0 {
+		return CreatePreTransactionThresholdResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreatePreTransactionThresholdResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// CreatePreTransactionThresholdResponse.ValidateAll() if the designated
+// constraints aren't met.
+type CreatePreTransactionThresholdResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreatePreTransactionThresholdResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreatePreTransactionThresholdResponseMultiError) AllErrors() []error { return m }
+
+// CreatePreTransactionThresholdResponseValidationError is the validation error
+// returned by CreatePreTransactionThresholdResponse.Validate if the
+// designated constraints aren't met.
+type CreatePreTransactionThresholdResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreatePreTransactionThresholdResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreatePreTransactionThresholdResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreatePreTransactionThresholdResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreatePreTransactionThresholdResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreatePreTransactionThresholdResponseValidationError) ErrorName() string {
+	return "CreatePreTransactionThresholdResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreatePreTransactionThresholdResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreatePreTransactionThresholdResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreatePreTransactionThresholdResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreatePreTransactionThresholdResponseValidationError{}
+
+// Validate checks the field values on UpdatePreTransactionThresholdRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *UpdatePreTransactionThresholdRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UpdatePreTransactionThresholdRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// UpdatePreTransactionThresholdRequestMultiError, or nil if none found.
+func (m *UpdatePreTransactionThresholdRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UpdatePreTransactionThresholdRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for PreTransactionThresholdId
+
+	// no validation rules for Value
+
+	if len(errors) > 0 {
+		return UpdatePreTransactionThresholdRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// UpdatePreTransactionThresholdRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// UpdatePreTransactionThresholdRequest.ValidateAll() if the designated
+// constraints aren't met.
+type UpdatePreTransactionThresholdRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdatePreTransactionThresholdRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdatePreTransactionThresholdRequestMultiError) AllErrors() []error { return m }
+
+// UpdatePreTransactionThresholdRequestValidationError is the validation error
+// returned by UpdatePreTransactionThresholdRequest.Validate if the designated
+// constraints aren't met.
+type UpdatePreTransactionThresholdRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdatePreTransactionThresholdRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdatePreTransactionThresholdRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdatePreTransactionThresholdRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdatePreTransactionThresholdRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdatePreTransactionThresholdRequestValidationError) ErrorName() string {
+	return "UpdatePreTransactionThresholdRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdatePreTransactionThresholdRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdatePreTransactionThresholdRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdatePreTransactionThresholdRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdatePreTransactionThresholdRequestValidationError{}
+
+// Validate checks the field values on
+// ReviewPreTransactionThresholdProposalRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ReviewPreTransactionThresholdProposalRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ReviewPreTransactionThresholdProposalRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// ReviewPreTransactionThresholdProposalRequestMultiError, or nil if none found.
+func (m *ReviewPreTransactionThresholdProposalRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ReviewPreTransactionThresholdProposalRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for PreTransactionThresholdId
+
+	// no validation rules for Approve
+
+	if len(errors) > 0 {
+		return ReviewPreTransactionThresholdProposalRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ReviewPreTransactionThresholdProposalRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ReviewPreTransactionThresholdProposalRequest.ValidateAll() if the
+// designated constraints aren't met.
+type ReviewPreTransactionThresholdProposalRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ReviewPreTransactionThresholdProposalRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ReviewPreTransactionThresholdProposalRequestMultiError) AllErrors() []error { return m }
+
+// ReviewPreTransactionThresholdProposalRequestValidationError is the
+// validation error returned by
+// ReviewPreTransactionThresholdProposalRequest.Validate if the designated
+// constraints aren't met.
+type ReviewPreTransactionThresholdProposalRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ReviewPreTransactionThresholdProposalRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ReviewPreTransactionThresholdProposalRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ReviewPreTransactionThresholdProposalRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ReviewPreTransactionThresholdProposalRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ReviewPreTransactionThresholdProposalRequestValidationError) ErrorName() string {
+	return "ReviewPreTransactionThresholdProposalRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ReviewPreTransactionThresholdProposalRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sReviewPreTransactionThresholdProposalRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ReviewPreTransactionThresholdProposalRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ReviewPreTransactionThresholdProposalRequestValidationError{}
+
+// Validate checks the field values on ListBlacklistAddressesByFilterRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *ListBlacklistAddressesByFilterRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListBlacklistAddressesByFilterRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ListBlacklistAddressesByFilterRequestMultiError, or nil if none found.
+func (m *ListBlacklistAddressesByFilterRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListBlacklistAddressesByFilterRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		err := ListBlacklistAddressesByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.BlacklistAddressId != nil {
+
+		if !_ListBlacklistAddressesByFilterRequest_BlacklistAddressId_Pattern.MatchString(m.GetBlacklistAddressId()) {
+			err := ListBlacklistAddressesByFilterRequestValidationError{
+				field:  "BlacklistAddressId",
+				reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if m.Address != nil {
+		// no validation rules for Address
+	}
+
+	if m.FileId != nil {
+		// no validation rules for FileId
+	}
+
+	if m.IsActivated != nil {
+		// no validation rules for IsActivated
+	}
+
+	if m.Status != nil {
+		// no validation rules for Status
+	}
+
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := ListBlacklistAddressesByFilterRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if m.StartTime != nil {
+
+		if all {
+			switch v := interface{}(m.GetStartTime()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListBlacklistAddressesByFilterRequestValidationError{
+						field:  "StartTime",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListBlacklistAddressesByFilterRequestValidationError{
+						field:  "StartTime",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetStartTime()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListBlacklistAddressesByFilterRequestValidationError{
+					field:  "StartTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if m.EndTime != nil {
+
+		if all {
+			switch v := interface{}(m.GetEndTime()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListBlacklistAddressesByFilterRequestValidationError{
+						field:  "EndTime",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListBlacklistAddressesByFilterRequestValidationError{
+						field:  "EndTime",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetEndTime()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListBlacklistAddressesByFilterRequestValidationError{
+					field:  "EndTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if m.PageSize != nil {
+
+		if m.GetPageSize() > 100 {
+			err := ListBlacklistAddressesByFilterRequestValidationError{
+				field:  "PageSize",
+				reason: "value must be less than or equal to 100",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if m.PageToken != nil {
+
+		if !_ListBlacklistAddressesByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+			err := ListBlacklistAddressesByFilterRequestValidationError{
+				field:  "PageToken",
+				reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ListBlacklistAddressesByFilterRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListBlacklistAddressesByFilterRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ListBlacklistAddressesByFilterRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ListBlacklistAddressesByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListBlacklistAddressesByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListBlacklistAddressesByFilterRequestMultiError) AllErrors() []error { return m }
+
+// ListBlacklistAddressesByFilterRequestValidationError is the validation error
+// returned by ListBlacklistAddressesByFilterRequest.Validate if the
+// designated constraints aren't met.
+type ListBlacklistAddressesByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListBlacklistAddressesByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListBlacklistAddressesByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListBlacklistAddressesByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListBlacklistAddressesByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListBlacklistAddressesByFilterRequestValidationError) ErrorName() string {
+	return "ListBlacklistAddressesByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListBlacklistAddressesByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListBlacklistAddressesByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListBlacklistAddressesByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListBlacklistAddressesByFilterRequestValidationError{}
+
+var _ListBlacklistAddressesByFilterRequest_BlacklistAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ListBlacklistAddressesByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListBlacklistAddressesByFilterResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *ListBlacklistAddressesByFilterResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ListBlacklistAddressesByFilterResponse with the rules defined in the proto
+// definition for this message. If any rules are violated, the result is a
+// list of violation errors wrapped in
+// ListBlacklistAddressesByFilterResponseMultiError, or nil if none found.
+func (m *ListBlacklistAddressesByFilterResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListBlacklistAddressesByFilterResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetAddresses() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListBlacklistAddressesByFilterResponseValidationError{
+						field:  fmt.Sprintf("Addresses[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListBlacklistAddressesByFilterResponseValidationError{
+						field:  fmt.Sprintf("Addresses[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListBlacklistAddressesByFilterResponseValidationError{
+					field:  fmt.Sprintf("Addresses[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	if len(errors) > 0 {
+		return ListBlacklistAddressesByFilterResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListBlacklistAddressesByFilterResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// ListBlacklistAddressesByFilterResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ListBlacklistAddressesByFilterResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListBlacklistAddressesByFilterResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListBlacklistAddressesByFilterResponseMultiError) AllErrors() []error { return m }
+
+// ListBlacklistAddressesByFilterResponseValidationError is the validation
+// error returned by ListBlacklistAddressesByFilterResponse.Validate if the
+// designated constraints aren't met.
+type ListBlacklistAddressesByFilterResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListBlacklistAddressesByFilterResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListBlacklistAddressesByFilterResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListBlacklistAddressesByFilterResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListBlacklistAddressesByFilterResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListBlacklistAddressesByFilterResponseValidationError) ErrorName() string {
+	return "ListBlacklistAddressesByFilterResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListBlacklistAddressesByFilterResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListBlacklistAddressesByFilterResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListBlacklistAddressesByFilterResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListBlacklistAddressesByFilterResponseValidationError{}

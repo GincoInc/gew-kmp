@@ -105,6 +105,22 @@ class ListFilterType
      * Generated from protobuf enum <code>LIST_FILTER_TYPE_STAKING_HISTORY_ID = 21;</code>
      */
     const LIST_FILTER_TYPE_STAKING_HISTORY_ID = 21;
+    /**
+     * Generated from protobuf enum <code>LIST_FILTER_TYPE_PRE_TRANSACTION_THRESHOLD_ID = 22;</code>
+     */
+    const LIST_FILTER_TYPE_PRE_TRANSACTION_THRESHOLD_ID = 22;
+    /**
+     * Generated from protobuf enum <code>LIST_FILTER_TYPE_BLACKLIST_ADDRESS_ID = 23;</code>
+     */
+    const LIST_FILTER_TYPE_BLACKLIST_ADDRESS_ID = 23;
+    /**
+     * Generated from protobuf enum <code>LIST_FILTER_TYPE_PRE_TRANSACTION_ID = 24;</code>
+     */
+    const LIST_FILTER_TYPE_PRE_TRANSACTION_ID = 24;
+    /**
+     * Generated from protobuf enum <code>LIST_FILTER_TYPE_EXTERNAL_ID = 25;</code>
+     */
+    const LIST_FILTER_TYPE_EXTERNAL_ID = 25;
 
     private static $valueToName = [
         self::LIST_FILTER_TYPE_INVALID => 'LIST_FILTER_TYPE_INVALID',
@@ -129,6 +145,10 @@ class ListFilterType
         self::LIST_FILTER_TYPE_BLOCK_HASH => 'LIST_FILTER_TYPE_BLOCK_HASH',
         self::LIST_FILTER_TYPE_STAKING_VALIDATOR_ID => 'LIST_FILTER_TYPE_STAKING_VALIDATOR_ID',
         self::LIST_FILTER_TYPE_STAKING_HISTORY_ID => 'LIST_FILTER_TYPE_STAKING_HISTORY_ID',
+        self::LIST_FILTER_TYPE_PRE_TRANSACTION_THRESHOLD_ID => 'LIST_FILTER_TYPE_PRE_TRANSACTION_THRESHOLD_ID',
+        self::LIST_FILTER_TYPE_BLACKLIST_ADDRESS_ID => 'LIST_FILTER_TYPE_BLACKLIST_ADDRESS_ID',
+        self::LIST_FILTER_TYPE_PRE_TRANSACTION_ID => 'LIST_FILTER_TYPE_PRE_TRANSACTION_ID',
+        self::LIST_FILTER_TYPE_EXTERNAL_ID => 'LIST_FILTER_TYPE_EXTERNAL_ID',
     ];
 
     public static function name($value)

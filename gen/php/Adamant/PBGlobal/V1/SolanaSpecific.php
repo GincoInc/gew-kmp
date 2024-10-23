@@ -23,6 +23,18 @@ class SolanaSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.gincoinc.global.v1.SolanaEventType event_type = 2 [json_name = "eventType"];</code>
      */
     protected $event_type = 0;
+    /**
+     * Generated from protobuf field <code>string from_address = 3 [json_name = "fromAddress"];</code>
+     */
+    protected $from_address = '';
+    /**
+     * Generated from protobuf field <code>string recent_blockhash = 4 [json_name = "recentBlockhash"];</code>
+     */
+    protected $recent_blockhash = '';
+    /**
+     * Generated from protobuf field <code>uint32 priority_fee_unit_limit = 5 [json_name = "priorityFeeUnitLimit"];</code>
+     */
+    protected $priority_fee_unit_limit = 0;
 
     /**
      * Constructor.
@@ -32,6 +44,9 @@ class SolanaSpecific extends \Google\Protobuf\Internal\Message
      *
      *     @type int|string $expiration
      *     @type int $event_type
+     *     @type string $from_address
+     *     @type string $recent_blockhash
+     *     @type int $priority_fee_unit_limit
      * }
      */
     public function __construct($data = NULL) {
@@ -79,6 +94,72 @@ class SolanaSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\SolanaEventType::class);
         $this->event_type = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 3 [json_name = "fromAddress"];</code>
+     * @return string
+     */
+    public function getFromAddress()
+    {
+        return $this->from_address;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 3 [json_name = "fromAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setFromAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->from_address = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string recent_blockhash = 4 [json_name = "recentBlockhash"];</code>
+     * @return string
+     */
+    public function getRecentBlockhash()
+    {
+        return $this->recent_blockhash;
+    }
+
+    /**
+     * Generated from protobuf field <code>string recent_blockhash = 4 [json_name = "recentBlockhash"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setRecentBlockhash($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->recent_blockhash = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 priority_fee_unit_limit = 5 [json_name = "priorityFeeUnitLimit"];</code>
+     * @return int
+     */
+    public function getPriorityFeeUnitLimit()
+    {
+        return $this->priority_fee_unit_limit;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 priority_fee_unit_limit = 5 [json_name = "priorityFeeUnitLimit"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setPriorityFeeUnitLimit($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->priority_fee_unit_limit = $var;
 
         return $this;
     }

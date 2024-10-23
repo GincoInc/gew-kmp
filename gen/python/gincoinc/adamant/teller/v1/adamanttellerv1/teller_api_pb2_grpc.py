@@ -151,6 +151,21 @@ class TellerAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListHotFeeDepositAddressesRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListHotFeeDepositAddressesResponse.FromString,
                 )
+        self.CreatePreTransaction = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/CreatePreTransaction',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreatePreTransactionRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreatePreTransactionResponse.FromString,
+                )
+        self.ListPreTransactionsByFilter = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ListPreTransactionsByFilter',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListPreTransactionsByFilterRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListPreTransactionsByFilterResponse.FromString,
+                )
+        self.CancelPreTransaction = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/CancelPreTransaction',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CancelPreTransactionRequest.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                )
         self.CreateTransaction = channel.unary_unary(
                 '/adamant.teller.v1.TellerAPI/CreateTransaction',
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionRequest.SerializeToString,
@@ -356,6 +371,16 @@ class TellerAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinUpgradeToAndCallRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
                 )
+        self.ListPreTransactionThresholdsByFilter = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ListPreTransactionThresholdsByFilter',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListPreTransactionThresholdsByFilterRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListPreTransactionThresholdsByFilterResponse.FromString,
+                )
+        self.ListBlacklistAddressesByFilter = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ListBlacklistAddressesByFilter',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressesByFilterRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressesByFilterResponse.FromString,
+                )
 
 
 class TellerAPIServicer(object):
@@ -519,6 +544,25 @@ class TellerAPIServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListHotFeeDepositAddresses(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreatePreTransaction(self, request, context):
+        """PreTransaction
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListPreTransactionsByFilter(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CancelPreTransaction(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -777,6 +821,20 @@ class TellerAPIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListPreTransactionThresholdsByFilter(self, request, context):
+        """PreTransactionThreshold
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListBlacklistAddressesByFilter(self, request, context):
+        """BlacklistAddress
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TellerAPIServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -909,6 +967,21 @@ def add_TellerAPIServicer_to_server(servicer, server):
                     servicer.ListHotFeeDepositAddresses,
                     request_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListHotFeeDepositAddressesRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListHotFeeDepositAddressesResponse.SerializeToString,
+            ),
+            'CreatePreTransaction': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreatePreTransaction,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreatePreTransactionRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreatePreTransactionResponse.SerializeToString,
+            ),
+            'ListPreTransactionsByFilter': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPreTransactionsByFilter,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListPreTransactionsByFilterRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListPreTransactionsByFilterResponse.SerializeToString,
+            ),
+            'CancelPreTransaction': grpc.unary_unary_rpc_method_handler(
+                    servicer.CancelPreTransaction,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CancelPreTransactionRequest.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'CreateTransaction': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateTransaction,
@@ -1114,6 +1187,16 @@ def add_TellerAPIServicer_to_server(servicer, server):
                     servicer.ProgmatCoinUpgradeToAndCall,
                     request_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinUpgradeToAndCallRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.SerializeToString,
+            ),
+            'ListPreTransactionThresholdsByFilter': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPreTransactionThresholdsByFilter,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListPreTransactionThresholdsByFilterRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListPreTransactionThresholdsByFilterResponse.SerializeToString,
+            ),
+            'ListBlacklistAddressesByFilter': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListBlacklistAddressesByFilter,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressesByFilterRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressesByFilterResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1568,6 +1651,57 @@ class TellerAPI(object):
         return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListHotFeeDepositAddresses',
             gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListHotFeeDepositAddressesRequest.SerializeToString,
             gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ListHotFeeDepositAddressesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreatePreTransaction(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/CreatePreTransaction',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreatePreTransactionRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreatePreTransactionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListPreTransactionsByFilter(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListPreTransactionsByFilter',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListPreTransactionsByFilterRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListPreTransactionsByFilterResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CancelPreTransaction(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/CancelPreTransaction',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CancelPreTransactionRequest.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -2265,5 +2399,39 @@ class TellerAPI(object):
         return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ProgmatCoinUpgradeToAndCall',
             gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.ProgmatCoinUpgradeToAndCallRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateTransactionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListPreTransactionThresholdsByFilter(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListPreTransactionThresholdsByFilter',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListPreTransactionThresholdsByFilterRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListPreTransactionThresholdsByFilterResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListBlacklistAddressesByFilter(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListBlacklistAddressesByFilter',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressesByFilterRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressesByFilterResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
