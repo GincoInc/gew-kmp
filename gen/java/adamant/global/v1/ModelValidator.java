@@ -19,6 +19,8 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.FlushedAddress.class)) return new FlushedAddressValidator();
 		if (clazz.equals(adamant.global.v1.Model.EthereumFeeAddress.class)) return new EthereumFeeAddressValidator();
 		if (clazz.equals(adamant.global.v1.Model.AddressWithBalance.class)) return new AddressWithBalanceValidator();
+		if (clazz.equals(adamant.global.v1.Model.PreTransaction.class)) return new PreTransactionValidator();
+		if (clazz.equals(adamant.global.v1.Model.PreTransactionDetail.class)) return new PreTransactionDetailValidator();
 		if (clazz.equals(adamant.global.v1.Model.Transaction.class)) return new TransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.UnconfirmedTransaction.class)) return new UnconfirmedTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.TransactionMember.class)) return new TransactionMemberValidator();
@@ -130,6 +132,11 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.StakingHistoryEthereumSpecific.class)) return new StakingHistoryEthereumSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.StakingHistoryAvalancheSpecific.class)) return new StakingHistoryAvalancheSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.StakingValidator.class)) return new StakingValidatorValidator();
+		if (clazz.equals(adamant.global.v1.Model.PreTransactionThreshold.class)) return new PreTransactionThresholdValidator();
+		if (clazz.equals(adamant.global.v1.Model.PreTransactionThresholdProposal.class)) return new PreTransactionThresholdProposalValidator();
+		if (clazz.equals(adamant.global.v1.Model.BlacklistAddress.class)) return new BlacklistAddressValidator();
+		if (clazz.equals(adamant.global.v1.Model.BlacklistAddressProposal.class)) return new BlacklistAddressProposalValidator();
+		if (clazz.equals(adamant.global.v1.Model.BlaclistAddressDiff.class)) return new BlaclistAddressDiffValidator();
 		return null;
 	}
 
@@ -819,6 +826,80 @@ public class ModelValidator {
 	// no validation rules for FeeBalance
 
 	// no validation rules for StringFeeBalance
+
+	
+	}
+}
+/**
+	 * Validates {@code PreTransaction} protobuf objects.
+	 */
+	public static class PreTransactionValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.PreTransaction> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.PreTransaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for PreTransactionId
+
+	// no validation rules for OwnerId
+
+	// no validation rules for ExternalId
+
+	// no validation rules for Coin
+
+	// no validation rules for Network
+
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getDetailsList(), item -> {
+				
+			// Validate details
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+	// no validation rules for State
+
+	// no validation rules for TransactionId
+
+	
+			// Validate create_time
+			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+			// Validate update_time
+			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+	}
+}
+/**
+	 * Validates {@code PreTransactionDetail} protobuf objects.
+	 */
+	public static class PreTransactionDetailValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.PreTransactionDetail> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.PreTransactionDetail proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Address
+
+	// no validation rules for StringValue
 
 	
 	}
@@ -2055,12 +2136,24 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.SolanaSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Expiration
 
 	// no validation rules for EventType
+
+	// no validation rules for FromAddress
+
+	// no validation rules for RecentBlockhash
+
+	// no validation rules for PriorityFeeUnitLimit
 
 	
 	}
@@ -4489,6 +4582,195 @@ public class ModelValidator {
 	
 			// Validate update_time
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+	}
+}
+/**
+	 * Validates {@code PreTransactionThreshold} protobuf objects.
+	 */
+	public static class PreTransactionThresholdValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.PreTransactionThreshold> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.PreTransactionThreshold proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for PreTransactionThresholdId
+
+	// no validation rules for Coin
+
+	// no validation rules for Network
+
+	// no validation rules for Value
+
+	
+			// Validate proposal
+			if (proto.hasProposal()) index.validatorFor(proto.getProposal()).assertValid(proto.getProposal());
+	
+			// Validate create_time
+			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+			// Validate update_time
+			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+	}
+}
+/**
+	 * Validates {@code PreTransactionThresholdProposal} protobuf objects.
+	 */
+	public static class PreTransactionThresholdProposalValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.PreTransactionThresholdProposal> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.PreTransactionThresholdProposal proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for PreTransactionThresholdId
+
+	// no validation rules for ProposalId
+
+	// no validation rules for RequesterAccountId
+
+	// no validation rules for RequesterName
+
+	// no validation rules for ApproverAccountId
+
+	// no validation rules for ApproverName
+
+	// no validation rules for ProposedValue
+
+	// no validation rules for IsReviewed
+
+	
+	}
+}
+/**
+	 * Validates {@code BlacklistAddress} protobuf objects.
+	 */
+	public static class BlacklistAddressValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.BlacklistAddress> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.BlacklistAddress proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for BlacklistAddressId
+
+	// no validation rules for BlacklistAddressProposalId
+
+	// no validation rules for Network
+
+	// no validation rules for Address
+
+	// no validation rules for IsActivated
+
+	// no validation rules for Status
+
+	// no validation rules for ExternalId
+
+	
+			// Validate create_time
+			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+			// Validate update_time
+			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+			// Validate proposal
+			if (proto.hasProposal()) index.validatorFor(proto.getProposal()).assertValid(proto.getProposal());
+	
+	}
+}
+/**
+	 * Validates {@code BlacklistAddressProposal} protobuf objects.
+	 */
+	public static class BlacklistAddressProposalValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.BlacklistAddressProposal> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.BlacklistAddressProposal proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for BlacklistAddressProposalId
+
+	// no validation rules for BlacklistAddressId
+
+	// no validation rules for RequesterAccountId
+
+	// no validation rules for RequesterName
+
+	// no validation rules for ApproverAccountId
+
+	// no validation rules for ApproverName
+
+	
+			// Validate diff
+			if (proto.hasDiff()) index.validatorFor(proto.getDiff()).assertValid(proto.getDiff());
+	
+	}
+}
+/**
+	 * Validates {@code BlaclistAddressDiff} protobuf objects.
+	 */
+	public static class BlaclistAddressDiffValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.BlaclistAddressDiff> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.BlaclistAddressDiff proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for IsActivated
+
 	
 	}
 }

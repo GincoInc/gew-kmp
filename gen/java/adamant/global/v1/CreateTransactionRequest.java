@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     txOutputs_ = java.util.Collections.emptyList();
     address_ = "";
     stringValue_ = "";
+    preTransactionId_ = "";
   }
 
   @java.lang.Override
@@ -42,6 +43,7 @@ private static final long serialVersionUID = 0L;
             adamant.global.v1.CreateTransactionRequest.class, adamant.global.v1.CreateTransactionRequest.Builder.class);
   }
 
+  private int bitField0_;
   public static final int WALLET_ID_FIELD_NUMBER = 1;
   @SuppressWarnings("serial")
   private volatile java.lang.Object walletId_ = "";
@@ -571,6 +573,53 @@ private static final long serialVersionUID = 0L;
     return utxoSpecific_ == null ? adamant.global.v1.UtxoSpecific.getDefaultInstance() : utxoSpecific_;
   }
 
+  public static final int PRE_TRANSACTION_ID_FIELD_NUMBER = 21;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object preTransactionId_ = "";
+  /**
+   * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
+   * @return Whether the preTransactionId field is set.
+   */
+  @java.lang.Override
+  public boolean hasPreTransactionId() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
+   * @return The preTransactionId.
+   */
+  @java.lang.Override
+  public java.lang.String getPreTransactionId() {
+    java.lang.Object ref = preTransactionId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      preTransactionId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
+   * @return The bytes for preTransactionId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getPreTransactionIdBytes() {
+    java.lang.Object ref = preTransactionId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      preTransactionId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -644,6 +693,9 @@ private static final long serialVersionUID = 0L;
     }
     if (avalancheSpecific_ != null) {
       output.writeMessage(20, getAvalancheSpecific());
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 21, preTransactionId_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -730,6 +782,9 @@ private static final long serialVersionUID = 0L;
     if (avalancheSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(20, getAvalancheSpecific());
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(21, preTransactionId_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -825,6 +880,11 @@ private static final long serialVersionUID = 0L;
       if (!getUtxoSpecific()
           .equals(other.getUtxoSpecific())) return false;
     }
+    if (hasPreTransactionId() != other.hasPreTransactionId()) return false;
+    if (hasPreTransactionId()) {
+      if (!getPreTransactionId()
+          .equals(other.getPreTransactionId())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -905,6 +965,10 @@ private static final long serialVersionUID = 0L;
     if (hasUtxoSpecific()) {
       hash = (37 * hash) + UTXO_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getUtxoSpecific().hashCode();
+    }
+    if (hasPreTransactionId()) {
+      hash = (37 * hash) + PRE_TRANSACTION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getPreTransactionId().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -1115,6 +1179,7 @@ private static final long serialVersionUID = 0L;
         utxoSpecificBuilder_.dispose();
         utxoSpecificBuilder_ = null;
       }
+      preTransactionId_ = "";
       return this;
     }
 
@@ -1244,6 +1309,12 @@ private static final long serialVersionUID = 0L;
             ? utxoSpecific_
             : utxoSpecificBuilder_.build();
       }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.preTransactionId_ = preTransactionId_;
+        to_bitField0_ |= 0x00000001;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1378,6 +1449,11 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasUtxoSpecific()) {
         mergeUtxoSpecific(other.getUtxoSpecific());
+      }
+      if (other.hasPreTransactionId()) {
+        preTransactionId_ = other.preTransactionId_;
+        bitField0_ |= 0x00100000;
+        onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1539,6 +1615,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00040000;
               break;
             } // case 162
+            case 170: {
+              preTransactionId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 170
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -3653,6 +3734,85 @@ private static final long serialVersionUID = 0L;
         utxoSpecific_ = null;
       }
       return utxoSpecificBuilder_;
+    }
+
+    private java.lang.Object preTransactionId_ = "";
+    /**
+     * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
+     * @return Whether the preTransactionId field is set.
+     */
+    public boolean hasPreTransactionId() {
+      return ((bitField0_ & 0x00100000) != 0);
+    }
+    /**
+     * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
+     * @return The preTransactionId.
+     */
+    public java.lang.String getPreTransactionId() {
+      java.lang.Object ref = preTransactionId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        preTransactionId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
+     * @return The bytes for preTransactionId.
+     */
+    public com.google.protobuf.ByteString
+        getPreTransactionIdBytes() {
+      java.lang.Object ref = preTransactionId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        preTransactionId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
+     * @param value The preTransactionId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPreTransactionId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      preTransactionId_ = value;
+      bitField0_ |= 0x00100000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPreTransactionId() {
+      preTransactionId_ = getDefaultInstance().getPreTransactionId();
+      bitField0_ = (bitField0_ & ~0x00100000);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for preTransactionId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPreTransactionIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      preTransactionId_ = value;
+      bitField0_ |= 0x00100000;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

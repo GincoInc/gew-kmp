@@ -53,6 +53,10 @@ type TellerAPIClient interface {
 	UpdateAddressBalance(ctx context.Context, in *adamantglobalv1.UpdateAddressBalanceRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	ListColdFeeDepositAddresses(ctx context.Context, in *ListColdFeeDepositAddressesRequest, opts ...grpc.CallOption) (*ListColdFeeDepositAddressesResponse, error)
 	ListHotFeeDepositAddresses(ctx context.Context, in *ListHotFeeDepositAddressesRequest, opts ...grpc.CallOption) (*ListHotFeeDepositAddressesResponse, error)
+	// PreTransaction
+	CreatePreTransaction(ctx context.Context, in *adamantglobalv1.CreatePreTransactionRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreatePreTransactionResponse, error)
+	ListPreTransactionsByFilter(ctx context.Context, in *adamantglobalv1.ListPreTransactionsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListPreTransactionsByFilterResponse, error)
+	CancelPreTransaction(ctx context.Context, in *adamantglobalv1.CancelPreTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	CreateTransaction(ctx context.Context, in *adamantglobalv1.CreateTransactionRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
 	CreateContractCreationTransaction(ctx context.Context, in *adamantglobalv1.CreateContractCreationTransactionRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateContractCreationTransactionResponse, error)
 	SignTransaction(ctx context.Context, in *SignTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -101,6 +105,10 @@ type TellerAPIClient interface {
 	ProgmatCoinUnpause(ctx context.Context, in *ProgmatCoinUnpauseRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinGrantWhiteAndBlackLister(ctx context.Context, in *ProgmatCoinGrantWhiteAndBlackListerRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinUpgradeToAndCall(ctx context.Context, in *ProgmatCoinUpgradeToAndCallRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
+	// PreTransactionThreshold
+	ListPreTransactionThresholdsByFilter(ctx context.Context, in *adamantglobalv1.ListPreTransactionThresholdsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListPreTransactionThresholdsByFilterResponse, error)
+	// BlacklistAddress
+	ListBlacklistAddressesByFilter(ctx context.Context, in *adamantglobalv1.ListBlacklistAddressesByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListBlacklistAddressesByFilterResponse, error)
 }
 
 type tellerAPIClient struct {
@@ -339,6 +347,33 @@ func (c *tellerAPIClient) ListColdFeeDepositAddresses(ctx context.Context, in *L
 func (c *tellerAPIClient) ListHotFeeDepositAddresses(ctx context.Context, in *ListHotFeeDepositAddressesRequest, opts ...grpc.CallOption) (*ListHotFeeDepositAddressesResponse, error) {
 	out := new(ListHotFeeDepositAddressesResponse)
 	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListHotFeeDepositAddresses", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) CreatePreTransaction(ctx context.Context, in *adamantglobalv1.CreatePreTransactionRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreatePreTransactionResponse, error) {
+	out := new(adamantglobalv1.CreatePreTransactionResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/CreatePreTransaction", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) ListPreTransactionsByFilter(ctx context.Context, in *adamantglobalv1.ListPreTransactionsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListPreTransactionsByFilterResponse, error) {
+	out := new(adamantglobalv1.ListPreTransactionsByFilterResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListPreTransactionsByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) CancelPreTransaction(ctx context.Context, in *adamantglobalv1.CancelPreTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/CancelPreTransaction", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -714,6 +749,24 @@ func (c *tellerAPIClient) ProgmatCoinUpgradeToAndCall(ctx context.Context, in *P
 	return out, nil
 }
 
+func (c *tellerAPIClient) ListPreTransactionThresholdsByFilter(ctx context.Context, in *adamantglobalv1.ListPreTransactionThresholdsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListPreTransactionThresholdsByFilterResponse, error) {
+	out := new(adamantglobalv1.ListPreTransactionThresholdsByFilterResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListPreTransactionThresholdsByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) ListBlacklistAddressesByFilter(ctx context.Context, in *adamantglobalv1.ListBlacklistAddressesByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListBlacklistAddressesByFilterResponse, error) {
+	out := new(adamantglobalv1.ListBlacklistAddressesByFilterResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListBlacklistAddressesByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TellerAPIServer is the server API for TellerAPI service.
 // All implementations should embed UnimplementedTellerAPIServer
 // for forward compatibility
@@ -747,6 +800,10 @@ type TellerAPIServer interface {
 	UpdateAddressBalance(context.Context, *adamantglobalv1.UpdateAddressBalanceRequest) (*emptypb.Empty, error)
 	ListColdFeeDepositAddresses(context.Context, *ListColdFeeDepositAddressesRequest) (*ListColdFeeDepositAddressesResponse, error)
 	ListHotFeeDepositAddresses(context.Context, *ListHotFeeDepositAddressesRequest) (*ListHotFeeDepositAddressesResponse, error)
+	// PreTransaction
+	CreatePreTransaction(context.Context, *adamantglobalv1.CreatePreTransactionRequest) (*adamantglobalv1.CreatePreTransactionResponse, error)
+	ListPreTransactionsByFilter(context.Context, *adamantglobalv1.ListPreTransactionsByFilterRequest) (*adamantglobalv1.ListPreTransactionsByFilterResponse, error)
+	CancelPreTransaction(context.Context, *adamantglobalv1.CancelPreTransactionRequest) (*emptypb.Empty, error)
 	CreateTransaction(context.Context, *adamantglobalv1.CreateTransactionRequest) (*adamantglobalv1.CreateTransactionResponse, error)
 	CreateContractCreationTransaction(context.Context, *adamantglobalv1.CreateContractCreationTransactionRequest) (*adamantglobalv1.CreateContractCreationTransactionResponse, error)
 	SignTransaction(context.Context, *SignTransactionRequest) (*emptypb.Empty, error)
@@ -795,6 +852,10 @@ type TellerAPIServer interface {
 	ProgmatCoinUnpause(context.Context, *ProgmatCoinUnpauseRequest) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinGrantWhiteAndBlackLister(context.Context, *ProgmatCoinGrantWhiteAndBlackListerRequest) (*adamantglobalv1.CreateTransactionResponse, error)
 	ProgmatCoinUpgradeToAndCall(context.Context, *ProgmatCoinUpgradeToAndCallRequest) (*adamantglobalv1.CreateTransactionResponse, error)
+	// PreTransactionThreshold
+	ListPreTransactionThresholdsByFilter(context.Context, *adamantglobalv1.ListPreTransactionThresholdsByFilterRequest) (*adamantglobalv1.ListPreTransactionThresholdsByFilterResponse, error)
+	// BlacklistAddress
+	ListBlacklistAddressesByFilter(context.Context, *adamantglobalv1.ListBlacklistAddressesByFilterRequest) (*adamantglobalv1.ListBlacklistAddressesByFilterResponse, error)
 }
 
 // UnimplementedTellerAPIServer should be embedded to have forward compatible implementations.
@@ -878,6 +939,15 @@ func (UnimplementedTellerAPIServer) ListColdFeeDepositAddresses(context.Context,
 }
 func (UnimplementedTellerAPIServer) ListHotFeeDepositAddresses(context.Context, *ListHotFeeDepositAddressesRequest) (*ListHotFeeDepositAddressesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListHotFeeDepositAddresses not implemented")
+}
+func (UnimplementedTellerAPIServer) CreatePreTransaction(context.Context, *adamantglobalv1.CreatePreTransactionRequest) (*adamantglobalv1.CreatePreTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePreTransaction not implemented")
+}
+func (UnimplementedTellerAPIServer) ListPreTransactionsByFilter(context.Context, *adamantglobalv1.ListPreTransactionsByFilterRequest) (*adamantglobalv1.ListPreTransactionsByFilterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListPreTransactionsByFilter not implemented")
+}
+func (UnimplementedTellerAPIServer) CancelPreTransaction(context.Context, *adamantglobalv1.CancelPreTransactionRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CancelPreTransaction not implemented")
 }
 func (UnimplementedTellerAPIServer) CreateTransaction(context.Context, *adamantglobalv1.CreateTransactionRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTransaction not implemented")
@@ -1001,6 +1071,12 @@ func (UnimplementedTellerAPIServer) ProgmatCoinGrantWhiteAndBlackLister(context.
 }
 func (UnimplementedTellerAPIServer) ProgmatCoinUpgradeToAndCall(context.Context, *ProgmatCoinUpgradeToAndCallRequest) (*adamantglobalv1.CreateTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ProgmatCoinUpgradeToAndCall not implemented")
+}
+func (UnimplementedTellerAPIServer) ListPreTransactionThresholdsByFilter(context.Context, *adamantglobalv1.ListPreTransactionThresholdsByFilterRequest) (*adamantglobalv1.ListPreTransactionThresholdsByFilterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListPreTransactionThresholdsByFilter not implemented")
+}
+func (UnimplementedTellerAPIServer) ListBlacklistAddressesByFilter(context.Context, *adamantglobalv1.ListBlacklistAddressesByFilterRequest) (*adamantglobalv1.ListBlacklistAddressesByFilterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListBlacklistAddressesByFilter not implemented")
 }
 
 // UnsafeTellerAPIServer may be embedded to opt out of forward compatibility for this service.
@@ -1478,6 +1554,60 @@ func _TellerAPI_ListHotFeeDepositAddresses_Handler(srv interface{}, ctx context.
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TellerAPIServer).ListHotFeeDepositAddresses(ctx, req.(*ListHotFeeDepositAddressesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_CreatePreTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.CreatePreTransactionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).CreatePreTransaction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/CreatePreTransaction",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).CreatePreTransaction(ctx, req.(*adamantglobalv1.CreatePreTransactionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_ListPreTransactionsByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ListPreTransactionsByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListPreTransactionsByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListPreTransactionsByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListPreTransactionsByFilter(ctx, req.(*adamantglobalv1.ListPreTransactionsByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_CancelPreTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.CancelPreTransactionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).CancelPreTransaction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/CancelPreTransaction",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).CancelPreTransaction(ctx, req.(*adamantglobalv1.CancelPreTransactionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2220,6 +2350,42 @@ func _TellerAPI_ProgmatCoinUpgradeToAndCall_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TellerAPI_ListPreTransactionThresholdsByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ListPreTransactionThresholdsByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListPreTransactionThresholdsByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListPreTransactionThresholdsByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListPreTransactionThresholdsByFilter(ctx, req.(*adamantglobalv1.ListPreTransactionThresholdsByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_ListBlacklistAddressesByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ListBlacklistAddressesByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListBlacklistAddressesByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListBlacklistAddressesByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListBlacklistAddressesByFilter(ctx, req.(*adamantglobalv1.ListBlacklistAddressesByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TellerAPI_ServiceDesc is the grpc.ServiceDesc for TellerAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -2330,6 +2496,18 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListHotFeeDepositAddresses",
 			Handler:    _TellerAPI_ListHotFeeDepositAddresses_Handler,
+		},
+		{
+			MethodName: "CreatePreTransaction",
+			Handler:    _TellerAPI_CreatePreTransaction_Handler,
+		},
+		{
+			MethodName: "ListPreTransactionsByFilter",
+			Handler:    _TellerAPI_ListPreTransactionsByFilter_Handler,
+		},
+		{
+			MethodName: "CancelPreTransaction",
+			Handler:    _TellerAPI_CancelPreTransaction_Handler,
 		},
 		{
 			MethodName: "CreateTransaction",
@@ -2494,6 +2672,14 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ProgmatCoinUpgradeToAndCall",
 			Handler:    _TellerAPI_ProgmatCoinUpgradeToAndCall_Handler,
+		},
+		{
+			MethodName: "ListPreTransactionThresholdsByFilter",
+			Handler:    _TellerAPI_ListPreTransactionThresholdsByFilter_Handler,
+		},
+		{
+			MethodName: "ListBlacklistAddressesByFilter",
+			Handler:    _TellerAPI_ListBlacklistAddressesByFilter_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
