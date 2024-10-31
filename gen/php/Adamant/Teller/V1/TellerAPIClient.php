@@ -388,6 +388,49 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * PreTransaction
+     * @param \Adamant\Global\V1\CreatePreTransactionRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function CreatePreTransaction(\Adamant\Global\V1\CreatePreTransactionRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/CreatePreTransaction',
+        $argument,
+        ['\Adamant\Global\V1\CreatePreTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\ListPreTransactionsByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListPreTransactionsByFilter(\Adamant\Global\V1\ListPreTransactionsByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListPreTransactionsByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListPreTransactionsByFilterResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\CancelPreTransactionRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function CancelPreTransaction(\Adamant\Global\V1\CancelPreTransactionRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/CancelPreTransaction',
+        $argument,
+        ['\Google\Protobuf\GPBEmpty', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\CreateTransactionRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -965,6 +1008,36 @@ class TellerAPIClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ProgmatCoinUpgradeToAndCall',
         $argument,
         ['\Adamant\Global\V1\CreateTransactionResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * PreTransactionThreshold
+     * @param \Adamant\Global\V1\ListPreTransactionThresholdsByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListPreTransactionThresholdsByFilter(\Adamant\Global\V1\ListPreTransactionThresholdsByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListPreTransactionThresholdsByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListPreTransactionThresholdsByFilterResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * BlacklistAddress
+     * @param \Adamant\Global\V1\ListBlacklistAddressesByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListBlacklistAddressesByFilter(\Adamant\Global\V1\ListBlacklistAddressesByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListBlacklistAddressesByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListBlacklistAddressesByFilterResponse', 'decode'],
         $metadata, $options);
     }
 

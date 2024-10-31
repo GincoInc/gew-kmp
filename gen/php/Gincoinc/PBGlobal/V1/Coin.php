@@ -437,6 +437,78 @@ class Coin
      * Generated from protobuf enum <code>COIN_ERC20_DEVCOIN2 = 10030;</code>
      */
     const COIN_ERC20_DEVCOIN2 = 10030;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_MTBJJPY = 10031;</code>
+     */
+    const COIN_ERC20_MTBJJPY = 10031;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_MTBJUSD = 10032;</code>
+     */
+    const COIN_ERC20_MTBJUSD = 10032;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_PJPY = 10033;</code>
+     */
+    const COIN_ERC20_PJPY = 10033;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_PUSD = 10034;</code>
+     */
+    const COIN_ERC20_PUSD = 10034;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_UATJPY = 10035;</code>
+     */
+    const COIN_ERC20_UATJPY = 10035;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_UATUSD = 10036;</code>
+     */
+    const COIN_ERC20_UATUSD = 10036;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN21 = 10037;</code>
+     */
+    const COIN_ERC20_COIN21 = 10037;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN22 = 10038;</code>
+     */
+    const COIN_ERC20_COIN22 = 10038;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN23 = 10039;</code>
+     */
+    const COIN_ERC20_COIN23 = 10039;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN24 = 10040;</code>
+     */
+    const COIN_ERC20_COIN24 = 10040;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN25 = 10041;</code>
+     */
+    const COIN_ERC20_COIN25 = 10041;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN26 = 10042;</code>
+     */
+    const COIN_ERC20_COIN26 = 10042;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN27 = 10043;</code>
+     */
+    const COIN_ERC20_COIN27 = 10043;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN28 = 10044;</code>
+     */
+    const COIN_ERC20_COIN28 = 10044;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN29 = 10045;</code>
+     */
+    const COIN_ERC20_COIN29 = 10045;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN30 = 10046;</code>
+     */
+    const COIN_ERC20_COIN30 = 10046;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN31 = 10047;</code>
+     */
+    const COIN_ERC20_COIN31 = 10047;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_COIN32 = 10048;</code>
+     */
+    const COIN_ERC20_COIN32 = 10048;
 
     private static $valueToName = [
         self::COIN_INVALID => 'COIN_INVALID',
@@ -542,6 +614,24 @@ class Coin
         self::COIN_ERC20_PREUAT4 => 'COIN_ERC20_PREUAT4',
         self::COIN_ERC20_DEVCOIN1 => 'COIN_ERC20_DEVCOIN1',
         self::COIN_ERC20_DEVCOIN2 => 'COIN_ERC20_DEVCOIN2',
+        self::COIN_ERC20_MTBJJPY => 'COIN_ERC20_MTBJJPY',
+        self::COIN_ERC20_MTBJUSD => 'COIN_ERC20_MTBJUSD',
+        self::COIN_ERC20_PJPY => 'COIN_ERC20_PJPY',
+        self::COIN_ERC20_PUSD => 'COIN_ERC20_PUSD',
+        self::COIN_ERC20_UATJPY => 'COIN_ERC20_UATJPY',
+        self::COIN_ERC20_UATUSD => 'COIN_ERC20_UATUSD',
+        self::COIN_ERC20_COIN21 => 'COIN_ERC20_COIN21',
+        self::COIN_ERC20_COIN22 => 'COIN_ERC20_COIN22',
+        self::COIN_ERC20_COIN23 => 'COIN_ERC20_COIN23',
+        self::COIN_ERC20_COIN24 => 'COIN_ERC20_COIN24',
+        self::COIN_ERC20_COIN25 => 'COIN_ERC20_COIN25',
+        self::COIN_ERC20_COIN26 => 'COIN_ERC20_COIN26',
+        self::COIN_ERC20_COIN27 => 'COIN_ERC20_COIN27',
+        self::COIN_ERC20_COIN28 => 'COIN_ERC20_COIN28',
+        self::COIN_ERC20_COIN29 => 'COIN_ERC20_COIN29',
+        self::COIN_ERC20_COIN30 => 'COIN_ERC20_COIN30',
+        self::COIN_ERC20_COIN31 => 'COIN_ERC20_COIN31',
+        self::COIN_ERC20_COIN32 => 'COIN_ERC20_COIN32',
     ];
 
     public static function name($value)

@@ -765,6 +765,75 @@ message ImportAddressRequest {
 }
 
 // -----------------------------------------------------------------------------
+// PreTransaction
+// -----------------------------------------------------------------------------
+
+message CreatePreTransactionRequest {
+  gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+
+  gincoinc.global.v1.Network network = 2 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  string external_id = 3 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+
+  // Use single format for single recipient transaction and multi-recipient transaction
+  repeated PreTransactionDetail details = 4;
+}
+
+message CreatePreTransactionResponse {
+  string pre_transaction_id = 1;
+}
+
+message CancelPreTransactionRequest {
+  string pre_transaction_id = 1;
+}
+
+message ListPreTransactionsByFilterRequest {
+  ListFilterType filter_type = 1 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+
+  optional string pre_transaction_id = 2;
+
+  optional string external_id = 3;
+
+  optional gincoinc.global.v1.Coin coin = 4 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  optional gincoinc.global.v1.Network network = 5 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  repeated PreTransactionState pre_transaction_state = 6;
+
+  optional google.protobuf.Timestamp start_time = 7;
+  optional google.protobuf.Timestamp end_time = 8;
+
+  optional uint32 page_size = 9 [(validate.rules).uint32.lte = 100];
+
+  optional string page_token = 10 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
+}
+
+message ListPreTransactionsByFilterResponse {
+  repeated PreTransaction pre_transactions = 1;
+  string next_page_token = 2;
+}
+
+// -----------------------------------------------------------------------------
 // Transaction
 // -----------------------------------------------------------------------------
 
@@ -791,6 +860,9 @@ message CreateTransactionRequest {
   adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19;
   adamant.global.v1.CreateTransactionAvalancheSpecific avalanche_specific = 20;
   adamant.global.v1.UtxoSpecific utxo_specific = 18;
+  optional string pre_transaction_id = 21 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message CreateTransactionResponse {
@@ -2346,3 +2418,98 @@ message UpdateMailSettingsRequest {
 }
 
 message GetMailSettingsRequest {}
+
+// -----------------------------------------------------------------------------
+// PreTransactionThreshold
+// -----------------------------------------------------------------------------
+
+message ListPreTransactionThresholdsByFilterRequest {
+  ListFilterType filter_type = 1 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+
+  optional string pre_transaction_threshold_id = 2;
+
+  optional gincoinc.global.v1.Coin coin = 3 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  optional gincoinc.global.v1.Network network = 4 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  optional uint32 page_size = 5 [(validate.rules).uint32.lte = 100];
+
+  optional string page_token = 6 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
+}
+
+message ListPreTransactionThresholdsByFilterResponse {
+  repeated PreTransactionThreshold pre_transaction_thresholds = 1;
+  string next_page_token = 2;
+}
+
+message CreatePreTransactionThresholdRequest {
+  gincoinc.global.v1.Coin coin = 1;
+  gincoinc.global.v1.Network network = 2;
+  double value = 3;
+}
+
+message CreatePreTransactionThresholdResponse {
+  string pre_transaction_threshold_id = 1;
+}
+
+message UpdatePreTransactionThresholdRequest {
+  string pre_transaction_threshold_id = 1;
+  double value = 2;
+}
+
+message ReviewPreTransactionThresholdProposalRequest {
+  string pre_transaction_threshold_id = 1;
+  bool approve = 2;
+}
+
+// -----------------------------------------------------------------------------
+// BlacklistAddress
+// -----------------------------------------------------------------------------
+
+message ListBlacklistAddressesByFilterRequest {
+  ListFilterType filter_type = 1 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  optional string blacklist_address_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+
+  optional string address = 3;
+
+  optional string file_id = 4;
+
+  optional bool is_activated = 5;
+
+  optional BlacklistAddressStatus status = 6;
+
+  optional gincoinc.global.v1.Network network = 7 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  optional google.protobuf.Timestamp start_time = 8;
+
+  optional google.protobuf.Timestamp end_time = 9;
+
+  optional uint32 page_size = 10 [(validate.rules).uint32.lte = 100];
+
+  optional string page_token = 11 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
+}
+
+message ListBlacklistAddressesByFilterResponse {
+  repeated BlacklistAddress addresses = 1;
+  string next_page_token = 2;
+}
