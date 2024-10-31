@@ -33,6 +33,7 @@ message AuditLog {
   string wallet_group_id = 34;
   string wallet_group_name = 35;
   repeated string wallet_names = 36;
+  string pre_transaction_id = 50;
   string transaction_id = 15;
   gincoinc.global.v1.Coin coin_type = 16;
   string string_value = 17;
@@ -57,4 +58,10 @@ message AuditLog {
   google.protobuf.Timestamp create_time = 33;
   repeated adamant.global.v1.MailType enabled_mails = 41;
   repeated adamant.global.v1.MailType disabled_mails = 42;
+  gincoinc.global.v1.Network network = 44;
+  double pre_transaction_threshold = 45;
+  string pre_transaction_threshold_id = 46;
+  string blacklist_address_id = 47;
+  string file_name = 48;
+  int64 address_count = 49;
 }
