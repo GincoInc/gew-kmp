@@ -215,6 +215,14 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 address_count = 49 [json_name = "addressCount"];</code>
      */
     protected $address_count = 0;
+    /**
+     * Generated from protobuf field <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+     */
+    protected $previous_transaction_id = '';
+    /**
+     * Generated from protobuf field <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+     */
+    protected $new_transaction_id = '';
 
     /**
      * Constructor.
@@ -272,6 +280,8 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      *     @type string $blacklist_address_id
      *     @type string $file_name
      *     @type int|string $address_count
+     *     @type string $previous_transaction_id
+     *     @type string $new_transaction_id
      * }
      */
     public function __construct($data = NULL) {
@@ -1395,6 +1405,50 @@ class AuditLog extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->address_count = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+     * @return string
+     */
+    public function getPreviousTransactionId()
+    {
+        return $this->previous_transaction_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setPreviousTransactionId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->previous_transaction_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+     * @return string
+     */
+    public function getNewTransactionId()
+    {
+        return $this->new_transaction_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setNewTransactionId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->new_transaction_id = $var;
 
         return $this;
     }

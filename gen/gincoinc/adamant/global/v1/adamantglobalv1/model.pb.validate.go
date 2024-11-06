@@ -6579,6 +6579,14 @@ func (m *PolygonSpecific) validate(all bool) error {
 
 	// no validation rules for IsNextNonce
 
+	// no validation rules for Data
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
+	// no validation rules for ChainId
+
 	if len(errors) > 0 {
 		return PolygonSpecificMultiError(errors)
 	}
@@ -6962,6 +6970,16 @@ func (m *AvalancheSpecific) validate(all bool) error {
 		}
 	}
 
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
+	// no validation rules for ChainId
+
+	// no validation rules for MaxPriorityFeePerGas
+
+	// no validation rules for TxType
+
 	if len(errors) > 0 {
 		return AvalancheSpecificMultiError(errors)
 	}
@@ -7069,6 +7087,12 @@ func (m *OasysSpecific) validate(all bool) error {
 	// no validation rules for Nonce
 
 	// no validation rules for IsNextNonce
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
+	// no validation rules for ChainId
 
 	if len(errors) > 0 {
 		return OasysSpecificMultiError(errors)
@@ -8048,6 +8072,10 @@ func (m *BNBSmartChainSpecific) validate(all bool) error {
 	// no validation rules for Nonce
 
 	// no validation rules for IsNextNonce
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
 
 	if len(errors) > 0 {
 		return BNBSmartChainSpecificMultiError(errors)
@@ -18854,7 +18882,9 @@ func (m *BlacklistAddress) validate(all bool) error {
 
 	// no validation rules for BlacklistAddressId
 
-	// no validation rules for BlacklistAddressProposalId
+	// no validation rules for AppliedProposalId
+
+	// no validation rules for PendingProposalId
 
 	// no validation rules for Network
 
@@ -18924,41 +18954,78 @@ func (m *BlacklistAddress) validate(all bool) error {
 		}
 	}
 
-	if all {
-		switch v := interface{}(m.GetProposal()).(type) {
-		case interface{ ValidateAll() error }:
-			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, BlacklistAddressValidationError{
-					field:  "Proposal",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		case interface{ Validate() error }:
-			if err := v.Validate(); err != nil {
-				errors = append(errors, BlacklistAddressValidationError{
-					field:  "Proposal",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		}
-	} else if v, ok := interface{}(m.GetProposal()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return BlacklistAddressValidationError{
-				field:  "Proposal",
-				reason: "embedded message failed validation",
-				cause:  err,
-			}
-		}
-	}
-
 	if m.FileId != nil {
 		// no validation rules for FileId
 	}
 
 	if m.FileName != nil {
 		// no validation rules for FileName
+	}
+
+	if m.AppliedProposal != nil {
+
+		if all {
+			switch v := interface{}(m.GetAppliedProposal()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, BlacklistAddressValidationError{
+						field:  "AppliedProposal",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, BlacklistAddressValidationError{
+						field:  "AppliedProposal",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetAppliedProposal()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return BlacklistAddressValidationError{
+					field:  "AppliedProposal",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if m.PendingProposal != nil {
+
+		if all {
+			switch v := interface{}(m.GetPendingProposal()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, BlacklistAddressValidationError{
+						field:  "PendingProposal",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, BlacklistAddressValidationError{
+						field:  "PendingProposal",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetPendingProposal()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return BlacklistAddressValidationError{
+					field:  "PendingProposal",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
 	}
 
 	if len(errors) > 0 {

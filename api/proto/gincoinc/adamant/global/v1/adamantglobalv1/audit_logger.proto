@@ -64,4 +64,6 @@ message AuditLog {
   string blacklist_address_id = 47;
   string file_name = 48;
   int64 address_count = 49;
+  string previous_transaction_id = 51;
+  string new_transaction_id = 52;
 }

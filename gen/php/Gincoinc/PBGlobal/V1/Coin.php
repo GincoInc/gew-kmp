@@ -310,6 +310,10 @@ class Coin
      */
     const COIN_POLYGON_ERC20_SNPT = 73;
     /**
+     * Generated from protobuf enum <code>COIN_ERC20_RAT = 74;</code>
+     */
+    const COIN_ERC20_RAT = 74;
+    /**
      * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
      */
     const COIN_SDN = 10002;
@@ -585,6 +589,7 @@ class Coin
         self::COIN_APT => 'COIN_APT',
         self::COIN_DOGE => 'COIN_DOGE',
         self::COIN_POLYGON_ERC20_SNPT => 'COIN_POLYGON_ERC20_SNPT',
+        self::COIN_ERC20_RAT => 'COIN_ERC20_RAT',
         self::COIN_SDN => 'COIN_SDN',
         self::COIN_ERC20_SCDEV => 'COIN_ERC20_SCDEV',
         self::COIN_ERC20_SCQA => 'COIN_ERC20_SCQA',

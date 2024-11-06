@@ -460,6 +460,10 @@ message PolygonSpecific {
   uint64 gas_limit = 1;
   uint64 nonce = 2;
   bool is_next_nonce = 3;
+  string data = 4;
+  string from_address = 5;
+  string token_address = 6;
+  uint64 chain_id = 7;
 }
 
 // The model of Klaytn specific fields of transaction
@@ -484,6 +488,11 @@ message AvalancheSpecific {
   uint64 nonce = 2;
   bool is_next_nonce = 3;
   AtomicTx atomic_tx = 4;
+  string from_address = 5;
+  string token_address = 6;
+  uint64 chain_id = 7;
+  uint64 max_priority_fee_per_gas = 8;
+  gincoinc.global.v1.AvalancheTxType tx_type = 9;
 }
 
 // The model of Oasys specific fields of transaction
@@ -491,6 +500,9 @@ message OasysSpecific {
   uint64 gas_limit = 1;
   uint64 nonce = 2;
   bool is_next_nonce = 3;
+  string from_address = 4;
+  string token_address = 5;
+  uint64 chain_id = 6;
 }
 
 // The model of Xdc specific fields of transaction
@@ -565,6 +577,8 @@ message BNBSmartChainSpecific {
   uint64 gas_limit = 1;
   uint64 nonce = 2;
   bool is_next_nonce = 3;
+  string from_address = 4;
+  string token_address = 5;
 }
 
 // The model of Flare specific fields of transaction
@@ -1244,7 +1258,8 @@ message PreTransactionThresholdProposal {
 
 message BlacklistAddress {
   string blacklist_address_id = 1;
-  string blacklist_address_proposal_id = 2;
+  string applied_proposal_id = 2;
+  string pending_proposal_id = 13;
   gincoinc.global.v1.Network network = 3;
   string address = 4;
   bool is_activated = 5;
@@ -1254,7 +1269,8 @@ message BlacklistAddress {
   google.protobuf.Timestamp update_time = 9;
   optional string file_id = 10;
   optional string file_name = 11;
-  BlacklistAddressProposal proposal = 12;
+  optional BlacklistAddressProposal applied_proposal = 12;
+  optional BlacklistAddressProposal pending_proposal = 14;
 }
 
 message BlacklistAddressProposal {

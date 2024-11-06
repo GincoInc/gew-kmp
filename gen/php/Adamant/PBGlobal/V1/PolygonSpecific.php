@@ -27,6 +27,22 @@ class PolygonSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool is_next_nonce = 3 [json_name = "isNextNonce"];</code>
      */
     protected $is_next_nonce = false;
+    /**
+     * Generated from protobuf field <code>string data = 4 [json_name = "data"];</code>
+     */
+    protected $data = '';
+    /**
+     * Generated from protobuf field <code>string from_address = 5 [json_name = "fromAddress"];</code>
+     */
+    protected $from_address = '';
+    /**
+     * Generated from protobuf field <code>string token_address = 6 [json_name = "tokenAddress"];</code>
+     */
+    protected $token_address = '';
+    /**
+     * Generated from protobuf field <code>uint64 chain_id = 7 [json_name = "chainId"];</code>
+     */
+    protected $chain_id = 0;
 
     /**
      * Constructor.
@@ -37,6 +53,10 @@ class PolygonSpecific extends \Google\Protobuf\Internal\Message
      *     @type int|string $gas_limit
      *     @type int|string $nonce
      *     @type bool $is_next_nonce
+     *     @type string $data
+     *     @type string $from_address
+     *     @type string $token_address
+     *     @type int|string $chain_id
      * }
      */
     public function __construct($data = NULL) {
@@ -106,6 +126,94 @@ class PolygonSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->is_next_nonce = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string data = 4 [json_name = "data"];</code>
+     * @return string
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * Generated from protobuf field <code>string data = 4 [json_name = "data"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setData($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->data = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 5 [json_name = "fromAddress"];</code>
+     * @return string
+     */
+    public function getFromAddress()
+    {
+        return $this->from_address;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 5 [json_name = "fromAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setFromAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->from_address = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string token_address = 6 [json_name = "tokenAddress"];</code>
+     * @return string
+     */
+    public function getTokenAddress()
+    {
+        return $this->token_address;
+    }
+
+    /**
+     * Generated from protobuf field <code>string token_address = 6 [json_name = "tokenAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTokenAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->token_address = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 chain_id = 7 [json_name = "chainId"];</code>
+     * @return int|string
+     */
+    public function getChainId()
+    {
+        return $this->chain_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 chain_id = 7 [json_name = "chainId"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setChainId($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->chain_id = $var;
 
         return $this;
     }
