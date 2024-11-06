@@ -674,6 +674,30 @@ public final class AuditLogger {
      * @return The addressCount.
      */
     long getAddressCount();
+
+    /**
+     * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+     * @return The previousTransactionId.
+     */
+    java.lang.String getPreviousTransactionId();
+    /**
+     * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+     * @return The bytes for previousTransactionId.
+     */
+    com.google.protobuf.ByteString
+        getPreviousTransactionIdBytes();
+
+    /**
+     * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+     * @return The newTransactionId.
+     */
+    java.lang.String getNewTransactionId();
+    /**
+     * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+     * @return The bytes for newTransactionId.
+     */
+    com.google.protobuf.ByteString
+        getNewTransactionIdBytes();
   }
   /**
    * <pre>
@@ -739,6 +763,8 @@ public final class AuditLogger {
       preTransactionThresholdId_ = "";
       blacklistAddressId_ = "";
       fileName_ = "";
+      previousTransactionId_ = "";
+      newTransactionId_ = "";
     }
 
     @java.lang.Override
@@ -2470,6 +2496,84 @@ public final class AuditLogger {
       return addressCount_;
     }
 
+    public static final int PREVIOUS_TRANSACTION_ID_FIELD_NUMBER = 51;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object previousTransactionId_ = "";
+    /**
+     * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+     * @return The previousTransactionId.
+     */
+    @java.lang.Override
+    public java.lang.String getPreviousTransactionId() {
+      java.lang.Object ref = previousTransactionId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        previousTransactionId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+     * @return The bytes for previousTransactionId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPreviousTransactionIdBytes() {
+      java.lang.Object ref = previousTransactionId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        previousTransactionId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NEW_TRANSACTION_ID_FIELD_NUMBER = 52;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object newTransactionId_ = "";
+    /**
+     * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+     * @return The newTransactionId.
+     */
+    @java.lang.Override
+    public java.lang.String getNewTransactionId() {
+      java.lang.Object ref = newTransactionId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        newTransactionId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+     * @return The bytes for newTransactionId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNewTransactionIdBytes() {
+      java.lang.Object ref = newTransactionId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        newTransactionId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2642,6 +2746,12 @@ public final class AuditLogger {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(preTransactionId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 50, preTransactionId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(previousTransactionId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 51, previousTransactionId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(newTransactionId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 52, newTransactionId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -2852,6 +2962,12 @@ public final class AuditLogger {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(preTransactionId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(50, preTransactionId_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(previousTransactionId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(51, previousTransactionId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(newTransactionId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(52, newTransactionId_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2967,6 +3083,10 @@ public final class AuditLogger {
           .equals(other.getFileName())) return false;
       if (getAddressCount()
           != other.getAddressCount()) return false;
+      if (!getPreviousTransactionId()
+          .equals(other.getPreviousTransactionId())) return false;
+      if (!getNewTransactionId()
+          .equals(other.getNewTransactionId())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -3099,6 +3219,10 @@ public final class AuditLogger {
       hash = (37 * hash) + ADDRESS_COUNT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getAddressCount());
+      hash = (37 * hash) + PREVIOUS_TRANSACTION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getPreviousTransactionId().hashCode();
+      hash = (37 * hash) + NEW_TRANSACTION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getNewTransactionId().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3299,6 +3423,8 @@ public final class AuditLogger {
         blacklistAddressId_ = "";
         fileName_ = "";
         addressCount_ = 0L;
+        previousTransactionId_ = "";
+        newTransactionId_ = "";
         return this;
       }
 
@@ -3502,6 +3628,12 @@ public final class AuditLogger {
         }
         if (((from_bitField1_ & 0x00020000) != 0)) {
           result.addressCount_ = addressCount_;
+        }
+        if (((from_bitField1_ & 0x00040000) != 0)) {
+          result.previousTransactionId_ = previousTransactionId_;
+        }
+        if (((from_bitField1_ & 0x00080000) != 0)) {
+          result.newTransactionId_ = newTransactionId_;
         }
       }
 
@@ -3804,6 +3936,16 @@ public final class AuditLogger {
         }
         if (other.getAddressCount() != 0L) {
           setAddressCount(other.getAddressCount());
+        }
+        if (!other.getPreviousTransactionId().isEmpty()) {
+          previousTransactionId_ = other.previousTransactionId_;
+          bitField1_ |= 0x00040000;
+          onChanged();
+        }
+        if (!other.getNewTransactionId().isEmpty()) {
+          newTransactionId_ = other.newTransactionId_;
+          bitField1_ |= 0x00080000;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -4113,6 +4255,16 @@ public final class AuditLogger {
                 bitField0_ |= 0x00080000;
                 break;
               } // case 402
+              case 410: {
+                previousTransactionId_ = input.readStringRequireUtf8();
+                bitField1_ |= 0x00040000;
+                break;
+              } // case 410
+              case 418: {
+                newTransactionId_ = input.readStringRequireUtf8();
+                bitField1_ |= 0x00080000;
+                break;
+              } // case 418
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -7821,6 +7973,150 @@ public final class AuditLogger {
         onChanged();
         return this;
       }
+
+      private java.lang.Object previousTransactionId_ = "";
+      /**
+       * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+       * @return The previousTransactionId.
+       */
+      public java.lang.String getPreviousTransactionId() {
+        java.lang.Object ref = previousTransactionId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          previousTransactionId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+       * @return The bytes for previousTransactionId.
+       */
+      public com.google.protobuf.ByteString
+          getPreviousTransactionIdBytes() {
+        java.lang.Object ref = previousTransactionId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          previousTransactionId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+       * @param value The previousTransactionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPreviousTransactionId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        previousTransactionId_ = value;
+        bitField1_ |= 0x00040000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPreviousTransactionId() {
+        previousTransactionId_ = getDefaultInstance().getPreviousTransactionId();
+        bitField1_ = (bitField1_ & ~0x00040000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+       * @param value The bytes for previousTransactionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPreviousTransactionIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        previousTransactionId_ = value;
+        bitField1_ |= 0x00040000;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object newTransactionId_ = "";
+      /**
+       * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+       * @return The newTransactionId.
+       */
+      public java.lang.String getNewTransactionId() {
+        java.lang.Object ref = newTransactionId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          newTransactionId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+       * @return The bytes for newTransactionId.
+       */
+      public com.google.protobuf.ByteString
+          getNewTransactionIdBytes() {
+        java.lang.Object ref = newTransactionId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          newTransactionId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+       * @param value The newTransactionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNewTransactionId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        newTransactionId_ = value;
+        bitField1_ |= 0x00080000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNewTransactionId() {
+        newTransactionId_ = getDefaultInstance().getNewTransactionId();
+        bitField1_ = (bitField1_ & ~0x00080000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+       * @param value The bytes for newTransactionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNewTransactionIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        newTransactionId_ = value;
+        bitField1_ |= 0x00080000;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7904,7 +8200,7 @@ public final class AuditLogger {
       "v1\0325gincoinc/adamant/global/v1/adamantgl" +
       "obalv1/enum.proto\032.gincoinc/global/v1/gi" +
       "ncoincglobalv1/enum.proto\032\037google/protob" +
-      "uf/timestamp.proto\"\320\021\n\010AuditLog\022 \n\014audit" +
+      "uf/timestamp.proto\"\266\022\n\010AuditLog\022 \n\014audit" +
       "_log_id\030\001 \001(\tR\nauditLogId\022H\n\017audit_log_g" +
       "roup\030\002 \001(\0162 .adamant.global.v1.AuditLogG" +
       "roupR\rauditLogGroup\022E\n\016audit_log_type\030\003 " +
@@ -7960,10 +8256,12 @@ public final class AuditLogger {
       "shold_id\030. \001(\tR\031preTransactionThresholdI" +
       "d\0220\n\024blacklist_address_id\030/ \001(\tR\022blackli" +
       "stAddressId\022\033\n\tfile_name\0300 \001(\tR\010fileName" +
-      "\022#\n\raddress_count\0301 \001(\003R\014addressCountBLZ" +
-      "Jgithub.com/GincoInc/gew-kmp/gen/gincoin" +
-      "c/adamant/global/v1/adamantglobalv1b\006pro" +
-      "to3"
+      "\022#\n\raddress_count\0301 \001(\003R\014addressCount\0226\n" +
+      "\027previous_transaction_id\0303 \001(\tR\025previous" +
+      "TransactionId\022,\n\022new_transaction_id\0304 \001(" +
+      "\tR\020newTransactionIdBLZJgithub.com/GincoI" +
+      "nc/gew-kmp/gen/gincoinc/adamant/global/v" +
+      "1/adamantglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7977,7 +8275,7 @@ public final class AuditLogger {
     internal_static_adamant_global_v1_AuditLog_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_AuditLog_descriptor,
-        new java.lang.String[] { "AuditLogId", "AuditLogGroup", "AuditLogType", "AccountId", "AccountName", "TargetAccountId", "TargetAccountName", "Email", "RoleType", "ServiceAccountId", "ServiceAccountName", "ServiceAccountKeyId", "WalletId", "WalletName", "DestinationWalletId", "DestinationWalletName", "WalletGroupId", "WalletGroupName", "WalletNames", "PreTransactionId", "TransactionId", "CoinType", "StringValue", "TxId", "PolicyId", "PolicyName", "LabeledAddressId", "Address", "AddressName", "Message", "TransferLimitId", "TransferLimitName", "TransferOneTimeLimit", "TransferHourlyLimit", "TransferDailyLimit", "WhitelistId", "WhitelistName", "OldValidators", "NewValidators", "WhitelistAddresses", "EventTime", "CreateTime", "EnabledMails", "DisabledMails", "Network", "PreTransactionThreshold", "PreTransactionThresholdId", "BlacklistAddressId", "FileName", "AddressCount", });
+        new java.lang.String[] { "AuditLogId", "AuditLogGroup", "AuditLogType", "AccountId", "AccountName", "TargetAccountId", "TargetAccountName", "Email", "RoleType", "ServiceAccountId", "ServiceAccountName", "ServiceAccountKeyId", "WalletId", "WalletName", "DestinationWalletId", "DestinationWalletName", "WalletGroupId", "WalletGroupName", "WalletNames", "PreTransactionId", "TransactionId", "CoinType", "StringValue", "TxId", "PolicyId", "PolicyName", "LabeledAddressId", "Address", "AddressName", "Message", "TransferLimitId", "TransferLimitName", "TransferOneTimeLimit", "TransferHourlyLimit", "TransferDailyLimit", "WhitelistId", "WhitelistName", "OldValidators", "NewValidators", "WhitelistAddresses", "EventTime", "CreateTime", "EnabledMails", "DisabledMails", "Network", "PreTransactionThreshold", "PreTransactionThresholdId", "BlacklistAddressId", "FileName", "AddressCount", "PreviousTransactionId", "NewTransactionId", });
     adamant.global.v1.Enum.getDescriptor();
     gincoinc.global.v1.Enum.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();

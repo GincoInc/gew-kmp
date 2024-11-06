@@ -203,6 +203,10 @@ func (m *AuditLog) validate(all bool) error {
 
 	// no validation rules for AddressCount
 
+	// no validation rules for PreviousTransactionId
+
+	// no validation rules for NewTransactionId
+
 	if len(errors) > 0 {
 		return AuditLogMultiError(errors)
 	}

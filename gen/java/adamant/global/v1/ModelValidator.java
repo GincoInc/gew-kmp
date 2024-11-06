@@ -1847,6 +1847,14 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.PolygonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1855,6 +1863,14 @@ public class ModelValidator {
 	// no validation rules for Nonce
 
 	// no validation rules for IsNextNonce
+
+	// no validation rules for Data
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
+	// no validation rules for ChainId
 
 	
 	}
@@ -1927,6 +1943,16 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.AvalancheSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1939,6 +1965,16 @@ public class ModelValidator {
 	
 			// Validate atomic_tx
 			if (proto.hasAtomicTx()) index.validatorFor(proto.getAtomicTx()).assertValid(proto.getAtomicTx());
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
+	// no validation rules for ChainId
+
+	// no validation rules for MaxPriorityFeePerGas
+
+	// no validation rules for TxType
+
 	
 	}
 }
@@ -1946,6 +1982,12 @@ public class ModelValidator {
 	 * Validates {@code OasysSpecific} protobuf objects.
 	 */
 	public static class OasysSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.OasysSpecific> {
+		
+	
+		
+	
+		
+	
 		
 	
 		
@@ -1960,6 +2002,12 @@ public class ModelValidator {
 	// no validation rules for Nonce
 
 	// no validation rules for IsNextNonce
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
+	// no validation rules for ChainId
 
 	
 	}
@@ -2194,6 +2242,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.BNBSmartChainSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2202,6 +2254,10 @@ public class ModelValidator {
 	// no validation rules for Nonce
 
 	// no validation rules for IsNextNonce
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
 
 	
 	}
@@ -4697,7 +4753,9 @@ public class ModelValidator {
 	public void assertValid(adamant.global.v1.Model.BlacklistAddress proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for BlacklistAddressId
 
-	// no validation rules for BlacklistAddressProposalId
+	// no validation rules for AppliedProposalId
+
+	// no validation rules for PendingProposalId
 
 	// no validation rules for Network
 
@@ -4715,9 +4773,6 @@ public class ModelValidator {
 	
 			// Validate update_time
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
-	
-			// Validate proposal
-			if (proto.hasProposal()) index.validatorFor(proto.getProposal()).assertValid(proto.getProposal());
 	
 	}
 }

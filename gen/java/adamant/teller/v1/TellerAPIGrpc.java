@@ -2247,6 +2247,192 @@ public final class TellerAPIGrpc {
     return getListBlacklistAddressesByFilterMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.CreateBlacklistAddressRequest,
+      adamant.global.v1.CreateBlacklistAddressResponse> getCreateBlacklistAddressMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "CreateBlacklistAddress",
+      requestType = adamant.global.v1.CreateBlacklistAddressRequest.class,
+      responseType = adamant.global.v1.CreateBlacklistAddressResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.CreateBlacklistAddressRequest,
+      adamant.global.v1.CreateBlacklistAddressResponse> getCreateBlacklistAddressMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.CreateBlacklistAddressRequest, adamant.global.v1.CreateBlacklistAddressResponse> getCreateBlacklistAddressMethod;
+    if ((getCreateBlacklistAddressMethod = TellerAPIGrpc.getCreateBlacklistAddressMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getCreateBlacklistAddressMethod = TellerAPIGrpc.getCreateBlacklistAddressMethod) == null) {
+          TellerAPIGrpc.getCreateBlacklistAddressMethod = getCreateBlacklistAddressMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.CreateBlacklistAddressRequest, adamant.global.v1.CreateBlacklistAddressResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateBlacklistAddress"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateBlacklistAddressRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.CreateBlacklistAddressResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("CreateBlacklistAddress"))
+              .build();
+        }
+      }
+    }
+    return getCreateBlacklistAddressMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.GetBlacklistAddressRequest,
+      adamant.global.v1.Model.BlacklistAddress> getGetBlacklistAddressMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetBlacklistAddress",
+      requestType = adamant.global.v1.GetBlacklistAddressRequest.class,
+      responseType = adamant.global.v1.Model.BlacklistAddress.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.GetBlacklistAddressRequest,
+      adamant.global.v1.Model.BlacklistAddress> getGetBlacklistAddressMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.GetBlacklistAddressRequest, adamant.global.v1.Model.BlacklistAddress> getGetBlacklistAddressMethod;
+    if ((getGetBlacklistAddressMethod = TellerAPIGrpc.getGetBlacklistAddressMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getGetBlacklistAddressMethod = TellerAPIGrpc.getGetBlacklistAddressMethod) == null) {
+          TellerAPIGrpc.getGetBlacklistAddressMethod = getGetBlacklistAddressMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.GetBlacklistAddressRequest, adamant.global.v1.Model.BlacklistAddress>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetBlacklistAddress"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.GetBlacklistAddressRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.Model.BlacklistAddress.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("GetBlacklistAddress"))
+              .build();
+        }
+      }
+    }
+    return getGetBlacklistAddressMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ReviewBlacklistAddressProposalRequest,
+      com.google.protobuf.Empty> getReviewBlacklistAddressProposalMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ReviewBlacklistAddressProposal",
+      requestType = adamant.global.v1.ReviewBlacklistAddressProposalRequest.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ReviewBlacklistAddressProposalRequest,
+      com.google.protobuf.Empty> getReviewBlacklistAddressProposalMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ReviewBlacklistAddressProposalRequest, com.google.protobuf.Empty> getReviewBlacklistAddressProposalMethod;
+    if ((getReviewBlacklistAddressProposalMethod = TellerAPIGrpc.getReviewBlacklistAddressProposalMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getReviewBlacklistAddressProposalMethod = TellerAPIGrpc.getReviewBlacklistAddressProposalMethod) == null) {
+          TellerAPIGrpc.getReviewBlacklistAddressProposalMethod = getReviewBlacklistAddressProposalMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ReviewBlacklistAddressProposalRequest, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ReviewBlacklistAddressProposal"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ReviewBlacklistAddressProposalRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ReviewBlacklistAddressProposal"))
+              .build();
+        }
+      }
+    }
+    return getReviewBlacklistAddressProposalMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.UpdateBlacklistAddressRequest,
+      com.google.protobuf.Empty> getUpdateBlacklistAddressMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UpdateBlacklistAddress",
+      requestType = adamant.global.v1.UpdateBlacklistAddressRequest.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.UpdateBlacklistAddressRequest,
+      com.google.protobuf.Empty> getUpdateBlacklistAddressMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.UpdateBlacklistAddressRequest, com.google.protobuf.Empty> getUpdateBlacklistAddressMethod;
+    if ((getUpdateBlacklistAddressMethod = TellerAPIGrpc.getUpdateBlacklistAddressMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getUpdateBlacklistAddressMethod = TellerAPIGrpc.getUpdateBlacklistAddressMethod) == null) {
+          TellerAPIGrpc.getUpdateBlacklistAddressMethod = getUpdateBlacklistAddressMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.UpdateBlacklistAddressRequest, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateBlacklistAddress"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.UpdateBlacklistAddressRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("UpdateBlacklistAddress"))
+              .build();
+        }
+      }
+    }
+    return getUpdateBlacklistAddressMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.BulkReviewBlacklistAddressProposalRequest,
+      com.google.protobuf.Empty> getBulkReviewBlacklistAddressProposalMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "BulkReviewBlacklistAddressProposal",
+      requestType = adamant.global.v1.BulkReviewBlacklistAddressProposalRequest.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.BulkReviewBlacklistAddressProposalRequest,
+      com.google.protobuf.Empty> getBulkReviewBlacklistAddressProposalMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.BulkReviewBlacklistAddressProposalRequest, com.google.protobuf.Empty> getBulkReviewBlacklistAddressProposalMethod;
+    if ((getBulkReviewBlacklistAddressProposalMethod = TellerAPIGrpc.getBulkReviewBlacklistAddressProposalMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getBulkReviewBlacklistAddressProposalMethod = TellerAPIGrpc.getBulkReviewBlacklistAddressProposalMethod) == null) {
+          TellerAPIGrpc.getBulkReviewBlacklistAddressProposalMethod = getBulkReviewBlacklistAddressProposalMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.BulkReviewBlacklistAddressProposalRequest, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "BulkReviewBlacklistAddressProposal"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.BulkReviewBlacklistAddressProposalRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("BulkReviewBlacklistAddressProposal"))
+              .build();
+        }
+      }
+    }
+    return getBulkReviewBlacklistAddressProposalMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.GetBlacklistStorageSignedURLRequest,
+      adamant.global.v1.GetBlacklistStorageSignedURLResponse> getGetBlacklistStorageSignedURLMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetBlacklistStorageSignedURL",
+      requestType = adamant.global.v1.GetBlacklistStorageSignedURLRequest.class,
+      responseType = adamant.global.v1.GetBlacklistStorageSignedURLResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.GetBlacklistStorageSignedURLRequest,
+      adamant.global.v1.GetBlacklistStorageSignedURLResponse> getGetBlacklistStorageSignedURLMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.GetBlacklistStorageSignedURLRequest, adamant.global.v1.GetBlacklistStorageSignedURLResponse> getGetBlacklistStorageSignedURLMethod;
+    if ((getGetBlacklistStorageSignedURLMethod = TellerAPIGrpc.getGetBlacklistStorageSignedURLMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getGetBlacklistStorageSignedURLMethod = TellerAPIGrpc.getGetBlacklistStorageSignedURLMethod) == null) {
+          TellerAPIGrpc.getGetBlacklistStorageSignedURLMethod = getGetBlacklistStorageSignedURLMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.GetBlacklistStorageSignedURLRequest, adamant.global.v1.GetBlacklistStorageSignedURLResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetBlacklistStorageSignedURL"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.GetBlacklistStorageSignedURLRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.GetBlacklistStorageSignedURLResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("GetBlacklistStorageSignedURL"))
+              .build();
+        }
+      }
+    }
+    return getGetBlacklistStorageSignedURLMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -2836,6 +3022,51 @@ public final class TellerAPIGrpc {
     default void listBlacklistAddressesByFilter(adamant.global.v1.ListBlacklistAddressesByFilterRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListBlacklistAddressesByFilterResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListBlacklistAddressesByFilterMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Todo to be removed after dev testing
+     * </pre>
+     */
+    default void createBlacklistAddress(adamant.global.v1.CreateBlacklistAddressRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateBlacklistAddressResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateBlacklistAddressMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void getBlacklistAddress(adamant.global.v1.GetBlacklistAddressRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.Model.BlacklistAddress> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetBlacklistAddressMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void reviewBlacklistAddressProposal(adamant.global.v1.ReviewBlacklistAddressProposalRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getReviewBlacklistAddressProposalMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void updateBlacklistAddress(adamant.global.v1.UpdateBlacklistAddressRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateBlacklistAddressMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void bulkReviewBlacklistAddressProposal(adamant.global.v1.BulkReviewBlacklistAddressProposalRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getBulkReviewBlacklistAddressProposalMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void getBlacklistStorageSignedURL(adamant.global.v1.GetBlacklistStorageSignedURLRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.GetBlacklistStorageSignedURLResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetBlacklistStorageSignedURLMethod(), responseObserver);
     }
   }
 
@@ -3480,6 +3711,57 @@ public final class TellerAPIGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListBlacklistAddressesByFilterMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * Todo to be removed after dev testing
+     * </pre>
+     */
+    public void createBlacklistAddress(adamant.global.v1.CreateBlacklistAddressRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.CreateBlacklistAddressResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getCreateBlacklistAddressMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getBlacklistAddress(adamant.global.v1.GetBlacklistAddressRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.Model.BlacklistAddress> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetBlacklistAddressMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void reviewBlacklistAddressProposal(adamant.global.v1.ReviewBlacklistAddressProposalRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getReviewBlacklistAddressProposalMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateBlacklistAddress(adamant.global.v1.UpdateBlacklistAddressRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getUpdateBlacklistAddressMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void bulkReviewBlacklistAddressProposal(adamant.global.v1.BulkReviewBlacklistAddressProposalRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getBulkReviewBlacklistAddressProposalMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getBlacklistStorageSignedURL(adamant.global.v1.GetBlacklistStorageSignedURLRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.GetBlacklistStorageSignedURLResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetBlacklistStorageSignedURLMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -4039,6 +4321,51 @@ public final class TellerAPIGrpc {
     public adamant.global.v1.ListBlacklistAddressesByFilterResponse listBlacklistAddressesByFilter(adamant.global.v1.ListBlacklistAddressesByFilterRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListBlacklistAddressesByFilterMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * Todo to be removed after dev testing
+     * </pre>
+     */
+    public adamant.global.v1.CreateBlacklistAddressResponse createBlacklistAddress(adamant.global.v1.CreateBlacklistAddressRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getCreateBlacklistAddressMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.Model.BlacklistAddress getBlacklistAddress(adamant.global.v1.GetBlacklistAddressRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetBlacklistAddressMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.google.protobuf.Empty reviewBlacklistAddressProposal(adamant.global.v1.ReviewBlacklistAddressProposalRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getReviewBlacklistAddressProposalMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.google.protobuf.Empty updateBlacklistAddress(adamant.global.v1.UpdateBlacklistAddressRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getUpdateBlacklistAddressMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.google.protobuf.Empty bulkReviewBlacklistAddressProposal(adamant.global.v1.BulkReviewBlacklistAddressProposalRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getBulkReviewBlacklistAddressProposalMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.GetBlacklistStorageSignedURLResponse getBlacklistStorageSignedURL(adamant.global.v1.GetBlacklistStorageSignedURLRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetBlacklistStorageSignedURLMethod(), getCallOptions(), request);
     }
   }
 
@@ -4672,6 +4999,57 @@ public final class TellerAPIGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getListBlacklistAddressesByFilterMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * Todo to be removed after dev testing
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.CreateBlacklistAddressResponse> createBlacklistAddress(
+        adamant.global.v1.CreateBlacklistAddressRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getCreateBlacklistAddressMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.Model.BlacklistAddress> getBlacklistAddress(
+        adamant.global.v1.GetBlacklistAddressRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetBlacklistAddressMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> reviewBlacklistAddressProposal(
+        adamant.global.v1.ReviewBlacklistAddressProposalRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getReviewBlacklistAddressProposalMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> updateBlacklistAddress(
+        adamant.global.v1.UpdateBlacklistAddressRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getUpdateBlacklistAddressMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> bulkReviewBlacklistAddressProposal(
+        adamant.global.v1.BulkReviewBlacklistAddressProposalRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getBulkReviewBlacklistAddressProposalMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.GetBlacklistStorageSignedURLResponse> getBlacklistStorageSignedURL(
+        adamant.global.v1.GetBlacklistStorageSignedURLRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetBlacklistStorageSignedURLMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_WALLET = 0;
@@ -4746,6 +5124,12 @@ public final class TellerAPIGrpc {
   private static final int METHODID_PROGMAT_COIN_UPGRADE_TO_AND_CALL = 69;
   private static final int METHODID_LIST_PRE_TRANSACTION_THRESHOLDS_BY_FILTER = 70;
   private static final int METHODID_LIST_BLACKLIST_ADDRESSES_BY_FILTER = 71;
+  private static final int METHODID_CREATE_BLACKLIST_ADDRESS = 72;
+  private static final int METHODID_GET_BLACKLIST_ADDRESS = 73;
+  private static final int METHODID_REVIEW_BLACKLIST_ADDRESS_PROPOSAL = 74;
+  private static final int METHODID_UPDATE_BLACKLIST_ADDRESS = 75;
+  private static final int METHODID_BULK_REVIEW_BLACKLIST_ADDRESS_PROPOSAL = 76;
+  private static final int METHODID_GET_BLACKLIST_STORAGE_SIGNED_URL = 77;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -5051,6 +5435,30 @@ public final class TellerAPIGrpc {
         case METHODID_LIST_BLACKLIST_ADDRESSES_BY_FILTER:
           serviceImpl.listBlacklistAddressesByFilter((adamant.global.v1.ListBlacklistAddressesByFilterRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListBlacklistAddressesByFilterResponse>) responseObserver);
+          break;
+        case METHODID_CREATE_BLACKLIST_ADDRESS:
+          serviceImpl.createBlacklistAddress((adamant.global.v1.CreateBlacklistAddressRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.CreateBlacklistAddressResponse>) responseObserver);
+          break;
+        case METHODID_GET_BLACKLIST_ADDRESS:
+          serviceImpl.getBlacklistAddress((adamant.global.v1.GetBlacklistAddressRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.Model.BlacklistAddress>) responseObserver);
+          break;
+        case METHODID_REVIEW_BLACKLIST_ADDRESS_PROPOSAL:
+          serviceImpl.reviewBlacklistAddressProposal((adamant.global.v1.ReviewBlacklistAddressProposalRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_UPDATE_BLACKLIST_ADDRESS:
+          serviceImpl.updateBlacklistAddress((adamant.global.v1.UpdateBlacklistAddressRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_BULK_REVIEW_BLACKLIST_ADDRESS_PROPOSAL:
+          serviceImpl.bulkReviewBlacklistAddressProposal((adamant.global.v1.BulkReviewBlacklistAddressProposalRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_GET_BLACKLIST_STORAGE_SIGNED_URL:
+          serviceImpl.getBlacklistStorageSignedURL((adamant.global.v1.GetBlacklistStorageSignedURLRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.GetBlacklistStorageSignedURLResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -5574,6 +5982,48 @@ public final class TellerAPIGrpc {
               adamant.global.v1.ListBlacklistAddressesByFilterRequest,
               adamant.global.v1.ListBlacklistAddressesByFilterResponse>(
                 service, METHODID_LIST_BLACKLIST_ADDRESSES_BY_FILTER)))
+        .addMethod(
+          getCreateBlacklistAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.CreateBlacklistAddressRequest,
+              adamant.global.v1.CreateBlacklistAddressResponse>(
+                service, METHODID_CREATE_BLACKLIST_ADDRESS)))
+        .addMethod(
+          getGetBlacklistAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetBlacklistAddressRequest,
+              adamant.global.v1.Model.BlacklistAddress>(
+                service, METHODID_GET_BLACKLIST_ADDRESS)))
+        .addMethod(
+          getReviewBlacklistAddressProposalMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ReviewBlacklistAddressProposalRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_REVIEW_BLACKLIST_ADDRESS_PROPOSAL)))
+        .addMethod(
+          getUpdateBlacklistAddressMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.UpdateBlacklistAddressRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_UPDATE_BLACKLIST_ADDRESS)))
+        .addMethod(
+          getBulkReviewBlacklistAddressProposalMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.BulkReviewBlacklistAddressProposalRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_BULK_REVIEW_BLACKLIST_ADDRESS_PROPOSAL)))
+        .addMethod(
+          getGetBlacklistStorageSignedURLMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.GetBlacklistStorageSignedURLRequest,
+              adamant.global.v1.GetBlacklistStorageSignedURLResponse>(
+                service, METHODID_GET_BLACKLIST_STORAGE_SIGNED_URL)))
         .build();
   }
 
@@ -5694,6 +6144,12 @@ public final class TellerAPIGrpc {
               .addMethod(getProgmatCoinUpgradeToAndCallMethod())
               .addMethod(getListPreTransactionThresholdsByFilterMethod())
               .addMethod(getListBlacklistAddressesByFilterMethod())
+              .addMethod(getCreateBlacklistAddressMethod())
+              .addMethod(getGetBlacklistAddressMethod())
+              .addMethod(getReviewBlacklistAddressProposalMethod())
+              .addMethod(getUpdateBlacklistAddressMethod())
+              .addMethod(getBulkReviewBlacklistAddressProposalMethod())
+              .addMethod(getGetBlacklistStorageSignedURLMethod())
               .build();
         }
       }
