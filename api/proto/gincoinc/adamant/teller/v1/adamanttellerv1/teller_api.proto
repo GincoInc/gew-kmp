@@ -51,6 +51,11 @@ service TellerAPI {
   rpc ListColdFeeDepositAddresses(ListColdFeeDepositAddressesRequest) returns (ListColdFeeDepositAddressesResponse) {}
   rpc ListHotFeeDepositAddresses(ListHotFeeDepositAddressesRequest) returns (ListHotFeeDepositAddressesResponse) {}
 
+  // PreTransaction
+  rpc CreatePreTransaction(adamant.global.v1.CreatePreTransactionRequest) returns (adamant.global.v1.CreatePreTransactionResponse) {}
+  rpc ListPreTransactionsByFilter(adamant.global.v1.ListPreTransactionsByFilterRequest) returns (adamant.global.v1.ListPreTransactionsByFilterResponse) {}
+  rpc CancelPreTransaction(adamant.global.v1.CancelPreTransactionRequest) returns (google.protobuf.Empty) {}
+
   rpc CreateTransaction(adamant.global.v1.CreateTransactionRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
   rpc CreateContractCreationTransaction(adamant.global.v1.CreateContractCreationTransactionRequest) returns (adamant.global.v1.CreateContractCreationTransactionResponse) {}
   rpc SignTransaction(SignTransactionRequest) returns (google.protobuf.Empty) {}
@@ -108,6 +113,20 @@ service TellerAPI {
   rpc ProgmatCoinUnpause(ProgmatCoinUnpauseRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
   rpc ProgmatCoinGrantWhiteAndBlackLister(ProgmatCoinGrantWhiteAndBlackListerRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
   rpc ProgmatCoinUpgradeToAndCall(ProgmatCoinUpgradeToAndCallRequest) returns (adamant.global.v1.CreateTransactionResponse) {}
+
+  // PreTransactionThreshold
+  rpc ListPreTransactionThresholdsByFilter(adamant.global.v1.ListPreTransactionThresholdsByFilterRequest) returns (adamant.global.v1.ListPreTransactionThresholdsByFilterResponse) {}
+
+  // BlacklistAddress
+  rpc ListBlacklistAddressesByFilter(adamant.global.v1.ListBlacklistAddressesByFilterRequest) returns (adamant.global.v1.ListBlacklistAddressesByFilterResponse) {}
+
+  // Todo to be removed after dev testing
+  rpc CreateBlacklistAddress(adamant.global.v1.CreateBlacklistAddressRequest) returns (adamant.global.v1.CreateBlacklistAddressResponse) {}
+  rpc GetBlacklistAddress(adamant.global.v1.GetBlacklistAddressRequest) returns (adamant.global.v1.BlacklistAddress) {}
+  rpc ReviewBlacklistAddressProposal(adamant.global.v1.ReviewBlacklistAddressProposalRequest) returns (google.protobuf.Empty) {}
+  rpc UpdateBlacklistAddress(adamant.global.v1.UpdateBlacklistAddressRequest) returns (google.protobuf.Empty) {}
+  rpc BulkReviewBlacklistAddressProposal(adamant.global.v1.BulkReviewBlacklistAddressProposalRequest) returns (google.protobuf.Empty) {}
+  rpc GetBlacklistStorageSignedURL(adamant.global.v1.GetBlacklistStorageSignedURLRequest) returns (adamant.global.v1.GetBlacklistStorageSignedURLResponse) {}
 }
 
 message CreateWalletRequest {
