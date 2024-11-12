@@ -35012,3 +35012,283 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = GetBlacklistStorageSignedURLResponseValidationError{}
+
+// Validate checks the field values on ListBlacklistAddressFilesRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ListBlacklistAddressFilesRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListBlacklistAddressFilesRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// ListBlacklistAddressFilesRequestMultiError, or nil if none found.
+func (m *ListBlacklistAddressFilesRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListBlacklistAddressFilesRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Status
+
+	if m.PageSize != nil {
+
+		if m.GetPageSize() > 100 {
+			err := ListBlacklistAddressFilesRequestValidationError{
+				field:  "PageSize",
+				reason: "value must be less than or equal to 100",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if m.PageToken != nil {
+
+		if !_ListBlacklistAddressFilesRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+			err := ListBlacklistAddressFilesRequestValidationError{
+				field:  "PageToken",
+				reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ListBlacklistAddressFilesRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListBlacklistAddressFilesRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListBlacklistAddressFilesRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ListBlacklistAddressFilesRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListBlacklistAddressFilesRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListBlacklistAddressFilesRequestMultiError) AllErrors() []error { return m }
+
+// ListBlacklistAddressFilesRequestValidationError is the validation error
+// returned by ListBlacklistAddressFilesRequest.Validate if the designated
+// constraints aren't met.
+type ListBlacklistAddressFilesRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListBlacklistAddressFilesRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListBlacklistAddressFilesRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListBlacklistAddressFilesRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListBlacklistAddressFilesRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListBlacklistAddressFilesRequestValidationError) ErrorName() string {
+	return "ListBlacklistAddressFilesRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListBlacklistAddressFilesRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListBlacklistAddressFilesRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListBlacklistAddressFilesRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListBlacklistAddressFilesRequestValidationError{}
+
+var _ListBlacklistAddressFilesRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListBlacklistAddressFilesResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ListBlacklistAddressFilesResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListBlacklistAddressFilesResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ListBlacklistAddressFilesResponseMultiError, or nil if none found.
+func (m *ListBlacklistAddressFilesResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListBlacklistAddressFilesResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetFiles() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListBlacklistAddressFilesResponseValidationError{
+						field:  fmt.Sprintf("Files[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListBlacklistAddressFilesResponseValidationError{
+						field:  fmt.Sprintf("Files[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListBlacklistAddressFilesResponseValidationError{
+					field:  fmt.Sprintf("Files[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	if len(errors) > 0 {
+		return ListBlacklistAddressFilesResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListBlacklistAddressFilesResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListBlacklistAddressFilesResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ListBlacklistAddressFilesResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListBlacklistAddressFilesResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListBlacklistAddressFilesResponseMultiError) AllErrors() []error { return m }
+
+// ListBlacklistAddressFilesResponseValidationError is the validation error
+// returned by ListBlacklistAddressFilesResponse.Validate if the designated
+// constraints aren't met.
+type ListBlacklistAddressFilesResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListBlacklistAddressFilesResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListBlacklistAddressFilesResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListBlacklistAddressFilesResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListBlacklistAddressFilesResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListBlacklistAddressFilesResponseValidationError) ErrorName() string {
+	return "ListBlacklistAddressFilesResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListBlacklistAddressFilesResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListBlacklistAddressFilesResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListBlacklistAddressFilesResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListBlacklistAddressFilesResponseValidationError{}

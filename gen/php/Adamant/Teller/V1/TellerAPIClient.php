@@ -1042,6 +1042,20 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\ListBlacklistAddressFilesRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListBlacklistAddressFiles(\Adamant\Global\V1\ListBlacklistAddressFilesRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListBlacklistAddressFiles',
+        $argument,
+        ['\Adamant\Global\V1\ListBlacklistAddressFilesResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * Todo to be removed after dev testing
      * @param \Adamant\Global\V1\CreateBlacklistAddressRequest $argument input argument
      * @param array $metadata metadata
@@ -1123,6 +1137,20 @@ class TellerAPIClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/GetBlacklistStorageSignedURL',
         $argument,
         ['\Adamant\Global\V1\GetBlacklistStorageSignedURLResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\DownloadResourceRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function DownloadResource(\Adamant\Global\V1\DownloadResourceRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/DownloadResource',
+        $argument,
+        ['\Google\Protobuf\GPBEmpty', 'decode'],
         $metadata, $options);
     }
 

@@ -48,15 +48,20 @@ public interface DownloadResourceRequestOrBuilder extends
   boolean getIsActivated();
 
   /**
-   * <code>optional int64 status = 7 [json_name = "status"];</code>
+   * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
    * @return Whether the status field is set.
    */
   boolean hasStatus();
   /**
-   * <code>optional int64 status = 7 [json_name = "status"];</code>
+   * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+   * @return The enum numeric value on the wire for status.
+   */
+  int getStatusValue();
+  /**
+   * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
    * @return The status.
    */
-  long getStatus();
+  adamant.global.v1.Enum.BlacklistAddressStatus getStatus();
 
   /**
    * <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = { ... }</code>

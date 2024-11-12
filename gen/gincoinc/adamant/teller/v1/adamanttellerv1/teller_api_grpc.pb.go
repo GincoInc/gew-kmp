@@ -109,6 +109,7 @@ type TellerAPIClient interface {
 	ListPreTransactionThresholdsByFilter(ctx context.Context, in *adamantglobalv1.ListPreTransactionThresholdsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListPreTransactionThresholdsByFilterResponse, error)
 	// BlacklistAddress
 	ListBlacklistAddressesByFilter(ctx context.Context, in *adamantglobalv1.ListBlacklistAddressesByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListBlacklistAddressesByFilterResponse, error)
+	ListBlacklistAddressFiles(ctx context.Context, in *adamantglobalv1.ListBlacklistAddressFilesRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListBlacklistAddressFilesResponse, error)
 	// Todo to be removed after dev testing
 	CreateBlacklistAddress(ctx context.Context, in *adamantglobalv1.CreateBlacklistAddressRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateBlacklistAddressResponse, error)
 	GetBlacklistAddress(ctx context.Context, in *adamantglobalv1.GetBlacklistAddressRequest, opts ...grpc.CallOption) (*adamantglobalv1.BlacklistAddress, error)
@@ -116,6 +117,7 @@ type TellerAPIClient interface {
 	UpdateBlacklistAddress(ctx context.Context, in *adamantglobalv1.UpdateBlacklistAddressRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	BulkReviewBlacklistAddressProposal(ctx context.Context, in *adamantglobalv1.BulkReviewBlacklistAddressProposalRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	GetBlacklistStorageSignedURL(ctx context.Context, in *adamantglobalv1.GetBlacklistStorageSignedURLRequest, opts ...grpc.CallOption) (*adamantglobalv1.GetBlacklistStorageSignedURLResponse, error)
+	DownloadResource(ctx context.Context, in *adamantglobalv1.DownloadResourceRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
 type tellerAPIClient struct {
@@ -774,6 +776,15 @@ func (c *tellerAPIClient) ListBlacklistAddressesByFilter(ctx context.Context, in
 	return out, nil
 }
 
+func (c *tellerAPIClient) ListBlacklistAddressFiles(ctx context.Context, in *adamantglobalv1.ListBlacklistAddressFilesRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListBlacklistAddressFilesResponse, error) {
+	out := new(adamantglobalv1.ListBlacklistAddressFilesResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListBlacklistAddressFiles", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *tellerAPIClient) CreateBlacklistAddress(ctx context.Context, in *adamantglobalv1.CreateBlacklistAddressRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateBlacklistAddressResponse, error) {
 	out := new(adamantglobalv1.CreateBlacklistAddressResponse)
 	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/CreateBlacklistAddress", in, out, opts...)
@@ -822,6 +833,15 @@ func (c *tellerAPIClient) BulkReviewBlacklistAddressProposal(ctx context.Context
 func (c *tellerAPIClient) GetBlacklistStorageSignedURL(ctx context.Context, in *adamantglobalv1.GetBlacklistStorageSignedURLRequest, opts ...grpc.CallOption) (*adamantglobalv1.GetBlacklistStorageSignedURLResponse, error) {
 	out := new(adamantglobalv1.GetBlacklistStorageSignedURLResponse)
 	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/GetBlacklistStorageSignedURL", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) DownloadResource(ctx context.Context, in *adamantglobalv1.DownloadResourceRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/DownloadResource", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -917,6 +937,7 @@ type TellerAPIServer interface {
 	ListPreTransactionThresholdsByFilter(context.Context, *adamantglobalv1.ListPreTransactionThresholdsByFilterRequest) (*adamantglobalv1.ListPreTransactionThresholdsByFilterResponse, error)
 	// BlacklistAddress
 	ListBlacklistAddressesByFilter(context.Context, *adamantglobalv1.ListBlacklistAddressesByFilterRequest) (*adamantglobalv1.ListBlacklistAddressesByFilterResponse, error)
+	ListBlacklistAddressFiles(context.Context, *adamantglobalv1.ListBlacklistAddressFilesRequest) (*adamantglobalv1.ListBlacklistAddressFilesResponse, error)
 	// Todo to be removed after dev testing
 	CreateBlacklistAddress(context.Context, *adamantglobalv1.CreateBlacklistAddressRequest) (*adamantglobalv1.CreateBlacklistAddressResponse, error)
 	GetBlacklistAddress(context.Context, *adamantglobalv1.GetBlacklistAddressRequest) (*adamantglobalv1.BlacklistAddress, error)
@@ -924,6 +945,7 @@ type TellerAPIServer interface {
 	UpdateBlacklistAddress(context.Context, *adamantglobalv1.UpdateBlacklistAddressRequest) (*emptypb.Empty, error)
 	BulkReviewBlacklistAddressProposal(context.Context, *adamantglobalv1.BulkReviewBlacklistAddressProposalRequest) (*emptypb.Empty, error)
 	GetBlacklistStorageSignedURL(context.Context, *adamantglobalv1.GetBlacklistStorageSignedURLRequest) (*adamantglobalv1.GetBlacklistStorageSignedURLResponse, error)
+	DownloadResource(context.Context, *adamantglobalv1.DownloadResourceRequest) (*emptypb.Empty, error)
 }
 
 // UnimplementedTellerAPIServer should be embedded to have forward compatible implementations.
@@ -1146,6 +1168,9 @@ func (UnimplementedTellerAPIServer) ListPreTransactionThresholdsByFilter(context
 func (UnimplementedTellerAPIServer) ListBlacklistAddressesByFilter(context.Context, *adamantglobalv1.ListBlacklistAddressesByFilterRequest) (*adamantglobalv1.ListBlacklistAddressesByFilterResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListBlacklistAddressesByFilter not implemented")
 }
+func (UnimplementedTellerAPIServer) ListBlacklistAddressFiles(context.Context, *adamantglobalv1.ListBlacklistAddressFilesRequest) (*adamantglobalv1.ListBlacklistAddressFilesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListBlacklistAddressFiles not implemented")
+}
 func (UnimplementedTellerAPIServer) CreateBlacklistAddress(context.Context, *adamantglobalv1.CreateBlacklistAddressRequest) (*adamantglobalv1.CreateBlacklistAddressResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateBlacklistAddress not implemented")
 }
@@ -1163,6 +1188,9 @@ func (UnimplementedTellerAPIServer) BulkReviewBlacklistAddressProposal(context.C
 }
 func (UnimplementedTellerAPIServer) GetBlacklistStorageSignedURL(context.Context, *adamantglobalv1.GetBlacklistStorageSignedURLRequest) (*adamantglobalv1.GetBlacklistStorageSignedURLResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetBlacklistStorageSignedURL not implemented")
+}
+func (UnimplementedTellerAPIServer) DownloadResource(context.Context, *adamantglobalv1.DownloadResourceRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DownloadResource not implemented")
 }
 
 // UnsafeTellerAPIServer may be embedded to opt out of forward compatibility for this service.
@@ -2472,6 +2500,24 @@ func _TellerAPI_ListBlacklistAddressesByFilter_Handler(srv interface{}, ctx cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TellerAPI_ListBlacklistAddressFiles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ListBlacklistAddressFilesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListBlacklistAddressFiles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListBlacklistAddressFiles",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListBlacklistAddressFiles(ctx, req.(*adamantglobalv1.ListBlacklistAddressFilesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TellerAPI_CreateBlacklistAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(adamantglobalv1.CreateBlacklistAddressRequest)
 	if err := dec(in); err != nil {
@@ -2576,6 +2622,24 @@ func _TellerAPI_GetBlacklistStorageSignedURL_Handler(srv interface{}, ctx contex
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TellerAPIServer).GetBlacklistStorageSignedURL(ctx, req.(*adamantglobalv1.GetBlacklistStorageSignedURLRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_DownloadResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.DownloadResourceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).DownloadResource(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/DownloadResource",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).DownloadResource(ctx, req.(*adamantglobalv1.DownloadResourceRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2876,6 +2940,10 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TellerAPI_ListBlacklistAddressesByFilter_Handler,
 		},
 		{
+			MethodName: "ListBlacklistAddressFiles",
+			Handler:    _TellerAPI_ListBlacklistAddressFiles_Handler,
+		},
+		{
 			MethodName: "CreateBlacklistAddress",
 			Handler:    _TellerAPI_CreateBlacklistAddress_Handler,
 		},
@@ -2898,6 +2966,10 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetBlacklistStorageSignedURL",
 			Handler:    _TellerAPI_GetBlacklistStorageSignedURL_Handler,
+		},
+		{
+			MethodName: "DownloadResource",
+			Handler:    _TellerAPI_DownloadResource_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
