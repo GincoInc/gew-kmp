@@ -34,6 +34,10 @@ class AuditLogGroup
      */
     const AUDIT_LOG_GROUP_WALLET = 4;
     /**
+     * Generated from protobuf enum <code>AUDIT_LOG_GROUP_PRE_TRANSACTION = 11;</code>
+     */
+    const AUDIT_LOG_GROUP_PRE_TRANSACTION = 11;
+    /**
      * Generated from protobuf enum <code>AUDIT_LOG_GROUP_TRANSACTION = 5;</code>
      */
     const AUDIT_LOG_GROUP_TRANSACTION = 5;
@@ -49,6 +53,14 @@ class AuditLogGroup
      * Generated from protobuf enum <code>AUDIT_LOG_GROUP_MAIL = 8;</code>
      */
     const AUDIT_LOG_GROUP_MAIL = 8;
+    /**
+     * Generated from protobuf enum <code>AUDIT_LOG_GROUP_PRE_TRANSACTION_THRESHOLD = 9;</code>
+     */
+    const AUDIT_LOG_GROUP_PRE_TRANSACTION_THRESHOLD = 9;
+    /**
+     * Generated from protobuf enum <code>AUDIT_LOG_GROUP_BLACKLIST_ADDRESS = 10;</code>
+     */
+    const AUDIT_LOG_GROUP_BLACKLIST_ADDRESS = 10;
 
     private static $valueToName = [
         self::AUDIT_LOG_GROUP_INVALID => 'AUDIT_LOG_GROUP_INVALID',
@@ -56,10 +68,13 @@ class AuditLogGroup
         self::AUDIT_LOG_GROUP_ACCOUNT => 'AUDIT_LOG_GROUP_ACCOUNT',
         self::AUDIT_LOG_GROUP_SERVICE_ACCOUNT => 'AUDIT_LOG_GROUP_SERVICE_ACCOUNT',
         self::AUDIT_LOG_GROUP_WALLET => 'AUDIT_LOG_GROUP_WALLET',
+        self::AUDIT_LOG_GROUP_PRE_TRANSACTION => 'AUDIT_LOG_GROUP_PRE_TRANSACTION',
         self::AUDIT_LOG_GROUP_TRANSACTION => 'AUDIT_LOG_GROUP_TRANSACTION',
         self::AUDIT_LOG_GROUP_POLICY => 'AUDIT_LOG_GROUP_POLICY',
         self::AUDIT_LOG_GROUP_WALLET_GROUP => 'AUDIT_LOG_GROUP_WALLET_GROUP',
         self::AUDIT_LOG_GROUP_MAIL => 'AUDIT_LOG_GROUP_MAIL',
+        self::AUDIT_LOG_GROUP_PRE_TRANSACTION_THRESHOLD => 'AUDIT_LOG_GROUP_PRE_TRANSACTION_THRESHOLD',
+        self::AUDIT_LOG_GROUP_BLACKLIST_ADDRESS => 'AUDIT_LOG_GROUP_BLACKLIST_ADDRESS',
     ];
 
     public static function name($value)

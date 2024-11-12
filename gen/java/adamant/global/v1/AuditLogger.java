@@ -257,6 +257,18 @@ public final class AuditLogger {
         getWalletNamesBytes(int index);
 
     /**
+     * <code>string pre_transaction_id = 50 [json_name = "preTransactionId"];</code>
+     * @return The preTransactionId.
+     */
+    java.lang.String getPreTransactionId();
+    /**
+     * <code>string pre_transaction_id = 50 [json_name = "preTransactionId"];</code>
+     * @return The bytes for preTransactionId.
+     */
+    com.google.protobuf.ByteString
+        getPreTransactionIdBytes();
+
+    /**
      * <code>string transaction_id = 15 [json_name = "transactionId"];</code>
      * @return The transactionId.
      */
@@ -603,6 +615,89 @@ public final class AuditLogger {
      * @return The enum numeric value on the wire of disabledMails at the given index.
      */
     int getDisabledMailsValue(int index);
+
+    /**
+     * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+     * @return The enum numeric value on the wire for network.
+     */
+    int getNetworkValue();
+    /**
+     * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+     * @return The network.
+     */
+    gincoinc.global.v1.Enum.Network getNetwork();
+
+    /**
+     * <code>double pre_transaction_threshold = 45 [json_name = "preTransactionThreshold"];</code>
+     * @return The preTransactionThreshold.
+     */
+    double getPreTransactionThreshold();
+
+    /**
+     * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+     * @return The preTransactionThresholdId.
+     */
+    java.lang.String getPreTransactionThresholdId();
+    /**
+     * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+     * @return The bytes for preTransactionThresholdId.
+     */
+    com.google.protobuf.ByteString
+        getPreTransactionThresholdIdBytes();
+
+    /**
+     * <code>string blacklist_address_id = 47 [json_name = "blacklistAddressId"];</code>
+     * @return The blacklistAddressId.
+     */
+    java.lang.String getBlacklistAddressId();
+    /**
+     * <code>string blacklist_address_id = 47 [json_name = "blacklistAddressId"];</code>
+     * @return The bytes for blacklistAddressId.
+     */
+    com.google.protobuf.ByteString
+        getBlacklistAddressIdBytes();
+
+    /**
+     * <code>string file_name = 48 [json_name = "fileName"];</code>
+     * @return The fileName.
+     */
+    java.lang.String getFileName();
+    /**
+     * <code>string file_name = 48 [json_name = "fileName"];</code>
+     * @return The bytes for fileName.
+     */
+    com.google.protobuf.ByteString
+        getFileNameBytes();
+
+    /**
+     * <code>int64 address_count = 49 [json_name = "addressCount"];</code>
+     * @return The addressCount.
+     */
+    long getAddressCount();
+
+    /**
+     * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+     * @return The previousTransactionId.
+     */
+    java.lang.String getPreviousTransactionId();
+    /**
+     * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+     * @return The bytes for previousTransactionId.
+     */
+    com.google.protobuf.ByteString
+        getPreviousTransactionIdBytes();
+
+    /**
+     * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+     * @return The newTransactionId.
+     */
+    java.lang.String getNewTransactionId();
+    /**
+     * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+     * @return The bytes for newTransactionId.
+     */
+    com.google.protobuf.ByteString
+        getNewTransactionIdBytes();
   }
   /**
    * <pre>
@@ -641,6 +736,7 @@ public final class AuditLogger {
       walletGroupName_ = "";
       walletNames_ =
           com.google.protobuf.LazyStringArrayList.emptyList();
+      preTransactionId_ = "";
       transactionId_ = "";
       coinType_ = 0;
       stringValue_ = "";
@@ -663,6 +759,12 @@ public final class AuditLogger {
           com.google.protobuf.LazyStringArrayList.emptyList();
       enabledMails_ = java.util.Collections.emptyList();
       disabledMails_ = java.util.Collections.emptyList();
+      network_ = 0;
+      preTransactionThresholdId_ = "";
+      blacklistAddressId_ = "";
+      fileName_ = "";
+      previousTransactionId_ = "";
+      newTransactionId_ = "";
     }
 
     @java.lang.Override
@@ -1359,6 +1461,45 @@ public final class AuditLogger {
     public com.google.protobuf.ByteString
         getWalletNamesBytes(int index) {
       return walletNames_.getByteString(index);
+    }
+
+    public static final int PRE_TRANSACTION_ID_FIELD_NUMBER = 50;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object preTransactionId_ = "";
+    /**
+     * <code>string pre_transaction_id = 50 [json_name = "preTransactionId"];</code>
+     * @return The preTransactionId.
+     */
+    @java.lang.Override
+    public java.lang.String getPreTransactionId() {
+      java.lang.Object ref = preTransactionId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        preTransactionId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string pre_transaction_id = 50 [json_name = "preTransactionId"];</code>
+     * @return The bytes for preTransactionId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPreTransactionIdBytes() {
+      java.lang.Object ref = preTransactionId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        preTransactionId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int TRANSACTION_ID_FIELD_NUMBER = 15;
@@ -2198,6 +2339,241 @@ public final class AuditLogger {
     }
     private int disabledMailsMemoizedSerializedSize;
 
+    public static final int NETWORK_FIELD_NUMBER = 44;
+    private int network_ = 0;
+    /**
+     * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+     * @return The enum numeric value on the wire for network.
+     */
+    @java.lang.Override public int getNetworkValue() {
+      return network_;
+    }
+    /**
+     * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+     * @return The network.
+     */
+    @java.lang.Override public gincoinc.global.v1.Enum.Network getNetwork() {
+      gincoinc.global.v1.Enum.Network result = gincoinc.global.v1.Enum.Network.forNumber(network_);
+      return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
+    }
+
+    public static final int PRE_TRANSACTION_THRESHOLD_FIELD_NUMBER = 45;
+    private double preTransactionThreshold_ = 0D;
+    /**
+     * <code>double pre_transaction_threshold = 45 [json_name = "preTransactionThreshold"];</code>
+     * @return The preTransactionThreshold.
+     */
+    @java.lang.Override
+    public double getPreTransactionThreshold() {
+      return preTransactionThreshold_;
+    }
+
+    public static final int PRE_TRANSACTION_THRESHOLD_ID_FIELD_NUMBER = 46;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object preTransactionThresholdId_ = "";
+    /**
+     * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+     * @return The preTransactionThresholdId.
+     */
+    @java.lang.Override
+    public java.lang.String getPreTransactionThresholdId() {
+      java.lang.Object ref = preTransactionThresholdId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        preTransactionThresholdId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+     * @return The bytes for preTransactionThresholdId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPreTransactionThresholdIdBytes() {
+      java.lang.Object ref = preTransactionThresholdId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        preTransactionThresholdId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BLACKLIST_ADDRESS_ID_FIELD_NUMBER = 47;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object blacklistAddressId_ = "";
+    /**
+     * <code>string blacklist_address_id = 47 [json_name = "blacklistAddressId"];</code>
+     * @return The blacklistAddressId.
+     */
+    @java.lang.Override
+    public java.lang.String getBlacklistAddressId() {
+      java.lang.Object ref = blacklistAddressId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        blacklistAddressId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string blacklist_address_id = 47 [json_name = "blacklistAddressId"];</code>
+     * @return The bytes for blacklistAddressId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getBlacklistAddressIdBytes() {
+      java.lang.Object ref = blacklistAddressId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        blacklistAddressId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FILE_NAME_FIELD_NUMBER = 48;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object fileName_ = "";
+    /**
+     * <code>string file_name = 48 [json_name = "fileName"];</code>
+     * @return The fileName.
+     */
+    @java.lang.Override
+    public java.lang.String getFileName() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fileName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string file_name = 48 [json_name = "fileName"];</code>
+     * @return The bytes for fileName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFileNameBytes() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ADDRESS_COUNT_FIELD_NUMBER = 49;
+    private long addressCount_ = 0L;
+    /**
+     * <code>int64 address_count = 49 [json_name = "addressCount"];</code>
+     * @return The addressCount.
+     */
+    @java.lang.Override
+    public long getAddressCount() {
+      return addressCount_;
+    }
+
+    public static final int PREVIOUS_TRANSACTION_ID_FIELD_NUMBER = 51;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object previousTransactionId_ = "";
+    /**
+     * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+     * @return The previousTransactionId.
+     */
+    @java.lang.Override
+    public java.lang.String getPreviousTransactionId() {
+      java.lang.Object ref = previousTransactionId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        previousTransactionId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+     * @return The bytes for previousTransactionId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPreviousTransactionIdBytes() {
+      java.lang.Object ref = previousTransactionId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        previousTransactionId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NEW_TRANSACTION_ID_FIELD_NUMBER = 52;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object newTransactionId_ = "";
+    /**
+     * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+     * @return The newTransactionId.
+     */
+    @java.lang.Override
+    public java.lang.String getNewTransactionId() {
+      java.lang.Object ref = newTransactionId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        newTransactionId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+     * @return The bytes for newTransactionId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNewTransactionIdBytes() {
+      java.lang.Object ref = newTransactionId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        newTransactionId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2349,6 +2725,33 @@ public final class AuditLogger {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 43, message_);
+      }
+      if (network_ != gincoinc.global.v1.Enum.Network.NETWORK_INVALID.getNumber()) {
+        output.writeEnum(44, network_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(preTransactionThreshold_) != 0) {
+        output.writeDouble(45, preTransactionThreshold_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(preTransactionThresholdId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 46, preTransactionThresholdId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(blacklistAddressId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 47, blacklistAddressId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 48, fileName_);
+      }
+      if (addressCount_ != 0L) {
+        output.writeInt64(49, addressCount_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(preTransactionId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 50, preTransactionId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(previousTransactionId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 51, previousTransactionId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(newTransactionId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 52, newTransactionId_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -2535,6 +2938,36 @@ public final class AuditLogger {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(message_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(43, message_);
       }
+      if (network_ != gincoinc.global.v1.Enum.Network.NETWORK_INVALID.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(44, network_);
+      }
+      if (java.lang.Double.doubleToRawLongBits(preTransactionThreshold_) != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(45, preTransactionThreshold_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(preTransactionThresholdId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(46, preTransactionThresholdId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(blacklistAddressId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(47, blacklistAddressId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(48, fileName_);
+      }
+      if (addressCount_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(49, addressCount_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(preTransactionId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(50, preTransactionId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(previousTransactionId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(51, previousTransactionId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(newTransactionId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(52, newTransactionId_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2585,6 +3018,8 @@ public final class AuditLogger {
           .equals(other.getWalletGroupName())) return false;
       if (!getWalletNamesList()
           .equals(other.getWalletNamesList())) return false;
+      if (!getPreTransactionId()
+          .equals(other.getPreTransactionId())) return false;
       if (!getTransactionId()
           .equals(other.getTransactionId())) return false;
       if (coinType_ != other.coinType_) return false;
@@ -2636,6 +3071,22 @@ public final class AuditLogger {
       }
       if (!enabledMails_.equals(other.enabledMails_)) return false;
       if (!disabledMails_.equals(other.disabledMails_)) return false;
+      if (network_ != other.network_) return false;
+      if (java.lang.Double.doubleToLongBits(getPreTransactionThreshold())
+          != java.lang.Double.doubleToLongBits(
+              other.getPreTransactionThreshold())) return false;
+      if (!getPreTransactionThresholdId()
+          .equals(other.getPreTransactionThresholdId())) return false;
+      if (!getBlacklistAddressId()
+          .equals(other.getBlacklistAddressId())) return false;
+      if (!getFileName()
+          .equals(other.getFileName())) return false;
+      if (getAddressCount()
+          != other.getAddressCount()) return false;
+      if (!getPreviousTransactionId()
+          .equals(other.getPreviousTransactionId())) return false;
+      if (!getNewTransactionId()
+          .equals(other.getNewTransactionId())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -2687,6 +3138,8 @@ public final class AuditLogger {
         hash = (37 * hash) + WALLET_NAMES_FIELD_NUMBER;
         hash = (53 * hash) + getWalletNamesList().hashCode();
       }
+      hash = (37 * hash) + PRE_TRANSACTION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getPreTransactionId().hashCode();
       hash = (37 * hash) + TRANSACTION_ID_FIELD_NUMBER;
       hash = (53 * hash) + getTransactionId().hashCode();
       hash = (37 * hash) + COIN_TYPE_FIELD_NUMBER;
@@ -2752,6 +3205,24 @@ public final class AuditLogger {
         hash = (37 * hash) + DISABLED_MAILS_FIELD_NUMBER;
         hash = (53 * hash) + disabledMails_.hashCode();
       }
+      hash = (37 * hash) + NETWORK_FIELD_NUMBER;
+      hash = (53 * hash) + network_;
+      hash = (37 * hash) + PRE_TRANSACTION_THRESHOLD_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getPreTransactionThreshold()));
+      hash = (37 * hash) + PRE_TRANSACTION_THRESHOLD_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getPreTransactionThresholdId().hashCode();
+      hash = (37 * hash) + BLACKLIST_ADDRESS_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getBlacklistAddressId().hashCode();
+      hash = (37 * hash) + FILE_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFileName().hashCode();
+      hash = (37 * hash) + ADDRESS_COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getAddressCount());
+      hash = (37 * hash) + PREVIOUS_TRANSACTION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getPreviousTransactionId().hashCode();
+      hash = (37 * hash) + NEW_TRANSACTION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getNewTransactionId().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2908,6 +3379,7 @@ public final class AuditLogger {
         walletGroupName_ = "";
         walletNames_ =
             com.google.protobuf.LazyStringArrayList.emptyList();
+        preTransactionId_ = "";
         transactionId_ = "";
         coinType_ = 0;
         stringValue_ = "";
@@ -2942,9 +3414,17 @@ public final class AuditLogger {
           createTimeBuilder_ = null;
         }
         enabledMails_ = java.util.Collections.emptyList();
-        bitField1_ = (bitField1_ & ~0x00000200);
-        disabledMails_ = java.util.Collections.emptyList();
         bitField1_ = (bitField1_ & ~0x00000400);
+        disabledMails_ = java.util.Collections.emptyList();
+        bitField1_ = (bitField1_ & ~0x00000800);
+        network_ = 0;
+        preTransactionThreshold_ = 0D;
+        preTransactionThresholdId_ = "";
+        blacklistAddressId_ = "";
+        fileName_ = "";
+        addressCount_ = 0L;
+        previousTransactionId_ = "";
+        newTransactionId_ = "";
         return this;
       }
 
@@ -2979,14 +3459,14 @@ public final class AuditLogger {
       }
 
       private void buildPartialRepeatedFields(adamant.global.v1.AuditLogger.AuditLog result) {
-        if (((bitField1_ & 0x00000200) != 0)) {
+        if (((bitField1_ & 0x00000400) != 0)) {
           enabledMails_ = java.util.Collections.unmodifiableList(enabledMails_);
-          bitField1_ = (bitField1_ & ~0x00000200);
+          bitField1_ = (bitField1_ & ~0x00000400);
         }
         result.enabledMails_ = enabledMails_;
-        if (((bitField1_ & 0x00000400) != 0)) {
+        if (((bitField1_ & 0x00000800) != 0)) {
           disabledMails_ = java.util.Collections.unmodifiableList(disabledMails_);
-          bitField1_ = (bitField1_ & ~0x00000400);
+          bitField1_ = (bitField1_ & ~0x00000800);
         }
         result.disabledMails_ = disabledMails_;
       }
@@ -3052,81 +3532,108 @@ public final class AuditLogger {
           result.walletNames_ = walletNames_;
         }
         if (((from_bitField0_ & 0x00080000) != 0)) {
-          result.transactionId_ = transactionId_;
+          result.preTransactionId_ = preTransactionId_;
         }
         if (((from_bitField0_ & 0x00100000) != 0)) {
-          result.coinType_ = coinType_;
+          result.transactionId_ = transactionId_;
         }
         if (((from_bitField0_ & 0x00200000) != 0)) {
-          result.stringValue_ = stringValue_;
+          result.coinType_ = coinType_;
         }
         if (((from_bitField0_ & 0x00400000) != 0)) {
-          result.txId_ = txId_;
+          result.stringValue_ = stringValue_;
         }
         if (((from_bitField0_ & 0x00800000) != 0)) {
-          result.policyId_ = policyId_;
+          result.txId_ = txId_;
         }
         if (((from_bitField0_ & 0x01000000) != 0)) {
-          result.policyName_ = policyName_;
+          result.policyId_ = policyId_;
         }
         if (((from_bitField0_ & 0x02000000) != 0)) {
-          result.labeledAddressId_ = labeledAddressId_;
+          result.policyName_ = policyName_;
         }
         if (((from_bitField0_ & 0x04000000) != 0)) {
-          result.address_ = address_;
+          result.labeledAddressId_ = labeledAddressId_;
         }
         if (((from_bitField0_ & 0x08000000) != 0)) {
-          result.addressName_ = addressName_;
+          result.address_ = address_;
         }
         if (((from_bitField0_ & 0x10000000) != 0)) {
-          result.message_ = message_;
+          result.addressName_ = addressName_;
         }
         if (((from_bitField0_ & 0x20000000) != 0)) {
-          result.transferLimitId_ = transferLimitId_;
+          result.message_ = message_;
         }
         if (((from_bitField0_ & 0x40000000) != 0)) {
-          result.transferLimitName_ = transferLimitName_;
+          result.transferLimitId_ = transferLimitId_;
         }
         if (((from_bitField0_ & 0x80000000) != 0)) {
-          result.transferOneTimeLimit_ = transferOneTimeLimit_;
+          result.transferLimitName_ = transferLimitName_;
         }
       }
 
       private void buildPartial1(adamant.global.v1.AuditLogger.AuditLog result) {
         int from_bitField1_ = bitField1_;
         if (((from_bitField1_ & 0x00000001) != 0)) {
-          result.transferHourlyLimit_ = transferHourlyLimit_;
+          result.transferOneTimeLimit_ = transferOneTimeLimit_;
         }
         if (((from_bitField1_ & 0x00000002) != 0)) {
-          result.transferDailyLimit_ = transferDailyLimit_;
+          result.transferHourlyLimit_ = transferHourlyLimit_;
         }
         if (((from_bitField1_ & 0x00000004) != 0)) {
-          result.whitelistId_ = whitelistId_;
+          result.transferDailyLimit_ = transferDailyLimit_;
         }
         if (((from_bitField1_ & 0x00000008) != 0)) {
-          result.whitelistName_ = whitelistName_;
+          result.whitelistId_ = whitelistId_;
         }
         if (((from_bitField1_ & 0x00000010) != 0)) {
+          result.whitelistName_ = whitelistName_;
+        }
+        if (((from_bitField1_ & 0x00000020) != 0)) {
           oldValidators_.makeImmutable();
           result.oldValidators_ = oldValidators_;
         }
-        if (((from_bitField1_ & 0x00000020) != 0)) {
+        if (((from_bitField1_ & 0x00000040) != 0)) {
           newValidators_.makeImmutable();
           result.newValidators_ = newValidators_;
         }
-        if (((from_bitField1_ & 0x00000040) != 0)) {
+        if (((from_bitField1_ & 0x00000080) != 0)) {
           whitelistAddresses_.makeImmutable();
           result.whitelistAddresses_ = whitelistAddresses_;
         }
-        if (((from_bitField1_ & 0x00000080) != 0)) {
+        if (((from_bitField1_ & 0x00000100) != 0)) {
           result.eventTime_ = eventTimeBuilder_ == null
               ? eventTime_
               : eventTimeBuilder_.build();
         }
-        if (((from_bitField1_ & 0x00000100) != 0)) {
+        if (((from_bitField1_ & 0x00000200) != 0)) {
           result.createTime_ = createTimeBuilder_ == null
               ? createTime_
               : createTimeBuilder_.build();
+        }
+        if (((from_bitField1_ & 0x00001000) != 0)) {
+          result.network_ = network_;
+        }
+        if (((from_bitField1_ & 0x00002000) != 0)) {
+          result.preTransactionThreshold_ = preTransactionThreshold_;
+        }
+        if (((from_bitField1_ & 0x00004000) != 0)) {
+          result.preTransactionThresholdId_ = preTransactionThresholdId_;
+        }
+        if (((from_bitField1_ & 0x00008000) != 0)) {
+          result.blacklistAddressId_ = blacklistAddressId_;
+        }
+        if (((from_bitField1_ & 0x00010000) != 0)) {
+          result.fileName_ = fileName_;
+        }
+        if (((from_bitField1_ & 0x00020000) != 0)) {
+          result.addressCount_ = addressCount_;
+        }
+        if (((from_bitField1_ & 0x00040000) != 0)) {
+          result.previousTransactionId_ = previousTransactionId_;
+        }
+        if (((from_bitField1_ & 0x00080000) != 0)) {
+          result.newTransactionId_ = newTransactionId_;
         }
       }
 
@@ -3268,9 +3775,14 @@ public final class AuditLogger {
           }
           onChanged();
         }
+        if (!other.getPreTransactionId().isEmpty()) {
+          preTransactionId_ = other.preTransactionId_;
+          bitField0_ |= 0x00080000;
+          onChanged();
+        }
         if (!other.getTransactionId().isEmpty()) {
           transactionId_ = other.transactionId_;
-          bitField0_ |= 0x00080000;
+          bitField0_ |= 0x00100000;
           onChanged();
         }
         if (other.coinType_ != 0) {
@@ -3278,52 +3790,52 @@ public final class AuditLogger {
         }
         if (!other.getStringValue().isEmpty()) {
           stringValue_ = other.stringValue_;
-          bitField0_ |= 0x00200000;
+          bitField0_ |= 0x00400000;
           onChanged();
         }
         if (!other.getTxId().isEmpty()) {
           txId_ = other.txId_;
-          bitField0_ |= 0x00400000;
+          bitField0_ |= 0x00800000;
           onChanged();
         }
         if (!other.getPolicyId().isEmpty()) {
           policyId_ = other.policyId_;
-          bitField0_ |= 0x00800000;
+          bitField0_ |= 0x01000000;
           onChanged();
         }
         if (!other.getPolicyName().isEmpty()) {
           policyName_ = other.policyName_;
-          bitField0_ |= 0x01000000;
+          bitField0_ |= 0x02000000;
           onChanged();
         }
         if (!other.getLabeledAddressId().isEmpty()) {
           labeledAddressId_ = other.labeledAddressId_;
-          bitField0_ |= 0x02000000;
+          bitField0_ |= 0x04000000;
           onChanged();
         }
         if (!other.getAddress().isEmpty()) {
           address_ = other.address_;
-          bitField0_ |= 0x04000000;
+          bitField0_ |= 0x08000000;
           onChanged();
         }
         if (!other.getAddressName().isEmpty()) {
           addressName_ = other.addressName_;
-          bitField0_ |= 0x08000000;
+          bitField0_ |= 0x10000000;
           onChanged();
         }
         if (!other.getMessage().isEmpty()) {
           message_ = other.message_;
-          bitField0_ |= 0x10000000;
+          bitField0_ |= 0x20000000;
           onChanged();
         }
         if (!other.getTransferLimitId().isEmpty()) {
           transferLimitId_ = other.transferLimitId_;
-          bitField0_ |= 0x20000000;
+          bitField0_ |= 0x40000000;
           onChanged();
         }
         if (!other.getTransferLimitName().isEmpty()) {
           transferLimitName_ = other.transferLimitName_;
-          bitField0_ |= 0x40000000;
+          bitField0_ |= 0x80000000;
           onChanged();
         }
         if (other.getTransferOneTimeLimit() != 0L) {
@@ -3337,18 +3849,18 @@ public final class AuditLogger {
         }
         if (!other.getWhitelistId().isEmpty()) {
           whitelistId_ = other.whitelistId_;
-          bitField1_ |= 0x00000004;
+          bitField1_ |= 0x00000008;
           onChanged();
         }
         if (!other.getWhitelistName().isEmpty()) {
           whitelistName_ = other.whitelistName_;
-          bitField1_ |= 0x00000008;
+          bitField1_ |= 0x00000010;
           onChanged();
         }
         if (!other.oldValidators_.isEmpty()) {
           if (oldValidators_.isEmpty()) {
             oldValidators_ = other.oldValidators_;
-            bitField1_ |= 0x00000010;
+            bitField1_ |= 0x00000020;
           } else {
             ensureOldValidatorsIsMutable();
             oldValidators_.addAll(other.oldValidators_);
@@ -3358,7 +3870,7 @@ public final class AuditLogger {
         if (!other.newValidators_.isEmpty()) {
           if (newValidators_.isEmpty()) {
             newValidators_ = other.newValidators_;
-            bitField1_ |= 0x00000020;
+            bitField1_ |= 0x00000040;
           } else {
             ensureNewValidatorsIsMutable();
             newValidators_.addAll(other.newValidators_);
@@ -3368,7 +3880,7 @@ public final class AuditLogger {
         if (!other.whitelistAddresses_.isEmpty()) {
           if (whitelistAddresses_.isEmpty()) {
             whitelistAddresses_ = other.whitelistAddresses_;
-            bitField1_ |= 0x00000040;
+            bitField1_ |= 0x00000080;
           } else {
             ensureWhitelistAddressesIsMutable();
             whitelistAddresses_.addAll(other.whitelistAddresses_);
@@ -3384,7 +3896,7 @@ public final class AuditLogger {
         if (!other.enabledMails_.isEmpty()) {
           if (enabledMails_.isEmpty()) {
             enabledMails_ = other.enabledMails_;
-            bitField1_ = (bitField1_ & ~0x00000200);
+            bitField1_ = (bitField1_ & ~0x00000400);
           } else {
             ensureEnabledMailsIsMutable();
             enabledMails_.addAll(other.enabledMails_);
@@ -3394,11 +3906,45 @@ public final class AuditLogger {
         if (!other.disabledMails_.isEmpty()) {
           if (disabledMails_.isEmpty()) {
             disabledMails_ = other.disabledMails_;
-            bitField1_ = (bitField1_ & ~0x00000400);
+            bitField1_ = (bitField1_ & ~0x00000800);
           } else {
             ensureDisabledMailsIsMutable();
             disabledMails_.addAll(other.disabledMails_);
           }
+          onChanged();
+        }
+        if (other.network_ != 0) {
+          setNetworkValue(other.getNetworkValue());
+        }
+        if (other.getPreTransactionThreshold() != 0D) {
+          setPreTransactionThreshold(other.getPreTransactionThreshold());
+        }
+        if (!other.getPreTransactionThresholdId().isEmpty()) {
+          preTransactionThresholdId_ = other.preTransactionThresholdId_;
+          bitField1_ |= 0x00004000;
+          onChanged();
+        }
+        if (!other.getBlacklistAddressId().isEmpty()) {
+          blacklistAddressId_ = other.blacklistAddressId_;
+          bitField1_ |= 0x00008000;
+          onChanged();
+        }
+        if (!other.getFileName().isEmpty()) {
+          fileName_ = other.fileName_;
+          bitField1_ |= 0x00010000;
+          onChanged();
+        }
+        if (other.getAddressCount() != 0L) {
+          setAddressCount(other.getAddressCount());
+        }
+        if (!other.getPreviousTransactionId().isEmpty()) {
+          previousTransactionId_ = other.previousTransactionId_;
+          bitField1_ |= 0x00040000;
+          onChanged();
+        }
+        if (!other.getNewTransactionId().isEmpty()) {
+          newTransactionId_ = other.newTransactionId_;
+          bitField1_ |= 0x00080000;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -3499,82 +4045,82 @@ public final class AuditLogger {
               } // case 114
               case 122: {
                 transactionId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00080000;
+                bitField0_ |= 0x00100000;
                 break;
               } // case 122
               case 128: {
                 coinType_ = input.readEnum();
-                bitField0_ |= 0x00100000;
+                bitField0_ |= 0x00200000;
                 break;
               } // case 128
               case 138: {
                 stringValue_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00200000;
+                bitField0_ |= 0x00400000;
                 break;
               } // case 138
               case 146: {
                 txId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00400000;
+                bitField0_ |= 0x00800000;
                 break;
               } // case 146
               case 154: {
                 policyId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00800000;
+                bitField0_ |= 0x01000000;
                 break;
               } // case 154
               case 162: {
                 policyName_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x01000000;
+                bitField0_ |= 0x02000000;
                 break;
               } // case 162
               case 170: {
                 labeledAddressId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x02000000;
+                bitField0_ |= 0x04000000;
                 break;
               } // case 170
               case 178: {
                 address_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x04000000;
+                bitField0_ |= 0x08000000;
                 break;
               } // case 178
               case 186: {
                 addressName_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x08000000;
+                bitField0_ |= 0x10000000;
                 break;
               } // case 186
               case 194: {
                 transferLimitId_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x20000000;
+                bitField0_ |= 0x40000000;
                 break;
               } // case 194
               case 202: {
                 transferLimitName_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x40000000;
+                bitField0_ |= 0x80000000;
                 break;
               } // case 202
               case 208: {
                 transferOneTimeLimit_ = input.readInt64();
-                bitField0_ |= 0x80000000;
+                bitField1_ |= 0x00000001;
                 break;
               } // case 208
               case 216: {
                 transferHourlyLimit_ = input.readInt64();
-                bitField1_ |= 0x00000001;
+                bitField1_ |= 0x00000002;
                 break;
               } // case 216
               case 224: {
                 transferDailyLimit_ = input.readInt64();
-                bitField1_ |= 0x00000002;
+                bitField1_ |= 0x00000004;
                 break;
               } // case 224
               case 234: {
                 whitelistId_ = input.readStringRequireUtf8();
-                bitField1_ |= 0x00000004;
+                bitField1_ |= 0x00000008;
                 break;
               } // case 234
               case 242: {
                 whitelistName_ = input.readStringRequireUtf8();
-                bitField1_ |= 0x00000008;
+                bitField1_ |= 0x00000010;
                 break;
               } // case 242
               case 250: {
@@ -3587,14 +4133,14 @@ public final class AuditLogger {
                 input.readMessage(
                     getEventTimeFieldBuilder().getBuilder(),
                     extensionRegistry);
-                bitField1_ |= 0x00000080;
+                bitField1_ |= 0x00000100;
                 break;
               } // case 258
               case 266: {
                 input.readMessage(
                     getCreateTimeFieldBuilder().getBuilder(),
                     extensionRegistry);
-                bitField1_ |= 0x00000100;
+                bitField1_ |= 0x00000200;
                 break;
               } // case 266
               case 274: {
@@ -3671,9 +4217,54 @@ public final class AuditLogger {
               } // case 338
               case 346: {
                 message_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x10000000;
+                bitField0_ |= 0x20000000;
                 break;
               } // case 346
+              case 352: {
+                network_ = input.readEnum();
+                bitField1_ |= 0x00001000;
+                break;
+              } // case 352
+              case 361: {
+                preTransactionThreshold_ = input.readDouble();
+                bitField1_ |= 0x00002000;
+                break;
+              } // case 361
+              case 370: {
+                preTransactionThresholdId_ = input.readStringRequireUtf8();
+                bitField1_ |= 0x00004000;
+                break;
+              } // case 370
+              case 378: {
+                blacklistAddressId_ = input.readStringRequireUtf8();
+                bitField1_ |= 0x00008000;
+                break;
+              } // case 378
+              case 386: {
+                fileName_ = input.readStringRequireUtf8();
+                bitField1_ |= 0x00010000;
+                break;
+              } // case 386
+              case 392: {
+                addressCount_ = input.readInt64();
+                bitField1_ |= 0x00020000;
+                break;
+              } // case 392
+              case 402: {
+                preTransactionId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00080000;
+                break;
+              } // case 402
+              case 410: {
+                previousTransactionId_ = input.readStringRequireUtf8();
+                bitField1_ |= 0x00040000;
+                break;
+              } // case 410
+              case 418: {
+                newTransactionId_ = input.readStringRequireUtf8();
+                bitField1_ |= 0x00080000;
+                break;
+              } // case 418
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -5042,6 +5633,78 @@ public final class AuditLogger {
         return this;
       }
 
+      private java.lang.Object preTransactionId_ = "";
+      /**
+       * <code>string pre_transaction_id = 50 [json_name = "preTransactionId"];</code>
+       * @return The preTransactionId.
+       */
+      public java.lang.String getPreTransactionId() {
+        java.lang.Object ref = preTransactionId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          preTransactionId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string pre_transaction_id = 50 [json_name = "preTransactionId"];</code>
+       * @return The bytes for preTransactionId.
+       */
+      public com.google.protobuf.ByteString
+          getPreTransactionIdBytes() {
+        java.lang.Object ref = preTransactionId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          preTransactionId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string pre_transaction_id = 50 [json_name = "preTransactionId"];</code>
+       * @param value The preTransactionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPreTransactionId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        preTransactionId_ = value;
+        bitField0_ |= 0x00080000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string pre_transaction_id = 50 [json_name = "preTransactionId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPreTransactionId() {
+        preTransactionId_ = getDefaultInstance().getPreTransactionId();
+        bitField0_ = (bitField0_ & ~0x00080000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string pre_transaction_id = 50 [json_name = "preTransactionId"];</code>
+       * @param value The bytes for preTransactionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPreTransactionIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        preTransactionId_ = value;
+        bitField0_ |= 0x00080000;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object transactionId_ = "";
       /**
        * <code>string transaction_id = 15 [json_name = "transactionId"];</code>
@@ -5085,7 +5748,7 @@ public final class AuditLogger {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         transactionId_ = value;
-        bitField0_ |= 0x00080000;
+        bitField0_ |= 0x00100000;
         onChanged();
         return this;
       }
@@ -5095,7 +5758,7 @@ public final class AuditLogger {
        */
       public Builder clearTransactionId() {
         transactionId_ = getDefaultInstance().getTransactionId();
-        bitField0_ = (bitField0_ & ~0x00080000);
+        bitField0_ = (bitField0_ & ~0x00100000);
         onChanged();
         return this;
       }
@@ -5109,7 +5772,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         transactionId_ = value;
-        bitField0_ |= 0x00080000;
+        bitField0_ |= 0x00100000;
         onChanged();
         return this;
       }
@@ -5129,7 +5792,7 @@ public final class AuditLogger {
        */
       public Builder setCoinTypeValue(int value) {
         coinType_ = value;
-        bitField0_ |= 0x00100000;
+        bitField0_ |= 0x00200000;
         onChanged();
         return this;
       }
@@ -5151,7 +5814,7 @@ public final class AuditLogger {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00100000;
+        bitField0_ |= 0x00200000;
         coinType_ = value.getNumber();
         onChanged();
         return this;
@@ -5161,7 +5824,7 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearCoinType() {
-        bitField0_ = (bitField0_ & ~0x00100000);
+        bitField0_ = (bitField0_ & ~0x00200000);
         coinType_ = 0;
         onChanged();
         return this;
@@ -5210,7 +5873,7 @@ public final class AuditLogger {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         stringValue_ = value;
-        bitField0_ |= 0x00200000;
+        bitField0_ |= 0x00400000;
         onChanged();
         return this;
       }
@@ -5220,7 +5883,7 @@ public final class AuditLogger {
        */
       public Builder clearStringValue() {
         stringValue_ = getDefaultInstance().getStringValue();
-        bitField0_ = (bitField0_ & ~0x00200000);
+        bitField0_ = (bitField0_ & ~0x00400000);
         onChanged();
         return this;
       }
@@ -5234,7 +5897,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         stringValue_ = value;
-        bitField0_ |= 0x00200000;
+        bitField0_ |= 0x00400000;
         onChanged();
         return this;
       }
@@ -5282,7 +5945,7 @@ public final class AuditLogger {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         txId_ = value;
-        bitField0_ |= 0x00400000;
+        bitField0_ |= 0x00800000;
         onChanged();
         return this;
       }
@@ -5292,7 +5955,7 @@ public final class AuditLogger {
        */
       public Builder clearTxId() {
         txId_ = getDefaultInstance().getTxId();
-        bitField0_ = (bitField0_ & ~0x00400000);
+        bitField0_ = (bitField0_ & ~0x00800000);
         onChanged();
         return this;
       }
@@ -5306,7 +5969,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         txId_ = value;
-        bitField0_ |= 0x00400000;
+        bitField0_ |= 0x00800000;
         onChanged();
         return this;
       }
@@ -5354,7 +6017,7 @@ public final class AuditLogger {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         policyId_ = value;
-        bitField0_ |= 0x00800000;
+        bitField0_ |= 0x01000000;
         onChanged();
         return this;
       }
@@ -5364,7 +6027,7 @@ public final class AuditLogger {
        */
       public Builder clearPolicyId() {
         policyId_ = getDefaultInstance().getPolicyId();
-        bitField0_ = (bitField0_ & ~0x00800000);
+        bitField0_ = (bitField0_ & ~0x01000000);
         onChanged();
         return this;
       }
@@ -5378,7 +6041,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         policyId_ = value;
-        bitField0_ |= 0x00800000;
+        bitField0_ |= 0x01000000;
         onChanged();
         return this;
       }
@@ -5426,7 +6089,7 @@ public final class AuditLogger {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         policyName_ = value;
-        bitField0_ |= 0x01000000;
+        bitField0_ |= 0x02000000;
         onChanged();
         return this;
       }
@@ -5436,7 +6099,7 @@ public final class AuditLogger {
        */
       public Builder clearPolicyName() {
         policyName_ = getDefaultInstance().getPolicyName();
-        bitField0_ = (bitField0_ & ~0x01000000);
+        bitField0_ = (bitField0_ & ~0x02000000);
         onChanged();
         return this;
       }
@@ -5450,7 +6113,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         policyName_ = value;
-        bitField0_ |= 0x01000000;
+        bitField0_ |= 0x02000000;
         onChanged();
         return this;
       }
@@ -5498,7 +6161,7 @@ public final class AuditLogger {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         labeledAddressId_ = value;
-        bitField0_ |= 0x02000000;
+        bitField0_ |= 0x04000000;
         onChanged();
         return this;
       }
@@ -5508,7 +6171,7 @@ public final class AuditLogger {
        */
       public Builder clearLabeledAddressId() {
         labeledAddressId_ = getDefaultInstance().getLabeledAddressId();
-        bitField0_ = (bitField0_ & ~0x02000000);
+        bitField0_ = (bitField0_ & ~0x04000000);
         onChanged();
         return this;
       }
@@ -5522,7 +6185,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         labeledAddressId_ = value;
-        bitField0_ |= 0x02000000;
+        bitField0_ |= 0x04000000;
         onChanged();
         return this;
       }
@@ -5570,7 +6233,7 @@ public final class AuditLogger {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         address_ = value;
-        bitField0_ |= 0x04000000;
+        bitField0_ |= 0x08000000;
         onChanged();
         return this;
       }
@@ -5580,7 +6243,7 @@ public final class AuditLogger {
        */
       public Builder clearAddress() {
         address_ = getDefaultInstance().getAddress();
-        bitField0_ = (bitField0_ & ~0x04000000);
+        bitField0_ = (bitField0_ & ~0x08000000);
         onChanged();
         return this;
       }
@@ -5594,7 +6257,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         address_ = value;
-        bitField0_ |= 0x04000000;
+        bitField0_ |= 0x08000000;
         onChanged();
         return this;
       }
@@ -5642,7 +6305,7 @@ public final class AuditLogger {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         addressName_ = value;
-        bitField0_ |= 0x08000000;
+        bitField0_ |= 0x10000000;
         onChanged();
         return this;
       }
@@ -5652,7 +6315,7 @@ public final class AuditLogger {
        */
       public Builder clearAddressName() {
         addressName_ = getDefaultInstance().getAddressName();
-        bitField0_ = (bitField0_ & ~0x08000000);
+        bitField0_ = (bitField0_ & ~0x10000000);
         onChanged();
         return this;
       }
@@ -5666,7 +6329,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         addressName_ = value;
-        bitField0_ |= 0x08000000;
+        bitField0_ |= 0x10000000;
         onChanged();
         return this;
       }
@@ -5714,7 +6377,7 @@ public final class AuditLogger {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         message_ = value;
-        bitField0_ |= 0x10000000;
+        bitField0_ |= 0x20000000;
         onChanged();
         return this;
       }
@@ -5724,7 +6387,7 @@ public final class AuditLogger {
        */
       public Builder clearMessage() {
         message_ = getDefaultInstance().getMessage();
-        bitField0_ = (bitField0_ & ~0x10000000);
+        bitField0_ = (bitField0_ & ~0x20000000);
         onChanged();
         return this;
       }
@@ -5738,7 +6401,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         message_ = value;
-        bitField0_ |= 0x10000000;
+        bitField0_ |= 0x20000000;
         onChanged();
         return this;
       }
@@ -5786,7 +6449,7 @@ public final class AuditLogger {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         transferLimitId_ = value;
-        bitField0_ |= 0x20000000;
+        bitField0_ |= 0x40000000;
         onChanged();
         return this;
       }
@@ -5796,7 +6459,7 @@ public final class AuditLogger {
        */
       public Builder clearTransferLimitId() {
         transferLimitId_ = getDefaultInstance().getTransferLimitId();
-        bitField0_ = (bitField0_ & ~0x20000000);
+        bitField0_ = (bitField0_ & ~0x40000000);
         onChanged();
         return this;
       }
@@ -5810,7 +6473,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         transferLimitId_ = value;
-        bitField0_ |= 0x20000000;
+        bitField0_ |= 0x40000000;
         onChanged();
         return this;
       }
@@ -5858,7 +6521,7 @@ public final class AuditLogger {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         transferLimitName_ = value;
-        bitField0_ |= 0x40000000;
+        bitField0_ |= 0x80000000;
         onChanged();
         return this;
       }
@@ -5868,7 +6531,7 @@ public final class AuditLogger {
        */
       public Builder clearTransferLimitName() {
         transferLimitName_ = getDefaultInstance().getTransferLimitName();
-        bitField0_ = (bitField0_ & ~0x40000000);
+        bitField0_ = (bitField0_ & ~0x80000000);
         onChanged();
         return this;
       }
@@ -5882,7 +6545,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         transferLimitName_ = value;
-        bitField0_ |= 0x40000000;
+        bitField0_ |= 0x80000000;
         onChanged();
         return this;
       }
@@ -5904,7 +6567,7 @@ public final class AuditLogger {
       public Builder setTransferOneTimeLimit(long value) {
 
         transferOneTimeLimit_ = value;
-        bitField0_ |= 0x80000000;
+        bitField1_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5913,7 +6576,7 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearTransferOneTimeLimit() {
-        bitField0_ = (bitField0_ & ~0x80000000);
+        bitField1_ = (bitField1_ & ~0x00000001);
         transferOneTimeLimit_ = 0L;
         onChanged();
         return this;
@@ -5936,7 +6599,7 @@ public final class AuditLogger {
       public Builder setTransferHourlyLimit(long value) {
 
         transferHourlyLimit_ = value;
-        bitField1_ |= 0x00000001;
+        bitField1_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5945,7 +6608,7 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearTransferHourlyLimit() {
-        bitField1_ = (bitField1_ & ~0x00000001);
+        bitField1_ = (bitField1_ & ~0x00000002);
         transferHourlyLimit_ = 0L;
         onChanged();
         return this;
@@ -5968,7 +6631,7 @@ public final class AuditLogger {
       public Builder setTransferDailyLimit(long value) {
 
         transferDailyLimit_ = value;
-        bitField1_ |= 0x00000002;
+        bitField1_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -5977,7 +6640,7 @@ public final class AuditLogger {
        * @return This builder for chaining.
        */
       public Builder clearTransferDailyLimit() {
-        bitField1_ = (bitField1_ & ~0x00000002);
+        bitField1_ = (bitField1_ & ~0x00000004);
         transferDailyLimit_ = 0L;
         onChanged();
         return this;
@@ -6026,7 +6689,7 @@ public final class AuditLogger {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         whitelistId_ = value;
-        bitField1_ |= 0x00000004;
+        bitField1_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -6036,7 +6699,7 @@ public final class AuditLogger {
        */
       public Builder clearWhitelistId() {
         whitelistId_ = getDefaultInstance().getWhitelistId();
-        bitField1_ = (bitField1_ & ~0x00000004);
+        bitField1_ = (bitField1_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -6050,7 +6713,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         whitelistId_ = value;
-        bitField1_ |= 0x00000004;
+        bitField1_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -6098,7 +6761,7 @@ public final class AuditLogger {
           java.lang.String value) {
         if (value == null) { throw new NullPointerException(); }
         whitelistName_ = value;
-        bitField1_ |= 0x00000008;
+        bitField1_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -6108,7 +6771,7 @@ public final class AuditLogger {
        */
       public Builder clearWhitelistName() {
         whitelistName_ = getDefaultInstance().getWhitelistName();
-        bitField1_ = (bitField1_ & ~0x00000008);
+        bitField1_ = (bitField1_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -6122,7 +6785,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         whitelistName_ = value;
-        bitField1_ |= 0x00000008;
+        bitField1_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -6133,7 +6796,7 @@ public final class AuditLogger {
         if (!oldValidators_.isModifiable()) {
           oldValidators_ = new com.google.protobuf.LazyStringArrayList(oldValidators_);
         }
-        bitField1_ |= 0x00000010;
+        bitField1_ |= 0x00000020;
       }
       /**
        * <code>repeated string old_validators = 37 [json_name = "oldValidators"];</code>
@@ -6179,7 +6842,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         ensureOldValidatorsIsMutable();
         oldValidators_.set(index, value);
-        bitField1_ |= 0x00000010;
+        bitField1_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -6193,7 +6856,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         ensureOldValidatorsIsMutable();
         oldValidators_.add(value);
-        bitField1_ |= 0x00000010;
+        bitField1_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -6207,7 +6870,7 @@ public final class AuditLogger {
         ensureOldValidatorsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, oldValidators_);
-        bitField1_ |= 0x00000010;
+        bitField1_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -6218,7 +6881,7 @@ public final class AuditLogger {
       public Builder clearOldValidators() {
         oldValidators_ =
           com.google.protobuf.LazyStringArrayList.emptyList();
-        bitField1_ = (bitField1_ & ~0x00000010);;
+        bitField1_ = (bitField1_ & ~0x00000020);;
         onChanged();
         return this;
       }
@@ -6233,7 +6896,7 @@ public final class AuditLogger {
         checkByteStringIsUtf8(value);
         ensureOldValidatorsIsMutable();
         oldValidators_.add(value);
-        bitField1_ |= 0x00000010;
+        bitField1_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -6244,7 +6907,7 @@ public final class AuditLogger {
         if (!newValidators_.isModifiable()) {
           newValidators_ = new com.google.protobuf.LazyStringArrayList(newValidators_);
         }
-        bitField1_ |= 0x00000020;
+        bitField1_ |= 0x00000040;
       }
       /**
        * <code>repeated string new_validators = 38 [json_name = "newValidators"];</code>
@@ -6290,7 +6953,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         ensureNewValidatorsIsMutable();
         newValidators_.set(index, value);
-        bitField1_ |= 0x00000020;
+        bitField1_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -6304,7 +6967,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         ensureNewValidatorsIsMutable();
         newValidators_.add(value);
-        bitField1_ |= 0x00000020;
+        bitField1_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -6318,7 +6981,7 @@ public final class AuditLogger {
         ensureNewValidatorsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, newValidators_);
-        bitField1_ |= 0x00000020;
+        bitField1_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -6329,7 +6992,7 @@ public final class AuditLogger {
       public Builder clearNewValidators() {
         newValidators_ =
           com.google.protobuf.LazyStringArrayList.emptyList();
-        bitField1_ = (bitField1_ & ~0x00000020);;
+        bitField1_ = (bitField1_ & ~0x00000040);;
         onChanged();
         return this;
       }
@@ -6344,7 +7007,7 @@ public final class AuditLogger {
         checkByteStringIsUtf8(value);
         ensureNewValidatorsIsMutable();
         newValidators_.add(value);
-        bitField1_ |= 0x00000020;
+        bitField1_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -6355,7 +7018,7 @@ public final class AuditLogger {
         if (!whitelistAddresses_.isModifiable()) {
           whitelistAddresses_ = new com.google.protobuf.LazyStringArrayList(whitelistAddresses_);
         }
-        bitField1_ |= 0x00000040;
+        bitField1_ |= 0x00000080;
       }
       /**
        * <code>repeated string whitelist_addresses = 31 [json_name = "whitelistAddresses"];</code>
@@ -6401,7 +7064,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         ensureWhitelistAddressesIsMutable();
         whitelistAddresses_.set(index, value);
-        bitField1_ |= 0x00000040;
+        bitField1_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -6415,7 +7078,7 @@ public final class AuditLogger {
         if (value == null) { throw new NullPointerException(); }
         ensureWhitelistAddressesIsMutable();
         whitelistAddresses_.add(value);
-        bitField1_ |= 0x00000040;
+        bitField1_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -6429,7 +7092,7 @@ public final class AuditLogger {
         ensureWhitelistAddressesIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, whitelistAddresses_);
-        bitField1_ |= 0x00000040;
+        bitField1_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -6440,7 +7103,7 @@ public final class AuditLogger {
       public Builder clearWhitelistAddresses() {
         whitelistAddresses_ =
           com.google.protobuf.LazyStringArrayList.emptyList();
-        bitField1_ = (bitField1_ & ~0x00000040);;
+        bitField1_ = (bitField1_ & ~0x00000080);;
         onChanged();
         return this;
       }
@@ -6455,7 +7118,7 @@ public final class AuditLogger {
         checkByteStringIsUtf8(value);
         ensureWhitelistAddressesIsMutable();
         whitelistAddresses_.add(value);
-        bitField1_ |= 0x00000040;
+        bitField1_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -6468,7 +7131,7 @@ public final class AuditLogger {
        * @return Whether the eventTime field is set.
        */
       public boolean hasEventTime() {
-        return ((bitField1_ & 0x00000080) != 0);
+        return ((bitField1_ & 0x00000100) != 0);
       }
       /**
        * <code>.google.protobuf.Timestamp event_time = 32 [json_name = "eventTime"];</code>
@@ -6493,7 +7156,7 @@ public final class AuditLogger {
         } else {
           eventTimeBuilder_.setMessage(value);
         }
-        bitField1_ |= 0x00000080;
+        bitField1_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -6507,7 +7170,7 @@ public final class AuditLogger {
         } else {
           eventTimeBuilder_.setMessage(builderForValue.build());
         }
-        bitField1_ |= 0x00000080;
+        bitField1_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -6516,7 +7179,7 @@ public final class AuditLogger {
        */
       public Builder mergeEventTime(com.google.protobuf.Timestamp value) {
         if (eventTimeBuilder_ == null) {
-          if (((bitField1_ & 0x00000080) != 0) &&
+          if (((bitField1_ & 0x00000100) != 0) &&
             eventTime_ != null &&
             eventTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
             getEventTimeBuilder().mergeFrom(value);
@@ -6526,7 +7189,7 @@ public final class AuditLogger {
         } else {
           eventTimeBuilder_.mergeFrom(value);
         }
-        bitField1_ |= 0x00000080;
+        bitField1_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -6534,7 +7197,7 @@ public final class AuditLogger {
        * <code>.google.protobuf.Timestamp event_time = 32 [json_name = "eventTime"];</code>
        */
       public Builder clearEventTime() {
-        bitField1_ = (bitField1_ & ~0x00000080);
+        bitField1_ = (bitField1_ & ~0x00000100);
         eventTime_ = null;
         if (eventTimeBuilder_ != null) {
           eventTimeBuilder_.dispose();
@@ -6547,7 +7210,7 @@ public final class AuditLogger {
        * <code>.google.protobuf.Timestamp event_time = 32 [json_name = "eventTime"];</code>
        */
       public com.google.protobuf.Timestamp.Builder getEventTimeBuilder() {
-        bitField1_ |= 0x00000080;
+        bitField1_ |= 0x00000100;
         onChanged();
         return getEventTimeFieldBuilder().getBuilder();
       }
@@ -6587,7 +7250,7 @@ public final class AuditLogger {
        * @return Whether the createTime field is set.
        */
       public boolean hasCreateTime() {
-        return ((bitField1_ & 0x00000100) != 0);
+        return ((bitField1_ & 0x00000200) != 0);
       }
       /**
        * <code>.google.protobuf.Timestamp create_time = 33 [json_name = "createTime"];</code>
@@ -6612,7 +7275,7 @@ public final class AuditLogger {
         } else {
           createTimeBuilder_.setMessage(value);
         }
-        bitField1_ |= 0x00000100;
+        bitField1_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -6626,7 +7289,7 @@ public final class AuditLogger {
         } else {
           createTimeBuilder_.setMessage(builderForValue.build());
         }
-        bitField1_ |= 0x00000100;
+        bitField1_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -6635,7 +7298,7 @@ public final class AuditLogger {
        */
       public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
         if (createTimeBuilder_ == null) {
-          if (((bitField1_ & 0x00000100) != 0) &&
+          if (((bitField1_ & 0x00000200) != 0) &&
             createTime_ != null &&
             createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
             getCreateTimeBuilder().mergeFrom(value);
@@ -6645,7 +7308,7 @@ public final class AuditLogger {
         } else {
           createTimeBuilder_.mergeFrom(value);
         }
-        bitField1_ |= 0x00000100;
+        bitField1_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -6653,7 +7316,7 @@ public final class AuditLogger {
        * <code>.google.protobuf.Timestamp create_time = 33 [json_name = "createTime"];</code>
        */
       public Builder clearCreateTime() {
-        bitField1_ = (bitField1_ & ~0x00000100);
+        bitField1_ = (bitField1_ & ~0x00000200);
         createTime_ = null;
         if (createTimeBuilder_ != null) {
           createTimeBuilder_.dispose();
@@ -6666,7 +7329,7 @@ public final class AuditLogger {
        * <code>.google.protobuf.Timestamp create_time = 33 [json_name = "createTime"];</code>
        */
       public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-        bitField1_ |= 0x00000100;
+        bitField1_ |= 0x00000200;
         onChanged();
         return getCreateTimeFieldBuilder().getBuilder();
       }
@@ -6701,9 +7364,9 @@ public final class AuditLogger {
       private java.util.List<java.lang.Integer> enabledMails_ =
         java.util.Collections.emptyList();
       private void ensureEnabledMailsIsMutable() {
-        if (!((bitField1_ & 0x00000200) != 0)) {
+        if (!((bitField1_ & 0x00000400) != 0)) {
           enabledMails_ = new java.util.ArrayList<java.lang.Integer>(enabledMails_);
-          bitField1_ |= 0x00000200;
+          bitField1_ |= 0x00000400;
         }
       }
       /**
@@ -6779,7 +7442,7 @@ public final class AuditLogger {
        */
       public Builder clearEnabledMails() {
         enabledMails_ = java.util.Collections.emptyList();
-        bitField1_ = (bitField1_ & ~0x00000200);
+        bitField1_ = (bitField1_ & ~0x00000400);
         onChanged();
         return this;
       }
@@ -6841,9 +7504,9 @@ public final class AuditLogger {
       private java.util.List<java.lang.Integer> disabledMails_ =
         java.util.Collections.emptyList();
       private void ensureDisabledMailsIsMutable() {
-        if (!((bitField1_ & 0x00000400) != 0)) {
+        if (!((bitField1_ & 0x00000800) != 0)) {
           disabledMails_ = new java.util.ArrayList<java.lang.Integer>(disabledMails_);
-          bitField1_ |= 0x00000400;
+          bitField1_ |= 0x00000800;
         }
       }
       /**
@@ -6919,7 +7582,7 @@ public final class AuditLogger {
        */
       public Builder clearDisabledMails() {
         disabledMails_ = java.util.Collections.emptyList();
-        bitField1_ = (bitField1_ & ~0x00000400);
+        bitField1_ = (bitField1_ & ~0x00000800);
         onChanged();
         return this;
       }
@@ -6974,6 +7637,483 @@ public final class AuditLogger {
         for (int value : values) {
           disabledMails_.add(value);
         }
+        onChanged();
+        return this;
+      }
+
+      private int network_ = 0;
+      /**
+       * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+       * @return The enum numeric value on the wire for network.
+       */
+      @java.lang.Override public int getNetworkValue() {
+        return network_;
+      }
+      /**
+       * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+       * @param value The enum numeric value on the wire for network to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNetworkValue(int value) {
+        network_ = value;
+        bitField1_ |= 0x00001000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+       * @return The network.
+       */
+      @java.lang.Override
+      public gincoinc.global.v1.Enum.Network getNetwork() {
+        gincoinc.global.v1.Enum.Network result = gincoinc.global.v1.Enum.Network.forNumber(network_);
+        return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+       * @param value The network to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNetwork(gincoinc.global.v1.Enum.Network value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField1_ |= 0x00001000;
+        network_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.gincoinc.global.v1.Network network = 44 [json_name = "network"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNetwork() {
+        bitField1_ = (bitField1_ & ~0x00001000);
+        network_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private double preTransactionThreshold_ ;
+      /**
+       * <code>double pre_transaction_threshold = 45 [json_name = "preTransactionThreshold"];</code>
+       * @return The preTransactionThreshold.
+       */
+      @java.lang.Override
+      public double getPreTransactionThreshold() {
+        return preTransactionThreshold_;
+      }
+      /**
+       * <code>double pre_transaction_threshold = 45 [json_name = "preTransactionThreshold"];</code>
+       * @param value The preTransactionThreshold to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPreTransactionThreshold(double value) {
+
+        preTransactionThreshold_ = value;
+        bitField1_ |= 0x00002000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>double pre_transaction_threshold = 45 [json_name = "preTransactionThreshold"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPreTransactionThreshold() {
+        bitField1_ = (bitField1_ & ~0x00002000);
+        preTransactionThreshold_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object preTransactionThresholdId_ = "";
+      /**
+       * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+       * @return The preTransactionThresholdId.
+       */
+      public java.lang.String getPreTransactionThresholdId() {
+        java.lang.Object ref = preTransactionThresholdId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          preTransactionThresholdId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+       * @return The bytes for preTransactionThresholdId.
+       */
+      public com.google.protobuf.ByteString
+          getPreTransactionThresholdIdBytes() {
+        java.lang.Object ref = preTransactionThresholdId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          preTransactionThresholdId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+       * @param value The preTransactionThresholdId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPreTransactionThresholdId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        preTransactionThresholdId_ = value;
+        bitField1_ |= 0x00004000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPreTransactionThresholdId() {
+        preTransactionThresholdId_ = getDefaultInstance().getPreTransactionThresholdId();
+        bitField1_ = (bitField1_ & ~0x00004000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string pre_transaction_threshold_id = 46 [json_name = "preTransactionThresholdId"];</code>
+       * @param value The bytes for preTransactionThresholdId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPreTransactionThresholdIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        preTransactionThresholdId_ = value;
+        bitField1_ |= 0x00004000;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object blacklistAddressId_ = "";
+      /**
+       * <code>string blacklist_address_id = 47 [json_name = "blacklistAddressId"];</code>
+       * @return The blacklistAddressId.
+       */
+      public java.lang.String getBlacklistAddressId() {
+        java.lang.Object ref = blacklistAddressId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          blacklistAddressId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string blacklist_address_id = 47 [json_name = "blacklistAddressId"];</code>
+       * @return The bytes for blacklistAddressId.
+       */
+      public com.google.protobuf.ByteString
+          getBlacklistAddressIdBytes() {
+        java.lang.Object ref = blacklistAddressId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          blacklistAddressId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string blacklist_address_id = 47 [json_name = "blacklistAddressId"];</code>
+       * @param value The blacklistAddressId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBlacklistAddressId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        blacklistAddressId_ = value;
+        bitField1_ |= 0x00008000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string blacklist_address_id = 47 [json_name = "blacklistAddressId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBlacklistAddressId() {
+        blacklistAddressId_ = getDefaultInstance().getBlacklistAddressId();
+        bitField1_ = (bitField1_ & ~0x00008000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string blacklist_address_id = 47 [json_name = "blacklistAddressId"];</code>
+       * @param value The bytes for blacklistAddressId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBlacklistAddressIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        blacklistAddressId_ = value;
+        bitField1_ |= 0x00008000;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object fileName_ = "";
+      /**
+       * <code>string file_name = 48 [json_name = "fileName"];</code>
+       * @return The fileName.
+       */
+      public java.lang.String getFileName() {
+        java.lang.Object ref = fileName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          fileName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string file_name = 48 [json_name = "fileName"];</code>
+       * @return The bytes for fileName.
+       */
+      public com.google.protobuf.ByteString
+          getFileNameBytes() {
+        java.lang.Object ref = fileName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fileName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string file_name = 48 [json_name = "fileName"];</code>
+       * @param value The fileName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFileName(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        fileName_ = value;
+        bitField1_ |= 0x00010000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string file_name = 48 [json_name = "fileName"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFileName() {
+        fileName_ = getDefaultInstance().getFileName();
+        bitField1_ = (bitField1_ & ~0x00010000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string file_name = 48 [json_name = "fileName"];</code>
+       * @param value The bytes for fileName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFileNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        fileName_ = value;
+        bitField1_ |= 0x00010000;
+        onChanged();
+        return this;
+      }
+
+      private long addressCount_ ;
+      /**
+       * <code>int64 address_count = 49 [json_name = "addressCount"];</code>
+       * @return The addressCount.
+       */
+      @java.lang.Override
+      public long getAddressCount() {
+        return addressCount_;
+      }
+      /**
+       * <code>int64 address_count = 49 [json_name = "addressCount"];</code>
+       * @param value The addressCount to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddressCount(long value) {
+
+        addressCount_ = value;
+        bitField1_ |= 0x00020000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 address_count = 49 [json_name = "addressCount"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAddressCount() {
+        bitField1_ = (bitField1_ & ~0x00020000);
+        addressCount_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object previousTransactionId_ = "";
+      /**
+       * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+       * @return The previousTransactionId.
+       */
+      public java.lang.String getPreviousTransactionId() {
+        java.lang.Object ref = previousTransactionId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          previousTransactionId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+       * @return The bytes for previousTransactionId.
+       */
+      public com.google.protobuf.ByteString
+          getPreviousTransactionIdBytes() {
+        java.lang.Object ref = previousTransactionId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          previousTransactionId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+       * @param value The previousTransactionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPreviousTransactionId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        previousTransactionId_ = value;
+        bitField1_ |= 0x00040000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPreviousTransactionId() {
+        previousTransactionId_ = getDefaultInstance().getPreviousTransactionId();
+        bitField1_ = (bitField1_ & ~0x00040000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+       * @param value The bytes for previousTransactionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPreviousTransactionIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        previousTransactionId_ = value;
+        bitField1_ |= 0x00040000;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object newTransactionId_ = "";
+      /**
+       * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+       * @return The newTransactionId.
+       */
+      public java.lang.String getNewTransactionId() {
+        java.lang.Object ref = newTransactionId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          newTransactionId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+       * @return The bytes for newTransactionId.
+       */
+      public com.google.protobuf.ByteString
+          getNewTransactionIdBytes() {
+        java.lang.Object ref = newTransactionId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          newTransactionId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+       * @param value The newTransactionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNewTransactionId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        newTransactionId_ = value;
+        bitField1_ |= 0x00080000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNewTransactionId() {
+        newTransactionId_ = getDefaultInstance().getNewTransactionId();
+        bitField1_ = (bitField1_ & ~0x00080000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+       * @param value The bytes for newTransactionId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNewTransactionIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        newTransactionId_ = value;
+        bitField1_ |= 0x00080000;
         onChanged();
         return this;
       }
@@ -7060,7 +8200,7 @@ public final class AuditLogger {
       "v1\0325gincoinc/adamant/global/v1/adamantgl" +
       "obalv1/enum.proto\032.gincoinc/global/v1/gi" +
       "ncoincglobalv1/enum.proto\032\037google/protob" +
-      "uf/timestamp.proto\"\372\016\n\010AuditLog\022 \n\014audit" +
+      "uf/timestamp.proto\"\266\022\n\010AuditLog\022 \n\014audit" +
       "_log_id\030\001 \001(\tR\nauditLogId\022H\n\017audit_log_g" +
       "roup\030\002 \001(\0162 .adamant.global.v1.AuditLogG" +
       "roupR\rauditLogGroup\022E\n\016audit_log_type\030\003 " +
@@ -7082,35 +8222,46 @@ public final class AuditLogger {
       "letName\022&\n\017wallet_group_id\030\" \001(\tR\rwallet" +
       "GroupId\022*\n\021wallet_group_name\030# \001(\tR\017wall" +
       "etGroupName\022!\n\014wallet_names\030$ \003(\tR\013walle" +
-      "tNames\022%\n\016transaction_id\030\017 \001(\tR\rtransact" +
-      "ionId\0225\n\tcoin_type\030\020 \001(\0162\030.gincoinc.glob" +
-      "al.v1.CoinR\010coinType\022!\n\014string_value\030\021 \001" +
-      "(\tR\013stringValue\022\023\n\005tx_id\030\022 \001(\tR\004txId\022\033\n\t" +
-      "policy_id\030\023 \001(\tR\010policyId\022\037\n\013policy_name" +
-      "\030\024 \001(\tR\npolicyName\022,\n\022labeled_address_id" +
-      "\030\025 \001(\tR\020labeledAddressId\022\030\n\007address\030\026 \001(" +
-      "\tR\007address\022!\n\014address_name\030\027 \001(\tR\013addres" +
-      "sName\022\030\n\007message\030+ \001(\tR\007message\022*\n\021trans" +
-      "fer_limit_id\030\030 \001(\tR\017transferLimitId\022.\n\023t" +
-      "ransfer_limit_name\030\031 \001(\tR\021transferLimitN" +
-      "ame\0225\n\027transfer_one_time_limit\030\032 \001(\003R\024tr" +
-      "ansferOneTimeLimit\0222\n\025transfer_hourly_li" +
-      "mit\030\033 \001(\003R\023transferHourlyLimit\0220\n\024transf" +
-      "er_daily_limit\030\034 \001(\003R\022transferDailyLimit" +
-      "\022!\n\014whitelist_id\030\035 \001(\tR\013whitelistId\022%\n\016w" +
-      "hitelist_name\030\036 \001(\tR\rwhitelistName\022%\n\016ol" +
-      "d_validators\030% \003(\tR\roldValidators\022%\n\016new" +
-      "_validators\030& \003(\tR\rnewValidators\022/\n\023whit" +
-      "elist_addresses\030\037 \003(\tR\022whitelistAddresse" +
-      "s\0229\n\nevent_time\030  \001(\0132\032.google.protobuf." +
-      "TimestampR\teventTime\022;\n\013create_time\030! \001(" +
-      "\0132\032.google.protobuf.TimestampR\ncreateTim" +
-      "e\022@\n\renabled_mails\030) \003(\0162\033.adamant.globa" +
-      "l.v1.MailTypeR\014enabledMails\022B\n\016disabled_" +
-      "mails\030* \003(\0162\033.adamant.global.v1.MailType" +
-      "R\rdisabledMailsBLZJgithub.com/GincoInc/g" +
-      "ew-kmp/gen/gincoinc/adamant/global/v1/ad" +
-      "amantglobalv1b\006proto3"
+      "tNames\022,\n\022pre_transaction_id\0302 \001(\tR\020preT" +
+      "ransactionId\022%\n\016transaction_id\030\017 \001(\tR\rtr" +
+      "ansactionId\0225\n\tcoin_type\030\020 \001(\0162\030.gincoin" +
+      "c.global.v1.CoinR\010coinType\022!\n\014string_val" +
+      "ue\030\021 \001(\tR\013stringValue\022\023\n\005tx_id\030\022 \001(\tR\004tx" +
+      "Id\022\033\n\tpolicy_id\030\023 \001(\tR\010policyId\022\037\n\013polic" +
+      "y_name\030\024 \001(\tR\npolicyName\022,\n\022labeled_addr" +
+      "ess_id\030\025 \001(\tR\020labeledAddressId\022\030\n\007addres" +
+      "s\030\026 \001(\tR\007address\022!\n\014address_name\030\027 \001(\tR\013" +
+      "addressName\022\030\n\007message\030+ \001(\tR\007message\022*\n" +
+      "\021transfer_limit_id\030\030 \001(\tR\017transferLimitI" +
+      "d\022.\n\023transfer_limit_name\030\031 \001(\tR\021transfer" +
+      "LimitName\0225\n\027transfer_one_time_limit\030\032 \001" +
+      "(\003R\024transferOneTimeLimit\0222\n\025transfer_hou" +
+      "rly_limit\030\033 \001(\003R\023transferHourlyLimit\0220\n\024" +
+      "transfer_daily_limit\030\034 \001(\003R\022transferDail" +
+      "yLimit\022!\n\014whitelist_id\030\035 \001(\tR\013whitelistI" +
+      "d\022%\n\016whitelist_name\030\036 \001(\tR\rwhitelistName" +
+      "\022%\n\016old_validators\030% \003(\tR\roldValidators\022" +
+      "%\n\016new_validators\030& \003(\tR\rnewValidators\022/" +
+      "\n\023whitelist_addresses\030\037 \003(\tR\022whitelistAd" +
+      "dresses\0229\n\nevent_time\030  \001(\0132\032.google.pro" +
+      "tobuf.TimestampR\teventTime\022;\n\013create_tim" +
+      "e\030! \001(\0132\032.google.protobuf.TimestampR\ncre" +
+      "ateTime\022@\n\renabled_mails\030) \003(\0162\033.adamant" +
+      ".global.v1.MailTypeR\014enabledMails\022B\n\016dis" +
+      "abled_mails\030* \003(\0162\033.adamant.global.v1.Ma" +
+      "ilTypeR\rdisabledMails\0225\n\007network\030, \001(\0162\033" +
+      ".gincoinc.global.v1.NetworkR\007network\022:\n\031" +
+      "pre_transaction_threshold\030- \001(\001R\027preTran" +
+      "sactionThreshold\022?\n\034pre_transaction_thre" +
+      "shold_id\030. \001(\tR\031preTransactionThresholdI" +
+      "d\0220\n\024blacklist_address_id\030/ \001(\tR\022blackli" +
+      "stAddressId\022\033\n\tfile_name\0300 \001(\tR\010fileName" +
+      "\022#\n\raddress_count\0301 \001(\003R\014addressCount\0226\n" +
+      "\027previous_transaction_id\0303 \001(\tR\025previous" +
+      "TransactionId\022,\n\022new_transaction_id\0304 \001(" +
+      "\tR\020newTransactionIdBLZJgithub.com/GincoI" +
+      "nc/gew-kmp/gen/gincoinc/adamant/global/v" +
+      "1/adamantglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7124,7 +8275,7 @@ public final class AuditLogger {
     internal_static_adamant_global_v1_AuditLog_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_AuditLog_descriptor,
-        new java.lang.String[] { "AuditLogId", "AuditLogGroup", "AuditLogType", "AccountId", "AccountName", "TargetAccountId", "TargetAccountName", "Email", "RoleType", "ServiceAccountId", "ServiceAccountName", "ServiceAccountKeyId", "WalletId", "WalletName", "DestinationWalletId", "DestinationWalletName", "WalletGroupId", "WalletGroupName", "WalletNames", "TransactionId", "CoinType", "StringValue", "TxId", "PolicyId", "PolicyName", "LabeledAddressId", "Address", "AddressName", "Message", "TransferLimitId", "TransferLimitName", "TransferOneTimeLimit", "TransferHourlyLimit", "TransferDailyLimit", "WhitelistId", "WhitelistName", "OldValidators", "NewValidators", "WhitelistAddresses", "EventTime", "CreateTime", "EnabledMails", "DisabledMails", });
+        new java.lang.String[] { "AuditLogId", "AuditLogGroup", "AuditLogType", "AccountId", "AccountName", "TargetAccountId", "TargetAccountName", "Email", "RoleType", "ServiceAccountId", "ServiceAccountName", "ServiceAccountKeyId", "WalletId", "WalletName", "DestinationWalletId", "DestinationWalletName", "WalletGroupId", "WalletGroupName", "WalletNames", "PreTransactionId", "TransactionId", "CoinType", "StringValue", "TxId", "PolicyId", "PolicyName", "LabeledAddressId", "Address", "AddressName", "Message", "TransferLimitId", "TransferLimitName", "TransferOneTimeLimit", "TransferHourlyLimit", "TransferDailyLimit", "WhitelistId", "WhitelistName", "OldValidators", "NewValidators", "WhitelistAddresses", "EventTime", "CreateTime", "EnabledMails", "DisabledMails", "Network", "PreTransactionThreshold", "PreTransactionThresholdId", "BlacklistAddressId", "FileName", "AddressCount", "PreviousTransactionId", "NewTransactionId", });
     adamant.global.v1.Enum.getDescriptor();
     gincoinc.global.v1.Enum.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();

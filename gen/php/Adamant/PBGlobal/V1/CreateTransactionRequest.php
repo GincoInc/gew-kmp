@@ -93,6 +93,10 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
      */
     protected $utxo_specific = null;
+    /**
+     * Generated from protobuf field <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = {</code>
+     */
+    protected $pre_transaction_id = null;
 
     /**
      * Constructor.
@@ -120,6 +124,7 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CreateTransactionAptosSpecific $aptos_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionAvalancheSpecific $avalanche_specific
      *     @type \Adamant\PBGlobal\V1\UtxoSpecific $utxo_specific
+     *     @type string $pre_transaction_id
      * }
      */
     public function __construct($data = NULL) {
@@ -693,6 +698,38 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\UtxoSpecific::class);
         $this->utxo_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = {</code>
+     * @return string
+     */
+    public function getPreTransactionId()
+    {
+        return isset($this->pre_transaction_id) ? $this->pre_transaction_id : '';
+    }
+
+    public function hasPreTransactionId()
+    {
+        return isset($this->pre_transaction_id);
+    }
+
+    public function clearPreTransactionId()
+    {
+        unset($this->pre_transaction_id);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = {</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setPreTransactionId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->pre_transaction_id = $var;
 
         return $this;
     }

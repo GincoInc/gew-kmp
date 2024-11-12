@@ -31,6 +31,26 @@ class AvalancheSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.AtomicTx atomic_tx = 4 [json_name = "atomicTx"];</code>
      */
     protected $atomic_tx = null;
+    /**
+     * Generated from protobuf field <code>string from_address = 5 [json_name = "fromAddress"];</code>
+     */
+    protected $from_address = '';
+    /**
+     * Generated from protobuf field <code>string token_address = 6 [json_name = "tokenAddress"];</code>
+     */
+    protected $token_address = '';
+    /**
+     * Generated from protobuf field <code>uint64 chain_id = 7 [json_name = "chainId"];</code>
+     */
+    protected $chain_id = 0;
+    /**
+     * Generated from protobuf field <code>uint64 max_priority_fee_per_gas = 8 [json_name = "maxPriorityFeePerGas"];</code>
+     */
+    protected $max_priority_fee_per_gas = 0;
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.AvalancheTxType tx_type = 9 [json_name = "txType"];</code>
+     */
+    protected $tx_type = 0;
 
     /**
      * Constructor.
@@ -42,6 +62,11 @@ class AvalancheSpecific extends \Google\Protobuf\Internal\Message
      *     @type int|string $nonce
      *     @type bool $is_next_nonce
      *     @type \Adamant\PBGlobal\V1\AtomicTx $atomic_tx
+     *     @type string $from_address
+     *     @type string $token_address
+     *     @type int|string $chain_id
+     *     @type int|string $max_priority_fee_per_gas
+     *     @type int $tx_type
      * }
      */
     public function __construct($data = NULL) {
@@ -143,6 +168,116 @@ class AvalancheSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\AtomicTx::class);
         $this->atomic_tx = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 5 [json_name = "fromAddress"];</code>
+     * @return string
+     */
+    public function getFromAddress()
+    {
+        return $this->from_address;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 5 [json_name = "fromAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setFromAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->from_address = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string token_address = 6 [json_name = "tokenAddress"];</code>
+     * @return string
+     */
+    public function getTokenAddress()
+    {
+        return $this->token_address;
+    }
+
+    /**
+     * Generated from protobuf field <code>string token_address = 6 [json_name = "tokenAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTokenAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->token_address = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 chain_id = 7 [json_name = "chainId"];</code>
+     * @return int|string
+     */
+    public function getChainId()
+    {
+        return $this->chain_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 chain_id = 7 [json_name = "chainId"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setChainId($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->chain_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 max_priority_fee_per_gas = 8 [json_name = "maxPriorityFeePerGas"];</code>
+     * @return int|string
+     */
+    public function getMaxPriorityFeePerGas()
+    {
+        return $this->max_priority_fee_per_gas;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 max_priority_fee_per_gas = 8 [json_name = "maxPriorityFeePerGas"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setMaxPriorityFeePerGas($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->max_priority_fee_per_gas = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.AvalancheTxType tx_type = 9 [json_name = "txType"];</code>
+     * @return int
+     */
+    public function getTxType()
+    {
+        return $this->tx_type;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.AvalancheTxType tx_type = 9 [json_name = "txType"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setTxType($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\AvalancheTxType::class);
+        $this->tx_type = $var;
 
         return $this;
     }
