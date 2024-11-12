@@ -2195,7 +2195,7 @@ message DownloadResourceRequest {
   bool watch_only = 5;
   string wallet_id = 2;
   optional bool is_activated = 6;
-  optional int64 status = 7;
+  optional BlacklistAddressStatus status = 7;
   optional gincoinc.global.v1.Network network = 8 [(validate.rules).enum = {
     defined_only: true
   }];
@@ -2583,4 +2583,19 @@ message GetBlacklistStorageSignedURLRequest {
 
 message GetBlacklistStorageSignedURLResponse {
   string url = 1;
+}
+
+message ListBlacklistAddressFilesRequest {
+  BlacklistAddressStatus status = 1;
+
+  optional uint32 page_size = 2 [(validate.rules).uint32.lte = 100];
+
+  optional string page_token = 3 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
+}
+
+message ListBlacklistAddressFilesResponse {
+  repeated BlacklistAddressFile files = 1;
+  string next_page_token = 2;
 }

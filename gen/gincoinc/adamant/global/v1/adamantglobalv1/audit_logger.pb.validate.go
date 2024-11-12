@@ -99,6 +99,8 @@ func (m *AuditLog) validate(all bool) error {
 
 	// no validation rules for PreTransactionId
 
+	// no validation rules for PreTransactionExternalId
+
 	// no validation rules for TransactionId
 
 	// no validation rules for CoinType
@@ -206,6 +208,10 @@ func (m *AuditLog) validate(all bool) error {
 	// no validation rules for PreviousTransactionId
 
 	// no validation rules for NewTransactionId
+
+	// no validation rules for Activate
+
+	// no validation rules for FileId
 
 	if len(errors) > 0 {
 		return AuditLogMultiError(errors)

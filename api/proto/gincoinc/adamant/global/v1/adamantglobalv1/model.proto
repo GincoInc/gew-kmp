@@ -1280,9 +1280,23 @@ message BlacklistAddressProposal {
   string requester_name = 4;
   string approver_account_id = 5;
   string approver_name = 6;
-  BlaclistAddressDiff diff = 7;
+  BlacklistAddressDiff diff = 7;
 }
 
-message BlaclistAddressDiff {
+message BlacklistAddressDiff {
   bool is_activated = 1;
+}
+
+message BlacklistAddressFile {
+  string file_id = 1;
+  string file_name = 2;
+  gincoinc.global.v1.Network network = 3;
+  BlacklistAddressStatus status = 4;
+  uint32 address_count = 5;
+  string requester_account_id = 6;
+  string requester_name = 7;
+  string approver_account_id = 8;
+  string approver_name = 9;
+  google.protobuf.Timestamp create_time = 10;
+  google.protobuf.Timestamp update_time = 11;
 }
