@@ -22,7 +22,7 @@ class CreatePreTransactionRequest extends \Google\Protobuf\Internal\Message
      */
     protected $network = 0;
     /**
-     * Generated from protobuf field <code>string external_id = 3 [json_name = "externalId"];</code>
+     * Generated from protobuf field <code>string external_id = 3 [json_name = "externalId", (.validate.rules) = {</code>
      */
     protected $external_id = '';
     /**
@@ -95,7 +95,7 @@ class CreatePreTransactionRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string external_id = 3 [json_name = "externalId"];</code>
+     * Generated from protobuf field <code>string external_id = 3 [json_name = "externalId", (.validate.rules) = {</code>
      * @return string
      */
     public function getExternalId()
@@ -104,7 +104,7 @@ class CreatePreTransactionRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string external_id = 3 [json_name = "externalId"];</code>
+     * Generated from protobuf field <code>string external_id = 3 [json_name = "externalId", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */

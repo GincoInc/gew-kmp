@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-¬º
+ëº
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"Ž	
 Wallet
 owner_id (	RownerId
@@ -335,7 +335,7 @@ n_sequence (R	nSequence"¢
 	policy_id (	RpolicyId
 
 asset_name (	R	assetName
-value (Rvalue"†
+value (Rvalue"†
 BitcoinSpecific7
 	tx_inputs (2.adamant.global.v1.TxInputRtxInputs:
 
@@ -383,11 +383,12 @@ tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"Ž
 StellarSpecific\'
 sequence_number (RsequenceNumber
 memo_id (B0RmemoId5
-is_next_sequence_number (RisNextSequenceNumber"†
+is_next_sequence_number (RisNextSequenceNumber"Å
 CardanoSpecific7
 	tx_inputs (2.adamant.global.v1.TxInputRtxInputs:
 
-tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"‰
+tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs=
+tokens (2%.adamant.global.v1.CardanoCustomTokenRtokens"‰
 SubstrateSpecific
 nonce (Rnonce"
 is_next_nonce (RisNextNoncew

@@ -82,7 +82,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object externalId_ = "";
   /**
-   * <code>string external_id = 3 [json_name = "externalId"];</code>
+   * <code>string external_id = 3 [json_name = "externalId", (.validate.rules) = { ... }</code>
    * @return The externalId.
    */
   @java.lang.Override
@@ -99,7 +99,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string external_id = 3 [json_name = "externalId"];</code>
+   * <code>string external_id = 3 [json_name = "externalId", (.validate.rules) = { ... }</code>
    * @return The bytes for externalId.
    */
   @java.lang.Override
@@ -728,7 +728,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object externalId_ = "";
     /**
-     * <code>string external_id = 3 [json_name = "externalId"];</code>
+     * <code>string external_id = 3 [json_name = "externalId", (.validate.rules) = { ... }</code>
      * @return The externalId.
      */
     public java.lang.String getExternalId() {
@@ -744,7 +744,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string external_id = 3 [json_name = "externalId"];</code>
+     * <code>string external_id = 3 [json_name = "externalId", (.validate.rules) = { ... }</code>
      * @return The bytes for externalId.
      */
     public com.google.protobuf.ByteString
@@ -761,7 +761,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string external_id = 3 [json_name = "externalId"];</code>
+     * <code>string external_id = 3 [json_name = "externalId", (.validate.rules) = { ... }</code>
      * @param value The externalId to set.
      * @return This builder for chaining.
      */
@@ -774,7 +774,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string external_id = 3 [json_name = "externalId"];</code>
+     * <code>string external_id = 3 [json_name = "externalId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearExternalId() {
@@ -784,7 +784,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string external_id = 3 [json_name = "externalId"];</code>
+     * <code>string external_id = 3 [json_name = "externalId", (.validate.rules) = { ... }</code>
      * @param value The bytes for externalId to set.
      * @return This builder for chaining.
      */

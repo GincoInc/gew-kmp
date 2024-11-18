@@ -1704,6 +1704,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.CardanoSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1717,6 +1719,12 @@ public class ModelValidator {
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxOutputsList(), item -> {
 				
 			// Validate tx_outputs
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTokensList(), item -> {
+				
+			// Validate tokens
 			if (true) index.validatorFor(item).assertValid(item);
 			});
 	

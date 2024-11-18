@@ -9006,7 +9006,16 @@ func (m *CreatePreTransactionRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	// no validation rules for ExternalId
+	if utf8.RuneCountInString(m.GetExternalId()) < 1 {
+		err := CreatePreTransactionRequestValidationError{
+			field:  "ExternalId",
+			reason: "value length must be at least 1 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	for idx, item := range m.GetDetails() {
 		_, _ = idx, item

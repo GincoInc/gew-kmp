@@ -350,7 +350,7 @@ message AvalanchePlatformChainUTXOSpecific {
 message CardanoCustomToken {
   string policy_id = 1;
   string asset_name = 2;
-  double value = 3;
+  uint64 value = 3;
 }
 
 // The model of Bitcoin specific fields of transaction
@@ -422,6 +422,7 @@ message StellarSpecific {
 message CardanoSpecific {
   repeated TxInput tx_inputs = 1;
   repeated TxOutput tx_outputs = 2;
+  repeated CardanoCustomToken tokens = 3;
 }
 
 // The model of Substrate specific fields of transaction
