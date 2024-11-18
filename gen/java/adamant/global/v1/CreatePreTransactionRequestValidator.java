@@ -33,8 +33,8 @@ public class CreatePreTransactionRequestValidator implements io.envoyproxy.pgv.V
 			io.envoyproxy.pgv.CollectiveValidation.notIn(".adamant.global.v1.CreatePreTransactionRequest.coin", proto.getCoin(), COIN__NOT_IN);
 	
 			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.CreatePreTransactionRequest.network", proto.getNetwork());
-	// no validation rules for ExternalId
-
+	
+			io.envoyproxy.pgv.StringValidation.minLength(".adamant.global.v1.CreatePreTransactionRequest.external_id", proto.getExternalId(), 1);
 	
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getDetailsList(), item -> {
 				

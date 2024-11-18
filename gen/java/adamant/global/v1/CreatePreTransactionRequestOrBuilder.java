@@ -30,12 +30,12 @@ public interface CreatePreTransactionRequestOrBuilder extends
   gincoinc.global.v1.Enum.Network getNetwork();
 
   /**
-   * <code>string external_id = 3 [json_name = "externalId"];</code>
+   * <code>string external_id = 3 [json_name = "externalId", (.validate.rules) = { ... }</code>
    * @return The externalId.
    */
   java.lang.String getExternalId();
   /**
-   * <code>string external_id = 3 [json_name = "externalId"];</code>
+   * <code>string external_id = 3 [json_name = "externalId", (.validate.rules) = { ... }</code>
    * @return The bytes for externalId.
    */
   com.google.protobuf.ByteString

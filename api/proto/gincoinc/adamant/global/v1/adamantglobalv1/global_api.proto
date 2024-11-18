@@ -780,7 +780,7 @@ message CreatePreTransactionRequest {
     defined_only: true
   }];
 
-  string external_id = 3;
+  string external_id = 3 [(validate.rules).string.min_len = 1];
 
   // Use single format for single recipient transaction and multi-recipient transaction
   repeated PreTransactionDetail details = 4;
