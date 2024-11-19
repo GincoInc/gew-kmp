@@ -353,7 +353,7 @@ public final class TellerAPIProto {
       "eeDepositAddressesRequest\"~\n\"ListHotFeeD" +
       "epositAddressesResponse\022X\n\025fee_deposit_a" +
       "ddresses\030\001 \003(\0132$.adamant.global.v1.FeeDe" +
-      "positAddressR\023feeDepositAddresses2\274I\n\tTe" +
+      "positAddressR\023feeDepositAddresses2\206C\n\tTe" +
       "llerAPI\022a\n\014CreateWallet\022&.adamant.teller" +
       ".v1.CreateWalletRequest\032\'.adamant.global" +
       ".v1.CreateWalletResponse\"\000\022M\n\tGetWallet\022" +
@@ -568,30 +568,10 @@ public final class TellerAPIProto {
       "\210\001\n\031ListBlacklistAddressFiles\0223.adamant." +
       "global.v1.ListBlacklistAddressFilesReque" +
       "st\0324.adamant.global.v1.ListBlacklistAddr" +
-      "essFilesResponse\"\000\022\177\n\026CreateBlacklistAdd" +
-      "ress\0220.adamant.global.v1.CreateBlacklist" +
-      "AddressRequest\0321.adamant.global.v1.Creat" +
-      "eBlacklistAddressResponse\"\000\022k\n\023GetBlackl" +
-      "istAddress\022-.adamant.global.v1.GetBlackl" +
-      "istAddressRequest\032#.adamant.global.v1.Bl" +
-      "acklistAddress\"\000\022t\n\036ReviewBlacklistAddre" +
-      "ssProposal\0228.adamant.global.v1.ReviewBla" +
-      "cklistAddressProposalRequest\032\026.google.pr" +
-      "otobuf.Empty\"\000\022d\n\026UpdateBlacklistAddress" +
-      "\0220.adamant.global.v1.UpdateBlacklistAddr" +
-      "essRequest\032\026.google.protobuf.Empty\"\000\022|\n\"" +
-      "BulkReviewBlacklistAddressProposal\022<.ada" +
-      "mant.global.v1.BulkReviewBlacklistAddres" +
-      "sProposalRequest\032\026.google.protobuf.Empty" +
-      "\"\000\022\221\001\n\034GetBlacklistStorageSignedURL\0226.ad" +
-      "amant.global.v1.GetBlacklistStorageSigne" +
-      "dURLRequest\0327.adamant.global.v1.GetBlack" +
-      "listStorageSignedURLResponse\"\000\022X\n\020Downlo" +
-      "adResource\022*.adamant.global.v1.DownloadR" +
-      "esourceRequest\032\026.google.protobuf.Empty\"\000" +
-      "B^B\016TellerAPIProtoP\001ZJgithub.com/GincoIn" +
-      "c/gew-kmp/gen/gincoinc/adamant/teller/v1" +
-      "/adamanttellerv1b\006proto3"
+      "essFilesResponse\"\000B^B\016TellerAPIProtoP\001ZJ" +
+      "github.com/GincoInc/gew-kmp/gen/gincoinc" +
+      "/adamant/teller/v1/adamanttellerv1b\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

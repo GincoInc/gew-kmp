@@ -33860,7 +33860,7 @@ func (m *ListBlacklistAddressesByFilterRequest) validate(all bool) error {
 		if !_ListBlacklistAddressesByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
 			err := ListBlacklistAddressesByFilterRequestValidationError{
 				field:  "PageToken",
-				reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+				reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789]{1,16}$\"",
 			}
 			if !all {
 				return err
@@ -33954,7 +33954,7 @@ var _ interface {
 
 var _ListBlacklistAddressesByFilterRequest_BlacklistAddressId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
-var _ListBlacklistAddressesByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+var _ListBlacklistAddressesByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789]{1,16}$")
 
 // Validate checks the field values on ListBlacklistAddressesByFilterResponse
 // with the rules defined in the proto definition for this message. If any
