@@ -2526,7 +2526,7 @@ message ListBlacklistAddressesByFilterRequest {
   optional uint32 page_size = 10 [(validate.rules).uint32.lte = 100];
 
   optional string page_token = 11 [(validate.rules).string = {
-    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789]{1,16}$"
   }];
 }
 

@@ -120,15 +120,6 @@ service TellerAPI {
   // BlacklistAddress
   rpc ListBlacklistAddressesByFilter(adamant.global.v1.ListBlacklistAddressesByFilterRequest) returns (adamant.global.v1.ListBlacklistAddressesByFilterResponse) {}
   rpc ListBlacklistAddressFiles(adamant.global.v1.ListBlacklistAddressFilesRequest) returns (adamant.global.v1.ListBlacklistAddressFilesResponse) {}
-
-  // Todo to be removed after dev testing
-  rpc CreateBlacklistAddress(adamant.global.v1.CreateBlacklistAddressRequest) returns (adamant.global.v1.CreateBlacklistAddressResponse) {}
-  rpc GetBlacklistAddress(adamant.global.v1.GetBlacklistAddressRequest) returns (adamant.global.v1.BlacklistAddress) {}
-  rpc ReviewBlacklistAddressProposal(adamant.global.v1.ReviewBlacklistAddressProposalRequest) returns (google.protobuf.Empty) {}
-  rpc UpdateBlacklistAddress(adamant.global.v1.UpdateBlacklistAddressRequest) returns (google.protobuf.Empty) {}
-  rpc BulkReviewBlacklistAddressProposal(adamant.global.v1.BulkReviewBlacklistAddressProposalRequest) returns (google.protobuf.Empty) {}
-  rpc GetBlacklistStorageSignedURL(adamant.global.v1.GetBlacklistStorageSignedURLRequest) returns (adamant.global.v1.GetBlacklistStorageSignedURLResponse) {}
-  rpc DownloadResource(adamant.global.v1.DownloadResourceRequest) returns (google.protobuf.Empty) {}
 }
 
 message CreateWalletRequest {
