@@ -22,7 +22,6 @@ public class CreatePreTransactionRequestValidator implements io.envoyproxy.pgv.V
 		
 	
 		
-		com.google.re2j.Pattern EXTERNAL_ID__PATTERN = com.google.re2j.Pattern.compile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
 	
 		
 	
@@ -35,7 +34,7 @@ public class CreatePreTransactionRequestValidator implements io.envoyproxy.pgv.V
 	
 			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.CreatePreTransactionRequest.network", proto.getNetwork());
 	
-			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.CreatePreTransactionRequest.external_id", proto.getExternalId(), EXTERNAL_ID__PATTERN);
+			io.envoyproxy.pgv.StringValidation.minLength(".adamant.global.v1.CreatePreTransactionRequest.external_id", proto.getExternalId(), 1);
 	
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getDetailsList(), item -> {
 				

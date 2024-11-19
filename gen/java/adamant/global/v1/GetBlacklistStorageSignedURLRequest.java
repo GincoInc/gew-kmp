@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private GetBlacklistStorageSignedURLRequest() {
     network_ = 0;
+    fileName_ = "";
   }
 
   @java.lang.Override
@@ -57,6 +58,45 @@ private static final long serialVersionUID = 0L;
     return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
   }
 
+  public static final int FILE_NAME_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object fileName_ = "";
+  /**
+   * <code>string file_name = 2 [json_name = "fileName"];</code>
+   * @return The fileName.
+   */
+  @java.lang.Override
+  public java.lang.String getFileName() {
+    java.lang.Object ref = fileName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      fileName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string file_name = 2 [json_name = "fileName"];</code>
+   * @return The bytes for fileName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getFileNameBytes() {
+    java.lang.Object ref = fileName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      fileName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -71,6 +111,9 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, fileName_);
+    }
     if (network_ != gincoinc.global.v1.Enum.Network.NETWORK_INVALID.getNumber()) {
       output.writeEnum(7, network_);
     }
@@ -83,6 +126,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, fileName_);
+    }
     if (network_ != gincoinc.global.v1.Enum.Network.NETWORK_INVALID.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(7, network_);
@@ -103,6 +149,8 @@ private static final long serialVersionUID = 0L;
     adamant.global.v1.GetBlacklistStorageSignedURLRequest other = (adamant.global.v1.GetBlacklistStorageSignedURLRequest) obj;
 
     if (network_ != other.network_) return false;
+    if (!getFileName()
+        .equals(other.getFileName())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -116,6 +164,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + NETWORK_FIELD_NUMBER;
     hash = (53 * hash) + network_;
+    hash = (37 * hash) + FILE_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getFileName().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -248,6 +298,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       bitField0_ = 0;
       network_ = 0;
+      fileName_ = "";
       return this;
     }
 
@@ -283,6 +334,9 @@ private static final long serialVersionUID = 0L;
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.network_ = network_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.fileName_ = fileName_;
       }
     }
 
@@ -333,6 +387,11 @@ private static final long serialVersionUID = 0L;
       if (other.network_ != 0) {
         setNetworkValue(other.getNetworkValue());
       }
+      if (!other.getFileName().isEmpty()) {
+        fileName_ = other.fileName_;
+        bitField0_ |= 0x00000002;
+        onChanged();
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -359,6 +418,11 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
+            case 18: {
+              fileName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
             case 56: {
               network_ = input.readEnum();
               bitField0_ |= 0x00000001;
@@ -430,6 +494,78 @@ private static final long serialVersionUID = 0L;
     public Builder clearNetwork() {
       bitField0_ = (bitField0_ & ~0x00000001);
       network_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object fileName_ = "";
+    /**
+     * <code>string file_name = 2 [json_name = "fileName"];</code>
+     * @return The fileName.
+     */
+    public java.lang.String getFileName() {
+      java.lang.Object ref = fileName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fileName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string file_name = 2 [json_name = "fileName"];</code>
+     * @return The bytes for fileName.
+     */
+    public com.google.protobuf.ByteString
+        getFileNameBytes() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string file_name = 2 [json_name = "fileName"];</code>
+     * @param value The fileName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFileName(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      fileName_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string file_name = 2 [json_name = "fileName"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFileName() {
+      fileName_ = getDefaultInstance().getFileName();
+      bitField0_ = (bitField0_ & ~0x00000002);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string file_name = 2 [json_name = "fileName"];</code>
+     * @param value The bytes for fileName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFileNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      fileName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }

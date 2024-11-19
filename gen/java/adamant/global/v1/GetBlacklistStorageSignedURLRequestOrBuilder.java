@@ -17,4 +17,16 @@ public interface GetBlacklistStorageSignedURLRequestOrBuilder extends
    * @return The network.
    */
   gincoinc.global.v1.Enum.Network getNetwork();
+
+  /**
+   * <code>string file_name = 2 [json_name = "fileName"];</code>
+   * @return The fileName.
+   */
+  java.lang.String getFileName();
+  /**
+   * <code>string file_name = 2 [json_name = "fileName"];</code>
+   * @return The bytes for fileName.
+   */
+  com.google.protobuf.ByteString
+      getFileNameBytes();
 }

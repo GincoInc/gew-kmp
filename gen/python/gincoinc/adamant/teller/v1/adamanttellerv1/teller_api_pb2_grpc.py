@@ -381,35 +381,10 @@ class TellerAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressesByFilterRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressesByFilterResponse.FromString,
                 )
-        self.CreateBlacklistAddress = channel.unary_unary(
-                '/adamant.teller.v1.TellerAPI/CreateBlacklistAddress',
-                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateBlacklistAddressRequest.SerializeToString,
-                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateBlacklistAddressResponse.FromString,
-                )
-        self.GetBlacklistAddress = channel.unary_unary(
-                '/adamant.teller.v1.TellerAPI/GetBlacklistAddress',
-                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetBlacklistAddressRequest.SerializeToString,
-                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_model__pb2.BlacklistAddress.FromString,
-                )
-        self.ReviewBlacklistAddressProposal = channel.unary_unary(
-                '/adamant.teller.v1.TellerAPI/ReviewBlacklistAddressProposal',
-                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ReviewBlacklistAddressProposalRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                )
-        self.UpdateBlacklistAddress = channel.unary_unary(
-                '/adamant.teller.v1.TellerAPI/UpdateBlacklistAddress',
-                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.UpdateBlacklistAddressRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                )
-        self.BulkReviewBlacklistAddressProposal = channel.unary_unary(
-                '/adamant.teller.v1.TellerAPI/BulkReviewBlacklistAddressProposal',
-                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.BulkReviewBlacklistAddressProposalRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                )
-        self.GetBlacklistStorageSignedURL = channel.unary_unary(
-                '/adamant.teller.v1.TellerAPI/GetBlacklistStorageSignedURL',
-                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetBlacklistStorageSignedURLRequest.SerializeToString,
-                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetBlacklistStorageSignedURLResponse.FromString,
+        self.ListBlacklistAddressFiles = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ListBlacklistAddressFiles',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressFilesRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressFilesResponse.FromString,
                 )
 
 
@@ -865,38 +840,7 @@ class TellerAPIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CreateBlacklistAddress(self, request, context):
-        """Todo to be removed after dev testing
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetBlacklistAddress(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ReviewBlacklistAddressProposal(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UpdateBlacklistAddress(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def BulkReviewBlacklistAddressProposal(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetBlacklistStorageSignedURL(self, request, context):
+    def ListBlacklistAddressFiles(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1265,35 +1209,10 @@ def add_TellerAPIServicer_to_server(servicer, server):
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressesByFilterRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressesByFilterResponse.SerializeToString,
             ),
-            'CreateBlacklistAddress': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateBlacklistAddress,
-                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateBlacklistAddressRequest.FromString,
-                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateBlacklistAddressResponse.SerializeToString,
-            ),
-            'GetBlacklistAddress': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetBlacklistAddress,
-                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetBlacklistAddressRequest.FromString,
-                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_model__pb2.BlacklistAddress.SerializeToString,
-            ),
-            'ReviewBlacklistAddressProposal': grpc.unary_unary_rpc_method_handler(
-                    servicer.ReviewBlacklistAddressProposal,
-                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ReviewBlacklistAddressProposalRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            ),
-            'UpdateBlacklistAddress': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateBlacklistAddress,
-                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.UpdateBlacklistAddressRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            ),
-            'BulkReviewBlacklistAddressProposal': grpc.unary_unary_rpc_method_handler(
-                    servicer.BulkReviewBlacklistAddressProposal,
-                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.BulkReviewBlacklistAddressProposalRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            ),
-            'GetBlacklistStorageSignedURL': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetBlacklistStorageSignedURL,
-                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetBlacklistStorageSignedURLRequest.FromString,
-                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetBlacklistStorageSignedURLResponse.SerializeToString,
+            'ListBlacklistAddressFiles': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListBlacklistAddressFiles,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressFilesRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressFilesResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -2534,7 +2453,7 @@ class TellerAPI(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def CreateBlacklistAddress(request,
+    def ListBlacklistAddressFiles(request,
             target,
             options=(),
             channel_credentials=None,
@@ -2544,93 +2463,8 @@ class TellerAPI(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/CreateBlacklistAddress',
-            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateBlacklistAddressRequest.SerializeToString,
-            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.CreateBlacklistAddressResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetBlacklistAddress(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/GetBlacklistAddress',
-            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetBlacklistAddressRequest.SerializeToString,
-            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_model__pb2.BlacklistAddress.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ReviewBlacklistAddressProposal(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ReviewBlacklistAddressProposal',
-            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ReviewBlacklistAddressProposalRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdateBlacklistAddress(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/UpdateBlacklistAddress',
-            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.UpdateBlacklistAddressRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def BulkReviewBlacklistAddressProposal(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/BulkReviewBlacklistAddressProposal',
-            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.BulkReviewBlacklistAddressProposalRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetBlacklistStorageSignedURL(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/GetBlacklistStorageSignedURL',
-            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetBlacklistStorageSignedURLRequest.SerializeToString,
-            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetBlacklistStorageSignedURLResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListBlacklistAddressFiles',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressFilesRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressFilesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

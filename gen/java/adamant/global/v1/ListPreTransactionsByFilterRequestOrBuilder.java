@@ -19,17 +19,17 @@ public interface ListPreTransactionsByFilterRequestOrBuilder extends
   adamant.global.v1.Enum.ListFilterType getFilterType();
 
   /**
-   * <code>optional string pre_transaction_id = 2 [json_name = "preTransactionId"];</code>
+   * <code>optional string pre_transaction_id = 2 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
    * @return Whether the preTransactionId field is set.
    */
   boolean hasPreTransactionId();
   /**
-   * <code>optional string pre_transaction_id = 2 [json_name = "preTransactionId"];</code>
+   * <code>optional string pre_transaction_id = 2 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
    * @return The preTransactionId.
    */
   java.lang.String getPreTransactionId();
   /**
-   * <code>optional string pre_transaction_id = 2 [json_name = "preTransactionId"];</code>
+   * <code>optional string pre_transaction_id = 2 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
    * @return The bytes for preTransactionId.
    */
   com.google.protobuf.ByteString

@@ -30,7 +30,7 @@ class DownloadResourceRequest extends \Google\Protobuf\Internal\Message
      */
     protected $is_activated = null;
     /**
-     * Generated from protobuf field <code>optional int64 status = 7 [json_name = "status"];</code>
+     * Generated from protobuf field <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
      */
     protected $status = null;
     /**
@@ -56,7 +56,7 @@ class DownloadResourceRequest extends \Google\Protobuf\Internal\Message
      *     @type bool $watch_only
      *     @type string $wallet_id
      *     @type bool $is_activated
-     *     @type int|string $status
+     *     @type int $status
      *     @type int $network
      *     @type \Google\Protobuf\Timestamp $start_time
      *     @type \Google\Protobuf\Timestamp $end_time
@@ -166,8 +166,8 @@ class DownloadResourceRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional int64 status = 7 [json_name = "status"];</code>
-     * @return int|string
+     * Generated from protobuf field <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+     * @return int
      */
     public function getStatus()
     {
@@ -185,13 +185,13 @@ class DownloadResourceRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>optional int64 status = 7 [json_name = "status"];</code>
-     * @param int|string $var
+     * Generated from protobuf field <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+     * @param int $var
      * @return $this
      */
     public function setStatus($var)
     {
-        GPBUtil::checkInt64($var);
+        GPBUtil::checkEnum($var, \Adamant\PBGlobal\V1\BlacklistAddressStatus::class);
         $this->status = $var;
 
         return $this;
