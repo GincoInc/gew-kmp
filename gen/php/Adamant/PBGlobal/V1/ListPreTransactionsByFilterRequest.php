@@ -18,7 +18,7 @@ class ListPreTransactionsByFilterRequest extends \Google\Protobuf\Internal\Messa
      */
     protected $filter_type = 0;
     /**
-     * Generated from protobuf field <code>optional string pre_transaction_id = 2 [json_name = "preTransactionId"];</code>
+     * Generated from protobuf field <code>optional string pre_transaction_id = 2 [json_name = "preTransactionId", (.validate.rules) = {</code>
      */
     protected $pre_transaction_id = null;
     /**
@@ -100,7 +100,7 @@ class ListPreTransactionsByFilterRequest extends \Google\Protobuf\Internal\Messa
     }
 
     /**
-     * Generated from protobuf field <code>optional string pre_transaction_id = 2 [json_name = "preTransactionId"];</code>
+     * Generated from protobuf field <code>optional string pre_transaction_id = 2 [json_name = "preTransactionId", (.validate.rules) = {</code>
      * @return string
      */
     public function getPreTransactionId()
@@ -119,7 +119,7 @@ class ListPreTransactionsByFilterRequest extends \Google\Protobuf\Internal\Messa
     }
 
     /**
-     * Generated from protobuf field <code>optional string pre_transaction_id = 2 [json_name = "preTransactionId"];</code>
+     * Generated from protobuf field <code>optional string pre_transaction_id = 2 [json_name = "preTransactionId", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */

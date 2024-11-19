@@ -16,11 +16,15 @@ public class GetBlacklistStorageSignedURLRequestValidator implements io.envoypro
 	}
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.GetBlacklistStorageSignedURLRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
 			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.GetBlacklistStorageSignedURLRequest.network", proto.getNetwork());
+	// no validation rules for FileName
+
 	
 	}
 

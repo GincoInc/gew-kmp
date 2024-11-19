@@ -1042,87 +1042,16 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
-     * Todo to be removed after dev testing
-     * @param \Adamant\Global\V1\CreateBlacklistAddressRequest $argument input argument
+     * @param \Adamant\Global\V1\ListBlacklistAddressFilesRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
      * @return \Grpc\UnaryCall
      */
-    public function CreateBlacklistAddress(\Adamant\Global\V1\CreateBlacklistAddressRequest $argument,
+    public function ListBlacklistAddressFiles(\Adamant\Global\V1\ListBlacklistAddressFilesRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/CreateBlacklistAddress',
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListBlacklistAddressFiles',
         $argument,
-        ['\Adamant\Global\V1\CreateBlacklistAddressResponse', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
-     * @param \Adamant\Global\V1\GetBlacklistAddressRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     * @return \Grpc\UnaryCall
-     */
-    public function GetBlacklistAddress(\Adamant\Global\V1\GetBlacklistAddressRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/GetBlacklistAddress',
-        $argument,
-        ['\Adamant\Global\V1\BlacklistAddress', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
-     * @param \Adamant\Global\V1\ReviewBlacklistAddressProposalRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     * @return \Grpc\UnaryCall
-     */
-    public function ReviewBlacklistAddressProposal(\Adamant\Global\V1\ReviewBlacklistAddressProposalRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ReviewBlacklistAddressProposal',
-        $argument,
-        ['\Google\Protobuf\GPBEmpty', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
-     * @param \Adamant\Global\V1\UpdateBlacklistAddressRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     * @return \Grpc\UnaryCall
-     */
-    public function UpdateBlacklistAddress(\Adamant\Global\V1\UpdateBlacklistAddressRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/UpdateBlacklistAddress',
-        $argument,
-        ['\Google\Protobuf\GPBEmpty', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
-     * @param \Adamant\Global\V1\BulkReviewBlacklistAddressProposalRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     * @return \Grpc\UnaryCall
-     */
-    public function BulkReviewBlacklistAddressProposal(\Adamant\Global\V1\BulkReviewBlacklistAddressProposalRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/BulkReviewBlacklistAddressProposal',
-        $argument,
-        ['\Google\Protobuf\GPBEmpty', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
-     * @param \Adamant\Global\V1\GetBlacklistStorageSignedURLRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     * @return \Grpc\UnaryCall
-     */
-    public function GetBlacklistStorageSignedURL(\Adamant\Global\V1\GetBlacklistStorageSignedURLRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/GetBlacklistStorageSignedURL',
-        $argument,
-        ['\Adamant\Global\V1\GetBlacklistStorageSignedURLResponse', 'decode'],
+        ['\Adamant\Global\V1\ListBlacklistAddressFilesResponse', 'decode'],
         $metadata, $options);
     }
 

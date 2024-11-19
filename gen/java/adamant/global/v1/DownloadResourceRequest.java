@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private DownloadResourceRequest() {
     downloadResourceType_ = 0;
     walletId_ = "";
+    status_ = 0;
     network_ = 0;
   }
 
@@ -130,22 +131,28 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 7;
-  private long status_ = 0L;
+  private int status_ = 0;
   /**
-   * <code>optional int64 status = 7 [json_name = "status"];</code>
+   * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
    * @return Whether the status field is set.
    */
-  @java.lang.Override
-  public boolean hasStatus() {
+  @java.lang.Override public boolean hasStatus() {
     return ((bitField0_ & 0x00000002) != 0);
   }
   /**
-   * <code>optional int64 status = 7 [json_name = "status"];</code>
+   * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+   * @return The enum numeric value on the wire for status.
+   */
+  @java.lang.Override public int getStatusValue() {
+    return status_;
+  }
+  /**
+   * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
    * @return The status.
    */
-  @java.lang.Override
-  public long getStatus() {
-    return status_;
+  @java.lang.Override public adamant.global.v1.Enum.BlacklistAddressStatus getStatus() {
+    adamant.global.v1.Enum.BlacklistAddressStatus result = adamant.global.v1.Enum.BlacklistAddressStatus.forNumber(status_);
+    return result == null ? adamant.global.v1.Enum.BlacklistAddressStatus.UNRECOGNIZED : result;
   }
 
   public static final int NETWORK_FIELD_NUMBER = 8;
@@ -258,7 +265,7 @@ private static final long serialVersionUID = 0L;
       output.writeBool(6, isActivated_);
     }
     if (((bitField0_ & 0x00000002) != 0)) {
-      output.writeInt64(7, status_);
+      output.writeEnum(7, status_);
     }
     if (((bitField0_ & 0x00000004) != 0)) {
       output.writeEnum(8, network_);
@@ -297,7 +304,7 @@ private static final long serialVersionUID = 0L;
     }
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(7, status_);
+        .computeEnumSize(7, status_);
     }
     if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.CodedOutputStream
@@ -330,8 +337,7 @@ private static final long serialVersionUID = 0L;
     }
     if (hasStatus() != other.hasStatus()) return false;
     if (hasStatus()) {
-      if (getStatus()
-          != other.getStatus()) return false;
+      if (status_ != other.status_) return false;
     }
     if (hasNetwork() != other.hasNetwork()) return false;
     if (hasNetwork()) {
@@ -372,8 +378,7 @@ private static final long serialVersionUID = 0L;
     }
     if (hasStatus()) {
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getStatus());
+      hash = (53 * hash) + status_;
     }
     if (hasNetwork()) {
       hash = (37 * hash) + NETWORK_FIELD_NUMBER;
@@ -522,7 +527,7 @@ private static final long serialVersionUID = 0L;
       watchOnly_ = false;
       walletId_ = "";
       isActivated_ = false;
-      status_ = 0L;
+      status_ = 0;
       network_ = 0;
       startTime_ = null;
       if (startTimeBuilder_ != null) {
@@ -733,7 +738,7 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 48
             case 56: {
-              status_ = input.readInt64();
+              status_ = input.readEnum();
               bitField0_ |= 0x00000010;
               break;
             } // case 56
@@ -956,42 +961,62 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long status_ ;
+    private int status_ = 0;
     /**
-     * <code>optional int64 status = 7 [json_name = "status"];</code>
+     * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
      * @return Whether the status field is set.
      */
-    @java.lang.Override
-    public boolean hasStatus() {
+    @java.lang.Override public boolean hasStatus() {
       return ((bitField0_ & 0x00000010) != 0);
     }
     /**
-     * <code>optional int64 status = 7 [json_name = "status"];</code>
-     * @return The status.
+     * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+     * @return The enum numeric value on the wire for status.
      */
-    @java.lang.Override
-    public long getStatus() {
+    @java.lang.Override public int getStatusValue() {
       return status_;
     }
     /**
-     * <code>optional int64 status = 7 [json_name = "status"];</code>
-     * @param value The status to set.
+     * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+     * @param value The enum numeric value on the wire for status to set.
      * @return This builder for chaining.
      */
-    public Builder setStatus(long value) {
-
+    public Builder setStatusValue(int value) {
       status_ = value;
       bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
-     * <code>optional int64 status = 7 [json_name = "status"];</code>
+     * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+     * @return The status.
+     */
+    @java.lang.Override
+    public adamant.global.v1.Enum.BlacklistAddressStatus getStatus() {
+      adamant.global.v1.Enum.BlacklistAddressStatus result = adamant.global.v1.Enum.BlacklistAddressStatus.forNumber(status_);
+      return result == null ? adamant.global.v1.Enum.BlacklistAddressStatus.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+     * @param value The status to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatus(adamant.global.v1.Enum.BlacklistAddressStatus value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000010;
+      status_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
       bitField0_ = (bitField0_ & ~0x00000010);
-      status_ = 0L;
+      status_ = 0;
       onChanged();
       return this;
     }

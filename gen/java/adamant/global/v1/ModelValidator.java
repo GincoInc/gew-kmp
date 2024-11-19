@@ -136,7 +136,8 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.PreTransactionThresholdProposal.class)) return new PreTransactionThresholdProposalValidator();
 		if (clazz.equals(adamant.global.v1.Model.BlacklistAddress.class)) return new BlacklistAddressValidator();
 		if (clazz.equals(adamant.global.v1.Model.BlacklistAddressProposal.class)) return new BlacklistAddressProposalValidator();
-		if (clazz.equals(adamant.global.v1.Model.BlaclistAddressDiff.class)) return new BlaclistAddressDiffValidator();
+		if (clazz.equals(adamant.global.v1.Model.BlacklistAddressDiff.class)) return new BlacklistAddressDiffValidator();
+		if (clazz.equals(adamant.global.v1.Model.BlacklistAddressFile.class)) return new BlacklistAddressFileValidator();
 		return null;
 	}
 
@@ -1703,6 +1704,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.CardanoSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1716,6 +1719,12 @@ public class ModelValidator {
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxOutputsList(), item -> {
 				
 			// Validate tx_outputs
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTokensList(), item -> {
+				
+			// Validate tokens
 			if (true) index.validatorFor(item).assertValid(item);
 			});
 	
@@ -4816,16 +4825,72 @@ public class ModelValidator {
 	}
 }
 /**
-	 * Validates {@code BlaclistAddressDiff} protobuf objects.
+	 * Validates {@code BlacklistAddressDiff} protobuf objects.
 	 */
-	public static class BlaclistAddressDiffValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.BlaclistAddressDiff> {
+	public static class BlacklistAddressDiffValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.BlacklistAddressDiff> {
 		
 	
 	
 
-	public void assertValid(adamant.global.v1.Model.BlaclistAddressDiff proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	public void assertValid(adamant.global.v1.Model.BlacklistAddressDiff proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for IsActivated
 
+	
+	}
+}
+/**
+	 * Validates {@code BlacklistAddressFile} protobuf objects.
+	 */
+	public static class BlacklistAddressFileValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.BlacklistAddressFile> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.BlacklistAddressFile proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for FileId
+
+	// no validation rules for FileName
+
+	// no validation rules for Network
+
+	// no validation rules for Status
+
+	// no validation rules for AddressCount
+
+	// no validation rules for RequesterAccountId
+
+	// no validation rules for RequesterName
+
+	// no validation rules for ApproverAccountId
+
+	// no validation rules for ApproverName
+
+	
+			// Validate create_time
+			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+			// Validate update_time
+			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
 	
 	}
 }

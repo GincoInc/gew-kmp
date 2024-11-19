@@ -19,8 +19,8 @@ class AuditLogger
         \GPBMetadata\Google\Protobuf\Timestamp::initOnce();
         $pool->internalAddGeneratedFile(
             '
-²
-=gincoinc/adamant/global/v1/adamantglobalv1/audit_logger.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.proto"¶
+¦
+=gincoinc/adamant/global/v1/adamantglobalv1/audit_logger.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.proto"ª
 AuditLog 
 audit_log_id (	R
 auditLogIdH
@@ -45,7 +45,8 @@ walletName2
 wallet_group_id" (	RwalletGroupId*
 wallet_group_name# (	RwalletGroupName!
 wallet_names$ (	RwalletNames,
-pre_transaction_id2 (	RpreTransactionId%
+pre_transaction_id2 (	RpreTransactionId=
+pre_transaction_external_id5 (	RpreTransactionExternalId%
 transaction_id (	RtransactionId5
 	coin_type (2.gincoinc.global.v1.CoinRcoinType!
 string_value (	RstringValue
@@ -80,7 +81,9 @@ createTime@
 	file_name0 (	RfileName#
 address_count1 (RaddressCount6
 previous_transaction_id3 (	RpreviousTransactionId,
-new_transaction_id4 (	RnewTransactionIdBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
+new_transaction_id4 (	RnewTransactionId
+activate6 (Ractivate
+file_id7 (	RfileIdBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
         , true);
 
         static::$is_initialized = true;

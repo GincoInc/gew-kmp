@@ -17,6 +17,10 @@ class GetBlacklistStorageSignedURLRequest extends \Google\Protobuf\Internal\Mess
      * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 7 [json_name = "network", (.validate.rules) = {</code>
      */
     protected $network = 0;
+    /**
+     * Generated from protobuf field <code>string file_name = 2 [json_name = "fileName"];</code>
+     */
+    protected $file_name = '';
 
     /**
      * Constructor.
@@ -25,6 +29,7 @@ class GetBlacklistStorageSignedURLRequest extends \Google\Protobuf\Internal\Mess
      *     Optional. Data for populating the Message object.
      *
      *     @type int $network
+     *     @type string $file_name
      * }
      */
     public function __construct($data = NULL) {
@@ -50,6 +55,28 @@ class GetBlacklistStorageSignedURLRequest extends \Google\Protobuf\Internal\Mess
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
         $this->network = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string file_name = 2 [json_name = "fileName"];</code>
+     * @return string
+     */
+    public function getFileName()
+    {
+        return $this->file_name;
+    }
+
+    /**
+     * Generated from protobuf field <code>string file_name = 2 [json_name = "fileName"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setFileName($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->file_name = $var;
 
         return $this;
     }

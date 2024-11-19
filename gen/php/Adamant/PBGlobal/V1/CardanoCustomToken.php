@@ -24,9 +24,9 @@ class CardanoCustomToken extends \Google\Protobuf\Internal\Message
      */
     protected $asset_name = '';
     /**
-     * Generated from protobuf field <code>double value = 3 [json_name = "value"];</code>
+     * Generated from protobuf field <code>uint64 value = 3 [json_name = "value"];</code>
      */
-    protected $value = 0.0;
+    protected $value = 0;
 
     /**
      * Constructor.
@@ -36,7 +36,7 @@ class CardanoCustomToken extends \Google\Protobuf\Internal\Message
      *
      *     @type string $policy_id
      *     @type string $asset_name
-     *     @type float $value
+     *     @type int|string $value
      * }
      */
     public function __construct($data = NULL) {
@@ -89,8 +89,8 @@ class CardanoCustomToken extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>double value = 3 [json_name = "value"];</code>
-     * @return float
+     * Generated from protobuf field <code>uint64 value = 3 [json_name = "value"];</code>
+     * @return int|string
      */
     public function getValue()
     {
@@ -98,13 +98,13 @@ class CardanoCustomToken extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>double value = 3 [json_name = "value"];</code>
-     * @param float $var
+     * Generated from protobuf field <code>uint64 value = 3 [json_name = "value"];</code>
+     * @param int|string $var
      * @return $this
      */
     public function setValue($var)
     {
-        GPBUtil::checkDouble($var);
+        GPBUtil::checkUint64($var);
         $this->value = $var;
 
         return $this;

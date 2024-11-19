@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-”¶
+ëº
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"Ž	
 Wallet
 owner_id (	RownerId
@@ -335,7 +335,7 @@ n_sequence (R	nSequence"¢
 	policy_id (	RpolicyId
 
 asset_name (	R	assetName
-value (Rvalue"†
+value (Rvalue"†
 BitcoinSpecific7
 	tx_inputs (2.adamant.global.v1.TxInputRtxInputs:
 
@@ -383,11 +383,12 @@ tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"Ž
 StellarSpecific\'
 sequence_number (RsequenceNumber
 memo_id (B0RmemoId5
-is_next_sequence_number (RisNextSequenceNumber"†
+is_next_sequence_number (RisNextSequenceNumber"Å
 CardanoSpecific7
 	tx_inputs (2.adamant.global.v1.TxInputRtxInputs:
 
-tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"‰
+tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs=
+tokens (2%.adamant.global.v1.CardanoCustomTokenRtokens"‰
 SubstrateSpecific
 nonce (Rnonce"
 is_next_nonce (RisNextNoncew
@@ -1119,17 +1120,32 @@ updateTime
 
 _file_nameB
 _applied_proposalB
-_pending_proposal"ù
+_pending_proposal"ú
 BlacklistAddressProposalA
 blacklist_address_proposal_id (	RblacklistAddressProposalId0
 blacklist_address_id (	RblacklistAddressId0
 requester_account_id (	RrequesterAccountId%
 requester_name (	RrequesterName.
 approver_account_id (	RapproverAccountId#
-approver_name (	RapproverName:
-diff (2&.adamant.global.v1.BlaclistAddressDiffRdiff"8
-BlaclistAddressDiff!
-is_activated (RisActivatedBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
+approver_name (	RapproverName;
+diff (2\'.adamant.global.v1.BlacklistAddressDiffRdiff"9
+BlacklistAddressDiff!
+is_activated (RisActivated"“
+BlacklistAddressFile
+file_id (	RfileId
+	file_name (	RfileName5
+network (2.gincoinc.global.v1.NetworkRnetworkA
+status (2).adamant.global.v1.BlacklistAddressStatusRstatus#
+address_count (RaddressCount0
+requester_account_id (	RrequesterAccountId%
+requester_name (	RrequesterName.
+approver_account_id (	RapproverAccountId#
+approver_name	 (	RapproverName;
+create_time
+ (2.google.protobuf.TimestampR
+createTime;
+update_time (2.google.protobuf.TimestampR
+updateTimeBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
         , true);
 
         static::$is_initialized = true;

@@ -14,7 +14,7 @@ use Google\Protobuf\Internal\GPBUtil;
 class CancelPreTransactionRequest extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string pre_transaction_id = 1 [json_name = "preTransactionId"];</code>
+     * Generated from protobuf field <code>string pre_transaction_id = 1 [json_name = "preTransactionId", (.validate.rules) = {</code>
      */
     protected $pre_transaction_id = '';
 
@@ -33,7 +33,7 @@ class CancelPreTransactionRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string pre_transaction_id = 1 [json_name = "preTransactionId"];</code>
+     * Generated from protobuf field <code>string pre_transaction_id = 1 [json_name = "preTransactionId", (.validate.rules) = {</code>
      * @return string
      */
     public function getPreTransactionId()
@@ -42,7 +42,7 @@ class CancelPreTransactionRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string pre_transaction_id = 1 [json_name = "preTransactionId"];</code>
+     * Generated from protobuf field <code>string pre_transaction_id = 1 [json_name = "preTransactionId", (.validate.rules) = {</code>
      * @param string $var
      * @return $this
      */
