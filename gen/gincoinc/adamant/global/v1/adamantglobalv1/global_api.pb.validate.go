@@ -9006,10 +9006,10 @@ func (m *CreatePreTransactionRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if !_CreatePreTransactionRequest_ExternalId_Pattern.MatchString(m.GetExternalId()) {
+	if utf8.RuneCountInString(m.GetExternalId()) < 1 {
 		err := CreatePreTransactionRequestValidationError{
 			field:  "ExternalId",
-			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+			reason: "value length must be at least 1 runes",
 		}
 		if !all {
 			return err
@@ -9136,8 +9136,6 @@ var _CreatePreTransactionRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]st
 	0: {},
 }
 
-var _CreatePreTransactionRequest_ExternalId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
-
 // Validate checks the field values on CreatePreTransactionResponse with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -9243,6 +9241,238 @@ var _ interface {
 	ErrorName() string
 } = CreatePreTransactionResponseValidationError{}
 
+// Validate checks the field values on ApprovePreTransactionRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ApprovePreTransactionRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ApprovePreTransactionRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ApprovePreTransactionRequestMultiError, or nil if none found.
+func (m *ApprovePreTransactionRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ApprovePreTransactionRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ApprovePreTransactionRequest_PreTransactionId_Pattern.MatchString(m.GetPreTransactionId()) {
+		err := ApprovePreTransactionRequestValidationError{
+			field:  "PreTransactionId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return ApprovePreTransactionRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ApprovePreTransactionRequestMultiError is an error wrapping multiple
+// validation errors returned by ApprovePreTransactionRequest.ValidateAll() if
+// the designated constraints aren't met.
+type ApprovePreTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApprovePreTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApprovePreTransactionRequestMultiError) AllErrors() []error { return m }
+
+// ApprovePreTransactionRequestValidationError is the validation error returned
+// by ApprovePreTransactionRequest.Validate if the designated constraints
+// aren't met.
+type ApprovePreTransactionRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ApprovePreTransactionRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ApprovePreTransactionRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ApprovePreTransactionRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ApprovePreTransactionRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ApprovePreTransactionRequestValidationError) ErrorName() string {
+	return "ApprovePreTransactionRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ApprovePreTransactionRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sApprovePreTransactionRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ApprovePreTransactionRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ApprovePreTransactionRequestValidationError{}
+
+var _ApprovePreTransactionRequest_PreTransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on RejectPreTransactionRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *RejectPreTransactionRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on RejectPreTransactionRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// RejectPreTransactionRequestMultiError, or nil if none found.
+func (m *RejectPreTransactionRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *RejectPreTransactionRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_RejectPreTransactionRequest_PreTransactionId_Pattern.MatchString(m.GetPreTransactionId()) {
+		err := RejectPreTransactionRequestValidationError{
+			field:  "PreTransactionId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return RejectPreTransactionRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// RejectPreTransactionRequestMultiError is an error wrapping multiple
+// validation errors returned by RejectPreTransactionRequest.ValidateAll() if
+// the designated constraints aren't met.
+type RejectPreTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m RejectPreTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m RejectPreTransactionRequestMultiError) AllErrors() []error { return m }
+
+// RejectPreTransactionRequestValidationError is the validation error returned
+// by RejectPreTransactionRequest.Validate if the designated constraints
+// aren't met.
+type RejectPreTransactionRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e RejectPreTransactionRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e RejectPreTransactionRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e RejectPreTransactionRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e RejectPreTransactionRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e RejectPreTransactionRequestValidationError) ErrorName() string {
+	return "RejectPreTransactionRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e RejectPreTransactionRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sRejectPreTransactionRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = RejectPreTransactionRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = RejectPreTransactionRequestValidationError{}
+
+var _RejectPreTransactionRequest_PreTransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on CancelPreTransactionRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -9265,7 +9495,16 @@ func (m *CancelPreTransactionRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for PreTransactionId
+	if !_CancelPreTransactionRequest_PreTransactionId_Pattern.MatchString(m.GetPreTransactionId()) {
+		err := CancelPreTransactionRequestValidationError{
+			field:  "PreTransactionId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	if len(errors) > 0 {
 		return CancelPreTransactionRequestMultiError(errors)
@@ -9348,6 +9587,8 @@ var _ interface {
 	ErrorName() string
 } = CancelPreTransactionRequestValidationError{}
 
+var _CancelPreTransactionRequest_PreTransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on ListPreTransactionsByFilterRequest with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, the first error encountered is returned, or nil if there are
@@ -9394,7 +9635,18 @@ func (m *ListPreTransactionsByFilterRequest) validate(all bool) error {
 	}
 
 	if m.PreTransactionId != nil {
-		// no validation rules for PreTransactionId
+
+		if !_ListPreTransactionsByFilterRequest_PreTransactionId_Pattern.MatchString(m.GetPreTransactionId()) {
+			err := ListPreTransactionsByFilterRequestValidationError{
+				field:  "PreTransactionId",
+				reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
 	}
 
 	if m.ExternalId != nil {
@@ -9612,6 +9864,8 @@ var _ interface {
 var _ListPreTransactionsByFilterRequest_FilterType_NotInLookup = map[ListFilterType]struct{}{
 	0: {},
 }
+
+var _ListPreTransactionsByFilterRequest_PreTransactionId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _ListPreTransactionsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
 
@@ -29127,6 +29381,29 @@ func (m *DownloadResourceRequest) validate(all bool) error {
 		}
 	}
 
+	if m.IsActivated != nil {
+		// no validation rules for IsActivated
+	}
+
+	if m.Status != nil {
+		// no validation rules for Status
+	}
+
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := DownloadResourceRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
 	if len(errors) > 0 {
 		return DownloadResourceRequestMultiError(errors)
 	}
@@ -33452,7 +33729,7 @@ func (m *ListBlacklistAddressesByFilterRequest) validate(all bool) error {
 		if !_ListBlacklistAddressesByFilterRequest_BlacklistAddressId_Pattern.MatchString(m.GetBlacklistAddressId()) {
 			err := ListBlacklistAddressesByFilterRequestValidationError{
 				field:  "BlacklistAddressId",
-				reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+				reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
 			}
 			if !all {
 				return err
@@ -33468,6 +33745,10 @@ func (m *ListBlacklistAddressesByFilterRequest) validate(all bool) error {
 
 	if m.FileId != nil {
 		// no validation rules for FileId
+	}
+
+	if m.ExternalId != nil {
+		// no validation rules for ExternalId
 	}
 
 	if m.IsActivated != nil {
@@ -33579,7 +33860,7 @@ func (m *ListBlacklistAddressesByFilterRequest) validate(all bool) error {
 		if !_ListBlacklistAddressesByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
 			err := ListBlacklistAddressesByFilterRequestValidationError{
 				field:  "PageToken",
-				reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+				reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789]{1,16}$\"",
 			}
 			if !all {
 				return err
@@ -33671,9 +33952,9 @@ var _ interface {
 	ErrorName() string
 } = ListBlacklistAddressesByFilterRequestValidationError{}
 
-var _ListBlacklistAddressesByFilterRequest_BlacklistAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+var _ListBlacklistAddressesByFilterRequest_BlacklistAddressId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
-var _ListBlacklistAddressesByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+var _ListBlacklistAddressesByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789]{1,16}$")
 
 // Validate checks the field values on ListBlacklistAddressesByFilterResponse
 // with the rules defined in the proto definition for this message. If any
@@ -33816,3 +34097,1207 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListBlacklistAddressesByFilterResponseValidationError{}
+
+// Validate checks the field values on CreateBlacklistAddressResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CreateBlacklistAddressResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreateBlacklistAddressResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// CreateBlacklistAddressResponseMultiError, or nil if none found.
+func (m *CreateBlacklistAddressResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateBlacklistAddressResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_CreateBlacklistAddressResponse_BlacklistAddressId_Pattern.MatchString(m.GetBlacklistAddressId()) {
+		err := CreateBlacklistAddressResponseValidationError{
+			field:  "BlacklistAddressId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return CreateBlacklistAddressResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreateBlacklistAddressResponseMultiError is an error wrapping multiple
+// validation errors returned by CreateBlacklistAddressResponse.ValidateAll()
+// if the designated constraints aren't met.
+type CreateBlacklistAddressResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateBlacklistAddressResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateBlacklistAddressResponseMultiError) AllErrors() []error { return m }
+
+// CreateBlacklistAddressResponseValidationError is the validation error
+// returned by CreateBlacklistAddressResponse.Validate if the designated
+// constraints aren't met.
+type CreateBlacklistAddressResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateBlacklistAddressResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateBlacklistAddressResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateBlacklistAddressResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateBlacklistAddressResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateBlacklistAddressResponseValidationError) ErrorName() string {
+	return "CreateBlacklistAddressResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateBlacklistAddressResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateBlacklistAddressResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateBlacklistAddressResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateBlacklistAddressResponseValidationError{}
+
+var _CreateBlacklistAddressResponse_BlacklistAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on CreateBlacklistAddressRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CreateBlacklistAddressRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreateBlacklistAddressRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// CreateBlacklistAddressRequestMultiError, or nil if none found.
+func (m *CreateBlacklistAddressRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateBlacklistAddressRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Address
+
+	if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+		err := CreateBlacklistAddressRequestValidationError{
+			field:  "Network",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.ExternalId != nil {
+		// no validation rules for ExternalId
+	}
+
+	if len(errors) > 0 {
+		return CreateBlacklistAddressRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreateBlacklistAddressRequestMultiError is an error wrapping multiple
+// validation errors returned by CreateBlacklistAddressRequest.ValidateAll()
+// if the designated constraints aren't met.
+type CreateBlacklistAddressRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateBlacklistAddressRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateBlacklistAddressRequestMultiError) AllErrors() []error { return m }
+
+// CreateBlacklistAddressRequestValidationError is the validation error
+// returned by CreateBlacklistAddressRequest.Validate if the designated
+// constraints aren't met.
+type CreateBlacklistAddressRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateBlacklistAddressRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateBlacklistAddressRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateBlacklistAddressRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateBlacklistAddressRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateBlacklistAddressRequestValidationError) ErrorName() string {
+	return "CreateBlacklistAddressRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateBlacklistAddressRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateBlacklistAddressRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateBlacklistAddressRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateBlacklistAddressRequestValidationError{}
+
+// Validate checks the field values on GetBlacklistAddressRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GetBlacklistAddressRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetBlacklistAddressRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GetBlacklistAddressRequestMultiError, or nil if none found.
+func (m *GetBlacklistAddressRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetBlacklistAddressRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_GetBlacklistAddressRequest_BlacklistAddressId_Pattern.MatchString(m.GetBlacklistAddressId()) {
+		err := GetBlacklistAddressRequestValidationError{
+			field:  "BlacklistAddressId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return GetBlacklistAddressRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetBlacklistAddressRequestMultiError is an error wrapping multiple
+// validation errors returned by GetBlacklistAddressRequest.ValidateAll() if
+// the designated constraints aren't met.
+type GetBlacklistAddressRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetBlacklistAddressRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetBlacklistAddressRequestMultiError) AllErrors() []error { return m }
+
+// GetBlacklistAddressRequestValidationError is the validation error returned
+// by GetBlacklistAddressRequest.Validate if the designated constraints aren't met.
+type GetBlacklistAddressRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetBlacklistAddressRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetBlacklistAddressRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetBlacklistAddressRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetBlacklistAddressRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetBlacklistAddressRequestValidationError) ErrorName() string {
+	return "GetBlacklistAddressRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetBlacklistAddressRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetBlacklistAddressRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetBlacklistAddressRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetBlacklistAddressRequestValidationError{}
+
+var _GetBlacklistAddressRequest_BlacklistAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on UpdateBlacklistAddressRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *UpdateBlacklistAddressRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on UpdateBlacklistAddressRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// UpdateBlacklistAddressRequestMultiError, or nil if none found.
+func (m *UpdateBlacklistAddressRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *UpdateBlacklistAddressRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_UpdateBlacklistAddressRequest_BlacklistAddressId_Pattern.MatchString(m.GetBlacklistAddressId()) {
+		err := UpdateBlacklistAddressRequestValidationError{
+			field:  "BlacklistAddressId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for Activate
+
+	if len(errors) > 0 {
+		return UpdateBlacklistAddressRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// UpdateBlacklistAddressRequestMultiError is an error wrapping multiple
+// validation errors returned by UpdateBlacklistAddressRequest.ValidateAll()
+// if the designated constraints aren't met.
+type UpdateBlacklistAddressRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m UpdateBlacklistAddressRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m UpdateBlacklistAddressRequestMultiError) AllErrors() []error { return m }
+
+// UpdateBlacklistAddressRequestValidationError is the validation error
+// returned by UpdateBlacklistAddressRequest.Validate if the designated
+// constraints aren't met.
+type UpdateBlacklistAddressRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e UpdateBlacklistAddressRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e UpdateBlacklistAddressRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e UpdateBlacklistAddressRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e UpdateBlacklistAddressRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e UpdateBlacklistAddressRequestValidationError) ErrorName() string {
+	return "UpdateBlacklistAddressRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e UpdateBlacklistAddressRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sUpdateBlacklistAddressRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = UpdateBlacklistAddressRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = UpdateBlacklistAddressRequestValidationError{}
+
+var _UpdateBlacklistAddressRequest_BlacklistAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ReviewBlacklistAddressProposalRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *ReviewBlacklistAddressProposalRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ReviewBlacklistAddressProposalRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ReviewBlacklistAddressProposalRequestMultiError, or nil if none found.
+func (m *ReviewBlacklistAddressProposalRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ReviewBlacklistAddressProposalRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ReviewBlacklistAddressProposalRequest_BlacklistAddressId_Pattern.MatchString(m.GetBlacklistAddressId()) {
+		err := ReviewBlacklistAddressProposalRequestValidationError{
+			field:  "BlacklistAddressId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for Approve
+
+	if len(errors) > 0 {
+		return ReviewBlacklistAddressProposalRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ReviewBlacklistAddressProposalRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ReviewBlacklistAddressProposalRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ReviewBlacklistAddressProposalRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ReviewBlacklistAddressProposalRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ReviewBlacklistAddressProposalRequestMultiError) AllErrors() []error { return m }
+
+// ReviewBlacklistAddressProposalRequestValidationError is the validation error
+// returned by ReviewBlacklistAddressProposalRequest.Validate if the
+// designated constraints aren't met.
+type ReviewBlacklistAddressProposalRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ReviewBlacklistAddressProposalRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ReviewBlacklistAddressProposalRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ReviewBlacklistAddressProposalRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ReviewBlacklistAddressProposalRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ReviewBlacklistAddressProposalRequestValidationError) ErrorName() string {
+	return "ReviewBlacklistAddressProposalRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ReviewBlacklistAddressProposalRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sReviewBlacklistAddressProposalRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ReviewBlacklistAddressProposalRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ReviewBlacklistAddressProposalRequestValidationError{}
+
+var _ReviewBlacklistAddressProposalRequest_BlacklistAddressId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on
+// BulkReviewBlacklistAddressProposalRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *BulkReviewBlacklistAddressProposalRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// BulkReviewBlacklistAddressProposalRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// BulkReviewBlacklistAddressProposalRequestMultiError, or nil if none found.
+func (m *BulkReviewBlacklistAddressProposalRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *BulkReviewBlacklistAddressProposalRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for FileId
+
+	// no validation rules for Approve
+
+	if len(errors) > 0 {
+		return BulkReviewBlacklistAddressProposalRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// BulkReviewBlacklistAddressProposalRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// BulkReviewBlacklistAddressProposalRequest.ValidateAll() if the designated
+// constraints aren't met.
+type BulkReviewBlacklistAddressProposalRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m BulkReviewBlacklistAddressProposalRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m BulkReviewBlacklistAddressProposalRequestMultiError) AllErrors() []error { return m }
+
+// BulkReviewBlacklistAddressProposalRequestValidationError is the validation
+// error returned by BulkReviewBlacklistAddressProposalRequest.Validate if the
+// designated constraints aren't met.
+type BulkReviewBlacklistAddressProposalRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e BulkReviewBlacklistAddressProposalRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e BulkReviewBlacklistAddressProposalRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e BulkReviewBlacklistAddressProposalRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e BulkReviewBlacklistAddressProposalRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e BulkReviewBlacklistAddressProposalRequestValidationError) ErrorName() string {
+	return "BulkReviewBlacklistAddressProposalRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e BulkReviewBlacklistAddressProposalRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sBulkReviewBlacklistAddressProposalRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = BulkReviewBlacklistAddressProposalRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = BulkReviewBlacklistAddressProposalRequestValidationError{}
+
+// Validate checks the field values on GetBlacklistStorageSignedURLRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *GetBlacklistStorageSignedURLRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetBlacklistStorageSignedURLRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// GetBlacklistStorageSignedURLRequestMultiError, or nil if none found.
+func (m *GetBlacklistStorageSignedURLRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetBlacklistStorageSignedURLRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+		err := GetBlacklistStorageSignedURLRequestValidationError{
+			field:  "Network",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for FileName
+
+	if len(errors) > 0 {
+		return GetBlacklistStorageSignedURLRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetBlacklistStorageSignedURLRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// GetBlacklistStorageSignedURLRequest.ValidateAll() if the designated
+// constraints aren't met.
+type GetBlacklistStorageSignedURLRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetBlacklistStorageSignedURLRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetBlacklistStorageSignedURLRequestMultiError) AllErrors() []error { return m }
+
+// GetBlacklistStorageSignedURLRequestValidationError is the validation error
+// returned by GetBlacklistStorageSignedURLRequest.Validate if the designated
+// constraints aren't met.
+type GetBlacklistStorageSignedURLRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetBlacklistStorageSignedURLRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetBlacklistStorageSignedURLRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetBlacklistStorageSignedURLRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetBlacklistStorageSignedURLRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetBlacklistStorageSignedURLRequestValidationError) ErrorName() string {
+	return "GetBlacklistStorageSignedURLRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetBlacklistStorageSignedURLRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetBlacklistStorageSignedURLRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetBlacklistStorageSignedURLRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetBlacklistStorageSignedURLRequestValidationError{}
+
+// Validate checks the field values on GetBlacklistStorageSignedURLResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *GetBlacklistStorageSignedURLResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetBlacklistStorageSignedURLResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// GetBlacklistStorageSignedURLResponseMultiError, or nil if none found.
+func (m *GetBlacklistStorageSignedURLResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetBlacklistStorageSignedURLResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Url
+
+	if len(errors) > 0 {
+		return GetBlacklistStorageSignedURLResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetBlacklistStorageSignedURLResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// GetBlacklistStorageSignedURLResponse.ValidateAll() if the designated
+// constraints aren't met.
+type GetBlacklistStorageSignedURLResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetBlacklistStorageSignedURLResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetBlacklistStorageSignedURLResponseMultiError) AllErrors() []error { return m }
+
+// GetBlacklistStorageSignedURLResponseValidationError is the validation error
+// returned by GetBlacklistStorageSignedURLResponse.Validate if the designated
+// constraints aren't met.
+type GetBlacklistStorageSignedURLResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetBlacklistStorageSignedURLResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetBlacklistStorageSignedURLResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetBlacklistStorageSignedURLResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetBlacklistStorageSignedURLResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetBlacklistStorageSignedURLResponseValidationError) ErrorName() string {
+	return "GetBlacklistStorageSignedURLResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetBlacklistStorageSignedURLResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetBlacklistStorageSignedURLResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetBlacklistStorageSignedURLResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetBlacklistStorageSignedURLResponseValidationError{}
+
+// Validate checks the field values on ListBlacklistAddressFilesRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ListBlacklistAddressFilesRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListBlacklistAddressFilesRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// ListBlacklistAddressFilesRequestMultiError, or nil if none found.
+func (m *ListBlacklistAddressFilesRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListBlacklistAddressFilesRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Status
+
+	if m.PageSize != nil {
+
+		if m.GetPageSize() > 100 {
+			err := ListBlacklistAddressFilesRequestValidationError{
+				field:  "PageSize",
+				reason: "value must be less than or equal to 100",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if m.PageToken != nil {
+
+		if !_ListBlacklistAddressFilesRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+			err := ListBlacklistAddressFilesRequestValidationError{
+				field:  "PageToken",
+				reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ListBlacklistAddressFilesRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListBlacklistAddressFilesRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListBlacklistAddressFilesRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ListBlacklistAddressFilesRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListBlacklistAddressFilesRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListBlacklistAddressFilesRequestMultiError) AllErrors() []error { return m }
+
+// ListBlacklistAddressFilesRequestValidationError is the validation error
+// returned by ListBlacklistAddressFilesRequest.Validate if the designated
+// constraints aren't met.
+type ListBlacklistAddressFilesRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListBlacklistAddressFilesRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListBlacklistAddressFilesRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListBlacklistAddressFilesRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListBlacklistAddressFilesRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListBlacklistAddressFilesRequestValidationError) ErrorName() string {
+	return "ListBlacklistAddressFilesRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListBlacklistAddressFilesRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListBlacklistAddressFilesRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListBlacklistAddressFilesRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListBlacklistAddressFilesRequestValidationError{}
+
+var _ListBlacklistAddressFilesRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListBlacklistAddressFilesResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ListBlacklistAddressFilesResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListBlacklistAddressFilesResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ListBlacklistAddressFilesResponseMultiError, or nil if none found.
+func (m *ListBlacklistAddressFilesResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListBlacklistAddressFilesResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetFiles() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListBlacklistAddressFilesResponseValidationError{
+						field:  fmt.Sprintf("Files[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListBlacklistAddressFilesResponseValidationError{
+						field:  fmt.Sprintf("Files[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListBlacklistAddressFilesResponseValidationError{
+					field:  fmt.Sprintf("Files[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	if len(errors) > 0 {
+		return ListBlacklistAddressFilesResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListBlacklistAddressFilesResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListBlacklistAddressFilesResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ListBlacklistAddressFilesResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListBlacklistAddressFilesResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListBlacklistAddressFilesResponseMultiError) AllErrors() []error { return m }
+
+// ListBlacklistAddressFilesResponseValidationError is the validation error
+// returned by ListBlacklistAddressFilesResponse.Validate if the designated
+// constraints aren't met.
+type ListBlacklistAddressFilesResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListBlacklistAddressFilesResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListBlacklistAddressFilesResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListBlacklistAddressFilesResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListBlacklistAddressFilesResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListBlacklistAddressFilesResponseValidationError) ErrorName() string {
+	return "ListBlacklistAddressFilesResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListBlacklistAddressFilesResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListBlacklistAddressFilesResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListBlacklistAddressFilesResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListBlacklistAddressFilesResponseValidationError{}

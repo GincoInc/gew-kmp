@@ -34,6 +34,7 @@ message AuditLog {
   string wallet_group_name = 35;
   repeated string wallet_names = 36;
   string pre_transaction_id = 50;
+  string pre_transaction_external_id = 53;
   string transaction_id = 15;
   gincoinc.global.v1.Coin coin_type = 16;
   string string_value = 17;
@@ -64,4 +65,8 @@ message AuditLog {
   string blacklist_address_id = 47;
   string file_name = 48;
   int64 address_count = 49;
+  string previous_transaction_id = 51;
+  string new_transaction_id = 52;
+  bool activate = 54;
+  string file_id = 55;
 }

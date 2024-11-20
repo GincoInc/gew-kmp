@@ -350,7 +350,7 @@ message AvalanchePlatformChainUTXOSpecific {
 message CardanoCustomToken {
   string policy_id = 1;
   string asset_name = 2;
-  double value = 3;
+  uint64 value = 3;
 }
 
 // The model of Bitcoin specific fields of transaction
@@ -422,6 +422,7 @@ message StellarSpecific {
 message CardanoSpecific {
   repeated TxInput tx_inputs = 1;
   repeated TxOutput tx_outputs = 2;
+  repeated CardanoCustomToken tokens = 3;
 }
 
 // The model of Substrate specific fields of transaction
@@ -460,6 +461,10 @@ message PolygonSpecific {
   uint64 gas_limit = 1;
   uint64 nonce = 2;
   bool is_next_nonce = 3;
+  string data = 4;
+  string from_address = 5;
+  string token_address = 6;
+  uint64 chain_id = 7;
 }
 
 // The model of Klaytn specific fields of transaction
@@ -484,6 +489,11 @@ message AvalancheSpecific {
   uint64 nonce = 2;
   bool is_next_nonce = 3;
   AtomicTx atomic_tx = 4;
+  string from_address = 5;
+  string token_address = 6;
+  uint64 chain_id = 7;
+  uint64 max_priority_fee_per_gas = 8;
+  gincoinc.global.v1.AvalancheTxType tx_type = 9;
 }
 
 // The model of Oasys specific fields of transaction
@@ -491,6 +501,9 @@ message OasysSpecific {
   uint64 gas_limit = 1;
   uint64 nonce = 2;
   bool is_next_nonce = 3;
+  string from_address = 4;
+  string token_address = 5;
+  uint64 chain_id = 6;
 }
 
 // The model of Xdc specific fields of transaction
@@ -565,6 +578,8 @@ message BNBSmartChainSpecific {
   uint64 gas_limit = 1;
   uint64 nonce = 2;
   bool is_next_nonce = 3;
+  string from_address = 4;
+  string token_address = 5;
 }
 
 // The model of Flare specific fields of transaction
@@ -1244,7 +1259,8 @@ message PreTransactionThresholdProposal {
 
 message BlacklistAddress {
   string blacklist_address_id = 1;
-  string blacklist_address_proposal_id = 2;
+  string applied_proposal_id = 2;
+  string pending_proposal_id = 13;
   gincoinc.global.v1.Network network = 3;
   string address = 4;
   bool is_activated = 5;
@@ -1254,7 +1270,8 @@ message BlacklistAddress {
   google.protobuf.Timestamp update_time = 9;
   optional string file_id = 10;
   optional string file_name = 11;
-  BlacklistAddressProposal proposal = 12;
+  optional BlacklistAddressProposal applied_proposal = 12;
+  optional BlacklistAddressProposal pending_proposal = 14;
 }
 
 message BlacklistAddressProposal {
@@ -1264,9 +1281,23 @@ message BlacklistAddressProposal {
   string requester_name = 4;
   string approver_account_id = 5;
   string approver_name = 6;
-  BlaclistAddressDiff diff = 7;
+  BlacklistAddressDiff diff = 7;
 }
 
-message BlaclistAddressDiff {
+message BlacklistAddressDiff {
   bool is_activated = 1;
+}
+
+message BlacklistAddressFile {
+  string file_id = 1;
+  string file_name = 2;
+  gincoinc.global.v1.Network network = 3;
+  BlacklistAddressStatus status = 4;
+  uint32 address_count = 5;
+  string requester_account_id = 6;
+  string requester_name = 7;
+  string approver_account_id = 8;
+  string approver_name = 9;
+  google.protobuf.Timestamp create_time = 10;
+  google.protobuf.Timestamp update_time = 11;
 }

@@ -38,7 +38,7 @@ class BlacklistAddressProposal extends \Google\Protobuf\Internal\Message
      */
     protected $approver_name = '';
     /**
-     * Generated from protobuf field <code>.adamant.global.v1.BlaclistAddressDiff diff = 7 [json_name = "diff"];</code>
+     * Generated from protobuf field <code>.adamant.global.v1.BlacklistAddressDiff diff = 7 [json_name = "diff"];</code>
      */
     protected $diff = null;
 
@@ -54,7 +54,7 @@ class BlacklistAddressProposal extends \Google\Protobuf\Internal\Message
      *     @type string $requester_name
      *     @type string $approver_account_id
      *     @type string $approver_name
-     *     @type \Adamant\PBGlobal\V1\BlaclistAddressDiff $diff
+     *     @type \Adamant\PBGlobal\V1\BlacklistAddressDiff $diff
      * }
      */
     public function __construct($data = NULL) {
@@ -195,8 +195,8 @@ class BlacklistAddressProposal extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.adamant.global.v1.BlaclistAddressDiff diff = 7 [json_name = "diff"];</code>
-     * @return \Adamant\PBGlobal\V1\BlaclistAddressDiff|null
+     * Generated from protobuf field <code>.adamant.global.v1.BlacklistAddressDiff diff = 7 [json_name = "diff"];</code>
+     * @return \Adamant\PBGlobal\V1\BlacklistAddressDiff|null
      */
     public function getDiff()
     {
@@ -214,13 +214,13 @@ class BlacklistAddressProposal extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.adamant.global.v1.BlaclistAddressDiff diff = 7 [json_name = "diff"];</code>
-     * @param \Adamant\PBGlobal\V1\BlaclistAddressDiff $var
+     * Generated from protobuf field <code>.adamant.global.v1.BlacklistAddressDiff diff = 7 [json_name = "diff"];</code>
+     * @param \Adamant\PBGlobal\V1\BlacklistAddressDiff $var
      * @return $this
      */
     public function setDiff($var)
     {
-        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\BlaclistAddressDiff::class);
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\BlacklistAddressDiff::class);
         $this->diff = $var;
 
         return $this;

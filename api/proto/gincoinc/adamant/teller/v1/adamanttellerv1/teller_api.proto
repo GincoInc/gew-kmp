@@ -119,6 +119,7 @@ service TellerAPI {
 
   // BlacklistAddress
   rpc ListBlacklistAddressesByFilter(adamant.global.v1.ListBlacklistAddressesByFilterRequest) returns (adamant.global.v1.ListBlacklistAddressesByFilterResponse) {}
+  rpc ListBlacklistAddressFiles(adamant.global.v1.ListBlacklistAddressFilesRequest) returns (adamant.global.v1.ListBlacklistAddressFilesResponse) {}
 }
 
 message CreateWalletRequest {

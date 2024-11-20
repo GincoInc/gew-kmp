@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-Þ°
+ëº
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"Ž	
 Wallet
 owner_id (	RownerId
@@ -335,7 +335,7 @@ n_sequence (R	nSequence"¢
 	policy_id (	RpolicyId
 
 asset_name (	R	assetName
-value (Rvalue"†
+value (Rvalue"†
 BitcoinSpecific7
 	tx_inputs (2.adamant.global.v1.TxInputRtxInputs:
 
@@ -383,11 +383,12 @@ tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"Ž
 StellarSpecific\'
 sequence_number (RsequenceNumber
 memo_id (B0RmemoId5
-is_next_sequence_number (RisNextSequenceNumber"†
+is_next_sequence_number (RisNextSequenceNumber"Å
 CardanoSpecific7
 	tx_inputs (2.adamant.global.v1.TxInputRtxInputs:
 
-tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"‰
+tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs=
+tokens (2%.adamant.global.v1.CardanoCustomTokenRtokens"‰
 SubstrateSpecific
 nonce (Rnonce"
 is_next_nonce (RisNextNoncew
@@ -411,11 +412,15 @@ expiration
 
 expiration (R
 expiration5
-type (2!.adamant.global.v1.IOSTActionTypeRtype"h
+type (2!.adamant.global.v1.IOSTActionTypeRtype"ß
 PolygonSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
-is_next_nonce (RisNextNonce"g
+is_next_nonce (RisNextNonce
+data (	Rdata!
+from_address (	RfromAddress#
+token_address (	RtokenAddress
+chain_id (RchainId"g
 KlaytnSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
@@ -427,16 +432,24 @@ expiration5
 
 expiration (R
 expiration
-	timestamp (R	timestamp"¤
+	timestamp (R	timestamp"ý
 AvalancheSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
 is_next_nonce (RisNextNonce8
-	atomic_tx (2.adamant.global.v1.AtomicTxRatomicTx"f
+	atomic_tx (2.adamant.global.v1.AtomicTxRatomicTx!
+from_address (	RfromAddress#
+token_address (	RtokenAddress
+chain_id (RchainId6
+max_priority_fee_per_gas (RmaxPriorityFeePerGas<
+tx_type	 (2#.gincoinc.global.v1.AvalancheTxTypeRtxType"É
 OasysSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
-is_next_nonce (RisNextNonce"d
+is_next_nonce (RisNextNonce!
+from_address (	RfromAddress#
+token_address (	RtokenAddress
+chain_id (RchainId"d
 XdcSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
@@ -490,11 +503,13 @@ event_type (2#.gincoinc.global.v1.SolanaEventTypeR	eventType!
 is_next_nonce (RisNextNonce
 
 expiration (R
-expiration"n
+expiration"¶
 BNBSmartChainSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
-is_next_nonce (RisNextNonce"f
+is_next_nonce (RisNextNonce!
+from_address (	RfromAddress#
+token_address (	RtokenAddress"f
 FlareSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
@@ -1080,10 +1095,11 @@ proposalId0
 approver_name (	RapproverName%
 proposed_value (RproposedValue
 is_reviewed (R
-isReviewed"ü
+isReviewed"´
 BlacklistAddress0
-blacklist_address_id (	RblacklistAddressIdA
-blacklist_address_proposal_id (	RblacklistAddressProposalId5
+blacklist_address_id (	RblacklistAddressId.
+applied_proposal_id (	RappliedProposalId.
+pending_proposal_id (	RpendingProposalId5
 network (2.gincoinc.global.v1.NetworkRnetwork
 address (	Raddress!
 is_activated (RisActivatedA
@@ -1096,22 +1112,40 @@ createTime;
 updateTime
 file_id
  (	H RfileIdˆ 
-	file_name (	HRfileNameˆG
-proposal (2+.adamant.global.v1.BlacklistAddressProposalRproposalB
+	file_name (	HRfileNameˆ[
+applied_proposal (2+.adamant.global.v1.BlacklistAddressProposalHRappliedProposalˆ[
+pending_proposal (2+.adamant.global.v1.BlacklistAddressProposalHRpendingProposalˆB
 
 _file_idB
 
-_file_name"ù
+_file_nameB
+_applied_proposalB
+_pending_proposal"ú
 BlacklistAddressProposalA
 blacklist_address_proposal_id (	RblacklistAddressProposalId0
 blacklist_address_id (	RblacklistAddressId0
 requester_account_id (	RrequesterAccountId%
 requester_name (	RrequesterName.
 approver_account_id (	RapproverAccountId#
-approver_name (	RapproverName:
-diff (2&.adamant.global.v1.BlaclistAddressDiffRdiff"8
-BlaclistAddressDiff!
-is_activated (RisActivatedBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
+approver_name (	RapproverName;
+diff (2\'.adamant.global.v1.BlacklistAddressDiffRdiff"9
+BlacklistAddressDiff!
+is_activated (RisActivated"“
+BlacklistAddressFile
+file_id (	RfileId
+	file_name (	RfileName5
+network (2.gincoinc.global.v1.NetworkRnetworkA
+status (2).adamant.global.v1.BlacklistAddressStatusRstatus#
+address_count (RaddressCount0
+requester_account_id (	RrequesterAccountId%
+requester_name (	RrequesterName.
+approver_account_id (	RapproverAccountId#
+approver_name	 (	RapproverName;
+create_time
+ (2.google.protobuf.TimestampR
+createTime;
+update_time (2.google.protobuf.TimestampR
+updateTimeBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
         , true);
 
         static::$is_initialized = true;

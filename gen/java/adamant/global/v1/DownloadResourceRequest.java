@@ -18,6 +18,8 @@ private static final long serialVersionUID = 0L;
   private DownloadResourceRequest() {
     downloadResourceType_ = 0;
     walletId_ = "";
+    status_ = 0;
+    network_ = 0;
   }
 
   @java.lang.Override
@@ -40,6 +42,7 @@ private static final long serialVersionUID = 0L;
             adamant.global.v1.DownloadResourceRequest.class, adamant.global.v1.DownloadResourceRequest.Builder.class);
   }
 
+  private int bitField0_;
   public static final int DOWNLOAD_RESOURCE_TYPE_FIELD_NUMBER = 1;
   private int downloadResourceType_ = 0;
   /**
@@ -106,6 +109,75 @@ private static final long serialVersionUID = 0L;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
+  }
+
+  public static final int IS_ACTIVATED_FIELD_NUMBER = 6;
+  private boolean isActivated_ = false;
+  /**
+   * <code>optional bool is_activated = 6 [json_name = "isActivated"];</code>
+   * @return Whether the isActivated field is set.
+   */
+  @java.lang.Override
+  public boolean hasIsActivated() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>optional bool is_activated = 6 [json_name = "isActivated"];</code>
+   * @return The isActivated.
+   */
+  @java.lang.Override
+  public boolean getIsActivated() {
+    return isActivated_;
+  }
+
+  public static final int STATUS_FIELD_NUMBER = 7;
+  private int status_ = 0;
+  /**
+   * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+   * @return Whether the status field is set.
+   */
+  @java.lang.Override public boolean hasStatus() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+   * @return The enum numeric value on the wire for status.
+   */
+  @java.lang.Override public int getStatusValue() {
+    return status_;
+  }
+  /**
+   * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+   * @return The status.
+   */
+  @java.lang.Override public adamant.global.v1.Enum.BlacklistAddressStatus getStatus() {
+    adamant.global.v1.Enum.BlacklistAddressStatus result = adamant.global.v1.Enum.BlacklistAddressStatus.forNumber(status_);
+    return result == null ? adamant.global.v1.Enum.BlacklistAddressStatus.UNRECOGNIZED : result;
+  }
+
+  public static final int NETWORK_FIELD_NUMBER = 8;
+  private int network_ = 0;
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return Whether the network field is set.
+   */
+  @java.lang.Override public boolean hasNetwork() {
+    return ((bitField0_ & 0x00000004) != 0);
+  }
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for network.
+   */
+  @java.lang.Override public int getNetworkValue() {
+    return network_;
+  }
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return The network.
+   */
+  @java.lang.Override public gincoinc.global.v1.Enum.Network getNetwork() {
+    gincoinc.global.v1.Enum.Network result = gincoinc.global.v1.Enum.Network.forNumber(network_);
+    return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
   }
 
   public static final int START_TIME_FIELD_NUMBER = 3;
@@ -189,6 +261,15 @@ private static final long serialVersionUID = 0L;
     if (watchOnly_ != false) {
       output.writeBool(5, watchOnly_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeBool(6, isActivated_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      output.writeEnum(7, status_);
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
+      output.writeEnum(8, network_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -217,6 +298,18 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, watchOnly_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(6, isActivated_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(7, status_);
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(8, network_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -237,6 +330,19 @@ private static final long serialVersionUID = 0L;
         != other.getWatchOnly()) return false;
     if (!getWalletId()
         .equals(other.getWalletId())) return false;
+    if (hasIsActivated() != other.hasIsActivated()) return false;
+    if (hasIsActivated()) {
+      if (getIsActivated()
+          != other.getIsActivated()) return false;
+    }
+    if (hasStatus() != other.hasStatus()) return false;
+    if (hasStatus()) {
+      if (status_ != other.status_) return false;
+    }
+    if (hasNetwork() != other.hasNetwork()) return false;
+    if (hasNetwork()) {
+      if (network_ != other.network_) return false;
+    }
     if (hasStartTime() != other.hasStartTime()) return false;
     if (hasStartTime()) {
       if (!getStartTime()
@@ -265,6 +371,19 @@ private static final long serialVersionUID = 0L;
         getWatchOnly());
     hash = (37 * hash) + WALLET_ID_FIELD_NUMBER;
     hash = (53 * hash) + getWalletId().hashCode();
+    if (hasIsActivated()) {
+      hash = (37 * hash) + IS_ACTIVATED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsActivated());
+    }
+    if (hasStatus()) {
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + status_;
+    }
+    if (hasNetwork()) {
+      hash = (37 * hash) + NETWORK_FIELD_NUMBER;
+      hash = (53 * hash) + network_;
+    }
     if (hasStartTime()) {
       hash = (37 * hash) + START_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getStartTime().hashCode();
@@ -407,6 +526,9 @@ private static final long serialVersionUID = 0L;
       downloadResourceType_ = 0;
       watchOnly_ = false;
       walletId_ = "";
+      isActivated_ = false;
+      status_ = 0;
+      network_ = 0;
       startTime_ = null;
       if (startTimeBuilder_ != null) {
         startTimeBuilder_.dispose();
@@ -459,16 +581,30 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.walletId_ = walletId_;
       }
+      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.isActivated_ = isActivated_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.status_ = status_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.network_ = network_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
         result.startTime_ = startTimeBuilder_ == null
             ? startTime_
             : startTimeBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000010) != 0)) {
+      if (((from_bitField0_ & 0x00000080) != 0)) {
         result.endTime_ = endTimeBuilder_ == null
             ? endTime_
             : endTimeBuilder_.build();
       }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -526,6 +662,15 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000004;
         onChanged();
       }
+      if (other.hasIsActivated()) {
+        setIsActivated(other.getIsActivated());
+      }
+      if (other.hasStatus()) {
+        setStatus(other.getStatus());
+      }
+      if (other.hasNetwork()) {
+        setNetwork(other.getNetwork());
+      }
       if (other.hasStartTime()) {
         mergeStartTime(other.getStartTime());
       }
@@ -572,14 +717,14 @@ private static final long serialVersionUID = 0L;
               input.readMessage(
                   getStartTimeFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000040;
               break;
             } // case 26
             case 34: {
               input.readMessage(
                   getEndTimeFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000010;
+              bitField0_ |= 0x00000080;
               break;
             } // case 34
             case 40: {
@@ -587,6 +732,21 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 40
+            case 48: {
+              isActivated_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 48
+            case 56: {
+              status_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 56
+            case 64: {
+              network_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 64
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -761,6 +921,166 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private boolean isActivated_ ;
+    /**
+     * <code>optional bool is_activated = 6 [json_name = "isActivated"];</code>
+     * @return Whether the isActivated field is set.
+     */
+    @java.lang.Override
+    public boolean hasIsActivated() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional bool is_activated = 6 [json_name = "isActivated"];</code>
+     * @return The isActivated.
+     */
+    @java.lang.Override
+    public boolean getIsActivated() {
+      return isActivated_;
+    }
+    /**
+     * <code>optional bool is_activated = 6 [json_name = "isActivated"];</code>
+     * @param value The isActivated to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsActivated(boolean value) {
+
+      isActivated_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional bool is_activated = 6 [json_name = "isActivated"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsActivated() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      isActivated_ = false;
+      onChanged();
+      return this;
+    }
+
+    private int status_ = 0;
+    /**
+     * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+     * @return Whether the status field is set.
+     */
+    @java.lang.Override public boolean hasStatus() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+     * @return The enum numeric value on the wire for status.
+     */
+    @java.lang.Override public int getStatusValue() {
+      return status_;
+    }
+    /**
+     * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+     * @param value The enum numeric value on the wire for status to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatusValue(int value) {
+      status_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+     * @return The status.
+     */
+    @java.lang.Override
+    public adamant.global.v1.Enum.BlacklistAddressStatus getStatus() {
+      adamant.global.v1.Enum.BlacklistAddressStatus result = adamant.global.v1.Enum.BlacklistAddressStatus.forNumber(status_);
+      return result == null ? adamant.global.v1.Enum.BlacklistAddressStatus.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+     * @param value The status to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatus(adamant.global.v1.Enum.BlacklistAddressStatus value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000010;
+      status_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStatus() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      status_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int network_ = 0;
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return Whether the network field is set.
+     */
+    @java.lang.Override public boolean hasNetwork() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for network.
+     */
+    @java.lang.Override public int getNetworkValue() {
+      return network_;
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for network to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNetworkValue(int value) {
+      network_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return The network.
+     */
+    @java.lang.Override
+    public gincoinc.global.v1.Enum.Network getNetwork() {
+      gincoinc.global.v1.Enum.Network result = gincoinc.global.v1.Enum.Network.forNumber(network_);
+      return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @param value The network to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNetwork(gincoinc.global.v1.Enum.Network value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000020;
+      network_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNetwork() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      network_ = 0;
+      onChanged();
+      return this;
+    }
+
     private com.google.protobuf.Timestamp startTime_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> startTimeBuilder_;
@@ -769,7 +1089,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the startTime field is set.
      */
     public boolean hasStartTime() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <code>.google.protobuf.Timestamp start_time = 3 [json_name = "startTime"];</code>
@@ -794,7 +1114,7 @@ private static final long serialVersionUID = 0L;
       } else {
         startTimeBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -808,7 +1128,7 @@ private static final long serialVersionUID = 0L;
       } else {
         startTimeBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -817,7 +1137,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
       if (startTimeBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0) &&
+        if (((bitField0_ & 0x00000040) != 0) &&
           startTime_ != null &&
           startTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
           getStartTimeBuilder().mergeFrom(value);
@@ -827,7 +1147,7 @@ private static final long serialVersionUID = 0L;
       } else {
         startTimeBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -835,7 +1155,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp start_time = 3 [json_name = "startTime"];</code>
      */
     public Builder clearStartTime() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000040);
       startTime_ = null;
       if (startTimeBuilder_ != null) {
         startTimeBuilder_.dispose();
@@ -848,7 +1168,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp start_time = 3 [json_name = "startTime"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000040;
       onChanged();
       return getStartTimeFieldBuilder().getBuilder();
     }
@@ -888,7 +1208,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the endTime field is set.
      */
     public boolean hasEndTime() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <code>.google.protobuf.Timestamp end_time = 4 [json_name = "endTime"];</code>
@@ -913,7 +1233,7 @@ private static final long serialVersionUID = 0L;
       } else {
         endTimeBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -927,7 +1247,7 @@ private static final long serialVersionUID = 0L;
       } else {
         endTimeBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -936,7 +1256,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
       if (endTimeBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0) &&
+        if (((bitField0_ & 0x00000080) != 0) &&
           endTime_ != null &&
           endTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
           getEndTimeBuilder().mergeFrom(value);
@@ -946,7 +1266,7 @@ private static final long serialVersionUID = 0L;
       } else {
         endTimeBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -954,7 +1274,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp end_time = 4 [json_name = "endTime"];</code>
      */
     public Builder clearEndTime() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000080);
       endTime_ = null;
       if (endTimeBuilder_ != null) {
         endTimeBuilder_.dispose();
@@ -967,7 +1287,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp end_time = 4 [json_name = "endTime"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000080;
       onChanged();
       return getEndTimeFieldBuilder().getBuilder();
     }

@@ -9,9 +9,9 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>adamant.global.v1.BlaclistAddressDiff</code>
+ * Generated from protobuf message <code>adamant.global.v1.BlacklistAddressDiff</code>
  */
-class BlaclistAddressDiff extends \Google\Protobuf\Internal\Message
+class BlacklistAddressDiff extends \Google\Protobuf\Internal\Message
 {
     /**
      * Generated from protobuf field <code>bool is_activated = 1 [json_name = "isActivated"];</code>

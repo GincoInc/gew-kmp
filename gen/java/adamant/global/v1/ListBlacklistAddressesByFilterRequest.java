@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     blacklistAddressId_ = "";
     address_ = "";
     fileId_ = "";
+    externalId_ = "";
     status_ = 0;
     network_ = 0;
     pageToken_ = "";
@@ -205,6 +206,53 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int EXTERNAL_ID_FIELD_NUMBER = 12;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object externalId_ = "";
+  /**
+   * <code>optional string external_id = 12 [json_name = "externalId"];</code>
+   * @return Whether the externalId field is set.
+   */
+  @java.lang.Override
+  public boolean hasExternalId() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <code>optional string external_id = 12 [json_name = "externalId"];</code>
+   * @return The externalId.
+   */
+  @java.lang.Override
+  public java.lang.String getExternalId() {
+    java.lang.Object ref = externalId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      externalId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string external_id = 12 [json_name = "externalId"];</code>
+   * @return The bytes for externalId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getExternalIdBytes() {
+    java.lang.Object ref = externalId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      externalId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int IS_ACTIVATED_FIELD_NUMBER = 5;
   private boolean isActivated_ = false;
   /**
@@ -213,7 +261,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasIsActivated() {
-    return ((bitField0_ & 0x00000008) != 0);
+    return ((bitField0_ & 0x00000010) != 0);
   }
   /**
    * <code>optional bool is_activated = 5 [json_name = "isActivated"];</code>
@@ -231,7 +279,7 @@ private static final long serialVersionUID = 0L;
    * @return Whether the status field is set.
    */
   @java.lang.Override public boolean hasStatus() {
-    return ((bitField0_ & 0x00000010) != 0);
+    return ((bitField0_ & 0x00000020) != 0);
   }
   /**
    * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 6 [json_name = "status"];</code>
@@ -256,7 +304,7 @@ private static final long serialVersionUID = 0L;
    * @return Whether the network field is set.
    */
   @java.lang.Override public boolean hasNetwork() {
-    return ((bitField0_ & 0x00000020) != 0);
+    return ((bitField0_ & 0x00000040) != 0);
   }
   /**
    * <code>optional .gincoinc.global.v1.Network network = 7 [json_name = "network", (.validate.rules) = { ... }</code>
@@ -282,7 +330,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasStartTime() {
-    return ((bitField0_ & 0x00000040) != 0);
+    return ((bitField0_ & 0x00000080) != 0);
   }
   /**
    * <code>optional .google.protobuf.Timestamp start_time = 8 [json_name = "startTime"];</code>
@@ -308,7 +356,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasEndTime() {
-    return ((bitField0_ & 0x00000080) != 0);
+    return ((bitField0_ & 0x00000100) != 0);
   }
   /**
    * <code>optional .google.protobuf.Timestamp end_time = 9 [json_name = "endTime"];</code>
@@ -334,7 +382,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasPageSize() {
-    return ((bitField0_ & 0x00000100) != 0);
+    return ((bitField0_ & 0x00000200) != 0);
   }
   /**
    * <code>optional uint32 page_size = 10 [json_name = "pageSize", (.validate.rules) = { ... }</code>
@@ -354,7 +402,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasPageToken() {
-    return ((bitField0_ & 0x00000200) != 0);
+    return ((bitField0_ & 0x00000400) != 0);
   }
   /**
    * <code>optional string page_token = 11 [json_name = "pageToken", (.validate.rules) = { ... }</code>
@@ -418,26 +466,29 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, fileId_);
     }
-    if (((bitField0_ & 0x00000008) != 0)) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       output.writeBool(5, isActivated_);
     }
-    if (((bitField0_ & 0x00000010) != 0)) {
+    if (((bitField0_ & 0x00000020) != 0)) {
       output.writeEnum(6, status_);
     }
-    if (((bitField0_ & 0x00000020) != 0)) {
+    if (((bitField0_ & 0x00000040) != 0)) {
       output.writeEnum(7, network_);
     }
-    if (((bitField0_ & 0x00000040) != 0)) {
+    if (((bitField0_ & 0x00000080) != 0)) {
       output.writeMessage(8, getStartTime());
     }
-    if (((bitField0_ & 0x00000080) != 0)) {
+    if (((bitField0_ & 0x00000100) != 0)) {
       output.writeMessage(9, getEndTime());
     }
-    if (((bitField0_ & 0x00000100) != 0)) {
+    if (((bitField0_ & 0x00000200) != 0)) {
       output.writeUInt32(10, pageSize_);
     }
-    if (((bitField0_ & 0x00000200) != 0)) {
+    if (((bitField0_ & 0x00000400) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 11, pageToken_);
+    }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, externalId_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -461,32 +512,35 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, fileId_);
     }
-    if (((bitField0_ & 0x00000008) != 0)) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, isActivated_);
     }
-    if (((bitField0_ & 0x00000010) != 0)) {
+    if (((bitField0_ & 0x00000020) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(6, status_);
     }
-    if (((bitField0_ & 0x00000020) != 0)) {
+    if (((bitField0_ & 0x00000040) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(7, network_);
     }
-    if (((bitField0_ & 0x00000040) != 0)) {
+    if (((bitField0_ & 0x00000080) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getStartTime());
     }
-    if (((bitField0_ & 0x00000080) != 0)) {
+    if (((bitField0_ & 0x00000100) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, getEndTime());
     }
-    if (((bitField0_ & 0x00000100) != 0)) {
+    if (((bitField0_ & 0x00000200) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(10, pageSize_);
     }
-    if (((bitField0_ & 0x00000200) != 0)) {
+    if (((bitField0_ & 0x00000400) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, pageToken_);
+    }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, externalId_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -518,6 +572,11 @@ private static final long serialVersionUID = 0L;
     if (hasFileId()) {
       if (!getFileId()
           .equals(other.getFileId())) return false;
+    }
+    if (hasExternalId() != other.hasExternalId()) return false;
+    if (hasExternalId()) {
+      if (!getExternalId()
+          .equals(other.getExternalId())) return false;
     }
     if (hasIsActivated() != other.hasIsActivated()) return false;
     if (hasIsActivated()) {
@@ -576,6 +635,10 @@ private static final long serialVersionUID = 0L;
     if (hasFileId()) {
       hash = (37 * hash) + FILE_ID_FIELD_NUMBER;
       hash = (53 * hash) + getFileId().hashCode();
+    }
+    if (hasExternalId()) {
+      hash = (37 * hash) + EXTERNAL_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getExternalId().hashCode();
     }
     if (hasIsActivated()) {
       hash = (37 * hash) + IS_ACTIVATED_FIELD_NUMBER;
@@ -748,6 +811,7 @@ private static final long serialVersionUID = 0L;
       blacklistAddressId_ = "";
       address_ = "";
       fileId_ = "";
+      externalId_ = "";
       isActivated_ = false;
       status_ = 0;
       network_ = 0;
@@ -813,36 +877,40 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000004;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.isActivated_ = isActivated_;
+        result.externalId_ = externalId_;
         to_bitField0_ |= 0x00000008;
       }
       if (((from_bitField0_ & 0x00000020) != 0)) {
-        result.status_ = status_;
+        result.isActivated_ = isActivated_;
         to_bitField0_ |= 0x00000010;
       }
       if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.network_ = network_;
+        result.status_ = status_;
         to_bitField0_ |= 0x00000020;
       }
       if (((from_bitField0_ & 0x00000080) != 0)) {
-        result.startTime_ = startTimeBuilder_ == null
-            ? startTime_
-            : startTimeBuilder_.build();
+        result.network_ = network_;
         to_bitField0_ |= 0x00000040;
       }
       if (((from_bitField0_ & 0x00000100) != 0)) {
-        result.endTime_ = endTimeBuilder_ == null
-            ? endTime_
-            : endTimeBuilder_.build();
+        result.startTime_ = startTimeBuilder_ == null
+            ? startTime_
+            : startTimeBuilder_.build();
         to_bitField0_ |= 0x00000080;
       }
       if (((from_bitField0_ & 0x00000200) != 0)) {
-        result.pageSize_ = pageSize_;
+        result.endTime_ = endTimeBuilder_ == null
+            ? endTime_
+            : endTimeBuilder_.build();
         to_bitField0_ |= 0x00000100;
       }
       if (((from_bitField0_ & 0x00000400) != 0)) {
-        result.pageToken_ = pageToken_;
+        result.pageSize_ = pageSize_;
         to_bitField0_ |= 0x00000200;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.pageToken_ = pageToken_;
+        to_bitField0_ |= 0x00000400;
       }
       result.bitField0_ |= to_bitField0_;
     }
@@ -909,6 +977,11 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000008;
         onChanged();
       }
+      if (other.hasExternalId()) {
+        externalId_ = other.externalId_;
+        bitField0_ |= 0x00000010;
+        onChanged();
+      }
       if (other.hasIsActivated()) {
         setIsActivated(other.getIsActivated());
       }
@@ -929,7 +1002,7 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasPageToken()) {
         pageToken_ = other.pageToken_;
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -980,43 +1053,48 @@ private static final long serialVersionUID = 0L;
             } // case 34
             case 40: {
               isActivated_ = input.readBool();
-              bitField0_ |= 0x00000010;
+              bitField0_ |= 0x00000020;
               break;
             } // case 40
             case 48: {
               status_ = input.readEnum();
-              bitField0_ |= 0x00000020;
+              bitField0_ |= 0x00000040;
               break;
             } // case 48
             case 56: {
               network_ = input.readEnum();
-              bitField0_ |= 0x00000040;
+              bitField0_ |= 0x00000080;
               break;
             } // case 56
             case 66: {
               input.readMessage(
                   getStartTimeFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000080;
+              bitField0_ |= 0x00000100;
               break;
             } // case 66
             case 74: {
               input.readMessage(
                   getEndTimeFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00000100;
+              bitField0_ |= 0x00000200;
               break;
             } // case 74
             case 80: {
               pageSize_ = input.readUInt32();
-              bitField0_ |= 0x00000200;
+              bitField0_ |= 0x00000400;
               break;
             } // case 80
             case 90: {
               pageToken_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000400;
+              bitField0_ |= 0x00000800;
               break;
             } // case 90
+            case 98: {
+              externalId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 98
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1324,6 +1402,85 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object externalId_ = "";
+    /**
+     * <code>optional string external_id = 12 [json_name = "externalId"];</code>
+     * @return Whether the externalId field is set.
+     */
+    public boolean hasExternalId() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional string external_id = 12 [json_name = "externalId"];</code>
+     * @return The externalId.
+     */
+    public java.lang.String getExternalId() {
+      java.lang.Object ref = externalId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        externalId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>optional string external_id = 12 [json_name = "externalId"];</code>
+     * @return The bytes for externalId.
+     */
+    public com.google.protobuf.ByteString
+        getExternalIdBytes() {
+      java.lang.Object ref = externalId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        externalId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string external_id = 12 [json_name = "externalId"];</code>
+     * @param value The externalId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setExternalId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      externalId_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string external_id = 12 [json_name = "externalId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearExternalId() {
+      externalId_ = getDefaultInstance().getExternalId();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string external_id = 12 [json_name = "externalId"];</code>
+     * @param value The bytes for externalId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setExternalIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      externalId_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+
     private boolean isActivated_ ;
     /**
      * <code>optional bool is_activated = 5 [json_name = "isActivated"];</code>
@@ -1331,7 +1488,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasIsActivated() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <code>optional bool is_activated = 5 [json_name = "isActivated"];</code>
@@ -1349,7 +1506,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIsActivated(boolean value) {
 
       isActivated_ = value;
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1358,7 +1515,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIsActivated() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000020);
       isActivated_ = false;
       onChanged();
       return this;
@@ -1370,7 +1527,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the status field is set.
      */
     @java.lang.Override public boolean hasStatus() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 6 [json_name = "status"];</code>
@@ -1386,7 +1543,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatusValue(int value) {
       status_ = value;
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1408,7 +1565,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000040;
       status_ = value.getNumber();
       onChanged();
       return this;
@@ -1418,7 +1575,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000040);
       status_ = 0;
       onChanged();
       return this;
@@ -1430,7 +1587,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the network field is set.
      */
     @java.lang.Override public boolean hasNetwork() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <code>optional .gincoinc.global.v1.Network network = 7 [json_name = "network", (.validate.rules) = { ... }</code>
@@ -1446,7 +1603,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetworkValue(int value) {
       network_ = value;
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1468,7 +1625,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000080;
       network_ = value.getNumber();
       onChanged();
       return this;
@@ -1478,7 +1635,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNetwork() {
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000080);
       network_ = 0;
       onChanged();
       return this;
@@ -1492,7 +1649,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the startTime field is set.
      */
     public boolean hasStartTime() {
-      return ((bitField0_ & 0x00000080) != 0);
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <code>optional .google.protobuf.Timestamp start_time = 8 [json_name = "startTime"];</code>
@@ -1517,7 +1674,7 @@ private static final long serialVersionUID = 0L;
       } else {
         startTimeBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -1531,7 +1688,7 @@ private static final long serialVersionUID = 0L;
       } else {
         startTimeBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -1540,7 +1697,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
       if (startTimeBuilder_ == null) {
-        if (((bitField0_ & 0x00000080) != 0) &&
+        if (((bitField0_ & 0x00000100) != 0) &&
           startTime_ != null &&
           startTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
           getStartTimeBuilder().mergeFrom(value);
@@ -1550,7 +1707,7 @@ private static final long serialVersionUID = 0L;
       } else {
         startTimeBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -1558,7 +1715,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.protobuf.Timestamp start_time = 8 [json_name = "startTime"];</code>
      */
     public Builder clearStartTime() {
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x00000100);
       startTime_ = null;
       if (startTimeBuilder_ != null) {
         startTimeBuilder_.dispose();
@@ -1571,7 +1728,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.protobuf.Timestamp start_time = 8 [json_name = "startTime"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       onChanged();
       return getStartTimeFieldBuilder().getBuilder();
     }
@@ -1611,7 +1768,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the endTime field is set.
      */
     public boolean hasEndTime() {
-      return ((bitField0_ & 0x00000100) != 0);
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <code>optional .google.protobuf.Timestamp end_time = 9 [json_name = "endTime"];</code>
@@ -1636,7 +1793,7 @@ private static final long serialVersionUID = 0L;
       } else {
         endTimeBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -1650,7 +1807,7 @@ private static final long serialVersionUID = 0L;
       } else {
         endTimeBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -1659,7 +1816,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
       if (endTimeBuilder_ == null) {
-        if (((bitField0_ & 0x00000100) != 0) &&
+        if (((bitField0_ & 0x00000200) != 0) &&
           endTime_ != null &&
           endTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
           getEndTimeBuilder().mergeFrom(value);
@@ -1669,7 +1826,7 @@ private static final long serialVersionUID = 0L;
       } else {
         endTimeBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -1677,7 +1834,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.protobuf.Timestamp end_time = 9 [json_name = "endTime"];</code>
      */
     public Builder clearEndTime() {
-      bitField0_ = (bitField0_ & ~0x00000100);
+      bitField0_ = (bitField0_ & ~0x00000200);
       endTime_ = null;
       if (endTimeBuilder_ != null) {
         endTimeBuilder_.dispose();
@@ -1690,7 +1847,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.protobuf.Timestamp end_time = 9 [json_name = "endTime"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       onChanged();
       return getEndTimeFieldBuilder().getBuilder();
     }
@@ -1729,7 +1886,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasPageSize() {
-      return ((bitField0_ & 0x00000200) != 0);
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <code>optional uint32 page_size = 10 [json_name = "pageSize", (.validate.rules) = { ... }</code>
@@ -1747,7 +1904,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
 
       pageSize_ = value;
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -1756,7 +1913,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      bitField0_ = (bitField0_ & ~0x00000200);
+      bitField0_ = (bitField0_ & ~0x00000400);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -1768,7 +1925,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the pageToken field is set.
      */
     public boolean hasPageToken() {
-      return ((bitField0_ & 0x00000400) != 0);
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <code>optional string page_token = 11 [json_name = "pageToken", (.validate.rules) = { ... }</code>
@@ -1812,7 +1969,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -1822,7 +1979,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPageToken() {
       pageToken_ = getDefaultInstance().getPageToken();
-      bitField0_ = (bitField0_ & ~0x00000400);
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -1836,7 +1993,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       pageToken_ = value;
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }

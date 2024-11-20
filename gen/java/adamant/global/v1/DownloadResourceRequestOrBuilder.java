@@ -37,6 +37,49 @@ public interface DownloadResourceRequestOrBuilder extends
       getWalletIdBytes();
 
   /**
+   * <code>optional bool is_activated = 6 [json_name = "isActivated"];</code>
+   * @return Whether the isActivated field is set.
+   */
+  boolean hasIsActivated();
+  /**
+   * <code>optional bool is_activated = 6 [json_name = "isActivated"];</code>
+   * @return The isActivated.
+   */
+  boolean getIsActivated();
+
+  /**
+   * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+   * @return Whether the status field is set.
+   */
+  boolean hasStatus();
+  /**
+   * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+   * @return The enum numeric value on the wire for status.
+   */
+  int getStatusValue();
+  /**
+   * <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+   * @return The status.
+   */
+  adamant.global.v1.Enum.BlacklistAddressStatus getStatus();
+
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return Whether the network field is set.
+   */
+  boolean hasNetwork();
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for network.
+   */
+  int getNetworkValue();
+  /**
+   * <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = { ... }</code>
+   * @return The network.
+   */
+  gincoinc.global.v1.Enum.Network getNetwork();
+
+  /**
    * <code>.google.protobuf.Timestamp start_time = 3 [json_name = "startTime"];</code>
    * @return Whether the startTime field is set.
    */

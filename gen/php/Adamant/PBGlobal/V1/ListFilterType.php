@@ -121,6 +121,10 @@ class ListFilterType
      * Generated from protobuf enum <code>LIST_FILTER_TYPE_EXTERNAL_ID = 25;</code>
      */
     const LIST_FILTER_TYPE_EXTERNAL_ID = 25;
+    /**
+     * Generated from protobuf enum <code>LIST_FILTER_TYPE_FILE_ID = 26;</code>
+     */
+    const LIST_FILTER_TYPE_FILE_ID = 26;
 
     private static $valueToName = [
         self::LIST_FILTER_TYPE_INVALID => 'LIST_FILTER_TYPE_INVALID',
@@ -149,6 +153,7 @@ class ListFilterType
         self::LIST_FILTER_TYPE_BLACKLIST_ADDRESS_ID => 'LIST_FILTER_TYPE_BLACKLIST_ADDRESS_ID',
         self::LIST_FILTER_TYPE_PRE_TRANSACTION_ID => 'LIST_FILTER_TYPE_PRE_TRANSACTION_ID',
         self::LIST_FILTER_TYPE_EXTERNAL_ID => 'LIST_FILTER_TYPE_EXTERNAL_ID',
+        self::LIST_FILTER_TYPE_FILE_ID => 'LIST_FILTER_TYPE_FILE_ID',
     ];
 
     public static function name($value)

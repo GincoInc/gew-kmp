@@ -8,12 +8,12 @@ public interface CancelPreTransactionRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string pre_transaction_id = 1 [json_name = "preTransactionId"];</code>
+   * <code>string pre_transaction_id = 1 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
    * @return The preTransactionId.
    */
   java.lang.String getPreTransactionId();
   /**
-   * <code>string pre_transaction_id = 1 [json_name = "preTransactionId"];</code>
+   * <code>string pre_transaction_id = 1 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
    * @return The bytes for preTransactionId.
    */
   com.google.protobuf.ByteString
