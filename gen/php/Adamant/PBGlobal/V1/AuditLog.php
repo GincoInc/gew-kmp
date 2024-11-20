@@ -96,6 +96,10 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      */
     protected $pre_transaction_id = '';
     /**
+     * Generated from protobuf field <code>string pre_transaction_external_id = 53 [json_name = "preTransactionExternalId"];</code>
+     */
+    protected $pre_transaction_external_id = '';
+    /**
      * Generated from protobuf field <code>string transaction_id = 15 [json_name = "transactionId"];</code>
      */
     protected $transaction_id = '';
@@ -215,6 +219,22 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int64 address_count = 49 [json_name = "addressCount"];</code>
      */
     protected $address_count = 0;
+    /**
+     * Generated from protobuf field <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+     */
+    protected $previous_transaction_id = '';
+    /**
+     * Generated from protobuf field <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+     */
+    protected $new_transaction_id = '';
+    /**
+     * Generated from protobuf field <code>bool activate = 54 [json_name = "activate"];</code>
+     */
+    protected $activate = false;
+    /**
+     * Generated from protobuf field <code>string file_id = 55 [json_name = "fileId"];</code>
+     */
+    protected $file_id = '';
 
     /**
      * Constructor.
@@ -242,6 +262,7 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      *     @type string $wallet_group_name
      *     @type array<string>|\Google\Protobuf\Internal\RepeatedField $wallet_names
      *     @type string $pre_transaction_id
+     *     @type string $pre_transaction_external_id
      *     @type string $transaction_id
      *     @type int $coin_type
      *     @type string $string_value
@@ -272,6 +293,10 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      *     @type string $blacklist_address_id
      *     @type string $file_name
      *     @type int|string $address_count
+     *     @type string $previous_transaction_id
+     *     @type string $new_transaction_id
+     *     @type bool $activate
+     *     @type string $file_id
      * }
      */
     public function __construct($data = NULL) {
@@ -715,6 +740,28 @@ class AuditLog extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->pre_transaction_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string pre_transaction_external_id = 53 [json_name = "preTransactionExternalId"];</code>
+     * @return string
+     */
+    public function getPreTransactionExternalId()
+    {
+        return $this->pre_transaction_external_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>string pre_transaction_external_id = 53 [json_name = "preTransactionExternalId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setPreTransactionExternalId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->pre_transaction_external_id = $var;
 
         return $this;
     }
@@ -1395,6 +1442,94 @@ class AuditLog extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt64($var);
         $this->address_count = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+     * @return string
+     */
+    public function getPreviousTransactionId()
+    {
+        return $this->previous_transaction_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>string previous_transaction_id = 51 [json_name = "previousTransactionId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setPreviousTransactionId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->previous_transaction_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+     * @return string
+     */
+    public function getNewTransactionId()
+    {
+        return $this->new_transaction_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>string new_transaction_id = 52 [json_name = "newTransactionId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setNewTransactionId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->new_transaction_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool activate = 54 [json_name = "activate"];</code>
+     * @return bool
+     */
+    public function getActivate()
+    {
+        return $this->activate;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool activate = 54 [json_name = "activate"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setActivate($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->activate = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string file_id = 55 [json_name = "fileId"];</code>
+     * @return string
+     */
+    public function getFileId()
+    {
+        return $this->file_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>string file_id = 55 [json_name = "fileId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setFileId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->file_id = $var;
 
         return $this;
     }

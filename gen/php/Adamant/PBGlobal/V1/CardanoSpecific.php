@@ -23,6 +23,10 @@ class CardanoSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .adamant.global.v1.TxOutput tx_outputs = 2 [json_name = "txOutputs"];</code>
      */
     private $tx_outputs;
+    /**
+     * Generated from protobuf field <code>repeated .adamant.global.v1.CardanoCustomToken tokens = 3 [json_name = "tokens"];</code>
+     */
+    private $tokens;
 
     /**
      * Constructor.
@@ -32,6 +36,7 @@ class CardanoSpecific extends \Google\Protobuf\Internal\Message
      *
      *     @type array<\Adamant\PBGlobal\V1\TxInput>|\Google\Protobuf\Internal\RepeatedField $tx_inputs
      *     @type array<\Adamant\PBGlobal\V1\TxOutput>|\Google\Protobuf\Internal\RepeatedField $tx_outputs
+     *     @type array<\Adamant\PBGlobal\V1\CardanoCustomToken>|\Google\Protobuf\Internal\RepeatedField $tokens
      * }
      */
     public function __construct($data = NULL) {
@@ -79,6 +84,28 @@ class CardanoSpecific extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Adamant\PBGlobal\V1\TxOutput::class);
         $this->tx_outputs = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .adamant.global.v1.CardanoCustomToken tokens = 3 [json_name = "tokens"];</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
+     */
+    public function getTokens()
+    {
+        return $this->tokens;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .adamant.global.v1.CardanoCustomToken tokens = 3 [json_name = "tokens"];</code>
+     * @param array<\Adamant\PBGlobal\V1\CardanoCustomToken>|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
+     */
+    public function setTokens($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Adamant\PBGlobal\V1\CardanoCustomToken::class);
+        $this->tokens = $arr;
 
         return $this;
     }

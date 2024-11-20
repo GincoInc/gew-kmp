@@ -5915,6 +5915,40 @@ func (m *CardanoSpecific) validate(all bool) error {
 
 	}
 
+	for idx, item := range m.GetTokens() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, CardanoSpecificValidationError{
+						field:  fmt.Sprintf("Tokens[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, CardanoSpecificValidationError{
+						field:  fmt.Sprintf("Tokens[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return CardanoSpecificValidationError{
+					field:  fmt.Sprintf("Tokens[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
 	if len(errors) > 0 {
 		return CardanoSpecificMultiError(errors)
 	}
@@ -6579,6 +6613,14 @@ func (m *PolygonSpecific) validate(all bool) error {
 
 	// no validation rules for IsNextNonce
 
+	// no validation rules for Data
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
+	// no validation rules for ChainId
+
 	if len(errors) > 0 {
 		return PolygonSpecificMultiError(errors)
 	}
@@ -6962,6 +7004,16 @@ func (m *AvalancheSpecific) validate(all bool) error {
 		}
 	}
 
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
+	// no validation rules for ChainId
+
+	// no validation rules for MaxPriorityFeePerGas
+
+	// no validation rules for TxType
+
 	if len(errors) > 0 {
 		return AvalancheSpecificMultiError(errors)
 	}
@@ -7069,6 +7121,12 @@ func (m *OasysSpecific) validate(all bool) error {
 	// no validation rules for Nonce
 
 	// no validation rules for IsNextNonce
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
+	// no validation rules for ChainId
 
 	if len(errors) > 0 {
 		return OasysSpecificMultiError(errors)
@@ -8048,6 +8106,10 @@ func (m *BNBSmartChainSpecific) validate(all bool) error {
 	// no validation rules for Nonce
 
 	// no validation rules for IsNextNonce
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
 
 	if len(errors) > 0 {
 		return BNBSmartChainSpecificMultiError(errors)
@@ -18854,7 +18916,9 @@ func (m *BlacklistAddress) validate(all bool) error {
 
 	// no validation rules for BlacklistAddressId
 
-	// no validation rules for BlacklistAddressProposalId
+	// no validation rules for AppliedProposalId
+
+	// no validation rules for PendingProposalId
 
 	// no validation rules for Network
 
@@ -18924,41 +18988,78 @@ func (m *BlacklistAddress) validate(all bool) error {
 		}
 	}
 
-	if all {
-		switch v := interface{}(m.GetProposal()).(type) {
-		case interface{ ValidateAll() error }:
-			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, BlacklistAddressValidationError{
-					field:  "Proposal",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		case interface{ Validate() error }:
-			if err := v.Validate(); err != nil {
-				errors = append(errors, BlacklistAddressValidationError{
-					field:  "Proposal",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		}
-	} else if v, ok := interface{}(m.GetProposal()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return BlacklistAddressValidationError{
-				field:  "Proposal",
-				reason: "embedded message failed validation",
-				cause:  err,
-			}
-		}
-	}
-
 	if m.FileId != nil {
 		// no validation rules for FileId
 	}
 
 	if m.FileName != nil {
 		// no validation rules for FileName
+	}
+
+	if m.AppliedProposal != nil {
+
+		if all {
+			switch v := interface{}(m.GetAppliedProposal()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, BlacklistAddressValidationError{
+						field:  "AppliedProposal",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, BlacklistAddressValidationError{
+						field:  "AppliedProposal",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetAppliedProposal()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return BlacklistAddressValidationError{
+					field:  "AppliedProposal",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if m.PendingProposal != nil {
+
+		if all {
+			switch v := interface{}(m.GetPendingProposal()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, BlacklistAddressValidationError{
+						field:  "PendingProposal",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, BlacklistAddressValidationError{
+						field:  "PendingProposal",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetPendingProposal()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return BlacklistAddressValidationError{
+					field:  "PendingProposal",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
 	}
 
 	if len(errors) > 0 {
@@ -19182,22 +19283,22 @@ var _ interface {
 	ErrorName() string
 } = BlacklistAddressProposalValidationError{}
 
-// Validate checks the field values on BlaclistAddressDiff with the rules
+// Validate checks the field values on BlacklistAddressDiff with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
-func (m *BlaclistAddressDiff) Validate() error {
+func (m *BlacklistAddressDiff) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on BlaclistAddressDiff with the rules
+// ValidateAll checks the field values on BlacklistAddressDiff with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the result is a list of violation errors wrapped in
-// BlaclistAddressDiffMultiError, or nil if none found.
-func (m *BlaclistAddressDiff) ValidateAll() error {
+// BlacklistAddressDiffMultiError, or nil if none found.
+func (m *BlacklistAddressDiff) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *BlaclistAddressDiff) validate(all bool) error {
+func (m *BlacklistAddressDiff) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -19207,19 +19308,19 @@ func (m *BlaclistAddressDiff) validate(all bool) error {
 	// no validation rules for IsActivated
 
 	if len(errors) > 0 {
-		return BlaclistAddressDiffMultiError(errors)
+		return BlacklistAddressDiffMultiError(errors)
 	}
 
 	return nil
 }
 
-// BlaclistAddressDiffMultiError is an error wrapping multiple validation
-// errors returned by BlaclistAddressDiff.ValidateAll() if the designated
+// BlacklistAddressDiffMultiError is an error wrapping multiple validation
+// errors returned by BlacklistAddressDiff.ValidateAll() if the designated
 // constraints aren't met.
-type BlaclistAddressDiffMultiError []error
+type BlacklistAddressDiffMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m BlaclistAddressDiffMultiError) Error() string {
+func (m BlacklistAddressDiffMultiError) Error() string {
 	var msgs []string
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -19228,11 +19329,11 @@ func (m BlaclistAddressDiffMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m BlaclistAddressDiffMultiError) AllErrors() []error { return m }
+func (m BlacklistAddressDiffMultiError) AllErrors() []error { return m }
 
-// BlaclistAddressDiffValidationError is the validation error returned by
-// BlaclistAddressDiff.Validate if the designated constraints aren't met.
-type BlaclistAddressDiffValidationError struct {
+// BlacklistAddressDiffValidationError is the validation error returned by
+// BlacklistAddressDiff.Validate if the designated constraints aren't met.
+type BlacklistAddressDiffValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -19240,24 +19341,24 @@ type BlaclistAddressDiffValidationError struct {
 }
 
 // Field function returns field value.
-func (e BlaclistAddressDiffValidationError) Field() string { return e.field }
+func (e BlacklistAddressDiffValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e BlaclistAddressDiffValidationError) Reason() string { return e.reason }
+func (e BlacklistAddressDiffValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e BlaclistAddressDiffValidationError) Cause() error { return e.cause }
+func (e BlacklistAddressDiffValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e BlaclistAddressDiffValidationError) Key() bool { return e.key }
+func (e BlacklistAddressDiffValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e BlaclistAddressDiffValidationError) ErrorName() string {
-	return "BlaclistAddressDiffValidationError"
+func (e BlacklistAddressDiffValidationError) ErrorName() string {
+	return "BlacklistAddressDiffValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e BlaclistAddressDiffValidationError) Error() string {
+func (e BlacklistAddressDiffValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -19269,14 +19370,14 @@ func (e BlaclistAddressDiffValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sBlaclistAddressDiff.%s: %s%s",
+		"invalid %sBlacklistAddressDiff.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = BlaclistAddressDiffValidationError{}
+var _ error = BlacklistAddressDiffValidationError{}
 
 var _ interface {
 	Field() string
@@ -19284,4 +19385,182 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = BlaclistAddressDiffValidationError{}
+} = BlacklistAddressDiffValidationError{}
+
+// Validate checks the field values on BlacklistAddressFile with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *BlacklistAddressFile) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on BlacklistAddressFile with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// BlacklistAddressFileMultiError, or nil if none found.
+func (m *BlacklistAddressFile) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *BlacklistAddressFile) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for FileId
+
+	// no validation rules for FileName
+
+	// no validation rules for Network
+
+	// no validation rules for Status
+
+	// no validation rules for AddressCount
+
+	// no validation rules for RequesterAccountId
+
+	// no validation rules for RequesterName
+
+	// no validation rules for ApproverAccountId
+
+	// no validation rules for ApproverName
+
+	if all {
+		switch v := interface{}(m.GetCreateTime()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, BlacklistAddressFileValidationError{
+					field:  "CreateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, BlacklistAddressFileValidationError{
+					field:  "CreateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return BlacklistAddressFileValidationError{
+				field:  "CreateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetUpdateTime()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, BlacklistAddressFileValidationError{
+					field:  "UpdateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, BlacklistAddressFileValidationError{
+					field:  "UpdateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetUpdateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return BlacklistAddressFileValidationError{
+				field:  "UpdateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return BlacklistAddressFileMultiError(errors)
+	}
+
+	return nil
+}
+
+// BlacklistAddressFileMultiError is an error wrapping multiple validation
+// errors returned by BlacklistAddressFile.ValidateAll() if the designated
+// constraints aren't met.
+type BlacklistAddressFileMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m BlacklistAddressFileMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m BlacklistAddressFileMultiError) AllErrors() []error { return m }
+
+// BlacklistAddressFileValidationError is the validation error returned by
+// BlacklistAddressFile.Validate if the designated constraints aren't met.
+type BlacklistAddressFileValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e BlacklistAddressFileValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e BlacklistAddressFileValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e BlacklistAddressFileValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e BlacklistAddressFileValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e BlacklistAddressFileValidationError) ErrorName() string {
+	return "BlacklistAddressFileValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e BlacklistAddressFileValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sBlacklistAddressFile.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = BlacklistAddressFileValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = BlacklistAddressFileValidationError{}

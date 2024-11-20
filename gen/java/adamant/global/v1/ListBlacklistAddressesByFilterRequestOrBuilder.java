@@ -70,6 +70,23 @@ public interface ListBlacklistAddressesByFilterRequestOrBuilder extends
       getFileIdBytes();
 
   /**
+   * <code>optional string external_id = 12 [json_name = "externalId"];</code>
+   * @return Whether the externalId field is set.
+   */
+  boolean hasExternalId();
+  /**
+   * <code>optional string external_id = 12 [json_name = "externalId"];</code>
+   * @return The externalId.
+   */
+  java.lang.String getExternalId();
+  /**
+   * <code>optional string external_id = 12 [json_name = "externalId"];</code>
+   * @return The bytes for externalId.
+   */
+  com.google.protobuf.ByteString
+      getExternalIdBytes();
+
+  /**
    * <code>optional bool is_activated = 5 [json_name = "isActivated"];</code>
    * @return Whether the isActivated field is set.
    */

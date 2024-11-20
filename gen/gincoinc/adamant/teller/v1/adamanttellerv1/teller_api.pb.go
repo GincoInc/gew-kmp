@@ -2304,7 +2304,7 @@ var file_gincoinc_adamant_teller_v1_adamanttellerv1_teller_api_proto_rawDesc = [
 	0x2e, 0x67, 0x6c, 0x6f, 0x62, 0x61, 0x6c, 0x2e, 0x76, 0x31, 0x2e, 0x46, 0x65, 0x65, 0x44, 0x65,
 	0x70, 0x6f, 0x73, 0x69, 0x74, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x52, 0x13, 0x66, 0x65,
 	0x65, 0x44, 0x65, 0x70, 0x6f, 0x73, 0x69, 0x74, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x65,
-	0x73, 0x32, 0xfb, 0x41, 0x0a, 0x09, 0x54, 0x65, 0x6c, 0x6c, 0x65, 0x72, 0x41, 0x50, 0x49, 0x12,
+	0x73, 0x32, 0x86, 0x43, 0x0a, 0x09, 0x54, 0x65, 0x6c, 0x6c, 0x65, 0x72, 0x41, 0x50, 0x49, 0x12,
 	0x61, 0x0a, 0x0c, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x57, 0x61, 0x6c, 0x6c, 0x65, 0x74, 0x12,
 	0x26, 0x2e, 0x61, 0x64, 0x61, 0x6d, 0x61, 0x6e, 0x74, 0x2e, 0x74, 0x65, 0x6c, 0x6c, 0x65, 0x72,
 	0x2e, 0x76, 0x31, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x57, 0x61, 0x6c, 0x6c, 0x65, 0x74,
@@ -2831,14 +2831,23 @@ var file_gincoinc_adamant_teller_v1_adamanttellerv1_teller_api_proto_rawDesc = [
 	0x73, 0x74, 0x1a, 0x39, 0x2e, 0x61, 0x64, 0x61, 0x6d, 0x61, 0x6e, 0x74, 0x2e, 0x67, 0x6c, 0x6f,
 	0x62, 0x61, 0x6c, 0x2e, 0x76, 0x31, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x42, 0x6c, 0x61, 0x63, 0x6b,
 	0x6c, 0x69, 0x73, 0x74, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x65, 0x73, 0x42, 0x79, 0x46,
-	0x69, 0x6c, 0x74, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42,
-	0x5e, 0x42, 0x0e, 0x54, 0x65, 0x6c, 0x6c, 0x65, 0x72, 0x41, 0x50, 0x49, 0x50, 0x72, 0x6f, 0x74,
-	0x6f, 0x50, 0x01, 0x5a, 0x4a, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
-	0x47, 0x69, 0x6e, 0x63, 0x6f, 0x49, 0x6e, 0x63, 0x2f, 0x67, 0x65, 0x77, 0x2d, 0x6b, 0x6d, 0x70,
-	0x2f, 0x67, 0x65, 0x6e, 0x2f, 0x67, 0x69, 0x6e, 0x63, 0x6f, 0x69, 0x6e, 0x63, 0x2f, 0x61, 0x64,
-	0x61, 0x6d, 0x61, 0x6e, 0x74, 0x2f, 0x74, 0x65, 0x6c, 0x6c, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x2f,
-	0x61, 0x64, 0x61, 0x6d, 0x61, 0x6e, 0x74, 0x74, 0x65, 0x6c, 0x6c, 0x65, 0x72, 0x76, 0x31, 0x62,
-	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x69, 0x6c, 0x74, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12,
+	0x88, 0x01, 0x0a, 0x19, 0x4c, 0x69, 0x73, 0x74, 0x42, 0x6c, 0x61, 0x63, 0x6b, 0x6c, 0x69, 0x73,
+	0x74, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x46, 0x69, 0x6c, 0x65, 0x73, 0x12, 0x33, 0x2e,
+	0x61, 0x64, 0x61, 0x6d, 0x61, 0x6e, 0x74, 0x2e, 0x67, 0x6c, 0x6f, 0x62, 0x61, 0x6c, 0x2e, 0x76,
+	0x31, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x42, 0x6c, 0x61, 0x63, 0x6b, 0x6c, 0x69, 0x73, 0x74, 0x41,
+	0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x46, 0x69, 0x6c, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x34, 0x2e, 0x61, 0x64, 0x61, 0x6d, 0x61, 0x6e, 0x74, 0x2e, 0x67, 0x6c, 0x6f,
+	0x62, 0x61, 0x6c, 0x2e, 0x76, 0x31, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x42, 0x6c, 0x61, 0x63, 0x6b,
+	0x6c, 0x69, 0x73, 0x74, 0x41, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x46, 0x69, 0x6c, 0x65, 0x73,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x5e, 0x42, 0x0e, 0x54, 0x65,
+	0x6c, 0x6c, 0x65, 0x72, 0x41, 0x50, 0x49, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x4a,
+	0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x47, 0x69, 0x6e, 0x63, 0x6f,
+	0x49, 0x6e, 0x63, 0x2f, 0x67, 0x65, 0x77, 0x2d, 0x6b, 0x6d, 0x70, 0x2f, 0x67, 0x65, 0x6e, 0x2f,
+	0x67, 0x69, 0x6e, 0x63, 0x6f, 0x69, 0x6e, 0x63, 0x2f, 0x61, 0x64, 0x61, 0x6d, 0x61, 0x6e, 0x74,
+	0x2f, 0x74, 0x65, 0x6c, 0x6c, 0x65, 0x72, 0x2f, 0x76, 0x31, 0x2f, 0x61, 0x64, 0x61, 0x6d, 0x61,
+	0x6e, 0x74, 0x74, 0x65, 0x6c, 0x6c, 0x65, 0x72, 0x76, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x33,
 }
 
 var (
@@ -2936,46 +2945,48 @@ var file_gincoinc_adamant_teller_v1_adamanttellerv1_teller_api_proto_goTypes = [
 	(*adamantglobalv1.ListStakingValidatorsByFilterRequest)(nil),         // 78: adamant.global.v1.ListStakingValidatorsByFilterRequest
 	(*adamantglobalv1.ListPreTransactionThresholdsByFilterRequest)(nil),  // 79: adamant.global.v1.ListPreTransactionThresholdsByFilterRequest
 	(*adamantglobalv1.ListBlacklistAddressesByFilterRequest)(nil),        // 80: adamant.global.v1.ListBlacklistAddressesByFilterRequest
-	(*adamantglobalv1.CreateWalletResponse)(nil),                         // 81: adamant.global.v1.CreateWalletResponse
-	(*adamantglobalv1.Wallet)(nil),                                       // 82: adamant.global.v1.Wallet
-	(*adamantglobalv1.ListWalletsResponse)(nil),                          // 83: adamant.global.v1.ListWalletsResponse
-	(*adamantglobalv1.ListStakingWalletsResponse)(nil),                   // 84: adamant.global.v1.ListStakingWalletsResponse
-	(*adamantglobalv1.ListBaseWalletsResponse)(nil),                      // 85: adamant.global.v1.ListBaseWalletsResponse
-	(*adamantglobalv1.GetSpendableBalanceResponse)(nil),                  // 86: adamant.global.v1.GetSpendableBalanceResponse
-	(*emptypb.Empty)(nil),                                                // 87: google.protobuf.Empty
-	(*adamantglobalv1.GetCosmosBalanceResponse)(nil),                     // 88: adamant.global.v1.GetCosmosBalanceResponse
-	(*adamantglobalv1.ListCosmosDelegateHistoriesResponse)(nil),          // 89: adamant.global.v1.ListCosmosDelegateHistoriesResponse
-	(*adamantglobalv1.ListUTXOsResponse)(nil),                            // 90: adamant.global.v1.ListUTXOsResponse
-	(*adamantglobalv1.CreateAddressResponse)(nil),                        // 91: adamant.global.v1.CreateAddressResponse
-	(*adamantglobalv1.CreateIOSTAccountResponse)(nil),                    // 92: adamant.global.v1.CreateIOSTAccountResponse
-	(*adamantglobalv1.ListSymbolChildAddressesResponse)(nil),             // 93: adamant.global.v1.ListSymbolChildAddressesResponse
-	(*adamantglobalv1.Address)(nil),                                      // 94: adamant.global.v1.Address
-	(*adamantglobalv1.ListAddressesResponse)(nil),                        // 95: adamant.global.v1.ListAddressesResponse
-	(*adamantglobalv1.EthereumFeeAddress)(nil),                           // 96: adamant.global.v1.EthereumFeeAddress
-	(*adamantglobalv1.CreatePreTransactionResponse)(nil),                 // 97: adamant.global.v1.CreatePreTransactionResponse
-	(*adamantglobalv1.ListPreTransactionsByFilterResponse)(nil),          // 98: adamant.global.v1.ListPreTransactionsByFilterResponse
-	(*adamantglobalv1.CreateTransactionResponse)(nil),                    // 99: adamant.global.v1.CreateTransactionResponse
-	(*adamantglobalv1.CreateContractCreationTransactionResponse)(nil),    // 100: adamant.global.v1.CreateContractCreationTransactionResponse
-	(*adamantglobalv1.SendTransactionResponse)(nil),                      // 101: adamant.global.v1.SendTransactionResponse
-	(*adamantglobalv1.ResendTransactionResponse)(nil),                    // 102: adamant.global.v1.ResendTransactionResponse
-	(*adamantglobalv1.ReplaceTransactionResponse)(nil),                   // 103: adamant.global.v1.ReplaceTransactionResponse
-	(*adamantglobalv1.IsTransactionReplaceableResponse)(nil),             // 104: adamant.global.v1.IsTransactionReplaceableResponse
-	(*adamantglobalv1.Transaction)(nil),                                  // 105: adamant.global.v1.Transaction
-	(*adamantglobalv1.ListTransactionsResponse)(nil),                     // 106: adamant.global.v1.ListTransactionsResponse
-	(*adamantglobalv1.ListUnconfirmedTransactionsResponse)(nil),          // 107: adamant.global.v1.ListUnconfirmedTransactionsResponse
-	(*adamantglobalv1.ExitEthereumStakingValidatorsResponse)(nil),        // 108: adamant.global.v1.ExitEthereumStakingValidatorsResponse
-	(*adamantglobalv1.ListTransfersResponse)(nil),                        // 109: adamant.global.v1.ListTransfersResponse
-	(*adamantglobalv1.RateSnapshot)(nil),                                 // 110: adamant.global.v1.RateSnapshot
-	(*adamantglobalv1.SetRatesResponse)(nil),                             // 111: adamant.global.v1.SetRatesResponse
-	(*adamantglobalv1.CalculateFeeResponse)(nil),                         // 112: adamant.global.v1.CalculateFeeResponse
-	(*adamantglobalv1.GetRecommendedFeeRateResponse)(nil),                // 113: adamant.global.v1.GetRecommendedFeeRateResponse
-	(*adamantglobalv1.ValidateAddressResponse)(nil),                      // 114: adamant.global.v1.ValidateAddressResponse
-	(*adamantglobalv1.FlushBalanceResponse)(nil),                         // 115: adamant.global.v1.FlushBalanceResponse
-	(*adamantglobalv1.ListAuditLogsResponse)(nil),                        // 116: adamant.global.v1.ListAuditLogsResponse
-	(*adamantglobalv1.ListStakingHistoriesResponse)(nil),                 // 117: adamant.global.v1.ListStakingHistoriesResponse
-	(*adamantglobalv1.ListStakingValidatorsResponse)(nil),                // 118: adamant.global.v1.ListStakingValidatorsResponse
-	(*adamantglobalv1.ListPreTransactionThresholdsByFilterResponse)(nil), // 119: adamant.global.v1.ListPreTransactionThresholdsByFilterResponse
-	(*adamantglobalv1.ListBlacklistAddressesByFilterResponse)(nil),       // 120: adamant.global.v1.ListBlacklistAddressesByFilterResponse
+	(*adamantglobalv1.ListBlacklistAddressFilesRequest)(nil),             // 81: adamant.global.v1.ListBlacklistAddressFilesRequest
+	(*adamantglobalv1.CreateWalletResponse)(nil),                         // 82: adamant.global.v1.CreateWalletResponse
+	(*adamantglobalv1.Wallet)(nil),                                       // 83: adamant.global.v1.Wallet
+	(*adamantglobalv1.ListWalletsResponse)(nil),                          // 84: adamant.global.v1.ListWalletsResponse
+	(*adamantglobalv1.ListStakingWalletsResponse)(nil),                   // 85: adamant.global.v1.ListStakingWalletsResponse
+	(*adamantglobalv1.ListBaseWalletsResponse)(nil),                      // 86: adamant.global.v1.ListBaseWalletsResponse
+	(*adamantglobalv1.GetSpendableBalanceResponse)(nil),                  // 87: adamant.global.v1.GetSpendableBalanceResponse
+	(*emptypb.Empty)(nil),                                                // 88: google.protobuf.Empty
+	(*adamantglobalv1.GetCosmosBalanceResponse)(nil),                     // 89: adamant.global.v1.GetCosmosBalanceResponse
+	(*adamantglobalv1.ListCosmosDelegateHistoriesResponse)(nil),          // 90: adamant.global.v1.ListCosmosDelegateHistoriesResponse
+	(*adamantglobalv1.ListUTXOsResponse)(nil),                            // 91: adamant.global.v1.ListUTXOsResponse
+	(*adamantglobalv1.CreateAddressResponse)(nil),                        // 92: adamant.global.v1.CreateAddressResponse
+	(*adamantglobalv1.CreateIOSTAccountResponse)(nil),                    // 93: adamant.global.v1.CreateIOSTAccountResponse
+	(*adamantglobalv1.ListSymbolChildAddressesResponse)(nil),             // 94: adamant.global.v1.ListSymbolChildAddressesResponse
+	(*adamantglobalv1.Address)(nil),                                      // 95: adamant.global.v1.Address
+	(*adamantglobalv1.ListAddressesResponse)(nil),                        // 96: adamant.global.v1.ListAddressesResponse
+	(*adamantglobalv1.EthereumFeeAddress)(nil),                           // 97: adamant.global.v1.EthereumFeeAddress
+	(*adamantglobalv1.CreatePreTransactionResponse)(nil),                 // 98: adamant.global.v1.CreatePreTransactionResponse
+	(*adamantglobalv1.ListPreTransactionsByFilterResponse)(nil),          // 99: adamant.global.v1.ListPreTransactionsByFilterResponse
+	(*adamantglobalv1.CreateTransactionResponse)(nil),                    // 100: adamant.global.v1.CreateTransactionResponse
+	(*adamantglobalv1.CreateContractCreationTransactionResponse)(nil),    // 101: adamant.global.v1.CreateContractCreationTransactionResponse
+	(*adamantglobalv1.SendTransactionResponse)(nil),                      // 102: adamant.global.v1.SendTransactionResponse
+	(*adamantglobalv1.ResendTransactionResponse)(nil),                    // 103: adamant.global.v1.ResendTransactionResponse
+	(*adamantglobalv1.ReplaceTransactionResponse)(nil),                   // 104: adamant.global.v1.ReplaceTransactionResponse
+	(*adamantglobalv1.IsTransactionReplaceableResponse)(nil),             // 105: adamant.global.v1.IsTransactionReplaceableResponse
+	(*adamantglobalv1.Transaction)(nil),                                  // 106: adamant.global.v1.Transaction
+	(*adamantglobalv1.ListTransactionsResponse)(nil),                     // 107: adamant.global.v1.ListTransactionsResponse
+	(*adamantglobalv1.ListUnconfirmedTransactionsResponse)(nil),          // 108: adamant.global.v1.ListUnconfirmedTransactionsResponse
+	(*adamantglobalv1.ExitEthereumStakingValidatorsResponse)(nil),        // 109: adamant.global.v1.ExitEthereumStakingValidatorsResponse
+	(*adamantglobalv1.ListTransfersResponse)(nil),                        // 110: adamant.global.v1.ListTransfersResponse
+	(*adamantglobalv1.RateSnapshot)(nil),                                 // 111: adamant.global.v1.RateSnapshot
+	(*adamantglobalv1.SetRatesResponse)(nil),                             // 112: adamant.global.v1.SetRatesResponse
+	(*adamantglobalv1.CalculateFeeResponse)(nil),                         // 113: adamant.global.v1.CalculateFeeResponse
+	(*adamantglobalv1.GetRecommendedFeeRateResponse)(nil),                // 114: adamant.global.v1.GetRecommendedFeeRateResponse
+	(*adamantglobalv1.ValidateAddressResponse)(nil),                      // 115: adamant.global.v1.ValidateAddressResponse
+	(*adamantglobalv1.FlushBalanceResponse)(nil),                         // 116: adamant.global.v1.FlushBalanceResponse
+	(*adamantglobalv1.ListAuditLogsResponse)(nil),                        // 117: adamant.global.v1.ListAuditLogsResponse
+	(*adamantglobalv1.ListStakingHistoriesResponse)(nil),                 // 118: adamant.global.v1.ListStakingHistoriesResponse
+	(*adamantglobalv1.ListStakingValidatorsResponse)(nil),                // 119: adamant.global.v1.ListStakingValidatorsResponse
+	(*adamantglobalv1.ListPreTransactionThresholdsByFilterResponse)(nil), // 120: adamant.global.v1.ListPreTransactionThresholdsByFilterResponse
+	(*adamantglobalv1.ListBlacklistAddressesByFilterResponse)(nil),       // 121: adamant.global.v1.ListBlacklistAddressesByFilterResponse
+	(*adamantglobalv1.ListBlacklistAddressFilesResponse)(nil),            // 122: adamant.global.v1.ListBlacklistAddressFilesResponse
 }
 var file_gincoinc_adamant_teller_v1_adamanttellerv1_teller_api_proto_depIdxs = []int32{
 	26,  // 0: adamant.teller.v1.CreateWalletRequest.coin:type_name -> gincoinc.global.v1.Coin
@@ -3056,80 +3067,82 @@ var file_gincoinc_adamant_teller_v1_adamanttellerv1_teller_api_proto_depIdxs = [
 	21,  // 75: adamant.teller.v1.TellerAPI.ProgmatCoinUpgradeToAndCall:input_type -> adamant.teller.v1.ProgmatCoinUpgradeToAndCallRequest
 	79,  // 76: adamant.teller.v1.TellerAPI.ListPreTransactionThresholdsByFilter:input_type -> adamant.global.v1.ListPreTransactionThresholdsByFilterRequest
 	80,  // 77: adamant.teller.v1.TellerAPI.ListBlacklistAddressesByFilter:input_type -> adamant.global.v1.ListBlacklistAddressesByFilterRequest
-	81,  // 78: adamant.teller.v1.TellerAPI.CreateWallet:output_type -> adamant.global.v1.CreateWalletResponse
-	82,  // 79: adamant.teller.v1.TellerAPI.GetWallet:output_type -> adamant.global.v1.Wallet
-	83,  // 80: adamant.teller.v1.TellerAPI.ListWallets:output_type -> adamant.global.v1.ListWalletsResponse
-	83,  // 81: adamant.teller.v1.TellerAPI.ListWalletsByFilter:output_type -> adamant.global.v1.ListWalletsResponse
-	84,  // 82: adamant.teller.v1.TellerAPI.ListStakingWalletsByFilter:output_type -> adamant.global.v1.ListStakingWalletsResponse
-	85,  // 83: adamant.teller.v1.TellerAPI.ListBaseWallets:output_type -> adamant.global.v1.ListBaseWalletsResponse
-	86,  // 84: adamant.teller.v1.TellerAPI.GetSpendableBalance:output_type -> adamant.global.v1.GetSpendableBalanceResponse
-	87,  // 85: adamant.teller.v1.TellerAPI.InitializeXRPWallet:output_type -> google.protobuf.Empty
-	87,  // 86: adamant.teller.v1.TellerAPI.InitializeWallet:output_type -> google.protobuf.Empty
-	87,  // 87: adamant.teller.v1.TellerAPI.UpdateDestinationWalletID:output_type -> google.protobuf.Empty
-	88,  // 88: adamant.teller.v1.TellerAPI.GetCosmosBalance:output_type -> adamant.global.v1.GetCosmosBalanceResponse
-	89,  // 89: adamant.teller.v1.TellerAPI.ListCosmosDelegateHistories:output_type -> adamant.global.v1.ListCosmosDelegateHistoriesResponse
-	90,  // 90: adamant.teller.v1.TellerAPI.ListUTXOs:output_type -> adamant.global.v1.ListUTXOsResponse
-	91,  // 91: adamant.teller.v1.TellerAPI.CreateAddress:output_type -> adamant.global.v1.CreateAddressResponse
-	92,  // 92: adamant.teller.v1.TellerAPI.CreateIOSTAccount:output_type -> adamant.global.v1.CreateIOSTAccountResponse
-	93,  // 93: adamant.teller.v1.TellerAPI.ListSymbolChildAddresses:output_type -> adamant.global.v1.ListSymbolChildAddressesResponse
-	94,  // 94: adamant.teller.v1.TellerAPI.GetAddress:output_type -> adamant.global.v1.Address
-	94,  // 95: adamant.teller.v1.TellerAPI.GetAddressByAddress:output_type -> adamant.global.v1.Address
-	94,  // 96: adamant.teller.v1.TellerAPI.GetAddressByAddressCoin:output_type -> adamant.global.v1.Address
-	94,  // 97: adamant.teller.v1.TellerAPI.GetAddressByIndex:output_type -> adamant.global.v1.Address
-	95,  // 98: adamant.teller.v1.TellerAPI.ListAddresses:output_type -> adamant.global.v1.ListAddressesResponse
-	87,  // 99: adamant.teller.v1.TellerAPI.ImportAddress:output_type -> google.protobuf.Empty
-	96,  // 100: adamant.teller.v1.TellerAPI.GetEthereumFeeAddress:output_type -> adamant.global.v1.EthereumFeeAddress
-	87,  // 101: adamant.teller.v1.TellerAPI.UpdateAddressBalance:output_type -> google.protobuf.Empty
-	23,  // 102: adamant.teller.v1.TellerAPI.ListColdFeeDepositAddresses:output_type -> adamant.teller.v1.ListColdFeeDepositAddressesResponse
-	25,  // 103: adamant.teller.v1.TellerAPI.ListHotFeeDepositAddresses:output_type -> adamant.teller.v1.ListHotFeeDepositAddressesResponse
-	97,  // 104: adamant.teller.v1.TellerAPI.CreatePreTransaction:output_type -> adamant.global.v1.CreatePreTransactionResponse
-	98,  // 105: adamant.teller.v1.TellerAPI.ListPreTransactionsByFilter:output_type -> adamant.global.v1.ListPreTransactionsByFilterResponse
-	87,  // 106: adamant.teller.v1.TellerAPI.CancelPreTransaction:output_type -> google.protobuf.Empty
-	99,  // 107: adamant.teller.v1.TellerAPI.CreateTransaction:output_type -> adamant.global.v1.CreateTransactionResponse
-	100, // 108: adamant.teller.v1.TellerAPI.CreateContractCreationTransaction:output_type -> adamant.global.v1.CreateContractCreationTransactionResponse
-	87,  // 109: adamant.teller.v1.TellerAPI.SignTransaction:output_type -> google.protobuf.Empty
-	101, // 110: adamant.teller.v1.TellerAPI.SendTransaction:output_type -> adamant.global.v1.SendTransactionResponse
-	102, // 111: adamant.teller.v1.TellerAPI.ResendTransaction:output_type -> adamant.global.v1.ResendTransactionResponse
-	87,  // 112: adamant.teller.v1.TellerAPI.CancelTransaction:output_type -> google.protobuf.Empty
-	103, // 113: adamant.teller.v1.TellerAPI.ReplaceTransaction:output_type -> adamant.global.v1.ReplaceTransactionResponse
-	104, // 114: adamant.teller.v1.TellerAPI.IsTransactionReplaceable:output_type -> adamant.global.v1.IsTransactionReplaceableResponse
-	105, // 115: adamant.teller.v1.TellerAPI.GetTransaction:output_type -> adamant.global.v1.Transaction
-	105, // 116: adamant.teller.v1.TellerAPI.GetTransactionByTxID:output_type -> adamant.global.v1.Transaction
-	106, // 117: adamant.teller.v1.TellerAPI.ListTransactions:output_type -> adamant.global.v1.ListTransactionsResponse
-	106, // 118: adamant.teller.v1.TellerAPI.ListTransactionsByFilter:output_type -> adamant.global.v1.ListTransactionsResponse
-	107, // 119: adamant.teller.v1.TellerAPI.ListUnconfirmedTransactionsByFilter:output_type -> adamant.global.v1.ListUnconfirmedTransactionsResponse
-	108, // 120: adamant.teller.v1.TellerAPI.ExitEthereumStakingValidators:output_type -> adamant.global.v1.ExitEthereumStakingValidatorsResponse
-	109, // 121: adamant.teller.v1.TellerAPI.ListTransfers:output_type -> adamant.global.v1.ListTransfersResponse
-	109, // 122: adamant.teller.v1.TellerAPI.ListTransfersByFilter:output_type -> adamant.global.v1.ListTransfersResponse
-	110, // 123: adamant.teller.v1.TellerAPI.GetRateSnapshot:output_type -> adamant.global.v1.RateSnapshot
-	110, // 124: adamant.teller.v1.TellerAPI.GetLatestRateSnapshot:output_type -> adamant.global.v1.RateSnapshot
-	111, // 125: adamant.teller.v1.TellerAPI.SetRates:output_type -> adamant.global.v1.SetRatesResponse
-	112, // 126: adamant.teller.v1.TellerAPI.CalculateFee:output_type -> adamant.global.v1.CalculateFeeResponse
-	113, // 127: adamant.teller.v1.TellerAPI.GetRecommendedFeeRate:output_type -> adamant.global.v1.GetRecommendedFeeRateResponse
-	114, // 128: adamant.teller.v1.TellerAPI.ValidateAddress:output_type -> adamant.global.v1.ValidateAddressResponse
-	115, // 129: adamant.teller.v1.TellerAPI.FlushBalance:output_type -> adamant.global.v1.FlushBalanceResponse
-	116, // 130: adamant.teller.v1.TellerAPI.ListAuditLogs:output_type -> adamant.global.v1.ListAuditLogsResponse
-	117, // 131: adamant.teller.v1.TellerAPI.ListStakingHistoriesByFilter:output_type -> adamant.global.v1.ListStakingHistoriesResponse
-	118, // 132: adamant.teller.v1.TellerAPI.ListStakingValidatorsByFilter:output_type -> adamant.global.v1.ListStakingValidatorsResponse
-	5,   // 133: adamant.teller.v1.TellerAPI.SignMessage:output_type -> adamant.teller.v1.SignMessageResponse
-	99,  // 134: adamant.teller.v1.TellerAPI.ProgmatCoinInitialize:output_type -> adamant.global.v1.CreateTransactionResponse
-	99,  // 135: adamant.teller.v1.TellerAPI.ProgmatCoinConfigureMinter:output_type -> adamant.global.v1.CreateTransactionResponse
-	99,  // 136: adamant.teller.v1.TellerAPI.ProgmatCoinMintAndTransfer:output_type -> adamant.global.v1.CreateTransactionResponse
-	99,  // 137: adamant.teller.v1.TellerAPI.ProgmatCoinMint:output_type -> adamant.global.v1.CreateTransactionResponse
-	99,  // 138: adamant.teller.v1.TellerAPI.ProgmatCoinBurn:output_type -> adamant.global.v1.CreateTransactionResponse
-	99,  // 139: adamant.teller.v1.TellerAPI.ProgmatCoinBulkAddToWhitelist:output_type -> adamant.global.v1.CreateTransactionResponse
-	99,  // 140: adamant.teller.v1.TellerAPI.ProgmatCoinBulkRemoveFromWhitelist:output_type -> adamant.global.v1.CreateTransactionResponse
-	99,  // 141: adamant.teller.v1.TellerAPI.ProgmatCoinBulkAddToBlacklist:output_type -> adamant.global.v1.CreateTransactionResponse
-	99,  // 142: adamant.teller.v1.TellerAPI.ProgmatCoinBulkRemoveFromBlacklist:output_type -> adamant.global.v1.CreateTransactionResponse
-	99,  // 143: adamant.teller.v1.TellerAPI.ProgmatCoinConfiscate:output_type -> adamant.global.v1.CreateTransactionResponse
-	99,  // 144: adamant.teller.v1.TellerAPI.ProgmatCoinPause:output_type -> adamant.global.v1.CreateTransactionResponse
-	99,  // 145: adamant.teller.v1.TellerAPI.ProgmatCoinUnpause:output_type -> adamant.global.v1.CreateTransactionResponse
-	99,  // 146: adamant.teller.v1.TellerAPI.ProgmatCoinGrantWhiteAndBlackLister:output_type -> adamant.global.v1.CreateTransactionResponse
-	99,  // 147: adamant.teller.v1.TellerAPI.ProgmatCoinUpgradeToAndCall:output_type -> adamant.global.v1.CreateTransactionResponse
-	119, // 148: adamant.teller.v1.TellerAPI.ListPreTransactionThresholdsByFilter:output_type -> adamant.global.v1.ListPreTransactionThresholdsByFilterResponse
-	120, // 149: adamant.teller.v1.TellerAPI.ListBlacklistAddressesByFilter:output_type -> adamant.global.v1.ListBlacklistAddressesByFilterResponse
-	78,  // [78:150] is the sub-list for method output_type
-	6,   // [6:78] is the sub-list for method input_type
+	81,  // 78: adamant.teller.v1.TellerAPI.ListBlacklistAddressFiles:input_type -> adamant.global.v1.ListBlacklistAddressFilesRequest
+	82,  // 79: adamant.teller.v1.TellerAPI.CreateWallet:output_type -> adamant.global.v1.CreateWalletResponse
+	83,  // 80: adamant.teller.v1.TellerAPI.GetWallet:output_type -> adamant.global.v1.Wallet
+	84,  // 81: adamant.teller.v1.TellerAPI.ListWallets:output_type -> adamant.global.v1.ListWalletsResponse
+	84,  // 82: adamant.teller.v1.TellerAPI.ListWalletsByFilter:output_type -> adamant.global.v1.ListWalletsResponse
+	85,  // 83: adamant.teller.v1.TellerAPI.ListStakingWalletsByFilter:output_type -> adamant.global.v1.ListStakingWalletsResponse
+	86,  // 84: adamant.teller.v1.TellerAPI.ListBaseWallets:output_type -> adamant.global.v1.ListBaseWalletsResponse
+	87,  // 85: adamant.teller.v1.TellerAPI.GetSpendableBalance:output_type -> adamant.global.v1.GetSpendableBalanceResponse
+	88,  // 86: adamant.teller.v1.TellerAPI.InitializeXRPWallet:output_type -> google.protobuf.Empty
+	88,  // 87: adamant.teller.v1.TellerAPI.InitializeWallet:output_type -> google.protobuf.Empty
+	88,  // 88: adamant.teller.v1.TellerAPI.UpdateDestinationWalletID:output_type -> google.protobuf.Empty
+	89,  // 89: adamant.teller.v1.TellerAPI.GetCosmosBalance:output_type -> adamant.global.v1.GetCosmosBalanceResponse
+	90,  // 90: adamant.teller.v1.TellerAPI.ListCosmosDelegateHistories:output_type -> adamant.global.v1.ListCosmosDelegateHistoriesResponse
+	91,  // 91: adamant.teller.v1.TellerAPI.ListUTXOs:output_type -> adamant.global.v1.ListUTXOsResponse
+	92,  // 92: adamant.teller.v1.TellerAPI.CreateAddress:output_type -> adamant.global.v1.CreateAddressResponse
+	93,  // 93: adamant.teller.v1.TellerAPI.CreateIOSTAccount:output_type -> adamant.global.v1.CreateIOSTAccountResponse
+	94,  // 94: adamant.teller.v1.TellerAPI.ListSymbolChildAddresses:output_type -> adamant.global.v1.ListSymbolChildAddressesResponse
+	95,  // 95: adamant.teller.v1.TellerAPI.GetAddress:output_type -> adamant.global.v1.Address
+	95,  // 96: adamant.teller.v1.TellerAPI.GetAddressByAddress:output_type -> adamant.global.v1.Address
+	95,  // 97: adamant.teller.v1.TellerAPI.GetAddressByAddressCoin:output_type -> adamant.global.v1.Address
+	95,  // 98: adamant.teller.v1.TellerAPI.GetAddressByIndex:output_type -> adamant.global.v1.Address
+	96,  // 99: adamant.teller.v1.TellerAPI.ListAddresses:output_type -> adamant.global.v1.ListAddressesResponse
+	88,  // 100: adamant.teller.v1.TellerAPI.ImportAddress:output_type -> google.protobuf.Empty
+	97,  // 101: adamant.teller.v1.TellerAPI.GetEthereumFeeAddress:output_type -> adamant.global.v1.EthereumFeeAddress
+	88,  // 102: adamant.teller.v1.TellerAPI.UpdateAddressBalance:output_type -> google.protobuf.Empty
+	23,  // 103: adamant.teller.v1.TellerAPI.ListColdFeeDepositAddresses:output_type -> adamant.teller.v1.ListColdFeeDepositAddressesResponse
+	25,  // 104: adamant.teller.v1.TellerAPI.ListHotFeeDepositAddresses:output_type -> adamant.teller.v1.ListHotFeeDepositAddressesResponse
+	98,  // 105: adamant.teller.v1.TellerAPI.CreatePreTransaction:output_type -> adamant.global.v1.CreatePreTransactionResponse
+	99,  // 106: adamant.teller.v1.TellerAPI.ListPreTransactionsByFilter:output_type -> adamant.global.v1.ListPreTransactionsByFilterResponse
+	88,  // 107: adamant.teller.v1.TellerAPI.CancelPreTransaction:output_type -> google.protobuf.Empty
+	100, // 108: adamant.teller.v1.TellerAPI.CreateTransaction:output_type -> adamant.global.v1.CreateTransactionResponse
+	101, // 109: adamant.teller.v1.TellerAPI.CreateContractCreationTransaction:output_type -> adamant.global.v1.CreateContractCreationTransactionResponse
+	88,  // 110: adamant.teller.v1.TellerAPI.SignTransaction:output_type -> google.protobuf.Empty
+	102, // 111: adamant.teller.v1.TellerAPI.SendTransaction:output_type -> adamant.global.v1.SendTransactionResponse
+	103, // 112: adamant.teller.v1.TellerAPI.ResendTransaction:output_type -> adamant.global.v1.ResendTransactionResponse
+	88,  // 113: adamant.teller.v1.TellerAPI.CancelTransaction:output_type -> google.protobuf.Empty
+	104, // 114: adamant.teller.v1.TellerAPI.ReplaceTransaction:output_type -> adamant.global.v1.ReplaceTransactionResponse
+	105, // 115: adamant.teller.v1.TellerAPI.IsTransactionReplaceable:output_type -> adamant.global.v1.IsTransactionReplaceableResponse
+	106, // 116: adamant.teller.v1.TellerAPI.GetTransaction:output_type -> adamant.global.v1.Transaction
+	106, // 117: adamant.teller.v1.TellerAPI.GetTransactionByTxID:output_type -> adamant.global.v1.Transaction
+	107, // 118: adamant.teller.v1.TellerAPI.ListTransactions:output_type -> adamant.global.v1.ListTransactionsResponse
+	107, // 119: adamant.teller.v1.TellerAPI.ListTransactionsByFilter:output_type -> adamant.global.v1.ListTransactionsResponse
+	108, // 120: adamant.teller.v1.TellerAPI.ListUnconfirmedTransactionsByFilter:output_type -> adamant.global.v1.ListUnconfirmedTransactionsResponse
+	109, // 121: adamant.teller.v1.TellerAPI.ExitEthereumStakingValidators:output_type -> adamant.global.v1.ExitEthereumStakingValidatorsResponse
+	110, // 122: adamant.teller.v1.TellerAPI.ListTransfers:output_type -> adamant.global.v1.ListTransfersResponse
+	110, // 123: adamant.teller.v1.TellerAPI.ListTransfersByFilter:output_type -> adamant.global.v1.ListTransfersResponse
+	111, // 124: adamant.teller.v1.TellerAPI.GetRateSnapshot:output_type -> adamant.global.v1.RateSnapshot
+	111, // 125: adamant.teller.v1.TellerAPI.GetLatestRateSnapshot:output_type -> adamant.global.v1.RateSnapshot
+	112, // 126: adamant.teller.v1.TellerAPI.SetRates:output_type -> adamant.global.v1.SetRatesResponse
+	113, // 127: adamant.teller.v1.TellerAPI.CalculateFee:output_type -> adamant.global.v1.CalculateFeeResponse
+	114, // 128: adamant.teller.v1.TellerAPI.GetRecommendedFeeRate:output_type -> adamant.global.v1.GetRecommendedFeeRateResponse
+	115, // 129: adamant.teller.v1.TellerAPI.ValidateAddress:output_type -> adamant.global.v1.ValidateAddressResponse
+	116, // 130: adamant.teller.v1.TellerAPI.FlushBalance:output_type -> adamant.global.v1.FlushBalanceResponse
+	117, // 131: adamant.teller.v1.TellerAPI.ListAuditLogs:output_type -> adamant.global.v1.ListAuditLogsResponse
+	118, // 132: adamant.teller.v1.TellerAPI.ListStakingHistoriesByFilter:output_type -> adamant.global.v1.ListStakingHistoriesResponse
+	119, // 133: adamant.teller.v1.TellerAPI.ListStakingValidatorsByFilter:output_type -> adamant.global.v1.ListStakingValidatorsResponse
+	5,   // 134: adamant.teller.v1.TellerAPI.SignMessage:output_type -> adamant.teller.v1.SignMessageResponse
+	100, // 135: adamant.teller.v1.TellerAPI.ProgmatCoinInitialize:output_type -> adamant.global.v1.CreateTransactionResponse
+	100, // 136: adamant.teller.v1.TellerAPI.ProgmatCoinConfigureMinter:output_type -> adamant.global.v1.CreateTransactionResponse
+	100, // 137: adamant.teller.v1.TellerAPI.ProgmatCoinMintAndTransfer:output_type -> adamant.global.v1.CreateTransactionResponse
+	100, // 138: adamant.teller.v1.TellerAPI.ProgmatCoinMint:output_type -> adamant.global.v1.CreateTransactionResponse
+	100, // 139: adamant.teller.v1.TellerAPI.ProgmatCoinBurn:output_type -> adamant.global.v1.CreateTransactionResponse
+	100, // 140: adamant.teller.v1.TellerAPI.ProgmatCoinBulkAddToWhitelist:output_type -> adamant.global.v1.CreateTransactionResponse
+	100, // 141: adamant.teller.v1.TellerAPI.ProgmatCoinBulkRemoveFromWhitelist:output_type -> adamant.global.v1.CreateTransactionResponse
+	100, // 142: adamant.teller.v1.TellerAPI.ProgmatCoinBulkAddToBlacklist:output_type -> adamant.global.v1.CreateTransactionResponse
+	100, // 143: adamant.teller.v1.TellerAPI.ProgmatCoinBulkRemoveFromBlacklist:output_type -> adamant.global.v1.CreateTransactionResponse
+	100, // 144: adamant.teller.v1.TellerAPI.ProgmatCoinConfiscate:output_type -> adamant.global.v1.CreateTransactionResponse
+	100, // 145: adamant.teller.v1.TellerAPI.ProgmatCoinPause:output_type -> adamant.global.v1.CreateTransactionResponse
+	100, // 146: adamant.teller.v1.TellerAPI.ProgmatCoinUnpause:output_type -> adamant.global.v1.CreateTransactionResponse
+	100, // 147: adamant.teller.v1.TellerAPI.ProgmatCoinGrantWhiteAndBlackLister:output_type -> adamant.global.v1.CreateTransactionResponse
+	100, // 148: adamant.teller.v1.TellerAPI.ProgmatCoinUpgradeToAndCall:output_type -> adamant.global.v1.CreateTransactionResponse
+	120, // 149: adamant.teller.v1.TellerAPI.ListPreTransactionThresholdsByFilter:output_type -> adamant.global.v1.ListPreTransactionThresholdsByFilterResponse
+	121, // 150: adamant.teller.v1.TellerAPI.ListBlacklistAddressesByFilter:output_type -> adamant.global.v1.ListBlacklistAddressesByFilterResponse
+	122, // 151: adamant.teller.v1.TellerAPI.ListBlacklistAddressFiles:output_type -> adamant.global.v1.ListBlacklistAddressFilesResponse
+	79,  // [79:152] is the sub-list for method output_type
+	6,   // [6:79] is the sub-list for method input_type
 	6,   // [6:6] is the sub-list for extension type_name
 	6,   // [6:6] is the sub-list for extension extendee
 	0,   // [0:6] is the sub-list for field type_name

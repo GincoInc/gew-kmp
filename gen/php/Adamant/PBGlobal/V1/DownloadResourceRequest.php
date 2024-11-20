@@ -26,6 +26,18 @@ class DownloadResourceRequest extends \Google\Protobuf\Internal\Message
      */
     protected $wallet_id = '';
     /**
+     * Generated from protobuf field <code>optional bool is_activated = 6 [json_name = "isActivated"];</code>
+     */
+    protected $is_activated = null;
+    /**
+     * Generated from protobuf field <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+     */
+    protected $status = null;
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = {</code>
+     */
+    protected $network = null;
+    /**
      * Generated from protobuf field <code>.google.protobuf.Timestamp start_time = 3 [json_name = "startTime"];</code>
      */
     protected $start_time = null;
@@ -43,6 +55,9 @@ class DownloadResourceRequest extends \Google\Protobuf\Internal\Message
      *     @type int $download_resource_type
      *     @type bool $watch_only
      *     @type string $wallet_id
+     *     @type bool $is_activated
+     *     @type int $status
+     *     @type int $network
      *     @type \Google\Protobuf\Timestamp $start_time
      *     @type \Google\Protobuf\Timestamp $end_time
      * }
@@ -114,6 +129,102 @@ class DownloadResourceRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->wallet_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional bool is_activated = 6 [json_name = "isActivated"];</code>
+     * @return bool
+     */
+    public function getIsActivated()
+    {
+        return isset($this->is_activated) ? $this->is_activated : false;
+    }
+
+    public function hasIsActivated()
+    {
+        return isset($this->is_activated);
+    }
+
+    public function clearIsActivated()
+    {
+        unset($this->is_activated);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional bool is_activated = 6 [json_name = "isActivated"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setIsActivated($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->is_activated = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+     * @return int
+     */
+    public function getStatus()
+    {
+        return isset($this->status) ? $this->status : 0;
+    }
+
+    public function hasStatus()
+    {
+        return isset($this->status);
+    }
+
+    public function clearStatus()
+    {
+        unset($this->status);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .adamant.global.v1.BlacklistAddressStatus status = 7 [json_name = "status"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setStatus($var)
+    {
+        GPBUtil::checkEnum($var, \Adamant\PBGlobal\V1\BlacklistAddressStatus::class);
+        $this->status = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = {</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return isset($this->network) ? $this->network : 0;
+    }
+
+    public function hasNetwork()
+    {
+        return isset($this->network);
+    }
+
+    public function clearNetwork()
+    {
+        unset($this->network);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.Network network = 8 [json_name = "network", (.validate.rules) = {</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

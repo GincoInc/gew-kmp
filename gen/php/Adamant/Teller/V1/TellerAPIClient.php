@@ -1041,4 +1041,18 @@ class TellerAPIClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * @param \Adamant\Global\V1\ListBlacklistAddressFilesRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListBlacklistAddressFiles(\Adamant\Global\V1\ListBlacklistAddressFilesRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListBlacklistAddressFiles',
+        $argument,
+        ['\Adamant\Global\V1\ListBlacklistAddressFilesResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }

@@ -43,7 +43,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings("serial")
   private volatile java.lang.Object preTransactionId_ = "";
   /**
-   * <code>string pre_transaction_id = 1 [json_name = "preTransactionId"];</code>
+   * <code>string pre_transaction_id = 1 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
    * @return The preTransactionId.
    */
   @java.lang.Override
@@ -60,7 +60,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string pre_transaction_id = 1 [json_name = "preTransactionId"];</code>
+   * <code>string pre_transaction_id = 1 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
    * @return The bytes for preTransactionId.
    */
   @java.lang.Override
@@ -406,7 +406,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object preTransactionId_ = "";
     /**
-     * <code>string pre_transaction_id = 1 [json_name = "preTransactionId"];</code>
+     * <code>string pre_transaction_id = 1 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
      * @return The preTransactionId.
      */
     public java.lang.String getPreTransactionId() {
@@ -422,7 +422,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string pre_transaction_id = 1 [json_name = "preTransactionId"];</code>
+     * <code>string pre_transaction_id = 1 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
      * @return The bytes for preTransactionId.
      */
     public com.google.protobuf.ByteString
@@ -439,7 +439,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string pre_transaction_id = 1 [json_name = "preTransactionId"];</code>
+     * <code>string pre_transaction_id = 1 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
      * @param value The preTransactionId to set.
      * @return This builder for chaining.
      */
@@ -452,7 +452,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string pre_transaction_id = 1 [json_name = "preTransactionId"];</code>
+     * <code>string pre_transaction_id = 1 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearPreTransactionId() {
@@ -462,7 +462,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string pre_transaction_id = 1 [json_name = "preTransactionId"];</code>
+     * <code>string pre_transaction_id = 1 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
      * @param value The bytes for preTransactionId to set.
      * @return This builder for chaining.
      */

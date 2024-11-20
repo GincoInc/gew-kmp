@@ -15,12 +15,13 @@ public class CancelPreTransactionRequestValidator implements io.envoyproxy.pgv.V
 		return null;
 	}
 		
+		com.google.re2j.Pattern PRE_TRANSACTION_ID__PATTERN = com.google.re2j.Pattern.compile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
 	
 	
 
 	public void assertValid(adamant.global.v1.CancelPreTransactionRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
-	// no validation rules for PreTransactionId
-
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.CancelPreTransactionRequest.pre_transaction_id", proto.getPreTransactionId(), PRE_TRANSACTION_ID__PATTERN);
 	
 	}
 

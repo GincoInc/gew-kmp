@@ -2247,6 +2247,37 @@ public final class TellerAPIGrpc {
     return getListBlacklistAddressesByFilterMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListBlacklistAddressFilesRequest,
+      adamant.global.v1.ListBlacklistAddressFilesResponse> getListBlacklistAddressFilesMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListBlacklistAddressFiles",
+      requestType = adamant.global.v1.ListBlacklistAddressFilesRequest.class,
+      responseType = adamant.global.v1.ListBlacklistAddressFilesResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListBlacklistAddressFilesRequest,
+      adamant.global.v1.ListBlacklistAddressFilesResponse> getListBlacklistAddressFilesMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListBlacklistAddressFilesRequest, adamant.global.v1.ListBlacklistAddressFilesResponse> getListBlacklistAddressFilesMethod;
+    if ((getListBlacklistAddressFilesMethod = TellerAPIGrpc.getListBlacklistAddressFilesMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getListBlacklistAddressFilesMethod = TellerAPIGrpc.getListBlacklistAddressFilesMethod) == null) {
+          TellerAPIGrpc.getListBlacklistAddressFilesMethod = getListBlacklistAddressFilesMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListBlacklistAddressFilesRequest, adamant.global.v1.ListBlacklistAddressFilesResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListBlacklistAddressFiles"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListBlacklistAddressFilesRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListBlacklistAddressFilesResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ListBlacklistAddressFiles"))
+              .build();
+        }
+      }
+    }
+    return getListBlacklistAddressFilesMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -2836,6 +2867,13 @@ public final class TellerAPIGrpc {
     default void listBlacklistAddressesByFilter(adamant.global.v1.ListBlacklistAddressesByFilterRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListBlacklistAddressesByFilterResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListBlacklistAddressesByFilterMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void listBlacklistAddressFiles(adamant.global.v1.ListBlacklistAddressFilesRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListBlacklistAddressFilesResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListBlacklistAddressFilesMethod(), responseObserver);
     }
   }
 
@@ -3480,6 +3518,14 @@ public final class TellerAPIGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListBlacklistAddressesByFilterMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void listBlacklistAddressFiles(adamant.global.v1.ListBlacklistAddressFilesRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListBlacklistAddressFilesResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListBlacklistAddressFilesMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -4039,6 +4085,13 @@ public final class TellerAPIGrpc {
     public adamant.global.v1.ListBlacklistAddressesByFilterResponse listBlacklistAddressesByFilter(adamant.global.v1.ListBlacklistAddressesByFilterRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListBlacklistAddressesByFilterMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.ListBlacklistAddressFilesResponse listBlacklistAddressFiles(adamant.global.v1.ListBlacklistAddressFilesRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListBlacklistAddressFilesMethod(), getCallOptions(), request);
     }
   }
 
@@ -4672,6 +4725,14 @@ public final class TellerAPIGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getListBlacklistAddressesByFilterMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListBlacklistAddressFilesResponse> listBlacklistAddressFiles(
+        adamant.global.v1.ListBlacklistAddressFilesRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListBlacklistAddressFilesMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_WALLET = 0;
@@ -4746,6 +4807,7 @@ public final class TellerAPIGrpc {
   private static final int METHODID_PROGMAT_COIN_UPGRADE_TO_AND_CALL = 69;
   private static final int METHODID_LIST_PRE_TRANSACTION_THRESHOLDS_BY_FILTER = 70;
   private static final int METHODID_LIST_BLACKLIST_ADDRESSES_BY_FILTER = 71;
+  private static final int METHODID_LIST_BLACKLIST_ADDRESS_FILES = 72;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -5051,6 +5113,10 @@ public final class TellerAPIGrpc {
         case METHODID_LIST_BLACKLIST_ADDRESSES_BY_FILTER:
           serviceImpl.listBlacklistAddressesByFilter((adamant.global.v1.ListBlacklistAddressesByFilterRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListBlacklistAddressesByFilterResponse>) responseObserver);
+          break;
+        case METHODID_LIST_BLACKLIST_ADDRESS_FILES:
+          serviceImpl.listBlacklistAddressFiles((adamant.global.v1.ListBlacklistAddressFilesRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListBlacklistAddressFilesResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -5574,6 +5640,13 @@ public final class TellerAPIGrpc {
               adamant.global.v1.ListBlacklistAddressesByFilterRequest,
               adamant.global.v1.ListBlacklistAddressesByFilterResponse>(
                 service, METHODID_LIST_BLACKLIST_ADDRESSES_BY_FILTER)))
+        .addMethod(
+          getListBlacklistAddressFilesMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListBlacklistAddressFilesRequest,
+              adamant.global.v1.ListBlacklistAddressFilesResponse>(
+                service, METHODID_LIST_BLACKLIST_ADDRESS_FILES)))
         .build();
   }
 
@@ -5694,6 +5767,7 @@ public final class TellerAPIGrpc {
               .addMethod(getProgmatCoinUpgradeToAndCallMethod())
               .addMethod(getListPreTransactionThresholdsByFilterMethod())
               .addMethod(getListBlacklistAddressesByFilterMethod())
+              .addMethod(getListBlacklistAddressFilesMethod())
               .build();
         }
       }

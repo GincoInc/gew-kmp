@@ -18,9 +18,13 @@ class BlacklistAddress extends \Google\Protobuf\Internal\Message
      */
     protected $blacklist_address_id = '';
     /**
-     * Generated from protobuf field <code>string blacklist_address_proposal_id = 2 [json_name = "blacklistAddressProposalId"];</code>
+     * Generated from protobuf field <code>string applied_proposal_id = 2 [json_name = "appliedProposalId"];</code>
      */
-    protected $blacklist_address_proposal_id = '';
+    protected $applied_proposal_id = '';
+    /**
+     * Generated from protobuf field <code>string pending_proposal_id = 13 [json_name = "pendingProposalId"];</code>
+     */
+    protected $pending_proposal_id = '';
     /**
      * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 3 [json_name = "network"];</code>
      */
@@ -58,9 +62,13 @@ class BlacklistAddress extends \Google\Protobuf\Internal\Message
      */
     protected $file_name = null;
     /**
-     * Generated from protobuf field <code>.adamant.global.v1.BlacklistAddressProposal proposal = 12 [json_name = "proposal"];</code>
+     * Generated from protobuf field <code>optional .adamant.global.v1.BlacklistAddressProposal applied_proposal = 12 [json_name = "appliedProposal"];</code>
      */
-    protected $proposal = null;
+    protected $applied_proposal = null;
+    /**
+     * Generated from protobuf field <code>optional .adamant.global.v1.BlacklistAddressProposal pending_proposal = 14 [json_name = "pendingProposal"];</code>
+     */
+    protected $pending_proposal = null;
 
     /**
      * Constructor.
@@ -69,7 +77,8 @@ class BlacklistAddress extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $blacklist_address_id
-     *     @type string $blacklist_address_proposal_id
+     *     @type string $applied_proposal_id
+     *     @type string $pending_proposal_id
      *     @type int $network
      *     @type string $address
      *     @type bool $is_activated
@@ -79,7 +88,8 @@ class BlacklistAddress extends \Google\Protobuf\Internal\Message
      *     @type \Google\Protobuf\Timestamp $update_time
      *     @type string $file_id
      *     @type string $file_name
-     *     @type \Adamant\PBGlobal\V1\BlacklistAddressProposal $proposal
+     *     @type \Adamant\PBGlobal\V1\BlacklistAddressProposal $applied_proposal
+     *     @type \Adamant\PBGlobal\V1\BlacklistAddressProposal $pending_proposal
      * }
      */
     public function __construct($data = NULL) {
@@ -110,23 +120,45 @@ class BlacklistAddress extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string blacklist_address_proposal_id = 2 [json_name = "blacklistAddressProposalId"];</code>
+     * Generated from protobuf field <code>string applied_proposal_id = 2 [json_name = "appliedProposalId"];</code>
      * @return string
      */
-    public function getBlacklistAddressProposalId()
+    public function getAppliedProposalId()
     {
-        return $this->blacklist_address_proposal_id;
+        return $this->applied_proposal_id;
     }
 
     /**
-     * Generated from protobuf field <code>string blacklist_address_proposal_id = 2 [json_name = "blacklistAddressProposalId"];</code>
+     * Generated from protobuf field <code>string applied_proposal_id = 2 [json_name = "appliedProposalId"];</code>
      * @param string $var
      * @return $this
      */
-    public function setBlacklistAddressProposalId($var)
+    public function setAppliedProposalId($var)
     {
         GPBUtil::checkString($var, True);
-        $this->blacklist_address_proposal_id = $var;
+        $this->applied_proposal_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string pending_proposal_id = 13 [json_name = "pendingProposalId"];</code>
+     * @return string
+     */
+    public function getPendingProposalId()
+    {
+        return $this->pending_proposal_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>string pending_proposal_id = 13 [json_name = "pendingProposalId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setPendingProposalId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->pending_proposal_id = $var;
 
         return $this;
     }
@@ -370,33 +402,65 @@ class BlacklistAddress extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.adamant.global.v1.BlacklistAddressProposal proposal = 12 [json_name = "proposal"];</code>
+     * Generated from protobuf field <code>optional .adamant.global.v1.BlacklistAddressProposal applied_proposal = 12 [json_name = "appliedProposal"];</code>
      * @return \Adamant\PBGlobal\V1\BlacklistAddressProposal|null
      */
-    public function getProposal()
+    public function getAppliedProposal()
     {
-        return $this->proposal;
+        return $this->applied_proposal;
     }
 
-    public function hasProposal()
+    public function hasAppliedProposal()
     {
-        return isset($this->proposal);
+        return isset($this->applied_proposal);
     }
 
-    public function clearProposal()
+    public function clearAppliedProposal()
     {
-        unset($this->proposal);
+        unset($this->applied_proposal);
     }
 
     /**
-     * Generated from protobuf field <code>.adamant.global.v1.BlacklistAddressProposal proposal = 12 [json_name = "proposal"];</code>
+     * Generated from protobuf field <code>optional .adamant.global.v1.BlacklistAddressProposal applied_proposal = 12 [json_name = "appliedProposal"];</code>
      * @param \Adamant\PBGlobal\V1\BlacklistAddressProposal $var
      * @return $this
      */
-    public function setProposal($var)
+    public function setAppliedProposal($var)
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\BlacklistAddressProposal::class);
-        $this->proposal = $var;
+        $this->applied_proposal = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .adamant.global.v1.BlacklistAddressProposal pending_proposal = 14 [json_name = "pendingProposal"];</code>
+     * @return \Adamant\PBGlobal\V1\BlacklistAddressProposal|null
+     */
+    public function getPendingProposal()
+    {
+        return $this->pending_proposal;
+    }
+
+    public function hasPendingProposal()
+    {
+        return isset($this->pending_proposal);
+    }
+
+    public function clearPendingProposal()
+    {
+        unset($this->pending_proposal);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .adamant.global.v1.BlacklistAddressProposal pending_proposal = 14 [json_name = "pendingProposal"];</code>
+     * @param \Adamant\PBGlobal\V1\BlacklistAddressProposal $var
+     * @return $this
+     */
+    public function setPendingProposal($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\BlacklistAddressProposal::class);
+        $this->pending_proposal = $var;
 
         return $this;
     }
