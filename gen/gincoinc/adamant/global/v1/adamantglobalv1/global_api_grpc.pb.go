@@ -34,6 +34,7 @@ type GlobalAPIClient interface {
 	ListWalletsByFilter(ctx context.Context, in *ListWalletsByFilterRequest, opts ...grpc.CallOption) (*ListWalletsResponse, error)
 	ListBaseWallets(ctx context.Context, in *ListBaseWalletsRequest, opts ...grpc.CallOption) (*ListBaseWalletsResponse, error)
 	ListStakingWalletsByFilter(ctx context.Context, in *ListStakingWalletsByFilterRequest, opts ...grpc.CallOption) (*ListStakingWalletsResponse, error)
+	ListNFTWalletsByFilter(ctx context.Context, in *ListNFTWalletsByFilterRequest, opts ...grpc.CallOption) (*ListNFTWalletsResponse, error)
 	UpdateWalletName(ctx context.Context, in *UpdateWalletNameRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	UpdateWalletValidation(ctx context.Context, in *UpdateWalletValidationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	UpdateWalletPolicy(ctx context.Context, in *UpdateWalletPolicyRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -161,6 +162,8 @@ type GlobalAPIClient interface {
 	ListStakingHistoriesByFilter(ctx context.Context, in *ListStakingHistoriesByFilterRequest, opts ...grpc.CallOption) (*ListStakingHistoriesResponse, error)
 	// StakingValidators
 	ListStakingValidatorsByFilter(ctx context.Context, in *ListStakingValidatorsByFilterRequest, opts ...grpc.CallOption) (*ListStakingValidatorsResponse, error)
+	// NFT
+	ListNFTsByFilter(ctx context.Context, in *ListNFTsByFilterRequest, opts ...grpc.CallOption) (*ListNFTsResponse, error)
 }
 
 type globalAPIClient struct {
@@ -246,6 +249,15 @@ func (c *globalAPIClient) ListBaseWallets(ctx context.Context, in *ListBaseWalle
 func (c *globalAPIClient) ListStakingWalletsByFilter(ctx context.Context, in *ListStakingWalletsByFilterRequest, opts ...grpc.CallOption) (*ListStakingWalletsResponse, error) {
 	out := new(ListStakingWalletsResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListStakingWalletsByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) ListNFTWalletsByFilter(ctx context.Context, in *ListNFTWalletsByFilterRequest, opts ...grpc.CallOption) (*ListNFTWalletsResponse, error) {
+	out := new(ListNFTWalletsResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListNFTWalletsByFilter", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1197,6 +1209,15 @@ func (c *globalAPIClient) ListStakingValidatorsByFilter(ctx context.Context, in 
 	return out, nil
 }
 
+func (c *globalAPIClient) ListNFTsByFilter(ctx context.Context, in *ListNFTsByFilterRequest, opts ...grpc.CallOption) (*ListNFTsResponse, error) {
+	out := new(ListNFTsResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListNFTsByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // GlobalAPIServer is the server API for GlobalAPI service.
 // All implementations should embed UnimplementedGlobalAPIServer
 // for forward compatibility
@@ -1212,6 +1233,7 @@ type GlobalAPIServer interface {
 	ListWalletsByFilter(context.Context, *ListWalletsByFilterRequest) (*ListWalletsResponse, error)
 	ListBaseWallets(context.Context, *ListBaseWalletsRequest) (*ListBaseWalletsResponse, error)
 	ListStakingWalletsByFilter(context.Context, *ListStakingWalletsByFilterRequest) (*ListStakingWalletsResponse, error)
+	ListNFTWalletsByFilter(context.Context, *ListNFTWalletsByFilterRequest) (*ListNFTWalletsResponse, error)
 	UpdateWalletName(context.Context, *UpdateWalletNameRequest) (*emptypb.Empty, error)
 	UpdateWalletValidation(context.Context, *UpdateWalletValidationRequest) (*emptypb.Empty, error)
 	UpdateWalletPolicy(context.Context, *UpdateWalletPolicyRequest) (*emptypb.Empty, error)
@@ -1339,6 +1361,8 @@ type GlobalAPIServer interface {
 	ListStakingHistoriesByFilter(context.Context, *ListStakingHistoriesByFilterRequest) (*ListStakingHistoriesResponse, error)
 	// StakingValidators
 	ListStakingValidatorsByFilter(context.Context, *ListStakingValidatorsByFilterRequest) (*ListStakingValidatorsResponse, error)
+	// NFT
+	ListNFTsByFilter(context.Context, *ListNFTsByFilterRequest) (*ListNFTsResponse, error)
 }
 
 // UnimplementedGlobalAPIServer should be embedded to have forward compatible implementations.
@@ -1371,6 +1395,9 @@ func (UnimplementedGlobalAPIServer) ListBaseWallets(context.Context, *ListBaseWa
 }
 func (UnimplementedGlobalAPIServer) ListStakingWalletsByFilter(context.Context, *ListStakingWalletsByFilterRequest) (*ListStakingWalletsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListStakingWalletsByFilter not implemented")
+}
+func (UnimplementedGlobalAPIServer) ListNFTWalletsByFilter(context.Context, *ListNFTWalletsByFilterRequest) (*ListNFTWalletsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListNFTWalletsByFilter not implemented")
 }
 func (UnimplementedGlobalAPIServer) UpdateWalletName(context.Context, *UpdateWalletNameRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateWalletName not implemented")
@@ -1687,6 +1714,9 @@ func (UnimplementedGlobalAPIServer) ListStakingHistoriesByFilter(context.Context
 func (UnimplementedGlobalAPIServer) ListStakingValidatorsByFilter(context.Context, *ListStakingValidatorsByFilterRequest) (*ListStakingValidatorsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListStakingValidatorsByFilter not implemented")
 }
+func (UnimplementedGlobalAPIServer) ListNFTsByFilter(context.Context, *ListNFTsByFilterRequest) (*ListNFTsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListNFTsByFilter not implemented")
+}
 
 // UnsafeGlobalAPIServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to GlobalAPIServer will
@@ -1857,6 +1887,24 @@ func _GlobalAPI_ListStakingWalletsByFilter_Handler(srv interface{}, ctx context.
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GlobalAPIServer).ListStakingWalletsByFilter(ctx, req.(*ListStakingWalletsByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_ListNFTWalletsByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListNFTWalletsByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ListNFTWalletsByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ListNFTWalletsByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ListNFTWalletsByFilter(ctx, req.(*ListNFTWalletsByFilterRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3751,6 +3799,24 @@ func _GlobalAPI_ListStakingValidatorsByFilter_Handler(srv interface{}, ctx conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GlobalAPI_ListNFTsByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListNFTsByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ListNFTsByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ListNFTsByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ListNFTsByFilter(ctx, req.(*ListNFTsByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // GlobalAPI_ServiceDesc is the grpc.ServiceDesc for GlobalAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -3793,6 +3859,10 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListStakingWalletsByFilter",
 			Handler:    _GlobalAPI_ListStakingWalletsByFilter_Handler,
+		},
+		{
+			MethodName: "ListNFTWalletsByFilter",
+			Handler:    _GlobalAPI_ListNFTWalletsByFilter_Handler,
 		},
 		{
 			MethodName: "UpdateWalletName",
@@ -4213,6 +4283,10 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListStakingValidatorsByFilter",
 			Handler:    _GlobalAPI_ListStakingValidatorsByFilter_Handler,
+		},
+		{
+			MethodName: "ListNFTsByFilter",
+			Handler:    _GlobalAPI_ListNFTsByFilter_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

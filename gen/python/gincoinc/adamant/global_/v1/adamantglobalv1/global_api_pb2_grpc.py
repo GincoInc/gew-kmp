@@ -65,6 +65,11 @@ class GlobalAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListStakingWalletsByFilterRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListStakingWalletsResponse.FromString,
                 )
+        self.ListNFTWalletsByFilter = channel.unary_unary(
+                '/adamant.global.v1.GlobalAPI/ListNFTWalletsByFilter',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListNFTWalletsByFilterRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListNFTWalletsResponse.FromString,
+                )
         self.UpdateWalletName = channel.unary_unary(
                 '/adamant.global.v1.GlobalAPI/UpdateWalletName',
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.UpdateWalletNameRequest.SerializeToString,
@@ -590,6 +595,11 @@ class GlobalAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListStakingValidatorsByFilterRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListStakingValidatorsResponse.FromString,
                 )
+        self.ListNFTsByFilter = channel.unary_unary(
+                '/adamant.global.v1.GlobalAPI/ListNFTsByFilter',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListNFTsByFilterRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListNFTsResponse.FromString,
+                )
 
 
 class GlobalAPIServicer(object):
@@ -650,6 +660,12 @@ class GlobalAPIServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListStakingWalletsByFilter(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListNFTWalletsByFilter(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1307,6 +1323,13 @@ class GlobalAPIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListNFTsByFilter(self, request, context):
+        """NFT
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_GlobalAPIServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -1354,6 +1377,11 @@ def add_GlobalAPIServicer_to_server(servicer, server):
                     servicer.ListStakingWalletsByFilter,
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListStakingWalletsByFilterRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListStakingWalletsResponse.SerializeToString,
+            ),
+            'ListNFTWalletsByFilter': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListNFTWalletsByFilter,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListNFTWalletsByFilterRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListNFTWalletsResponse.SerializeToString,
             ),
             'UpdateWalletName': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateWalletName,
@@ -1880,6 +1908,11 @@ def add_GlobalAPIServicer_to_server(servicer, server):
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListStakingValidatorsByFilterRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListStakingValidatorsResponse.SerializeToString,
             ),
+            'ListNFTsByFilter': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListNFTsByFilter,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListNFTsByFilterRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListNFTsResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
             'adamant.global.v1.GlobalAPI', rpc_method_handlers)
@@ -2044,6 +2077,23 @@ class GlobalAPI(object):
         return grpc.experimental.unary_unary(request, target, '/adamant.global.v1.GlobalAPI/ListStakingWalletsByFilter',
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListStakingWalletsByFilterRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListStakingWalletsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListNFTWalletsByFilter(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.global.v1.GlobalAPI/ListNFTWalletsByFilter',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListNFTWalletsByFilterRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListNFTWalletsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -3829,5 +3879,22 @@ class GlobalAPI(object):
         return grpc.experimental.unary_unary(request, target, '/adamant.global.v1.GlobalAPI/ListStakingValidatorsByFilter',
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListStakingValidatorsByFilterRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListStakingValidatorsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListNFTsByFilter(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.global.v1.GlobalAPI/ListNFTsByFilter',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListNFTsByFilterRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListNFTsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

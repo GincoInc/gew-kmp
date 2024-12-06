@@ -30,6 +30,7 @@ service GlobalAPI {
   rpc ListWalletsByFilter(ListWalletsByFilterRequest) returns (ListWalletsResponse) {}
   rpc ListBaseWallets(ListBaseWalletsRequest) returns (ListBaseWalletsResponse) {}
   rpc ListStakingWalletsByFilter(ListStakingWalletsByFilterRequest) returns (ListStakingWalletsResponse) {}
+  rpc ListNFTWalletsByFilter(ListNFTWalletsByFilterRequest) returns (ListNFTWalletsResponse) {}
   rpc UpdateWalletName(UpdateWalletNameRequest) returns (google.protobuf.Empty) {}
   rpc UpdateWalletValidation(UpdateWalletValidationRequest) returns (google.protobuf.Empty) {}
   rpc UpdateWalletPolicy(UpdateWalletPolicyRequest) returns (google.protobuf.Empty) {}
@@ -173,6 +174,9 @@ service GlobalAPI {
 
   // StakingValidators
   rpc ListStakingValidatorsByFilter(ListStakingValidatorsByFilterRequest) returns (ListStakingValidatorsResponse) {}
+
+  // NFT
+  rpc ListNFTsByFilter(ListNFTsByFilterRequest) returns (ListNFTsResponse) {}
 }
 
 // =============================================================================
@@ -394,6 +398,46 @@ message ListStakingWalletsByFilterRequest {
 
 message ListStakingWalletsResponse {
   repeated StakingWallet staking_wallets = 1;
+  string next_page_token = 2;
+}
+
+message ListNFTWalletsByFilterRequest {
+  ListFilterType filter_type = 1 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  // optional
+  string wallet_id = 2;
+
+  // optional
+  string wallet_name = 3 [(validate.rules).string = {
+    max_len: 40
+  }];
+
+  // optional
+  string address = 4;
+
+  // optional
+  gincoinc.global.v1.Coin coin = 5 [(validate.rules).enum = {
+    defined_only: true
+  }];
+
+  repeated WalletType wallet_type = 6;
+  repeated WalletState wallet_state = 7;
+
+  // optional
+  uint32 page_size = 8 [(validate.rules).uint32.lte = 100];
+
+  // optional
+  string page_token = 9 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
+}
+
+message ListNFTWalletsResponse {
+  repeated NFTWallet nft_wallets = 1;
   string next_page_token = 2;
 }
 
@@ -873,6 +917,7 @@ message CreateTransactionRequest {
   adamant.global.v1.CreateTransactionSolanaSpecific solana_specific = 17;
   adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19;
   adamant.global.v1.CreateTransactionAvalancheSpecific avalanche_specific = 20;
+  adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22;
   adamant.global.v1.UtxoSpecific utxo_specific = 18;
   optional string pre_transaction_id = 21 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
@@ -1647,6 +1692,8 @@ message ListAuditLogsRequest {
   string page_token = 4 [(validate.rules).string = {
     pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
   }];
+  optional google.protobuf.Timestamp start_event_time = 5;
+  optional google.protobuf.Timestamp end_event_time = 6;
 }
 
 message ListAuditLogsResponse {
@@ -2424,6 +2471,32 @@ message ListStakingValidatorsByFilterRequest {
 
 message ListStakingValidatorsResponse {
   repeated StakingValidator staking_validators = 1;
+  string next_page_token = 2;
+}
+
+// -----------------------------------------------------------------------------
+// NFT
+// -----------------------------------------------------------------------------
+
+message ListNFTsByFilterRequest {
+  ListFilterType filter_type = 1 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+
+  string wallet_id = 2;
+
+  optional string token_id = 3;
+
+  optional string token_name = 4;
+
+  optional string metadata = 5;
+}
+
+message ListNFTsResponse {
+  repeated NFT nfts = 1;
   string next_page_token = 2;
 }
 

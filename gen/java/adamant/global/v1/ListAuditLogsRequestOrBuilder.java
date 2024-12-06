@@ -47,4 +47,34 @@ public interface ListAuditLogsRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getPageTokenBytes();
+
+  /**
+   * <code>optional .google.protobuf.Timestamp start_event_time = 5 [json_name = "startEventTime"];</code>
+   * @return Whether the startEventTime field is set.
+   */
+  boolean hasStartEventTime();
+  /**
+   * <code>optional .google.protobuf.Timestamp start_event_time = 5 [json_name = "startEventTime"];</code>
+   * @return The startEventTime.
+   */
+  com.google.protobuf.Timestamp getStartEventTime();
+  /**
+   * <code>optional .google.protobuf.Timestamp start_event_time = 5 [json_name = "startEventTime"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getStartEventTimeOrBuilder();
+
+  /**
+   * <code>optional .google.protobuf.Timestamp end_event_time = 6 [json_name = "endEventTime"];</code>
+   * @return Whether the endEventTime field is set.
+   */
+  boolean hasEndEventTime();
+  /**
+   * <code>optional .google.protobuf.Timestamp end_event_time = 6 [json_name = "endEventTime"];</code>
+   * @return The endEventTime.
+   */
+  com.google.protobuf.Timestamp getEndEventTime();
+  /**
+   * <code>optional .google.protobuf.Timestamp end_event_time = 6 [json_name = "endEventTime"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getEndEventTimeOrBuilder();
 }

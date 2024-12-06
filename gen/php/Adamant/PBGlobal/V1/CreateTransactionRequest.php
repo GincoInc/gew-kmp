@@ -90,6 +90,10 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      */
     protected $avalanche_specific = null;
     /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+     */
+    protected $nft_specific = null;
+    /**
      * Generated from protobuf field <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
      */
     protected $utxo_specific = null;
@@ -123,6 +127,7 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CreateTransactionSolanaSpecific $solana_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionAptosSpecific $aptos_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionAvalancheSpecific $avalanche_specific
+     *     @type \Adamant\PBGlobal\V1\CreateTransactionNFTSpecific $nft_specific
      *     @type \Adamant\PBGlobal\V1\UtxoSpecific $utxo_specific
      *     @type string $pre_transaction_id
      * }
@@ -666,6 +671,38 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionAvalancheSpecific::class);
         $this->avalanche_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CreateTransactionNFTSpecific|null
+     */
+    public function getNftSpecific()
+    {
+        return $this->nft_specific;
+    }
+
+    public function hasNftSpecific()
+    {
+        return isset($this->nft_specific);
+    }
+
+    public function clearNftSpecific()
+    {
+        unset($this->nft_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CreateTransactionNFTSpecific $var
+     * @return $this
+     */
+    public function setNftSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionNFTSpecific::class);
+        $this->nft_specific = $var;
 
         return $this;
     }

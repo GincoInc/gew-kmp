@@ -149,6 +149,20 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\ListNFTWalletsByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListNFTWalletsByFilter(\Adamant\Global\V1\ListNFTWalletsByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ListNFTWalletsByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListNFTWalletsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\UpdateWalletNameRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -1637,6 +1651,21 @@ class GlobalAPIClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ListStakingValidatorsByFilter',
         $argument,
         ['\Adamant\Global\V1\ListStakingValidatorsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * NFT
+     * @param \Adamant\Global\V1\ListNFTsByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListNFTsByFilter(\Adamant\Global\V1\ListNFTsByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ListNFTsByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListNFTsResponse', 'decode'],
         $metadata, $options);
     }
 

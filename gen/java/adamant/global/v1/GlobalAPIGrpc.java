@@ -294,6 +294,37 @@ public final class GlobalAPIGrpc {
     return getListStakingWalletsByFilterMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListNFTWalletsByFilterRequest,
+      adamant.global.v1.ListNFTWalletsResponse> getListNFTWalletsByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListNFTWalletsByFilter",
+      requestType = adamant.global.v1.ListNFTWalletsByFilterRequest.class,
+      responseType = adamant.global.v1.ListNFTWalletsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListNFTWalletsByFilterRequest,
+      adamant.global.v1.ListNFTWalletsResponse> getListNFTWalletsByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListNFTWalletsByFilterRequest, adamant.global.v1.ListNFTWalletsResponse> getListNFTWalletsByFilterMethod;
+    if ((getListNFTWalletsByFilterMethod = GlobalAPIGrpc.getListNFTWalletsByFilterMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getListNFTWalletsByFilterMethod = GlobalAPIGrpc.getListNFTWalletsByFilterMethod) == null) {
+          GlobalAPIGrpc.getListNFTWalletsByFilterMethod = getListNFTWalletsByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListNFTWalletsByFilterRequest, adamant.global.v1.ListNFTWalletsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListNFTWalletsByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListNFTWalletsByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListNFTWalletsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ListNFTWalletsByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListNFTWalletsByFilterMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.UpdateWalletNameRequest,
       com.google.protobuf.Empty> getUpdateWalletNameMethod;
 
@@ -3549,6 +3580,37 @@ public final class GlobalAPIGrpc {
     return getListStakingValidatorsByFilterMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListNFTsByFilterRequest,
+      adamant.global.v1.ListNFTsResponse> getListNFTsByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListNFTsByFilter",
+      requestType = adamant.global.v1.ListNFTsByFilterRequest.class,
+      responseType = adamant.global.v1.ListNFTsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListNFTsByFilterRequest,
+      adamant.global.v1.ListNFTsResponse> getListNFTsByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListNFTsByFilterRequest, adamant.global.v1.ListNFTsResponse> getListNFTsByFilterMethod;
+    if ((getListNFTsByFilterMethod = GlobalAPIGrpc.getListNFTsByFilterMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getListNFTsByFilterMethod = GlobalAPIGrpc.getListNFTsByFilterMethod) == null) {
+          GlobalAPIGrpc.getListNFTsByFilterMethod = getListNFTsByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListNFTsByFilterRequest, adamant.global.v1.ListNFTsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListNFTsByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListNFTsByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListNFTsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ListNFTsByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListNFTsByFilterMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -3664,6 +3726,13 @@ public final class GlobalAPIGrpc {
     default void listStakingWalletsByFilter(adamant.global.v1.ListStakingWalletsByFilterRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingWalletsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListStakingWalletsByFilterMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void listNFTWalletsByFilter(adamant.global.v1.ListNFTWalletsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListNFTWalletsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListNFTWalletsByFilterMethod(), responseObserver);
     }
 
     /**
@@ -4460,6 +4529,16 @@ public final class GlobalAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingValidatorsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListStakingValidatorsByFilterMethod(), responseObserver);
     }
+
+    /**
+     * <pre>
+     * NFT
+     * </pre>
+     */
+    default void listNFTsByFilter(adamant.global.v1.ListNFTsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListNFTsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListNFTsByFilterMethod(), responseObserver);
+    }
   }
 
   /**
@@ -4565,6 +4644,14 @@ public final class GlobalAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingWalletsResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListStakingWalletsByFilterMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listNFTWalletsByFilter(adamant.global.v1.ListNFTWalletsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListNFTWalletsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListNFTWalletsByFilterMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -5466,6 +5553,17 @@ public final class GlobalAPIGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListStakingValidatorsByFilterMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * NFT
+     * </pre>
+     */
+    public void listNFTsByFilter(adamant.global.v1.ListNFTsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListNFTsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListNFTsByFilterMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -5551,6 +5649,13 @@ public final class GlobalAPIGrpc {
     public adamant.global.v1.ListStakingWalletsResponse listStakingWalletsByFilter(adamant.global.v1.ListStakingWalletsByFilterRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListStakingWalletsByFilterMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.ListNFTWalletsResponse listNFTWalletsByFilter(adamant.global.v1.ListNFTWalletsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListNFTWalletsByFilterMethod(), getCallOptions(), request);
     }
 
     /**
@@ -6347,6 +6452,16 @@ public final class GlobalAPIGrpc {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListStakingValidatorsByFilterMethod(), getCallOptions(), request);
     }
+
+    /**
+     * <pre>
+     * NFT
+     * </pre>
+     */
+    public adamant.global.v1.ListNFTsResponse listNFTsByFilter(adamant.global.v1.ListNFTsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListNFTsByFilterMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -6441,6 +6556,14 @@ public final class GlobalAPIGrpc {
         adamant.global.v1.ListStakingWalletsByFilterRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getListStakingWalletsByFilterMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListNFTWalletsResponse> listNFTWalletsByFilter(
+        adamant.global.v1.ListNFTWalletsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListNFTWalletsByFilterMethod(), getCallOptions()), request);
     }
 
     /**
@@ -7342,6 +7465,17 @@ public final class GlobalAPIGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getListStakingValidatorsByFilterMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * NFT
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListNFTsResponse> listNFTsByFilter(
+        adamant.global.v1.ListNFTsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListNFTsByFilterMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_WALLET = 0;
@@ -7353,111 +7487,113 @@ public final class GlobalAPIGrpc {
   private static final int METHODID_LIST_WALLETS_BY_FILTER = 6;
   private static final int METHODID_LIST_BASE_WALLETS = 7;
   private static final int METHODID_LIST_STAKING_WALLETS_BY_FILTER = 8;
-  private static final int METHODID_UPDATE_WALLET_NAME = 9;
-  private static final int METHODID_UPDATE_WALLET_VALIDATION = 10;
-  private static final int METHODID_UPDATE_WALLET_POLICY = 11;
-  private static final int METHODID_REVIEW_WALLET_PROPOSAL = 12;
-  private static final int METHODID_FLUSH_BALANCE = 13;
-  private static final int METHODID_CREATE_WALLET_GROUP = 14;
-  private static final int METHODID_UPDATE_WALLET_GROUP_NAME = 15;
-  private static final int METHODID_UPDATE_WALLET_GROUP = 16;
-  private static final int METHODID_GET_WALLET_GROUP = 17;
-  private static final int METHODID_LIST_WALLET_GROUPS = 18;
-  private static final int METHODID_UPDATE_DESTINATION_WALLET_ID = 19;
-  private static final int METHODID_GET_COSMOS_BALANCE = 20;
-  private static final int METHODID_LIST_COSMOS_DELEGATE_HISTORIES = 21;
-  private static final int METHODID_ENABLE_UTXO = 22;
-  private static final int METHODID_DISABLE_UTXO = 23;
-  private static final int METHODID_UPDATE_WALLET_IS_STAKING_AVAILABLE = 24;
-  private static final int METHODID_REFRESH_STAKING_WALLET_CLAIMABLE_REWARD = 25;
-  private static final int METHODID_APPROVE_WALLET = 26;
-  private static final int METHODID_APPROVE_TRANSACTION = 27;
-  private static final int METHODID_CREATE_ADDRESS = 28;
-  private static final int METHODID_GET_ADDRESS = 29;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 30;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 31;
-  private static final int METHODID_GET_ADDRESS_BY_INDEX = 32;
-  private static final int METHODID_LIST_ADDRESSES = 33;
-  private static final int METHODID_LIST_ADDRESSES_WITH_BALANCE = 34;
-  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 35;
-  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 36;
-  private static final int METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES = 37;
-  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 38;
-  private static final int METHODID_LIST_IOSTCHILD_ACCOUNTS = 39;
-  private static final int METHODID_IMPORT_ADDRESS = 40;
-  private static final int METHODID_LIST_CALLERS = 41;
-  private static final int METHODID_LIST_FEE_DEPOSITS = 42;
-  private static final int METHODID_REGISTER_KEY = 43;
-  private static final int METHODID_GET_SIGNER_PUB_KEY = 44;
-  private static final int METHODID_CREATE_TRANSACTION = 45;
-  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 46;
-  private static final int METHODID_CREATE_CONTRACT_CREATION_TRANSACTION = 47;
-  private static final int METHODID_SIGN_TRANSACTION = 48;
-  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 49;
-  private static final int METHODID_SEND_TRANSACTION = 50;
-  private static final int METHODID_RESEND_TRANSACTION = 51;
-  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 52;
-  private static final int METHODID_CANCEL_TRANSACTION = 53;
-  private static final int METHODID_REPLACE_TRANSACTION = 54;
-  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 55;
-  private static final int METHODID_GET_TRANSACTION = 56;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 57;
-  private static final int METHODID_LIST_TRANSACTIONS = 58;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 59;
-  private static final int METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER = 60;
-  private static final int METHODID_GET_SIGN_INFO = 61;
-  private static final int METHODID_LIST_SIGN_INFO = 62;
-  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 63;
-  private static final int METHODID_LIST_TRANSFERS = 64;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 65;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 66;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 67;
-  private static final int METHODID_SET_RATES = 68;
-  private static final int METHODID_SET_DEFAULT_RATES = 69;
-  private static final int METHODID_CREATE_LABELED_ADDRESS = 70;
-  private static final int METHODID_GET_LABELED_ADDRESS = 71;
-  private static final int METHODID_LIST_LABELED_ADDRESSES = 72;
-  private static final int METHODID_LIST_LABELED_ADDRESSES_BY_FILTER = 73;
-  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 74;
-  private static final int METHODID_UPDATE_LABELED_ADDRESS = 75;
-  private static final int METHODID_DELETE_ADDRESS = 76;
-  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 77;
-  private static final int METHODID_CREATE_WHITELIST = 78;
-  private static final int METHODID_GET_WHITELIST = 79;
-  private static final int METHODID_LIST_WHITELISTS = 80;
-  private static final int METHODID_LIST_WHITELISTS_BY_FILTER = 81;
-  private static final int METHODID_IS_DELETABLE_WHITELIST = 82;
-  private static final int METHODID_UPDATE_WHITELIST = 83;
-  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 84;
-  private static final int METHODID_DELETE_WHITELIST = 85;
-  private static final int METHODID_CREATE_TRANSFER_LIMIT = 86;
-  private static final int METHODID_GET_TRANSFER_LIMIT = 87;
-  private static final int METHODID_LIST_TRANSFER_LIMITS = 88;
-  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 89;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 90;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 91;
-  private static final int METHODID_DELETE_TRANSFER_LIMIT = 92;
-  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 93;
-  private static final int METHODID_CREATE_POLICY = 94;
-  private static final int METHODID_GET_POLICY = 95;
-  private static final int METHODID_LIST_POLICIES = 96;
-  private static final int METHODID_LIST_POLICIES_BY_FILTER = 97;
-  private static final int METHODID_IS_DELETABLE_POLICY = 98;
-  private static final int METHODID_UPDATE_POLICY = 99;
-  private static final int METHODID_DELETE_POLICY = 100;
-  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 101;
-  private static final int METHODID_GET_SPENDABLE_BALANCE = 102;
-  private static final int METHODID_GET_TOTAL_BALANCE = 103;
-  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 104;
-  private static final int METHODID_CALCULATE_FEE = 105;
-  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 106;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 107;
-  private static final int METHODID_VALIDATE_ADDRESS = 108;
-  private static final int METHODID_LIST_AUDIT_LOGS = 109;
-  private static final int METHODID_LIST_FORWARDING_THRESHOLDS = 110;
-  private static final int METHODID_UPSERT_FORWARDING_THRESHOLD = 111;
-  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 112;
-  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 113;
+  private static final int METHODID_LIST_NFTWALLETS_BY_FILTER = 9;
+  private static final int METHODID_UPDATE_WALLET_NAME = 10;
+  private static final int METHODID_UPDATE_WALLET_VALIDATION = 11;
+  private static final int METHODID_UPDATE_WALLET_POLICY = 12;
+  private static final int METHODID_REVIEW_WALLET_PROPOSAL = 13;
+  private static final int METHODID_FLUSH_BALANCE = 14;
+  private static final int METHODID_CREATE_WALLET_GROUP = 15;
+  private static final int METHODID_UPDATE_WALLET_GROUP_NAME = 16;
+  private static final int METHODID_UPDATE_WALLET_GROUP = 17;
+  private static final int METHODID_GET_WALLET_GROUP = 18;
+  private static final int METHODID_LIST_WALLET_GROUPS = 19;
+  private static final int METHODID_UPDATE_DESTINATION_WALLET_ID = 20;
+  private static final int METHODID_GET_COSMOS_BALANCE = 21;
+  private static final int METHODID_LIST_COSMOS_DELEGATE_HISTORIES = 22;
+  private static final int METHODID_ENABLE_UTXO = 23;
+  private static final int METHODID_DISABLE_UTXO = 24;
+  private static final int METHODID_UPDATE_WALLET_IS_STAKING_AVAILABLE = 25;
+  private static final int METHODID_REFRESH_STAKING_WALLET_CLAIMABLE_REWARD = 26;
+  private static final int METHODID_APPROVE_WALLET = 27;
+  private static final int METHODID_APPROVE_TRANSACTION = 28;
+  private static final int METHODID_CREATE_ADDRESS = 29;
+  private static final int METHODID_GET_ADDRESS = 30;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 31;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 32;
+  private static final int METHODID_GET_ADDRESS_BY_INDEX = 33;
+  private static final int METHODID_LIST_ADDRESSES = 34;
+  private static final int METHODID_LIST_ADDRESSES_WITH_BALANCE = 35;
+  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 36;
+  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 37;
+  private static final int METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES = 38;
+  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 39;
+  private static final int METHODID_LIST_IOSTCHILD_ACCOUNTS = 40;
+  private static final int METHODID_IMPORT_ADDRESS = 41;
+  private static final int METHODID_LIST_CALLERS = 42;
+  private static final int METHODID_LIST_FEE_DEPOSITS = 43;
+  private static final int METHODID_REGISTER_KEY = 44;
+  private static final int METHODID_GET_SIGNER_PUB_KEY = 45;
+  private static final int METHODID_CREATE_TRANSACTION = 46;
+  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 47;
+  private static final int METHODID_CREATE_CONTRACT_CREATION_TRANSACTION = 48;
+  private static final int METHODID_SIGN_TRANSACTION = 49;
+  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 50;
+  private static final int METHODID_SEND_TRANSACTION = 51;
+  private static final int METHODID_RESEND_TRANSACTION = 52;
+  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 53;
+  private static final int METHODID_CANCEL_TRANSACTION = 54;
+  private static final int METHODID_REPLACE_TRANSACTION = 55;
+  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 56;
+  private static final int METHODID_GET_TRANSACTION = 57;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 58;
+  private static final int METHODID_LIST_TRANSACTIONS = 59;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 60;
+  private static final int METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER = 61;
+  private static final int METHODID_GET_SIGN_INFO = 62;
+  private static final int METHODID_LIST_SIGN_INFO = 63;
+  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 64;
+  private static final int METHODID_LIST_TRANSFERS = 65;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 66;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 67;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 68;
+  private static final int METHODID_SET_RATES = 69;
+  private static final int METHODID_SET_DEFAULT_RATES = 70;
+  private static final int METHODID_CREATE_LABELED_ADDRESS = 71;
+  private static final int METHODID_GET_LABELED_ADDRESS = 72;
+  private static final int METHODID_LIST_LABELED_ADDRESSES = 73;
+  private static final int METHODID_LIST_LABELED_ADDRESSES_BY_FILTER = 74;
+  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 75;
+  private static final int METHODID_UPDATE_LABELED_ADDRESS = 76;
+  private static final int METHODID_DELETE_ADDRESS = 77;
+  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 78;
+  private static final int METHODID_CREATE_WHITELIST = 79;
+  private static final int METHODID_GET_WHITELIST = 80;
+  private static final int METHODID_LIST_WHITELISTS = 81;
+  private static final int METHODID_LIST_WHITELISTS_BY_FILTER = 82;
+  private static final int METHODID_IS_DELETABLE_WHITELIST = 83;
+  private static final int METHODID_UPDATE_WHITELIST = 84;
+  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 85;
+  private static final int METHODID_DELETE_WHITELIST = 86;
+  private static final int METHODID_CREATE_TRANSFER_LIMIT = 87;
+  private static final int METHODID_GET_TRANSFER_LIMIT = 88;
+  private static final int METHODID_LIST_TRANSFER_LIMITS = 89;
+  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 90;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 91;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 92;
+  private static final int METHODID_DELETE_TRANSFER_LIMIT = 93;
+  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 94;
+  private static final int METHODID_CREATE_POLICY = 95;
+  private static final int METHODID_GET_POLICY = 96;
+  private static final int METHODID_LIST_POLICIES = 97;
+  private static final int METHODID_LIST_POLICIES_BY_FILTER = 98;
+  private static final int METHODID_IS_DELETABLE_POLICY = 99;
+  private static final int METHODID_UPDATE_POLICY = 100;
+  private static final int METHODID_DELETE_POLICY = 101;
+  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 102;
+  private static final int METHODID_GET_SPENDABLE_BALANCE = 103;
+  private static final int METHODID_GET_TOTAL_BALANCE = 104;
+  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 105;
+  private static final int METHODID_CALCULATE_FEE = 106;
+  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 107;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 108;
+  private static final int METHODID_VALIDATE_ADDRESS = 109;
+  private static final int METHODID_LIST_AUDIT_LOGS = 110;
+  private static final int METHODID_LIST_FORWARDING_THRESHOLDS = 111;
+  private static final int METHODID_UPSERT_FORWARDING_THRESHOLD = 112;
+  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 113;
+  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 114;
+  private static final int METHODID_LIST_NFTS_BY_FILTER = 115;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -7511,6 +7647,10 @@ public final class GlobalAPIGrpc {
         case METHODID_LIST_STAKING_WALLETS_BY_FILTER:
           serviceImpl.listStakingWalletsByFilter((adamant.global.v1.ListStakingWalletsByFilterRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingWalletsResponse>) responseObserver);
+          break;
+        case METHODID_LIST_NFTWALLETS_BY_FILTER:
+          serviceImpl.listNFTWalletsByFilter((adamant.global.v1.ListNFTWalletsByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListNFTWalletsResponse>) responseObserver);
           break;
         case METHODID_UPDATE_WALLET_NAME:
           serviceImpl.updateWalletName((adamant.global.v1.UpdateWalletNameRequest) request,
@@ -7932,6 +8072,10 @@ public final class GlobalAPIGrpc {
           serviceImpl.listStakingValidatorsByFilter((adamant.global.v1.ListStakingValidatorsByFilterRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingValidatorsResponse>) responseObserver);
           break;
+        case METHODID_LIST_NFTS_BY_FILTER:
+          serviceImpl.listNFTsByFilter((adamant.global.v1.ListNFTsByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListNFTsResponse>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -8013,6 +8157,13 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.ListStakingWalletsByFilterRequest,
               adamant.global.v1.ListStakingWalletsResponse>(
                 service, METHODID_LIST_STAKING_WALLETS_BY_FILTER)))
+        .addMethod(
+          getListNFTWalletsByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListNFTWalletsByFilterRequest,
+              adamant.global.v1.ListNFTWalletsResponse>(
+                service, METHODID_LIST_NFTWALLETS_BY_FILTER)))
         .addMethod(
           getUpdateWalletNameMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -8748,6 +8899,13 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.ListStakingValidatorsByFilterRequest,
               adamant.global.v1.ListStakingValidatorsResponse>(
                 service, METHODID_LIST_STAKING_VALIDATORS_BY_FILTER)))
+        .addMethod(
+          getListNFTsByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListNFTsByFilterRequest,
+              adamant.global.v1.ListNFTsResponse>(
+                service, METHODID_LIST_NFTS_BY_FILTER)))
         .build();
   }
 
@@ -8805,6 +8963,7 @@ public final class GlobalAPIGrpc {
               .addMethod(getListWalletsByFilterMethod())
               .addMethod(getListBaseWalletsMethod())
               .addMethod(getListStakingWalletsByFilterMethod())
+              .addMethod(getListNFTWalletsByFilterMethod())
               .addMethod(getUpdateWalletNameMethod())
               .addMethod(getUpdateWalletValidationMethod())
               .addMethod(getUpdateWalletPolicyMethod())
@@ -8910,6 +9069,7 @@ public final class GlobalAPIGrpc {
               .addMethod(getUpsertForwardingThresholdMethod())
               .addMethod(getListStakingHistoriesByFilterMethod())
               .addMethod(getListStakingValidatorsByFilterMethod())
+              .addMethod(getListNFTsByFilterMethod())
               .build();
         }
       }

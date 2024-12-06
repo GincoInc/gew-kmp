@@ -29,6 +29,14 @@ class ListAuditLogsRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string page_token = 4 [json_name = "pageToken", (.validate.rules) = {</code>
      */
     protected $page_token = '';
+    /**
+     * Generated from protobuf field <code>optional .google.protobuf.Timestamp start_event_time = 5 [json_name = "startEventTime"];</code>
+     */
+    protected $start_event_time = null;
+    /**
+     * Generated from protobuf field <code>optional .google.protobuf.Timestamp end_event_time = 6 [json_name = "endEventTime"];</code>
+     */
+    protected $end_event_time = null;
 
     /**
      * Constructor.
@@ -40,6 +48,8 @@ class ListAuditLogsRequest extends \Google\Protobuf\Internal\Message
      *     @type string $account_id
      *     @type int $page_size
      *     @type string $page_token
+     *     @type \Google\Protobuf\Timestamp $start_event_time
+     *     @type \Google\Protobuf\Timestamp $end_event_time
      * }
      */
     public function __construct($data = NULL) {
@@ -131,6 +141,70 @@ class ListAuditLogsRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->page_token = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .google.protobuf.Timestamp start_event_time = 5 [json_name = "startEventTime"];</code>
+     * @return \Google\Protobuf\Timestamp|null
+     */
+    public function getStartEventTime()
+    {
+        return $this->start_event_time;
+    }
+
+    public function hasStartEventTime()
+    {
+        return isset($this->start_event_time);
+    }
+
+    public function clearStartEventTime()
+    {
+        unset($this->start_event_time);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .google.protobuf.Timestamp start_event_time = 5 [json_name = "startEventTime"];</code>
+     * @param \Google\Protobuf\Timestamp $var
+     * @return $this
+     */
+    public function setStartEventTime($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
+        $this->start_event_time = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .google.protobuf.Timestamp end_event_time = 6 [json_name = "endEventTime"];</code>
+     * @return \Google\Protobuf\Timestamp|null
+     */
+    public function getEndEventTime()
+    {
+        return $this->end_event_time;
+    }
+
+    public function hasEndEventTime()
+    {
+        return isset($this->end_event_time);
+    }
+
+    public function clearEndEventTime()
+    {
+        unset($this->end_event_time);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .google.protobuf.Timestamp end_event_time = 6 [json_name = "endEventTime"];</code>
+     * @param \Google\Protobuf\Timestamp $var
+     * @return $this
+     */
+    public function setEndEventTime($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
+        $this->end_event_time = $var;
 
         return $this;
     }

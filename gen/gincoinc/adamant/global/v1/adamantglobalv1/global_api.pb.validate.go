@@ -2411,6 +2411,323 @@ var _ interface {
 	ErrorName() string
 } = ListStakingWalletsResponseValidationError{}
 
+// Validate checks the field values on ListNFTWalletsByFilterRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ListNFTWalletsByFilterRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListNFTWalletsByFilterRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// ListNFTWalletsByFilterRequestMultiError, or nil if none found.
+func (m *ListNFTWalletsByFilterRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListNFTWalletsByFilterRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := _ListNFTWalletsByFilterRequest_FilterType_NotInLookup[m.GetFilterType()]; ok {
+		err := ListNFTWalletsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must not be in list [0]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		err := ListNFTWalletsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for WalletId
+
+	if utf8.RuneCountInString(m.GetWalletName()) > 40 {
+		err := ListNFTWalletsByFilterRequestValidationError{
+			field:  "WalletName",
+			reason: "value length must be at most 40 runes",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for Address
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		err := ListNFTWalletsByFilterRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetPageSize() > 100 {
+		err := ListNFTWalletsByFilterRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 100",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ListNFTWalletsByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		err := ListNFTWalletsByFilterRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return ListNFTWalletsByFilterRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListNFTWalletsByFilterRequestMultiError is an error wrapping multiple
+// validation errors returned by ListNFTWalletsByFilterRequest.ValidateAll()
+// if the designated constraints aren't met.
+type ListNFTWalletsByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListNFTWalletsByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListNFTWalletsByFilterRequestMultiError) AllErrors() []error { return m }
+
+// ListNFTWalletsByFilterRequestValidationError is the validation error
+// returned by ListNFTWalletsByFilterRequest.Validate if the designated
+// constraints aren't met.
+type ListNFTWalletsByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListNFTWalletsByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListNFTWalletsByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListNFTWalletsByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListNFTWalletsByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListNFTWalletsByFilterRequestValidationError) ErrorName() string {
+	return "ListNFTWalletsByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListNFTWalletsByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListNFTWalletsByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListNFTWalletsByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListNFTWalletsByFilterRequestValidationError{}
+
+var _ListNFTWalletsByFilterRequest_FilterType_NotInLookup = map[ListFilterType]struct{}{
+	0: {},
+}
+
+var _ListNFTWalletsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListNFTWalletsResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ListNFTWalletsResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListNFTWalletsResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ListNFTWalletsResponseMultiError, or nil if none found.
+func (m *ListNFTWalletsResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListNFTWalletsResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetNftWallets() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListNFTWalletsResponseValidationError{
+						field:  fmt.Sprintf("NftWallets[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListNFTWalletsResponseValidationError{
+						field:  fmt.Sprintf("NftWallets[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListNFTWalletsResponseValidationError{
+					field:  fmt.Sprintf("NftWallets[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	if len(errors) > 0 {
+		return ListNFTWalletsResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListNFTWalletsResponseMultiError is an error wrapping multiple validation
+// errors returned by ListNFTWalletsResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ListNFTWalletsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListNFTWalletsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListNFTWalletsResponseMultiError) AllErrors() []error { return m }
+
+// ListNFTWalletsResponseValidationError is the validation error returned by
+// ListNFTWalletsResponse.Validate if the designated constraints aren't met.
+type ListNFTWalletsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListNFTWalletsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListNFTWalletsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListNFTWalletsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListNFTWalletsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListNFTWalletsResponseValidationError) ErrorName() string {
+	return "ListNFTWalletsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListNFTWalletsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListNFTWalletsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListNFTWalletsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListNFTWalletsResponseValidationError{}
+
 // Validate checks the field values on UpdateWalletNameRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -10429,6 +10746,35 @@ func (m *CreateTransactionRequest) validate(all bool) error {
 		if err := v.Validate(); err != nil {
 			return CreateTransactionRequestValidationError{
 				field:  "AvalancheSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetNftSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "NftSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "NftSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetNftSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateTransactionRequestValidationError{
+				field:  "NftSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -21782,6 +22128,72 @@ func (m *ListAuditLogsRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if m.StartEventTime != nil {
+
+		if all {
+			switch v := interface{}(m.GetStartEventTime()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListAuditLogsRequestValidationError{
+						field:  "StartEventTime",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListAuditLogsRequestValidationError{
+						field:  "StartEventTime",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetStartEventTime()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListAuditLogsRequestValidationError{
+					field:  "StartEventTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if m.EndEventTime != nil {
+
+		if all {
+			switch v := interface{}(m.GetEndEventTime()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListAuditLogsRequestValidationError{
+						field:  "EndEventTime",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListAuditLogsRequestValidationError{
+						field:  "EndEventTime",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetEndEventTime()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListAuditLogsRequestValidationError{
+					field:  "EndEventTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
 	if len(errors) > 0 {
 		return ListAuditLogsRequestMultiError(errors)
 	}
@@ -32706,6 +33118,284 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListStakingValidatorsResponseValidationError{}
+
+// Validate checks the field values on ListNFTsByFilterRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ListNFTsByFilterRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListNFTsByFilterRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ListNFTsByFilterRequestMultiError, or nil if none found.
+func (m *ListNFTsByFilterRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListNFTsByFilterRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := _ListNFTsByFilterRequest_FilterType_NotInLookup[m.GetFilterType()]; ok {
+		err := ListNFTsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must not be in list [0]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		err := ListNFTsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for WalletId
+
+	if m.TokenId != nil {
+		// no validation rules for TokenId
+	}
+
+	if m.TokenName != nil {
+		// no validation rules for TokenName
+	}
+
+	if m.Metadata != nil {
+		// no validation rules for Metadata
+	}
+
+	if len(errors) > 0 {
+		return ListNFTsByFilterRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListNFTsByFilterRequestMultiError is an error wrapping multiple validation
+// errors returned by ListNFTsByFilterRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ListNFTsByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListNFTsByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListNFTsByFilterRequestMultiError) AllErrors() []error { return m }
+
+// ListNFTsByFilterRequestValidationError is the validation error returned by
+// ListNFTsByFilterRequest.Validate if the designated constraints aren't met.
+type ListNFTsByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListNFTsByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListNFTsByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListNFTsByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListNFTsByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListNFTsByFilterRequestValidationError) ErrorName() string {
+	return "ListNFTsByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListNFTsByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListNFTsByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListNFTsByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListNFTsByFilterRequestValidationError{}
+
+var _ListNFTsByFilterRequest_FilterType_NotInLookup = map[ListFilterType]struct{}{
+	0: {},
+}
+
+// Validate checks the field values on ListNFTsResponse with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *ListNFTsResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListNFTsResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ListNFTsResponseMultiError, or nil if none found.
+func (m *ListNFTsResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListNFTsResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetNfts() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListNFTsResponseValidationError{
+						field:  fmt.Sprintf("Nfts[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListNFTsResponseValidationError{
+						field:  fmt.Sprintf("Nfts[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListNFTsResponseValidationError{
+					field:  fmt.Sprintf("Nfts[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	if len(errors) > 0 {
+		return ListNFTsResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListNFTsResponseMultiError is an error wrapping multiple validation errors
+// returned by ListNFTsResponse.ValidateAll() if the designated constraints
+// aren't met.
+type ListNFTsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListNFTsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListNFTsResponseMultiError) AllErrors() []error { return m }
+
+// ListNFTsResponseValidationError is the validation error returned by
+// ListNFTsResponse.Validate if the designated constraints aren't met.
+type ListNFTsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListNFTsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListNFTsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListNFTsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListNFTsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListNFTsResponseValidationError) ErrorName() string { return "ListNFTsResponseValidationError" }
+
+// Error satisfies the builtin error interface
+func (e ListNFTsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListNFTsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListNFTsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListNFTsResponseValidationError{}
 
 // Validate checks the field values on UpdateMailSettingsRequest with the rules
 // defined in the proto definition for this message. If any rules are
