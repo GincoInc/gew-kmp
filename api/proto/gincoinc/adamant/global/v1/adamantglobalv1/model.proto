@@ -1277,6 +1277,7 @@ message NFT {
   string token_id = 4;
   string token_uri = 5;
   string token_data = 6;
+  string token_json_metadata = 7;
 }
 
 enum AssetType {
