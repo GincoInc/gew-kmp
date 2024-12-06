@@ -99,6 +99,25 @@ message StakingWallet {
   google.protobuf.Timestamp update_time = 18; // the time at which the wallet was updated
 }
 
+// The NFT wallet model
+message NFTWallet {
+  string owner_id = 1; // organization id
+  string wallet_id = 2; // id
+  string name = 3; // name
+  gincoinc.global.v1.Coin coin = 4; // The type of asset
+  WalletType wallet_type = 5; // type
+  gincoinc.global.v1.AddressType address_type = 6; // type of address
+  WalletState state = 7; // state
+  string address = 8; // address
+  repeated NFTOwnership nft_ownerships = 9; // nft ownership
+  google.protobuf.Timestamp create_time = 10; // the time at which the wallet was created
+  google.protobuf.Timestamp update_time = 11; // the time at which the wallet was updated
+}
+
+message NFTOwnership {
+  gincoinc.global.v1.Coin coin = 1;
+}
+
 // The model of proposal to update wallet information
 message WalletProposal {
   adamant.global.v1.WalletProposalType proposal_type = 7; // The type of the proposal
@@ -263,6 +282,7 @@ message Transaction {
   AptosSpecific aptos_specific = 49; // The Flare specific fields
   DogecoinSpecific dogecoin_specific = 50; // THe Doge specific fields
   AvalanchePlatformChainSpecific avalanche_platform_chain_specific = 51; // The Avalanche Platform Chain specific fields
+  QuorumSpecific quorum_specific = 52; // The Quorum specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -630,6 +650,13 @@ message AvalancheTxOutput {
   repeated string addresses = 8;
 }
 
+// The model of Quorum specific fields of transaction
+message QuorumSpecific {
+  uint64 gas_limit = 1;
+  uint64 nonce = 2;
+  bool is_next_nonce = 3;
+}
+
 // The model of Substrate specific fields of CreateTransaction
 message CreateTransactionSubstrateSpecific {
   string transaction_id = 1;
@@ -707,6 +734,13 @@ message CreateTransactionAvalancheSpecific {
   optional gincoinc.global.v1.AvalancheTxType tx_type = 1;
   optional ImportTxSpecific import_tx_specific = 2;
   optional StakingSpecific staking_specific = 3;
+}
+
+// The model of NFTSpecific fields of CreateTransaction
+message CreateTransactionNFTSpecific {
+  optional gincoinc.global.v1.NFTCallMethod nft_call_method = 1;
+  optional string token_id = 2;
+  optional string metadata_json = 3;
 }
 
 message ImportTxSpecific {
@@ -1233,6 +1267,22 @@ message StakingValidator {
   int64 expiration_time = 10; // expiration time
   google.protobuf.Timestamp create_time = 11; // the time at which the staking validator was created
   google.protobuf.Timestamp update_time = 12; // the time at which the staking validator was updated
+}
+
+// The model of NFT
+message NFT {
+  AssetType asset_type = 1;
+  string name = 2;
+  string symbol = 3;
+  string token_id = 4;
+  string token_uri = 5;
+  string token_data = 6;
+  string token_json_metadata = 7;
+}
+
+enum AssetType {
+  ASSET_TYPE_INVALID = 0;
+  ASSET_TYPE_ERC721 = 1;
 }
 
 // The model of PreTransactionThreshold
