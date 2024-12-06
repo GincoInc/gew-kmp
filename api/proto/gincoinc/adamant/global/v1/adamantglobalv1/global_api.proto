@@ -1692,6 +1692,8 @@ message ListAuditLogsRequest {
   string page_token = 4 [(validate.rules).string = {
     pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
   }];
+  optional google.protobuf.Timestamp start_event_time = 5;
+  optional google.protobuf.Timestamp end_event_time = 6;
 }
 
 message ListAuditLogsResponse {
@@ -2483,36 +2485,14 @@ message ListNFTsByFilterRequest {
       0
     ]
   }];
-  // optional
-  string token_id = 2;
 
-  // optional
-  string wallet_id = 3;
+  string wallet_id = 2;
 
-  // optional
-  string wallet_name = 4 [(validate.rules).string = {
-    max_len: 40
-  }];
+  optional string token_id = 3;
 
-  // optional
-  string address = 5;
+  optional string token_name = 4;
 
-  // optional
-  gincoinc.global.v1.Coin coin = 6 [(validate.rules).enum = {
-    defined_only: true
-  }];
-
-  repeated WalletType wallet_type = 7;
-
-  repeated WalletState wallet_state = 8;
-
-  // optional
-  uint32 page_size = 9 [(validate.rules).uint32.lte = 1000];
-
-  // optional
-  string page_token = 10 [(validate.rules).string = {
-    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
-  }];
+  optional string metadata = 5;
 }
 
 message ListNFTsResponse {
