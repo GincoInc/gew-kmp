@@ -266,6 +266,21 @@ public interface CreateTransactionRequestOrBuilder extends
   adamant.global.v1.Model.CreateTransactionAvalancheSpecificOrBuilder getAvalancheSpecificOrBuilder();
 
   /**
+   * <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+   * @return Whether the nftSpecific field is set.
+   */
+  boolean hasNftSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+   * @return The nftSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionNFTSpecific getNftSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionNFTSpecificOrBuilder getNftSpecificOrBuilder();
+
+  /**
    * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
    * @return Whether the utxoSpecific field is set.
    */
