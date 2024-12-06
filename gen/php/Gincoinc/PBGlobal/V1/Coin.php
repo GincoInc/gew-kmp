@@ -314,6 +314,14 @@ class Coin
      */
     const COIN_ERC20_RAT = 74;
     /**
+     * Generated from protobuf enum <code>COIN_ERC20_JPYPX = 77;</code>
+     */
+    const COIN_ERC20_JPYPX = 77;
+    /**
+     * Generated from protobuf enum <code>COIN_ERC20_JPYCT = 78;</code>
+     */
+    const COIN_ERC20_JPYCT = 78;
+    /**
      * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
      */
     const COIN_SDN = 10002;
@@ -590,6 +598,8 @@ class Coin
         self::COIN_DOGE => 'COIN_DOGE',
         self::COIN_POLYGON_ERC20_SNPT => 'COIN_POLYGON_ERC20_SNPT',
         self::COIN_ERC20_RAT => 'COIN_ERC20_RAT',
+        self::COIN_ERC20_JPYPX => 'COIN_ERC20_JPYPX',
+        self::COIN_ERC20_JPYCT => 'COIN_ERC20_JPYCT',
         self::COIN_SDN => 'COIN_SDN',
         self::COIN_ERC20_SCDEV => 'COIN_ERC20_SCDEV',
         self::COIN_ERC20_SCQA => 'COIN_ERC20_SCQA',
