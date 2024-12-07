@@ -739,8 +739,8 @@ message CreateTransactionAvalancheSpecific {
 // The model of NFTSpecific fields of CreateTransaction
 message CreateTransactionNFTSpecific {
   optional gincoinc.global.v1.NFTCallMethod nft_call_method = 1;
-  optional string token_id = 2;
-  optional string metadata_json = 3;
+  repeated string token_ids = 2;
+  repeated string metadata_jsons = 3;
 }
 
 message ImportTxSpecific {
