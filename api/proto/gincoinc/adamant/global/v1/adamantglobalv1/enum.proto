@@ -429,6 +429,9 @@ enum ListFilterType {
   LIST_FILTER_TYPE_PRE_TRANSACTION_ID = 24;
   LIST_FILTER_TYPE_EXTERNAL_ID = 25;
   LIST_FILTER_TYPE_FILE_ID = 26;
+  LIST_FILTER_TYPE_NFT_ID = 27;
+  LIST_FILTER_TYPE_NFT_NAME = 28;
+  LIST_FILTER_TYPE_NFT_METADATA = 29;
 }
 
 // -----------------------------------------------------------------------------
