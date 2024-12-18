@@ -30,6 +30,7 @@ type TellerAPIClient interface {
 	ListWallets(ctx context.Context, in *adamantglobalv1.ListWalletsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListWalletsResponse, error)
 	ListWalletsByFilter(ctx context.Context, in *adamantglobalv1.ListWalletsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListWalletsResponse, error)
 	ListStakingWalletsByFilter(ctx context.Context, in *adamantglobalv1.ListStakingWalletsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListStakingWalletsResponse, error)
+	ListNFTWalletsByFilter(ctx context.Context, in *adamantglobalv1.ListNFTWalletsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListNFTWalletsResponse, error)
 	ListBaseWallets(ctx context.Context, in *adamantglobalv1.ListBaseWalletsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListBaseWalletsResponse, error)
 	GetSpendableBalance(ctx context.Context, in *adamantglobalv1.GetSpendableBalanceRequest, opts ...grpc.CallOption) (*adamantglobalv1.GetSpendableBalanceResponse, error)
 	InitializeXRPWallet(ctx context.Context, in *InitializeXRPWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -89,6 +90,7 @@ type TellerAPIClient interface {
 	ListAuditLogs(ctx context.Context, in *adamantglobalv1.ListAuditLogsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListAuditLogsResponse, error)
 	ListStakingHistoriesByFilter(ctx context.Context, in *adamantglobalv1.ListStakingHistoriesByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListStakingHistoriesResponse, error)
 	ListStakingValidatorsByFilter(ctx context.Context, in *adamantglobalv1.ListStakingValidatorsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListStakingValidatorsResponse, error)
+	ListNFTsByFilter(ctx context.Context, in *adamantglobalv1.ListNFTsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListNFTsResponse, error)
 	SignMessage(ctx context.Context, in *SignMessageRequest, opts ...grpc.CallOption) (*SignMessageResponse, error)
 	// ProgmatCoin
 	ProgmatCoinInitialize(ctx context.Context, in *ProgmatCoinInitializeRequest, opts ...grpc.CallOption) (*adamantglobalv1.CreateTransactionResponse, error)
@@ -159,6 +161,15 @@ func (c *tellerAPIClient) ListWalletsByFilter(ctx context.Context, in *adamantgl
 func (c *tellerAPIClient) ListStakingWalletsByFilter(ctx context.Context, in *adamantglobalv1.ListStakingWalletsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListStakingWalletsResponse, error) {
 	out := new(adamantglobalv1.ListStakingWalletsResponse)
 	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListStakingWalletsByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) ListNFTWalletsByFilter(ctx context.Context, in *adamantglobalv1.ListNFTWalletsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListNFTWalletsResponse, error) {
+	out := new(adamantglobalv1.ListNFTWalletsResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListNFTWalletsByFilter", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -615,6 +626,15 @@ func (c *tellerAPIClient) ListStakingValidatorsByFilter(ctx context.Context, in 
 	return out, nil
 }
 
+func (c *tellerAPIClient) ListNFTsByFilter(ctx context.Context, in *adamantglobalv1.ListNFTsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListNFTsResponse, error) {
+	out := new(adamantglobalv1.ListNFTsResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListNFTsByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *tellerAPIClient) SignMessage(ctx context.Context, in *SignMessageRequest, opts ...grpc.CallOption) (*SignMessageResponse, error) {
 	out := new(SignMessageResponse)
 	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/SignMessage", in, out, opts...)
@@ -787,6 +807,7 @@ type TellerAPIServer interface {
 	ListWallets(context.Context, *adamantglobalv1.ListWalletsRequest) (*adamantglobalv1.ListWalletsResponse, error)
 	ListWalletsByFilter(context.Context, *adamantglobalv1.ListWalletsByFilterRequest) (*adamantglobalv1.ListWalletsResponse, error)
 	ListStakingWalletsByFilter(context.Context, *adamantglobalv1.ListStakingWalletsByFilterRequest) (*adamantglobalv1.ListStakingWalletsResponse, error)
+	ListNFTWalletsByFilter(context.Context, *adamantglobalv1.ListNFTWalletsByFilterRequest) (*adamantglobalv1.ListNFTWalletsResponse, error)
 	ListBaseWallets(context.Context, *adamantglobalv1.ListBaseWalletsRequest) (*adamantglobalv1.ListBaseWalletsResponse, error)
 	GetSpendableBalance(context.Context, *adamantglobalv1.GetSpendableBalanceRequest) (*adamantglobalv1.GetSpendableBalanceResponse, error)
 	InitializeXRPWallet(context.Context, *InitializeXRPWalletRequest) (*emptypb.Empty, error)
@@ -846,6 +867,7 @@ type TellerAPIServer interface {
 	ListAuditLogs(context.Context, *adamantglobalv1.ListAuditLogsRequest) (*adamantglobalv1.ListAuditLogsResponse, error)
 	ListStakingHistoriesByFilter(context.Context, *adamantglobalv1.ListStakingHistoriesByFilterRequest) (*adamantglobalv1.ListStakingHistoriesResponse, error)
 	ListStakingValidatorsByFilter(context.Context, *adamantglobalv1.ListStakingValidatorsByFilterRequest) (*adamantglobalv1.ListStakingValidatorsResponse, error)
+	ListNFTsByFilter(context.Context, *adamantglobalv1.ListNFTsByFilterRequest) (*adamantglobalv1.ListNFTsResponse, error)
 	SignMessage(context.Context, *SignMessageRequest) (*SignMessageResponse, error)
 	// ProgmatCoin
 	ProgmatCoinInitialize(context.Context, *ProgmatCoinInitializeRequest) (*adamantglobalv1.CreateTransactionResponse, error)
@@ -887,6 +909,9 @@ func (UnimplementedTellerAPIServer) ListWalletsByFilter(context.Context, *adaman
 }
 func (UnimplementedTellerAPIServer) ListStakingWalletsByFilter(context.Context, *adamantglobalv1.ListStakingWalletsByFilterRequest) (*adamantglobalv1.ListStakingWalletsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListStakingWalletsByFilter not implemented")
+}
+func (UnimplementedTellerAPIServer) ListNFTWalletsByFilter(context.Context, *adamantglobalv1.ListNFTWalletsByFilterRequest) (*adamantglobalv1.ListNFTWalletsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListNFTWalletsByFilter not implemented")
 }
 func (UnimplementedTellerAPIServer) ListBaseWallets(context.Context, *adamantglobalv1.ListBaseWalletsRequest) (*adamantglobalv1.ListBaseWalletsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListBaseWallets not implemented")
@@ -1037,6 +1062,9 @@ func (UnimplementedTellerAPIServer) ListStakingHistoriesByFilter(context.Context
 }
 func (UnimplementedTellerAPIServer) ListStakingValidatorsByFilter(context.Context, *adamantglobalv1.ListStakingValidatorsByFilterRequest) (*adamantglobalv1.ListStakingValidatorsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListStakingValidatorsByFilter not implemented")
+}
+func (UnimplementedTellerAPIServer) ListNFTsByFilter(context.Context, *adamantglobalv1.ListNFTsByFilterRequest) (*adamantglobalv1.ListNFTsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListNFTsByFilter not implemented")
 }
 func (UnimplementedTellerAPIServer) SignMessage(context.Context, *SignMessageRequest) (*SignMessageResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SignMessage not implemented")
@@ -1190,6 +1218,24 @@ func _TellerAPI_ListStakingWalletsByFilter_Handler(srv interface{}, ctx context.
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TellerAPIServer).ListStakingWalletsByFilter(ctx, req.(*adamantglobalv1.ListStakingWalletsByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_ListNFTWalletsByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ListNFTWalletsByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListNFTWalletsByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListNFTWalletsByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListNFTWalletsByFilter(ctx, req.(*adamantglobalv1.ListNFTWalletsByFilterRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2094,6 +2140,24 @@ func _TellerAPI_ListStakingValidatorsByFilter_Handler(srv interface{}, ctx conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TellerAPI_ListNFTsByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ListNFTsByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListNFTsByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListNFTsByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListNFTsByFilter(ctx, req.(*adamantglobalv1.ListNFTsByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TellerAPI_SignMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SignMessageRequest)
 	if err := dec(in); err != nil {
@@ -2446,6 +2510,10 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TellerAPI_ListStakingWalletsByFilter_Handler,
 		},
 		{
+			MethodName: "ListNFTWalletsByFilter",
+			Handler:    _TellerAPI_ListNFTWalletsByFilter_Handler,
+		},
+		{
 			MethodName: "ListBaseWallets",
 			Handler:    _TellerAPI_ListBaseWallets_Handler,
 		},
@@ -2644,6 +2712,10 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListStakingValidatorsByFilter",
 			Handler:    _TellerAPI_ListStakingValidatorsByFilter_Handler,
+		},
+		{
+			MethodName: "ListNFTsByFilter",
+			Handler:    _TellerAPI_ListNFTsByFilter_Handler,
 		},
 		{
 			MethodName: "SignMessage",

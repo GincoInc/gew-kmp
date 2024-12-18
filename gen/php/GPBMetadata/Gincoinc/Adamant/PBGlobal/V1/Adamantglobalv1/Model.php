@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-ëº
+ùÄ
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"Ž	
 Wallet
 owner_id (	RownerId
@@ -113,7 +113,25 @@ $string_withdrawable_unstaked_balance (	R!stringWithdrawableUnstakedBalance6
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
-updateTime"Î
+updateTime"›
+	NFTWallet
+owner_id (	RownerId
+	wallet_id (	RwalletId
+name (	Rname,
+coin (2.gincoinc.global.v1.CoinRcoin>
+wallet_type (2.adamant.global.v1.WalletTypeR
+walletTypeB
+address_type (2.gincoinc.global.v1.AddressTypeRaddressType4
+state (2.adamant.global.v1.WalletStateRstate
+address (	RaddressF
+nft_ownerships	 (2.adamant.global.v1.NFTOwnershipRnftOwnerships;
+create_time
+ (2.google.protobuf.TimestampR
+createTime;
+update_time (2.google.protobuf.TimestampR
+updateTime"<
+NFTOwnership,
+coin (2.gincoinc.global.v1.CoinRcoin"Î
 WalletProposalJ
 proposal_type (2%.adamant.global.v1.WalletProposalTypeRproposalType0
 requester_account_id (	RrequesterAccountId%
@@ -216,7 +234,7 @@ createTime;
 updateTime"S
 PreTransactionDetail
 address (	Raddress!
-string_value (	RstringValue"Ž
+string_value (	RstringValue"Ú
 Transaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId,
@@ -266,7 +284,8 @@ signedKeys>
 arbitrum_one_specific0 (2&.adamant.global.v1.ArbitrumOneSpecificRarbitrumOneSpecificG
 aptos_specific1 (2 .adamant.global.v1.AptosSpecificRaptosSpecificP
 dogecoin_specific2 (2#.adamant.global.v1.DogecoinSpecificRdogecoinSpecific|
-!avalanche_platform_chain_specific3 (21.adamant.global.v1.AvalanchePlatformChainSpecificRavalanchePlatformChainSpecific;
+!avalanche_platform_chain_specific3 (21.adamant.global.v1.AvalanchePlatformChainSpecificRavalanchePlatformChainSpecificJ
+quorum_specific4 (2!.adamant.global.v1.QuorumSpecificRquorumSpecific;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
@@ -549,7 +568,11 @@ outputType
 locktime (Rlocktime
 	threshold (R	threshold
 	is_change (RisChange
-	addresses (	R	addresses"â
+	addresses (	R	addresses"g
+QuorumSpecific
+	gas_limit (RgasLimit
+nonce (Rnonce"
+is_next_nonce (RisNextNonce"â
 "CreateTransactionSubstrateSpecific%
 transaction_id (	RtransactionIdA
 	call_type (2$.adamant.global.v1.SubstrateCallTypeRcallTypeR
@@ -604,7 +627,12 @@ expirationˆB
 
 _tx_typeB
 _import_tx_specificB
-_staking_specific"\'
+_staking_specific"Æ
+CreateTransactionNFTSpecificN
+nft_call_method (2!.gincoinc.global.v1.NFTCallMethodH RnftCallMethodˆ
+	token_ids (	RtokenIds%
+metadata_jsons (	RmetadataJsonsB
+_nft_call_method"\'
 ImportTxSpecific
 tx_id (	RtxId"K
 StakingSpecific
@@ -1074,7 +1102,17 @@ start_time (R	startTime
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
-updateTime"Ÿ
+updateTime"õ
+NFT;
+
+asset_type (2.adamant.global.v1.AssetTypeR	assetType
+name (	Rname
+symbol (	Rsymbol
+token_id (	RtokenId
+	token_uri (	RtokenUri
+
+token_data (	R	tokenData.
+token_json_metadata (	RtokenJsonMetadata"Ÿ
 PreTransactionThreshold?
 pre_transaction_threshold_id (	RpreTransactionThresholdId,
 coin (2.gincoinc.global.v1.CoinRcoin5
@@ -1145,7 +1183,10 @@ _file_nameB
  (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
-updateTimeBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
+updateTime*:
+	AssetType
+ASSET_TYPE_INVALID 
+ASSET_TYPE_ERC721BLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
         , true);
 
         static::$is_initialized = true;

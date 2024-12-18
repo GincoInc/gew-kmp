@@ -292,6 +292,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $avalanche_platform_chain_specific = null;
     /**
+     * The Quorum specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.QuorumSpecific quorum_specific = 52 [json_name = "quorumSpecific"];</code>
+     */
+    protected $quorum_specific = null;
+    /**
      * the time at which the transaction was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
@@ -402,6 +408,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           THe Doge specific fields
      *     @type \Adamant\PBGlobal\V1\AvalanchePlatformChainSpecific $avalanche_platform_chain_specific
      *           The Avalanche Platform Chain specific fields
+     *     @type \Adamant\PBGlobal\V1\QuorumSpecific $quorum_specific
+     *           The Quorum specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -1915,6 +1923,42 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\AvalanchePlatformChainSpecific::class);
         $this->avalanche_platform_chain_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Quorum specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.QuorumSpecific quorum_specific = 52 [json_name = "quorumSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\QuorumSpecific|null
+     */
+    public function getQuorumSpecific()
+    {
+        return $this->quorum_specific;
+    }
+
+    public function hasQuorumSpecific()
+    {
+        return isset($this->quorum_specific);
+    }
+
+    public function clearQuorumSpecific()
+    {
+        unset($this->quorum_specific);
+    }
+
+    /**
+     * The Quorum specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.QuorumSpecific quorum_specific = 52 [json_name = "quorumSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\QuorumSpecific $var
+     * @return $this
+     */
+    public function setQuorumSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\QuorumSpecific::class);
+        $this->quorum_specific = $var;
 
         return $this;
     }
