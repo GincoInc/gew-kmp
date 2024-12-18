@@ -11,6 +11,8 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.Wallet.class)) return new WalletValidator();
 		if (clazz.equals(adamant.global.v1.Model.WalletWithoutBalance.class)) return new WalletWithoutBalanceValidator();
 		if (clazz.equals(adamant.global.v1.Model.StakingWallet.class)) return new StakingWalletValidator();
+		if (clazz.equals(adamant.global.v1.Model.NFTWallet.class)) return new NFTWalletValidator();
+		if (clazz.equals(adamant.global.v1.Model.NFTOwnership.class)) return new NFTOwnershipValidator();
 		if (clazz.equals(adamant.global.v1.Model.WalletProposal.class)) return new WalletProposalValidator();
 		if (clazz.equals(adamant.global.v1.Model.WalletMember.class)) return new WalletMemberValidator();
 		if (clazz.equals(adamant.global.v1.Model.Key.class)) return new KeyValidator();
@@ -64,6 +66,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.AvalanchePlatformChainSpecific.class)) return new AvalanchePlatformChainSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.AvalancheTxInput.class)) return new AvalancheTxInputValidator();
 		if (clazz.equals(adamant.global.v1.Model.AvalancheTxOutput.class)) return new AvalancheTxOutputValidator();
+		if (clazz.equals(adamant.global.v1.Model.QuorumSpecific.class)) return new QuorumSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSubstrateSpecific.class)) return new CreateTransactionSubstrateSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.class)) return new CreateTransactionWalletConnectSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionNemSpecific.class)) return new CreateTransactionNemSpecificValidator();
@@ -76,6 +79,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSolanaSpecific.class)) return new CreateTransactionSolanaSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionAptosSpecific.class)) return new CreateTransactionAptosSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionAvalancheSpecific.class)) return new CreateTransactionAvalancheSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionNFTSpecific.class)) return new CreateTransactionNFTSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.ImportTxSpecific.class)) return new ImportTxSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.StakingSpecific.class)) return new StakingSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SelectedUTXO.class)) return new SelectedUTXOValidator();
@@ -132,6 +136,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.StakingHistoryEthereumSpecific.class)) return new StakingHistoryEthereumSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.StakingHistoryAvalancheSpecific.class)) return new StakingHistoryAvalancheSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.StakingValidator.class)) return new StakingValidatorValidator();
+		if (clazz.equals(adamant.global.v1.Model.NFT.class)) return new NFTValidator();
 		if (clazz.equals(adamant.global.v1.Model.PreTransactionThreshold.class)) return new PreTransactionThresholdValidator();
 		if (clazz.equals(adamant.global.v1.Model.PreTransactionThresholdProposal.class)) return new PreTransactionThresholdProposalValidator();
 		if (clazz.equals(adamant.global.v1.Model.BlacklistAddress.class)) return new BlacklistAddressValidator();
@@ -485,6 +490,80 @@ public class ModelValidator {
 	
 			// Validate update_time
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+	}
+}
+/**
+	 * Validates {@code NFTWallet} protobuf objects.
+	 */
+	public static class NFTWalletValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.NFTWallet> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.NFTWallet proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for OwnerId
+
+	// no validation rules for WalletId
+
+	// no validation rules for Name
+
+	// no validation rules for Coin
+
+	// no validation rules for WalletType
+
+	// no validation rules for AddressType
+
+	// no validation rules for State
+
+	// no validation rules for Address
+
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getNftOwnershipsList(), item -> {
+				
+			// Validate nft_ownerships
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+	
+			// Validate create_time
+			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+			// Validate update_time
+			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+	}
+}
+/**
+	 * Validates {@code NFTOwnership} protobuf objects.
+	 */
+	public static class NFTOwnershipValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.NFTOwnership> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.NFTOwnership proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Coin
+
 	
 	}
 }
@@ -1005,6 +1084,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1139,6 +1220,9 @@ public class ModelValidator {
 	
 			// Validate avalanche_platform_chain_specific
 			if (proto.hasAvalanchePlatformChainSpecific()) index.validatorFor(proto.getAvalanchePlatformChainSpecific()).assertValid(proto.getAvalanchePlatformChainSpecific());
+	
+			// Validate quorum_specific
+			if (proto.hasQuorumSpecific()) index.validatorFor(proto.getQuorumSpecific()).assertValid(proto.getQuorumSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -2470,6 +2554,28 @@ public class ModelValidator {
 	}
 }
 /**
+	 * Validates {@code QuorumSpecific} protobuf objects.
+	 */
+	public static class QuorumSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.QuorumSpecific> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.QuorumSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	
+	}
+}
+/**
 	 * Validates {@code CreateTransactionSubstrateSpecific} protobuf objects.
 	 */
 	public static class CreateTransactionSubstrateSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionSubstrateSpecific> {
@@ -2674,6 +2780,30 @@ public class ModelValidator {
 	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionAvalancheSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	
+	}
+}
+/**
+	 * Validates {@code CreateTransactionNFTSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionNFTSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionNFTSpecific> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionNFTSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTokenIdsList(), item -> {
+				// no validation rules for TokenIds
+
+			});
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getMetadataJsonsList(), item -> {
+				// no validation rules for MetadataJsons
+
+			});
 	
 	}
 }
@@ -4647,6 +4777,44 @@ public class ModelValidator {
 	
 			// Validate update_time
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+	}
+}
+/**
+	 * Validates {@code NFT} protobuf objects.
+	 */
+	public static class NFTValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.NFT> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.NFT proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for AssetType
+
+	// no validation rules for Name
+
+	// no validation rules for Symbol
+
+	// no validation rules for TokenId
+
+	// no validation rules for TokenUri
+
+	// no validation rules for TokenData
+
+	// no validation rules for TokenJsonMetadata
+
 	
 	}
 }
