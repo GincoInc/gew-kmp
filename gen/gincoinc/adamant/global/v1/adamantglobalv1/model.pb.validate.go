@@ -829,6 +829,314 @@ var _ interface {
 	ErrorName() string
 } = StakingWalletValidationError{}
 
+// Validate checks the field values on NFTWallet with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *NFTWallet) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on NFTWallet with the rules defined in
+// the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in NFTWalletMultiError, or nil
+// if none found.
+func (m *NFTWallet) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *NFTWallet) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for OwnerId
+
+	// no validation rules for WalletId
+
+	// no validation rules for Name
+
+	// no validation rules for Coin
+
+	// no validation rules for WalletType
+
+	// no validation rules for AddressType
+
+	// no validation rules for State
+
+	// no validation rules for Address
+
+	for idx, item := range m.GetNftOwnerships() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, NFTWalletValidationError{
+						field:  fmt.Sprintf("NftOwnerships[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, NFTWalletValidationError{
+						field:  fmt.Sprintf("NftOwnerships[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return NFTWalletValidationError{
+					field:  fmt.Sprintf("NftOwnerships[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if all {
+		switch v := interface{}(m.GetCreateTime()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, NFTWalletValidationError{
+					field:  "CreateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, NFTWalletValidationError{
+					field:  "CreateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return NFTWalletValidationError{
+				field:  "CreateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetUpdateTime()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, NFTWalletValidationError{
+					field:  "UpdateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, NFTWalletValidationError{
+					field:  "UpdateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetUpdateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return NFTWalletValidationError{
+				field:  "UpdateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return NFTWalletMultiError(errors)
+	}
+
+	return nil
+}
+
+// NFTWalletMultiError is an error wrapping multiple validation errors returned
+// by NFTWallet.ValidateAll() if the designated constraints aren't met.
+type NFTWalletMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m NFTWalletMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m NFTWalletMultiError) AllErrors() []error { return m }
+
+// NFTWalletValidationError is the validation error returned by
+// NFTWallet.Validate if the designated constraints aren't met.
+type NFTWalletValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e NFTWalletValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e NFTWalletValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e NFTWalletValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e NFTWalletValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e NFTWalletValidationError) ErrorName() string { return "NFTWalletValidationError" }
+
+// Error satisfies the builtin error interface
+func (e NFTWalletValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sNFTWallet.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = NFTWalletValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = NFTWalletValidationError{}
+
+// Validate checks the field values on NFTOwnership with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *NFTOwnership) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on NFTOwnership with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in NFTOwnershipMultiError, or
+// nil if none found.
+func (m *NFTOwnership) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *NFTOwnership) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Coin
+
+	if len(errors) > 0 {
+		return NFTOwnershipMultiError(errors)
+	}
+
+	return nil
+}
+
+// NFTOwnershipMultiError is an error wrapping multiple validation errors
+// returned by NFTOwnership.ValidateAll() if the designated constraints aren't met.
+type NFTOwnershipMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m NFTOwnershipMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m NFTOwnershipMultiError) AllErrors() []error { return m }
+
+// NFTOwnershipValidationError is the validation error returned by
+// NFTOwnership.Validate if the designated constraints aren't met.
+type NFTOwnershipValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e NFTOwnershipValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e NFTOwnershipValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e NFTOwnershipValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e NFTOwnershipValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e NFTOwnershipValidationError) ErrorName() string { return "NFTOwnershipValidationError" }
+
+// Error satisfies the builtin error interface
+func (e NFTOwnershipValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sNFTOwnership.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = NFTOwnershipValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = NFTOwnershipValidationError{}
+
 // Validate checks the field values on WalletProposal with the rules defined in
 // the proto definition for this message. If any rules are violated, the first
 // error encountered is returned, or nil if there are no violations.
@@ -3185,6 +3493,35 @@ func (m *Transaction) validate(all bool) error {
 		if err := v.Validate(); err != nil {
 			return TransactionValidationError{
 				field:  "AvalanchePlatformChainSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetQuorumSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "QuorumSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "QuorumSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetQuorumSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "QuorumSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -8979,6 +9316,112 @@ var _ interface {
 	ErrorName() string
 } = AvalancheTxOutputValidationError{}
 
+// Validate checks the field values on QuorumSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *QuorumSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on QuorumSpecific with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in QuorumSpecificMultiError,
+// or nil if none found.
+func (m *QuorumSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *QuorumSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	if len(errors) > 0 {
+		return QuorumSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// QuorumSpecificMultiError is an error wrapping multiple validation errors
+// returned by QuorumSpecific.ValidateAll() if the designated constraints
+// aren't met.
+type QuorumSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m QuorumSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m QuorumSpecificMultiError) AllErrors() []error { return m }
+
+// QuorumSpecificValidationError is the validation error returned by
+// QuorumSpecific.Validate if the designated constraints aren't met.
+type QuorumSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e QuorumSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e QuorumSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e QuorumSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e QuorumSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e QuorumSpecificValidationError) ErrorName() string { return "QuorumSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e QuorumSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sQuorumSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = QuorumSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = QuorumSpecificValidationError{}
+
 // Validate checks the field values on CreateTransactionSubstrateSpecific with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, the first error encountered is returned, or nil if there are
@@ -10359,6 +10802,113 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CreateTransactionAvalancheSpecificValidationError{}
+
+// Validate checks the field values on CreateTransactionNFTSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CreateTransactionNFTSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreateTransactionNFTSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CreateTransactionNFTSpecificMultiError, or nil if none found.
+func (m *CreateTransactionNFTSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateTransactionNFTSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if m.NftCallMethod != nil {
+		// no validation rules for NftCallMethod
+	}
+
+	if len(errors) > 0 {
+		return CreateTransactionNFTSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreateTransactionNFTSpecificMultiError is an error wrapping multiple
+// validation errors returned by CreateTransactionNFTSpecific.ValidateAll() if
+// the designated constraints aren't met.
+type CreateTransactionNFTSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionNFTSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionNFTSpecificMultiError) AllErrors() []error { return m }
+
+// CreateTransactionNFTSpecificValidationError is the validation error returned
+// by CreateTransactionNFTSpecific.Validate if the designated constraints
+// aren't met.
+type CreateTransactionNFTSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionNFTSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionNFTSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionNFTSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionNFTSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionNFTSpecificValidationError) ErrorName() string {
+	return "CreateTransactionNFTSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionNFTSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionNFTSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionNFTSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionNFTSpecificValidationError{}
 
 // Validate checks the field values on ImportTxSpecific with the rules defined
 // in the proto definition for this message. If any rules are violated, the
@@ -18575,6 +19125,118 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = StakingValidatorValidationError{}
+
+// Validate checks the field values on NFT with the rules defined in the proto
+// definition for this message. If any rules are violated, the first error
+// encountered is returned, or nil if there are no violations.
+func (m *NFT) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on NFT with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in NFTMultiError, or nil if none found.
+func (m *NFT) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *NFT) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for AssetType
+
+	// no validation rules for Name
+
+	// no validation rules for Symbol
+
+	// no validation rules for TokenId
+
+	// no validation rules for TokenUri
+
+	// no validation rules for TokenData
+
+	// no validation rules for TokenJsonMetadata
+
+	if len(errors) > 0 {
+		return NFTMultiError(errors)
+	}
+
+	return nil
+}
+
+// NFTMultiError is an error wrapping multiple validation errors returned by
+// NFT.ValidateAll() if the designated constraints aren't met.
+type NFTMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m NFTMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m NFTMultiError) AllErrors() []error { return m }
+
+// NFTValidationError is the validation error returned by NFT.Validate if the
+// designated constraints aren't met.
+type NFTValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e NFTValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e NFTValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e NFTValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e NFTValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e NFTValidationError) ErrorName() string { return "NFTValidationError" }
+
+// Error satisfies the builtin error interface
+func (e NFTValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sNFT.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = NFTValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = NFTValidationError{}
 
 // Validate checks the field values on PreTransactionThreshold with the rules
 // defined in the proto definition for this message. If any rules are

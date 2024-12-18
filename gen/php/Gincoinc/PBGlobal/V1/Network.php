@@ -282,6 +282,14 @@ class Network
      */
     const NETWORK_AVALANCHE_PLATFORM_CHAIN_TESTNET = 65;
     /**
+     * Generated from protobuf enum <code>NETWORK_QUORUM_MAINNET = 66;</code>
+     */
+    const NETWORK_QUORUM_MAINNET = 66;
+    /**
+     * Generated from protobuf enum <code>NETWORK_QUORUM_TESTNET = 67;</code>
+     */
+    const NETWORK_QUORUM_TESTNET = 67;
+    /**
      * Generated from protobuf enum <code>NETWORK_SHIDEN_MAINNET = 10002;</code>
      */
     const NETWORK_SHIDEN_MAINNET = 10002;
@@ -353,6 +361,8 @@ class Network
         self::NETWORK_DOGECOIN_TESTNET => 'NETWORK_DOGECOIN_TESTNET',
         self::NETWORK_AVALANCHE_PLATFORM_CHAIN_MAINNET => 'NETWORK_AVALANCHE_PLATFORM_CHAIN_MAINNET',
         self::NETWORK_AVALANCHE_PLATFORM_CHAIN_TESTNET => 'NETWORK_AVALANCHE_PLATFORM_CHAIN_TESTNET',
+        self::NETWORK_QUORUM_MAINNET => 'NETWORK_QUORUM_MAINNET',
+        self::NETWORK_QUORUM_TESTNET => 'NETWORK_QUORUM_TESTNET',
         self::NETWORK_SHIDEN_MAINNET => 'NETWORK_SHIDEN_MAINNET',
     ];
 

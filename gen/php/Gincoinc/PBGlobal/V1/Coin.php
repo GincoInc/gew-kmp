@@ -314,6 +314,14 @@ class Coin
      */
     const COIN_ERC20_RAT = 74;
     /**
+     * Generated from protobuf enum <code>COIN_QUORUM = 75;</code>
+     */
+    const COIN_QUORUM = 75;
+    /**
+     * Generated from protobuf enum <code>COIN_QUORUM_ERC721_TCC = 76;</code>
+     */
+    const COIN_QUORUM_ERC721_TCC = 76;
+    /**
      * Generated from protobuf enum <code>COIN_ERC20_JPYPX = 77;</code>
      */
     const COIN_ERC20_JPYPX = 77;
@@ -521,6 +529,12 @@ class Coin
      * Generated from protobuf enum <code>COIN_ERC20_COIN32 = 10048;</code>
      */
     const COIN_ERC20_COIN32 = 10048;
+    /**
+     * for Quorum ERC721 development
+     *
+     * Generated from protobuf enum <code>COIN_QUORUM_ERC721_TCCDEV = 10049;</code>
+     */
+    const COIN_QUORUM_ERC721_TCCDEV = 10049;
 
     private static $valueToName = [
         self::COIN_INVALID => 'COIN_INVALID',
@@ -598,6 +612,8 @@ class Coin
         self::COIN_DOGE => 'COIN_DOGE',
         self::COIN_POLYGON_ERC20_SNPT => 'COIN_POLYGON_ERC20_SNPT',
         self::COIN_ERC20_RAT => 'COIN_ERC20_RAT',
+        self::COIN_QUORUM => 'COIN_QUORUM',
+        self::COIN_QUORUM_ERC721_TCC => 'COIN_QUORUM_ERC721_TCC',
         self::COIN_ERC20_JPYPX => 'COIN_ERC20_JPYPX',
         self::COIN_ERC20_JPYCT => 'COIN_ERC20_JPYCT',
         self::COIN_SDN => 'COIN_SDN',
@@ -647,6 +663,7 @@ class Coin
         self::COIN_ERC20_COIN30 => 'COIN_ERC20_COIN30',
         self::COIN_ERC20_COIN31 => 'COIN_ERC20_COIN31',
         self::COIN_ERC20_COIN32 => 'COIN_ERC20_COIN32',
+        self::COIN_QUORUM_ERC721_TCCDEV => 'COIN_QUORUM_ERC721_TCCDEV',
     ];
 
     public static function name($value)

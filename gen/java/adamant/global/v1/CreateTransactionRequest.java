@@ -547,6 +547,32 @@ private static final long serialVersionUID = 0L;
     return avalancheSpecific_ == null ? adamant.global.v1.Model.CreateTransactionAvalancheSpecific.getDefaultInstance() : avalancheSpecific_;
   }
 
+  public static final int NFT_SPECIFIC_FIELD_NUMBER = 22;
+  private adamant.global.v1.Model.CreateTransactionNFTSpecific nftSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+   * @return Whether the nftSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasNftSpecific() {
+    return nftSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+   * @return The nftSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionNFTSpecific getNftSpecific() {
+    return nftSpecific_ == null ? adamant.global.v1.Model.CreateTransactionNFTSpecific.getDefaultInstance() : nftSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionNFTSpecificOrBuilder getNftSpecificOrBuilder() {
+    return nftSpecific_ == null ? adamant.global.v1.Model.CreateTransactionNFTSpecific.getDefaultInstance() : nftSpecific_;
+  }
+
   public static final int UTXO_SPECIFIC_FIELD_NUMBER = 18;
   private adamant.global.v1.UtxoSpecific utxoSpecific_;
   /**
@@ -697,6 +723,9 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 21, preTransactionId_);
     }
+    if (nftSpecific_ != null) {
+      output.writeMessage(22, getNftSpecific());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -785,6 +814,10 @@ private static final long serialVersionUID = 0L;
     }
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(21, preTransactionId_);
+    }
+    if (nftSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(22, getNftSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -875,6 +908,11 @@ private static final long serialVersionUID = 0L;
       if (!getAvalancheSpecific()
           .equals(other.getAvalancheSpecific())) return false;
     }
+    if (hasNftSpecific() != other.hasNftSpecific()) return false;
+    if (hasNftSpecific()) {
+      if (!getNftSpecific()
+          .equals(other.getNftSpecific())) return false;
+    }
     if (hasUtxoSpecific() != other.hasUtxoSpecific()) return false;
     if (hasUtxoSpecific()) {
       if (!getUtxoSpecific()
@@ -961,6 +999,10 @@ private static final long serialVersionUID = 0L;
     if (hasAvalancheSpecific()) {
       hash = (37 * hash) + AVALANCHE_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getAvalancheSpecific().hashCode();
+    }
+    if (hasNftSpecific()) {
+      hash = (37 * hash) + NFT_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getNftSpecific().hashCode();
     }
     if (hasUtxoSpecific()) {
       hash = (37 * hash) + UTXO_SPECIFIC_FIELD_NUMBER;
@@ -1174,6 +1216,11 @@ private static final long serialVersionUID = 0L;
         avalancheSpecificBuilder_.dispose();
         avalancheSpecificBuilder_ = null;
       }
+      nftSpecific_ = null;
+      if (nftSpecificBuilder_ != null) {
+        nftSpecificBuilder_.dispose();
+        nftSpecificBuilder_ = null;
+      }
       utxoSpecific_ = null;
       if (utxoSpecificBuilder_ != null) {
         utxoSpecificBuilder_.dispose();
@@ -1305,12 +1352,17 @@ private static final long serialVersionUID = 0L;
             : avalancheSpecificBuilder_.build();
       }
       if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.nftSpecific_ = nftSpecificBuilder_ == null
+            ? nftSpecific_
+            : nftSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
         result.utxoSpecific_ = utxoSpecificBuilder_ == null
             ? utxoSpecific_
             : utxoSpecificBuilder_.build();
       }
       int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00100000) != 0)) {
+      if (((from_bitField0_ & 0x00200000) != 0)) {
         result.preTransactionId_ = preTransactionId_;
         to_bitField0_ |= 0x00000001;
       }
@@ -1447,12 +1499,15 @@ private static final long serialVersionUID = 0L;
       if (other.hasAvalancheSpecific()) {
         mergeAvalancheSpecific(other.getAvalancheSpecific());
       }
+      if (other.hasNftSpecific()) {
+        mergeNftSpecific(other.getNftSpecific());
+      }
       if (other.hasUtxoSpecific()) {
         mergeUtxoSpecific(other.getUtxoSpecific());
       }
       if (other.hasPreTransactionId()) {
         preTransactionId_ = other.preTransactionId_;
-        bitField0_ |= 0x00100000;
+        bitField0_ |= 0x00200000;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -1598,7 +1653,7 @@ private static final long serialVersionUID = 0L;
               input.readMessage(
                   getUtxoSpecificFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00080000;
+              bitField0_ |= 0x00100000;
               break;
             } // case 146
             case 154: {
@@ -1617,9 +1672,16 @@ private static final long serialVersionUID = 0L;
             } // case 162
             case 170: {
               preTransactionId_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00100000;
+              bitField0_ |= 0x00200000;
               break;
             } // case 170
+            case 178: {
+              input.readMessage(
+                  getNftSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 178
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -3617,6 +3679,125 @@ private static final long serialVersionUID = 0L;
       return avalancheSpecificBuilder_;
     }
 
+    private adamant.global.v1.Model.CreateTransactionNFTSpecific nftSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionNFTSpecific, adamant.global.v1.Model.CreateTransactionNFTSpecific.Builder, adamant.global.v1.Model.CreateTransactionNFTSpecificOrBuilder> nftSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+     * @return Whether the nftSpecific field is set.
+     */
+    public boolean hasNftSpecific() {
+      return ((bitField0_ & 0x00080000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+     * @return The nftSpecific.
+     */
+    public adamant.global.v1.Model.CreateTransactionNFTSpecific getNftSpecific() {
+      if (nftSpecificBuilder_ == null) {
+        return nftSpecific_ == null ? adamant.global.v1.Model.CreateTransactionNFTSpecific.getDefaultInstance() : nftSpecific_;
+      } else {
+        return nftSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+     */
+    public Builder setNftSpecific(adamant.global.v1.Model.CreateTransactionNFTSpecific value) {
+      if (nftSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        nftSpecific_ = value;
+      } else {
+        nftSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00080000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+     */
+    public Builder setNftSpecific(
+        adamant.global.v1.Model.CreateTransactionNFTSpecific.Builder builderForValue) {
+      if (nftSpecificBuilder_ == null) {
+        nftSpecific_ = builderForValue.build();
+      } else {
+        nftSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00080000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+     */
+    public Builder mergeNftSpecific(adamant.global.v1.Model.CreateTransactionNFTSpecific value) {
+      if (nftSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00080000) != 0) &&
+          nftSpecific_ != null &&
+          nftSpecific_ != adamant.global.v1.Model.CreateTransactionNFTSpecific.getDefaultInstance()) {
+          getNftSpecificBuilder().mergeFrom(value);
+        } else {
+          nftSpecific_ = value;
+        }
+      } else {
+        nftSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00080000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+     */
+    public Builder clearNftSpecific() {
+      bitField0_ = (bitField0_ & ~0x00080000);
+      nftSpecific_ = null;
+      if (nftSpecificBuilder_ != null) {
+        nftSpecificBuilder_.dispose();
+        nftSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionNFTSpecific.Builder getNftSpecificBuilder() {
+      bitField0_ |= 0x00080000;
+      onChanged();
+      return getNftSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionNFTSpecificOrBuilder getNftSpecificOrBuilder() {
+      if (nftSpecificBuilder_ != null) {
+        return nftSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return nftSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionNFTSpecific.getDefaultInstance() : nftSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22 [json_name = "nftSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionNFTSpecific, adamant.global.v1.Model.CreateTransactionNFTSpecific.Builder, adamant.global.v1.Model.CreateTransactionNFTSpecificOrBuilder> 
+        getNftSpecificFieldBuilder() {
+      if (nftSpecificBuilder_ == null) {
+        nftSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionNFTSpecific, adamant.global.v1.Model.CreateTransactionNFTSpecific.Builder, adamant.global.v1.Model.CreateTransactionNFTSpecificOrBuilder>(
+                getNftSpecific(),
+                getParentForChildren(),
+                isClean());
+        nftSpecific_ = null;
+      }
+      return nftSpecificBuilder_;
+    }
+
     private adamant.global.v1.UtxoSpecific utxoSpecific_;
     private com.google.protobuf.SingleFieldBuilderV3<
         adamant.global.v1.UtxoSpecific, adamant.global.v1.UtxoSpecific.Builder, adamant.global.v1.UtxoSpecificOrBuilder> utxoSpecificBuilder_;
@@ -3625,7 +3806,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the utxoSpecific field is set.
      */
     public boolean hasUtxoSpecific() {
-      return ((bitField0_ & 0x00080000) != 0);
+      return ((bitField0_ & 0x00100000) != 0);
     }
     /**
      * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
@@ -3650,7 +3831,7 @@ private static final long serialVersionUID = 0L;
       } else {
         utxoSpecificBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00080000;
+      bitField0_ |= 0x00100000;
       onChanged();
       return this;
     }
@@ -3664,7 +3845,7 @@ private static final long serialVersionUID = 0L;
       } else {
         utxoSpecificBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00080000;
+      bitField0_ |= 0x00100000;
       onChanged();
       return this;
     }
@@ -3673,7 +3854,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUtxoSpecific(adamant.global.v1.UtxoSpecific value) {
       if (utxoSpecificBuilder_ == null) {
-        if (((bitField0_ & 0x00080000) != 0) &&
+        if (((bitField0_ & 0x00100000) != 0) &&
           utxoSpecific_ != null &&
           utxoSpecific_ != adamant.global.v1.UtxoSpecific.getDefaultInstance()) {
           getUtxoSpecificBuilder().mergeFrom(value);
@@ -3683,7 +3864,7 @@ private static final long serialVersionUID = 0L;
       } else {
         utxoSpecificBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00080000;
+      bitField0_ |= 0x00100000;
       onChanged();
       return this;
     }
@@ -3691,7 +3872,7 @@ private static final long serialVersionUID = 0L;
      * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
      */
     public Builder clearUtxoSpecific() {
-      bitField0_ = (bitField0_ & ~0x00080000);
+      bitField0_ = (bitField0_ & ~0x00100000);
       utxoSpecific_ = null;
       if (utxoSpecificBuilder_ != null) {
         utxoSpecificBuilder_.dispose();
@@ -3704,7 +3885,7 @@ private static final long serialVersionUID = 0L;
      * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
      */
     public adamant.global.v1.UtxoSpecific.Builder getUtxoSpecificBuilder() {
-      bitField0_ |= 0x00080000;
+      bitField0_ |= 0x00100000;
       onChanged();
       return getUtxoSpecificFieldBuilder().getBuilder();
     }
@@ -3742,7 +3923,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the preTransactionId field is set.
      */
     public boolean hasPreTransactionId() {
-      return ((bitField0_ & 0x00100000) != 0);
+      return ((bitField0_ & 0x00200000) != 0);
     }
     /**
      * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
@@ -3786,7 +3967,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       preTransactionId_ = value;
-      bitField0_ |= 0x00100000;
+      bitField0_ |= 0x00200000;
       onChanged();
       return this;
     }
@@ -3796,7 +3977,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPreTransactionId() {
       preTransactionId_ = getDefaultInstance().getPreTransactionId();
-      bitField0_ = (bitField0_ & ~0x00100000);
+      bitField0_ = (bitField0_ & ~0x00200000);
       onChanged();
       return this;
     }
@@ -3810,7 +3991,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       preTransactionId_ = value;
-      bitField0_ |= 0x00100000;
+      bitField0_ |= 0x00200000;
       onChanged();
       return this;
     }

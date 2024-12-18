@@ -92,6 +92,20 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\ListNFTWalletsByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListNFTWalletsByFilter(\Adamant\Global\V1\ListNFTWalletsByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListNFTWalletsByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListNFTWalletsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\ListBaseWalletsRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -797,6 +811,20 @@ class TellerAPIClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListStakingValidatorsByFilter',
         $argument,
         ['\Adamant\Global\V1\ListStakingValidatorsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\ListNFTsByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListNFTsByFilter(\Adamant\Global\V1\ListNFTsByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListNFTsByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListNFTsResponse', 'decode'],
         $metadata, $options);
     }
 
