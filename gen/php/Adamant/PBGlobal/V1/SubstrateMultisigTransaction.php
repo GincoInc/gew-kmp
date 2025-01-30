@@ -93,6 +93,46 @@ class SubstrateMultisigTransaction extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Timestamp update_time = 14 [json_name = "updateTime"];</code>
      */
     protected $update_time = null;
+    /**
+     * Generated from protobuf field <code>uint32 section_index = 15 [json_name = "sectionIndex"];</code>
+     */
+    protected $section_index = 0;
+    /**
+     * Generated from protobuf field <code>uint32 method_index = 16 [json_name = "methodIndex"];</code>
+     */
+    protected $method_index = 0;
+    /**
+     * Generated from protobuf field <code>uint32 call_section_index = 17 [json_name = "callSectionIndex"];</code>
+     */
+    protected $call_section_index = 0;
+    /**
+     * Generated from protobuf field <code>uint32 call_method_index = 18 [json_name = "callMethodIndex"];</code>
+     */
+    protected $call_method_index = 0;
+    /**
+     * Generated from protobuf field <code>uint64 max_weight = 19 [json_name = "maxWeight"];</code>
+     */
+    protected $max_weight = 0;
+    /**
+     * Generated from protobuf field <code>uint64 proof_size = 20 [json_name = "proofSize"];</code>
+     */
+    protected $proof_size = 0;
+    /**
+     * Generated from protobuf field <code>uint64 era = 21 [json_name = "era"];</code>
+     */
+    protected $era = 0;
+    /**
+     * Generated from protobuf field <code>uint32 spec_version = 22 [json_name = "specVersion"];</code>
+     */
+    protected $spec_version = 0;
+    /**
+     * Generated from protobuf field <code>uint32 transaction_version = 23 [json_name = "transactionVersion"];</code>
+     */
+    protected $transaction_version = 0;
+    /**
+     * Generated from protobuf field <code>string genesis_hash = 24 [json_name = "genesisHash"];</code>
+     */
+    protected $genesis_hash = '';
 
     /**
      * Constructor.
@@ -125,6 +165,16 @@ class SubstrateMultisigTransaction extends \Google\Protobuf\Internal\Message
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
      *           the time at which the transaction was updated
+     *     @type int $section_index
+     *     @type int $method_index
+     *     @type int $call_section_index
+     *     @type int $call_method_index
+     *     @type int|string $max_weight
+     *     @type int|string $proof_size
+     *     @type int|string $era
+     *     @type int $spec_version
+     *     @type int $transaction_version
+     *     @type string $genesis_hash
      * }
      */
     public function __construct($data = NULL) {
@@ -500,6 +550,226 @@ class SubstrateMultisigTransaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->update_time = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 section_index = 15 [json_name = "sectionIndex"];</code>
+     * @return int
+     */
+    public function getSectionIndex()
+    {
+        return $this->section_index;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 section_index = 15 [json_name = "sectionIndex"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setSectionIndex($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->section_index = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 method_index = 16 [json_name = "methodIndex"];</code>
+     * @return int
+     */
+    public function getMethodIndex()
+    {
+        return $this->method_index;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 method_index = 16 [json_name = "methodIndex"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setMethodIndex($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->method_index = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 call_section_index = 17 [json_name = "callSectionIndex"];</code>
+     * @return int
+     */
+    public function getCallSectionIndex()
+    {
+        return $this->call_section_index;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 call_section_index = 17 [json_name = "callSectionIndex"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setCallSectionIndex($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->call_section_index = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 call_method_index = 18 [json_name = "callMethodIndex"];</code>
+     * @return int
+     */
+    public function getCallMethodIndex()
+    {
+        return $this->call_method_index;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 call_method_index = 18 [json_name = "callMethodIndex"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setCallMethodIndex($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->call_method_index = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 max_weight = 19 [json_name = "maxWeight"];</code>
+     * @return int|string
+     */
+    public function getMaxWeight()
+    {
+        return $this->max_weight;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 max_weight = 19 [json_name = "maxWeight"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setMaxWeight($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->max_weight = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 proof_size = 20 [json_name = "proofSize"];</code>
+     * @return int|string
+     */
+    public function getProofSize()
+    {
+        return $this->proof_size;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 proof_size = 20 [json_name = "proofSize"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setProofSize($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->proof_size = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 era = 21 [json_name = "era"];</code>
+     * @return int|string
+     */
+    public function getEra()
+    {
+        return $this->era;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 era = 21 [json_name = "era"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setEra($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->era = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 spec_version = 22 [json_name = "specVersion"];</code>
+     * @return int
+     */
+    public function getSpecVersion()
+    {
+        return $this->spec_version;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 spec_version = 22 [json_name = "specVersion"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setSpecVersion($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->spec_version = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 transaction_version = 23 [json_name = "transactionVersion"];</code>
+     * @return int
+     */
+    public function getTransactionVersion()
+    {
+        return $this->transaction_version;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 transaction_version = 23 [json_name = "transactionVersion"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setTransactionVersion($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->transaction_version = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string genesis_hash = 24 [json_name = "genesisHash"];</code>
+     * @return string
+     */
+    public function getGenesisHash()
+    {
+        return $this->genesis_hash;
+    }
+
+    /**
+     * Generated from protobuf field <code>string genesis_hash = 24 [json_name = "genesisHash"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setGenesisHash($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->genesis_hash = $var;
 
         return $this;
     }

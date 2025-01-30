@@ -1724,10 +1724,22 @@ public class ModelValidator {
 	public static class TronSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.TronSpecific> {
 		
 	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.TronSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Expiration
+
+	// no validation rules for Timestamp
+
+	// no validation rules for BlockId
+
+	// no validation rules for FromAddress
 
 	
 	}
@@ -2283,6 +2295,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.SolanaSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2295,6 +2309,8 @@ public class ModelValidator {
 	// no validation rules for RecentBlockhash
 
 	// no validation rules for PriorityFeeUnitLimit
+
+	// no validation rules for CallerAddress
 
 	
 	}
@@ -2563,6 +2579,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.QuorumSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2571,6 +2591,10 @@ public class ModelValidator {
 	// no validation rules for Nonce
 
 	// no validation rules for IsNextNonce
+
+	// no validation rules for Data
+
+	// no validation rules for ChainId
 
 	
 	}
@@ -2889,6 +2913,26 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.SubstrateMultisigTransaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2922,6 +2966,26 @@ public class ModelValidator {
 	
 			// Validate update_time
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	// no validation rules for SectionIndex
+
+	// no validation rules for MethodIndex
+
+	// no validation rules for CallSectionIndex
+
+	// no validation rules for CallMethodIndex
+
+	// no validation rules for MaxWeight
+
+	// no validation rules for ProofSize
+
+	// no validation rules for Era
+
+	// no validation rules for SpecVersion
+
+	// no validation rules for TransactionVersion
+
+	// no validation rules for GenesisHash
+
 	
 	}
 }

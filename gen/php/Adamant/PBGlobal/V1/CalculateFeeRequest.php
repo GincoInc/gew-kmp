@@ -77,6 +77,10 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeAvalancheSpecific avalanche_specific = 16 [json_name = "avalancheSpecific"];</code>
      */
     protected $avalanche_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeSuiSpecific sui_specific = 17 [json_name = "suiSpecific"];</code>
+     */
+    protected $sui_specific = null;
 
     /**
      * Constructor.
@@ -100,6 +104,7 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\UtxoSpecific $utxo_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeSolanaSpecific $solana_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeAvalancheSpecific $avalanche_specific
+     *     @type \Adamant\PBGlobal\V1\CalculateFeeSuiSpecific $sui_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -555,6 +560,38 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeAvalancheSpecific::class);
         $this->avalanche_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeSuiSpecific sui_specific = 17 [json_name = "suiSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CalculateFeeSuiSpecific|null
+     */
+    public function getSuiSpecific()
+    {
+        return $this->sui_specific;
+    }
+
+    public function hasSuiSpecific()
+    {
+        return isset($this->sui_specific);
+    }
+
+    public function clearSuiSpecific()
+    {
+        unset($this->sui_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeSuiSpecific sui_specific = 17 [json_name = "suiSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CalculateFeeSuiSpecific $var
+     * @return $this
+     */
+    public function setSuiSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeSuiSpecific::class);
+        $this->sui_specific = $var;
 
         return $this;
     }

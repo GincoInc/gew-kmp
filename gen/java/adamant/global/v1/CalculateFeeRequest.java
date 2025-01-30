@@ -482,6 +482,32 @@ private static final long serialVersionUID = 0L;
     return avalancheSpecific_ == null ? adamant.global.v1.CalculateFeeAvalancheSpecific.getDefaultInstance() : avalancheSpecific_;
   }
 
+  public static final int SUI_SPECIFIC_FIELD_NUMBER = 17;
+  private adamant.global.v1.CalculateFeeSuiSpecific suiSpecific_;
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSuiSpecific sui_specific = 17 [json_name = "suiSpecific"];</code>
+   * @return Whether the suiSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasSuiSpecific() {
+    return suiSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSuiSpecific sui_specific = 17 [json_name = "suiSpecific"];</code>
+   * @return The suiSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.CalculateFeeSuiSpecific getSuiSpecific() {
+    return suiSpecific_ == null ? adamant.global.v1.CalculateFeeSuiSpecific.getDefaultInstance() : suiSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CalculateFeeSuiSpecific sui_specific = 17 [json_name = "suiSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.CalculateFeeSuiSpecificOrBuilder getSuiSpecificOrBuilder() {
+    return suiSpecific_ == null ? adamant.global.v1.CalculateFeeSuiSpecific.getDefaultInstance() : suiSpecific_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -543,6 +569,9 @@ private static final long serialVersionUID = 0L;
     }
     if (avalancheSpecific_ != null) {
       output.writeMessage(16, getAvalancheSpecific());
+    }
+    if (suiSpecific_ != null) {
+      output.writeMessage(17, getSuiSpecific());
     }
     getUnknownFields().writeTo(output);
   }
@@ -613,6 +642,10 @@ private static final long serialVersionUID = 0L;
     if (avalancheSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(16, getAvalancheSpecific());
+    }
+    if (suiSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(17, getSuiSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -691,6 +724,11 @@ private static final long serialVersionUID = 0L;
       if (!getAvalancheSpecific()
           .equals(other.getAvalancheSpecific())) return false;
     }
+    if (hasSuiSpecific() != other.hasSuiSpecific()) return false;
+    if (hasSuiSpecific()) {
+      if (!getSuiSpecific()
+          .equals(other.getSuiSpecific())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -756,6 +794,10 @@ private static final long serialVersionUID = 0L;
     if (hasAvalancheSpecific()) {
       hash = (37 * hash) + AVALANCHE_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getAvalancheSpecific().hashCode();
+    }
+    if (hasSuiSpecific()) {
+      hash = (37 * hash) + SUI_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getSuiSpecific().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -950,6 +992,11 @@ private static final long serialVersionUID = 0L;
         avalancheSpecificBuilder_.dispose();
         avalancheSpecificBuilder_ = null;
       }
+      suiSpecific_ = null;
+      if (suiSpecificBuilder_ != null) {
+        suiSpecificBuilder_.dispose();
+        suiSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -1060,6 +1107,11 @@ private static final long serialVersionUID = 0L;
         result.avalancheSpecific_ = avalancheSpecificBuilder_ == null
             ? avalancheSpecific_
             : avalancheSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.suiSpecific_ = suiSpecificBuilder_ == null
+            ? suiSpecific_
+            : suiSpecificBuilder_.build();
       }
     }
 
@@ -1183,6 +1235,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasAvalancheSpecific()) {
         mergeAvalancheSpecific(other.getAvalancheSpecific());
+      }
+      if (other.hasSuiSpecific()) {
+        mergeSuiSpecific(other.getSuiSpecific());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1318,6 +1373,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00008000;
               break;
             } // case 130
+            case 138: {
+              input.readMessage(
+                  getSuiSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 138
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -3043,6 +3105,125 @@ private static final long serialVersionUID = 0L;
         avalancheSpecific_ = null;
       }
       return avalancheSpecificBuilder_;
+    }
+
+    private adamant.global.v1.CalculateFeeSuiSpecific suiSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.CalculateFeeSuiSpecific, adamant.global.v1.CalculateFeeSuiSpecific.Builder, adamant.global.v1.CalculateFeeSuiSpecificOrBuilder> suiSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSuiSpecific sui_specific = 17 [json_name = "suiSpecific"];</code>
+     * @return Whether the suiSpecific field is set.
+     */
+    public boolean hasSuiSpecific() {
+      return ((bitField0_ & 0x00010000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSuiSpecific sui_specific = 17 [json_name = "suiSpecific"];</code>
+     * @return The suiSpecific.
+     */
+    public adamant.global.v1.CalculateFeeSuiSpecific getSuiSpecific() {
+      if (suiSpecificBuilder_ == null) {
+        return suiSpecific_ == null ? adamant.global.v1.CalculateFeeSuiSpecific.getDefaultInstance() : suiSpecific_;
+      } else {
+        return suiSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSuiSpecific sui_specific = 17 [json_name = "suiSpecific"];</code>
+     */
+    public Builder setSuiSpecific(adamant.global.v1.CalculateFeeSuiSpecific value) {
+      if (suiSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        suiSpecific_ = value;
+      } else {
+        suiSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00010000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSuiSpecific sui_specific = 17 [json_name = "suiSpecific"];</code>
+     */
+    public Builder setSuiSpecific(
+        adamant.global.v1.CalculateFeeSuiSpecific.Builder builderForValue) {
+      if (suiSpecificBuilder_ == null) {
+        suiSpecific_ = builderForValue.build();
+      } else {
+        suiSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00010000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSuiSpecific sui_specific = 17 [json_name = "suiSpecific"];</code>
+     */
+    public Builder mergeSuiSpecific(adamant.global.v1.CalculateFeeSuiSpecific value) {
+      if (suiSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00010000) != 0) &&
+          suiSpecific_ != null &&
+          suiSpecific_ != adamant.global.v1.CalculateFeeSuiSpecific.getDefaultInstance()) {
+          getSuiSpecificBuilder().mergeFrom(value);
+        } else {
+          suiSpecific_ = value;
+        }
+      } else {
+        suiSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00010000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSuiSpecific sui_specific = 17 [json_name = "suiSpecific"];</code>
+     */
+    public Builder clearSuiSpecific() {
+      bitField0_ = (bitField0_ & ~0x00010000);
+      suiSpecific_ = null;
+      if (suiSpecificBuilder_ != null) {
+        suiSpecificBuilder_.dispose();
+        suiSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSuiSpecific sui_specific = 17 [json_name = "suiSpecific"];</code>
+     */
+    public adamant.global.v1.CalculateFeeSuiSpecific.Builder getSuiSpecificBuilder() {
+      bitField0_ |= 0x00010000;
+      onChanged();
+      return getSuiSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSuiSpecific sui_specific = 17 [json_name = "suiSpecific"];</code>
+     */
+    public adamant.global.v1.CalculateFeeSuiSpecificOrBuilder getSuiSpecificOrBuilder() {
+      if (suiSpecificBuilder_ != null) {
+        return suiSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return suiSpecific_ == null ?
+            adamant.global.v1.CalculateFeeSuiSpecific.getDefaultInstance() : suiSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeSuiSpecific sui_specific = 17 [json_name = "suiSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.CalculateFeeSuiSpecific, adamant.global.v1.CalculateFeeSuiSpecific.Builder, adamant.global.v1.CalculateFeeSuiSpecificOrBuilder> 
+        getSuiSpecificFieldBuilder() {
+      if (suiSpecificBuilder_ == null) {
+        suiSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.CalculateFeeSuiSpecific, adamant.global.v1.CalculateFeeSuiSpecific.Builder, adamant.global.v1.CalculateFeeSuiSpecificOrBuilder>(
+                getSuiSpecific(),
+                getParentForChildren(),
+                isClean());
+        suiSpecific_ = null;
+      }
+      return suiSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

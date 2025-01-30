@@ -1572,6 +1572,7 @@ message CalculateFeeRequest {
   UtxoSpecific utxo_specific = 14;
   CalculateFeeSolanaSpecific solana_specific = 15;
   CalculateFeeAvalancheSpecific avalanche_specific = 16;
+  CalculateFeeSuiSpecific sui_specific = 17;
 }
 
 // The model of Substrate specific fields of CreateTransaction
@@ -1628,6 +1629,10 @@ message UtxoSpecific {
 // The model of Avalanche specific fields of CalculateFee
 message CalculateFeeAvalancheSpecific {
   optional gincoinc.global.v1.AvalancheTxType tx_type = 1;
+}
+
+message CalculateFeeSuiSpecific {
+  repeated string object_ids = 1;
 }
 
 message CalculateFeeResponse {
