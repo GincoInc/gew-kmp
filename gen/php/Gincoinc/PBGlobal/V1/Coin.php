@@ -330,6 +330,10 @@ class Coin
      */
     const COIN_ERC20_JPYCT = 78;
     /**
+     * Generated from protobuf enum <code>COIN_SUI = 79;</code>
+     */
+    const COIN_SUI = 79;
+    /**
      * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
      */
     const COIN_SDN = 10002;
@@ -616,6 +620,7 @@ class Coin
         self::COIN_QUORUM_ERC721_TCC => 'COIN_QUORUM_ERC721_TCC',
         self::COIN_ERC20_JPYPX => 'COIN_ERC20_JPYPX',
         self::COIN_ERC20_JPYCT => 'COIN_ERC20_JPYCT',
+        self::COIN_SUI => 'COIN_SUI',
         self::COIN_SDN => 'COIN_SDN',
         self::COIN_ERC20_SCDEV => 'COIN_ERC20_SCDEV',
         self::COIN_ERC20_SCQA => 'COIN_ERC20_SCQA',

@@ -35,6 +35,10 @@ class SolanaSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint32 priority_fee_unit_limit = 5 [json_name = "priorityFeeUnitLimit"];</code>
      */
     protected $priority_fee_unit_limit = 0;
+    /**
+     * Generated from protobuf field <code>string caller_address = 6 [json_name = "callerAddress"];</code>
+     */
+    protected $caller_address = '';
 
     /**
      * Constructor.
@@ -47,6 +51,7 @@ class SolanaSpecific extends \Google\Protobuf\Internal\Message
      *     @type string $from_address
      *     @type string $recent_blockhash
      *     @type int $priority_fee_unit_limit
+     *     @type string $caller_address
      * }
      */
     public function __construct($data = NULL) {
@@ -160,6 +165,28 @@ class SolanaSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->priority_fee_unit_limit = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string caller_address = 6 [json_name = "callerAddress"];</code>
+     * @return string
+     */
+    public function getCallerAddress()
+    {
+        return $this->caller_address;
+    }
+
+    /**
+     * Generated from protobuf field <code>string caller_address = 6 [json_name = "callerAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setCallerAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->caller_address = $var;
 
         return $this;
     }

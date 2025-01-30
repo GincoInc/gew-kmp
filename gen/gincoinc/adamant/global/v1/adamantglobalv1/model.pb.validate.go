@@ -5811,6 +5811,12 @@ func (m *TronSpecific) validate(all bool) error {
 
 	// no validation rules for Expiration
 
+	// no validation rules for Timestamp
+
+	// no validation rules for BlockId
+
+	// no validation rules for FromAddress
+
 	if len(errors) > 0 {
 		return TronSpecificMultiError(errors)
 	}
@@ -8230,6 +8236,8 @@ func (m *SolanaSpecific) validate(all bool) error {
 
 	// no validation rules for PriorityFeeUnitLimit
 
+	// no validation rules for CallerAddress
+
 	if len(errors) > 0 {
 		return SolanaSpecificMultiError(errors)
 	}
@@ -9343,6 +9351,10 @@ func (m *QuorumSpecific) validate(all bool) error {
 	// no validation rules for Nonce
 
 	// no validation rules for IsNextNonce
+
+	// no validation rules for Data
+
+	// no validation rules for ChainId
 
 	if len(errors) > 0 {
 		return QuorumSpecificMultiError(errors)
@@ -11322,6 +11334,26 @@ func (m *SubstrateMultisigTransaction) validate(all bool) error {
 			}
 		}
 	}
+
+	// no validation rules for SectionIndex
+
+	// no validation rules for MethodIndex
+
+	// no validation rules for CallSectionIndex
+
+	// no validation rules for CallMethodIndex
+
+	// no validation rules for MaxWeight
+
+	// no validation rules for ProofSize
+
+	// no validation rules for Era
+
+	// no validation rules for SpecVersion
+
+	// no validation rules for TransactionVersion
+
+	// no validation rules for GenesisHash
 
 	if len(errors) > 0 {
 		return SubstrateMultisigTransactionMultiError(errors)
