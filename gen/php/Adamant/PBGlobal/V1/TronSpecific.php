@@ -19,6 +19,18 @@ class TronSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint64 expiration = 1 [json_name = "expiration"];</code>
      */
     protected $expiration = 0;
+    /**
+     * Generated from protobuf field <code>uint64 timestamp = 2 [json_name = "timestamp"];</code>
+     */
+    protected $timestamp = 0;
+    /**
+     * Generated from protobuf field <code>string block_id = 3 [json_name = "blockId"];</code>
+     */
+    protected $block_id = '';
+    /**
+     * Generated from protobuf field <code>string from_address = 4 [json_name = "fromAddress"];</code>
+     */
+    protected $from_address = '';
 
     /**
      * Constructor.
@@ -27,6 +39,9 @@ class TronSpecific extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int|string $expiration
+     *     @type int|string $timestamp
+     *     @type string $block_id
+     *     @type string $from_address
      * }
      */
     public function __construct($data = NULL) {
@@ -52,6 +67,72 @@ class TronSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint64($var);
         $this->expiration = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 timestamp = 2 [json_name = "timestamp"];</code>
+     * @return int|string
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 timestamp = 2 [json_name = "timestamp"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setTimestamp($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->timestamp = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string block_id = 3 [json_name = "blockId"];</code>
+     * @return string
+     */
+    public function getBlockId()
+    {
+        return $this->block_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>string block_id = 3 [json_name = "blockId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setBlockId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->block_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 4 [json_name = "fromAddress"];</code>
+     * @return string
+     */
+    public function getFromAddress()
+    {
+        return $this->from_address;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 4 [json_name = "fromAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setFromAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->from_address = $var;
 
         return $this;
     }

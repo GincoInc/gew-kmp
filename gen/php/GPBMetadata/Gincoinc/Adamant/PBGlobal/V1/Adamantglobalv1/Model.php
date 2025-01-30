@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-ùÄ
+–É
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"Ž	
 Wallet
 owner_id (	RownerId
@@ -390,11 +390,14 @@ expiration
 destination_tag (RdestinationTag?
 tx_type (2&.gincoinc.global.v1.XRPTransactionTypeRtxType5
 is_next_sequence_number (RisNextSequenceNumber!
-from_address (	RfromAddress".
+from_address (	RfromAddress"Š
 TronSpecific
 
 expiration (R
-expiration"„
+expiration
+	timestamp (R	timestamp
+block_id (	RblockId!
+from_address (	RfromAddress"„
 C0banSpecific7
 	tx_inputs (2.adamant.global.v1.TxInputRtxInputs:
 
@@ -506,7 +509,7 @@ expiration"o
 JapanOpenChainSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
-is_next_nonce (RisNextNonce"ù
+is_next_nonce (RisNextNonce" 
 SolanaSpecific
 
 expiration (R
@@ -515,7 +518,8 @@ expirationB
 event_type (2#.gincoinc.global.v1.SolanaEventTypeR	eventType!
 from_address (	RfromAddress)
 recent_blockhash (	RrecentBlockhash5
-priority_fee_unit_limit (RpriorityFeeUnitLimit"†
+priority_fee_unit_limit (RpriorityFeeUnitLimit%
+caller_address (	RcallerAddress"†
 AptosSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
@@ -568,11 +572,13 @@ outputType
 locktime (Rlocktime
 	threshold (R	threshold
 	is_change (RisChange
-	addresses (	R	addresses"g
+	addresses (	R	addresses"–
 QuorumSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
-is_next_nonce (RisNextNonce"â
+is_next_nonce (RisNextNonce
+data (	Rdata
+chain_id (RchainId"â
 "CreateTransactionSubstrateSpecific%
 transaction_id (	RtransactionIdA
 	call_type (2$.adamant.global.v1.SubstrateCallTypeRcallTypeR
@@ -641,7 +647,7 @@ start_time (R	startTime
 end_time (RendTime"7
 SelectedUTXO
 tx_id (	RtxId
-vout (Rvout"ï
+vout (Rvout"Ø
 SubstrateMultisigTransaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionIdI
@@ -661,7 +667,19 @@ string_fee	 (	R	stringFee
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
-updateTime"â
+updateTime#
+section_index (RsectionIndex!
+method_index (RmethodIndex,
+call_section_index (RcallSectionIndex*
+call_method_index (RcallMethodIndex
+
+max_weight (R	maxWeight
+
+proof_size (R	proofSize
+era (Rera!
+spec_version (RspecVersion/
+transaction_version (RtransactionVersion!
+genesis_hash (	RgenesisHash"â
 NemMultisigTransaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId=
