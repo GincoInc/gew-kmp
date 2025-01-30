@@ -423,6 +423,9 @@ message XrpSpecific {
 // The model of Tron specific fields of transaction
 message TronSpecific {
   uint64 expiration = 1;
+  uint64 timestamp = 2;
+  string block_id = 3;
+  string from_address = 4;
 }
 
 // The model of C0ban specific fields of transaction
@@ -583,6 +586,7 @@ message SolanaSpecific {
   string from_address = 3;
   string recent_blockhash = 4;
   uint32 priority_fee_unit_limit = 5;
+  string caller_address = 6;
 }
 
 // The model of Aptos specific fields of transaction
@@ -655,6 +659,8 @@ message QuorumSpecific {
   uint64 gas_limit = 1;
   uint64 nonce = 2;
   bool is_next_nonce = 3;
+  string data = 4;
+  uint64 chain_id = 5;
 }
 
 // The model of Substrate specific fields of CreateTransaction
@@ -774,6 +780,16 @@ message SubstrateMultisigTransaction {
   TransactionState state = 12; // state
   google.protobuf.Timestamp create_time = 13; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 14; // the time at which the transaction was updated
+  uint32 section_index = 15;
+  uint32 method_index = 16;
+  uint32 call_section_index = 17;
+  uint32 call_method_index = 18;
+  uint64 max_weight = 19;
+  uint64 proof_size = 20;
+  uint64 era = 21;
+  uint32 spec_version = 22;
+  uint32 transaction_version = 23;
+  string genesis_hash = 24;
 }
 
 // The model of nem multisig transaction
