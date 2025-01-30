@@ -290,6 +290,14 @@ class Network
      */
     const NETWORK_QUORUM_TESTNET = 67;
     /**
+     * Generated from protobuf enum <code>NETWORK_SUI_MAINNET = 68;</code>
+     */
+    const NETWORK_SUI_MAINNET = 68;
+    /**
+     * Generated from protobuf enum <code>NETWORK_SUI_TESTNET = 69;</code>
+     */
+    const NETWORK_SUI_TESTNET = 69;
+    /**
      * Generated from protobuf enum <code>NETWORK_SHIDEN_MAINNET = 10002;</code>
      */
     const NETWORK_SHIDEN_MAINNET = 10002;
@@ -363,6 +371,8 @@ class Network
         self::NETWORK_AVALANCHE_PLATFORM_CHAIN_TESTNET => 'NETWORK_AVALANCHE_PLATFORM_CHAIN_TESTNET',
         self::NETWORK_QUORUM_MAINNET => 'NETWORK_QUORUM_MAINNET',
         self::NETWORK_QUORUM_TESTNET => 'NETWORK_QUORUM_TESTNET',
+        self::NETWORK_SUI_MAINNET => 'NETWORK_SUI_MAINNET',
+        self::NETWORK_SUI_TESTNET => 'NETWORK_SUI_TESTNET',
         self::NETWORK_SHIDEN_MAINNET => 'NETWORK_SHIDEN_MAINNET',
     ];
 
