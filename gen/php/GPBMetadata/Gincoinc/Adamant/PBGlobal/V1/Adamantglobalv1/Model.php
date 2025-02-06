@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-–É
+ÞÉ
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"Ž	
 Wallet
 owner_id (	RownerId
@@ -572,13 +572,15 @@ outputType
 locktime (Rlocktime
 	threshold (R	threshold
 	is_change (RisChange
-	addresses (	R	addresses"–
+	addresses (	R	addresses"Þ
 QuorumSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
 is_next_nonce (RisNextNonce
 data (	Rdata
-chain_id (RchainId"â
+chain_id (RchainId!
+from_address (	RfromAddress#
+token_address (	RtokenAddress"â
 "CreateTransactionSubstrateSpecific%
 transaction_id (	RtransactionIdA
 	call_type (2$.adamant.global.v1.SubstrateCallTypeRcallTypeR
