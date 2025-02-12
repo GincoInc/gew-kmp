@@ -9356,6 +9356,10 @@ func (m *QuorumSpecific) validate(all bool) error {
 
 	// no validation rules for ChainId
 
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
 	if len(errors) > 0 {
 		return QuorumSpecificMultiError(errors)
 	}
