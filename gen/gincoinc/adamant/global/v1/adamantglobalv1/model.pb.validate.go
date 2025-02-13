@@ -4168,6 +4168,8 @@ func (m *TxInput) validate(all bool) error {
 
 	// no validation rules for NSequence
 
+	// no validation rules for AddressType
+
 	if len(errors) > 0 {
 		return TxInputMultiError(errors)
 	}
