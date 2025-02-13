@@ -330,6 +330,7 @@ message TxInput {
   string address = 6;
   string witness_script = 7;
   uint32 n_sequence = 8;
+  gincoinc.global.v1.AddressType address_type = 9;
 }
 
 // The model of transaction output
