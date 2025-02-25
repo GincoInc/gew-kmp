@@ -47,6 +47,10 @@ class TxInput extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint32 n_sequence = 8 [json_name = "nSequence"];</code>
      */
     protected $n_sequence = 0;
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.AddressType address_type = 9 [json_name = "addressType"];</code>
+     */
+    protected $address_type = 0;
 
     /**
      * Constructor.
@@ -62,6 +66,7 @@ class TxInput extends \Google\Protobuf\Internal\Message
      *     @type string $address
      *     @type string $witness_script
      *     @type int $n_sequence
+     *     @type int $address_type
      * }
      */
     public function __construct($data = NULL) {
@@ -241,6 +246,28 @@ class TxInput extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->n_sequence = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.AddressType address_type = 9 [json_name = "addressType"];</code>
+     * @return int
+     */
+    public function getAddressType()
+    {
+        return $this->address_type;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.AddressType address_type = 9 [json_name = "addressType"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setAddressType($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\AddressType::class);
+        $this->address_type = $var;
 
         return $this;
     }

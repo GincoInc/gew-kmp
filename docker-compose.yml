@@ -2,7 +2,7 @@ version: "3"
 
 services:
   teller:
-    image: ginco/teller:v2.63.1
+    image: ginco/teller:v2.63.2
     ports:
       - "50051:50051"
     command: -f /root/configs/config.toml

@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-ÞÉ
+¢Ê
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"Ž	
 Wallet
 owner_id (	RownerId
@@ -319,7 +319,7 @@ account_id (	R	accountIdA
 email (	Remail/
 role (2.adamant.global.v1.RoleTypeRrole
 signed (Rsigned
-	validated (R	validated"ø
+	validated (R	validated"¼
 TxInput
 tx_id (	RtxId
 tx_index (RtxIndex
@@ -329,7 +329,8 @@ account_id (	R	accountIdA
 address (	Raddress%
 witness_script (	RwitnessScript
 
-n_sequence (R	nSequence"¢
+n_sequence (R	nSequenceB
+address_type	 (2.gincoinc.global.v1.AddressTypeRaddressType"¢
 TxOutput
 address (	Raddress
 value (Rvalue!
