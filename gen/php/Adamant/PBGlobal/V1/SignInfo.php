@@ -40,10 +40,6 @@ class SignInfo extends \Google\Protobuf\Internal\Message
      */
     protected $tx_id = '';
     /**
-     * Generated from protobuf field <code>uint32 sign_index = 11 [json_name = "signIndex"];</code>
-     */
-    protected $sign_index = 0;
-    /**
      * Generated from protobuf field <code>string sign_message = 7 [json_name = "signMessage"];</code>
      */
     protected $sign_message = '';
@@ -56,13 +52,17 @@ class SignInfo extends \Google\Protobuf\Internal\Message
      */
     protected $hd_index = 0;
     /**
-     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 12 [json_name = "network"];</code>
-     */
-    protected $network = 0;
-    /**
      * Generated from protobuf field <code>repeated .adamant.global.v1.SignTxInput sign_tx_inputs = 10 [json_name = "signTxInputs"];</code>
      */
     private $sign_tx_inputs;
+    /**
+     * Generated from protobuf field <code>uint32 sign_index = 11 [json_name = "signIndex"];</code>
+     */
+    protected $sign_index = 0;
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 12 [json_name = "network"];</code>
+     */
+    protected $network = 0;
 
     /**
      * Constructor.
@@ -76,12 +76,12 @@ class SignInfo extends \Google\Protobuf\Internal\Message
      *     @type int $hd_account
      *     @type int $coin
      *     @type string $tx_id
-     *     @type int $sign_index
      *     @type string $sign_message
      *     @type int $hd_change
      *     @type int $hd_index
-     *     @type int $network
      *     @type array<\Adamant\PBGlobal\V1\SignTxInput>|\Google\Protobuf\Internal\RepeatedField $sign_tx_inputs
+     *     @type int $sign_index
+     *     @type int $network
      * }
      */
     public function __construct($data = NULL) {
@@ -222,28 +222,6 @@ class SignInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 sign_index = 11 [json_name = "signIndex"];</code>
-     * @return int
-     */
-    public function getSignIndex()
-    {
-        return $this->sign_index;
-    }
-
-    /**
-     * Generated from protobuf field <code>uint32 sign_index = 11 [json_name = "signIndex"];</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setSignIndex($var)
-    {
-        GPBUtil::checkUint32($var);
-        $this->sign_index = $var;
-
-        return $this;
-    }
-
-    /**
      * Generated from protobuf field <code>string sign_message = 7 [json_name = "signMessage"];</code>
      * @return string
      */
@@ -310,28 +288,6 @@ class SignInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 12 [json_name = "network"];</code>
-     * @return int
-     */
-    public function getNetwork()
-    {
-        return $this->network;
-    }
-
-    /**
-     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 12 [json_name = "network"];</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setNetwork($var)
-    {
-        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
-        $this->network = $var;
-
-        return $this;
-    }
-
-    /**
      * Generated from protobuf field <code>repeated .adamant.global.v1.SignTxInput sign_tx_inputs = 10 [json_name = "signTxInputs"];</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
@@ -349,6 +305,50 @@ class SignInfo extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Adamant\PBGlobal\V1\SignTxInput::class);
         $this->sign_tx_inputs = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 sign_index = 11 [json_name = "signIndex"];</code>
+     * @return int
+     */
+    public function getSignIndex()
+    {
+        return $this->sign_index;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 sign_index = 11 [json_name = "signIndex"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setSignIndex($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->sign_index = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 12 [json_name = "network"];</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return $this->network;
+    }
+
+    /**
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 12 [json_name = "network"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
 
         return $this;
     }

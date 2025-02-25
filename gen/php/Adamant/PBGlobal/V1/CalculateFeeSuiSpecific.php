@@ -17,6 +17,10 @@ class CalculateFeeSuiSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
      */
     private $object_ids;
+    /**
+     * Generated from protobuf field <code>bool send_all = 2 [json_name = "sendAll"];</code>
+     */
+    protected $send_all = false;
 
     /**
      * Constructor.
@@ -25,6 +29,7 @@ class CalculateFeeSuiSpecific extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type array<string>|\Google\Protobuf\Internal\RepeatedField $object_ids
+     *     @type bool $send_all
      * }
      */
     public function __construct($data = NULL) {
@@ -50,6 +55,28 @@ class CalculateFeeSuiSpecific extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
         $this->object_ids = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool send_all = 2 [json_name = "sendAll"];</code>
+     * @return bool
+     */
+    public function getSendAll()
+    {
+        return $this->send_all;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool send_all = 2 [json_name = "sendAll"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setSendAll($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->send_all = $var;
 
         return $this;
     }

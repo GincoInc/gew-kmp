@@ -298,6 +298,18 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $quorum_specific = null;
     /**
+     * The Ton specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.TonSpecific ton_specific = 53 [json_name = "tonSpecific"];</code>
+     */
+    protected $ton_specific = null;
+    /**
+     * The Sui specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.SuiSpecific sui_specific = 54 [json_name = "suiSpecific"];</code>
+     */
+    protected $sui_specific = null;
+    /**
      * the time at which the transaction was created
      *
      * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
@@ -410,6 +422,10 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The Avalanche Platform Chain specific fields
      *     @type \Adamant\PBGlobal\V1\QuorumSpecific $quorum_specific
      *           The Quorum specific fields
+     *     @type \Adamant\PBGlobal\V1\TonSpecific $ton_specific
+     *           The Ton specific fields
+     *     @type \Adamant\PBGlobal\V1\SuiSpecific $sui_specific
+     *           The Sui specific fields
      *     @type \Google\Protobuf\Timestamp $create_time
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
@@ -1959,6 +1975,78 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\QuorumSpecific::class);
         $this->quorum_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Ton specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.TonSpecific ton_specific = 53 [json_name = "tonSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\TonSpecific|null
+     */
+    public function getTonSpecific()
+    {
+        return $this->ton_specific;
+    }
+
+    public function hasTonSpecific()
+    {
+        return isset($this->ton_specific);
+    }
+
+    public function clearTonSpecific()
+    {
+        unset($this->ton_specific);
+    }
+
+    /**
+     * The Ton specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.TonSpecific ton_specific = 53 [json_name = "tonSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\TonSpecific $var
+     * @return $this
+     */
+    public function setTonSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\TonSpecific::class);
+        $this->ton_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Sui specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.SuiSpecific sui_specific = 54 [json_name = "suiSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\SuiSpecific|null
+     */
+    public function getSuiSpecific()
+    {
+        return $this->sui_specific;
+    }
+
+    public function hasSuiSpecific()
+    {
+        return isset($this->sui_specific);
+    }
+
+    public function clearSuiSpecific()
+    {
+        unset($this->sui_specific);
+    }
+
+    /**
+     * The Sui specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.SuiSpecific sui_specific = 54 [json_name = "suiSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\SuiSpecific $var
+     * @return $this
+     */
+    public function setSuiSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\SuiSpecific::class);
+        $this->sui_specific = $var;
 
         return $this;
     }

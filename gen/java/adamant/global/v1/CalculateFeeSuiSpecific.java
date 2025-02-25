@@ -77,6 +77,17 @@ private static final long serialVersionUID = 0L;
     return objectIds_.getByteString(index);
   }
 
+  public static final int SEND_ALL_FIELD_NUMBER = 2;
+  private boolean sendAll_ = false;
+  /**
+   * <code>bool send_all = 2 [json_name = "sendAll"];</code>
+   * @return The sendAll.
+   */
+  @java.lang.Override
+  public boolean getSendAll() {
+    return sendAll_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -93,6 +104,9 @@ private static final long serialVersionUID = 0L;
                       throws java.io.IOException {
     for (int i = 0; i < objectIds_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, objectIds_.getRaw(i));
+    }
+    if (sendAll_ != false) {
+      output.writeBool(2, sendAll_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -111,6 +125,10 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getObjectIdsList().size();
     }
+    if (sendAll_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(2, sendAll_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -128,6 +146,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getObjectIdsList()
         .equals(other.getObjectIdsList())) return false;
+    if (getSendAll()
+        != other.getSendAll()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -143,6 +163,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OBJECT_IDS_FIELD_NUMBER;
       hash = (53 * hash) + getObjectIdsList().hashCode();
     }
+    hash = (37 * hash) + SEND_ALL_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getSendAll());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -276,6 +299,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       objectIds_ =
           com.google.protobuf.LazyStringArrayList.emptyList();
+      sendAll_ = false;
       return this;
     }
 
@@ -312,6 +336,9 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         objectIds_.makeImmutable();
         result.objectIds_ = objectIds_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.sendAll_ = sendAll_;
       }
     }
 
@@ -369,6 +396,9 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
+      if (other.getSendAll() != false) {
+        setSendAll(other.getSendAll());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -401,6 +431,11 @@ private static final long serialVersionUID = 0L;
               objectIds_.add(s);
               break;
             } // case 10
+            case 16: {
+              sendAll_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -525,6 +560,38 @@ private static final long serialVersionUID = 0L;
       ensureObjectIdsIsMutable();
       objectIds_.add(value);
       bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+
+    private boolean sendAll_ ;
+    /**
+     * <code>bool send_all = 2 [json_name = "sendAll"];</code>
+     * @return The sendAll.
+     */
+    @java.lang.Override
+    public boolean getSendAll() {
+      return sendAll_;
+    }
+    /**
+     * <code>bool send_all = 2 [json_name = "sendAll"];</code>
+     * @param value The sendAll to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSendAll(boolean value) {
+
+      sendAll_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool send_all = 2 [json_name = "sendAll"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSendAll() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      sendAll_ = false;
       onChanged();
       return this;
     }

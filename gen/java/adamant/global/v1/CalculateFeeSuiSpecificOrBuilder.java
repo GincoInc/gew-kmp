@@ -31,4 +31,10 @@ public interface CalculateFeeSuiSpecificOrBuilder extends
    */
   com.google.protobuf.ByteString
       getObjectIdsBytes(int index);
+
+  /**
+   * <code>bool send_all = 2 [json_name = "sendAll"];</code>
+   * @return The sendAll.
+   */
+  boolean getSendAll();
 }
