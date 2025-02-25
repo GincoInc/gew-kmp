@@ -1376,6 +1376,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.TxInput proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1394,6 +1396,8 @@ public class ModelValidator {
 	// no validation rules for WitnessScript
 
 	// no validation rules for NSequence
+
+	// no validation rules for AddressType
 
 	
 	}
