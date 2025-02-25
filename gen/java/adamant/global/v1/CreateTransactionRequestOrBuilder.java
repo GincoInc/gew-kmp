@@ -281,6 +281,21 @@ public interface CreateTransactionRequestOrBuilder extends
   adamant.global.v1.Model.CreateTransactionNFTSpecificOrBuilder getNftSpecificOrBuilder();
 
   /**
+   * <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+   * @return Whether the tonSpecific field is set.
+   */
+  boolean hasTonSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+   * @return The tonSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionTonSpecific getTonSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionTonSpecificOrBuilder getTonSpecificOrBuilder();
+
+  /**
    * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
    * @return Whether the utxoSpecific field is set.
    */
@@ -294,6 +309,21 @@ public interface CreateTransactionRequestOrBuilder extends
    * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
    */
   adamant.global.v1.UtxoSpecificOrBuilder getUtxoSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+   * @return Whether the suiSpecific field is set.
+   */
+  boolean hasSuiSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+   * @return The suiSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionSuiSpecific getSuiSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionSuiSpecificOrBuilder getSuiSpecificOrBuilder();
 
   /**
    * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>

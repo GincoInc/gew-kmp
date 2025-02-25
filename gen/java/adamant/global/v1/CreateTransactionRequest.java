@@ -573,6 +573,32 @@ private static final long serialVersionUID = 0L;
     return nftSpecific_ == null ? adamant.global.v1.Model.CreateTransactionNFTSpecific.getDefaultInstance() : nftSpecific_;
   }
 
+  public static final int TON_SPECIFIC_FIELD_NUMBER = 23;
+  private adamant.global.v1.Model.CreateTransactionTonSpecific tonSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+   * @return Whether the tonSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasTonSpecific() {
+    return tonSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+   * @return The tonSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionTonSpecific getTonSpecific() {
+    return tonSpecific_ == null ? adamant.global.v1.Model.CreateTransactionTonSpecific.getDefaultInstance() : tonSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionTonSpecificOrBuilder getTonSpecificOrBuilder() {
+    return tonSpecific_ == null ? adamant.global.v1.Model.CreateTransactionTonSpecific.getDefaultInstance() : tonSpecific_;
+  }
+
   public static final int UTXO_SPECIFIC_FIELD_NUMBER = 18;
   private adamant.global.v1.UtxoSpecific utxoSpecific_;
   /**
@@ -597,6 +623,32 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public adamant.global.v1.UtxoSpecificOrBuilder getUtxoSpecificOrBuilder() {
     return utxoSpecific_ == null ? adamant.global.v1.UtxoSpecific.getDefaultInstance() : utxoSpecific_;
+  }
+
+  public static final int SUI_SPECIFIC_FIELD_NUMBER = 24;
+  private adamant.global.v1.Model.CreateTransactionSuiSpecific suiSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+   * @return Whether the suiSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasSuiSpecific() {
+    return suiSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+   * @return The suiSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionSuiSpecific getSuiSpecific() {
+    return suiSpecific_ == null ? adamant.global.v1.Model.CreateTransactionSuiSpecific.getDefaultInstance() : suiSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionSuiSpecificOrBuilder getSuiSpecificOrBuilder() {
+    return suiSpecific_ == null ? adamant.global.v1.Model.CreateTransactionSuiSpecific.getDefaultInstance() : suiSpecific_;
   }
 
   public static final int PRE_TRANSACTION_ID_FIELD_NUMBER = 21;
@@ -726,6 +778,12 @@ private static final long serialVersionUID = 0L;
     if (nftSpecific_ != null) {
       output.writeMessage(22, getNftSpecific());
     }
+    if (tonSpecific_ != null) {
+      output.writeMessage(23, getTonSpecific());
+    }
+    if (suiSpecific_ != null) {
+      output.writeMessage(24, getSuiSpecific());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -818,6 +876,14 @@ private static final long serialVersionUID = 0L;
     if (nftSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(22, getNftSpecific());
+    }
+    if (tonSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(23, getTonSpecific());
+    }
+    if (suiSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(24, getSuiSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -913,10 +979,20 @@ private static final long serialVersionUID = 0L;
       if (!getNftSpecific()
           .equals(other.getNftSpecific())) return false;
     }
+    if (hasTonSpecific() != other.hasTonSpecific()) return false;
+    if (hasTonSpecific()) {
+      if (!getTonSpecific()
+          .equals(other.getTonSpecific())) return false;
+    }
     if (hasUtxoSpecific() != other.hasUtxoSpecific()) return false;
     if (hasUtxoSpecific()) {
       if (!getUtxoSpecific()
           .equals(other.getUtxoSpecific())) return false;
+    }
+    if (hasSuiSpecific() != other.hasSuiSpecific()) return false;
+    if (hasSuiSpecific()) {
+      if (!getSuiSpecific()
+          .equals(other.getSuiSpecific())) return false;
     }
     if (hasPreTransactionId() != other.hasPreTransactionId()) return false;
     if (hasPreTransactionId()) {
@@ -1004,9 +1080,17 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NFT_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getNftSpecific().hashCode();
     }
+    if (hasTonSpecific()) {
+      hash = (37 * hash) + TON_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getTonSpecific().hashCode();
+    }
     if (hasUtxoSpecific()) {
       hash = (37 * hash) + UTXO_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getUtxoSpecific().hashCode();
+    }
+    if (hasSuiSpecific()) {
+      hash = (37 * hash) + SUI_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getSuiSpecific().hashCode();
     }
     if (hasPreTransactionId()) {
       hash = (37 * hash) + PRE_TRANSACTION_ID_FIELD_NUMBER;
@@ -1221,10 +1305,20 @@ private static final long serialVersionUID = 0L;
         nftSpecificBuilder_.dispose();
         nftSpecificBuilder_ = null;
       }
+      tonSpecific_ = null;
+      if (tonSpecificBuilder_ != null) {
+        tonSpecificBuilder_.dispose();
+        tonSpecificBuilder_ = null;
+      }
       utxoSpecific_ = null;
       if (utxoSpecificBuilder_ != null) {
         utxoSpecificBuilder_.dispose();
         utxoSpecificBuilder_ = null;
+      }
+      suiSpecific_ = null;
+      if (suiSpecificBuilder_ != null) {
+        suiSpecificBuilder_.dispose();
+        suiSpecificBuilder_ = null;
       }
       preTransactionId_ = "";
       return this;
@@ -1357,12 +1451,22 @@ private static final long serialVersionUID = 0L;
             : nftSpecificBuilder_.build();
       }
       if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.tonSpecific_ = tonSpecificBuilder_ == null
+            ? tonSpecific_
+            : tonSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00200000) != 0)) {
         result.utxoSpecific_ = utxoSpecificBuilder_ == null
             ? utxoSpecific_
             : utxoSpecificBuilder_.build();
       }
+      if (((from_bitField0_ & 0x00400000) != 0)) {
+        result.suiSpecific_ = suiSpecificBuilder_ == null
+            ? suiSpecific_
+            : suiSpecificBuilder_.build();
+      }
       int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00200000) != 0)) {
+      if (((from_bitField0_ & 0x00800000) != 0)) {
         result.preTransactionId_ = preTransactionId_;
         to_bitField0_ |= 0x00000001;
       }
@@ -1502,12 +1606,18 @@ private static final long serialVersionUID = 0L;
       if (other.hasNftSpecific()) {
         mergeNftSpecific(other.getNftSpecific());
       }
+      if (other.hasTonSpecific()) {
+        mergeTonSpecific(other.getTonSpecific());
+      }
       if (other.hasUtxoSpecific()) {
         mergeUtxoSpecific(other.getUtxoSpecific());
       }
+      if (other.hasSuiSpecific()) {
+        mergeSuiSpecific(other.getSuiSpecific());
+      }
       if (other.hasPreTransactionId()) {
         preTransactionId_ = other.preTransactionId_;
-        bitField0_ |= 0x00200000;
+        bitField0_ |= 0x00800000;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -1653,7 +1763,7 @@ private static final long serialVersionUID = 0L;
               input.readMessage(
                   getUtxoSpecificFieldBuilder().getBuilder(),
                   extensionRegistry);
-              bitField0_ |= 0x00100000;
+              bitField0_ |= 0x00200000;
               break;
             } // case 146
             case 154: {
@@ -1672,7 +1782,7 @@ private static final long serialVersionUID = 0L;
             } // case 162
             case 170: {
               preTransactionId_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00200000;
+              bitField0_ |= 0x00800000;
               break;
             } // case 170
             case 178: {
@@ -1682,6 +1792,20 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00080000;
               break;
             } // case 178
+            case 186: {
+              input.readMessage(
+                  getTonSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 186
+            case 194: {
+              input.readMessage(
+                  getSuiSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00400000;
+              break;
+            } // case 194
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -3798,6 +3922,125 @@ private static final long serialVersionUID = 0L;
       return nftSpecificBuilder_;
     }
 
+    private adamant.global.v1.Model.CreateTransactionTonSpecific tonSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionTonSpecific, adamant.global.v1.Model.CreateTransactionTonSpecific.Builder, adamant.global.v1.Model.CreateTransactionTonSpecificOrBuilder> tonSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+     * @return Whether the tonSpecific field is set.
+     */
+    public boolean hasTonSpecific() {
+      return ((bitField0_ & 0x00100000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+     * @return The tonSpecific.
+     */
+    public adamant.global.v1.Model.CreateTransactionTonSpecific getTonSpecific() {
+      if (tonSpecificBuilder_ == null) {
+        return tonSpecific_ == null ? adamant.global.v1.Model.CreateTransactionTonSpecific.getDefaultInstance() : tonSpecific_;
+      } else {
+        return tonSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+     */
+    public Builder setTonSpecific(adamant.global.v1.Model.CreateTransactionTonSpecific value) {
+      if (tonSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        tonSpecific_ = value;
+      } else {
+        tonSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00100000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+     */
+    public Builder setTonSpecific(
+        adamant.global.v1.Model.CreateTransactionTonSpecific.Builder builderForValue) {
+      if (tonSpecificBuilder_ == null) {
+        tonSpecific_ = builderForValue.build();
+      } else {
+        tonSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00100000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+     */
+    public Builder mergeTonSpecific(adamant.global.v1.Model.CreateTransactionTonSpecific value) {
+      if (tonSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00100000) != 0) &&
+          tonSpecific_ != null &&
+          tonSpecific_ != adamant.global.v1.Model.CreateTransactionTonSpecific.getDefaultInstance()) {
+          getTonSpecificBuilder().mergeFrom(value);
+        } else {
+          tonSpecific_ = value;
+        }
+      } else {
+        tonSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00100000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+     */
+    public Builder clearTonSpecific() {
+      bitField0_ = (bitField0_ & ~0x00100000);
+      tonSpecific_ = null;
+      if (tonSpecificBuilder_ != null) {
+        tonSpecificBuilder_.dispose();
+        tonSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionTonSpecific.Builder getTonSpecificBuilder() {
+      bitField0_ |= 0x00100000;
+      onChanged();
+      return getTonSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionTonSpecificOrBuilder getTonSpecificOrBuilder() {
+      if (tonSpecificBuilder_ != null) {
+        return tonSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return tonSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionTonSpecific.getDefaultInstance() : tonSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionTonSpecific, adamant.global.v1.Model.CreateTransactionTonSpecific.Builder, adamant.global.v1.Model.CreateTransactionTonSpecificOrBuilder> 
+        getTonSpecificFieldBuilder() {
+      if (tonSpecificBuilder_ == null) {
+        tonSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionTonSpecific, adamant.global.v1.Model.CreateTransactionTonSpecific.Builder, adamant.global.v1.Model.CreateTransactionTonSpecificOrBuilder>(
+                getTonSpecific(),
+                getParentForChildren(),
+                isClean());
+        tonSpecific_ = null;
+      }
+      return tonSpecificBuilder_;
+    }
+
     private adamant.global.v1.UtxoSpecific utxoSpecific_;
     private com.google.protobuf.SingleFieldBuilderV3<
         adamant.global.v1.UtxoSpecific, adamant.global.v1.UtxoSpecific.Builder, adamant.global.v1.UtxoSpecificOrBuilder> utxoSpecificBuilder_;
@@ -3806,7 +4049,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the utxoSpecific field is set.
      */
     public boolean hasUtxoSpecific() {
-      return ((bitField0_ & 0x00100000) != 0);
+      return ((bitField0_ & 0x00200000) != 0);
     }
     /**
      * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
@@ -3831,7 +4074,7 @@ private static final long serialVersionUID = 0L;
       } else {
         utxoSpecificBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00100000;
+      bitField0_ |= 0x00200000;
       onChanged();
       return this;
     }
@@ -3845,7 +4088,7 @@ private static final long serialVersionUID = 0L;
       } else {
         utxoSpecificBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00100000;
+      bitField0_ |= 0x00200000;
       onChanged();
       return this;
     }
@@ -3854,7 +4097,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUtxoSpecific(adamant.global.v1.UtxoSpecific value) {
       if (utxoSpecificBuilder_ == null) {
-        if (((bitField0_ & 0x00100000) != 0) &&
+        if (((bitField0_ & 0x00200000) != 0) &&
           utxoSpecific_ != null &&
           utxoSpecific_ != adamant.global.v1.UtxoSpecific.getDefaultInstance()) {
           getUtxoSpecificBuilder().mergeFrom(value);
@@ -3864,7 +4107,7 @@ private static final long serialVersionUID = 0L;
       } else {
         utxoSpecificBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00100000;
+      bitField0_ |= 0x00200000;
       onChanged();
       return this;
     }
@@ -3872,7 +4115,7 @@ private static final long serialVersionUID = 0L;
      * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
      */
     public Builder clearUtxoSpecific() {
-      bitField0_ = (bitField0_ & ~0x00100000);
+      bitField0_ = (bitField0_ & ~0x00200000);
       utxoSpecific_ = null;
       if (utxoSpecificBuilder_ != null) {
         utxoSpecificBuilder_.dispose();
@@ -3885,7 +4128,7 @@ private static final long serialVersionUID = 0L;
      * <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
      */
     public adamant.global.v1.UtxoSpecific.Builder getUtxoSpecificBuilder() {
-      bitField0_ |= 0x00100000;
+      bitField0_ |= 0x00200000;
       onChanged();
       return getUtxoSpecificFieldBuilder().getBuilder();
     }
@@ -3917,13 +4160,132 @@ private static final long serialVersionUID = 0L;
       return utxoSpecificBuilder_;
     }
 
+    private adamant.global.v1.Model.CreateTransactionSuiSpecific suiSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionSuiSpecific, adamant.global.v1.Model.CreateTransactionSuiSpecific.Builder, adamant.global.v1.Model.CreateTransactionSuiSpecificOrBuilder> suiSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+     * @return Whether the suiSpecific field is set.
+     */
+    public boolean hasSuiSpecific() {
+      return ((bitField0_ & 0x00400000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+     * @return The suiSpecific.
+     */
+    public adamant.global.v1.Model.CreateTransactionSuiSpecific getSuiSpecific() {
+      if (suiSpecificBuilder_ == null) {
+        return suiSpecific_ == null ? adamant.global.v1.Model.CreateTransactionSuiSpecific.getDefaultInstance() : suiSpecific_;
+      } else {
+        return suiSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+     */
+    public Builder setSuiSpecific(adamant.global.v1.Model.CreateTransactionSuiSpecific value) {
+      if (suiSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        suiSpecific_ = value;
+      } else {
+        suiSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00400000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+     */
+    public Builder setSuiSpecific(
+        adamant.global.v1.Model.CreateTransactionSuiSpecific.Builder builderForValue) {
+      if (suiSpecificBuilder_ == null) {
+        suiSpecific_ = builderForValue.build();
+      } else {
+        suiSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00400000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+     */
+    public Builder mergeSuiSpecific(adamant.global.v1.Model.CreateTransactionSuiSpecific value) {
+      if (suiSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00400000) != 0) &&
+          suiSpecific_ != null &&
+          suiSpecific_ != adamant.global.v1.Model.CreateTransactionSuiSpecific.getDefaultInstance()) {
+          getSuiSpecificBuilder().mergeFrom(value);
+        } else {
+          suiSpecific_ = value;
+        }
+      } else {
+        suiSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00400000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+     */
+    public Builder clearSuiSpecific() {
+      bitField0_ = (bitField0_ & ~0x00400000);
+      suiSpecific_ = null;
+      if (suiSpecificBuilder_ != null) {
+        suiSpecificBuilder_.dispose();
+        suiSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionSuiSpecific.Builder getSuiSpecificBuilder() {
+      bitField0_ |= 0x00400000;
+      onChanged();
+      return getSuiSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionSuiSpecificOrBuilder getSuiSpecificOrBuilder() {
+      if (suiSpecificBuilder_ != null) {
+        return suiSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return suiSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionSuiSpecific.getDefaultInstance() : suiSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionSuiSpecific, adamant.global.v1.Model.CreateTransactionSuiSpecific.Builder, adamant.global.v1.Model.CreateTransactionSuiSpecificOrBuilder> 
+        getSuiSpecificFieldBuilder() {
+      if (suiSpecificBuilder_ == null) {
+        suiSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionSuiSpecific, adamant.global.v1.Model.CreateTransactionSuiSpecific.Builder, adamant.global.v1.Model.CreateTransactionSuiSpecificOrBuilder>(
+                getSuiSpecific(),
+                getParentForChildren(),
+                isClean());
+        suiSpecific_ = null;
+      }
+      return suiSpecificBuilder_;
+    }
+
     private java.lang.Object preTransactionId_ = "";
     /**
      * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
      * @return Whether the preTransactionId field is set.
      */
     public boolean hasPreTransactionId() {
-      return ((bitField0_ & 0x00200000) != 0);
+      return ((bitField0_ & 0x00800000) != 0);
     }
     /**
      * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
@@ -3967,7 +4329,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       preTransactionId_ = value;
-      bitField0_ |= 0x00200000;
+      bitField0_ |= 0x00800000;
       onChanged();
       return this;
     }
@@ -3977,7 +4339,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPreTransactionId() {
       preTransactionId_ = getDefaultInstance().getPreTransactionId();
-      bitField0_ = (bitField0_ & ~0x00200000);
+      bitField0_ = (bitField0_ & ~0x00800000);
       onChanged();
       return this;
     }
@@ -3991,7 +4353,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       preTransactionId_ = value;
-      bitField0_ |= 0x00200000;
+      bitField0_ |= 0x00800000;
       onChanged();
       return this;
     }

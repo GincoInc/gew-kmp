@@ -94,9 +94,17 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      */
     protected $nft_specific = null;
     /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+     */
+    protected $ton_specific = null;
+    /**
      * Generated from protobuf field <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
      */
     protected $utxo_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+     */
+    protected $sui_specific = null;
     /**
      * Generated from protobuf field <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = {</code>
      */
@@ -128,7 +136,9 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CreateTransactionAptosSpecific $aptos_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionAvalancheSpecific $avalanche_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionNFTSpecific $nft_specific
+     *     @type \Adamant\PBGlobal\V1\CreateTransactionTonSpecific $ton_specific
      *     @type \Adamant\PBGlobal\V1\UtxoSpecific $utxo_specific
+     *     @type \Adamant\PBGlobal\V1\CreateTransactionSuiSpecific $sui_specific
      *     @type string $pre_transaction_id
      * }
      */
@@ -708,6 +718,38 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CreateTransactionTonSpecific|null
+     */
+    public function getTonSpecific()
+    {
+        return $this->ton_specific;
+    }
+
+    public function hasTonSpecific()
+    {
+        return isset($this->ton_specific);
+    }
+
+    public function clearTonSpecific()
+    {
+        unset($this->ton_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23 [json_name = "tonSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CreateTransactionTonSpecific $var
+     * @return $this
+     */
+    public function setTonSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionTonSpecific::class);
+        $this->ton_specific = $var;
+
+        return $this;
+    }
+
+    /**
      * Generated from protobuf field <code>.adamant.global.v1.UtxoSpecific utxo_specific = 18 [json_name = "utxoSpecific"];</code>
      * @return \Adamant\PBGlobal\V1\UtxoSpecific|null
      */
@@ -735,6 +777,38 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\UtxoSpecific::class);
         $this->utxo_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CreateTransactionSuiSpecific|null
+     */
+    public function getSuiSpecific()
+    {
+        return $this->sui_specific;
+    }
+
+    public function hasSuiSpecific()
+    {
+        return isset($this->sui_specific);
+    }
+
+    public function clearSuiSpecific()
+    {
+        unset($this->sui_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24 [json_name = "suiSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CreateTransactionSuiSpecific $var
+     * @return $this
+     */
+    public function setSuiSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionSuiSpecific::class);
+        $this->sui_specific = $var;
 
         return $this;
     }

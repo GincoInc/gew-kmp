@@ -57,6 +57,10 @@ public class CreateTransactionRequestValidator implements io.envoyproxy.pgv.Vali
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.CreateTransactionRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -118,8 +122,14 @@ public class CreateTransactionRequestValidator implements io.envoyproxy.pgv.Vali
 			// Validate nft_specific
 			if (proto.hasNftSpecific()) index.validatorFor(proto.getNftSpecific()).assertValid(proto.getNftSpecific());
 	
+			// Validate ton_specific
+			if (proto.hasTonSpecific()) index.validatorFor(proto.getTonSpecific()).assertValid(proto.getTonSpecific());
+	
 			// Validate utxo_specific
 			if (proto.hasUtxoSpecific()) index.validatorFor(proto.getUtxoSpecific()).assertValid(proto.getUtxoSpecific());
+	
+			// Validate sui_specific
+			if (proto.hasSuiSpecific()) index.validatorFor(proto.getSuiSpecific()).assertValid(proto.getSuiSpecific());
 	
 	}
 

@@ -16,6 +16,8 @@ public class CalculateFeeSuiSpecificValidator implements io.envoyproxy.pgv.Valid
 	}
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.CalculateFeeSuiSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -24,6 +26,8 @@ public class CalculateFeeSuiSpecificValidator implements io.envoyproxy.pgv.Valid
 				// no validation rules for ObjectIds
 
 			});
+	// no validation rules for SendAll
+
 	
 	}
 

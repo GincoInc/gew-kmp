@@ -918,7 +918,9 @@ message CreateTransactionRequest {
   adamant.global.v1.CreateTransactionAptosSpecific aptos_specific = 19;
   adamant.global.v1.CreateTransactionAvalancheSpecific avalanche_specific = 20;
   adamant.global.v1.CreateTransactionNFTSpecific nft_specific = 22;
+  adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23;
   adamant.global.v1.UtxoSpecific utxo_specific = 18;
+  adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24;
   optional string pre_transaction_id = 21 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
@@ -1573,6 +1575,7 @@ message CalculateFeeRequest {
   CalculateFeeSolanaSpecific solana_specific = 15;
   CalculateFeeAvalancheSpecific avalanche_specific = 16;
   CalculateFeeSuiSpecific sui_specific = 17;
+  CalculateFeeTonSpecific ton_specific = 18;
 }
 
 // The model of Substrate specific fields of CreateTransaction
@@ -1621,6 +1624,12 @@ message CalculateFeeRbfSpecific {
   }];
 }
 
+// The model of Ton specific fields of CalculateFee
+message CalculateFeeTonSpecific {
+  uint64 expiration = 1;
+  string memo = 2;
+}
+
 // The model of Utxo specific fields of CalculateFee
 message UtxoSpecific {
   repeated SelectedUTXO selected_utxos = 1;
@@ -1633,6 +1642,7 @@ message CalculateFeeAvalancheSpecific {
 
 message CalculateFeeSuiSpecific {
   repeated string object_ids = 1;
+  bool send_all = 2;
 }
 
 message CalculateFeeResponse {
