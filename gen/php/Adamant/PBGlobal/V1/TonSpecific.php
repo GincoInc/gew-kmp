@@ -29,6 +29,10 @@ class TonSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string from_address = 4 [json_name = "fromAddress"];</code>
      */
     protected $from_address = '';
+    /**
+     * Generated from protobuf field <code>bool is_next_sequence_number = 5 [json_name = "isNextSequenceNumber"];</code>
+     */
+    protected $is_next_sequence_number = false;
 
     /**
      * Constructor.
@@ -40,6 +44,7 @@ class TonSpecific extends \Google\Protobuf\Internal\Message
      *     @type string $memo
      *     @type int $sequence_number
      *     @type string $from_address
+     *     @type bool $is_next_sequence_number
      * }
      */
     public function __construct($data = NULL) {
@@ -131,6 +136,28 @@ class TonSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->from_address = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool is_next_sequence_number = 5 [json_name = "isNextSequenceNumber"];</code>
+     * @return bool
+     */
+    public function getIsNextSequenceNumber()
+    {
+        return $this->is_next_sequence_number;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool is_next_sequence_number = 5 [json_name = "isNextSequenceNumber"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setIsNextSequenceNumber($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->is_next_sequence_number = $var;
 
         return $this;
     }

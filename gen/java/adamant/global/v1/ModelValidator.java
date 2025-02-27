@@ -2517,6 +2517,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.TonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2527,6 +2529,8 @@ public class ModelValidator {
 	// no validation rules for SequenceNumber
 
 	// no validation rules for FromAddress
+
+	// no validation rules for IsNextSequenceNumber
 
 	
 	}

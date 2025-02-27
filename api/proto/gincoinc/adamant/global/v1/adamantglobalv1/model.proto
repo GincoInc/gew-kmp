@@ -642,6 +642,7 @@ message TonSpecific {
   string memo = 2;
   uint32 sequence_number = 3;
   string from_address = 4;
+  bool is_next_sequence_number = 5;
 }
 
 message SuiSpecific {

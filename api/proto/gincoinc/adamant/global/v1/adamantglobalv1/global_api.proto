@@ -1641,7 +1641,6 @@ message CalculateFeeAvalancheSpecific {
 }
 
 message CalculateFeeSuiSpecific {
-  repeated string object_ids = 1;
   bool send_all = 2;
 }
 

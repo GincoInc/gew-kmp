@@ -16,8 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private CalculateFeeSuiSpecific() {
-    objectIds_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
   }
 
   @java.lang.Override
@@ -38,43 +36,6 @@ private static final long serialVersionUID = 0L;
     return adamant.global.v1.GlobalAPIProto.internal_static_adamant_global_v1_CalculateFeeSuiSpecific_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             adamant.global.v1.CalculateFeeSuiSpecific.class, adamant.global.v1.CalculateFeeSuiSpecific.Builder.class);
-  }
-
-  public static final int OBJECT_IDS_FIELD_NUMBER = 1;
-  @SuppressWarnings("serial")
-  private com.google.protobuf.LazyStringArrayList objectIds_ =
-      com.google.protobuf.LazyStringArrayList.emptyList();
-  /**
-   * <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-   * @return A list containing the objectIds.
-   */
-  public com.google.protobuf.ProtocolStringList
-      getObjectIdsList() {
-    return objectIds_;
-  }
-  /**
-   * <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-   * @return The count of objectIds.
-   */
-  public int getObjectIdsCount() {
-    return objectIds_.size();
-  }
-  /**
-   * <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-   * @param index The index of the element to return.
-   * @return The objectIds at the given index.
-   */
-  public java.lang.String getObjectIds(int index) {
-    return objectIds_.get(index);
-  }
-  /**
-   * <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the objectIds at the given index.
-   */
-  public com.google.protobuf.ByteString
-      getObjectIdsBytes(int index) {
-    return objectIds_.getByteString(index);
   }
 
   public static final int SEND_ALL_FIELD_NUMBER = 2;
@@ -102,9 +63,6 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < objectIds_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, objectIds_.getRaw(i));
-    }
     if (sendAll_ != false) {
       output.writeBool(2, sendAll_);
     }
@@ -117,14 +75,6 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    {
-      int dataSize = 0;
-      for (int i = 0; i < objectIds_.size(); i++) {
-        dataSize += computeStringSizeNoTag(objectIds_.getRaw(i));
-      }
-      size += dataSize;
-      size += 1 * getObjectIdsList().size();
-    }
     if (sendAll_ != false) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(2, sendAll_);
@@ -144,8 +94,6 @@ private static final long serialVersionUID = 0L;
     }
     adamant.global.v1.CalculateFeeSuiSpecific other = (adamant.global.v1.CalculateFeeSuiSpecific) obj;
 
-    if (!getObjectIdsList()
-        .equals(other.getObjectIdsList())) return false;
     if (getSendAll()
         != other.getSendAll()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -159,10 +107,6 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getObjectIdsCount() > 0) {
-      hash = (37 * hash) + OBJECT_IDS_FIELD_NUMBER;
-      hash = (53 * hash) + getObjectIdsList().hashCode();
-    }
     hash = (37 * hash) + SEND_ALL_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getSendAll());
@@ -297,8 +241,6 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      objectIds_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
       sendAll_ = false;
       return this;
     }
@@ -334,10 +276,6 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(adamant.global.v1.CalculateFeeSuiSpecific result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        objectIds_.makeImmutable();
-        result.objectIds_ = objectIds_;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.sendAll_ = sendAll_;
       }
     }
@@ -386,16 +324,6 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(adamant.global.v1.CalculateFeeSuiSpecific other) {
       if (other == adamant.global.v1.CalculateFeeSuiSpecific.getDefaultInstance()) return this;
-      if (!other.objectIds_.isEmpty()) {
-        if (objectIds_.isEmpty()) {
-          objectIds_ = other.objectIds_;
-          bitField0_ |= 0x00000001;
-        } else {
-          ensureObjectIdsIsMutable();
-          objectIds_.addAll(other.objectIds_);
-        }
-        onChanged();
-      }
       if (other.getSendAll() != false) {
         setSendAll(other.getSendAll());
       }
@@ -425,15 +353,9 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              ensureObjectIdsIsMutable();
-              objectIds_.add(s);
-              break;
-            } // case 10
             case 16: {
               sendAll_ = input.readBool();
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000001;
               break;
             } // case 16
             default: {
@@ -453,117 +375,6 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.LazyStringArrayList objectIds_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
-    private void ensureObjectIdsIsMutable() {
-      if (!objectIds_.isModifiable()) {
-        objectIds_ = new com.google.protobuf.LazyStringArrayList(objectIds_);
-      }
-      bitField0_ |= 0x00000001;
-    }
-    /**
-     * <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-     * @return A list containing the objectIds.
-     */
-    public com.google.protobuf.ProtocolStringList
-        getObjectIdsList() {
-      objectIds_.makeImmutable();
-      return objectIds_;
-    }
-    /**
-     * <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-     * @return The count of objectIds.
-     */
-    public int getObjectIdsCount() {
-      return objectIds_.size();
-    }
-    /**
-     * <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-     * @param index The index of the element to return.
-     * @return The objectIds at the given index.
-     */
-    public java.lang.String getObjectIds(int index) {
-      return objectIds_.get(index);
-    }
-    /**
-     * <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the objectIds at the given index.
-     */
-    public com.google.protobuf.ByteString
-        getObjectIdsBytes(int index) {
-      return objectIds_.getByteString(index);
-    }
-    /**
-     * <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-     * @param index The index to set the value at.
-     * @param value The objectIds to set.
-     * @return This builder for chaining.
-     */
-    public Builder setObjectIds(
-        int index, java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensureObjectIdsIsMutable();
-      objectIds_.set(index, value);
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-     * @param value The objectIds to add.
-     * @return This builder for chaining.
-     */
-    public Builder addObjectIds(
-        java.lang.String value) {
-      if (value == null) { throw new NullPointerException(); }
-      ensureObjectIdsIsMutable();
-      objectIds_.add(value);
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-     * @param values The objectIds to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllObjectIds(
-        java.lang.Iterable<java.lang.String> values) {
-      ensureObjectIdsIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, objectIds_);
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearObjectIds() {
-      objectIds_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-     * @param value The bytes of the objectIds to add.
-     * @return This builder for chaining.
-     */
-    public Builder addObjectIdsBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) { throw new NullPointerException(); }
-      checkByteStringIsUtf8(value);
-      ensureObjectIdsIsMutable();
-      objectIds_.add(value);
-      bitField0_ |= 0x00000001;
-      onChanged();
-      return this;
-    }
-
     private boolean sendAll_ ;
     /**
      * <code>bool send_all = 2 [json_name = "sendAll"];</code>
@@ -581,7 +392,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSendAll(boolean value) {
 
       sendAll_ = value;
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -590,7 +401,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSendAll() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000001);
       sendAll_ = false;
       onChanged();
       return this;
