@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-ÒÕ
+®Œ
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"é	
 Wallet
 owner_id (	RownerId
@@ -557,14 +557,15 @@ tx_outputs (2$.adamant.global.v1.AvalancheTxOutputR	txOutputs"ü
 tx_outputs (2$.adamant.global.v1.AvalancheTxOutputR	txOutputs
 
 start_time (R	startTime
-end_time (RendTime"ç
+end_time (RendTime"ƒ
 TonSpecific
 
 expiration (R
 expiration
 memo (	Rmemo\'
 sequence_number (RsequenceNumber!
-from_address (	RfromAddress"(
+from_address (	RfromAddress5
+is_next_sequence_number (RisNextSequenceNumber"(
 SuiSpecific
 send_all (RsendAll"‘
 AvalancheTxInput

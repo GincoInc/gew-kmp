@@ -14,10 +14,6 @@ use Google\Protobuf\Internal\GPBUtil;
 class CalculateFeeSuiSpecific extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-     */
-    private $object_ids;
-    /**
      * Generated from protobuf field <code>bool send_all = 2 [json_name = "sendAll"];</code>
      */
     protected $send_all = false;
@@ -28,35 +24,12 @@ class CalculateFeeSuiSpecific extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type array<string>|\Google\Protobuf\Internal\RepeatedField $object_ids
      *     @type bool $send_all
      * }
      */
     public function __construct($data = NULL) {
         \GPBMetadata\Gincoinc\Adamant\PBGlobal\V1\Adamantglobalv1\GlobalApi::initOnce();
         parent::__construct($data);
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
-     */
-    public function getObjectIds()
-    {
-        return $this->object_ids;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-     * @param array<string>|\Google\Protobuf\Internal\RepeatedField $var
-     * @return $this
-     */
-    public function setObjectIds($var)
-    {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
-        $this->object_ids = $arr;
-
-        return $this;
     }
 
     /**

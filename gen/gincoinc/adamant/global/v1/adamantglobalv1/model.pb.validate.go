@@ -9188,6 +9188,8 @@ func (m *TonSpecific) validate(all bool) error {
 
 	// no validation rules for FromAddress
 
+	// no validation rules for IsNextSequenceNumber
+
 	if len(errors) > 0 {
 		return TonSpecificMultiError(errors)
 	}
