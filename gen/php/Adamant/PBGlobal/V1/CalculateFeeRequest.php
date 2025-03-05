@@ -81,6 +81,10 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeSuiSpecific sui_specific = 17 [json_name = "suiSpecific"];</code>
      */
     protected $sui_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+     */
+    protected $ton_specific = null;
 
     /**
      * Constructor.
@@ -105,6 +109,7 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CalculateFeeSolanaSpecific $solana_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeAvalancheSpecific $avalanche_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeSuiSpecific $sui_specific
+     *     @type \Adamant\PBGlobal\V1\CalculateFeeTonSpecific $ton_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -592,6 +597,38 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeSuiSpecific::class);
         $this->sui_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CalculateFeeTonSpecific|null
+     */
+    public function getTonSpecific()
+    {
+        return $this->ton_specific;
+    }
+
+    public function hasTonSpecific()
+    {
+        return isset($this->ton_specific);
+    }
+
+    public function clearTonSpecific()
+    {
+        unset($this->ton_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CalculateFeeTonSpecific $var
+     * @return $this
+     */
+    public function setTonSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeTonSpecific::class);
+        $this->ton_specific = $var;
 
         return $this;
     }

@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-–É
+¨Î
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"Ž	
 Wallet
 owner_id (	RownerId
@@ -234,7 +234,7 @@ createTime;
 updateTime"S
 PreTransactionDetail
 address (	Raddress!
-string_value (	RstringValue"Ú
+string_value (	RstringValue"à
 Transaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId,
@@ -285,7 +285,9 @@ signedKeys>
 aptos_specific1 (2 .adamant.global.v1.AptosSpecificRaptosSpecificP
 dogecoin_specific2 (2#.adamant.global.v1.DogecoinSpecificRdogecoinSpecific|
 !avalanche_platform_chain_specific3 (21.adamant.global.v1.AvalanchePlatformChainSpecificRavalanchePlatformChainSpecificJ
-quorum_specific4 (2!.adamant.global.v1.QuorumSpecificRquorumSpecific;
+quorum_specific4 (2!.adamant.global.v1.QuorumSpecificRquorumSpecificA
+ton_specific5 (2.adamant.global.v1.TonSpecificRtonSpecificA
+sui_specific6 (2.adamant.global.v1.SuiSpecificRsuiSpecific;
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
@@ -319,7 +321,7 @@ account_id (	R	accountIdA
 email (	Remail/
 role (2.adamant.global.v1.RoleTypeRrole
 signed (Rsigned
-	validated (R	validated"ø
+	validated (R	validated"¼
 TxInput
 tx_id (	RtxId
 tx_index (RtxIndex
@@ -329,7 +331,8 @@ account_id (	R	accountIdA
 address (	Raddress%
 witness_script (	RwitnessScript
 
-n_sequence (R	nSequence"¢
+n_sequence (R	nSequenceB
+address_type	 (2.gincoinc.global.v1.AddressTypeRaddressType"¢
 TxOutput
 address (	Raddress
 value (Rvalue!
@@ -554,7 +557,17 @@ tx_outputs (2$.adamant.global.v1.AvalancheTxOutputR	txOutputs"Ÿ
 tx_outputs (2$.adamant.global.v1.AvalancheTxOutputR	txOutputs
 
 start_time (R	startTime
-end_time (RendTime"Ô
+end_time (RendTime"Ä
+TonSpecific
+
+expiration (R
+expiration
+memo (	Rmemo\'
+sequence_number (RsequenceNumber!
+from_address (	RfromAddress5
+is_next_sequence_number (RisNextSequenceNumber"(
+SuiSpecific
+send_all (RsendAll"Ô
 AvalancheTxInput
 tx_id (	RtxId
 input_index (R
@@ -572,13 +585,15 @@ outputType
 locktime (Rlocktime
 	threshold (R	threshold
 	is_change (RisChange
-	addresses (	R	addresses"–
+	addresses (	R	addresses"Þ
 QuorumSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
 is_next_nonce (RisNextNonce
 data (	Rdata
-chain_id (RchainId"â
+chain_id (RchainId!
+from_address (	RfromAddress#
+token_address (	RtokenAddress"â
 "CreateTransactionSubstrateSpecific%
 transaction_id (	RtransactionIdA
 	call_type (2$.adamant.global.v1.SubstrateCallTypeRcallTypeR
@@ -633,7 +648,12 @@ expirationˆB
 
 _tx_typeB
 _import_tx_specificB
-_staking_specific"Æ
+_staking_specific"R
+CreateTransactionTonSpecific
+
+expiration (R
+expiration
+memo (	Rmemo"Æ
 CreateTransactionNFTSpecificN
 nft_call_method (2!.gincoinc.global.v1.NFTCallMethodH RnftCallMethodˆ
 	token_ids (	RtokenIds%
@@ -717,15 +737,15 @@ updateTime"¾
 
 hd_account (R	hdAccount,
 coin (2.gincoinc.global.v1.CoinRcoin
-tx_id (	RtxId
-
-sign_index (R	signIndex!
+tx_id (	RtxId!
 sign_message (	RsignMessage
 	hd_change (RhdChange
-hd_index	 (RhdIndex5
-network (2.gincoinc.global.v1.NetworkRnetworkD
+hd_index	 (RhdIndexD
 sign_tx_inputs
- (2.adamant.global.v1.SignTxInputRsignTxInputs"Ž
+ (2.adamant.global.v1.SignTxInputRsignTxInputs
+
+sign_index (R	signIndex5
+network (2.gincoinc.global.v1.NetworkRnetwork"Ž
 SignTxInput$
 tx_input_index (RtxInputIndex!
 sign_message (	RsignMessage
@@ -1201,7 +1221,9 @@ _file_nameB
  (2.google.protobuf.TimestampR
 createTime;
 update_time (2.google.protobuf.TimestampR
-updateTime*:
+updateTime"9
+CreateTransactionSuiSpecific
+send_all (RsendAll*:
 	AssetType
 ASSET_TYPE_INVALID 
 ASSET_TYPE_ERC721BLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'

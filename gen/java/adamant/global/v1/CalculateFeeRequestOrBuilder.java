@@ -243,4 +243,19 @@ public interface CalculateFeeRequestOrBuilder extends
    * <code>.adamant.global.v1.CalculateFeeSuiSpecific sui_specific = 17 [json_name = "suiSpecific"];</code>
    */
   adamant.global.v1.CalculateFeeSuiSpecificOrBuilder getSuiSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+   * @return Whether the tonSpecific field is set.
+   */
+  boolean hasTonSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+   * @return The tonSpecific.
+   */
+  adamant.global.v1.CalculateFeeTonSpecific getTonSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+   */
+  adamant.global.v1.CalculateFeeTonSpecificOrBuilder getTonSpecificOrBuilder();
 }

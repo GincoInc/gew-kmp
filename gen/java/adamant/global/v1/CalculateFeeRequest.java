@@ -508,6 +508,32 @@ private static final long serialVersionUID = 0L;
     return suiSpecific_ == null ? adamant.global.v1.CalculateFeeSuiSpecific.getDefaultInstance() : suiSpecific_;
   }
 
+  public static final int TON_SPECIFIC_FIELD_NUMBER = 18;
+  private adamant.global.v1.CalculateFeeTonSpecific tonSpecific_;
+  /**
+   * <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+   * @return Whether the tonSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasTonSpecific() {
+    return tonSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+   * @return The tonSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.CalculateFeeTonSpecific getTonSpecific() {
+    return tonSpecific_ == null ? adamant.global.v1.CalculateFeeTonSpecific.getDefaultInstance() : tonSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.CalculateFeeTonSpecificOrBuilder getTonSpecificOrBuilder() {
+    return tonSpecific_ == null ? adamant.global.v1.CalculateFeeTonSpecific.getDefaultInstance() : tonSpecific_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -572,6 +598,9 @@ private static final long serialVersionUID = 0L;
     }
     if (suiSpecific_ != null) {
       output.writeMessage(17, getSuiSpecific());
+    }
+    if (tonSpecific_ != null) {
+      output.writeMessage(18, getTonSpecific());
     }
     getUnknownFields().writeTo(output);
   }
@@ -646,6 +675,10 @@ private static final long serialVersionUID = 0L;
     if (suiSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(17, getSuiSpecific());
+    }
+    if (tonSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(18, getTonSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -729,6 +762,11 @@ private static final long serialVersionUID = 0L;
       if (!getSuiSpecific()
           .equals(other.getSuiSpecific())) return false;
     }
+    if (hasTonSpecific() != other.hasTonSpecific()) return false;
+    if (hasTonSpecific()) {
+      if (!getTonSpecific()
+          .equals(other.getTonSpecific())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -798,6 +836,10 @@ private static final long serialVersionUID = 0L;
     if (hasSuiSpecific()) {
       hash = (37 * hash) + SUI_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getSuiSpecific().hashCode();
+    }
+    if (hasTonSpecific()) {
+      hash = (37 * hash) + TON_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getTonSpecific().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -997,6 +1039,11 @@ private static final long serialVersionUID = 0L;
         suiSpecificBuilder_.dispose();
         suiSpecificBuilder_ = null;
       }
+      tonSpecific_ = null;
+      if (tonSpecificBuilder_ != null) {
+        tonSpecificBuilder_.dispose();
+        tonSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -1112,6 +1159,11 @@ private static final long serialVersionUID = 0L;
         result.suiSpecific_ = suiSpecificBuilder_ == null
             ? suiSpecific_
             : suiSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.tonSpecific_ = tonSpecificBuilder_ == null
+            ? tonSpecific_
+            : tonSpecificBuilder_.build();
       }
     }
 
@@ -1238,6 +1290,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasSuiSpecific()) {
         mergeSuiSpecific(other.getSuiSpecific());
+      }
+      if (other.hasTonSpecific()) {
+        mergeTonSpecific(other.getTonSpecific());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1380,6 +1435,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00010000;
               break;
             } // case 138
+            case 146: {
+              input.readMessage(
+                  getTonSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 146
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -3224,6 +3286,125 @@ private static final long serialVersionUID = 0L;
         suiSpecific_ = null;
       }
       return suiSpecificBuilder_;
+    }
+
+    private adamant.global.v1.CalculateFeeTonSpecific tonSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.CalculateFeeTonSpecific, adamant.global.v1.CalculateFeeTonSpecific.Builder, adamant.global.v1.CalculateFeeTonSpecificOrBuilder> tonSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+     * @return Whether the tonSpecific field is set.
+     */
+    public boolean hasTonSpecific() {
+      return ((bitField0_ & 0x00020000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+     * @return The tonSpecific.
+     */
+    public adamant.global.v1.CalculateFeeTonSpecific getTonSpecific() {
+      if (tonSpecificBuilder_ == null) {
+        return tonSpecific_ == null ? adamant.global.v1.CalculateFeeTonSpecific.getDefaultInstance() : tonSpecific_;
+      } else {
+        return tonSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+     */
+    public Builder setTonSpecific(adamant.global.v1.CalculateFeeTonSpecific value) {
+      if (tonSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        tonSpecific_ = value;
+      } else {
+        tonSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+     */
+    public Builder setTonSpecific(
+        adamant.global.v1.CalculateFeeTonSpecific.Builder builderForValue) {
+      if (tonSpecificBuilder_ == null) {
+        tonSpecific_ = builderForValue.build();
+      } else {
+        tonSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+     */
+    public Builder mergeTonSpecific(adamant.global.v1.CalculateFeeTonSpecific value) {
+      if (tonSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00020000) != 0) &&
+          tonSpecific_ != null &&
+          tonSpecific_ != adamant.global.v1.CalculateFeeTonSpecific.getDefaultInstance()) {
+          getTonSpecificBuilder().mergeFrom(value);
+        } else {
+          tonSpecific_ = value;
+        }
+      } else {
+        tonSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+     */
+    public Builder clearTonSpecific() {
+      bitField0_ = (bitField0_ & ~0x00020000);
+      tonSpecific_ = null;
+      if (tonSpecificBuilder_ != null) {
+        tonSpecificBuilder_.dispose();
+        tonSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+     */
+    public adamant.global.v1.CalculateFeeTonSpecific.Builder getTonSpecificBuilder() {
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return getTonSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+     */
+    public adamant.global.v1.CalculateFeeTonSpecificOrBuilder getTonSpecificOrBuilder() {
+      if (tonSpecificBuilder_ != null) {
+        return tonSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return tonSpecific_ == null ?
+            adamant.global.v1.CalculateFeeTonSpecific.getDefaultInstance() : tonSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.CalculateFeeTonSpecific, adamant.global.v1.CalculateFeeTonSpecific.Builder, adamant.global.v1.CalculateFeeTonSpecificOrBuilder> 
+        getTonSpecificFieldBuilder() {
+      if (tonSpecificBuilder_ == null) {
+        tonSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.CalculateFeeTonSpecific, adamant.global.v1.CalculateFeeTonSpecific.Builder, adamant.global.v1.CalculateFeeTonSpecificOrBuilder>(
+                getTonSpecific(),
+                getParentForChildren(),
+                isClean());
+        tonSpecific_ = null;
+      }
+      return tonSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

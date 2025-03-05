@@ -283,6 +283,8 @@ message Transaction {
   DogecoinSpecific dogecoin_specific = 50; // THe Doge specific fields
   AvalanchePlatformChainSpecific avalanche_platform_chain_specific = 51; // The Avalanche Platform Chain specific fields
   QuorumSpecific quorum_specific = 52; // The Quorum specific fields
+  TonSpecific ton_specific = 53; // The Ton specific fields
+  SuiSpecific sui_specific = 54; // The Sui specific fields
   google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
@@ -330,6 +332,7 @@ message TxInput {
   string address = 6;
   string witness_script = 7;
   uint32 n_sequence = 8;
+  gincoinc.global.v1.AddressType address_type = 9;
 }
 
 // The model of transaction output
@@ -634,6 +637,18 @@ message AvalanchePlatformChainSpecific {
   uint64 end_time = 5;
 }
 
+message TonSpecific {
+  uint64 expiration = 1;
+  string memo = 2;
+  uint32 sequence_number = 3;
+  string from_address = 4;
+  bool is_next_sequence_number = 5;
+}
+
+message SuiSpecific {
+  bool send_all = 1;
+}
+
 message AvalancheTxInput {
   string tx_id = 1;
   uint32 input_index = 2;
@@ -661,6 +676,8 @@ message QuorumSpecific {
   bool is_next_nonce = 3;
   string data = 4;
   uint64 chain_id = 5;
+  string from_address = 6;
+  string token_address = 7; // ContractAddress
 }
 
 // The model of Substrate specific fields of CreateTransaction
@@ -740,6 +757,12 @@ message CreateTransactionAvalancheSpecific {
   optional gincoinc.global.v1.AvalancheTxType tx_type = 1;
   optional ImportTxSpecific import_tx_specific = 2;
   optional StakingSpecific staking_specific = 3;
+}
+
+// The model of Ton specific fields of CreateTransaction
+message CreateTransactionTonSpecific {
+  uint64 expiration = 1;
+  string memo = 2;
 }
 
 // The model of NFTSpecific fields of CreateTransaction
@@ -828,12 +851,12 @@ message SignInfo {
   uint32 hd_account = 4;
   gincoinc.global.v1.Coin coin = 5;
   string tx_id = 6;
-  uint32 sign_index = 11;
   string sign_message = 7;
   uint32 hd_change = 8;
   uint32 hd_index = 9;
-  gincoinc.global.v1.Network network = 12;
   repeated SignTxInput sign_tx_inputs = 10;
+  uint32 sign_index = 11;
+  gincoinc.global.v1.Network network = 12;
 }
 
 // The model of transaction input for signing
@@ -1366,4 +1389,9 @@ message BlacklistAddressFile {
   string approver_name = 9;
   google.protobuf.Timestamp create_time = 10;
   google.protobuf.Timestamp update_time = 11;
+}
+
+// The model of SUI specific fields for CreateTransaction
+message CreateTransactionSuiSpecific {
+  bool send_all = 1;
 }

@@ -298,6 +298,14 @@ class Network
      */
     const NETWORK_SUI_TESTNET = 69;
     /**
+     * Generated from protobuf enum <code>NETWORK_TON_MAINNET = 70;</code>
+     */
+    const NETWORK_TON_MAINNET = 70;
+    /**
+     * Generated from protobuf enum <code>NETWORK_TON_TESTNET = 71;</code>
+     */
+    const NETWORK_TON_TESTNET = 71;
+    /**
      * Generated from protobuf enum <code>NETWORK_SHIDEN_MAINNET = 10002;</code>
      */
     const NETWORK_SHIDEN_MAINNET = 10002;
@@ -373,6 +381,8 @@ class Network
         self::NETWORK_QUORUM_TESTNET => 'NETWORK_QUORUM_TESTNET',
         self::NETWORK_SUI_MAINNET => 'NETWORK_SUI_MAINNET',
         self::NETWORK_SUI_TESTNET => 'NETWORK_SUI_TESTNET',
+        self::NETWORK_TON_MAINNET => 'NETWORK_TON_MAINNET',
+        self::NETWORK_TON_TESTNET => 'NETWORK_TON_TESTNET',
         self::NETWORK_SHIDEN_MAINNET => 'NETWORK_SHIDEN_MAINNET',
     ];
 

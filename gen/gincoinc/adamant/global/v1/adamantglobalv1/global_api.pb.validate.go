@@ -10782,6 +10782,35 @@ func (m *CreateTransactionRequest) validate(all bool) error {
 	}
 
 	if all {
+		switch v := interface{}(m.GetTonSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "TonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "TonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetTonSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateTransactionRequestValidationError{
+				field:  "TonSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
 		switch v := interface{}(m.GetUtxoSpecific()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
@@ -10804,6 +10833,35 @@ func (m *CreateTransactionRequest) validate(all bool) error {
 		if err := v.Validate(); err != nil {
 			return CreateTransactionRequestValidationError{
 				field:  "UtxoSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetSuiSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "SuiSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "SuiSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetSuiSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateTransactionRequestValidationError{
+				field:  "SuiSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -19833,6 +19891,35 @@ func (m *CalculateFeeRequest) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetTonSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CalculateFeeRequestValidationError{
+					field:  "TonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CalculateFeeRequestValidationError{
+					field:  "TonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetTonSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CalculateFeeRequestValidationError{
+				field:  "TonSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return CalculateFeeRequestMultiError(errors)
 	}
@@ -20768,6 +20855,112 @@ var _ interface {
 
 var _CalculateFeeRbfSpecific_TransactionId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+// Validate checks the field values on CalculateFeeTonSpecific with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CalculateFeeTonSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CalculateFeeTonSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CalculateFeeTonSpecificMultiError, or nil if none found.
+func (m *CalculateFeeTonSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CalculateFeeTonSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Expiration
+
+	// no validation rules for Memo
+
+	if len(errors) > 0 {
+		return CalculateFeeTonSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CalculateFeeTonSpecificMultiError is an error wrapping multiple validation
+// errors returned by CalculateFeeTonSpecific.ValidateAll() if the designated
+// constraints aren't met.
+type CalculateFeeTonSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CalculateFeeTonSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CalculateFeeTonSpecificMultiError) AllErrors() []error { return m }
+
+// CalculateFeeTonSpecificValidationError is the validation error returned by
+// CalculateFeeTonSpecific.Validate if the designated constraints aren't met.
+type CalculateFeeTonSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CalculateFeeTonSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CalculateFeeTonSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CalculateFeeTonSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CalculateFeeTonSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CalculateFeeTonSpecificValidationError) ErrorName() string {
+	return "CalculateFeeTonSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CalculateFeeTonSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCalculateFeeTonSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CalculateFeeTonSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CalculateFeeTonSpecificValidationError{}
+
 // Validate checks the field values on UtxoSpecific with the rules defined in
 // the proto definition for this message. If any rules are violated, the first
 // error encountered is returned, or nil if there are no violations.
@@ -21029,6 +21222,8 @@ func (m *CalculateFeeSuiSpecific) validate(all bool) error {
 	}
 
 	var errors []error
+
+	// no validation rules for SendAll
 
 	if len(errors) > 0 {
 		return CalculateFeeSuiSpecificMultiError(errors)

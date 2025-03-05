@@ -94,6 +94,7 @@ enum Coin {
   COIN_ERC20_JPYPX = 77;
   COIN_ERC20_JPYCT = 78;
   COIN_SUI = 79;
+  COIN_TON = 80;
   COIN_SDN = 10002;
   COIN_ERC20_SCDEV = 10003; // for stable coin development in dev
   COIN_ERC20_SCQA = 10004; // for stable coin development in qa
@@ -216,6 +217,8 @@ enum Network {
   NETWORK_QUORUM_TESTNET = 67;
   NETWORK_SUI_MAINNET = 68;
   NETWORK_SUI_TESTNET = 69;
+  NETWORK_TON_MAINNET = 70;
+  NETWORK_TON_TESTNET = 71;
   NETWORK_SHIDEN_MAINNET = 10002;
 }
 

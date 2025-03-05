@@ -8,27 +8,8 @@ public interface CalculateFeeSuiSpecificOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-   * @return A list containing the objectIds.
+   * <code>bool send_all = 2 [json_name = "sendAll"];</code>
+   * @return The sendAll.
    */
-  java.util.List<java.lang.String>
-      getObjectIdsList();
-  /**
-   * <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-   * @return The count of objectIds.
-   */
-  int getObjectIdsCount();
-  /**
-   * <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-   * @param index The index of the element to return.
-   * @return The objectIds at the given index.
-   */
-  java.lang.String getObjectIds(int index);
-  /**
-   * <code>repeated string object_ids = 1 [json_name = "objectIds"];</code>
-   * @param index The index of the value to return.
-   * @return The bytes of the objectIds at the given index.
-   */
-  com.google.protobuf.ByteString
-      getObjectIdsBytes(int index);
+  boolean getSendAll();
 }
