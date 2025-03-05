@@ -64,6 +64,8 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.ArbitrumOneSpecific.class)) return new ArbitrumOneSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.AtomicTx.class)) return new AtomicTxValidator();
 		if (clazz.equals(adamant.global.v1.Model.AvalanchePlatformChainSpecific.class)) return new AvalanchePlatformChainSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.TonSpecific.class)) return new TonSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.SuiSpecific.class)) return new SuiSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.AvalancheTxInput.class)) return new AvalancheTxInputValidator();
 		if (clazz.equals(adamant.global.v1.Model.AvalancheTxOutput.class)) return new AvalancheTxOutputValidator();
 		if (clazz.equals(adamant.global.v1.Model.QuorumSpecific.class)) return new QuorumSpecificValidator();
@@ -79,6 +81,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSolanaSpecific.class)) return new CreateTransactionSolanaSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionAptosSpecific.class)) return new CreateTransactionAptosSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionAvalancheSpecific.class)) return new CreateTransactionAvalancheSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionTonSpecific.class)) return new CreateTransactionTonSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionNFTSpecific.class)) return new CreateTransactionNFTSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.ImportTxSpecific.class)) return new ImportTxSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.StakingSpecific.class)) return new StakingSpecificValidator();
@@ -143,6 +146,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.BlacklistAddressProposal.class)) return new BlacklistAddressProposalValidator();
 		if (clazz.equals(adamant.global.v1.Model.BlacklistAddressDiff.class)) return new BlacklistAddressDiffValidator();
 		if (clazz.equals(adamant.global.v1.Model.BlacklistAddressFile.class)) return new BlacklistAddressFileValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSuiSpecific.class)) return new CreateTransactionSuiSpecificValidator();
 		return null;
 	}
 
@@ -1086,6 +1090,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1223,6 +1231,12 @@ public class ModelValidator {
 	
 			// Validate quorum_specific
 			if (proto.hasQuorumSpecific()) index.validatorFor(proto.getQuorumSpecific()).assertValid(proto.getQuorumSpecific());
+	
+			// Validate ton_specific
+			if (proto.hasTonSpecific()) index.validatorFor(proto.getTonSpecific()).assertValid(proto.getTonSpecific());
+	
+			// Validate sui_specific
+			if (proto.hasSuiSpecific()) index.validatorFor(proto.getSuiSpecific()).assertValid(proto.getSuiSpecific());
 	
 			// Validate create_time
 			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
@@ -1376,6 +1390,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.TxInput proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1394,6 +1410,8 @@ public class ModelValidator {
 	// no validation rules for WitnessScript
 
 	// no validation rules for NSequence
+
+	// no validation rules for AddressType
 
 	
 	}
@@ -2488,6 +2506,50 @@ public class ModelValidator {
 	}
 }
 /**
+	 * Validates {@code TonSpecific} protobuf objects.
+	 */
+	public static class TonSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.TonSpecific> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.TonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Expiration
+
+	// no validation rules for Memo
+
+	// no validation rules for SequenceNumber
+
+	// no validation rules for FromAddress
+
+	// no validation rules for IsNextSequenceNumber
+
+	
+	}
+}
+/**
+	 * Validates {@code SuiSpecific} protobuf objects.
+	 */
+	public static class SuiSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SuiSpecific> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.SuiSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for SendAll
+
+	
+	}
+}
+/**
 	 * Validates {@code AvalancheTxInput} protobuf objects.
 	 */
 	public static class AvalancheTxInputValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.AvalancheTxInput> {
@@ -2583,6 +2645,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.QuorumSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2595,6 +2661,10 @@ public class ModelValidator {
 	// no validation rules for Data
 
 	// no validation rules for ChainId
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
 
 	
 	}
@@ -2804,6 +2874,24 @@ public class ModelValidator {
 	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionAvalancheSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	
+	}
+}
+/**
+	 * Validates {@code CreateTransactionTonSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionTonSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionTonSpecific> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionTonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Expiration
+
+	// no validation rules for Memo
+
 	
 	}
 }
@@ -3136,15 +3224,11 @@ public class ModelValidator {
 
 	// no validation rules for TxId
 
-	// no validation rules for SignIndex
-
 	// no validation rules for SignMessage
 
 	// no validation rules for HdChange
 
 	// no validation rules for HdIndex
-
-	// no validation rules for Network
 
 	
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getSignTxInputsList(), item -> {
@@ -3152,6 +3236,10 @@ public class ModelValidator {
 			// Validate sign_tx_inputs
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+	// no validation rules for SignIndex
+
+	// no validation rules for Network
+
 	
 	}
 }
@@ -5123,6 +5211,20 @@ public class ModelValidator {
 	
 			// Validate update_time
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+	}
+}
+/**
+	 * Validates {@code CreateTransactionSuiSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionSuiSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionSuiSpecific> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionSuiSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for SendAll
+
 	
 	}
 }

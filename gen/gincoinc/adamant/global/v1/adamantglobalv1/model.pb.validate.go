@@ -3529,6 +3529,64 @@ func (m *Transaction) validate(all bool) error {
 	}
 
 	if all {
+		switch v := interface{}(m.GetTonSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "TonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "TonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetTonSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "TonSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetSuiSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "SuiSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "SuiSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetSuiSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "SuiSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
 		switch v := interface{}(m.GetCreateTime()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
@@ -4167,6 +4225,8 @@ func (m *TxInput) validate(all bool) error {
 	// no validation rules for WitnessScript
 
 	// no validation rules for NSequence
+
+	// no validation rules for AddressType
 
 	if len(errors) > 0 {
 		return TxInputMultiError(errors)
@@ -9098,6 +9158,216 @@ var _ interface {
 	ErrorName() string
 } = AvalanchePlatformChainSpecificValidationError{}
 
+// Validate checks the field values on TonSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *TonSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on TonSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in TonSpecificMultiError, or
+// nil if none found.
+func (m *TonSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *TonSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Expiration
+
+	// no validation rules for Memo
+
+	// no validation rules for SequenceNumber
+
+	// no validation rules for FromAddress
+
+	// no validation rules for IsNextSequenceNumber
+
+	if len(errors) > 0 {
+		return TonSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// TonSpecificMultiError is an error wrapping multiple validation errors
+// returned by TonSpecific.ValidateAll() if the designated constraints aren't met.
+type TonSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m TonSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m TonSpecificMultiError) AllErrors() []error { return m }
+
+// TonSpecificValidationError is the validation error returned by
+// TonSpecific.Validate if the designated constraints aren't met.
+type TonSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TonSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TonSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TonSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TonSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TonSpecificValidationError) ErrorName() string { return "TonSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e TonSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTonSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TonSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TonSpecificValidationError{}
+
+// Validate checks the field values on SuiSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *SuiSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SuiSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in SuiSpecificMultiError, or
+// nil if none found.
+func (m *SuiSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SuiSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for SendAll
+
+	if len(errors) > 0 {
+		return SuiSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// SuiSpecificMultiError is an error wrapping multiple validation errors
+// returned by SuiSpecific.ValidateAll() if the designated constraints aren't met.
+type SuiSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SuiSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SuiSpecificMultiError) AllErrors() []error { return m }
+
+// SuiSpecificValidationError is the validation error returned by
+// SuiSpecific.Validate if the designated constraints aren't met.
+type SuiSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SuiSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SuiSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SuiSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SuiSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SuiSpecificValidationError) ErrorName() string { return "SuiSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e SuiSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSuiSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SuiSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SuiSpecificValidationError{}
+
 // Validate checks the field values on AvalancheTxInput with the rules defined
 // in the proto definition for this message. If any rules are violated, the
 // first error encountered is returned, or nil if there are no violations.
@@ -9355,6 +9625,10 @@ func (m *QuorumSpecific) validate(all bool) error {
 	// no validation rules for Data
 
 	// no validation rules for ChainId
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
 
 	if len(errors) > 0 {
 		return QuorumSpecificMultiError(errors)
@@ -10815,6 +11089,113 @@ var _ interface {
 	ErrorName() string
 } = CreateTransactionAvalancheSpecificValidationError{}
 
+// Validate checks the field values on CreateTransactionTonSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CreateTransactionTonSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreateTransactionTonSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CreateTransactionTonSpecificMultiError, or nil if none found.
+func (m *CreateTransactionTonSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateTransactionTonSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Expiration
+
+	// no validation rules for Memo
+
+	if len(errors) > 0 {
+		return CreateTransactionTonSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreateTransactionTonSpecificMultiError is an error wrapping multiple
+// validation errors returned by CreateTransactionTonSpecific.ValidateAll() if
+// the designated constraints aren't met.
+type CreateTransactionTonSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionTonSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionTonSpecificMultiError) AllErrors() []error { return m }
+
+// CreateTransactionTonSpecificValidationError is the validation error returned
+// by CreateTransactionTonSpecific.Validate if the designated constraints
+// aren't met.
+type CreateTransactionTonSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionTonSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionTonSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionTonSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionTonSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionTonSpecificValidationError) ErrorName() string {
+	return "CreateTransactionTonSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionTonSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionTonSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionTonSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionTonSpecificValidationError{}
+
 // Validate checks the field values on CreateTransactionNFTSpecific with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -11822,15 +12203,11 @@ func (m *SignInfo) validate(all bool) error {
 
 	// no validation rules for TxId
 
-	// no validation rules for SignIndex
-
 	// no validation rules for SignMessage
 
 	// no validation rules for HdChange
 
 	// no validation rules for HdIndex
-
-	// no validation rules for Network
 
 	for idx, item := range m.GetSignTxInputs() {
 		_, _ = idx, item
@@ -11865,6 +12242,10 @@ func (m *SignInfo) validate(all bool) error {
 		}
 
 	}
+
+	// no validation rules for SignIndex
+
+	// no validation rules for Network
 
 	if len(errors) > 0 {
 		return SignInfoMultiError(errors)
@@ -20258,3 +20639,108 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = BlacklistAddressFileValidationError{}
+
+// Validate checks the field values on CreateTransactionSuiSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CreateTransactionSuiSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreateTransactionSuiSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CreateTransactionSuiSpecificMultiError, or nil if none found.
+func (m *CreateTransactionSuiSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateTransactionSuiSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for SendAll
+
+	if len(errors) > 0 {
+		return CreateTransactionSuiSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreateTransactionSuiSpecificMultiError is an error wrapping multiple
+// validation errors returned by CreateTransactionSuiSpecific.ValidateAll() if
+// the designated constraints aren't met.
+type CreateTransactionSuiSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionSuiSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionSuiSpecificMultiError) AllErrors() []error { return m }
+
+// CreateTransactionSuiSpecificValidationError is the validation error returned
+// by CreateTransactionSuiSpecific.Validate if the designated constraints
+// aren't met.
+type CreateTransactionSuiSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionSuiSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionSuiSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionSuiSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionSuiSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionSuiSpecificValidationError) ErrorName() string {
+	return "CreateTransactionSuiSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionSuiSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionSuiSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionSuiSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionSuiSpecificValidationError{}
