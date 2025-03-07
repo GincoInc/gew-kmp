@@ -23,6 +23,10 @@ class CreateTransactionTonSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string memo = 2 [json_name = "memo"];</code>
      */
     protected $memo = '';
+    /**
+     * Generated from protobuf field <code>bool send_all = 3 [json_name = "sendAll"];</code>
+     */
+    protected $send_all = false;
 
     /**
      * Constructor.
@@ -32,6 +36,7 @@ class CreateTransactionTonSpecific extends \Google\Protobuf\Internal\Message
      *
      *     @type int|string $expiration
      *     @type string $memo
+     *     @type bool $send_all
      * }
      */
     public function __construct($data = NULL) {
@@ -79,6 +84,28 @@ class CreateTransactionTonSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->memo = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool send_all = 3 [json_name = "sendAll"];</code>
+     * @return bool
+     */
+    public function getSendAll()
+    {
+        return $this->send_all;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool send_all = 3 [json_name = "sendAll"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setSendAll($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->send_all = $var;
 
         return $this;
     }

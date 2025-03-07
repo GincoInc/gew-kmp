@@ -33,6 +33,14 @@ class ListNFTsByFilterRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>optional string metadata = 5 [json_name = "metadata"];</code>
      */
     protected $metadata = null;
+    /**
+     * Generated from protobuf field <code>uint32 page_size = 6 [json_name = "pageSize", (.validate.rules) = {</code>
+     */
+    protected $page_size = 0;
+    /**
+     * Generated from protobuf field <code>string page_token = 7 [json_name = "pageToken", (.validate.rules) = {</code>
+     */
+    protected $page_token = '';
 
     /**
      * Constructor.
@@ -45,6 +53,8 @@ class ListNFTsByFilterRequest extends \Google\Protobuf\Internal\Message
      *     @type string $token_id
      *     @type string $token_name
      *     @type string $metadata
+     *     @type int $page_size
+     *     @type string $page_token
      * }
      */
     public function __construct($data = NULL) {
@@ -188,6 +198,50 @@ class ListNFTsByFilterRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->metadata = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 page_size = 6 [json_name = "pageSize", (.validate.rules) = {</code>
+     * @return int
+     */
+    public function getPageSize()
+    {
+        return $this->page_size;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 page_size = 6 [json_name = "pageSize", (.validate.rules) = {</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setPageSize($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->page_size = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string page_token = 7 [json_name = "pageToken", (.validate.rules) = {</code>
+     * @return string
+     */
+    public function getPageToken()
+    {
+        return $this->page_token;
+    }
+
+    /**
+     * Generated from protobuf field <code>string page_token = 7 [json_name = "pageToken", (.validate.rules) = {</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setPageToken($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->page_token = $var;
 
         return $this;
     }

@@ -21,6 +21,12 @@ public class ListNFTsByFilterRequestValidator implements io.envoyproxy.pgv.Valid
 	
 		
 	
+		
+		private final Integer PAGE_SIZE__LTE = 1000;
+	
+		
+		com.google.re2j.Pattern PAGE_TOKEN__PATTERN = com.google.re2j.Pattern.compile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$");
+	
 	
 
 	public void assertValid(adamant.global.v1.ListNFTsByFilterRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -29,6 +35,10 @@ public class ListNFTsByFilterRequestValidator implements io.envoyproxy.pgv.Valid
 			io.envoyproxy.pgv.CollectiveValidation.notIn(".adamant.global.v1.ListNFTsByFilterRequest.filter_type", proto.getFilterType(), FILTER_TYPE__NOT_IN);
 	// no validation rules for WalletId
 
+	
+			io.envoyproxy.pgv.ComparativeValidation.lessThanOrEqual(".adamant.global.v1.ListNFTsByFilterRequest.page_size", proto.getPageSize(), PAGE_SIZE__LTE, java.util.Comparator.naturalOrder());
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.ListNFTsByFilterRequest.page_token", proto.getPageToken(), PAGE_TOKEN__PATTERN);
 	
 	}
 

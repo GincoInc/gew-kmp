@@ -2512,8 +2512,6 @@ func (m *Transaction) validate(all bool) error {
 
 	// no validation rules for Coin
 
-	// no validation rules for Network
-
 	// no validation rules for TxId
 
 	// no validation rules for Address
@@ -2601,11 +2599,11 @@ func (m *Transaction) validate(all bool) error {
 	}
 
 	if all {
-		switch v := interface{}(m.GetBitcoinSpecific()).(type) {
+		switch v := interface{}(m.GetCreateTime()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
 				errors = append(errors, TransactionValidationError{
-					field:  "BitcoinSpecific",
+					field:  "CreateTime",
 					reason: "embedded message failed validation",
 					cause:  err,
 				})
@@ -2613,16 +2611,45 @@ func (m *Transaction) validate(all bool) error {
 		case interface{ Validate() error }:
 			if err := v.Validate(); err != nil {
 				errors = append(errors, TransactionValidationError{
-					field:  "BitcoinSpecific",
+					field:  "CreateTime",
 					reason: "embedded message failed validation",
 					cause:  err,
 				})
 			}
 		}
-	} else if v, ok := interface{}(m.GetBitcoinSpecific()).(interface{ Validate() error }); ok {
+	} else if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
 			return TransactionValidationError{
-				field:  "BitcoinSpecific",
+				field:  "CreateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetUpdateTime()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "UpdateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "UpdateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetUpdateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "UpdateTime",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -2652,6 +2679,64 @@ func (m *Transaction) validate(all bool) error {
 		if err := v.Validate(); err != nil {
 			return TransactionValidationError{
 				field:  "EthereumSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetXrpSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "XrpSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "XrpSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetXrpSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "XrpSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetBitcoinSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "BitcoinSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "BitcoinSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetBitcoinSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "BitcoinSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -2710,35 +2795,6 @@ func (m *Transaction) validate(all bool) error {
 		if err := v.Validate(); err != nil {
 			return TransactionValidationError{
 				field:  "BitcoincashSpecific",
-				reason: "embedded message failed validation",
-				cause:  err,
-			}
-		}
-	}
-
-	if all {
-		switch v := interface{}(m.GetXrpSpecific()).(type) {
-		case interface{ ValidateAll() error }:
-			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, TransactionValidationError{
-					field:  "XrpSpecific",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		case interface{ Validate() error }:
-			if err := v.Validate(); err != nil {
-				errors = append(errors, TransactionValidationError{
-					field:  "XrpSpecific",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		}
-	} else if v, ok := interface{}(m.GetXrpSpecific()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return TransactionValidationError{
-				field:  "XrpSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -3383,6 +3439,8 @@ func (m *Transaction) validate(all bool) error {
 		}
 	}
 
+	// no validation rules for Network
+
 	if all {
 		switch v := interface{}(m.GetArbitrumOneSpecific()).(type) {
 		case interface{ ValidateAll() error }:
@@ -3580,64 +3638,6 @@ func (m *Transaction) validate(all bool) error {
 		if err := v.Validate(); err != nil {
 			return TransactionValidationError{
 				field:  "SuiSpecific",
-				reason: "embedded message failed validation",
-				cause:  err,
-			}
-		}
-	}
-
-	if all {
-		switch v := interface{}(m.GetCreateTime()).(type) {
-		case interface{ ValidateAll() error }:
-			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, TransactionValidationError{
-					field:  "CreateTime",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		case interface{ Validate() error }:
-			if err := v.Validate(); err != nil {
-				errors = append(errors, TransactionValidationError{
-					field:  "CreateTime",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		}
-	} else if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return TransactionValidationError{
-				field:  "CreateTime",
-				reason: "embedded message failed validation",
-				cause:  err,
-			}
-		}
-	}
-
-	if all {
-		switch v := interface{}(m.GetUpdateTime()).(type) {
-		case interface{ ValidateAll() error }:
-			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, TransactionValidationError{
-					field:  "UpdateTime",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		case interface{ Validate() error }:
-			if err := v.Validate(); err != nil {
-				errors = append(errors, TransactionValidationError{
-					field:  "UpdateTime",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		}
-	} else if v, ok := interface{}(m.GetUpdateTime()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return TransactionValidationError{
-				field:  "UpdateTime",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -11115,6 +11115,8 @@ func (m *CreateTransactionTonSpecific) validate(all bool) error {
 
 	// no validation rules for Memo
 
+	// no validation rules for SendAll
+
 	if len(errors) > 0 {
 		return CreateTransactionTonSpecificMultiError(errors)
 	}
@@ -11845,8 +11847,6 @@ func (m *NemMultisigTransaction) validate(all bool) error {
 
 	// no validation rules for NemMultisigTransactionId
 
-	// no validation rules for AccountId
-
 	// no validation rules for TxType
 
 	// no validation rules for Data
@@ -11912,6 +11912,8 @@ func (m *NemMultisigTransaction) validate(all bool) error {
 			}
 		}
 	}
+
+	// no validation rules for AccountId
 
 	if len(errors) > 0 {
 		return NemMultisigTransactionMultiError(errors)
@@ -12021,8 +12023,6 @@ func (m *SymbolMultisigTransaction) validate(all bool) error {
 
 	// no validation rules for SymbolMultisigTransactionId
 
-	// no validation rules for AccountId
-
 	// no validation rules for TxType
 
 	// no validation rules for Data
@@ -12088,6 +12088,8 @@ func (m *SymbolMultisigTransaction) validate(all bool) error {
 			}
 		}
 	}
+
+	// no validation rules for AccountId
 
 	if len(errors) > 0 {
 		return SymbolMultisigTransactionMultiError(errors)
