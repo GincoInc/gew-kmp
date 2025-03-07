@@ -39,6 +39,10 @@ class NFTCallMethod
      * Generated from protobuf enum <code>NFT_CALL_METHOD_TRANSFER_OWNERSHIP = 6;</code>
      */
     const NFT_CALL_METHOD_TRANSFER_OWNERSHIP = 6;
+    /**
+     * Generated from protobuf enum <code>NFT_CALL_METHOD_BATCH_BURN = 7;</code>
+     */
+    const NFT_CALL_METHOD_BATCH_BURN = 7;
 
     private static $valueToName = [
         self::NFT_CALL_METHOD_INVALID => 'NFT_CALL_METHOD_INVALID',
@@ -48,6 +52,7 @@ class NFTCallMethod
         self::NFT_CALL_METHOD_BATCH_MINT => 'NFT_CALL_METHOD_BATCH_MINT',
         self::NFT_CALL_METHOD_BATCH_TRANSFER => 'NFT_CALL_METHOD_BATCH_TRANSFER',
         self::NFT_CALL_METHOD_TRANSFER_OWNERSHIP => 'NFT_CALL_METHOD_TRANSFER_OWNERSHIP',
+        self::NFT_CALL_METHOD_BATCH_BURN => 'NFT_CALL_METHOD_BATCH_BURN',
     ];
 
     public static function name($value)

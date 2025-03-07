@@ -80,4 +80,22 @@ public interface ListNFTsByFilterRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getMetadataBytes();
+
+  /**
+   * <code>uint32 page_size = 6 [json_name = "pageSize", (.validate.rules) = { ... }</code>
+   * @return The pageSize.
+   */
+  int getPageSize();
+
+  /**
+   * <code>string page_token = 7 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The pageToken.
+   */
+  java.lang.String getPageToken();
+  /**
+   * <code>string page_token = 7 [json_name = "pageToken", (.validate.rules) = { ... }</code>
+   * @return The bytes for pageToken.
+   */
+  com.google.protobuf.ByteString
+      getPageTokenBytes();
 }

@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-¨Î
+ÃÎ
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"Ž	
 Wallet
 owner_id (	RownerId
@@ -238,8 +238,7 @@ updateTime"S
 Transaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId,
-coin (2.gincoinc.global.v1.CoinRcoin5
-network/ (2.gincoinc.global.v1.NetworkRnetwork
+coin (2.gincoinc.global.v1.CoinRcoin
 tx_id (	RtxId
 address (	Raddress
 value (Rvalue!
@@ -253,12 +252,16 @@ string_fee (	R	stringFee
 state (2#.adamant.global.v1.TransactionStateRstate7
 signed_keys (2.adamant.global.v1.KeyR
 signedKeys>
-members (2$.adamant.global.v1.TransactionMemberRmembersM
+members (2$.adamant.global.v1.TransactionMemberRmembers;
+create_time (2.google.protobuf.TimestampR
+createTime;
+update_time (2.google.protobuf.TimestampR
+updateTimeP
+ethereum_specific (2#.adamant.global.v1.EthereumSpecificRethereumSpecificA
+xrp_specific (2.adamant.global.v1.XrpSpecificRxrpSpecificM
 bitcoin_specific (2".adamant.global.v1.BitcoinSpecificRbitcoinSpecificP
-ethereum_specific (2#.adamant.global.v1.EthereumSpecificRethereumSpecificP
 litecoin_specific (2#.adamant.global.v1.LitecoinSpecificRlitecoinSpecificY
-bitcoincash_specific (2&.adamant.global.v1.BitcoincashSpecificRbitcoincashSpecificA
-xrp_specific (2.adamant.global.v1.XrpSpecificRxrpSpecificD
+bitcoincash_specific (2&.adamant.global.v1.BitcoincashSpecificRbitcoincashSpecificD
 tron_specific (2.adamant.global.v1.TronSpecificRtronSpecificG
 c0ban_specific (2 .adamant.global.v1.C0banSpecificRc0banSpecificM
 stellar_specific (2".adamant.global.v1.StellarSpecificRstellarSpecificM
@@ -280,18 +283,15 @@ signedKeys>
 japan_open_chain_specific+ (2).adamant.global.v1.JapanOpenChainSpecificRjapanOpenChainSpecificJ
 solana_specific, (2!.adamant.global.v1.SolanaSpecificRsolanaSpecifica
 bnb_smart_chain_specific- (2(.adamant.global.v1.BNBSmartChainSpecificRbnbSmartChainSpecificG
-flare_specific. (2 .adamant.global.v1.FlareSpecificRflareSpecificZ
+flare_specific. (2 .adamant.global.v1.FlareSpecificRflareSpecific5
+network/ (2.gincoinc.global.v1.NetworkRnetworkZ
 arbitrum_one_specific0 (2&.adamant.global.v1.ArbitrumOneSpecificRarbitrumOneSpecificG
 aptos_specific1 (2 .adamant.global.v1.AptosSpecificRaptosSpecificP
 dogecoin_specific2 (2#.adamant.global.v1.DogecoinSpecificRdogecoinSpecific|
 !avalanche_platform_chain_specific3 (21.adamant.global.v1.AvalanchePlatformChainSpecificRavalanchePlatformChainSpecificJ
 quorum_specific4 (2!.adamant.global.v1.QuorumSpecificRquorumSpecificA
 ton_specific5 (2.adamant.global.v1.TonSpecificRtonSpecificA
-sui_specific6 (2.adamant.global.v1.SuiSpecificRsuiSpecific;
-create_time (2.google.protobuf.TimestampR
-createTime;
-update_time (2.google.protobuf.TimestampR
-updateTime"±
+sui_specific6 (2.adamant.global.v1.SuiSpecificRsuiSpecific"±
 UnconfirmedTransaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId
@@ -648,12 +648,13 @@ expirationˆB
 
 _tx_typeB
 _import_tx_specificB
-_staking_specific"R
+_staking_specific"m
 CreateTransactionTonSpecific
 
 expiration (R
 expiration
-memo (	Rmemo"Æ
+memo (	Rmemo
+send_all (RsendAll"Æ
 CreateTransactionNFTSpecificN
 nft_call_method (2!.gincoinc.global.v1.NFTCallMethodH RnftCallMethodˆ
 	token_ids (	RtokenIds%
@@ -703,10 +704,7 @@ proof_size (R	proofSize
 NemMultisigTransaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId=
-nem_multisig_transaction_id (	RnemMultisigTransactionId
-
-account_id
- (	R	accountId?
+nem_multisig_transaction_id (	RnemMultisigTransactionId?
 tx_type (2&.gincoinc.global.v1.NemTransactionTypeRtxType
 data (	Rdata
 	signature (	R	signature9
@@ -714,14 +712,14 @@ account_id
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time	 (2.google.protobuf.TimestampR
-updateTime"î
+updateTime
+
+account_id
+ (	R	accountId"î
 SymbolMultisigTransaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionIdC
-symbol_multisig_transaction_id (	RsymbolMultisigTransactionId
-
-account_id
- (	R	accountIdB
+symbol_multisig_transaction_id (	RsymbolMultisigTransactionIdB
 tx_type (2).gincoinc.global.v1.SymbolTransactionTypeRtxType
 data (	Rdata
 	signature (	R	signature9
@@ -729,7 +727,10 @@ account_id
 create_time (2.google.protobuf.TimestampR
 createTime;
 update_time	 (2.google.protobuf.TimestampR
-updateTime"¾
+updateTime
+
+account_id
+ (	R	accountId"¾
 SignInfo
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId

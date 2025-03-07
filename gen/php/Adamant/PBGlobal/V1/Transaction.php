@@ -34,12 +34,6 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $coin = 0;
     /**
-     * The network of coin
-     *
-     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 47 [json_name = "network"];</code>
-     */
-    protected $network = 0;
-    /**
      * txID
      *
      * Generated from protobuf field <code>string tx_id = 4 [json_name = "txId"];</code>
@@ -106,17 +100,35 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     private $members;
     /**
-     * The Bitcoin specific fields
+     * the time at which the transaction was created
      *
-     * Generated from protobuf field <code>.adamant.global.v1.BitcoinSpecific bitcoin_specific = 22 [json_name = "bitcoinSpecific"];</code>
+     * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
      */
-    protected $bitcoin_specific = null;
+    protected $create_time = null;
+    /**
+     * the time at which the transaction was updated
+     *
+     * Generated from protobuf field <code>.google.protobuf.Timestamp update_time = 19 [json_name = "updateTime"];</code>
+     */
+    protected $update_time = null;
     /**
      * The Ethereum specific fields
      *
      * Generated from protobuf field <code>.adamant.global.v1.EthereumSpecific ethereum_specific = 20 [json_name = "ethereumSpecific"];</code>
      */
     protected $ethereum_specific = null;
+    /**
+     * The XRP specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.XrpSpecific xrp_specific = 21 [json_name = "xrpSpecific"];</code>
+     */
+    protected $xrp_specific = null;
+    /**
+     * The Bitcoin specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BitcoinSpecific bitcoin_specific = 22 [json_name = "bitcoinSpecific"];</code>
+     */
+    protected $bitcoin_specific = null;
     /**
      * The Litecoin specific fields
      *
@@ -129,12 +141,6 @@ class Transaction extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.BitcoincashSpecific bitcoincash_specific = 24 [json_name = "bitcoincashSpecific"];</code>
      */
     protected $bitcoincash_specific = null;
-    /**
-     * The XRP specific fields
-     *
-     * Generated from protobuf field <code>.adamant.global.v1.XrpSpecific xrp_specific = 21 [json_name = "xrpSpecific"];</code>
-     */
-    protected $xrp_specific = null;
     /**
      * The Tron specific fields
      *
@@ -268,6 +274,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      */
     protected $flare_specific = null;
     /**
+     * The network of coin
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 47 [json_name = "network"];</code>
+     */
+    protected $network = 0;
+    /**
      * The Arbitrum specific fields
      *
      * Generated from protobuf field <code>.adamant.global.v1.ArbitrumOneSpecific arbitrum_one_specific = 48 [json_name = "arbitrumOneSpecific"];</code>
@@ -309,18 +321,6 @@ class Transaction extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.SuiSpecific sui_specific = 54 [json_name = "suiSpecific"];</code>
      */
     protected $sui_specific = null;
-    /**
-     * the time at which the transaction was created
-     *
-     * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
-     */
-    protected $create_time = null;
-    /**
-     * the time at which the transaction was updated
-     *
-     * Generated from protobuf field <code>.google.protobuf.Timestamp update_time = 19 [json_name = "updateTime"];</code>
-     */
-    protected $update_time = null;
 
     /**
      * Constructor.
@@ -334,8 +334,6 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           id
      *     @type int $coin
      *           The type of coin
-     *     @type int $network
-     *           The network of coin
      *     @type string $tx_id
      *           txID
      *     @type string $address
@@ -358,16 +356,20 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The list of keys which signed to the transaction
      *     @type array<\Adamant\PBGlobal\V1\TransactionMember>|\Google\Protobuf\Internal\RepeatedField $members
      *           members
-     *     @type \Adamant\PBGlobal\V1\BitcoinSpecific $bitcoin_specific
-     *           The Bitcoin specific fields
+     *     @type \Google\Protobuf\Timestamp $create_time
+     *           the time at which the transaction was created
+     *     @type \Google\Protobuf\Timestamp $update_time
+     *           the time at which the transaction was updated
      *     @type \Adamant\PBGlobal\V1\EthereumSpecific $ethereum_specific
      *           The Ethereum specific fields
+     *     @type \Adamant\PBGlobal\V1\XrpSpecific $xrp_specific
+     *           The XRP specific fields
+     *     @type \Adamant\PBGlobal\V1\BitcoinSpecific $bitcoin_specific
+     *           The Bitcoin specific fields
      *     @type \Adamant\PBGlobal\V1\LitecoinSpecific $litecoin_specific
      *           The Litecoin specific fields
      *     @type \Adamant\PBGlobal\V1\BitcoincashSpecific $bitcoincash_specific
      *           The Bitcoin Cash specific fields
-     *     @type \Adamant\PBGlobal\V1\XrpSpecific $xrp_specific
-     *           The XRP specific fields
      *     @type \Adamant\PBGlobal\V1\TronSpecific $tron_specific
      *           The Tron specific fields
      *     @type \Adamant\PBGlobal\V1\C0banSpecific $c0ban_specific
@@ -412,6 +414,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The BNB Smart Chain specific fields
      *     @type \Adamant\PBGlobal\V1\FlareSpecific $flare_specific
      *           The Flare specific fields
+     *     @type int $network
+     *           The network of coin
      *     @type \Adamant\PBGlobal\V1\ArbitrumOneSpecific $arbitrum_one_specific
      *           The Arbitrum specific fields
      *     @type \Adamant\PBGlobal\V1\AptosSpecific $aptos_specific
@@ -426,10 +430,6 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The Ton specific fields
      *     @type \Adamant\PBGlobal\V1\SuiSpecific $sui_specific
      *           The Sui specific fields
-     *     @type \Google\Protobuf\Timestamp $create_time
-     *           the time at which the transaction was created
-     *     @type \Google\Protobuf\Timestamp $update_time
-     *           the time at which the transaction was updated
      * }
      */
     public function __construct($data = NULL) {
@@ -511,32 +511,6 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Coin::class);
         $this->coin = $var;
-
-        return $this;
-    }
-
-    /**
-     * The network of coin
-     *
-     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 47 [json_name = "network"];</code>
-     * @return int
-     */
-    public function getNetwork()
-    {
-        return $this->network;
-    }
-
-    /**
-     * The network of coin
-     *
-     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 47 [json_name = "network"];</code>
-     * @param int $var
-     * @return $this
-     */
-    public function setNetwork($var)
-    {
-        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
-        $this->network = $var;
 
         return $this;
     }
@@ -828,37 +802,73 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * The Bitcoin specific fields
+     * the time at which the transaction was created
      *
-     * Generated from protobuf field <code>.adamant.global.v1.BitcoinSpecific bitcoin_specific = 22 [json_name = "bitcoinSpecific"];</code>
-     * @return \Adamant\PBGlobal\V1\BitcoinSpecific|null
+     * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
+     * @return \Google\Protobuf\Timestamp|null
      */
-    public function getBitcoinSpecific()
+    public function getCreateTime()
     {
-        return $this->bitcoin_specific;
+        return $this->create_time;
     }
 
-    public function hasBitcoinSpecific()
+    public function hasCreateTime()
     {
-        return isset($this->bitcoin_specific);
+        return isset($this->create_time);
     }
 
-    public function clearBitcoinSpecific()
+    public function clearCreateTime()
     {
-        unset($this->bitcoin_specific);
+        unset($this->create_time);
     }
 
     /**
-     * The Bitcoin specific fields
+     * the time at which the transaction was created
      *
-     * Generated from protobuf field <code>.adamant.global.v1.BitcoinSpecific bitcoin_specific = 22 [json_name = "bitcoinSpecific"];</code>
-     * @param \Adamant\PBGlobal\V1\BitcoinSpecific $var
+     * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
+     * @param \Google\Protobuf\Timestamp $var
      * @return $this
      */
-    public function setBitcoinSpecific($var)
+    public function setCreateTime($var)
     {
-        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\BitcoinSpecific::class);
-        $this->bitcoin_specific = $var;
+        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
+        $this->create_time = $var;
+
+        return $this;
+    }
+
+    /**
+     * the time at which the transaction was updated
+     *
+     * Generated from protobuf field <code>.google.protobuf.Timestamp update_time = 19 [json_name = "updateTime"];</code>
+     * @return \Google\Protobuf\Timestamp|null
+     */
+    public function getUpdateTime()
+    {
+        return $this->update_time;
+    }
+
+    public function hasUpdateTime()
+    {
+        return isset($this->update_time);
+    }
+
+    public function clearUpdateTime()
+    {
+        unset($this->update_time);
+    }
+
+    /**
+     * the time at which the transaction was updated
+     *
+     * Generated from protobuf field <code>.google.protobuf.Timestamp update_time = 19 [json_name = "updateTime"];</code>
+     * @param \Google\Protobuf\Timestamp $var
+     * @return $this
+     */
+    public function setUpdateTime($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
+        $this->update_time = $var;
 
         return $this;
     }
@@ -895,6 +905,78 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\EthereumSpecific::class);
         $this->ethereum_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The XRP specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.XrpSpecific xrp_specific = 21 [json_name = "xrpSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\XrpSpecific|null
+     */
+    public function getXrpSpecific()
+    {
+        return $this->xrp_specific;
+    }
+
+    public function hasXrpSpecific()
+    {
+        return isset($this->xrp_specific);
+    }
+
+    public function clearXrpSpecific()
+    {
+        unset($this->xrp_specific);
+    }
+
+    /**
+     * The XRP specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.XrpSpecific xrp_specific = 21 [json_name = "xrpSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\XrpSpecific $var
+     * @return $this
+     */
+    public function setXrpSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\XrpSpecific::class);
+        $this->xrp_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Bitcoin specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BitcoinSpecific bitcoin_specific = 22 [json_name = "bitcoinSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\BitcoinSpecific|null
+     */
+    public function getBitcoinSpecific()
+    {
+        return $this->bitcoin_specific;
+    }
+
+    public function hasBitcoinSpecific()
+    {
+        return isset($this->bitcoin_specific);
+    }
+
+    public function clearBitcoinSpecific()
+    {
+        unset($this->bitcoin_specific);
+    }
+
+    /**
+     * The Bitcoin specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BitcoinSpecific bitcoin_specific = 22 [json_name = "bitcoinSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\BitcoinSpecific $var
+     * @return $this
+     */
+    public function setBitcoinSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\BitcoinSpecific::class);
+        $this->bitcoin_specific = $var;
 
         return $this;
     }
@@ -967,42 +1049,6 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\BitcoincashSpecific::class);
         $this->bitcoincash_specific = $var;
-
-        return $this;
-    }
-
-    /**
-     * The XRP specific fields
-     *
-     * Generated from protobuf field <code>.adamant.global.v1.XrpSpecific xrp_specific = 21 [json_name = "xrpSpecific"];</code>
-     * @return \Adamant\PBGlobal\V1\XrpSpecific|null
-     */
-    public function getXrpSpecific()
-    {
-        return $this->xrp_specific;
-    }
-
-    public function hasXrpSpecific()
-    {
-        return isset($this->xrp_specific);
-    }
-
-    public function clearXrpSpecific()
-    {
-        unset($this->xrp_specific);
-    }
-
-    /**
-     * The XRP specific fields
-     *
-     * Generated from protobuf field <code>.adamant.global.v1.XrpSpecific xrp_specific = 21 [json_name = "xrpSpecific"];</code>
-     * @param \Adamant\PBGlobal\V1\XrpSpecific $var
-     * @return $this
-     */
-    public function setXrpSpecific($var)
-    {
-        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\XrpSpecific::class);
-        $this->xrp_specific = $var;
 
         return $this;
     }
@@ -1800,6 +1846,32 @@ class Transaction extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * The network of coin
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 47 [json_name = "network"];</code>
+     * @return int
+     */
+    public function getNetwork()
+    {
+        return $this->network;
+    }
+
+    /**
+     * The network of coin
+     *
+     * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 47 [json_name = "network"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setNetwork($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
+        $this->network = $var;
+
+        return $this;
+    }
+
+    /**
      * The Arbitrum specific fields
      *
      * Generated from protobuf field <code>.adamant.global.v1.ArbitrumOneSpecific arbitrum_one_specific = 48 [json_name = "arbitrumOneSpecific"];</code>
@@ -2047,78 +2119,6 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\SuiSpecific::class);
         $this->sui_specific = $var;
-
-        return $this;
-    }
-
-    /**
-     * the time at which the transaction was created
-     *
-     * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
-     * @return \Google\Protobuf\Timestamp|null
-     */
-    public function getCreateTime()
-    {
-        return $this->create_time;
-    }
-
-    public function hasCreateTime()
-    {
-        return isset($this->create_time);
-    }
-
-    public function clearCreateTime()
-    {
-        unset($this->create_time);
-    }
-
-    /**
-     * the time at which the transaction was created
-     *
-     * Generated from protobuf field <code>.google.protobuf.Timestamp create_time = 18 [json_name = "createTime"];</code>
-     * @param \Google\Protobuf\Timestamp $var
-     * @return $this
-     */
-    public function setCreateTime($var)
-    {
-        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
-        $this->create_time = $var;
-
-        return $this;
-    }
-
-    /**
-     * the time at which the transaction was updated
-     *
-     * Generated from protobuf field <code>.google.protobuf.Timestamp update_time = 19 [json_name = "updateTime"];</code>
-     * @return \Google\Protobuf\Timestamp|null
-     */
-    public function getUpdateTime()
-    {
-        return $this->update_time;
-    }
-
-    public function hasUpdateTime()
-    {
-        return isset($this->update_time);
-    }
-
-    public function clearUpdateTime()
-    {
-        unset($this->update_time);
-    }
-
-    /**
-     * the time at which the transaction was updated
-     *
-     * Generated from protobuf field <code>.google.protobuf.Timestamp update_time = 19 [json_name = "updateTime"];</code>
-     * @param \Google\Protobuf\Timestamp $var
-     * @return $this
-     */
-    public function setUpdateTime($var)
-    {
-        GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
-        $this->update_time = $var;
 
         return $this;
     }

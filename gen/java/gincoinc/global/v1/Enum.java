@@ -5392,6 +5392,10 @@ public final class Enum {
      * <code>NFT_CALL_METHOD_TRANSFER_OWNERSHIP = 6;</code>
      */
     NFT_CALL_METHOD_TRANSFER_OWNERSHIP(6),
+    /**
+     * <code>NFT_CALL_METHOD_BATCH_BURN = 7;</code>
+     */
+    NFT_CALL_METHOD_BATCH_BURN(7),
     UNRECOGNIZED(-1),
     ;
 
@@ -5423,6 +5427,10 @@ public final class Enum {
      * <code>NFT_CALL_METHOD_TRANSFER_OWNERSHIP = 6;</code>
      */
     public static final int NFT_CALL_METHOD_TRANSFER_OWNERSHIP_VALUE = 6;
+    /**
+     * <code>NFT_CALL_METHOD_BATCH_BURN = 7;</code>
+     */
+    public static final int NFT_CALL_METHOD_BATCH_BURN_VALUE = 7;
 
 
     public final int getNumber() {
@@ -5456,6 +5464,7 @@ public final class Enum {
         case 4: return NFT_CALL_METHOD_BATCH_MINT;
         case 5: return NFT_CALL_METHOD_BATCH_TRANSFER;
         case 6: return NFT_CALL_METHOD_TRANSFER_OWNERSHIP;
+        case 7: return NFT_CALL_METHOD_BATCH_BURN;
         default: return null;
       }
     }
@@ -5795,15 +5804,16 @@ public final class Enum {
       "_OWNERS_OUTPUT\020\005*}\n\024ContractCreationType" +
       "\022\"\n\036CONTRACT_CREATION_TYPE_INVALID\020\000\022\037\n\033" +
       "CONTRACT_CREATION_TYPE_IMPL\020\001\022 \n\034CONTRAC" +
-      "T_CREATION_TYPE_UTILS\020\002*\352\001\n\rNFTCallMetho" +
+      "T_CREATION_TYPE_UTILS\020\002*\212\002\n\rNFTCallMetho" +
       "d\022\033\n\027NFT_CALL_METHOD_INVALID\020\000\022\030\n\024NFT_CA" +
       "LL_METHOD_MINT\020\001\022\030\n\024NFT_CALL_METHOD_BURN" +
       "\020\002\022\034\n\030NFT_CALL_METHOD_TRANSFER\020\003\022\036\n\032NFT_" +
       "CALL_METHOD_BATCH_MINT\020\004\022\"\n\036NFT_CALL_MET" +
       "HOD_BATCH_TRANSFER\020\005\022&\n\"NFT_CALL_METHOD_" +
-      "TRANSFER_OWNERSHIP\020\006BEZCgithub.com/Ginco" +
-      "Inc/gew-kmp/gen/gincoinc/global/v1/ginco" +
-      "incglobalv1b\006proto3"
+      "TRANSFER_OWNERSHIP\020\006\022\036\n\032NFT_CALL_METHOD_" +
+      "BATCH_BURN\020\007BEZCgithub.com/GincoInc/gew-" +
+      "kmp/gen/gincoinc/global/v1/gincoincgloba" +
+      "lv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
