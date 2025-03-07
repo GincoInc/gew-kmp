@@ -1103,8 +1103,6 @@ public class ModelValidator {
 
 	// no validation rules for Coin
 
-	// no validation rules for Network
-
 	// no validation rules for TxId
 
 	// no validation rules for Address
@@ -1136,20 +1134,26 @@ public class ModelValidator {
 			if (true) index.validatorFor(item).assertValid(item);
 			});
 	
-			// Validate bitcoin_specific
-			if (proto.hasBitcoinSpecific()) index.validatorFor(proto.getBitcoinSpecific()).assertValid(proto.getBitcoinSpecific());
+			// Validate create_time
+			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+			// Validate update_time
+			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
 	
 			// Validate ethereum_specific
 			if (proto.hasEthereumSpecific()) index.validatorFor(proto.getEthereumSpecific()).assertValid(proto.getEthereumSpecific());
+	
+			// Validate xrp_specific
+			if (proto.hasXrpSpecific()) index.validatorFor(proto.getXrpSpecific()).assertValid(proto.getXrpSpecific());
+	
+			// Validate bitcoin_specific
+			if (proto.hasBitcoinSpecific()) index.validatorFor(proto.getBitcoinSpecific()).assertValid(proto.getBitcoinSpecific());
 	
 			// Validate litecoin_specific
 			if (proto.hasLitecoinSpecific()) index.validatorFor(proto.getLitecoinSpecific()).assertValid(proto.getLitecoinSpecific());
 	
 			// Validate bitcoincash_specific
 			if (proto.hasBitcoincashSpecific()) index.validatorFor(proto.getBitcoincashSpecific()).assertValid(proto.getBitcoincashSpecific());
-	
-			// Validate xrp_specific
-			if (proto.hasXrpSpecific()) index.validatorFor(proto.getXrpSpecific()).assertValid(proto.getXrpSpecific());
 	
 			// Validate tron_specific
 			if (proto.hasTronSpecific()) index.validatorFor(proto.getTronSpecific()).assertValid(proto.getTronSpecific());
@@ -1216,6 +1220,8 @@ public class ModelValidator {
 	
 			// Validate flare_specific
 			if (proto.hasFlareSpecific()) index.validatorFor(proto.getFlareSpecific()).assertValid(proto.getFlareSpecific());
+	// no validation rules for Network
+
 	
 			// Validate arbitrum_one_specific
 			if (proto.hasArbitrumOneSpecific()) index.validatorFor(proto.getArbitrumOneSpecific()).assertValid(proto.getArbitrumOneSpecific());
@@ -1237,12 +1243,6 @@ public class ModelValidator {
 	
 			// Validate sui_specific
 			if (proto.hasSuiSpecific()) index.validatorFor(proto.getSuiSpecific()).assertValid(proto.getSuiSpecific());
-	
-			// Validate create_time
-			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
-	
-			// Validate update_time
-			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
 	
 	}
 }
@@ -2885,12 +2885,16 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionTonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Expiration
 
 	// no validation rules for Memo
+
+	// no validation rules for SendAll
 
 	
 	}
@@ -3110,8 +3114,6 @@ public class ModelValidator {
 
 	// no validation rules for NemMultisigTransactionId
 
-	// no validation rules for AccountId
-
 	// no validation rules for TxType
 
 	// no validation rules for Data
@@ -3126,6 +3128,8 @@ public class ModelValidator {
 	
 			// Validate update_time
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	// no validation rules for AccountId
+
 	
 	}
 }
@@ -3162,8 +3166,6 @@ public class ModelValidator {
 
 	// no validation rules for SymbolMultisigTransactionId
 
-	// no validation rules for AccountId
-
 	// no validation rules for TxType
 
 	// no validation rules for Data
@@ -3178,6 +3180,8 @@ public class ModelValidator {
 	
 			// Validate update_time
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	// no validation rules for AccountId
+
 	
 	}
 }

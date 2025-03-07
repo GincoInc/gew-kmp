@@ -32,12 +32,6 @@ class NemMultisigTransaction extends \Google\Protobuf\Internal\Message
      */
     protected $nem_multisig_transaction_id = '';
     /**
-     * AccountID
-     *
-     * Generated from protobuf field <code>string account_id = 10 [json_name = "accountId"];</code>
-     */
-    protected $account_id = '';
-    /**
      * Generated from protobuf field <code>.gincoinc.global.v1.NemTransactionType tx_type = 4 [json_name = "txType"];</code>
      */
     protected $tx_type = 0;
@@ -71,6 +65,12 @@ class NemMultisigTransaction extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Timestamp update_time = 9 [json_name = "updateTime"];</code>
      */
     protected $update_time = null;
+    /**
+     * AccountID
+     *
+     * Generated from protobuf field <code>string account_id = 10 [json_name = "accountId"];</code>
+     */
+    protected $account_id = '';
 
     /**
      * Constructor.
@@ -83,8 +83,6 @@ class NemMultisigTransaction extends \Google\Protobuf\Internal\Message
      *     @type string $transaction_id
      *           id
      *     @type string $nem_multisig_transaction_id
-     *     @type string $account_id
-     *           AccountID
      *     @type int $tx_type
      *     @type string $data
      *           The string-typed amount of transaction fee
@@ -96,6 +94,8 @@ class NemMultisigTransaction extends \Google\Protobuf\Internal\Message
      *           the time at which the transaction was created
      *     @type \Google\Protobuf\Timestamp $update_time
      *           the time at which the transaction was updated
+     *     @type string $account_id
+     *           AccountID
      * }
      */
     public function __construct($data = NULL) {
@@ -173,32 +173,6 @@ class NemMultisigTransaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->nem_multisig_transaction_id = $var;
-
-        return $this;
-    }
-
-    /**
-     * AccountID
-     *
-     * Generated from protobuf field <code>string account_id = 10 [json_name = "accountId"];</code>
-     * @return string
-     */
-    public function getAccountId()
-    {
-        return $this->account_id;
-    }
-
-    /**
-     * AccountID
-     *
-     * Generated from protobuf field <code>string account_id = 10 [json_name = "accountId"];</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setAccountId($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->account_id = $var;
 
         return $this;
     }
@@ -371,6 +345,32 @@ class NemMultisigTransaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->update_time = $var;
+
+        return $this;
+    }
+
+    /**
+     * AccountID
+     *
+     * Generated from protobuf field <code>string account_id = 10 [json_name = "accountId"];</code>
+     * @return string
+     */
+    public function getAccountId()
+    {
+        return $this->account_id;
+    }
+
+    /**
+     * AccountID
+     *
+     * Generated from protobuf field <code>string account_id = 10 [json_name = "accountId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAccountId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->account_id = $var;
 
         return $this;
     }
