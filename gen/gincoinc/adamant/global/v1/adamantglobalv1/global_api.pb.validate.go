@@ -33491,6 +33491,28 @@ func (m *ListNFTsByFilterRequest) validate(all bool) error {
 
 	// no validation rules for WalletId
 
+	if m.GetPageSize() > 1000 {
+		err := ListNFTsByFilterRequestValidationError{
+			field:  "PageSize",
+			reason: "value must be less than or equal to 1000",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_ListNFTsByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+		err := ListNFTsByFilterRequestValidationError{
+			field:  "PageToken",
+			reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
 	if m.TokenId != nil {
 		// no validation rules for TokenId
 	}
@@ -33586,6 +33608,8 @@ var _ interface {
 var _ListNFTsByFilterRequest_FilterType_NotInLookup = map[ListFilterType]struct{}{
 	0: {},
 }
+
+var _ListNFTsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
 
 // Validate checks the field values on ListNFTsResponse with the rules defined
 // in the proto definition for this message. If any rules are violated, the

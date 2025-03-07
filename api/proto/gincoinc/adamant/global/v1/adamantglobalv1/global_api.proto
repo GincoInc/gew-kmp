@@ -2507,6 +2507,11 @@ message ListNFTsByFilterRequest {
   optional string token_name = 4;
 
   optional string metadata = 5;
+
+  uint32 page_size = 6 [(validate.rules).uint32.lte = 1000];
+  string page_token = 7 [(validate.rules).string = {
+    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
+  }];
 }
 
 message ListNFTsResponse {
