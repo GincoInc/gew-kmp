@@ -233,12 +233,16 @@ message PreTransactionDetail {
   string string_value = 2;
 }
 
+// NOTE: Field numbers MUST be defined in ascending order.
+// Some SDKs serialize fields by their definition order,
+// which could affect binary data used for signature verification.
+// https://github.com/GincoInc/protobuf/pull/891
+
 // The model of transaction
 message Transaction {
   string wallet_id = 1; // The id of wallet
   string transaction_id = 2; // id
   gincoinc.global.v1.Coin coin = 3; // The type of coin
-  gincoinc.global.v1.Network network = 47; // The network of coin
   string tx_id = 4; // txID
   string address = 5; // address
   double value = 6; // The number-typed amount of transaction
@@ -251,11 +255,13 @@ message Transaction {
   TransactionState state = 13; // state
   repeated Key signed_keys = 14; // The list of keys which signed to the transaction
   repeated TransactionMember members = 17; // members
-  BitcoinSpecific bitcoin_specific = 22; // The Bitcoin specific fields
+  google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
+  google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
   EthereumSpecific ethereum_specific = 20; // The Ethereum specific fields
+  XrpSpecific xrp_specific = 21; // The XRP specific fields
+  BitcoinSpecific bitcoin_specific = 22; // The Bitcoin specific fields
   LitecoinSpecific litecoin_specific = 23; // The Litecoin specific fields
   BitcoincashSpecific bitcoincash_specific = 24; // The Bitcoin Cash specific fields
-  XrpSpecific xrp_specific = 21; // The XRP specific fields
   TronSpecific tron_specific = 25; // The Tron specific fields
   C0banSpecific c0ban_specific = 26; // The C0ban specific fields
   StellarSpecific stellar_specific = 27; // The Stellar specific fields
@@ -278,6 +284,7 @@ message Transaction {
   SolanaSpecific solana_specific = 44; // The Solana specific fields
   BNBSmartChainSpecific bnb_smart_chain_specific = 45; // The BNB Smart Chain specific fields
   FlareSpecific flare_specific = 46; // The Flare specific fields
+  gincoinc.global.v1.Network network = 47; // The network of coin
   ArbitrumOneSpecific arbitrum_one_specific = 48; // The Arbitrum specific fields
   AptosSpecific aptos_specific = 49; // The Flare specific fields
   DogecoinSpecific dogecoin_specific = 50; // THe Doge specific fields
@@ -285,8 +292,6 @@ message Transaction {
   QuorumSpecific quorum_specific = 52; // The Quorum specific fields
   TonSpecific ton_specific = 53; // The Ton specific fields
   SuiSpecific sui_specific = 54; // The Sui specific fields
-  google.protobuf.Timestamp create_time = 18; // the time at which the transaction was created
-  google.protobuf.Timestamp update_time = 19; // the time at which the transaction was updated
 }
 
 // The model of unconfirmed transaction
@@ -763,6 +768,7 @@ message CreateTransactionAvalancheSpecific {
 message CreateTransactionTonSpecific {
   uint64 expiration = 1;
   string memo = 2;
+  bool send_all = 3;
 }
 
 // The model of NFTSpecific fields of CreateTransaction
@@ -820,13 +826,13 @@ message NemMultisigTransaction {
   string wallet_id = 1; // The id of wallet
   string transaction_id = 2; // id
   string nem_multisig_transaction_id = 3;
-  string account_id = 10; // AccountID
   gincoinc.global.v1.NemTransactionType tx_type = 4;
   string data = 5; // The string-typed amount of transaction fee
   string signature = 6; // The string-typed amount of transaction fee
   TransactionState state = 7; // state
   google.protobuf.Timestamp create_time = 8; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 9; // the time at which the transaction was updated
+  string account_id = 10; // AccountID
 }
 
 // The model of symbol multisig transaction
@@ -834,14 +840,19 @@ message SymbolMultisigTransaction {
   string wallet_id = 1; // The id of wallet
   string transaction_id = 2; // id
   string symbol_multisig_transaction_id = 3;
-  string account_id = 10; // AccountID
   gincoinc.global.v1.SymbolTransactionType tx_type = 4;
   string data = 5; // The string-typed amount of transaction fee
   string signature = 6; // The string-typed amount of transaction fee
   TransactionState state = 7; // state
   google.protobuf.Timestamp create_time = 8; // the time at which the transaction was created
   google.protobuf.Timestamp update_time = 9; // the time at which the transaction was updated
+  string account_id = 10; // AccountID
 }
+
+// NOTE: Field numbers MUST be defined in ascending order.
+// Some SDKs serialize fields by their definition order,
+// which could affect binary data used for signature verification.
+// https://github.com/GincoInc/protobuf/pull/891
 
 // The model of information about signing
 message SignInfo {
