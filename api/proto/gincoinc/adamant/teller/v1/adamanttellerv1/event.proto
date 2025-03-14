@@ -34,6 +34,7 @@ message TransferUpdated {
   TransferUpdateSubstrateSpecific substrate_specific = 23;
   string method = 24;
   gincoinc.global.v1.Network network = 25;
+  TransferUpdateTonSpecific ton_specific = 26;
 }
 
 message TransferUpdateCosmosSpecific {
@@ -45,6 +46,10 @@ message TransferUpdateCosmosSpecific {
 message TransferUpdateSubstrateSpecific {
   string extrinsic_id = 1;
   string extrinsic_hash = 2;
+}
+
+message TransferUpdateTonSpecific {
+  string trace_id = 1;
 }
 
 // TODO deprecate

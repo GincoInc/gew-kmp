@@ -114,6 +114,10 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 25 [json_name = "network"];</code>
      */
     protected $network = 0;
+    /**
+     * Generated from protobuf field <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+     */
+    protected $ton_specific = null;
 
     /**
      * Constructor.
@@ -146,6 +150,7 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\Teller\V1\TransferUpdateSubstrateSpecific $substrate_specific
      *     @type string $method
      *     @type int $network
+     *     @type \Adamant\Teller\V1\TransferUpdateTonSpecific $ton_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -733,6 +738,38 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
         $this->network = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+     * @return \Adamant\Teller\V1\TransferUpdateTonSpecific|null
+     */
+    public function getTonSpecific()
+    {
+        return $this->ton_specific;
+    }
+
+    public function hasTonSpecific()
+    {
+        return isset($this->ton_specific);
+    }
+
+    public function clearTonSpecific()
+    {
+        unset($this->ton_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+     * @param \Adamant\Teller\V1\TransferUpdateTonSpecific $var
+     * @return $this
+     */
+    public function setTonSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\Teller\V1\TransferUpdateTonSpecific::class);
+        $this->ton_specific = $var;
 
         return $this;
     }

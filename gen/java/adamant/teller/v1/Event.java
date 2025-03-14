@@ -289,6 +289,21 @@ public final class Event {
      * @return The network.
      */
     gincoinc.global.v1.Enum.Network getNetwork();
+
+    /**
+     * <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+     * @return Whether the tonSpecific field is set.
+     */
+    boolean hasTonSpecific();
+    /**
+     * <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+     * @return The tonSpecific.
+     */
+    adamant.teller.v1.Event.TransferUpdateTonSpecific getTonSpecific();
+    /**
+     * <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+     */
+    adamant.teller.v1.Event.TransferUpdateTonSpecificOrBuilder getTonSpecificOrBuilder();
   }
   /**
    * Protobuf type {@code adamant.teller.v1.TransferUpdated}
@@ -1008,6 +1023,32 @@ public final class Event {
       return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
     }
 
+    public static final int TON_SPECIFIC_FIELD_NUMBER = 26;
+    private adamant.teller.v1.Event.TransferUpdateTonSpecific tonSpecific_;
+    /**
+     * <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+     * @return Whether the tonSpecific field is set.
+     */
+    @java.lang.Override
+    public boolean hasTonSpecific() {
+      return tonSpecific_ != null;
+    }
+    /**
+     * <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+     * @return The tonSpecific.
+     */
+    @java.lang.Override
+    public adamant.teller.v1.Event.TransferUpdateTonSpecific getTonSpecific() {
+      return tonSpecific_ == null ? adamant.teller.v1.Event.TransferUpdateTonSpecific.getDefaultInstance() : tonSpecific_;
+    }
+    /**
+     * <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+     */
+    @java.lang.Override
+    public adamant.teller.v1.Event.TransferUpdateTonSpecificOrBuilder getTonSpecificOrBuilder() {
+      return tonSpecific_ == null ? adamant.teller.v1.Event.TransferUpdateTonSpecific.getDefaultInstance() : tonSpecific_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1096,6 +1137,9 @@ public final class Event {
       }
       if (network_ != gincoinc.global.v1.Enum.Network.NETWORK_INVALID.getNumber()) {
         output.writeEnum(25, network_);
+      }
+      if (tonSpecific_ != null) {
+        output.writeMessage(26, getTonSpecific());
       }
       getUnknownFields().writeTo(output);
     }
@@ -1195,6 +1239,10 @@ public final class Event {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(25, network_);
       }
+      if (tonSpecific_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(26, getTonSpecific());
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1267,6 +1315,11 @@ public final class Event {
       if (!getMethod()
           .equals(other.getMethod())) return false;
       if (network_ != other.network_) return false;
+      if (hasTonSpecific() != other.hasTonSpecific()) return false;
+      if (hasTonSpecific()) {
+        if (!getTonSpecific()
+            .equals(other.getTonSpecific())) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -1338,6 +1391,10 @@ public final class Event {
       hash = (53 * hash) + getMethod().hashCode();
       hash = (37 * hash) + NETWORK_FIELD_NUMBER;
       hash = (53 * hash) + network_;
+      if (hasTonSpecific()) {
+        hash = (37 * hash) + TON_SPECIFIC_FIELD_NUMBER;
+        hash = (53 * hash) + getTonSpecific().hashCode();
+      }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1506,6 +1563,11 @@ public final class Event {
         }
         method_ = "";
         network_ = 0;
+        tonSpecific_ = null;
+        if (tonSpecificBuilder_ != null) {
+          tonSpecificBuilder_.dispose();
+          tonSpecificBuilder_ = null;
+        }
         return this;
       }
 
@@ -1619,6 +1681,11 @@ public final class Event {
         }
         if (((from_bitField0_ & 0x01000000) != 0)) {
           result.network_ = network_;
+        }
+        if (((from_bitField0_ & 0x02000000) != 0)) {
+          result.tonSpecific_ = tonSpecificBuilder_ == null
+              ? tonSpecific_
+              : tonSpecificBuilder_.build();
         }
       }
 
@@ -1762,6 +1829,9 @@ public final class Event {
         }
         if (other.network_ != 0) {
           setNetworkValue(other.getNetworkValue());
+        }
+        if (other.hasTonSpecific()) {
+          mergeTonSpecific(other.getTonSpecific());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -1920,6 +1990,13 @@ public final class Event {
                 bitField0_ |= 0x01000000;
                 break;
               } // case 200
+              case 210: {
+                input.readMessage(
+                    getTonSpecificFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x02000000;
+                break;
+              } // case 210
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -3552,6 +3629,125 @@ public final class Event {
         onChanged();
         return this;
       }
+
+      private adamant.teller.v1.Event.TransferUpdateTonSpecific tonSpecific_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          adamant.teller.v1.Event.TransferUpdateTonSpecific, adamant.teller.v1.Event.TransferUpdateTonSpecific.Builder, adamant.teller.v1.Event.TransferUpdateTonSpecificOrBuilder> tonSpecificBuilder_;
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+       * @return Whether the tonSpecific field is set.
+       */
+      public boolean hasTonSpecific() {
+        return ((bitField0_ & 0x02000000) != 0);
+      }
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+       * @return The tonSpecific.
+       */
+      public adamant.teller.v1.Event.TransferUpdateTonSpecific getTonSpecific() {
+        if (tonSpecificBuilder_ == null) {
+          return tonSpecific_ == null ? adamant.teller.v1.Event.TransferUpdateTonSpecific.getDefaultInstance() : tonSpecific_;
+        } else {
+          return tonSpecificBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+       */
+      public Builder setTonSpecific(adamant.teller.v1.Event.TransferUpdateTonSpecific value) {
+        if (tonSpecificBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          tonSpecific_ = value;
+        } else {
+          tonSpecificBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x02000000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+       */
+      public Builder setTonSpecific(
+          adamant.teller.v1.Event.TransferUpdateTonSpecific.Builder builderForValue) {
+        if (tonSpecificBuilder_ == null) {
+          tonSpecific_ = builderForValue.build();
+        } else {
+          tonSpecificBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x02000000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+       */
+      public Builder mergeTonSpecific(adamant.teller.v1.Event.TransferUpdateTonSpecific value) {
+        if (tonSpecificBuilder_ == null) {
+          if (((bitField0_ & 0x02000000) != 0) &&
+            tonSpecific_ != null &&
+            tonSpecific_ != adamant.teller.v1.Event.TransferUpdateTonSpecific.getDefaultInstance()) {
+            getTonSpecificBuilder().mergeFrom(value);
+          } else {
+            tonSpecific_ = value;
+          }
+        } else {
+          tonSpecificBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x02000000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+       */
+      public Builder clearTonSpecific() {
+        bitField0_ = (bitField0_ & ~0x02000000);
+        tonSpecific_ = null;
+        if (tonSpecificBuilder_ != null) {
+          tonSpecificBuilder_.dispose();
+          tonSpecificBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+       */
+      public adamant.teller.v1.Event.TransferUpdateTonSpecific.Builder getTonSpecificBuilder() {
+        bitField0_ |= 0x02000000;
+        onChanged();
+        return getTonSpecificFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+       */
+      public adamant.teller.v1.Event.TransferUpdateTonSpecificOrBuilder getTonSpecificOrBuilder() {
+        if (tonSpecificBuilder_ != null) {
+          return tonSpecificBuilder_.getMessageOrBuilder();
+        } else {
+          return tonSpecific_ == null ?
+              adamant.teller.v1.Event.TransferUpdateTonSpecific.getDefaultInstance() : tonSpecific_;
+        }
+      }
+      /**
+       * <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          adamant.teller.v1.Event.TransferUpdateTonSpecific, adamant.teller.v1.Event.TransferUpdateTonSpecific.Builder, adamant.teller.v1.Event.TransferUpdateTonSpecificOrBuilder> 
+          getTonSpecificFieldBuilder() {
+        if (tonSpecificBuilder_ == null) {
+          tonSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              adamant.teller.v1.Event.TransferUpdateTonSpecific, adamant.teller.v1.Event.TransferUpdateTonSpecific.Builder, adamant.teller.v1.Event.TransferUpdateTonSpecificOrBuilder>(
+                  getTonSpecific(),
+                  getParentForChildren(),
+                  isClean());
+          tonSpecific_ = null;
+        }
+        return tonSpecificBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4968,6 +5164,558 @@ public final class Event {
 
     @java.lang.Override
     public adamant.teller.v1.Event.TransferUpdateSubstrateSpecific getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TransferUpdateTonSpecificOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:adamant.teller.v1.TransferUpdateTonSpecific)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string trace_id = 1 [json_name = "traceId"];</code>
+     * @return The traceId.
+     */
+    java.lang.String getTraceId();
+    /**
+     * <code>string trace_id = 1 [json_name = "traceId"];</code>
+     * @return The bytes for traceId.
+     */
+    com.google.protobuf.ByteString
+        getTraceIdBytes();
+  }
+  /**
+   * Protobuf type {@code adamant.teller.v1.TransferUpdateTonSpecific}
+   */
+  public static final class TransferUpdateTonSpecific extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:adamant.teller.v1.TransferUpdateTonSpecific)
+      TransferUpdateTonSpecificOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TransferUpdateTonSpecific.newBuilder() to construct.
+    private TransferUpdateTonSpecific(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TransferUpdateTonSpecific() {
+      traceId_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new TransferUpdateTonSpecific();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return adamant.teller.v1.Event.internal_static_adamant_teller_v1_TransferUpdateTonSpecific_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return adamant.teller.v1.Event.internal_static_adamant_teller_v1_TransferUpdateTonSpecific_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              adamant.teller.v1.Event.TransferUpdateTonSpecific.class, adamant.teller.v1.Event.TransferUpdateTonSpecific.Builder.class);
+    }
+
+    public static final int TRACE_ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object traceId_ = "";
+    /**
+     * <code>string trace_id = 1 [json_name = "traceId"];</code>
+     * @return The traceId.
+     */
+    @java.lang.Override
+    public java.lang.String getTraceId() {
+      java.lang.Object ref = traceId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        traceId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string trace_id = 1 [json_name = "traceId"];</code>
+     * @return The bytes for traceId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getTraceIdBytes() {
+      java.lang.Object ref = traceId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        traceId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(traceId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, traceId_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(traceId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, traceId_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof adamant.teller.v1.Event.TransferUpdateTonSpecific)) {
+        return super.equals(obj);
+      }
+      adamant.teller.v1.Event.TransferUpdateTonSpecific other = (adamant.teller.v1.Event.TransferUpdateTonSpecific) obj;
+
+      if (!getTraceId()
+          .equals(other.getTraceId())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TRACE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getTraceId().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static adamant.teller.v1.Event.TransferUpdateTonSpecific parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateTonSpecific parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateTonSpecific parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateTonSpecific parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateTonSpecific parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateTonSpecific parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateTonSpecific parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateTonSpecific parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static adamant.teller.v1.Event.TransferUpdateTonSpecific parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static adamant.teller.v1.Event.TransferUpdateTonSpecific parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateTonSpecific parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.teller.v1.Event.TransferUpdateTonSpecific parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(adamant.teller.v1.Event.TransferUpdateTonSpecific prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code adamant.teller.v1.TransferUpdateTonSpecific}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:adamant.teller.v1.TransferUpdateTonSpecific)
+        adamant.teller.v1.Event.TransferUpdateTonSpecificOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return adamant.teller.v1.Event.internal_static_adamant_teller_v1_TransferUpdateTonSpecific_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return adamant.teller.v1.Event.internal_static_adamant_teller_v1_TransferUpdateTonSpecific_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                adamant.teller.v1.Event.TransferUpdateTonSpecific.class, adamant.teller.v1.Event.TransferUpdateTonSpecific.Builder.class);
+      }
+
+      // Construct using adamant.teller.v1.Event.TransferUpdateTonSpecific.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        traceId_ = "";
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return adamant.teller.v1.Event.internal_static_adamant_teller_v1_TransferUpdateTonSpecific_descriptor;
+      }
+
+      @java.lang.Override
+      public adamant.teller.v1.Event.TransferUpdateTonSpecific getDefaultInstanceForType() {
+        return adamant.teller.v1.Event.TransferUpdateTonSpecific.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public adamant.teller.v1.Event.TransferUpdateTonSpecific build() {
+        adamant.teller.v1.Event.TransferUpdateTonSpecific result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public adamant.teller.v1.Event.TransferUpdateTonSpecific buildPartial() {
+        adamant.teller.v1.Event.TransferUpdateTonSpecific result = new adamant.teller.v1.Event.TransferUpdateTonSpecific(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(adamant.teller.v1.Event.TransferUpdateTonSpecific result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.traceId_ = traceId_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof adamant.teller.v1.Event.TransferUpdateTonSpecific) {
+          return mergeFrom((adamant.teller.v1.Event.TransferUpdateTonSpecific)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(adamant.teller.v1.Event.TransferUpdateTonSpecific other) {
+        if (other == adamant.teller.v1.Event.TransferUpdateTonSpecific.getDefaultInstance()) return this;
+        if (!other.getTraceId().isEmpty()) {
+          traceId_ = other.traceId_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                traceId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object traceId_ = "";
+      /**
+       * <code>string trace_id = 1 [json_name = "traceId"];</code>
+       * @return The traceId.
+       */
+      public java.lang.String getTraceId() {
+        java.lang.Object ref = traceId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          traceId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string trace_id = 1 [json_name = "traceId"];</code>
+       * @return The bytes for traceId.
+       */
+      public com.google.protobuf.ByteString
+          getTraceIdBytes() {
+        java.lang.Object ref = traceId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          traceId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string trace_id = 1 [json_name = "traceId"];</code>
+       * @param value The traceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTraceId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        traceId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string trace_id = 1 [json_name = "traceId"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTraceId() {
+        traceId_ = getDefaultInstance().getTraceId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string trace_id = 1 [json_name = "traceId"];</code>
+       * @param value The bytes for traceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTraceIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        traceId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:adamant.teller.v1.TransferUpdateTonSpecific)
+    }
+
+    // @@protoc_insertion_point(class_scope:adamant.teller.v1.TransferUpdateTonSpecific)
+    private static final adamant.teller.v1.Event.TransferUpdateTonSpecific DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new adamant.teller.v1.Event.TransferUpdateTonSpecific();
+    }
+
+    public static adamant.teller.v1.Event.TransferUpdateTonSpecific getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TransferUpdateTonSpecific>
+        PARSER = new com.google.protobuf.AbstractParser<TransferUpdateTonSpecific>() {
+      @java.lang.Override
+      public TransferUpdateTonSpecific parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<TransferUpdateTonSpecific> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TransferUpdateTonSpecific> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public adamant.teller.v1.Event.TransferUpdateTonSpecific getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -10972,6 +11720,11 @@ public final class Event {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_teller_v1_TransferUpdateSubstrateSpecific_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_teller_v1_TransferUpdateTonSpecific_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_teller_v1_TransferUpdateTonSpecific_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_teller_v1_TransferUpdateEvent_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -10999,7 +11752,7 @@ public final class Event {
       "erv1/event.proto\022\021adamant.teller.v1\032.gin" +
       "coinc/global/v1/gincoincglobalv1/enum.pr" +
       "oto\032\037google/protobuf/timestamp.proto\032\027va" +
-      "lidate/validate.proto\"\351\007\n\017TransferUpdate" +
+      "lidate/validate.proto\"\272\010\n\017TransferUpdate" +
       "d\022\033\n\twallet_id\030\001 \001(\tR\010walletId\022\037\n\013transf" +
       "er_id\030\002 \001(\tR\ntransferId\022,\n\004coin\030\003 \001(\0162\030." +
       "gincoinc.global.v1.CoinR\004coin\022\023\n\005tx_id\030\004" +
@@ -11024,57 +11777,61 @@ public final class Event {
       "amant.teller.v1.TransferUpdateSubstrateS" +
       "pecificR\021substrateSpecific\022\026\n\006method\030\030 \001" +
       "(\tR\006method\0225\n\007network\030\031 \001(\0162\033.gincoinc.g" +
-      "lobal.v1.NetworkR\007network\"\243\001\n\034TransferUp" +
-      "dateCosmosSpecific\0225\n\004type\030\001 \001(\0162!.ginco" +
-      "inc.global.v1.CosmosMsgTypeR\004type\022\'\n\017del" +
-      "egate_amount\030\002 \001(\001R\016delegateAmount\022#\n\rre" +
-      "ward_amount\030\003 \001(\001R\014rewardAmount\"k\n\037Trans" +
-      "ferUpdateSubstrateSpecific\022!\n\014extrinsic_" +
-      "id\030\001 \001(\tR\013extrinsicId\022%\n\016extrinsic_hash\030" +
-      "\002 \001(\tR\rextrinsicHash\"\260\005\n\023TransferUpdateE" +
-      "vent\022\031\n\010event_id\030\001 \001(\tR\007eventId\022\033\n\twalle" +
-      "t_id\030\016 \001(\tR\010walletId\022,\n\004coin\030\002 \001(\0162\030.gin" +
-      "coinc.global.v1.CoinR\004coin\022\023\n\005tx_id\030\003 \001(" +
-      "\tR\004txId\022\031\n\010tx_index\030\004 \001(\rR\007txIndex\022\024\n\005va" +
-      "lue\030\005 \001(\001R\005value\022!\n\014string_value\030\006 \001(\tR\013" +
-      "stringValue\022\031\n\010jpy_rate\030\r \001(\001R\007jpyRate\022\030" +
-      "\n\007address\030\007 \001(\tR\007address\022\'\n\017destination_" +
-      "tag\030\010 \001(\rR\016destinationTag\022\027\n\007memo_id\030\017 \001" +
-      "(\004R\006memoId\022:\n\005state\030\t \001(\0162$.gincoinc.glo" +
-      "bal.v1.TransactionStateR\005state\022=\n\006result" +
-      "\030\n \001(\0162%.gincoinc.global.v1.TransactionR" +
-      "esultR\006result\022E\n\rtransfer_type\030\013 \001(\0162 .g" +
-      "incoinc.global.v1.TransferTypeR\014transfer" +
-      "Type\022.\n\004time\030\014 \001(\0132\032.google.protobuf.Tim" +
-      "estampR\004time\022a\n\022substrate_specific\030\020 \001(\013" +
-      "22.adamant.teller.v1.TransferUpdateSubst" +
-      "rateSpecificR\021substrateSpecific\"\345\004\n\025Ethe" +
-      "reumStakingReward\022\031\n\010event_id\030\001 \001(\tR\007eve" +
-      "ntId\022)\n\020withdrawal_index\030\002 \001(\004R\017withdraw" +
-      "alIndex\022!\n\014block_number\030\003 \001(\004R\013blockNumb" +
-      "er\0229\n\nblock_time\030\004 \001(\0132\032.google.protobuf" +
-      ".TimestampR\tblockTime\022\'\n\017validator_index" +
-      "\030\005 \001(\004R\016validatorIndex\022\030\n\007address\030\006 \001(\tR" +
-      "\007address\022\024\n\005value\030\007 \001(\001R\005value\022i\n\twallet" +
-      "_id\030\010 \001(\tBL\372BIrG2E^[0-9a-f]{8}-[0-9a-f]{" +
-      "4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-" +
-      "f]{12}$R\010walletId\022~\n\"ethereum_staking_re" +
-      "ward_layer_type\030\t \001(\01622.gincoinc.global." +
-      "v1.EthereumStakingRewardLayerTypeR\036ether" +
-      "eumStakingRewardLayerType\022!\n\014string_valu" +
-      "e\030\n \001(\tR\013stringValue\022\035\n\nblock_hash\030\013 \001(\t" +
-      "R\tblockHash\022\030\n\005tx_id\030\014 \001(\tH\000R\004txId\210\001\001B\010\n" +
-      "\006_tx_id\"\323\002\n\025StakingRewardReceived\022\031\n\010eve" +
-      "nt_id\030\001 \001(\tR\007eventId\022!\n\014validator_id\030\002 \001" +
-      "(\tR\013validatorId\022\024\n\005value\030\003 \001(\001R\005value\022!\n" +
-      "\014string_value\030\004 \001(\tR\013stringValue\022\023\n\005tx_i" +
-      "d\030\005 \001(\tR\004txId\022\031\n\010tx_index\030\006 \001(\rR\007txIndex" +
-      "\022\033\n\twallet_id\030\007 \001(\tR\010walletId\022\030\n\007address" +
-      "\030\010 \001(\tR\007address\022,\n\004coin\030\t \001(\0162\030.gincoinc" +
-      ".global.v1.CoinR\004coin\022.\n\004time\030\n \001(\0132\032.go" +
-      "ogle.protobuf.TimestampR\004timeBLZJgithub." +
-      "com/GincoInc/gew-kmp/gen/gincoinc/adaman" +
-      "t/teller/v1/adamanttellerv1b\006proto3"
+      "lobal.v1.NetworkR\007network\022O\n\014ton_specifi" +
+      "c\030\032 \001(\0132,.adamant.teller.v1.TransferUpda" +
+      "teTonSpecificR\013tonSpecific\"\243\001\n\034TransferU" +
+      "pdateCosmosSpecific\0225\n\004type\030\001 \001(\0162!.ginc" +
+      "oinc.global.v1.CosmosMsgTypeR\004type\022\'\n\017de" +
+      "legate_amount\030\002 \001(\001R\016delegateAmount\022#\n\rr" +
+      "eward_amount\030\003 \001(\001R\014rewardAmount\"k\n\037Tran" +
+      "sferUpdateSubstrateSpecific\022!\n\014extrinsic" +
+      "_id\030\001 \001(\tR\013extrinsicId\022%\n\016extrinsic_hash" +
+      "\030\002 \001(\tR\rextrinsicHash\"6\n\031TransferUpdateT" +
+      "onSpecific\022\031\n\010trace_id\030\001 \001(\tR\007traceId\"\260\005" +
+      "\n\023TransferUpdateEvent\022\031\n\010event_id\030\001 \001(\tR" +
+      "\007eventId\022\033\n\twallet_id\030\016 \001(\tR\010walletId\022,\n" +
+      "\004coin\030\002 \001(\0162\030.gincoinc.global.v1.CoinR\004c" +
+      "oin\022\023\n\005tx_id\030\003 \001(\tR\004txId\022\031\n\010tx_index\030\004 \001" +
+      "(\rR\007txIndex\022\024\n\005value\030\005 \001(\001R\005value\022!\n\014str" +
+      "ing_value\030\006 \001(\tR\013stringValue\022\031\n\010jpy_rate" +
+      "\030\r \001(\001R\007jpyRate\022\030\n\007address\030\007 \001(\tR\007addres" +
+      "s\022\'\n\017destination_tag\030\010 \001(\rR\016destinationT" +
+      "ag\022\027\n\007memo_id\030\017 \001(\004R\006memoId\022:\n\005state\030\t \001" +
+      "(\0162$.gincoinc.global.v1.TransactionState" +
+      "R\005state\022=\n\006result\030\n \001(\0162%.gincoinc.globa" +
+      "l.v1.TransactionResultR\006result\022E\n\rtransf" +
+      "er_type\030\013 \001(\0162 .gincoinc.global.v1.Trans" +
+      "ferTypeR\014transferType\022.\n\004time\030\014 \001(\0132\032.go" +
+      "ogle.protobuf.TimestampR\004time\022a\n\022substra" +
+      "te_specific\030\020 \001(\01322.adamant.teller.v1.Tr" +
+      "ansferUpdateSubstrateSpecificR\021substrate" +
+      "Specific\"\345\004\n\025EthereumStakingReward\022\031\n\010ev" +
+      "ent_id\030\001 \001(\tR\007eventId\022)\n\020withdrawal_inde" +
+      "x\030\002 \001(\004R\017withdrawalIndex\022!\n\014block_number" +
+      "\030\003 \001(\004R\013blockNumber\0229\n\nblock_time\030\004 \001(\0132" +
+      "\032.google.protobuf.TimestampR\tblockTime\022\'" +
+      "\n\017validator_index\030\005 \001(\004R\016validatorIndex\022" +
+      "\030\n\007address\030\006 \001(\tR\007address\022\024\n\005value\030\007 \001(\001" +
+      "R\005value\022i\n\twallet_id\030\010 \001(\tBL\372BIrG2E^[0-9" +
+      "a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][" +
+      "0-9a-f]{3}-[0-9a-f]{12}$R\010walletId\022~\n\"et" +
+      "hereum_staking_reward_layer_type\030\t \001(\01622" +
+      ".gincoinc.global.v1.EthereumStakingRewar" +
+      "dLayerTypeR\036ethereumStakingRewardLayerTy" +
+      "pe\022!\n\014string_value\030\n \001(\tR\013stringValue\022\035\n" +
+      "\nblock_hash\030\013 \001(\tR\tblockHash\022\030\n\005tx_id\030\014 " +
+      "\001(\tH\000R\004txId\210\001\001B\010\n\006_tx_id\"\323\002\n\025StakingRewa" +
+      "rdReceived\022\031\n\010event_id\030\001 \001(\tR\007eventId\022!\n" +
+      "\014validator_id\030\002 \001(\tR\013validatorId\022\024\n\005valu" +
+      "e\030\003 \001(\001R\005value\022!\n\014string_value\030\004 \001(\tR\013st" +
+      "ringValue\022\023\n\005tx_id\030\005 \001(\tR\004txId\022\031\n\010tx_ind" +
+      "ex\030\006 \001(\rR\007txIndex\022\033\n\twallet_id\030\007 \001(\tR\010wa" +
+      "lletId\022\030\n\007address\030\010 \001(\tR\007address\022,\n\004coin" +
+      "\030\t \001(\0162\030.gincoinc.global.v1.CoinR\004coin\022." +
+      "\n\004time\030\n \001(\0132\032.google.protobuf.Timestamp" +
+      "R\004timeBLZJgithub.com/GincoInc/gew-kmp/ge" +
+      "n/gincoinc/adamant/teller/v1/adamanttell" +
+      "erv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11088,7 +11845,7 @@ public final class Event {
     internal_static_adamant_teller_v1_TransferUpdated_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_teller_v1_TransferUpdated_descriptor,
-        new java.lang.String[] { "WalletId", "TransferId", "Coin", "TxId", "TxIndex", "Value", "StringValue", "JpyRate", "Address", "DestinationTag", "MemoId", "Message", "State", "Result", "TransferType", "From", "To", "Time", "EventId", "Fee", "StringFee", "CosmosSpecific", "SubstrateSpecific", "Method", "Network", });
+        new java.lang.String[] { "WalletId", "TransferId", "Coin", "TxId", "TxIndex", "Value", "StringValue", "JpyRate", "Address", "DestinationTag", "MemoId", "Message", "State", "Result", "TransferType", "From", "To", "Time", "EventId", "Fee", "StringFee", "CosmosSpecific", "SubstrateSpecific", "Method", "Network", "TonSpecific", });
     internal_static_adamant_teller_v1_TransferUpdateCosmosSpecific_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_adamant_teller_v1_TransferUpdateCosmosSpecific_fieldAccessorTable = new
@@ -11101,20 +11858,26 @@ public final class Event {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_teller_v1_TransferUpdateSubstrateSpecific_descriptor,
         new java.lang.String[] { "ExtrinsicId", "ExtrinsicHash", });
-    internal_static_adamant_teller_v1_TransferUpdateEvent_descriptor =
+    internal_static_adamant_teller_v1_TransferUpdateTonSpecific_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_adamant_teller_v1_TransferUpdateTonSpecific_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_teller_v1_TransferUpdateTonSpecific_descriptor,
+        new java.lang.String[] { "TraceId", });
+    internal_static_adamant_teller_v1_TransferUpdateEvent_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_adamant_teller_v1_TransferUpdateEvent_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_teller_v1_TransferUpdateEvent_descriptor,
         new java.lang.String[] { "EventId", "WalletId", "Coin", "TxId", "TxIndex", "Value", "StringValue", "JpyRate", "Address", "DestinationTag", "MemoId", "State", "Result", "TransferType", "Time", "SubstrateSpecific", });
     internal_static_adamant_teller_v1_EthereumStakingReward_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_adamant_teller_v1_EthereumStakingReward_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_teller_v1_EthereumStakingReward_descriptor,
         new java.lang.String[] { "EventId", "WithdrawalIndex", "BlockNumber", "BlockTime", "ValidatorIndex", "Address", "Value", "WalletId", "EthereumStakingRewardLayerType", "StringValue", "BlockHash", "TxId", "TxId", });
     internal_static_adamant_teller_v1_StakingRewardReceived_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_adamant_teller_v1_StakingRewardReceived_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_teller_v1_StakingRewardReceived_descriptor,

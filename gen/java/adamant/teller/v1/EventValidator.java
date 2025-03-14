@@ -11,6 +11,7 @@ public class EventValidator {
 		if (clazz.equals(adamant.teller.v1.Event.TransferUpdated.class)) return new TransferUpdatedValidator();
 		if (clazz.equals(adamant.teller.v1.Event.TransferUpdateCosmosSpecific.class)) return new TransferUpdateCosmosSpecificValidator();
 		if (clazz.equals(adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.class)) return new TransferUpdateSubstrateSpecificValidator();
+		if (clazz.equals(adamant.teller.v1.Event.TransferUpdateTonSpecific.class)) return new TransferUpdateTonSpecificValidator();
 		if (clazz.equals(adamant.teller.v1.Event.TransferUpdateEvent.class)) return new TransferUpdateEventValidator();
 		if (clazz.equals(adamant.teller.v1.Event.EthereumStakingReward.class)) return new EthereumStakingRewardValidator();
 		if (clazz.equals(adamant.teller.v1.Event.StakingRewardReceived.class)) return new StakingRewardReceivedValidator();
@@ -22,6 +23,8 @@ public class EventValidator {
 	 * Validates {@code TransferUpdated} protobuf objects.
 	 */
 	public static class TransferUpdatedValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.teller.v1.Event.TransferUpdated> {
+		
+	
 		
 	
 		
@@ -129,6 +132,9 @@ public class EventValidator {
 	// no validation rules for Network
 
 	
+			// Validate ton_specific
+			if (proto.hasTonSpecific()) index.validatorFor(proto.getTonSpecific()).assertValid(proto.getTonSpecific());
+	
 	}
 }
 /**
@@ -167,6 +173,20 @@ public class EventValidator {
 	// no validation rules for ExtrinsicId
 
 	// no validation rules for ExtrinsicHash
+
+	
+	}
+}
+/**
+	 * Validates {@code TransferUpdateTonSpecific} protobuf objects.
+	 */
+	public static class TransferUpdateTonSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.teller.v1.Event.TransferUpdateTonSpecific> {
+		
+	
+	
+
+	public void assertValid(adamant.teller.v1.Event.TransferUpdateTonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for TraceId
 
 	
 	}
