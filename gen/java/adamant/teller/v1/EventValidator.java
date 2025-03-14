@@ -186,7 +186,7 @@ public class EventValidator {
 	
 
 	public void assertValid(adamant.teller.v1.Event.TransferUpdateTonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
-	// no validation rules for TraceId
+	// no validation rules for TransferHash
 
 	
 	}

@@ -537,7 +537,7 @@ func (m *TransferUpdateTonSpecific) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for TraceId
+	// no validation rules for TransferHash
 
 	if len(errors) > 0 {
 		return TransferUpdateTonSpecificMultiError(errors)
