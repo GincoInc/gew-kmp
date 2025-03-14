@@ -49,7 +49,7 @@ message TransferUpdateSubstrateSpecific {
 }
 
 message TransferUpdateTonSpecific {
-  string trace_id = 1;
+  string transfer_hash = 1;
 }
 
 // TODO deprecate

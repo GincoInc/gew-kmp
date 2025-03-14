@@ -14,9 +14,9 @@ use Google\Protobuf\Internal\GPBUtil;
 class TransferUpdateTonSpecific extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>string trace_id = 1 [json_name = "traceId"];</code>
+     * Generated from protobuf field <code>string transfer_hash = 1 [json_name = "transferHash"];</code>
      */
-    protected $trace_id = '';
+    protected $transfer_hash = '';
 
     /**
      * Constructor.
@@ -24,7 +24,7 @@ class TransferUpdateTonSpecific extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type string $trace_id
+     *     @type string $transfer_hash
      * }
      */
     public function __construct($data = NULL) {
@@ -33,23 +33,23 @@ class TransferUpdateTonSpecific extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string trace_id = 1 [json_name = "traceId"];</code>
+     * Generated from protobuf field <code>string transfer_hash = 1 [json_name = "transferHash"];</code>
      * @return string
      */
-    public function getTraceId()
+    public function getTransferHash()
     {
-        return $this->trace_id;
+        return $this->transfer_hash;
     }
 
     /**
-     * Generated from protobuf field <code>string trace_id = 1 [json_name = "traceId"];</code>
+     * Generated from protobuf field <code>string transfer_hash = 1 [json_name = "transferHash"];</code>
      * @param string $var
      * @return $this
      */
-    public function setTraceId($var)
+    public function setTransferHash($var)
     {
         GPBUtil::checkString($var, True);
-        $this->trace_id = $var;
+        $this->transfer_hash = $var;
 
         return $this;
     }
