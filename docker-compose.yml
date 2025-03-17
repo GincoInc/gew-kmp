@@ -10,18 +10,18 @@ services:
       - "./configs/teller/config.toml:/root/configs/config.toml"
     env_file:
       - "./envs/teller/.env"
-  postbox:
-     image: ginco/postbox:v0.41.3
-     command: -f /root/configs/config.toml
-     volumes:
-       - "./configs/postbox/config.toml:/root/configs/config.toml"
-     env_file:
-       - "./envs/postbox/.env"
-  postbox-gateway:
-     image: ginco/postbox-gateway:v0.41.3
-     ports:
-       - "8080:8080"
-     command: >
-       -cpu=2
-       -port=8080
-       -endpoint="postbox:50051"
+  # postbox:
+  #   image: ginco/postbox:v0.41.2
+  #   command: -f /root/configs/config.toml
+  #   volumes:
+  #     - "./configs/postbox/config.toml:/root/configs/config.toml"
+  #   env_file:
+  #     - "./envs/postbox/.env"
+  # postbox-gateway:
+  #   image: ginco/postbox-gateway:v0.41.2
+  #   ports:
+  #     - "8080:8080"
+  #   command: >
+  #     -cpu=2
+  #     -port=8080
+  #     -endpoint="postbox:50051"
