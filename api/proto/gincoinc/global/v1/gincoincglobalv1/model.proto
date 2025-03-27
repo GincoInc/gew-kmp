@@ -1,9 +1,0 @@
-syntax = "proto3";
-
-package gincoinc.global.v1;
-
-option go_package = "github.com/GincoInc/gew-kmp/gen/gincoinc/global/v1/gincoincglobalv1";
-
-// =============================================================================
-//  Model
-// =============================================================================
