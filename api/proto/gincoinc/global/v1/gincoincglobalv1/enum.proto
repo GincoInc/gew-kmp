@@ -143,6 +143,7 @@ enum Coin {
   COIN_ERC20_COIN31 = 10047;
   COIN_ERC20_COIN32 = 10048;
   COIN_QUORUM_ERC721_TCCDEV = 10049; // for Quorum ERC721 development
+  COIN_QUORUM_ERC721_TCCSTG = 10050; // for Quorum ERC721 staging
 }
 
 // Network is a type of blockchain network.

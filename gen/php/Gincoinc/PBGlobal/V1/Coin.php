@@ -543,6 +543,12 @@ class Coin
      * Generated from protobuf enum <code>COIN_QUORUM_ERC721_TCCDEV = 10049;</code>
      */
     const COIN_QUORUM_ERC721_TCCDEV = 10049;
+    /**
+     * for Quorum ERC721 staging
+     *
+     * Generated from protobuf enum <code>COIN_QUORUM_ERC721_TCCSTG = 10050;</code>
+     */
+    const COIN_QUORUM_ERC721_TCCSTG = 10050;
 
     private static $valueToName = [
         self::COIN_INVALID => 'COIN_INVALID',
@@ -674,6 +680,7 @@ class Coin
         self::COIN_ERC20_COIN31 => 'COIN_ERC20_COIN31',
         self::COIN_ERC20_COIN32 => 'COIN_ERC20_COIN32',
         self::COIN_QUORUM_ERC721_TCCDEV => 'COIN_QUORUM_ERC721_TCCDEV',
+        self::COIN_QUORUM_ERC721_TCCSTG => 'COIN_QUORUM_ERC721_TCCSTG',
     ];
 
     public static function name($value)
