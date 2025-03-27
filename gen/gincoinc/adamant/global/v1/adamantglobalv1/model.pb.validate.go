@@ -6492,6 +6492,20 @@ func (m *SubstrateSpecific) validate(all bool) error {
 
 	// no validation rules for CallType
 
+	// no validation rules for SectionIndex
+
+	// no validation rules for MethodIndex
+
+	// no validation rules for Era
+
+	// no validation rules for Tip
+
+	// no validation rules for SpecVersion
+
+	// no validation rules for TransactionVersion
+
+	// no validation rules for GenesisHash
+
 	if len(errors) > 0 {
 		return SubstrateSpecificMultiError(errors)
 	}

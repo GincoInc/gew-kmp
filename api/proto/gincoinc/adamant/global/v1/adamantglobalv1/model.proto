@@ -444,7 +444,7 @@ message C0banSpecific {
 
 // The model of Stellar specific fields of transaction
 message StellarSpecific {
-  int64 sequence_number = 1;
+  int64 sequence_number = 1 [jstype = JS_STRING];
   uint64 memo_id = 2 [jstype = JS_STRING];
   bool is_next_sequence_number = 3;
 }
@@ -462,6 +462,13 @@ message SubstrateSpecific {
   bool is_next_nonce = 2;
   repeated SubstrateMultisigTransaction substrate_multisig_transactions = 4;
   SubstrateCallType call_type = 6;
+  uint32 section_index = 7;
+  uint32 method_index = 8;
+  uint64 era = 9;
+  uint64 tip = 10;
+  uint32 spec_version = 11;
+  uint32 transaction_version = 12;
+  string genesis_hash = 13;
 }
 
 // The model of Monacoin specific fields of transaction

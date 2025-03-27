@@ -31,6 +31,34 @@ class SubstrateSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.SubstrateCallType call_type = 6 [json_name = "callType"];</code>
      */
     protected $call_type = 0;
+    /**
+     * Generated from protobuf field <code>uint32 section_index = 7 [json_name = "sectionIndex"];</code>
+     */
+    protected $section_index = 0;
+    /**
+     * Generated from protobuf field <code>uint32 method_index = 8 [json_name = "methodIndex"];</code>
+     */
+    protected $method_index = 0;
+    /**
+     * Generated from protobuf field <code>uint64 era = 9 [json_name = "era"];</code>
+     */
+    protected $era = 0;
+    /**
+     * Generated from protobuf field <code>uint64 tip = 10 [json_name = "tip"];</code>
+     */
+    protected $tip = 0;
+    /**
+     * Generated from protobuf field <code>uint32 spec_version = 11 [json_name = "specVersion"];</code>
+     */
+    protected $spec_version = 0;
+    /**
+     * Generated from protobuf field <code>uint32 transaction_version = 12 [json_name = "transactionVersion"];</code>
+     */
+    protected $transaction_version = 0;
+    /**
+     * Generated from protobuf field <code>string genesis_hash = 13 [json_name = "genesisHash"];</code>
+     */
+    protected $genesis_hash = '';
 
     /**
      * Constructor.
@@ -42,6 +70,13 @@ class SubstrateSpecific extends \Google\Protobuf\Internal\Message
      *     @type bool $is_next_nonce
      *     @type array<\Adamant\PBGlobal\V1\SubstrateMultisigTransaction>|\Google\Protobuf\Internal\RepeatedField $substrate_multisig_transactions
      *     @type int $call_type
+     *     @type int $section_index
+     *     @type int $method_index
+     *     @type int|string $era
+     *     @type int|string $tip
+     *     @type int $spec_version
+     *     @type int $transaction_version
+     *     @type string $genesis_hash
      * }
      */
     public function __construct($data = NULL) {
@@ -133,6 +168,160 @@ class SubstrateSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Adamant\PBGlobal\V1\SubstrateCallType::class);
         $this->call_type = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 section_index = 7 [json_name = "sectionIndex"];</code>
+     * @return int
+     */
+    public function getSectionIndex()
+    {
+        return $this->section_index;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 section_index = 7 [json_name = "sectionIndex"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setSectionIndex($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->section_index = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 method_index = 8 [json_name = "methodIndex"];</code>
+     * @return int
+     */
+    public function getMethodIndex()
+    {
+        return $this->method_index;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 method_index = 8 [json_name = "methodIndex"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setMethodIndex($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->method_index = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 era = 9 [json_name = "era"];</code>
+     * @return int|string
+     */
+    public function getEra()
+    {
+        return $this->era;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 era = 9 [json_name = "era"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setEra($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->era = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 tip = 10 [json_name = "tip"];</code>
+     * @return int|string
+     */
+    public function getTip()
+    {
+        return $this->tip;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 tip = 10 [json_name = "tip"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setTip($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->tip = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 spec_version = 11 [json_name = "specVersion"];</code>
+     * @return int
+     */
+    public function getSpecVersion()
+    {
+        return $this->spec_version;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 spec_version = 11 [json_name = "specVersion"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setSpecVersion($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->spec_version = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 transaction_version = 12 [json_name = "transactionVersion"];</code>
+     * @return int
+     */
+    public function getTransactionVersion()
+    {
+        return $this->transaction_version;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 transaction_version = 12 [json_name = "transactionVersion"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setTransactionVersion($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->transaction_version = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string genesis_hash = 13 [json_name = "genesisHash"];</code>
+     * @return string
+     */
+    public function getGenesisHash()
+    {
+        return $this->genesis_hash;
+    }
+
+    /**
+     * Generated from protobuf field <code>string genesis_hash = 13 [json_name = "genesisHash"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setGenesisHash($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->genesis_hash = $var;
 
         return $this;
     }

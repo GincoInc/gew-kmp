@@ -1856,6 +1856,20 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.SubstrateSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1870,6 +1884,20 @@ public class ModelValidator {
 			if (true) index.validatorFor(item).assertValid(item);
 			});
 	// no validation rules for CallType
+
+	// no validation rules for SectionIndex
+
+	// no validation rules for MethodIndex
+
+	// no validation rules for Era
+
+	// no validation rules for Tip
+
+	// no validation rules for SpecVersion
+
+	// no validation rules for TransactionVersion
+
+	// no validation rules for GenesisHash
 
 	
 	}
