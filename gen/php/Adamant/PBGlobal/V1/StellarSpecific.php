@@ -16,7 +16,7 @@ use Google\Protobuf\Internal\GPBUtil;
 class StellarSpecific extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>int64 sequence_number = 1 [json_name = "sequenceNumber"];</code>
+     * Generated from protobuf field <code>int64 sequence_number = 1 [json_name = "sequenceNumber", jstype = JS_STRING];</code>
      */
     protected $sequence_number = 0;
     /**
@@ -45,7 +45,7 @@ class StellarSpecific extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 sequence_number = 1 [json_name = "sequenceNumber"];</code>
+     * Generated from protobuf field <code>int64 sequence_number = 1 [json_name = "sequenceNumber", jstype = JS_STRING];</code>
      * @return int|string
      */
     public function getSequenceNumber()
@@ -54,7 +54,7 @@ class StellarSpecific extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int64 sequence_number = 1 [json_name = "sequenceNumber"];</code>
+     * Generated from protobuf field <code>int64 sequence_number = 1 [json_name = "sequenceNumber", jstype = JS_STRING];</code>
      * @param int|string $var
      * @return $this
      */

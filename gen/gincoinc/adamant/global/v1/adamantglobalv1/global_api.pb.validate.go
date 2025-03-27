@@ -13887,6 +13887,264 @@ var _ interface {
 
 var _GetTransactionByTxIDRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+// Validate checks the field values on
+// GetTransactionWithMediatorResponseRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *GetTransactionWithMediatorResponseRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// GetTransactionWithMediatorResponseRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// GetTransactionWithMediatorResponseRequestMultiError, or nil if none found.
+func (m *GetTransactionWithMediatorResponseRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetTransactionWithMediatorResponseRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_GetTransactionWithMediatorResponseRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := GetTransactionWithMediatorResponseRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_GetTransactionWithMediatorResponseRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
+		err := GetTransactionWithMediatorResponseRequestValidationError{
+			field:  "TransactionId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return GetTransactionWithMediatorResponseRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetTransactionWithMediatorResponseRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// GetTransactionWithMediatorResponseRequest.ValidateAll() if the designated
+// constraints aren't met.
+type GetTransactionWithMediatorResponseRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetTransactionWithMediatorResponseRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetTransactionWithMediatorResponseRequestMultiError) AllErrors() []error { return m }
+
+// GetTransactionWithMediatorResponseRequestValidationError is the validation
+// error returned by GetTransactionWithMediatorResponseRequest.Validate if the
+// designated constraints aren't met.
+type GetTransactionWithMediatorResponseRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetTransactionWithMediatorResponseRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetTransactionWithMediatorResponseRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetTransactionWithMediatorResponseRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetTransactionWithMediatorResponseRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetTransactionWithMediatorResponseRequestValidationError) ErrorName() string {
+	return "GetTransactionWithMediatorResponseRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetTransactionWithMediatorResponseRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetTransactionWithMediatorResponseRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetTransactionWithMediatorResponseRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetTransactionWithMediatorResponseRequestValidationError{}
+
+var _GetTransactionWithMediatorResponseRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _GetTransactionWithMediatorResponseRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on
+// GetTransactionByTxIDWithMediatorResponseRequest with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *GetTransactionByTxIDWithMediatorResponseRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// GetTransactionByTxIDWithMediatorResponseRequest with the rules defined in
+// the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in
+// GetTransactionByTxIDWithMediatorResponseRequestMultiError, or nil if none found.
+func (m *GetTransactionByTxIDWithMediatorResponseRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetTransactionByTxIDWithMediatorResponseRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_GetTransactionByTxIDWithMediatorResponseRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := GetTransactionByTxIDWithMediatorResponseRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for TxId
+
+	if len(errors) > 0 {
+		return GetTransactionByTxIDWithMediatorResponseRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetTransactionByTxIDWithMediatorResponseRequestMultiError is an error
+// wrapping multiple validation errors returned by
+// GetTransactionByTxIDWithMediatorResponseRequest.ValidateAll() if the
+// designated constraints aren't met.
+type GetTransactionByTxIDWithMediatorResponseRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetTransactionByTxIDWithMediatorResponseRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetTransactionByTxIDWithMediatorResponseRequestMultiError) AllErrors() []error { return m }
+
+// GetTransactionByTxIDWithMediatorResponseRequestValidationError is the
+// validation error returned by
+// GetTransactionByTxIDWithMediatorResponseRequest.Validate if the designated
+// constraints aren't met.
+type GetTransactionByTxIDWithMediatorResponseRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetTransactionByTxIDWithMediatorResponseRequestValidationError) Field() string {
+	return e.field
+}
+
+// Reason function returns reason value.
+func (e GetTransactionByTxIDWithMediatorResponseRequestValidationError) Reason() string {
+	return e.reason
+}
+
+// Cause function returns cause value.
+func (e GetTransactionByTxIDWithMediatorResponseRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetTransactionByTxIDWithMediatorResponseRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetTransactionByTxIDWithMediatorResponseRequestValidationError) ErrorName() string {
+	return "GetTransactionByTxIDWithMediatorResponseRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetTransactionByTxIDWithMediatorResponseRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetTransactionByTxIDWithMediatorResponseRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetTransactionByTxIDWithMediatorResponseRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetTransactionByTxIDWithMediatorResponseRequestValidationError{}
+
+var _GetTransactionByTxIDWithMediatorResponseRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on ListTransactionsRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
