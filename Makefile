@@ -41,8 +41,9 @@ generate: $(BIN)/buf $(BIN)/protoc-gen-go $(BIN)/protoc-gen-go-grpc $(BIN)/proto
 	sh ./scripts/fix_import_py.sh
 
 .PHONY: protodep-up
+protodep-up: SSH_KEY ?= github_id_rsa
 protodep-up: $(BIN)/protodep
-	@$(BIN)/protodep up -f --use-https
+	@$(BIN)/protodep up -f --identity-file=$(SSH_KEY)
 	find ./api/proto/gincoinc -type f | xargs $(SED_COMMAND) 's/GincoInc\/protobuf\/gen\/go/GincoInc\/gew-kmp\/gen/g'
 
 .PHONY: evans

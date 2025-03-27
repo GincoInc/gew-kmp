@@ -10,16 +10,16 @@ protocol = "https"
 target = "github.com/GincoInc/protobuf/proto/gincoinc/global"
 revision = "v1.122.0"
 path = "gincoinc/global"
-protocol = "https"
+protocol = "ssh"
 
 [[dependencies]]
 target = "github.com/GincoInc/protobuf/proto/gincoinc/adamant/global"
 revision = "v1.122.0"
 path = "gincoinc/adamant/global"
-protocol = "https"
+protocol = "ssh"
 
 [[dependencies]]
 target = "github.com/GincoInc/protobuf/proto/gincoinc/adamant/teller"
 revision = "v1.122.0"
 path = "gincoinc/adamant/teller"
-protocol = "https"
+protocol = "ssh"
