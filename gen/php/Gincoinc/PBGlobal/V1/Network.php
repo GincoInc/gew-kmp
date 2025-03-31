@@ -42,6 +42,12 @@ class Network
      */
     const NETWORK_ETHEREUM_TESTNET_2 = 59;
     /**
+     * Hoodi
+     *
+     * Generated from protobuf enum <code>NETWORK_ETHEREUM_TESTNET_3 = 72;</code>
+     */
+    const NETWORK_ETHEREUM_TESTNET_3 = 72;
+    /**
      * Generated from protobuf enum <code>NETWORK_LITECOIN_MAINNET = 5;</code>
      */
     const NETWORK_LITECOIN_MAINNET = 5;
@@ -317,6 +323,7 @@ class Network
         self::NETWORK_ETHEREUM_MAINNET => 'NETWORK_ETHEREUM_MAINNET',
         self::NETWORK_ETHEREUM_TESTNET => 'NETWORK_ETHEREUM_TESTNET',
         self::NETWORK_ETHEREUM_TESTNET_2 => 'NETWORK_ETHEREUM_TESTNET_2',
+        self::NETWORK_ETHEREUM_TESTNET_3 => 'NETWORK_ETHEREUM_TESTNET_3',
         self::NETWORK_LITECOIN_MAINNET => 'NETWORK_LITECOIN_MAINNET',
         self::NETWORK_LITECOIN_TESTNET => 'NETWORK_LITECOIN_TESTNET',
         self::NETWORK_BITCOINCASH_MAINNET => 'NETWORK_BITCOINCASH_MAINNET',
