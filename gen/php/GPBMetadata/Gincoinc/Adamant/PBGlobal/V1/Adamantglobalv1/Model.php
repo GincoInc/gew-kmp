@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-ªÐ
+ýÒ
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"Ž	
 Wallet
 owner_id (	RownerId
@@ -453,11 +453,15 @@ expiration5
 data (	Rdata!
 from_address (	RfromAddress#
 token_address (	RtokenAddress
-chain_id (RchainId"g
+chain_id (RchainId"Þ
 KlaytnSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
-is_next_nonce (RisNextNonce"œ
+is_next_nonce (RisNextNonce
+data (	Rdata!
+from_address (	RfromAddress#
+token_address (	RtokenAddress
+chain_id (RchainId"œ
 SymbolSpecific
 message (	RmessageB
 tx_type (2).gincoinc.global.v1.SymbolTransactionTypeRtxTypen
@@ -482,11 +486,13 @@ expiration
 is_next_nonce (RisNextNonce!
 from_address (	RfromAddress#
 token_address (	RtokenAddress
-chain_id (RchainId"d
+chain_id (RchainId"¬
 XdcSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
-is_next_nonce (RisNextNonce"Ù
+is_next_nonce (RisNextNonce!
+from_address (	RfromAddress#
+token_address (	RtokenAddress"Ù
 CosmosSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
@@ -516,11 +522,13 @@ expiration
 	timestamp (R	timestamp
 
 expiration (R
-expiration"o
+expiration"·
 JapanOpenChainSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
-is_next_nonce (RisNextNonce" 
+is_next_nonce (RisNextNonce!
+from_address (	RfromAddress#
+token_address (	RtokenAddress" 
 SolanaSpecific
 
 expiration (R
@@ -543,11 +551,13 @@ expiration"¶
 nonce (Rnonce"
 is_next_nonce (RisNextNonce!
 from_address (	RfromAddress#
-token_address (	RtokenAddress"f
+token_address (	RtokenAddress"®
 FlareSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
-is_next_nonce (RisNextNonce"€
+is_next_nonce (RisNextNonce!
+from_address (	RfromAddress#
+token_address (	RtokenAddress"€
 ArbitrumOneSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"

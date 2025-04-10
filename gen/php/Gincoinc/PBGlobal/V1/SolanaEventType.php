@@ -50,6 +50,12 @@ class SolanaEventType
      * Generated from protobuf enum <code>SOLANA_EVENT_TYPE_DEACTIVATE_COMPLETE = 7;</code>
      */
     const SOLANA_EVENT_TYPE_DEACTIVATE_COMPLETE = 7;
+    /**
+     * Token Accountの作成時
+     *
+     * Generated from protobuf enum <code>SOLANA_EVENT_TYPE_CREATE_TOKEN_ACCOUNT = 8;</code>
+     */
+    const SOLANA_EVENT_TYPE_CREATE_TOKEN_ACCOUNT = 8;
 
     private static $valueToName = [
         self::SOLANA_EVENT_TYPE_INVALID => 'SOLANA_EVENT_TYPE_INVALID',
@@ -60,6 +66,7 @@ class SolanaEventType
         self::SOLANA_EVENT_TYPE_REWARD => 'SOLANA_EVENT_TYPE_REWARD',
         self::SOLANA_EVENT_TYPE_DELEGATE_COMPLETE => 'SOLANA_EVENT_TYPE_DELEGATE_COMPLETE',
         self::SOLANA_EVENT_TYPE_DEACTIVATE_COMPLETE => 'SOLANA_EVENT_TYPE_DEACTIVATE_COMPLETE',
+        self::SOLANA_EVENT_TYPE_CREATE_TOKEN_ACCOUNT => 'SOLANA_EVENT_TYPE_CREATE_TOKEN_ACCOUNT',
     ];
 
     public static function name($value)
