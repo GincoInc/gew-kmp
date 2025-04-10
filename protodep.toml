@@ -8,18 +8,18 @@ protocol = "https"
 
 [[dependencies]]
 target = "github.com/GincoInc/protobuf/proto/gincoinc/global"
-revision = "v1.122.1"
+revision = "v1.122.5"
 path = "gincoinc/global"
 protocol = "ssh"
 
 [[dependencies]]
 target = "github.com/GincoInc/protobuf/proto/gincoinc/adamant/global"
-revision = "v1.122.1"
+revision = "v1.122.5"
 path = "gincoinc/adamant/global"
 protocol = "ssh"
 
 [[dependencies]]
 target = "github.com/GincoInc/protobuf/proto/gincoinc/adamant/teller"
-revision = "v1.122.1"
+revision = "v1.122.5"
 path = "gincoinc/adamant/teller"
 protocol = "ssh"
