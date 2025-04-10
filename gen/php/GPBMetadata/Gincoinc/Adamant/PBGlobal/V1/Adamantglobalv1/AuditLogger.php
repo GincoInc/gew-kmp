@@ -19,8 +19,8 @@ class AuditLogger
         \GPBMetadata\Google\Protobuf\Timestamp::initOnce();
         $pool->internalAddGeneratedFile(
             '
-¦
-=gincoinc/adamant/global/v1/adamantglobalv1/audit_logger.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.proto"ª
+Ã
+=gincoinc/adamant/global/v1/adamantglobalv1/audit_logger.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.proto"Ç
 AuditLog 
 audit_log_id (	R
 auditLogIdH
@@ -83,7 +83,8 @@ createTime@
 previous_transaction_id3 (	RpreviousTransactionId,
 new_transaction_id4 (	RnewTransactionId
 activate6 (Ractivate
-file_id7 (	RfileIdBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
+file_id7 (	RfileId
+	client_ip8 (	RclientIpBLZJgithub.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1bproto3'
         , true);
 
         static::$is_initialized = true;

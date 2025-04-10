@@ -338,6 +338,10 @@ class Coin
      */
     const COIN_TON = 80;
     /**
+     * Generated from protobuf enum <code>COIN_SOLANA_TOKEN_USDC = 81;</code>
+     */
+    const COIN_SOLANA_TOKEN_USDC = 81;
+    /**
      * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
      */
     const COIN_SDN = 10002;
@@ -632,6 +636,7 @@ class Coin
         self::COIN_ERC20_JPYCT => 'COIN_ERC20_JPYCT',
         self::COIN_SUI => 'COIN_SUI',
         self::COIN_TON => 'COIN_TON',
+        self::COIN_SOLANA_TOKEN_USDC => 'COIN_SOLANA_TOKEN_USDC',
         self::COIN_SDN => 'COIN_SDN',
         self::COIN_ERC20_SCDEV => 'COIN_ERC20_SCDEV',
         self::COIN_ERC20_SCQA => 'COIN_ERC20_SCQA',

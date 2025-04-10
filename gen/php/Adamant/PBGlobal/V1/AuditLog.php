@@ -235,6 +235,10 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string file_id = 55 [json_name = "fileId"];</code>
      */
     protected $file_id = '';
+    /**
+     * Generated from protobuf field <code>string client_ip = 56 [json_name = "clientIp"];</code>
+     */
+    protected $client_ip = '';
 
     /**
      * Constructor.
@@ -297,6 +301,7 @@ class AuditLog extends \Google\Protobuf\Internal\Message
      *     @type string $new_transaction_id
      *     @type bool $activate
      *     @type string $file_id
+     *     @type string $client_ip
      * }
      */
     public function __construct($data = NULL) {
@@ -1530,6 +1535,28 @@ class AuditLog extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->file_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string client_ip = 56 [json_name = "clientIp"];</code>
+     * @return string
+     */
+    public function getClientIp()
+    {
+        return $this->client_ip;
+    }
+
+    /**
+     * Generated from protobuf field <code>string client_ip = 56 [json_name = "clientIp"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setClientIp($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->client_ip = $var;
 
         return $this;
     }

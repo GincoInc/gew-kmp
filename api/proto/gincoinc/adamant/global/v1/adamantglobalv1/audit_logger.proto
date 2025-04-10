@@ -69,4 +69,5 @@ message AuditLog {
   string new_transaction_id = 52;
   bool activate = 54;
   string file_id = 55;
+  string client_ip = 56;
 }

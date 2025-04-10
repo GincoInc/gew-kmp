@@ -728,6 +728,18 @@ public final class AuditLogger {
      */
     com.google.protobuf.ByteString
         getFileIdBytes();
+
+    /**
+     * <code>string client_ip = 56 [json_name = "clientIp"];</code>
+     * @return The clientIp.
+     */
+    java.lang.String getClientIp();
+    /**
+     * <code>string client_ip = 56 [json_name = "clientIp"];</code>
+     * @return The bytes for clientIp.
+     */
+    com.google.protobuf.ByteString
+        getClientIpBytes();
   }
   /**
    * <pre>
@@ -797,6 +809,7 @@ public final class AuditLogger {
       previousTransactionId_ = "";
       newTransactionId_ = "";
       fileId_ = "";
+      clientIp_ = "";
     }
 
     @java.lang.Override
@@ -2695,6 +2708,45 @@ public final class AuditLogger {
       }
     }
 
+    public static final int CLIENT_IP_FIELD_NUMBER = 56;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object clientIp_ = "";
+    /**
+     * <code>string client_ip = 56 [json_name = "clientIp"];</code>
+     * @return The clientIp.
+     */
+    @java.lang.Override
+    public java.lang.String getClientIp() {
+      java.lang.Object ref = clientIp_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        clientIp_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string client_ip = 56 [json_name = "clientIp"];</code>
+     * @return The bytes for clientIp.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getClientIpBytes() {
+      java.lang.Object ref = clientIp_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        clientIp_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2882,6 +2934,9 @@ public final class AuditLogger {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 55, fileId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientIp_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 56, clientIp_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -3108,6 +3163,9 @@ public final class AuditLogger {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(55, fileId_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientIp_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(56, clientIp_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -3233,6 +3291,8 @@ public final class AuditLogger {
           != other.getActivate()) return false;
       if (!getFileId()
           .equals(other.getFileId())) return false;
+      if (!getClientIp()
+          .equals(other.getClientIp())) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -3376,6 +3436,8 @@ public final class AuditLogger {
           getActivate());
       hash = (37 * hash) + FILE_ID_FIELD_NUMBER;
       hash = (53 * hash) + getFileId().hashCode();
+      hash = (37 * hash) + CLIENT_IP_FIELD_NUMBER;
+      hash = (53 * hash) + getClientIp().hashCode();
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3581,6 +3643,7 @@ public final class AuditLogger {
         newTransactionId_ = "";
         activate_ = false;
         fileId_ = "";
+        clientIp_ = "";
         return this;
       }
 
@@ -3799,6 +3862,9 @@ public final class AuditLogger {
         }
         if (((from_bitField1_ & 0x00400000) != 0)) {
           result.fileId_ = fileId_;
+        }
+        if (((from_bitField1_ & 0x00800000) != 0)) {
+          result.clientIp_ = clientIp_;
         }
       }
 
@@ -4123,6 +4189,11 @@ public final class AuditLogger {
         if (!other.getFileId().isEmpty()) {
           fileId_ = other.fileId_;
           bitField1_ |= 0x00400000;
+          onChanged();
+        }
+        if (!other.getClientIp().isEmpty()) {
+          clientIp_ = other.clientIp_;
+          bitField1_ |= 0x00800000;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -4458,6 +4529,11 @@ public final class AuditLogger {
                 bitField1_ |= 0x00400000;
                 break;
               } // case 442
+              case 450: {
+                clientIp_ = input.readStringRequireUtf8();
+                bitField1_ |= 0x00800000;
+                break;
+              } // case 450
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -8486,6 +8562,78 @@ public final class AuditLogger {
         onChanged();
         return this;
       }
+
+      private java.lang.Object clientIp_ = "";
+      /**
+       * <code>string client_ip = 56 [json_name = "clientIp"];</code>
+       * @return The clientIp.
+       */
+      public java.lang.String getClientIp() {
+        java.lang.Object ref = clientIp_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          clientIp_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string client_ip = 56 [json_name = "clientIp"];</code>
+       * @return The bytes for clientIp.
+       */
+      public com.google.protobuf.ByteString
+          getClientIpBytes() {
+        java.lang.Object ref = clientIp_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          clientIp_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string client_ip = 56 [json_name = "clientIp"];</code>
+       * @param value The clientIp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setClientIp(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        clientIp_ = value;
+        bitField1_ |= 0x00800000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string client_ip = 56 [json_name = "clientIp"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearClientIp() {
+        clientIp_ = getDefaultInstance().getClientIp();
+        bitField1_ = (bitField1_ & ~0x00800000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string client_ip = 56 [json_name = "clientIp"];</code>
+       * @param value The bytes for clientIp to set.
+       * @return This builder for chaining.
+       */
+      public Builder setClientIpBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        clientIp_ = value;
+        bitField1_ |= 0x00800000;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -8569,7 +8717,7 @@ public final class AuditLogger {
       "v1\0325gincoinc/adamant/global/v1/adamantgl" +
       "obalv1/enum.proto\032.gincoinc/global/v1/gi" +
       "ncoincglobalv1/enum.proto\032\037google/protob" +
-      "uf/timestamp.proto\"\252\023\n\010AuditLog\022 \n\014audit" +
+      "uf/timestamp.proto\"\307\023\n\010AuditLog\022 \n\014audit" +
       "_log_id\030\001 \001(\tR\nauditLogId\022H\n\017audit_log_g" +
       "roup\030\002 \001(\0162 .adamant.global.v1.AuditLogG" +
       "roupR\rauditLogGroup\022E\n\016audit_log_type\030\003 " +
@@ -8631,9 +8779,10 @@ public final class AuditLogger {
       "tion_id\0303 \001(\tR\025previousTransactionId\022,\n\022" +
       "new_transaction_id\0304 \001(\tR\020newTransaction" +
       "Id\022\032\n\010activate\0306 \001(\010R\010activate\022\027\n\007file_i" +
-      "d\0307 \001(\tR\006fileIdBLZJgithub.com/GincoInc/g" +
-      "ew-kmp/gen/gincoinc/adamant/global/v1/ad" +
-      "amantglobalv1b\006proto3"
+      "d\0307 \001(\tR\006fileId\022\033\n\tclient_ip\0308 \001(\tR\010clie" +
+      "ntIpBLZJgithub.com/GincoInc/gew-kmp/gen/" +
+      "gincoinc/adamant/global/v1/adamantglobal" +
+      "v1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -8647,7 +8796,7 @@ public final class AuditLogger {
     internal_static_adamant_global_v1_AuditLog_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_global_v1_AuditLog_descriptor,
-        new java.lang.String[] { "AuditLogId", "AuditLogGroup", "AuditLogType", "AccountId", "AccountName", "TargetAccountId", "TargetAccountName", "Email", "RoleType", "ServiceAccountId", "ServiceAccountName", "ServiceAccountKeyId", "WalletId", "WalletName", "DestinationWalletId", "DestinationWalletName", "WalletGroupId", "WalletGroupName", "WalletNames", "PreTransactionId", "PreTransactionExternalId", "TransactionId", "CoinType", "StringValue", "TxId", "PolicyId", "PolicyName", "LabeledAddressId", "Address", "AddressName", "Message", "TransferLimitId", "TransferLimitName", "TransferOneTimeLimit", "TransferHourlyLimit", "TransferDailyLimit", "WhitelistId", "WhitelistName", "OldValidators", "NewValidators", "WhitelistAddresses", "EventTime", "CreateTime", "EnabledMails", "DisabledMails", "Network", "PreTransactionThreshold", "PreTransactionThresholdId", "BlacklistAddressId", "FileName", "AddressCount", "PreviousTransactionId", "NewTransactionId", "Activate", "FileId", });
+        new java.lang.String[] { "AuditLogId", "AuditLogGroup", "AuditLogType", "AccountId", "AccountName", "TargetAccountId", "TargetAccountName", "Email", "RoleType", "ServiceAccountId", "ServiceAccountName", "ServiceAccountKeyId", "WalletId", "WalletName", "DestinationWalletId", "DestinationWalletName", "WalletGroupId", "WalletGroupName", "WalletNames", "PreTransactionId", "PreTransactionExternalId", "TransactionId", "CoinType", "StringValue", "TxId", "PolicyId", "PolicyName", "LabeledAddressId", "Address", "AddressName", "Message", "TransferLimitId", "TransferLimitName", "TransferOneTimeLimit", "TransferHourlyLimit", "TransferDailyLimit", "WhitelistId", "WhitelistName", "OldValidators", "NewValidators", "WhitelistAddresses", "EventTime", "CreateTime", "EnabledMails", "DisabledMails", "Network", "PreTransactionThreshold", "PreTransactionThresholdId", "BlacklistAddressId", "FileName", "AddressCount", "PreviousTransactionId", "NewTransactionId", "Activate", "FileId", "ClientIp", });
     adamant.global.v1.Enum.getDescriptor();
     gincoinc.global.v1.Enum.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
