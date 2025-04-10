@@ -7144,6 +7144,14 @@ func (m *KlaytnSpecific) validate(all bool) error {
 
 	// no validation rules for IsNextNonce
 
+	// no validation rules for Data
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
+	// no validation rules for ChainId
+
 	if len(errors) > 0 {
 		return KlaytnSpecificMultiError(errors)
 	}
@@ -7650,6 +7658,10 @@ func (m *XdcSpecific) validate(all bool) error {
 	// no validation rules for Nonce
 
 	// no validation rules for IsNextNonce
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
 
 	if len(errors) > 0 {
 		return XdcSpecificMultiError(errors)
@@ -8198,6 +8210,10 @@ func (m *JapanOpenChainSpecific) validate(all bool) error {
 
 	// no validation rules for IsNextNonce
 
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
 	if len(errors) > 0 {
 		return JapanOpenChainSpecificMultiError(errors)
 	}
@@ -8637,6 +8653,10 @@ func (m *FlareSpecific) validate(all bool) error {
 	// no validation rules for Nonce
 
 	// no validation rules for IsNextNonce
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
 
 	if len(errors) > 0 {
 		return FlareSpecificMultiError(errors)
