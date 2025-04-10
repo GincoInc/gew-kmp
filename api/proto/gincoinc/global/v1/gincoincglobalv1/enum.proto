@@ -95,6 +95,7 @@ enum Coin {
   COIN_ERC20_JPYCT = 78;
   COIN_SUI = 79;
   COIN_TON = 80;
+  COIN_SOLANA_TOKEN_USDC = 81;
   COIN_SDN = 10002;
   COIN_ERC20_SCDEV = 10003; // for stable coin development in dev
   COIN_ERC20_SCQA = 10004; // for stable coin development in qa
@@ -392,6 +393,7 @@ enum SolanaEventType {
   // Withdrawだけは即時反映されるので不要
   SOLANA_EVENT_TYPE_DELEGATE_COMPLETE = 6; // Delegateステータス遷移時
   SOLANA_EVENT_TYPE_DEACTIVATE_COMPLETE = 7; // Deactivateステータス遷移時
+  SOLANA_EVENT_TYPE_CREATE_TOKEN_ACCOUNT = 8; // Token Accountの作成時
 }
 
 enum EthereumCallMethod {
