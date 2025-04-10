@@ -213,6 +213,8 @@ func (m *AuditLog) validate(all bool) error {
 
 	// no validation rules for FileId
 
+	// no validation rules for ClientIp
+
 	if len(errors) > 0 {
 		return AuditLogMultiError(errors)
 	}
