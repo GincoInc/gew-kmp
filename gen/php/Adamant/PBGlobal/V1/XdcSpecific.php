@@ -24,17 +24,12 @@ class XdcSpecific extends \Google\Protobuf\Internal\Message
      */
     protected $nonce = 0;
     /**
+     *  string from_address = 4;
+     *  string token_address = 5;
+     *
      * Generated from protobuf field <code>bool is_next_nonce = 3 [json_name = "isNextNonce"];</code>
      */
     protected $is_next_nonce = false;
-    /**
-     * Generated from protobuf field <code>string from_address = 4 [json_name = "fromAddress"];</code>
-     */
-    protected $from_address = '';
-    /**
-     * Generated from protobuf field <code>string token_address = 5 [json_name = "tokenAddress"];</code>
-     */
-    protected $token_address = '';
 
     /**
      * Constructor.
@@ -45,8 +40,8 @@ class XdcSpecific extends \Google\Protobuf\Internal\Message
      *     @type int|string $gas_limit
      *     @type int|string $nonce
      *     @type bool $is_next_nonce
-     *     @type string $from_address
-     *     @type string $token_address
+     *            string from_address = 4;
+     *            string token_address = 5;
      * }
      */
     public function __construct($data = NULL) {
@@ -99,6 +94,9 @@ class XdcSpecific extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     *  string from_address = 4;
+     *  string token_address = 5;
+     *
      * Generated from protobuf field <code>bool is_next_nonce = 3 [json_name = "isNextNonce"];</code>
      * @return bool
      */
@@ -108,6 +106,9 @@ class XdcSpecific extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     *  string from_address = 4;
+     *  string token_address = 5;
+     *
      * Generated from protobuf field <code>bool is_next_nonce = 3 [json_name = "isNextNonce"];</code>
      * @param bool $var
      * @return $this
@@ -116,50 +117,6 @@ class XdcSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->is_next_nonce = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>string from_address = 4 [json_name = "fromAddress"];</code>
-     * @return string
-     */
-    public function getFromAddress()
-    {
-        return $this->from_address;
-    }
-
-    /**
-     * Generated from protobuf field <code>string from_address = 4 [json_name = "fromAddress"];</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setFromAddress($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->from_address = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>string token_address = 5 [json_name = "tokenAddress"];</code>
-     * @return string
-     */
-    public function getTokenAddress()
-    {
-        return $this->token_address;
-    }
-
-    /**
-     * Generated from protobuf field <code>string token_address = 5 [json_name = "tokenAddress"];</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setTokenAddress($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->token_address = $var;
 
         return $this;
     }
