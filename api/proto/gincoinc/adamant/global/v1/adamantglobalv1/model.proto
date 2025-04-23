@@ -510,10 +510,10 @@ message KlaytnSpecific {
   uint64 gas_limit = 1;
   uint64 nonce = 2;
   bool is_next_nonce = 3;
-  string data = 4;
-  string from_address = 5;
-  string token_address = 6;
-  uint64 chain_id = 7;
+  //  string data = 4;
+  //  string from_address = 5;
+  //  string token_address = 6;
+  //  uint64 chain_id = 7;
 }
 
 // The model of Substrate specific fields of transaction
@@ -553,8 +553,8 @@ message XdcSpecific {
   uint64 gas_limit = 1;
   uint64 nonce = 2;
   bool is_next_nonce = 3;
-  string from_address = 4;
-  string token_address = 5;
+  //  string from_address = 4;
+  //  string token_address = 5;
 }
 
 // The model of Cosmos specific fields of transaction
