@@ -2,6 +2,10 @@ package main
 
 import (
 	"context"
+	"crypto/tls"
+	"crypto/x509"
+	"flag"
+	"io/ioutil"
 	"log"
 
 	"github.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1"
@@ -10,15 +14,41 @@ import (
 	"github.com/GincoInc/go-util/logger"
 	"github.com/davecgh/go-spew/spew"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials"
 )
 
 var (
-	ctx    = context.Background()
-	client adamanttellerv1.TellerAPIClient
+	ctx        = context.Background()
+	client     adamanttellerv1.TellerAPIClient
+	cacertFile = flag.String("cacert", "", "Path to CA certificate file for TLS verification")
+	server     = flag.String("server", "127.0.0.1:50051", "Server address to connect to")
 )
 
 func main() {
-	conn, err := grpc.Dial("127.0.0.1:50051", grpc.WithInsecure())
+	flag.Parse()
+
+	var opts []grpc.DialOption
+	if *cacertFile != "" {
+		caCert, err := ioutil.ReadFile(*cacertFile)
+		if err != nil {
+			logger.Fatal("Failed to read CA certificate: " + err.Error())
+		}
+
+		caCertPool := x509.NewCertPool()
+		if !caCertPool.AppendCertsFromPEM(caCert) {
+			logger.Fatal("Failed to parse CA certificate")
+		}
+
+		tlsConfig := &tls.Config{
+			RootCAs: caCertPool,
+		}
+		creds := credentials.NewTLS(tlsConfig)
+		opts = append(opts, grpc.WithTransportCredentials(creds))
+	} else {
+		opts = append(opts, grpc.WithInsecure())
+	}
+
+	conn, err := grpc.Dial(*server, opts...)
 	if err != nil {
 		logger.Fatal(err.Error())
 	}
