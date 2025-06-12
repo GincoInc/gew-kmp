@@ -48,5 +48,5 @@ certFile = "/root/certs/tls.crt"
 ```
 # Use update teller image in docker-compose-internal.yml
 
-image: ginco/teller:v2.68.0
+image: ginco/teller:v2.69.2
 ```
