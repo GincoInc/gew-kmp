@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  teller:
+    image: ginco/teller:v2.68.0
+    ports:
+      - "50051:50051"
+    command: -f /root/configs/config.toml
+    volumes:
+      - "./configs/teller/config.toml:/root/configs/config.toml"
+      - "./certs/tls.crt:/root/certs/tls.crt"
+    env_file:
+      - "./envs/teller/.env"

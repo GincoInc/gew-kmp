@@ -1,6 +1,8 @@
 cpu = 1
 gRPCPort = 50051
 testnet = true
+internal = true
+certFile = "/root/certs/tls.crt"
 shutdownPeriodSeconds = 30
 useHotWallet = true
 disableWebhook = false
