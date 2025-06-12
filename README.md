@@ -30,23 +30,10 @@ docker-compose up -d
 make evans
 ```
 
-### Updates for internal cci access (preparation steps remain same)
+### When running for internal cci
+
+### Run
 
 ```
-# Add below values in config.toml
-
-internal = true
-certFile = "/root/certs/tls.crt"
-```
-
-```
-# Add below volume in docker-compose-internal.yml
-
-- "./certs/tls.crt:/root/certs/tls.crt"
-```
-
-```
-# Use update teller image in docker-compose-internal.yml
-
-image: ginco/teller:v2.69.2
+docker compose -f docker-compose-internal.yml up -d
 ```

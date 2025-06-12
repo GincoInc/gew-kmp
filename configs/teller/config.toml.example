@@ -1,8 +1,8 @@
 cpu = 1
 gRPCPort = 50051
 testnet = true
-internal = true
-certFile = "/root/certs/tls.crt"
+internal = false
+certFile = "" # Set the certificate path (e.g., "/root/certs/tls.crt") if using an internal connection (internal = true)
 shutdownPeriodSeconds = 30
 useHotWallet = true
 disableWebhook = false
