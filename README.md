@@ -29,3 +29,11 @@ docker-compose up -d
 ```
 make evans
 ```
+
+### When running for internal cci
+
+### Run
+
+```
+docker compose -f docker-compose-internal.yml up -d
+```
