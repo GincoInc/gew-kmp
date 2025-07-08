@@ -921,6 +921,7 @@ message CreateTransactionRequest {
   adamant.global.v1.CreateTransactionTonSpecific ton_specific = 23;
   adamant.global.v1.UtxoSpecific utxo_specific = 18;
   adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24;
+  adamant.global.v1.CreateTransactionBabylonSpecific babylon_specific = 25;
   optional string pre_transaction_id = 21 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
@@ -1592,6 +1593,7 @@ message CalculateFeeRequest {
   CalculateFeeAvalancheSpecific avalanche_specific = 16;
   CalculateFeeSuiSpecific sui_specific = 17;
   CalculateFeeTonSpecific ton_specific = 18;
+  CalculateFeeBabylonSpecific babylon_specific = 19;
 }
 
 // The model of Substrate specific fields of CreateTransaction
@@ -1620,6 +1622,12 @@ message CalculateFeeEthereumSpecific {
 // The model of Cosmos specific fields of CalculateFee
 message CalculateFeeCosmosSpecific {
   gincoinc.global.v1.CosmosMsgType type = 1;
+  string memo = 2;
+}
+
+// The model of Babylon specific fields of CalculateFee
+message CalculateFeeBabylonSpecific {
+  gincoinc.global.v1.BabylonMsgType type = 1;
   string memo = 2;
 }
 

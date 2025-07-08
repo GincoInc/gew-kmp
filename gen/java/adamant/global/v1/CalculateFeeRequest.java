@@ -534,6 +534,32 @@ private static final long serialVersionUID = 0L;
     return tonSpecific_ == null ? adamant.global.v1.CalculateFeeTonSpecific.getDefaultInstance() : tonSpecific_;
   }
 
+  public static final int BABYLON_SPECIFIC_FIELD_NUMBER = 19;
+  private adamant.global.v1.CalculateFeeBabylonSpecific babylonSpecific_;
+  /**
+   * <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+   * @return Whether the babylonSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasBabylonSpecific() {
+    return babylonSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+   * @return The babylonSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.CalculateFeeBabylonSpecific getBabylonSpecific() {
+    return babylonSpecific_ == null ? adamant.global.v1.CalculateFeeBabylonSpecific.getDefaultInstance() : babylonSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.CalculateFeeBabylonSpecificOrBuilder getBabylonSpecificOrBuilder() {
+    return babylonSpecific_ == null ? adamant.global.v1.CalculateFeeBabylonSpecific.getDefaultInstance() : babylonSpecific_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -601,6 +627,9 @@ private static final long serialVersionUID = 0L;
     }
     if (tonSpecific_ != null) {
       output.writeMessage(18, getTonSpecific());
+    }
+    if (babylonSpecific_ != null) {
+      output.writeMessage(19, getBabylonSpecific());
     }
     getUnknownFields().writeTo(output);
   }
@@ -679,6 +708,10 @@ private static final long serialVersionUID = 0L;
     if (tonSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(18, getTonSpecific());
+    }
+    if (babylonSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(19, getBabylonSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -767,6 +800,11 @@ private static final long serialVersionUID = 0L;
       if (!getTonSpecific()
           .equals(other.getTonSpecific())) return false;
     }
+    if (hasBabylonSpecific() != other.hasBabylonSpecific()) return false;
+    if (hasBabylonSpecific()) {
+      if (!getBabylonSpecific()
+          .equals(other.getBabylonSpecific())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -840,6 +878,10 @@ private static final long serialVersionUID = 0L;
     if (hasTonSpecific()) {
       hash = (37 * hash) + TON_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getTonSpecific().hashCode();
+    }
+    if (hasBabylonSpecific()) {
+      hash = (37 * hash) + BABYLON_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getBabylonSpecific().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -1044,6 +1086,11 @@ private static final long serialVersionUID = 0L;
         tonSpecificBuilder_.dispose();
         tonSpecificBuilder_ = null;
       }
+      babylonSpecific_ = null;
+      if (babylonSpecificBuilder_ != null) {
+        babylonSpecificBuilder_.dispose();
+        babylonSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -1164,6 +1211,11 @@ private static final long serialVersionUID = 0L;
         result.tonSpecific_ = tonSpecificBuilder_ == null
             ? tonSpecific_
             : tonSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.babylonSpecific_ = babylonSpecificBuilder_ == null
+            ? babylonSpecific_
+            : babylonSpecificBuilder_.build();
       }
     }
 
@@ -1293,6 +1345,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasTonSpecific()) {
         mergeTonSpecific(other.getTonSpecific());
+      }
+      if (other.hasBabylonSpecific()) {
+        mergeBabylonSpecific(other.getBabylonSpecific());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1442,6 +1497,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00020000;
               break;
             } // case 146
+            case 154: {
+              input.readMessage(
+                  getBabylonSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 154
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -3405,6 +3467,125 @@ private static final long serialVersionUID = 0L;
         tonSpecific_ = null;
       }
       return tonSpecificBuilder_;
+    }
+
+    private adamant.global.v1.CalculateFeeBabylonSpecific babylonSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.CalculateFeeBabylonSpecific, adamant.global.v1.CalculateFeeBabylonSpecific.Builder, adamant.global.v1.CalculateFeeBabylonSpecificOrBuilder> babylonSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+     * @return Whether the babylonSpecific field is set.
+     */
+    public boolean hasBabylonSpecific() {
+      return ((bitField0_ & 0x00040000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+     * @return The babylonSpecific.
+     */
+    public adamant.global.v1.CalculateFeeBabylonSpecific getBabylonSpecific() {
+      if (babylonSpecificBuilder_ == null) {
+        return babylonSpecific_ == null ? adamant.global.v1.CalculateFeeBabylonSpecific.getDefaultInstance() : babylonSpecific_;
+      } else {
+        return babylonSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+     */
+    public Builder setBabylonSpecific(adamant.global.v1.CalculateFeeBabylonSpecific value) {
+      if (babylonSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        babylonSpecific_ = value;
+      } else {
+        babylonSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00040000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+     */
+    public Builder setBabylonSpecific(
+        adamant.global.v1.CalculateFeeBabylonSpecific.Builder builderForValue) {
+      if (babylonSpecificBuilder_ == null) {
+        babylonSpecific_ = builderForValue.build();
+      } else {
+        babylonSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00040000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+     */
+    public Builder mergeBabylonSpecific(adamant.global.v1.CalculateFeeBabylonSpecific value) {
+      if (babylonSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00040000) != 0) &&
+          babylonSpecific_ != null &&
+          babylonSpecific_ != adamant.global.v1.CalculateFeeBabylonSpecific.getDefaultInstance()) {
+          getBabylonSpecificBuilder().mergeFrom(value);
+        } else {
+          babylonSpecific_ = value;
+        }
+      } else {
+        babylonSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00040000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+     */
+    public Builder clearBabylonSpecific() {
+      bitField0_ = (bitField0_ & ~0x00040000);
+      babylonSpecific_ = null;
+      if (babylonSpecificBuilder_ != null) {
+        babylonSpecificBuilder_.dispose();
+        babylonSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+     */
+    public adamant.global.v1.CalculateFeeBabylonSpecific.Builder getBabylonSpecificBuilder() {
+      bitField0_ |= 0x00040000;
+      onChanged();
+      return getBabylonSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+     */
+    public adamant.global.v1.CalculateFeeBabylonSpecificOrBuilder getBabylonSpecificOrBuilder() {
+      if (babylonSpecificBuilder_ != null) {
+        return babylonSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return babylonSpecific_ == null ?
+            adamant.global.v1.CalculateFeeBabylonSpecific.getDefaultInstance() : babylonSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.CalculateFeeBabylonSpecific, adamant.global.v1.CalculateFeeBabylonSpecific.Builder, adamant.global.v1.CalculateFeeBabylonSpecificOrBuilder> 
+        getBabylonSpecificFieldBuilder() {
+      if (babylonSpecificBuilder_ == null) {
+        babylonSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.CalculateFeeBabylonSpecific, adamant.global.v1.CalculateFeeBabylonSpecific.Builder, adamant.global.v1.CalculateFeeBabylonSpecificOrBuilder>(
+                getBabylonSpecific(),
+                getParentForChildren(),
+                isClean());
+        babylonSpecific_ = null;
+      }
+      return babylonSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
