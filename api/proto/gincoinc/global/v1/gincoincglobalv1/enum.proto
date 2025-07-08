@@ -235,7 +235,6 @@ enum AddressType {
   ADDRESS_TYPE_P2SH = 1; // Pay to Script Hash
   ADDRESS_TYPE_P2SH_P2WSH = 2; // Pay to Witness Script Hash nested P2SH
   ADDRESS_TYPE_P2WSH = 3; // Pay to Witness Script Hash
-  ADDRESS_TYPE_P2TR = 4; // Pay to Taproot
   ADDRESS_TYPE_NONE = 100; // For ETH/XRP
 }
 
@@ -354,11 +353,6 @@ enum CosmosMsgType {
   COSMOS_MSG_TYPE_UNDELEGATE = 3;
   COSMOS_MSG_TYPE_UNBONDED = 4;
   COSMOS_MSG_TYPE_WITHDRAW_DELEGATOR_REWARD = 5;
-}
-
-enum BabylonMsgType {
-  BABYLON_MSG_TYPE_INVALID = 0;
-  BABYLON_MSG_TYPE_SEND = 1;
 }
 
 enum StakingValidatorStatus {

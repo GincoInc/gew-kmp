@@ -24,11 +24,6 @@ class KlaytnSpecific extends \Google\Protobuf\Internal\Message
      */
     protected $nonce = 0;
     /**
-     *  string data = 4;
-     *  string from_address = 5;
-     *  string token_address = 6;
-     *  uint64 chain_id = 7;
-     *
      * Generated from protobuf field <code>bool is_next_nonce = 3 [json_name = "isNextNonce"];</code>
      */
     protected $is_next_nonce = false;
@@ -42,10 +37,6 @@ class KlaytnSpecific extends \Google\Protobuf\Internal\Message
      *     @type int|string $gas_limit
      *     @type int|string $nonce
      *     @type bool $is_next_nonce
-     *            string data = 4;
-     *            string from_address = 5;
-     *            string token_address = 6;
-     *            uint64 chain_id = 7;
      * }
      */
     public function __construct($data = NULL) {
@@ -98,11 +89,6 @@ class KlaytnSpecific extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *  string data = 4;
-     *  string from_address = 5;
-     *  string token_address = 6;
-     *  uint64 chain_id = 7;
-     *
      * Generated from protobuf field <code>bool is_next_nonce = 3 [json_name = "isNextNonce"];</code>
      * @return bool
      */
@@ -112,11 +98,6 @@ class KlaytnSpecific extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *  string data = 4;
-     *  string from_address = 5;
-     *  string token_address = 6;
-     *  uint64 chain_id = 7;
-     *
      * Generated from protobuf field <code>bool is_next_nonce = 3 [json_name = "isNextNonce"];</code>
      * @param bool $var
      * @return $this

@@ -24,9 +24,6 @@ class XdcSpecific extends \Google\Protobuf\Internal\Message
      */
     protected $nonce = 0;
     /**
-     *  string from_address = 4;
-     *  string token_address = 5;
-     *
      * Generated from protobuf field <code>bool is_next_nonce = 3 [json_name = "isNextNonce"];</code>
      */
     protected $is_next_nonce = false;
@@ -40,8 +37,6 @@ class XdcSpecific extends \Google\Protobuf\Internal\Message
      *     @type int|string $gas_limit
      *     @type int|string $nonce
      *     @type bool $is_next_nonce
-     *            string from_address = 4;
-     *            string token_address = 5;
      * }
      */
     public function __construct($data = NULL) {
@@ -94,9 +89,6 @@ class XdcSpecific extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *  string from_address = 4;
-     *  string token_address = 5;
-     *
      * Generated from protobuf field <code>bool is_next_nonce = 3 [json_name = "isNextNonce"];</code>
      * @return bool
      */
@@ -106,9 +98,6 @@ class XdcSpecific extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     *  string from_address = 4;
-     *  string token_address = 5;
-     *
      * Generated from protobuf field <code>bool is_next_nonce = 3 [json_name = "isNextNonce"];</code>
      * @param bool $var
      * @return $this
