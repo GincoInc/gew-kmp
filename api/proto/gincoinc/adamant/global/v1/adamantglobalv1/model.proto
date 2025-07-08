@@ -762,6 +762,7 @@ message CreateTransactionAlgorandSpecific {
 message CreateTransactionHederaSpecific {
   string memo = 1;
   uint64 timestamp = 2;
+  bool send_all = 3;
 }
 
 // The model of Solana specific fields of CreateTransaction
