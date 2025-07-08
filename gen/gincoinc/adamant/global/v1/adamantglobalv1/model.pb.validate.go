@@ -10643,6 +10643,8 @@ func (m *CreateTransactionHederaSpecific) validate(all bool) error {
 
 	// no validation rules for Timestamp
 
+	// no validation rules for SendAll
+
 	if len(errors) > 0 {
 		return CreateTransactionHederaSpecificMultiError(errors)
 	}

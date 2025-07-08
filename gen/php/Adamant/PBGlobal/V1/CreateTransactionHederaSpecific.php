@@ -23,6 +23,10 @@ class CreateTransactionHederaSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint64 timestamp = 2 [json_name = "timestamp"];</code>
      */
     protected $timestamp = 0;
+    /**
+     * Generated from protobuf field <code>bool send_all = 3 [json_name = "sendAll"];</code>
+     */
+    protected $send_all = false;
 
     /**
      * Constructor.
@@ -32,6 +36,7 @@ class CreateTransactionHederaSpecific extends \Google\Protobuf\Internal\Message
      *
      *     @type string $memo
      *     @type int|string $timestamp
+     *     @type bool $send_all
      * }
      */
     public function __construct($data = NULL) {
@@ -79,6 +84,28 @@ class CreateTransactionHederaSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint64($var);
         $this->timestamp = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool send_all = 3 [json_name = "sendAll"];</code>
+     * @return bool
+     */
+    public function getSendAll()
+    {
+        return $this->send_all;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool send_all = 3 [json_name = "sendAll"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setSendAll($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->send_all = $var;
 
         return $this;
     }

@@ -2877,12 +2877,16 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionHederaSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Memo
 
 	// no validation rules for Timestamp
+
+	// no validation rules for SendAll
 
 	
 	}
