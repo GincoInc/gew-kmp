@@ -326,6 +326,21 @@ public interface CreateTransactionRequestOrBuilder extends
   adamant.global.v1.Model.CreateTransactionSuiSpecificOrBuilder getSuiSpecificOrBuilder();
 
   /**
+   * <code>.adamant.global.v1.CreateTransactionBabylonSpecific babylon_specific = 25 [json_name = "babylonSpecific"];</code>
+   * @return Whether the babylonSpecific field is set.
+   */
+  boolean hasBabylonSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionBabylonSpecific babylon_specific = 25 [json_name = "babylonSpecific"];</code>
+   * @return The babylonSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionBabylonSpecific getBabylonSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionBabylonSpecific babylon_specific = 25 [json_name = "babylonSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionBabylonSpecificOrBuilder getBabylonSpecificOrBuilder();
+
+  /**
    * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
    * @return Whether the preTransactionId field is set.
    */

@@ -2226,6 +2226,14 @@ public final class Enum {
     ADDRESS_TYPE_P2WSH(3),
     /**
      * <pre>
+     * Pay to Taproot
+     * </pre>
+     *
+     * <code>ADDRESS_TYPE_P2TR = 4;</code>
+     */
+    ADDRESS_TYPE_P2TR(4),
+    /**
+     * <pre>
      * For ETH/XRP
      * </pre>
      *
@@ -2265,6 +2273,14 @@ public final class Enum {
     public static final int ADDRESS_TYPE_P2WSH_VALUE = 3;
     /**
      * <pre>
+     * Pay to Taproot
+     * </pre>
+     *
+     * <code>ADDRESS_TYPE_P2TR = 4;</code>
+     */
+    public static final int ADDRESS_TYPE_P2TR_VALUE = 4;
+    /**
+     * <pre>
      * For ETH/XRP
      * </pre>
      *
@@ -2301,6 +2317,7 @@ public final class Enum {
         case 1: return ADDRESS_TYPE_P2SH;
         case 2: return ADDRESS_TYPE_P2SH_P2WSH;
         case 3: return ADDRESS_TYPE_P2WSH;
+        case 4: return ADDRESS_TYPE_P2TR;
         case 100: return ADDRESS_TYPE_NONE;
         default: return null;
       }
@@ -3923,6 +3940,114 @@ public final class Enum {
   }
 
   /**
+   * Protobuf enum {@code gincoinc.global.v1.BabylonMsgType}
+   */
+  public enum BabylonMsgType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>BABYLON_MSG_TYPE_INVALID = 0;</code>
+     */
+    BABYLON_MSG_TYPE_INVALID(0),
+    /**
+     * <code>BABYLON_MSG_TYPE_SEND = 1;</code>
+     */
+    BABYLON_MSG_TYPE_SEND(1),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>BABYLON_MSG_TYPE_INVALID = 0;</code>
+     */
+    public static final int BABYLON_MSG_TYPE_INVALID_VALUE = 0;
+    /**
+     * <code>BABYLON_MSG_TYPE_SEND = 1;</code>
+     */
+    public static final int BABYLON_MSG_TYPE_SEND_VALUE = 1;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static BabylonMsgType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static BabylonMsgType forNumber(int value) {
+      switch (value) {
+        case 0: return BABYLON_MSG_TYPE_INVALID;
+        case 1: return BABYLON_MSG_TYPE_SEND;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<BabylonMsgType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        BabylonMsgType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<BabylonMsgType>() {
+            public BabylonMsgType findValueByNumber(int number) {
+              return BabylonMsgType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(12);
+    }
+
+    private static final BabylonMsgType[] VALUES = values();
+
+    public static BabylonMsgType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private BabylonMsgType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:gincoinc.global.v1.BabylonMsgType)
+  }
+
+  /**
    * Protobuf enum {@code gincoinc.global.v1.StakingValidatorStatus}
    */
   public enum StakingValidatorStatus
@@ -4046,7 +4171,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(12);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(13);
     }
 
     private static final StakingValidatorStatus[] VALUES = values();
@@ -4196,7 +4321,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(13);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(14);
     }
 
     private static final StakingEventType[] VALUES = values();
@@ -4340,7 +4465,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(14);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(15);
     }
 
     private static final EthereumStakingHistoryType[] VALUES = values();
@@ -4466,7 +4591,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(15);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(16);
     }
 
     private static final SolanaRecentBlockhashType[] VALUES = values();
@@ -4671,7 +4796,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(16);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(17);
     }
 
     private static final SolanaEventType[] VALUES = values();
@@ -4914,7 +5039,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(17);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(18);
     }
 
     private static final EthereumCallMethod[] VALUES = values();
@@ -5058,7 +5183,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(18);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(19);
     }
 
     private static final AvalancheTxType[] VALUES = values();
@@ -5184,7 +5309,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(19);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(20);
     }
 
     private static final AvalancheInputType[] VALUES = values();
@@ -5328,7 +5453,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(20);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(21);
     }
 
     private static final AvalancheOutputType[] VALUES = values();
@@ -5445,7 +5570,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(21);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(22);
     }
 
     private static final ContractCreationType[] VALUES = values();
@@ -5607,7 +5732,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(22);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(23);
     }
 
     private static final NFTCallMethod[] VALUES = values();
@@ -5770,168 +5895,170 @@ public final class Enum {
       "MAINNET\020F\022\027\n\023NETWORK_TON_TESTNET\020G\022\033\n\027NE" +
       "TWORK_BABYLON_MAINNET\020I\022\033\n\027NETWORK_BABYL" +
       "ON_TESTNET\020J\022\033\n\026NETWORK_SHIDEN_MAINNET\020\222" +
-      "N*\212\001\n\013AddressType\022\030\n\024ADDRESS_TYPE_INVALI" +
+      "N*\241\001\n\013AddressType\022\030\n\024ADDRESS_TYPE_INVALI" +
       "D\020\000\022\025\n\021ADDRESS_TYPE_P2SH\020\001\022\033\n\027ADDRESS_TY" +
       "PE_P2SH_P2WSH\020\002\022\026\n\022ADDRESS_TYPE_P2WSH\020\003\022" +
-      "\025\n\021ADDRESS_TYPE_NONE\020d*\323\001\n\020TransactionSt" +
-      "ate\022\035\n\031TRANSACTION_STATE_INVALID\020\000\022\037\n\033TR" +
-      "ANSACTION_STATE_SUBMITTED\020\001\022\035\n\031TRANSACTI" +
-      "ON_STATE_PENDING\020\002\022 \n\034TRANSACTION_STATE_" +
-      "PROCESSING\020\003\022\037\n\033TRANSACTION_STATE_CONFIR" +
-      "MED\020\004\022\035\n\031TRANSACTION_STATE_DROPPED\020\005*\217\001\n" +
-      "\tUTXOState\022\026\n\022UTXO_STATE_INVALID\020\000\022\036\n\032UT" +
-      "XO_STATE_PENDING_UNSPENT\020\001\022\026\n\022UTXO_STATE" +
-      "_UNSPENT\020\002\022\034\n\030UTXO_STATE_PENDING_SPENT\020\003" +
-      "\022\024\n\020UTXO_STATE_SPENT\020\004*\217\001\n\014TransferType\022" +
-      "\031\n\025TRANSFER_TYPE_INVALID\020\000\022\026\n\022TRANSFER_T" +
-      "YPE_SEND\020\001\022\031\n\025TRANSFER_TYPE_RECEIVE\020\002\022\030\n" +
-      "\024TRANSFER_TYPE_CHANGE\020\003\022\027\n\023TRANSFER_TYPE" +
-      "_FATAL\020\004*\253\001\n\022XRPTransactionType\022 \n\034XRP_T" +
-      "RANSACTION_TYPE_INVALID\020\000\022 \n\034XRP_TRANSAC" +
-      "TION_TYPE_PAYMENT\020\001\022(\n$XRP_TRANSACTION_T" +
-      "YPE_SET_SIGNER_LIST\020\002\022\'\n#XRP_TRANSACTION" +
-      "_TYPE_DISABLE_MASTER\020\003*\260\001\n\021TransactionRe" +
-      "sult\022\036\n\032TRANSACTION_RESULT_INVALID\020\000\022\036\n\032" +
-      "TRANSACTION_RESULT_PENDING\020\001\022\036\n\032TRANSACT" +
-      "ION_RESULT_SUCCESS\020\002\022\036\n\032TRANSACTION_RESU" +
-      "LT_FAILURE\020\003\022\033\n\027TRANSACTION_RESULT_NONE\020" +
-      "d*\275\003\n\022NemTransactionType\022 \n\034NEM_TRANSACT" +
-      "ION_TYPE_INVALID\020\000\022&\n\"NEM_TRANSACTION_TY" +
-      "PE_TRANSFER_TYPE\020\001\0221\n-NEM_TRANSACTION_TY" +
-      "PE_IMPORTANCE_TRANSFER_TYPE\020\002\0223\n/NEM_TRA" +
-      "NSACTION_TYPE_MULTISIG_MODIFICATION_TYPE" +
-      "\020\003\0220\n,NEM_TRANSACTION_TYPE_MULTISIG_SIGN" +
-      "ATURE_TYPE\020\004\0222\n.NEM_TRANSACTION_TYPE_MUL" +
-      "TISIG_TRANSACTION_TYPE\020\005\0221\n-NEM_TRANSACT" +
-      "ION_TYPE_PROVISION_NAMESPACE_TYPE\020\006\022/\n+N" +
-      "EM_TRANSACTION_TYPE_MOSAIC_DEFINITION_TY" +
-      "PE\020\007\022+\n\'NEM_TRANSACTION_TYPE_MOSAIC_SUPP" +
-      "LY_TYPE\020\010*\353\t\n\025SymbolTransactionType\022#\n\037S" +
-      "YMBOL_TRANSACTION_TYPE_INVALID\020\000\022,\n(SYMB" +
-      "OL_TRANSACTION_TYPE_ACCOUNT_KEY_LINK\020\001\022)" +
-      "\n%SYMBOL_TRANSACTION_TYPE_NODE_KEY_LINK\020" +
-      "\002\022.\n*SYMBOL_TRANSACTION_TYPE_AGGREGATE_C" +
-      "OMPLETE\020\003\022,\n(SYMBOL_TRANSACTION_TYPE_AGG" +
-      "REGATE_BONDED\020\004\022+\n\'SYMBOL_TRANSACTION_TY" +
-      "PE_VOTING_KEY_LINK\020\005\022(\n$SYMBOL_TRANSACTI" +
-      "ON_TYPE_VRF_KEY_LINK\020\006\022%\n!SYMBOL_TRANSAC" +
-      "TION_TYPE_HASH_LOCK\020\007\022\'\n#SYMBOL_TRANSACT" +
-      "ION_TYPE_SECRET_LOCK\020\010\022(\n$SYMBOL_TRANSAC" +
-      "TION_TYPE_SECRET_PROOF\020\t\022,\n(SYMBOL_TRANS" +
-      "ACTION_TYPE_ACCOUNT_METADATA\020\n\022+\n\'SYMBOL" +
-      "_TRANSACTION_TYPE_MOSAIC_METADATA\020\013\022.\n*S" +
-      "YMBOL_TRANSACTION_TYPE_NAMESPACE_METADAT" +
-      "A\020\014\022-\n)SYMBOL_TRANSACTION_TYPE_MOSAIC_DE" +
-      "FINITION\020\r\0220\n,SYMBOL_TRANSACTION_TYPE_MO" +
-      "SAIC_SUPPLY_CHANGE\020\016\0224\n0SYMBOL_TRANSACTI" +
-      "ON_TYPE_MOSAIC_SUPPLY_REVOCATION\020\017\0229\n5SY" +
-      "MBOL_TRANSACTION_TYPE_MULTISIG_ACCOUNT_M" +
-      "ODIFICATION\020\020\022)\n%SYMBOL_TRANSACTION_TYPE" +
-      "_ADDRESS_ALIAS\020\021\022(\n$SYMBOL_TRANSACTION_T" +
-      "YPE_MOSAIC_ALIAS\020\022\0222\n.SYMBOL_TRANSACTION" +
-      "_TYPE_NAMESPACE_REGISTRATION\020\023\0227\n3SYMBOL" +
-      "_TRANSACTION_TYPE_ACCOUNT_ADDRESS_RESTRI" +
-      "CTION\020\024\0226\n2SYMBOL_TRANSACTION_TYPE_ACCOU" +
-      "NT_MOSAIC_RESTRICTION\020\025\0229\n5SYMBOL_TRANSA" +
-      "CTION_TYPE_ACCOUNT_OPERATION_RESTRICTION" +
-      "\020\026\0226\n2SYMBOL_TRANSACTION_TYPE_MOSAIC_ADD" +
-      "RESS_RESTRICTION\020\027\0225\n1SYMBOL_TRANSACTION" +
-      "_TYPE_MOSAIC_GLOBAL_RESTRICTION\020\030\022$\n SYM" +
-      "BOL_TRANSACTION_TYPE_TRANSFER\020\031*\352\001\n\036Ethe" +
-      "reumStakingRewardLayerType\022.\n*ETHEREUM_S" +
-      "TAKING_REWARD_LAYER_TYPE_INVALID\020\000\0220\n,ET" +
-      "HEREUM_STAKING_REWARD_LAYER_TYPE_CONSENS" +
-      "US\020\001\0220\n,ETHEREUM_STAKING_REWARD_LAYER_TY" +
-      "PE_EXECUTION\020\002\0224\n0ETHEREUM_STAKING_REWAR" +
-      "D_LAYER_TYPE_EXECUTION_MEV\020\003*\321\001\n\rCosmosM" +
-      "sgType\022\033\n\027COSMOS_MSG_TYPE_INVALID\020\000\022\030\n\024C" +
-      "OSMOS_MSG_TYPE_SEND\020\001\022\034\n\030COSMOS_MSG_TYPE" +
-      "_DELEGATE\020\002\022\036\n\032COSMOS_MSG_TYPE_UNDELEGAT" +
-      "E\020\003\022\034\n\030COSMOS_MSG_TYPE_UNBONDED\020\004\022-\n)COS" +
-      "MOS_MSG_TYPE_WITHDRAW_DELEGATOR_REWARD\020\005" +
-      "*\252\001\n\026StakingValidatorStatus\022$\n STAKING_V" +
-      "ALIDATOR_STATUS_INVALID\020\000\022#\n\037STAKING_VAL" +
-      "IDATOR_STATUS_ACTIVE\020\001\022!\n\035STAKING_VALIDA" +
-      "TOR_STATUS_STOP\020\002\022\"\n\036STAKING_VALIDATOR_S" +
-      "TATUS_PAUSE\020\003*\217\001\n\020StakingEventType\022\036\n\032ST" +
-      "AKING_EVENT_TYPE_INVALID\020\000\022\034\n\030STAKING_EV" +
-      "ENT_TYPE_STAKE\020\001\022\036\n\032STAKING_EVENT_TYPE_U" +
-      "NSTAKE\020\002\022\035\n\031STAKING_EVENT_TYPE_REWARD\020\003*" +
-      "\256\002\n\032EthereumStakingHistoryType\022)\n%ETHERE" +
-      "UM_STAKING_HISTORY_TYPE_INVALID\020\000\0222\n.ETH" +
-      "EREUM_STAKING_HISTORY_TYPE_REWARD_CONSEN" +
-      "SUS\020\001\0222\n.ETHEREUM_STAKING_HISTORY_TYPE_R" +
-      "EWARD_EXECUTION\020\002\022,\n(ETHEREUM_STAKING_HI" +
-      "STORY_TYPE_REWARD_MEV\020\003\022\'\n#ETHEREUM_STAK" +
-      "ING_HISTORY_TYPE_START\020\004\022&\n\"ETHEREUM_STA" +
-      "KING_HISTORY_TYPE_EXIT\020\005*\311\001\n\031SolanaRecen" +
-      "tBlockhashType\022(\n$SOLANA_RECENT_BLOCKHAS" +
-      "H_TYPE_INVALID\020\000\022*\n&SOLANA_RECENT_BLOCKH" +
-      "ASH_TYPE_FINALIZED\020\001\022*\n&SOLANA_RECENT_BL" +
-      "OCKHASH_TYPE_CONFIRMED\020\002\022*\n&SOLANA_RECEN" +
-      "T_BLOCKHASH_TYPE_PROCESSED\020\003*\322\002\n\017SolanaE" +
-      "ventType\022\035\n\031SOLANA_EVENT_TYPE_INVALID\020\000\022" +
-      "\036\n\032SOLANA_EVENT_TYPE_DELEGATE\020\001\022 \n\034SOLAN" +
-      "A_EVENT_TYPE_DEACTIVATE\020\002\022\036\n\032SOLANA_EVEN" +
-      "T_TYPE_WITHDRAW\020\003\022 \n\034SOLANA_EVENT_TYPE_S" +
-      "TAKE_INIT\020\004\022\034\n\030SOLANA_EVENT_TYPE_REWARD\020" +
-      "\005\022\'\n#SOLANA_EVENT_TYPE_DELEGATE_COMPLETE" +
-      "\020\006\022)\n%SOLANA_EVENT_TYPE_DEACTIVATE_COMPL" +
-      "ETE\020\007\022*\n&SOLANA_EVENT_TYPE_CREATE_TOKEN_" +
-      "ACCOUNT\020\010*\302\007\n\022EthereumCallMethod\022 \n\034ETHE" +
-      "REUM_CALL_METHOD_INVALID\020\000\0220\n,ETHEREUM_C" +
-      "ALL_METHOD_PROGMAT_COIN_INITIALIZE\020\001\0226\n2" +
-      "ETHEREUM_CALL_METHOD_PROGMAT_COIN_CONFIG" +
-      "URE_MINTER\020\002\022>\n:ETHEREUM_CALL_METHOD_PRO" +
-      "GMAT_COIN_MINT_AND_TRANSFER_DIRECT\020\003\022*\n&" +
-      "ETHEREUM_CALL_METHOD_PROGMAT_COIN_MINT\020\004" +
-      "\022*\n&ETHEREUM_CALL_METHOD_PROGMAT_COIN_BU" +
-      "RN\020\005\022;\n7ETHEREUM_CALL_METHOD_PROGMAT_COI" +
-      "N_BULK_ADD_TO_WHITELIST\020\006\022@\n<ETHEREUM_CA" +
-      "LL_METHOD_PROGMAT_COIN_BULK_REMOVE_FROM_" +
-      "WHITELIST\020\007\022;\n7ETHEREUM_CALL_METHOD_PROG" +
-      "MAT_COIN_BULK_ADD_TO_BLACKLIST\020\010\022@\n<ETHE" +
-      "REUM_CALL_METHOD_PROGMAT_COIN_BULK_REMOV" +
-      "E_FROM_BLACKLIST\020\t\0220\n,ETHEREUM_CALL_METH" +
-      "OD_PROGMAT_COIN_CONFISCATE\020\n\022+\n\'ETHEREUM" +
-      "_CALL_METHOD_PROGMAT_COIN_PAUSE\020\013\022-\n)ETH" +
-      "EREUM_CALL_METHOD_PROGMAT_COIN_UNPAUSE\020\014" +
-      "\022D\n@ETHEREUM_CALL_METHOD_PROGMAT_COIN_MI" +
-      "NT_AND_TRANSFER_INTERMEDIARY\020\r\022B\n>ETHERE" +
-      "UM_CALL_METHOD_PROGMAT_COIN_GRANT_WHITE_" +
-      "AND_BLACK_LISTER\020\016\0227\n3ETHEREUM_CALL_METH" +
-      "OD_PROGMAT_COIN_CONTRACT_CREATION\020\017\0229\n5E" +
-      "THEREUM_CALL_METHOD_PROGMAT_COIN_UPGRADE" +
-      "_TO_AND_CALL\020\020*\350\001\n\017AvalancheTxType\022\035\n\031AV" +
-      "ALANCHE_TX_TYPE_INVALID\020\000\022\036\n\032AVALANCHE_T" +
-      "X_TYPE_TRANSFER\020\001\022\034\n\030AVALANCHE_TX_TYPE_E" +
-      "XPORT\020\002\022\034\n\030AVALANCHE_TX_TYPE_IMPORT\020\003\0222\n" +
-      ".AVALANCHE_TX_TYPE_ADD_PERMISSIONLESS_DE" +
-      "LEGATOR\020\004\022&\n\"AVALANCHE_TX_TYPE_REWARD_VA" +
-      "LIDATOR\020\005*\260\001\n\022AvalancheInputType\022 \n\034AVAL" +
-      "ANCHE_INPUT_TYPE_INVALID\020\000\022+\n\'AVALANCHE_" +
-      "INPUT_TYPE_TRANSFERABLE_INPUT\020\001\022\'\n#AVALA" +
-      "NCHE_INPUT_TYPE_IMPORTED_INPUT\020\002\022\"\n\036AVAL" +
-      "ANCHE_INPUT_TYPE_EVM_INPUT\020\003*\211\002\n\023Avalanc" +
-      "heOutputType\022!\n\035AVALANCHE_OUTPUT_TYPE_IN" +
-      "VALID\020\000\022-\n)AVALANCHE_OUTPUT_TYPE_TRANSFE" +
-      "RABLE_OUTPUT\020\001\022)\n%AVALANCHE_OUTPUT_TYPE_" +
-      "EXPORTED_OUTPUT\020\002\022$\n AVALANCHE_OUTPUT_TY" +
-      "PE_EVM_OUTPUT\020\003\022&\n\"AVALANCHE_OUTPUT_TYPE" +
-      "_STAKE_OUTPUT\020\004\022\'\n#AVALANCHE_OUTPUT_TYPE" +
-      "_OWNERS_OUTPUT\020\005*}\n\024ContractCreationType" +
-      "\022\"\n\036CONTRACT_CREATION_TYPE_INVALID\020\000\022\037\n\033" +
-      "CONTRACT_CREATION_TYPE_IMPL\020\001\022 \n\034CONTRAC" +
-      "T_CREATION_TYPE_UTILS\020\002*\212\002\n\rNFTCallMetho" +
-      "d\022\033\n\027NFT_CALL_METHOD_INVALID\020\000\022\030\n\024NFT_CA" +
-      "LL_METHOD_MINT\020\001\022\030\n\024NFT_CALL_METHOD_BURN" +
-      "\020\002\022\034\n\030NFT_CALL_METHOD_TRANSFER\020\003\022\036\n\032NFT_" +
-      "CALL_METHOD_BATCH_MINT\020\004\022\"\n\036NFT_CALL_MET" +
-      "HOD_BATCH_TRANSFER\020\005\022&\n\"NFT_CALL_METHOD_" +
-      "TRANSFER_OWNERSHIP\020\006\022\036\n\032NFT_CALL_METHOD_" +
-      "BATCH_BURN\020\007BEZCgithub.com/GincoInc/gew-" +
-      "kmp/gen/gincoinc/global/v1/gincoincgloba" +
-      "lv1b\006proto3"
+      "\025\n\021ADDRESS_TYPE_P2TR\020\004\022\025\n\021ADDRESS_TYPE_N" +
+      "ONE\020d*\323\001\n\020TransactionState\022\035\n\031TRANSACTIO" +
+      "N_STATE_INVALID\020\000\022\037\n\033TRANSACTION_STATE_S" +
+      "UBMITTED\020\001\022\035\n\031TRANSACTION_STATE_PENDING\020" +
+      "\002\022 \n\034TRANSACTION_STATE_PROCESSING\020\003\022\037\n\033T" +
+      "RANSACTION_STATE_CONFIRMED\020\004\022\035\n\031TRANSACT" +
+      "ION_STATE_DROPPED\020\005*\217\001\n\tUTXOState\022\026\n\022UTX" +
+      "O_STATE_INVALID\020\000\022\036\n\032UTXO_STATE_PENDING_" +
+      "UNSPENT\020\001\022\026\n\022UTXO_STATE_UNSPENT\020\002\022\034\n\030UTX" +
+      "O_STATE_PENDING_SPENT\020\003\022\024\n\020UTXO_STATE_SP" +
+      "ENT\020\004*\217\001\n\014TransferType\022\031\n\025TRANSFER_TYPE_" +
+      "INVALID\020\000\022\026\n\022TRANSFER_TYPE_SEND\020\001\022\031\n\025TRA" +
+      "NSFER_TYPE_RECEIVE\020\002\022\030\n\024TRANSFER_TYPE_CH" +
+      "ANGE\020\003\022\027\n\023TRANSFER_TYPE_FATAL\020\004*\253\001\n\022XRPT" +
+      "ransactionType\022 \n\034XRP_TRANSACTION_TYPE_I" +
+      "NVALID\020\000\022 \n\034XRP_TRANSACTION_TYPE_PAYMENT" +
+      "\020\001\022(\n$XRP_TRANSACTION_TYPE_SET_SIGNER_LI" +
+      "ST\020\002\022\'\n#XRP_TRANSACTION_TYPE_DISABLE_MAS" +
+      "TER\020\003*\260\001\n\021TransactionResult\022\036\n\032TRANSACTI" +
+      "ON_RESULT_INVALID\020\000\022\036\n\032TRANSACTION_RESUL" +
+      "T_PENDING\020\001\022\036\n\032TRANSACTION_RESULT_SUCCES" +
+      "S\020\002\022\036\n\032TRANSACTION_RESULT_FAILURE\020\003\022\033\n\027T" +
+      "RANSACTION_RESULT_NONE\020d*\275\003\n\022NemTransact" +
+      "ionType\022 \n\034NEM_TRANSACTION_TYPE_INVALID\020" +
+      "\000\022&\n\"NEM_TRANSACTION_TYPE_TRANSFER_TYPE\020" +
+      "\001\0221\n-NEM_TRANSACTION_TYPE_IMPORTANCE_TRA" +
+      "NSFER_TYPE\020\002\0223\n/NEM_TRANSACTION_TYPE_MUL" +
+      "TISIG_MODIFICATION_TYPE\020\003\0220\n,NEM_TRANSAC" +
+      "TION_TYPE_MULTISIG_SIGNATURE_TYPE\020\004\0222\n.N" +
+      "EM_TRANSACTION_TYPE_MULTISIG_TRANSACTION" +
+      "_TYPE\020\005\0221\n-NEM_TRANSACTION_TYPE_PROVISIO" +
+      "N_NAMESPACE_TYPE\020\006\022/\n+NEM_TRANSACTION_TY" +
+      "PE_MOSAIC_DEFINITION_TYPE\020\007\022+\n\'NEM_TRANS" +
+      "ACTION_TYPE_MOSAIC_SUPPLY_TYPE\020\010*\353\t\n\025Sym" +
+      "bolTransactionType\022#\n\037SYMBOL_TRANSACTION" +
+      "_TYPE_INVALID\020\000\022,\n(SYMBOL_TRANSACTION_TY" +
+      "PE_ACCOUNT_KEY_LINK\020\001\022)\n%SYMBOL_TRANSACT" +
+      "ION_TYPE_NODE_KEY_LINK\020\002\022.\n*SYMBOL_TRANS" +
+      "ACTION_TYPE_AGGREGATE_COMPLETE\020\003\022,\n(SYMB" +
+      "OL_TRANSACTION_TYPE_AGGREGATE_BONDED\020\004\022+" +
+      "\n\'SYMBOL_TRANSACTION_TYPE_VOTING_KEY_LIN" +
+      "K\020\005\022(\n$SYMBOL_TRANSACTION_TYPE_VRF_KEY_L" +
+      "INK\020\006\022%\n!SYMBOL_TRANSACTION_TYPE_HASH_LO" +
+      "CK\020\007\022\'\n#SYMBOL_TRANSACTION_TYPE_SECRET_L" +
+      "OCK\020\010\022(\n$SYMBOL_TRANSACTION_TYPE_SECRET_" +
+      "PROOF\020\t\022,\n(SYMBOL_TRANSACTION_TYPE_ACCOU" +
+      "NT_METADATA\020\n\022+\n\'SYMBOL_TRANSACTION_TYPE" +
+      "_MOSAIC_METADATA\020\013\022.\n*SYMBOL_TRANSACTION" +
+      "_TYPE_NAMESPACE_METADATA\020\014\022-\n)SYMBOL_TRA" +
+      "NSACTION_TYPE_MOSAIC_DEFINITION\020\r\0220\n,SYM" +
+      "BOL_TRANSACTION_TYPE_MOSAIC_SUPPLY_CHANG" +
+      "E\020\016\0224\n0SYMBOL_TRANSACTION_TYPE_MOSAIC_SU" +
+      "PPLY_REVOCATION\020\017\0229\n5SYMBOL_TRANSACTION_" +
+      "TYPE_MULTISIG_ACCOUNT_MODIFICATION\020\020\022)\n%" +
+      "SYMBOL_TRANSACTION_TYPE_ADDRESS_ALIAS\020\021\022" +
+      "(\n$SYMBOL_TRANSACTION_TYPE_MOSAIC_ALIAS\020" +
+      "\022\0222\n.SYMBOL_TRANSACTION_TYPE_NAMESPACE_R" +
+      "EGISTRATION\020\023\0227\n3SYMBOL_TRANSACTION_TYPE" +
+      "_ACCOUNT_ADDRESS_RESTRICTION\020\024\0226\n2SYMBOL" +
+      "_TRANSACTION_TYPE_ACCOUNT_MOSAIC_RESTRIC" +
+      "TION\020\025\0229\n5SYMBOL_TRANSACTION_TYPE_ACCOUN" +
+      "T_OPERATION_RESTRICTION\020\026\0226\n2SYMBOL_TRAN" +
+      "SACTION_TYPE_MOSAIC_ADDRESS_RESTRICTION\020" +
+      "\027\0225\n1SYMBOL_TRANSACTION_TYPE_MOSAIC_GLOB" +
+      "AL_RESTRICTION\020\030\022$\n SYMBOL_TRANSACTION_T" +
+      "YPE_TRANSFER\020\031*\352\001\n\036EthereumStakingReward" +
+      "LayerType\022.\n*ETHEREUM_STAKING_REWARD_LAY" +
+      "ER_TYPE_INVALID\020\000\0220\n,ETHEREUM_STAKING_RE" +
+      "WARD_LAYER_TYPE_CONSENSUS\020\001\0220\n,ETHEREUM_" +
+      "STAKING_REWARD_LAYER_TYPE_EXECUTION\020\002\0224\n" +
+      "0ETHEREUM_STAKING_REWARD_LAYER_TYPE_EXEC" +
+      "UTION_MEV\020\003*\321\001\n\rCosmosMsgType\022\033\n\027COSMOS_" +
+      "MSG_TYPE_INVALID\020\000\022\030\n\024COSMOS_MSG_TYPE_SE" +
+      "ND\020\001\022\034\n\030COSMOS_MSG_TYPE_DELEGATE\020\002\022\036\n\032CO" +
+      "SMOS_MSG_TYPE_UNDELEGATE\020\003\022\034\n\030COSMOS_MSG" +
+      "_TYPE_UNBONDED\020\004\022-\n)COSMOS_MSG_TYPE_WITH" +
+      "DRAW_DELEGATOR_REWARD\020\005*I\n\016BabylonMsgTyp" +
+      "e\022\034\n\030BABYLON_MSG_TYPE_INVALID\020\000\022\031\n\025BABYL" +
+      "ON_MSG_TYPE_SEND\020\001*\252\001\n\026StakingValidatorS" +
+      "tatus\022$\n STAKING_VALIDATOR_STATUS_INVALI" +
+      "D\020\000\022#\n\037STAKING_VALIDATOR_STATUS_ACTIVE\020\001" +
+      "\022!\n\035STAKING_VALIDATOR_STATUS_STOP\020\002\022\"\n\036S" +
+      "TAKING_VALIDATOR_STATUS_PAUSE\020\003*\217\001\n\020Stak" +
+      "ingEventType\022\036\n\032STAKING_EVENT_TYPE_INVAL" +
+      "ID\020\000\022\034\n\030STAKING_EVENT_TYPE_STAKE\020\001\022\036\n\032ST" +
+      "AKING_EVENT_TYPE_UNSTAKE\020\002\022\035\n\031STAKING_EV" +
+      "ENT_TYPE_REWARD\020\003*\256\002\n\032EthereumStakingHis" +
+      "toryType\022)\n%ETHEREUM_STAKING_HISTORY_TYP" +
+      "E_INVALID\020\000\0222\n.ETHEREUM_STAKING_HISTORY_" +
+      "TYPE_REWARD_CONSENSUS\020\001\0222\n.ETHEREUM_STAK" +
+      "ING_HISTORY_TYPE_REWARD_EXECUTION\020\002\022,\n(E" +
+      "THEREUM_STAKING_HISTORY_TYPE_REWARD_MEV\020" +
+      "\003\022\'\n#ETHEREUM_STAKING_HISTORY_TYPE_START" +
+      "\020\004\022&\n\"ETHEREUM_STAKING_HISTORY_TYPE_EXIT" +
+      "\020\005*\311\001\n\031SolanaRecentBlockhashType\022(\n$SOLA" +
+      "NA_RECENT_BLOCKHASH_TYPE_INVALID\020\000\022*\n&SO" +
+      "LANA_RECENT_BLOCKHASH_TYPE_FINALIZED\020\001\022*" +
+      "\n&SOLANA_RECENT_BLOCKHASH_TYPE_CONFIRMED" +
+      "\020\002\022*\n&SOLANA_RECENT_BLOCKHASH_TYPE_PROCE" +
+      "SSED\020\003*\322\002\n\017SolanaEventType\022\035\n\031SOLANA_EVE" +
+      "NT_TYPE_INVALID\020\000\022\036\n\032SOLANA_EVENT_TYPE_D" +
+      "ELEGATE\020\001\022 \n\034SOLANA_EVENT_TYPE_DEACTIVAT" +
+      "E\020\002\022\036\n\032SOLANA_EVENT_TYPE_WITHDRAW\020\003\022 \n\034S" +
+      "OLANA_EVENT_TYPE_STAKE_INIT\020\004\022\034\n\030SOLANA_" +
+      "EVENT_TYPE_REWARD\020\005\022\'\n#SOLANA_EVENT_TYPE" +
+      "_DELEGATE_COMPLETE\020\006\022)\n%SOLANA_EVENT_TYP" +
+      "E_DEACTIVATE_COMPLETE\020\007\022*\n&SOLANA_EVENT_" +
+      "TYPE_CREATE_TOKEN_ACCOUNT\020\010*\302\007\n\022Ethereum" +
+      "CallMethod\022 \n\034ETHEREUM_CALL_METHOD_INVAL" +
+      "ID\020\000\0220\n,ETHEREUM_CALL_METHOD_PROGMAT_COI" +
+      "N_INITIALIZE\020\001\0226\n2ETHEREUM_CALL_METHOD_P" +
+      "ROGMAT_COIN_CONFIGURE_MINTER\020\002\022>\n:ETHERE" +
+      "UM_CALL_METHOD_PROGMAT_COIN_MINT_AND_TRA" +
+      "NSFER_DIRECT\020\003\022*\n&ETHEREUM_CALL_METHOD_P" +
+      "ROGMAT_COIN_MINT\020\004\022*\n&ETHEREUM_CALL_METH" +
+      "OD_PROGMAT_COIN_BURN\020\005\022;\n7ETHEREUM_CALL_" +
+      "METHOD_PROGMAT_COIN_BULK_ADD_TO_WHITELIS" +
+      "T\020\006\022@\n<ETHEREUM_CALL_METHOD_PROGMAT_COIN" +
+      "_BULK_REMOVE_FROM_WHITELIST\020\007\022;\n7ETHEREU" +
+      "M_CALL_METHOD_PROGMAT_COIN_BULK_ADD_TO_B" +
+      "LACKLIST\020\010\022@\n<ETHEREUM_CALL_METHOD_PROGM" +
+      "AT_COIN_BULK_REMOVE_FROM_BLACKLIST\020\t\0220\n," +
+      "ETHEREUM_CALL_METHOD_PROGMAT_COIN_CONFIS" +
+      "CATE\020\n\022+\n\'ETHEREUM_CALL_METHOD_PROGMAT_C" +
+      "OIN_PAUSE\020\013\022-\n)ETHEREUM_CALL_METHOD_PROG" +
+      "MAT_COIN_UNPAUSE\020\014\022D\n@ETHEREUM_CALL_METH" +
+      "OD_PROGMAT_COIN_MINT_AND_TRANSFER_INTERM" +
+      "EDIARY\020\r\022B\n>ETHEREUM_CALL_METHOD_PROGMAT" +
+      "_COIN_GRANT_WHITE_AND_BLACK_LISTER\020\016\0227\n3" +
+      "ETHEREUM_CALL_METHOD_PROGMAT_COIN_CONTRA" +
+      "CT_CREATION\020\017\0229\n5ETHEREUM_CALL_METHOD_PR" +
+      "OGMAT_COIN_UPGRADE_TO_AND_CALL\020\020*\350\001\n\017Ava" +
+      "lancheTxType\022\035\n\031AVALANCHE_TX_TYPE_INVALI" +
+      "D\020\000\022\036\n\032AVALANCHE_TX_TYPE_TRANSFER\020\001\022\034\n\030A" +
+      "VALANCHE_TX_TYPE_EXPORT\020\002\022\034\n\030AVALANCHE_T" +
+      "X_TYPE_IMPORT\020\003\0222\n.AVALANCHE_TX_TYPE_ADD" +
+      "_PERMISSIONLESS_DELEGATOR\020\004\022&\n\"AVALANCHE" +
+      "_TX_TYPE_REWARD_VALIDATOR\020\005*\260\001\n\022Avalanch" +
+      "eInputType\022 \n\034AVALANCHE_INPUT_TYPE_INVAL" +
+      "ID\020\000\022+\n\'AVALANCHE_INPUT_TYPE_TRANSFERABL" +
+      "E_INPUT\020\001\022\'\n#AVALANCHE_INPUT_TYPE_IMPORT" +
+      "ED_INPUT\020\002\022\"\n\036AVALANCHE_INPUT_TYPE_EVM_I" +
+      "NPUT\020\003*\211\002\n\023AvalancheOutputType\022!\n\035AVALAN" +
+      "CHE_OUTPUT_TYPE_INVALID\020\000\022-\n)AVALANCHE_O" +
+      "UTPUT_TYPE_TRANSFERABLE_OUTPUT\020\001\022)\n%AVAL" +
+      "ANCHE_OUTPUT_TYPE_EXPORTED_OUTPUT\020\002\022$\n A" +
+      "VALANCHE_OUTPUT_TYPE_EVM_OUTPUT\020\003\022&\n\"AVA" +
+      "LANCHE_OUTPUT_TYPE_STAKE_OUTPUT\020\004\022\'\n#AVA" +
+      "LANCHE_OUTPUT_TYPE_OWNERS_OUTPUT\020\005*}\n\024Co" +
+      "ntractCreationType\022\"\n\036CONTRACT_CREATION_" +
+      "TYPE_INVALID\020\000\022\037\n\033CONTRACT_CREATION_TYPE" +
+      "_IMPL\020\001\022 \n\034CONTRACT_CREATION_TYPE_UTILS\020" +
+      "\002*\212\002\n\rNFTCallMethod\022\033\n\027NFT_CALL_METHOD_I" +
+      "NVALID\020\000\022\030\n\024NFT_CALL_METHOD_MINT\020\001\022\030\n\024NF" +
+      "T_CALL_METHOD_BURN\020\002\022\034\n\030NFT_CALL_METHOD_" +
+      "TRANSFER\020\003\022\036\n\032NFT_CALL_METHOD_BATCH_MINT" +
+      "\020\004\022\"\n\036NFT_CALL_METHOD_BATCH_TRANSFER\020\005\022&" +
+      "\n\"NFT_CALL_METHOD_TRANSFER_OWNERSHIP\020\006\022\036" +
+      "\n\032NFT_CALL_METHOD_BATCH_BURN\020\007BEZCgithub" +
+      ".com/GincoInc/gew-kmp/gen/gincoinc/globa" +
+      "l/v1/gincoincglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
