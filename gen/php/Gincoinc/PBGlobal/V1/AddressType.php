@@ -36,6 +36,12 @@ class AddressType
      */
     const ADDRESS_TYPE_P2WSH = 3;
     /**
+     * Pay to Taproot
+     *
+     * Generated from protobuf enum <code>ADDRESS_TYPE_P2TR = 4;</code>
+     */
+    const ADDRESS_TYPE_P2TR = 4;
+    /**
      * For ETH/XRP
      *
      * Generated from protobuf enum <code>ADDRESS_TYPE_NONE = 100;</code>
@@ -47,6 +53,7 @@ class AddressType
         self::ADDRESS_TYPE_P2SH => 'ADDRESS_TYPE_P2SH',
         self::ADDRESS_TYPE_P2SH_P2WSH => 'ADDRESS_TYPE_P2SH_P2WSH',
         self::ADDRESS_TYPE_P2WSH => 'ADDRESS_TYPE_P2WSH',
+        self::ADDRESS_TYPE_P2TR => 'ADDRESS_TYPE_P2TR',
         self::ADDRESS_TYPE_NONE => 'ADDRESS_TYPE_NONE',
     ];
 

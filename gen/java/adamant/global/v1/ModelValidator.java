@@ -53,6 +53,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.OasysSpecific.class)) return new OasysSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.XdcSpecific.class)) return new XdcSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CosmosSpecific.class)) return new CosmosSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.BabylonSpecific.class)) return new BabylonSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.EthereumClassicSpecific.class)) return new EthereumClassicSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.AlgorandSpecific.class)) return new AlgorandSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.HederaSpecific.class)) return new HederaSpecificValidator();
@@ -76,6 +77,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSymbolSpecific.class)) return new CreateTransactionSymbolSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionEthereumSpecific.class)) return new CreateTransactionEthereumSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionCosmosSpecific.class)) return new CreateTransactionCosmosSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionBabylonSpecific.class)) return new CreateTransactionBabylonSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionAlgorandSpecific.class)) return new CreateTransactionAlgorandSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionHederaSpecific.class)) return new CreateTransactionHederaSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSolanaSpecific.class)) return new CreateTransactionSolanaSpecificValidator();
@@ -1094,6 +1096,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1243,6 +1247,9 @@ public class ModelValidator {
 	
 			// Validate sui_specific
 			if (proto.hasSuiSpecific()) index.validatorFor(proto.getSuiSpecific()).assertValid(proto.getSuiSpecific());
+	
+			// Validate babylon_specific
+			if (proto.hasBabylonSpecific()) index.validatorFor(proto.getBabylonSpecific()).assertValid(proto.getBabylonSpecific());
 	
 	}
 }
@@ -2036,6 +2043,14 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.KlaytnSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2044,6 +2059,14 @@ public class ModelValidator {
 	// no validation rules for Nonce
 
 	// no validation rules for IsNextNonce
+
+	// no validation rules for Data
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
+	// no validation rules for ChainId
 
 	
 	}
@@ -2173,6 +2196,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.XdcSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2181,6 +2208,10 @@ public class ModelValidator {
 	// no validation rules for Nonce
 
 	// no validation rules for IsNextNonce
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
 
 	
 	}
@@ -2204,6 +2235,40 @@ public class ModelValidator {
 	
 
 	public void assertValid(adamant.global.v1.Model.CosmosSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	// no validation rules for Type
+
+	// no validation rules for Memo
+
+	// no validation rules for GasAdjustment
+
+	
+	}
+}
+/**
+	 * Validates {@code BabylonSpecific} protobuf objects.
+	 */
+	public static class BabylonSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.BabylonSpecific> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.BabylonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for GasLimit
 
 	// no validation rules for Nonce
@@ -2848,6 +2913,24 @@ public class ModelValidator {
 	
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionCosmosSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Type
+
+	// no validation rules for Memo
+
+	
+	}
+}
+/**
+	 * Validates {@code CreateTransactionBabylonSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionBabylonSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionBabylonSpecific> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionBabylonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Type
 
 	// no validation rules for Memo

@@ -321,6 +321,12 @@ class Transaction extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.SuiSpecific sui_specific = 54 [json_name = "suiSpecific"];</code>
      */
     protected $sui_specific = null;
+    /**
+     * The Babylon specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BabylonSpecific babylon_specific = 55 [json_name = "babylonSpecific"];</code>
+     */
+    protected $babylon_specific = null;
 
     /**
      * Constructor.
@@ -430,6 +436,8 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The Ton specific fields
      *     @type \Adamant\PBGlobal\V1\SuiSpecific $sui_specific
      *           The Sui specific fields
+     *     @type \Adamant\PBGlobal\V1\BabylonSpecific $babylon_specific
+     *           The Babylon specific fields
      * }
      */
     public function __construct($data = NULL) {
@@ -2119,6 +2127,42 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\SuiSpecific::class);
         $this->sui_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Babylon specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BabylonSpecific babylon_specific = 55 [json_name = "babylonSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\BabylonSpecific|null
+     */
+    public function getBabylonSpecific()
+    {
+        return $this->babylon_specific;
+    }
+
+    public function hasBabylonSpecific()
+    {
+        return isset($this->babylon_specific);
+    }
+
+    public function clearBabylonSpecific()
+    {
+        unset($this->babylon_specific);
+    }
+
+    /**
+     * The Babylon specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BabylonSpecific babylon_specific = 55 [json_name = "babylonSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\BabylonSpecific $var
+     * @return $this
+     */
+    public function setBabylonSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\BabylonSpecific::class);
+        $this->babylon_specific = $var;
 
         return $this;
     }

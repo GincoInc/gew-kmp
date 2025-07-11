@@ -292,6 +292,7 @@ message Transaction {
   QuorumSpecific quorum_specific = 52; // The Quorum specific fields
   TonSpecific ton_specific = 53; // The Ton specific fields
   SuiSpecific sui_specific = 54; // The Sui specific fields
+  BabylonSpecific babylon_specific = 55; // The Babylon specific fields
 }
 
 // The model of unconfirmed transaction
@@ -510,10 +511,10 @@ message KlaytnSpecific {
   uint64 gas_limit = 1;
   uint64 nonce = 2;
   bool is_next_nonce = 3;
-  //  string data = 4;
-  //  string from_address = 5;
-  //  string token_address = 6;
-  //  uint64 chain_id = 7;
+  string data = 4;
+  string from_address = 5;
+  string token_address = 6;
+  uint64 chain_id = 7;
 }
 
 // The model of Substrate specific fields of transaction
@@ -553,8 +554,8 @@ message XdcSpecific {
   uint64 gas_limit = 1;
   uint64 nonce = 2;
   bool is_next_nonce = 3;
-  //  string from_address = 4;
-  //  string token_address = 5;
+  string from_address = 4;
+  string token_address = 5;
 }
 
 // The model of Cosmos specific fields of transaction
@@ -563,6 +564,16 @@ message CosmosSpecific {
   uint64 nonce = 2;
   bool is_next_nonce = 3;
   gincoinc.global.v1.CosmosMsgType type = 4;
+  string memo = 5;
+  double gas_adjustment = 6;
+}
+
+// The model of Babylon specific fields of transaction
+message BabylonSpecific {
+  uint64 gas_limit = 1;
+  uint64 nonce = 2;
+  bool is_next_nonce = 3;
+  gincoinc.global.v1.BabylonMsgType type = 4;
   string memo = 5;
   double gas_adjustment = 6;
 }
@@ -750,6 +761,12 @@ message CreateTransactionEthereumSpecific {
 // The model of Cosmos specific fields of CreateTransaction
 message CreateTransactionCosmosSpecific {
   gincoinc.global.v1.CosmosMsgType type = 1;
+  string memo = 2;
+}
+
+// The model of Babylon specific fields of CreateTransaction
+message CreateTransactionBabylonSpecific {
+  gincoinc.global.v1.BabylonMsgType type = 1;
   string memo = 2;
 }
 

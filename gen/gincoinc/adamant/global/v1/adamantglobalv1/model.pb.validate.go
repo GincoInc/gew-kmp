@@ -3644,6 +3644,35 @@ func (m *Transaction) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetBabylonSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "BabylonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "BabylonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetBabylonSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "BabylonSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return TransactionMultiError(errors)
 	}
@@ -7144,6 +7173,14 @@ func (m *KlaytnSpecific) validate(all bool) error {
 
 	// no validation rules for IsNextNonce
 
+	// no validation rules for Data
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
+	// no validation rules for ChainId
+
 	if len(errors) > 0 {
 		return KlaytnSpecificMultiError(errors)
 	}
@@ -7651,6 +7688,10 @@ func (m *XdcSpecific) validate(all bool) error {
 
 	// no validation rules for IsNextNonce
 
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
 	if len(errors) > 0 {
 		return XdcSpecificMultiError(errors)
 	}
@@ -7839,6 +7880,118 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CosmosSpecificValidationError{}
+
+// Validate checks the field values on BabylonSpecific with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *BabylonSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on BabylonSpecific with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// BabylonSpecificMultiError, or nil if none found.
+func (m *BabylonSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *BabylonSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	// no validation rules for Type
+
+	// no validation rules for Memo
+
+	// no validation rules for GasAdjustment
+
+	if len(errors) > 0 {
+		return BabylonSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// BabylonSpecificMultiError is an error wrapping multiple validation errors
+// returned by BabylonSpecific.ValidateAll() if the designated constraints
+// aren't met.
+type BabylonSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m BabylonSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m BabylonSpecificMultiError) AllErrors() []error { return m }
+
+// BabylonSpecificValidationError is the validation error returned by
+// BabylonSpecific.Validate if the designated constraints aren't met.
+type BabylonSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e BabylonSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e BabylonSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e BabylonSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e BabylonSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e BabylonSpecificValidationError) ErrorName() string { return "BabylonSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e BabylonSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sBabylonSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = BabylonSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = BabylonSpecificValidationError{}
 
 // Validate checks the field values on EthereumClassicSpecific with the rules
 // defined in the proto definition for this message. If any rules are
@@ -10509,6 +10662,115 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CreateTransactionCosmosSpecificValidationError{}
+
+// Validate checks the field values on CreateTransactionBabylonSpecific with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *CreateTransactionBabylonSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreateTransactionBabylonSpecific with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// CreateTransactionBabylonSpecificMultiError, or nil if none found.
+func (m *CreateTransactionBabylonSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateTransactionBabylonSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Type
+
+	// no validation rules for Memo
+
+	if len(errors) > 0 {
+		return CreateTransactionBabylonSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreateTransactionBabylonSpecificMultiError is an error wrapping multiple
+// validation errors returned by
+// CreateTransactionBabylonSpecific.ValidateAll() if the designated
+// constraints aren't met.
+type CreateTransactionBabylonSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionBabylonSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionBabylonSpecificMultiError) AllErrors() []error { return m }
+
+// CreateTransactionBabylonSpecificValidationError is the validation error
+// returned by CreateTransactionBabylonSpecific.Validate if the designated
+// constraints aren't met.
+type CreateTransactionBabylonSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionBabylonSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionBabylonSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionBabylonSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionBabylonSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionBabylonSpecificValidationError) ErrorName() string {
+	return "CreateTransactionBabylonSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionBabylonSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionBabylonSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionBabylonSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionBabylonSpecificValidationError{}
 
 // Validate checks the field values on CreateTransactionAlgorandSpecific with
 // the rules defined in the proto definition for this message. If any rules

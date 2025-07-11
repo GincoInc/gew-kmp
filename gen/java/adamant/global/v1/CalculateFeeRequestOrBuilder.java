@@ -258,4 +258,19 @@ public interface CalculateFeeRequestOrBuilder extends
    * <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
    */
   adamant.global.v1.CalculateFeeTonSpecificOrBuilder getTonSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+   * @return Whether the babylonSpecific field is set.
+   */
+  boolean hasBabylonSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+   * @return The babylonSpecific.
+   */
+  adamant.global.v1.CalculateFeeBabylonSpecific getBabylonSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+   */
+  adamant.global.v1.CalculateFeeBabylonSpecificOrBuilder getBabylonSpecificOrBuilder();
 }

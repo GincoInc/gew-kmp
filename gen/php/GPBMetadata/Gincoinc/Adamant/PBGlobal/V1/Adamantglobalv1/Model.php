@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-º—
+ö÷
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"é	
 Wallet
 owner_id (	RownerId
@@ -234,7 +234,7 @@ createTime;
 updateTime"S
 PreTransactionDetail
 address (	Raddress!
-string_value (	RstringValue"‡
+string_value (	RstringValue"Ø
 Transaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId,
@@ -291,7 +291,8 @@ updateTimeP
 !avalanche_platform_chain_specific3 (21.adamant.global.v1.AvalanchePlatformChainSpecificRavalanchePlatformChainSpecificJ
 quorum_specific4 (2!.adamant.global.v1.QuorumSpecificRquorumSpecificA
 ton_specific5 (2.adamant.global.v1.TonSpecificRtonSpecificA
-sui_specific6 (2.adamant.global.v1.SuiSpecificRsuiSpecific"±
+sui_specific6 (2.adamant.global.v1.SuiSpecificRsuiSpecificM
+babylon_specific7 (2".adamant.global.v1.BabylonSpecificRbabylonSpecific"±
 UnconfirmedTransaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionId
@@ -453,11 +454,15 @@ expiration5
 data (	Rdata!
 from_address (	RfromAddress#
 token_address (	RtokenAddress
-chain_id (RchainId"g
+chain_id (RchainId"ﬁ
 KlaytnSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
-is_next_nonce (RisNextNonce"ú
+is_next_nonce (RisNextNonce
+data (	Rdata!
+from_address (	RfromAddress#
+token_address (	RtokenAddress
+chain_id (RchainId"ú
 SymbolSpecific
 message (	RmessageB
 tx_type (2).gincoinc.global.v1.SymbolTransactionTypeRtxTypen
@@ -482,16 +487,25 @@ expiration
 is_next_nonce (RisNextNonce!
 from_address (	RfromAddress#
 token_address (	RtokenAddress
-chain_id (RchainId"d
+chain_id (RchainId"¨
 XdcSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
-is_next_nonce (RisNextNonce"Ÿ
+is_next_nonce (RisNextNonce!
+from_address (	RfromAddress#
+token_address (	RtokenAddress"Ÿ
 CosmosSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
 is_next_nonce (RisNextNonce5
 type (2!.gincoinc.global.v1.CosmosMsgTypeRtype
+memo (	Rmemo%
+gas_adjustment (RgasAdjustment"€
+BabylonSpecific
+	gas_limit (RgasLimit
+nonce (Rnonce"
+is_next_nonce (RisNextNonce6
+type (2".gincoinc.global.v1.BabylonMsgTypeRtype
 memo (	Rmemo%
 gas_adjustment (RgasAdjustment"p
 EthereumClassicSpecific
@@ -639,6 +653,9 @@ callMethodà(
 _utils_address"l
 CreateTransactionCosmosSpecific5
 type (2!.gincoinc.global.v1.CosmosMsgTypeRtype
+memo (	Rmemo"n
+ CreateTransactionBabylonSpecific6
+type (2".gincoinc.global.v1.BabylonMsgTypeRtype
 memo (	Rmemo"A
 !CreateTransactionAlgorandSpecific
 	timestamp (R	timestamp"S

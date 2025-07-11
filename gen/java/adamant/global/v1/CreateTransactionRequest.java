@@ -651,6 +651,32 @@ private static final long serialVersionUID = 0L;
     return suiSpecific_ == null ? adamant.global.v1.Model.CreateTransactionSuiSpecific.getDefaultInstance() : suiSpecific_;
   }
 
+  public static final int BABYLON_SPECIFIC_FIELD_NUMBER = 25;
+  private adamant.global.v1.Model.CreateTransactionBabylonSpecific babylonSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionBabylonSpecific babylon_specific = 25 [json_name = "babylonSpecific"];</code>
+   * @return Whether the babylonSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasBabylonSpecific() {
+    return babylonSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionBabylonSpecific babylon_specific = 25 [json_name = "babylonSpecific"];</code>
+   * @return The babylonSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionBabylonSpecific getBabylonSpecific() {
+    return babylonSpecific_ == null ? adamant.global.v1.Model.CreateTransactionBabylonSpecific.getDefaultInstance() : babylonSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionBabylonSpecific babylon_specific = 25 [json_name = "babylonSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionBabylonSpecificOrBuilder getBabylonSpecificOrBuilder() {
+    return babylonSpecific_ == null ? adamant.global.v1.Model.CreateTransactionBabylonSpecific.getDefaultInstance() : babylonSpecific_;
+  }
+
   public static final int PRE_TRANSACTION_ID_FIELD_NUMBER = 21;
   @SuppressWarnings("serial")
   private volatile java.lang.Object preTransactionId_ = "";
@@ -784,6 +810,9 @@ private static final long serialVersionUID = 0L;
     if (suiSpecific_ != null) {
       output.writeMessage(24, getSuiSpecific());
     }
+    if (babylonSpecific_ != null) {
+      output.writeMessage(25, getBabylonSpecific());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -884,6 +913,10 @@ private static final long serialVersionUID = 0L;
     if (suiSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(24, getSuiSpecific());
+    }
+    if (babylonSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(25, getBabylonSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -994,6 +1027,11 @@ private static final long serialVersionUID = 0L;
       if (!getSuiSpecific()
           .equals(other.getSuiSpecific())) return false;
     }
+    if (hasBabylonSpecific() != other.hasBabylonSpecific()) return false;
+    if (hasBabylonSpecific()) {
+      if (!getBabylonSpecific()
+          .equals(other.getBabylonSpecific())) return false;
+    }
     if (hasPreTransactionId() != other.hasPreTransactionId()) return false;
     if (hasPreTransactionId()) {
       if (!getPreTransactionId()
@@ -1091,6 +1129,10 @@ private static final long serialVersionUID = 0L;
     if (hasSuiSpecific()) {
       hash = (37 * hash) + SUI_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getSuiSpecific().hashCode();
+    }
+    if (hasBabylonSpecific()) {
+      hash = (37 * hash) + BABYLON_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getBabylonSpecific().hashCode();
     }
     if (hasPreTransactionId()) {
       hash = (37 * hash) + PRE_TRANSACTION_ID_FIELD_NUMBER;
@@ -1320,6 +1362,11 @@ private static final long serialVersionUID = 0L;
         suiSpecificBuilder_.dispose();
         suiSpecificBuilder_ = null;
       }
+      babylonSpecific_ = null;
+      if (babylonSpecificBuilder_ != null) {
+        babylonSpecificBuilder_.dispose();
+        babylonSpecificBuilder_ = null;
+      }
       preTransactionId_ = "";
       return this;
     }
@@ -1465,8 +1512,13 @@ private static final long serialVersionUID = 0L;
             ? suiSpecific_
             : suiSpecificBuilder_.build();
       }
-      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00800000) != 0)) {
+        result.babylonSpecific_ = babylonSpecificBuilder_ == null
+            ? babylonSpecific_
+            : babylonSpecificBuilder_.build();
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x01000000) != 0)) {
         result.preTransactionId_ = preTransactionId_;
         to_bitField0_ |= 0x00000001;
       }
@@ -1615,9 +1667,12 @@ private static final long serialVersionUID = 0L;
       if (other.hasSuiSpecific()) {
         mergeSuiSpecific(other.getSuiSpecific());
       }
+      if (other.hasBabylonSpecific()) {
+        mergeBabylonSpecific(other.getBabylonSpecific());
+      }
       if (other.hasPreTransactionId()) {
         preTransactionId_ = other.preTransactionId_;
-        bitField0_ |= 0x00800000;
+        bitField0_ |= 0x01000000;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -1782,7 +1837,7 @@ private static final long serialVersionUID = 0L;
             } // case 162
             case 170: {
               preTransactionId_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00800000;
+              bitField0_ |= 0x01000000;
               break;
             } // case 170
             case 178: {
@@ -1806,6 +1861,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00400000;
               break;
             } // case 194
+            case 202: {
+              input.readMessage(
+                  getBabylonSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00800000;
+              break;
+            } // case 202
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -4279,13 +4341,132 @@ private static final long serialVersionUID = 0L;
       return suiSpecificBuilder_;
     }
 
+    private adamant.global.v1.Model.CreateTransactionBabylonSpecific babylonSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionBabylonSpecific, adamant.global.v1.Model.CreateTransactionBabylonSpecific.Builder, adamant.global.v1.Model.CreateTransactionBabylonSpecificOrBuilder> babylonSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBabylonSpecific babylon_specific = 25 [json_name = "babylonSpecific"];</code>
+     * @return Whether the babylonSpecific field is set.
+     */
+    public boolean hasBabylonSpecific() {
+      return ((bitField0_ & 0x00800000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBabylonSpecific babylon_specific = 25 [json_name = "babylonSpecific"];</code>
+     * @return The babylonSpecific.
+     */
+    public adamant.global.v1.Model.CreateTransactionBabylonSpecific getBabylonSpecific() {
+      if (babylonSpecificBuilder_ == null) {
+        return babylonSpecific_ == null ? adamant.global.v1.Model.CreateTransactionBabylonSpecific.getDefaultInstance() : babylonSpecific_;
+      } else {
+        return babylonSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBabylonSpecific babylon_specific = 25 [json_name = "babylonSpecific"];</code>
+     */
+    public Builder setBabylonSpecific(adamant.global.v1.Model.CreateTransactionBabylonSpecific value) {
+      if (babylonSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        babylonSpecific_ = value;
+      } else {
+        babylonSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00800000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBabylonSpecific babylon_specific = 25 [json_name = "babylonSpecific"];</code>
+     */
+    public Builder setBabylonSpecific(
+        adamant.global.v1.Model.CreateTransactionBabylonSpecific.Builder builderForValue) {
+      if (babylonSpecificBuilder_ == null) {
+        babylonSpecific_ = builderForValue.build();
+      } else {
+        babylonSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00800000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBabylonSpecific babylon_specific = 25 [json_name = "babylonSpecific"];</code>
+     */
+    public Builder mergeBabylonSpecific(adamant.global.v1.Model.CreateTransactionBabylonSpecific value) {
+      if (babylonSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00800000) != 0) &&
+          babylonSpecific_ != null &&
+          babylonSpecific_ != adamant.global.v1.Model.CreateTransactionBabylonSpecific.getDefaultInstance()) {
+          getBabylonSpecificBuilder().mergeFrom(value);
+        } else {
+          babylonSpecific_ = value;
+        }
+      } else {
+        babylonSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00800000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBabylonSpecific babylon_specific = 25 [json_name = "babylonSpecific"];</code>
+     */
+    public Builder clearBabylonSpecific() {
+      bitField0_ = (bitField0_ & ~0x00800000);
+      babylonSpecific_ = null;
+      if (babylonSpecificBuilder_ != null) {
+        babylonSpecificBuilder_.dispose();
+        babylonSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBabylonSpecific babylon_specific = 25 [json_name = "babylonSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionBabylonSpecific.Builder getBabylonSpecificBuilder() {
+      bitField0_ |= 0x00800000;
+      onChanged();
+      return getBabylonSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBabylonSpecific babylon_specific = 25 [json_name = "babylonSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionBabylonSpecificOrBuilder getBabylonSpecificOrBuilder() {
+      if (babylonSpecificBuilder_ != null) {
+        return babylonSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return babylonSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionBabylonSpecific.getDefaultInstance() : babylonSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBabylonSpecific babylon_specific = 25 [json_name = "babylonSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionBabylonSpecific, adamant.global.v1.Model.CreateTransactionBabylonSpecific.Builder, adamant.global.v1.Model.CreateTransactionBabylonSpecificOrBuilder> 
+        getBabylonSpecificFieldBuilder() {
+      if (babylonSpecificBuilder_ == null) {
+        babylonSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionBabylonSpecific, adamant.global.v1.Model.CreateTransactionBabylonSpecific.Builder, adamant.global.v1.Model.CreateTransactionBabylonSpecificOrBuilder>(
+                getBabylonSpecific(),
+                getParentForChildren(),
+                isClean());
+        babylonSpecific_ = null;
+      }
+      return babylonSpecificBuilder_;
+    }
+
     private java.lang.Object preTransactionId_ = "";
     /**
      * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
      * @return Whether the preTransactionId field is set.
      */
     public boolean hasPreTransactionId() {
-      return ((bitField0_ & 0x00800000) != 0);
+      return ((bitField0_ & 0x01000000) != 0);
     }
     /**
      * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
@@ -4329,7 +4510,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       preTransactionId_ = value;
-      bitField0_ |= 0x00800000;
+      bitField0_ |= 0x01000000;
       onChanged();
       return this;
     }
@@ -4339,7 +4520,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPreTransactionId() {
       preTransactionId_ = getDefaultInstance().getPreTransactionId();
-      bitField0_ = (bitField0_ & ~0x00800000);
+      bitField0_ = (bitField0_ & ~0x01000000);
       onChanged();
       return this;
     }
@@ -4353,7 +4534,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       preTransactionId_ = value;
-      bitField0_ |= 0x00800000;
+      bitField0_ |= 0x01000000;
       onChanged();
       return this;
     }

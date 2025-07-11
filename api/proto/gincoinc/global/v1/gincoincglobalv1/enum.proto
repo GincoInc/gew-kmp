@@ -96,6 +96,7 @@ enum Coin {
   COIN_SUI = 79;
   COIN_TON = 80;
   COIN_SOLANA_TOKEN_USDC = 81;
+  COIN_BABY = 82;
   COIN_SDN = 10002;
   COIN_ERC20_SCDEV = 10003; // for stable coin development in dev
   COIN_ERC20_SCQA = 10004; // for stable coin development in qa
@@ -151,7 +152,8 @@ enum Coin {
 enum Network {
   NETWORK_INVALID = 0;
   NETWORK_BITCOIN_MAINNET = 1;
-  NETWORK_BITCOIN_TESTNET = 2;
+  NETWORK_BITCOIN_TESTNET = 2; // Testnet3
+  NETWORK_BITCOIN_TESTNET_2 = 75; // Signet
   NETWORK_ETHEREUM_MAINNET = 3;
   NETWORK_ETHEREUM_TESTNET = 4; // Sepolia
   NETWORK_ETHEREUM_TESTNET_2 = 59; // Holesky
@@ -222,6 +224,8 @@ enum Network {
   NETWORK_SUI_TESTNET = 69;
   NETWORK_TON_MAINNET = 70;
   NETWORK_TON_TESTNET = 71;
+  NETWORK_BABYLON_MAINNET = 73;
+  NETWORK_BABYLON_TESTNET = 74;
   NETWORK_SHIDEN_MAINNET = 10002;
 }
 
@@ -231,6 +235,7 @@ enum AddressType {
   ADDRESS_TYPE_P2SH = 1; // Pay to Script Hash
   ADDRESS_TYPE_P2SH_P2WSH = 2; // Pay to Witness Script Hash nested P2SH
   ADDRESS_TYPE_P2WSH = 3; // Pay to Witness Script Hash
+  ADDRESS_TYPE_P2TR = 4; // Pay to Taproot
   ADDRESS_TYPE_NONE = 100; // For ETH/XRP
 }
 
@@ -349,6 +354,11 @@ enum CosmosMsgType {
   COSMOS_MSG_TYPE_UNDELEGATE = 3;
   COSMOS_MSG_TYPE_UNBONDED = 4;
   COSMOS_MSG_TYPE_WITHDRAW_DELEGATOR_REWARD = 5;
+}
+
+enum BabylonMsgType {
+  BABYLON_MSG_TYPE_INVALID = 0;
+  BABYLON_MSG_TYPE_SEND = 1;
 }
 
 enum StakingValidatorStatus {

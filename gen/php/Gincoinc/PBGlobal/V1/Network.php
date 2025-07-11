@@ -22,9 +22,17 @@ class Network
      */
     const NETWORK_BITCOIN_MAINNET = 1;
     /**
+     * Testnet3
+     *
      * Generated from protobuf enum <code>NETWORK_BITCOIN_TESTNET = 2;</code>
      */
     const NETWORK_BITCOIN_TESTNET = 2;
+    /**
+     * Signet
+     *
+     * Generated from protobuf enum <code>NETWORK_BITCOIN_TESTNET_2 = 75;</code>
+     */
+    const NETWORK_BITCOIN_TESTNET_2 = 75;
     /**
      * Generated from protobuf enum <code>NETWORK_ETHEREUM_MAINNET = 3;</code>
      */
@@ -312,6 +320,14 @@ class Network
      */
     const NETWORK_TON_TESTNET = 71;
     /**
+     * Generated from protobuf enum <code>NETWORK_BABYLON_MAINNET = 73;</code>
+     */
+    const NETWORK_BABYLON_MAINNET = 73;
+    /**
+     * Generated from protobuf enum <code>NETWORK_BABYLON_TESTNET = 74;</code>
+     */
+    const NETWORK_BABYLON_TESTNET = 74;
+    /**
      * Generated from protobuf enum <code>NETWORK_SHIDEN_MAINNET = 10002;</code>
      */
     const NETWORK_SHIDEN_MAINNET = 10002;
@@ -320,6 +336,7 @@ class Network
         self::NETWORK_INVALID => 'NETWORK_INVALID',
         self::NETWORK_BITCOIN_MAINNET => 'NETWORK_BITCOIN_MAINNET',
         self::NETWORK_BITCOIN_TESTNET => 'NETWORK_BITCOIN_TESTNET',
+        self::NETWORK_BITCOIN_TESTNET_2 => 'NETWORK_BITCOIN_TESTNET_2',
         self::NETWORK_ETHEREUM_MAINNET => 'NETWORK_ETHEREUM_MAINNET',
         self::NETWORK_ETHEREUM_TESTNET => 'NETWORK_ETHEREUM_TESTNET',
         self::NETWORK_ETHEREUM_TESTNET_2 => 'NETWORK_ETHEREUM_TESTNET_2',
@@ -390,6 +407,8 @@ class Network
         self::NETWORK_SUI_TESTNET => 'NETWORK_SUI_TESTNET',
         self::NETWORK_TON_MAINNET => 'NETWORK_TON_MAINNET',
         self::NETWORK_TON_TESTNET => 'NETWORK_TON_TESTNET',
+        self::NETWORK_BABYLON_MAINNET => 'NETWORK_BABYLON_MAINNET',
+        self::NETWORK_BABYLON_TESTNET => 'NETWORK_BABYLON_TESTNET',
         self::NETWORK_SHIDEN_MAINNET => 'NETWORK_SHIDEN_MAINNET',
     ];
 
