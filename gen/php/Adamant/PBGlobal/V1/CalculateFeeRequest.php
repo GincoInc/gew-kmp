@@ -85,6 +85,10 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeTonSpecific ton_specific = 18 [json_name = "tonSpecific"];</code>
      */
     protected $ton_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+     */
+    protected $babylon_specific = null;
 
     /**
      * Constructor.
@@ -110,6 +114,7 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CalculateFeeAvalancheSpecific $avalanche_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeSuiSpecific $sui_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeTonSpecific $ton_specific
+     *     @type \Adamant\PBGlobal\V1\CalculateFeeBabylonSpecific $babylon_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -629,6 +634,38 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeTonSpecific::class);
         $this->ton_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CalculateFeeBabylonSpecific|null
+     */
+    public function getBabylonSpecific()
+    {
+        return $this->babylon_specific;
+    }
+
+    public function hasBabylonSpecific()
+    {
+        return isset($this->babylon_specific);
+    }
+
+    public function clearBabylonSpecific()
+    {
+        unset($this->babylon_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CalculateFeeBabylonSpecific $var
+     * @return $this
+     */
+    public function setBabylonSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeBabylonSpecific::class);
+        $this->babylon_specific = $var;
 
         return $this;
     }
