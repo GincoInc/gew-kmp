@@ -31,6 +31,18 @@ class IOSTSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.IOSTActionType type = 4 [json_name = "type"];</code>
      */
     protected $type = 0;
+    /**
+     * Generated from protobuf field <code>uint64 gas_limit = 5 [json_name = "gasLimit"];</code>
+     */
+    protected $gas_limit = 0;
+    /**
+     * Generated from protobuf field <code>uint64 chain_id = 6 [json_name = "chainId"];</code>
+     */
+    protected $chain_id = 0;
+    /**
+     * Generated from protobuf field <code>string from_address = 7 [json_name = "fromAddress"];</code>
+     */
+    protected $from_address = '';
 
     /**
      * Constructor.
@@ -42,6 +54,9 @@ class IOSTSpecific extends \Google\Protobuf\Internal\Message
      *     @type int|string $timestamp
      *     @type int|string $expiration
      *     @type int $type
+     *     @type int|string $gas_limit
+     *     @type int|string $chain_id
+     *     @type string $from_address
      * }
      */
     public function __construct($data = NULL) {
@@ -133,6 +148,72 @@ class IOSTSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Adamant\PBGlobal\V1\IOSTActionType::class);
         $this->type = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 gas_limit = 5 [json_name = "gasLimit"];</code>
+     * @return int|string
+     */
+    public function getGasLimit()
+    {
+        return $this->gas_limit;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 gas_limit = 5 [json_name = "gasLimit"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setGasLimit($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->gas_limit = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 chain_id = 6 [json_name = "chainId"];</code>
+     * @return int|string
+     */
+    public function getChainId()
+    {
+        return $this->chain_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 chain_id = 6 [json_name = "chainId"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setChainId($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->chain_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 7 [json_name = "fromAddress"];</code>
+     * @return string
+     */
+    public function getFromAddress()
+    {
+        return $this->from_address;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 7 [json_name = "fromAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setFromAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->from_address = $var;
 
         return $this;
     }

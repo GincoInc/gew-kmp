@@ -17,6 +17,22 @@ class SuiSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool send_all = 1 [json_name = "sendAll"];</code>
      */
     protected $send_all = false;
+    /**
+     * Generated from protobuf field <code>uint64 gas_price = 2 [json_name = "gasPrice"];</code>
+     */
+    protected $gas_price = 0;
+    /**
+     * Generated from protobuf field <code>uint64 gas_budget = 3 [json_name = "gasBudget"];</code>
+     */
+    protected $gas_budget = 0;
+    /**
+     * Generated from protobuf field <code>string from_address = 4 [json_name = "fromAddress"];</code>
+     */
+    protected $from_address = '';
+    /**
+     * Generated from protobuf field <code>repeated .adamant.global.v1.SuiObject objects = 5 [json_name = "objects"];</code>
+     */
+    private $objects;
 
     /**
      * Constructor.
@@ -25,6 +41,10 @@ class SuiSpecific extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type bool $send_all
+     *     @type int|string $gas_price
+     *     @type int|string $gas_budget
+     *     @type string $from_address
+     *     @type array<\Adamant\PBGlobal\V1\SuiObject>|\Google\Protobuf\Internal\RepeatedField $objects
      * }
      */
     public function __construct($data = NULL) {
@@ -50,6 +70,94 @@ class SuiSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->send_all = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 gas_price = 2 [json_name = "gasPrice"];</code>
+     * @return int|string
+     */
+    public function getGasPrice()
+    {
+        return $this->gas_price;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 gas_price = 2 [json_name = "gasPrice"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setGasPrice($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->gas_price = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 gas_budget = 3 [json_name = "gasBudget"];</code>
+     * @return int|string
+     */
+    public function getGasBudget()
+    {
+        return $this->gas_budget;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 gas_budget = 3 [json_name = "gasBudget"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setGasBudget($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->gas_budget = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 4 [json_name = "fromAddress"];</code>
+     * @return string
+     */
+    public function getFromAddress()
+    {
+        return $this->from_address;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 4 [json_name = "fromAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setFromAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->from_address = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .adamant.global.v1.SuiObject objects = 5 [json_name = "objects"];</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
+     */
+    public function getObjects()
+    {
+        return $this->objects;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .adamant.global.v1.SuiObject objects = 5 [json_name = "objects"];</code>
+     * @param array<\Adamant\PBGlobal\V1\SuiObject>|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
+     */
+    public function setObjects($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Adamant\PBGlobal\V1\SuiObject::class);
+        $this->objects = $arr;
 
         return $this;
     }

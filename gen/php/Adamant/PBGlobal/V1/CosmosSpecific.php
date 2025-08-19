@@ -39,6 +39,24 @@ class CosmosSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>double gas_adjustment = 6 [json_name = "gasAdjustment"];</code>
      */
     protected $gas_adjustment = 0.0;
+    /**
+     * The account number in Cosmos blockchain
+     *
+     * Generated from protobuf field <code>uint64 account_number = 7 [json_name = "accountNumber"];</code>
+     */
+    protected $account_number = 0;
+    /**
+     * The chain ID in Cosmos blockchain
+     *
+     * Generated from protobuf field <code>string chain_id = 8 [json_name = "chainId"];</code>
+     */
+    protected $chain_id = '';
+    /**
+     * The sender address in Cosmos blockchain
+     *
+     * Generated from protobuf field <code>string from_address = 9 [json_name = "fromAddress"];</code>
+     */
+    protected $from_address = '';
 
     /**
      * Constructor.
@@ -52,6 +70,12 @@ class CosmosSpecific extends \Google\Protobuf\Internal\Message
      *     @type int $type
      *     @type string $memo
      *     @type float $gas_adjustment
+     *     @type int|string $account_number
+     *           The account number in Cosmos blockchain
+     *     @type string $chain_id
+     *           The chain ID in Cosmos blockchain
+     *     @type string $from_address
+     *           The sender address in Cosmos blockchain
      * }
      */
     public function __construct($data = NULL) {
@@ -187,6 +211,84 @@ class CosmosSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkDouble($var);
         $this->gas_adjustment = $var;
+
+        return $this;
+    }
+
+    /**
+     * The account number in Cosmos blockchain
+     *
+     * Generated from protobuf field <code>uint64 account_number = 7 [json_name = "accountNumber"];</code>
+     * @return int|string
+     */
+    public function getAccountNumber()
+    {
+        return $this->account_number;
+    }
+
+    /**
+     * The account number in Cosmos blockchain
+     *
+     * Generated from protobuf field <code>uint64 account_number = 7 [json_name = "accountNumber"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setAccountNumber($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->account_number = $var;
+
+        return $this;
+    }
+
+    /**
+     * The chain ID in Cosmos blockchain
+     *
+     * Generated from protobuf field <code>string chain_id = 8 [json_name = "chainId"];</code>
+     * @return string
+     */
+    public function getChainId()
+    {
+        return $this->chain_id;
+    }
+
+    /**
+     * The chain ID in Cosmos blockchain
+     *
+     * Generated from protobuf field <code>string chain_id = 8 [json_name = "chainId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setChainId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->chain_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * The sender address in Cosmos blockchain
+     *
+     * Generated from protobuf field <code>string from_address = 9 [json_name = "fromAddress"];</code>
+     * @return string
+     */
+    public function getFromAddress()
+    {
+        return $this->from_address;
+    }
+
+    /**
+     * The sender address in Cosmos blockchain
+     *
+     * Generated from protobuf field <code>string from_address = 9 [json_name = "fromAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setFromAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->from_address = $var;
 
         return $this;
     }
