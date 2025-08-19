@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-ö÷
+«⁄
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"é	
 Wallet
 owner_id (	RownerId
@@ -405,11 +405,13 @@ expiration
 C0banSpecific7
 	tx_inputs (2.adamant.global.v1.TxInputRtxInputs:
 
-tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"í
+tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"–
 StellarSpecific+
 sequence_number (B0RsequenceNumber
 memo_id (B0RmemoId5
-is_next_sequence_number (RisNextSequenceNumber"≈
+is_next_sequence_number (RisNextSequenceNumber
+base_fee (RbaseFee!
+from_address (	RfromAddress"≈
 CardanoSpecific7
 	tx_inputs (2.adamant.global.v1.TxInputRtxInputs:
 
@@ -439,14 +441,17 @@ tx_outputs (2.adamant.global.v1.TxOutputR	txOutputs"ç
 
 expiration (R
 expiration
-	timestamp (R	timestamp"ó
+	timestamp (R	timestamp"Ú
 IOSTSpecific
 memo (	Rmemo
 	timestamp (R	timestamp
 
 expiration (R
 expiration5
-type (2!.adamant.global.v1.IOSTActionTypeRtype"ﬂ
+type (2!.adamant.global.v1.IOSTActionTypeRtype
+	gas_limit (RgasLimit
+chain_id (RchainId!
+from_address (	RfromAddress"ﬂ
 PolygonSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
@@ -493,14 +498,17 @@ expiration
 nonce (Rnonce"
 is_next_nonce (RisNextNonce!
 from_address (	RfromAddress#
-token_address (	RtokenAddress"Ÿ
+token_address (	RtokenAddress"æ
 CosmosSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
 is_next_nonce (RisNextNonce5
 type (2!.gincoinc.global.v1.CosmosMsgTypeRtype
 memo (	Rmemo%
-gas_adjustment (RgasAdjustment"€
+gas_adjustment (RgasAdjustment%
+account_number (RaccountNumber
+chain_id (	RchainId!
+from_address	 (	RfromAddress"€
 BabylonSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
@@ -583,7 +591,7 @@ tx_outputs (2$.adamant.global.v1.AvalancheTxOutputR	txOutputs"ü
 tx_outputs (2$.adamant.global.v1.AvalancheTxOutputR	txOutputs
 
 start_time (R	startTime
-end_time (RendTime"ƒ
+end_time (RendTime"ˇ
 TonSpecific
 
 expiration (R
@@ -591,9 +599,22 @@ expiration
 memo (	Rmemo\'
 sequence_number (RsequenceNumber!
 from_address (	RfromAddress5
-is_next_sequence_number (RisNextSequenceNumber"(
+is_next_sequence_number (RisNextSequenceNumber
+send_all (RsendAll
+
+bounceable (R
+bounceable"ø
 SuiSpecific
-send_all (RsendAll"‘
+send_all (RsendAll
+	gas_price (RgasPrice
+
+gas_budget (R	gasBudget!
+from_address (	RfromAddress6
+objects (2.adamant.global.v1.SuiObjectRobjects"Z
+	SuiObject
+	object_id (	RobjectId
+version (	Rversion
+digest (	Rdigest"‘
 AvalancheTxInput
 tx_id (	RtxId
 input_index (R

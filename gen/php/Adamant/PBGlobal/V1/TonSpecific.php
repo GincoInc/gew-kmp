@@ -33,6 +33,14 @@ class TonSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool is_next_sequence_number = 5 [json_name = "isNextSequenceNumber"];</code>
      */
     protected $is_next_sequence_number = false;
+    /**
+     * Generated from protobuf field <code>bool send_all = 6 [json_name = "sendAll"];</code>
+     */
+    protected $send_all = false;
+    /**
+     * Generated from protobuf field <code>bool bounceable = 7 [json_name = "bounceable"];</code>
+     */
+    protected $bounceable = false;
 
     /**
      * Constructor.
@@ -45,6 +53,8 @@ class TonSpecific extends \Google\Protobuf\Internal\Message
      *     @type int $sequence_number
      *     @type string $from_address
      *     @type bool $is_next_sequence_number
+     *     @type bool $send_all
+     *     @type bool $bounceable
      * }
      */
     public function __construct($data = NULL) {
@@ -158,6 +168,50 @@ class TonSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->is_next_sequence_number = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool send_all = 6 [json_name = "sendAll"];</code>
+     * @return bool
+     */
+    public function getSendAll()
+    {
+        return $this->send_all;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool send_all = 6 [json_name = "sendAll"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setSendAll($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->send_all = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool bounceable = 7 [json_name = "bounceable"];</code>
+     * @return bool
+     */
+    public function getBounceable()
+    {
+        return $this->bounceable;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool bounceable = 7 [json_name = "bounceable"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setBounceable($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->bounceable = $var;
 
         return $this;
     }

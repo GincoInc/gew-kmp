@@ -27,6 +27,14 @@ class StellarSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool is_next_sequence_number = 3 [json_name = "isNextSequenceNumber"];</code>
      */
     protected $is_next_sequence_number = false;
+    /**
+     * Generated from protobuf field <code>uint32 base_fee = 4 [json_name = "baseFee"];</code>
+     */
+    protected $base_fee = 0;
+    /**
+     * Generated from protobuf field <code>string from_address = 5 [json_name = "fromAddress"];</code>
+     */
+    protected $from_address = '';
 
     /**
      * Constructor.
@@ -37,6 +45,8 @@ class StellarSpecific extends \Google\Protobuf\Internal\Message
      *     @type int|string $sequence_number
      *     @type int|string $memo_id
      *     @type bool $is_next_sequence_number
+     *     @type int $base_fee
+     *     @type string $from_address
      * }
      */
     public function __construct($data = NULL) {
@@ -106,6 +116,50 @@ class StellarSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->is_next_sequence_number = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 base_fee = 4 [json_name = "baseFee"];</code>
+     * @return int
+     */
+    public function getBaseFee()
+    {
+        return $this->base_fee;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 base_fee = 4 [json_name = "baseFee"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setBaseFee($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->base_fee = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 5 [json_name = "fromAddress"];</code>
+     * @return string
+     */
+    public function getFromAddress()
+    {
+        return $this->from_address;
+    }
+
+    /**
+     * Generated from protobuf field <code>string from_address = 5 [json_name = "fromAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setFromAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->from_address = $var;
 
         return $this;
     }

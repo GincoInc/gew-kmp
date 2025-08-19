@@ -448,6 +448,8 @@ message StellarSpecific {
   int64 sequence_number = 1 [jstype = JS_STRING];
   uint64 memo_id = 2 [jstype = JS_STRING];
   bool is_next_sequence_number = 3;
+  uint32 base_fee = 4;
+  string from_address = 5;
 }
 
 // The model of Cardano specific fields of transaction
@@ -493,6 +495,9 @@ message IOSTSpecific {
   uint64 timestamp = 2;
   uint64 expiration = 3;
   adamant.global.v1.IOSTActionType type = 4;
+  uint64 gas_limit = 5;
+  uint64 chain_id = 6;
+  string from_address = 7;
 }
 
 // The model of Polygon specific fields of transaction
@@ -566,6 +571,9 @@ message CosmosSpecific {
   gincoinc.global.v1.CosmosMsgType type = 4;
   string memo = 5;
   double gas_adjustment = 6;
+  uint64 account_number = 7; // The account number in Cosmos blockchain
+  string chain_id = 8; // The chain ID in Cosmos blockchain
+  string from_address = 9; // The sender address in Cosmos blockchain
 }
 
 // The model of Babylon specific fields of transaction
@@ -676,10 +684,22 @@ message TonSpecific {
   uint32 sequence_number = 3;
   string from_address = 4;
   bool is_next_sequence_number = 5;
+  bool send_all = 6;
+  bool bounceable = 7;
 }
 
 message SuiSpecific {
   bool send_all = 1;
+  uint64 gas_price = 2;
+  uint64 gas_budget = 3;
+  string from_address = 4;
+  repeated SuiObject objects = 5;
+}
+
+message SuiObject {
+  string object_id = 1;
+  string version = 2;
+  string digest = 3;
 }
 
 message AvalancheTxInput {

@@ -67,6 +67,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.AvalanchePlatformChainSpecific.class)) return new AvalanchePlatformChainSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.TonSpecific.class)) return new TonSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SuiSpecific.class)) return new SuiSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.SuiObject.class)) return new SuiObjectValidator();
 		if (clazz.equals(adamant.global.v1.Model.AvalancheTxInput.class)) return new AvalancheTxInputValidator();
 		if (clazz.equals(adamant.global.v1.Model.AvalancheTxOutput.class)) return new AvalancheTxOutputValidator();
 		if (clazz.equals(adamant.global.v1.Model.QuorumSpecific.class)) return new QuorumSpecificValidator();
@@ -1805,6 +1806,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.StellarSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1813,6 +1818,10 @@ public class ModelValidator {
 	// no validation rules for MemoId
 
 	// no validation rules for IsNextSequenceNumber
+
+	// no validation rules for BaseFee
+
+	// no validation rules for FromAddress
 
 	
 	}
@@ -1981,6 +1990,12 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.IOSTSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1991,6 +2006,12 @@ public class ModelValidator {
 	// no validation rules for Expiration
 
 	// no validation rules for Type
+
+	// no validation rules for GasLimit
+
+	// no validation rules for ChainId
+
+	// no validation rules for FromAddress
 
 	
 	}
@@ -2232,6 +2253,12 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.CosmosSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2246,6 +2273,12 @@ public class ModelValidator {
 	// no validation rules for Memo
 
 	// no validation rules for GasAdjustment
+
+	// no validation rules for AccountNumber
+
+	// no validation rules for ChainId
+
+	// no validation rules for FromAddress
 
 	
 	}
@@ -2628,6 +2661,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.TonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2641,6 +2678,10 @@ public class ModelValidator {
 
 	// no validation rules for IsNextSequenceNumber
 
+	// no validation rules for SendAll
+
+	// no validation rules for Bounceable
+
 	
 	}
 }
@@ -2650,10 +2691,52 @@ public class ModelValidator {
 	public static class SuiSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SuiSpecific> {
 		
 	
+		
+	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.SuiSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for SendAll
+
+	// no validation rules for GasPrice
+
+	// no validation rules for GasBudget
+
+	// no validation rules for FromAddress
+
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getObjectsList(), item -> {
+				
+			// Validate objects
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+	
+	}
+}
+/**
+	 * Validates {@code SuiObject} protobuf objects.
+	 */
+	public static class SuiObjectValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SuiObject> {
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.SuiObject proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for ObjectId
+
+	// no validation rules for Version
+
+	// no validation rules for Digest
 
 	
 	}
