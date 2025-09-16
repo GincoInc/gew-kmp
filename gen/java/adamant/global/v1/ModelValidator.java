@@ -212,6 +212,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Wallet proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -280,6 +282,8 @@ public class ModelValidator {
 	
 			// Validate update_time
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	// no validation rules for BaseWalletId
+
 	
 	}
 }
@@ -287,6 +291,8 @@ public class ModelValidator {
 	 * Validates {@code WalletWithoutBalance} protobuf objects.
 	 */
 	public static class WalletWithoutBalanceValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.WalletWithoutBalance> {
+		
+	
 		
 	
 		
@@ -393,6 +399,8 @@ public class ModelValidator {
 	
 			// Validate update_time
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	// no validation rules for BaseWalletId
+
 	
 	}
 }

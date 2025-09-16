@@ -26,6 +26,7 @@ service TellerAPI {
   rpc ListStakingWalletsByFilter(adamant.global.v1.ListStakingWalletsByFilterRequest) returns (adamant.global.v1.ListStakingWalletsResponse) {}
   rpc ListNFTWalletsByFilter(adamant.global.v1.ListNFTWalletsByFilterRequest) returns (adamant.global.v1.ListNFTWalletsResponse) {}
   rpc ListBaseWallets(adamant.global.v1.ListBaseWalletsRequest) returns (adamant.global.v1.ListBaseWalletsResponse) {}
+  rpc ListWalletsByBaseWalletId(adamant.global.v1.ListWalletsByBaseWalletIdRequest) returns (adamant.global.v1.ListWalletsByBaseWalletIdResponse) {}
   rpc GetSpendableBalance(adamant.global.v1.GetSpendableBalanceRequest) returns (adamant.global.v1.GetSpendableBalanceResponse) {}
   rpc InitializeXRPWallet(InitializeXRPWalletRequest) returns (google.protobuf.Empty) {}
   rpc InitializeWallet(InitializeWalletRequest) returns (google.protobuf.Empty) {}

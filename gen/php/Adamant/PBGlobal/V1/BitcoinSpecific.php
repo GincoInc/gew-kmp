@@ -23,6 +23,14 @@ class BitcoinSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .adamant.global.v1.TxOutput tx_outputs = 2 [json_name = "txOutputs"];</code>
      */
     private $tx_outputs;
+    /**
+     * Generated from protobuf field <code>optional bool tweaked = 3 [json_name = "tweaked"];</code>
+     */
+    protected $tweaked = null;
+    /**
+     * Generated from protobuf field <code>optional bool is_schnorr = 4 [json_name = "isSchnorr"];</code>
+     */
+    protected $is_schnorr = null;
 
     /**
      * Constructor.
@@ -32,6 +40,8 @@ class BitcoinSpecific extends \Google\Protobuf\Internal\Message
      *
      *     @type array<\Adamant\PBGlobal\V1\TxInput>|\Google\Protobuf\Internal\RepeatedField $tx_inputs
      *     @type array<\Adamant\PBGlobal\V1\TxOutput>|\Google\Protobuf\Internal\RepeatedField $tx_outputs
+     *     @type bool $tweaked
+     *     @type bool $is_schnorr
      * }
      */
     public function __construct($data = NULL) {
@@ -79,6 +89,70 @@ class BitcoinSpecific extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Adamant\PBGlobal\V1\TxOutput::class);
         $this->tx_outputs = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional bool tweaked = 3 [json_name = "tweaked"];</code>
+     * @return bool
+     */
+    public function getTweaked()
+    {
+        return isset($this->tweaked) ? $this->tweaked : false;
+    }
+
+    public function hasTweaked()
+    {
+        return isset($this->tweaked);
+    }
+
+    public function clearTweaked()
+    {
+        unset($this->tweaked);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional bool tweaked = 3 [json_name = "tweaked"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setTweaked($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->tweaked = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional bool is_schnorr = 4 [json_name = "isSchnorr"];</code>
+     * @return bool
+     */
+    public function getIsSchnorr()
+    {
+        return isset($this->is_schnorr) ? $this->is_schnorr : false;
+    }
+
+    public function hasIsSchnorr()
+    {
+        return isset($this->is_schnorr);
+    }
+
+    public function clearIsSchnorr()
+    {
+        unset($this->is_schnorr);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional bool is_schnorr = 4 [json_name = "isSchnorr"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setIsSchnorr($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->is_schnorr = $var;
 
         return $this;
     }

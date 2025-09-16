@@ -44,6 +44,7 @@ message Wallet {
   bool is_staking_available = 26; // The flag indicating the wallet is available for staking
   google.protobuf.Timestamp create_time = 15; // the time at which the wallet was created
   google.protobuf.Timestamp update_time = 16; // the time at which the wallet was updated
+  string base_wallet_id = 28; // The wallet id of the EVM address sharing
 }
 
 message WalletWithoutBalance {
@@ -70,6 +71,7 @@ message WalletWithoutBalance {
   string inherit_wallet_id = 22;
   google.protobuf.Timestamp create_time = 17;
   google.protobuf.Timestamp update_time = 18;
+  string base_wallet_id = 24; // The wallet id of the EVM address sharing
 }
 
 // The staking wallet model
@@ -386,6 +388,8 @@ message CardanoCustomToken {
 message BitcoinSpecific {
   repeated TxInput tx_inputs = 1;
   repeated TxOutput tx_outputs = 2;
+  optional bool tweaked = 3;
+  optional bool is_schnorr = 4;
 }
 
 // The model of Litecoin specific fields of transaction

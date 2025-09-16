@@ -32,6 +32,7 @@ type TellerAPIClient interface {
 	ListStakingWalletsByFilter(ctx context.Context, in *adamantglobalv1.ListStakingWalletsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListStakingWalletsResponse, error)
 	ListNFTWalletsByFilter(ctx context.Context, in *adamantglobalv1.ListNFTWalletsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListNFTWalletsResponse, error)
 	ListBaseWallets(ctx context.Context, in *adamantglobalv1.ListBaseWalletsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListBaseWalletsResponse, error)
+	ListWalletsByBaseWalletId(ctx context.Context, in *adamantglobalv1.ListWalletsByBaseWalletIdRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListWalletsByBaseWalletIdResponse, error)
 	GetSpendableBalance(ctx context.Context, in *adamantglobalv1.GetSpendableBalanceRequest, opts ...grpc.CallOption) (*adamantglobalv1.GetSpendableBalanceResponse, error)
 	InitializeXRPWallet(ctx context.Context, in *InitializeXRPWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	InitializeWallet(ctx context.Context, in *InitializeWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -179,6 +180,15 @@ func (c *tellerAPIClient) ListNFTWalletsByFilter(ctx context.Context, in *adaman
 func (c *tellerAPIClient) ListBaseWallets(ctx context.Context, in *adamantglobalv1.ListBaseWalletsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListBaseWalletsResponse, error) {
 	out := new(adamantglobalv1.ListBaseWalletsResponse)
 	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListBaseWallets", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) ListWalletsByBaseWalletId(ctx context.Context, in *adamantglobalv1.ListWalletsByBaseWalletIdRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListWalletsByBaseWalletIdResponse, error) {
+	out := new(adamantglobalv1.ListWalletsByBaseWalletIdResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListWalletsByBaseWalletId", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -809,6 +819,7 @@ type TellerAPIServer interface {
 	ListStakingWalletsByFilter(context.Context, *adamantglobalv1.ListStakingWalletsByFilterRequest) (*adamantglobalv1.ListStakingWalletsResponse, error)
 	ListNFTWalletsByFilter(context.Context, *adamantglobalv1.ListNFTWalletsByFilterRequest) (*adamantglobalv1.ListNFTWalletsResponse, error)
 	ListBaseWallets(context.Context, *adamantglobalv1.ListBaseWalletsRequest) (*adamantglobalv1.ListBaseWalletsResponse, error)
+	ListWalletsByBaseWalletId(context.Context, *adamantglobalv1.ListWalletsByBaseWalletIdRequest) (*adamantglobalv1.ListWalletsByBaseWalletIdResponse, error)
 	GetSpendableBalance(context.Context, *adamantglobalv1.GetSpendableBalanceRequest) (*adamantglobalv1.GetSpendableBalanceResponse, error)
 	InitializeXRPWallet(context.Context, *InitializeXRPWalletRequest) (*emptypb.Empty, error)
 	InitializeWallet(context.Context, *InitializeWalletRequest) (*emptypb.Empty, error)
@@ -915,6 +926,9 @@ func (UnimplementedTellerAPIServer) ListNFTWalletsByFilter(context.Context, *ada
 }
 func (UnimplementedTellerAPIServer) ListBaseWallets(context.Context, *adamantglobalv1.ListBaseWalletsRequest) (*adamantglobalv1.ListBaseWalletsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListBaseWallets not implemented")
+}
+func (UnimplementedTellerAPIServer) ListWalletsByBaseWalletId(context.Context, *adamantglobalv1.ListWalletsByBaseWalletIdRequest) (*adamantglobalv1.ListWalletsByBaseWalletIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListWalletsByBaseWalletId not implemented")
 }
 func (UnimplementedTellerAPIServer) GetSpendableBalance(context.Context, *adamantglobalv1.GetSpendableBalanceRequest) (*adamantglobalv1.GetSpendableBalanceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSpendableBalance not implemented")
@@ -1254,6 +1268,24 @@ func _TellerAPI_ListBaseWallets_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TellerAPIServer).ListBaseWallets(ctx, req.(*adamantglobalv1.ListBaseWalletsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_ListWalletsByBaseWalletId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ListWalletsByBaseWalletIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListWalletsByBaseWalletId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListWalletsByBaseWalletId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListWalletsByBaseWalletId(ctx, req.(*adamantglobalv1.ListWalletsByBaseWalletIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2516,6 +2548,10 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListBaseWallets",
 			Handler:    _TellerAPI_ListBaseWallets_Handler,
+		},
+		{
+			MethodName: "ListWalletsByBaseWalletId",
+			Handler:    _TellerAPI_ListWalletsByBaseWalletId_Handler,
 		},
 		{
 			MethodName: "GetSpendableBalance",

@@ -33,6 +33,7 @@ type GlobalAPIClient interface {
 	ListWallets(ctx context.Context, in *ListWalletsRequest, opts ...grpc.CallOption) (*ListWalletsResponse, error)
 	ListWalletsByFilter(ctx context.Context, in *ListWalletsByFilterRequest, opts ...grpc.CallOption) (*ListWalletsResponse, error)
 	ListBaseWallets(ctx context.Context, in *ListBaseWalletsRequest, opts ...grpc.CallOption) (*ListBaseWalletsResponse, error)
+	ListWalletsByBaseWalletId(ctx context.Context, in *ListWalletsByBaseWalletIdRequest, opts ...grpc.CallOption) (*ListWalletsByBaseWalletIdResponse, error)
 	ListStakingWalletsByFilter(ctx context.Context, in *ListStakingWalletsByFilterRequest, opts ...grpc.CallOption) (*ListStakingWalletsResponse, error)
 	ListNFTWalletsByFilter(ctx context.Context, in *ListNFTWalletsByFilterRequest, opts ...grpc.CallOption) (*ListNFTWalletsResponse, error)
 	UpdateWalletName(ctx context.Context, in *UpdateWalletNameRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -240,6 +241,15 @@ func (c *globalAPIClient) ListWalletsByFilter(ctx context.Context, in *ListWalle
 func (c *globalAPIClient) ListBaseWallets(ctx context.Context, in *ListBaseWalletsRequest, opts ...grpc.CallOption) (*ListBaseWalletsResponse, error) {
 	out := new(ListBaseWalletsResponse)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListBaseWallets", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) ListWalletsByBaseWalletId(ctx context.Context, in *ListWalletsByBaseWalletIdRequest, opts ...grpc.CallOption) (*ListWalletsByBaseWalletIdResponse, error) {
+	out := new(ListWalletsByBaseWalletIdResponse)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/ListWalletsByBaseWalletId", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1232,6 +1242,7 @@ type GlobalAPIServer interface {
 	ListWallets(context.Context, *ListWalletsRequest) (*ListWalletsResponse, error)
 	ListWalletsByFilter(context.Context, *ListWalletsByFilterRequest) (*ListWalletsResponse, error)
 	ListBaseWallets(context.Context, *ListBaseWalletsRequest) (*ListBaseWalletsResponse, error)
+	ListWalletsByBaseWalletId(context.Context, *ListWalletsByBaseWalletIdRequest) (*ListWalletsByBaseWalletIdResponse, error)
 	ListStakingWalletsByFilter(context.Context, *ListStakingWalletsByFilterRequest) (*ListStakingWalletsResponse, error)
 	ListNFTWalletsByFilter(context.Context, *ListNFTWalletsByFilterRequest) (*ListNFTWalletsResponse, error)
 	UpdateWalletName(context.Context, *UpdateWalletNameRequest) (*emptypb.Empty, error)
@@ -1392,6 +1403,9 @@ func (UnimplementedGlobalAPIServer) ListWalletsByFilter(context.Context, *ListWa
 }
 func (UnimplementedGlobalAPIServer) ListBaseWallets(context.Context, *ListBaseWalletsRequest) (*ListBaseWalletsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListBaseWallets not implemented")
+}
+func (UnimplementedGlobalAPIServer) ListWalletsByBaseWalletId(context.Context, *ListWalletsByBaseWalletIdRequest) (*ListWalletsByBaseWalletIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListWalletsByBaseWalletId not implemented")
 }
 func (UnimplementedGlobalAPIServer) ListStakingWalletsByFilter(context.Context, *ListStakingWalletsByFilterRequest) (*ListStakingWalletsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListStakingWalletsByFilter not implemented")
@@ -1869,6 +1883,24 @@ func _GlobalAPI_ListBaseWallets_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GlobalAPIServer).ListBaseWallets(ctx, req.(*ListBaseWalletsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_ListWalletsByBaseWalletId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListWalletsByBaseWalletIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).ListWalletsByBaseWalletId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/ListWalletsByBaseWalletId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).ListWalletsByBaseWalletId(ctx, req.(*ListWalletsByBaseWalletIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3855,6 +3887,10 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListBaseWallets",
 			Handler:    _GlobalAPI_ListBaseWallets_Handler,
+		},
+		{
+			MethodName: "ListWalletsByBaseWalletId",
+			Handler:    _GlobalAPI_ListWalletsByBaseWalletId_Handler,
 		},
 		{
 			MethodName: "ListStakingWalletsByFilter",

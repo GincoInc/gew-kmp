@@ -105,6 +105,12 @@ class WalletWithoutBalance extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Timestamp update_time = 18 [json_name = "updateTime"];</code>
      */
     protected $update_time = null;
+    /**
+     * The wallet id of the EVM address sharing
+     *
+     * Generated from protobuf field <code>string base_wallet_id = 24 [json_name = "baseWalletId"];</code>
+     */
+    protected $base_wallet_id = '';
 
     /**
      * Constructor.
@@ -135,6 +141,8 @@ class WalletWithoutBalance extends \Google\Protobuf\Internal\Message
      *     @type string $inherit_wallet_id
      *     @type \Google\Protobuf\Timestamp $create_time
      *     @type \Google\Protobuf\Timestamp $update_time
+     *     @type string $base_wallet_id
+     *           The wallet id of the EVM address sharing
      * }
      */
     public function __construct($data = NULL) {
@@ -674,6 +682,32 @@ class WalletWithoutBalance extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->update_time = $var;
+
+        return $this;
+    }
+
+    /**
+     * The wallet id of the EVM address sharing
+     *
+     * Generated from protobuf field <code>string base_wallet_id = 24 [json_name = "baseWalletId"];</code>
+     * @return string
+     */
+    public function getBaseWalletId()
+    {
+        return $this->base_wallet_id;
+    }
+
+    /**
+     * The wallet id of the EVM address sharing
+     *
+     * Generated from protobuf field <code>string base_wallet_id = 24 [json_name = "baseWalletId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setBaseWalletId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->base_wallet_id = $var;
 
         return $this;
     }
