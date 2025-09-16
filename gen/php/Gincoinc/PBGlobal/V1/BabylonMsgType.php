@@ -19,10 +19,20 @@ class BabylonMsgType
      * Generated from protobuf enum <code>BABYLON_MSG_TYPE_SEND = 1;</code>
      */
     const BABYLON_MSG_TYPE_SEND = 1;
+    /**
+     * Generated from protobuf enum <code>BABYLON_MSG_TYPE_CREATE_BTC_DELEGATION = 2;</code>
+     */
+    const BABYLON_MSG_TYPE_CREATE_BTC_DELEGATION = 2;
+    /**
+     * Generated from protobuf enum <code>BABYLON_MSG_TYPE_WITHDRAW_BTC_DELEGATION_REWARD = 3;</code>
+     */
+    const BABYLON_MSG_TYPE_WITHDRAW_BTC_DELEGATION_REWARD = 3;
 
     private static $valueToName = [
         self::BABYLON_MSG_TYPE_INVALID => 'BABYLON_MSG_TYPE_INVALID',
         self::BABYLON_MSG_TYPE_SEND => 'BABYLON_MSG_TYPE_SEND',
+        self::BABYLON_MSG_TYPE_CREATE_BTC_DELEGATION => 'BABYLON_MSG_TYPE_CREATE_BTC_DELEGATION',
+        self::BABYLON_MSG_TYPE_WITHDRAW_BTC_DELEGATION_REWARD => 'BABYLON_MSG_TYPE_WITHDRAW_BTC_DELEGATION_REWARD',
     ];
 
     public static function name($value)

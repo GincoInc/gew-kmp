@@ -97,6 +97,9 @@ enum Coin {
   COIN_TON = 80;
   COIN_SOLANA_TOKEN_USDC = 81;
   COIN_BABY = 82;
+  COIN_POLYGON_ERC20_USDC = 83;
+  COIN_BSC_BEP20_USDC = 84;
+  COIN_DOT_ASSET_USDC = 85;
   COIN_SDN = 10002;
   COIN_ERC20_SCDEV = 10003; // for stable coin development in dev
   COIN_ERC20_SCQA = 10004; // for stable coin development in qa
@@ -359,6 +362,8 @@ enum CosmosMsgType {
 enum BabylonMsgType {
   BABYLON_MSG_TYPE_INVALID = 0;
   BABYLON_MSG_TYPE_SEND = 1;
+  BABYLON_MSG_TYPE_CREATE_BTC_DELEGATION = 2;
+  BABYLON_MSG_TYPE_WITHDRAW_BTC_DELEGATION_REWARD = 3;
 }
 
 enum StakingValidatorStatus {

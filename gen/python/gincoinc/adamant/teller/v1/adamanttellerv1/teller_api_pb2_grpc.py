@@ -56,6 +56,11 @@ class TellerAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsResponse.FromString,
                 )
+        self.ListWalletsByBaseWalletId = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ListWalletsByBaseWalletId',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdResponse.FromString,
+                )
         self.GetSpendableBalance = channel.unary_unary(
                 '/adamant.teller.v1.TellerAPI/GetSpendableBalance',
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetSpendableBalanceRequest.SerializeToString,
@@ -443,6 +448,12 @@ class TellerAPIServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListBaseWallets(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListWalletsByBaseWalletId(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -905,6 +916,11 @@ def add_TellerAPIServicer_to_server(servicer, server):
                     servicer.ListBaseWallets,
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsResponse.SerializeToString,
+            ),
+            'ListWalletsByBaseWalletId': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListWalletsByBaseWalletId,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdResponse.SerializeToString,
             ),
             'GetSpendableBalance': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSpendableBalance,
@@ -1376,6 +1392,23 @@ class TellerAPI(object):
         return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListBaseWallets',
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListWalletsByBaseWalletId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListWalletsByBaseWalletId',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

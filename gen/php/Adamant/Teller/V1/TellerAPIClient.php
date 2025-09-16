@@ -120,6 +120,20 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\ListWalletsByBaseWalletIdRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListWalletsByBaseWalletId(\Adamant\Global\V1\ListWalletsByBaseWalletIdRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListWalletsByBaseWalletId',
+        $argument,
+        ['\Adamant\Global\V1\ListWalletsByBaseWalletIdResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\GetSpendableBalanceRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options

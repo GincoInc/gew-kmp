@@ -346,6 +346,18 @@ class Coin
      */
     const COIN_BABY = 82;
     /**
+     * Generated from protobuf enum <code>COIN_POLYGON_ERC20_USDC = 83;</code>
+     */
+    const COIN_POLYGON_ERC20_USDC = 83;
+    /**
+     * Generated from protobuf enum <code>COIN_BSC_BEP20_USDC = 84;</code>
+     */
+    const COIN_BSC_BEP20_USDC = 84;
+    /**
+     * Generated from protobuf enum <code>COIN_DOT_ASSET_USDC = 85;</code>
+     */
+    const COIN_DOT_ASSET_USDC = 85;
+    /**
      * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
      */
     const COIN_SDN = 10002;
@@ -642,6 +654,9 @@ class Coin
         self::COIN_TON => 'COIN_TON',
         self::COIN_SOLANA_TOKEN_USDC => 'COIN_SOLANA_TOKEN_USDC',
         self::COIN_BABY => 'COIN_BABY',
+        self::COIN_POLYGON_ERC20_USDC => 'COIN_POLYGON_ERC20_USDC',
+        self::COIN_BSC_BEP20_USDC => 'COIN_BSC_BEP20_USDC',
+        self::COIN_DOT_ASSET_USDC => 'COIN_DOT_ASSET_USDC',
         self::COIN_SDN => 'COIN_SDN',
         self::COIN_ERC20_SCDEV => 'COIN_ERC20_SCDEV',
         self::COIN_ERC20_SCQA => 'COIN_ERC20_SCQA',

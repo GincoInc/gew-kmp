@@ -259,6 +259,8 @@ func (m *Wallet) validate(all bool) error {
 		}
 	}
 
+	// no validation rules for BaseWalletId
+
 	if len(errors) > 0 {
 		return WalletMultiError(errors)
 	}
@@ -548,6 +550,8 @@ func (m *WalletWithoutBalance) validate(all bool) error {
 			}
 		}
 	}
+
+	// no validation rules for BaseWalletId
 
 	if len(errors) > 0 {
 		return WalletWithoutBalanceMultiError(errors)
@@ -5061,6 +5065,14 @@ func (m *BitcoinSpecific) validate(all bool) error {
 			}
 		}
 
+	}
+
+	if m.Tweaked != nil {
+		// no validation rules for Tweaked
+	}
+
+	if m.IsSchnorr != nil {
+		// no validation rules for IsSchnorr
 	}
 
 	if len(errors) > 0 {

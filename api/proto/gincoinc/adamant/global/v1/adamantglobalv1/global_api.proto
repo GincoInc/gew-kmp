@@ -29,6 +29,7 @@ service GlobalAPI {
   rpc ListWallets(ListWalletsRequest) returns (ListWalletsResponse) {}
   rpc ListWalletsByFilter(ListWalletsByFilterRequest) returns (ListWalletsResponse) {}
   rpc ListBaseWallets(ListBaseWalletsRequest) returns (ListBaseWalletsResponse) {}
+  rpc ListWalletsByBaseWalletId(adamant.global.v1.ListWalletsByBaseWalletIdRequest) returns (adamant.global.v1.ListWalletsByBaseWalletIdResponse) {}
   rpc ListStakingWalletsByFilter(ListStakingWalletsByFilterRequest) returns (ListStakingWalletsResponse) {}
   rpc ListNFTWalletsByFilter(ListNFTWalletsByFilterRequest) returns (ListNFTWalletsResponse) {}
   rpc UpdateWalletName(UpdateWalletNameRequest) returns (google.protobuf.Empty) {}
@@ -350,6 +351,12 @@ message ListWalletsByFilterRequest {
   }];
 }
 
+message ListWalletsByBaseWalletIdRequest {
+  string base_wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }]; // The id of wallet
+}
+
 message ListWalletsResponse {
   repeated Wallet wallets = 1;
   string next_page_token = 2;
@@ -358,6 +365,10 @@ message ListWalletsResponse {
 message ListBaseWalletsRequest {}
 
 message ListBaseWalletsResponse {
+  repeated WalletWithoutBalance wallets = 1;
+}
+
+message ListWalletsByBaseWalletIdResponse {
   repeated WalletWithoutBalance wallets = 1;
 }
 
@@ -702,6 +713,13 @@ message CreateAddressRequest {
 }
 message CreateAddressResponse {
   string address_id = 1; // The id of created address
+}
+
+message CreateAddressWithBaseAddressRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }]; // The id of wallet
+  string address = 2;
 }
 
 message GetAddressRequest {
