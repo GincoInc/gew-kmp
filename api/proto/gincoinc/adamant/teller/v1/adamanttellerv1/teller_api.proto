@@ -123,6 +123,10 @@ service TellerAPI {
   // BlacklistAddress
   rpc ListBlacklistAddressesByFilter(adamant.global.v1.ListBlacklistAddressesByFilterRequest) returns (adamant.global.v1.ListBlacklistAddressesByFilterResponse) {}
   rpc ListBlacklistAddressFiles(adamant.global.v1.ListBlacklistAddressFilesRequest) returns (adamant.global.v1.ListBlacklistAddressFilesResponse) {}
+
+  // WhitelistAddress and LabeledAddress
+  rpc ListWhitelistsByFilter(adamant.global.v1.ListWhitelistsByFilterRequest) returns (adamant.global.v1.ListWhitelistsByFilterResponse) {}
+  rpc ListLabeledAddressesByFilter(adamant.global.v1.ListLabeledAddressesByFilterRequest) returns (adamant.global.v1.ListLabeledAddressesByFilterResponse) {}
 }
 
 message CreateWalletRequest {

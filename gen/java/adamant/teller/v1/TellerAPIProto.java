@@ -353,7 +353,7 @@ public final class TellerAPIProto {
       "eeDepositAddressesRequest\"~\n\"ListHotFeeD" +
       "epositAddressesResponse\022X\n\025fee_deposit_a" +
       "ddresses\030\001 \003(\0132$.adamant.global.v1.FeeDe" +
-      "positAddressR\023feeDepositAddresses2\346D\n\tTe" +
+      "positAddressR\023feeDepositAddresses2\373F\n\tTe" +
       "llerAPI\022a\n\014CreateWallet\022&.adamant.teller" +
       ".v1.CreateWalletRequest\032\'.adamant.global" +
       ".v1.CreateWalletResponse\"\000\022M\n\tGetWallet\022" +
@@ -574,9 +574,16 @@ public final class TellerAPIProto {
       "tAddressFiles\0223.adamant.global.v1.ListBl" +
       "acklistAddressFilesRequest\0324.adamant.glo" +
       "bal.v1.ListBlacklistAddressFilesResponse" +
-      "\"\000B^B\016TellerAPIProtoP\001ZJgithub.com/Ginco" +
-      "Inc/gew-kmp/gen/gincoinc/adamant/teller/" +
-      "v1/adamanttellerv1b\006proto3"
+      "\"\000\022\177\n\026ListWhitelistsByFilter\0220.adamant.g" +
+      "lobal.v1.ListWhitelistsByFilterRequest\0321" +
+      ".adamant.global.v1.ListWhitelistsByFilte" +
+      "rResponse\"\000\022\221\001\n\034ListLabeledAddressesByFi" +
+      "lter\0226.adamant.global.v1.ListLabeledAddr" +
+      "essesByFilterRequest\0327.adamant.global.v1" +
+      ".ListLabeledAddressesByFilterResponse\"\000B" +
+      "^B\016TellerAPIProtoP\001ZJgithub.com/GincoInc" +
+      "/gew-kmp/gen/gincoinc/adamant/teller/v1/" +
+      "adamanttellerv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
