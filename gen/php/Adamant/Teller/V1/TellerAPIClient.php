@@ -1097,4 +1097,33 @@ class TellerAPIClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * WhitelistAddress and LabeledAddress
+     * @param \Adamant\Global\V1\ListWhitelistsByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListWhitelistsByFilter(\Adamant\Global\V1\ListWhitelistsByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListWhitelistsByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListWhitelistsByFilterResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\ListLabeledAddressesByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListLabeledAddressesByFilter(\Adamant\Global\V1\ListLabeledAddressesByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListLabeledAddressesByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListLabeledAddressesByFilterResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }

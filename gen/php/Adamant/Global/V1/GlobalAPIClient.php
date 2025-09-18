@@ -149,6 +149,20 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\ListBaseWalletsForEVMAddressSharingRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListBaseWalletsForEVMAddressSharing(\Adamant\Global\V1\ListBaseWalletsForEVMAddressSharingRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/ListBaseWalletsForEVMAddressSharing',
+        $argument,
+        ['\Adamant\Global\V1\ListBaseWalletsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\ListStakingWalletsByFilterRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options

@@ -2074,6 +2074,138 @@ var _ interface {
 	ErrorName() string
 } = ListBaseWalletsRequestValidationError{}
 
+// Validate checks the field values on
+// ListBaseWalletsForEVMAddressSharingRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ListBaseWalletsForEVMAddressSharingRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ListBaseWalletsForEVMAddressSharingRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// ListBaseWalletsForEVMAddressSharingRequestMultiError, or nil if none found.
+func (m *ListBaseWalletsForEVMAddressSharingRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListBaseWalletsForEVMAddressSharingRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := _ListBaseWalletsForEVMAddressSharingRequest_Coin_NotInLookup[m.GetCoin()]; ok {
+		err := ListBaseWalletsForEVMAddressSharingRequestValidationError{
+			field:  "Coin",
+			reason: "value must not be in list [0]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		err := ListBaseWalletsForEVMAddressSharingRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return ListBaseWalletsForEVMAddressSharingRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListBaseWalletsForEVMAddressSharingRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ListBaseWalletsForEVMAddressSharingRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ListBaseWalletsForEVMAddressSharingRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListBaseWalletsForEVMAddressSharingRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListBaseWalletsForEVMAddressSharingRequestMultiError) AllErrors() []error { return m }
+
+// ListBaseWalletsForEVMAddressSharingRequestValidationError is the validation
+// error returned by ListBaseWalletsForEVMAddressSharingRequest.Validate if
+// the designated constraints aren't met.
+type ListBaseWalletsForEVMAddressSharingRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListBaseWalletsForEVMAddressSharingRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListBaseWalletsForEVMAddressSharingRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListBaseWalletsForEVMAddressSharingRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListBaseWalletsForEVMAddressSharingRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListBaseWalletsForEVMAddressSharingRequestValidationError) ErrorName() string {
+	return "ListBaseWalletsForEVMAddressSharingRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListBaseWalletsForEVMAddressSharingRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListBaseWalletsForEVMAddressSharingRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListBaseWalletsForEVMAddressSharingRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListBaseWalletsForEVMAddressSharingRequestValidationError{}
+
+var _ListBaseWalletsForEVMAddressSharingRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
+	0: {},
+}
+
 // Validate checks the field values on ListBaseWalletsResponse with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.

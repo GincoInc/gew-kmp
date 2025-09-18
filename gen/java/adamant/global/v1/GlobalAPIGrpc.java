@@ -294,6 +294,37 @@ public final class GlobalAPIGrpc {
     return getListWalletsByBaseWalletIdMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListBaseWalletsForEVMAddressSharingRequest,
+      adamant.global.v1.ListBaseWalletsResponse> getListBaseWalletsForEVMAddressSharingMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListBaseWalletsForEVMAddressSharing",
+      requestType = adamant.global.v1.ListBaseWalletsForEVMAddressSharingRequest.class,
+      responseType = adamant.global.v1.ListBaseWalletsResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListBaseWalletsForEVMAddressSharingRequest,
+      adamant.global.v1.ListBaseWalletsResponse> getListBaseWalletsForEVMAddressSharingMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListBaseWalletsForEVMAddressSharingRequest, adamant.global.v1.ListBaseWalletsResponse> getListBaseWalletsForEVMAddressSharingMethod;
+    if ((getListBaseWalletsForEVMAddressSharingMethod = GlobalAPIGrpc.getListBaseWalletsForEVMAddressSharingMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getListBaseWalletsForEVMAddressSharingMethod = GlobalAPIGrpc.getListBaseWalletsForEVMAddressSharingMethod) == null) {
+          GlobalAPIGrpc.getListBaseWalletsForEVMAddressSharingMethod = getListBaseWalletsForEVMAddressSharingMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListBaseWalletsForEVMAddressSharingRequest, adamant.global.v1.ListBaseWalletsResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListBaseWalletsForEVMAddressSharing"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListBaseWalletsForEVMAddressSharingRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListBaseWalletsResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("ListBaseWalletsForEVMAddressSharing"))
+              .build();
+        }
+      }
+    }
+    return getListBaseWalletsForEVMAddressSharingMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListStakingWalletsByFilterRequest,
       adamant.global.v1.ListStakingWalletsResponse> getListStakingWalletsByFilterMethod;
 
@@ -3761,6 +3792,13 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    default void listBaseWalletsForEVMAddressSharing(adamant.global.v1.ListBaseWalletsForEVMAddressSharingRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListBaseWalletsResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListBaseWalletsForEVMAddressSharingMethod(), responseObserver);
+    }
+
+    /**
+     */
     default void listStakingWalletsByFilter(adamant.global.v1.ListStakingWalletsByFilterRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListStakingWalletsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListStakingWalletsByFilterMethod(), responseObserver);
@@ -4682,6 +4720,14 @@ public final class GlobalAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.ListWalletsByBaseWalletIdResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListWalletsByBaseWalletIdMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listBaseWalletsForEVMAddressSharing(adamant.global.v1.ListBaseWalletsForEVMAddressSharingRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListBaseWalletsResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListBaseWalletsForEVMAddressSharingMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -5699,6 +5745,13 @@ public final class GlobalAPIGrpc {
 
     /**
      */
+    public adamant.global.v1.ListBaseWalletsResponse listBaseWalletsForEVMAddressSharing(adamant.global.v1.ListBaseWalletsForEVMAddressSharingRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListBaseWalletsForEVMAddressSharingMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public adamant.global.v1.ListStakingWalletsResponse listStakingWalletsByFilter(adamant.global.v1.ListStakingWalletsByFilterRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListStakingWalletsByFilterMethod(), getCallOptions(), request);
@@ -6609,6 +6662,14 @@ public final class GlobalAPIGrpc {
         adamant.global.v1.ListWalletsByBaseWalletIdRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getListWalletsByBaseWalletIdMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListBaseWalletsResponse> listBaseWalletsForEVMAddressSharing(
+        adamant.global.v1.ListBaseWalletsForEVMAddressSharingRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListBaseWalletsForEVMAddressSharingMethod(), getCallOptions()), request);
     }
 
     /**
@@ -7548,114 +7609,115 @@ public final class GlobalAPIGrpc {
   private static final int METHODID_LIST_WALLETS_BY_FILTER = 6;
   private static final int METHODID_LIST_BASE_WALLETS = 7;
   private static final int METHODID_LIST_WALLETS_BY_BASE_WALLET_ID = 8;
-  private static final int METHODID_LIST_STAKING_WALLETS_BY_FILTER = 9;
-  private static final int METHODID_LIST_NFTWALLETS_BY_FILTER = 10;
-  private static final int METHODID_UPDATE_WALLET_NAME = 11;
-  private static final int METHODID_UPDATE_WALLET_VALIDATION = 12;
-  private static final int METHODID_UPDATE_WALLET_POLICY = 13;
-  private static final int METHODID_REVIEW_WALLET_PROPOSAL = 14;
-  private static final int METHODID_FLUSH_BALANCE = 15;
-  private static final int METHODID_CREATE_WALLET_GROUP = 16;
-  private static final int METHODID_UPDATE_WALLET_GROUP_NAME = 17;
-  private static final int METHODID_UPDATE_WALLET_GROUP = 18;
-  private static final int METHODID_GET_WALLET_GROUP = 19;
-  private static final int METHODID_LIST_WALLET_GROUPS = 20;
-  private static final int METHODID_UPDATE_DESTINATION_WALLET_ID = 21;
-  private static final int METHODID_GET_COSMOS_BALANCE = 22;
-  private static final int METHODID_LIST_COSMOS_DELEGATE_HISTORIES = 23;
-  private static final int METHODID_ENABLE_UTXO = 24;
-  private static final int METHODID_DISABLE_UTXO = 25;
-  private static final int METHODID_UPDATE_WALLET_IS_STAKING_AVAILABLE = 26;
-  private static final int METHODID_REFRESH_STAKING_WALLET_CLAIMABLE_REWARD = 27;
-  private static final int METHODID_APPROVE_WALLET = 28;
-  private static final int METHODID_APPROVE_TRANSACTION = 29;
-  private static final int METHODID_CREATE_ADDRESS = 30;
-  private static final int METHODID_GET_ADDRESS = 31;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 32;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 33;
-  private static final int METHODID_GET_ADDRESS_BY_INDEX = 34;
-  private static final int METHODID_LIST_ADDRESSES = 35;
-  private static final int METHODID_LIST_ADDRESSES_WITH_BALANCE = 36;
-  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 37;
-  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 38;
-  private static final int METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES = 39;
-  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 40;
-  private static final int METHODID_LIST_IOSTCHILD_ACCOUNTS = 41;
-  private static final int METHODID_IMPORT_ADDRESS = 42;
-  private static final int METHODID_LIST_CALLERS = 43;
-  private static final int METHODID_LIST_FEE_DEPOSITS = 44;
-  private static final int METHODID_REGISTER_KEY = 45;
-  private static final int METHODID_GET_SIGNER_PUB_KEY = 46;
-  private static final int METHODID_CREATE_TRANSACTION = 47;
-  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 48;
-  private static final int METHODID_CREATE_CONTRACT_CREATION_TRANSACTION = 49;
-  private static final int METHODID_SIGN_TRANSACTION = 50;
-  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 51;
-  private static final int METHODID_SEND_TRANSACTION = 52;
-  private static final int METHODID_RESEND_TRANSACTION = 53;
-  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 54;
-  private static final int METHODID_CANCEL_TRANSACTION = 55;
-  private static final int METHODID_REPLACE_TRANSACTION = 56;
-  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 57;
-  private static final int METHODID_GET_TRANSACTION = 58;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 59;
-  private static final int METHODID_LIST_TRANSACTIONS = 60;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 61;
-  private static final int METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER = 62;
-  private static final int METHODID_GET_SIGN_INFO = 63;
-  private static final int METHODID_LIST_SIGN_INFO = 64;
-  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 65;
-  private static final int METHODID_LIST_TRANSFERS = 66;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 67;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 68;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 69;
-  private static final int METHODID_SET_RATES = 70;
-  private static final int METHODID_SET_DEFAULT_RATES = 71;
-  private static final int METHODID_CREATE_LABELED_ADDRESS = 72;
-  private static final int METHODID_GET_LABELED_ADDRESS = 73;
-  private static final int METHODID_LIST_LABELED_ADDRESSES = 74;
-  private static final int METHODID_LIST_LABELED_ADDRESSES_BY_FILTER = 75;
-  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 76;
-  private static final int METHODID_UPDATE_LABELED_ADDRESS = 77;
-  private static final int METHODID_DELETE_ADDRESS = 78;
-  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 79;
-  private static final int METHODID_CREATE_WHITELIST = 80;
-  private static final int METHODID_GET_WHITELIST = 81;
-  private static final int METHODID_LIST_WHITELISTS = 82;
-  private static final int METHODID_LIST_WHITELISTS_BY_FILTER = 83;
-  private static final int METHODID_IS_DELETABLE_WHITELIST = 84;
-  private static final int METHODID_UPDATE_WHITELIST = 85;
-  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 86;
-  private static final int METHODID_DELETE_WHITELIST = 87;
-  private static final int METHODID_CREATE_TRANSFER_LIMIT = 88;
-  private static final int METHODID_GET_TRANSFER_LIMIT = 89;
-  private static final int METHODID_LIST_TRANSFER_LIMITS = 90;
-  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 91;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 92;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 93;
-  private static final int METHODID_DELETE_TRANSFER_LIMIT = 94;
-  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 95;
-  private static final int METHODID_CREATE_POLICY = 96;
-  private static final int METHODID_GET_POLICY = 97;
-  private static final int METHODID_LIST_POLICIES = 98;
-  private static final int METHODID_LIST_POLICIES_BY_FILTER = 99;
-  private static final int METHODID_IS_DELETABLE_POLICY = 100;
-  private static final int METHODID_UPDATE_POLICY = 101;
-  private static final int METHODID_DELETE_POLICY = 102;
-  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 103;
-  private static final int METHODID_GET_SPENDABLE_BALANCE = 104;
-  private static final int METHODID_GET_TOTAL_BALANCE = 105;
-  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 106;
-  private static final int METHODID_CALCULATE_FEE = 107;
-  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 108;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 109;
-  private static final int METHODID_VALIDATE_ADDRESS = 110;
-  private static final int METHODID_LIST_AUDIT_LOGS = 111;
-  private static final int METHODID_LIST_FORWARDING_THRESHOLDS = 112;
-  private static final int METHODID_UPSERT_FORWARDING_THRESHOLD = 113;
-  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 114;
-  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 115;
-  private static final int METHODID_LIST_NFTS_BY_FILTER = 116;
+  private static final int METHODID_LIST_BASE_WALLETS_FOR_EVMADDRESS_SHARING = 9;
+  private static final int METHODID_LIST_STAKING_WALLETS_BY_FILTER = 10;
+  private static final int METHODID_LIST_NFTWALLETS_BY_FILTER = 11;
+  private static final int METHODID_UPDATE_WALLET_NAME = 12;
+  private static final int METHODID_UPDATE_WALLET_VALIDATION = 13;
+  private static final int METHODID_UPDATE_WALLET_POLICY = 14;
+  private static final int METHODID_REVIEW_WALLET_PROPOSAL = 15;
+  private static final int METHODID_FLUSH_BALANCE = 16;
+  private static final int METHODID_CREATE_WALLET_GROUP = 17;
+  private static final int METHODID_UPDATE_WALLET_GROUP_NAME = 18;
+  private static final int METHODID_UPDATE_WALLET_GROUP = 19;
+  private static final int METHODID_GET_WALLET_GROUP = 20;
+  private static final int METHODID_LIST_WALLET_GROUPS = 21;
+  private static final int METHODID_UPDATE_DESTINATION_WALLET_ID = 22;
+  private static final int METHODID_GET_COSMOS_BALANCE = 23;
+  private static final int METHODID_LIST_COSMOS_DELEGATE_HISTORIES = 24;
+  private static final int METHODID_ENABLE_UTXO = 25;
+  private static final int METHODID_DISABLE_UTXO = 26;
+  private static final int METHODID_UPDATE_WALLET_IS_STAKING_AVAILABLE = 27;
+  private static final int METHODID_REFRESH_STAKING_WALLET_CLAIMABLE_REWARD = 28;
+  private static final int METHODID_APPROVE_WALLET = 29;
+  private static final int METHODID_APPROVE_TRANSACTION = 30;
+  private static final int METHODID_CREATE_ADDRESS = 31;
+  private static final int METHODID_GET_ADDRESS = 32;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 33;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 34;
+  private static final int METHODID_GET_ADDRESS_BY_INDEX = 35;
+  private static final int METHODID_LIST_ADDRESSES = 36;
+  private static final int METHODID_LIST_ADDRESSES_WITH_BALANCE = 37;
+  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 38;
+  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 39;
+  private static final int METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES = 40;
+  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 41;
+  private static final int METHODID_LIST_IOSTCHILD_ACCOUNTS = 42;
+  private static final int METHODID_IMPORT_ADDRESS = 43;
+  private static final int METHODID_LIST_CALLERS = 44;
+  private static final int METHODID_LIST_FEE_DEPOSITS = 45;
+  private static final int METHODID_REGISTER_KEY = 46;
+  private static final int METHODID_GET_SIGNER_PUB_KEY = 47;
+  private static final int METHODID_CREATE_TRANSACTION = 48;
+  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 49;
+  private static final int METHODID_CREATE_CONTRACT_CREATION_TRANSACTION = 50;
+  private static final int METHODID_SIGN_TRANSACTION = 51;
+  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 52;
+  private static final int METHODID_SEND_TRANSACTION = 53;
+  private static final int METHODID_RESEND_TRANSACTION = 54;
+  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 55;
+  private static final int METHODID_CANCEL_TRANSACTION = 56;
+  private static final int METHODID_REPLACE_TRANSACTION = 57;
+  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 58;
+  private static final int METHODID_GET_TRANSACTION = 59;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 60;
+  private static final int METHODID_LIST_TRANSACTIONS = 61;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 62;
+  private static final int METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER = 63;
+  private static final int METHODID_GET_SIGN_INFO = 64;
+  private static final int METHODID_LIST_SIGN_INFO = 65;
+  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 66;
+  private static final int METHODID_LIST_TRANSFERS = 67;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 68;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 69;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 70;
+  private static final int METHODID_SET_RATES = 71;
+  private static final int METHODID_SET_DEFAULT_RATES = 72;
+  private static final int METHODID_CREATE_LABELED_ADDRESS = 73;
+  private static final int METHODID_GET_LABELED_ADDRESS = 74;
+  private static final int METHODID_LIST_LABELED_ADDRESSES = 75;
+  private static final int METHODID_LIST_LABELED_ADDRESSES_BY_FILTER = 76;
+  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 77;
+  private static final int METHODID_UPDATE_LABELED_ADDRESS = 78;
+  private static final int METHODID_DELETE_ADDRESS = 79;
+  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 80;
+  private static final int METHODID_CREATE_WHITELIST = 81;
+  private static final int METHODID_GET_WHITELIST = 82;
+  private static final int METHODID_LIST_WHITELISTS = 83;
+  private static final int METHODID_LIST_WHITELISTS_BY_FILTER = 84;
+  private static final int METHODID_IS_DELETABLE_WHITELIST = 85;
+  private static final int METHODID_UPDATE_WHITELIST = 86;
+  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 87;
+  private static final int METHODID_DELETE_WHITELIST = 88;
+  private static final int METHODID_CREATE_TRANSFER_LIMIT = 89;
+  private static final int METHODID_GET_TRANSFER_LIMIT = 90;
+  private static final int METHODID_LIST_TRANSFER_LIMITS = 91;
+  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 92;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 93;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 94;
+  private static final int METHODID_DELETE_TRANSFER_LIMIT = 95;
+  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 96;
+  private static final int METHODID_CREATE_POLICY = 97;
+  private static final int METHODID_GET_POLICY = 98;
+  private static final int METHODID_LIST_POLICIES = 99;
+  private static final int METHODID_LIST_POLICIES_BY_FILTER = 100;
+  private static final int METHODID_IS_DELETABLE_POLICY = 101;
+  private static final int METHODID_UPDATE_POLICY = 102;
+  private static final int METHODID_DELETE_POLICY = 103;
+  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 104;
+  private static final int METHODID_GET_SPENDABLE_BALANCE = 105;
+  private static final int METHODID_GET_TOTAL_BALANCE = 106;
+  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 107;
+  private static final int METHODID_CALCULATE_FEE = 108;
+  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 109;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 110;
+  private static final int METHODID_VALIDATE_ADDRESS = 111;
+  private static final int METHODID_LIST_AUDIT_LOGS = 112;
+  private static final int METHODID_LIST_FORWARDING_THRESHOLDS = 113;
+  private static final int METHODID_UPSERT_FORWARDING_THRESHOLD = 114;
+  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 115;
+  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 116;
+  private static final int METHODID_LIST_NFTS_BY_FILTER = 117;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -7709,6 +7771,10 @@ public final class GlobalAPIGrpc {
         case METHODID_LIST_WALLETS_BY_BASE_WALLET_ID:
           serviceImpl.listWalletsByBaseWalletId((adamant.global.v1.ListWalletsByBaseWalletIdRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListWalletsByBaseWalletIdResponse>) responseObserver);
+          break;
+        case METHODID_LIST_BASE_WALLETS_FOR_EVMADDRESS_SHARING:
+          serviceImpl.listBaseWalletsForEVMAddressSharing((adamant.global.v1.ListBaseWalletsForEVMAddressSharingRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListBaseWalletsResponse>) responseObserver);
           break;
         case METHODID_LIST_STAKING_WALLETS_BY_FILTER:
           serviceImpl.listStakingWalletsByFilter((adamant.global.v1.ListStakingWalletsByFilterRequest) request,
@@ -8223,6 +8289,13 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.ListWalletsByBaseWalletIdRequest,
               adamant.global.v1.ListWalletsByBaseWalletIdResponse>(
                 service, METHODID_LIST_WALLETS_BY_BASE_WALLET_ID)))
+        .addMethod(
+          getListBaseWalletsForEVMAddressSharingMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListBaseWalletsForEVMAddressSharingRequest,
+              adamant.global.v1.ListBaseWalletsResponse>(
+                service, METHODID_LIST_BASE_WALLETS_FOR_EVMADDRESS_SHARING)))
         .addMethod(
           getListStakingWalletsByFilterMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -9036,6 +9109,7 @@ public final class GlobalAPIGrpc {
               .addMethod(getListWalletsByFilterMethod())
               .addMethod(getListBaseWalletsMethod())
               .addMethod(getListWalletsByBaseWalletIdMethod())
+              .addMethod(getListBaseWalletsForEVMAddressSharingMethod())
               .addMethod(getListStakingWalletsByFilterMethod())
               .addMethod(getListNFTWalletsByFilterMethod())
               .addMethod(getUpdateWalletNameMethod())

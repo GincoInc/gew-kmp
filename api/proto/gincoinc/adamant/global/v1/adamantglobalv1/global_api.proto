@@ -30,6 +30,7 @@ service GlobalAPI {
   rpc ListWalletsByFilter(ListWalletsByFilterRequest) returns (ListWalletsResponse) {}
   rpc ListBaseWallets(ListBaseWalletsRequest) returns (ListBaseWalletsResponse) {}
   rpc ListWalletsByBaseWalletId(adamant.global.v1.ListWalletsByBaseWalletIdRequest) returns (adamant.global.v1.ListWalletsByBaseWalletIdResponse) {}
+  rpc ListBaseWalletsForEVMAddressSharing(ListBaseWalletsForEVMAddressSharingRequest) returns (ListBaseWalletsResponse) {}
   rpc ListStakingWalletsByFilter(ListStakingWalletsByFilterRequest) returns (ListStakingWalletsResponse) {}
   rpc ListNFTWalletsByFilter(ListNFTWalletsByFilterRequest) returns (ListNFTWalletsResponse) {}
   rpc UpdateWalletName(UpdateWalletNameRequest) returns (google.protobuf.Empty) {}
@@ -363,6 +364,15 @@ message ListWalletsResponse {
 }
 
 message ListBaseWalletsRequest {}
+
+message ListBaseWalletsForEVMAddressSharingRequest {
+  gincoinc.global.v1.Coin coin = 1 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+}
 
 message ListBaseWalletsResponse {
   repeated WalletWithoutBalance wallets = 1;
