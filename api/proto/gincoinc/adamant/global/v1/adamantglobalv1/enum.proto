@@ -519,6 +519,7 @@ enum SubstrateCallType {
   SUBSTRATE_CALL_TYPE_UNBOND = 12;
   SUBSTRATE_CALL_TYPE_WITHDRAW_UNBONDED = 13;
   SUBSTRATE_CALL_TYPE_CLAIM_PAYOUT = 14;
+  SUBSTRATE_CALL_TYPE_ASSETS_TRANSFER = 15;
 }
 
 // -----------------------------------------------------------------------------

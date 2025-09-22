@@ -60,6 +60,16 @@ class GlobalAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsResponse.FromString,
                 )
+        self.ListWalletsByBaseWalletId = channel.unary_unary(
+                '/adamant.global.v1.GlobalAPI/ListWalletsByBaseWalletId',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdResponse.FromString,
+                )
+        self.ListBaseWalletsForEVMAddressSharing = channel.unary_unary(
+                '/adamant.global.v1.GlobalAPI/ListBaseWalletsForEVMAddressSharing',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsForEVMAddressSharingRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsResponse.FromString,
+                )
         self.ListStakingWalletsByFilter = channel.unary_unary(
                 '/adamant.global.v1.GlobalAPI/ListStakingWalletsByFilter',
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListStakingWalletsByFilterRequest.SerializeToString,
@@ -654,6 +664,18 @@ class GlobalAPIServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListBaseWallets(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListWalletsByBaseWalletId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListBaseWalletsForEVMAddressSharing(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1373,6 +1395,16 @@ def add_GlobalAPIServicer_to_server(servicer, server):
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsResponse.SerializeToString,
             ),
+            'ListWalletsByBaseWalletId': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListWalletsByBaseWalletId,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdResponse.SerializeToString,
+            ),
+            'ListBaseWalletsForEVMAddressSharing': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListBaseWalletsForEVMAddressSharing,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsForEVMAddressSharingRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsResponse.SerializeToString,
+            ),
             'ListStakingWalletsByFilter': grpc.unary_unary_rpc_method_handler(
                     servicer.ListStakingWalletsByFilter,
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListStakingWalletsByFilterRequest.FromString,
@@ -2059,6 +2091,40 @@ class GlobalAPI(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/adamant.global.v1.GlobalAPI/ListBaseWallets',
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListWalletsByBaseWalletId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.global.v1.GlobalAPI/ListWalletsByBaseWalletId',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListBaseWalletsForEVMAddressSharing(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.global.v1.GlobalAPI/ListBaseWalletsForEVMAddressSharing',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsForEVMAddressSharingRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

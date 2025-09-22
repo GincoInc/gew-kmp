@@ -32,6 +32,7 @@ type TellerAPIClient interface {
 	ListStakingWalletsByFilter(ctx context.Context, in *adamantglobalv1.ListStakingWalletsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListStakingWalletsResponse, error)
 	ListNFTWalletsByFilter(ctx context.Context, in *adamantglobalv1.ListNFTWalletsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListNFTWalletsResponse, error)
 	ListBaseWallets(ctx context.Context, in *adamantglobalv1.ListBaseWalletsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListBaseWalletsResponse, error)
+	ListWalletsByBaseWalletId(ctx context.Context, in *adamantglobalv1.ListWalletsByBaseWalletIdRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListWalletsByBaseWalletIdResponse, error)
 	GetSpendableBalance(ctx context.Context, in *adamantglobalv1.GetSpendableBalanceRequest, opts ...grpc.CallOption) (*adamantglobalv1.GetSpendableBalanceResponse, error)
 	InitializeXRPWallet(ctx context.Context, in *InitializeXRPWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	InitializeWallet(ctx context.Context, in *InitializeWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -112,6 +113,9 @@ type TellerAPIClient interface {
 	// BlacklistAddress
 	ListBlacklistAddressesByFilter(ctx context.Context, in *adamantglobalv1.ListBlacklistAddressesByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListBlacklistAddressesByFilterResponse, error)
 	ListBlacklistAddressFiles(ctx context.Context, in *adamantglobalv1.ListBlacklistAddressFilesRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListBlacklistAddressFilesResponse, error)
+	// WhitelistAddress and LabeledAddress
+	ListWhitelistsByFilter(ctx context.Context, in *adamantglobalv1.ListWhitelistsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListWhitelistsByFilterResponse, error)
+	ListLabeledAddressesByFilter(ctx context.Context, in *adamantglobalv1.ListLabeledAddressesByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListLabeledAddressesByFilterResponse, error)
 }
 
 type tellerAPIClient struct {
@@ -179,6 +183,15 @@ func (c *tellerAPIClient) ListNFTWalletsByFilter(ctx context.Context, in *adaman
 func (c *tellerAPIClient) ListBaseWallets(ctx context.Context, in *adamantglobalv1.ListBaseWalletsRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListBaseWalletsResponse, error) {
 	out := new(adamantglobalv1.ListBaseWalletsResponse)
 	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListBaseWallets", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) ListWalletsByBaseWalletId(ctx context.Context, in *adamantglobalv1.ListWalletsByBaseWalletIdRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListWalletsByBaseWalletIdResponse, error) {
+	out := new(adamantglobalv1.ListWalletsByBaseWalletIdResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListWalletsByBaseWalletId", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -797,6 +810,24 @@ func (c *tellerAPIClient) ListBlacklistAddressFiles(ctx context.Context, in *ada
 	return out, nil
 }
 
+func (c *tellerAPIClient) ListWhitelistsByFilter(ctx context.Context, in *adamantglobalv1.ListWhitelistsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListWhitelistsByFilterResponse, error) {
+	out := new(adamantglobalv1.ListWhitelistsByFilterResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListWhitelistsByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) ListLabeledAddressesByFilter(ctx context.Context, in *adamantglobalv1.ListLabeledAddressesByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListLabeledAddressesByFilterResponse, error) {
+	out := new(adamantglobalv1.ListLabeledAddressesByFilterResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListLabeledAddressesByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TellerAPIServer is the server API for TellerAPI service.
 // All implementations should embed UnimplementedTellerAPIServer
 // for forward compatibility
@@ -809,6 +840,7 @@ type TellerAPIServer interface {
 	ListStakingWalletsByFilter(context.Context, *adamantglobalv1.ListStakingWalletsByFilterRequest) (*adamantglobalv1.ListStakingWalletsResponse, error)
 	ListNFTWalletsByFilter(context.Context, *adamantglobalv1.ListNFTWalletsByFilterRequest) (*adamantglobalv1.ListNFTWalletsResponse, error)
 	ListBaseWallets(context.Context, *adamantglobalv1.ListBaseWalletsRequest) (*adamantglobalv1.ListBaseWalletsResponse, error)
+	ListWalletsByBaseWalletId(context.Context, *adamantglobalv1.ListWalletsByBaseWalletIdRequest) (*adamantglobalv1.ListWalletsByBaseWalletIdResponse, error)
 	GetSpendableBalance(context.Context, *adamantglobalv1.GetSpendableBalanceRequest) (*adamantglobalv1.GetSpendableBalanceResponse, error)
 	InitializeXRPWallet(context.Context, *InitializeXRPWalletRequest) (*emptypb.Empty, error)
 	InitializeWallet(context.Context, *InitializeWalletRequest) (*emptypb.Empty, error)
@@ -889,6 +921,9 @@ type TellerAPIServer interface {
 	// BlacklistAddress
 	ListBlacklistAddressesByFilter(context.Context, *adamantglobalv1.ListBlacklistAddressesByFilterRequest) (*adamantglobalv1.ListBlacklistAddressesByFilterResponse, error)
 	ListBlacklistAddressFiles(context.Context, *adamantglobalv1.ListBlacklistAddressFilesRequest) (*adamantglobalv1.ListBlacklistAddressFilesResponse, error)
+	// WhitelistAddress and LabeledAddress
+	ListWhitelistsByFilter(context.Context, *adamantglobalv1.ListWhitelistsByFilterRequest) (*adamantglobalv1.ListWhitelistsByFilterResponse, error)
+	ListLabeledAddressesByFilter(context.Context, *adamantglobalv1.ListLabeledAddressesByFilterRequest) (*adamantglobalv1.ListLabeledAddressesByFilterResponse, error)
 }
 
 // UnimplementedTellerAPIServer should be embedded to have forward compatible implementations.
@@ -915,6 +950,9 @@ func (UnimplementedTellerAPIServer) ListNFTWalletsByFilter(context.Context, *ada
 }
 func (UnimplementedTellerAPIServer) ListBaseWallets(context.Context, *adamantglobalv1.ListBaseWalletsRequest) (*adamantglobalv1.ListBaseWalletsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListBaseWallets not implemented")
+}
+func (UnimplementedTellerAPIServer) ListWalletsByBaseWalletId(context.Context, *adamantglobalv1.ListWalletsByBaseWalletIdRequest) (*adamantglobalv1.ListWalletsByBaseWalletIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListWalletsByBaseWalletId not implemented")
 }
 func (UnimplementedTellerAPIServer) GetSpendableBalance(context.Context, *adamantglobalv1.GetSpendableBalanceRequest) (*adamantglobalv1.GetSpendableBalanceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSpendableBalance not implemented")
@@ -1120,6 +1158,12 @@ func (UnimplementedTellerAPIServer) ListBlacklistAddressesByFilter(context.Conte
 func (UnimplementedTellerAPIServer) ListBlacklistAddressFiles(context.Context, *adamantglobalv1.ListBlacklistAddressFilesRequest) (*adamantglobalv1.ListBlacklistAddressFilesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListBlacklistAddressFiles not implemented")
 }
+func (UnimplementedTellerAPIServer) ListWhitelistsByFilter(context.Context, *adamantglobalv1.ListWhitelistsByFilterRequest) (*adamantglobalv1.ListWhitelistsByFilterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListWhitelistsByFilter not implemented")
+}
+func (UnimplementedTellerAPIServer) ListLabeledAddressesByFilter(context.Context, *adamantglobalv1.ListLabeledAddressesByFilterRequest) (*adamantglobalv1.ListLabeledAddressesByFilterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListLabeledAddressesByFilter not implemented")
+}
 
 // UnsafeTellerAPIServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to TellerAPIServer will
@@ -1254,6 +1298,24 @@ func _TellerAPI_ListBaseWallets_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TellerAPIServer).ListBaseWallets(ctx, req.(*adamantglobalv1.ListBaseWalletsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_ListWalletsByBaseWalletId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ListWalletsByBaseWalletIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListWalletsByBaseWalletId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListWalletsByBaseWalletId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListWalletsByBaseWalletId(ctx, req.(*adamantglobalv1.ListWalletsByBaseWalletIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2482,6 +2544,42 @@ func _TellerAPI_ListBlacklistAddressFiles_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TellerAPI_ListWhitelistsByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ListWhitelistsByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListWhitelistsByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListWhitelistsByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListWhitelistsByFilter(ctx, req.(*adamantglobalv1.ListWhitelistsByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_ListLabeledAddressesByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ListLabeledAddressesByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListLabeledAddressesByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListLabeledAddressesByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListLabeledAddressesByFilter(ctx, req.(*adamantglobalv1.ListLabeledAddressesByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TellerAPI_ServiceDesc is the grpc.ServiceDesc for TellerAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -2516,6 +2614,10 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListBaseWallets",
 			Handler:    _TellerAPI_ListBaseWallets_Handler,
+		},
+		{
+			MethodName: "ListWalletsByBaseWalletId",
+			Handler:    _TellerAPI_ListWalletsByBaseWalletId_Handler,
 		},
 		{
 			MethodName: "GetSpendableBalance",
@@ -2788,6 +2890,14 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListBlacklistAddressFiles",
 			Handler:    _TellerAPI_ListBlacklistAddressFiles_Handler,
+		},
+		{
+			MethodName: "ListWhitelistsByFilter",
+			Handler:    _TellerAPI_ListWhitelistsByFilter_Handler,
+		},
+		{
+			MethodName: "ListLabeledAddressesByFilter",
+			Handler:    _TellerAPI_ListLabeledAddressesByFilter_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

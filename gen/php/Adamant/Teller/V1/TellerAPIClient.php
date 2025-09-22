@@ -120,6 +120,20 @@ class TellerAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * @param \Adamant\Global\V1\ListWalletsByBaseWalletIdRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListWalletsByBaseWalletId(\Adamant\Global\V1\ListWalletsByBaseWalletIdRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListWalletsByBaseWalletId',
+        $argument,
+        ['\Adamant\Global\V1\ListWalletsByBaseWalletIdResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\GetSpendableBalanceRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
@@ -1080,6 +1094,35 @@ class TellerAPIClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListBlacklistAddressFiles',
         $argument,
         ['\Adamant\Global\V1\ListBlacklistAddressFilesResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * WhitelistAddress and LabeledAddress
+     * @param \Adamant\Global\V1\ListWhitelistsByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListWhitelistsByFilter(\Adamant\Global\V1\ListWhitelistsByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListWhitelistsByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListWhitelistsByFilterResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\ListLabeledAddressesByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListLabeledAddressesByFilter(\Adamant\Global\V1\ListLabeledAddressesByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListLabeledAddressesByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListLabeledAddressesByFilterResponse', 'decode'],
         $metadata, $options);
     }
 

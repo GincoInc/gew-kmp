@@ -56,6 +56,11 @@ class TellerAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsResponse.FromString,
                 )
+        self.ListWalletsByBaseWalletId = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ListWalletsByBaseWalletId',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdResponse.FromString,
+                )
         self.GetSpendableBalance = channel.unary_unary(
                 '/adamant.teller.v1.TellerAPI/GetSpendableBalance',
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.GetSpendableBalanceRequest.SerializeToString,
@@ -396,6 +401,16 @@ class TellerAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressFilesRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressFilesResponse.FromString,
                 )
+        self.ListWhitelistsByFilter = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ListWhitelistsByFilter',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWhitelistsByFilterRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWhitelistsByFilterResponse.FromString,
+                )
+        self.ListLabeledAddressesByFilter = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ListLabeledAddressesByFilter',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListLabeledAddressesByFilterRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListLabeledAddressesByFilterResponse.FromString,
+                )
 
 
 class TellerAPIServicer(object):
@@ -443,6 +458,12 @@ class TellerAPIServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListBaseWallets(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListWalletsByBaseWalletId(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -868,6 +889,19 @@ class TellerAPIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListWhitelistsByFilter(self, request, context):
+        """WhitelistAddress and LabeledAddress
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListLabeledAddressesByFilter(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TellerAPIServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -905,6 +939,11 @@ def add_TellerAPIServicer_to_server(servicer, server):
                     servicer.ListBaseWallets,
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsResponse.SerializeToString,
+            ),
+            'ListWalletsByBaseWalletId': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListWalletsByBaseWalletId,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdResponse.SerializeToString,
             ),
             'GetSpendableBalance': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSpendableBalance,
@@ -1246,6 +1285,16 @@ def add_TellerAPIServicer_to_server(servicer, server):
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressFilesRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressFilesResponse.SerializeToString,
             ),
+            'ListWhitelistsByFilter': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListWhitelistsByFilter,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWhitelistsByFilterRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWhitelistsByFilterResponse.SerializeToString,
+            ),
+            'ListLabeledAddressesByFilter': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListLabeledAddressesByFilter,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListLabeledAddressesByFilterRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListLabeledAddressesByFilterResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
             'adamant.teller.v1.TellerAPI', rpc_method_handlers)
@@ -1376,6 +1425,23 @@ class TellerAPI(object):
         return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListBaseWallets',
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBaseWalletsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListWalletsByBaseWalletId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListWalletsByBaseWalletId',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWalletsByBaseWalletIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -2532,5 +2598,39 @@ class TellerAPI(object):
         return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListBlacklistAddressFiles',
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressFilesRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBlacklistAddressFilesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListWhitelistsByFilter(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListWhitelistsByFilter',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWhitelistsByFilterRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListWhitelistsByFilterResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListLabeledAddressesByFilter(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListLabeledAddressesByFilter',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListLabeledAddressesByFilterRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListLabeledAddressesByFilterResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -71,6 +71,10 @@ class SubstrateCallType
      * Generated from protobuf enum <code>SUBSTRATE_CALL_TYPE_CLAIM_PAYOUT = 14;</code>
      */
     const SUBSTRATE_CALL_TYPE_CLAIM_PAYOUT = 14;
+    /**
+     * Generated from protobuf enum <code>SUBSTRATE_CALL_TYPE_ASSETS_TRANSFER = 15;</code>
+     */
+    const SUBSTRATE_CALL_TYPE_ASSETS_TRANSFER = 15;
 
     private static $valueToName = [
         self::SUBSTRATE_CALL_TYPE_INVALID => 'SUBSTRATE_CALL_TYPE_INVALID',
@@ -88,6 +92,7 @@ class SubstrateCallType
         self::SUBSTRATE_CALL_TYPE_UNBOND => 'SUBSTRATE_CALL_TYPE_UNBOND',
         self::SUBSTRATE_CALL_TYPE_WITHDRAW_UNBONDED => 'SUBSTRATE_CALL_TYPE_WITHDRAW_UNBONDED',
         self::SUBSTRATE_CALL_TYPE_CLAIM_PAYOUT => 'SUBSTRATE_CALL_TYPE_CLAIM_PAYOUT',
+        self::SUBSTRATE_CALL_TYPE_ASSETS_TRANSFER => 'SUBSTRATE_CALL_TYPE_ASSETS_TRANSFER',
     ];
 
     public static function name($value)

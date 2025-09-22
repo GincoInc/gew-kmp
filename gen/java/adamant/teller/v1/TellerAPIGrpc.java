@@ -232,6 +232,37 @@ public final class TellerAPIGrpc {
     return getListBaseWalletsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListWalletsByBaseWalletIdRequest,
+      adamant.global.v1.ListWalletsByBaseWalletIdResponse> getListWalletsByBaseWalletIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListWalletsByBaseWalletId",
+      requestType = adamant.global.v1.ListWalletsByBaseWalletIdRequest.class,
+      responseType = adamant.global.v1.ListWalletsByBaseWalletIdResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListWalletsByBaseWalletIdRequest,
+      adamant.global.v1.ListWalletsByBaseWalletIdResponse> getListWalletsByBaseWalletIdMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListWalletsByBaseWalletIdRequest, adamant.global.v1.ListWalletsByBaseWalletIdResponse> getListWalletsByBaseWalletIdMethod;
+    if ((getListWalletsByBaseWalletIdMethod = TellerAPIGrpc.getListWalletsByBaseWalletIdMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getListWalletsByBaseWalletIdMethod = TellerAPIGrpc.getListWalletsByBaseWalletIdMethod) == null) {
+          TellerAPIGrpc.getListWalletsByBaseWalletIdMethod = getListWalletsByBaseWalletIdMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListWalletsByBaseWalletIdRequest, adamant.global.v1.ListWalletsByBaseWalletIdResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListWalletsByBaseWalletId"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListWalletsByBaseWalletIdRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListWalletsByBaseWalletIdResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ListWalletsByBaseWalletId"))
+              .build();
+        }
+      }
+    }
+    return getListWalletsByBaseWalletIdMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.GetSpendableBalanceRequest,
       adamant.global.v1.GetSpendableBalanceResponse> getGetSpendableBalanceMethod;
 
@@ -2340,6 +2371,68 @@ public final class TellerAPIGrpc {
     return getListBlacklistAddressFilesMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListWhitelistsByFilterRequest,
+      adamant.global.v1.ListWhitelistsByFilterResponse> getListWhitelistsByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListWhitelistsByFilter",
+      requestType = adamant.global.v1.ListWhitelistsByFilterRequest.class,
+      responseType = adamant.global.v1.ListWhitelistsByFilterResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListWhitelistsByFilterRequest,
+      adamant.global.v1.ListWhitelistsByFilterResponse> getListWhitelistsByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListWhitelistsByFilterRequest, adamant.global.v1.ListWhitelistsByFilterResponse> getListWhitelistsByFilterMethod;
+    if ((getListWhitelistsByFilterMethod = TellerAPIGrpc.getListWhitelistsByFilterMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getListWhitelistsByFilterMethod = TellerAPIGrpc.getListWhitelistsByFilterMethod) == null) {
+          TellerAPIGrpc.getListWhitelistsByFilterMethod = getListWhitelistsByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListWhitelistsByFilterRequest, adamant.global.v1.ListWhitelistsByFilterResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListWhitelistsByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListWhitelistsByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListWhitelistsByFilterResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ListWhitelistsByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListWhitelistsByFilterMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListLabeledAddressesByFilterRequest,
+      adamant.global.v1.ListLabeledAddressesByFilterResponse> getListLabeledAddressesByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListLabeledAddressesByFilter",
+      requestType = adamant.global.v1.ListLabeledAddressesByFilterRequest.class,
+      responseType = adamant.global.v1.ListLabeledAddressesByFilterResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListLabeledAddressesByFilterRequest,
+      adamant.global.v1.ListLabeledAddressesByFilterResponse> getListLabeledAddressesByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListLabeledAddressesByFilterRequest, adamant.global.v1.ListLabeledAddressesByFilterResponse> getListLabeledAddressesByFilterMethod;
+    if ((getListLabeledAddressesByFilterMethod = TellerAPIGrpc.getListLabeledAddressesByFilterMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getListLabeledAddressesByFilterMethod = TellerAPIGrpc.getListLabeledAddressesByFilterMethod) == null) {
+          TellerAPIGrpc.getListLabeledAddressesByFilterMethod = getListLabeledAddressesByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListLabeledAddressesByFilterRequest, adamant.global.v1.ListLabeledAddressesByFilterResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListLabeledAddressesByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListLabeledAddressesByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListLabeledAddressesByFilterResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ListLabeledAddressesByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListLabeledAddressesByFilterMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -2438,6 +2531,13 @@ public final class TellerAPIGrpc {
     default void listBaseWallets(adamant.global.v1.ListBaseWalletsRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListBaseWalletsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListBaseWalletsMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void listWalletsByBaseWalletId(adamant.global.v1.ListWalletsByBaseWalletIdRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListWalletsByBaseWalletIdResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListWalletsByBaseWalletIdMethod(), responseObserver);
     }
 
     /**
@@ -2951,6 +3051,23 @@ public final class TellerAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.ListBlacklistAddressFilesResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListBlacklistAddressFilesMethod(), responseObserver);
     }
+
+    /**
+     * <pre>
+     * WhitelistAddress and LabeledAddress
+     * </pre>
+     */
+    default void listWhitelistsByFilter(adamant.global.v1.ListWhitelistsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListWhitelistsByFilterResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListWhitelistsByFilterMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void listLabeledAddressesByFilter(adamant.global.v1.ListLabeledAddressesByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListLabeledAddressesByFilterResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListLabeledAddressesByFilterMethod(), responseObserver);
+    }
   }
 
   /**
@@ -3037,6 +3154,14 @@ public final class TellerAPIGrpc {
         io.grpc.stub.StreamObserver<adamant.global.v1.ListBaseWalletsResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListBaseWalletsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listWalletsByBaseWalletId(adamant.global.v1.ListWalletsByBaseWalletIdRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListWalletsByBaseWalletIdResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListWalletsByBaseWalletIdMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -3618,6 +3743,25 @@ public final class TellerAPIGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListBlacklistAddressFilesMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * WhitelistAddress and LabeledAddress
+     * </pre>
+     */
+    public void listWhitelistsByFilter(adamant.global.v1.ListWhitelistsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListWhitelistsByFilterResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListWhitelistsByFilterMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listLabeledAddressesByFilter(adamant.global.v1.ListLabeledAddressesByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListLabeledAddressesByFilterResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListLabeledAddressesByFilterMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -3686,6 +3830,13 @@ public final class TellerAPIGrpc {
     public adamant.global.v1.ListBaseWalletsResponse listBaseWallets(adamant.global.v1.ListBaseWalletsRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListBaseWalletsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.ListWalletsByBaseWalletIdResponse listWalletsByBaseWalletId(adamant.global.v1.ListWalletsByBaseWalletIdRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListWalletsByBaseWalletIdMethod(), getCallOptions(), request);
     }
 
     /**
@@ -4199,6 +4350,23 @@ public final class TellerAPIGrpc {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListBlacklistAddressFilesMethod(), getCallOptions(), request);
     }
+
+    /**
+     * <pre>
+     * WhitelistAddress and LabeledAddress
+     * </pre>
+     */
+    public adamant.global.v1.ListWhitelistsByFilterResponse listWhitelistsByFilter(adamant.global.v1.ListWhitelistsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListWhitelistsByFilterMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.ListLabeledAddressesByFilterResponse listLabeledAddressesByFilter(adamant.global.v1.ListLabeledAddressesByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListLabeledAddressesByFilterMethod(), getCallOptions(), request);
+    }
   }
 
   /**
@@ -4274,6 +4442,14 @@ public final class TellerAPIGrpc {
         adamant.global.v1.ListBaseWalletsRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getListBaseWalletsMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListWalletsByBaseWalletIdResponse> listWalletsByBaseWalletId(
+        adamant.global.v1.ListWalletsByBaseWalletIdRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListWalletsByBaseWalletIdMethod(), getCallOptions()), request);
     }
 
     /**
@@ -4855,6 +5031,25 @@ public final class TellerAPIGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getListBlacklistAddressFilesMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * WhitelistAddress and LabeledAddress
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListWhitelistsByFilterResponse> listWhitelistsByFilter(
+        adamant.global.v1.ListWhitelistsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListWhitelistsByFilterMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListLabeledAddressesByFilterResponse> listLabeledAddressesByFilter(
+        adamant.global.v1.ListLabeledAddressesByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListLabeledAddressesByFilterMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_WALLET = 0;
@@ -4864,74 +5059,77 @@ public final class TellerAPIGrpc {
   private static final int METHODID_LIST_STAKING_WALLETS_BY_FILTER = 4;
   private static final int METHODID_LIST_NFTWALLETS_BY_FILTER = 5;
   private static final int METHODID_LIST_BASE_WALLETS = 6;
-  private static final int METHODID_GET_SPENDABLE_BALANCE = 7;
-  private static final int METHODID_INITIALIZE_XRPWALLET = 8;
-  private static final int METHODID_INITIALIZE_WALLET = 9;
-  private static final int METHODID_UPDATE_DESTINATION_WALLET_ID = 10;
-  private static final int METHODID_GET_COSMOS_BALANCE = 11;
-  private static final int METHODID_LIST_COSMOS_DELEGATE_HISTORIES = 12;
-  private static final int METHODID_LIST_UTXOS = 13;
-  private static final int METHODID_CREATE_ADDRESS = 14;
-  private static final int METHODID_CREATE_IOSTACCOUNT = 15;
-  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 16;
-  private static final int METHODID_GET_ADDRESS = 17;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 18;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 19;
-  private static final int METHODID_GET_ADDRESS_BY_INDEX = 20;
-  private static final int METHODID_LIST_ADDRESSES = 21;
-  private static final int METHODID_IMPORT_ADDRESS = 22;
-  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 23;
-  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 24;
-  private static final int METHODID_LIST_COLD_FEE_DEPOSIT_ADDRESSES = 25;
-  private static final int METHODID_LIST_HOT_FEE_DEPOSIT_ADDRESSES = 26;
-  private static final int METHODID_CREATE_PRE_TRANSACTION = 27;
-  private static final int METHODID_LIST_PRE_TRANSACTIONS_BY_FILTER = 28;
-  private static final int METHODID_CANCEL_PRE_TRANSACTION = 29;
-  private static final int METHODID_CREATE_TRANSACTION = 30;
-  private static final int METHODID_CREATE_CONTRACT_CREATION_TRANSACTION = 31;
-  private static final int METHODID_SIGN_TRANSACTION = 32;
-  private static final int METHODID_SEND_TRANSACTION = 33;
-  private static final int METHODID_RESEND_TRANSACTION = 34;
-  private static final int METHODID_CANCEL_TRANSACTION = 35;
-  private static final int METHODID_REPLACE_TRANSACTION = 36;
-  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 37;
-  private static final int METHODID_GET_TRANSACTION = 38;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 39;
-  private static final int METHODID_LIST_TRANSACTIONS = 40;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 41;
-  private static final int METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER = 42;
-  private static final int METHODID_EXIT_ETHEREUM_STAKING_VALIDATORS = 43;
-  private static final int METHODID_LIST_TRANSFERS = 44;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 45;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 46;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 47;
-  private static final int METHODID_SET_RATES = 48;
-  private static final int METHODID_CALCULATE_FEE = 49;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 50;
-  private static final int METHODID_VALIDATE_ADDRESS = 51;
-  private static final int METHODID_FLUSH_BALANCE = 52;
-  private static final int METHODID_LIST_AUDIT_LOGS = 53;
-  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 54;
-  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 55;
-  private static final int METHODID_LIST_NFTS_BY_FILTER = 56;
-  private static final int METHODID_SIGN_MESSAGE = 57;
-  private static final int METHODID_PROGMAT_COIN_INITIALIZE = 58;
-  private static final int METHODID_PROGMAT_COIN_CONFIGURE_MINTER = 59;
-  private static final int METHODID_PROGMAT_COIN_MINT_AND_TRANSFER = 60;
-  private static final int METHODID_PROGMAT_COIN_MINT = 61;
-  private static final int METHODID_PROGMAT_COIN_BURN = 62;
-  private static final int METHODID_PROGMAT_COIN_BULK_ADD_TO_WHITELIST = 63;
-  private static final int METHODID_PROGMAT_COIN_BULK_REMOVE_FROM_WHITELIST = 64;
-  private static final int METHODID_PROGMAT_COIN_BULK_ADD_TO_BLACKLIST = 65;
-  private static final int METHODID_PROGMAT_COIN_BULK_REMOVE_FROM_BLACKLIST = 66;
-  private static final int METHODID_PROGMAT_COIN_CONFISCATE = 67;
-  private static final int METHODID_PROGMAT_COIN_PAUSE = 68;
-  private static final int METHODID_PROGMAT_COIN_UNPAUSE = 69;
-  private static final int METHODID_PROGMAT_COIN_GRANT_WHITE_AND_BLACK_LISTER = 70;
-  private static final int METHODID_PROGMAT_COIN_UPGRADE_TO_AND_CALL = 71;
-  private static final int METHODID_LIST_PRE_TRANSACTION_THRESHOLDS_BY_FILTER = 72;
-  private static final int METHODID_LIST_BLACKLIST_ADDRESSES_BY_FILTER = 73;
-  private static final int METHODID_LIST_BLACKLIST_ADDRESS_FILES = 74;
+  private static final int METHODID_LIST_WALLETS_BY_BASE_WALLET_ID = 7;
+  private static final int METHODID_GET_SPENDABLE_BALANCE = 8;
+  private static final int METHODID_INITIALIZE_XRPWALLET = 9;
+  private static final int METHODID_INITIALIZE_WALLET = 10;
+  private static final int METHODID_UPDATE_DESTINATION_WALLET_ID = 11;
+  private static final int METHODID_GET_COSMOS_BALANCE = 12;
+  private static final int METHODID_LIST_COSMOS_DELEGATE_HISTORIES = 13;
+  private static final int METHODID_LIST_UTXOS = 14;
+  private static final int METHODID_CREATE_ADDRESS = 15;
+  private static final int METHODID_CREATE_IOSTACCOUNT = 16;
+  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 17;
+  private static final int METHODID_GET_ADDRESS = 18;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 19;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 20;
+  private static final int METHODID_GET_ADDRESS_BY_INDEX = 21;
+  private static final int METHODID_LIST_ADDRESSES = 22;
+  private static final int METHODID_IMPORT_ADDRESS = 23;
+  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 24;
+  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 25;
+  private static final int METHODID_LIST_COLD_FEE_DEPOSIT_ADDRESSES = 26;
+  private static final int METHODID_LIST_HOT_FEE_DEPOSIT_ADDRESSES = 27;
+  private static final int METHODID_CREATE_PRE_TRANSACTION = 28;
+  private static final int METHODID_LIST_PRE_TRANSACTIONS_BY_FILTER = 29;
+  private static final int METHODID_CANCEL_PRE_TRANSACTION = 30;
+  private static final int METHODID_CREATE_TRANSACTION = 31;
+  private static final int METHODID_CREATE_CONTRACT_CREATION_TRANSACTION = 32;
+  private static final int METHODID_SIGN_TRANSACTION = 33;
+  private static final int METHODID_SEND_TRANSACTION = 34;
+  private static final int METHODID_RESEND_TRANSACTION = 35;
+  private static final int METHODID_CANCEL_TRANSACTION = 36;
+  private static final int METHODID_REPLACE_TRANSACTION = 37;
+  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 38;
+  private static final int METHODID_GET_TRANSACTION = 39;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 40;
+  private static final int METHODID_LIST_TRANSACTIONS = 41;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 42;
+  private static final int METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER = 43;
+  private static final int METHODID_EXIT_ETHEREUM_STAKING_VALIDATORS = 44;
+  private static final int METHODID_LIST_TRANSFERS = 45;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 46;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 47;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 48;
+  private static final int METHODID_SET_RATES = 49;
+  private static final int METHODID_CALCULATE_FEE = 50;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 51;
+  private static final int METHODID_VALIDATE_ADDRESS = 52;
+  private static final int METHODID_FLUSH_BALANCE = 53;
+  private static final int METHODID_LIST_AUDIT_LOGS = 54;
+  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 55;
+  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 56;
+  private static final int METHODID_LIST_NFTS_BY_FILTER = 57;
+  private static final int METHODID_SIGN_MESSAGE = 58;
+  private static final int METHODID_PROGMAT_COIN_INITIALIZE = 59;
+  private static final int METHODID_PROGMAT_COIN_CONFIGURE_MINTER = 60;
+  private static final int METHODID_PROGMAT_COIN_MINT_AND_TRANSFER = 61;
+  private static final int METHODID_PROGMAT_COIN_MINT = 62;
+  private static final int METHODID_PROGMAT_COIN_BURN = 63;
+  private static final int METHODID_PROGMAT_COIN_BULK_ADD_TO_WHITELIST = 64;
+  private static final int METHODID_PROGMAT_COIN_BULK_REMOVE_FROM_WHITELIST = 65;
+  private static final int METHODID_PROGMAT_COIN_BULK_ADD_TO_BLACKLIST = 66;
+  private static final int METHODID_PROGMAT_COIN_BULK_REMOVE_FROM_BLACKLIST = 67;
+  private static final int METHODID_PROGMAT_COIN_CONFISCATE = 68;
+  private static final int METHODID_PROGMAT_COIN_PAUSE = 69;
+  private static final int METHODID_PROGMAT_COIN_UNPAUSE = 70;
+  private static final int METHODID_PROGMAT_COIN_GRANT_WHITE_AND_BLACK_LISTER = 71;
+  private static final int METHODID_PROGMAT_COIN_UPGRADE_TO_AND_CALL = 72;
+  private static final int METHODID_LIST_PRE_TRANSACTION_THRESHOLDS_BY_FILTER = 73;
+  private static final int METHODID_LIST_BLACKLIST_ADDRESSES_BY_FILTER = 74;
+  private static final int METHODID_LIST_BLACKLIST_ADDRESS_FILES = 75;
+  private static final int METHODID_LIST_WHITELISTS_BY_FILTER = 76;
+  private static final int METHODID_LIST_LABELED_ADDRESSES_BY_FILTER = 77;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -4977,6 +5175,10 @@ public final class TellerAPIGrpc {
         case METHODID_LIST_BASE_WALLETS:
           serviceImpl.listBaseWallets((adamant.global.v1.ListBaseWalletsRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListBaseWalletsResponse>) responseObserver);
+          break;
+        case METHODID_LIST_WALLETS_BY_BASE_WALLET_ID:
+          serviceImpl.listWalletsByBaseWalletId((adamant.global.v1.ListWalletsByBaseWalletIdRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListWalletsByBaseWalletIdResponse>) responseObserver);
           break;
         case METHODID_GET_SPENDABLE_BALANCE:
           serviceImpl.getSpendableBalance((adamant.global.v1.GetSpendableBalanceRequest) request,
@@ -5250,6 +5452,14 @@ public final class TellerAPIGrpc {
           serviceImpl.listBlacklistAddressFiles((adamant.global.v1.ListBlacklistAddressFilesRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListBlacklistAddressFilesResponse>) responseObserver);
           break;
+        case METHODID_LIST_WHITELISTS_BY_FILTER:
+          serviceImpl.listWhitelistsByFilter((adamant.global.v1.ListWhitelistsByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListWhitelistsByFilterResponse>) responseObserver);
+          break;
+        case METHODID_LIST_LABELED_ADDRESSES_BY_FILTER:
+          serviceImpl.listLabeledAddressesByFilter((adamant.global.v1.ListLabeledAddressesByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListLabeledAddressesByFilterResponse>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -5317,6 +5527,13 @@ public final class TellerAPIGrpc {
               adamant.global.v1.ListBaseWalletsRequest,
               adamant.global.v1.ListBaseWalletsResponse>(
                 service, METHODID_LIST_BASE_WALLETS)))
+        .addMethod(
+          getListWalletsByBaseWalletIdMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListWalletsByBaseWalletIdRequest,
+              adamant.global.v1.ListWalletsByBaseWalletIdResponse>(
+                service, METHODID_LIST_WALLETS_BY_BASE_WALLET_ID)))
         .addMethod(
           getGetSpendableBalanceMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -5793,6 +6010,20 @@ public final class TellerAPIGrpc {
               adamant.global.v1.ListBlacklistAddressFilesRequest,
               adamant.global.v1.ListBlacklistAddressFilesResponse>(
                 service, METHODID_LIST_BLACKLIST_ADDRESS_FILES)))
+        .addMethod(
+          getListWhitelistsByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListWhitelistsByFilterRequest,
+              adamant.global.v1.ListWhitelistsByFilterResponse>(
+                service, METHODID_LIST_WHITELISTS_BY_FILTER)))
+        .addMethod(
+          getListLabeledAddressesByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListLabeledAddressesByFilterRequest,
+              adamant.global.v1.ListLabeledAddressesByFilterResponse>(
+                service, METHODID_LIST_LABELED_ADDRESSES_BY_FILTER)))
         .build();
   }
 
@@ -5848,6 +6079,7 @@ public final class TellerAPIGrpc {
               .addMethod(getListStakingWalletsByFilterMethod())
               .addMethod(getListNFTWalletsByFilterMethod())
               .addMethod(getListBaseWalletsMethod())
+              .addMethod(getListWalletsByBaseWalletIdMethod())
               .addMethod(getGetSpendableBalanceMethod())
               .addMethod(getInitializeXRPWalletMethod())
               .addMethod(getInitializeWalletMethod())
@@ -5916,6 +6148,8 @@ public final class TellerAPIGrpc {
               .addMethod(getListPreTransactionThresholdsByFilterMethod())
               .addMethod(getListBlacklistAddressesByFilterMethod())
               .addMethod(getListBlacklistAddressFilesMethod())
+              .addMethod(getListWhitelistsByFilterMethod())
+              .addMethod(getListLabeledAddressesByFilterMethod())
               .build();
         }
       }

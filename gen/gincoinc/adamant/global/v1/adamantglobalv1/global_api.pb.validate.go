@@ -1716,6 +1716,124 @@ var _ListWalletsByFilterRequest_FilterType_NotInLookup = map[ListFilterType]stru
 
 var _ListWalletsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
 
+// Validate checks the field values on ListWalletsByBaseWalletIdRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ListWalletsByBaseWalletIdRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListWalletsByBaseWalletIdRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// ListWalletsByBaseWalletIdRequestMultiError, or nil if none found.
+func (m *ListWalletsByBaseWalletIdRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListWalletsByBaseWalletIdRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_ListWalletsByBaseWalletIdRequest_BaseWalletId_Pattern.MatchString(m.GetBaseWalletId()) {
+		err := ListWalletsByBaseWalletIdRequestValidationError{
+			field:  "BaseWalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return ListWalletsByBaseWalletIdRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListWalletsByBaseWalletIdRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ListWalletsByBaseWalletIdRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ListWalletsByBaseWalletIdRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListWalletsByBaseWalletIdRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListWalletsByBaseWalletIdRequestMultiError) AllErrors() []error { return m }
+
+// ListWalletsByBaseWalletIdRequestValidationError is the validation error
+// returned by ListWalletsByBaseWalletIdRequest.Validate if the designated
+// constraints aren't met.
+type ListWalletsByBaseWalletIdRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListWalletsByBaseWalletIdRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListWalletsByBaseWalletIdRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListWalletsByBaseWalletIdRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListWalletsByBaseWalletIdRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListWalletsByBaseWalletIdRequestValidationError) ErrorName() string {
+	return "ListWalletsByBaseWalletIdRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListWalletsByBaseWalletIdRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListWalletsByBaseWalletIdRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListWalletsByBaseWalletIdRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListWalletsByBaseWalletIdRequestValidationError{}
+
+var _ListWalletsByBaseWalletIdRequest_BaseWalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on ListWalletsResponse with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -1956,6 +2074,138 @@ var _ interface {
 	ErrorName() string
 } = ListBaseWalletsRequestValidationError{}
 
+// Validate checks the field values on
+// ListBaseWalletsForEVMAddressSharingRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ListBaseWalletsForEVMAddressSharingRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ListBaseWalletsForEVMAddressSharingRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// ListBaseWalletsForEVMAddressSharingRequestMultiError, or nil if none found.
+func (m *ListBaseWalletsForEVMAddressSharingRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListBaseWalletsForEVMAddressSharingRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := _ListBaseWalletsForEVMAddressSharingRequest_Coin_NotInLookup[m.GetCoin()]; ok {
+		err := ListBaseWalletsForEVMAddressSharingRequestValidationError{
+			field:  "Coin",
+			reason: "value must not be in list [0]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := gincoincglobalv1.Coin_name[int32(m.GetCoin())]; !ok {
+		err := ListBaseWalletsForEVMAddressSharingRequestValidationError{
+			field:  "Coin",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return ListBaseWalletsForEVMAddressSharingRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListBaseWalletsForEVMAddressSharingRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ListBaseWalletsForEVMAddressSharingRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ListBaseWalletsForEVMAddressSharingRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListBaseWalletsForEVMAddressSharingRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListBaseWalletsForEVMAddressSharingRequestMultiError) AllErrors() []error { return m }
+
+// ListBaseWalletsForEVMAddressSharingRequestValidationError is the validation
+// error returned by ListBaseWalletsForEVMAddressSharingRequest.Validate if
+// the designated constraints aren't met.
+type ListBaseWalletsForEVMAddressSharingRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListBaseWalletsForEVMAddressSharingRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListBaseWalletsForEVMAddressSharingRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListBaseWalletsForEVMAddressSharingRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListBaseWalletsForEVMAddressSharingRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListBaseWalletsForEVMAddressSharingRequestValidationError) ErrorName() string {
+	return "ListBaseWalletsForEVMAddressSharingRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListBaseWalletsForEVMAddressSharingRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListBaseWalletsForEVMAddressSharingRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListBaseWalletsForEVMAddressSharingRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListBaseWalletsForEVMAddressSharingRequestValidationError{}
+
+var _ListBaseWalletsForEVMAddressSharingRequest_Coin_NotInLookup = map[gincoincglobalv1.Coin]struct{}{
+	0: {},
+}
+
 // Validate checks the field values on ListBaseWalletsResponse with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -2091,6 +2341,145 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListBaseWalletsResponseValidationError{}
+
+// Validate checks the field values on ListWalletsByBaseWalletIdResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ListWalletsByBaseWalletIdResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListWalletsByBaseWalletIdResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ListWalletsByBaseWalletIdResponseMultiError, or nil if none found.
+func (m *ListWalletsByBaseWalletIdResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListWalletsByBaseWalletIdResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetWallets() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListWalletsByBaseWalletIdResponseValidationError{
+						field:  fmt.Sprintf("Wallets[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListWalletsByBaseWalletIdResponseValidationError{
+						field:  fmt.Sprintf("Wallets[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListWalletsByBaseWalletIdResponseValidationError{
+					field:  fmt.Sprintf("Wallets[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ListWalletsByBaseWalletIdResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListWalletsByBaseWalletIdResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ListWalletsByBaseWalletIdResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ListWalletsByBaseWalletIdResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListWalletsByBaseWalletIdResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListWalletsByBaseWalletIdResponseMultiError) AllErrors() []error { return m }
+
+// ListWalletsByBaseWalletIdResponseValidationError is the validation error
+// returned by ListWalletsByBaseWalletIdResponse.Validate if the designated
+// constraints aren't met.
+type ListWalletsByBaseWalletIdResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListWalletsByBaseWalletIdResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListWalletsByBaseWalletIdResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListWalletsByBaseWalletIdResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListWalletsByBaseWalletIdResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListWalletsByBaseWalletIdResponseValidationError) ErrorName() string {
+	return "ListWalletsByBaseWalletIdResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListWalletsByBaseWalletIdResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListWalletsByBaseWalletIdResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListWalletsByBaseWalletIdResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListWalletsByBaseWalletIdResponseValidationError{}
 
 // Validate checks the field values on ListStakingWalletsByFilterRequest with
 // the rules defined in the proto definition for this message. If any rules
@@ -7356,6 +7745,126 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CreateAddressResponseValidationError{}
+
+// Validate checks the field values on CreateAddressWithBaseAddressRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *CreateAddressWithBaseAddressRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreateAddressWithBaseAddressRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// CreateAddressWithBaseAddressRequestMultiError, or nil if none found.
+func (m *CreateAddressWithBaseAddressRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateAddressWithBaseAddressRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_CreateAddressWithBaseAddressRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := CreateAddressWithBaseAddressRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for Address
+
+	if len(errors) > 0 {
+		return CreateAddressWithBaseAddressRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreateAddressWithBaseAddressRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// CreateAddressWithBaseAddressRequest.ValidateAll() if the designated
+// constraints aren't met.
+type CreateAddressWithBaseAddressRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateAddressWithBaseAddressRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateAddressWithBaseAddressRequestMultiError) AllErrors() []error { return m }
+
+// CreateAddressWithBaseAddressRequestValidationError is the validation error
+// returned by CreateAddressWithBaseAddressRequest.Validate if the designated
+// constraints aren't met.
+type CreateAddressWithBaseAddressRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateAddressWithBaseAddressRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateAddressWithBaseAddressRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateAddressWithBaseAddressRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateAddressWithBaseAddressRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateAddressWithBaseAddressRequestValidationError) ErrorName() string {
+	return "CreateAddressWithBaseAddressRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateAddressWithBaseAddressRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateAddressWithBaseAddressRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateAddressWithBaseAddressRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateAddressWithBaseAddressRequestValidationError{}
+
+var _CreateAddressWithBaseAddressRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on GetAddressRequest with the rules defined
 // in the proto definition for this message. If any rules are violated, the
