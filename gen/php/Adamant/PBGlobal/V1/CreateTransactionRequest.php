@@ -110,6 +110,10 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      */
     protected $babylon_specific = null;
     /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+     */
+    protected $bitcoin_staking_specific = null;
+    /**
      * Generated from protobuf field <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = {</code>
      */
     protected $pre_transaction_id = null;
@@ -144,6 +148,7 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\UtxoSpecific $utxo_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionSuiSpecific $sui_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionBabylonSpecific $babylon_specific
+     *     @type \Adamant\PBGlobal\V1\CreateTransactionBitcoinStakingSpecific $bitcoin_staking_specific
      *     @type string $pre_transaction_id
      * }
      */
@@ -846,6 +851,38 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionBabylonSpecific::class);
         $this->babylon_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CreateTransactionBitcoinStakingSpecific|null
+     */
+    public function getBitcoinStakingSpecific()
+    {
+        return $this->bitcoin_staking_specific;
+    }
+
+    public function hasBitcoinStakingSpecific()
+    {
+        return isset($this->bitcoin_staking_specific);
+    }
+
+    public function clearBitcoinStakingSpecific()
+    {
+        unset($this->bitcoin_staking_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CreateTransactionBitcoinStakingSpecific $var
+     * @return $this
+     */
+    public function setBitcoinStakingSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionBitcoinStakingSpecific::class);
+        $this->bitcoin_staking_specific = $var;
 
         return $this;
     }

@@ -21,6 +21,8 @@ private static final long serialVersionUID = 0L;
     whitelistName_ = "";
     coin_ = 0;
     network_ = 0;
+    labeledAddressId_ = "";
+    address_ = "";
     pageToken_ = "";
   }
 
@@ -228,6 +230,100 @@ private static final long serialVersionUID = 0L;
     return result == null ? gincoinc.global.v1.Enum.Network.UNRECOGNIZED : result;
   }
 
+  public static final int LABELED_ADDRESS_ID_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object labeledAddressId_ = "";
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string labeled_address_id = 8 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+   * @return The labeledAddressId.
+   */
+  @java.lang.Override
+  public java.lang.String getLabeledAddressId() {
+    java.lang.Object ref = labeledAddressId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      labeledAddressId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string labeled_address_id = 8 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+   * @return The bytes for labeledAddressId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getLabeledAddressIdBytes() {
+    java.lang.Object ref = labeledAddressId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      labeledAddressId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ADDRESS_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object address_ = "";
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string address = 9 [json_name = "address"];</code>
+   * @return The address.
+   */
+  @java.lang.Override
+  public java.lang.String getAddress() {
+    java.lang.Object ref = address_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      address_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string address = 9 [json_name = "address"];</code>
+   * @return The bytes for address.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAddressBytes() {
+    java.lang.Object ref = address_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      address_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int PAGE_SIZE_FIELD_NUMBER = 5;
   private int pageSize_ = 0;
   /**
@@ -325,6 +421,12 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeEnum(7, network_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(labeledAddressId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, labeledAddressId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, address_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -359,6 +461,12 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(7, network_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(labeledAddressId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, labeledAddressId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(address_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, address_);
+    }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
@@ -384,6 +492,10 @@ private static final long serialVersionUID = 0L;
     if (hasNetwork()) {
       if (network_ != other.network_) return false;
     }
+    if (!getLabeledAddressId()
+        .equals(other.getLabeledAddressId())) return false;
+    if (!getAddress()
+        .equals(other.getAddress())) return false;
     if (getPageSize()
         != other.getPageSize()) return false;
     if (!getPageToken()
@@ -411,6 +523,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NETWORK_FIELD_NUMBER;
       hash = (53 * hash) + network_;
     }
+    hash = (37 * hash) + LABELED_ADDRESS_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getLabeledAddressId().hashCode();
+    hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+    hash = (53 * hash) + getAddress().hashCode();
     hash = (37 * hash) + PAGE_SIZE_FIELD_NUMBER;
     hash = (53 * hash) + getPageSize();
     hash = (37 * hash) + PAGE_TOKEN_FIELD_NUMBER;
@@ -551,6 +667,8 @@ private static final long serialVersionUID = 0L;
       whitelistName_ = "";
       coin_ = 0;
       network_ = 0;
+      labeledAddressId_ = "";
+      address_ = "";
       pageSize_ = 0;
       pageToken_ = "";
       return this;
@@ -604,9 +722,15 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000020) != 0)) {
-        result.pageSize_ = pageSize_;
+        result.labeledAddressId_ = labeledAddressId_;
       }
       if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.address_ = address_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
         result.pageToken_ = pageToken_;
       }
       result.bitField0_ |= to_bitField0_;
@@ -675,12 +799,22 @@ private static final long serialVersionUID = 0L;
       if (other.hasNetwork()) {
         setNetwork(other.getNetwork());
       }
+      if (!other.getLabeledAddressId().isEmpty()) {
+        labeledAddressId_ = other.labeledAddressId_;
+        bitField0_ |= 0x00000020;
+        onChanged();
+      }
+      if (!other.getAddress().isEmpty()) {
+        address_ = other.address_;
+        bitField0_ |= 0x00000040;
+        onChanged();
+      }
       if (other.getPageSize() != 0) {
         setPageSize(other.getPageSize());
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -731,12 +865,12 @@ private static final long serialVersionUID = 0L;
             } // case 32
             case 40: {
               pageSize_ = input.readUInt32();
-              bitField0_ |= 0x00000020;
+              bitField0_ |= 0x00000080;
               break;
             } // case 40
             case 50: {
               pageToken_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x00000040;
+              bitField0_ |= 0x00000100;
               break;
             } // case 50
             case 56: {
@@ -744,6 +878,16 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000010;
               break;
             } // case 56
+            case 66: {
+              labeledAddressId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 66
+            case 74: {
+              address_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 74
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -1175,6 +1319,190 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object labeledAddressId_ = "";
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string labeled_address_id = 8 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+     * @return The labeledAddressId.
+     */
+    public java.lang.String getLabeledAddressId() {
+      java.lang.Object ref = labeledAddressId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        labeledAddressId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string labeled_address_id = 8 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+     * @return The bytes for labeledAddressId.
+     */
+    public com.google.protobuf.ByteString
+        getLabeledAddressIdBytes() {
+      java.lang.Object ref = labeledAddressId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        labeledAddressId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string labeled_address_id = 8 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+     * @param value The labeledAddressId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLabeledAddressId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      labeledAddressId_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string labeled_address_id = 8 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLabeledAddressId() {
+      labeledAddressId_ = getDefaultInstance().getLabeledAddressId();
+      bitField0_ = (bitField0_ & ~0x00000020);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string labeled_address_id = 8 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for labeledAddressId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLabeledAddressIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      labeledAddressId_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object address_ = "";
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string address = 9 [json_name = "address"];</code>
+     * @return The address.
+     */
+    public java.lang.String getAddress() {
+      java.lang.Object ref = address_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        address_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string address = 9 [json_name = "address"];</code>
+     * @return The bytes for address.
+     */
+    public com.google.protobuf.ByteString
+        getAddressBytes() {
+      java.lang.Object ref = address_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        address_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string address = 9 [json_name = "address"];</code>
+     * @param value The address to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAddress(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      address_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string address = 9 [json_name = "address"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAddress() {
+      address_ = getDefaultInstance().getAddress();
+      bitField0_ = (bitField0_ & ~0x00000040);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string address = 9 [json_name = "address"];</code>
+     * @param value The bytes for address to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAddressBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      address_ = value;
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+
     private int pageSize_ ;
     /**
      * <pre>
@@ -1200,7 +1528,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
 
       pageSize_ = value;
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1213,7 +1541,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000080);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -1274,7 +1602,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -1288,7 +1616,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPageToken() {
       pageToken_ = getDefaultInstance().getPageToken();
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -1306,7 +1634,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       pageToken_ = value;
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }

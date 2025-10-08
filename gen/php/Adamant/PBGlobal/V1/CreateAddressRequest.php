@@ -25,6 +25,12 @@ class CreateAddressRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint64 fee_rate = 2 [json_name = "feeRate"];</code>
      */
     protected $fee_rate = 0;
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string base_wallet_address = 3 [json_name = "baseWalletAddress"];</code>
+     */
+    protected $base_wallet_address = '';
 
     /**
      * Constructor.
@@ -36,6 +42,8 @@ class CreateAddressRequest extends \Google\Protobuf\Internal\Message
      *           The id of wallet
      *     @type int|string $fee_rate
      *           for contract wallet
+     *     @type string $base_wallet_address
+     *           optional
      * }
      */
     public function __construct($data = NULL) {
@@ -91,6 +99,32 @@ class CreateAddressRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint64($var);
         $this->fee_rate = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string base_wallet_address = 3 [json_name = "baseWalletAddress"];</code>
+     * @return string
+     */
+    public function getBaseWalletAddress()
+    {
+        return $this->base_wallet_address;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string base_wallet_address = 3 [json_name = "baseWalletAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setBaseWalletAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->base_wallet_address = $var;
 
         return $this;
     }

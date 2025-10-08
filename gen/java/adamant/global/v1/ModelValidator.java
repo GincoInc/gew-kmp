@@ -29,6 +29,8 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.TxInput.class)) return new TxInputValidator();
 		if (clazz.equals(adamant.global.v1.Model.TxOutput.class)) return new TxOutputValidator();
 		if (clazz.equals(adamant.global.v1.Model.UTXO.class)) return new UTXOValidator();
+		if (clazz.equals(adamant.global.v1.Model.BitcoinDelegation.class)) return new BitcoinDelegationValidator();
+		if (clazz.equals(adamant.global.v1.Model.BitcoinDelegationSignInfo.class)) return new BitcoinDelegationSignInfoValidator();
 		if (clazz.equals(adamant.global.v1.Model.CardanoUTXOSpecific.class)) return new CardanoUTXOSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.AvalanchePlatformChainUTXOSpecific.class)) return new AvalanchePlatformChainUTXOSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CardanoCustomToken.class)) return new CardanoCustomTokenValidator();
@@ -77,6 +79,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionIOSTSpecific.class)) return new CreateTransactionIOSTSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSymbolSpecific.class)) return new CreateTransactionSymbolSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionEthereumSpecific.class)) return new CreateTransactionEthereumSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific.class)) return new CreateTransactionBitcoinStakingSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionCosmosSpecific.class)) return new CreateTransactionCosmosSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionBabylonSpecific.class)) return new CreateTransactionBabylonSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionAlgorandSpecific.class)) return new CreateTransactionAlgorandSpecificValidator();
@@ -1508,6 +1511,88 @@ public class ModelValidator {
 	}
 }
 /**
+	 * Validates {@code BitcoinDelegation} protobuf objects.
+	 */
+	public static class BitcoinDelegationValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.BitcoinDelegation> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.BitcoinDelegation proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for OwnerId
+
+	// no validation rules for DelegationId
+
+	// no validation rules for BitcoinWalletId
+
+	// no validation rules for BabylonWalletId
+
+	// no validation rules for StakingTransactionId
+
+	// no validation rules for UnbondingTransactionId
+
+	// no validation rules for WithdrawalTransactionId
+
+	// no validation rules for Duration
+
+	// no validation rules for Expiration
+
+	// no validation rules for State
+
+	
+			// Validate create_time
+			if (proto.hasCreateTime()) index.validatorFor(proto.getCreateTime()).assertValid(proto.getCreateTime());
+	
+			// Validate update_time
+			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+	}
+}
+/**
+	 * Validates {@code BitcoinDelegationSignInfo} protobuf objects.
+	 */
+	public static class BitcoinDelegationSignInfoValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.BitcoinDelegationSignInfo> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.BitcoinDelegationSignInfo proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for TxId
+
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getSignTxInputsList(), item -> {
+				
+			// Validate sign_tx_inputs
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+	
+	}
+}
+/**
 	 * Validates {@code CardanoUTXOSpecific} protobuf objects.
 	 */
 	public static class CardanoUTXOSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CardanoUTXOSpecific> {
@@ -2515,6 +2600,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.BNBSmartChainSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2527,6 +2614,8 @@ public class ModelValidator {
 	// no validation rules for FromAddress
 
 	// no validation rules for TokenAddress
+
+	// no validation rules for Data
 
 	
 	}
@@ -2989,6 +3078,20 @@ public class ModelValidator {
 
 	public void assertValid(adamant.global.v1.Model.CreateTransactionEthereumSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Data
+
+	
+	}
+}
+/**
+	 * Validates {@code CreateTransactionBitcoinStakingSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionBitcoinStakingSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Type
 
 	
 	}

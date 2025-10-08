@@ -36,4 +36,24 @@ public interface CreateAddressRequestOrBuilder extends
    * @return The feeRate.
    */
   long getFeeRate();
+
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string base_wallet_address = 3 [json_name = "baseWalletAddress"];</code>
+   * @return The baseWalletAddress.
+   */
+  java.lang.String getBaseWalletAddress();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string base_wallet_address = 3 [json_name = "baseWalletAddress"];</code>
+   * @return The bytes for baseWalletAddress.
+   */
+  com.google.protobuf.ByteString
+      getBaseWalletAddressBytes();
 }

@@ -46,6 +46,18 @@ class ListWhitelistsByFilterRequest extends \Google\Protobuf\Internal\Message
     /**
      * optional
      *
+     * Generated from protobuf field <code>string labeled_address_id = 8 [json_name = "labeledAddressId", (.validate.rules) = {</code>
+     */
+    protected $labeled_address_id = '';
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string address = 9 [json_name = "address"];</code>
+     */
+    protected $address = '';
+    /**
+     * optional
+     *
      * Generated from protobuf field <code>uint32 page_size = 5 [json_name = "pageSize", (.validate.rules) = {</code>
      */
     protected $page_size = 0;
@@ -71,6 +83,10 @@ class ListWhitelistsByFilterRequest extends \Google\Protobuf\Internal\Message
      *     @type int $coin
      *           optional
      *     @type int $network
+     *           optional
+     *     @type string $labeled_address_id
+     *           optional
+     *     @type string $address
      *           optional
      *     @type int $page_size
      *           optional
@@ -219,6 +235,58 @@ class ListWhitelistsByFilterRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
         $this->network = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string labeled_address_id = 8 [json_name = "labeledAddressId", (.validate.rules) = {</code>
+     * @return string
+     */
+    public function getLabeledAddressId()
+    {
+        return $this->labeled_address_id;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string labeled_address_id = 8 [json_name = "labeledAddressId", (.validate.rules) = {</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setLabeledAddressId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->labeled_address_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string address = 9 [json_name = "address"];</code>
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string address = 9 [json_name = "address"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->address = $var;
 
         return $this;
     }

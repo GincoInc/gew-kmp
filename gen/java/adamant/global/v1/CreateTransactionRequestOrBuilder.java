@@ -341,6 +341,21 @@ public interface CreateTransactionRequestOrBuilder extends
   adamant.global.v1.Model.CreateTransactionBabylonSpecificOrBuilder getBabylonSpecificOrBuilder();
 
   /**
+   * <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+   * @return Whether the bitcoinStakingSpecific field is set.
+   */
+  boolean hasBitcoinStakingSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+   * @return The bitcoinStakingSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific getBitcoinStakingSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecificOrBuilder getBitcoinStakingSpecificOrBuilder();
+
+  /**
    * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
    * @return Whether the preTransactionId field is set.
    */

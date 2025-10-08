@@ -19,12 +19,16 @@ public class CreateAddressRequestValidator implements io.envoyproxy.pgv.Validato
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.CreateAddressRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.CreateAddressRequest.wallet_id", proto.getWalletId(), WALLET_ID__PATTERN);
 	// no validation rules for FeeRate
+
+	// no validation rules for BaseWalletAddress
 
 	
 	}
