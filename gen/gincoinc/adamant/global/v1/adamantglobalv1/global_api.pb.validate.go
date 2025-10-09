@@ -472,6 +472,17 @@ func (m *CreateWalletRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if !_CreateWalletRequest_BaseWalletId_Pattern.MatchString(m.GetBaseWalletId()) {
+		err := CreateWalletRequestValidationError{
+			field:  "BaseWalletId",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
 	if m.Network != nil {
 
 		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
@@ -584,6 +595,8 @@ var _CreateWalletRequest_PolicyId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-
 var _CreateWalletRequest_DestinationWalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _CreateWalletRequest_InheritWalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _CreateWalletRequest_BaseWalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on CreateWalletResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -7559,6 +7572,8 @@ func (m *CreateAddressRequest) validate(all bool) error {
 	}
 
 	// no validation rules for FeeRate
+
+	// no validation rules for BaseWalletAddress
 
 	if len(errors) > 0 {
 		return CreateAddressRequestMultiError(errors)

@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private CreateAddressRequest() {
     walletId_ = "";
+    baseWalletAddress_ = "";
   }
 
   @java.lang.Override
@@ -101,6 +102,53 @@ private static final long serialVersionUID = 0L;
     return feeRate_;
   }
 
+  public static final int BASE_WALLET_ADDRESS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object baseWalletAddress_ = "";
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string base_wallet_address = 3 [json_name = "baseWalletAddress"];</code>
+   * @return The baseWalletAddress.
+   */
+  @java.lang.Override
+  public java.lang.String getBaseWalletAddress() {
+    java.lang.Object ref = baseWalletAddress_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      baseWalletAddress_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string base_wallet_address = 3 [json_name = "baseWalletAddress"];</code>
+   * @return The bytes for baseWalletAddress.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getBaseWalletAddressBytes() {
+    java.lang.Object ref = baseWalletAddress_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      baseWalletAddress_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -121,6 +169,9 @@ private static final long serialVersionUID = 0L;
     if (feeRate_ != 0L) {
       output.writeUInt64(2, feeRate_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(baseWalletAddress_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, baseWalletAddress_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -136,6 +187,9 @@ private static final long serialVersionUID = 0L;
     if (feeRate_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeUInt64Size(2, feeRate_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(baseWalletAddress_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, baseWalletAddress_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -156,6 +210,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getWalletId())) return false;
     if (getFeeRate()
         != other.getFeeRate()) return false;
+    if (!getBaseWalletAddress()
+        .equals(other.getBaseWalletAddress())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -172,6 +228,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + FEE_RATE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getFeeRate());
+    hash = (37 * hash) + BASE_WALLET_ADDRESS_FIELD_NUMBER;
+    hash = (53 * hash) + getBaseWalletAddress().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -305,6 +363,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       walletId_ = "";
       feeRate_ = 0L;
+      baseWalletAddress_ = "";
       return this;
     }
 
@@ -343,6 +402,9 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.feeRate_ = feeRate_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.baseWalletAddress_ = baseWalletAddress_;
       }
     }
 
@@ -398,6 +460,11 @@ private static final long serialVersionUID = 0L;
       if (other.getFeeRate() != 0L) {
         setFeeRate(other.getFeeRate());
       }
+      if (!other.getBaseWalletAddress().isEmpty()) {
+        baseWalletAddress_ = other.baseWalletAddress_;
+        bitField0_ |= 0x00000004;
+        onChanged();
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -434,6 +501,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 16
+            case 26: {
+              baseWalletAddress_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -583,6 +655,98 @@ private static final long serialVersionUID = 0L;
     public Builder clearFeeRate() {
       bitField0_ = (bitField0_ & ~0x00000002);
       feeRate_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object baseWalletAddress_ = "";
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string base_wallet_address = 3 [json_name = "baseWalletAddress"];</code>
+     * @return The baseWalletAddress.
+     */
+    public java.lang.String getBaseWalletAddress() {
+      java.lang.Object ref = baseWalletAddress_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        baseWalletAddress_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string base_wallet_address = 3 [json_name = "baseWalletAddress"];</code>
+     * @return The bytes for baseWalletAddress.
+     */
+    public com.google.protobuf.ByteString
+        getBaseWalletAddressBytes() {
+      java.lang.Object ref = baseWalletAddress_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        baseWalletAddress_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string base_wallet_address = 3 [json_name = "baseWalletAddress"];</code>
+     * @param value The baseWalletAddress to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBaseWalletAddress(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      baseWalletAddress_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string base_wallet_address = 3 [json_name = "baseWalletAddress"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBaseWalletAddress() {
+      baseWalletAddress_ = getDefaultInstance().getBaseWalletAddress();
+      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * optional
+     * </pre>
+     *
+     * <code>string base_wallet_address = 3 [json_name = "baseWalletAddress"];</code>
+     * @param value The bytes for baseWalletAddress to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBaseWalletAddressBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      baseWalletAddress_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }

@@ -192,4 +192,24 @@ public interface CreateWalletRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getInheritWalletIdBytes();
+
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string base_wallet_id = 14 [json_name = "baseWalletId", (.validate.rules) = { ... }</code>
+   * @return The baseWalletId.
+   */
+  java.lang.String getBaseWalletId();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string base_wallet_id = 14 [json_name = "baseWalletId", (.validate.rules) = { ... }</code>
+   * @return The bytes for baseWalletId.
+   */
+  com.google.protobuf.ByteString
+      getBaseWalletIdBytes();
 }
