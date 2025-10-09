@@ -260,6 +260,10 @@ enum UTXOState {
   UTXO_STATE_UNSPENT = 2;
   UTXO_STATE_PENDING_SPENT = 3;
   UTXO_STATE_SPENT = 4;
+  UTXO_STATE_PENDING_LOCKED = 5; // Pending locked in staking
+  UTXO_STATE_LOCKED = 6; // Locked in staking
+  UTXO_STATE_PENDING_UNLOCKED = 7; // Pending unlocked in staking
+  UTXO_STATE_UNLOCKED = 8; // Unlocked in staking
 }
 
 // -----------------------------------------------------------------------------
