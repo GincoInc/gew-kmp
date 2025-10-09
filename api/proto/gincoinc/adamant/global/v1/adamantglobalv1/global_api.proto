@@ -265,6 +265,10 @@ message CreateWalletRequest {
   string inherit_wallet_id = 12 [(validate.rules).string = {
     pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
+  // optional
+  string base_wallet_id = 14 [(validate.rules).string = {
+    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 message CreateWalletResponse {
   string wallet_id = 1;
@@ -720,6 +724,8 @@ message CreateAddressRequest {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }]; // The id of wallet
   uint64 fee_rate = 2; // for contract wallet
+  // optional
+  string base_wallet_address = 3;
 }
 message CreateAddressResponse {
   string address_id = 1; // The id of created address

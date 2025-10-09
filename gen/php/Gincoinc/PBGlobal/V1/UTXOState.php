@@ -33,6 +33,30 @@ class UTXOState
      * Generated from protobuf enum <code>UTXO_STATE_SPENT = 4;</code>
      */
     const UTXO_STATE_SPENT = 4;
+    /**
+     * Pending locked in staking
+     *
+     * Generated from protobuf enum <code>UTXO_STATE_PENDING_LOCKED = 5;</code>
+     */
+    const UTXO_STATE_PENDING_LOCKED = 5;
+    /**
+     * Locked in staking
+     *
+     * Generated from protobuf enum <code>UTXO_STATE_LOCKED = 6;</code>
+     */
+    const UTXO_STATE_LOCKED = 6;
+    /**
+     * Pending unlocked in staking
+     *
+     * Generated from protobuf enum <code>UTXO_STATE_PENDING_UNLOCKED = 7;</code>
+     */
+    const UTXO_STATE_PENDING_UNLOCKED = 7;
+    /**
+     * Unlocked in staking
+     *
+     * Generated from protobuf enum <code>UTXO_STATE_UNLOCKED = 8;</code>
+     */
+    const UTXO_STATE_UNLOCKED = 8;
 
     private static $valueToName = [
         self::UTXO_STATE_INVALID => 'UTXO_STATE_INVALID',
@@ -40,6 +64,10 @@ class UTXOState
         self::UTXO_STATE_UNSPENT => 'UTXO_STATE_UNSPENT',
         self::UTXO_STATE_PENDING_SPENT => 'UTXO_STATE_PENDING_SPENT',
         self::UTXO_STATE_SPENT => 'UTXO_STATE_SPENT',
+        self::UTXO_STATE_PENDING_LOCKED => 'UTXO_STATE_PENDING_LOCKED',
+        self::UTXO_STATE_LOCKED => 'UTXO_STATE_LOCKED',
+        self::UTXO_STATE_PENDING_UNLOCKED => 'UTXO_STATE_PENDING_UNLOCKED',
+        self::UTXO_STATE_UNLOCKED => 'UTXO_STATE_UNLOCKED',
     ];
 
     public static function name($value)
