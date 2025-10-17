@@ -504,6 +504,7 @@ message SubstrateSpecific {
   uint32 spec_version = 11;
   uint32 transaction_version = 12;
   string genesis_hash = 13;
+  uint32 asset_id = 14;
 }
 
 // The model of Monacoin specific fields of transaction

@@ -2001,6 +2001,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.SubstrateSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2029,6 +2031,8 @@ public class ModelValidator {
 	// no validation rules for TransactionVersion
 
 	// no validation rules for GenesisHash
+
+	// no validation rules for AssetId
 
 	
 	}

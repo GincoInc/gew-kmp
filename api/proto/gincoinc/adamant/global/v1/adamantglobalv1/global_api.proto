@@ -1645,6 +1645,7 @@ message CalculateFeeRequest {
   CalculateFeeSuiSpecific sui_specific = 17;
   CalculateFeeTonSpecific ton_specific = 18;
   CalculateFeeBabylonSpecific babylon_specific = 19;
+  CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20;
 }
 
 // The model of Substrate specific fields of CreateTransaction
@@ -1680,6 +1681,15 @@ message CalculateFeeCosmosSpecific {
 message CalculateFeeBabylonSpecific {
   gincoinc.global.v1.BabylonMsgType type = 1;
   string memo = 2;
+  optional string delegation_id = 3;
+}
+
+// The model of Bitcoin staking specific fields of CalculateFee
+message CalculateFeeBitcoinStakingSpecific {
+  optional uint64 duration = 1;
+  optional string babylon_wallet_id = 2;
+  optional string delegation_id = 3;
+  gincoinc.global.v1.BTCStakingActionType type = 4;
 }
 
 // The model of Hedera specific fields of CalculateFee

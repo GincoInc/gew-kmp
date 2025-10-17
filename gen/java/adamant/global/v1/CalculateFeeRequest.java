@@ -560,6 +560,32 @@ private static final long serialVersionUID = 0L;
     return babylonSpecific_ == null ? adamant.global.v1.CalculateFeeBabylonSpecific.getDefaultInstance() : babylonSpecific_;
   }
 
+  public static final int BITCOIN_STAKING_SPECIFIC_FIELD_NUMBER = 20;
+  private adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoinStakingSpecific_;
+  /**
+   * <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+   * @return Whether the bitcoinStakingSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasBitcoinStakingSpecific() {
+    return bitcoinStakingSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+   * @return The bitcoinStakingSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.CalculateFeeBitcoinStakingSpecific getBitcoinStakingSpecific() {
+    return bitcoinStakingSpecific_ == null ? adamant.global.v1.CalculateFeeBitcoinStakingSpecific.getDefaultInstance() : bitcoinStakingSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.CalculateFeeBitcoinStakingSpecificOrBuilder getBitcoinStakingSpecificOrBuilder() {
+    return bitcoinStakingSpecific_ == null ? adamant.global.v1.CalculateFeeBitcoinStakingSpecific.getDefaultInstance() : bitcoinStakingSpecific_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -630,6 +656,9 @@ private static final long serialVersionUID = 0L;
     }
     if (babylonSpecific_ != null) {
       output.writeMessage(19, getBabylonSpecific());
+    }
+    if (bitcoinStakingSpecific_ != null) {
+      output.writeMessage(20, getBitcoinStakingSpecific());
     }
     getUnknownFields().writeTo(output);
   }
@@ -712,6 +741,10 @@ private static final long serialVersionUID = 0L;
     if (babylonSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(19, getBabylonSpecific());
+    }
+    if (bitcoinStakingSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(20, getBitcoinStakingSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -805,6 +838,11 @@ private static final long serialVersionUID = 0L;
       if (!getBabylonSpecific()
           .equals(other.getBabylonSpecific())) return false;
     }
+    if (hasBitcoinStakingSpecific() != other.hasBitcoinStakingSpecific()) return false;
+    if (hasBitcoinStakingSpecific()) {
+      if (!getBitcoinStakingSpecific()
+          .equals(other.getBitcoinStakingSpecific())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -882,6 +920,10 @@ private static final long serialVersionUID = 0L;
     if (hasBabylonSpecific()) {
       hash = (37 * hash) + BABYLON_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getBabylonSpecific().hashCode();
+    }
+    if (hasBitcoinStakingSpecific()) {
+      hash = (37 * hash) + BITCOIN_STAKING_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getBitcoinStakingSpecific().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -1091,6 +1133,11 @@ private static final long serialVersionUID = 0L;
         babylonSpecificBuilder_.dispose();
         babylonSpecificBuilder_ = null;
       }
+      bitcoinStakingSpecific_ = null;
+      if (bitcoinStakingSpecificBuilder_ != null) {
+        bitcoinStakingSpecificBuilder_.dispose();
+        bitcoinStakingSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -1216,6 +1263,11 @@ private static final long serialVersionUID = 0L;
         result.babylonSpecific_ = babylonSpecificBuilder_ == null
             ? babylonSpecific_
             : babylonSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.bitcoinStakingSpecific_ = bitcoinStakingSpecificBuilder_ == null
+            ? bitcoinStakingSpecific_
+            : bitcoinStakingSpecificBuilder_.build();
       }
     }
 
@@ -1348,6 +1400,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasBabylonSpecific()) {
         mergeBabylonSpecific(other.getBabylonSpecific());
+      }
+      if (other.hasBitcoinStakingSpecific()) {
+        mergeBitcoinStakingSpecific(other.getBitcoinStakingSpecific());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -1504,6 +1559,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00040000;
               break;
             } // case 154
+            case 162: {
+              input.readMessage(
+                  getBitcoinStakingSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 162
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -3586,6 +3648,125 @@ private static final long serialVersionUID = 0L;
         babylonSpecific_ = null;
       }
       return babylonSpecificBuilder_;
+    }
+
+    private adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoinStakingSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.CalculateFeeBitcoinStakingSpecific, adamant.global.v1.CalculateFeeBitcoinStakingSpecific.Builder, adamant.global.v1.CalculateFeeBitcoinStakingSpecificOrBuilder> bitcoinStakingSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+     * @return Whether the bitcoinStakingSpecific field is set.
+     */
+    public boolean hasBitcoinStakingSpecific() {
+      return ((bitField0_ & 0x00080000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+     * @return The bitcoinStakingSpecific.
+     */
+    public adamant.global.v1.CalculateFeeBitcoinStakingSpecific getBitcoinStakingSpecific() {
+      if (bitcoinStakingSpecificBuilder_ == null) {
+        return bitcoinStakingSpecific_ == null ? adamant.global.v1.CalculateFeeBitcoinStakingSpecific.getDefaultInstance() : bitcoinStakingSpecific_;
+      } else {
+        return bitcoinStakingSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+     */
+    public Builder setBitcoinStakingSpecific(adamant.global.v1.CalculateFeeBitcoinStakingSpecific value) {
+      if (bitcoinStakingSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitcoinStakingSpecific_ = value;
+      } else {
+        bitcoinStakingSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00080000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+     */
+    public Builder setBitcoinStakingSpecific(
+        adamant.global.v1.CalculateFeeBitcoinStakingSpecific.Builder builderForValue) {
+      if (bitcoinStakingSpecificBuilder_ == null) {
+        bitcoinStakingSpecific_ = builderForValue.build();
+      } else {
+        bitcoinStakingSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00080000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+     */
+    public Builder mergeBitcoinStakingSpecific(adamant.global.v1.CalculateFeeBitcoinStakingSpecific value) {
+      if (bitcoinStakingSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00080000) != 0) &&
+          bitcoinStakingSpecific_ != null &&
+          bitcoinStakingSpecific_ != adamant.global.v1.CalculateFeeBitcoinStakingSpecific.getDefaultInstance()) {
+          getBitcoinStakingSpecificBuilder().mergeFrom(value);
+        } else {
+          bitcoinStakingSpecific_ = value;
+        }
+      } else {
+        bitcoinStakingSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00080000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+     */
+    public Builder clearBitcoinStakingSpecific() {
+      bitField0_ = (bitField0_ & ~0x00080000);
+      bitcoinStakingSpecific_ = null;
+      if (bitcoinStakingSpecificBuilder_ != null) {
+        bitcoinStakingSpecificBuilder_.dispose();
+        bitcoinStakingSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+     */
+    public adamant.global.v1.CalculateFeeBitcoinStakingSpecific.Builder getBitcoinStakingSpecificBuilder() {
+      bitField0_ |= 0x00080000;
+      onChanged();
+      return getBitcoinStakingSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+     */
+    public adamant.global.v1.CalculateFeeBitcoinStakingSpecificOrBuilder getBitcoinStakingSpecificOrBuilder() {
+      if (bitcoinStakingSpecificBuilder_ != null) {
+        return bitcoinStakingSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return bitcoinStakingSpecific_ == null ?
+            adamant.global.v1.CalculateFeeBitcoinStakingSpecific.getDefaultInstance() : bitcoinStakingSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.CalculateFeeBitcoinStakingSpecific, adamant.global.v1.CalculateFeeBitcoinStakingSpecific.Builder, adamant.global.v1.CalculateFeeBitcoinStakingSpecificOrBuilder> 
+        getBitcoinStakingSpecificFieldBuilder() {
+      if (bitcoinStakingSpecificBuilder_ == null) {
+        bitcoinStakingSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.CalculateFeeBitcoinStakingSpecific, adamant.global.v1.CalculateFeeBitcoinStakingSpecific.Builder, adamant.global.v1.CalculateFeeBitcoinStakingSpecificOrBuilder>(
+                getBitcoinStakingSpecific(),
+                getParentForChildren(),
+                isClean());
+        bitcoinStakingSpecific_ = null;
+      }
+      return bitcoinStakingSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

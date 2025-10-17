@@ -89,6 +89,10 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
      */
     protected $babylon_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+     */
+    protected $bitcoin_staking_specific = null;
 
     /**
      * Constructor.
@@ -115,6 +119,7 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CalculateFeeSuiSpecific $sui_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeTonSpecific $ton_specific
      *     @type \Adamant\PBGlobal\V1\CalculateFeeBabylonSpecific $babylon_specific
+     *     @type \Adamant\PBGlobal\V1\CalculateFeeBitcoinStakingSpecific $bitcoin_staking_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -666,6 +671,38 @@ class CalculateFeeRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeBabylonSpecific::class);
         $this->babylon_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CalculateFeeBitcoinStakingSpecific|null
+     */
+    public function getBitcoinStakingSpecific()
+    {
+        return $this->bitcoin_staking_specific;
+    }
+
+    public function hasBitcoinStakingSpecific()
+    {
+        return isset($this->bitcoin_staking_specific);
+    }
+
+    public function clearBitcoinStakingSpecific()
+    {
+        unset($this->bitcoin_staking_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CalculateFeeBitcoinStakingSpecific $var
+     * @return $this
+     */
+    public function setBitcoinStakingSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CalculateFeeBitcoinStakingSpecific::class);
+        $this->bitcoin_staking_specific = $var;
 
         return $this;
     }

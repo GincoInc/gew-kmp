@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
   private CalculateFeeBabylonSpecific() {
     type_ = 0;
     memo_ = "";
+    delegationId_ = "";
   }
 
   @java.lang.Override
@@ -44,6 +45,7 @@ private static final long serialVersionUID = 0L;
             adamant.global.v1.CalculateFeeBabylonSpecific.class, adamant.global.v1.CalculateFeeBabylonSpecific.Builder.class);
   }
 
+  private int bitField0_;
   public static final int TYPE_FIELD_NUMBER = 1;
   private int type_ = 0;
   /**
@@ -101,6 +103,53 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int DELEGATION_ID_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object delegationId_ = "";
+  /**
+   * <code>optional string delegation_id = 3 [json_name = "delegationId"];</code>
+   * @return Whether the delegationId field is set.
+   */
+  @java.lang.Override
+  public boolean hasDelegationId() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>optional string delegation_id = 3 [json_name = "delegationId"];</code>
+   * @return The delegationId.
+   */
+  @java.lang.Override
+  public java.lang.String getDelegationId() {
+    java.lang.Object ref = delegationId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      delegationId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>optional string delegation_id = 3 [json_name = "delegationId"];</code>
+   * @return The bytes for delegationId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDelegationIdBytes() {
+    java.lang.Object ref = delegationId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      delegationId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -121,6 +170,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(memo_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, memo_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, delegationId_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -136,6 +188,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(memo_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, memo_);
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, delegationId_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -155,6 +210,11 @@ private static final long serialVersionUID = 0L;
     if (type_ != other.type_) return false;
     if (!getMemo()
         .equals(other.getMemo())) return false;
+    if (hasDelegationId() != other.hasDelegationId()) return false;
+    if (hasDelegationId()) {
+      if (!getDelegationId()
+          .equals(other.getDelegationId())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -170,6 +230,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + type_;
     hash = (37 * hash) + MEMO_FIELD_NUMBER;
     hash = (53 * hash) + getMemo().hashCode();
+    if (hasDelegationId()) {
+      hash = (37 * hash) + DELEGATION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getDelegationId().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -307,6 +371,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       type_ = 0;
       memo_ = "";
+      delegationId_ = "";
       return this;
     }
 
@@ -346,6 +411,12 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.memo_ = memo_;
       }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.delegationId_ = delegationId_;
+        to_bitField0_ |= 0x00000001;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -400,6 +471,11 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000002;
         onChanged();
       }
+      if (other.hasDelegationId()) {
+        delegationId_ = other.delegationId_;
+        bitField0_ |= 0x00000004;
+        onChanged();
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -436,6 +512,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 18
+            case 26: {
+              delegationId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -574,6 +655,85 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       memo_ = value;
       bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object delegationId_ = "";
+    /**
+     * <code>optional string delegation_id = 3 [json_name = "delegationId"];</code>
+     * @return Whether the delegationId field is set.
+     */
+    public boolean hasDelegationId() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional string delegation_id = 3 [json_name = "delegationId"];</code>
+     * @return The delegationId.
+     */
+    public java.lang.String getDelegationId() {
+      java.lang.Object ref = delegationId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        delegationId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>optional string delegation_id = 3 [json_name = "delegationId"];</code>
+     * @return The bytes for delegationId.
+     */
+    public com.google.protobuf.ByteString
+        getDelegationIdBytes() {
+      java.lang.Object ref = delegationId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        delegationId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>optional string delegation_id = 3 [json_name = "delegationId"];</code>
+     * @param value The delegationId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDelegationId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      delegationId_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string delegation_id = 3 [json_name = "delegationId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDelegationId() {
+      delegationId_ = getDefaultInstance().getDelegationId();
+      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional string delegation_id = 3 [json_name = "delegationId"];</code>
+     * @param value The bytes for delegationId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDelegationIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      delegationId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }

@@ -7060,6 +7060,8 @@ func (m *SubstrateSpecific) validate(all bool) error {
 
 	// no validation rules for GenesisHash
 
+	// no validation rules for AssetId
+
 	if len(errors) > 0 {
 		return SubstrateSpecificMultiError(errors)
 	}

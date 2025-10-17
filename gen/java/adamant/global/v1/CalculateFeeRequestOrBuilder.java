@@ -273,4 +273,19 @@ public interface CalculateFeeRequestOrBuilder extends
    * <code>.adamant.global.v1.CalculateFeeBabylonSpecific babylon_specific = 19 [json_name = "babylonSpecific"];</code>
    */
   adamant.global.v1.CalculateFeeBabylonSpecificOrBuilder getBabylonSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+   * @return Whether the bitcoinStakingSpecific field is set.
+   */
+  boolean hasBitcoinStakingSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+   * @return The bitcoinStakingSpecific.
+   */
+  adamant.global.v1.CalculateFeeBitcoinStakingSpecific getBitcoinStakingSpecific();
+  /**
+   * <code>.adamant.global.v1.CalculateFeeBitcoinStakingSpecific bitcoin_staking_specific = 20 [json_name = "bitcoinStakingSpecific"];</code>
+   */
+  adamant.global.v1.CalculateFeeBitcoinStakingSpecificOrBuilder getBitcoinStakingSpecificOrBuilder();
 }

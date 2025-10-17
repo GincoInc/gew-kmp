@@ -21107,6 +21107,35 @@ func (m *CalculateFeeRequest) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetBitcoinStakingSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CalculateFeeRequestValidationError{
+					field:  "BitcoinStakingSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CalculateFeeRequestValidationError{
+					field:  "BitcoinStakingSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetBitcoinStakingSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CalculateFeeRequestValidationError{
+				field:  "BitcoinStakingSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return CalculateFeeRequestMultiError(errors)
 	}
@@ -21745,6 +21774,10 @@ func (m *CalculateFeeBabylonSpecific) validate(all bool) error {
 
 	// no validation rules for Memo
 
+	if m.DelegationId != nil {
+		// no validation rules for DelegationId
+	}
+
 	if len(errors) > 0 {
 		return CalculateFeeBabylonSpecificMultiError(errors)
 	}
@@ -21825,6 +21858,125 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CalculateFeeBabylonSpecificValidationError{}
+
+// Validate checks the field values on CalculateFeeBitcoinStakingSpecific with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *CalculateFeeBitcoinStakingSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CalculateFeeBitcoinStakingSpecific
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// CalculateFeeBitcoinStakingSpecificMultiError, or nil if none found.
+func (m *CalculateFeeBitcoinStakingSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CalculateFeeBitcoinStakingSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Type
+
+	if m.Duration != nil {
+		// no validation rules for Duration
+	}
+
+	if m.BabylonWalletId != nil {
+		// no validation rules for BabylonWalletId
+	}
+
+	if m.DelegationId != nil {
+		// no validation rules for DelegationId
+	}
+
+	if len(errors) > 0 {
+		return CalculateFeeBitcoinStakingSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CalculateFeeBitcoinStakingSpecificMultiError is an error wrapping multiple
+// validation errors returned by
+// CalculateFeeBitcoinStakingSpecific.ValidateAll() if the designated
+// constraints aren't met.
+type CalculateFeeBitcoinStakingSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CalculateFeeBitcoinStakingSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CalculateFeeBitcoinStakingSpecificMultiError) AllErrors() []error { return m }
+
+// CalculateFeeBitcoinStakingSpecificValidationError is the validation error
+// returned by CalculateFeeBitcoinStakingSpecific.Validate if the designated
+// constraints aren't met.
+type CalculateFeeBitcoinStakingSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CalculateFeeBitcoinStakingSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CalculateFeeBitcoinStakingSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CalculateFeeBitcoinStakingSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CalculateFeeBitcoinStakingSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CalculateFeeBitcoinStakingSpecificValidationError) ErrorName() string {
+	return "CalculateFeeBitcoinStakingSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CalculateFeeBitcoinStakingSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCalculateFeeBitcoinStakingSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CalculateFeeBitcoinStakingSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CalculateFeeBitcoinStakingSpecificValidationError{}
 
 // Validate checks the field values on CalculateFeeHederaSpecific with the
 // rules defined in the proto definition for this message. If any rules are
