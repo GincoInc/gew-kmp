@@ -1126,4 +1126,33 @@ class TellerAPIClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * BitcoinDelegation
+     * @param \Adamant\Teller\V1\SignBitcoinDelegationRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function SignBitcoinDelegation(\Adamant\Teller\V1\SignBitcoinDelegationRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/SignBitcoinDelegation',
+        $argument,
+        ['\Google\Protobuf\GPBEmpty', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * @param \Adamant\Global\V1\ListBitcoinDelegationsByFilterRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function ListBitcoinDelegationsByFilter(\Adamant\Global\V1\ListBitcoinDelegationsByFilterRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.teller.v1.TellerAPI/ListBitcoinDelegationsByFilter',
+        $argument,
+        ['\Adamant\Global\V1\ListBitcoinDelegationsByFilterResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }

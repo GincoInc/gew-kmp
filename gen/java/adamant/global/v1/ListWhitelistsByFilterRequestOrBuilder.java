@@ -118,6 +118,46 @@ public interface ListWhitelistsByFilterRequestOrBuilder extends
    * optional
    * </pre>
    *
+   * <code>string labeled_address_id = 8 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+   * @return The labeledAddressId.
+   */
+  java.lang.String getLabeledAddressId();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string labeled_address_id = 8 [json_name = "labeledAddressId", (.validate.rules) = { ... }</code>
+   * @return The bytes for labeledAddressId.
+   */
+  com.google.protobuf.ByteString
+      getLabeledAddressIdBytes();
+
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string address = 9 [json_name = "address"];</code>
+   * @return The address.
+   */
+  java.lang.String getAddress();
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
+   * <code>string address = 9 [json_name = "address"];</code>
+   * @return The bytes for address.
+   */
+  com.google.protobuf.ByteString
+      getAddressBytes();
+
+  /**
+   * <pre>
+   * optional
+   * </pre>
+   *
    * <code>uint32 page_size = 5 [json_name = "pageSize", (.validate.rules) = { ... }</code>
    * @return The pageSize.
    */

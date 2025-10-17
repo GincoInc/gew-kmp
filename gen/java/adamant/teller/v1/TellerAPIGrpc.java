@@ -2433,6 +2433,68 @@ public final class TellerAPIGrpc {
     return getListLabeledAddressesByFilterMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.teller.v1.SignBitcoinDelegationRequest,
+      com.google.protobuf.Empty> getSignBitcoinDelegationMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "SignBitcoinDelegation",
+      requestType = adamant.teller.v1.SignBitcoinDelegationRequest.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.teller.v1.SignBitcoinDelegationRequest,
+      com.google.protobuf.Empty> getSignBitcoinDelegationMethod() {
+    io.grpc.MethodDescriptor<adamant.teller.v1.SignBitcoinDelegationRequest, com.google.protobuf.Empty> getSignBitcoinDelegationMethod;
+    if ((getSignBitcoinDelegationMethod = TellerAPIGrpc.getSignBitcoinDelegationMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getSignBitcoinDelegationMethod = TellerAPIGrpc.getSignBitcoinDelegationMethod) == null) {
+          TellerAPIGrpc.getSignBitcoinDelegationMethod = getSignBitcoinDelegationMethod =
+              io.grpc.MethodDescriptor.<adamant.teller.v1.SignBitcoinDelegationRequest, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SignBitcoinDelegation"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.teller.v1.SignBitcoinDelegationRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("SignBitcoinDelegation"))
+              .build();
+        }
+      }
+    }
+    return getSignBitcoinDelegationMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.ListBitcoinDelegationsByFilterRequest,
+      adamant.global.v1.ListBitcoinDelegationsByFilterResponse> getListBitcoinDelegationsByFilterMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ListBitcoinDelegationsByFilter",
+      requestType = adamant.global.v1.ListBitcoinDelegationsByFilterRequest.class,
+      responseType = adamant.global.v1.ListBitcoinDelegationsByFilterResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.ListBitcoinDelegationsByFilterRequest,
+      adamant.global.v1.ListBitcoinDelegationsByFilterResponse> getListBitcoinDelegationsByFilterMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.ListBitcoinDelegationsByFilterRequest, adamant.global.v1.ListBitcoinDelegationsByFilterResponse> getListBitcoinDelegationsByFilterMethod;
+    if ((getListBitcoinDelegationsByFilterMethod = TellerAPIGrpc.getListBitcoinDelegationsByFilterMethod) == null) {
+      synchronized (TellerAPIGrpc.class) {
+        if ((getListBitcoinDelegationsByFilterMethod = TellerAPIGrpc.getListBitcoinDelegationsByFilterMethod) == null) {
+          TellerAPIGrpc.getListBitcoinDelegationsByFilterMethod = getListBitcoinDelegationsByFilterMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.ListBitcoinDelegationsByFilterRequest, adamant.global.v1.ListBitcoinDelegationsByFilterResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ListBitcoinDelegationsByFilter"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListBitcoinDelegationsByFilterRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.ListBitcoinDelegationsByFilterResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new TellerAPIMethodDescriptorSupplier("ListBitcoinDelegationsByFilter"))
+              .build();
+        }
+      }
+    }
+    return getListBitcoinDelegationsByFilterMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -3067,6 +3129,23 @@ public final class TellerAPIGrpc {
     default void listLabeledAddressesByFilter(adamant.global.v1.ListLabeledAddressesByFilterRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.ListLabeledAddressesByFilterResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListLabeledAddressesByFilterMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * BitcoinDelegation
+     * </pre>
+     */
+    default void signBitcoinDelegation(adamant.teller.v1.SignBitcoinDelegationRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSignBitcoinDelegationMethod(), responseObserver);
+    }
+
+    /**
+     */
+    default void listBitcoinDelegationsByFilter(adamant.global.v1.ListBitcoinDelegationsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListBitcoinDelegationsByFilterResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getListBitcoinDelegationsByFilterMethod(), responseObserver);
     }
   }
 
@@ -3762,6 +3841,25 @@ public final class TellerAPIGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getListLabeledAddressesByFilterMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * BitcoinDelegation
+     * </pre>
+     */
+    public void signBitcoinDelegation(adamant.teller.v1.SignBitcoinDelegationRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getSignBitcoinDelegationMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void listBitcoinDelegationsByFilter(adamant.global.v1.ListBitcoinDelegationsByFilterRequest request,
+        io.grpc.stub.StreamObserver<adamant.global.v1.ListBitcoinDelegationsByFilterResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getListBitcoinDelegationsByFilterMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -4366,6 +4464,23 @@ public final class TellerAPIGrpc {
     public adamant.global.v1.ListLabeledAddressesByFilterResponse listLabeledAddressesByFilter(adamant.global.v1.ListLabeledAddressesByFilterRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getListLabeledAddressesByFilterMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * BitcoinDelegation
+     * </pre>
+     */
+    public com.google.protobuf.Empty signBitcoinDelegation(adamant.teller.v1.SignBitcoinDelegationRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getSignBitcoinDelegationMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public adamant.global.v1.ListBitcoinDelegationsByFilterResponse listBitcoinDelegationsByFilter(adamant.global.v1.ListBitcoinDelegationsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getListBitcoinDelegationsByFilterMethod(), getCallOptions(), request);
     }
   }
 
@@ -5050,6 +5165,25 @@ public final class TellerAPIGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getListLabeledAddressesByFilterMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * BitcoinDelegation
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> signBitcoinDelegation(
+        adamant.teller.v1.SignBitcoinDelegationRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getSignBitcoinDelegationMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.ListBitcoinDelegationsByFilterResponse> listBitcoinDelegationsByFilter(
+        adamant.global.v1.ListBitcoinDelegationsByFilterRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getListBitcoinDelegationsByFilterMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_WALLET = 0;
@@ -5130,6 +5264,8 @@ public final class TellerAPIGrpc {
   private static final int METHODID_LIST_BLACKLIST_ADDRESS_FILES = 75;
   private static final int METHODID_LIST_WHITELISTS_BY_FILTER = 76;
   private static final int METHODID_LIST_LABELED_ADDRESSES_BY_FILTER = 77;
+  private static final int METHODID_SIGN_BITCOIN_DELEGATION = 78;
+  private static final int METHODID_LIST_BITCOIN_DELEGATIONS_BY_FILTER = 79;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -5459,6 +5595,14 @@ public final class TellerAPIGrpc {
         case METHODID_LIST_LABELED_ADDRESSES_BY_FILTER:
           serviceImpl.listLabeledAddressesByFilter((adamant.global.v1.ListLabeledAddressesByFilterRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.ListLabeledAddressesByFilterResponse>) responseObserver);
+          break;
+        case METHODID_SIGN_BITCOIN_DELEGATION:
+          serviceImpl.signBitcoinDelegation((adamant.teller.v1.SignBitcoinDelegationRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_LIST_BITCOIN_DELEGATIONS_BY_FILTER:
+          serviceImpl.listBitcoinDelegationsByFilter((adamant.global.v1.ListBitcoinDelegationsByFilterRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.global.v1.ListBitcoinDelegationsByFilterResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -6024,6 +6168,20 @@ public final class TellerAPIGrpc {
               adamant.global.v1.ListLabeledAddressesByFilterRequest,
               adamant.global.v1.ListLabeledAddressesByFilterResponse>(
                 service, METHODID_LIST_LABELED_ADDRESSES_BY_FILTER)))
+        .addMethod(
+          getSignBitcoinDelegationMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.teller.v1.SignBitcoinDelegationRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_SIGN_BITCOIN_DELEGATION)))
+        .addMethod(
+          getListBitcoinDelegationsByFilterMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.ListBitcoinDelegationsByFilterRequest,
+              adamant.global.v1.ListBitcoinDelegationsByFilterResponse>(
+                service, METHODID_LIST_BITCOIN_DELEGATIONS_BY_FILTER)))
         .build();
   }
 
@@ -6150,6 +6308,8 @@ public final class TellerAPIGrpc {
               .addMethod(getListBlacklistAddressFilesMethod())
               .addMethod(getListWhitelistsByFilterMethod())
               .addMethod(getListLabeledAddressesByFilterMethod())
+              .addMethod(getSignBitcoinDelegationMethod())
+              .addMethod(getListBitcoinDelegationsByFilterMethod())
               .build();
         }
       }

@@ -472,6 +472,17 @@ func (m *CreateWalletRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if !_CreateWalletRequest_BaseWalletId_Pattern.MatchString(m.GetBaseWalletId()) {
+		err := CreateWalletRequestValidationError{
+			field:  "BaseWalletId",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
 	if m.Network != nil {
 
 		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
@@ -584,6 +595,8 @@ var _CreateWalletRequest_PolicyId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-
 var _CreateWalletRequest_DestinationWalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _CreateWalletRequest_InheritWalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _CreateWalletRequest_BaseWalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on CreateWalletResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -7560,6 +7573,8 @@ func (m *CreateAddressRequest) validate(all bool) error {
 
 	// no validation rules for FeeRate
 
+	// no validation rules for BaseWalletAddress
+
 	if len(errors) > 0 {
 		return CreateAddressRequestMultiError(errors)
 	}
@@ -11400,6 +11415,35 @@ func (m *CreateTransactionRequest) validate(all bool) error {
 		if err := v.Validate(); err != nil {
 			return CreateTransactionRequestValidationError{
 				field:  "BabylonSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetBitcoinStakingSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "BitcoinStakingSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "BitcoinStakingSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetBitcoinStakingSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateTransactionRequestValidationError{
+				field:  "BitcoinStakingSpecific",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -16339,6 +16383,324 @@ var _ interface {
 } = ListInitSignInfoRequestValidationError{}
 
 var _ListInitSignInfoRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on GetBitcoinDelegationSignInfoRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *GetBitcoinDelegationSignInfoRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetBitcoinDelegationSignInfoRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// GetBitcoinDelegationSignInfoRequestMultiError, or nil if none found.
+func (m *GetBitcoinDelegationSignInfoRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetBitcoinDelegationSignInfoRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_GetBitcoinDelegationSignInfoRequest_DelegationId_Pattern.MatchString(m.GetDelegationId()) {
+		err := GetBitcoinDelegationSignInfoRequestValidationError{
+			field:  "DelegationId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return GetBitcoinDelegationSignInfoRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetBitcoinDelegationSignInfoRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// GetBitcoinDelegationSignInfoRequest.ValidateAll() if the designated
+// constraints aren't met.
+type GetBitcoinDelegationSignInfoRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetBitcoinDelegationSignInfoRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetBitcoinDelegationSignInfoRequestMultiError) AllErrors() []error { return m }
+
+// GetBitcoinDelegationSignInfoRequestValidationError is the validation error
+// returned by GetBitcoinDelegationSignInfoRequest.Validate if the designated
+// constraints aren't met.
+type GetBitcoinDelegationSignInfoRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetBitcoinDelegationSignInfoRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetBitcoinDelegationSignInfoRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetBitcoinDelegationSignInfoRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetBitcoinDelegationSignInfoRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetBitcoinDelegationSignInfoRequestValidationError) ErrorName() string {
+	return "GetBitcoinDelegationSignInfoRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetBitcoinDelegationSignInfoRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetBitcoinDelegationSignInfoRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetBitcoinDelegationSignInfoRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetBitcoinDelegationSignInfoRequestValidationError{}
+
+var _GetBitcoinDelegationSignInfoRequest_DelegationId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on GetBitcoinDelegationSignInfoResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *GetBitcoinDelegationSignInfoResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetBitcoinDelegationSignInfoResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// GetBitcoinDelegationSignInfoResponseMultiError, or nil if none found.
+func (m *GetBitcoinDelegationSignInfoResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetBitcoinDelegationSignInfoResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for WalletId
+
+	// no validation rules for KeyId
+
+	// no validation rules for HdAccount
+
+	// no validation rules for Network
+
+	if all {
+		switch v := interface{}(m.GetSlashingTxSignInfo()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, GetBitcoinDelegationSignInfoResponseValidationError{
+					field:  "SlashingTxSignInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, GetBitcoinDelegationSignInfoResponseValidationError{
+					field:  "SlashingTxSignInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetSlashingTxSignInfo()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return GetBitcoinDelegationSignInfoResponseValidationError{
+				field:  "SlashingTxSignInfo",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetUnbondingSlashingTxSignInfo()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, GetBitcoinDelegationSignInfoResponseValidationError{
+					field:  "UnbondingSlashingTxSignInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, GetBitcoinDelegationSignInfoResponseValidationError{
+					field:  "UnbondingSlashingTxSignInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetUnbondingSlashingTxSignInfo()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return GetBitcoinDelegationSignInfoResponseValidationError{
+				field:  "UnbondingSlashingTxSignInfo",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetBabylonPopSignInfo()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, GetBitcoinDelegationSignInfoResponseValidationError{
+					field:  "BabylonPopSignInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, GetBitcoinDelegationSignInfoResponseValidationError{
+					field:  "BabylonPopSignInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetBabylonPopSignInfo()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return GetBitcoinDelegationSignInfoResponseValidationError{
+				field:  "BabylonPopSignInfo",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return GetBitcoinDelegationSignInfoResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetBitcoinDelegationSignInfoResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// GetBitcoinDelegationSignInfoResponse.ValidateAll() if the designated
+// constraints aren't met.
+type GetBitcoinDelegationSignInfoResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetBitcoinDelegationSignInfoResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetBitcoinDelegationSignInfoResponseMultiError) AllErrors() []error { return m }
+
+// GetBitcoinDelegationSignInfoResponseValidationError is the validation error
+// returned by GetBitcoinDelegationSignInfoResponse.Validate if the designated
+// constraints aren't met.
+type GetBitcoinDelegationSignInfoResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetBitcoinDelegationSignInfoResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetBitcoinDelegationSignInfoResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetBitcoinDelegationSignInfoResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetBitcoinDelegationSignInfoResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetBitcoinDelegationSignInfoResponseValidationError) ErrorName() string {
+	return "GetBitcoinDelegationSignInfoResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetBitcoinDelegationSignInfoResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetBitcoinDelegationSignInfoResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetBitcoinDelegationSignInfoResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetBitcoinDelegationSignInfoResponseValidationError{}
 
 // Validate checks the field values on ListTransfersRequest with the rules
 // defined in the proto definition for this message. If any rules are
@@ -25732,6 +26094,19 @@ func (m *ListWhitelistsByFilterRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if !_ListWhitelistsByFilterRequest_LabeledAddressId_Pattern.MatchString(m.GetLabeledAddressId()) {
+		err := ListWhitelistsByFilterRequestValidationError{
+			field:  "LabeledAddressId",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	// no validation rules for Address
+
 	if m.GetPageSize() > 100 {
 		err := ListWhitelistsByFilterRequestValidationError{
 			field:  "PageSize",
@@ -25851,6 +26226,8 @@ var _ interface {
 } = ListWhitelistsByFilterRequestValidationError{}
 
 var _ListWhitelistsByFilterRequest_WhitelistId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ListWhitelistsByFilterRequest_LabeledAddressId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _ListWhitelistsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
 
@@ -37273,3 +37650,805 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListBlacklistAddressFilesResponseValidationError{}
+
+// Validate checks the field values on GetBitcoinDelegationRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GetBitcoinDelegationRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetBitcoinDelegationRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GetBitcoinDelegationRequestMultiError, or nil if none found.
+func (m *GetBitcoinDelegationRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetBitcoinDelegationRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_GetBitcoinDelegationRequest_DelegationId_Pattern.MatchString(m.GetDelegationId()) {
+		err := GetBitcoinDelegationRequestValidationError{
+			field:  "DelegationId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return GetBitcoinDelegationRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetBitcoinDelegationRequestMultiError is an error wrapping multiple
+// validation errors returned by GetBitcoinDelegationRequest.ValidateAll() if
+// the designated constraints aren't met.
+type GetBitcoinDelegationRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetBitcoinDelegationRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetBitcoinDelegationRequestMultiError) AllErrors() []error { return m }
+
+// GetBitcoinDelegationRequestValidationError is the validation error returned
+// by GetBitcoinDelegationRequest.Validate if the designated constraints
+// aren't met.
+type GetBitcoinDelegationRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetBitcoinDelegationRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetBitcoinDelegationRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetBitcoinDelegationRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetBitcoinDelegationRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetBitcoinDelegationRequestValidationError) ErrorName() string {
+	return "GetBitcoinDelegationRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetBitcoinDelegationRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetBitcoinDelegationRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetBitcoinDelegationRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetBitcoinDelegationRequestValidationError{}
+
+var _GetBitcoinDelegationRequest_DelegationId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on ListBitcoinDelegationsByFilterRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *ListBitcoinDelegationsByFilterRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ListBitcoinDelegationsByFilterRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ListBitcoinDelegationsByFilterRequestMultiError, or nil if none found.
+func (m *ListBitcoinDelegationsByFilterRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListBitcoinDelegationsByFilterRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if _, ok := _ListBitcoinDelegationsByFilterRequest_FilterType_NotInLookup[m.GetFilterType()]; ok {
+		err := ListBitcoinDelegationsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must not be in list [0]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := ListFilterType_name[int32(m.GetFilterType())]; !ok {
+		err := ListBitcoinDelegationsByFilterRequestValidationError{
+			field:  "FilterType",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.DelegationId != nil {
+
+		if !_ListBitcoinDelegationsByFilterRequest_DelegationId_Pattern.MatchString(m.GetDelegationId()) {
+			err := ListBitcoinDelegationsByFilterRequestValidationError{
+				field:  "DelegationId",
+				reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if m.BtcWalletId != nil {
+
+		if !_ListBitcoinDelegationsByFilterRequest_BtcWalletId_Pattern.MatchString(m.GetBtcWalletId()) {
+			err := ListBitcoinDelegationsByFilterRequestValidationError{
+				field:  "BtcWalletId",
+				reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if m.BabyWalletId != nil {
+
+		if !_ListBitcoinDelegationsByFilterRequest_BabyWalletId_Pattern.MatchString(m.GetBabyWalletId()) {
+			err := ListBitcoinDelegationsByFilterRequestValidationError{
+				field:  "BabyWalletId",
+				reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if m.Network != nil {
+
+		if _, ok := gincoincglobalv1.Network_name[int32(m.GetNetwork())]; !ok {
+			err := ListBitcoinDelegationsByFilterRequestValidationError{
+				field:  "Network",
+				reason: "value must be one of the defined enum values",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if m.StartTime != nil {
+
+		if all {
+			switch v := interface{}(m.GetStartTime()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListBitcoinDelegationsByFilterRequestValidationError{
+						field:  "StartTime",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListBitcoinDelegationsByFilterRequestValidationError{
+						field:  "StartTime",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetStartTime()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListBitcoinDelegationsByFilterRequestValidationError{
+					field:  "StartTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if m.EndTime != nil {
+
+		if all {
+			switch v := interface{}(m.GetEndTime()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListBitcoinDelegationsByFilterRequestValidationError{
+						field:  "EndTime",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListBitcoinDelegationsByFilterRequestValidationError{
+						field:  "EndTime",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetEndTime()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListBitcoinDelegationsByFilterRequestValidationError{
+					field:  "EndTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if m.PageSize != nil {
+
+		if m.GetPageSize() > 100 {
+			err := ListBitcoinDelegationsByFilterRequestValidationError{
+				field:  "PageSize",
+				reason: "value must be less than or equal to 100",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if m.PageToken != nil {
+
+		if !_ListBitcoinDelegationsByFilterRequest_PageToken_Pattern.MatchString(m.GetPageToken()) {
+			err := ListBitcoinDelegationsByFilterRequestValidationError{
+				field:  "PageToken",
+				reason: "value does not match regex pattern \"^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$\"",
+			}
+			if !all {
+				return err
+			}
+			errors = append(errors, err)
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ListBitcoinDelegationsByFilterRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListBitcoinDelegationsByFilterRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ListBitcoinDelegationsByFilterRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ListBitcoinDelegationsByFilterRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListBitcoinDelegationsByFilterRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListBitcoinDelegationsByFilterRequestMultiError) AllErrors() []error { return m }
+
+// ListBitcoinDelegationsByFilterRequestValidationError is the validation error
+// returned by ListBitcoinDelegationsByFilterRequest.Validate if the
+// designated constraints aren't met.
+type ListBitcoinDelegationsByFilterRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListBitcoinDelegationsByFilterRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListBitcoinDelegationsByFilterRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListBitcoinDelegationsByFilterRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListBitcoinDelegationsByFilterRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListBitcoinDelegationsByFilterRequestValidationError) ErrorName() string {
+	return "ListBitcoinDelegationsByFilterRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListBitcoinDelegationsByFilterRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListBitcoinDelegationsByFilterRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListBitcoinDelegationsByFilterRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListBitcoinDelegationsByFilterRequestValidationError{}
+
+var _ListBitcoinDelegationsByFilterRequest_FilterType_NotInLookup = map[ListFilterType]struct{}{
+	0: {},
+}
+
+var _ListBitcoinDelegationsByFilterRequest_DelegationId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ListBitcoinDelegationsByFilterRequest_BtcWalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ListBitcoinDelegationsByFilterRequest_BabyWalletId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _ListBitcoinDelegationsByFilterRequest_PageToken_Pattern = regexp.MustCompile("^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$")
+
+// Validate checks the field values on ListBitcoinDelegationsByFilterResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *ListBitcoinDelegationsByFilterResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ListBitcoinDelegationsByFilterResponse with the rules defined in the proto
+// definition for this message. If any rules are violated, the result is a
+// list of violation errors wrapped in
+// ListBitcoinDelegationsByFilterResponseMultiError, or nil if none found.
+func (m *ListBitcoinDelegationsByFilterResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ListBitcoinDelegationsByFilterResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetDelegations() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ListBitcoinDelegationsByFilterResponseValidationError{
+						field:  fmt.Sprintf("Delegations[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ListBitcoinDelegationsByFilterResponseValidationError{
+						field:  fmt.Sprintf("Delegations[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ListBitcoinDelegationsByFilterResponseValidationError{
+					field:  fmt.Sprintf("Delegations[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for NextPageToken
+
+	if len(errors) > 0 {
+		return ListBitcoinDelegationsByFilterResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ListBitcoinDelegationsByFilterResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// ListBitcoinDelegationsByFilterResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ListBitcoinDelegationsByFilterResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ListBitcoinDelegationsByFilterResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ListBitcoinDelegationsByFilterResponseMultiError) AllErrors() []error { return m }
+
+// ListBitcoinDelegationsByFilterResponseValidationError is the validation
+// error returned by ListBitcoinDelegationsByFilterResponse.Validate if the
+// designated constraints aren't met.
+type ListBitcoinDelegationsByFilterResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ListBitcoinDelegationsByFilterResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ListBitcoinDelegationsByFilterResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ListBitcoinDelegationsByFilterResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ListBitcoinDelegationsByFilterResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ListBitcoinDelegationsByFilterResponseValidationError) ErrorName() string {
+	return "ListBitcoinDelegationsByFilterResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ListBitcoinDelegationsByFilterResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sListBitcoinDelegationsByFilterResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ListBitcoinDelegationsByFilterResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ListBitcoinDelegationsByFilterResponseValidationError{}
+
+// Validate checks the field values on SignBitcoinDelegationRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *SignBitcoinDelegationRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SignBitcoinDelegationRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// SignBitcoinDelegationRequestMultiError, or nil if none found.
+func (m *SignBitcoinDelegationRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SignBitcoinDelegationRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_SignBitcoinDelegationRequest_DelegationId_Pattern.MatchString(m.GetDelegationId()) {
+		err := SignBitcoinDelegationRequestValidationError{
+			field:  "DelegationId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_SignBitcoinDelegationRequest_KeyId_Pattern.MatchString(m.GetKeyId()) {
+		err := SignBitcoinDelegationRequestValidationError{
+			field:  "KeyId",
+			reason: "value does not match regex pattern \"^$|^[0-9A-F]{64}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if m.GetSlashingTxSignedInfo() == nil {
+		err := SignBitcoinDelegationRequestValidationError{
+			field:  "SlashingTxSignedInfo",
+			reason: "value is required",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if all {
+		switch v := interface{}(m.GetSlashingTxSignedInfo()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, SignBitcoinDelegationRequestValidationError{
+					field:  "SlashingTxSignedInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, SignBitcoinDelegationRequestValidationError{
+					field:  "SlashingTxSignedInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetSlashingTxSignedInfo()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return SignBitcoinDelegationRequestValidationError{
+				field:  "SlashingTxSignedInfo",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if m.GetUnbondingSlashingTxSignedInfo() == nil {
+		err := SignBitcoinDelegationRequestValidationError{
+			field:  "UnbondingSlashingTxSignedInfo",
+			reason: "value is required",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if all {
+		switch v := interface{}(m.GetUnbondingSlashingTxSignedInfo()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, SignBitcoinDelegationRequestValidationError{
+					field:  "UnbondingSlashingTxSignedInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, SignBitcoinDelegationRequestValidationError{
+					field:  "UnbondingSlashingTxSignedInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetUnbondingSlashingTxSignedInfo()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return SignBitcoinDelegationRequestValidationError{
+				field:  "UnbondingSlashingTxSignedInfo",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if m.GetBabylonPopSignedInfo() == nil {
+		err := SignBitcoinDelegationRequestValidationError{
+			field:  "BabylonPopSignedInfo",
+			reason: "value is required",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if all {
+		switch v := interface{}(m.GetBabylonPopSignedInfo()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, SignBitcoinDelegationRequestValidationError{
+					field:  "BabylonPopSignedInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, SignBitcoinDelegationRequestValidationError{
+					field:  "BabylonPopSignedInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetBabylonPopSignedInfo()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return SignBitcoinDelegationRequestValidationError{
+				field:  "BabylonPopSignedInfo",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return SignBitcoinDelegationRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// SignBitcoinDelegationRequestMultiError is an error wrapping multiple
+// validation errors returned by SignBitcoinDelegationRequest.ValidateAll() if
+// the designated constraints aren't met.
+type SignBitcoinDelegationRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SignBitcoinDelegationRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SignBitcoinDelegationRequestMultiError) AllErrors() []error { return m }
+
+// SignBitcoinDelegationRequestValidationError is the validation error returned
+// by SignBitcoinDelegationRequest.Validate if the designated constraints
+// aren't met.
+type SignBitcoinDelegationRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SignBitcoinDelegationRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SignBitcoinDelegationRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SignBitcoinDelegationRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SignBitcoinDelegationRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SignBitcoinDelegationRequestValidationError) ErrorName() string {
+	return "SignBitcoinDelegationRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SignBitcoinDelegationRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSignBitcoinDelegationRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SignBitcoinDelegationRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SignBitcoinDelegationRequestValidationError{}
+
+var _SignBitcoinDelegationRequest_DelegationId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _SignBitcoinDelegationRequest_KeyId_Pattern = regexp.MustCompile("^$|^[0-9A-F]{64}$")

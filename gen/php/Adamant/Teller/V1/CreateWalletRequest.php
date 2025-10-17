@@ -45,6 +45,12 @@ class CreateWalletRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string inherit_wallet_id = 6 [json_name = "inheritWalletId", (.validate.rules) = {</code>
      */
     protected $inherit_wallet_id = '';
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string base_wallet_id = 8 [json_name = "baseWalletId", (.validate.rules) = {</code>
+     */
+    protected $base_wallet_id = '';
 
     /**
      * Constructor.
@@ -60,6 +66,8 @@ class CreateWalletRequest extends \Google\Protobuf\Internal\Message
      *     @type string $destination_wallet_id
      *           required when create receive only wallet
      *     @type string $inherit_wallet_id
+     *           optional
+     *     @type string $base_wallet_id
      *           optional
      * }
      */
@@ -236,6 +244,32 @@ class CreateWalletRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->inherit_wallet_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string base_wallet_id = 8 [json_name = "baseWalletId", (.validate.rules) = {</code>
+     * @return string
+     */
+    public function getBaseWalletId()
+    {
+        return $this->base_wallet_id;
+    }
+
+    /**
+     * optional
+     *
+     * Generated from protobuf field <code>string base_wallet_id = 8 [json_name = "baseWalletId", (.validate.rules) = {</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setBaseWalletId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->base_wallet_id = $var;
 
         return $this;
     }

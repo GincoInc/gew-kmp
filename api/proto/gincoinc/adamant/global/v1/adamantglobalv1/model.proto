@@ -366,6 +366,33 @@ message UTXO {
   AvalanchePlatformChainUTXOSpecific avalanche_platform_chain_specific = 8; // The Avalanche Platform Chain specific fields
 }
 
+message BitcoinDelegation {
+  string owner_id = 1;
+  string delegation_id = 2;
+  string bitcoin_wallet_id = 3;
+  string babylon_wallet_id = 4;
+  string staking_transaction_id = 5;
+  string unbonding_transaction_id = 6;
+  string withdrawal_transaction_id = 7;
+  uint64 duration = 8;
+  uint64 expiration = 9;
+  DelegationState state = 10;
+  google.protobuf.Timestamp create_time = 11;
+  google.protobuf.Timestamp update_time = 12;
+}
+
+// The model of slashing/unbonding slashing transaction sign info
+message SlashingTxSignInfo {
+  SignTxInput sign_tx_input = 2;
+  TxInput input_utxo = 3;
+  repeated TxOutput output_utxos = 4;
+}
+
+// The model of babylon pop sign info
+message BabylonPopSignInfo {
+  SignTxInput babylon_pop = 1;
+}
+
 // The model of Cardano specific fields of UTXO
 message CardanoUTXOSpecific {
   repeated CardanoCustomToken tokens = 1;
@@ -390,6 +417,7 @@ message BitcoinSpecific {
   repeated TxOutput tx_outputs = 2;
   optional bool tweaked = 3;
   optional bool is_schnorr = 4;
+  optional gincoinc.global.v1.BTCStakingActionType staking_action_type = 5;
 }
 
 // The model of Litecoin specific fields of transaction
@@ -650,6 +678,7 @@ message BNBSmartChainSpecific {
   bool is_next_nonce = 3;
   string from_address = 4;
   string token_address = 5;
+  string data = 6; // data
 }
 
 // The model of Flare specific fields of transaction
@@ -782,6 +811,14 @@ message CreateTransactionEthereumSpecific {
   optional string utils_address = 4;
 }
 
+// The model of Bitcoin staking specific fields of CreateTransaction
+message CreateTransactionBitcoinStakingSpecific {
+  optional uint64 duration = 1;
+  optional string babylon_wallet_id = 2;
+  optional string delegation_id = 3;
+  gincoinc.global.v1.BTCStakingActionType type = 4;
+}
+
 // The model of Cosmos specific fields of CreateTransaction
 message CreateTransactionCosmosSpecific {
   gincoinc.global.v1.CosmosMsgType type = 1;
@@ -792,6 +829,7 @@ message CreateTransactionCosmosSpecific {
 message CreateTransactionBabylonSpecific {
   gincoinc.global.v1.BabylonMsgType type = 1;
   string memo = 2;
+  optional string delegation_id = 3;
 }
 
 // The model of Algorand specific fields of CreateTransaction

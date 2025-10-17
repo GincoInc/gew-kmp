@@ -411,6 +411,16 @@ class TellerAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListLabeledAddressesByFilterRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListLabeledAddressesByFilterResponse.FromString,
                 )
+        self.SignBitcoinDelegation = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/SignBitcoinDelegation',
+                request_serializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.SignBitcoinDelegationRequest.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                )
+        self.ListBitcoinDelegationsByFilter = channel.unary_unary(
+                '/adamant.teller.v1.TellerAPI/ListBitcoinDelegationsByFilter',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBitcoinDelegationsByFilterRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBitcoinDelegationsByFilterResponse.FromString,
+                )
 
 
 class TellerAPIServicer(object):
@@ -902,6 +912,19 @@ class TellerAPIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SignBitcoinDelegation(self, request, context):
+        """BitcoinDelegation
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListBitcoinDelegationsByFilter(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TellerAPIServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -1294,6 +1317,16 @@ def add_TellerAPIServicer_to_server(servicer, server):
                     servicer.ListLabeledAddressesByFilter,
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListLabeledAddressesByFilterRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListLabeledAddressesByFilterResponse.SerializeToString,
+            ),
+            'SignBitcoinDelegation': grpc.unary_unary_rpc_method_handler(
+                    servicer.SignBitcoinDelegation,
+                    request_deserializer=gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.SignBitcoinDelegationRequest.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'ListBitcoinDelegationsByFilter': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListBitcoinDelegationsByFilter,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBitcoinDelegationsByFilterRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBitcoinDelegationsByFilterResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -2632,5 +2665,39 @@ class TellerAPI(object):
         return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListLabeledAddressesByFilter',
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListLabeledAddressesByFilterRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListLabeledAddressesByFilterResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SignBitcoinDelegation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/SignBitcoinDelegation',
+            gincoinc_dot_adamant_dot_teller_dot_v1_dot_adamanttellerv1_dot_teller__api__pb2.SignBitcoinDelegationRequest.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListBitcoinDelegationsByFilter(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.teller.v1.TellerAPI/ListBitcoinDelegationsByFilter',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBitcoinDelegationsByFilterRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.ListBitcoinDelegationsByFilterResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

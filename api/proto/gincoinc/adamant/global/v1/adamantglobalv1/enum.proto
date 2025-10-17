@@ -434,6 +434,7 @@ enum ListFilterType {
   LIST_FILTER_TYPE_NFT_ID = 27;
   LIST_FILTER_TYPE_NFT_NAME = 28;
   LIST_FILTER_TYPE_NFT_METADATA = 29;
+  LIST_FILTER_TYPE_DELEGATION_ID = 30;
 }
 
 // -----------------------------------------------------------------------------
@@ -608,4 +609,23 @@ enum BlacklistAddressStatus {
   BLACKLIST_ADDRESS_STATUS_NOT_REVIEWED = 1;
   BLACKLIST_ADDRESS_STATUS_APPROVED = 2;
   BLACKLIST_ADDRESS_STATUS_REJECTED = 3;
+}
+
+// -----------------------------------------------------------------------------
+// BitcoinDelegation
+// -----------------------------------------------------------------------------
+
+enum DelegationState {
+  DELEGATION_STATE_INVALID = 0;
+  DELEGATION_STATE_UNCONFIRMED = 1;
+  DELEGATION_STATE_SIGNING = 2;
+  DELEGATION_STATE_SIGNED = 3;
+  DELEGATION_STATE_SUBMITTED = 4;
+  DELEGATION_STATE_ACTIVE = 5;
+  DELEGATION_STATE_UNBONDING = 6;
+  DELEGATION_STATE_WITHDRAWABLE_BY_TIME = 7;
+  DELEGATION_STATE_WITHDRAWABLE_BY_UNBONDING = 8;
+  DELEGATION_STATE_WITHDRAWABLE_BY_SLASHING = 9;
+  DELEGATION_STATE_WITHDRAWABLE_BY_UNBONDING_SLASHING = 10;
+  DELEGATION_STATE_WITHDRAWN = 11;
 }

@@ -116,6 +116,9 @@ type TellerAPIClient interface {
 	// WhitelistAddress and LabeledAddress
 	ListWhitelistsByFilter(ctx context.Context, in *adamantglobalv1.ListWhitelistsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListWhitelistsByFilterResponse, error)
 	ListLabeledAddressesByFilter(ctx context.Context, in *adamantglobalv1.ListLabeledAddressesByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListLabeledAddressesByFilterResponse, error)
+	// BitcoinDelegation
+	SignBitcoinDelegation(ctx context.Context, in *SignBitcoinDelegationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	ListBitcoinDelegationsByFilter(ctx context.Context, in *adamantglobalv1.ListBitcoinDelegationsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListBitcoinDelegationsByFilterResponse, error)
 }
 
 type tellerAPIClient struct {
@@ -828,6 +831,24 @@ func (c *tellerAPIClient) ListLabeledAddressesByFilter(ctx context.Context, in *
 	return out, nil
 }
 
+func (c *tellerAPIClient) SignBitcoinDelegation(ctx context.Context, in *SignBitcoinDelegationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/SignBitcoinDelegation", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *tellerAPIClient) ListBitcoinDelegationsByFilter(ctx context.Context, in *adamantglobalv1.ListBitcoinDelegationsByFilterRequest, opts ...grpc.CallOption) (*adamantglobalv1.ListBitcoinDelegationsByFilterResponse, error) {
+	out := new(adamantglobalv1.ListBitcoinDelegationsByFilterResponse)
+	err := c.cc.Invoke(ctx, "/adamant.teller.v1.TellerAPI/ListBitcoinDelegationsByFilter", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TellerAPIServer is the server API for TellerAPI service.
 // All implementations should embed UnimplementedTellerAPIServer
 // for forward compatibility
@@ -924,6 +945,9 @@ type TellerAPIServer interface {
 	// WhitelistAddress and LabeledAddress
 	ListWhitelistsByFilter(context.Context, *adamantglobalv1.ListWhitelistsByFilterRequest) (*adamantglobalv1.ListWhitelistsByFilterResponse, error)
 	ListLabeledAddressesByFilter(context.Context, *adamantglobalv1.ListLabeledAddressesByFilterRequest) (*adamantglobalv1.ListLabeledAddressesByFilterResponse, error)
+	// BitcoinDelegation
+	SignBitcoinDelegation(context.Context, *SignBitcoinDelegationRequest) (*emptypb.Empty, error)
+	ListBitcoinDelegationsByFilter(context.Context, *adamantglobalv1.ListBitcoinDelegationsByFilterRequest) (*adamantglobalv1.ListBitcoinDelegationsByFilterResponse, error)
 }
 
 // UnimplementedTellerAPIServer should be embedded to have forward compatible implementations.
@@ -1163,6 +1187,12 @@ func (UnimplementedTellerAPIServer) ListWhitelistsByFilter(context.Context, *ada
 }
 func (UnimplementedTellerAPIServer) ListLabeledAddressesByFilter(context.Context, *adamantglobalv1.ListLabeledAddressesByFilterRequest) (*adamantglobalv1.ListLabeledAddressesByFilterResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListLabeledAddressesByFilter not implemented")
+}
+func (UnimplementedTellerAPIServer) SignBitcoinDelegation(context.Context, *SignBitcoinDelegationRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SignBitcoinDelegation not implemented")
+}
+func (UnimplementedTellerAPIServer) ListBitcoinDelegationsByFilter(context.Context, *adamantglobalv1.ListBitcoinDelegationsByFilterRequest) (*adamantglobalv1.ListBitcoinDelegationsByFilterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListBitcoinDelegationsByFilter not implemented")
 }
 
 // UnsafeTellerAPIServer may be embedded to opt out of forward compatibility for this service.
@@ -2580,6 +2610,42 @@ func _TellerAPI_ListLabeledAddressesByFilter_Handler(srv interface{}, ctx contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TellerAPI_SignBitcoinDelegation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SignBitcoinDelegationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).SignBitcoinDelegation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/SignBitcoinDelegation",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).SignBitcoinDelegation(ctx, req.(*SignBitcoinDelegationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TellerAPI_ListBitcoinDelegationsByFilter_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(adamantglobalv1.ListBitcoinDelegationsByFilterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TellerAPIServer).ListBitcoinDelegationsByFilter(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.teller.v1.TellerAPI/ListBitcoinDelegationsByFilter",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TellerAPIServer).ListBitcoinDelegationsByFilter(ctx, req.(*adamantglobalv1.ListBitcoinDelegationsByFilterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TellerAPI_ServiceDesc is the grpc.ServiceDesc for TellerAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -2898,6 +2964,14 @@ var TellerAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListLabeledAddressesByFilter",
 			Handler:    _TellerAPI_ListLabeledAddressesByFilter_Handler,
+		},
+		{
+			MethodName: "SignBitcoinDelegation",
+			Handler:    _TellerAPI_SignBitcoinDelegation_Handler,
+		},
+		{
+			MethodName: "ListBitcoinDelegationsByFilter",
+			Handler:    _TellerAPI_ListBitcoinDelegationsByFilter_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
