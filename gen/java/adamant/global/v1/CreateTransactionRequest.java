@@ -677,6 +677,32 @@ private static final long serialVersionUID = 0L;
     return babylonSpecific_ == null ? adamant.global.v1.Model.CreateTransactionBabylonSpecific.getDefaultInstance() : babylonSpecific_;
   }
 
+  public static final int BITCOIN_STAKING_SPECIFIC_FIELD_NUMBER = 26;
+  private adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific bitcoinStakingSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+   * @return Whether the bitcoinStakingSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasBitcoinStakingSpecific() {
+    return bitcoinStakingSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+   * @return The bitcoinStakingSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific getBitcoinStakingSpecific() {
+    return bitcoinStakingSpecific_ == null ? adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific.getDefaultInstance() : bitcoinStakingSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecificOrBuilder getBitcoinStakingSpecificOrBuilder() {
+    return bitcoinStakingSpecific_ == null ? adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific.getDefaultInstance() : bitcoinStakingSpecific_;
+  }
+
   public static final int PRE_TRANSACTION_ID_FIELD_NUMBER = 21;
   @SuppressWarnings("serial")
   private volatile java.lang.Object preTransactionId_ = "";
@@ -813,6 +839,9 @@ private static final long serialVersionUID = 0L;
     if (babylonSpecific_ != null) {
       output.writeMessage(25, getBabylonSpecific());
     }
+    if (bitcoinStakingSpecific_ != null) {
+      output.writeMessage(26, getBitcoinStakingSpecific());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -917,6 +946,10 @@ private static final long serialVersionUID = 0L;
     if (babylonSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(25, getBabylonSpecific());
+    }
+    if (bitcoinStakingSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(26, getBitcoinStakingSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -1032,6 +1065,11 @@ private static final long serialVersionUID = 0L;
       if (!getBabylonSpecific()
           .equals(other.getBabylonSpecific())) return false;
     }
+    if (hasBitcoinStakingSpecific() != other.hasBitcoinStakingSpecific()) return false;
+    if (hasBitcoinStakingSpecific()) {
+      if (!getBitcoinStakingSpecific()
+          .equals(other.getBitcoinStakingSpecific())) return false;
+    }
     if (hasPreTransactionId() != other.hasPreTransactionId()) return false;
     if (hasPreTransactionId()) {
       if (!getPreTransactionId()
@@ -1133,6 +1171,10 @@ private static final long serialVersionUID = 0L;
     if (hasBabylonSpecific()) {
       hash = (37 * hash) + BABYLON_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getBabylonSpecific().hashCode();
+    }
+    if (hasBitcoinStakingSpecific()) {
+      hash = (37 * hash) + BITCOIN_STAKING_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getBitcoinStakingSpecific().hashCode();
     }
     if (hasPreTransactionId()) {
       hash = (37 * hash) + PRE_TRANSACTION_ID_FIELD_NUMBER;
@@ -1367,6 +1409,11 @@ private static final long serialVersionUID = 0L;
         babylonSpecificBuilder_.dispose();
         babylonSpecificBuilder_ = null;
       }
+      bitcoinStakingSpecific_ = null;
+      if (bitcoinStakingSpecificBuilder_ != null) {
+        bitcoinStakingSpecificBuilder_.dispose();
+        bitcoinStakingSpecificBuilder_ = null;
+      }
       preTransactionId_ = "";
       return this;
     }
@@ -1517,8 +1564,13 @@ private static final long serialVersionUID = 0L;
             ? babylonSpecific_
             : babylonSpecificBuilder_.build();
       }
-      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x01000000) != 0)) {
+        result.bitcoinStakingSpecific_ = bitcoinStakingSpecificBuilder_ == null
+            ? bitcoinStakingSpecific_
+            : bitcoinStakingSpecificBuilder_.build();
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x02000000) != 0)) {
         result.preTransactionId_ = preTransactionId_;
         to_bitField0_ |= 0x00000001;
       }
@@ -1670,9 +1722,12 @@ private static final long serialVersionUID = 0L;
       if (other.hasBabylonSpecific()) {
         mergeBabylonSpecific(other.getBabylonSpecific());
       }
+      if (other.hasBitcoinStakingSpecific()) {
+        mergeBitcoinStakingSpecific(other.getBitcoinStakingSpecific());
+      }
       if (other.hasPreTransactionId()) {
         preTransactionId_ = other.preTransactionId_;
-        bitField0_ |= 0x01000000;
+        bitField0_ |= 0x02000000;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -1837,7 +1892,7 @@ private static final long serialVersionUID = 0L;
             } // case 162
             case 170: {
               preTransactionId_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x01000000;
+              bitField0_ |= 0x02000000;
               break;
             } // case 170
             case 178: {
@@ -1868,6 +1923,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00800000;
               break;
             } // case 202
+            case 210: {
+              input.readMessage(
+                  getBitcoinStakingSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x01000000;
+              break;
+            } // case 210
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -4460,13 +4522,132 @@ private static final long serialVersionUID = 0L;
       return babylonSpecificBuilder_;
     }
 
+    private adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific bitcoinStakingSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific, adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific.Builder, adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecificOrBuilder> bitcoinStakingSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+     * @return Whether the bitcoinStakingSpecific field is set.
+     */
+    public boolean hasBitcoinStakingSpecific() {
+      return ((bitField0_ & 0x01000000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+     * @return The bitcoinStakingSpecific.
+     */
+    public adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific getBitcoinStakingSpecific() {
+      if (bitcoinStakingSpecificBuilder_ == null) {
+        return bitcoinStakingSpecific_ == null ? adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific.getDefaultInstance() : bitcoinStakingSpecific_;
+      } else {
+        return bitcoinStakingSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+     */
+    public Builder setBitcoinStakingSpecific(adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific value) {
+      if (bitcoinStakingSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitcoinStakingSpecific_ = value;
+      } else {
+        bitcoinStakingSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x01000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+     */
+    public Builder setBitcoinStakingSpecific(
+        adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific.Builder builderForValue) {
+      if (bitcoinStakingSpecificBuilder_ == null) {
+        bitcoinStakingSpecific_ = builderForValue.build();
+      } else {
+        bitcoinStakingSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x01000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+     */
+    public Builder mergeBitcoinStakingSpecific(adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific value) {
+      if (bitcoinStakingSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x01000000) != 0) &&
+          bitcoinStakingSpecific_ != null &&
+          bitcoinStakingSpecific_ != adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific.getDefaultInstance()) {
+          getBitcoinStakingSpecificBuilder().mergeFrom(value);
+        } else {
+          bitcoinStakingSpecific_ = value;
+        }
+      } else {
+        bitcoinStakingSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x01000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+     */
+    public Builder clearBitcoinStakingSpecific() {
+      bitField0_ = (bitField0_ & ~0x01000000);
+      bitcoinStakingSpecific_ = null;
+      if (bitcoinStakingSpecificBuilder_ != null) {
+        bitcoinStakingSpecificBuilder_.dispose();
+        bitcoinStakingSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific.Builder getBitcoinStakingSpecificBuilder() {
+      bitField0_ |= 0x01000000;
+      onChanged();
+      return getBitcoinStakingSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecificOrBuilder getBitcoinStakingSpecificOrBuilder() {
+      if (bitcoinStakingSpecificBuilder_ != null) {
+        return bitcoinStakingSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return bitcoinStakingSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific.getDefaultInstance() : bitcoinStakingSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26 [json_name = "bitcoinStakingSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific, adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific.Builder, adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecificOrBuilder> 
+        getBitcoinStakingSpecificFieldBuilder() {
+      if (bitcoinStakingSpecificBuilder_ == null) {
+        bitcoinStakingSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific, adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific.Builder, adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecificOrBuilder>(
+                getBitcoinStakingSpecific(),
+                getParentForChildren(),
+                isClean());
+        bitcoinStakingSpecific_ = null;
+      }
+      return bitcoinStakingSpecificBuilder_;
+    }
+
     private java.lang.Object preTransactionId_ = "";
     /**
      * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
      * @return Whether the preTransactionId field is set.
      */
     public boolean hasPreTransactionId() {
-      return ((bitField0_ & 0x01000000) != 0);
+      return ((bitField0_ & 0x02000000) != 0);
     }
     /**
      * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
@@ -4510,7 +4691,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       preTransactionId_ = value;
-      bitField0_ |= 0x01000000;
+      bitField0_ |= 0x02000000;
       onChanged();
       return this;
     }
@@ -4520,7 +4701,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPreTransactionId() {
       preTransactionId_ = getDefaultInstance().getPreTransactionId();
-      bitField0_ = (bitField0_ & ~0x01000000);
+      bitField0_ = (bitField0_ & ~0x02000000);
       onChanged();
       return this;
     }
@@ -4534,7 +4715,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       preTransactionId_ = value;
-      bitField0_ |= 0x01000000;
+      bitField0_ |= 0x02000000;
       onChanged();
       return this;
     }

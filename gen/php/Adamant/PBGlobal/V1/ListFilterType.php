@@ -137,6 +137,10 @@ class ListFilterType
      * Generated from protobuf enum <code>LIST_FILTER_TYPE_NFT_METADATA = 29;</code>
      */
     const LIST_FILTER_TYPE_NFT_METADATA = 29;
+    /**
+     * Generated from protobuf enum <code>LIST_FILTER_TYPE_DELEGATION_ID = 30;</code>
+     */
+    const LIST_FILTER_TYPE_DELEGATION_ID = 30;
 
     private static $valueToName = [
         self::LIST_FILTER_TYPE_INVALID => 'LIST_FILTER_TYPE_INVALID',
@@ -169,6 +173,7 @@ class ListFilterType
         self::LIST_FILTER_TYPE_NFT_ID => 'LIST_FILTER_TYPE_NFT_ID',
         self::LIST_FILTER_TYPE_NFT_NAME => 'LIST_FILTER_TYPE_NFT_NAME',
         self::LIST_FILTER_TYPE_NFT_METADATA => 'LIST_FILTER_TYPE_NFT_METADATA',
+        self::LIST_FILTER_TYPE_DELEGATION_ID => 'LIST_FILTER_TYPE_DELEGATION_ID',
     ];
 
     public static function name($value)

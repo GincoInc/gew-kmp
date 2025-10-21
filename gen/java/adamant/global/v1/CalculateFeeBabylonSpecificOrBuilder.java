@@ -29,4 +29,21 @@ public interface CalculateFeeBabylonSpecificOrBuilder extends
    */
   com.google.protobuf.ByteString
       getMemoBytes();
+
+  /**
+   * <code>optional string delegation_id = 3 [json_name = "delegationId"];</code>
+   * @return Whether the delegationId field is set.
+   */
+  boolean hasDelegationId();
+  /**
+   * <code>optional string delegation_id = 3 [json_name = "delegationId"];</code>
+   * @return The delegationId.
+   */
+  java.lang.String getDelegationId();
+  /**
+   * <code>optional string delegation_id = 3 [json_name = "delegationId"];</code>
+   * @return The bytes for delegationId.
+   */
+  com.google.protobuf.ByteString
+      getDelegationIdBytes();
 }

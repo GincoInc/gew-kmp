@@ -59,6 +59,10 @@ class SubstrateSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string genesis_hash = 13 [json_name = "genesisHash"];</code>
      */
     protected $genesis_hash = '';
+    /**
+     * Generated from protobuf field <code>uint32 asset_id = 14 [json_name = "assetId"];</code>
+     */
+    protected $asset_id = 0;
 
     /**
      * Constructor.
@@ -77,6 +81,7 @@ class SubstrateSpecific extends \Google\Protobuf\Internal\Message
      *     @type int $spec_version
      *     @type int $transaction_version
      *     @type string $genesis_hash
+     *     @type int $asset_id
      * }
      */
     public function __construct($data = NULL) {
@@ -322,6 +327,28 @@ class SubstrateSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->genesis_hash = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 asset_id = 14 [json_name = "assetId"];</code>
+     * @return int
+     */
+    public function getAssetId()
+    {
+        return $this->asset_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 asset_id = 14 [json_name = "assetId"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setAssetId($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->asset_id = $var;
 
         return $this;
     }

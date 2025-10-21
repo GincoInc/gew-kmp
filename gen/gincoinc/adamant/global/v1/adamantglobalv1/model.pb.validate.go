@@ -4626,6 +4626,511 @@ var _ interface {
 
 var _UTXO_TransactionId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+// Validate checks the field values on BitcoinDelegation with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *BitcoinDelegation) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on BitcoinDelegation with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// BitcoinDelegationMultiError, or nil if none found.
+func (m *BitcoinDelegation) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *BitcoinDelegation) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for OwnerId
+
+	// no validation rules for DelegationId
+
+	// no validation rules for BitcoinWalletId
+
+	// no validation rules for BabylonWalletId
+
+	// no validation rules for StakingTransactionId
+
+	// no validation rules for UnbondingTransactionId
+
+	// no validation rules for WithdrawalTransactionId
+
+	// no validation rules for Duration
+
+	// no validation rules for Expiration
+
+	// no validation rules for State
+
+	if all {
+		switch v := interface{}(m.GetCreateTime()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, BitcoinDelegationValidationError{
+					field:  "CreateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, BitcoinDelegationValidationError{
+					field:  "CreateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetCreateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return BitcoinDelegationValidationError{
+				field:  "CreateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetUpdateTime()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, BitcoinDelegationValidationError{
+					field:  "UpdateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, BitcoinDelegationValidationError{
+					field:  "UpdateTime",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetUpdateTime()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return BitcoinDelegationValidationError{
+				field:  "UpdateTime",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return BitcoinDelegationMultiError(errors)
+	}
+
+	return nil
+}
+
+// BitcoinDelegationMultiError is an error wrapping multiple validation errors
+// returned by BitcoinDelegation.ValidateAll() if the designated constraints
+// aren't met.
+type BitcoinDelegationMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m BitcoinDelegationMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m BitcoinDelegationMultiError) AllErrors() []error { return m }
+
+// BitcoinDelegationValidationError is the validation error returned by
+// BitcoinDelegation.Validate if the designated constraints aren't met.
+type BitcoinDelegationValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e BitcoinDelegationValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e BitcoinDelegationValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e BitcoinDelegationValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e BitcoinDelegationValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e BitcoinDelegationValidationError) ErrorName() string {
+	return "BitcoinDelegationValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e BitcoinDelegationValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sBitcoinDelegation.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = BitcoinDelegationValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = BitcoinDelegationValidationError{}
+
+// Validate checks the field values on SlashingTxSignInfo with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *SlashingTxSignInfo) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SlashingTxSignInfo with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// SlashingTxSignInfoMultiError, or nil if none found.
+func (m *SlashingTxSignInfo) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SlashingTxSignInfo) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetSignTxInput()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, SlashingTxSignInfoValidationError{
+					field:  "SignTxInput",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, SlashingTxSignInfoValidationError{
+					field:  "SignTxInput",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetSignTxInput()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return SlashingTxSignInfoValidationError{
+				field:  "SignTxInput",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetInputUtxo()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, SlashingTxSignInfoValidationError{
+					field:  "InputUtxo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, SlashingTxSignInfoValidationError{
+					field:  "InputUtxo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetInputUtxo()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return SlashingTxSignInfoValidationError{
+				field:  "InputUtxo",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	for idx, item := range m.GetOutputUtxos() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, SlashingTxSignInfoValidationError{
+						field:  fmt.Sprintf("OutputUtxos[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, SlashingTxSignInfoValidationError{
+						field:  fmt.Sprintf("OutputUtxos[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return SlashingTxSignInfoValidationError{
+					field:  fmt.Sprintf("OutputUtxos[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return SlashingTxSignInfoMultiError(errors)
+	}
+
+	return nil
+}
+
+// SlashingTxSignInfoMultiError is an error wrapping multiple validation errors
+// returned by SlashingTxSignInfo.ValidateAll() if the designated constraints
+// aren't met.
+type SlashingTxSignInfoMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SlashingTxSignInfoMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SlashingTxSignInfoMultiError) AllErrors() []error { return m }
+
+// SlashingTxSignInfoValidationError is the validation error returned by
+// SlashingTxSignInfo.Validate if the designated constraints aren't met.
+type SlashingTxSignInfoValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SlashingTxSignInfoValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SlashingTxSignInfoValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SlashingTxSignInfoValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SlashingTxSignInfoValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SlashingTxSignInfoValidationError) ErrorName() string {
+	return "SlashingTxSignInfoValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SlashingTxSignInfoValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSlashingTxSignInfo.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SlashingTxSignInfoValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SlashingTxSignInfoValidationError{}
+
+// Validate checks the field values on BabylonPopSignInfo with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *BabylonPopSignInfo) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on BabylonPopSignInfo with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// BabylonPopSignInfoMultiError, or nil if none found.
+func (m *BabylonPopSignInfo) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *BabylonPopSignInfo) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetBabylonPop()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, BabylonPopSignInfoValidationError{
+					field:  "BabylonPop",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, BabylonPopSignInfoValidationError{
+					field:  "BabylonPop",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetBabylonPop()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return BabylonPopSignInfoValidationError{
+				field:  "BabylonPop",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return BabylonPopSignInfoMultiError(errors)
+	}
+
+	return nil
+}
+
+// BabylonPopSignInfoMultiError is an error wrapping multiple validation errors
+// returned by BabylonPopSignInfo.ValidateAll() if the designated constraints
+// aren't met.
+type BabylonPopSignInfoMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m BabylonPopSignInfoMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m BabylonPopSignInfoMultiError) AllErrors() []error { return m }
+
+// BabylonPopSignInfoValidationError is the validation error returned by
+// BabylonPopSignInfo.Validate if the designated constraints aren't met.
+type BabylonPopSignInfoValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e BabylonPopSignInfoValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e BabylonPopSignInfoValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e BabylonPopSignInfoValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e BabylonPopSignInfoValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e BabylonPopSignInfoValidationError) ErrorName() string {
+	return "BabylonPopSignInfoValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e BabylonPopSignInfoValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sBabylonPopSignInfo.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = BabylonPopSignInfoValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = BabylonPopSignInfoValidationError{}
+
 // Validate checks the field values on CardanoUTXOSpecific with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -5073,6 +5578,10 @@ func (m *BitcoinSpecific) validate(all bool) error {
 
 	if m.IsSchnorr != nil {
 		// no validation rules for IsSchnorr
+	}
+
+	if m.StakingActionType != nil {
+		// no validation rules for StakingActionType
 	}
 
 	if len(errors) > 0 {
@@ -6550,6 +7059,8 @@ func (m *SubstrateSpecific) validate(all bool) error {
 	// no validation rules for TransactionVersion
 
 	// no validation rules for GenesisHash
+
+	// no validation rules for AssetId
 
 	if len(errors) > 0 {
 		return SubstrateSpecificMultiError(errors)
@@ -8715,6 +9226,8 @@ func (m *BNBSmartChainSpecific) validate(all bool) error {
 
 	// no validation rules for TokenAddress
 
+	// no validation rules for Data
+
 	if len(errors) > 0 {
 		return BNBSmartChainSpecificMultiError(errors)
 	}
@@ -10733,6 +11246,126 @@ var _ interface {
 	ErrorName() string
 } = CreateTransactionEthereumSpecificValidationError{}
 
+// Validate checks the field values on CreateTransactionBitcoinStakingSpecific
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *CreateTransactionBitcoinStakingSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// CreateTransactionBitcoinStakingSpecific with the rules defined in the proto
+// definition for this message. If any rules are violated, the result is a
+// list of violation errors wrapped in
+// CreateTransactionBitcoinStakingSpecificMultiError, or nil if none found.
+func (m *CreateTransactionBitcoinStakingSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateTransactionBitcoinStakingSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Type
+
+	if m.Duration != nil {
+		// no validation rules for Duration
+	}
+
+	if m.BabylonWalletId != nil {
+		// no validation rules for BabylonWalletId
+	}
+
+	if m.DelegationId != nil {
+		// no validation rules for DelegationId
+	}
+
+	if len(errors) > 0 {
+		return CreateTransactionBitcoinStakingSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreateTransactionBitcoinStakingSpecificMultiError is an error wrapping
+// multiple validation errors returned by
+// CreateTransactionBitcoinStakingSpecific.ValidateAll() if the designated
+// constraints aren't met.
+type CreateTransactionBitcoinStakingSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionBitcoinStakingSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionBitcoinStakingSpecificMultiError) AllErrors() []error { return m }
+
+// CreateTransactionBitcoinStakingSpecificValidationError is the validation
+// error returned by CreateTransactionBitcoinStakingSpecific.Validate if the
+// designated constraints aren't met.
+type CreateTransactionBitcoinStakingSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionBitcoinStakingSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionBitcoinStakingSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionBitcoinStakingSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionBitcoinStakingSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionBitcoinStakingSpecificValidationError) ErrorName() string {
+	return "CreateTransactionBitcoinStakingSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionBitcoinStakingSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionBitcoinStakingSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionBitcoinStakingSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionBitcoinStakingSpecificValidationError{}
+
 // Validate checks the field values on CreateTransactionCosmosSpecific with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -10866,6 +11499,10 @@ func (m *CreateTransactionBabylonSpecific) validate(all bool) error {
 	// no validation rules for Type
 
 	// no validation rules for Memo
+
+	if m.DelegationId != nil {
+		// no validation rules for DelegationId
+	}
 
 	if len(errors) > 0 {
 		return CreateTransactionBabylonSpecificMultiError(errors)

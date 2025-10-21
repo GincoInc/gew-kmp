@@ -24,6 +24,11 @@ public class ListWhitelistsByFilterRequestValidator implements io.envoyproxy.pgv
 		
 	
 		
+		com.google.re2j.Pattern LABELED_ADDRESS_ID__PATTERN = com.google.re2j.Pattern.compile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
+	
+		
+	
+		
 		private final Integer PAGE_SIZE__LTE = 100;
 	
 		
@@ -40,6 +45,10 @@ public class ListWhitelistsByFilterRequestValidator implements io.envoyproxy.pgv
 			io.envoyproxy.pgv.StringValidation.maxLength(".adamant.global.v1.ListWhitelistsByFilterRequest.whitelist_name", proto.getWhitelistName(), 40);
 	
 			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.global.v1.ListWhitelistsByFilterRequest.coin", proto.getCoin());
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.ListWhitelistsByFilterRequest.labeled_address_id", proto.getLabeledAddressId(), LABELED_ADDRESS_ID__PATTERN);
+	// no validation rules for Address
+
 	
 			io.envoyproxy.pgv.ComparativeValidation.lessThanOrEqual(".adamant.global.v1.ListWhitelistsByFilterRequest.page_size", proto.getPageSize(), PAGE_SIZE__LTE, java.util.Comparator.naturalOrder());
 	

@@ -53,6 +53,8 @@ public class CalculateFeeRequestValidator implements io.envoyproxy.pgv.Validator
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.CalculateFeeRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -111,6 +113,9 @@ public class CalculateFeeRequestValidator implements io.envoyproxy.pgv.Validator
 	
 			// Validate babylon_specific
 			if (proto.hasBabylonSpecific()) index.validatorFor(proto.getBabylonSpecific()).assertValid(proto.getBabylonSpecific());
+	
+			// Validate bitcoin_staking_specific
+			if (proto.hasBitcoinStakingSpecific()) index.validatorFor(proto.getBitcoinStakingSpecific()).assertValid(proto.getBitcoinStakingSpecific());
 	
 	}
 

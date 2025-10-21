@@ -23,6 +23,10 @@ class CreateTransactionBabylonSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string memo = 2 [json_name = "memo"];</code>
      */
     protected $memo = '';
+    /**
+     * Generated from protobuf field <code>optional string delegation_id = 3 [json_name = "delegationId"];</code>
+     */
+    protected $delegation_id = null;
 
     /**
      * Constructor.
@@ -32,6 +36,7 @@ class CreateTransactionBabylonSpecific extends \Google\Protobuf\Internal\Message
      *
      *     @type int $type
      *     @type string $memo
+     *     @type string $delegation_id
      * }
      */
     public function __construct($data = NULL) {
@@ -79,6 +84,38 @@ class CreateTransactionBabylonSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->memo = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string delegation_id = 3 [json_name = "delegationId"];</code>
+     * @return string
+     */
+    public function getDelegationId()
+    {
+        return isset($this->delegation_id) ? $this->delegation_id : '';
+    }
+
+    public function hasDelegationId()
+    {
+        return isset($this->delegation_id);
+    }
+
+    public function clearDelegationId()
+    {
+        unset($this->delegation_id);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string delegation_id = 3 [json_name = "delegationId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setDelegationId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->delegation_id = $var;
 
         return $this;
     }

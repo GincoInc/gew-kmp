@@ -31,6 +31,10 @@ class BitcoinSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>optional bool is_schnorr = 4 [json_name = "isSchnorr"];</code>
      */
     protected $is_schnorr = null;
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.BTCStakingActionType staking_action_type = 5 [json_name = "stakingActionType"];</code>
+     */
+    protected $staking_action_type = null;
 
     /**
      * Constructor.
@@ -42,6 +46,7 @@ class BitcoinSpecific extends \Google\Protobuf\Internal\Message
      *     @type array<\Adamant\PBGlobal\V1\TxOutput>|\Google\Protobuf\Internal\RepeatedField $tx_outputs
      *     @type bool $tweaked
      *     @type bool $is_schnorr
+     *     @type int $staking_action_type
      * }
      */
     public function __construct($data = NULL) {
@@ -153,6 +158,38 @@ class BitcoinSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->is_schnorr = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.BTCStakingActionType staking_action_type = 5 [json_name = "stakingActionType"];</code>
+     * @return int
+     */
+    public function getStakingActionType()
+    {
+        return isset($this->staking_action_type) ? $this->staking_action_type : 0;
+    }
+
+    public function hasStakingActionType()
+    {
+        return isset($this->staking_action_type);
+    }
+
+    public function clearStakingActionType()
+    {
+        unset($this->staking_action_type);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .gincoinc.global.v1.BTCStakingActionType staking_action_type = 5 [json_name = "stakingActionType"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setStakingActionType($var)
+    {
+        GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\BTCStakingActionType::class);
+        $this->staking_action_type = $var;
 
         return $this;
     }

@@ -3889,3 +3889,119 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ListHotFeeDepositAddressesResponseValidationError{}
+
+// Validate checks the field values on SignBitcoinDelegationRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *SignBitcoinDelegationRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SignBitcoinDelegationRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// SignBitcoinDelegationRequestMultiError, or nil if none found.
+func (m *SignBitcoinDelegationRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SignBitcoinDelegationRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_SignBitcoinDelegationRequest_DelegationId_Pattern.MatchString(m.GetDelegationId()) {
+		err := SignBitcoinDelegationRequestValidationError{
+			field:  "DelegationId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return SignBitcoinDelegationRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// SignBitcoinDelegationRequestMultiError is an error wrapping multiple
+// validation errors returned by SignBitcoinDelegationRequest.ValidateAll() if
+// the designated constraints aren't met.
+type SignBitcoinDelegationRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SignBitcoinDelegationRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SignBitcoinDelegationRequestMultiError) AllErrors() []error { return m }
+
+// SignBitcoinDelegationRequestValidationError is the validation error returned
+// by SignBitcoinDelegationRequest.Validate if the designated constraints
+// aren't met.
+type SignBitcoinDelegationRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SignBitcoinDelegationRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SignBitcoinDelegationRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SignBitcoinDelegationRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SignBitcoinDelegationRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SignBitcoinDelegationRequestValidationError) ErrorName() string {
+	return "SignBitcoinDelegationRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SignBitcoinDelegationRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSignBitcoinDelegationRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SignBitcoinDelegationRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SignBitcoinDelegationRequestValidationError{}
+
+var _SignBitcoinDelegationRequest_DelegationId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")

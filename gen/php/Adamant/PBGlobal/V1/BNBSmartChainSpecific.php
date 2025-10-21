@@ -35,6 +35,12 @@ class BNBSmartChainSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string token_address = 5 [json_name = "tokenAddress"];</code>
      */
     protected $token_address = '';
+    /**
+     * data
+     *
+     * Generated from protobuf field <code>string data = 6 [json_name = "data"];</code>
+     */
+    protected $data = '';
 
     /**
      * Constructor.
@@ -47,6 +53,8 @@ class BNBSmartChainSpecific extends \Google\Protobuf\Internal\Message
      *     @type bool $is_next_nonce
      *     @type string $from_address
      *     @type string $token_address
+     *     @type string $data
+     *           data
      * }
      */
     public function __construct($data = NULL) {
@@ -160,6 +168,32 @@ class BNBSmartChainSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->token_address = $var;
+
+        return $this;
+    }
+
+    /**
+     * data
+     *
+     * Generated from protobuf field <code>string data = 6 [json_name = "data"];</code>
+     * @return string
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * data
+     *
+     * Generated from protobuf field <code>string data = 6 [json_name = "data"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setData($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->data = $var;
 
         return $this;
     }
