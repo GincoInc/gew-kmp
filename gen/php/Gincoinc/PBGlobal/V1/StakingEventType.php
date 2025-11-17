@@ -28,6 +28,12 @@ class StakingEventType
      */
     const STAKING_EVENT_TYPE_UNSTAKE = 2;
     /**
+     * ステーキングの引き出し
+     *
+     * Generated from protobuf enum <code>STAKING_EVENT_TYPE_WITHDRAW = 4;</code>
+     */
+    const STAKING_EVENT_TYPE_WITHDRAW = 4;
+    /**
      * 報酬受取
      *
      * Generated from protobuf enum <code>STAKING_EVENT_TYPE_REWARD = 3;</code>
@@ -38,6 +44,7 @@ class StakingEventType
         self::STAKING_EVENT_TYPE_INVALID => 'STAKING_EVENT_TYPE_INVALID',
         self::STAKING_EVENT_TYPE_STAKE => 'STAKING_EVENT_TYPE_STAKE',
         self::STAKING_EVENT_TYPE_UNSTAKE => 'STAKING_EVENT_TYPE_UNSTAKE',
+        self::STAKING_EVENT_TYPE_WITHDRAW => 'STAKING_EVENT_TYPE_WITHDRAW',
         self::STAKING_EVENT_TYPE_REWARD => 'STAKING_EVENT_TYPE_REWARD',
     ];
 

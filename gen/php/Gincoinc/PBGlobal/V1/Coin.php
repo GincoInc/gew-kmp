@@ -358,6 +358,14 @@ class Coin
      */
     const COIN_DOT_ASSET_USDC = 85;
     /**
+     * Generated from protobuf enum <code>COIN_HEDERA_HTS_USDC = 86;</code>
+     */
+    const COIN_HEDERA_HTS_USDC = 86;
+    /**
+     * Generated from protobuf enum <code>COIN_CC = 87;</code>
+     */
+    const COIN_CC = 87;
+    /**
      * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
      */
     const COIN_SDN = 10002;
@@ -657,6 +665,8 @@ class Coin
         self::COIN_POLYGON_ERC20_USDC => 'COIN_POLYGON_ERC20_USDC',
         self::COIN_BSC_BEP20_USDC => 'COIN_BSC_BEP20_USDC',
         self::COIN_DOT_ASSET_USDC => 'COIN_DOT_ASSET_USDC',
+        self::COIN_HEDERA_HTS_USDC => 'COIN_HEDERA_HTS_USDC',
+        self::COIN_CC => 'COIN_CC',
         self::COIN_SDN => 'COIN_SDN',
         self::COIN_ERC20_SCDEV => 'COIN_ERC20_SCDEV',
         self::COIN_ERC20_SCQA => 'COIN_ERC20_SCQA',
