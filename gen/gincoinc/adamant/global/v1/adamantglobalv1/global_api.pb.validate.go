@@ -37919,6 +37919,134 @@ var _ interface {
 
 var _GetBitcoinDelegationRequest_DelegationId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+// Validate checks the field values on GetBtcStakingParamsRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GetBtcStakingParamsRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetBtcStakingParamsRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GetBtcStakingParamsRequestMultiError, or nil if none found.
+func (m *GetBtcStakingParamsRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetBtcStakingParamsRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_GetBtcStakingParamsRequest_DelegationId_Pattern.MatchString(m.GetDelegationId()) {
+		err := GetBtcStakingParamsRequestValidationError{
+			field:  "DelegationId",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_GetBtcStakingParamsRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
+		err := GetBtcStakingParamsRequestValidationError{
+			field:  "TransactionId",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return GetBtcStakingParamsRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetBtcStakingParamsRequestMultiError is an error wrapping multiple
+// validation errors returned by GetBtcStakingParamsRequest.ValidateAll() if
+// the designated constraints aren't met.
+type GetBtcStakingParamsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetBtcStakingParamsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetBtcStakingParamsRequestMultiError) AllErrors() []error { return m }
+
+// GetBtcStakingParamsRequestValidationError is the validation error returned
+// by GetBtcStakingParamsRequest.Validate if the designated constraints aren't met.
+type GetBtcStakingParamsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetBtcStakingParamsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetBtcStakingParamsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetBtcStakingParamsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetBtcStakingParamsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetBtcStakingParamsRequestValidationError) ErrorName() string {
+	return "GetBtcStakingParamsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetBtcStakingParamsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetBtcStakingParamsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetBtcStakingParamsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetBtcStakingParamsRequestValidationError{}
+
+var _GetBtcStakingParamsRequest_DelegationId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _GetBtcStakingParamsRequest_TransactionId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on ListBitcoinDelegationsByFilterRequest
 // with the rules defined in the proto definition for this message. If any
 // rules are violated, the first error encountered is returned, or nil if

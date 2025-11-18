@@ -4654,13 +4654,25 @@ func (m *BitcoinDelegation) validate(all bool) error {
 
 	// no validation rules for BitcoinWalletId
 
+	// no validation rules for BitcoinWalletName
+
+	// no validation rules for BitcoinStakerAddress
+
 	// no validation rules for BabylonWalletId
+
+	// no validation rules for BabylonStakerAddress
 
 	// no validation rules for StakingTransactionId
 
 	// no validation rules for UnbondingTransactionId
 
 	// no validation rules for WithdrawalTransactionId
+
+	// no validation rules for BabylonCreateDelegationTransactionId
+
+	// no validation rules for StakingValue
+
+	// no validation rules for StakingStringValue
 
 	// no validation rules for Duration
 
@@ -4805,6 +4817,126 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = BitcoinDelegationValidationError{}
+
+// Validate checks the field values on BitcoinStakingParams with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *BitcoinStakingParams) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on BitcoinStakingParams with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// BitcoinStakingParamsMultiError, or nil if none found.
+func (m *BitcoinStakingParams) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *BitcoinStakingParams) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for StakerPk
+
+	// no validation rules for FpPk
+
+	// no validation rules for CovenantThreshold
+
+	// no validation rules for SlashingPkScript
+
+	// no validation rules for SlashingRate
+
+	// no validation rules for MinSlashingTxFeeSat
+
+	// no validation rules for UnbondingTime
+
+	// no validation rules for UnbondingFee
+
+	// no validation rules for DelegationState
+
+	if len(errors) > 0 {
+		return BitcoinStakingParamsMultiError(errors)
+	}
+
+	return nil
+}
+
+// BitcoinStakingParamsMultiError is an error wrapping multiple validation
+// errors returned by BitcoinStakingParams.ValidateAll() if the designated
+// constraints aren't met.
+type BitcoinStakingParamsMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m BitcoinStakingParamsMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m BitcoinStakingParamsMultiError) AllErrors() []error { return m }
+
+// BitcoinStakingParamsValidationError is the validation error returned by
+// BitcoinStakingParams.Validate if the designated constraints aren't met.
+type BitcoinStakingParamsValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e BitcoinStakingParamsValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e BitcoinStakingParamsValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e BitcoinStakingParamsValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e BitcoinStakingParamsValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e BitcoinStakingParamsValidationError) ErrorName() string {
+	return "BitcoinStakingParamsValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e BitcoinStakingParamsValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sBitcoinStakingParams.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = BitcoinStakingParamsValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = BitcoinStakingParamsValidationError{}
 
 // Validate checks the field values on SlashingTxSignInfo with the rules
 // defined in the proto definition for this message. If any rules are
@@ -5374,6 +5506,112 @@ var _ interface {
 	ErrorName() string
 } = AvalanchePlatformChainUTXOSpecificValidationError{}
 
+// Validate checks the field values on CantonUTXOSpecific with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CantonUTXOSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CantonUTXOSpecific with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CantonUTXOSpecificMultiError, or nil if none found.
+func (m *CantonUTXOSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CantonUTXOSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Round
+
+	// no validation rules for RatePerRound
+
+	if len(errors) > 0 {
+		return CantonUTXOSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CantonUTXOSpecificMultiError is an error wrapping multiple validation errors
+// returned by CantonUTXOSpecific.ValidateAll() if the designated constraints
+// aren't met.
+type CantonUTXOSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CantonUTXOSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CantonUTXOSpecificMultiError) AllErrors() []error { return m }
+
+// CantonUTXOSpecificValidationError is the validation error returned by
+// CantonUTXOSpecific.Validate if the designated constraints aren't met.
+type CantonUTXOSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CantonUTXOSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CantonUTXOSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CantonUTXOSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CantonUTXOSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CantonUTXOSpecificValidationError) ErrorName() string {
+	return "CantonUTXOSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CantonUTXOSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCantonUTXOSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CantonUTXOSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CantonUTXOSpecificValidationError{}
+
 // Validate checks the field values on CardanoCustomToken with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -5582,6 +5820,10 @@ func (m *BitcoinSpecific) validate(all bool) error {
 
 	if m.StakingActionType != nil {
 		// no validation rules for StakingActionType
+	}
+
+	if m.DelegationId != nil {
+		// no validation rules for DelegationId
 	}
 
 	if len(errors) > 0 {

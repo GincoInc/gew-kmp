@@ -35,6 +35,10 @@ class BitcoinSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>optional .gincoinc.global.v1.BTCStakingActionType staking_action_type = 5 [json_name = "stakingActionType"];</code>
      */
     protected $staking_action_type = null;
+    /**
+     * Generated from protobuf field <code>optional string delegation_id = 6 [json_name = "delegationId"];</code>
+     */
+    protected $delegation_id = null;
 
     /**
      * Constructor.
@@ -47,6 +51,7 @@ class BitcoinSpecific extends \Google\Protobuf\Internal\Message
      *     @type bool $tweaked
      *     @type bool $is_schnorr
      *     @type int $staking_action_type
+     *     @type string $delegation_id
      * }
      */
     public function __construct($data = NULL) {
@@ -190,6 +195,38 @@ class BitcoinSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\BTCStakingActionType::class);
         $this->staking_action_type = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string delegation_id = 6 [json_name = "delegationId"];</code>
+     * @return string
+     */
+    public function getDelegationId()
+    {
+        return isset($this->delegation_id) ? $this->delegation_id : '';
+    }
+
+    public function hasDelegationId()
+    {
+        return isset($this->delegation_id);
+    }
+
+    public function clearDelegationId()
+    {
+        unset($this->delegation_id);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string delegation_id = 6 [json_name = "delegationId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setDelegationId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->delegation_id = $var;
 
         return $this;
     }

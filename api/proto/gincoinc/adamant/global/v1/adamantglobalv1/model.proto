@@ -370,15 +370,34 @@ message BitcoinDelegation {
   string owner_id = 1;
   string delegation_id = 2;
   string bitcoin_wallet_id = 3;
+  string bitcoin_wallet_name = 13;
+  string bitcoin_staker_address = 17;
   string babylon_wallet_id = 4;
+  string babylon_staker_address = 18;
   string staking_transaction_id = 5;
   string unbonding_transaction_id = 6;
   string withdrawal_transaction_id = 7;
+  string babylon_create_delegation_transaction_id = 14;
+  double staking_value = 15; // The number-typed amount of staking
+  string staking_string_value = 16; // The string-typed amount of staking
   uint64 duration = 8;
   uint64 expiration = 9;
   DelegationState state = 10;
   google.protobuf.Timestamp create_time = 11;
   google.protobuf.Timestamp update_time = 12;
+}
+
+message BitcoinStakingParams {
+  string staker_pk = 1;
+  string fp_pk = 2;
+  repeated string covenant_pks = 3;
+  uint64 covenant_threshold = 4;
+  string slashing_pk_script = 5;
+  double slashing_rate = 6;
+  uint64 min_slashing_tx_fee_sat = 10;
+  uint64 unbonding_time = 7;
+  uint64 unbonding_fee = 8;
+  DelegationState delegation_state = 9;
 }
 
 // The model of slashing/unbonding slashing transaction sign info
@@ -404,6 +423,12 @@ message AvalanchePlatformChainUTXOSpecific {
   repeated string addresses = 2;
 }
 
+// The model of Canton specific fields of UTXO
+message CantonUTXOSpecific {
+  int64 round = 1;
+  double rate_per_round = 2;
+}
+
 // The model of Cardano custom token
 message CardanoCustomToken {
   string policy_id = 1;
@@ -418,6 +443,7 @@ message BitcoinSpecific {
   optional bool tweaked = 3;
   optional bool is_schnorr = 4;
   optional gincoinc.global.v1.BTCStakingActionType staking_action_type = 5;
+  optional string delegation_id = 6;
 }
 
 // The model of Litecoin specific fields of transaction

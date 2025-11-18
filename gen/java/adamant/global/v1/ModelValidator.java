@@ -30,10 +30,12 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.TxOutput.class)) return new TxOutputValidator();
 		if (clazz.equals(adamant.global.v1.Model.UTXO.class)) return new UTXOValidator();
 		if (clazz.equals(adamant.global.v1.Model.BitcoinDelegation.class)) return new BitcoinDelegationValidator();
+		if (clazz.equals(adamant.global.v1.Model.BitcoinStakingParams.class)) return new BitcoinStakingParamsValidator();
 		if (clazz.equals(adamant.global.v1.Model.SlashingTxSignInfo.class)) return new SlashingTxSignInfoValidator();
 		if (clazz.equals(adamant.global.v1.Model.BabylonPopSignInfo.class)) return new BabylonPopSignInfoValidator();
 		if (clazz.equals(adamant.global.v1.Model.CardanoUTXOSpecific.class)) return new CardanoUTXOSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.AvalanchePlatformChainUTXOSpecific.class)) return new AvalanchePlatformChainUTXOSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CantonUTXOSpecific.class)) return new CantonUTXOSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CardanoCustomToken.class)) return new CardanoCustomTokenValidator();
 		if (clazz.equals(adamant.global.v1.Model.BitcoinSpecific.class)) return new BitcoinSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.LitecoinSpecific.class)) return new LitecoinSpecificValidator();
@@ -1539,6 +1541,18 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.BitcoinDelegation proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1548,13 +1562,25 @@ public class ModelValidator {
 
 	// no validation rules for BitcoinWalletId
 
+	// no validation rules for BitcoinWalletName
+
+	// no validation rules for BitcoinStakerAddress
+
 	// no validation rules for BabylonWalletId
+
+	// no validation rules for BabylonStakerAddress
 
 	// no validation rules for StakingTransactionId
 
 	// no validation rules for UnbondingTransactionId
 
 	// no validation rules for WithdrawalTransactionId
+
+	// no validation rules for BabylonCreateDelegationTransactionId
+
+	// no validation rules for StakingValue
+
+	// no validation rules for StakingStringValue
 
 	// no validation rules for Duration
 
@@ -1568,6 +1594,59 @@ public class ModelValidator {
 	
 			// Validate update_time
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	
+	}
+}
+/**
+	 * Validates {@code BitcoinStakingParams} protobuf objects.
+	 */
+	public static class BitcoinStakingParamsValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.BitcoinStakingParams> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.BitcoinStakingParams proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for StakerPk
+
+	// no validation rules for FpPk
+
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getCovenantPksList(), item -> {
+				// no validation rules for CovenantPks
+
+			});
+	// no validation rules for CovenantThreshold
+
+	// no validation rules for SlashingPkScript
+
+	// no validation rules for SlashingRate
+
+	// no validation rules for MinSlashingTxFeeSat
+
+	// no validation rules for UnbondingTime
+
+	// no validation rules for UnbondingFee
+
+	// no validation rules for DelegationState
+
 	
 	}
 }
@@ -1650,6 +1729,24 @@ public class ModelValidator {
 				// no validation rules for Addresses
 
 			});
+	
+	}
+}
+/**
+	 * Validates {@code CantonUTXOSpecific} protobuf objects.
+	 */
+	public static class CantonUTXOSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CantonUTXOSpecific> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CantonUTXOSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Round
+
+	// no validation rules for RatePerRound
+
 	
 	}
 }

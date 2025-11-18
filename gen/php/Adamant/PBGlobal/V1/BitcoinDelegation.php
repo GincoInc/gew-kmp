@@ -26,9 +26,21 @@ class BitcoinDelegation extends \Google\Protobuf\Internal\Message
      */
     protected $bitcoin_wallet_id = '';
     /**
+     * Generated from protobuf field <code>string bitcoin_wallet_name = 13 [json_name = "bitcoinWalletName"];</code>
+     */
+    protected $bitcoin_wallet_name = '';
+    /**
+     * Generated from protobuf field <code>string bitcoin_staker_address = 17 [json_name = "bitcoinStakerAddress"];</code>
+     */
+    protected $bitcoin_staker_address = '';
+    /**
      * Generated from protobuf field <code>string babylon_wallet_id = 4 [json_name = "babylonWalletId"];</code>
      */
     protected $babylon_wallet_id = '';
+    /**
+     * Generated from protobuf field <code>string babylon_staker_address = 18 [json_name = "babylonStakerAddress"];</code>
+     */
+    protected $babylon_staker_address = '';
     /**
      * Generated from protobuf field <code>string staking_transaction_id = 5 [json_name = "stakingTransactionId"];</code>
      */
@@ -41,6 +53,22 @@ class BitcoinDelegation extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string withdrawal_transaction_id = 7 [json_name = "withdrawalTransactionId"];</code>
      */
     protected $withdrawal_transaction_id = '';
+    /**
+     * Generated from protobuf field <code>string babylon_create_delegation_transaction_id = 14 [json_name = "babylonCreateDelegationTransactionId"];</code>
+     */
+    protected $babylon_create_delegation_transaction_id = '';
+    /**
+     * The number-typed amount of staking
+     *
+     * Generated from protobuf field <code>double staking_value = 15 [json_name = "stakingValue"];</code>
+     */
+    protected $staking_value = 0.0;
+    /**
+     * The string-typed amount of staking
+     *
+     * Generated from protobuf field <code>string staking_string_value = 16 [json_name = "stakingStringValue"];</code>
+     */
+    protected $staking_string_value = '';
     /**
      * Generated from protobuf field <code>uint64 duration = 8 [json_name = "duration"];</code>
      */
@@ -71,10 +99,18 @@ class BitcoinDelegation extends \Google\Protobuf\Internal\Message
      *     @type string $owner_id
      *     @type string $delegation_id
      *     @type string $bitcoin_wallet_id
+     *     @type string $bitcoin_wallet_name
+     *     @type string $bitcoin_staker_address
      *     @type string $babylon_wallet_id
+     *     @type string $babylon_staker_address
      *     @type string $staking_transaction_id
      *     @type string $unbonding_transaction_id
      *     @type string $withdrawal_transaction_id
+     *     @type string $babylon_create_delegation_transaction_id
+     *     @type float $staking_value
+     *           The number-typed amount of staking
+     *     @type string $staking_string_value
+     *           The string-typed amount of staking
      *     @type int|string $duration
      *     @type int|string $expiration
      *     @type int $state
@@ -154,6 +190,50 @@ class BitcoinDelegation extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Generated from protobuf field <code>string bitcoin_wallet_name = 13 [json_name = "bitcoinWalletName"];</code>
+     * @return string
+     */
+    public function getBitcoinWalletName()
+    {
+        return $this->bitcoin_wallet_name;
+    }
+
+    /**
+     * Generated from protobuf field <code>string bitcoin_wallet_name = 13 [json_name = "bitcoinWalletName"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setBitcoinWalletName($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->bitcoin_wallet_name = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string bitcoin_staker_address = 17 [json_name = "bitcoinStakerAddress"];</code>
+     * @return string
+     */
+    public function getBitcoinStakerAddress()
+    {
+        return $this->bitcoin_staker_address;
+    }
+
+    /**
+     * Generated from protobuf field <code>string bitcoin_staker_address = 17 [json_name = "bitcoinStakerAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setBitcoinStakerAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->bitcoin_staker_address = $var;
+
+        return $this;
+    }
+
+    /**
      * Generated from protobuf field <code>string babylon_wallet_id = 4 [json_name = "babylonWalletId"];</code>
      * @return string
      */
@@ -171,6 +251,28 @@ class BitcoinDelegation extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->babylon_wallet_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string babylon_staker_address = 18 [json_name = "babylonStakerAddress"];</code>
+     * @return string
+     */
+    public function getBabylonStakerAddress()
+    {
+        return $this->babylon_staker_address;
+    }
+
+    /**
+     * Generated from protobuf field <code>string babylon_staker_address = 18 [json_name = "babylonStakerAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setBabylonStakerAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->babylon_staker_address = $var;
 
         return $this;
     }
@@ -237,6 +339,80 @@ class BitcoinDelegation extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->withdrawal_transaction_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string babylon_create_delegation_transaction_id = 14 [json_name = "babylonCreateDelegationTransactionId"];</code>
+     * @return string
+     */
+    public function getBabylonCreateDelegationTransactionId()
+    {
+        return $this->babylon_create_delegation_transaction_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>string babylon_create_delegation_transaction_id = 14 [json_name = "babylonCreateDelegationTransactionId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setBabylonCreateDelegationTransactionId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->babylon_create_delegation_transaction_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * The number-typed amount of staking
+     *
+     * Generated from protobuf field <code>double staking_value = 15 [json_name = "stakingValue"];</code>
+     * @return float
+     */
+    public function getStakingValue()
+    {
+        return $this->staking_value;
+    }
+
+    /**
+     * The number-typed amount of staking
+     *
+     * Generated from protobuf field <code>double staking_value = 15 [json_name = "stakingValue"];</code>
+     * @param float $var
+     * @return $this
+     */
+    public function setStakingValue($var)
+    {
+        GPBUtil::checkDouble($var);
+        $this->staking_value = $var;
+
+        return $this;
+    }
+
+    /**
+     * The string-typed amount of staking
+     *
+     * Generated from protobuf field <code>string staking_string_value = 16 [json_name = "stakingStringValue"];</code>
+     * @return string
+     */
+    public function getStakingStringValue()
+    {
+        return $this->staking_string_value;
+    }
+
+    /**
+     * The string-typed amount of staking
+     *
+     * Generated from protobuf field <code>string staking_string_value = 16 [json_name = "stakingStringValue"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setStakingStringValue($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->staking_string_value = $var;
 
         return $this;
     }
