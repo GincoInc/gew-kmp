@@ -21,6 +21,10 @@ class CreateInitTransactionRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 2 [json_name = "iostSpecific"];</code>
      */
     protected $iost_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+     */
+    protected $canton_specific = null;
 
     /**
      * Constructor.
@@ -30,6 +34,7 @@ class CreateInitTransactionRequest extends \Google\Protobuf\Internal\Message
      *
      *     @type string $wallet_id
      *     @type \Adamant\PBGlobal\V1\CreateTransactionIOSTSpecific $iost_specific
+     *     @type \Adamant\PBGlobal\V1\CreateTransactionCantonSpecific $canton_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -87,6 +92,38 @@ class CreateInitTransactionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionIOSTSpecific::class);
         $this->iost_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CreateTransactionCantonSpecific|null
+     */
+    public function getCantonSpecific()
+    {
+        return $this->canton_specific;
+    }
+
+    public function hasCantonSpecific()
+    {
+        return isset($this->canton_specific);
+    }
+
+    public function clearCantonSpecific()
+    {
+        unset($this->canton_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CreateTransactionCantonSpecific $var
+     * @return $this
+     */
+    public function setCantonSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionCantonSpecific::class);
+        $this->canton_specific = $var;
 
         return $this;
     }

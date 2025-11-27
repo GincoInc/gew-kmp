@@ -327,6 +327,18 @@ class Transaction extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.BabylonSpecific babylon_specific = 55 [json_name = "babylonSpecific"];</code>
      */
     protected $babylon_specific = null;
+    /**
+     * The Bera specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BeraChainSpecific bera_chain_specific = 56 [json_name = "beraChainSpecific"];</code>
+     */
+    protected $bera_chain_specific = null;
+    /**
+     * The Canton specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CantonSpecific canton_specific = 57 [json_name = "cantonSpecific"];</code>
+     */
+    protected $canton_specific = null;
 
     /**
      * Constructor.
@@ -438,6 +450,10 @@ class Transaction extends \Google\Protobuf\Internal\Message
      *           The Sui specific fields
      *     @type \Adamant\PBGlobal\V1\BabylonSpecific $babylon_specific
      *           The Babylon specific fields
+     *     @type \Adamant\PBGlobal\V1\BeraChainSpecific $bera_chain_specific
+     *           The Bera specific fields
+     *     @type \Adamant\PBGlobal\V1\CantonSpecific $canton_specific
+     *           The Canton specific fields
      * }
      */
     public function __construct($data = NULL) {
@@ -2163,6 +2179,78 @@ class Transaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\BabylonSpecific::class);
         $this->babylon_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Bera specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BeraChainSpecific bera_chain_specific = 56 [json_name = "beraChainSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\BeraChainSpecific|null
+     */
+    public function getBeraChainSpecific()
+    {
+        return $this->bera_chain_specific;
+    }
+
+    public function hasBeraChainSpecific()
+    {
+        return isset($this->bera_chain_specific);
+    }
+
+    public function clearBeraChainSpecific()
+    {
+        unset($this->bera_chain_specific);
+    }
+
+    /**
+     * The Bera specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.BeraChainSpecific bera_chain_specific = 56 [json_name = "beraChainSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\BeraChainSpecific $var
+     * @return $this
+     */
+    public function setBeraChainSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\BeraChainSpecific::class);
+        $this->bera_chain_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Canton specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CantonSpecific canton_specific = 57 [json_name = "cantonSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CantonSpecific|null
+     */
+    public function getCantonSpecific()
+    {
+        return $this->canton_specific;
+    }
+
+    public function hasCantonSpecific()
+    {
+        return isset($this->canton_specific);
+    }
+
+    public function clearCantonSpecific()
+    {
+        unset($this->canton_specific);
+    }
+
+    /**
+     * The Canton specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CantonSpecific canton_specific = 57 [json_name = "cantonSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CantonSpecific $var
+     * @return $this
+     */
+    public function setCantonSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CantonSpecific::class);
+        $this->canton_specific = $var;
 
         return $this;
     }

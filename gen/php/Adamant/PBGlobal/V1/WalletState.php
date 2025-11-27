@@ -153,6 +153,30 @@ class WalletState
      * Generated from protobuf enum <code>WALLET_STATE_MANAGER_APPROVED_SENDING_TRANSACTION = 23;</code>
      */
     const WALLET_STATE_MANAGER_APPROVED_SENDING_TRANSACTION = 23;
+    /**
+     * Waiting for sign onbording transaction
+     *
+     * Generated from protobuf enum <code>WALLET_STATE_ONBOARDING_SIGNING = 24;</code>
+     */
+    const WALLET_STATE_ONBOARDING_SIGNING = 24;
+    /**
+     * Onbording transaction was Signed
+     *
+     * Generated from protobuf enum <code>WALLET_STATE_ONBOARDING_SIGNED = 25;</code>
+     */
+    const WALLET_STATE_ONBOARDING_SIGNED = 25;
+    /**
+     * Waiting for submit onbording transaction
+     *
+     * Generated from protobuf enum <code>WALLET_STATE_ONBOARDING_SUBMITTING = 26;</code>
+     */
+    const WALLET_STATE_ONBOARDING_SUBMITTING = 26;
+    /**
+     * Onbording transaction was submitted
+     *
+     * Generated from protobuf enum <code>WALLET_STATE_ONBOARDING_SUBMITTED = 27;</code>
+     */
+    const WALLET_STATE_ONBOARDING_SUBMITTED = 27;
 
     private static $valueToName = [
         self::WALLET_STATE_INVALID => 'WALLET_STATE_INVALID',
@@ -179,6 +203,10 @@ class WalletState
         self::WALLET_STATE_ACCOUNT_CREATING => 'WALLET_STATE_ACCOUNT_CREATING',
         self::WALLET_STATE_ACCOUNT_CREATED => 'WALLET_STATE_ACCOUNT_CREATED',
         self::WALLET_STATE_MANAGER_APPROVED_SENDING_TRANSACTION => 'WALLET_STATE_MANAGER_APPROVED_SENDING_TRANSACTION',
+        self::WALLET_STATE_ONBOARDING_SIGNING => 'WALLET_STATE_ONBOARDING_SIGNING',
+        self::WALLET_STATE_ONBOARDING_SIGNED => 'WALLET_STATE_ONBOARDING_SIGNED',
+        self::WALLET_STATE_ONBOARDING_SUBMITTING => 'WALLET_STATE_ONBOARDING_SUBMITTING',
+        self::WALLET_STATE_ONBOARDING_SUBMITTED => 'WALLET_STATE_ONBOARDING_SUBMITTED',
     ];
 
     public static function name($value)

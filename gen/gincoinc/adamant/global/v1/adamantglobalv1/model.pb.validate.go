@@ -3677,6 +3677,64 @@ func (m *Transaction) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetBeraChainSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "BeraChainSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "BeraChainSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetBeraChainSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "BeraChainSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetCantonSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "CantonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, TransactionValidationError{
+					field:  "CantonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetCantonSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransactionValidationError{
+				field:  "CantonSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return TransactionMultiError(errors)
 	}
@@ -5531,6 +5589,8 @@ func (m *CantonUTXOSpecific) validate(all bool) error {
 	// no validation rules for Round
 
 	// no validation rules for RatePerRound
+
+	// no validation rules for Value
 
 	if len(errors) > 0 {
 		return CantonUTXOSpecificMultiError(errors)
@@ -7806,6 +7866,108 @@ var _ interface {
 	ErrorName() string
 } = IOSTSpecificValidationError{}
 
+// Validate checks the field values on CantonSpecific with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *CantonSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CantonSpecific with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in CantonSpecificMultiError,
+// or nil if none found.
+func (m *CantonSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CantonSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Type
+
+	if len(errors) > 0 {
+		return CantonSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CantonSpecificMultiError is an error wrapping multiple validation errors
+// returned by CantonSpecific.ValidateAll() if the designated constraints
+// aren't met.
+type CantonSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CantonSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CantonSpecificMultiError) AllErrors() []error { return m }
+
+// CantonSpecificValidationError is the validation error returned by
+// CantonSpecific.Validate if the designated constraints aren't met.
+type CantonSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CantonSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CantonSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CantonSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CantonSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CantonSpecificValidationError) ErrorName() string { return "CantonSpecificValidationError" }
+
+// Error satisfies the builtin error interface
+func (e CantonSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCantonSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CantonSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CantonSpecificValidationError{}
+
 // Validate checks the field values on PolygonSpecific with the rules defined
 // in the proto definition for this message. If any rules are violated, the
 // first error encountered is returned, or nil if there are no violations.
@@ -9660,6 +9822,118 @@ var _ interface {
 	ErrorName() string
 } = FlareSpecificValidationError{}
 
+// Validate checks the field values on BeraChainSpecific with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *BeraChainSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on BeraChainSpecific with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// BeraChainSpecificMultiError, or nil if none found.
+func (m *BeraChainSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *BeraChainSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
+	if len(errors) > 0 {
+		return BeraChainSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// BeraChainSpecificMultiError is an error wrapping multiple validation errors
+// returned by BeraChainSpecific.ValidateAll() if the designated constraints
+// aren't met.
+type BeraChainSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m BeraChainSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m BeraChainSpecificMultiError) AllErrors() []error { return m }
+
+// BeraChainSpecificValidationError is the validation error returned by
+// BeraChainSpecific.Validate if the designated constraints aren't met.
+type BeraChainSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e BeraChainSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e BeraChainSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e BeraChainSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e BeraChainSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e BeraChainSpecificValidationError) ErrorName() string {
+	return "BeraChainSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e BeraChainSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sBeraChainSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = BeraChainSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = BeraChainSpecificValidationError{}
+
 // Validate checks the field values on ArbitrumOneSpecific with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
@@ -11257,6 +11531,113 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CreateTransactionIOSTSpecificValidationError{}
+
+// Validate checks the field values on CreateTransactionCantonSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CreateTransactionCantonSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreateTransactionCantonSpecific with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// CreateTransactionCantonSpecificMultiError, or nil if none found.
+func (m *CreateTransactionCantonSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateTransactionCantonSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if m.Type != nil {
+		// no validation rules for Type
+	}
+
+	if len(errors) > 0 {
+		return CreateTransactionCantonSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreateTransactionCantonSpecificMultiError is an error wrapping multiple
+// validation errors returned by CreateTransactionCantonSpecific.ValidateAll()
+// if the designated constraints aren't met.
+type CreateTransactionCantonSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionCantonSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionCantonSpecificMultiError) AllErrors() []error { return m }
+
+// CreateTransactionCantonSpecificValidationError is the validation error
+// returned by CreateTransactionCantonSpecific.Validate if the designated
+// constraints aren't met.
+type CreateTransactionCantonSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionCantonSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionCantonSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionCantonSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionCantonSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionCantonSpecificValidationError) ErrorName() string {
+	return "CreateTransactionCantonSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionCantonSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionCantonSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionCantonSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionCantonSpecificValidationError{}
 
 // Validate checks the field values on CreateTransactionSymbolSpecific with the
 // rules defined in the proto definition for this message. If any rules are
