@@ -731,6 +731,8 @@ message BeraChainSpecific {
   bool is_next_nonce = 3;
   string from_address = 4;
   string token_address = 5;
+  uint64 chain_id = 6;
+  uint64 max_priority_fee_per_gas = 7;
 }
 
 message ArbitrumOneSpecific {

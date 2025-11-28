@@ -35,6 +35,14 @@ class BeraChainSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string token_address = 5 [json_name = "tokenAddress"];</code>
      */
     protected $token_address = '';
+    /**
+     * Generated from protobuf field <code>uint64 chain_id = 6 [json_name = "chainId"];</code>
+     */
+    protected $chain_id = 0;
+    /**
+     * Generated from protobuf field <code>uint64 max_priority_fee_per_gas = 7 [json_name = "maxPriorityFeePerGas"];</code>
+     */
+    protected $max_priority_fee_per_gas = 0;
 
     /**
      * Constructor.
@@ -47,6 +55,8 @@ class BeraChainSpecific extends \Google\Protobuf\Internal\Message
      *     @type bool $is_next_nonce
      *     @type string $from_address
      *     @type string $token_address
+     *     @type int|string $chain_id
+     *     @type int|string $max_priority_fee_per_gas
      * }
      */
     public function __construct($data = NULL) {
@@ -160,6 +170,50 @@ class BeraChainSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->token_address = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 chain_id = 6 [json_name = "chainId"];</code>
+     * @return int|string
+     */
+    public function getChainId()
+    {
+        return $this->chain_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 chain_id = 6 [json_name = "chainId"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setChainId($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->chain_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 max_priority_fee_per_gas = 7 [json_name = "maxPriorityFeePerGas"];</code>
+     * @return int|string
+     */
+    public function getMaxPriorityFeePerGas()
+    {
+        return $this->max_priority_fee_per_gas;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 max_priority_fee_per_gas = 7 [json_name = "maxPriorityFeePerGas"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setMaxPriorityFeePerGas($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->max_priority_fee_per_gas = $var;
 
         return $this;
     }

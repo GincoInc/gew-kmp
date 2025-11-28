@@ -2818,6 +2818,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.BeraChainSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2830,6 +2834,10 @@ public class ModelValidator {
 	// no validation rules for FromAddress
 
 	// no validation rules for TokenAddress
+
+	// no validation rules for ChainId
+
+	// no validation rules for MaxPriorityFeePerGas
 
 	
 	}

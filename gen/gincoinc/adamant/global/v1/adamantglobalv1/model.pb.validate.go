@@ -9854,6 +9854,10 @@ func (m *BeraChainSpecific) validate(all bool) error {
 
 	// no validation rules for TokenAddress
 
+	// no validation rules for ChainId
+
+	// no validation rules for MaxPriorityFeePerGas
+
 	if len(errors) > 0 {
 		return BeraChainSpecificMultiError(errors)
 	}
