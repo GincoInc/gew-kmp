@@ -295,6 +295,8 @@ message Transaction {
   TonSpecific ton_specific = 53; // The Ton specific fields
   SuiSpecific sui_specific = 54; // The Sui specific fields
   BabylonSpecific babylon_specific = 55; // The Babylon specific fields
+  BeraChainSpecific bera_chain_specific = 56; // The Bera specific fields
+  CantonSpecific canton_specific = 57; // The Canton specific fields
 }
 
 // The model of unconfirmed transaction
@@ -426,7 +428,8 @@ message AvalanchePlatformChainUTXOSpecific {
 // The model of Canton specific fields of UTXO
 message CantonUTXOSpecific {
   int64 round = 1;
-  double rate_per_round = 2;
+  string rate_per_round = 2;
+  string value = 3;
 }
 
 // The model of Cardano custom token
@@ -557,6 +560,10 @@ message IOSTSpecific {
   uint64 gas_limit = 5;
   uint64 chain_id = 6;
   string from_address = 7;
+}
+
+message CantonSpecific {
+  gincoinc.global.v1.CantonTransactionType type = 1;
 }
 
 // The model of Polygon specific fields of transaction
@@ -717,6 +724,17 @@ message FlareSpecific {
   string token_address = 5;
 }
 
+// The model of Bera specific fields of transaction
+message BeraChainSpecific {
+  uint64 gas_limit = 1;
+  uint64 nonce = 2;
+  bool is_next_nonce = 3;
+  string from_address = 4;
+  string token_address = 5;
+  uint64 chain_id = 6;
+  uint64 max_priority_fee_per_gas = 7;
+}
+
 message ArbitrumOneSpecific {
   uint64 gas_limit = 1;
   uint64 nonce = 2;
@@ -820,6 +838,11 @@ message CreateTransactionIOSTSpecific {
   uint64 timestamp = 2;
   // optional
   optional adamant.global.v1.IOSTActionType type = 3;
+}
+
+// The model of Canton specific fields of CreateTransaction
+message CreateTransactionCantonSpecific {
+  optional gincoinc.global.v1.CantonTransactionType type = 1;
 }
 
 // The model of Symbol specific fields of CreateTransaction
