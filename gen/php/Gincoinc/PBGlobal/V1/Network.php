@@ -336,6 +336,14 @@ class Network
      */
     const NETWORK_CANTON_TESTNET = 77;
     /**
+     * Generated from protobuf enum <code>NETWORK_BERACHAIN_MAINNET = 78;</code>
+     */
+    const NETWORK_BERACHAIN_MAINNET = 78;
+    /**
+     * Generated from protobuf enum <code>NETWORK_BERACHAIN_TESTNET = 79;</code>
+     */
+    const NETWORK_BERACHAIN_TESTNET = 79;
+    /**
      * Generated from protobuf enum <code>NETWORK_SHIDEN_MAINNET = 10002;</code>
      */
     const NETWORK_SHIDEN_MAINNET = 10002;
@@ -419,6 +427,8 @@ class Network
         self::NETWORK_BABYLON_TESTNET => 'NETWORK_BABYLON_TESTNET',
         self::NETWORK_CANTON_MAINNET => 'NETWORK_CANTON_MAINNET',
         self::NETWORK_CANTON_TESTNET => 'NETWORK_CANTON_TESTNET',
+        self::NETWORK_BERACHAIN_MAINNET => 'NETWORK_BERACHAIN_MAINNET',
+        self::NETWORK_BERACHAIN_TESTNET => 'NETWORK_BERACHAIN_TESTNET',
         self::NETWORK_SHIDEN_MAINNET => 'NETWORK_SHIDEN_MAINNET',
     ];
 

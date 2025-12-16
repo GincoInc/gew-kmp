@@ -20,9 +20,13 @@ class CantonUTXOSpecific extends \Google\Protobuf\Internal\Message
      */
     protected $round = 0;
     /**
-     * Generated from protobuf field <code>double rate_per_round = 2 [json_name = "ratePerRound"];</code>
+     * Generated from protobuf field <code>string rate_per_round = 2 [json_name = "ratePerRound"];</code>
      */
-    protected $rate_per_round = 0.0;
+    protected $rate_per_round = '';
+    /**
+     * Generated from protobuf field <code>string value = 3 [json_name = "value"];</code>
+     */
+    protected $value = '';
 
     /**
      * Constructor.
@@ -31,7 +35,8 @@ class CantonUTXOSpecific extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int|string $round
-     *     @type float $rate_per_round
+     *     @type string $rate_per_round
+     *     @type string $value
      * }
      */
     public function __construct($data = NULL) {
@@ -62,8 +67,8 @@ class CantonUTXOSpecific extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>double rate_per_round = 2 [json_name = "ratePerRound"];</code>
-     * @return float
+     * Generated from protobuf field <code>string rate_per_round = 2 [json_name = "ratePerRound"];</code>
+     * @return string
      */
     public function getRatePerRound()
     {
@@ -71,14 +76,36 @@ class CantonUTXOSpecific extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>double rate_per_round = 2 [json_name = "ratePerRound"];</code>
-     * @param float $var
+     * Generated from protobuf field <code>string rate_per_round = 2 [json_name = "ratePerRound"];</code>
+     * @param string $var
      * @return $this
      */
     public function setRatePerRound($var)
     {
-        GPBUtil::checkDouble($var);
+        GPBUtil::checkString($var, True);
         $this->rate_per_round = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string value = 3 [json_name = "value"];</code>
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * Generated from protobuf field <code>string value = 3 [json_name = "value"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setValue($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->value = $var;
 
         return $this;
     }

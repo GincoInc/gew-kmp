@@ -33,4 +33,34 @@ public interface CreateInitTransactionRequestOrBuilder extends
    * <code>.adamant.global.v1.CreateTransactionIOSTSpecific iost_specific = 2 [json_name = "iostSpecific"];</code>
    */
   adamant.global.v1.Model.CreateTransactionIOSTSpecificOrBuilder getIostSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+   * @return Whether the cantonSpecific field is set.
+   */
+  boolean hasCantonSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+   * @return The cantonSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionCantonSpecific getCantonSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder getCantonSpecificOrBuilder();
+
+  /**
+   * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 4 [json_name = "hederaSpecific"];</code>
+   * @return Whether the hederaSpecific field is set.
+   */
+  boolean hasHederaSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 4 [json_name = "hederaSpecific"];</code>
+   * @return The hederaSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionHederaSpecific getHederaSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 4 [json_name = "hederaSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionHederaSpecificOrBuilder getHederaSpecificOrBuilder();
 }

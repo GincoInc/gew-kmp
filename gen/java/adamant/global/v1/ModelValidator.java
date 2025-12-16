@@ -51,6 +51,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.MonacoinSpecific.class)) return new MonacoinSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.NemSpecific.class)) return new NemSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.IOSTSpecific.class)) return new IOSTSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CantonSpecific.class)) return new CantonSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.PolygonSpecific.class)) return new PolygonSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.KlaytnSpecific.class)) return new KlaytnSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SymbolSpecific.class)) return new SymbolSpecificValidator();
@@ -67,6 +68,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.AptosSpecific.class)) return new AptosSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.BNBSmartChainSpecific.class)) return new BNBSmartChainSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.FlareSpecific.class)) return new FlareSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.BeraChainSpecific.class)) return new BeraChainSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.ArbitrumOneSpecific.class)) return new ArbitrumOneSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.AtomicTx.class)) return new AtomicTxValidator();
 		if (clazz.equals(adamant.global.v1.Model.AvalanchePlatformChainSpecific.class)) return new AvalanchePlatformChainSpecificValidator();
@@ -80,6 +82,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionWalletConnectSpecific.class)) return new CreateTransactionWalletConnectSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionNemSpecific.class)) return new CreateTransactionNemSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionIOSTSpecific.class)) return new CreateTransactionIOSTSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionCantonSpecific.class)) return new CreateTransactionCantonSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSymbolSpecific.class)) return new CreateTransactionSymbolSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionEthereumSpecific.class)) return new CreateTransactionEthereumSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific.class)) return new CreateTransactionBitcoinStakingSpecificValidator();
@@ -1113,6 +1116,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1265,6 +1272,12 @@ public class ModelValidator {
 	
 			// Validate babylon_specific
 			if (proto.hasBabylonSpecific()) index.validatorFor(proto.getBabylonSpecific()).assertValid(proto.getBabylonSpecific());
+	
+			// Validate bera_chain_specific
+			if (proto.hasBeraChainSpecific()) index.validatorFor(proto.getBeraChainSpecific()).assertValid(proto.getBeraChainSpecific());
+	
+			// Validate canton_specific
+			if (proto.hasCantonSpecific()) index.validatorFor(proto.getCantonSpecific()).assertValid(proto.getCantonSpecific());
 	
 	}
 }
@@ -1740,12 +1753,16 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.CantonUTXOSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Round
 
 	// no validation rules for RatePerRound
+
+	// no validation rules for Value
 
 	
 	}
@@ -2228,6 +2245,20 @@ public class ModelValidator {
 	// no validation rules for ChainId
 
 	// no validation rules for FromAddress
+
+	
+	}
+}
+/**
+	 * Validates {@code CantonSpecific} protobuf objects.
+	 */
+	public static class CantonSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CantonSpecific> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CantonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Type
 
 	
 	}
@@ -2774,6 +2805,44 @@ public class ModelValidator {
 	}
 }
 /**
+	 * Validates {@code BeraChainSpecific} protobuf objects.
+	 */
+	public static class BeraChainSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.BeraChainSpecific> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.BeraChainSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for GasLimit
+
+	// no validation rules for Nonce
+
+	// no validation rules for IsNextNonce
+
+	// no validation rules for FromAddress
+
+	// no validation rules for TokenAddress
+
+	// no validation rules for ChainId
+
+	// no validation rules for MaxPriorityFeePerGas
+
+	
+	}
+}
+/**
 	 * Validates {@code ArbitrumOneSpecific} protobuf objects.
 	 */
 	public static class ArbitrumOneSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.ArbitrumOneSpecific> {
@@ -3162,6 +3231,16 @@ public class ModelValidator {
 
 	// no validation rules for Timestamp
 
+	
+	}
+}
+/**
+	 * Validates {@code CreateTransactionCantonSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionCantonSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionCantonSpecific> {
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionCantonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
 	}
 }

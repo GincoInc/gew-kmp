@@ -16,18 +16,23 @@ class CantonTransactionType
      */
     const CANTON_TRANSACTION_TYPE_INVALID = 0;
     /**
-     * Generated from protobuf enum <code>CANTON_TRANSACTION_TYPE_TRANSFER = 1;</code>
+     * Generated from protobuf enum <code>CANTON_TRANSACTION_TYPE_ONBOARDING = 1;</code>
      */
-    const CANTON_TRANSACTION_TYPE_TRANSFER = 1;
+    const CANTON_TRANSACTION_TYPE_ONBOARDING = 1;
     /**
-     * Generated from protobuf enum <code>CANTON_TRANSACTION_TYPE_TRANSFER_PREAPPROVAL = 2;</code>
+     * Generated from protobuf enum <code>CANTON_TRANSACTION_TYPE_PREAPPROVAL = 2;</code>
      */
-    const CANTON_TRANSACTION_TYPE_TRANSFER_PREAPPROVAL = 2;
+    const CANTON_TRANSACTION_TYPE_PREAPPROVAL = 2;
+    /**
+     * Generated from protobuf enum <code>CANTON_TRANSACTION_TYPE_TRANSFER = 3;</code>
+     */
+    const CANTON_TRANSACTION_TYPE_TRANSFER = 3;
 
     private static $valueToName = [
         self::CANTON_TRANSACTION_TYPE_INVALID => 'CANTON_TRANSACTION_TYPE_INVALID',
+        self::CANTON_TRANSACTION_TYPE_ONBOARDING => 'CANTON_TRANSACTION_TYPE_ONBOARDING',
+        self::CANTON_TRANSACTION_TYPE_PREAPPROVAL => 'CANTON_TRANSACTION_TYPE_PREAPPROVAL',
         self::CANTON_TRANSACTION_TYPE_TRANSFER => 'CANTON_TRANSACTION_TYPE_TRANSFER',
-        self::CANTON_TRANSACTION_TYPE_TRANSFER_PREAPPROVAL => 'CANTON_TRANSACTION_TYPE_TRANSFER_PREAPPROVAL',
     ];
 
     public static function name($value)
