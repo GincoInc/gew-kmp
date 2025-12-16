@@ -104,6 +104,58 @@ private static final long serialVersionUID = 0L;
     return iostSpecific_ == null ? adamant.global.v1.Model.CreateTransactionIOSTSpecific.getDefaultInstance() : iostSpecific_;
   }
 
+  public static final int CANTON_SPECIFIC_FIELD_NUMBER = 3;
+  private adamant.global.v1.Model.CreateTransactionCantonSpecific cantonSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+   * @return Whether the cantonSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasCantonSpecific() {
+    return cantonSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+   * @return The cantonSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionCantonSpecific getCantonSpecific() {
+    return cantonSpecific_ == null ? adamant.global.v1.Model.CreateTransactionCantonSpecific.getDefaultInstance() : cantonSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder getCantonSpecificOrBuilder() {
+    return cantonSpecific_ == null ? adamant.global.v1.Model.CreateTransactionCantonSpecific.getDefaultInstance() : cantonSpecific_;
+  }
+
+  public static final int HEDERA_SPECIFIC_FIELD_NUMBER = 4;
+  private adamant.global.v1.Model.CreateTransactionHederaSpecific hederaSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 4 [json_name = "hederaSpecific"];</code>
+   * @return Whether the hederaSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasHederaSpecific() {
+    return hederaSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 4 [json_name = "hederaSpecific"];</code>
+   * @return The hederaSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionHederaSpecific getHederaSpecific() {
+    return hederaSpecific_ == null ? adamant.global.v1.Model.CreateTransactionHederaSpecific.getDefaultInstance() : hederaSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 4 [json_name = "hederaSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionHederaSpecificOrBuilder getHederaSpecificOrBuilder() {
+    return hederaSpecific_ == null ? adamant.global.v1.Model.CreateTransactionHederaSpecific.getDefaultInstance() : hederaSpecific_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -124,6 +176,12 @@ private static final long serialVersionUID = 0L;
     if (iostSpecific_ != null) {
       output.writeMessage(2, getIostSpecific());
     }
+    if (cantonSpecific_ != null) {
+      output.writeMessage(3, getCantonSpecific());
+    }
+    if (hederaSpecific_ != null) {
+      output.writeMessage(4, getHederaSpecific());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -139,6 +197,14 @@ private static final long serialVersionUID = 0L;
     if (iostSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getIostSpecific());
+    }
+    if (cantonSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getCantonSpecific());
+    }
+    if (hederaSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getHederaSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -162,6 +228,16 @@ private static final long serialVersionUID = 0L;
       if (!getIostSpecific()
           .equals(other.getIostSpecific())) return false;
     }
+    if (hasCantonSpecific() != other.hasCantonSpecific()) return false;
+    if (hasCantonSpecific()) {
+      if (!getCantonSpecific()
+          .equals(other.getCantonSpecific())) return false;
+    }
+    if (hasHederaSpecific() != other.hasHederaSpecific()) return false;
+    if (hasHederaSpecific()) {
+      if (!getHederaSpecific()
+          .equals(other.getHederaSpecific())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -178,6 +254,14 @@ private static final long serialVersionUID = 0L;
     if (hasIostSpecific()) {
       hash = (37 * hash) + IOST_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getIostSpecific().hashCode();
+    }
+    if (hasCantonSpecific()) {
+      hash = (37 * hash) + CANTON_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getCantonSpecific().hashCode();
+    }
+    if (hasHederaSpecific()) {
+      hash = (37 * hash) + HEDERA_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getHederaSpecific().hashCode();
     }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
@@ -316,6 +400,16 @@ private static final long serialVersionUID = 0L;
         iostSpecificBuilder_.dispose();
         iostSpecificBuilder_ = null;
       }
+      cantonSpecific_ = null;
+      if (cantonSpecificBuilder_ != null) {
+        cantonSpecificBuilder_.dispose();
+        cantonSpecificBuilder_ = null;
+      }
+      hederaSpecific_ = null;
+      if (hederaSpecificBuilder_ != null) {
+        hederaSpecificBuilder_.dispose();
+        hederaSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -356,6 +450,16 @@ private static final long serialVersionUID = 0L;
         result.iostSpecific_ = iostSpecificBuilder_ == null
             ? iostSpecific_
             : iostSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.cantonSpecific_ = cantonSpecificBuilder_ == null
+            ? cantonSpecific_
+            : cantonSpecificBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.hederaSpecific_ = hederaSpecificBuilder_ == null
+            ? hederaSpecific_
+            : hederaSpecificBuilder_.build();
       }
     }
 
@@ -411,6 +515,12 @@ private static final long serialVersionUID = 0L;
       if (other.hasIostSpecific()) {
         mergeIostSpecific(other.getIostSpecific());
       }
+      if (other.hasCantonSpecific()) {
+        mergeCantonSpecific(other.getCantonSpecific());
+      }
+      if (other.hasHederaSpecific()) {
+        mergeHederaSpecific(other.getHederaSpecific());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -449,6 +559,20 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 18
+            case 26: {
+              input.readMessage(
+                  getCantonSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getHederaSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -655,6 +779,244 @@ private static final long serialVersionUID = 0L;
         iostSpecific_ = null;
       }
       return iostSpecificBuilder_;
+    }
+
+    private adamant.global.v1.Model.CreateTransactionCantonSpecific cantonSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionCantonSpecific, adamant.global.v1.Model.CreateTransactionCantonSpecific.Builder, adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder> cantonSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+     * @return Whether the cantonSpecific field is set.
+     */
+    public boolean hasCantonSpecific() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+     * @return The cantonSpecific.
+     */
+    public adamant.global.v1.Model.CreateTransactionCantonSpecific getCantonSpecific() {
+      if (cantonSpecificBuilder_ == null) {
+        return cantonSpecific_ == null ? adamant.global.v1.Model.CreateTransactionCantonSpecific.getDefaultInstance() : cantonSpecific_;
+      } else {
+        return cantonSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+     */
+    public Builder setCantonSpecific(adamant.global.v1.Model.CreateTransactionCantonSpecific value) {
+      if (cantonSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        cantonSpecific_ = value;
+      } else {
+        cantonSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+     */
+    public Builder setCantonSpecific(
+        adamant.global.v1.Model.CreateTransactionCantonSpecific.Builder builderForValue) {
+      if (cantonSpecificBuilder_ == null) {
+        cantonSpecific_ = builderForValue.build();
+      } else {
+        cantonSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+     */
+    public Builder mergeCantonSpecific(adamant.global.v1.Model.CreateTransactionCantonSpecific value) {
+      if (cantonSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) != 0) &&
+          cantonSpecific_ != null &&
+          cantonSpecific_ != adamant.global.v1.Model.CreateTransactionCantonSpecific.getDefaultInstance()) {
+          getCantonSpecificBuilder().mergeFrom(value);
+        } else {
+          cantonSpecific_ = value;
+        }
+      } else {
+        cantonSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+     */
+    public Builder clearCantonSpecific() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      cantonSpecific_ = null;
+      if (cantonSpecificBuilder_ != null) {
+        cantonSpecificBuilder_.dispose();
+        cantonSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionCantonSpecific.Builder getCantonSpecificBuilder() {
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return getCantonSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder getCantonSpecificOrBuilder() {
+      if (cantonSpecificBuilder_ != null) {
+        return cantonSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return cantonSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionCantonSpecific.getDefaultInstance() : cantonSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 3 [json_name = "cantonSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionCantonSpecific, adamant.global.v1.Model.CreateTransactionCantonSpecific.Builder, adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder> 
+        getCantonSpecificFieldBuilder() {
+      if (cantonSpecificBuilder_ == null) {
+        cantonSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionCantonSpecific, adamant.global.v1.Model.CreateTransactionCantonSpecific.Builder, adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder>(
+                getCantonSpecific(),
+                getParentForChildren(),
+                isClean());
+        cantonSpecific_ = null;
+      }
+      return cantonSpecificBuilder_;
+    }
+
+    private adamant.global.v1.Model.CreateTransactionHederaSpecific hederaSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionHederaSpecific, adamant.global.v1.Model.CreateTransactionHederaSpecific.Builder, adamant.global.v1.Model.CreateTransactionHederaSpecificOrBuilder> hederaSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 4 [json_name = "hederaSpecific"];</code>
+     * @return Whether the hederaSpecific field is set.
+     */
+    public boolean hasHederaSpecific() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 4 [json_name = "hederaSpecific"];</code>
+     * @return The hederaSpecific.
+     */
+    public adamant.global.v1.Model.CreateTransactionHederaSpecific getHederaSpecific() {
+      if (hederaSpecificBuilder_ == null) {
+        return hederaSpecific_ == null ? adamant.global.v1.Model.CreateTransactionHederaSpecific.getDefaultInstance() : hederaSpecific_;
+      } else {
+        return hederaSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 4 [json_name = "hederaSpecific"];</code>
+     */
+    public Builder setHederaSpecific(adamant.global.v1.Model.CreateTransactionHederaSpecific value) {
+      if (hederaSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        hederaSpecific_ = value;
+      } else {
+        hederaSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 4 [json_name = "hederaSpecific"];</code>
+     */
+    public Builder setHederaSpecific(
+        adamant.global.v1.Model.CreateTransactionHederaSpecific.Builder builderForValue) {
+      if (hederaSpecificBuilder_ == null) {
+        hederaSpecific_ = builderForValue.build();
+      } else {
+        hederaSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 4 [json_name = "hederaSpecific"];</code>
+     */
+    public Builder mergeHederaSpecific(adamant.global.v1.Model.CreateTransactionHederaSpecific value) {
+      if (hederaSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0) &&
+          hederaSpecific_ != null &&
+          hederaSpecific_ != adamant.global.v1.Model.CreateTransactionHederaSpecific.getDefaultInstance()) {
+          getHederaSpecificBuilder().mergeFrom(value);
+        } else {
+          hederaSpecific_ = value;
+        }
+      } else {
+        hederaSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 4 [json_name = "hederaSpecific"];</code>
+     */
+    public Builder clearHederaSpecific() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      hederaSpecific_ = null;
+      if (hederaSpecificBuilder_ != null) {
+        hederaSpecificBuilder_.dispose();
+        hederaSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 4 [json_name = "hederaSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionHederaSpecific.Builder getHederaSpecificBuilder() {
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return getHederaSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 4 [json_name = "hederaSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionHederaSpecificOrBuilder getHederaSpecificOrBuilder() {
+      if (hederaSpecificBuilder_ != null) {
+        return hederaSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return hederaSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionHederaSpecific.getDefaultInstance() : hederaSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionHederaSpecific hedera_specific = 4 [json_name = "hederaSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionHederaSpecific, adamant.global.v1.Model.CreateTransactionHederaSpecific.Builder, adamant.global.v1.Model.CreateTransactionHederaSpecificOrBuilder> 
+        getHederaSpecificFieldBuilder() {
+      if (hederaSpecificBuilder_ == null) {
+        hederaSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionHederaSpecific, adamant.global.v1.Model.CreateTransactionHederaSpecific.Builder, adamant.global.v1.Model.CreateTransactionHederaSpecificOrBuilder>(
+                getHederaSpecific(),
+                getParentForChildren(),
+                isClean());
+        hederaSpecific_ = null;
+      }
+      return hederaSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

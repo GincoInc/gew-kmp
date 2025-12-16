@@ -102,6 +102,7 @@ enum Coin {
   COIN_DOT_ASSET_USDC = 85;
   COIN_HEDERA_HTS_USDC = 86;
   COIN_CC = 87;
+  COIN_BERA = 88;
   COIN_SDN = 10002;
   COIN_ERC20_SCDEV = 10003; // for stable coin development in dev
   COIN_ERC20_SCQA = 10004; // for stable coin development in qa
@@ -233,6 +234,8 @@ enum Network {
   NETWORK_BABYLON_TESTNET = 74;
   NETWORK_CANTON_MAINNET = 76;
   NETWORK_CANTON_TESTNET = 77;
+  NETWORK_BERACHAIN_MAINNET = 78;
+  NETWORK_BERACHAIN_TESTNET = 79;
   NETWORK_SHIDEN_MAINNET = 10002;
 }
 
@@ -497,8 +500,13 @@ enum NFTCallMethod {
   NFT_CALL_METHOD_BATCH_BURN = 7;
 }
 
+// -----------------------------------------------------------------------------
+// Canton Transaction Type
+// -----------------------------------------------------------------------------
+
 enum CantonTransactionType {
   CANTON_TRANSACTION_TYPE_INVALID = 0;
-  CANTON_TRANSACTION_TYPE_TRANSFER = 1;
-  CANTON_TRANSACTION_TYPE_TRANSFER_PREAPPROVAL = 2;
+  CANTON_TRANSACTION_TYPE_ONBOARDING = 1;
+  CANTON_TRANSACTION_TYPE_PREAPPROVAL = 2;
+  CANTON_TRANSACTION_TYPE_TRANSFER = 3;
 }

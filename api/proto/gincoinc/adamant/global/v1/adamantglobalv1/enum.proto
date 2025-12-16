@@ -48,6 +48,10 @@ enum WalletState {
   WALLET_STATE_ACCOUNT_CREATING = 21; // Waiting for create account
   WALLET_STATE_ACCOUNT_CREATED = 22; // Account was created
   WALLET_STATE_MANAGER_APPROVED_SENDING_TRANSACTION = 23; // Manager approved tx
+  WALLET_STATE_ONBOARDING_SIGNING = 24; // Waiting for sign onbording transaction
+  WALLET_STATE_ONBOARDING_SIGNED = 25; // Onbording transaction was Signed
+  WALLET_STATE_ONBOARDING_SUBMITTING = 26; // Waiting for submit onbording transaction
+  WALLET_STATE_ONBOARDING_SUBMITTED = 27; // Onbording transaction was submitted
 }
 
 // WalletProposalType is a type of proposal
@@ -628,4 +632,14 @@ enum DelegationState {
   DELEGATION_STATE_WITHDRAWABLE_BY_SLASHING = 9;
   DELEGATION_STATE_WITHDRAWABLE_BY_UNBONDING_SLASHING = 10;
   DELEGATION_STATE_WITHDRAWN = 11;
+}
+
+// -----------------------------------------------------------------------------
+// Canton User Right
+// -----------------------------------------------------------------------------
+
+enum CantonUserRight {
+  CANTON_USER_RIGHT_INVALID = 0;
+  CANTON_USER_RIGHT_READ_AS = 1;
+  CANTON_USER_RIGHT_ACT_AS = 2;
 }
