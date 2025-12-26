@@ -1502,6 +1502,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.UTXO proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1523,6 +1525,9 @@ public class ModelValidator {
 	
 			// Validate avalanche_platform_chain_specific
 			if (proto.hasAvalanchePlatformChainSpecific()) index.validatorFor(proto.getAvalanchePlatformChainSpecific()).assertValid(proto.getAvalanchePlatformChainSpecific());
+	
+			// Validate canton_specific
+			if (proto.hasCantonSpecific()) index.validatorFor(proto.getCantonSpecific()).assertValid(proto.getCantonSpecific());
 	
 	}
 }
@@ -2546,6 +2551,12 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.BabylonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2560,6 +2571,12 @@ public class ModelValidator {
 	// no validation rules for Memo
 
 	// no validation rules for GasAdjustment
+
+	// no validation rules for AccountNumber
+
+	// no validation rules for ChainId
+
+	// no validation rules for FromAddress
 
 	
 	}

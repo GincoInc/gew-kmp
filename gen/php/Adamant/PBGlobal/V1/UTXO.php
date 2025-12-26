@@ -51,6 +51,12 @@ class UTXO extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.AvalanchePlatformChainUTXOSpecific avalanche_platform_chain_specific = 8 [json_name = "avalanchePlatformChainSpecific"];</code>
      */
     protected $avalanche_platform_chain_specific = null;
+    /**
+     * The Canton specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CantonUTXOSpecific canton_specific = 9 [json_name = "cantonSpecific"];</code>
+     */
+    protected $canton_specific = null;
 
     /**
      * Constructor.
@@ -68,6 +74,8 @@ class UTXO extends \Google\Protobuf\Internal\Message
      *           The Cardano specific fields
      *     @type \Adamant\PBGlobal\V1\AvalanchePlatformChainUTXOSpecific $avalanche_platform_chain_specific
      *           The Avalanche Platform Chain specific fields
+     *     @type \Adamant\PBGlobal\V1\CantonUTXOSpecific $canton_specific
+     *           The Canton specific fields
      * }
      */
     public function __construct($data = NULL) {
@@ -275,6 +283,42 @@ class UTXO extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\AvalanchePlatformChainUTXOSpecific::class);
         $this->avalanche_platform_chain_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Canton specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CantonUTXOSpecific canton_specific = 9 [json_name = "cantonSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CantonUTXOSpecific|null
+     */
+    public function getCantonSpecific()
+    {
+        return $this->canton_specific;
+    }
+
+    public function hasCantonSpecific()
+    {
+        return isset($this->canton_specific);
+    }
+
+    public function clearCantonSpecific()
+    {
+        unset($this->canton_specific);
+    }
+
+    /**
+     * The Canton specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CantonUTXOSpecific canton_specific = 9 [json_name = "cantonSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CantonUTXOSpecific $var
+     * @return $this
+     */
+    public function setCantonSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CantonUTXOSpecific::class);
+        $this->canton_specific = $var;
 
         return $this;
     }

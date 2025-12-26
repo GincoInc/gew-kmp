@@ -4605,6 +4605,35 @@ func (m *UTXO) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetCantonSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, UTXOValidationError{
+					field:  "CantonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, UTXOValidationError{
+					field:  "CantonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetCantonSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UTXOValidationError{
+				field:  "CantonSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return UTXOMultiError(errors)
 	}
@@ -8857,6 +8886,12 @@ func (m *BabylonSpecific) validate(all bool) error {
 	// no validation rules for Memo
 
 	// no validation rules for GasAdjustment
+
+	// no validation rules for AccountNumber
+
+	// no validation rules for ChainId
+
+	// no validation rules for FromAddress
 
 	if len(errors) > 0 {
 		return BabylonSpecificMultiError(errors)
