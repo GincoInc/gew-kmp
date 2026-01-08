@@ -370,6 +370,10 @@ class Coin
      */
     const COIN_BERA = 88;
     /**
+     * Generated from protobuf enum <code>COIN_RIPPLE_TOKEN_RLUSD = 89;</code>
+     */
+    const COIN_RIPPLE_TOKEN_RLUSD = 89;
+    /**
      * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
      */
     const COIN_SDN = 10002;
@@ -672,6 +676,7 @@ class Coin
         self::COIN_HEDERA_HTS_USDC => 'COIN_HEDERA_HTS_USDC',
         self::COIN_CC => 'COIN_CC',
         self::COIN_BERA => 'COIN_BERA',
+        self::COIN_RIPPLE_TOKEN_RLUSD => 'COIN_RIPPLE_TOKEN_RLUSD',
         self::COIN_SDN => 'COIN_SDN',
         self::COIN_ERC20_SCDEV => 'COIN_ERC20_SCDEV',
         self::COIN_ERC20_SCQA => 'COIN_ERC20_SCQA',

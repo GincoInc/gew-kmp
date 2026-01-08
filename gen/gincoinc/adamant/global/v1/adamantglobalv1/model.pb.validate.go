@@ -8858,6 +8858,12 @@ func (m *BabylonSpecific) validate(all bool) error {
 
 	// no validation rules for GasAdjustment
 
+	// no validation rules for AccountNumber
+
+	// no validation rules for ChainId
+
+	// no validation rules for FromAddress
+
 	if len(errors) > 0 {
 		return BabylonSpecificMultiError(errors)
 	}

@@ -650,6 +650,9 @@ message BabylonSpecific {
   gincoinc.global.v1.BabylonMsgType type = 4;
   string memo = 5;
   double gas_adjustment = 6;
+  uint64 account_number = 7; // The account number in Babylon blockchain
+  string chain_id = 8; // The chain ID in Babylon blockchain
+  string from_address = 9; // The sender address in Babylon blockchain
 }
 
 // The model of Ethereum Classic specific fields of transaction

@@ -2546,6 +2546,12 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.BabylonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2560,6 +2566,12 @@ public class ModelValidator {
 	// no validation rules for Memo
 
 	// no validation rules for GasAdjustment
+
+	// no validation rules for AccountNumber
+
+	// no validation rules for ChainId
+
+	// no validation rules for FromAddress
 
 	
 	}
