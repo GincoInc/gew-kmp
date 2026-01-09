@@ -4605,6 +4605,35 @@ func (m *UTXO) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetCantonSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, UTXOValidationError{
+					field:  "CantonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, UTXOValidationError{
+					field:  "CantonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetCantonSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UTXOValidationError{
+				field:  "CantonSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return UTXOMultiError(errors)
 	}
@@ -4795,6 +4824,26 @@ func (m *BitcoinDelegation) validate(all bool) error {
 			}
 		}
 	}
+
+	// no validation rules for StakingTxPayload
+
+	// no validation rules for UnbondingTxPayload
+
+	// no validation rules for SlashingTxPayload
+
+	// no validation rules for UnbondingSlashingTxPayload
+
+	// no validation rules for SlashingTxSignature
+
+	// no validation rules for UnbondingSlashingTxSignature
+
+	// no validation rules for BabylonPopSignature
+
+	// no validation rules for InclusionProof
+
+	// no validation rules for StakingTxConfirmationBlockHash
+
+	// no validation rules for StakingTxIndexInBlock
 
 	if len(errors) > 0 {
 		return BitcoinDelegationMultiError(errors)
@@ -6622,6 +6671,10 @@ func (m *XrpSpecific) validate(all bool) error {
 
 	// no validation rules for FromAddress
 
+	// no validation rules for TokenSymbol
+
+	// no validation rules for TokenIssuer
+
 	if len(errors) > 0 {
 		return XrpSpecificMultiError(errors)
 	}
@@ -7890,6 +7943,76 @@ func (m *CantonSpecific) validate(all bool) error {
 
 	// no validation rules for Type
 
+	// no validation rules for PreparedTransaction
+
+	for idx, item := range m.GetTxInputs() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, CantonSpecificValidationError{
+						field:  fmt.Sprintf("TxInputs[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, CantonSpecificValidationError{
+						field:  fmt.Sprintf("TxInputs[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return CantonSpecificValidationError{
+					field:  fmt.Sprintf("TxInputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	for idx, item := range m.GetTxOutputs() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, CantonSpecificValidationError{
+						field:  fmt.Sprintf("TxOutputs[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, CantonSpecificValidationError{
+						field:  fmt.Sprintf("TxOutputs[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return CantonSpecificValidationError{
+					field:  fmt.Sprintf("TxOutputs[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
 	if len(errors) > 0 {
 		return CantonSpecificMultiError(errors)
 	}
@@ -8863,6 +8986,8 @@ func (m *BabylonSpecific) validate(all bool) error {
 	// no validation rules for ChainId
 
 	// no validation rules for FromAddress
+
+	// no validation rules for DelegationId
 
 	if len(errors) > 0 {
 		return BabylonSpecificMultiError(errors)

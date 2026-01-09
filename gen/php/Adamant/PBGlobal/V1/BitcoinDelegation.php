@@ -89,6 +89,46 @@ class BitcoinDelegation extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.google.protobuf.Timestamp update_time = 12 [json_name = "updateTime"];</code>
      */
     protected $update_time = null;
+    /**
+     * Generated from protobuf field <code>string staking_tx_payload = 19 [json_name = "stakingTxPayload"];</code>
+     */
+    protected $staking_tx_payload = '';
+    /**
+     * Generated from protobuf field <code>string unbonding_tx_payload = 20 [json_name = "unbondingTxPayload"];</code>
+     */
+    protected $unbonding_tx_payload = '';
+    /**
+     * Generated from protobuf field <code>string slashing_tx_payload = 21 [json_name = "slashingTxPayload"];</code>
+     */
+    protected $slashing_tx_payload = '';
+    /**
+     * Generated from protobuf field <code>string unbonding_slashing_tx_payload = 22 [json_name = "unbondingSlashingTxPayload"];</code>
+     */
+    protected $unbonding_slashing_tx_payload = '';
+    /**
+     * Generated from protobuf field <code>string slashing_tx_signature = 23 [json_name = "slashingTxSignature"];</code>
+     */
+    protected $slashing_tx_signature = '';
+    /**
+     * Generated from protobuf field <code>string unbonding_slashing_tx_signature = 24 [json_name = "unbondingSlashingTxSignature"];</code>
+     */
+    protected $unbonding_slashing_tx_signature = '';
+    /**
+     * Generated from protobuf field <code>string babylon_pop_signature = 25 [json_name = "babylonPopSignature"];</code>
+     */
+    protected $babylon_pop_signature = '';
+    /**
+     * Generated from protobuf field <code>string inclusion_proof = 26 [json_name = "inclusionProof"];</code>
+     */
+    protected $inclusion_proof = '';
+    /**
+     * Generated from protobuf field <code>string staking_tx_confirmation_block_hash = 27 [json_name = "stakingTxConfirmationBlockHash"];</code>
+     */
+    protected $staking_tx_confirmation_block_hash = '';
+    /**
+     * Generated from protobuf field <code>uint64 staking_tx_index_in_block = 28 [json_name = "stakingTxIndexInBlock"];</code>
+     */
+    protected $staking_tx_index_in_block = 0;
 
     /**
      * Constructor.
@@ -116,6 +156,16 @@ class BitcoinDelegation extends \Google\Protobuf\Internal\Message
      *     @type int $state
      *     @type \Google\Protobuf\Timestamp $create_time
      *     @type \Google\Protobuf\Timestamp $update_time
+     *     @type string $staking_tx_payload
+     *     @type string $unbonding_tx_payload
+     *     @type string $slashing_tx_payload
+     *     @type string $unbonding_slashing_tx_payload
+     *     @type string $slashing_tx_signature
+     *     @type string $unbonding_slashing_tx_signature
+     *     @type string $babylon_pop_signature
+     *     @type string $inclusion_proof
+     *     @type string $staking_tx_confirmation_block_hash
+     *     @type int|string $staking_tx_index_in_block
      * }
      */
     public function __construct($data = NULL) {
@@ -543,6 +593,226 @@ class BitcoinDelegation extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Protobuf\Timestamp::class);
         $this->update_time = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string staking_tx_payload = 19 [json_name = "stakingTxPayload"];</code>
+     * @return string
+     */
+    public function getStakingTxPayload()
+    {
+        return $this->staking_tx_payload;
+    }
+
+    /**
+     * Generated from protobuf field <code>string staking_tx_payload = 19 [json_name = "stakingTxPayload"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setStakingTxPayload($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->staking_tx_payload = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string unbonding_tx_payload = 20 [json_name = "unbondingTxPayload"];</code>
+     * @return string
+     */
+    public function getUnbondingTxPayload()
+    {
+        return $this->unbonding_tx_payload;
+    }
+
+    /**
+     * Generated from protobuf field <code>string unbonding_tx_payload = 20 [json_name = "unbondingTxPayload"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setUnbondingTxPayload($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->unbonding_tx_payload = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string slashing_tx_payload = 21 [json_name = "slashingTxPayload"];</code>
+     * @return string
+     */
+    public function getSlashingTxPayload()
+    {
+        return $this->slashing_tx_payload;
+    }
+
+    /**
+     * Generated from protobuf field <code>string slashing_tx_payload = 21 [json_name = "slashingTxPayload"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setSlashingTxPayload($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->slashing_tx_payload = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string unbonding_slashing_tx_payload = 22 [json_name = "unbondingSlashingTxPayload"];</code>
+     * @return string
+     */
+    public function getUnbondingSlashingTxPayload()
+    {
+        return $this->unbonding_slashing_tx_payload;
+    }
+
+    /**
+     * Generated from protobuf field <code>string unbonding_slashing_tx_payload = 22 [json_name = "unbondingSlashingTxPayload"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setUnbondingSlashingTxPayload($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->unbonding_slashing_tx_payload = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string slashing_tx_signature = 23 [json_name = "slashingTxSignature"];</code>
+     * @return string
+     */
+    public function getSlashingTxSignature()
+    {
+        return $this->slashing_tx_signature;
+    }
+
+    /**
+     * Generated from protobuf field <code>string slashing_tx_signature = 23 [json_name = "slashingTxSignature"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setSlashingTxSignature($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->slashing_tx_signature = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string unbonding_slashing_tx_signature = 24 [json_name = "unbondingSlashingTxSignature"];</code>
+     * @return string
+     */
+    public function getUnbondingSlashingTxSignature()
+    {
+        return $this->unbonding_slashing_tx_signature;
+    }
+
+    /**
+     * Generated from protobuf field <code>string unbonding_slashing_tx_signature = 24 [json_name = "unbondingSlashingTxSignature"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setUnbondingSlashingTxSignature($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->unbonding_slashing_tx_signature = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string babylon_pop_signature = 25 [json_name = "babylonPopSignature"];</code>
+     * @return string
+     */
+    public function getBabylonPopSignature()
+    {
+        return $this->babylon_pop_signature;
+    }
+
+    /**
+     * Generated from protobuf field <code>string babylon_pop_signature = 25 [json_name = "babylonPopSignature"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setBabylonPopSignature($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->babylon_pop_signature = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string inclusion_proof = 26 [json_name = "inclusionProof"];</code>
+     * @return string
+     */
+    public function getInclusionProof()
+    {
+        return $this->inclusion_proof;
+    }
+
+    /**
+     * Generated from protobuf field <code>string inclusion_proof = 26 [json_name = "inclusionProof"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setInclusionProof($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->inclusion_proof = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string staking_tx_confirmation_block_hash = 27 [json_name = "stakingTxConfirmationBlockHash"];</code>
+     * @return string
+     */
+    public function getStakingTxConfirmationBlockHash()
+    {
+        return $this->staking_tx_confirmation_block_hash;
+    }
+
+    /**
+     * Generated from protobuf field <code>string staking_tx_confirmation_block_hash = 27 [json_name = "stakingTxConfirmationBlockHash"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setStakingTxConfirmationBlockHash($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->staking_tx_confirmation_block_hash = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 staking_tx_index_in_block = 28 [json_name = "stakingTxIndexInBlock"];</code>
+     * @return int|string
+     */
+    public function getStakingTxIndexInBlock()
+    {
+        return $this->staking_tx_index_in_block;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 staking_tx_index_in_block = 28 [json_name = "stakingTxIndexInBlock"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setStakingTxIndexInBlock($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->staking_tx_index_in_block = $var;
 
         return $this;
     }

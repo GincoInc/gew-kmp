@@ -1502,6 +1502,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.UTXO proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1524,12 +1526,35 @@ public class ModelValidator {
 			// Validate avalanche_platform_chain_specific
 			if (proto.hasAvalanchePlatformChainSpecific()) index.validatorFor(proto.getAvalanchePlatformChainSpecific()).assertValid(proto.getAvalanchePlatformChainSpecific());
 	
+			// Validate canton_specific
+			if (proto.hasCantonSpecific()) index.validatorFor(proto.getCantonSpecific()).assertValid(proto.getCantonSpecific());
+	
 	}
 }
 /**
 	 * Validates {@code BitcoinDelegation} protobuf objects.
 	 */
 	public static class BitcoinDelegationValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.BitcoinDelegation> {
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
 		
 	
 		
@@ -1607,6 +1632,26 @@ public class ModelValidator {
 	
 			// Validate update_time
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
+	// no validation rules for StakingTxPayload
+
+	// no validation rules for UnbondingTxPayload
+
+	// no validation rules for SlashingTxPayload
+
+	// no validation rules for UnbondingSlashingTxPayload
+
+	// no validation rules for SlashingTxSignature
+
+	// no validation rules for UnbondingSlashingTxSignature
+
+	// no validation rules for BabylonPopSignature
+
+	// no validation rules for InclusionProof
+
+	// no validation rules for StakingTxConfirmationBlockHash
+
+	// no validation rules for StakingTxIndexInBlock
+
 	
 	}
 }
@@ -1957,6 +2002,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.XrpSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1969,6 +2018,10 @@ public class ModelValidator {
 	// no validation rules for IsNextSequenceNumber
 
 	// no validation rules for FromAddress
+
+	// no validation rules for TokenSymbol
+
+	// no validation rules for TokenIssuer
 
 	
 	}
@@ -2255,11 +2308,31 @@ public class ModelValidator {
 	public static class CantonSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CantonSpecific> {
 		
 	
+		
+	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.CantonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Type
 
+	// no validation rules for PreparedTransaction
+
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxInputsList(), item -> {
+				
+			// Validate tx_inputs
+			if (true) index.validatorFor(item).assertValid(item);
+			});
+	
+			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxOutputsList(), item -> {
+				
+			// Validate tx_outputs
+			if (true) index.validatorFor(item).assertValid(item);
+			});
 	
 	}
 }
@@ -2552,6 +2625,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.BabylonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2572,6 +2647,8 @@ public class ModelValidator {
 	// no validation rules for ChainId
 
 	// no validation rules for FromAddress
+
+	// no validation rules for DelegationId
 
 	
 	}

@@ -57,6 +57,12 @@ class BabylonSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string from_address = 9 [json_name = "fromAddress"];</code>
      */
     protected $from_address = '';
+    /**
+     * The delegation id for CreateBTCDelegateTransaction
+     *
+     * Generated from protobuf field <code>string delegation_id = 10 [json_name = "delegationId"];</code>
+     */
+    protected $delegation_id = '';
 
     /**
      * Constructor.
@@ -76,6 +82,8 @@ class BabylonSpecific extends \Google\Protobuf\Internal\Message
      *           The chain ID in Babylon blockchain
      *     @type string $from_address
      *           The sender address in Babylon blockchain
+     *     @type string $delegation_id
+     *           The delegation id for CreateBTCDelegateTransaction
      * }
      */
     public function __construct($data = NULL) {
@@ -289,6 +297,32 @@ class BabylonSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->from_address = $var;
+
+        return $this;
+    }
+
+    /**
+     * The delegation id for CreateBTCDelegateTransaction
+     *
+     * Generated from protobuf field <code>string delegation_id = 10 [json_name = "delegationId"];</code>
+     * @return string
+     */
+    public function getDelegationId()
+    {
+        return $this->delegation_id;
+    }
+
+    /**
+     * The delegation id for CreateBTCDelegateTransaction
+     *
+     * Generated from protobuf field <code>string delegation_id = 10 [json_name = "delegationId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setDelegationId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->delegation_id = $var;
 
         return $this;
     }
