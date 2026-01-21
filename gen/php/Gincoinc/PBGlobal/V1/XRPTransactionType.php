@@ -29,12 +29,17 @@ class XRPTransactionType
      * Generated from protobuf enum <code>XRP_TRANSACTION_TYPE_DISABLE_MASTER = 3;</code>
      */
     const XRP_TRANSACTION_TYPE_DISABLE_MASTER = 3;
+    /**
+     * Generated from protobuf enum <code>XRP_TRANSACTION_TYPE_TRUST_SET = 4;</code>
+     */
+    const XRP_TRANSACTION_TYPE_TRUST_SET = 4;
 
     private static $valueToName = [
         self::XRP_TRANSACTION_TYPE_INVALID => 'XRP_TRANSACTION_TYPE_INVALID',
         self::XRP_TRANSACTION_TYPE_PAYMENT => 'XRP_TRANSACTION_TYPE_PAYMENT',
         self::XRP_TRANSACTION_TYPE_SET_SIGNER_LIST => 'XRP_TRANSACTION_TYPE_SET_SIGNER_LIST',
         self::XRP_TRANSACTION_TYPE_DISABLE_MASTER => 'XRP_TRANSACTION_TYPE_DISABLE_MASTER',
+        self::XRP_TRANSACTION_TYPE_TRUST_SET => 'XRP_TRANSACTION_TYPE_TRUST_SET',
     ];
 
     public static function name($value)

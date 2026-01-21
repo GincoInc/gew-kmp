@@ -366,6 +366,7 @@ message UTXO {
   }];
   CardanoUTXOSpecific cardano_specific = 7; // The Cardano specific fields
   AvalanchePlatformChainUTXOSpecific avalanche_platform_chain_specific = 8; // The Avalanche Platform Chain specific fields
+  CantonUTXOSpecific canton_specific = 9; // The Canton specific fields
 }
 
 message BitcoinDelegation {
@@ -387,6 +388,16 @@ message BitcoinDelegation {
   DelegationState state = 10;
   google.protobuf.Timestamp create_time = 11;
   google.protobuf.Timestamp update_time = 12;
+  string staking_tx_payload = 19;
+  string unbonding_tx_payload = 20;
+  string slashing_tx_payload = 21;
+  string unbonding_slashing_tx_payload = 22;
+  string slashing_tx_signature = 23;
+  string unbonding_slashing_tx_signature = 24;
+  string babylon_pop_signature = 25;
+  string inclusion_proof = 26;
+  string staking_tx_confirmation_block_hash = 27;
+  uint64 staking_tx_index_in_block = 28;
 }
 
 message BitcoinStakingParams {
@@ -488,6 +499,8 @@ message XrpSpecific {
   gincoinc.global.v1.XRPTransactionType tx_type = 3;
   bool is_next_sequence_number = 4;
   string from_address = 5;
+  string token_symbol = 6;
+  string token_issuer = 7;
 }
 
 // The model of Tron specific fields of transaction
@@ -564,6 +577,9 @@ message IOSTSpecific {
 
 message CantonSpecific {
   gincoinc.global.v1.CantonTransactionType type = 1;
+  string prepared_transaction = 2;
+  repeated TxInput tx_inputs = 3;
+  repeated TxOutput tx_outputs = 4;
 }
 
 // The model of Polygon specific fields of transaction
@@ -650,6 +666,10 @@ message BabylonSpecific {
   gincoinc.global.v1.BabylonMsgType type = 4;
   string memo = 5;
   double gas_adjustment = 6;
+  uint64 account_number = 7; // The account number in Babylon blockchain
+  string chain_id = 8; // The chain ID in Babylon blockchain
+  string from_address = 9; // The sender address in Babylon blockchain
+  string delegation_id = 10; // The delegation id for CreateBTCDelegateTransaction
 }
 
 // The model of Ethereum Classic specific fields of transaction

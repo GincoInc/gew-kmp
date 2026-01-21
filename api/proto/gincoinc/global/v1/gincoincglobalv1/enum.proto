@@ -103,6 +103,7 @@ enum Coin {
   COIN_HEDERA_HTS_USDC = 86;
   COIN_CC = 87;
   COIN_BERA = 88;
+  COIN_RIPPLE_TOKEN_RLUSD = 89;
   COIN_SDN = 10002;
   COIN_ERC20_SCDEV = 10003; // for stable coin development in dev
   COIN_ERC20_SCQA = 10004; // for stable coin development in qa
@@ -296,6 +297,7 @@ enum XRPTransactionType {
   XRP_TRANSACTION_TYPE_PAYMENT = 1;
   XRP_TRANSACTION_TYPE_SET_SIGNER_LIST = 2;
   XRP_TRANSACTION_TYPE_DISABLE_MASTER = 3;
+  XRP_TRANSACTION_TYPE_TRUST_SET = 4;
 }
 
 // -----------------------------------------------------------------------------

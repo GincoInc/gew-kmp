@@ -35,6 +35,14 @@ class XrpSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string from_address = 5 [json_name = "fromAddress"];</code>
      */
     protected $from_address = '';
+    /**
+     * Generated from protobuf field <code>string token_symbol = 6 [json_name = "tokenSymbol"];</code>
+     */
+    protected $token_symbol = '';
+    /**
+     * Generated from protobuf field <code>string token_issuer = 7 [json_name = "tokenIssuer"];</code>
+     */
+    protected $token_issuer = '';
 
     /**
      * Constructor.
@@ -47,6 +55,8 @@ class XrpSpecific extends \Google\Protobuf\Internal\Message
      *     @type int $tx_type
      *     @type bool $is_next_sequence_number
      *     @type string $from_address
+     *     @type string $token_symbol
+     *     @type string $token_issuer
      * }
      */
     public function __construct($data = NULL) {
@@ -160,6 +170,50 @@ class XrpSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->from_address = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string token_symbol = 6 [json_name = "tokenSymbol"];</code>
+     * @return string
+     */
+    public function getTokenSymbol()
+    {
+        return $this->token_symbol;
+    }
+
+    /**
+     * Generated from protobuf field <code>string token_symbol = 6 [json_name = "tokenSymbol"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTokenSymbol($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->token_symbol = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string token_issuer = 7 [json_name = "tokenIssuer"];</code>
+     * @return string
+     */
+    public function getTokenIssuer()
+    {
+        return $this->token_issuer;
+    }
+
+    /**
+     * Generated from protobuf field <code>string token_issuer = 7 [json_name = "tokenIssuer"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTokenIssuer($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->token_issuer = $var;
 
         return $this;
     }
