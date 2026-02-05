@@ -7943,8 +7943,6 @@ func (m *CantonSpecific) validate(all bool) error {
 
 	// no validation rules for Type
 
-	// no validation rules for PreparedTransaction
-
 	for idx, item := range m.GetTxInputs() {
 		_, _ = idx, item
 
@@ -8012,6 +8010,10 @@ func (m *CantonSpecific) validate(all bool) error {
 		}
 
 	}
+
+	// no validation rules for IsWithdrawable
+
+	// no validation rules for Expiration
 
 	if len(errors) > 0 {
 		return CantonSpecificMultiError(errors)
@@ -8090,6 +8092,110 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CantonSpecificValidationError{}
+
+// Validate checks the field values on CantonPreparedTransaction with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CantonPreparedTransaction) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CantonPreparedTransaction with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CantonPreparedTransactionMultiError, or nil if none found.
+func (m *CantonPreparedTransaction) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CantonPreparedTransaction) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for PreparedTransaction
+
+	if len(errors) > 0 {
+		return CantonPreparedTransactionMultiError(errors)
+	}
+
+	return nil
+}
+
+// CantonPreparedTransactionMultiError is an error wrapping multiple validation
+// errors returned by CantonPreparedTransaction.ValidateAll() if the
+// designated constraints aren't met.
+type CantonPreparedTransactionMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CantonPreparedTransactionMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CantonPreparedTransactionMultiError) AllErrors() []error { return m }
+
+// CantonPreparedTransactionValidationError is the validation error returned by
+// CantonPreparedTransaction.Validate if the designated constraints aren't met.
+type CantonPreparedTransactionValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CantonPreparedTransactionValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CantonPreparedTransactionValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CantonPreparedTransactionValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CantonPreparedTransactionValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CantonPreparedTransactionValidationError) ErrorName() string {
+	return "CantonPreparedTransactionValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CantonPreparedTransactionValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCantonPreparedTransaction.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CantonPreparedTransactionValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CantonPreparedTransactionValidationError{}
 
 // Validate checks the field values on PolygonSpecific with the rules defined
 // in the proto definition for this message. If any rules are violated, the
@@ -9542,6 +9648,10 @@ func (m *SolanaSpecific) validate(all bool) error {
 	// no validation rules for PriorityFeeUnitLimit
 
 	// no validation rules for CallerAddress
+
+	// no validation rules for WithTokenAccountCreationFunding
+
+	// no validation rules for TokenAddress
 
 	if len(errors) > 0 {
 		return SolanaSpecificMultiError(errors)
@@ -11691,6 +11801,14 @@ func (m *CreateTransactionCantonSpecific) validate(all bool) error {
 
 	if m.Type != nil {
 		// no validation rules for Type
+	}
+
+	if m.Expiration != nil {
+		// no validation rules for Expiration
+	}
+
+	if m.TransactionId != nil {
+		// no validation rules for TransactionId
 	}
 
 	if len(errors) > 0 {

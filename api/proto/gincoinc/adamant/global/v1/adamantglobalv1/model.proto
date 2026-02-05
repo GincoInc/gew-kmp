@@ -577,9 +577,14 @@ message IOSTSpecific {
 
 message CantonSpecific {
   gincoinc.global.v1.CantonTransactionType type = 1;
-  string prepared_transaction = 2;
-  repeated TxInput tx_inputs = 3;
-  repeated TxOutput tx_outputs = 4;
+  repeated TxInput tx_inputs = 2;
+  repeated TxOutput tx_outputs = 3;
+  bool is_withdrawable = 4;
+  uint64 expiration = 5;
+}
+
+message CantonPreparedTransaction {
+  string prepared_transaction = 1;
 }
 
 // The model of Polygon specific fields of transaction
@@ -715,6 +720,8 @@ message SolanaSpecific {
   string recent_blockhash = 4;
   uint32 priority_fee_unit_limit = 5;
   string caller_address = 6;
+  bool with_token_account_creation_funding = 7;
+  string token_address = 8;
 }
 
 // The model of Aptos specific fields of transaction
@@ -863,6 +870,8 @@ message CreateTransactionIOSTSpecific {
 // The model of Canton specific fields of CreateTransaction
 message CreateTransactionCantonSpecific {
   optional gincoinc.global.v1.CantonTransactionType type = 1;
+  optional uint64 expiration = 2;
+  optional string transaction_id = 3;
 }
 
 // The model of Symbol specific fields of CreateTransaction

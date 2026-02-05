@@ -957,6 +957,7 @@ message CreateTransactionRequest {
   adamant.global.v1.CreateTransactionSuiSpecific sui_specific = 24;
   adamant.global.v1.CreateTransactionBabylonSpecific babylon_specific = 25;
   adamant.global.v1.CreateTransactionBitcoinStakingSpecific bitcoin_staking_specific = 26;
+  adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27;
   optional string pre_transaction_id = 21 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
@@ -1121,6 +1122,15 @@ message IsTransactionReplaceableResponse {
 }
 
 message GetTransactionRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string transaction_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+}
+
+message GetCantonPreparedTransactionRequest {
   string wallet_id = 1 [(validate.rules).string = {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];

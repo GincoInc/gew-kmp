@@ -19,6 +19,14 @@ class CreateTransactionCantonSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>optional .gincoinc.global.v1.CantonTransactionType type = 1 [json_name = "type"];</code>
      */
     protected $type = null;
+    /**
+     * Generated from protobuf field <code>optional uint64 expiration = 2 [json_name = "expiration"];</code>
+     */
+    protected $expiration = null;
+    /**
+     * Generated from protobuf field <code>optional string transaction_id = 3 [json_name = "transactionId"];</code>
+     */
+    protected $transaction_id = null;
 
     /**
      * Constructor.
@@ -27,6 +35,8 @@ class CreateTransactionCantonSpecific extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int $type
+     *     @type int|string $expiration
+     *     @type string $transaction_id
      * }
      */
     public function __construct($data = NULL) {
@@ -62,6 +72,70 @@ class CreateTransactionCantonSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\CantonTransactionType::class);
         $this->type = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional uint64 expiration = 2 [json_name = "expiration"];</code>
+     * @return int|string
+     */
+    public function getExpiration()
+    {
+        return isset($this->expiration) ? $this->expiration : 0;
+    }
+
+    public function hasExpiration()
+    {
+        return isset($this->expiration);
+    }
+
+    public function clearExpiration()
+    {
+        unset($this->expiration);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional uint64 expiration = 2 [json_name = "expiration"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setExpiration($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->expiration = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string transaction_id = 3 [json_name = "transactionId"];</code>
+     * @return string
+     */
+    public function getTransactionId()
+    {
+        return isset($this->transaction_id) ? $this->transaction_id : '';
+    }
+
+    public function hasTransactionId()
+    {
+        return isset($this->transaction_id);
+    }
+
+    public function clearTransactionId()
+    {
+        unset($this->transaction_id);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string transaction_id = 3 [json_name = "transactionId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTransactionId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->transaction_id = $var;
 
         return $this;
     }

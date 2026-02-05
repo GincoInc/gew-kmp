@@ -104,6 +104,7 @@ enum Coin {
   COIN_CC = 87;
   COIN_BERA = 88;
   COIN_RIPPLE_TOKEN_RLUSD = 89;
+  COIN_ERC20_RLUSD = 90;
   COIN_SDN = 10002;
   COIN_ERC20_SCDEV = 10003; // for stable coin development in dev
   COIN_ERC20_SCQA = 10004; // for stable coin development in qa
@@ -269,7 +270,7 @@ enum UTXOState {
   UTXO_STATE_PENDING_SPENT = 3;
   UTXO_STATE_SPENT = 4;
   UTXO_STATE_PENDING_LOCKED = 5; // Pending locked in staking
-  UTXO_STATE_LOCKED = 6; // Locked in staking
+  UTXO_STATE_LOCKED = 6; // Locked in staking (also used to represent Canton LockedAmulet)
   UTXO_STATE_PENDING_UNLOCKED = 7; // Pending unlocked in staking
   UTXO_STATE_UNLOCKED = 8; // Unlocked in staking
 }
@@ -511,4 +512,5 @@ enum CantonTransactionType {
   CANTON_TRANSACTION_TYPE_ONBOARDING = 1;
   CANTON_TRANSACTION_TYPE_PREAPPROVAL = 2;
   CANTON_TRANSACTION_TYPE_TRANSFER = 3;
+  CANTON_TRANSACTION_TYPE_WITHDRAW = 4;
 }
