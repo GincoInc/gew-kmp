@@ -2701,7 +2701,7 @@ public final class Enum {
     UTXO_STATE_PENDING_LOCKED(5),
     /**
      * <pre>
-     * Locked in staking
+     * Locked in staking (also used to represent Canton LockedAmulet)
      * </pre>
      *
      * <code>UTXO_STATE_LOCKED = 6;</code>
@@ -2756,7 +2756,7 @@ public final class Enum {
     public static final int UTXO_STATE_PENDING_LOCKED_VALUE = 5;
     /**
      * <pre>
-     * Locked in staking
+     * Locked in staking (also used to represent Canton LockedAmulet)
      * </pre>
      *
      * <code>UTXO_STATE_LOCKED = 6;</code>
@@ -6116,6 +6116,10 @@ public final class Enum {
      * <code>CANTON_TRANSACTION_TYPE_TRANSFER = 3;</code>
      */
     CANTON_TRANSACTION_TYPE_TRANSFER(3),
+    /**
+     * <code>CANTON_TRANSACTION_TYPE_WITHDRAW = 4;</code>
+     */
+    CANTON_TRANSACTION_TYPE_WITHDRAW(4),
     UNRECOGNIZED(-1),
     ;
 
@@ -6135,6 +6139,10 @@ public final class Enum {
      * <code>CANTON_TRANSACTION_TYPE_TRANSFER = 3;</code>
      */
     public static final int CANTON_TRANSACTION_TYPE_TRANSFER_VALUE = 3;
+    /**
+     * <code>CANTON_TRANSACTION_TYPE_WITHDRAW = 4;</code>
+     */
+    public static final int CANTON_TRANSACTION_TYPE_WITHDRAW_VALUE = 4;
 
 
     public final int getNumber() {
@@ -6165,6 +6173,7 @@ public final class Enum {
         case 1: return CANTON_TRANSACTION_TYPE_ONBOARDING;
         case 2: return CANTON_TRANSACTION_TYPE_PREAPPROVAL;
         case 3: return CANTON_TRANSACTION_TYPE_TRANSFER;
+        case 4: return CANTON_TRANSACTION_TYPE_WITHDRAW;
         default: return null;
       }
     }
@@ -6538,13 +6547,14 @@ public final class Enum {
       "BATCH_MINT\020\004\022\"\n\036NFT_CALL_METHOD_BATCH_TR" +
       "ANSFER\020\005\022&\n\"NFT_CALL_METHOD_TRANSFER_OWN" +
       "ERSHIP\020\006\022\036\n\032NFT_CALL_METHOD_BATCH_BURN\020\007" +
-      "*\263\001\n\025CantonTransactionType\022#\n\037CANTON_TRA" +
+      "*\331\001\n\025CantonTransactionType\022#\n\037CANTON_TRA" +
       "NSACTION_TYPE_INVALID\020\000\022&\n\"CANTON_TRANSA" +
       "CTION_TYPE_ONBOARDING\020\001\022\'\n#CANTON_TRANSA" +
       "CTION_TYPE_PREAPPROVAL\020\002\022$\n CANTON_TRANS" +
-      "ACTION_TYPE_TRANSFER\020\003BEZCgithub.com/Gin" +
-      "coInc/gew-kmp/gen/gincoinc/global/v1/gin" +
-      "coincglobalv1b\006proto3"
+      "ACTION_TYPE_TRANSFER\020\003\022$\n CANTON_TRANSAC" +
+      "TION_TYPE_WITHDRAW\020\004BEZCgithub.com/Ginco" +
+      "Inc/gew-kmp/gen/gincoinc/global/v1/ginco" +
+      "incglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
