@@ -27,12 +27,17 @@ class CantonTransactionType
      * Generated from protobuf enum <code>CANTON_TRANSACTION_TYPE_TRANSFER = 3;</code>
      */
     const CANTON_TRANSACTION_TYPE_TRANSFER = 3;
+    /**
+     * Generated from protobuf enum <code>CANTON_TRANSACTION_TYPE_WITHDRAW = 4;</code>
+     */
+    const CANTON_TRANSACTION_TYPE_WITHDRAW = 4;
 
     private static $valueToName = [
         self::CANTON_TRANSACTION_TYPE_INVALID => 'CANTON_TRANSACTION_TYPE_INVALID',
         self::CANTON_TRANSACTION_TYPE_ONBOARDING => 'CANTON_TRANSACTION_TYPE_ONBOARDING',
         self::CANTON_TRANSACTION_TYPE_PREAPPROVAL => 'CANTON_TRANSACTION_TYPE_PREAPPROVAL',
         self::CANTON_TRANSACTION_TYPE_TRANSFER => 'CANTON_TRANSACTION_TYPE_TRANSFER',
+        self::CANTON_TRANSACTION_TYPE_WITHDRAW => 'CANTON_TRANSACTION_TYPE_WITHDRAW',
     ];
 
     public static function name($value)

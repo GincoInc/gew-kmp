@@ -114,6 +114,10 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      */
     protected $bitcoin_staking_specific = null;
     /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     */
+    protected $canton_specific = null;
+    /**
      * Generated from protobuf field <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = {</code>
      */
     protected $pre_transaction_id = null;
@@ -149,6 +153,7 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
      *     @type \Adamant\PBGlobal\V1\CreateTransactionSuiSpecific $sui_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionBabylonSpecific $babylon_specific
      *     @type \Adamant\PBGlobal\V1\CreateTransactionBitcoinStakingSpecific $bitcoin_staking_specific
+     *     @type \Adamant\PBGlobal\V1\CreateTransactionCantonSpecific $canton_specific
      *     @type string $pre_transaction_id
      * }
      */
@@ -883,6 +888,38 @@ class CreateTransactionRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionBitcoinStakingSpecific::class);
         $this->bitcoin_staking_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CreateTransactionCantonSpecific|null
+     */
+    public function getCantonSpecific()
+    {
+        return $this->canton_specific;
+    }
+
+    public function hasCantonSpecific()
+    {
+        return isset($this->canton_specific);
+    }
+
+    public function clearCantonSpecific()
+    {
+        unset($this->canton_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CreateTransactionCantonSpecific $var
+     * @return $this
+     */
+    public function setCantonSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CreateTransactionCantonSpecific::class);
+        $this->canton_specific = $var;
 
         return $this;
     }

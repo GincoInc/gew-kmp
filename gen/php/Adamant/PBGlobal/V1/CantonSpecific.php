@@ -18,17 +18,21 @@ class CantonSpecific extends \Google\Protobuf\Internal\Message
      */
     protected $type = 0;
     /**
-     * Generated from protobuf field <code>string prepared_transaction = 2 [json_name = "preparedTransaction"];</code>
-     */
-    protected $prepared_transaction = '';
-    /**
-     * Generated from protobuf field <code>repeated .adamant.global.v1.TxInput tx_inputs = 3 [json_name = "txInputs"];</code>
+     * Generated from protobuf field <code>repeated .adamant.global.v1.TxInput tx_inputs = 2 [json_name = "txInputs"];</code>
      */
     private $tx_inputs;
     /**
-     * Generated from protobuf field <code>repeated .adamant.global.v1.TxOutput tx_outputs = 4 [json_name = "txOutputs"];</code>
+     * Generated from protobuf field <code>repeated .adamant.global.v1.TxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      */
     private $tx_outputs;
+    /**
+     * Generated from protobuf field <code>bool is_withdrawable = 4 [json_name = "isWithdrawable"];</code>
+     */
+    protected $is_withdrawable = false;
+    /**
+     * Generated from protobuf field <code>uint64 expiration = 5 [json_name = "expiration"];</code>
+     */
+    protected $expiration = 0;
 
     /**
      * Constructor.
@@ -37,9 +41,10 @@ class CantonSpecific extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type int $type
-     *     @type string $prepared_transaction
      *     @type array<\Adamant\PBGlobal\V1\TxInput>|\Google\Protobuf\Internal\RepeatedField $tx_inputs
      *     @type array<\Adamant\PBGlobal\V1\TxOutput>|\Google\Protobuf\Internal\RepeatedField $tx_outputs
+     *     @type bool $is_withdrawable
+     *     @type int|string $expiration
      * }
      */
     public function __construct($data = NULL) {
@@ -70,29 +75,7 @@ class CantonSpecific extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string prepared_transaction = 2 [json_name = "preparedTransaction"];</code>
-     * @return string
-     */
-    public function getPreparedTransaction()
-    {
-        return $this->prepared_transaction;
-    }
-
-    /**
-     * Generated from protobuf field <code>string prepared_transaction = 2 [json_name = "preparedTransaction"];</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setPreparedTransaction($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->prepared_transaction = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>repeated .adamant.global.v1.TxInput tx_inputs = 3 [json_name = "txInputs"];</code>
+     * Generated from protobuf field <code>repeated .adamant.global.v1.TxInput tx_inputs = 2 [json_name = "txInputs"];</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getTxInputs()
@@ -101,7 +84,7 @@ class CantonSpecific extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .adamant.global.v1.TxInput tx_inputs = 3 [json_name = "txInputs"];</code>
+     * Generated from protobuf field <code>repeated .adamant.global.v1.TxInput tx_inputs = 2 [json_name = "txInputs"];</code>
      * @param array<\Adamant\PBGlobal\V1\TxInput>|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
@@ -114,7 +97,7 @@ class CantonSpecific extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .adamant.global.v1.TxOutput tx_outputs = 4 [json_name = "txOutputs"];</code>
+     * Generated from protobuf field <code>repeated .adamant.global.v1.TxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getTxOutputs()
@@ -123,7 +106,7 @@ class CantonSpecific extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .adamant.global.v1.TxOutput tx_outputs = 4 [json_name = "txOutputs"];</code>
+     * Generated from protobuf field <code>repeated .adamant.global.v1.TxOutput tx_outputs = 3 [json_name = "txOutputs"];</code>
      * @param array<\Adamant\PBGlobal\V1\TxOutput>|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
@@ -131,6 +114,50 @@ class CantonSpecific extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Adamant\PBGlobal\V1\TxOutput::class);
         $this->tx_outputs = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool is_withdrawable = 4 [json_name = "isWithdrawable"];</code>
+     * @return bool
+     */
+    public function getIsWithdrawable()
+    {
+        return $this->is_withdrawable;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool is_withdrawable = 4 [json_name = "isWithdrawable"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setIsWithdrawable($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->is_withdrawable = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 expiration = 5 [json_name = "expiration"];</code>
+     * @return int|string
+     */
+    public function getExpiration()
+    {
+        return $this->expiration;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint64 expiration = 5 [json_name = "expiration"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setExpiration($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->expiration = $var;
 
         return $this;
     }

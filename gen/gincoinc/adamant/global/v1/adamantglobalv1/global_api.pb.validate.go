@@ -11450,6 +11450,35 @@ func (m *CreateTransactionRequest) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetCantonSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "CantonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, CreateTransactionRequestValidationError{
+					field:  "CantonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetCantonSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return CreateTransactionRequestValidationError{
+				field:  "CantonSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if m.PreTransactionId != nil {
 
 		if !_CreateTransactionRequest_PreTransactionId_Pattern.MatchString(m.GetPreTransactionId()) {
@@ -14408,6 +14437,137 @@ var _ interface {
 var _GetTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 var _GetTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on GetCantonPreparedTransactionRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *GetCantonPreparedTransactionRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetCantonPreparedTransactionRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// GetCantonPreparedTransactionRequestMultiError, or nil if none found.
+func (m *GetCantonPreparedTransactionRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetCantonPreparedTransactionRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_GetCantonPreparedTransactionRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := GetCantonPreparedTransactionRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if !_GetCantonPreparedTransactionRequest_TransactionId_Pattern.MatchString(m.GetTransactionId()) {
+		err := GetCantonPreparedTransactionRequestValidationError{
+			field:  "TransactionId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return GetCantonPreparedTransactionRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetCantonPreparedTransactionRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// GetCantonPreparedTransactionRequest.ValidateAll() if the designated
+// constraints aren't met.
+type GetCantonPreparedTransactionRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetCantonPreparedTransactionRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetCantonPreparedTransactionRequestMultiError) AllErrors() []error { return m }
+
+// GetCantonPreparedTransactionRequestValidationError is the validation error
+// returned by GetCantonPreparedTransactionRequest.Validate if the designated
+// constraints aren't met.
+type GetCantonPreparedTransactionRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetCantonPreparedTransactionRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetCantonPreparedTransactionRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetCantonPreparedTransactionRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetCantonPreparedTransactionRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetCantonPreparedTransactionRequestValidationError) ErrorName() string {
+	return "GetCantonPreparedTransactionRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetCantonPreparedTransactionRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetCantonPreparedTransactionRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetCantonPreparedTransactionRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetCantonPreparedTransactionRequestValidationError{}
+
+var _GetCantonPreparedTransactionRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _GetCantonPreparedTransactionRequest_TransactionId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on GetTransactionByTxIDRequest with the
 // rules defined in the proto definition for this message. If any rules are

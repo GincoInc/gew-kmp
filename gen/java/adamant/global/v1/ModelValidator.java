@@ -52,6 +52,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.NemSpecific.class)) return new NemSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.IOSTSpecific.class)) return new IOSTSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CantonSpecific.class)) return new CantonSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CantonPreparedTransaction.class)) return new CantonPreparedTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.PolygonSpecific.class)) return new PolygonSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.KlaytnSpecific.class)) return new KlaytnSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.SymbolSpecific.class)) return new SymbolSpecificValidator();
@@ -2314,12 +2315,12 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.CantonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for Type
-
-	// no validation rules for PreparedTransaction
 
 	
 			io.envoyproxy.pgv.RepeatedValidation.forEach(proto.getTxInputsList(), item -> {
@@ -2333,6 +2334,24 @@ public class ModelValidator {
 			// Validate tx_outputs
 			if (true) index.validatorFor(item).assertValid(item);
 			});
+	// no validation rules for IsWithdrawable
+
+	// no validation rules for Expiration
+
+	
+	}
+}
+/**
+	 * Validates {@code CantonPreparedTransaction} protobuf objects.
+	 */
+	public static class CantonPreparedTransactionValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CantonPreparedTransaction> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CantonPreparedTransaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for PreparedTransaction
+
 	
 	}
 }
@@ -2785,6 +2804,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.SolanaSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2799,6 +2822,10 @@ public class ModelValidator {
 	// no validation rules for PriorityFeeUnitLimit
 
 	// no validation rules for CallerAddress
+
+	// no validation rules for WithTokenAccountCreationFunding
+
+	// no validation rules for TokenAddress
 
 	
 	}

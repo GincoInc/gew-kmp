@@ -40,7 +40,7 @@ class UTXOState
      */
     const UTXO_STATE_PENDING_LOCKED = 5;
     /**
-     * Locked in staking
+     * Locked in staking (also used to represent Canton LockedAmulet)
      *
      * Generated from protobuf enum <code>UTXO_STATE_LOCKED = 6;</code>
      */

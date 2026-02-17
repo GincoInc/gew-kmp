@@ -356,6 +356,21 @@ public interface CreateTransactionRequestOrBuilder extends
   adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecificOrBuilder getBitcoinStakingSpecificOrBuilder();
 
   /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+   * @return Whether the cantonSpecific field is set.
+   */
+  boolean hasCantonSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+   * @return The cantonSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionCantonSpecific getCantonSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder getCantonSpecificOrBuilder();
+
+  /**
    * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
    * @return Whether the preTransactionId field is set.
    */

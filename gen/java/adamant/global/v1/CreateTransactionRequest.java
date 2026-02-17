@@ -703,6 +703,32 @@ private static final long serialVersionUID = 0L;
     return bitcoinStakingSpecific_ == null ? adamant.global.v1.Model.CreateTransactionBitcoinStakingSpecific.getDefaultInstance() : bitcoinStakingSpecific_;
   }
 
+  public static final int CANTON_SPECIFIC_FIELD_NUMBER = 27;
+  private adamant.global.v1.Model.CreateTransactionCantonSpecific cantonSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+   * @return Whether the cantonSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasCantonSpecific() {
+    return cantonSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+   * @return The cantonSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionCantonSpecific getCantonSpecific() {
+    return cantonSpecific_ == null ? adamant.global.v1.Model.CreateTransactionCantonSpecific.getDefaultInstance() : cantonSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder getCantonSpecificOrBuilder() {
+    return cantonSpecific_ == null ? adamant.global.v1.Model.CreateTransactionCantonSpecific.getDefaultInstance() : cantonSpecific_;
+  }
+
   public static final int PRE_TRANSACTION_ID_FIELD_NUMBER = 21;
   @SuppressWarnings("serial")
   private volatile java.lang.Object preTransactionId_ = "";
@@ -842,6 +868,9 @@ private static final long serialVersionUID = 0L;
     if (bitcoinStakingSpecific_ != null) {
       output.writeMessage(26, getBitcoinStakingSpecific());
     }
+    if (cantonSpecific_ != null) {
+      output.writeMessage(27, getCantonSpecific());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -950,6 +979,10 @@ private static final long serialVersionUID = 0L;
     if (bitcoinStakingSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(26, getBitcoinStakingSpecific());
+    }
+    if (cantonSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(27, getCantonSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -1070,6 +1103,11 @@ private static final long serialVersionUID = 0L;
       if (!getBitcoinStakingSpecific()
           .equals(other.getBitcoinStakingSpecific())) return false;
     }
+    if (hasCantonSpecific() != other.hasCantonSpecific()) return false;
+    if (hasCantonSpecific()) {
+      if (!getCantonSpecific()
+          .equals(other.getCantonSpecific())) return false;
+    }
     if (hasPreTransactionId() != other.hasPreTransactionId()) return false;
     if (hasPreTransactionId()) {
       if (!getPreTransactionId()
@@ -1175,6 +1213,10 @@ private static final long serialVersionUID = 0L;
     if (hasBitcoinStakingSpecific()) {
       hash = (37 * hash) + BITCOIN_STAKING_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getBitcoinStakingSpecific().hashCode();
+    }
+    if (hasCantonSpecific()) {
+      hash = (37 * hash) + CANTON_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getCantonSpecific().hashCode();
     }
     if (hasPreTransactionId()) {
       hash = (37 * hash) + PRE_TRANSACTION_ID_FIELD_NUMBER;
@@ -1414,6 +1456,11 @@ private static final long serialVersionUID = 0L;
         bitcoinStakingSpecificBuilder_.dispose();
         bitcoinStakingSpecificBuilder_ = null;
       }
+      cantonSpecific_ = null;
+      if (cantonSpecificBuilder_ != null) {
+        cantonSpecificBuilder_.dispose();
+        cantonSpecificBuilder_ = null;
+      }
       preTransactionId_ = "";
       return this;
     }
@@ -1569,8 +1616,13 @@ private static final long serialVersionUID = 0L;
             ? bitcoinStakingSpecific_
             : bitcoinStakingSpecificBuilder_.build();
       }
-      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x02000000) != 0)) {
+        result.cantonSpecific_ = cantonSpecificBuilder_ == null
+            ? cantonSpecific_
+            : cantonSpecificBuilder_.build();
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x04000000) != 0)) {
         result.preTransactionId_ = preTransactionId_;
         to_bitField0_ |= 0x00000001;
       }
@@ -1725,9 +1777,12 @@ private static final long serialVersionUID = 0L;
       if (other.hasBitcoinStakingSpecific()) {
         mergeBitcoinStakingSpecific(other.getBitcoinStakingSpecific());
       }
+      if (other.hasCantonSpecific()) {
+        mergeCantonSpecific(other.getCantonSpecific());
+      }
       if (other.hasPreTransactionId()) {
         preTransactionId_ = other.preTransactionId_;
-        bitField0_ |= 0x02000000;
+        bitField0_ |= 0x04000000;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -1892,7 +1947,7 @@ private static final long serialVersionUID = 0L;
             } // case 162
             case 170: {
               preTransactionId_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x02000000;
+              bitField0_ |= 0x04000000;
               break;
             } // case 170
             case 178: {
@@ -1930,6 +1985,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x01000000;
               break;
             } // case 210
+            case 218: {
+              input.readMessage(
+                  getCantonSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x02000000;
+              break;
+            } // case 218
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -4641,13 +4703,132 @@ private static final long serialVersionUID = 0L;
       return bitcoinStakingSpecificBuilder_;
     }
 
+    private adamant.global.v1.Model.CreateTransactionCantonSpecific cantonSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionCantonSpecific, adamant.global.v1.Model.CreateTransactionCantonSpecific.Builder, adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder> cantonSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     * @return Whether the cantonSpecific field is set.
+     */
+    public boolean hasCantonSpecific() {
+      return ((bitField0_ & 0x02000000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     * @return The cantonSpecific.
+     */
+    public adamant.global.v1.Model.CreateTransactionCantonSpecific getCantonSpecific() {
+      if (cantonSpecificBuilder_ == null) {
+        return cantonSpecific_ == null ? adamant.global.v1.Model.CreateTransactionCantonSpecific.getDefaultInstance() : cantonSpecific_;
+      } else {
+        return cantonSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     */
+    public Builder setCantonSpecific(adamant.global.v1.Model.CreateTransactionCantonSpecific value) {
+      if (cantonSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        cantonSpecific_ = value;
+      } else {
+        cantonSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x02000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     */
+    public Builder setCantonSpecific(
+        adamant.global.v1.Model.CreateTransactionCantonSpecific.Builder builderForValue) {
+      if (cantonSpecificBuilder_ == null) {
+        cantonSpecific_ = builderForValue.build();
+      } else {
+        cantonSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x02000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     */
+    public Builder mergeCantonSpecific(adamant.global.v1.Model.CreateTransactionCantonSpecific value) {
+      if (cantonSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x02000000) != 0) &&
+          cantonSpecific_ != null &&
+          cantonSpecific_ != adamant.global.v1.Model.CreateTransactionCantonSpecific.getDefaultInstance()) {
+          getCantonSpecificBuilder().mergeFrom(value);
+        } else {
+          cantonSpecific_ = value;
+        }
+      } else {
+        cantonSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x02000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     */
+    public Builder clearCantonSpecific() {
+      bitField0_ = (bitField0_ & ~0x02000000);
+      cantonSpecific_ = null;
+      if (cantonSpecificBuilder_ != null) {
+        cantonSpecificBuilder_.dispose();
+        cantonSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionCantonSpecific.Builder getCantonSpecificBuilder() {
+      bitField0_ |= 0x02000000;
+      onChanged();
+      return getCantonSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder getCantonSpecificOrBuilder() {
+      if (cantonSpecificBuilder_ != null) {
+        return cantonSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return cantonSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionCantonSpecific.getDefaultInstance() : cantonSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionCantonSpecific, adamant.global.v1.Model.CreateTransactionCantonSpecific.Builder, adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder> 
+        getCantonSpecificFieldBuilder() {
+      if (cantonSpecificBuilder_ == null) {
+        cantonSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionCantonSpecific, adamant.global.v1.Model.CreateTransactionCantonSpecific.Builder, adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder>(
+                getCantonSpecific(),
+                getParentForChildren(),
+                isClean());
+        cantonSpecific_ = null;
+      }
+      return cantonSpecificBuilder_;
+    }
+
     private java.lang.Object preTransactionId_ = "";
     /**
      * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
      * @return Whether the preTransactionId field is set.
      */
     public boolean hasPreTransactionId() {
-      return ((bitField0_ & 0x02000000) != 0);
+      return ((bitField0_ & 0x04000000) != 0);
     }
     /**
      * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
@@ -4691,7 +4872,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       preTransactionId_ = value;
-      bitField0_ |= 0x02000000;
+      bitField0_ |= 0x04000000;
       onChanged();
       return this;
     }
@@ -4701,7 +4882,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPreTransactionId() {
       preTransactionId_ = getDefaultInstance().getPreTransactionId();
-      bitField0_ = (bitField0_ & ~0x02000000);
+      bitField0_ = (bitField0_ & ~0x04000000);
       onChanged();
       return this;
     }
@@ -4715,7 +4896,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       preTransactionId_ = value;
-      bitField0_ |= 0x02000000;
+      bitField0_ |= 0x04000000;
       onChanged();
       return this;
     }

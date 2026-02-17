@@ -39,6 +39,14 @@ class SolanaSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string caller_address = 6 [json_name = "callerAddress"];</code>
      */
     protected $caller_address = '';
+    /**
+     * Generated from protobuf field <code>bool with_token_account_creation_funding = 7 [json_name = "withTokenAccountCreationFunding"];</code>
+     */
+    protected $with_token_account_creation_funding = false;
+    /**
+     * Generated from protobuf field <code>string token_address = 8 [json_name = "tokenAddress"];</code>
+     */
+    protected $token_address = '';
 
     /**
      * Constructor.
@@ -52,6 +60,8 @@ class SolanaSpecific extends \Google\Protobuf\Internal\Message
      *     @type string $recent_blockhash
      *     @type int $priority_fee_unit_limit
      *     @type string $caller_address
+     *     @type bool $with_token_account_creation_funding
+     *     @type string $token_address
      * }
      */
     public function __construct($data = NULL) {
@@ -187,6 +197,50 @@ class SolanaSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->caller_address = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool with_token_account_creation_funding = 7 [json_name = "withTokenAccountCreationFunding"];</code>
+     * @return bool
+     */
+    public function getWithTokenAccountCreationFunding()
+    {
+        return $this->with_token_account_creation_funding;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool with_token_account_creation_funding = 7 [json_name = "withTokenAccountCreationFunding"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setWithTokenAccountCreationFunding($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->with_token_account_creation_funding = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string token_address = 8 [json_name = "tokenAddress"];</code>
+     * @return string
+     */
+    public function getTokenAddress()
+    {
+        return $this->token_address;
+    }
+
+    /**
+     * Generated from protobuf field <code>string token_address = 8 [json_name = "tokenAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTokenAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->token_address = $var;
 
         return $this;
     }
