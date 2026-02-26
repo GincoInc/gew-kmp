@@ -4084,6 +4084,35 @@ func (m *UnconfirmedTransaction) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetCantonSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, UnconfirmedTransactionValidationError{
+					field:  "CantonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, UnconfirmedTransactionValidationError{
+					field:  "CantonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetCantonSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UnconfirmedTransactionValidationError{
+				field:  "CantonSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return UnconfirmedTransactionMultiError(errors)
 	}
@@ -8015,6 +8044,8 @@ func (m *CantonSpecific) validate(all bool) error {
 
 	// no validation rules for Expiration
 
+	// no validation rules for Reason
+
 	if len(errors) > 0 {
 		return CantonSpecificMultiError(errors)
 	}
@@ -11809,6 +11840,10 @@ func (m *CreateTransactionCantonSpecific) validate(all bool) error {
 
 	if m.TransactionId != nil {
 		// no validation rules for TransactionId
+	}
+
+	if m.Reason != nil {
+		// no validation rules for Reason
 	}
 
 	if len(errors) > 0 {

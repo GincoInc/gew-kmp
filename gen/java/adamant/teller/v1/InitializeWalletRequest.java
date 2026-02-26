@@ -78,6 +78,32 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int CANTON_SPECIFIC_FIELD_NUMBER = 2;
+  private adamant.global.v1.Model.CreateTransactionCantonSpecific cantonSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 2 [json_name = "cantonSpecific"];</code>
+   * @return Whether the cantonSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasCantonSpecific() {
+    return cantonSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 2 [json_name = "cantonSpecific"];</code>
+   * @return The cantonSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionCantonSpecific getCantonSpecific() {
+    return cantonSpecific_ == null ? adamant.global.v1.Model.CreateTransactionCantonSpecific.getDefaultInstance() : cantonSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 2 [json_name = "cantonSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder getCantonSpecificOrBuilder() {
+    return cantonSpecific_ == null ? adamant.global.v1.Model.CreateTransactionCantonSpecific.getDefaultInstance() : cantonSpecific_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -95,6 +121,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletId_);
     }
+    if (cantonSpecific_ != null) {
+      output.writeMessage(2, getCantonSpecific());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -106,6 +135,10 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletId_);
+    }
+    if (cantonSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, getCantonSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -124,6 +157,11 @@ private static final long serialVersionUID = 0L;
 
     if (!getWalletId()
         .equals(other.getWalletId())) return false;
+    if (hasCantonSpecific() != other.hasCantonSpecific()) return false;
+    if (hasCantonSpecific()) {
+      if (!getCantonSpecific()
+          .equals(other.getCantonSpecific())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -137,6 +175,10 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + WALLET_ID_FIELD_NUMBER;
     hash = (53 * hash) + getWalletId().hashCode();
+    if (hasCantonSpecific()) {
+      hash = (37 * hash) + CANTON_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getCantonSpecific().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -269,6 +311,11 @@ private static final long serialVersionUID = 0L;
       super.clear();
       bitField0_ = 0;
       walletId_ = "";
+      cantonSpecific_ = null;
+      if (cantonSpecificBuilder_ != null) {
+        cantonSpecificBuilder_.dispose();
+        cantonSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -304,6 +351,11 @@ private static final long serialVersionUID = 0L;
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.walletId_ = walletId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.cantonSpecific_ = cantonSpecificBuilder_ == null
+            ? cantonSpecific_
+            : cantonSpecificBuilder_.build();
       }
     }
 
@@ -356,6 +408,9 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000001;
         onChanged();
       }
+      if (other.hasCantonSpecific()) {
+        mergeCantonSpecific(other.getCantonSpecific());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -387,6 +442,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000001;
               break;
             } // case 10
+            case 18: {
+              input.readMessage(
+                  getCantonSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -474,6 +536,125 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000001;
       onChanged();
       return this;
+    }
+
+    private adamant.global.v1.Model.CreateTransactionCantonSpecific cantonSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionCantonSpecific, adamant.global.v1.Model.CreateTransactionCantonSpecific.Builder, adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder> cantonSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 2 [json_name = "cantonSpecific"];</code>
+     * @return Whether the cantonSpecific field is set.
+     */
+    public boolean hasCantonSpecific() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 2 [json_name = "cantonSpecific"];</code>
+     * @return The cantonSpecific.
+     */
+    public adamant.global.v1.Model.CreateTransactionCantonSpecific getCantonSpecific() {
+      if (cantonSpecificBuilder_ == null) {
+        return cantonSpecific_ == null ? adamant.global.v1.Model.CreateTransactionCantonSpecific.getDefaultInstance() : cantonSpecific_;
+      } else {
+        return cantonSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 2 [json_name = "cantonSpecific"];</code>
+     */
+    public Builder setCantonSpecific(adamant.global.v1.Model.CreateTransactionCantonSpecific value) {
+      if (cantonSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        cantonSpecific_ = value;
+      } else {
+        cantonSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 2 [json_name = "cantonSpecific"];</code>
+     */
+    public Builder setCantonSpecific(
+        adamant.global.v1.Model.CreateTransactionCantonSpecific.Builder builderForValue) {
+      if (cantonSpecificBuilder_ == null) {
+        cantonSpecific_ = builderForValue.build();
+      } else {
+        cantonSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 2 [json_name = "cantonSpecific"];</code>
+     */
+    public Builder mergeCantonSpecific(adamant.global.v1.Model.CreateTransactionCantonSpecific value) {
+      if (cantonSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0) &&
+          cantonSpecific_ != null &&
+          cantonSpecific_ != adamant.global.v1.Model.CreateTransactionCantonSpecific.getDefaultInstance()) {
+          getCantonSpecificBuilder().mergeFrom(value);
+        } else {
+          cantonSpecific_ = value;
+        }
+      } else {
+        cantonSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 2 [json_name = "cantonSpecific"];</code>
+     */
+    public Builder clearCantonSpecific() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      cantonSpecific_ = null;
+      if (cantonSpecificBuilder_ != null) {
+        cantonSpecificBuilder_.dispose();
+        cantonSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 2 [json_name = "cantonSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionCantonSpecific.Builder getCantonSpecificBuilder() {
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return getCantonSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 2 [json_name = "cantonSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder getCantonSpecificOrBuilder() {
+      if (cantonSpecificBuilder_ != null) {
+        return cantonSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return cantonSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionCantonSpecific.getDefaultInstance() : cantonSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 2 [json_name = "cantonSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionCantonSpecific, adamant.global.v1.Model.CreateTransactionCantonSpecific.Builder, adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder> 
+        getCantonSpecificFieldBuilder() {
+      if (cantonSpecificBuilder_ == null) {
+        cantonSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionCantonSpecific, adamant.global.v1.Model.CreateTransactionCantonSpecific.Builder, adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder>(
+                getCantonSpecific(),
+                getParentForChildren(),
+                isClean());
+        cantonSpecific_ = null;
+      }
+      return cantonSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

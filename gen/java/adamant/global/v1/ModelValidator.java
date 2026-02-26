@@ -1320,6 +1320,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.UnconfirmedTransaction proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1365,6 +1367,9 @@ public class ModelValidator {
 	
 			// Validate avalanche_platform_chain_specific
 			if (proto.hasAvalanchePlatformChainSpecific()) index.validatorFor(proto.getAvalanchePlatformChainSpecific()).assertValid(proto.getAvalanchePlatformChainSpecific());
+	
+			// Validate canton_specific
+			if (proto.hasCantonSpecific()) index.validatorFor(proto.getCantonSpecific()).assertValid(proto.getCantonSpecific());
 	
 	}
 }
@@ -2317,6 +2322,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.CantonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2337,6 +2344,8 @@ public class ModelValidator {
 	// no validation rules for IsWithdrawable
 
 	// no validation rules for Expiration
+
+	// no validation rules for Reason
 
 	
 	}

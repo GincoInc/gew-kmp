@@ -27,12 +27,32 @@ class BabylonMsgType
      * Generated from protobuf enum <code>BABYLON_MSG_TYPE_WITHDRAW_BTC_DELEGATION_REWARD = 3;</code>
      */
     const BABYLON_MSG_TYPE_WITHDRAW_BTC_DELEGATION_REWARD = 3;
+    /**
+     * Generated from protobuf enum <code>BABYLON_MSG_TYPE_DELEGATE = 4;</code>
+     */
+    const BABYLON_MSG_TYPE_DELEGATE = 4;
+    /**
+     * Generated from protobuf enum <code>BABYLON_MSG_TYPE_UNDELEGATE = 5;</code>
+     */
+    const BABYLON_MSG_TYPE_UNDELEGATE = 5;
+    /**
+     * Generated from protobuf enum <code>BABYLON_MSG_TYPE_WITHDRAW_DELEGATOR_REWARD = 6;</code>
+     */
+    const BABYLON_MSG_TYPE_WITHDRAW_DELEGATOR_REWARD = 6;
+    /**
+     * Generated from protobuf enum <code>BABYLON_MSG_TYPE_WITHDRAW_ALL_REWARDS = 7;</code>
+     */
+    const BABYLON_MSG_TYPE_WITHDRAW_ALL_REWARDS = 7;
 
     private static $valueToName = [
         self::BABYLON_MSG_TYPE_INVALID => 'BABYLON_MSG_TYPE_INVALID',
         self::BABYLON_MSG_TYPE_SEND => 'BABYLON_MSG_TYPE_SEND',
         self::BABYLON_MSG_TYPE_CREATE_BTC_DELEGATION => 'BABYLON_MSG_TYPE_CREATE_BTC_DELEGATION',
         self::BABYLON_MSG_TYPE_WITHDRAW_BTC_DELEGATION_REWARD => 'BABYLON_MSG_TYPE_WITHDRAW_BTC_DELEGATION_REWARD',
+        self::BABYLON_MSG_TYPE_DELEGATE => 'BABYLON_MSG_TYPE_DELEGATE',
+        self::BABYLON_MSG_TYPE_UNDELEGATE => 'BABYLON_MSG_TYPE_UNDELEGATE',
+        self::BABYLON_MSG_TYPE_WITHDRAW_DELEGATOR_REWARD => 'BABYLON_MSG_TYPE_WITHDRAW_DELEGATOR_REWARD',
+        self::BABYLON_MSG_TYPE_WITHDRAW_ALL_REWARDS => 'BABYLON_MSG_TYPE_WITHDRAW_ALL_REWARDS',
     ];
 
     public static function name($value)

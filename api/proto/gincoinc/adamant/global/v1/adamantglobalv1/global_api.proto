@@ -685,6 +685,14 @@ message RefreshStakingWalletClaimableRewardRequest {
 message RefreshStakingWalletClaimableRewardResponse {
   double claimable_reward = 1;
   string string_claimable_reward = 2;
+  optional WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3;
+}
+
+message WalletClaimableRewardBabylonSpecific {
+  double btc_staking_reward = 1;
+  string string_btc_staking_reward = 2;
+  double co_staking_reward = 3;
+  string string_co_staking_reward = 4;
 }
 
 // -----------------------------------------------------------------------------

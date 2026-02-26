@@ -27,6 +27,10 @@ class CreateTransactionCantonSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>optional string transaction_id = 3 [json_name = "transactionId"];</code>
      */
     protected $transaction_id = null;
+    /**
+     * Generated from protobuf field <code>optional string reason = 4 [json_name = "reason"];</code>
+     */
+    protected $reason = null;
 
     /**
      * Constructor.
@@ -37,6 +41,7 @@ class CreateTransactionCantonSpecific extends \Google\Protobuf\Internal\Message
      *     @type int $type
      *     @type int|string $expiration
      *     @type string $transaction_id
+     *     @type string $reason
      * }
      */
     public function __construct($data = NULL) {
@@ -136,6 +141,38 @@ class CreateTransactionCantonSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->transaction_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string reason = 4 [json_name = "reason"];</code>
+     * @return string
+     */
+    public function getReason()
+    {
+        return isset($this->reason) ? $this->reason : '';
+    }
+
+    public function hasReason()
+    {
+        return isset($this->reason);
+    }
+
+    public function clearReason()
+    {
+        unset($this->reason);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string reason = 4 [json_name = "reason"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setReason($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->reason = $var;
 
         return $this;
     }

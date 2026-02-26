@@ -41,6 +41,12 @@ class TransferType
      * Generated from protobuf enum <code>TRANSFER_TYPE_FATAL = 4;</code>
      */
     const TRANSFER_TYPE_FATAL = 4;
+    /**
+     * The type of expired transaction
+     *
+     * Generated from protobuf enum <code>TRANSFER_TYPE_EXPIRED = 5;</code>
+     */
+    const TRANSFER_TYPE_EXPIRED = 5;
 
     private static $valueToName = [
         self::TRANSFER_TYPE_INVALID => 'TRANSFER_TYPE_INVALID',
@@ -48,6 +54,7 @@ class TransferType
         self::TRANSFER_TYPE_RECEIVE => 'TRANSFER_TYPE_RECEIVE',
         self::TRANSFER_TYPE_CHANGE => 'TRANSFER_TYPE_CHANGE',
         self::TRANSFER_TYPE_FATAL => 'TRANSFER_TYPE_FATAL',
+        self::TRANSFER_TYPE_EXPIRED => 'TRANSFER_TYPE_EXPIRED',
     ];
 
     public static function name($value)
