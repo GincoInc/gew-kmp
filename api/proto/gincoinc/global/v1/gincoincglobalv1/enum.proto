@@ -273,6 +273,7 @@ enum UTXOState {
   UTXO_STATE_LOCKED = 6; // Locked in staking (also used to represent Canton LockedAmulet)
   UTXO_STATE_PENDING_UNLOCKED = 7; // Pending unlocked in staking
   UTXO_STATE_UNLOCKED = 8; // Unlocked in staking
+  UTXO_STATE_EXPIRED = 9; // Expired in canton
 }
 
 // -----------------------------------------------------------------------------
@@ -286,6 +287,7 @@ enum TransferType {
   TRANSFER_TYPE_RECEIVE = 2; // The type of receive
   TRANSFER_TYPE_CHANGE = 3; // The type of change transaction for BTC/LTC/BCH
   TRANSFER_TYPE_FATAL = 4; // The type of fraudulent remittance
+  TRANSFER_TYPE_EXPIRED = 5; // The type of expired transaction
 }
 
 // -----------------------------------------------------------------------------
@@ -378,6 +380,10 @@ enum BabylonMsgType {
   BABYLON_MSG_TYPE_SEND = 1;
   BABYLON_MSG_TYPE_CREATE_BTC_DELEGATION = 2;
   BABYLON_MSG_TYPE_WITHDRAW_BTC_DELEGATION_REWARD = 3;
+  BABYLON_MSG_TYPE_DELEGATE = 4;
+  BABYLON_MSG_TYPE_UNDELEGATE = 5;
+  BABYLON_MSG_TYPE_WITHDRAW_DELEGATOR_REWARD = 6;
+  BABYLON_MSG_TYPE_WITHDRAW_ALL_REWARDS = 7;
 }
 
 enum BTCStakingActionType {
@@ -513,4 +519,5 @@ enum CantonTransactionType {
   CANTON_TRANSACTION_TYPE_PREAPPROVAL = 2;
   CANTON_TRANSACTION_TYPE_TRANSFER = 3;
   CANTON_TRANSACTION_TYPE_WITHDRAW = 4;
+  CANTON_TRANSACTION_TYPE_BURN = 5;
 }

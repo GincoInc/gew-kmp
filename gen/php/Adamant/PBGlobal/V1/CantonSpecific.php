@@ -33,6 +33,10 @@ class CantonSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint64 expiration = 5 [json_name = "expiration"];</code>
      */
     protected $expiration = 0;
+    /**
+     * Generated from protobuf field <code>string reason = 6 [json_name = "reason"];</code>
+     */
+    protected $reason = '';
 
     /**
      * Constructor.
@@ -45,6 +49,7 @@ class CantonSpecific extends \Google\Protobuf\Internal\Message
      *     @type array<\Adamant\PBGlobal\V1\TxOutput>|\Google\Protobuf\Internal\RepeatedField $tx_outputs
      *     @type bool $is_withdrawable
      *     @type int|string $expiration
+     *     @type string $reason
      * }
      */
     public function __construct($data = NULL) {
@@ -158,6 +163,28 @@ class CantonSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint64($var);
         $this->expiration = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string reason = 6 [json_name = "reason"];</code>
+     * @return string
+     */
+    public function getReason()
+    {
+        return $this->reason;
+    }
+
+    /**
+     * Generated from protobuf field <code>string reason = 6 [json_name = "reason"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setReason($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->reason = $var;
 
         return $this;
     }

@@ -21,6 +21,10 @@ class RefreshStakingWalletClaimableRewardResponse extends \Google\Protobuf\Inter
      * Generated from protobuf field <code>string string_claimable_reward = 2 [json_name = "stringClaimableReward"];</code>
      */
     protected $string_claimable_reward = '';
+    /**
+     * Generated from protobuf field <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+     */
+    protected $wallet_claimable_reward_babylon_specific = null;
 
     /**
      * Constructor.
@@ -30,6 +34,7 @@ class RefreshStakingWalletClaimableRewardResponse extends \Google\Protobuf\Inter
      *
      *     @type float $claimable_reward
      *     @type string $string_claimable_reward
+     *     @type \Adamant\PBGlobal\V1\WalletClaimableRewardBabylonSpecific $wallet_claimable_reward_babylon_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -77,6 +82,38 @@ class RefreshStakingWalletClaimableRewardResponse extends \Google\Protobuf\Inter
     {
         GPBUtil::checkString($var, True);
         $this->string_claimable_reward = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\WalletClaimableRewardBabylonSpecific|null
+     */
+    public function getWalletClaimableRewardBabylonSpecific()
+    {
+        return $this->wallet_claimable_reward_babylon_specific;
+    }
+
+    public function hasWalletClaimableRewardBabylonSpecific()
+    {
+        return isset($this->wallet_claimable_reward_babylon_specific);
+    }
+
+    public function clearWalletClaimableRewardBabylonSpecific()
+    {
+        unset($this->wallet_claimable_reward_babylon_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\WalletClaimableRewardBabylonSpecific $var
+     * @return $this
+     */
+    public function setWalletClaimableRewardBabylonSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\WalletClaimableRewardBabylonSpecific::class);
+        $this->wallet_claimable_reward_babylon_specific = $var;
 
         return $this;
     }

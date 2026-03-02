@@ -319,6 +319,7 @@ message UnconfirmedTransaction {
   CardanoSpecific cardano_specific = 17; // The Cardano specific fields
   MonacoinSpecific monacoin_specific = 18; // The Monacoin specific fields
   AvalanchePlatformChainSpecific avalanche_platform_chain_specific = 19; // The Avalanche Platform Chain specific fields
+  CantonSpecific canton_specific = 20; // The Canton specific fields
 }
 
 // The model of transaction member
@@ -581,6 +582,7 @@ message CantonSpecific {
   repeated TxOutput tx_outputs = 3;
   bool is_withdrawable = 4;
   uint64 expiration = 5;
+  string reason = 6;
 }
 
 message CantonPreparedTransaction {
@@ -872,6 +874,7 @@ message CreateTransactionCantonSpecific {
   optional gincoinc.global.v1.CantonTransactionType type = 1;
   optional uint64 expiration = 2;
   optional string transaction_id = 3;
+  optional string reason = 4;
 }
 
 // The model of Symbol specific fields of CreateTransaction

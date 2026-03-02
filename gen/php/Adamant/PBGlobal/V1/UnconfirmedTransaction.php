@@ -117,6 +117,12 @@ class UnconfirmedTransaction extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.AvalanchePlatformChainSpecific avalanche_platform_chain_specific = 19 [json_name = "avalanchePlatformChainSpecific"];</code>
      */
     protected $avalanche_platform_chain_specific = null;
+    /**
+     * The Canton specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CantonSpecific canton_specific = 20 [json_name = "cantonSpecific"];</code>
+     */
+    protected $canton_specific = null;
 
     /**
      * Constructor.
@@ -158,6 +164,8 @@ class UnconfirmedTransaction extends \Google\Protobuf\Internal\Message
      *           The Monacoin specific fields
      *     @type \Adamant\PBGlobal\V1\AvalanchePlatformChainSpecific $avalanche_platform_chain_specific
      *           The Avalanche Platform Chain specific fields
+     *     @type \Adamant\PBGlobal\V1\CantonSpecific $canton_specific
+     *           The Canton specific fields
      * }
      */
     public function __construct($data = NULL) {
@@ -683,6 +691,42 @@ class UnconfirmedTransaction extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\AvalanchePlatformChainSpecific::class);
         $this->avalanche_platform_chain_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Canton specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CantonSpecific canton_specific = 20 [json_name = "cantonSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CantonSpecific|null
+     */
+    public function getCantonSpecific()
+    {
+        return $this->canton_specific;
+    }
+
+    public function hasCantonSpecific()
+    {
+        return isset($this->canton_specific);
+    }
+
+    public function clearCantonSpecific()
+    {
+        unset($this->canton_specific);
+    }
+
+    /**
+     * The Canton specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CantonSpecific canton_specific = 20 [json_name = "cantonSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CantonSpecific $var
+     * @return $this
+     */
+    public function setCantonSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CantonSpecific::class);
+        $this->canton_specific = $var;
 
         return $this;
     }

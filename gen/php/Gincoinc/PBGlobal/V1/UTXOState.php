@@ -57,6 +57,12 @@ class UTXOState
      * Generated from protobuf enum <code>UTXO_STATE_UNLOCKED = 8;</code>
      */
     const UTXO_STATE_UNLOCKED = 8;
+    /**
+     * Expired in canton
+     *
+     * Generated from protobuf enum <code>UTXO_STATE_EXPIRED = 9;</code>
+     */
+    const UTXO_STATE_EXPIRED = 9;
 
     private static $valueToName = [
         self::UTXO_STATE_INVALID => 'UTXO_STATE_INVALID',
@@ -68,6 +74,7 @@ class UTXOState
         self::UTXO_STATE_LOCKED => 'UTXO_STATE_LOCKED',
         self::UTXO_STATE_PENDING_UNLOCKED => 'UTXO_STATE_PENDING_UNLOCKED',
         self::UTXO_STATE_UNLOCKED => 'UTXO_STATE_UNLOCKED',
+        self::UTXO_STATE_EXPIRED => 'UTXO_STATE_EXPIRED',
     ];
 
     public static function name($value)

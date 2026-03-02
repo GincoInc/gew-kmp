@@ -24,4 +24,19 @@ public interface RefreshStakingWalletClaimableRewardResponseOrBuilder extends
    */
   com.google.protobuf.ByteString
       getStringClaimableRewardBytes();
+
+  /**
+   * <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+   * @return Whether the walletClaimableRewardBabylonSpecific field is set.
+   */
+  boolean hasWalletClaimableRewardBabylonSpecific();
+  /**
+   * <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+   * @return The walletClaimableRewardBabylonSpecific.
+   */
+  adamant.global.v1.WalletClaimableRewardBabylonSpecific getWalletClaimableRewardBabylonSpecific();
+  /**
+   * <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+   */
+  adamant.global.v1.WalletClaimableRewardBabylonSpecificOrBuilder getWalletClaimableRewardBabylonSpecificOrBuilder();
 }

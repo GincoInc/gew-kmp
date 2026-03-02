@@ -39,6 +39,7 @@ private static final long serialVersionUID = 0L;
             adamant.global.v1.RefreshStakingWalletClaimableRewardResponse.class, adamant.global.v1.RefreshStakingWalletClaimableRewardResponse.Builder.class);
   }
 
+  private int bitField0_;
   public static final int CLAIMABLE_REWARD_FIELD_NUMBER = 1;
   private double claimableReward_ = 0D;
   /**
@@ -89,6 +90,32 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int WALLET_CLAIMABLE_REWARD_BABYLON_SPECIFIC_FIELD_NUMBER = 3;
+  private adamant.global.v1.WalletClaimableRewardBabylonSpecific walletClaimableRewardBabylonSpecific_;
+  /**
+   * <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+   * @return Whether the walletClaimableRewardBabylonSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasWalletClaimableRewardBabylonSpecific() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+   * @return The walletClaimableRewardBabylonSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.WalletClaimableRewardBabylonSpecific getWalletClaimableRewardBabylonSpecific() {
+    return walletClaimableRewardBabylonSpecific_ == null ? adamant.global.v1.WalletClaimableRewardBabylonSpecific.getDefaultInstance() : walletClaimableRewardBabylonSpecific_;
+  }
+  /**
+   * <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.WalletClaimableRewardBabylonSpecificOrBuilder getWalletClaimableRewardBabylonSpecificOrBuilder() {
+    return walletClaimableRewardBabylonSpecific_ == null ? adamant.global.v1.WalletClaimableRewardBabylonSpecific.getDefaultInstance() : walletClaimableRewardBabylonSpecific_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -109,6 +136,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringClaimableReward_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, stringClaimableReward_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(3, getWalletClaimableRewardBabylonSpecific());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -124,6 +154,10 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(stringClaimableReward_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, stringClaimableReward_);
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getWalletClaimableRewardBabylonSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -145,6 +179,11 @@ private static final long serialVersionUID = 0L;
             other.getClaimableReward())) return false;
     if (!getStringClaimableReward()
         .equals(other.getStringClaimableReward())) return false;
+    if (hasWalletClaimableRewardBabylonSpecific() != other.hasWalletClaimableRewardBabylonSpecific()) return false;
+    if (hasWalletClaimableRewardBabylonSpecific()) {
+      if (!getWalletClaimableRewardBabylonSpecific()
+          .equals(other.getWalletClaimableRewardBabylonSpecific())) return false;
+    }
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -161,6 +200,10 @@ private static final long serialVersionUID = 0L;
         java.lang.Double.doubleToLongBits(getClaimableReward()));
     hash = (37 * hash) + STRING_CLAIMABLE_REWARD_FIELD_NUMBER;
     hash = (53 * hash) + getStringClaimableReward().hashCode();
+    if (hasWalletClaimableRewardBabylonSpecific()) {
+      hash = (37 * hash) + WALLET_CLAIMABLE_REWARD_BABYLON_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getWalletClaimableRewardBabylonSpecific().hashCode();
+    }
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -280,13 +323,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using adamant.global.v1.RefreshStakingWalletClaimableRewardResponse.newBuilder()
     private Builder() {
-
+      maybeForceBuilderInitialization();
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-
+      maybeForceBuilderInitialization();
+    }
+    private void maybeForceBuilderInitialization() {
+      if (com.google.protobuf.GeneratedMessageV3
+              .alwaysUseFieldBuilders) {
+        getWalletClaimableRewardBabylonSpecificFieldBuilder();
+      }
     }
     @java.lang.Override
     public Builder clear() {
@@ -294,6 +343,11 @@ private static final long serialVersionUID = 0L;
       bitField0_ = 0;
       claimableReward_ = 0D;
       stringClaimableReward_ = "";
+      walletClaimableRewardBabylonSpecific_ = null;
+      if (walletClaimableRewardBabylonSpecificBuilder_ != null) {
+        walletClaimableRewardBabylonSpecificBuilder_.dispose();
+        walletClaimableRewardBabylonSpecificBuilder_ = null;
+      }
       return this;
     }
 
@@ -333,6 +387,14 @@ private static final long serialVersionUID = 0L;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.stringClaimableReward_ = stringClaimableReward_;
       }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.walletClaimableRewardBabylonSpecific_ = walletClaimableRewardBabylonSpecificBuilder_ == null
+            ? walletClaimableRewardBabylonSpecific_
+            : walletClaimableRewardBabylonSpecificBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -387,6 +449,9 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000002;
         onChanged();
       }
+      if (other.hasWalletClaimableRewardBabylonSpecific()) {
+        mergeWalletClaimableRewardBabylonSpecific(other.getWalletClaimableRewardBabylonSpecific());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -423,6 +488,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000002;
               break;
             } // case 18
+            case 26: {
+              input.readMessage(
+                  getWalletClaimableRewardBabylonSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -542,6 +614,125 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000002;
       onChanged();
       return this;
+    }
+
+    private adamant.global.v1.WalletClaimableRewardBabylonSpecific walletClaimableRewardBabylonSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.WalletClaimableRewardBabylonSpecific, adamant.global.v1.WalletClaimableRewardBabylonSpecific.Builder, adamant.global.v1.WalletClaimableRewardBabylonSpecificOrBuilder> walletClaimableRewardBabylonSpecificBuilder_;
+    /**
+     * <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+     * @return Whether the walletClaimableRewardBabylonSpecific field is set.
+     */
+    public boolean hasWalletClaimableRewardBabylonSpecific() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+     * @return The walletClaimableRewardBabylonSpecific.
+     */
+    public adamant.global.v1.WalletClaimableRewardBabylonSpecific getWalletClaimableRewardBabylonSpecific() {
+      if (walletClaimableRewardBabylonSpecificBuilder_ == null) {
+        return walletClaimableRewardBabylonSpecific_ == null ? adamant.global.v1.WalletClaimableRewardBabylonSpecific.getDefaultInstance() : walletClaimableRewardBabylonSpecific_;
+      } else {
+        return walletClaimableRewardBabylonSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+     */
+    public Builder setWalletClaimableRewardBabylonSpecific(adamant.global.v1.WalletClaimableRewardBabylonSpecific value) {
+      if (walletClaimableRewardBabylonSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        walletClaimableRewardBabylonSpecific_ = value;
+      } else {
+        walletClaimableRewardBabylonSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+     */
+    public Builder setWalletClaimableRewardBabylonSpecific(
+        adamant.global.v1.WalletClaimableRewardBabylonSpecific.Builder builderForValue) {
+      if (walletClaimableRewardBabylonSpecificBuilder_ == null) {
+        walletClaimableRewardBabylonSpecific_ = builderForValue.build();
+      } else {
+        walletClaimableRewardBabylonSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+     */
+    public Builder mergeWalletClaimableRewardBabylonSpecific(adamant.global.v1.WalletClaimableRewardBabylonSpecific value) {
+      if (walletClaimableRewardBabylonSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) != 0) &&
+          walletClaimableRewardBabylonSpecific_ != null &&
+          walletClaimableRewardBabylonSpecific_ != adamant.global.v1.WalletClaimableRewardBabylonSpecific.getDefaultInstance()) {
+          getWalletClaimableRewardBabylonSpecificBuilder().mergeFrom(value);
+        } else {
+          walletClaimableRewardBabylonSpecific_ = value;
+        }
+      } else {
+        walletClaimableRewardBabylonSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+     */
+    public Builder clearWalletClaimableRewardBabylonSpecific() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      walletClaimableRewardBabylonSpecific_ = null;
+      if (walletClaimableRewardBabylonSpecificBuilder_ != null) {
+        walletClaimableRewardBabylonSpecificBuilder_.dispose();
+        walletClaimableRewardBabylonSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+     */
+    public adamant.global.v1.WalletClaimableRewardBabylonSpecific.Builder getWalletClaimableRewardBabylonSpecificBuilder() {
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return getWalletClaimableRewardBabylonSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+     */
+    public adamant.global.v1.WalletClaimableRewardBabylonSpecificOrBuilder getWalletClaimableRewardBabylonSpecificOrBuilder() {
+      if (walletClaimableRewardBabylonSpecificBuilder_ != null) {
+        return walletClaimableRewardBabylonSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return walletClaimableRewardBabylonSpecific_ == null ?
+            adamant.global.v1.WalletClaimableRewardBabylonSpecific.getDefaultInstance() : walletClaimableRewardBabylonSpecific_;
+      }
+    }
+    /**
+     * <code>optional .adamant.global.v1.WalletClaimableRewardBabylonSpecific wallet_claimable_reward_babylon_specific = 3 [json_name = "walletClaimableRewardBabylonSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.WalletClaimableRewardBabylonSpecific, adamant.global.v1.WalletClaimableRewardBabylonSpecific.Builder, adamant.global.v1.WalletClaimableRewardBabylonSpecificOrBuilder> 
+        getWalletClaimableRewardBabylonSpecificFieldBuilder() {
+      if (walletClaimableRewardBabylonSpecificBuilder_ == null) {
+        walletClaimableRewardBabylonSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.WalletClaimableRewardBabylonSpecific, adamant.global.v1.WalletClaimableRewardBabylonSpecific.Builder, adamant.global.v1.WalletClaimableRewardBabylonSpecificOrBuilder>(
+                getWalletClaimableRewardBabylonSpecific(),
+                getParentForChildren(),
+                isClean());
+        walletClaimableRewardBabylonSpecific_ = null;
+      }
+      return walletClaimableRewardBabylonSpecificBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

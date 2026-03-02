@@ -18,4 +18,19 @@ public interface InitializeWalletRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getWalletIdBytes();
+
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 2 [json_name = "cantonSpecific"];</code>
+   * @return Whether the cantonSpecific field is set.
+   */
+  boolean hasCantonSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 2 [json_name = "cantonSpecific"];</code>
+   * @return The cantonSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionCantonSpecific getCantonSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionCantonSpecific canton_specific = 2 [json_name = "cantonSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder getCantonSpecificOrBuilder();
 }

@@ -6994,6 +6994,39 @@ func (m *RefreshStakingWalletClaimableRewardResponse) validate(all bool) error {
 
 	// no validation rules for StringClaimableReward
 
+	if m.WalletClaimableRewardBabylonSpecific != nil {
+
+		if all {
+			switch v := interface{}(m.GetWalletClaimableRewardBabylonSpecific()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, RefreshStakingWalletClaimableRewardResponseValidationError{
+						field:  "WalletClaimableRewardBabylonSpecific",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, RefreshStakingWalletClaimableRewardResponseValidationError{
+						field:  "WalletClaimableRewardBabylonSpecific",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetWalletClaimableRewardBabylonSpecific()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return RefreshStakingWalletClaimableRewardResponseValidationError{
+					field:  "WalletClaimableRewardBabylonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
 	if len(errors) > 0 {
 		return RefreshStakingWalletClaimableRewardResponseMultiError(errors)
 	}
@@ -7075,6 +7108,119 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = RefreshStakingWalletClaimableRewardResponseValidationError{}
+
+// Validate checks the field values on WalletClaimableRewardBabylonSpecific
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *WalletClaimableRewardBabylonSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on WalletClaimableRewardBabylonSpecific
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// WalletClaimableRewardBabylonSpecificMultiError, or nil if none found.
+func (m *WalletClaimableRewardBabylonSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *WalletClaimableRewardBabylonSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for BtcStakingReward
+
+	// no validation rules for StringBtcStakingReward
+
+	// no validation rules for CoStakingReward
+
+	// no validation rules for StringCoStakingReward
+
+	if len(errors) > 0 {
+		return WalletClaimableRewardBabylonSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// WalletClaimableRewardBabylonSpecificMultiError is an error wrapping multiple
+// validation errors returned by
+// WalletClaimableRewardBabylonSpecific.ValidateAll() if the designated
+// constraints aren't met.
+type WalletClaimableRewardBabylonSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m WalletClaimableRewardBabylonSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m WalletClaimableRewardBabylonSpecificMultiError) AllErrors() []error { return m }
+
+// WalletClaimableRewardBabylonSpecificValidationError is the validation error
+// returned by WalletClaimableRewardBabylonSpecific.Validate if the designated
+// constraints aren't met.
+type WalletClaimableRewardBabylonSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e WalletClaimableRewardBabylonSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e WalletClaimableRewardBabylonSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e WalletClaimableRewardBabylonSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e WalletClaimableRewardBabylonSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e WalletClaimableRewardBabylonSpecificValidationError) ErrorName() string {
+	return "WalletClaimableRewardBabylonSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e WalletClaimableRewardBabylonSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sWalletClaimableRewardBabylonSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = WalletClaimableRewardBabylonSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = WalletClaimableRewardBabylonSpecificValidationError{}
 
 // Validate checks the field values on RegisterKeyRequest with the rules
 // defined in the proto definition for this message. If any rules are
