@@ -105,6 +105,7 @@ enum Coin {
   COIN_BERA = 88;
   COIN_RIPPLE_TOKEN_RLUSD = 89;
   COIN_ERC20_RLUSD = 90;
+  COIN_ERC20_JPYSC = 91;
   COIN_SDN = 10002;
   COIN_ERC20_SCDEV = 10003; // for stable coin development in dev
   COIN_ERC20_SCQA = 10004; // for stable coin development in qa
@@ -398,6 +399,7 @@ enum StakingValidatorStatus {
   STAKING_VALIDATOR_STATUS_ACTIVE = 1; // 稼働中
   STAKING_VALIDATOR_STATUS_STOP = 2; // 停止中
   STAKING_VALIDATOR_STATUS_PAUSE = 3; // 一時停止中
+  STAKING_VALIDATOR_STATUS_PENDING = 4; // 有効化待ち
 }
 
 enum StakingEventType {
