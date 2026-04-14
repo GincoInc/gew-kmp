@@ -1,0 +1,159 @@
+syntax = "proto3";
+
+package adamant.notary.v1;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "validate/validate.proto";
+
+option go_package = "github.com/GincoInc/gew-kmp/gen/gincoinc/adamant/notary/v1/adamantnotaryv1";
+
+// =============================================================================
+//  Service
+// =============================================================================
+
+// Internal-only service. Do not expose publicly.
+service NotaryAPI {
+  // -----------------------------------------------------------------------------
+  // Key Registry
+  // -----------------------------------------------------------------------------
+  rpc RegisterPublicKey(RegisterPublicKeyRequest) returns (RegisterPublicKeyResponse) {}
+
+  // -----------------------------------------------------------------------------
+  // Key Lifecycle
+  // -----------------------------------------------------------------------------
+  rpc RevokePublicKey(RevokePublicKeyRequest) returns (google.protobuf.Empty) {}
+  rpc UpdatePublicKeyLimit(UpdatePublicKeyLimitRequest) returns (google.protobuf.Empty) {}
+
+  // -----------------------------------------------------------------------------
+  // Signature Verification (atomic: key resolve → verify → consume nonce)
+  // -----------------------------------------------------------------------------
+  rpc VerifySignature(VerifySignatureRequest) returns (google.protobuf.Empty) {}
+}
+
+// =============================================================================
+//  Model
+// =============================================================================
+
+enum KeyUsage {
+  KEY_USAGE_INVALID = 0;
+  KEY_USAGE_MESSAGE_SIGNING = 1;
+}
+
+// Key type identifier. Values correspond to JWK "kty" (RFC 7518 §6.1).
+enum KeyType {
+  KEY_TYPE_INVALID = 0;
+  KEY_TYPE_EC = 1; // Elliptic Curve (JWK kty: "EC")
+}
+
+// Elliptic curve identifier. Values correspond to JWK "crv" (RFC 7518 §6.2.1.1).
+enum Curve {
+  CURVE_INVALID = 0;
+  CURVE_P256 = 1; // NIST P-256 (JWK crv: "P-256")
+}
+
+// Public key representation for gRPC transport.
+// Modeled after JWK (RFC 7517) but uses enum types for type safety.
+message PublicJwk {
+  KeyType kty = 1 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  Curve crv = 2 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+
+  // Raw coordinate bytes (not base64url).
+  // Client should decode from WebCrypto exportKey("jwk") and send as raw bytes.
+  bytes x = 3 [(validate.rules).bytes.min_len = 1];
+  bytes y = 4; // Required for EC.
+}
+
+message PublicKey {
+  string organization_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string account_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string key_id = 3 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  KeyUsage key_usage = 4 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  PublicJwk public_jwk = 5;
+  google.protobuf.Timestamp expire_at = 6;
+}
+
+// =============================================================================
+//  Request / Response
+// =============================================================================
+
+message RegisterPublicKeyRequest {
+  string organization_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string account_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  KeyUsage key_usage = 3 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  PublicJwk public_jwk = 4 [(validate.rules).message.required = true];
+}
+
+message RegisterPublicKeyResponse {
+  string key_id = 1;
+  google.protobuf.Timestamp expire_at = 2;
+}
+
+message VerifySignatureRequest {
+  string organization_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string account_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string key_id = 3 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  bytes content_digest = 4 [(validate.rules).bytes.min_len = 1];
+  bytes signature = 5 [(validate.rules).bytes.min_len = 1];
+  string nonce = 6 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+}
+
+message RevokePublicKeyRequest {
+  string organization_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string account_id = 2 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  string key_id = 3 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+}
+
+message UpdatePublicKeyLimitRequest {
+  string organization_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  uint32 max_active_keys_per_account = 2 [(validate.rules).uint32 = {
+    gte: 2,
+    lte: 10
+  }];
+}

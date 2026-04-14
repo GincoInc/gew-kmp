@@ -1,6 +1,6 @@
 module github.com/GincoInc/gew-kmp
 
-go 1.19
+go 1.25.7
 
 require (
 	github.com/GincoInc/go-util v0.3.3

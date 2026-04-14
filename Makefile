@@ -2,7 +2,7 @@ export GO111MODULE=on
 BIN := $(abspath ./bin)
 GO_ENV ?= GOBIN=$(BIN)
 
-BUF_VERSION := 1.3.1
+BUF_VERSION := v1.67.0
 UNAME_S := $(shell uname -s)
 UNAME_M := $(shell uname -m)
 
@@ -13,7 +13,7 @@ else
 endif
 
 $(BIN)/buf:
-	test -f $(BIN)/buf || $(GO_ENV) go install github.com/bufbuild/buf/cmd/buf@v1.8
+	test -f $(BIN)/buf || $(GO_ENV) go install github.com/bufbuild/buf/cmd/buf@$(BUF_VERSION)
 $(BIN)/protodep:
 	test -f $(BIN)/protodep || $(GO_ENV) go install github.com/stormcat24/protodep@v0.1.7
 $(BIN)/protoc-gen-go:
