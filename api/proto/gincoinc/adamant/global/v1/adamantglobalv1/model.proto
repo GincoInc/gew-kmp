@@ -95,6 +95,8 @@ message StakingWallet {
   string string_withdrawable_unstaked_balance = 21; // string-typed withdrawable unstaked balance
   double frozen_unstaked_balance = 22; // number-typed frozen unstaked balance
   string string_frozen_unstaked_balance = 23; // string-typed frozen unstaked balance
+  double pending_staking_balance = 24; // number-typed pending staking balance
+  string string_pending_staking_balance = 25; // string-typed pending staking balance
   string address = 16; // address
   uint32 active_validators_count = 19; // number of active validators
   google.protobuf.Timestamp create_time = 17; // the time at which the wallet was created
@@ -1564,6 +1566,7 @@ message BlacklistAddressProposal {
 
 message BlacklistAddressDiff {
   bool is_activated = 1;
+  optional string external_id = 2;
 }
 
 message BlacklistAddressFile {
