@@ -130,6 +130,18 @@ class StakingWallet extends \Google\Protobuf\Internal\Message
      */
     protected $string_frozen_unstaked_balance = '';
     /**
+     * number-typed pending staking balance
+     *
+     * Generated from protobuf field <code>double pending_staking_balance = 24 [json_name = "pendingStakingBalance"];</code>
+     */
+    protected $pending_staking_balance = 0.0;
+    /**
+     * string-typed pending staking balance
+     *
+     * Generated from protobuf field <code>string string_pending_staking_balance = 25 [json_name = "stringPendingStakingBalance"];</code>
+     */
+    protected $string_pending_staking_balance = '';
+    /**
      * address
      *
      * Generated from protobuf field <code>string address = 16 [json_name = "address"];</code>
@@ -198,6 +210,10 @@ class StakingWallet extends \Google\Protobuf\Internal\Message
      *           number-typed frozen unstaked balance
      *     @type string $string_frozen_unstaked_balance
      *           string-typed frozen unstaked balance
+     *     @type float $pending_staking_balance
+     *           number-typed pending staking balance
+     *     @type string $string_pending_staking_balance
+     *           string-typed pending staking balance
      *     @type string $address
      *           address
      *     @type int $active_validators_count
@@ -703,6 +719,58 @@ class StakingWallet extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->string_frozen_unstaked_balance = $var;
+
+        return $this;
+    }
+
+    /**
+     * number-typed pending staking balance
+     *
+     * Generated from protobuf field <code>double pending_staking_balance = 24 [json_name = "pendingStakingBalance"];</code>
+     * @return float
+     */
+    public function getPendingStakingBalance()
+    {
+        return $this->pending_staking_balance;
+    }
+
+    /**
+     * number-typed pending staking balance
+     *
+     * Generated from protobuf field <code>double pending_staking_balance = 24 [json_name = "pendingStakingBalance"];</code>
+     * @param float $var
+     * @return $this
+     */
+    public function setPendingStakingBalance($var)
+    {
+        GPBUtil::checkDouble($var);
+        $this->pending_staking_balance = $var;
+
+        return $this;
+    }
+
+    /**
+     * string-typed pending staking balance
+     *
+     * Generated from protobuf field <code>string string_pending_staking_balance = 25 [json_name = "stringPendingStakingBalance"];</code>
+     * @return string
+     */
+    public function getStringPendingStakingBalance()
+    {
+        return $this->string_pending_staking_balance;
+    }
+
+    /**
+     * string-typed pending staking balance
+     *
+     * Generated from protobuf field <code>string string_pending_staking_balance = 25 [json_name = "stringPendingStakingBalance"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setStringPendingStakingBalance($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->string_pending_staking_balance = $var;
 
         return $this;
     }

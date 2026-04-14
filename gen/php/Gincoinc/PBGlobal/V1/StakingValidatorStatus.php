@@ -33,12 +33,19 @@ class StakingValidatorStatus
      * Generated from protobuf enum <code>STAKING_VALIDATOR_STATUS_PAUSE = 3;</code>
      */
     const STAKING_VALIDATOR_STATUS_PAUSE = 3;
+    /**
+     * 有効化待ち
+     *
+     * Generated from protobuf enum <code>STAKING_VALIDATOR_STATUS_PENDING = 4;</code>
+     */
+    const STAKING_VALIDATOR_STATUS_PENDING = 4;
 
     private static $valueToName = [
         self::STAKING_VALIDATOR_STATUS_INVALID => 'STAKING_VALIDATOR_STATUS_INVALID',
         self::STAKING_VALIDATOR_STATUS_ACTIVE => 'STAKING_VALIDATOR_STATUS_ACTIVE',
         self::STAKING_VALIDATOR_STATUS_STOP => 'STAKING_VALIDATOR_STATUS_STOP',
         self::STAKING_VALIDATOR_STATUS_PAUSE => 'STAKING_VALIDATOR_STATUS_PAUSE',
+        self::STAKING_VALIDATOR_STATUS_PENDING => 'STAKING_VALIDATOR_STATUS_PENDING',
     ];
 
     public static function name($value)

@@ -17,6 +17,10 @@ class BlacklistAddressDiff extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool is_activated = 1 [json_name = "isActivated"];</code>
      */
     protected $is_activated = false;
+    /**
+     * Generated from protobuf field <code>optional string external_id = 2 [json_name = "externalId"];</code>
+     */
+    protected $external_id = null;
 
     /**
      * Constructor.
@@ -25,6 +29,7 @@ class BlacklistAddressDiff extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type bool $is_activated
+     *     @type string $external_id
      * }
      */
     public function __construct($data = NULL) {
@@ -50,6 +55,38 @@ class BlacklistAddressDiff extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->is_activated = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string external_id = 2 [json_name = "externalId"];</code>
+     * @return string
+     */
+    public function getExternalId()
+    {
+        return isset($this->external_id) ? $this->external_id : '';
+    }
+
+    public function hasExternalId()
+    {
+        return isset($this->external_id);
+    }
+
+    public function clearExternalId()
+    {
+        unset($this->external_id);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional string external_id = 2 [json_name = "externalId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setExternalId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->external_id = $var;
 
         return $this;
     }
