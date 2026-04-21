@@ -8050,6 +8050,8 @@ func (m *CantonSpecific) validate(all bool) error {
 
 	// no validation rules for Reason
 
+	// no validation rules for SendExpiration
+
 	if len(errors) > 0 {
 		return CantonSpecificMultiError(errors)
 	}

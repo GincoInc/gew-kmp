@@ -37,6 +37,12 @@ class CantonSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string reason = 6 [json_name = "reason"];</code>
      */
     protected $reason = '';
+    /**
+     * 署名ウィンドウの期限（Unix秒）。OpenMiningRoundの有効期限に基づく。
+     *
+     * Generated from protobuf field <code>uint64 send_expiration = 7 [json_name = "sendExpiration"];</code>
+     */
+    protected $send_expiration = 0;
 
     /**
      * Constructor.
@@ -50,6 +56,8 @@ class CantonSpecific extends \Google\Protobuf\Internal\Message
      *     @type bool $is_withdrawable
      *     @type int|string $expiration
      *     @type string $reason
+     *     @type int|string $send_expiration
+     *           署名ウィンドウの期限（Unix秒）。OpenMiningRoundの有効期限に基づく。
      * }
      */
     public function __construct($data = NULL) {
@@ -185,6 +193,32 @@ class CantonSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->reason = $var;
+
+        return $this;
+    }
+
+    /**
+     * 署名ウィンドウの期限（Unix秒）。OpenMiningRoundの有効期限に基づく。
+     *
+     * Generated from protobuf field <code>uint64 send_expiration = 7 [json_name = "sendExpiration"];</code>
+     * @return int|string
+     */
+    public function getSendExpiration()
+    {
+        return $this->send_expiration;
+    }
+
+    /**
+     * 署名ウィンドウの期限（Unix秒）。OpenMiningRoundの有効期限に基づく。
+     *
+     * Generated from protobuf field <code>uint64 send_expiration = 7 [json_name = "sendExpiration"];</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setSendExpiration($var)
+    {
+        GPBUtil::checkUint64($var);
+        $this->send_expiration = $var;
 
         return $this;
     }
