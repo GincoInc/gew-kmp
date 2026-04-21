@@ -5,6 +5,7 @@ package adamant.global.v1;
 import "gincoinc/adamant/global/v1/adamantglobalv1/audit_logger.proto";
 import "gincoinc/adamant/global/v1/adamantglobalv1/enum.proto";
 import "gincoinc/adamant/global/v1/adamantglobalv1/model.proto";
+import "gincoinc/adamant/notary/v1/adamantnotaryv1/notary_api.proto";
 import "gincoinc/global/v1/gincoincglobalv1/enum.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
@@ -2877,4 +2878,36 @@ message SignBitcoinDelegationRequest {
   adamant.global.v1.RequestSignedInfo slashing_tx_signed_info = 4 [(validate.rules).message.required = true];
   adamant.global.v1.RequestSignedInfo unbonding_slashing_tx_signed_info = 5 [(validate.rules).message.required = true];
   adamant.global.v1.RequestSignedInfo babylon_pop_signed_info = 6 [(validate.rules).message.required = true];
+}
+
+// -----------------------------------------------------------------------------
+// PublicKey
+// -----------------------------------------------------------------------------
+
+message RegisterPublicKeyRequest {
+  adamant.notary.v1.KeyUsage key_usage = 1 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+  adamant.notary.v1.PublicJwk public_jwk = 2 [(validate.rules).message.required = true];
+}
+
+message RegisterPublicKeyResponse {
+  string key_id = 1;
+  google.protobuf.Timestamp expire_at = 2;
+}
+
+message RevokePublicKeyRequest {
+  string key_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+}
+
+message UpdatePublicKeyLimitRequest {
+  uint32 max_active_keys_per_account = 1 [(validate.rules).uint32 = {
+    gte: 2,
+    lte: 10
+  }];
 }

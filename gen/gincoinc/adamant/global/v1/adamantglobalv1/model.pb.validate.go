@@ -693,6 +693,10 @@ func (m *StakingWallet) validate(all bool) error {
 
 	// no validation rules for StringFrozenUnstakedBalance
 
+	// no validation rules for PendingStakingBalance
+
+	// no validation rules for StringPendingStakingBalance
+
 	// no validation rules for Address
 
 	// no validation rules for ActiveValidatorsCount
@@ -22392,6 +22396,10 @@ func (m *BlacklistAddressDiff) validate(all bool) error {
 	var errors []error
 
 	// no validation rules for IsActivated
+
+	if m.ExternalId != nil {
+		// no validation rules for ExternalId
+	}
 
 	if len(errors) > 0 {
 		return BlacklistAddressDiffMultiError(errors)

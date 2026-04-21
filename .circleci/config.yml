@@ -8,7 +8,7 @@ reference:
   work_dir: &work_dir /home/circleci/go/src/tmp
   golang_container_config: &golang_container_config
     docker:
-      - image: cimg/go:1.19
+      - image: cimg/go:1.25
         environment:
           GOPATH: /home/circleci/go
           GOCACHE: /home/circleci/go/.cache

@@ -464,6 +464,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.StakingWallet proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -504,6 +508,10 @@ public class ModelValidator {
 	// no validation rules for FrozenUnstakedBalance
 
 	// no validation rules for StringFrozenUnstakedBalance
+
+	// no validation rules for PendingStakingBalance
+
+	// no validation rules for StringPendingStakingBalance
 
 	// no validation rules for Address
 
