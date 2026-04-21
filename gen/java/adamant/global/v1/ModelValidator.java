@@ -2332,6 +2332,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.CantonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2354,6 +2356,8 @@ public class ModelValidator {
 	// no validation rules for Expiration
 
 	// no validation rules for Reason
+
+	// no validation rules for SendExpiration
 
 	
 	}
