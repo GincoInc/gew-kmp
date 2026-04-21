@@ -585,6 +585,7 @@ message CantonSpecific {
   bool is_withdrawable = 4;
   uint64 expiration = 5;
   string reason = 6;
+  uint64 send_expiration = 7; // 署名ウィンドウの期限（Unix秒）。OpenMiningRoundの有効期限に基づく。
 }
 
 message CantonPreparedTransaction {
