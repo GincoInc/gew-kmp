@@ -45,6 +45,17 @@ message Wallet {
   google.protobuf.Timestamp create_time = 15; // the time at which the wallet was created
   google.protobuf.Timestamp update_time = 16; // the time at which the wallet was updated
   string base_wallet_id = 28; // The wallet id of the EVM address sharing
+  XrpAccountSettings xrp_account_settings = 29; // populated only for COIN_XRP wallets
+}
+
+// XrpAccountSettings mirrors selected on-chain AccountSet flags for an XRP
+// wallet's account. Updated by treasurer when a CONFIRMED AccountSet
+// transaction is observed on the XRPL ledger.
+message XrpAccountSettings {
+  // asfRequireDest: if true, incoming XRP payments without DestinationTag are
+  // rejected by the ledger with tecDST_TAG_NEEDED.
+  bool require_dest = 1;
+  // future: bool require_auth = 2; bool default_ripple = 3; bool disallow_xrp = 4;
 }
 
 message WalletWithoutBalance {
@@ -504,6 +515,13 @@ message XrpSpecific {
   string from_address = 5;
   string token_symbol = 6;
   string token_issuer = 7;
+
+  // AccountSet flag bits. Populated only when `tx_type` is
+  // `XRP_TRANSACTION_TYPE_ACCOUNT_SET`; zero for every other tx type.
+  // Clients reconstruct the AccountSet transaction from these fields to
+  // verify the multi-sig sighash before signing.
+  uint32 set_flag = 8;
+  uint32 clear_flag = 9;
 }
 
 // The model of Tron specific fields of transaction
@@ -931,6 +949,47 @@ message CreateTransactionHederaSpecific {
 // The model of Solana specific fields of CreateTransaction
 message CreateTransactionSolanaSpecific {
   gincoinc.global.v1.SolanaEventType event_type = 1;
+}
+
+// CreateTransactionXRPSpecific selects which XRP action a CreateTransaction
+// request performs. `action` is a oneof so the schema rejects ambiguous
+// states (e.g. account_set fields populated alongside a payment selection)
+// at codegen time, not in treasurer's validator.
+//
+// Backward compatibility: if `xrp_specific` is unset on the request, the
+// request is treated as a Payment, taking destination / amount / tag from
+// the top-level address / destination_tag / string_value fields — same as
+// today's clients that pre-date this message.
+//
+// Setting `xrp_specific.payment` is equivalent to omitting `xrp_specific`
+// entirely — kept as an explicit option so callers can be unambiguous.
+//
+// `xrp_specific.account_set` builds a multi-sig AccountSet transaction.
+message CreateTransactionXRPSpecific {
+  oneof action {
+    XRPPayment payment = 1;
+    XRPAccountSet account_set = 2;
+  }
+}
+
+// XRPPayment is intentionally empty: destination / amount / destination_tag
+// continue to flow through the top-level CreateTransactionRequest fields.
+// Reserved here as a oneof discriminator and as an extension point if
+// payment-specific options ever need to live in this message.
+message XRPPayment {}
+
+// XRPAccountSet describes a multi-sig AccountSet transaction that toggles
+// one on-chain AccountSet flag.
+//
+// `enable = true` => SetFlag, `enable = false` => ClearFlag.
+//
+// `enable` is `optional` so the schema distinguishes "field unset" from the
+// proto3 zero value `false`. Treasurer's validator rejects requests where
+// `enable` is unset; without that, a forgetful client would silently disable
+// the flag instead of receiving an InvalidArgument.
+message XRPAccountSet {
+  adamant.global.v1.XRPAccountFlag flag = 1;
+  optional bool enable = 2;
 }
 
 // The model of Aptos specific fields of CreateTransaction

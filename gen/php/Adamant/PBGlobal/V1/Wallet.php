@@ -183,6 +183,12 @@ class Wallet extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string base_wallet_id = 28 [json_name = "baseWalletId"];</code>
      */
     protected $base_wallet_id = '';
+    /**
+     * populated only for COIN_XRP wallets
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.XrpAccountSettings xrp_account_settings = 29 [json_name = "xrpAccountSettings"];</code>
+     */
+    protected $xrp_account_settings = null;
 
     /**
      * Constructor.
@@ -246,6 +252,8 @@ class Wallet extends \Google\Protobuf\Internal\Message
      *           the time at which the wallet was updated
      *     @type string $base_wallet_id
      *           The wallet id of the EVM address sharing
+     *     @type \Adamant\PBGlobal\V1\XrpAccountSettings $xrp_account_settings
+     *           populated only for COIN_XRP wallets
      * }
      */
     public function __construct($data = NULL) {
@@ -1007,6 +1015,42 @@ class Wallet extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->base_wallet_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * populated only for COIN_XRP wallets
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.XrpAccountSettings xrp_account_settings = 29 [json_name = "xrpAccountSettings"];</code>
+     * @return \Adamant\PBGlobal\V1\XrpAccountSettings|null
+     */
+    public function getXrpAccountSettings()
+    {
+        return $this->xrp_account_settings;
+    }
+
+    public function hasXrpAccountSettings()
+    {
+        return isset($this->xrp_account_settings);
+    }
+
+    public function clearXrpAccountSettings()
+    {
+        unset($this->xrp_account_settings);
+    }
+
+    /**
+     * populated only for COIN_XRP wallets
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.XrpAccountSettings xrp_account_settings = 29 [json_name = "xrpAccountSettings"];</code>
+     * @param \Adamant\PBGlobal\V1\XrpAccountSettings $var
+     * @return $this
+     */
+    public function setXrpAccountSettings($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\XrpAccountSettings::class);
+        $this->xrp_account_settings = $var;
 
         return $this;
     }

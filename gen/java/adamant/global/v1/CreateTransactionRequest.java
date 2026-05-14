@@ -729,6 +729,32 @@ private static final long serialVersionUID = 0L;
     return cantonSpecific_ == null ? adamant.global.v1.Model.CreateTransactionCantonSpecific.getDefaultInstance() : cantonSpecific_;
   }
 
+  public static final int XRP_SPECIFIC_FIELD_NUMBER = 28;
+  private adamant.global.v1.Model.CreateTransactionXRPSpecific xrpSpecific_;
+  /**
+   * <code>.adamant.global.v1.CreateTransactionXRPSpecific xrp_specific = 28 [json_name = "xrpSpecific"];</code>
+   * @return Whether the xrpSpecific field is set.
+   */
+  @java.lang.Override
+  public boolean hasXrpSpecific() {
+    return xrpSpecific_ != null;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionXRPSpecific xrp_specific = 28 [json_name = "xrpSpecific"];</code>
+   * @return The xrpSpecific.
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionXRPSpecific getXrpSpecific() {
+    return xrpSpecific_ == null ? adamant.global.v1.Model.CreateTransactionXRPSpecific.getDefaultInstance() : xrpSpecific_;
+  }
+  /**
+   * <code>.adamant.global.v1.CreateTransactionXRPSpecific xrp_specific = 28 [json_name = "xrpSpecific"];</code>
+   */
+  @java.lang.Override
+  public adamant.global.v1.Model.CreateTransactionXRPSpecificOrBuilder getXrpSpecificOrBuilder() {
+    return xrpSpecific_ == null ? adamant.global.v1.Model.CreateTransactionXRPSpecific.getDefaultInstance() : xrpSpecific_;
+  }
+
   public static final int PRE_TRANSACTION_ID_FIELD_NUMBER = 21;
   @SuppressWarnings("serial")
   private volatile java.lang.Object preTransactionId_ = "";
@@ -871,6 +897,9 @@ private static final long serialVersionUID = 0L;
     if (cantonSpecific_ != null) {
       output.writeMessage(27, getCantonSpecific());
     }
+    if (xrpSpecific_ != null) {
+      output.writeMessage(28, getXrpSpecific());
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -983,6 +1012,10 @@ private static final long serialVersionUID = 0L;
     if (cantonSpecific_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(27, getCantonSpecific());
+    }
+    if (xrpSpecific_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(28, getXrpSpecific());
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -1108,6 +1141,11 @@ private static final long serialVersionUID = 0L;
       if (!getCantonSpecific()
           .equals(other.getCantonSpecific())) return false;
     }
+    if (hasXrpSpecific() != other.hasXrpSpecific()) return false;
+    if (hasXrpSpecific()) {
+      if (!getXrpSpecific()
+          .equals(other.getXrpSpecific())) return false;
+    }
     if (hasPreTransactionId() != other.hasPreTransactionId()) return false;
     if (hasPreTransactionId()) {
       if (!getPreTransactionId()
@@ -1217,6 +1255,10 @@ private static final long serialVersionUID = 0L;
     if (hasCantonSpecific()) {
       hash = (37 * hash) + CANTON_SPECIFIC_FIELD_NUMBER;
       hash = (53 * hash) + getCantonSpecific().hashCode();
+    }
+    if (hasXrpSpecific()) {
+      hash = (37 * hash) + XRP_SPECIFIC_FIELD_NUMBER;
+      hash = (53 * hash) + getXrpSpecific().hashCode();
     }
     if (hasPreTransactionId()) {
       hash = (37 * hash) + PRE_TRANSACTION_ID_FIELD_NUMBER;
@@ -1461,6 +1503,11 @@ private static final long serialVersionUID = 0L;
         cantonSpecificBuilder_.dispose();
         cantonSpecificBuilder_ = null;
       }
+      xrpSpecific_ = null;
+      if (xrpSpecificBuilder_ != null) {
+        xrpSpecificBuilder_.dispose();
+        xrpSpecificBuilder_ = null;
+      }
       preTransactionId_ = "";
       return this;
     }
@@ -1621,8 +1668,13 @@ private static final long serialVersionUID = 0L;
             ? cantonSpecific_
             : cantonSpecificBuilder_.build();
       }
-      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x04000000) != 0)) {
+        result.xrpSpecific_ = xrpSpecificBuilder_ == null
+            ? xrpSpecific_
+            : xrpSpecificBuilder_.build();
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x08000000) != 0)) {
         result.preTransactionId_ = preTransactionId_;
         to_bitField0_ |= 0x00000001;
       }
@@ -1780,9 +1832,12 @@ private static final long serialVersionUID = 0L;
       if (other.hasCantonSpecific()) {
         mergeCantonSpecific(other.getCantonSpecific());
       }
+      if (other.hasXrpSpecific()) {
+        mergeXrpSpecific(other.getXrpSpecific());
+      }
       if (other.hasPreTransactionId()) {
         preTransactionId_ = other.preTransactionId_;
-        bitField0_ |= 0x04000000;
+        bitField0_ |= 0x08000000;
         onChanged();
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -1947,7 +2002,7 @@ private static final long serialVersionUID = 0L;
             } // case 162
             case 170: {
               preTransactionId_ = input.readStringRequireUtf8();
-              bitField0_ |= 0x04000000;
+              bitField0_ |= 0x08000000;
               break;
             } // case 170
             case 178: {
@@ -1992,6 +2047,13 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x02000000;
               break;
             } // case 218
+            case 226: {
+              input.readMessage(
+                  getXrpSpecificFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x04000000;
+              break;
+            } // case 226
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -4822,13 +4884,132 @@ private static final long serialVersionUID = 0L;
       return cantonSpecificBuilder_;
     }
 
+    private adamant.global.v1.Model.CreateTransactionXRPSpecific xrpSpecific_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionXRPSpecific, adamant.global.v1.Model.CreateTransactionXRPSpecific.Builder, adamant.global.v1.Model.CreateTransactionXRPSpecificOrBuilder> xrpSpecificBuilder_;
+    /**
+     * <code>.adamant.global.v1.CreateTransactionXRPSpecific xrp_specific = 28 [json_name = "xrpSpecific"];</code>
+     * @return Whether the xrpSpecific field is set.
+     */
+    public boolean hasXrpSpecific() {
+      return ((bitField0_ & 0x04000000) != 0);
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionXRPSpecific xrp_specific = 28 [json_name = "xrpSpecific"];</code>
+     * @return The xrpSpecific.
+     */
+    public adamant.global.v1.Model.CreateTransactionXRPSpecific getXrpSpecific() {
+      if (xrpSpecificBuilder_ == null) {
+        return xrpSpecific_ == null ? adamant.global.v1.Model.CreateTransactionXRPSpecific.getDefaultInstance() : xrpSpecific_;
+      } else {
+        return xrpSpecificBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionXRPSpecific xrp_specific = 28 [json_name = "xrpSpecific"];</code>
+     */
+    public Builder setXrpSpecific(adamant.global.v1.Model.CreateTransactionXRPSpecific value) {
+      if (xrpSpecificBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        xrpSpecific_ = value;
+      } else {
+        xrpSpecificBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x04000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionXRPSpecific xrp_specific = 28 [json_name = "xrpSpecific"];</code>
+     */
+    public Builder setXrpSpecific(
+        adamant.global.v1.Model.CreateTransactionXRPSpecific.Builder builderForValue) {
+      if (xrpSpecificBuilder_ == null) {
+        xrpSpecific_ = builderForValue.build();
+      } else {
+        xrpSpecificBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x04000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionXRPSpecific xrp_specific = 28 [json_name = "xrpSpecific"];</code>
+     */
+    public Builder mergeXrpSpecific(adamant.global.v1.Model.CreateTransactionXRPSpecific value) {
+      if (xrpSpecificBuilder_ == null) {
+        if (((bitField0_ & 0x04000000) != 0) &&
+          xrpSpecific_ != null &&
+          xrpSpecific_ != adamant.global.v1.Model.CreateTransactionXRPSpecific.getDefaultInstance()) {
+          getXrpSpecificBuilder().mergeFrom(value);
+        } else {
+          xrpSpecific_ = value;
+        }
+      } else {
+        xrpSpecificBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x04000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionXRPSpecific xrp_specific = 28 [json_name = "xrpSpecific"];</code>
+     */
+    public Builder clearXrpSpecific() {
+      bitField0_ = (bitField0_ & ~0x04000000);
+      xrpSpecific_ = null;
+      if (xrpSpecificBuilder_ != null) {
+        xrpSpecificBuilder_.dispose();
+        xrpSpecificBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionXRPSpecific xrp_specific = 28 [json_name = "xrpSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionXRPSpecific.Builder getXrpSpecificBuilder() {
+      bitField0_ |= 0x04000000;
+      onChanged();
+      return getXrpSpecificFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionXRPSpecific xrp_specific = 28 [json_name = "xrpSpecific"];</code>
+     */
+    public adamant.global.v1.Model.CreateTransactionXRPSpecificOrBuilder getXrpSpecificOrBuilder() {
+      if (xrpSpecificBuilder_ != null) {
+        return xrpSpecificBuilder_.getMessageOrBuilder();
+      } else {
+        return xrpSpecific_ == null ?
+            adamant.global.v1.Model.CreateTransactionXRPSpecific.getDefaultInstance() : xrpSpecific_;
+      }
+    }
+    /**
+     * <code>.adamant.global.v1.CreateTransactionXRPSpecific xrp_specific = 28 [json_name = "xrpSpecific"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        adamant.global.v1.Model.CreateTransactionXRPSpecific, adamant.global.v1.Model.CreateTransactionXRPSpecific.Builder, adamant.global.v1.Model.CreateTransactionXRPSpecificOrBuilder> 
+        getXrpSpecificFieldBuilder() {
+      if (xrpSpecificBuilder_ == null) {
+        xrpSpecificBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            adamant.global.v1.Model.CreateTransactionXRPSpecific, adamant.global.v1.Model.CreateTransactionXRPSpecific.Builder, adamant.global.v1.Model.CreateTransactionXRPSpecificOrBuilder>(
+                getXrpSpecific(),
+                getParentForChildren(),
+                isClean());
+        xrpSpecific_ = null;
+      }
+      return xrpSpecificBuilder_;
+    }
+
     private java.lang.Object preTransactionId_ = "";
     /**
      * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
      * @return Whether the preTransactionId field is set.
      */
     public boolean hasPreTransactionId() {
-      return ((bitField0_ & 0x04000000) != 0);
+      return ((bitField0_ & 0x08000000) != 0);
     }
     /**
      * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
@@ -4872,7 +5053,7 @@ private static final long serialVersionUID = 0L;
         java.lang.String value) {
       if (value == null) { throw new NullPointerException(); }
       preTransactionId_ = value;
-      bitField0_ |= 0x04000000;
+      bitField0_ |= 0x08000000;
       onChanged();
       return this;
     }
@@ -4882,7 +5063,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearPreTransactionId() {
       preTransactionId_ = getDefaultInstance().getPreTransactionId();
-      bitField0_ = (bitField0_ & ~0x04000000);
+      bitField0_ = (bitField0_ & ~0x08000000);
       onChanged();
       return this;
     }
@@ -4896,7 +5077,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) { throw new NullPointerException(); }
       checkByteStringIsUtf8(value);
       preTransactionId_ = value;
-      bitField0_ |= 0x04000000;
+      bitField0_ |= 0x08000000;
       onChanged();
       return this;
     }
