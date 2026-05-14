@@ -6664,6 +6664,132 @@ public final class Enum {
   }
 
   /**
+   * <pre>
+   * XRPAccountFlag is the API-level identifier for which AccountSet flag to
+   * toggle on an XRP wallet. Numeric values are protobuf-internal and are NOT
+   * guaranteed to match the underlying XRPL `asf*` constants — the mapping is
+   * owned by treasurer. New entries SHOULD be assigned the next free proto enum
+   * value, NOT the XRPL constant.
+   * </pre>
+   *
+   * Protobuf enum {@code adamant.global.v1.XRPAccountFlag}
+   */
+  public enum XRPAccountFlag
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>XRP_ACCOUNT_FLAG_INVALID = 0;</code>
+     */
+    XRP_ACCOUNT_FLAG_INVALID(0),
+    /**
+     * <pre>
+     * asfRequireDest: incoming payments without DestinationTag are rejected
+     * by the XRPL ledger with tecDST_TAG_NEEDED.
+     * </pre>
+     *
+     * <code>XRP_ACCOUNT_FLAG_REQUIRE_DEST = 1;</code>
+     */
+    XRP_ACCOUNT_FLAG_REQUIRE_DEST(1),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>XRP_ACCOUNT_FLAG_INVALID = 0;</code>
+     */
+    public static final int XRP_ACCOUNT_FLAG_INVALID_VALUE = 0;
+    /**
+     * <pre>
+     * asfRequireDest: incoming payments without DestinationTag are rejected
+     * by the XRPL ledger with tecDST_TAG_NEEDED.
+     * </pre>
+     *
+     * <code>XRP_ACCOUNT_FLAG_REQUIRE_DEST = 1;</code>
+     */
+    public static final int XRP_ACCOUNT_FLAG_REQUIRE_DEST_VALUE = 1;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static XRPAccountFlag valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static XRPAccountFlag forNumber(int value) {
+      switch (value) {
+        case 0: return XRP_ACCOUNT_FLAG_INVALID;
+        case 1: return XRP_ACCOUNT_FLAG_REQUIRE_DEST;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<XRPAccountFlag>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        XRPAccountFlag> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<XRPAccountFlag>() {
+            public XRPAccountFlag findValueByNumber(int number) {
+              return XRPAccountFlag.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(27);
+    }
+
+    private static final XRPAccountFlag[] VALUES = values();
+
+    public static XRPAccountFlag valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private XRPAccountFlag(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:adamant.global.v1.XRPAccountFlag)
+  }
+
+  /**
    * Protobuf enum {@code adamant.global.v1.BlacklistAddressStatus}
    */
   public enum BlacklistAddressStatus
@@ -6763,7 +6889,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(27);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(28);
     }
 
     private static final BlacklistAddressStatus[] VALUES = values();
@@ -6961,7 +7087,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(28);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(29);
     }
 
     private static final DelegationState[] VALUES = values();
@@ -7078,7 +7204,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(29);
+      return adamant.global.v1.Enum.getDescriptor().getEnumTypes().get(30);
     }
 
     private static final CantonUserRight[] VALUES = values();
@@ -7563,28 +7689,30 @@ public final class Enum {
       "SELL_RAM\020\005\022\031\n\025IOST_ACTION_TYPE_VOTE\020\006\022\033\n" +
       "\027IOST_ACTION_TYPE_UNVOTE\020\007\022#\n\037IOST_ACTIO" +
       "N_TYPE_WITHDRAW_BONUS\020\010\022&\n\"IOST_ACTION_T" +
-      "YPE_REVOKE_PERMISSION\020\t*\267\001\n\026BlacklistAdd" +
-      "ressStatus\022$\n BLACKLIST_ADDRESS_STATUS_I" +
-      "NVALID\020\000\022)\n%BLACKLIST_ADDRESS_STATUS_NOT" +
-      "_REVIEWED\020\001\022%\n!BLACKLIST_ADDRESS_STATUS_" +
-      "APPROVED\020\002\022%\n!BLACKLIST_ADDRESS_STATUS_R" +
-      "EJECTED\020\003*\314\003\n\017DelegationState\022\034\n\030DELEGAT" +
-      "ION_STATE_INVALID\020\000\022 \n\034DELEGATION_STATE_" +
-      "UNCONFIRMED\020\001\022\034\n\030DELEGATION_STATE_SIGNIN" +
-      "G\020\002\022\033\n\027DELEGATION_STATE_SIGNED\020\003\022\036\n\032DELE" +
-      "GATION_STATE_SUBMITTED\020\004\022\033\n\027DELEGATION_S" +
-      "TATE_ACTIVE\020\005\022\036\n\032DELEGATION_STATE_UNBOND" +
-      "ING\020\006\022)\n%DELEGATION_STATE_WITHDRAWABLE_B" +
-      "Y_TIME\020\007\022.\n*DELEGATION_STATE_WITHDRAWABL" +
-      "E_BY_UNBONDING\020\010\022-\n)DELEGATION_STATE_WIT" +
-      "HDRAWABLE_BY_SLASHING\020\t\0227\n3DELEGATION_ST" +
-      "ATE_WITHDRAWABLE_BY_UNBONDING_SLASHING\020\n" +
-      "\022\036\n\032DELEGATION_STATE_WITHDRAWN\020\013*m\n\017Cant" +
-      "onUserRight\022\035\n\031CANTON_USER_RIGHT_INVALID" +
-      "\020\000\022\035\n\031CANTON_USER_RIGHT_READ_AS\020\001\022\034\n\030CAN" +
-      "TON_USER_RIGHT_ACT_AS\020\002BLZJgithub.com/Gi" +
-      "ncoInc/gew-kmp/gen/gincoinc/adamant/glob" +
-      "al/v1/adamantglobalv1b\006proto3"
+      "YPE_REVOKE_PERMISSION\020\t*Q\n\016XRPAccountFla" +
+      "g\022\034\n\030XRP_ACCOUNT_FLAG_INVALID\020\000\022!\n\035XRP_A" +
+      "CCOUNT_FLAG_REQUIRE_DEST\020\001*\267\001\n\026Blacklist" +
+      "AddressStatus\022$\n BLACKLIST_ADDRESS_STATU" +
+      "S_INVALID\020\000\022)\n%BLACKLIST_ADDRESS_STATUS_" +
+      "NOT_REVIEWED\020\001\022%\n!BLACKLIST_ADDRESS_STAT" +
+      "US_APPROVED\020\002\022%\n!BLACKLIST_ADDRESS_STATU" +
+      "S_REJECTED\020\003*\314\003\n\017DelegationState\022\034\n\030DELE" +
+      "GATION_STATE_INVALID\020\000\022 \n\034DELEGATION_STA" +
+      "TE_UNCONFIRMED\020\001\022\034\n\030DELEGATION_STATE_SIG" +
+      "NING\020\002\022\033\n\027DELEGATION_STATE_SIGNED\020\003\022\036\n\032D" +
+      "ELEGATION_STATE_SUBMITTED\020\004\022\033\n\027DELEGATIO" +
+      "N_STATE_ACTIVE\020\005\022\036\n\032DELEGATION_STATE_UNB" +
+      "ONDING\020\006\022)\n%DELEGATION_STATE_WITHDRAWABL" +
+      "E_BY_TIME\020\007\022.\n*DELEGATION_STATE_WITHDRAW" +
+      "ABLE_BY_UNBONDING\020\010\022-\n)DELEGATION_STATE_" +
+      "WITHDRAWABLE_BY_SLASHING\020\t\0227\n3DELEGATION" +
+      "_STATE_WITHDRAWABLE_BY_UNBONDING_SLASHIN" +
+      "G\020\n\022\036\n\032DELEGATION_STATE_WITHDRAWN\020\013*m\n\017C" +
+      "antonUserRight\022\035\n\031CANTON_USER_RIGHT_INVA" +
+      "LID\020\000\022\035\n\031CANTON_USER_RIGHT_READ_AS\020\001\022\034\n\030" +
+      "CANTON_USER_RIGHT_ACT_AS\020\002BLZJgithub.com" +
+      "/GincoInc/gew-kmp/gen/gincoinc/adamant/g" +
+      "lobal/v1/adamantglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

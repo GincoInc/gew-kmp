@@ -261,6 +261,35 @@ func (m *Wallet) validate(all bool) error {
 
 	// no validation rules for BaseWalletId
 
+	if all {
+		switch v := interface{}(m.GetXrpAccountSettings()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, WalletValidationError{
+					field:  "XrpAccountSettings",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, WalletValidationError{
+					field:  "XrpAccountSettings",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetXrpAccountSettings()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return WalletValidationError{
+				field:  "XrpAccountSettings",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return WalletMultiError(errors)
 	}
@@ -337,6 +366,110 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = WalletValidationError{}
+
+// Validate checks the field values on XrpAccountSettings with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *XrpAccountSettings) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on XrpAccountSettings with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// XrpAccountSettingsMultiError, or nil if none found.
+func (m *XrpAccountSettings) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *XrpAccountSettings) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RequireDest
+
+	if len(errors) > 0 {
+		return XrpAccountSettingsMultiError(errors)
+	}
+
+	return nil
+}
+
+// XrpAccountSettingsMultiError is an error wrapping multiple validation errors
+// returned by XrpAccountSettings.ValidateAll() if the designated constraints
+// aren't met.
+type XrpAccountSettingsMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m XrpAccountSettingsMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m XrpAccountSettingsMultiError) AllErrors() []error { return m }
+
+// XrpAccountSettingsValidationError is the validation error returned by
+// XrpAccountSettings.Validate if the designated constraints aren't met.
+type XrpAccountSettingsValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e XrpAccountSettingsValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e XrpAccountSettingsValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e XrpAccountSettingsValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e XrpAccountSettingsValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e XrpAccountSettingsValidationError) ErrorName() string {
+	return "XrpAccountSettingsValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e XrpAccountSettingsValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sXrpAccountSettings.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = XrpAccountSettingsValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = XrpAccountSettingsValidationError{}
 
 // Validate checks the field values on WalletWithoutBalance with the rules
 // defined in the proto definition for this message. If any rules are
@@ -6708,6 +6841,10 @@ func (m *XrpSpecific) validate(all bool) error {
 
 	// no validation rules for TokenIssuer
 
+	// no validation rules for SetFlag
+
+	// no validation rules for ClearFlag
+
 	if len(errors) > 0 {
 		return XrpSpecificMultiError(errors)
 	}
@@ -12821,6 +12958,380 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CreateTransactionSolanaSpecificValidationError{}
+
+// Validate checks the field values on CreateTransactionXRPSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CreateTransactionXRPSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreateTransactionXRPSpecific with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CreateTransactionXRPSpecificMultiError, or nil if none found.
+func (m *CreateTransactionXRPSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateTransactionXRPSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	switch m.Action.(type) {
+
+	case *CreateTransactionXRPSpecific_Payment:
+
+		if all {
+			switch v := interface{}(m.GetPayment()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, CreateTransactionXRPSpecificValidationError{
+						field:  "Payment",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, CreateTransactionXRPSpecificValidationError{
+						field:  "Payment",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetPayment()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return CreateTransactionXRPSpecificValidationError{
+					field:  "Payment",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *CreateTransactionXRPSpecific_AccountSet:
+
+		if all {
+			switch v := interface{}(m.GetAccountSet()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, CreateTransactionXRPSpecificValidationError{
+						field:  "AccountSet",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, CreateTransactionXRPSpecificValidationError{
+						field:  "AccountSet",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetAccountSet()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return CreateTransactionXRPSpecificValidationError{
+					field:  "AccountSet",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return CreateTransactionXRPSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreateTransactionXRPSpecificMultiError is an error wrapping multiple
+// validation errors returned by CreateTransactionXRPSpecific.ValidateAll() if
+// the designated constraints aren't met.
+type CreateTransactionXRPSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTransactionXRPSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTransactionXRPSpecificMultiError) AllErrors() []error { return m }
+
+// CreateTransactionXRPSpecificValidationError is the validation error returned
+// by CreateTransactionXRPSpecific.Validate if the designated constraints
+// aren't met.
+type CreateTransactionXRPSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTransactionXRPSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTransactionXRPSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTransactionXRPSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTransactionXRPSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTransactionXRPSpecificValidationError) ErrorName() string {
+	return "CreateTransactionXRPSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CreateTransactionXRPSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTransactionXRPSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTransactionXRPSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTransactionXRPSpecificValidationError{}
+
+// Validate checks the field values on XRPPayment with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *XRPPayment) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on XRPPayment with the rules defined in
+// the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in XRPPaymentMultiError, or
+// nil if none found.
+func (m *XRPPayment) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *XRPPayment) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return XRPPaymentMultiError(errors)
+	}
+
+	return nil
+}
+
+// XRPPaymentMultiError is an error wrapping multiple validation errors
+// returned by XRPPayment.ValidateAll() if the designated constraints aren't met.
+type XRPPaymentMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m XRPPaymentMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m XRPPaymentMultiError) AllErrors() []error { return m }
+
+// XRPPaymentValidationError is the validation error returned by
+// XRPPayment.Validate if the designated constraints aren't met.
+type XRPPaymentValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e XRPPaymentValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e XRPPaymentValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e XRPPaymentValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e XRPPaymentValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e XRPPaymentValidationError) ErrorName() string { return "XRPPaymentValidationError" }
+
+// Error satisfies the builtin error interface
+func (e XRPPaymentValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sXRPPayment.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = XRPPaymentValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = XRPPaymentValidationError{}
+
+// Validate checks the field values on XRPAccountSet with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *XRPAccountSet) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on XRPAccountSet with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in XRPAccountSetMultiError, or
+// nil if none found.
+func (m *XRPAccountSet) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *XRPAccountSet) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Flag
+
+	if m.Enable != nil {
+		// no validation rules for Enable
+	}
+
+	if len(errors) > 0 {
+		return XRPAccountSetMultiError(errors)
+	}
+
+	return nil
+}
+
+// XRPAccountSetMultiError is an error wrapping multiple validation errors
+// returned by XRPAccountSet.ValidateAll() if the designated constraints
+// aren't met.
+type XRPAccountSetMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m XRPAccountSetMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m XRPAccountSetMultiError) AllErrors() []error { return m }
+
+// XRPAccountSetValidationError is the validation error returned by
+// XRPAccountSet.Validate if the designated constraints aren't met.
+type XRPAccountSetValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e XRPAccountSetValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e XRPAccountSetValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e XRPAccountSetValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e XRPAccountSetValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e XRPAccountSetValidationError) ErrorName() string { return "XRPAccountSetValidationError" }
+
+// Error satisfies the builtin error interface
+func (e XRPAccountSetValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sXRPAccountSet.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = XRPAccountSetValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = XRPAccountSetValidationError{}
 
 // Validate checks the field values on CreateTransactionAptosSpecific with the
 // rules defined in the proto definition for this message. If any rules are
