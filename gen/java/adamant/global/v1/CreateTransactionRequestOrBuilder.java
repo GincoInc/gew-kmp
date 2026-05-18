@@ -371,6 +371,21 @@ public interface CreateTransactionRequestOrBuilder extends
   adamant.global.v1.Model.CreateTransactionCantonSpecificOrBuilder getCantonSpecificOrBuilder();
 
   /**
+   * <code>.adamant.global.v1.CreateTransactionXRPSpecific xrp_specific = 28 [json_name = "xrpSpecific"];</code>
+   * @return Whether the xrpSpecific field is set.
+   */
+  boolean hasXrpSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionXRPSpecific xrp_specific = 28 [json_name = "xrpSpecific"];</code>
+   * @return The xrpSpecific.
+   */
+  adamant.global.v1.Model.CreateTransactionXRPSpecific getXrpSpecific();
+  /**
+   * <code>.adamant.global.v1.CreateTransactionXRPSpecific xrp_specific = 28 [json_name = "xrpSpecific"];</code>
+   */
+  adamant.global.v1.Model.CreateTransactionXRPSpecificOrBuilder getXrpSpecificOrBuilder();
+
+  /**
    * <code>optional string pre_transaction_id = 21 [json_name = "preTransactionId", (.validate.rules) = { ... }</code>
    * @return Whether the preTransactionId field is set.
    */

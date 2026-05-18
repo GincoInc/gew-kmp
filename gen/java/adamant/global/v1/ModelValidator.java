@@ -9,6 +9,7 @@ public class ModelValidator {
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		
 		if (clazz.equals(adamant.global.v1.Model.Wallet.class)) return new WalletValidator();
+		if (clazz.equals(adamant.global.v1.Model.XrpAccountSettings.class)) return new XrpAccountSettingsValidator();
 		if (clazz.equals(adamant.global.v1.Model.WalletWithoutBalance.class)) return new WalletWithoutBalanceValidator();
 		if (clazz.equals(adamant.global.v1.Model.StakingWallet.class)) return new StakingWalletValidator();
 		if (clazz.equals(adamant.global.v1.Model.NFTWallet.class)) return new NFTWalletValidator();
@@ -92,6 +93,9 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionAlgorandSpecific.class)) return new CreateTransactionAlgorandSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionHederaSpecific.class)) return new CreateTransactionHederaSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionSolanaSpecific.class)) return new CreateTransactionSolanaSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.CreateTransactionXRPSpecific.class)) return new CreateTransactionXRPSpecificValidator();
+		if (clazz.equals(adamant.global.v1.Model.XRPPayment.class)) return new XRPPaymentValidator();
+		if (clazz.equals(adamant.global.v1.Model.XRPAccountSet.class)) return new XRPAccountSetValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionAptosSpecific.class)) return new CreateTransactionAptosSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionAvalancheSpecific.class)) return new CreateTransactionAvalancheSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.CreateTransactionTonSpecific.class)) return new CreateTransactionTonSpecificValidator();
@@ -105,6 +109,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.SignInfo.class)) return new SignInfoValidator();
 		if (clazz.equals(adamant.global.v1.Model.SignTxInput.class)) return new SignTxInputValidator();
 		if (clazz.equals(adamant.global.v1.Model.Transfer.class)) return new TransferValidator();
+		if (clazz.equals(adamant.global.v1.Model.TransferCantonSpecific.class)) return new TransferCantonSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.TransferCosmosSpecific.class)) return new TransferCosmosSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.UncheckedTransfer.class)) return new UncheckedTransferValidator();
 		if (clazz.equals(adamant.global.v1.Model.EventTriggeredMessage.class)) return new EventTriggeredMessageValidator();
@@ -168,6 +173,8 @@ public class ModelValidator {
 	 * Validates {@code Wallet} protobuf objects.
 	 */
 	public static class WalletValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.Wallet> {
+		
+	
 		
 	
 		
@@ -293,6 +300,23 @@ public class ModelValidator {
 			// Validate update_time
 			if (proto.hasUpdateTime()) index.validatorFor(proto.getUpdateTime()).assertValid(proto.getUpdateTime());
 	// no validation rules for BaseWalletId
+
+	
+			// Validate xrp_account_settings
+			if (proto.hasXrpAccountSettings()) index.validatorFor(proto.getXrpAccountSettings()).assertValid(proto.getXrpAccountSettings());
+	
+	}
+}
+/**
+	 * Validates {@code XrpAccountSettings} protobuf objects.
+	 */
+	public static class XrpAccountSettingsValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.XrpAccountSettings> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.XrpAccountSettings proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for RequireDest
 
 	
 	}
@@ -2020,6 +2044,10 @@ public class ModelValidator {
 	
 		
 	
+		
+	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.XrpSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2036,6 +2064,10 @@ public class ModelValidator {
 	// no validation rules for TokenSymbol
 
 	// no validation rules for TokenIssuer
+
+	// no validation rules for SetFlag
+
+	// no validation rules for ClearFlag
 
 	
 	}
@@ -3518,6 +3550,59 @@ public class ModelValidator {
 	}
 }
 /**
+	 * Validates {@code CreateTransactionXRPSpecific} protobuf objects.
+	 */
+	public static class CreateTransactionXRPSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionXRPSpecific> {
+	
+		
+
+
+	
+
+	public void assertValid(adamant.global.v1.Model.CreateTransactionXRPSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	
+		
+			switch (proto.getActionCase()) {
+				case PAYMENT:
+					
+			// Validate payment
+			if (proto.hasPayment()) index.validatorFor(proto.getPayment()).assertValid(proto.getPayment());
+					break;
+				case ACCOUNT_SET:
+					
+			// Validate account_set
+			if (proto.hasAccountSet()) index.validatorFor(proto.getAccountSet()).assertValid(proto.getAccountSet());
+					break;
+				
+			}
+
+	}
+}
+/**
+	 * Validates {@code XRPPayment} protobuf objects.
+	 */
+	public static class XRPPaymentValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.XRPPayment> {
+	
+
+	public void assertValid(adamant.global.v1.Model.XRPPayment proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	
+	}
+}
+/**
+	 * Validates {@code XRPAccountSet} protobuf objects.
+	 */
+	public static class XRPAccountSetValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.XRPAccountSet> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.XRPAccountSet proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Flag
+
+	
+	}
+}
+/**
 	 * Validates {@code CreateTransactionAptosSpecific} protobuf objects.
 	 */
 	public static class CreateTransactionAptosSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CreateTransactionAptosSpecific> {
@@ -3987,6 +4072,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transfer proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -4042,6 +4129,23 @@ public class ModelValidator {
 	// no validation rules for StakingEventType
 
 	// no validation rules for Method
+
+	
+			// Validate canton_specific
+			if (proto.hasCantonSpecific()) index.validatorFor(proto.getCantonSpecific()).assertValid(proto.getCantonSpecific());
+	
+	}
+}
+/**
+	 * Validates {@code TransferCantonSpecific} protobuf objects.
+	 */
+	public static class TransferCantonSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.TransferCantonSpecific> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.TransferCantonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for TransactionId
 
 	
 	}

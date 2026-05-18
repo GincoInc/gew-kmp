@@ -33,6 +33,13 @@ class XRPTransactionType
      * Generated from protobuf enum <code>XRP_TRANSACTION_TYPE_TRUST_SET = 4;</code>
      */
     const XRP_TRANSACTION_TYPE_TRUST_SET = 4;
+    /**
+     * Multi-sig AccountSet operations after init (e.g. toggling asfRequireDest).
+     * DISABLE_MASTER is the legacy single-sig AccountSet specific to init.
+     *
+     * Generated from protobuf enum <code>XRP_TRANSACTION_TYPE_ACCOUNT_SET = 5;</code>
+     */
+    const XRP_TRANSACTION_TYPE_ACCOUNT_SET = 5;
 
     private static $valueToName = [
         self::XRP_TRANSACTION_TYPE_INVALID => 'XRP_TRANSACTION_TYPE_INVALID',
@@ -40,6 +47,7 @@ class XRPTransactionType
         self::XRP_TRANSACTION_TYPE_SET_SIGNER_LIST => 'XRP_TRANSACTION_TYPE_SET_SIGNER_LIST',
         self::XRP_TRANSACTION_TYPE_DISABLE_MASTER => 'XRP_TRANSACTION_TYPE_DISABLE_MASTER',
         self::XRP_TRANSACTION_TYPE_TRUST_SET => 'XRP_TRANSACTION_TYPE_TRUST_SET',
+        self::XRP_TRANSACTION_TYPE_ACCOUNT_SET => 'XRP_TRANSACTION_TYPE_ACCOUNT_SET',
     ];
 
     public static function name($value)

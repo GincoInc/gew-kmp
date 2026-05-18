@@ -606,6 +606,22 @@ enum IOSTActionType {
 }
 
 // -----------------------------------------------------------------------------
+// XRP Account Flag
+// -----------------------------------------------------------------------------
+
+// XRPAccountFlag is the API-level identifier for which AccountSet flag to
+// toggle on an XRP wallet. Numeric values are protobuf-internal and are NOT
+// guaranteed to match the underlying XRPL `asf*` constants — the mapping is
+// owned by treasurer. New entries SHOULD be assigned the next free proto enum
+// value, NOT the XRPL constant.
+enum XRPAccountFlag {
+  XRP_ACCOUNT_FLAG_INVALID = 0;
+  // asfRequireDest: incoming payments without DestinationTag are rejected
+  // by the XRPL ledger with tecDST_TAG_NEEDED.
+  XRP_ACCOUNT_FLAG_REQUIRE_DEST = 1;
+}
+
+// -----------------------------------------------------------------------------
 // BlacklistAddress
 // -----------------------------------------------------------------------------
 

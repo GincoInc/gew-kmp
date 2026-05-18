@@ -118,6 +118,10 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.teller.v1.TransferUpdateTonSpecific ton_specific = 26 [json_name = "tonSpecific"];</code>
      */
     protected $ton_specific = null;
+    /**
+     * Generated from protobuf field <code>.adamant.teller.v1.TransferUpdateCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     */
+    protected $canton_specific = null;
 
     /**
      * Constructor.
@@ -151,6 +155,7 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
      *     @type string $method
      *     @type int $network
      *     @type \Adamant\Teller\V1\TransferUpdateTonSpecific $ton_specific
+     *     @type \Adamant\Teller\V1\TransferUpdateCantonSpecific $canton_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -770,6 +775,38 @@ class TransferUpdated extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\Teller\V1\TransferUpdateTonSpecific::class);
         $this->ton_specific = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.teller.v1.TransferUpdateCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     * @return \Adamant\Teller\V1\TransferUpdateCantonSpecific|null
+     */
+    public function getCantonSpecific()
+    {
+        return $this->canton_specific;
+    }
+
+    public function hasCantonSpecific()
+    {
+        return isset($this->canton_specific);
+    }
+
+    public function clearCantonSpecific()
+    {
+        unset($this->canton_specific);
+    }
+
+    /**
+     * Generated from protobuf field <code>.adamant.teller.v1.TransferUpdateCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     * @param \Adamant\Teller\V1\TransferUpdateCantonSpecific $var
+     * @return $this
+     */
+    public function setCantonSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\Teller\V1\TransferUpdateCantonSpecific::class);
+        $this->canton_specific = $var;
 
         return $this;
     }

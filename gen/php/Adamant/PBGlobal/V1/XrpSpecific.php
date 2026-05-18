@@ -43,6 +43,19 @@ class XrpSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string token_issuer = 7 [json_name = "tokenIssuer"];</code>
      */
     protected $token_issuer = '';
+    /**
+     * AccountSet flag bits. Populated only when `tx_type` is
+     * `XRP_TRANSACTION_TYPE_ACCOUNT_SET`; zero for every other tx type.
+     * Clients reconstruct the AccountSet transaction from these fields to
+     * verify the multi-sig sighash before signing.
+     *
+     * Generated from protobuf field <code>uint32 set_flag = 8 [json_name = "setFlag"];</code>
+     */
+    protected $set_flag = 0;
+    /**
+     * Generated from protobuf field <code>uint32 clear_flag = 9 [json_name = "clearFlag"];</code>
+     */
+    protected $clear_flag = 0;
 
     /**
      * Constructor.
@@ -57,6 +70,12 @@ class XrpSpecific extends \Google\Protobuf\Internal\Message
      *     @type string $from_address
      *     @type string $token_symbol
      *     @type string $token_issuer
+     *     @type int $set_flag
+     *           AccountSet flag bits. Populated only when `tx_type` is
+     *           `XRP_TRANSACTION_TYPE_ACCOUNT_SET`; zero for every other tx type.
+     *           Clients reconstruct the AccountSet transaction from these fields to
+     *           verify the multi-sig sighash before signing.
+     *     @type int $clear_flag
      * }
      */
     public function __construct($data = NULL) {
@@ -214,6 +233,60 @@ class XrpSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->token_issuer = $var;
+
+        return $this;
+    }
+
+    /**
+     * AccountSet flag bits. Populated only when `tx_type` is
+     * `XRP_TRANSACTION_TYPE_ACCOUNT_SET`; zero for every other tx type.
+     * Clients reconstruct the AccountSet transaction from these fields to
+     * verify the multi-sig sighash before signing.
+     *
+     * Generated from protobuf field <code>uint32 set_flag = 8 [json_name = "setFlag"];</code>
+     * @return int
+     */
+    public function getSetFlag()
+    {
+        return $this->set_flag;
+    }
+
+    /**
+     * AccountSet flag bits. Populated only when `tx_type` is
+     * `XRP_TRANSACTION_TYPE_ACCOUNT_SET`; zero for every other tx type.
+     * Clients reconstruct the AccountSet transaction from these fields to
+     * verify the multi-sig sighash before signing.
+     *
+     * Generated from protobuf field <code>uint32 set_flag = 8 [json_name = "setFlag"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setSetFlag($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->set_flag = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 clear_flag = 9 [json_name = "clearFlag"];</code>
+     * @return int
+     */
+    public function getClearFlag()
+    {
+        return $this->clear_flag;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 clear_flag = 9 [json_name = "clearFlag"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setClearFlag($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->clear_flag = $var;
 
         return $this;
     }
