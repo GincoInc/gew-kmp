@@ -15112,6 +15112,35 @@ func (m *Transfer) validate(all bool) error {
 
 	// no validation rules for Method
 
+	if all {
+		switch v := interface{}(m.GetCantonSpecific()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, TransferValidationError{
+					field:  "CantonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, TransferValidationError{
+					field:  "CantonSpecific",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetCantonSpecific()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return TransferValidationError{
+				field:  "CantonSpecific",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return TransferMultiError(errors)
 	}
@@ -15188,6 +15217,110 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = TransferValidationError{}
+
+// Validate checks the field values on TransferCantonSpecific with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *TransferCantonSpecific) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on TransferCantonSpecific with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// TransferCantonSpecificMultiError, or nil if none found.
+func (m *TransferCantonSpecific) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *TransferCantonSpecific) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TransactionId
+
+	if len(errors) > 0 {
+		return TransferCantonSpecificMultiError(errors)
+	}
+
+	return nil
+}
+
+// TransferCantonSpecificMultiError is an error wrapping multiple validation
+// errors returned by TransferCantonSpecific.ValidateAll() if the designated
+// constraints aren't met.
+type TransferCantonSpecificMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m TransferCantonSpecificMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m TransferCantonSpecificMultiError) AllErrors() []error { return m }
+
+// TransferCantonSpecificValidationError is the validation error returned by
+// TransferCantonSpecific.Validate if the designated constraints aren't met.
+type TransferCantonSpecificValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TransferCantonSpecificValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TransferCantonSpecificValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TransferCantonSpecificValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TransferCantonSpecificValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TransferCantonSpecificValidationError) ErrorName() string {
+	return "TransferCantonSpecificValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e TransferCantonSpecificValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTransferCantonSpecific.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TransferCantonSpecificValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TransferCantonSpecificValidationError{}
 
 // Validate checks the field values on TransferCosmosSpecific with the rules
 // defined in the proto definition for this message. If any rules are

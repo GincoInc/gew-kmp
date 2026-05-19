@@ -9,6 +9,7 @@ public class EventValidator {
 	public static io.envoyproxy.pgv.ValidatorImpl validatorFor(Class clazz) {
 		
 		if (clazz.equals(adamant.teller.v1.Event.TransferUpdated.class)) return new TransferUpdatedValidator();
+		if (clazz.equals(adamant.teller.v1.Event.TransferUpdateCantonSpecific.class)) return new TransferUpdateCantonSpecificValidator();
 		if (clazz.equals(adamant.teller.v1.Event.TransferUpdateCosmosSpecific.class)) return new TransferUpdateCosmosSpecificValidator();
 		if (clazz.equals(adamant.teller.v1.Event.TransferUpdateSubstrateSpecific.class)) return new TransferUpdateSubstrateSpecificValidator();
 		if (clazz.equals(adamant.teller.v1.Event.TransferUpdateTonSpecific.class)) return new TransferUpdateTonSpecificValidator();
@@ -23,6 +24,8 @@ public class EventValidator {
 	 * Validates {@code TransferUpdated} protobuf objects.
 	 */
 	public static class TransferUpdatedValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.teller.v1.Event.TransferUpdated> {
+		
+	
 		
 	
 		
@@ -134,6 +137,23 @@ public class EventValidator {
 	
 			// Validate ton_specific
 			if (proto.hasTonSpecific()) index.validatorFor(proto.getTonSpecific()).assertValid(proto.getTonSpecific());
+	
+			// Validate canton_specific
+			if (proto.hasCantonSpecific()) index.validatorFor(proto.getCantonSpecific()).assertValid(proto.getCantonSpecific());
+	
+	}
+}
+/**
+	 * Validates {@code TransferUpdateCantonSpecific} protobuf objects.
+	 */
+	public static class TransferUpdateCantonSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.teller.v1.Event.TransferUpdateCantonSpecific> {
+		
+	
+	
+
+	public void assertValid(adamant.teller.v1.Event.TransferUpdateCantonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for TransactionId
+
 	
 	}
 }

@@ -1145,6 +1145,11 @@ message Transfer {
   TransferCosmosSpecific cosmos_specific = 23; // cosmos_specific
   gincoinc.global.v1.StakingEventType staking_event_type = 24; // staking_event_type
   string method = 25;
+  TransferCantonSpecific canton_specific = 27; // canton_specific
+}
+
+message TransferCantonSpecific {
+  string transaction_id = 1;
 }
 
 message TransferCosmosSpecific {

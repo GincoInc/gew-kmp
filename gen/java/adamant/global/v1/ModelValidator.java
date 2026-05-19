@@ -109,6 +109,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.SignInfo.class)) return new SignInfoValidator();
 		if (clazz.equals(adamant.global.v1.Model.SignTxInput.class)) return new SignTxInputValidator();
 		if (clazz.equals(adamant.global.v1.Model.Transfer.class)) return new TransferValidator();
+		if (clazz.equals(adamant.global.v1.Model.TransferCantonSpecific.class)) return new TransferCantonSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.TransferCosmosSpecific.class)) return new TransferCosmosSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.UncheckedTransfer.class)) return new UncheckedTransferValidator();
 		if (clazz.equals(adamant.global.v1.Model.EventTriggeredMessage.class)) return new EventTriggeredMessageValidator();
@@ -4071,6 +4072,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Transfer proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -4126,6 +4129,23 @@ public class ModelValidator {
 	// no validation rules for StakingEventType
 
 	// no validation rules for Method
+
+	
+			// Validate canton_specific
+			if (proto.hasCantonSpecific()) index.validatorFor(proto.getCantonSpecific()).assertValid(proto.getCantonSpecific());
+	
+	}
+}
+/**
+	 * Validates {@code TransferCantonSpecific} protobuf objects.
+	 */
+	public static class TransferCantonSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.TransferCantonSpecific> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.TransferCantonSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for TransactionId
 
 	
 	}

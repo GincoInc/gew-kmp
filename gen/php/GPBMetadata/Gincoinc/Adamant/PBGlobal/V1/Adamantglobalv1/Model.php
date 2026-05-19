@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-•Ñ
+∫Ö
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"ç
 
 Wallet
@@ -949,7 +949,7 @@ sign_index (R	signIndex5
 tx_input_index (RtxInputIndex!
 sign_message (	RsignMessage
 	hd_change (RhdChange
-hd_index (RhdIndex"ú
+hd_index (RhdIndex"
 Transfer
 	wallet_id (	RwalletId
 transfer_id (	R
@@ -980,7 +980,10 @@ createTime;
 updateTimeR
 cosmos_specific (2).adamant.global.v1.TransferCosmosSpecificRcosmosSpecificR
 staking_event_type (2$.gincoinc.global.v1.StakingEventTypeRstakingEventType
-method (	Rmethod"ù
+method (	RmethodR
+canton_specific (2).adamant.global.v1.TransferCantonSpecificRcantonSpecific"?
+TransferCantonSpecific%
+transaction_id (	RtransactionId"ù
 TransferCosmosSpecific5
 type (2!.gincoinc.global.v1.CosmosMsgTypeRtype\'
 delegate_amount (RdelegateAmount#
