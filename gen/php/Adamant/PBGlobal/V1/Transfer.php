@@ -163,6 +163,12 @@ class Transfer extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string method = 25 [json_name = "method"];</code>
      */
     protected $method = '';
+    /**
+     * canton_specific
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.TransferCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     */
+    protected $canton_specific = null;
 
     /**
      * Constructor.
@@ -219,6 +225,8 @@ class Transfer extends \Google\Protobuf\Internal\Message
      *     @type int $staking_event_type
      *           staking_event_type
      *     @type string $method
+     *     @type \Adamant\PBGlobal\V1\TransferCantonSpecific $canton_specific
+     *           canton_specific
      * }
      */
     public function __construct($data = NULL) {
@@ -898,6 +906,42 @@ class Transfer extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->method = $var;
+
+        return $this;
+    }
+
+    /**
+     * canton_specific
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.TransferCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\TransferCantonSpecific|null
+     */
+    public function getCantonSpecific()
+    {
+        return $this->canton_specific;
+    }
+
+    public function hasCantonSpecific()
+    {
+        return isset($this->canton_specific);
+    }
+
+    public function clearCantonSpecific()
+    {
+        unset($this->canton_specific);
+    }
+
+    /**
+     * canton_specific
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.TransferCantonSpecific canton_specific = 27 [json_name = "cantonSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\TransferCantonSpecific $var
+     * @return $this
+     */
+    public function setCantonSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\TransferCantonSpecific::class);
+        $this->canton_specific = $var;
 
         return $this;
     }

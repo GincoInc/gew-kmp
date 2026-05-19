@@ -35,6 +35,11 @@ message TransferUpdated {
   string method = 24;
   gincoinc.global.v1.Network network = 25;
   TransferUpdateTonSpecific ton_specific = 26;
+  TransferUpdateCantonSpecific canton_specific = 27;
+}
+
+message TransferUpdateCantonSpecific {
+  string transaction_id = 1;
 }
 
 message TransferUpdateCosmosSpecific {

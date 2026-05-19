@@ -20,8 +20,9 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-∞Ä
-6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"¥	
+∫Ö
+6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"ç
+
 Wallet
 owner_id (	RownerId
 	wallet_id (	RwalletId
@@ -56,7 +57,10 @@ watch_only (R	watchOnly%
 createTime;
 update_time (2.google.protobuf.TimestampR
 updateTime$
-base_wallet_id (	RbaseWalletId"®
+base_wallet_id (	RbaseWalletIdW
+xrp_account_settings (2%.adamant.global.v1.XrpAccountSettingsRxrpAccountSettings"7
+XrpAccountSettings!
+require_dest (RrequireDest"®
 WalletWithoutBalance
 owner_id (	RownerId
 	wallet_id (	RwalletId
@@ -465,7 +469,7 @@ expiration
 from_address (	RfromAddress#
 token_address	 (	RtokenAddress
 chain_id
- (RchainId"¿
+ (RchainId"˙
 XrpSpecific\'
 sequence_number (RsequenceNumber\'
 destination_tag (RdestinationTag?
@@ -473,7 +477,10 @@ expiration
 is_next_sequence_number (RisNextSequenceNumber!
 from_address (	RfromAddress!
 token_symbol (	RtokenSymbol!
-token_issuer (	RtokenIssuer"ä
+token_issuer (	RtokenIssuer
+set_flag (RsetFlag
+
+clear_flag	 (R	clearFlag"ä
 TronSpecific
 
 expiration (R
@@ -815,7 +822,18 @@ callMethodà(
 	timestamp (R	timestamp"e
 CreateTransactionSolanaSpecificB
 
-event_type (2#.gincoinc.global.v1.SolanaEventTypeR	eventType"T
+event_type (2#.gincoinc.global.v1.SolanaEventTypeR	eventType"®
+CreateTransactionXRPSpecific9
+payment (2.adamant.global.v1.XRPPaymentH RpaymentC
+account_set (2 .adamant.global.v1.XRPAccountSetH R
+accountSetB
+action"
+
+XRPPayment"n
+XRPAccountSet5
+flag (2!.adamant.global.v1.XRPAccountFlagRflag
+enable (H RenableàB	
+_enable"T
 CreateTransactionAptosSpecific#
 
 expiration (H R
@@ -931,7 +949,7 @@ sign_index (R	signIndex5
 tx_input_index (RtxInputIndex!
 sign_message (	RsignMessage
 	hd_change (RhdChange
-hd_index (RhdIndex"ú
+hd_index (RhdIndex"
 Transfer
 	wallet_id (	RwalletId
 transfer_id (	R
@@ -962,7 +980,10 @@ createTime;
 updateTimeR
 cosmos_specific (2).adamant.global.v1.TransferCosmosSpecificRcosmosSpecificR
 staking_event_type (2$.gincoinc.global.v1.StakingEventTypeRstakingEventType
-method (	Rmethod"ù
+method (	RmethodR
+canton_specific (2).adamant.global.v1.TransferCantonSpecificRcantonSpecific"?
+TransferCantonSpecific%
+transaction_id (	RtransactionId"ù
 TransferCosmosSpecific5
 type (2!.gincoinc.global.v1.CosmosMsgTypeRtype\'
 delegate_amount (RdelegateAmount#
