@@ -103,3 +103,5 @@ Temporary Items
 .apdisk
 
 bin/
+
+.private.note.md
