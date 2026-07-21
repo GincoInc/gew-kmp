@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private GetWalletGroupRequest() {
     walletGroupId_ = "";
+    organizationId_ = "";
   }
 
   @java.lang.Override
@@ -78,6 +79,45 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int ORGANIZATION_ID_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object organizationId_ = "";
+  /**
+   * <code>string organization_id = 2 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+   * @return The organizationId.
+   */
+  @java.lang.Override
+  public java.lang.String getOrganizationId() {
+    java.lang.Object ref = organizationId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      organizationId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string organization_id = 2 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+   * @return The bytes for organizationId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getOrganizationIdBytes() {
+    java.lang.Object ref = organizationId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      organizationId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -95,6 +135,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletGroupId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, walletGroupId_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(organizationId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, organizationId_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -106,6 +149,9 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(walletGroupId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, walletGroupId_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(organizationId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, organizationId_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -124,6 +170,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getWalletGroupId()
         .equals(other.getWalletGroupId())) return false;
+    if (!getOrganizationId()
+        .equals(other.getOrganizationId())) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -137,6 +185,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + WALLET_GROUP_ID_FIELD_NUMBER;
     hash = (53 * hash) + getWalletGroupId().hashCode();
+    hash = (37 * hash) + ORGANIZATION_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getOrganizationId().hashCode();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -269,6 +319,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       bitField0_ = 0;
       walletGroupId_ = "";
+      organizationId_ = "";
       return this;
     }
 
@@ -304,6 +355,9 @@ private static final long serialVersionUID = 0L;
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.walletGroupId_ = walletGroupId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.organizationId_ = organizationId_;
       }
     }
 
@@ -356,6 +410,11 @@ private static final long serialVersionUID = 0L;
         bitField0_ |= 0x00000001;
         onChanged();
       }
+      if (!other.getOrganizationId().isEmpty()) {
+        organizationId_ = other.organizationId_;
+        bitField0_ |= 0x00000002;
+        onChanged();
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -387,6 +446,11 @@ private static final long serialVersionUID = 0L;
               bitField0_ |= 0x00000001;
               break;
             } // case 10
+            case 18: {
+              organizationId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -472,6 +536,78 @@ private static final long serialVersionUID = 0L;
       checkByteStringIsUtf8(value);
       walletGroupId_ = value;
       bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object organizationId_ = "";
+    /**
+     * <code>string organization_id = 2 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+     * @return The organizationId.
+     */
+    public java.lang.String getOrganizationId() {
+      java.lang.Object ref = organizationId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        organizationId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string organization_id = 2 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+     * @return The bytes for organizationId.
+     */
+    public com.google.protobuf.ByteString
+        getOrganizationIdBytes() {
+      java.lang.Object ref = organizationId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        organizationId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string organization_id = 2 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+     * @param value The organizationId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrganizationId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      organizationId_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string organization_id = 2 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOrganizationId() {
+      organizationId_ = getDefaultInstance().getOrganizationId();
+      bitField0_ = (bitField0_ & ~0x00000002);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string organization_id = 2 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+     * @param value The bytes for organizationId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrganizationIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      organizationId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }

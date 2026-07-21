@@ -18,4 +18,16 @@ public interface GetWalletGroupRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getWalletGroupIdBytes();
+
+  /**
+   * <code>string organization_id = 2 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+   * @return The organizationId.
+   */
+  java.lang.String getOrganizationId();
+  /**
+   * <code>string organization_id = 2 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+   * @return The bytes for organizationId.
+   */
+  com.google.protobuf.ByteString
+      getOrganizationIdBytes();
 }

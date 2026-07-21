@@ -6014,6 +6014,17 @@ func (m *GetWalletGroupRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
+	if !_GetWalletGroupRequest_OrganizationId_Pattern.MatchString(m.GetOrganizationId()) {
+		err := GetWalletGroupRequestValidationError{
+			field:  "OrganizationId",
+			reason: "value does not match regex pattern \"^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
 	if len(errors) > 0 {
 		return GetWalletGroupRequestMultiError(errors)
 	}
@@ -6095,6 +6106,8 @@ var _ interface {
 } = GetWalletGroupRequestValidationError{}
 
 var _GetWalletGroupRequest_WalletGroupId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _GetWalletGroupRequest_OrganizationId_Pattern = regexp.MustCompile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
 // Validate checks the field values on ListWalletGroupsRequest with the rules
 // defined in the proto definition for this message. If any rules are

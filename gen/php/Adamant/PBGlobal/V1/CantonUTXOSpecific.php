@@ -27,6 +27,12 @@ class CantonUTXOSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string value = 3 [json_name = "value"];</code>
      */
     protected $value = '';
+    /**
+     * The Amulet contract id (consume key / unique key)
+     *
+     * Generated from protobuf field <code>string contract_id = 4 [json_name = "contractId"];</code>
+     */
+    protected $contract_id = '';
 
     /**
      * Constructor.
@@ -37,6 +43,8 @@ class CantonUTXOSpecific extends \Google\Protobuf\Internal\Message
      *     @type int|string $round
      *     @type string $rate_per_round
      *     @type string $value
+     *     @type string $contract_id
+     *           The Amulet contract id (consume key / unique key)
      * }
      */
     public function __construct($data = NULL) {
@@ -106,6 +114,32 @@ class CantonUTXOSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->value = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Amulet contract id (consume key / unique key)
+     *
+     * Generated from protobuf field <code>string contract_id = 4 [json_name = "contractId"];</code>
+     * @return string
+     */
+    public function getContractId()
+    {
+        return $this->contract_id;
+    }
+
+    /**
+     * The Amulet contract id (consume key / unique key)
+     *
+     * Generated from protobuf field <code>string contract_id = 4 [json_name = "contractId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setContractId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->contract_id = $var;
 
         return $this;
     }
