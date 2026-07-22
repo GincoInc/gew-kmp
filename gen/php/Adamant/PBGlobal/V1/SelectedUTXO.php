@@ -23,6 +23,12 @@ class SelectedUTXO extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint32 vout = 2 [json_name = "vout"];</code>
      */
     protected $vout = 0;
+    /**
+     * Canton: the Amulet contract id used as consume key
+     *
+     * Generated from protobuf field <code>string contract_id = 3 [json_name = "contractId"];</code>
+     */
+    protected $contract_id = '';
 
     /**
      * Constructor.
@@ -32,6 +38,8 @@ class SelectedUTXO extends \Google\Protobuf\Internal\Message
      *
      *     @type string $tx_id
      *     @type int $vout
+     *     @type string $contract_id
+     *           Canton: the Amulet contract id used as consume key
      * }
      */
     public function __construct($data = NULL) {
@@ -79,6 +87,32 @@ class SelectedUTXO extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->vout = $var;
+
+        return $this;
+    }
+
+    /**
+     * Canton: the Amulet contract id used as consume key
+     *
+     * Generated from protobuf field <code>string contract_id = 3 [json_name = "contractId"];</code>
+     * @return string
+     */
+    public function getContractId()
+    {
+        return $this->contract_id;
+    }
+
+    /**
+     * Canton: the Amulet contract id used as consume key
+     *
+     * Generated from protobuf field <code>string contract_id = 3 [json_name = "contractId"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setContractId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->contract_id = $var;
 
         return $this;
     }

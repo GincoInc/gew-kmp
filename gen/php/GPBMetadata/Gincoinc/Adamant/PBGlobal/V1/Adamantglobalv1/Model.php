@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-∫Ö
+äá
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"ç
 
 Wallet
@@ -334,7 +334,7 @@ account_id (	R	accountIdA
 email (	Remail/
 role (2.adamant.global.v1.RoleTypeRrole
 signed (Rsigned
-	validated (R	validated"º
+	validated (R	validated"è
 TxInput
 tx_id (	RtxId
 tx_index (RtxIndex
@@ -345,7 +345,12 @@ account_id (	R	accountIdA
 witness_script (	RwitnessScript
 
 n_sequence (R	nSequenceB
-address_type	 (2.gincoinc.global.v1.AddressTypeRaddressType"¢
+address_type	 (2.gincoinc.global.v1.AddressTypeRaddressTypeQ
+canton_specific
+ (2(.adamant.global.v1.CantonTxInputSpecificRcantonSpecific"8
+CantonTxInputSpecific
+contract_id (	R
+contractId"¢
 TxOutput
 address (	Raddress
 value (Rvalue!
@@ -420,11 +425,13 @@ babylonPop"T
 tokens (2%.adamant.global.v1.CardanoCustomTokenRtokens"`
 "AvalanchePlatformChainUTXOSpecific
 	threshold (R	threshold
-	addresses (	R	addresses"f
+	addresses (	R	addresses"á
 CantonUTXOSpecific
 round (Rround$
 rate_per_round (	RratePerRound
-value (	Rvalue"f
+value (	Rvalue
+contract_id (	R
+contractId"f
 CardanoCustomToken
 	policy_id (	RpolicyId
 
@@ -863,10 +870,12 @@ expiration
 StakingSpecific
 
 start_time (R	startTime
-end_time (RendTime"7
+end_time (RendTime"X
 SelectedUTXO
 tx_id (	RtxId
-vout (Rvout"ÿ
+vout (Rvout
+contract_id (	R
+contractId"ÿ
 SubstrateMultisigTransaction
 	wallet_id (	RwalletId%
 transaction_id (	RtransactionIdI

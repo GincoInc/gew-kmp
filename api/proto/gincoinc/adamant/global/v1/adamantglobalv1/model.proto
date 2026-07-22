@@ -357,6 +357,12 @@ message TxInput {
   string witness_script = 7;
   uint32 n_sequence = 8;
   gincoinc.global.v1.AddressType address_type = 9;
+  CantonTxInputSpecific canton_specific = 10; // The Canton specific fields
+}
+
+// The model of Canton specific fields of transaction input
+message CantonTxInputSpecific {
+  string contract_id = 1; // The Amulet contract id
 }
 
 // The model of transaction output
@@ -455,6 +461,7 @@ message CantonUTXOSpecific {
   int64 round = 1;
   string rate_per_round = 2;
   string value = 3;
+  string contract_id = 4; // The Amulet contract id (consume key / unique key)
 }
 
 // The model of Cardano custom token
@@ -1031,6 +1038,7 @@ message StakingSpecific {
 message SelectedUTXO {
   string tx_id = 1;
   uint32 vout = 2;
+  string contract_id = 3; // Canton: the Amulet contract id used as consume key
 }
 
 // The model of substrate multisig transaction

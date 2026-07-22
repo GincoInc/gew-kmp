@@ -17,6 +17,10 @@ class GetWalletGroupRequest extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string wallet_group_id = 1 [json_name = "walletGroupId", (.validate.rules) = {</code>
      */
     protected $wallet_group_id = '';
+    /**
+     * Generated from protobuf field <code>string organization_id = 2 [json_name = "organizationId", (.validate.rules) = {</code>
+     */
+    protected $organization_id = '';
 
     /**
      * Constructor.
@@ -25,6 +29,7 @@ class GetWalletGroupRequest extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $wallet_group_id
+     *     @type string $organization_id
      * }
      */
     public function __construct($data = NULL) {
@@ -50,6 +55,28 @@ class GetWalletGroupRequest extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->wallet_group_id = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string organization_id = 2 [json_name = "organizationId", (.validate.rules) = {</code>
+     * @return string
+     */
+    public function getOrganizationId()
+    {
+        return $this->organization_id;
+    }
+
+    /**
+     * Generated from protobuf field <code>string organization_id = 2 [json_name = "organizationId", (.validate.rules) = {</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setOrganizationId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->organization_id = $var;
 
         return $this;
     }

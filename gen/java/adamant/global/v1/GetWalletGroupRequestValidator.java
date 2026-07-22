@@ -17,11 +17,16 @@ public class GetWalletGroupRequestValidator implements io.envoyproxy.pgv.Validat
 		
 		com.google.re2j.Pattern WALLET_GROUP_ID__PATTERN = com.google.re2j.Pattern.compile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
 	
+		
+		com.google.re2j.Pattern ORGANIZATION_ID__PATTERN = com.google.re2j.Pattern.compile("^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
+	
 	
 
 	public void assertValid(adamant.global.v1.GetWalletGroupRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.GetWalletGroupRequest.wallet_group_id", proto.getWalletGroupId(), WALLET_GROUP_ID__PATTERN);
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.global.v1.GetWalletGroupRequest.organization_id", proto.getOrganizationId(), ORGANIZATION_ID__PATTERN);
 	
 	}
 

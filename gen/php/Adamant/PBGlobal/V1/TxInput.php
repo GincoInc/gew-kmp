@@ -51,6 +51,12 @@ class TxInput extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.gincoinc.global.v1.AddressType address_type = 9 [json_name = "addressType"];</code>
      */
     protected $address_type = 0;
+    /**
+     * The Canton specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CantonTxInputSpecific canton_specific = 10 [json_name = "cantonSpecific"];</code>
+     */
+    protected $canton_specific = null;
 
     /**
      * Constructor.
@@ -67,6 +73,8 @@ class TxInput extends \Google\Protobuf\Internal\Message
      *     @type string $witness_script
      *     @type int $n_sequence
      *     @type int $address_type
+     *     @type \Adamant\PBGlobal\V1\CantonTxInputSpecific $canton_specific
+     *           The Canton specific fields
      * }
      */
     public function __construct($data = NULL) {
@@ -268,6 +276,42 @@ class TxInput extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\AddressType::class);
         $this->address_type = $var;
+
+        return $this;
+    }
+
+    /**
+     * The Canton specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CantonTxInputSpecific canton_specific = 10 [json_name = "cantonSpecific"];</code>
+     * @return \Adamant\PBGlobal\V1\CantonTxInputSpecific|null
+     */
+    public function getCantonSpecific()
+    {
+        return $this->canton_specific;
+    }
+
+    public function hasCantonSpecific()
+    {
+        return isset($this->canton_specific);
+    }
+
+    public function clearCantonSpecific()
+    {
+        unset($this->canton_specific);
+    }
+
+    /**
+     * The Canton specific fields
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CantonTxInputSpecific canton_specific = 10 [json_name = "cantonSpecific"];</code>
+     * @param \Adamant\PBGlobal\V1\CantonTxInputSpecific $var
+     * @return $this
+     */
+    public function setCantonSpecific($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\CantonTxInputSpecific::class);
+        $this->canton_specific = $var;
 
         return $this;
     }

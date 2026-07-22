@@ -28,6 +28,7 @@ public class ModelValidator {
 		if (clazz.equals(adamant.global.v1.Model.UnconfirmedTransaction.class)) return new UnconfirmedTransactionValidator();
 		if (clazz.equals(adamant.global.v1.Model.TransactionMember.class)) return new TransactionMemberValidator();
 		if (clazz.equals(adamant.global.v1.Model.TxInput.class)) return new TxInputValidator();
+		if (clazz.equals(adamant.global.v1.Model.CantonTxInputSpecific.class)) return new CantonTxInputSpecificValidator();
 		if (clazz.equals(adamant.global.v1.Model.TxOutput.class)) return new TxOutputValidator();
 		if (clazz.equals(adamant.global.v1.Model.UTXO.class)) return new UTXOValidator();
 		if (clazz.equals(adamant.global.v1.Model.BitcoinDelegation.class)) return new BitcoinDelegationValidator();
@@ -1465,6 +1466,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.TxInput proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1485,6 +1488,23 @@ public class ModelValidator {
 	// no validation rules for NSequence
 
 	// no validation rules for AddressType
+
+	
+			// Validate canton_specific
+			if (proto.hasCantonSpecific()) index.validatorFor(proto.getCantonSpecific()).assertValid(proto.getCantonSpecific());
+	
+	}
+}
+/**
+	 * Validates {@code CantonTxInputSpecific} protobuf objects.
+	 */
+	public static class CantonTxInputSpecificValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.CantonTxInputSpecific> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.CantonTxInputSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for ContractId
 
 	
 	}
@@ -1838,6 +1858,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.CantonUTXOSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -1846,6 +1868,8 @@ public class ModelValidator {
 	// no validation rules for RatePerRound
 
 	// no validation rules for Value
+
+	// no validation rules for ContractId
 
 	
 	}
@@ -3708,12 +3732,16 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.SelectedUTXO proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for TxId
 
 	// no validation rules for Vout
+
+	// no validation rules for ContractId
 
 	
 	}
