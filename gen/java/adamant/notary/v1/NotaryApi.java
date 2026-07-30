@@ -27,6 +27,17 @@ public final class NotaryApi {
      * <code>KEY_USAGE_MESSAGE_SIGNING = 1;</code>
      */
     KEY_USAGE_MESSAGE_SIGNING(1),
+    /**
+     * <pre>
+     * Per-request signing key registered by service accounts (currently
+     * used by customer-hosted teller instances). Isolated from the
+     * User-path MESSAGE_SIGNING keys: the active-key limit and the nonce
+     * space are both counted per usage.
+     * </pre>
+     *
+     * <code>KEY_USAGE_SERVICE_ACCOUNT_MESSAGE_SIGNING = 2;</code>
+     */
+    KEY_USAGE_SERVICE_ACCOUNT_MESSAGE_SIGNING(2),
     UNRECOGNIZED(-1),
     ;
 
@@ -38,6 +49,17 @@ public final class NotaryApi {
      * <code>KEY_USAGE_MESSAGE_SIGNING = 1;</code>
      */
     public static final int KEY_USAGE_MESSAGE_SIGNING_VALUE = 1;
+    /**
+     * <pre>
+     * Per-request signing key registered by service accounts (currently
+     * used by customer-hosted teller instances). Isolated from the
+     * User-path MESSAGE_SIGNING keys: the active-key limit and the nonce
+     * space are both counted per usage.
+     * </pre>
+     *
+     * <code>KEY_USAGE_SERVICE_ACCOUNT_MESSAGE_SIGNING = 2;</code>
+     */
+    public static final int KEY_USAGE_SERVICE_ACCOUNT_MESSAGE_SIGNING_VALUE = 2;
 
 
     public final int getNumber() {
@@ -66,6 +88,7 @@ public final class NotaryApi {
       switch (value) {
         case 0: return KEY_USAGE_INVALID;
         case 1: return KEY_USAGE_MESSAGE_SIGNING;
+        case 2: return KEY_USAGE_SERVICE_ACCOUNT_MESSAGE_SIGNING;
         default: return null;
       }
     }
@@ -6885,6 +6908,1421 @@ public final class NotaryApi {
 
   }
 
+  public interface GetSigningEnforcementRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:adamant.notary.v1.GetSigningEnforcementRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string organization_id = 1 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+     * @return The organizationId.
+     */
+    java.lang.String getOrganizationId();
+    /**
+     * <code>string organization_id = 1 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+     * @return The bytes for organizationId.
+     */
+    com.google.protobuf.ByteString
+        getOrganizationIdBytes();
+
+    /**
+     * <code>.adamant.notary.v1.KeyUsage key_usage = 2 [json_name = "keyUsage", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for keyUsage.
+     */
+    int getKeyUsageValue();
+    /**
+     * <code>.adamant.notary.v1.KeyUsage key_usage = 2 [json_name = "keyUsage", (.validate.rules) = { ... }</code>
+     * @return The keyUsage.
+     */
+    adamant.notary.v1.NotaryApi.KeyUsage getKeyUsage();
+  }
+  /**
+   * Protobuf type {@code adamant.notary.v1.GetSigningEnforcementRequest}
+   */
+  public static final class GetSigningEnforcementRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:adamant.notary.v1.GetSigningEnforcementRequest)
+      GetSigningEnforcementRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetSigningEnforcementRequest.newBuilder() to construct.
+    private GetSigningEnforcementRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetSigningEnforcementRequest() {
+      organizationId_ = "";
+      keyUsage_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetSigningEnforcementRequest();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return adamant.notary.v1.NotaryApi.internal_static_adamant_notary_v1_GetSigningEnforcementRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return adamant.notary.v1.NotaryApi.internal_static_adamant_notary_v1_GetSigningEnforcementRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest.class, adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest.Builder.class);
+    }
+
+    public static final int ORGANIZATION_ID_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object organizationId_ = "";
+    /**
+     * <code>string organization_id = 1 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+     * @return The organizationId.
+     */
+    @java.lang.Override
+    public java.lang.String getOrganizationId() {
+      java.lang.Object ref = organizationId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        organizationId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string organization_id = 1 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+     * @return The bytes for organizationId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getOrganizationIdBytes() {
+      java.lang.Object ref = organizationId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        organizationId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int KEY_USAGE_FIELD_NUMBER = 2;
+    private int keyUsage_ = 0;
+    /**
+     * <code>.adamant.notary.v1.KeyUsage key_usage = 2 [json_name = "keyUsage", (.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for keyUsage.
+     */
+    @java.lang.Override public int getKeyUsageValue() {
+      return keyUsage_;
+    }
+    /**
+     * <code>.adamant.notary.v1.KeyUsage key_usage = 2 [json_name = "keyUsage", (.validate.rules) = { ... }</code>
+     * @return The keyUsage.
+     */
+    @java.lang.Override public adamant.notary.v1.NotaryApi.KeyUsage getKeyUsage() {
+      adamant.notary.v1.NotaryApi.KeyUsage result = adamant.notary.v1.NotaryApi.KeyUsage.forNumber(keyUsage_);
+      return result == null ? adamant.notary.v1.NotaryApi.KeyUsage.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(organizationId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, organizationId_);
+      }
+      if (keyUsage_ != adamant.notary.v1.NotaryApi.KeyUsage.KEY_USAGE_INVALID.getNumber()) {
+        output.writeEnum(2, keyUsage_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(organizationId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, organizationId_);
+      }
+      if (keyUsage_ != adamant.notary.v1.NotaryApi.KeyUsage.KEY_USAGE_INVALID.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, keyUsage_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest)) {
+        return super.equals(obj);
+      }
+      adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest other = (adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest) obj;
+
+      if (!getOrganizationId()
+          .equals(other.getOrganizationId())) return false;
+      if (keyUsage_ != other.keyUsage_) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ORGANIZATION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getOrganizationId().hashCode();
+      hash = (37 * hash) + KEY_USAGE_FIELD_NUMBER;
+      hash = (53 * hash) + keyUsage_;
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code adamant.notary.v1.GetSigningEnforcementRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:adamant.notary.v1.GetSigningEnforcementRequest)
+        adamant.notary.v1.NotaryApi.GetSigningEnforcementRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return adamant.notary.v1.NotaryApi.internal_static_adamant_notary_v1_GetSigningEnforcementRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return adamant.notary.v1.NotaryApi.internal_static_adamant_notary_v1_GetSigningEnforcementRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest.class, adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest.Builder.class);
+      }
+
+      // Construct using adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        organizationId_ = "";
+        keyUsage_ = 0;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return adamant.notary.v1.NotaryApi.internal_static_adamant_notary_v1_GetSigningEnforcementRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest getDefaultInstanceForType() {
+        return adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest build() {
+        adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest buildPartial() {
+        adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest result = new adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.organizationId_ = organizationId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.keyUsage_ = keyUsage_;
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest) {
+          return mergeFrom((adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest other) {
+        if (other == adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest.getDefaultInstance()) return this;
+        if (!other.getOrganizationId().isEmpty()) {
+          organizationId_ = other.organizationId_;
+          bitField0_ |= 0x00000001;
+          onChanged();
+        }
+        if (other.keyUsage_ != 0) {
+          setKeyUsageValue(other.getKeyUsageValue());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                organizationId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                keyUsage_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object organizationId_ = "";
+      /**
+       * <code>string organization_id = 1 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+       * @return The organizationId.
+       */
+      public java.lang.String getOrganizationId() {
+        java.lang.Object ref = organizationId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          organizationId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string organization_id = 1 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+       * @return The bytes for organizationId.
+       */
+      public com.google.protobuf.ByteString
+          getOrganizationIdBytes() {
+        java.lang.Object ref = organizationId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          organizationId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string organization_id = 1 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+       * @param value The organizationId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrganizationId(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        organizationId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string organization_id = 1 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOrganizationId() {
+        organizationId_ = getDefaultInstance().getOrganizationId();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string organization_id = 1 [json_name = "organizationId", (.validate.rules) = { ... }</code>
+       * @param value The bytes for organizationId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOrganizationIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        organizationId_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+
+      private int keyUsage_ = 0;
+      /**
+       * <code>.adamant.notary.v1.KeyUsage key_usage = 2 [json_name = "keyUsage", (.validate.rules) = { ... }</code>
+       * @return The enum numeric value on the wire for keyUsage.
+       */
+      @java.lang.Override public int getKeyUsageValue() {
+        return keyUsage_;
+      }
+      /**
+       * <code>.adamant.notary.v1.KeyUsage key_usage = 2 [json_name = "keyUsage", (.validate.rules) = { ... }</code>
+       * @param value The enum numeric value on the wire for keyUsage to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKeyUsageValue(int value) {
+        keyUsage_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.adamant.notary.v1.KeyUsage key_usage = 2 [json_name = "keyUsage", (.validate.rules) = { ... }</code>
+       * @return The keyUsage.
+       */
+      @java.lang.Override
+      public adamant.notary.v1.NotaryApi.KeyUsage getKeyUsage() {
+        adamant.notary.v1.NotaryApi.KeyUsage result = adamant.notary.v1.NotaryApi.KeyUsage.forNumber(keyUsage_);
+        return result == null ? adamant.notary.v1.NotaryApi.KeyUsage.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.adamant.notary.v1.KeyUsage key_usage = 2 [json_name = "keyUsage", (.validate.rules) = { ... }</code>
+       * @param value The keyUsage to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKeyUsage(adamant.notary.v1.NotaryApi.KeyUsage value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        keyUsage_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.adamant.notary.v1.KeyUsage key_usage = 2 [json_name = "keyUsage", (.validate.rules) = { ... }</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearKeyUsage() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        keyUsage_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:adamant.notary.v1.GetSigningEnforcementRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:adamant.notary.v1.GetSigningEnforcementRequest)
+    private static final adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest();
+    }
+
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetSigningEnforcementRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetSigningEnforcementRequest>() {
+      @java.lang.Override
+      public GetSigningEnforcementRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetSigningEnforcementRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetSigningEnforcementRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetSigningEnforcementResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:adamant.notary.v1.GetSigningEnforcementResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * True once the organization has registered at least one key of the
+     * usage. Never reverts to false automatically.
+     * </pre>
+     *
+     * <code>bool enforced = 1 [json_name = "enforced"];</code>
+     * @return The enforced.
+     */
+    boolean getEnforced();
+
+    /**
+     * <pre>
+     * Set when enforced is true.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp enabled_at = 2 [json_name = "enabledAt"];</code>
+     * @return Whether the enabledAt field is set.
+     */
+    boolean hasEnabledAt();
+    /**
+     * <pre>
+     * Set when enforced is true.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp enabled_at = 2 [json_name = "enabledAt"];</code>
+     * @return The enabledAt.
+     */
+    com.google.protobuf.Timestamp getEnabledAt();
+    /**
+     * <pre>
+     * Set when enforced is true.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp enabled_at = 2 [json_name = "enabledAt"];</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getEnabledAtOrBuilder();
+  }
+  /**
+   * Protobuf type {@code adamant.notary.v1.GetSigningEnforcementResponse}
+   */
+  public static final class GetSigningEnforcementResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:adamant.notary.v1.GetSigningEnforcementResponse)
+      GetSigningEnforcementResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetSigningEnforcementResponse.newBuilder() to construct.
+    private GetSigningEnforcementResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetSigningEnforcementResponse() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetSigningEnforcementResponse();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return adamant.notary.v1.NotaryApi.internal_static_adamant_notary_v1_GetSigningEnforcementResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return adamant.notary.v1.NotaryApi.internal_static_adamant_notary_v1_GetSigningEnforcementResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse.class, adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse.Builder.class);
+    }
+
+    public static final int ENFORCED_FIELD_NUMBER = 1;
+    private boolean enforced_ = false;
+    /**
+     * <pre>
+     * True once the organization has registered at least one key of the
+     * usage. Never reverts to false automatically.
+     * </pre>
+     *
+     * <code>bool enforced = 1 [json_name = "enforced"];</code>
+     * @return The enforced.
+     */
+    @java.lang.Override
+    public boolean getEnforced() {
+      return enforced_;
+    }
+
+    public static final int ENABLED_AT_FIELD_NUMBER = 2;
+    private com.google.protobuf.Timestamp enabledAt_;
+    /**
+     * <pre>
+     * Set when enforced is true.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp enabled_at = 2 [json_name = "enabledAt"];</code>
+     * @return Whether the enabledAt field is set.
+     */
+    @java.lang.Override
+    public boolean hasEnabledAt() {
+      return enabledAt_ != null;
+    }
+    /**
+     * <pre>
+     * Set when enforced is true.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp enabled_at = 2 [json_name = "enabledAt"];</code>
+     * @return The enabledAt.
+     */
+    @java.lang.Override
+    public com.google.protobuf.Timestamp getEnabledAt() {
+      return enabledAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : enabledAt_;
+    }
+    /**
+     * <pre>
+     * Set when enforced is true.
+     * </pre>
+     *
+     * <code>.google.protobuf.Timestamp enabled_at = 2 [json_name = "enabledAt"];</code>
+     */
+    @java.lang.Override
+    public com.google.protobuf.TimestampOrBuilder getEnabledAtOrBuilder() {
+      return enabledAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : enabledAt_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (enforced_ != false) {
+        output.writeBool(1, enforced_);
+      }
+      if (enabledAt_ != null) {
+        output.writeMessage(2, getEnabledAt());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (enforced_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, enforced_);
+      }
+      if (enabledAt_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getEnabledAt());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse)) {
+        return super.equals(obj);
+      }
+      adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse other = (adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse) obj;
+
+      if (getEnforced()
+          != other.getEnforced()) return false;
+      if (hasEnabledAt() != other.hasEnabledAt()) return false;
+      if (hasEnabledAt()) {
+        if (!getEnabledAt()
+            .equals(other.getEnabledAt())) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ENFORCED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getEnforced());
+      if (hasEnabledAt()) {
+        hash = (37 * hash) + ENABLED_AT_FIELD_NUMBER;
+        hash = (53 * hash) + getEnabledAt().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code adamant.notary.v1.GetSigningEnforcementResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:adamant.notary.v1.GetSigningEnforcementResponse)
+        adamant.notary.v1.NotaryApi.GetSigningEnforcementResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return adamant.notary.v1.NotaryApi.internal_static_adamant_notary_v1_GetSigningEnforcementResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return adamant.notary.v1.NotaryApi.internal_static_adamant_notary_v1_GetSigningEnforcementResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse.class, adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse.Builder.class);
+      }
+
+      // Construct using adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        enforced_ = false;
+        enabledAt_ = null;
+        if (enabledAtBuilder_ != null) {
+          enabledAtBuilder_.dispose();
+          enabledAtBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return adamant.notary.v1.NotaryApi.internal_static_adamant_notary_v1_GetSigningEnforcementResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse getDefaultInstanceForType() {
+        return adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse build() {
+        adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse buildPartial() {
+        adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse result = new adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.enforced_ = enforced_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.enabledAt_ = enabledAtBuilder_ == null
+              ? enabledAt_
+              : enabledAtBuilder_.build();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse) {
+          return mergeFrom((adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse other) {
+        if (other == adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse.getDefaultInstance()) return this;
+        if (other.getEnforced() != false) {
+          setEnforced(other.getEnforced());
+        }
+        if (other.hasEnabledAt()) {
+          mergeEnabledAt(other.getEnabledAt());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                enforced_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                input.readMessage(
+                    getEnabledAtFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private boolean enforced_ ;
+      /**
+       * <pre>
+       * True once the organization has registered at least one key of the
+       * usage. Never reverts to false automatically.
+       * </pre>
+       *
+       * <code>bool enforced = 1 [json_name = "enforced"];</code>
+       * @return The enforced.
+       */
+      @java.lang.Override
+      public boolean getEnforced() {
+        return enforced_;
+      }
+      /**
+       * <pre>
+       * True once the organization has registered at least one key of the
+       * usage. Never reverts to false automatically.
+       * </pre>
+       *
+       * <code>bool enforced = 1 [json_name = "enforced"];</code>
+       * @param value The enforced to set.
+       * @return This builder for chaining.
+       */
+      public Builder setEnforced(boolean value) {
+
+        enforced_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * True once the organization has registered at least one key of the
+       * usage. Never reverts to false automatically.
+       * </pre>
+       *
+       * <code>bool enforced = 1 [json_name = "enforced"];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearEnforced() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        enforced_ = false;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Timestamp enabledAt_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> enabledAtBuilder_;
+      /**
+       * <pre>
+       * Set when enforced is true.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp enabled_at = 2 [json_name = "enabledAt"];</code>
+       * @return Whether the enabledAt field is set.
+       */
+      public boolean hasEnabledAt() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <pre>
+       * Set when enforced is true.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp enabled_at = 2 [json_name = "enabledAt"];</code>
+       * @return The enabledAt.
+       */
+      public com.google.protobuf.Timestamp getEnabledAt() {
+        if (enabledAtBuilder_ == null) {
+          return enabledAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : enabledAt_;
+        } else {
+          return enabledAtBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Set when enforced is true.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp enabled_at = 2 [json_name = "enabledAt"];</code>
+       */
+      public Builder setEnabledAt(com.google.protobuf.Timestamp value) {
+        if (enabledAtBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          enabledAt_ = value;
+        } else {
+          enabledAtBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Set when enforced is true.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp enabled_at = 2 [json_name = "enabledAt"];</code>
+       */
+      public Builder setEnabledAt(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (enabledAtBuilder_ == null) {
+          enabledAt_ = builderForValue.build();
+        } else {
+          enabledAtBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Set when enforced is true.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp enabled_at = 2 [json_name = "enabledAt"];</code>
+       */
+      public Builder mergeEnabledAt(com.google.protobuf.Timestamp value) {
+        if (enabledAtBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0) &&
+            enabledAt_ != null &&
+            enabledAt_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getEnabledAtBuilder().mergeFrom(value);
+          } else {
+            enabledAt_ = value;
+          }
+        } else {
+          enabledAtBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Set when enforced is true.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp enabled_at = 2 [json_name = "enabledAt"];</code>
+       */
+      public Builder clearEnabledAt() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        enabledAt_ = null;
+        if (enabledAtBuilder_ != null) {
+          enabledAtBuilder_.dispose();
+          enabledAtBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Set when enforced is true.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp enabled_at = 2 [json_name = "enabledAt"];</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getEnabledAtBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getEnabledAtFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Set when enforced is true.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp enabled_at = 2 [json_name = "enabledAt"];</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getEnabledAtOrBuilder() {
+        if (enabledAtBuilder_ != null) {
+          return enabledAtBuilder_.getMessageOrBuilder();
+        } else {
+          return enabledAt_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : enabledAt_;
+        }
+      }
+      /**
+       * <pre>
+       * Set when enforced is true.
+       * </pre>
+       *
+       * <code>.google.protobuf.Timestamp enabled_at = 2 [json_name = "enabledAt"];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getEnabledAtFieldBuilder() {
+        if (enabledAtBuilder_ == null) {
+          enabledAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getEnabledAt(),
+                  getParentForChildren(),
+                  isClean());
+          enabledAt_ = null;
+        }
+        return enabledAtBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:adamant.notary.v1.GetSigningEnforcementResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:adamant.notary.v1.GetSigningEnforcementResponse)
+    private static final adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse();
+    }
+
+    public static adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetSigningEnforcementResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetSigningEnforcementResponse>() {
+      @java.lang.Override
+      public GetSigningEnforcementResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetSigningEnforcementResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetSigningEnforcementResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_adamant_notary_v1_PublicJwk_descriptor;
   private static final 
@@ -6920,6 +8358,16 @@ public final class NotaryApi {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_adamant_notary_v1_UpdatePublicKeyLimitRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_notary_v1_GetSigningEnforcementRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_notary_v1_GetSigningEnforcementRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_adamant_notary_v1_GetSigningEnforcementResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_adamant_notary_v1_GetSigningEnforcementResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -6991,23 +8439,36 @@ public final class NotaryApi {
       "4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{" +
       "12}$R\016organizationId\022G\n\033max_active_keys_" +
       "per_account\030\002 \001(\rB\t\372B\006*\004\030\n(\002R\027maxActiveK" +
-      "eysPerAccount*@\n\010KeyUsage\022\025\n\021KEY_USAGE_I" +
-      "NVALID\020\000\022\035\n\031KEY_USAGE_MESSAGE_SIGNING\020\001*" +
-      "0\n\007KeyType\022\024\n\020KEY_TYPE_INVALID\020\000\022\017\n\013KEY_" +
-      "TYPE_EC\020\001**\n\005Curve\022\021\n\rCURVE_INVALID\020\000\022\016\n" +
-      "\nCURVE_P256\020\0012\217\003\n\tNotaryAPI\022p\n\021RegisterP" +
-      "ublicKey\022+.adamant.notary.v1.RegisterPub" +
-      "licKeyRequest\032,.adamant.notary.v1.Regist" +
-      "erPublicKeyResponse\"\000\022V\n\017RevokePublicKey" +
-      "\022).adamant.notary.v1.RevokePublicKeyRequ" +
-      "est\032\026.google.protobuf.Empty\"\000\022`\n\024UpdateP" +
-      "ublicKeyLimit\022..adamant.notary.v1.Update" +
-      "PublicKeyLimitRequest\032\026.google.protobuf." +
-      "Empty\"\000\022V\n\017VerifySignature\022).adamant.not" +
-      "ary.v1.VerifySignatureRequest\032\026.google.p" +
-      "rotobuf.Empty\"\000BLZJgithub.com/GincoInc/g" +
-      "ew-kmp/gen/gincoinc/adamant/notary/v1/ad" +
-      "amantnotaryv1b\006proto3"
+      "eysPerAccount\"\333\001\n\034GetSigningEnforcementR" +
+      "equest\022u\n\017organization_id\030\001 \001(\tBL\372BIrG2E" +
+      "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[8" +
+      "9ab][0-9a-f]{3}-[0-9a-f]{12}$R\016organizat" +
+      "ionId\022D\n\tkey_usage\030\002 \001(\0162\033.adamant.notar" +
+      "y.v1.KeyUsageB\n\372B\007\202\001\004\020\001 \000R\010keyUsage\"v\n\035G" +
+      "etSigningEnforcementResponse\022\032\n\010enforced" +
+      "\030\001 \001(\010R\010enforced\0229\n\nenabled_at\030\002 \001(\0132\032.g" +
+      "oogle.protobuf.TimestampR\tenabledAt*o\n\010K" +
+      "eyUsage\022\025\n\021KEY_USAGE_INVALID\020\000\022\035\n\031KEY_US" +
+      "AGE_MESSAGE_SIGNING\020\001\022-\n)KEY_USAGE_SERVI" +
+      "CE_ACCOUNT_MESSAGE_SIGNING\020\002*0\n\007KeyType\022" +
+      "\024\n\020KEY_TYPE_INVALID\020\000\022\017\n\013KEY_TYPE_EC\020\001**" +
+      "\n\005Curve\022\021\n\rCURVE_INVALID\020\000\022\016\n\nCURVE_P256" +
+      "\020\0012\215\004\n\tNotaryAPI\022p\n\021RegisterPublicKey\022+." +
+      "adamant.notary.v1.RegisterPublicKeyReque" +
+      "st\032,.adamant.notary.v1.RegisterPublicKey" +
+      "Response\"\000\022V\n\017RevokePublicKey\022).adamant." +
+      "notary.v1.RevokePublicKeyRequest\032\026.googl" +
+      "e.protobuf.Empty\"\000\022`\n\024UpdatePublicKeyLim" +
+      "it\022..adamant.notary.v1.UpdatePublicKeyLi" +
+      "mitRequest\032\026.google.protobuf.Empty\"\000\022V\n\017" +
+      "VerifySignature\022).adamant.notary.v1.Veri" +
+      "fySignatureRequest\032\026.google.protobuf.Emp" +
+      "ty\"\000\022|\n\025GetSigningEnforcement\022/.adamant." +
+      "notary.v1.GetSigningEnforcementRequest\0320" +
+      ".adamant.notary.v1.GetSigningEnforcement" +
+      "Response\"\000BLZJgithub.com/GincoInc/gew-km" +
+      "p/gen/gincoinc/adamant/notary/v1/adamant" +
+      "notaryv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -7058,6 +8519,18 @@ public final class NotaryApi {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_adamant_notary_v1_UpdatePublicKeyLimitRequest_descriptor,
         new java.lang.String[] { "OrganizationId", "MaxActiveKeysPerAccount", });
+    internal_static_adamant_notary_v1_GetSigningEnforcementRequest_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_adamant_notary_v1_GetSigningEnforcementRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_notary_v1_GetSigningEnforcementRequest_descriptor,
+        new java.lang.String[] { "OrganizationId", "KeyUsage", });
+    internal_static_adamant_notary_v1_GetSigningEnforcementResponse_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_adamant_notary_v1_GetSigningEnforcementResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_adamant_notary_v1_GetSigningEnforcementResponse_descriptor,
+        new java.lang.String[] { "Enforced", "EnabledAt", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(io.envoyproxy.pgv.validate.Validate.rules);

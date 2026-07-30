@@ -107,6 +107,8 @@ enum Coin {
   COIN_ERC20_RLUSD = 90;
   COIN_ERC20_JPYSC = 91;
   COIN_ERC20_JPYC = 92;
+  COIN_ERC20_PEPE = 93;
+  COIN_SOLANA_TOKEN_TRUMP = 94;
   COIN_SDN = 10002;
   COIN_ERC20_SCDEV = 10003; // for stable coin development in dev
   COIN_ERC20_SCQA = 10004; // for stable coin development in qa

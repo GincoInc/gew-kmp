@@ -142,6 +142,37 @@ public final class NotaryAPIGrpc {
     return getVerifySignatureMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest,
+      adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse> getGetSigningEnforcementMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetSigningEnforcement",
+      requestType = adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest.class,
+      responseType = adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest,
+      adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse> getGetSigningEnforcementMethod() {
+    io.grpc.MethodDescriptor<adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest, adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse> getGetSigningEnforcementMethod;
+    if ((getGetSigningEnforcementMethod = NotaryAPIGrpc.getGetSigningEnforcementMethod) == null) {
+      synchronized (NotaryAPIGrpc.class) {
+        if ((getGetSigningEnforcementMethod = NotaryAPIGrpc.getGetSigningEnforcementMethod) == null) {
+          NotaryAPIGrpc.getGetSigningEnforcementMethod = getGetSigningEnforcementMethod =
+              io.grpc.MethodDescriptor.<adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest, adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetSigningEnforcement"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new NotaryAPIMethodDescriptorSupplier("GetSigningEnforcement"))
+              .build();
+        }
+      }
+    }
+    return getGetSigningEnforcementMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -235,6 +266,27 @@ public final class NotaryAPIGrpc {
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getVerifySignatureMethod(), responseObserver);
     }
+
+    /**
+     * <pre>
+     * -----------------------------------------------------------------------------
+     * Signing Enforcement (per-organization one-way latch)
+     * -----------------------------------------------------------------------------
+     * Returns the organization's signing-enforcement latch for a key usage.
+     * The latch is set when the first key of the usage is registered and is
+     * never cleared automatically (cleared only by manual operation). It
+     * marks the organization as signing-capable; enforcement itself is
+     * applied by the caller (gatekeeper's external route) only after the
+     * route's mode is switched to Enforce — latched organizations are then
+     * enforced and unlatched ones relaxed to Observe, so a client
+     * downgrading to a non-signing version cannot re-open the unsigned path
+     * while not-yet-upgraded organizations stay unaffected.
+     * </pre>
+     */
+    default void getSigningEnforcement(adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest request,
+        io.grpc.stub.StreamObserver<adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetSigningEnforcementMethod(), responseObserver);
+    }
   }
 
   /**
@@ -316,6 +368,28 @@ public final class NotaryAPIGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getVerifySignatureMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * -----------------------------------------------------------------------------
+     * Signing Enforcement (per-organization one-way latch)
+     * -----------------------------------------------------------------------------
+     * Returns the organization's signing-enforcement latch for a key usage.
+     * The latch is set when the first key of the usage is registered and is
+     * never cleared automatically (cleared only by manual operation). It
+     * marks the organization as signing-capable; enforcement itself is
+     * applied by the caller (gatekeeper's external route) only after the
+     * route's mode is switched to Enforce — latched organizations are then
+     * enforced and unlatched ones relaxed to Observe, so a client
+     * downgrading to a non-signing version cannot re-open the unsigned path
+     * while not-yet-upgraded organizations stay unaffected.
+     * </pre>
+     */
+    public void getSigningEnforcement(adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest request,
+        io.grpc.stub.StreamObserver<adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetSigningEnforcementMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -378,6 +452,27 @@ public final class NotaryAPIGrpc {
     public com.google.protobuf.Empty verifySignature(adamant.notary.v1.NotaryApi.VerifySignatureRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getVerifySignatureMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * -----------------------------------------------------------------------------
+     * Signing Enforcement (per-organization one-way latch)
+     * -----------------------------------------------------------------------------
+     * Returns the organization's signing-enforcement latch for a key usage.
+     * The latch is set when the first key of the usage is registered and is
+     * never cleared automatically (cleared only by manual operation). It
+     * marks the organization as signing-capable; enforcement itself is
+     * applied by the caller (gatekeeper's external route) only after the
+     * route's mode is switched to Enforce — latched organizations are then
+     * enforced and unlatched ones relaxed to Observe, so a client
+     * downgrading to a non-signing version cannot re-open the unsigned path
+     * while not-yet-upgraded organizations stay unaffected.
+     * </pre>
+     */
+    public adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse getSigningEnforcement(adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetSigningEnforcementMethod(), getCallOptions(), request);
     }
   }
 
@@ -446,12 +541,35 @@ public final class NotaryAPIGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getVerifySignatureMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * -----------------------------------------------------------------------------
+     * Signing Enforcement (per-organization one-way latch)
+     * -----------------------------------------------------------------------------
+     * Returns the organization's signing-enforcement latch for a key usage.
+     * The latch is set when the first key of the usage is registered and is
+     * never cleared automatically (cleared only by manual operation). It
+     * marks the organization as signing-capable; enforcement itself is
+     * applied by the caller (gatekeeper's external route) only after the
+     * route's mode is switched to Enforce — latched organizations are then
+     * enforced and unlatched ones relaxed to Observe, so a client
+     * downgrading to a non-signing version cannot re-open the unsigned path
+     * while not-yet-upgraded organizations stay unaffected.
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse> getSigningEnforcement(
+        adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetSigningEnforcementMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_REGISTER_PUBLIC_KEY = 0;
   private static final int METHODID_REVOKE_PUBLIC_KEY = 1;
   private static final int METHODID_UPDATE_PUBLIC_KEY_LIMIT = 2;
   private static final int METHODID_VERIFY_SIGNATURE = 3;
+  private static final int METHODID_GET_SIGNING_ENFORCEMENT = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -485,6 +603,10 @@ public final class NotaryAPIGrpc {
         case METHODID_VERIFY_SIGNATURE:
           serviceImpl.verifySignature((adamant.notary.v1.NotaryApi.VerifySignatureRequest) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_GET_SIGNING_ENFORCEMENT:
+          serviceImpl.getSigningEnforcement((adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest) request,
+              (io.grpc.stub.StreamObserver<adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -532,6 +654,13 @@ public final class NotaryAPIGrpc {
               adamant.notary.v1.NotaryApi.VerifySignatureRequest,
               com.google.protobuf.Empty>(
                 service, METHODID_VERIFY_SIGNATURE)))
+        .addMethod(
+          getGetSigningEnforcementMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest,
+              adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse>(
+                service, METHODID_GET_SIGNING_ENFORCEMENT)))
         .build();
   }
 
@@ -584,6 +713,7 @@ public final class NotaryAPIGrpc {
               .addMethod(getRevokePublicKeyMethod())
               .addMethod(getUpdatePublicKeyLimitMethod())
               .addMethod(getVerifySignatureMethod())
+              .addMethod(getGetSigningEnforcementMethod())
               .build();
         }
       }

@@ -1191,3 +1191,279 @@ var _ interface {
 } = UpdatePublicKeyLimitRequestValidationError{}
 
 var _UpdatePublicKeyLimitRequest_OrganizationId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+// Validate checks the field values on GetSigningEnforcementRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GetSigningEnforcementRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetSigningEnforcementRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GetSigningEnforcementRequestMultiError, or nil if none found.
+func (m *GetSigningEnforcementRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetSigningEnforcementRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_GetSigningEnforcementRequest_OrganizationId_Pattern.MatchString(m.GetOrganizationId()) {
+		err := GetSigningEnforcementRequestValidationError{
+			field:  "OrganizationId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := _GetSigningEnforcementRequest_KeyUsage_NotInLookup[m.GetKeyUsage()]; ok {
+		err := GetSigningEnforcementRequestValidationError{
+			field:  "KeyUsage",
+			reason: "value must not be in list [0]",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if _, ok := KeyUsage_name[int32(m.GetKeyUsage())]; !ok {
+		err := GetSigningEnforcementRequestValidationError{
+			field:  "KeyUsage",
+			reason: "value must be one of the defined enum values",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return GetSigningEnforcementRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetSigningEnforcementRequestMultiError is an error wrapping multiple
+// validation errors returned by GetSigningEnforcementRequest.ValidateAll() if
+// the designated constraints aren't met.
+type GetSigningEnforcementRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetSigningEnforcementRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetSigningEnforcementRequestMultiError) AllErrors() []error { return m }
+
+// GetSigningEnforcementRequestValidationError is the validation error returned
+// by GetSigningEnforcementRequest.Validate if the designated constraints
+// aren't met.
+type GetSigningEnforcementRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetSigningEnforcementRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetSigningEnforcementRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetSigningEnforcementRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetSigningEnforcementRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetSigningEnforcementRequestValidationError) ErrorName() string {
+	return "GetSigningEnforcementRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetSigningEnforcementRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetSigningEnforcementRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetSigningEnforcementRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetSigningEnforcementRequestValidationError{}
+
+var _GetSigningEnforcementRequest_OrganizationId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+var _GetSigningEnforcementRequest_KeyUsage_NotInLookup = map[KeyUsage]struct{}{
+	0: {},
+}
+
+// Validate checks the field values on GetSigningEnforcementResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GetSigningEnforcementResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetSigningEnforcementResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// GetSigningEnforcementResponseMultiError, or nil if none found.
+func (m *GetSigningEnforcementResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetSigningEnforcementResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Enforced
+
+	if all {
+		switch v := interface{}(m.GetEnabledAt()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, GetSigningEnforcementResponseValidationError{
+					field:  "EnabledAt",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, GetSigningEnforcementResponseValidationError{
+					field:  "EnabledAt",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetEnabledAt()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return GetSigningEnforcementResponseValidationError{
+				field:  "EnabledAt",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return GetSigningEnforcementResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetSigningEnforcementResponseMultiError is an error wrapping multiple
+// validation errors returned by GetSigningEnforcementResponse.ValidateAll()
+// if the designated constraints aren't met.
+type GetSigningEnforcementResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetSigningEnforcementResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetSigningEnforcementResponseMultiError) AllErrors() []error { return m }
+
+// GetSigningEnforcementResponseValidationError is the validation error
+// returned by GetSigningEnforcementResponse.Validate if the designated
+// constraints aren't met.
+type GetSigningEnforcementResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetSigningEnforcementResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetSigningEnforcementResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetSigningEnforcementResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetSigningEnforcementResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetSigningEnforcementResponseValidationError) ErrorName() string {
+	return "GetSigningEnforcementResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetSigningEnforcementResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetSigningEnforcementResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetSigningEnforcementResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetSigningEnforcementResponseValidationError{}

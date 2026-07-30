@@ -15,6 +15,8 @@ public class NotaryApiValidator {
 		if (clazz.equals(adamant.notary.v1.NotaryApi.VerifySignatureRequest.class)) return new VerifySignatureRequestValidator();
 		if (clazz.equals(adamant.notary.v1.NotaryApi.RevokePublicKeyRequest.class)) return new RevokePublicKeyRequestValidator();
 		if (clazz.equals(adamant.notary.v1.NotaryApi.UpdatePublicKeyLimitRequest.class)) return new UpdatePublicKeyLimitRequestValidator();
+		if (clazz.equals(adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest.class)) return new GetSigningEnforcementRequestValidator();
+		if (clazz.equals(adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse.class)) return new GetSigningEnforcementResponseValidator();
 		return null;
 	}
 
@@ -234,6 +236,48 @@ public class NotaryApiValidator {
 			io.envoyproxy.pgv.StringValidation.pattern(".adamant.notary.v1.UpdatePublicKeyLimitRequest.organization_id", proto.getOrganizationId(), ORGANIZATION_ID__PATTERN);
 	
 			io.envoyproxy.pgv.ComparativeValidation.range(".adamant.notary.v1.UpdatePublicKeyLimitRequest.max_active_keys_per_account", proto.getMaxActiveKeysPerAccount(), null, MAX_ACTIVE_KEYS_PER_ACCOUNT__LTE, null, MAX_ACTIVE_KEYS_PER_ACCOUNT__GTE, java.util.Comparator.naturalOrder());
+	
+	}
+}
+/**
+	 * Validates {@code GetSigningEnforcementRequest} protobuf objects.
+	 */
+	public static class GetSigningEnforcementRequestValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest> {
+		
+		com.google.re2j.Pattern ORGANIZATION_ID__PATTERN = com.google.re2j.Pattern.compile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$");
+	
+		
+		private final adamant.notary.v1.NotaryApi.KeyUsage[] KEY_USAGE__NOT_IN = new adamant.notary.v1.NotaryApi.KeyUsage[]{
+			adamant.notary.v1.NotaryApi.KeyUsage.forNumber(0),
+		};
+	
+	
+
+	public void assertValid(adamant.notary.v1.NotaryApi.GetSigningEnforcementRequest proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	
+			io.envoyproxy.pgv.StringValidation.pattern(".adamant.notary.v1.GetSigningEnforcementRequest.organization_id", proto.getOrganizationId(), ORGANIZATION_ID__PATTERN);
+	
+			io.envoyproxy.pgv.EnumValidation.definedOnly(".adamant.notary.v1.GetSigningEnforcementRequest.key_usage", proto.getKeyUsage());
+			io.envoyproxy.pgv.CollectiveValidation.notIn(".adamant.notary.v1.GetSigningEnforcementRequest.key_usage", proto.getKeyUsage(), KEY_USAGE__NOT_IN);
+	
+	}
+}
+/**
+	 * Validates {@code GetSigningEnforcementResponse} protobuf objects.
+	 */
+	public static class GetSigningEnforcementResponseValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse> {
+		
+	
+		
+	
+	
+
+	public void assertValid(adamant.notary.v1.NotaryApi.GetSigningEnforcementResponse proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for Enforced
+
+	
+			// Validate enabled_at
+			if (proto.hasEnabledAt()) index.validatorFor(proto.getEnabledAt()).assertValid(proto.getEnabledAt());
 	
 	}
 }

@@ -36,6 +36,19 @@ type NotaryAPIClient interface {
 	// Signature Verification (atomic: key resolve → verify → consume nonce)
 	// -----------------------------------------------------------------------------
 	VerifySignature(ctx context.Context, in *VerifySignatureRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	// -----------------------------------------------------------------------------
+	// Signing Enforcement (per-organization one-way latch)
+	// -----------------------------------------------------------------------------
+	// Returns the organization's signing-enforcement latch for a key usage.
+	// The latch is set when the first key of the usage is registered and is
+	// never cleared automatically (cleared only by manual operation). It
+	// marks the organization as signing-capable; enforcement itself is
+	// applied by the caller (gatekeeper's external route) only after the
+	// route's mode is switched to Enforce — latched organizations are then
+	// enforced and unlatched ones relaxed to Observe, so a client
+	// downgrading to a non-signing version cannot re-open the unsigned path
+	// while not-yet-upgraded organizations stay unaffected.
+	GetSigningEnforcement(ctx context.Context, in *GetSigningEnforcementRequest, opts ...grpc.CallOption) (*GetSigningEnforcementResponse, error)
 }
 
 type notaryAPIClient struct {
@@ -82,6 +95,15 @@ func (c *notaryAPIClient) VerifySignature(ctx context.Context, in *VerifySignatu
 	return out, nil
 }
 
+func (c *notaryAPIClient) GetSigningEnforcement(ctx context.Context, in *GetSigningEnforcementRequest, opts ...grpc.CallOption) (*GetSigningEnforcementResponse, error) {
+	out := new(GetSigningEnforcementResponse)
+	err := c.cc.Invoke(ctx, "/adamant.notary.v1.NotaryAPI/GetSigningEnforcement", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // NotaryAPIServer is the server API for NotaryAPI service.
 // All implementations should embed UnimplementedNotaryAPIServer
 // for forward compatibility
@@ -99,6 +121,19 @@ type NotaryAPIServer interface {
 	// Signature Verification (atomic: key resolve → verify → consume nonce)
 	// -----------------------------------------------------------------------------
 	VerifySignature(context.Context, *VerifySignatureRequest) (*emptypb.Empty, error)
+	// -----------------------------------------------------------------------------
+	// Signing Enforcement (per-organization one-way latch)
+	// -----------------------------------------------------------------------------
+	// Returns the organization's signing-enforcement latch for a key usage.
+	// The latch is set when the first key of the usage is registered and is
+	// never cleared automatically (cleared only by manual operation). It
+	// marks the organization as signing-capable; enforcement itself is
+	// applied by the caller (gatekeeper's external route) only after the
+	// route's mode is switched to Enforce — latched organizations are then
+	// enforced and unlatched ones relaxed to Observe, so a client
+	// downgrading to a non-signing version cannot re-open the unsigned path
+	// while not-yet-upgraded organizations stay unaffected.
+	GetSigningEnforcement(context.Context, *GetSigningEnforcementRequest) (*GetSigningEnforcementResponse, error)
 }
 
 // UnimplementedNotaryAPIServer should be embedded to have forward compatible implementations.
@@ -116,6 +151,9 @@ func (UnimplementedNotaryAPIServer) UpdatePublicKeyLimit(context.Context, *Updat
 }
 func (UnimplementedNotaryAPIServer) VerifySignature(context.Context, *VerifySignatureRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VerifySignature not implemented")
+}
+func (UnimplementedNotaryAPIServer) GetSigningEnforcement(context.Context, *GetSigningEnforcementRequest) (*GetSigningEnforcementResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetSigningEnforcement not implemented")
 }
 
 // UnsafeNotaryAPIServer may be embedded to opt out of forward compatibility for this service.
@@ -201,6 +239,24 @@ func _NotaryAPI_VerifySignature_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NotaryAPI_GetSigningEnforcement_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetSigningEnforcementRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NotaryAPIServer).GetSigningEnforcement(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.notary.v1.NotaryAPI/GetSigningEnforcement",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NotaryAPIServer).GetSigningEnforcement(ctx, req.(*GetSigningEnforcementRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // NotaryAPI_ServiceDesc is the grpc.ServiceDesc for NotaryAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -223,6 +279,10 @@ var NotaryAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "VerifySignature",
 			Handler:    _NotaryAPI_VerifySignature_Handler,
+		},
+		{
+			MethodName: "GetSigningEnforcement",
+			Handler:    _NotaryAPI_GetSigningEnforcement_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

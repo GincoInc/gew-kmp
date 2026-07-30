@@ -86,4 +86,30 @@ class NotaryAPIClient extends \Grpc\BaseStub {
         $metadata, $options);
     }
 
+    /**
+     * -----------------------------------------------------------------------------
+     * Signing Enforcement (per-organization one-way latch)
+     * -----------------------------------------------------------------------------
+     * Returns the organization's signing-enforcement latch for a key usage.
+     * The latch is set when the first key of the usage is registered and is
+     * never cleared automatically (cleared only by manual operation). It
+     * marks the organization as signing-capable; enforcement itself is
+     * applied by the caller (gatekeeper's external route) only after the
+     * route's mode is switched to Enforce — latched organizations are then
+     * enforced and unlatched ones relaxed to Observe, so a client
+     * downgrading to a non-signing version cannot re-open the unsigned path
+     * while not-yet-upgraded organizations stay unaffected.
+     * @param \Adamant\Notary\V1\GetSigningEnforcementRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function GetSigningEnforcement(\Adamant\Notary\V1\GetSigningEnforcementRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.notary.v1.NotaryAPI/GetSigningEnforcement',
+        $argument,
+        ['\Adamant\Notary\V1\GetSigningEnforcementResponse', 'decode'],
+        $metadata, $options);
+    }
+
 }

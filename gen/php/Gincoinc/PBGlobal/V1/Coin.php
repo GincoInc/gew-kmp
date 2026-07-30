@@ -386,6 +386,14 @@ class Coin
      */
     const COIN_ERC20_JPYC = 92;
     /**
+     * Generated from protobuf enum <code>COIN_ERC20_PEPE = 93;</code>
+     */
+    const COIN_ERC20_PEPE = 93;
+    /**
+     * Generated from protobuf enum <code>COIN_SOLANA_TOKEN_TRUMP = 94;</code>
+     */
+    const COIN_SOLANA_TOKEN_TRUMP = 94;
+    /**
      * Generated from protobuf enum <code>COIN_SDN = 10002;</code>
      */
     const COIN_SDN = 10002;
@@ -692,6 +700,8 @@ class Coin
         self::COIN_ERC20_RLUSD => 'COIN_ERC20_RLUSD',
         self::COIN_ERC20_JPYSC => 'COIN_ERC20_JPYSC',
         self::COIN_ERC20_JPYC => 'COIN_ERC20_JPYC',
+        self::COIN_ERC20_PEPE => 'COIN_ERC20_PEPE',
+        self::COIN_SOLANA_TOKEN_TRUMP => 'COIN_SOLANA_TOKEN_TRUMP',
         self::COIN_SDN => 'COIN_SDN',
         self::COIN_ERC20_SCDEV => 'COIN_ERC20_SCDEV',
         self::COIN_ERC20_SCQA => 'COIN_ERC20_SCQA',
