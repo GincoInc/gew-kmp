@@ -29,6 +29,20 @@ service NotaryAPI {
   // Signature Verification (atomic: key resolve → verify → consume nonce)
   // -----------------------------------------------------------------------------
   rpc VerifySignature(VerifySignatureRequest) returns (google.protobuf.Empty) {}
+
+  // -----------------------------------------------------------------------------
+  // Signing Enforcement (per-organization one-way latch)
+  // -----------------------------------------------------------------------------
+  // Returns the organization's signing-enforcement latch for a key usage.
+  // The latch is set when the first key of the usage is registered and is
+  // never cleared automatically (cleared only by manual operation). It
+  // marks the organization as signing-capable; enforcement itself is
+  // applied by the caller (gatekeeper's external route) only after the
+  // route's mode is switched to Enforce — latched organizations are then
+  // enforced and unlatched ones relaxed to Observe, so a client
+  // downgrading to a non-signing version cannot re-open the unsigned path
+  // while not-yet-upgraded organizations stay unaffected.
+  rpc GetSigningEnforcement(GetSigningEnforcementRequest) returns (GetSigningEnforcementResponse) {}
 }
 
 // =============================================================================
@@ -38,6 +52,11 @@ service NotaryAPI {
 enum KeyUsage {
   KEY_USAGE_INVALID = 0;
   KEY_USAGE_MESSAGE_SIGNING = 1;
+  // Per-request signing key registered by service accounts (currently
+  // used by customer-hosted teller instances). Isolated from the
+  // User-path MESSAGE_SIGNING keys: the active-key limit and the nonce
+  // space are both counted per usage.
+  KEY_USAGE_SERVICE_ACCOUNT_MESSAGE_SIGNING = 2;
 }
 
 // Key type identifier. Values correspond to JWK "kty" (RFC 7518 §6.1).
@@ -156,4 +175,24 @@ message UpdatePublicKeyLimitRequest {
     gte: 2,
     lte: 10
   }];
+}
+
+message GetSigningEnforcementRequest {
+  string organization_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
+  KeyUsage key_usage = 2 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [
+      0
+    ]
+  }];
+}
+
+message GetSigningEnforcementResponse {
+  // True once the organization has registered at least one key of the
+  // usage. Never reverts to false automatically.
+  bool enforced = 1;
+  // Set when enforced is true.
+  google.protobuf.Timestamp enabled_at = 2;
 }

@@ -40,6 +40,11 @@ class NotaryAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_notary_dot_v1_dot_adamantnotaryv1_dot_notary__api__pb2.VerifySignatureRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
+        self.GetSigningEnforcement = channel.unary_unary(
+                '/adamant.notary.v1.NotaryAPI/GetSigningEnforcement',
+                request_serializer=gincoinc_dot_adamant_dot_notary_dot_v1_dot_adamantnotaryv1_dot_notary__api__pb2.GetSigningEnforcementRequest.SerializeToString,
+                response_deserializer=gincoinc_dot_adamant_dot_notary_dot_v1_dot_adamantnotaryv1_dot_notary__api__pb2.GetSigningEnforcementResponse.FromString,
+                )
 
 
 class NotaryAPIServicer(object):
@@ -83,6 +88,24 @@ class NotaryAPIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetSigningEnforcement(self, request, context):
+        """-----------------------------------------------------------------------------
+        Signing Enforcement (per-organization one-way latch)
+        -----------------------------------------------------------------------------
+        Returns the organization's signing-enforcement latch for a key usage.
+        The latch is set when the first key of the usage is registered and is
+        never cleared automatically (cleared only by manual operation). It
+        marks the organization as signing-capable; enforcement itself is
+        applied by the caller (gatekeeper's external route) only after the
+        route's mode is switched to Enforce — latched organizations are then
+        enforced and unlatched ones relaxed to Observe, so a client
+        downgrading to a non-signing version cannot re-open the unsigned path
+        while not-yet-upgraded organizations stay unaffected.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_NotaryAPIServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -105,6 +128,11 @@ def add_NotaryAPIServicer_to_server(servicer, server):
                     servicer.VerifySignature,
                     request_deserializer=gincoinc_dot_adamant_dot_notary_dot_v1_dot_adamantnotaryv1_dot_notary__api__pb2.VerifySignatureRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'GetSigningEnforcement': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetSigningEnforcement,
+                    request_deserializer=gincoinc_dot_adamant_dot_notary_dot_v1_dot_adamantnotaryv1_dot_notary__api__pb2.GetSigningEnforcementRequest.FromString,
+                    response_serializer=gincoinc_dot_adamant_dot_notary_dot_v1_dot_adamantnotaryv1_dot_notary__api__pb2.GetSigningEnforcementResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -186,5 +214,22 @@ class NotaryAPI(object):
         return grpc.experimental.unary_unary(request, target, '/adamant.notary.v1.NotaryAPI/VerifySignature',
             gincoinc_dot_adamant_dot_notary_dot_v1_dot_adamantnotaryv1_dot_notary__api__pb2.VerifySignatureRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSigningEnforcement(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.notary.v1.NotaryAPI/GetSigningEnforcement',
+            gincoinc_dot_adamant_dot_notary_dot_v1_dot_adamantnotaryv1_dot_notary__api__pb2.GetSigningEnforcementRequest.SerializeToString,
+            gincoinc_dot_adamant_dot_notary_dot_v1_dot_adamantnotaryv1_dot_notary__api__pb2.GetSigningEnforcementResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

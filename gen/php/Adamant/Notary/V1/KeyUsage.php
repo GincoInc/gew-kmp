@@ -19,10 +19,20 @@ class KeyUsage
      * Generated from protobuf enum <code>KEY_USAGE_MESSAGE_SIGNING = 1;</code>
      */
     const KEY_USAGE_MESSAGE_SIGNING = 1;
+    /**
+     * Per-request signing key registered by service accounts (currently
+     * used by customer-hosted teller instances). Isolated from the
+     * User-path MESSAGE_SIGNING keys: the active-key limit and the nonce
+     * space are both counted per usage.
+     *
+     * Generated from protobuf enum <code>KEY_USAGE_SERVICE_ACCOUNT_MESSAGE_SIGNING = 2;</code>
+     */
+    const KEY_USAGE_SERVICE_ACCOUNT_MESSAGE_SIGNING = 2;
 
     private static $valueToName = [
         self::KEY_USAGE_INVALID => 'KEY_USAGE_INVALID',
         self::KEY_USAGE_MESSAGE_SIGNING => 'KEY_USAGE_MESSAGE_SIGNING',
+        self::KEY_USAGE_SERVICE_ACCOUNT_MESSAGE_SIGNING => 'KEY_USAGE_SERVICE_ACCOUNT_MESSAGE_SIGNING',
     ];
 
     public static function name($value)
