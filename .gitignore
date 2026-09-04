@@ -2,6 +2,12 @@
 .env
 config.toml
 
+# certs/ holds mTLS CA and certificate material (keys must never be
+# committed) — ignore everything except the tracked placeholders/examples
+certs/*
+!certs/tls.crt
+!certs/*.example
+
 ### Go template
 # Binaries for programs and plugins
 *.exe

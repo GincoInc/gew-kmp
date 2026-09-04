@@ -3,6 +3,9 @@ gRPCPort = 50051
 testnet = true
 internal = false
 certFile = "/root/certs/tls.crt" # Set the certificate path if using an internal connection (internal = true), else keep it empty string
+clientCertFile = "" # Set "/root/certs/chain.crt" to enable mTLS (with clientKeyFile).
+clientKeyFile = ""  # Set "/root/certs/client.key" to enable mTLS.
+useMtls = false     # Set true to connect via the mTLS load balancer.
 shutdownPeriodSeconds = 30
 useHotWallet = true
 disableWebhook = false
