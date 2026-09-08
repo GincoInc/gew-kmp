@@ -1,0 +1,2 @@
+# Placeholder — copy to certs/chain.crt and paste your mTLS certificate chain.
+# Mounted read-only into the container (see docker-compose-mtls.yml).
