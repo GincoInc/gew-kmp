@@ -405,6 +405,19 @@ enum PreconditionFailureType {
 }
 
 // -----------------------------------------------------------------------------
+// Caller
+// -----------------------------------------------------------------------------
+
+// CallerType は ListCallers が返す caller（Treasurer が鍵を保持し手数料を支払うサーバー側アドレス）の用途。
+// 同じ coin に用途の異なる caller が複数ある場合（SOL の stake / nonce）を区別するために使う。
+enum CallerType {
+  CALLER_TYPE_INVALID = 0; // 未設定
+  CALLER_TYPE_GENERAL = 1; // coin 標準の caller（EVM の cold 送金・アドレス生成 gas、IOST / HBAR のアカウント作成費 等）
+  CALLER_TYPE_SOLANA_STAKE = 2; // SOL: stake account 作成・ステーキング手数料
+  CALLER_TYPE_SOLANA_NONCE = 3; // SOL: durable nonce account 作成の rent・手数料（sol-ew-dev#7430）
+}
+
+// -----------------------------------------------------------------------------
 // List Filter
 // -----------------------------------------------------------------------------
 

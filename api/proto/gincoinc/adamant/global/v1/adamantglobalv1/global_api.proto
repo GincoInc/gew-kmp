@@ -50,6 +50,10 @@ service GlobalAPI {
   rpc EnableUTXO(EnableUTXORequest) returns (google.protobuf.Empty) {}
   rpc DisableUTXO(DisableUTXORequest) returns (google.protobuf.Empty) {}
   rpc UpdateWalletIsStakingAvailable(UpdateWalletIsStakingAvailableRequest) returns (google.protobuf.Empty) {}
+  // Solana ウォレットを durable nonce 方式に切り替える(nonce account の作成)。
+  // 作成中・作成済みのウォレットに対して呼ぶと、チェーン上の状態を再確認して状態を更新する(再実行)。
+  // 結果(切替状態)は GetWallet の solana_account_settings で参照する
+  rpc EnableSolanaNonceAccount(EnableSolanaNonceAccountRequest) returns (google.protobuf.Empty) {}
   rpc RefreshStakingWalletClaimableReward(RefreshStakingWalletClaimableRewardRequest) returns (RefreshStakingWalletClaimableRewardResponse) {}
 
   // Review
@@ -678,6 +682,12 @@ message UpdateWalletIsStakingAvailableRequest {
     pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
   }];
   bool is_staking_available = 2;
+}
+
+message EnableSolanaNonceAccountRequest {
+  string wallet_id = 1 [(validate.rules).string = {
+    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+  }];
 }
 
 message RefreshStakingWalletClaimableRewardRequest {
