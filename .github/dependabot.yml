@@ -1,0 +1,19 @@
+version: 2
+registries:
+  github-ginco-inc:
+    type: "git"
+    url: "https://github.com"
+    username: "x-access-token"
+    password: "${{secrets.DEPENDABOT_TOKEN}}"
+updates:
+  # Go modules
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # Enable access to private repositories
+    registries:
+      - github-ginco-inc
+    # Note: Configure DEPENDABOT_TOKEN secret in Settings > Security > Secrets and variables > Dependabot
+    # with a Personal Access Token that has access to private repositories
+
