@@ -53,6 +53,10 @@ type GlobalAPIClient interface {
 	EnableUTXO(ctx context.Context, in *EnableUTXORequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	DisableUTXO(ctx context.Context, in *DisableUTXORequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	UpdateWalletIsStakingAvailable(ctx context.Context, in *UpdateWalletIsStakingAvailableRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	// Solana ウォレットを durable nonce 方式に切り替える(nonce account の作成)。
+	// 作成中・作成済みのウォレットに対して呼ぶと、チェーン上の状態を再確認して状態を更新する(再実行)。
+	// 結果(切替状態)は GetWallet の solana_account_settings で参照する
+	EnableSolanaNonceAccount(ctx context.Context, in *EnableSolanaNonceAccountRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	RefreshStakingWalletClaimableReward(ctx context.Context, in *RefreshStakingWalletClaimableRewardRequest, opts ...grpc.CallOption) (*RefreshStakingWalletClaimableRewardResponse, error)
 	// Review
 	ApproveWallet(ctx context.Context, in *ApproveWalletRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -422,6 +426,15 @@ func (c *globalAPIClient) DisableUTXO(ctx context.Context, in *DisableUTXOReques
 func (c *globalAPIClient) UpdateWalletIsStakingAvailable(ctx context.Context, in *UpdateWalletIsStakingAvailableRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/UpdateWalletIsStakingAvailable", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *globalAPIClient) EnableSolanaNonceAccount(ctx context.Context, in *EnableSolanaNonceAccountRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/EnableSolanaNonceAccount", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1272,6 +1285,10 @@ type GlobalAPIServer interface {
 	EnableUTXO(context.Context, *EnableUTXORequest) (*emptypb.Empty, error)
 	DisableUTXO(context.Context, *DisableUTXORequest) (*emptypb.Empty, error)
 	UpdateWalletIsStakingAvailable(context.Context, *UpdateWalletIsStakingAvailableRequest) (*emptypb.Empty, error)
+	// Solana ウォレットを durable nonce 方式に切り替える(nonce account の作成)。
+	// 作成中・作成済みのウォレットに対して呼ぶと、チェーン上の状態を再確認して状態を更新する(再実行)。
+	// 結果(切替状態)は GetWallet の solana_account_settings で参照する
+	EnableSolanaNonceAccount(context.Context, *EnableSolanaNonceAccountRequest) (*emptypb.Empty, error)
 	RefreshStakingWalletClaimableReward(context.Context, *RefreshStakingWalletClaimableRewardRequest) (*RefreshStakingWalletClaimableRewardResponse, error)
 	// Review
 	ApproveWallet(context.Context, *ApproveWalletRequest) (*emptypb.Empty, error)
@@ -1474,6 +1491,9 @@ func (UnimplementedGlobalAPIServer) DisableUTXO(context.Context, *DisableUTXOReq
 }
 func (UnimplementedGlobalAPIServer) UpdateWalletIsStakingAvailable(context.Context, *UpdateWalletIsStakingAvailableRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateWalletIsStakingAvailable not implemented")
+}
+func (UnimplementedGlobalAPIServer) EnableSolanaNonceAccount(context.Context, *EnableSolanaNonceAccountRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method EnableSolanaNonceAccount not implemented")
 }
 func (UnimplementedGlobalAPIServer) RefreshStakingWalletClaimableReward(context.Context, *RefreshStakingWalletClaimableRewardRequest) (*RefreshStakingWalletClaimableRewardResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RefreshStakingWalletClaimableReward not implemented")
@@ -2257,6 +2277,24 @@ func _GlobalAPI_UpdateWalletIsStakingAvailable_Handler(srv interface{}, ctx cont
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(GlobalAPIServer).UpdateWalletIsStakingAvailable(ctx, req.(*UpdateWalletIsStakingAvailableRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GlobalAPI_EnableSolanaNonceAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(EnableSolanaNonceAccountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GlobalAPIServer).EnableSolanaNonceAccount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/adamant.global.v1.GlobalAPI/EnableSolanaNonceAccount",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GlobalAPIServer).EnableSolanaNonceAccount(ctx, req.(*EnableSolanaNonceAccountRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -3999,6 +4037,10 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateWalletIsStakingAvailable",
 			Handler:    _GlobalAPI_UpdateWalletIsStakingAvailable_Handler,
+		},
+		{
+			MethodName: "EnableSolanaNonceAccount",
+			Handler:    _GlobalAPI_EnableSolanaNonceAccount_Handler,
 		},
 		{
 			MethodName: "RefreshStakingWalletClaimableReward",

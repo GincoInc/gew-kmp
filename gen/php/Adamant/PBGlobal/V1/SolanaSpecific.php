@@ -47,6 +47,13 @@ class SolanaSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string token_address = 8 [json_name = "tokenAddress"];</code>
      */
     protected $token_address = '';
+    /**
+     * durable nonce 方式のとき nonce account のアドレス。空なら従来の blockhash 方式。
+     * nonce 方式では recent_blockhash に nonce 値が入り、先頭命令が AdvanceNonceAccount になる
+     *
+     * Generated from protobuf field <code>string nonce_account_address = 9 [json_name = "nonceAccountAddress"];</code>
+     */
+    protected $nonce_account_address = '';
 
     /**
      * Constructor.
@@ -62,6 +69,9 @@ class SolanaSpecific extends \Google\Protobuf\Internal\Message
      *     @type string $caller_address
      *     @type bool $with_token_account_creation_funding
      *     @type string $token_address
+     *     @type string $nonce_account_address
+     *           durable nonce 方式のとき nonce account のアドレス。空なら従来の blockhash 方式。
+     *           nonce 方式では recent_blockhash に nonce 値が入り、先頭命令が AdvanceNonceAccount になる
      * }
      */
     public function __construct($data = NULL) {
@@ -241,6 +251,34 @@ class SolanaSpecific extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->token_address = $var;
+
+        return $this;
+    }
+
+    /**
+     * durable nonce 方式のとき nonce account のアドレス。空なら従来の blockhash 方式。
+     * nonce 方式では recent_blockhash に nonce 値が入り、先頭命令が AdvanceNonceAccount になる
+     *
+     * Generated from protobuf field <code>string nonce_account_address = 9 [json_name = "nonceAccountAddress"];</code>
+     * @return string
+     */
+    public function getNonceAccountAddress()
+    {
+        return $this->nonce_account_address;
+    }
+
+    /**
+     * durable nonce 方式のとき nonce account のアドレス。空なら従来の blockhash 方式。
+     * nonce 方式では recent_blockhash に nonce 値が入り、先頭命令が AdvanceNonceAccount になる
+     *
+     * Generated from protobuf field <code>string nonce_account_address = 9 [json_name = "nonceAccountAddress"];</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setNonceAccountAddress($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->nonce_account_address = $var;
 
         return $this;
     }

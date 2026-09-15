@@ -883,6 +883,37 @@ public final class GlobalAPIGrpc {
     return getUpdateWalletIsStakingAvailableMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.EnableSolanaNonceAccountRequest,
+      com.google.protobuf.Empty> getEnableSolanaNonceAccountMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "EnableSolanaNonceAccount",
+      requestType = adamant.global.v1.EnableSolanaNonceAccountRequest.class,
+      responseType = com.google.protobuf.Empty.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<adamant.global.v1.EnableSolanaNonceAccountRequest,
+      com.google.protobuf.Empty> getEnableSolanaNonceAccountMethod() {
+    io.grpc.MethodDescriptor<adamant.global.v1.EnableSolanaNonceAccountRequest, com.google.protobuf.Empty> getEnableSolanaNonceAccountMethod;
+    if ((getEnableSolanaNonceAccountMethod = GlobalAPIGrpc.getEnableSolanaNonceAccountMethod) == null) {
+      synchronized (GlobalAPIGrpc.class) {
+        if ((getEnableSolanaNonceAccountMethod = GlobalAPIGrpc.getEnableSolanaNonceAccountMethod) == null) {
+          GlobalAPIGrpc.getEnableSolanaNonceAccountMethod = getEnableSolanaNonceAccountMethod =
+              io.grpc.MethodDescriptor.<adamant.global.v1.EnableSolanaNonceAccountRequest, com.google.protobuf.Empty>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "EnableSolanaNonceAccount"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  adamant.global.v1.EnableSolanaNonceAccountRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("EnableSolanaNonceAccount"))
+              .build();
+        }
+      }
+    }
+    return getEnableSolanaNonceAccountMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.RefreshStakingWalletClaimableRewardRequest,
       adamant.global.v1.RefreshStakingWalletClaimableRewardResponse> getRefreshStakingWalletClaimableRewardMethod;
 
@@ -3924,6 +3955,18 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     * <pre>
+     * Solana ウォレットを durable nonce 方式に切り替える(nonce account の作成)。
+     * 作成中・作成済みのウォレットに対して呼ぶと、チェーン上の状態を再確認して状態を更新する(再実行)。
+     * 結果(切替状態)は GetWallet の solana_account_settings で参照する
+     * </pre>
+     */
+    default void enableSolanaNonceAccount(adamant.global.v1.EnableSolanaNonceAccountRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getEnableSolanaNonceAccountMethod(), responseObserver);
+    }
+
+    /**
      */
     default void refreshStakingWalletClaimableReward(adamant.global.v1.RefreshStakingWalletClaimableRewardRequest request,
         io.grpc.stub.StreamObserver<adamant.global.v1.RefreshStakingWalletClaimableRewardResponse> responseObserver) {
@@ -4872,6 +4915,19 @@ public final class GlobalAPIGrpc {
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateWalletIsStakingAvailableMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * Solana ウォレットを durable nonce 方式に切り替える(nonce account の作成)。
+     * 作成中・作成済みのウォレットに対して呼ぶと、チェーン上の状態を再確認して状態を更新する(再実行)。
+     * 結果(切替状態)は GetWallet の solana_account_settings で参照する
+     * </pre>
+     */
+    public void enableSolanaNonceAccount(adamant.global.v1.EnableSolanaNonceAccountRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getEnableSolanaNonceAccountMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -5877,6 +5933,18 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     * <pre>
+     * Solana ウォレットを durable nonce 方式に切り替える(nonce account の作成)。
+     * 作成中・作成済みのウォレットに対して呼ぶと、チェーン上の状態を再確認して状態を更新する(再実行)。
+     * 結果(切替状態)は GetWallet の solana_account_settings で参照する
+     * </pre>
+     */
+    public com.google.protobuf.Empty enableSolanaNonceAccount(adamant.global.v1.EnableSolanaNonceAccountRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getEnableSolanaNonceAccountMethod(), getCallOptions(), request);
+    }
+
+    /**
      */
     public adamant.global.v1.RefreshStakingWalletClaimableRewardResponse refreshStakingWalletClaimableReward(adamant.global.v1.RefreshStakingWalletClaimableRewardRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
@@ -6817,6 +6885,19 @@ public final class GlobalAPIGrpc {
     }
 
     /**
+     * <pre>
+     * Solana ウォレットを durable nonce 方式に切り替える(nonce account の作成)。
+     * 作成中・作成済みのウォレットに対して呼ぶと、チェーン上の状態を再確認して状態を更新する(再実行)。
+     * 結果(切替状態)は GetWallet の solana_account_settings で参照する
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> enableSolanaNonceAccount(
+        adamant.global.v1.EnableSolanaNonceAccountRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getEnableSolanaNonceAccountMethod(), getCallOptions()), request);
+    }
+
+    /**
      */
     public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.RefreshStakingWalletClaimableRewardResponse> refreshStakingWalletClaimableReward(
         adamant.global.v1.RefreshStakingWalletClaimableRewardRequest request) {
@@ -7628,96 +7709,97 @@ public final class GlobalAPIGrpc {
   private static final int METHODID_ENABLE_UTXO = 25;
   private static final int METHODID_DISABLE_UTXO = 26;
   private static final int METHODID_UPDATE_WALLET_IS_STAKING_AVAILABLE = 27;
-  private static final int METHODID_REFRESH_STAKING_WALLET_CLAIMABLE_REWARD = 28;
-  private static final int METHODID_APPROVE_WALLET = 29;
-  private static final int METHODID_APPROVE_TRANSACTION = 30;
-  private static final int METHODID_CREATE_ADDRESS = 31;
-  private static final int METHODID_GET_ADDRESS = 32;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 33;
-  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 34;
-  private static final int METHODID_GET_ADDRESS_BY_INDEX = 35;
-  private static final int METHODID_LIST_ADDRESSES = 36;
-  private static final int METHODID_LIST_ADDRESSES_WITH_BALANCE = 37;
-  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 38;
-  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 39;
-  private static final int METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES = 40;
-  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 41;
-  private static final int METHODID_LIST_IOSTCHILD_ACCOUNTS = 42;
-  private static final int METHODID_IMPORT_ADDRESS = 43;
-  private static final int METHODID_LIST_CALLERS = 44;
-  private static final int METHODID_LIST_FEE_DEPOSITS = 45;
-  private static final int METHODID_REGISTER_KEY = 46;
-  private static final int METHODID_GET_SIGNER_PUB_KEY = 47;
-  private static final int METHODID_CREATE_TRANSACTION = 48;
-  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 49;
-  private static final int METHODID_CREATE_CONTRACT_CREATION_TRANSACTION = 50;
-  private static final int METHODID_SIGN_TRANSACTION = 51;
-  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 52;
-  private static final int METHODID_SEND_TRANSACTION = 53;
-  private static final int METHODID_RESEND_TRANSACTION = 54;
-  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 55;
-  private static final int METHODID_CANCEL_TRANSACTION = 56;
-  private static final int METHODID_REPLACE_TRANSACTION = 57;
-  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 58;
-  private static final int METHODID_GET_TRANSACTION = 59;
-  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 60;
-  private static final int METHODID_LIST_TRANSACTIONS = 61;
-  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 62;
-  private static final int METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER = 63;
-  private static final int METHODID_GET_SIGN_INFO = 64;
-  private static final int METHODID_LIST_SIGN_INFO = 65;
-  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 66;
-  private static final int METHODID_LIST_TRANSFERS = 67;
-  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 68;
-  private static final int METHODID_GET_RATE_SNAPSHOT = 69;
-  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 70;
-  private static final int METHODID_SET_RATES = 71;
-  private static final int METHODID_SET_DEFAULT_RATES = 72;
-  private static final int METHODID_CREATE_LABELED_ADDRESS = 73;
-  private static final int METHODID_GET_LABELED_ADDRESS = 74;
-  private static final int METHODID_LIST_LABELED_ADDRESSES = 75;
-  private static final int METHODID_LIST_LABELED_ADDRESSES_BY_FILTER = 76;
-  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 77;
-  private static final int METHODID_UPDATE_LABELED_ADDRESS = 78;
-  private static final int METHODID_DELETE_ADDRESS = 79;
-  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 80;
-  private static final int METHODID_CREATE_WHITELIST = 81;
-  private static final int METHODID_GET_WHITELIST = 82;
-  private static final int METHODID_LIST_WHITELISTS = 83;
-  private static final int METHODID_LIST_WHITELISTS_BY_FILTER = 84;
-  private static final int METHODID_IS_DELETABLE_WHITELIST = 85;
-  private static final int METHODID_UPDATE_WHITELIST = 86;
-  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 87;
-  private static final int METHODID_DELETE_WHITELIST = 88;
-  private static final int METHODID_CREATE_TRANSFER_LIMIT = 89;
-  private static final int METHODID_GET_TRANSFER_LIMIT = 90;
-  private static final int METHODID_LIST_TRANSFER_LIMITS = 91;
-  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 92;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 93;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 94;
-  private static final int METHODID_DELETE_TRANSFER_LIMIT = 95;
-  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 96;
-  private static final int METHODID_CREATE_POLICY = 97;
-  private static final int METHODID_GET_POLICY = 98;
-  private static final int METHODID_LIST_POLICIES = 99;
-  private static final int METHODID_LIST_POLICIES_BY_FILTER = 100;
-  private static final int METHODID_IS_DELETABLE_POLICY = 101;
-  private static final int METHODID_UPDATE_POLICY = 102;
-  private static final int METHODID_DELETE_POLICY = 103;
-  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 104;
-  private static final int METHODID_GET_SPENDABLE_BALANCE = 105;
-  private static final int METHODID_GET_TOTAL_BALANCE = 106;
-  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 107;
-  private static final int METHODID_CALCULATE_FEE = 108;
-  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 109;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 110;
-  private static final int METHODID_VALIDATE_ADDRESS = 111;
-  private static final int METHODID_LIST_AUDIT_LOGS = 112;
-  private static final int METHODID_LIST_FORWARDING_THRESHOLDS = 113;
-  private static final int METHODID_UPSERT_FORWARDING_THRESHOLD = 114;
-  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 115;
-  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 116;
-  private static final int METHODID_LIST_NFTS_BY_FILTER = 117;
+  private static final int METHODID_ENABLE_SOLANA_NONCE_ACCOUNT = 28;
+  private static final int METHODID_REFRESH_STAKING_WALLET_CLAIMABLE_REWARD = 29;
+  private static final int METHODID_APPROVE_WALLET = 30;
+  private static final int METHODID_APPROVE_TRANSACTION = 31;
+  private static final int METHODID_CREATE_ADDRESS = 32;
+  private static final int METHODID_GET_ADDRESS = 33;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS = 34;
+  private static final int METHODID_GET_ADDRESS_BY_ADDRESS_COIN = 35;
+  private static final int METHODID_GET_ADDRESS_BY_INDEX = 36;
+  private static final int METHODID_LIST_ADDRESSES = 37;
+  private static final int METHODID_LIST_ADDRESSES_WITH_BALANCE = 38;
+  private static final int METHODID_UPDATE_ADDRESS_BALANCE = 39;
+  private static final int METHODID_GET_ETHEREUM_FEE_ADDRESS = 40;
+  private static final int METHODID_LIST_SUBSTRATE_CHILD_ADDRESSES = 41;
+  private static final int METHODID_LIST_SYMBOL_CHILD_ADDRESSES = 42;
+  private static final int METHODID_LIST_IOSTCHILD_ACCOUNTS = 43;
+  private static final int METHODID_IMPORT_ADDRESS = 44;
+  private static final int METHODID_LIST_CALLERS = 45;
+  private static final int METHODID_LIST_FEE_DEPOSITS = 46;
+  private static final int METHODID_REGISTER_KEY = 47;
+  private static final int METHODID_GET_SIGNER_PUB_KEY = 48;
+  private static final int METHODID_CREATE_TRANSACTION = 49;
+  private static final int METHODID_CREATE_XRPINIT_TRANSACTIONS = 50;
+  private static final int METHODID_CREATE_CONTRACT_CREATION_TRANSACTION = 51;
+  private static final int METHODID_SIGN_TRANSACTION = 52;
+  private static final int METHODID_SIGN_XRPINIT_TRANSACTIONS = 53;
+  private static final int METHODID_SEND_TRANSACTION = 54;
+  private static final int METHODID_RESEND_TRANSACTION = 55;
+  private static final int METHODID_SEND_XRPINIT_TRANSACTIONS = 56;
+  private static final int METHODID_CANCEL_TRANSACTION = 57;
+  private static final int METHODID_REPLACE_TRANSACTION = 58;
+  private static final int METHODID_IS_TRANSACTION_REPLACEABLE = 59;
+  private static final int METHODID_GET_TRANSACTION = 60;
+  private static final int METHODID_GET_TRANSACTION_BY_TX_ID = 61;
+  private static final int METHODID_LIST_TRANSACTIONS = 62;
+  private static final int METHODID_LIST_TRANSACTIONS_BY_FILTER = 63;
+  private static final int METHODID_LIST_UNCONFIRMED_TRANSACTIONS_BY_FILTER = 64;
+  private static final int METHODID_GET_SIGN_INFO = 65;
+  private static final int METHODID_LIST_SIGN_INFO = 66;
+  private static final int METHODID_LIST_XRPINIT_SIGN_INFO = 67;
+  private static final int METHODID_LIST_TRANSFERS = 68;
+  private static final int METHODID_LIST_TRANSFERS_BY_FILTER = 69;
+  private static final int METHODID_GET_RATE_SNAPSHOT = 70;
+  private static final int METHODID_GET_LATEST_RATE_SNAPSHOT = 71;
+  private static final int METHODID_SET_RATES = 72;
+  private static final int METHODID_SET_DEFAULT_RATES = 73;
+  private static final int METHODID_CREATE_LABELED_ADDRESS = 74;
+  private static final int METHODID_GET_LABELED_ADDRESS = 75;
+  private static final int METHODID_LIST_LABELED_ADDRESSES = 76;
+  private static final int METHODID_LIST_LABELED_ADDRESSES_BY_FILTER = 77;
+  private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 78;
+  private static final int METHODID_UPDATE_LABELED_ADDRESS = 79;
+  private static final int METHODID_DELETE_ADDRESS = 80;
+  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 81;
+  private static final int METHODID_CREATE_WHITELIST = 82;
+  private static final int METHODID_GET_WHITELIST = 83;
+  private static final int METHODID_LIST_WHITELISTS = 84;
+  private static final int METHODID_LIST_WHITELISTS_BY_FILTER = 85;
+  private static final int METHODID_IS_DELETABLE_WHITELIST = 86;
+  private static final int METHODID_UPDATE_WHITELIST = 87;
+  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 88;
+  private static final int METHODID_DELETE_WHITELIST = 89;
+  private static final int METHODID_CREATE_TRANSFER_LIMIT = 90;
+  private static final int METHODID_GET_TRANSFER_LIMIT = 91;
+  private static final int METHODID_LIST_TRANSFER_LIMITS = 92;
+  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 93;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 94;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 95;
+  private static final int METHODID_DELETE_TRANSFER_LIMIT = 96;
+  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 97;
+  private static final int METHODID_CREATE_POLICY = 98;
+  private static final int METHODID_GET_POLICY = 99;
+  private static final int METHODID_LIST_POLICIES = 100;
+  private static final int METHODID_LIST_POLICIES_BY_FILTER = 101;
+  private static final int METHODID_IS_DELETABLE_POLICY = 102;
+  private static final int METHODID_UPDATE_POLICY = 103;
+  private static final int METHODID_DELETE_POLICY = 104;
+  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 105;
+  private static final int METHODID_GET_SPENDABLE_BALANCE = 106;
+  private static final int METHODID_GET_TOTAL_BALANCE = 107;
+  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 108;
+  private static final int METHODID_CALCULATE_FEE = 109;
+  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 110;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 111;
+  private static final int METHODID_VALIDATE_ADDRESS = 112;
+  private static final int METHODID_LIST_AUDIT_LOGS = 113;
+  private static final int METHODID_LIST_FORWARDING_THRESHOLDS = 114;
+  private static final int METHODID_UPSERT_FORWARDING_THRESHOLD = 115;
+  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 116;
+  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 117;
+  private static final int METHODID_LIST_NFTS_BY_FILTER = 118;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -7846,6 +7928,10 @@ public final class GlobalAPIGrpc {
           break;
         case METHODID_UPDATE_WALLET_IS_STAKING_AVAILABLE:
           serviceImpl.updateWalletIsStakingAvailable((adamant.global.v1.UpdateWalletIsStakingAvailableRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+          break;
+        case METHODID_ENABLE_SOLANA_NONCE_ACCOUNT:
+          serviceImpl.enableSolanaNonceAccount((adamant.global.v1.EnableSolanaNonceAccountRequest) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         case METHODID_REFRESH_STAKING_WALLET_CLAIMABLE_REWARD:
@@ -8422,6 +8508,13 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.UpdateWalletIsStakingAvailableRequest,
               com.google.protobuf.Empty>(
                 service, METHODID_UPDATE_WALLET_IS_STAKING_AVAILABLE)))
+        .addMethod(
+          getEnableSolanaNonceAccountMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              adamant.global.v1.EnableSolanaNonceAccountRequest,
+              com.google.protobuf.Empty>(
+                service, METHODID_ENABLE_SOLANA_NONCE_ACCOUNT)))
         .addMethod(
           getRefreshStakingWalletClaimableRewardMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -9128,6 +9221,7 @@ public final class GlobalAPIGrpc {
               .addMethod(getEnableUTXOMethod())
               .addMethod(getDisableUTXOMethod())
               .addMethod(getUpdateWalletIsStakingAvailableMethod())
+              .addMethod(getEnableSolanaNonceAccountMethod())
               .addMethod(getRefreshStakingWalletClaimableRewardMethod())
               .addMethod(getApproveWalletMethod())
               .addMethod(getApproveTransactionMethod())

@@ -10,6 +10,7 @@ public class ModelValidator {
 		
 		if (clazz.equals(adamant.global.v1.Model.Wallet.class)) return new WalletValidator();
 		if (clazz.equals(adamant.global.v1.Model.XrpAccountSettings.class)) return new XrpAccountSettingsValidator();
+		if (clazz.equals(adamant.global.v1.Model.SolanaAccountSettings.class)) return new SolanaAccountSettingsValidator();
 		if (clazz.equals(adamant.global.v1.Model.WalletWithoutBalance.class)) return new WalletWithoutBalanceValidator();
 		if (clazz.equals(adamant.global.v1.Model.StakingWallet.class)) return new StakingWalletValidator();
 		if (clazz.equals(adamant.global.v1.Model.NFTWallet.class)) return new NFTWalletValidator();
@@ -232,6 +233,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.Wallet proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -306,6 +309,9 @@ public class ModelValidator {
 			// Validate xrp_account_settings
 			if (proto.hasXrpAccountSettings()) index.validatorFor(proto.getXrpAccountSettings()).assertValid(proto.getXrpAccountSettings());
 	
+			// Validate solana_account_settings
+			if (proto.hasSolanaAccountSettings()) index.validatorFor(proto.getSolanaAccountSettings()).assertValid(proto.getSolanaAccountSettings());
+	
 	}
 }
 /**
@@ -318,6 +324,20 @@ public class ModelValidator {
 
 	public void assertValid(adamant.global.v1.Model.XrpAccountSettings proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
 	// no validation rules for RequireDest
+
+	
+	}
+}
+/**
+	 * Validates {@code SolanaAccountSettings} protobuf objects.
+	 */
+	public static class SolanaAccountSettingsValidator implements io.envoyproxy.pgv.ValidatorImpl<adamant.global.v1.Model.SolanaAccountSettings> {
+		
+	
+	
+
+	public void assertValid(adamant.global.v1.Model.SolanaAccountSettings proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
+	// no validation rules for NonceAccountState
 
 	
 	}
@@ -2885,6 +2905,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.SolanaSpecific proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -2903,6 +2925,8 @@ public class ModelValidator {
 	// no validation rules for WithTokenAccountCreationFunding
 
 	// no validation rules for TokenAddress
+
+	// no validation rules for NonceAccountAddress
 
 	
 	}
@@ -5454,6 +5478,8 @@ public class ModelValidator {
 	
 		
 	
+		
+	
 	
 
 	public void assertValid(adamant.global.v1.Model.CallerAddress proto, io.envoyproxy.pgv.ValidatorIndex index) throws io.envoyproxy.pgv.ValidationException {
@@ -5466,6 +5492,8 @@ public class ModelValidator {
 	// no validation rules for Coin
 
 	// no validation rules for Network
+
+	// no validation rules for CallerType
 
 	
 	}

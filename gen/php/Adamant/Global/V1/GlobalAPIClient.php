@@ -415,6 +415,23 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
+     * Solana ウォレットを durable nonce 方式に切り替える(nonce account の作成)。
+     * 作成中・作成済みのウォレットに対して呼ぶと、チェーン上の状態を再確認して状態を更新する(再実行)。
+     * 結果(切替状態)は GetWallet の solana_account_settings で参照する
+     * @param \Adamant\Global\V1\EnableSolanaNonceAccountRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     * @return \Grpc\UnaryCall
+     */
+    public function EnableSolanaNonceAccount(\Adamant\Global\V1\EnableSolanaNonceAccountRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/EnableSolanaNonceAccount',
+        $argument,
+        ['\Google\Protobuf\GPBEmpty', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
      * @param \Adamant\Global\V1\RefreshStakingWalletClaimableRewardRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options

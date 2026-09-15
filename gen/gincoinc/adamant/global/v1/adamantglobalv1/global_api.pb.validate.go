@@ -6864,6 +6864,122 @@ var _ interface {
 
 var _UpdateWalletIsStakingAvailableRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
 
+// Validate checks the field values on EnableSolanaNonceAccountRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *EnableSolanaNonceAccountRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on EnableSolanaNonceAccountRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// EnableSolanaNonceAccountRequestMultiError, or nil if none found.
+func (m *EnableSolanaNonceAccountRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *EnableSolanaNonceAccountRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !_EnableSolanaNonceAccountRequest_WalletId_Pattern.MatchString(m.GetWalletId()) {
+		err := EnableSolanaNonceAccountRequestValidationError{
+			field:  "WalletId",
+			reason: "value does not match regex pattern \"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return EnableSolanaNonceAccountRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// EnableSolanaNonceAccountRequestMultiError is an error wrapping multiple
+// validation errors returned by EnableSolanaNonceAccountRequest.ValidateAll()
+// if the designated constraints aren't met.
+type EnableSolanaNonceAccountRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m EnableSolanaNonceAccountRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m EnableSolanaNonceAccountRequestMultiError) AllErrors() []error { return m }
+
+// EnableSolanaNonceAccountRequestValidationError is the validation error
+// returned by EnableSolanaNonceAccountRequest.Validate if the designated
+// constraints aren't met.
+type EnableSolanaNonceAccountRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e EnableSolanaNonceAccountRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e EnableSolanaNonceAccountRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e EnableSolanaNonceAccountRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e EnableSolanaNonceAccountRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e EnableSolanaNonceAccountRequestValidationError) ErrorName() string {
+	return "EnableSolanaNonceAccountRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e EnableSolanaNonceAccountRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sEnableSolanaNonceAccountRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = EnableSolanaNonceAccountRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = EnableSolanaNonceAccountRequestValidationError{}
+
+var _EnableSolanaNonceAccountRequest_WalletId_Pattern = regexp.MustCompile("^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
 // Validate checks the field values on
 // RefreshStakingWalletClaimableRewardRequest with the rules defined in the
 // proto definition for this message. If any rules are violated, the first

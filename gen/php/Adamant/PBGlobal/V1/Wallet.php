@@ -189,6 +189,12 @@ class Wallet extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.adamant.global.v1.XrpAccountSettings xrp_account_settings = 29 [json_name = "xrpAccountSettings"];</code>
      */
     protected $xrp_account_settings = null;
+    /**
+     * populated only for COIN_SOL and SPL token wallets
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.SolanaAccountSettings solana_account_settings = 30 [json_name = "solanaAccountSettings"];</code>
+     */
+    protected $solana_account_settings = null;
 
     /**
      * Constructor.
@@ -254,6 +260,8 @@ class Wallet extends \Google\Protobuf\Internal\Message
      *           The wallet id of the EVM address sharing
      *     @type \Adamant\PBGlobal\V1\XrpAccountSettings $xrp_account_settings
      *           populated only for COIN_XRP wallets
+     *     @type \Adamant\PBGlobal\V1\SolanaAccountSettings $solana_account_settings
+     *           populated only for COIN_SOL and SPL token wallets
      * }
      */
     public function __construct($data = NULL) {
@@ -1051,6 +1059,42 @@ class Wallet extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\XrpAccountSettings::class);
         $this->xrp_account_settings = $var;
+
+        return $this;
+    }
+
+    /**
+     * populated only for COIN_SOL and SPL token wallets
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.SolanaAccountSettings solana_account_settings = 30 [json_name = "solanaAccountSettings"];</code>
+     * @return \Adamant\PBGlobal\V1\SolanaAccountSettings|null
+     */
+    public function getSolanaAccountSettings()
+    {
+        return $this->solana_account_settings;
+    }
+
+    public function hasSolanaAccountSettings()
+    {
+        return isset($this->solana_account_settings);
+    }
+
+    public function clearSolanaAccountSettings()
+    {
+        unset($this->solana_account_settings);
+    }
+
+    /**
+     * populated only for COIN_SOL and SPL token wallets
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.SolanaAccountSettings solana_account_settings = 30 [json_name = "solanaAccountSettings"];</code>
+     * @param \Adamant\PBGlobal\V1\SolanaAccountSettings $var
+     * @return $this
+     */
+    public function setSolanaAccountSettings($var)
+    {
+        GPBUtil::checkMessage($var, \Adamant\PBGlobal\V1\SolanaAccountSettings::class);
+        $this->solana_account_settings = $var;
 
         return $this;
     }
