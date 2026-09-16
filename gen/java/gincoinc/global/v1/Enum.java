@@ -5163,6 +5163,14 @@ public final class Enum {
      * <code>SOLANA_EVENT_TYPE_CREATE_TOKEN_ACCOUNT = 8;</code>
      */
     SOLANA_EVENT_TYPE_CREATE_TOKEN_ACCOUNT(8),
+    /**
+     * <pre>
+     * Nonce Accountの作成時(durable nonce)
+     * </pre>
+     *
+     * <code>SOLANA_EVENT_TYPE_CREATE_NONCE_ACCOUNT = 9;</code>
+     */
+    SOLANA_EVENT_TYPE_CREATE_NONCE_ACCOUNT(9),
     UNRECOGNIZED(-1),
     ;
 
@@ -5219,6 +5227,14 @@ public final class Enum {
      * <code>SOLANA_EVENT_TYPE_CREATE_TOKEN_ACCOUNT = 8;</code>
      */
     public static final int SOLANA_EVENT_TYPE_CREATE_TOKEN_ACCOUNT_VALUE = 8;
+    /**
+     * <pre>
+     * Nonce Accountの作成時(durable nonce)
+     * </pre>
+     *
+     * <code>SOLANA_EVENT_TYPE_CREATE_NONCE_ACCOUNT = 9;</code>
+     */
+    public static final int SOLANA_EVENT_TYPE_CREATE_NONCE_ACCOUNT_VALUE = 9;
 
 
     public final int getNumber() {
@@ -5254,6 +5270,7 @@ public final class Enum {
         case 6: return SOLANA_EVENT_TYPE_DELEGATE_COMPLETE;
         case 7: return SOLANA_EVENT_TYPE_DEACTIVATE_COMPLETE;
         case 8: return SOLANA_EVENT_TYPE_CREATE_TOKEN_ACCOUNT;
+        case 9: return SOLANA_EVENT_TYPE_CREATE_NONCE_ACCOUNT;
         default: return null;
       }
     }
@@ -5308,6 +5325,155 @@ public final class Enum {
     }
 
     // @@protoc_insertion_point(enum_scope:gincoinc.global.v1.SolanaEventType)
+  }
+
+  /**
+   * <pre>
+   * Solana durable nonce account の切替状態(ウォレット単位)。
+   * 作成 tx の失敗・finalized 通知の取りこぼしを表す状態は持たない。それらのウォレットは CREATING のまま残り、
+   * 管理者が EnableSolanaNonceAccount を再実行することで復旧する(自動リトライなし。sol-ew-dev#7414 §5)。
+   * AVAILABLE への遷移は、treasurer がチェーン上に nonce account が finalized で存在し authority がウォレットアドレスであることを
+   * 確認したうえで行う(通知の内容だけでは遷移させない)。
+   * </pre>
+   *
+   * Protobuf enum {@code gincoinc.global.v1.SolanaNonceAccountState}
+   */
+  public enum SolanaNonceAccountState
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * 未切替(nonce account なし、従来の blockhash 方式)
+     * </pre>
+     *
+     * <code>SOLANA_NONCE_ACCOUNT_STATE_INVALID = 0;</code>
+     */
+    SOLANA_NONCE_ACCOUNT_STATE_INVALID(0),
+    /**
+     * <pre>
+     * 作成 tx 送信済み、finalized 待ち(従来方式で送金可能)。失敗・取りこぼし時もこの状態のまま残り、再実行で復旧する
+     * </pre>
+     *
+     * <code>SOLANA_NONCE_ACCOUNT_STATE_CREATING = 1;</code>
+     */
+    SOLANA_NONCE_ACCOUNT_STATE_CREATING(1),
+    /**
+     * <pre>
+     * 利用可能(durable nonce 方式)。チェーン上の実在確認後にのみ遷移する
+     * </pre>
+     *
+     * <code>SOLANA_NONCE_ACCOUNT_STATE_AVAILABLE = 2;</code>
+     */
+    SOLANA_NONCE_ACCOUNT_STATE_AVAILABLE(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * 未切替(nonce account なし、従来の blockhash 方式)
+     * </pre>
+     *
+     * <code>SOLANA_NONCE_ACCOUNT_STATE_INVALID = 0;</code>
+     */
+    public static final int SOLANA_NONCE_ACCOUNT_STATE_INVALID_VALUE = 0;
+    /**
+     * <pre>
+     * 作成 tx 送信済み、finalized 待ち(従来方式で送金可能)。失敗・取りこぼし時もこの状態のまま残り、再実行で復旧する
+     * </pre>
+     *
+     * <code>SOLANA_NONCE_ACCOUNT_STATE_CREATING = 1;</code>
+     */
+    public static final int SOLANA_NONCE_ACCOUNT_STATE_CREATING_VALUE = 1;
+    /**
+     * <pre>
+     * 利用可能(durable nonce 方式)。チェーン上の実在確認後にのみ遷移する
+     * </pre>
+     *
+     * <code>SOLANA_NONCE_ACCOUNT_STATE_AVAILABLE = 2;</code>
+     */
+    public static final int SOLANA_NONCE_ACCOUNT_STATE_AVAILABLE_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static SolanaNonceAccountState valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static SolanaNonceAccountState forNumber(int value) {
+      switch (value) {
+        case 0: return SOLANA_NONCE_ACCOUNT_STATE_INVALID;
+        case 1: return SOLANA_NONCE_ACCOUNT_STATE_CREATING;
+        case 2: return SOLANA_NONCE_ACCOUNT_STATE_AVAILABLE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<SolanaNonceAccountState>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        SolanaNonceAccountState> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<SolanaNonceAccountState>() {
+            public SolanaNonceAccountState findValueByNumber(int number) {
+              return SolanaNonceAccountState.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(19);
+    }
+
+    private static final SolanaNonceAccountState[] VALUES = values();
+
+    public static SolanaNonceAccountState valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private SolanaNonceAccountState(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:gincoinc.global.v1.SolanaNonceAccountState)
   }
 
   /**
@@ -5527,7 +5693,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(19);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(20);
     }
 
     private static final EthereumCallMethod[] VALUES = values();
@@ -5671,7 +5837,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(20);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(21);
     }
 
     private static final AvalancheTxType[] VALUES = values();
@@ -5797,7 +5963,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(21);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(22);
     }
 
     private static final AvalancheInputType[] VALUES = values();
@@ -5941,7 +6107,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(22);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(23);
     }
 
     private static final AvalancheOutputType[] VALUES = values();
@@ -6058,7 +6224,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(23);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(24);
     }
 
     private static final ContractCreationType[] VALUES = values();
@@ -6220,7 +6386,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(24);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(25);
     }
 
     private static final NFTCallMethod[] VALUES = values();
@@ -6382,7 +6548,7 @@ public final class Enum {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(25);
+      return gincoinc.global.v1.Enum.getDescriptor().getEnumTypes().get(26);
     }
 
     private static final CantonTransactionType[] VALUES = values();
@@ -6675,7 +6841,7 @@ public final class Enum {
       "\000\022*\n&SOLANA_RECENT_BLOCKHASH_TYPE_FINALI" +
       "ZED\020\001\022*\n&SOLANA_RECENT_BLOCKHASH_TYPE_CO" +
       "NFIRMED\020\002\022*\n&SOLANA_RECENT_BLOCKHASH_TYP" +
-      "E_PROCESSED\020\003*\322\002\n\017SolanaEventType\022\035\n\031SOL" +
+      "E_PROCESSED\020\003*\376\002\n\017SolanaEventType\022\035\n\031SOL" +
       "ANA_EVENT_TYPE_INVALID\020\000\022\036\n\032SOLANA_EVENT" +
       "_TYPE_DELEGATE\020\001\022 \n\034SOLANA_EVENT_TYPE_DE" +
       "ACTIVATE\020\002\022\036\n\032SOLANA_EVENT_TYPE_WITHDRAW" +
@@ -6683,69 +6849,73 @@ public final class Enum {
       "SOLANA_EVENT_TYPE_REWARD\020\005\022\'\n#SOLANA_EVE" +
       "NT_TYPE_DELEGATE_COMPLETE\020\006\022)\n%SOLANA_EV" +
       "ENT_TYPE_DEACTIVATE_COMPLETE\020\007\022*\n&SOLANA" +
-      "_EVENT_TYPE_CREATE_TOKEN_ACCOUNT\020\010*\302\007\n\022E" +
-      "thereumCallMethod\022 \n\034ETHEREUM_CALL_METHO" +
-      "D_INVALID\020\000\0220\n,ETHEREUM_CALL_METHOD_PROG" +
-      "MAT_COIN_INITIALIZE\020\001\0226\n2ETHEREUM_CALL_M" +
-      "ETHOD_PROGMAT_COIN_CONFIGURE_MINTER\020\002\022>\n" +
-      ":ETHEREUM_CALL_METHOD_PROGMAT_COIN_MINT_" +
-      "AND_TRANSFER_DIRECT\020\003\022*\n&ETHEREUM_CALL_M" +
-      "ETHOD_PROGMAT_COIN_MINT\020\004\022*\n&ETHEREUM_CA" +
-      "LL_METHOD_PROGMAT_COIN_BURN\020\005\022;\n7ETHEREU" +
-      "M_CALL_METHOD_PROGMAT_COIN_BULK_ADD_TO_W" +
-      "HITELIST\020\006\022@\n<ETHEREUM_CALL_METHOD_PROGM" +
-      "AT_COIN_BULK_REMOVE_FROM_WHITELIST\020\007\022;\n7" +
-      "ETHEREUM_CALL_METHOD_PROGMAT_COIN_BULK_A" +
-      "DD_TO_BLACKLIST\020\010\022@\n<ETHEREUM_CALL_METHO" +
-      "D_PROGMAT_COIN_BULK_REMOVE_FROM_BLACKLIS" +
-      "T\020\t\0220\n,ETHEREUM_CALL_METHOD_PROGMAT_COIN" +
-      "_CONFISCATE\020\n\022+\n\'ETHEREUM_CALL_METHOD_PR" +
-      "OGMAT_COIN_PAUSE\020\013\022-\n)ETHEREUM_CALL_METH" +
-      "OD_PROGMAT_COIN_UNPAUSE\020\014\022D\n@ETHEREUM_CA" +
-      "LL_METHOD_PROGMAT_COIN_MINT_AND_TRANSFER" +
-      "_INTERMEDIARY\020\r\022B\n>ETHEREUM_CALL_METHOD_" +
-      "PROGMAT_COIN_GRANT_WHITE_AND_BLACK_LISTE" +
-      "R\020\016\0227\n3ETHEREUM_CALL_METHOD_PROGMAT_COIN" +
-      "_CONTRACT_CREATION\020\017\0229\n5ETHEREUM_CALL_ME" +
-      "THOD_PROGMAT_COIN_UPGRADE_TO_AND_CALL\020\020*" +
-      "\350\001\n\017AvalancheTxType\022\035\n\031AVALANCHE_TX_TYPE" +
-      "_INVALID\020\000\022\036\n\032AVALANCHE_TX_TYPE_TRANSFER" +
-      "\020\001\022\034\n\030AVALANCHE_TX_TYPE_EXPORT\020\002\022\034\n\030AVAL" +
-      "ANCHE_TX_TYPE_IMPORT\020\003\0222\n.AVALANCHE_TX_T" +
-      "YPE_ADD_PERMISSIONLESS_DELEGATOR\020\004\022&\n\"AV" +
-      "ALANCHE_TX_TYPE_REWARD_VALIDATOR\020\005*\260\001\n\022A" +
-      "valancheInputType\022 \n\034AVALANCHE_INPUT_TYP" +
-      "E_INVALID\020\000\022+\n\'AVALANCHE_INPUT_TYPE_TRAN" +
-      "SFERABLE_INPUT\020\001\022\'\n#AVALANCHE_INPUT_TYPE" +
-      "_IMPORTED_INPUT\020\002\022\"\n\036AVALANCHE_INPUT_TYP" +
-      "E_EVM_INPUT\020\003*\211\002\n\023AvalancheOutputType\022!\n" +
-      "\035AVALANCHE_OUTPUT_TYPE_INVALID\020\000\022-\n)AVAL" +
-      "ANCHE_OUTPUT_TYPE_TRANSFERABLE_OUTPUT\020\001\022" +
-      ")\n%AVALANCHE_OUTPUT_TYPE_EXPORTED_OUTPUT" +
-      "\020\002\022$\n AVALANCHE_OUTPUT_TYPE_EVM_OUTPUT\020\003" +
-      "\022&\n\"AVALANCHE_OUTPUT_TYPE_STAKE_OUTPUT\020\004" +
-      "\022\'\n#AVALANCHE_OUTPUT_TYPE_OWNERS_OUTPUT\020" +
-      "\005*}\n\024ContractCreationType\022\"\n\036CONTRACT_CR" +
-      "EATION_TYPE_INVALID\020\000\022\037\n\033CONTRACT_CREATI" +
-      "ON_TYPE_IMPL\020\001\022 \n\034CONTRACT_CREATION_TYPE" +
-      "_UTILS\020\002*\212\002\n\rNFTCallMethod\022\033\n\027NFT_CALL_M" +
-      "ETHOD_INVALID\020\000\022\030\n\024NFT_CALL_METHOD_MINT\020" +
-      "\001\022\030\n\024NFT_CALL_METHOD_BURN\020\002\022\034\n\030NFT_CALL_" +
-      "METHOD_TRANSFER\020\003\022\036\n\032NFT_CALL_METHOD_BAT" +
-      "CH_MINT\020\004\022\"\n\036NFT_CALL_METHOD_BATCH_TRANS" +
-      "FER\020\005\022&\n\"NFT_CALL_METHOD_TRANSFER_OWNERS" +
-      "HIP\020\006\022\036\n\032NFT_CALL_METHOD_BATCH_BURN\020\007*\303\002" +
-      "\n\025CantonTransactionType\022#\n\037CANTON_TRANSA" +
-      "CTION_TYPE_INVALID\020\000\022&\n\"CANTON_TRANSACTI" +
-      "ON_TYPE_ONBOARDING\020\001\022\'\n#CANTON_TRANSACTI" +
-      "ON_TYPE_PREAPPROVAL\020\002\022$\n CANTON_TRANSACT" +
-      "ION_TYPE_TRANSFER\020\003\022$\n CANTON_TRANSACTIO" +
-      "N_TYPE_WITHDRAW\020\004\022 \n\034CANTON_TRANSACTION_" +
-      "TYPE_BURN\020\005\022\"\n\036CANTON_TRANSACTION_TYPE_R" +
-      "EJECT\020\006\022\"\n\036CANTON_TRANSACTION_TYPE_EXPIR" +
-      "E\020\007BEZCgithub.com/GincoInc/gew-kmp/gen/g" +
-      "incoinc/global/v1/gincoincglobalv1b\006prot" +
-      "o3"
+      "_EVENT_TYPE_CREATE_TOKEN_ACCOUNT\020\010\022*\n&SO" +
+      "LANA_EVENT_TYPE_CREATE_NONCE_ACCOUNT\020\t*\224" +
+      "\001\n\027SolanaNonceAccountState\022&\n\"SOLANA_NON" +
+      "CE_ACCOUNT_STATE_INVALID\020\000\022\'\n#SOLANA_NON" +
+      "CE_ACCOUNT_STATE_CREATING\020\001\022(\n$SOLANA_NO" +
+      "NCE_ACCOUNT_STATE_AVAILABLE\020\002*\302\007\n\022Ethere" +
+      "umCallMethod\022 \n\034ETHEREUM_CALL_METHOD_INV" +
+      "ALID\020\000\0220\n,ETHEREUM_CALL_METHOD_PROGMAT_C" +
+      "OIN_INITIALIZE\020\001\0226\n2ETHEREUM_CALL_METHOD" +
+      "_PROGMAT_COIN_CONFIGURE_MINTER\020\002\022>\n:ETHE" +
+      "REUM_CALL_METHOD_PROGMAT_COIN_MINT_AND_T" +
+      "RANSFER_DIRECT\020\003\022*\n&ETHEREUM_CALL_METHOD" +
+      "_PROGMAT_COIN_MINT\020\004\022*\n&ETHEREUM_CALL_ME" +
+      "THOD_PROGMAT_COIN_BURN\020\005\022;\n7ETHEREUM_CAL" +
+      "L_METHOD_PROGMAT_COIN_BULK_ADD_TO_WHITEL" +
+      "IST\020\006\022@\n<ETHEREUM_CALL_METHOD_PROGMAT_CO" +
+      "IN_BULK_REMOVE_FROM_WHITELIST\020\007\022;\n7ETHER" +
+      "EUM_CALL_METHOD_PROGMAT_COIN_BULK_ADD_TO" +
+      "_BLACKLIST\020\010\022@\n<ETHEREUM_CALL_METHOD_PRO" +
+      "GMAT_COIN_BULK_REMOVE_FROM_BLACKLIST\020\t\0220" +
+      "\n,ETHEREUM_CALL_METHOD_PROGMAT_COIN_CONF" +
+      "ISCATE\020\n\022+\n\'ETHEREUM_CALL_METHOD_PROGMAT" +
+      "_COIN_PAUSE\020\013\022-\n)ETHEREUM_CALL_METHOD_PR" +
+      "OGMAT_COIN_UNPAUSE\020\014\022D\n@ETHEREUM_CALL_ME" +
+      "THOD_PROGMAT_COIN_MINT_AND_TRANSFER_INTE" +
+      "RMEDIARY\020\r\022B\n>ETHEREUM_CALL_METHOD_PROGM" +
+      "AT_COIN_GRANT_WHITE_AND_BLACK_LISTER\020\016\0227" +
+      "\n3ETHEREUM_CALL_METHOD_PROGMAT_COIN_CONT" +
+      "RACT_CREATION\020\017\0229\n5ETHEREUM_CALL_METHOD_" +
+      "PROGMAT_COIN_UPGRADE_TO_AND_CALL\020\020*\350\001\n\017A" +
+      "valancheTxType\022\035\n\031AVALANCHE_TX_TYPE_INVA" +
+      "LID\020\000\022\036\n\032AVALANCHE_TX_TYPE_TRANSFER\020\001\022\034\n" +
+      "\030AVALANCHE_TX_TYPE_EXPORT\020\002\022\034\n\030AVALANCHE" +
+      "_TX_TYPE_IMPORT\020\003\0222\n.AVALANCHE_TX_TYPE_A" +
+      "DD_PERMISSIONLESS_DELEGATOR\020\004\022&\n\"AVALANC" +
+      "HE_TX_TYPE_REWARD_VALIDATOR\020\005*\260\001\n\022Avalan" +
+      "cheInputType\022 \n\034AVALANCHE_INPUT_TYPE_INV" +
+      "ALID\020\000\022+\n\'AVALANCHE_INPUT_TYPE_TRANSFERA" +
+      "BLE_INPUT\020\001\022\'\n#AVALANCHE_INPUT_TYPE_IMPO" +
+      "RTED_INPUT\020\002\022\"\n\036AVALANCHE_INPUT_TYPE_EVM" +
+      "_INPUT\020\003*\211\002\n\023AvalancheOutputType\022!\n\035AVAL" +
+      "ANCHE_OUTPUT_TYPE_INVALID\020\000\022-\n)AVALANCHE" +
+      "_OUTPUT_TYPE_TRANSFERABLE_OUTPUT\020\001\022)\n%AV" +
+      "ALANCHE_OUTPUT_TYPE_EXPORTED_OUTPUT\020\002\022$\n" +
+      " AVALANCHE_OUTPUT_TYPE_EVM_OUTPUT\020\003\022&\n\"A" +
+      "VALANCHE_OUTPUT_TYPE_STAKE_OUTPUT\020\004\022\'\n#A" +
+      "VALANCHE_OUTPUT_TYPE_OWNERS_OUTPUT\020\005*}\n\024" +
+      "ContractCreationType\022\"\n\036CONTRACT_CREATIO" +
+      "N_TYPE_INVALID\020\000\022\037\n\033CONTRACT_CREATION_TY" +
+      "PE_IMPL\020\001\022 \n\034CONTRACT_CREATION_TYPE_UTIL" +
+      "S\020\002*\212\002\n\rNFTCallMethod\022\033\n\027NFT_CALL_METHOD" +
+      "_INVALID\020\000\022\030\n\024NFT_CALL_METHOD_MINT\020\001\022\030\n\024" +
+      "NFT_CALL_METHOD_BURN\020\002\022\034\n\030NFT_CALL_METHO" +
+      "D_TRANSFER\020\003\022\036\n\032NFT_CALL_METHOD_BATCH_MI" +
+      "NT\020\004\022\"\n\036NFT_CALL_METHOD_BATCH_TRANSFER\020\005" +
+      "\022&\n\"NFT_CALL_METHOD_TRANSFER_OWNERSHIP\020\006" +
+      "\022\036\n\032NFT_CALL_METHOD_BATCH_BURN\020\007*\303\002\n\025Can" +
+      "tonTransactionType\022#\n\037CANTON_TRANSACTION" +
+      "_TYPE_INVALID\020\000\022&\n\"CANTON_TRANSACTION_TY" +
+      "PE_ONBOARDING\020\001\022\'\n#CANTON_TRANSACTION_TY" +
+      "PE_PREAPPROVAL\020\002\022$\n CANTON_TRANSACTION_T" +
+      "YPE_TRANSFER\020\003\022$\n CANTON_TRANSACTION_TYP" +
+      "E_WITHDRAW\020\004\022 \n\034CANTON_TRANSACTION_TYPE_" +
+      "BURN\020\005\022\"\n\036CANTON_TRANSACTION_TYPE_REJECT" +
+      "\020\006\022\"\n\036CANTON_TRANSACTION_TYPE_EXPIRE\020\007BE" +
+      "ZCgithub.com/GincoInc/gew-kmp/gen/gincoi" +
+      "nc/global/v1/gincoincglobalv1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

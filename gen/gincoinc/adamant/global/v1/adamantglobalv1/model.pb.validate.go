@@ -290,6 +290,35 @@ func (m *Wallet) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetSolanaAccountSettings()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, WalletValidationError{
+					field:  "SolanaAccountSettings",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, WalletValidationError{
+					field:  "SolanaAccountSettings",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetSolanaAccountSettings()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return WalletValidationError{
+				field:  "SolanaAccountSettings",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return WalletMultiError(errors)
 	}
@@ -470,6 +499,110 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = XrpAccountSettingsValidationError{}
+
+// Validate checks the field values on SolanaAccountSettings with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *SolanaAccountSettings) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SolanaAccountSettings with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// SolanaAccountSettingsMultiError, or nil if none found.
+func (m *SolanaAccountSettings) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SolanaAccountSettings) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for NonceAccountState
+
+	if len(errors) > 0 {
+		return SolanaAccountSettingsMultiError(errors)
+	}
+
+	return nil
+}
+
+// SolanaAccountSettingsMultiError is an error wrapping multiple validation
+// errors returned by SolanaAccountSettings.ValidateAll() if the designated
+// constraints aren't met.
+type SolanaAccountSettingsMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SolanaAccountSettingsMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SolanaAccountSettingsMultiError) AllErrors() []error { return m }
+
+// SolanaAccountSettingsValidationError is the validation error returned by
+// SolanaAccountSettings.Validate if the designated constraints aren't met.
+type SolanaAccountSettingsValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SolanaAccountSettingsValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SolanaAccountSettingsValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SolanaAccountSettingsValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SolanaAccountSettingsValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SolanaAccountSettingsValidationError) ErrorName() string {
+	return "SolanaAccountSettingsValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SolanaAccountSettingsValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSolanaAccountSettings.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SolanaAccountSettingsValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SolanaAccountSettingsValidationError{}
 
 // Validate checks the field values on WalletWithoutBalance with the rules
 // defined in the proto definition for this message. If any rules are
@@ -9961,6 +10094,8 @@ func (m *SolanaSpecific) validate(all bool) error {
 	// no validation rules for WithTokenAccountCreationFunding
 
 	// no validation rules for TokenAddress
+
+	// no validation rules for NonceAccountAddress
 
 	if len(errors) > 0 {
 		return SolanaSpecificMultiError(errors)
@@ -21369,6 +21504,8 @@ func (m *CallerAddress) validate(all bool) error {
 	// no validation rules for Coin
 
 	// no validation rules for Network
+
+	// no validation rules for CallerType
 
 	if len(errors) > 0 {
 		return CallerAddressMultiError(errors)

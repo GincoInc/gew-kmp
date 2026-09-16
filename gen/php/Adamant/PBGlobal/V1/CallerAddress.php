@@ -16,7 +16,7 @@ use Google\Protobuf\Internal\GPBUtil;
 class CallerAddress extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Klaytn address
+     * caller address
      *
      * Generated from protobuf field <code>string address = 1 [json_name = "address"];</code>
      */
@@ -45,6 +45,12 @@ class CallerAddress extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.gincoinc.global.v1.Network network = 5 [json_name = "network"];</code>
      */
     protected $network = 0;
+    /**
+     * 用途。同じ coin に複数の caller がある場合（SOL の stake / nonce）の区別に使う
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CallerType caller_type = 6 [json_name = "callerType"];</code>
+     */
+    protected $caller_type = 0;
 
     /**
      * Constructor.
@@ -53,7 +59,7 @@ class CallerAddress extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type string $address
-     *           Klaytn address
+     *           caller address
      *     @type float $balance
      *           The number-typed balance corresponding to the address
      *     @type string $string_balance
@@ -62,6 +68,8 @@ class CallerAddress extends \Google\Protobuf\Internal\Message
      *           The type of asset
      *     @type int $network
      *           The network of asset
+     *     @type int $caller_type
+     *           用途。同じ coin に複数の caller がある場合（SOL の stake / nonce）の区別に使う
      * }
      */
     public function __construct($data = NULL) {
@@ -70,7 +78,7 @@ class CallerAddress extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Klaytn address
+     * caller address
      *
      * Generated from protobuf field <code>string address = 1 [json_name = "address"];</code>
      * @return string
@@ -81,7 +89,7 @@ class CallerAddress extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Klaytn address
+     * caller address
      *
      * Generated from protobuf field <code>string address = 1 [json_name = "address"];</code>
      * @param string $var
@@ -195,6 +203,32 @@ class CallerAddress extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Gincoinc\PBGlobal\V1\Network::class);
         $this->network = $var;
+
+        return $this;
+    }
+
+    /**
+     * 用途。同じ coin に複数の caller がある場合（SOL の stake / nonce）の区別に使う
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CallerType caller_type = 6 [json_name = "callerType"];</code>
+     * @return int
+     */
+    public function getCallerType()
+    {
+        return $this->caller_type;
+    }
+
+    /**
+     * 用途。同じ coin に複数の caller がある場合（SOL の stake / nonce）の区別に使う
+     *
+     * Generated from protobuf field <code>.adamant.global.v1.CallerType caller_type = 6 [json_name = "callerType"];</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setCallerType($var)
+    {
+        GPBUtil::checkEnum($var, \Adamant\PBGlobal\V1\CallerType::class);
+        $this->caller_type = $var;
 
         return $this;
     }

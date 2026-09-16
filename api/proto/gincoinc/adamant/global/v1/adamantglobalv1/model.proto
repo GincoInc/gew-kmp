@@ -46,6 +46,7 @@ message Wallet {
   google.protobuf.Timestamp update_time = 16; // the time at which the wallet was updated
   string base_wallet_id = 28; // The wallet id of the EVM address sharing
   XrpAccountSettings xrp_account_settings = 29; // populated only for COIN_XRP wallets
+  SolanaAccountSettings solana_account_settings = 30; // populated only for COIN_SOL and SPL token wallets
 }
 
 // XrpAccountSettings mirrors selected on-chain AccountSet flags for an XRP
@@ -56,6 +57,13 @@ message XrpAccountSettings {
   // rejected by the ledger with tecDST_TAG_NEEDED.
   bool require_dest = 1;
   // future: bool require_auth = 2; bool default_ripple = 3; bool disallow_xrp = 4;
+}
+
+// SolanaAccountSettings holds the durable nonce switch state of a Solana
+// wallet. SPL token wallets share the settings of their parent SOL wallet.
+message SolanaAccountSettings {
+  // durable nonce の切替状態。AVAILABLE のウォレットの tx は durable nonce 方式で作成される
+  gincoinc.global.v1.SolanaNonceAccountState nonce_account_state = 1;
 }
 
 message WalletWithoutBalance {
@@ -752,6 +760,9 @@ message SolanaSpecific {
   string caller_address = 6;
   bool with_token_account_creation_funding = 7;
   string token_address = 8;
+  // durable nonce 方式のとき nonce account のアドレス。空なら従来の blockhash 方式。
+  // nonce 方式では recent_blockhash に nonce 値が入り、先頭命令が AdvanceNonceAccount になる
+  string nonce_account_address = 9;
 }
 
 // The model of Aptos specific fields of transaction
@@ -1495,11 +1506,12 @@ message IOSTCallerAccount {
 
 // The model of caller account
 message CallerAddress {
-  string address = 1; // Klaytn address
+  string address = 1; // caller address
   double balance = 2; // The number-typed balance corresponding to the address
   string string_balance = 3; // The string-typed balance corresponding to the address
   gincoinc.global.v1.Coin coin = 4; // The type of asset
   gincoinc.global.v1.Network network = 5; // The network of asset
+  CallerType caller_type = 6; // 用途。同じ coin に複数の caller がある場合（SOL の stake / nonce）の区別に使う
 }
 
 message FeeDepositAddress {

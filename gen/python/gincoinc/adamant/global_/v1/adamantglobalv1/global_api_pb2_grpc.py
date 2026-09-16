@@ -160,6 +160,11 @@ class GlobalAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.UpdateWalletIsStakingAvailableRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
+        self.EnableSolanaNonceAccount = channel.unary_unary(
+                '/adamant.global.v1.GlobalAPI/EnableSolanaNonceAccount',
+                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.EnableSolanaNonceAccountRequest.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                )
         self.RefreshStakingWalletClaimableReward = channel.unary_unary(
                 '/adamant.global.v1.GlobalAPI/RefreshStakingWalletClaimableReward',
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.RefreshStakingWalletClaimableRewardRequest.SerializeToString,
@@ -785,6 +790,15 @@ class GlobalAPIServicer(object):
 
     def UpdateWalletIsStakingAvailable(self, request, context):
         """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def EnableSolanaNonceAccount(self, request, context):
+        """Solana ウォレットを durable nonce 方式に切り替える(nonce account の作成)。
+        作成中・作成済みのウォレットに対して呼ぶと、チェーン上の状態を再確認して状態を更新する(再実行)。
+        結果(切替状態)は GetWallet の solana_account_settings で参照する
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -1493,6 +1507,11 @@ def add_GlobalAPIServicer_to_server(servicer, server):
             'UpdateWalletIsStakingAvailable': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateWalletIsStakingAvailable,
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.UpdateWalletIsStakingAvailableRequest.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'EnableSolanaNonceAccount': grpc.unary_unary_rpc_method_handler(
+                    servicer.EnableSolanaNonceAccount,
+                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.EnableSolanaNonceAccountRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'RefreshStakingWalletClaimableReward': grpc.unary_unary_rpc_method_handler(
@@ -2431,6 +2450,23 @@ class GlobalAPI(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/adamant.global.v1.GlobalAPI/UpdateWalletIsStakingAvailable',
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.UpdateWalletIsStakingAvailableRequest.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def EnableSolanaNonceAccount(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/adamant.global.v1.GlobalAPI/EnableSolanaNonceAccount',
+            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.EnableSolanaNonceAccountRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

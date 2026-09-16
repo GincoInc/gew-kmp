@@ -445,6 +445,18 @@ enum SolanaEventType {
   SOLANA_EVENT_TYPE_DELEGATE_COMPLETE = 6; // Delegateステータス遷移時
   SOLANA_EVENT_TYPE_DEACTIVATE_COMPLETE = 7; // Deactivateステータス遷移時
   SOLANA_EVENT_TYPE_CREATE_TOKEN_ACCOUNT = 8; // Token Accountの作成時
+  SOLANA_EVENT_TYPE_CREATE_NONCE_ACCOUNT = 9; // Nonce Accountの作成時(durable nonce)
+}
+
+// Solana durable nonce account の切替状態(ウォレット単位)。
+// 作成 tx の失敗・finalized 通知の取りこぼしを表す状態は持たない。それらのウォレットは CREATING のまま残り、
+// 管理者が EnableSolanaNonceAccount を再実行することで復旧する(自動リトライなし。sol-ew-dev#7414 §5)。
+// AVAILABLE への遷移は、treasurer がチェーン上に nonce account が finalized で存在し authority がウォレットアドレスであることを
+// 確認したうえで行う(通知の内容だけでは遷移させない)。
+enum SolanaNonceAccountState {
+  SOLANA_NONCE_ACCOUNT_STATE_INVALID = 0; // 未切替(nonce account なし、従来の blockhash 方式)
+  SOLANA_NONCE_ACCOUNT_STATE_CREATING = 1; // 作成 tx 送信済み、finalized 待ち(従来方式で送金可能)。失敗・取りこぼし時もこの状態のまま残り、再実行で復旧する
+  SOLANA_NONCE_ACCOUNT_STATE_AVAILABLE = 2; // 利用可能(durable nonce 方式)。チェーン上の実在確認後にのみ遷移する
 }
 
 enum EthereumCallMethod {

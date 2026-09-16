@@ -20,8 +20,8 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-Š‡
-6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"
+Ö‰
+6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"ï
 
 Wallet
 owner_id (	RownerId
@@ -58,9 +58,12 @@ createTime;
 update_time (2.google.protobuf.TimestampR
 updateTime$
 base_wallet_id (	RbaseWalletIdW
-xrp_account_settings (2%.adamant.global.v1.XrpAccountSettingsRxrpAccountSettings"7
+xrp_account_settings (2%.adamant.global.v1.XrpAccountSettingsRxrpAccountSettings`
+solana_account_settings (2(.adamant.global.v1.SolanaAccountSettingsRsolanaAccountSettings"7
 XrpAccountSettings!
-require_dest (RrequireDest"¨
+require_dest (RrequireDest"t
+SolanaAccountSettings[
+nonce_account_state (2+.gincoinc.global.v1.SolanaNonceAccountStateRnonceAccountState"¨
 WalletWithoutBalance
 owner_id (	RownerId
 	wallet_id (	RwalletId
@@ -656,7 +659,7 @@ expiration"·
 nonce (Rnonce"
 is_next_nonce (RisNextNonce!
 from_address (	RfromAddress#
-token_address (	RtokenAddress"“
+token_address (	RtokenAddress"Ç
 SolanaSpecific
 
 expiration (R
@@ -668,7 +671,8 @@ event_type (2#.gincoinc.global.v1.SolanaEventTypeR	eventType!
 priority_fee_unit_limit (RpriorityFeeUnitLimit%
 caller_address (	RcallerAddressL
 #with_token_account_creation_funding (RwithTokenAccountCreationFunding#
-token_address (	RtokenAddress"†
+token_address (	RtokenAddress2
+nonce_account_address	 (	RnonceAccountAddress"†
 AptosSpecific
 	gas_limit (RgasLimit
 nonce (Rnonce"
@@ -1282,13 +1286,15 @@ account_id (	R	accountId!
 IOSTCallerAccount!
 account_name (	RaccountName
 balance (Rbalance%
-string_balance (	RstringBalance"Ï
+string_balance (	RstringBalance"
 CallerAddress
 address (	Raddress
 balance (Rbalance%
 string_balance (	RstringBalance,
 coin (2.gincoinc.global.v1.CoinRcoin5
-network (2.gincoinc.global.v1.NetworkRnetwork"Ó
+network (2.gincoinc.global.v1.NetworkRnetwork>
+caller_type (2.adamant.global.v1.CallerTypeR
+callerType"Ó
 FeeDepositAddress
 address (	Raddress
 balance (Rbalance%
