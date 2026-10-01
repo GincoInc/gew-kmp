@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 executors:
   docker-publisher:
     docker:
@@ -72,7 +72,6 @@ jobs:
           command: make breaking
 
 workflows:
-  version: 2
   code-validation: 
     jobs:
       - protobuf-code-gen-validation
