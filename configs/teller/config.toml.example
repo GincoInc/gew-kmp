@@ -27,4 +27,4 @@ disableWebhook = false
 
 [webhook]
   baseUrl = "http://localhost:8080"
-  excludeCoins = [] # Coin names whose events are not sent to the webhook, e.g. ["OAS"]. Requires teller >= v2.82.0.
+  excludeDepositCoins = [] # Coin names whose deposit (receive) events are not sent to the webhook, e.g. ["OAS"]. Send/change and staking reward events are still sent. Requires teller >= v2.82.2.
