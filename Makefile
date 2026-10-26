@@ -48,7 +48,7 @@ protodep-up: $(BIN)/protodep
 
 .PHONY: evans
 evans: $(BIN)/evans
-	@cd ./api/proto && $(BIN)/evans --path=./../../vendor --path=. --port 50051 --package adamant.teller.v1 --service TellerAPI ./gincoinc/adamant/teller/v1/adamanttellerv1/teller_api.proto
+	@cd ./api/proto && $(BIN)/evans --path=. --port 50051 --package adamant.teller.v1 --service TellerAPI ./gincoinc/adamant/teller/v1/adamanttellerv1/teller_api.proto
 
 breaking:
 	$(BIN)/buf breaking --against "https://github.com/GincoInc/gew-kmp.git#branch=master"

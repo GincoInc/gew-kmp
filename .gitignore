@@ -111,3 +111,6 @@ Temporary Items
 bin/
 
 .private.note.md
+
+# Dependencies are fetched by go modules, not committed.
+vendor/

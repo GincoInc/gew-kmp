@@ -7,7 +7,6 @@ import (
 	"github.com/GincoInc/gew-kmp/gen/gincoinc/adamant/global/v1/adamantglobalv1"
 	"github.com/GincoInc/gew-kmp/gen/gincoinc/adamant/teller/v1/adamanttellerv1"
 	"github.com/GincoInc/gew-kmp/gen/gincoinc/global/v1/gincoincglobalv1"
-	"github.com/GincoInc/go-util/logger"
 	"github.com/davecgh/go-spew/spew"
 	"google.golang.org/grpc"
 )
@@ -20,7 +19,7 @@ var (
 func main() {
 	conn, err := grpc.Dial("127.0.0.1:50051", grpc.WithInsecure())
 	if err != nil {
-		logger.Fatal(err.Error())
+		log.Fatal("error: ", err)
 	}
 	defer conn.Close()
 	client = adamanttellerv1.NewTellerAPIClient(conn)
@@ -61,7 +60,7 @@ func setRates() {
 // 		WalletId: walletID,
 // 	})
 // 	if err != nil {
-// 		logger.Fatal(err.Error())
+// 		log.Fatal("error: ", err)
 // 	}
 // 	spew.Dump(res)
 // 	return res
@@ -70,7 +69,7 @@ func setRates() {
 // func listWallets() []*adamantglobalv1.Wallet {
 // 	res, err := client.ListWallets(ctx, &adamantglobalv1.ListWalletsRequest{})
 // 	if err != nil {
-// 		logger.Fatal(err.Error())
+// 		log.Fatal("error: ", err)
 // 	}
 // 	spew.Dump(res)
 // 	return res.Wallets
