@@ -13,6 +13,7 @@ structured logging capabilities of Stackdriver:
 * [Special purpose logging fields](#special-purpose-logging-fields)
 * [Pre-configured Stackdriver-optimized encoder](#pre-configured-stackdriver-optimized-encoder)
 * [Custom Stackdriver Zap core](#custom-stackdriver-zap-core)
+* [Using Error Reporting](#using-error-reporting)
 
 The above components can be used separately, but to start, you can create a new
 Zap logger with all of the above included:
@@ -54,6 +55,7 @@ to use the log details in the Stackdriver monitoring interface.
 * [`Label`](#label)
 * [`SourceLocation`](#sourcelocation)
 * [`Operation`](#operation)
+* [`TraceContext`](#tracecontext)
 
 #### HTTP
 
@@ -205,6 +207,21 @@ OperationCont(id, producer string) zap.Field
 OperationEnd(id, producer string) zap.Field
 ```
 
+#### TraceContext
+
+You can add trace context information to your log lines to be picked up by
+Stackdriver.
+
+```golang
+TraceContext(trace string, spanId string, sampled bool, projectName string) []zap.Field
+```
+
+Like so:
+
+```golang
+logger.Error("Something happened!", zapdriver.TraceContext("105445aa7843bc8bf206b120001000", "0", true, "my-project-name")...)
+```
+
 ### Pre-configured Stackdriver-optimized encoder
 
 The Stackdriver encoder maps all Zap log levels to the appropriate
@@ -267,4 +284,64 @@ When building a logger, you can inject the Zapdriver core as follows:
 ```golang
 config := &zap.Config{}
 logger, err := config.Build(zapdriver.WrapCore())
+```
+
+### Using Error Reporting
+
+To report errors using StackDriver's Error Reporting tool, a log line needs to follow a separate log format described in the [Error Reporting][errorreporting] documentation.
+
+[errorreporting]: https://cloud.google.com/error-reporting/docs/formatting-error-messages
+
+The simplest way to do this is by using `NewProductionWithCore`:
+
+```golang
+logger, err := zapdriver.NewProductionWithCore(zapdriver.WrapCore(
+  zapdriver.ReportAllErrors(true),
+  zapdriver.ServiceName("my service"),
+))
+```
+
+For parity-sake, there's also `zapdriver.NewDevelopmentWithCore()`
+
+If you are building a custom logger, you can use `WrapCore()` to configure the driver core:
+
+```golang
+config := &zap.Config{}
+logger, err := config.Build(zapdriver.WrapCore(
+  zapdriver.ReportAllErrors(true),
+  zapdriver.ServiceName("my service"),
+))
+```
+
+Configuring this way, every error log entry will be reported to Stackdriver's Error Reporting tool.
+
+#### Reporting errors manually
+
+If you do not want every error to be reported, you can attach `ErrorReport()` to log call manually:
+
+```golang
+logger.Error("An error to be reported!", zapdriver.ErrorReport(runtime.Caller(0)))
+// Or get Caller details
+pc, file, line, ok := runtime.Caller(0)
+// do other stuff... and log elsewhere
+logger.Error("Another error to be reported!", zapdriver.ErrorReport(pc, file, line, ok))
+```
+
+Please keep in mind that ErrorReport needs a ServiceContext attached to the log
+entry. If you did not configure this using `WrapCore`, error reports will
+get attached using service name as `unknown`. To prevent this from happeneing,
+either configure your core or attach service context before (or when) using
+the logger:
+
+```golang
+logger.Error(
+  "An error to be reported!",
+  zapdriver.ErrorReport(runtime.Caller(0)),
+  zapdriver.ServiceContext("my service"),
+)
+
+// Or permanently attach it to your logger
+logger = logger.With(zapdriver.ServiceContext("my service"))
+// and then use it
+logger.Error("An error to be reported!", zapdriver.ErrorReport(runtime.Caller(0)))
 ```
