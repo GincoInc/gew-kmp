@@ -1148,20 +1148,6 @@ class GlobalAPIClient extends \Grpc\BaseStub {
     }
 
     /**
-     * @param \Adamant\Global\V1\UpdateLabeledAddressRequest $argument input argument
-     * @param array $metadata metadata
-     * @param array $options call options
-     * @return \Grpc\UnaryCall
-     */
-    public function UpdateLabeledAddress(\Adamant\Global\V1\UpdateLabeledAddressRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/adamant.global.v1.GlobalAPI/UpdateLabeledAddress',
-        $argument,
-        ['\Adamant\Global\V1\LabeledAddress', 'decode'],
-        $metadata, $options);
-    }
-
-    /**
      * buf:lint:ignore RPC_REQUEST_STANDARD_NAME
      * @param \Adamant\Global\V1\DeleteLabeledAddressRequest $argument input argument
      * @param array $metadata metadata

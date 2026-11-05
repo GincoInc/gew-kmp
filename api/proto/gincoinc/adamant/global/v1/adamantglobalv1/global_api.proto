@@ -129,7 +129,6 @@ service GlobalAPI {
   rpc ListLabeledAddresses(ListLabeledAddressesRequest) returns (ListLabeledAddressesResponse) {}
   rpc ListLabeledAddressesByFilter(ListLabeledAddressesByFilterRequest) returns (ListLabeledAddressesByFilterResponse) {}
   rpc IsDeletableLabeledAddress(IsDeletableLabeledAddressRequest) returns (IsDeletableLabeledAddressResponse) {}
-  rpc UpdateLabeledAddress(UpdateLabeledAddressRequest) returns (LabeledAddress) {}
   // buf:lint:ignore RPC_REQUEST_STANDARD_NAME
   rpc DeleteAddress(DeleteLabeledAddressRequest) returns (google.protobuf.Empty) {}
   rpc ReviewLabeledAddressProposal(ReviewLabeledAddressProposalRequest) returns (google.protobuf.Empty) {}
@@ -1860,26 +1859,6 @@ message CreateLabeledAddressRequest {
 
 message CreateLabeledAddressResponse {
   string labeled_address_id = 1;
-}
-
-message UpdateLabeledAddressRequest {
-  string labeled_address_id = 1 [(validate.rules).string = {
-    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-  }];
-  string name = 2 [(validate.rules).string = {
-    min_len: 1,
-    max_len: 40
-  }];
-  gincoinc.global.v1.Coin coin = 3 [(validate.rules).enum = {
-    defined_only: true,
-    not_in: [
-      0
-    ]
-  }];
-  string address = 4;
-  optional gincoinc.global.v1.Network network = 5 [(validate.rules).enum = {
-    defined_only: true
-  }];
 }
 
 message GetLabeledAddressRequest {

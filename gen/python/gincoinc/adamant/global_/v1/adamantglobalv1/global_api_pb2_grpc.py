@@ -415,11 +415,6 @@ class GlobalAPIStub(object):
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.IsDeletableLabeledAddressRequest.SerializeToString,
                 response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.IsDeletableLabeledAddressResponse.FromString,
                 )
-        self.UpdateLabeledAddress = channel.unary_unary(
-                '/adamant.global.v1.GlobalAPI/UpdateLabeledAddress',
-                request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.UpdateLabeledAddressRequest.SerializeToString,
-                response_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_model__pb2.LabeledAddress.FromString,
-                )
         self.DeleteAddress = channel.unary_unary(
                 '/adamant.global.v1.GlobalAPI/DeleteAddress',
                 request_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.DeleteLabeledAddressRequest.SerializeToString,
@@ -1119,12 +1114,6 @@ class GlobalAPIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateLabeledAddress(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def DeleteAddress(self, request, context):
         """buf:lint:ignore RPC_REQUEST_STANDARD_NAME
         """
@@ -1763,11 +1752,6 @@ def add_GlobalAPIServicer_to_server(servicer, server):
                     servicer.IsDeletableLabeledAddress,
                     request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.IsDeletableLabeledAddressRequest.FromString,
                     response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.IsDeletableLabeledAddressResponse.SerializeToString,
-            ),
-            'UpdateLabeledAddress': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateLabeledAddress,
-                    request_deserializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.UpdateLabeledAddressRequest.FromString,
-                    response_serializer=gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_model__pb2.LabeledAddress.SerializeToString,
             ),
             'DeleteAddress': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteAddress,
@@ -3318,23 +3302,6 @@ class GlobalAPI(object):
         return grpc.experimental.unary_unary(request, target, '/adamant.global.v1.GlobalAPI/IsDeletableLabeledAddress',
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.IsDeletableLabeledAddressRequest.SerializeToString,
             gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.IsDeletableLabeledAddressResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdateLabeledAddress(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/adamant.global.v1.GlobalAPI/UpdateLabeledAddress',
-            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_global__api__pb2.UpdateLabeledAddressRequest.SerializeToString,
-            gincoinc_dot_adamant_dot_global_dot_v1_dot_adamantglobalv1_dot_model__pb2.LabeledAddress.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
