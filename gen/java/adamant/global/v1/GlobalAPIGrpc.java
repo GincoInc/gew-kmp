@@ -2464,37 +2464,6 @@ public final class GlobalAPIGrpc {
     return getIsDeletableLabeledAddressMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<adamant.global.v1.UpdateLabeledAddressRequest,
-      adamant.global.v1.Model.LabeledAddress> getUpdateLabeledAddressMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "UpdateLabeledAddress",
-      requestType = adamant.global.v1.UpdateLabeledAddressRequest.class,
-      responseType = adamant.global.v1.Model.LabeledAddress.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<adamant.global.v1.UpdateLabeledAddressRequest,
-      adamant.global.v1.Model.LabeledAddress> getUpdateLabeledAddressMethod() {
-    io.grpc.MethodDescriptor<adamant.global.v1.UpdateLabeledAddressRequest, adamant.global.v1.Model.LabeledAddress> getUpdateLabeledAddressMethod;
-    if ((getUpdateLabeledAddressMethod = GlobalAPIGrpc.getUpdateLabeledAddressMethod) == null) {
-      synchronized (GlobalAPIGrpc.class) {
-        if ((getUpdateLabeledAddressMethod = GlobalAPIGrpc.getUpdateLabeledAddressMethod) == null) {
-          GlobalAPIGrpc.getUpdateLabeledAddressMethod = getUpdateLabeledAddressMethod =
-              io.grpc.MethodDescriptor.<adamant.global.v1.UpdateLabeledAddressRequest, adamant.global.v1.Model.LabeledAddress>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateLabeledAddress"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.UpdateLabeledAddressRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  adamant.global.v1.Model.LabeledAddress.getDefaultInstance()))
-              .setSchemaDescriptor(new GlobalAPIMethodDescriptorSupplier("UpdateLabeledAddress"))
-              .build();
-        }
-      }
-    }
-    return getUpdateLabeledAddressMethod;
-  }
-
   private static volatile io.grpc.MethodDescriptor<adamant.global.v1.DeleteLabeledAddressRequest,
       com.google.protobuf.Empty> getDeleteAddressMethod;
 
@@ -4359,13 +4328,6 @@ public final class GlobalAPIGrpc {
     }
 
     /**
-     */
-    default void updateLabeledAddress(adamant.global.v1.UpdateLabeledAddressRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.Model.LabeledAddress> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateLabeledAddressMethod(), responseObserver);
-    }
-
-    /**
      * <pre>
      * buf:lint:ignore RPC_REQUEST_STANDARD_NAME
      * </pre>
@@ -5373,14 +5335,6 @@ public final class GlobalAPIGrpc {
     }
 
     /**
-     */
-    public void updateLabeledAddress(adamant.global.v1.UpdateLabeledAddressRequest request,
-        io.grpc.stub.StreamObserver<adamant.global.v1.Model.LabeledAddress> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getUpdateLabeledAddressMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
      * <pre>
      * buf:lint:ignore RPC_REQUEST_STANDARD_NAME
      * </pre>
@@ -6334,13 +6288,6 @@ public final class GlobalAPIGrpc {
     public adamant.global.v1.IsDeletableLabeledAddressResponse isDeletableLabeledAddress(adamant.global.v1.IsDeletableLabeledAddressRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getIsDeletableLabeledAddressMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public adamant.global.v1.Model.LabeledAddress updateLabeledAddress(adamant.global.v1.UpdateLabeledAddressRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getUpdateLabeledAddressMethod(), getCallOptions(), request);
     }
 
     /**
@@ -7340,14 +7287,6 @@ public final class GlobalAPIGrpc {
     }
 
     /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<adamant.global.v1.Model.LabeledAddress> updateLabeledAddress(
-        adamant.global.v1.UpdateLabeledAddressRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getUpdateLabeledAddressMethod(), getCallOptions()), request);
-    }
-
-    /**
      * <pre>
      * buf:lint:ignore RPC_REQUEST_STANDARD_NAME
      * </pre>
@@ -7760,46 +7699,45 @@ public final class GlobalAPIGrpc {
   private static final int METHODID_LIST_LABELED_ADDRESSES = 76;
   private static final int METHODID_LIST_LABELED_ADDRESSES_BY_FILTER = 77;
   private static final int METHODID_IS_DELETABLE_LABELED_ADDRESS = 78;
-  private static final int METHODID_UPDATE_LABELED_ADDRESS = 79;
-  private static final int METHODID_DELETE_ADDRESS = 80;
-  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 81;
-  private static final int METHODID_CREATE_WHITELIST = 82;
-  private static final int METHODID_GET_WHITELIST = 83;
-  private static final int METHODID_LIST_WHITELISTS = 84;
-  private static final int METHODID_LIST_WHITELISTS_BY_FILTER = 85;
-  private static final int METHODID_IS_DELETABLE_WHITELIST = 86;
-  private static final int METHODID_UPDATE_WHITELIST = 87;
-  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 88;
-  private static final int METHODID_DELETE_WHITELIST = 89;
-  private static final int METHODID_CREATE_TRANSFER_LIMIT = 90;
-  private static final int METHODID_GET_TRANSFER_LIMIT = 91;
-  private static final int METHODID_LIST_TRANSFER_LIMITS = 92;
-  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 93;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 94;
-  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 95;
-  private static final int METHODID_DELETE_TRANSFER_LIMIT = 96;
-  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 97;
-  private static final int METHODID_CREATE_POLICY = 98;
-  private static final int METHODID_GET_POLICY = 99;
-  private static final int METHODID_LIST_POLICIES = 100;
-  private static final int METHODID_LIST_POLICIES_BY_FILTER = 101;
-  private static final int METHODID_IS_DELETABLE_POLICY = 102;
-  private static final int METHODID_UPDATE_POLICY = 103;
-  private static final int METHODID_DELETE_POLICY = 104;
-  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 105;
-  private static final int METHODID_GET_SPENDABLE_BALANCE = 106;
-  private static final int METHODID_GET_TOTAL_BALANCE = 107;
-  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 108;
-  private static final int METHODID_CALCULATE_FEE = 109;
-  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 110;
-  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 111;
-  private static final int METHODID_VALIDATE_ADDRESS = 112;
-  private static final int METHODID_LIST_AUDIT_LOGS = 113;
-  private static final int METHODID_LIST_FORWARDING_THRESHOLDS = 114;
-  private static final int METHODID_UPSERT_FORWARDING_THRESHOLD = 115;
-  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 116;
-  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 117;
-  private static final int METHODID_LIST_NFTS_BY_FILTER = 118;
+  private static final int METHODID_DELETE_ADDRESS = 79;
+  private static final int METHODID_REVIEW_LABELED_ADDRESS_PROPOSAL = 80;
+  private static final int METHODID_CREATE_WHITELIST = 81;
+  private static final int METHODID_GET_WHITELIST = 82;
+  private static final int METHODID_LIST_WHITELISTS = 83;
+  private static final int METHODID_LIST_WHITELISTS_BY_FILTER = 84;
+  private static final int METHODID_IS_DELETABLE_WHITELIST = 85;
+  private static final int METHODID_UPDATE_WHITELIST = 86;
+  private static final int METHODID_UPDATE_WHITELIST_ADDRESSES = 87;
+  private static final int METHODID_DELETE_WHITELIST = 88;
+  private static final int METHODID_CREATE_TRANSFER_LIMIT = 89;
+  private static final int METHODID_GET_TRANSFER_LIMIT = 90;
+  private static final int METHODID_LIST_TRANSFER_LIMITS = 91;
+  private static final int METHODID_IS_DELETABLE_TRANSFER_LIMIT = 92;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT = 93;
+  private static final int METHODID_UPDATE_TRANSFER_LIMIT_NAME = 94;
+  private static final int METHODID_DELETE_TRANSFER_LIMIT = 95;
+  private static final int METHODID_REVIEW_TRANSFER_LIMIT_PROPOSAL = 96;
+  private static final int METHODID_CREATE_POLICY = 97;
+  private static final int METHODID_GET_POLICY = 98;
+  private static final int METHODID_LIST_POLICIES = 99;
+  private static final int METHODID_LIST_POLICIES_BY_FILTER = 100;
+  private static final int METHODID_IS_DELETABLE_POLICY = 101;
+  private static final int METHODID_UPDATE_POLICY = 102;
+  private static final int METHODID_DELETE_POLICY = 103;
+  private static final int METHODID_REVIEW_POLICY_PROPOSAL = 104;
+  private static final int METHODID_GET_SPENDABLE_BALANCE = 105;
+  private static final int METHODID_GET_TOTAL_BALANCE = 106;
+  private static final int METHODID_LIST_BALANCE_SNAPSHOTS = 107;
+  private static final int METHODID_CALCULATE_FEE = 108;
+  private static final int METHODID_GET_MEMBERS_DEACTIVATABILITIES = 109;
+  private static final int METHODID_GET_RECOMMENDED_FEE_RATE = 110;
+  private static final int METHODID_VALIDATE_ADDRESS = 111;
+  private static final int METHODID_LIST_AUDIT_LOGS = 112;
+  private static final int METHODID_LIST_FORWARDING_THRESHOLDS = 113;
+  private static final int METHODID_UPSERT_FORWARDING_THRESHOLD = 114;
+  private static final int METHODID_LIST_STAKING_HISTORIES_BY_FILTER = 115;
+  private static final int METHODID_LIST_STAKING_VALIDATORS_BY_FILTER = 116;
+  private static final int METHODID_LIST_NFTS_BY_FILTER = 117;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -8133,10 +8071,6 @@ public final class GlobalAPIGrpc {
         case METHODID_IS_DELETABLE_LABELED_ADDRESS:
           serviceImpl.isDeletableLabeledAddress((adamant.global.v1.IsDeletableLabeledAddressRequest) request,
               (io.grpc.stub.StreamObserver<adamant.global.v1.IsDeletableLabeledAddressResponse>) responseObserver);
-          break;
-        case METHODID_UPDATE_LABELED_ADDRESS:
-          serviceImpl.updateLabeledAddress((adamant.global.v1.UpdateLabeledAddressRequest) request,
-              (io.grpc.stub.StreamObserver<adamant.global.v1.Model.LabeledAddress>) responseObserver);
           break;
         case METHODID_DELETE_ADDRESS:
           serviceImpl.deleteAddress((adamant.global.v1.DeleteLabeledAddressRequest) request,
@@ -8866,13 +8800,6 @@ public final class GlobalAPIGrpc {
               adamant.global.v1.IsDeletableLabeledAddressResponse>(
                 service, METHODID_IS_DELETABLE_LABELED_ADDRESS)))
         .addMethod(
-          getUpdateLabeledAddressMethod(),
-          io.grpc.stub.ServerCalls.asyncUnaryCall(
-            new MethodHandlers<
-              adamant.global.v1.UpdateLabeledAddressRequest,
-              adamant.global.v1.Model.LabeledAddress>(
-                service, METHODID_UPDATE_LABELED_ADDRESS)))
-        .addMethod(
           getDeleteAddressMethod(),
           io.grpc.stub.ServerCalls.asyncUnaryCall(
             new MethodHandlers<
@@ -9272,7 +9199,6 @@ public final class GlobalAPIGrpc {
               .addMethod(getListLabeledAddressesMethod())
               .addMethod(getListLabeledAddressesByFilterMethod())
               .addMethod(getIsDeletableLabeledAddressMethod())
-              .addMethod(getUpdateLabeledAddressMethod())
               .addMethod(getDeleteAddressMethod())
               .addMethod(getReviewLabeledAddressProposalMethod())
               .addMethod(getCreateWhitelistMethod())

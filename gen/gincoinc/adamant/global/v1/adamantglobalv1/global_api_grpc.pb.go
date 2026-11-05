@@ -123,7 +123,6 @@ type GlobalAPIClient interface {
 	ListLabeledAddresses(ctx context.Context, in *ListLabeledAddressesRequest, opts ...grpc.CallOption) (*ListLabeledAddressesResponse, error)
 	ListLabeledAddressesByFilter(ctx context.Context, in *ListLabeledAddressesByFilterRequest, opts ...grpc.CallOption) (*ListLabeledAddressesByFilterResponse, error)
 	IsDeletableLabeledAddress(ctx context.Context, in *IsDeletableLabeledAddressRequest, opts ...grpc.CallOption) (*IsDeletableLabeledAddressResponse, error)
-	UpdateLabeledAddress(ctx context.Context, in *UpdateLabeledAddressRequest, opts ...grpc.CallOption) (*LabeledAddress, error)
 	// buf:lint:ignore RPC_REQUEST_STANDARD_NAME
 	DeleteAddress(ctx context.Context, in *DeleteLabeledAddressRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	ReviewLabeledAddressProposal(ctx context.Context, in *ReviewLabeledAddressProposalRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -891,15 +890,6 @@ func (c *globalAPIClient) IsDeletableLabeledAddress(ctx context.Context, in *IsD
 	return out, nil
 }
 
-func (c *globalAPIClient) UpdateLabeledAddress(ctx context.Context, in *UpdateLabeledAddressRequest, opts ...grpc.CallOption) (*LabeledAddress, error) {
-	out := new(LabeledAddress)
-	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/UpdateLabeledAddress", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *globalAPIClient) DeleteAddress(ctx context.Context, in *DeleteLabeledAddressRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/adamant.global.v1.GlobalAPI/DeleteAddress", in, out, opts...)
@@ -1355,7 +1345,6 @@ type GlobalAPIServer interface {
 	ListLabeledAddresses(context.Context, *ListLabeledAddressesRequest) (*ListLabeledAddressesResponse, error)
 	ListLabeledAddressesByFilter(context.Context, *ListLabeledAddressesByFilterRequest) (*ListLabeledAddressesByFilterResponse, error)
 	IsDeletableLabeledAddress(context.Context, *IsDeletableLabeledAddressRequest) (*IsDeletableLabeledAddressResponse, error)
-	UpdateLabeledAddress(context.Context, *UpdateLabeledAddressRequest) (*LabeledAddress, error)
 	// buf:lint:ignore RPC_REQUEST_STANDARD_NAME
 	DeleteAddress(context.Context, *DeleteLabeledAddressRequest) (*emptypb.Empty, error)
 	ReviewLabeledAddressProposal(context.Context, *ReviewLabeledAddressProposalRequest) (*emptypb.Empty, error)
@@ -1644,9 +1633,6 @@ func (UnimplementedGlobalAPIServer) ListLabeledAddressesByFilter(context.Context
 }
 func (UnimplementedGlobalAPIServer) IsDeletableLabeledAddress(context.Context, *IsDeletableLabeledAddressRequest) (*IsDeletableLabeledAddressResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method IsDeletableLabeledAddress not implemented")
-}
-func (UnimplementedGlobalAPIServer) UpdateLabeledAddress(context.Context, *UpdateLabeledAddressRequest) (*LabeledAddress, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateLabeledAddress not implemented")
 }
 func (UnimplementedGlobalAPIServer) DeleteAddress(context.Context, *DeleteLabeledAddressRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteAddress not implemented")
@@ -3199,24 +3185,6 @@ func _GlobalAPI_IsDeletableLabeledAddress_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
-func _GlobalAPI_UpdateLabeledAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateLabeledAddressRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GlobalAPIServer).UpdateLabeledAddress(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/adamant.global.v1.GlobalAPI/UpdateLabeledAddress",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GlobalAPIServer).UpdateLabeledAddress(ctx, req.(*UpdateLabeledAddressRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _GlobalAPI_DeleteAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteLabeledAddressRequest)
 	if err := dec(in); err != nil {
@@ -4241,10 +4209,6 @@ var GlobalAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "IsDeletableLabeledAddress",
 			Handler:    _GlobalAPI_IsDeletableLabeledAddress_Handler,
-		},
-		{
-			MethodName: "UpdateLabeledAddress",
-			Handler:    _GlobalAPI_UpdateLabeledAddress_Handler,
 		},
 		{
 			MethodName: "DeleteAddress",
