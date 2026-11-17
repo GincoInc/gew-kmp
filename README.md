@@ -44,8 +44,13 @@ sudo chgrp 10001 certs/client.key && chmod 0640 certs/client.key
 ```
 
 A private key at mode 0600 owned by another host user can no longer be read.
-With user-namespace remapping (userns-remap, rootless Docker, Podman) the container uid 10001 maps to another host uid,
-so prefer the group-readable key (0640) and add `group_add: ["10001"]` to the `teller` service instead of `chown`.
+With user-namespace remapping (userns-remap, rootless Docker, Podman) the container's uid and gid 10001 are other ids on
+the host, so a file owned by host uid or gid 10001 is not readable. Give the private key to the host ids that container uid
+and gid 10001 map to, as `/proc/<pid>/uid_map` and `gid_map` of a container process show (with one subordinate range: the
+range's start plus 10001 for userns-remap, plus 10000 for rootless Docker, where container id 0 is your own user); with
+Podman, `podman unshare chown 10001:10001 certs/client.key` does this for you. With rootless Docker or Podman and the
+default mapping, you can instead keep the key at mode 0640 in your primary group (gid 0 in the container) and add
+`group_add: ["0"]` to the `teller` service. Under remapping, `user: "0:0"` below is the namespace's root, not the host's.
 
 Escape hatch: to keep the previous root behaviour without changing any file, add `user: "0:0"` to the `teller` service
 (or pass `--user 0` to `docker run`):
