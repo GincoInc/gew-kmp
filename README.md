@@ -24,7 +24,7 @@ Since teller v2.84.0 the `ginco/teller` image runs as the unprivileged user uid 
 Every file you bind-mount into the container must be readable by uid 10001, otherwise teller fails at startup:
 
 - `configs/teller/config.toml` (`/root/configs/config.toml`)
-- `certs/tls.crt` (`/root/certs/tls.crt`, `docker-compose.yml`)
+- `certs/tls.crt` (`/root/certs/tls.crt`, `docker-compose-internal.yml`)
 - `certs/chain.crt` and `certs/client.key` (`/root/certs/...`, `docker-compose-mtls.yml`)
 
 Configuration and certificates can be world-readable:
@@ -37,10 +37,10 @@ Keep the mTLS private key private, and let uid 10001 read it in one of these way
 
 ```
 # owned by uid 10001, readable by its owner only
-sudo chown 10001 certs/client.key && chmod 0400 certs/client.key
+chmod 0400 certs/client.key && sudo chown 10001 certs/client.key
 
 # or: group 10001, group-readable
-sudo chgrp 10001 certs/client.key && chmod 0640 certs/client.key
+chmod 0640 certs/client.key && sudo chgrp 10001 certs/client.key
 ```
 
 A private key at mode 0600 owned by another host user can no longer be read.
