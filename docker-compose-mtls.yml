@@ -10,6 +10,8 @@ services:
       - "./configs/teller/config.toml:/root/configs/config.toml"
       # Create certs/chain.crt and certs/client.key BEFORE `docker compose up`,
       # otherwise Docker creates directories at these paths.
+      # Since teller v2.84.0 the container runs as uid 10001: these files must be
+      # readable by it (see "File permissions" in README.md).
       - "./certs/chain.crt:/root/certs/chain.crt:ro"
       - "./certs/client.key:/root/certs/client.key:ro"
     env_file:
