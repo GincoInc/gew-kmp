@@ -6,7 +6,7 @@ certFile = "/root/certs/tls.crt" # Set the certificate path if using an internal
 clientCertFile = "" # Set "/root/certs/chain.crt" to enable mTLS (with clientKeyFile).
 clientKeyFile = ""  # Set "/root/certs/client.key" to enable mTLS.
 useMtls = false     # Set true to connect via the mTLS load balancer.
-shutdownPeriodSeconds = 30
+shutdownPeriodSeconds = 30 # Whole seconds teller waits after SIGINT/SIGTERM (reporting NOT_SERVING) before it stops the gRPC server.
 useHotWallet = true
 disableWebhook = false
 
@@ -26,5 +26,10 @@ disableWebhook = false
   keyID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
 [webhook]
+  # Events are POSTed to <baseUrl>/transfer_update_events, <baseUrl>/ethereum_staking_reward_events and
+  # <baseUrl>/staking_reward_received_events. A path prefix is allowed; do not end baseUrl with "/".
+  # The endpoint must answer the POST itself with HTTP 200 within 7 seconds; redirects (any 3xx) are not followed.
+  # Any other status, a redirect or a timeout counts as a failure, and the event is redelivered later.
+  # Since teller v2.84.0, deliveries honour HTTPS_PROXY, HTTP_PROXY and NO_PROXY (see README).
   baseUrl = "http://localhost:8080"
   excludeDepositCoins = [] # Coin names whose deposit (receive) events are not sent to the webhook, e.g. ["OAS"]. Send/change and staking reward events are still sent. Requires teller >= v2.82.2.

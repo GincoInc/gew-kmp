@@ -129,9 +129,10 @@ service TellerAPI {
   rpc ListWhitelistsByFilter(adamant.global.v1.ListWhitelistsByFilterRequest) returns (adamant.global.v1.ListWhitelistsByFilterResponse) {}
   rpc ListLabeledAddressesByFilter(adamant.global.v1.ListLabeledAddressesByFilterRequest) returns (adamant.global.v1.ListLabeledAddressesByFilterResponse) {}
 
-  // BitcoinDelegation
-  rpc SignBitcoinDelegation(SignBitcoinDelegationRequest) returns (google.protobuf.Empty) {}
-  rpc ListBitcoinDelegationsByFilter(adamant.global.v1.ListBitcoinDelegationsByFilterRequest) returns (adamant.global.v1.ListBitcoinDelegationsByFilterResponse) {}
+// These RPC names are retired with BTC staking through Babylon and must not
+// be used for a new RPC:
+//   SignBitcoinDelegation
+//   ListBitcoinDelegationsByFilter
 }
 
 message CreateWalletRequest {
@@ -485,10 +486,4 @@ message ListHotFeeDepositAddressesRequest {}
 
 message ListHotFeeDepositAddressesResponse {
   repeated adamant.global.v1.FeeDepositAddress fee_deposit_addresses = 1;
-}
-
-message SignBitcoinDelegationRequest {
-  string delegation_id = 1 [(validate.rules).string = {
-    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-  }];
 }
