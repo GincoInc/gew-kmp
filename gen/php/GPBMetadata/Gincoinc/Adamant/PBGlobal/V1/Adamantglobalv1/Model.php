@@ -20,7 +20,7 @@ class Model
         \GPBMetadata\Validate\Validate::initOnce();
         $pool->internalAddGeneratedFile(
             '
-Ö‰
+Óø
 6gincoinc/adamant/global/v1/adamantglobalv1/model.protoadamant.global.v1.gincoinc/global/v1/gincoincglobalv1/enum.protogoogle/protobuf/timestamp.protovalidate/validate.proto"ï
 
 Wallet
@@ -369,63 +369,12 @@ contractId"¢
 transaction_id (	BOúBLrJ2H^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$RtransactionIdQ
 cardano_specific (2&.adamant.global.v1.CardanoUTXOSpecificRcardanoSpecific€
 !avalanche_platform_chain_specific (25.adamant.global.v1.AvalanchePlatformChainUTXOSpecificRavalanchePlatformChainSpecificN
-canton_specific	 (2%.adamant.global.v1.CantonUTXOSpecificRcantonSpecific"Ã
-BitcoinDelegation
-owner_id (	RownerId#
-delegation_id (	RdelegationId*
-bitcoin_wallet_id (	RbitcoinWalletId.
-bitcoin_wallet_name (	RbitcoinWalletName4
-bitcoin_staker_address (	RbitcoinStakerAddress*
-babylon_wallet_id (	RbabylonWalletId4
-babylon_staker_address (	RbabylonStakerAddress4
-staking_transaction_id (	RstakingTransactionId8
-unbonding_transaction_id (	RunbondingTransactionId:
-withdrawal_transaction_id (	RwithdrawalTransactionIdV
-(babylon_create_delegation_transaction_id (	R$babylonCreateDelegationTransactionId#
-staking_value (RstakingValue0
-staking_string_value (	RstakingStringValue
-duration (Rduration
-
-expiration	 (R
-expiration8
-state
- (2".adamant.global.v1.DelegationStateRstate;
-create_time (2.google.protobuf.TimestampR
-createTime;
-update_time (2.google.protobuf.TimestampR
-updateTime,
-staking_tx_payload (	RstakingTxPayload0
-unbonding_tx_payload (	RunbondingTxPayload.
-slashing_tx_payload (	RslashingTxPayloadA
-unbonding_slashing_tx_payload (	RunbondingSlashingTxPayload2
-slashing_tx_signature (	RslashingTxSignatureE
-unbonding_slashing_tx_signature (	RunbondingSlashingTxSignature2
-babylon_pop_signature (	RbabylonPopSignature\'
-inclusion_proof (	RinclusionProofJ
-"staking_tx_confirmation_block_hash (	RstakingTxConfirmationBlockHash8
-staking_tx_index_in_block (RstakingTxIndexInBlock"¾
-BitcoinStakingParams
-	staker_pk (	RstakerPk
-fp_pk (	RfpPk!
-covenant_pks (	RcovenantPks-
-covenant_threshold (RcovenantThreshold,
-slashing_pk_script (	RslashingPkScript#
-slashing_rate (RslashingRate4
-min_slashing_tx_fee_sat
- (RminSlashingTxFeeSat%
-unbonding_time (RunbondingTime#
-unbonding_fee (RunbondingFeeM
-delegation_state	 (2".adamant.global.v1.DelegationStateRdelegationState"Ó
-SlashingTxSignInfoB
-sign_tx_input (2.adamant.global.v1.SignTxInputRsignTxInput9
-
-input_utxo (2.adamant.global.v1.TxInputR	inputUtxo>
-output_utxos (2.adamant.global.v1.TxOutputRoutputUtxos"U
-BabylonPopSignInfo?
-babylon_pop (2.adamant.global.v1.SignTxInputR
-babylonPop"T
+canton_specific	 (2%.adamant.global.v1.CantonUTXOSpecificRcantonSpecific"„
 CardanoUTXOSpecific=
-tokens (2%.adamant.global.v1.CardanoCustomTokenRtokens"`
+tokens (2%.adamant.global.v1.CardanoCustomTokenRtokens 
+	is_locked (H RisLockedˆB
+
+_is_locked"`
 "AvalanchePlatformChainUTXOSpecific
 	threshold (R	threshold
 	addresses (	R	addresses"‡

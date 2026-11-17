@@ -1364,22 +1364,6 @@ message ListInitSignInfoRequest {
   }];
 }
 
-message GetBitcoinDelegationSignInfoRequest {
-  string delegation_id = 1 [(validate.rules).string = {
-    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-  }];
-}
-
-message GetBitcoinDelegationSignInfoResponse {
-  string wallet_id = 1;
-  string key_id = 2;
-  uint32 hd_account = 3;
-  gincoinc.global.v1.Network network = 4;
-  SlashingTxSignInfo slashing_tx_sign_info = 5;
-  SlashingTxSignInfo unbonding_slashing_tx_sign_info = 6;
-  BabylonPopSignInfo babylon_pop_sign_info = 7;
-}
-
 // -----------------------------------------------------------------------------
 // Transfer
 // -----------------------------------------------------------------------------
@@ -2798,79 +2782,6 @@ message ListBlacklistAddressFilesRequest {
 message ListBlacklistAddressFilesResponse {
   repeated BlacklistAddressFile files = 1;
   string next_page_token = 2;
-}
-
-// -----------------------------------------------------------------------------
-// BitcoinDelegation
-// -----------------------------------------------------------------------------
-
-message GetBitcoinDelegationRequest {
-  string delegation_id = 1 [(validate.rules).string = {
-    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-  }];
-}
-
-message GetBtcStakingParamsRequest {
-  string delegation_id = 1 [(validate.rules).string = {
-    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-  }];
-
-  string transaction_id = 2 [(validate.rules).string = {
-    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-  }];
-}
-
-message ListBitcoinDelegationsByFilterRequest {
-  ListFilterType filter_type = 1 [(validate.rules).enum = {
-    defined_only: true,
-    not_in: [
-      0
-    ]
-  }];
-
-  optional string delegation_id = 2 [(validate.rules).string = {
-    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-  }];
-
-  optional string btc_wallet_id = 3 [(validate.rules).string = {
-    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-  }];
-
-  optional string baby_wallet_id = 4 [(validate.rules).string = {
-    pattern: "^$|^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-  }];
-
-  optional gincoinc.global.v1.Network network = 5 [(validate.rules).enum = {
-    defined_only: true
-  }];
-
-  repeated DelegationState delegation_state = 6;
-
-  optional google.protobuf.Timestamp start_time = 7;
-  optional google.protobuf.Timestamp end_time = 8;
-
-  optional uint32 page_size = 9 [(validate.rules).uint32.lte = 100];
-
-  optional string page_token = 10 [(validate.rules).string = {
-    pattern: "^$|^[ABCDEFGHIJKLMNOPQRSTUVWXYZ234567]{16}$"
-  }];
-}
-
-message ListBitcoinDelegationsByFilterResponse {
-  repeated BitcoinDelegation delegations = 1;
-  string next_page_token = 2;
-}
-
-message SignBitcoinDelegationRequest {
-  string delegation_id = 1 [(validate.rules).string = {
-    pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-  }];
-  string key_id = 3 [(validate.rules).string = {
-    pattern: "^$|^[0-9A-F]{64}$"
-  }];
-  adamant.global.v1.RequestSignedInfo slashing_tx_signed_info = 4 [(validate.rules).message.required = true];
-  adamant.global.v1.RequestSignedInfo unbonding_slashing_tx_signed_info = 5 [(validate.rules).message.required = true];
-  adamant.global.v1.RequestSignedInfo babylon_pop_signed_info = 6 [(validate.rules).message.required = true];
 }
 
 // -----------------------------------------------------------------------------
