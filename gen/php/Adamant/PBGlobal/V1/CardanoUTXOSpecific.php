@@ -19,6 +19,17 @@ class CardanoUTXOSpecific extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .adamant.global.v1.CardanoCustomToken tokens = 1 [json_name = "tokens"];</code>
      */
     private $tokens;
+    /**
+     * Whether the UTXO is locked (must not be spent).
+     * Sender: set this field, true or false, in every CardanoUTXOSpecific.
+     * Consumer: check presence, not only the value. A CardanoUTXOSpecific
+     * without this field comes from a sender that predates it, and the UTXO
+     * must be treated as locked. The plain getters return false when the
+     * field is absent.
+     *
+     * Generated from protobuf field <code>optional bool is_locked = 2 [json_name = "isLocked"];</code>
+     */
+    protected $is_locked = null;
 
     /**
      * Constructor.
@@ -27,6 +38,13 @@ class CardanoUTXOSpecific extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type array<\Adamant\PBGlobal\V1\CardanoCustomToken>|\Google\Protobuf\Internal\RepeatedField $tokens
+     *     @type bool $is_locked
+     *           Whether the UTXO is locked (must not be spent).
+     *           Sender: set this field, true or false, in every CardanoUTXOSpecific.
+     *           Consumer: check presence, not only the value. A CardanoUTXOSpecific
+     *           without this field comes from a sender that predates it, and the UTXO
+     *           must be treated as locked. The plain getters return false when the
+     *           field is absent.
      * }
      */
     public function __construct($data = NULL) {
@@ -52,6 +70,52 @@ class CardanoUTXOSpecific extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Adamant\PBGlobal\V1\CardanoCustomToken::class);
         $this->tokens = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Whether the UTXO is locked (must not be spent).
+     * Sender: set this field, true or false, in every CardanoUTXOSpecific.
+     * Consumer: check presence, not only the value. A CardanoUTXOSpecific
+     * without this field comes from a sender that predates it, and the UTXO
+     * must be treated as locked. The plain getters return false when the
+     * field is absent.
+     *
+     * Generated from protobuf field <code>optional bool is_locked = 2 [json_name = "isLocked"];</code>
+     * @return bool
+     */
+    public function getIsLocked()
+    {
+        return isset($this->is_locked) ? $this->is_locked : false;
+    }
+
+    public function hasIsLocked()
+    {
+        return isset($this->is_locked);
+    }
+
+    public function clearIsLocked()
+    {
+        unset($this->is_locked);
+    }
+
+    /**
+     * Whether the UTXO is locked (must not be spent).
+     * Sender: set this field, true or false, in every CardanoUTXOSpecific.
+     * Consumer: check presence, not only the value. A CardanoUTXOSpecific
+     * without this field comes from a sender that predates it, and the UTXO
+     * must be treated as locked. The plain getters return false when the
+     * field is absent.
+     *
+     * Generated from protobuf field <code>optional bool is_locked = 2 [json_name = "isLocked"];</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setIsLocked($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->is_locked = $var;
 
         return $this;
     }
